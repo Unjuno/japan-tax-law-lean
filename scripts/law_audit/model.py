@@ -192,7 +192,8 @@ def _parse_article_num(num_attr: str) -> list[ArticleKey]:
         a, b = num_attr.split(":", 1)
         start, end = int(a), int(b)
         if end < start:
-            raise ValueError(f"invalid article range {num_attr!r}")
+            # tolerate reversed placeholder; the audit reports it via STRUCT.DELETED.RANGE
+            return [ArticleKey(start, None), ArticleKey(end, None)]
         return [ArticleKey(i, None) for i in range(start, end + 1)]
     parts = num_attr.split("_")
     integer = int(parts[0])
