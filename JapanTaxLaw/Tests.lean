@@ -1,9 +1,9 @@
+import JapanTaxLaw.Residency
+
 /-!
 Truth-table tests of the *two Boolean-input abstraction*, not individual
 taxpayer determinations. All four input combinations are checked by Lean.
 -/
-
-import JapanTaxLaw.Residency
 
 namespace JapanTaxLaw
 
