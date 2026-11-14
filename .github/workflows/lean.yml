@@ -60,6 +60,10 @@ jobs:
         run: python -m unittest scripts.tests.test_structural_audit -v
       - name: Mutation injection tests
         run: python -m unittest scripts.tests.test_mutation_injection -v
+      - name: Inventory selection tests
+        run: python -m unittest scripts.tests.test_inventory_selection -v
+      - name: Phase A inventory integrity
+        run: python scripts/law_audit/inventory/validate_inventory.py
       - name: Run audit and verify hashes
         run: |
           python -m scripts.law_audit.audit --out build
