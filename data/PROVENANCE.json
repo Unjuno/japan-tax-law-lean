@@ -1,0 +1,65 @@
+{
+  "snapshot_date": "2026-11-15",
+  "timezone": "JST",
+  "retrieved_at": "2026-11-15T03:53:45+09:00",
+  "api": {
+    "revisions": "https://laws.e-gov.go.jp/api/2/law_revisions/{law_id}",
+    "law_data": "https://laws.e-gov.go.jp/api/2/law_data/{law_revision_id}"
+  },
+  "laws": {
+    "income_tax_act": {
+      "law_id": "340AC0000000033",
+      "law_num": "昭和四十年法律第三十三号",
+      "law_title": "所得税法",
+      "promulgation_date": "1965-03-31",
+      "current_revision": {
+        "law_revision_id": "340AC0000000033_20261001_507AC0000000070",
+        "law_title": "所得税法",
+        "current_revision_status": "CurrentEnforced",
+        "amendment_enforcement_date": "2026-10-01",
+        "amendment_law_id": "507AC0000000070",
+        "amendment_law_title": "日本学術会議法",
+        "amendment_law_num": "令和七年法律第七十号",
+        "amendment_type": "3",
+        "mission": "New",
+        "updated": "2026-09-08T11:41:33+09:00"
+      },
+      "source_file": "data/raw/340AC0000000033_20261001_507AC0000000070.law.json",
+      "source_sha256": "94C4A7AD83726CDE60787967ED4E959585AD0AF9279D25DB9AA02264B3FE606B",
+      "revisions_file": "data/raw/340AC0000000033.revisions.json",
+      "revisions_sha256": "6310F4097863D94D71C234B48EC66A9B76FA0763B2641F91044234A4BB8193B0",
+      "api_url": "https://laws.e-gov.go.jp/api/2/law_data/340AC0000000033_20261001_507AC0000000070",
+      "law_page": "https://laws.e-gov.go.jp/law/340AC0000000033"
+    },
+    "income_tax_order": {
+      "law_id": "340CO0000000096",
+      "law_num": "昭和四十年政令第九十六号",
+      "law_title": "所得税法施行令",
+      "promulgation_date": "1965-03-31",
+      "current_revision": {
+        "law_revision_id": "340CO0000000096_20260522_508CO0000000093",
+        "law_title": "所得税法施行令",
+        "current_revision_status": "CurrentEnforced",
+        "amendment_enforcement_date": "2026-05-22",
+        "amendment_law_id": "508CO0000000093",
+        "amendment_law_title": "所得税法施行令の一部を改正する政令",
+        "amendment_law_num": "令和八年政令第九十三号",
+        "amendment_type": "3",
+        "mission": "New",
+        "updated": "2026-09-08T12:07:52+09:00"
+      },
+      "source_file": "data/raw/340CO0000000096_20260522_508CO0000000093.law.json",
+      "source_sha256": "9FACF2E2768D602CCDBBF9891DF142D3A3E7EAD09033EB0634DE00A4C4181392",
+      "revisions_file": "data/raw/340CO0000000096.revisions.json",
+      "revisions_sha256": "7F178938485E3B3CAED60B6628FE2AFB10A99A89AF5577DB362236F47B62CD07",
+      "api_url": "https://laws.e-gov.go.jp/api/2/law_data/340CO0000000096_20260522_508CO0000000093",
+      "law_page": "https://laws.e-gov.go.jp/law/340CO0000000096"
+    }
+  },
+  "notes": [
+    "law_data スナップショットは law_revision_id を指定して取得した適用版 (2026-11-15 基準)。",
+    "revisions JSON は e-Gov API v2 から取得した改正履歴全件 (新しい順)。",
+    "ハッシュは取得時点の生ファイルに対する SHA-256。",
+    "行数・条文数などの集計値は scripts/ の監査ツールが検証する。"
+  ]
+}
