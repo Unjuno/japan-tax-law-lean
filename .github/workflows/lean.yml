@@ -34,7 +34,7 @@ jobs:
           lake env lean _ax.lean > _ax.log 2>&1 || { cat _ax.log; exit 1; }
           cat _ax.log
           ! grep -q 'sorryAx' _ax.log
-          ! grep -q 'propext, Classical.choice, Quot.sound' <(grep -oE '\[[^]]+\]' _ax.log | tr -d '[]' | sed 's/, /\n/g' | sort | uniq) || true
+          ! grep -q 'Classical.choice' _ax.log || { echo "unexpected axioms: $(cat _ax.log)"; exit 1; }
 
       - name: Reproducibility check 1 (clean build)
         run: |
