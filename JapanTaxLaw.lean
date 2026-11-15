@@ -115,3 +115,7 @@ import JapanTaxLaw.PhaseECorpRatesTests
 import JapanTaxLaw.SpecialGiftRate
 import JapanTaxLaw.SpecialGiftRateSpec
 import JapanTaxLaw.SpecialGiftRateTests
+
+import JapanTaxLaw.StampDutySpecial91
+import JapanTaxLaw.StampDutySpecial91Spec
+import JapanTaxLaw.StampDutySpecial91Tests
