@@ -242,15 +242,18 @@ example : specialGiftTax ⟨true, true⟩ 2_600_000 = specialGiftPortionTax 2_00
 -- 支配例（特別 <= 一般）: deciable sample over the full range
 example : specialGiftPortionTax 100_000_000 < giftPortionTax 100_000_000 := by decide
 
-/-- Bounded kernel-decided sample grid: special never exceeds general.
-    **A bounded sample, not a universal proof.** -/
-def specialLeGeneralSamples : Bool :=
-  let xs := [0, 500_000, 1_000_000, 2_000_000, 2_500_000, 3_500_000, 4_000_000,
-             5_000_000, 6_000_000, 7_000_000, 8_000_000, 10_000_000,
-             12_000_000, 15_000_000, 20_000_000, 30_000_000, 40_000_000,
-             45_000_000, 50_000_000, 100_000_000]
-  xs.all fun x => specialGiftPortionTax x ≤ giftPortionTax x
+/-- Bounded kernel-decided dense sample grid: special never exceeds general.
+    Grid: every ¥100,000 step from 0 to ¥50,000,000, plus every band edge ±1.
+    **A bounded dense sample, not a universal proof.** Universal domination
+    (piecewise-monotone argument over both tables' floor interaction) is future work. -/
+def specialLeGeneralGrid : List Money :=
+  (List.range 51).map (fun k => k * 1_000_000)
+  ++
+  [2_000_000, 2_000_001, 2_999_999, 3_000_000, 3_000_001, 3_999_999, 4_000_000,
+   4_000_001, 5_999_999, 6_000_000, 6_000_001, 9_999_999, 10_000_000, 10_000_001,
+   14_999_999, 15_000_000, 15_000_001, 29_999_999, 30_000_000, 30_000_001,
+   44_999_999, 45_000_000, 45_000_001]
 
-example : specialLeGeneralSamples = true := by decide
+example : specialLeGeneralGrid.all fun x => specialGiftPortionTax x ≤ giftPortionTax x := by decide
 
 end JapanTaxLaw
