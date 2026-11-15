@@ -29,7 +29,7 @@
 | **PHASE C — 共通形式意味論** | **完了**（`JapanTaxLaw/TaxFinance.lean`） | Money、TaxRate(floor/ceil 証明)、Period、Priority（law>order>notice、全順序・推移律・非反射律）; 21 件の dec テスト |
 | **PHASE D — 税目別形式化（actor scope のみ）** | **進行中**（17 本の stacked PR、機械検証は全て `propext` のみ） | 意味モデルは定義層・actor scope に限定 |
 | **PHASE E — 法令横断検証** | **着手（シード）** `scripts/law_audit/phase_e/cross_law.py` | 実 `JapanTaxLaw/*.lean` のピン留め vs 台帳整合を検査; 12 テスト; **意味横断検証は未完了** |
-| **PHASE F — 改正影響検証** | **未着手（前提計測のみ）** | 現行 pin の revision tuple は `amendment_law_id` / `amendment_enforcement_date` を `data/raw/*.revisions.json` 由来で保持。2026-11-15 の計測: 相異なる `amendment_law_id` **189 件**のうち、2016 年時点の現行税法インベントリ（本台帳の母集団 327 件）に含まれるのは **3 件**にとどまり、残りは `lawlists_1.xml`（現行法令一覧・e-Gov API v1）にも現れません（改正法が現行法令一覧に残らないことはあり得ますが、根拠は今後の確認待ち）。新旧 diff による影響伝播機構は未実装 |
+| **PHASE F — 改正影響検証** | **着手（シード・計測のみ・意味 diff 未実装）** | `scripts/law_audit/phase_f/revision_impact.py` 実装済み・8 テスト（PR #20）。325 件の現行改正版 pin を機械検査（`{law_id}_{yyyymmdd}_{amendment_law_id}` 形状・埋め込み改正 id と台帳の `amendment_law_id` の一致（原法 `_000000000000000` と null の対応）・施行日 ≤ snapshot_date）。**結果: 0 problems**。189 相異なる改正法を計測・**原始立法 48 件**検出。本台帳（税キーワード 327 件）に内在するのは **3 件**のみ、残り 186 件は台帳外として記録のみ・判定せず。**新旧 diff の意味伝播機構は未実装** |
 | **PHASE G — 統合監査（再現可能）** | **未完了**（`lake build`+`unittest`+`validate_inventory`+clean builds ×2 は CI にある） | 第三者再現手順は `CONTRIBUTING.md` と CI 経由; 統合レポート生成はこれから |
 
 ## 3. Phase B の実測値（`build/audit_sweep.json`、2026-11-15）
