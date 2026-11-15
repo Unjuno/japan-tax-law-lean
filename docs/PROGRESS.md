@@ -73,6 +73,8 @@
 **2026-11-16（続き）: 前文カバレッジと antecedent 水門（waterfall）の追加**
 
 4. **附則/前文 paragraphs を synthetic article として包含**（`model.py`）: SupplProvision/MainProvision 直下の 8,932 前段落を所属 scope の synthetic article（`PREAMBLE:<n>`、`synthetic=True`）として実体化し、参照スキャナに乗せた。通算法律の基本構造規則（連番・重複・TOC・削除）は synthetic を除外するよう修正（misattribution 防止）。検証可能な参照を **461,067 → 476,500**（+15,433）に拡大し、内部解決可能な参照が 100,565 → 100,944、外部未解決が 151,999 → 157,983、未対応構文が 240,799 → 250,043 に変化した。articles_checked は 33,652 → 42,584（本文 33,652 + 前文 8,932）に再計測した。
+6. **PAREN.UNBALANCED の再計測と既知の noise source**（`rules.py` emission は変更なし・記録のみ）: 再スキャンの結果、candidate 内訳 PAREN.UNBALANCED が 1,536 件（MAIN 472 件 / SupplProvision 1,064 件；内訳: Unclosed 647 / Unmatched closing 494 / Unterminated 395）。いずれも候補であり、独立の法的レビュー前に欠陥とは呼べない。附則の「読替え規定（仮定規定の写し）」では表形式に「（「対象事業年度」と読み替える。）」のような入れ子の括弧が高密度に含まれ、現行のブレースマッチャは引用の対応を取り違えるケースが多く見られるので、このクラスタの PAREN.UNBALANCED の大部分は false positive の可能性が高い（手動での判定は不能・独立レビュー要）。ここで記録を優越するのは「書籍面での括弧の対応のみを機械チェックしたもの」であり、「法律が括弧で意味を規定している」ことを保証するものではない。全ての候補記事の legal review は依然として必要である。
+
 5. **antecedent 解決の水門（waterfall）**（`rules.py`）: 素の「第N号」参照を検証するとき、
    - 素の項目の直後に先行する他の記事参照（例: 「第百四十一条第二号」）を基準にしては
      しまうと、直前が同じ段落の別の号を指す場合に **法文にありえない誤検出** になる
