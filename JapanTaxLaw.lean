@@ -95,3 +95,6 @@ import JapanTaxLaw.StampTableTests
 import JapanTaxLaw.RegistrationTax
 import JapanTaxLaw.RegistrationTaxSpec
 import JapanTaxLaw.RegistrationTaxTests
+import JapanTaxLaw.LocalIncomeTax
+import JapanTaxLaw.LocalIncomeTaxSpec
+import JapanTaxLaw.LocalIncomeTaxTests
