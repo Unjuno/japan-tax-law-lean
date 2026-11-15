@@ -89,3 +89,6 @@ import JapanTaxLaw.GiftAddBackTests
 import JapanTaxLaw.SpousalGiftDeduction
 import JapanTaxLaw.SpousalGiftDeductionSpec
 import JapanTaxLaw.SpousalGiftDeductionTests
+import JapanTaxLaw.StampTable
+import JapanTaxLaw.StampTableSpec
+import JapanTaxLaw.StampTableTests
