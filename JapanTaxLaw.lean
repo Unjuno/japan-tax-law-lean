@@ -105,3 +105,6 @@ import JapanTaxLaw.LocalInhabitantTaxTests
 import JapanTaxLaw.DeemedCapitalGainsCost
 import JapanTaxLaw.DeemedCapitalGainsCostSpec
 import JapanTaxLaw.DeemedCapitalGainsCostTests
+import JapanTaxLaw.RegistrationCommercialTax
+import JapanTaxLaw.RegistrationCommercialTaxSpec
+import JapanTaxLaw.RegistrationCommercialTaxTests
