@@ -19,10 +19,13 @@ example : successiveRate1 100 100 = 100_000 := by decide
 example : successiveRate1 150 100 = 100_000 := by decide
 example : successiveRate1 0 100 = 0 := by decide
 
--- successiveRate2 (thisHeir / secondTotalInherited)
+-- successiveRate2 (thisHeir / secondTotalInherited; art. 20 二号には上限の規定はない)
 example : successiveRate2 80 100 = 80_000 := by decide
 example : successiveRate2 0 100 = 0 := by decide
-example : successiveRate2 150 100 = 100_000 := by decide
+-- incoherent inputs (本来の意味では thisHeir ≤ secondTotalInherited だが、
+-- 与入が誤っているとき法文は上限を与えない — そのまま比を返す（下流の飽和算術が守る）)
+example : successiveRate2 150 100 = 150_000 := by decide
+example : successiveRate2 100 100 = 100_000 := by decide
 
 -- successiveRate3 (10 - yearsElapsed) / 10 (min 0)
 example : successiveRate3 1 = 90_000 := by decide

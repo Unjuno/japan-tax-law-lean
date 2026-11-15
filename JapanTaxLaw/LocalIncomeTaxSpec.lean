@@ -23,14 +23,14 @@ namespace JapanTaxLaw
 open JapanTaxLaw.TaxFinance
 
 /-- Spec: art. 34(2) 基礎控除 — direct band lookup. -/
-def specLocalSpecBasicDeduction (totalIncome : Money) : Money :=
+def specLocalBasicDeduction (totalIncome : Money) : Money :=
   if totalIncome ≤ 24_000_000 then 430_000
   else if totalIncome ≤ 24_500_000 then 290_000
   else if totalIncome ≤ 25_000_000 then 150_000
   else 0
 
 /-- Spec: art. 34(1) 十号 配偶者控除 — band lookup with the elderly amount as max. -/
-def specLocalSpecSpouseDeduction (totalIncome : Money) (spouseIsElderly : Bool) : Money :=
+def specLocalSpouseDeduction (totalIncome : Money) (spouseIsElderly : Bool) : Money :=
   let base :=
     if totalIncome ≤ 9_000_000 then 330_000
     else if totalIncome ≤ 9_500_000 then 220_000
@@ -44,7 +44,7 @@ def specLocalSpecSpouseDeduction (totalIncome : Money) (spouseIsElderly : Bool) 
   else base
 
 /-- Spec: art. 35 標準税率 — 百分の四（指定都市区域内住所者は百分の二）. -/
-def specLocalSpecStandardRate (livesInDesignatedCity : Bool) : TaxRate :=
+def specLocalStandardRate (livesInDesignatedCity : Bool) : TaxRate :=
   if livesInDesignatedCity then ⟨2, 100, by decide⟩ else ⟨4, 100, by decide⟩
 
 /-- Spec: art. 35 所得割の額 — applyFloor of the standard rate on the total of the
@@ -52,36 +52,36 @@ def specLocalSpecStandardRate (livesInDesignatedCity : Bool) : TaxRate :=
 def specLocalIncomeTaxAmount
     (taxableTotalIncome taxableRetirementIncome taxableForestIncome : Money)
     (livesInDesignatedCity : Bool) : Money :=
-  (specLocalSpecStandardRate livesInDesignatedCity).applyFloor
+  (specLocalStandardRate livesInDesignatedCity).applyFloor
     (taxableTotalIncome + taxableRetirementIncome + taxableForestIncome)
 
 -- ==== points, all kernel-decided ====
 
 -- art. 34(2): each band and each edge ±¥1
-example : specLocalSpecBasicDeduction 0 = 430_000 := by decide
-example : specLocalSpecBasicDeduction 24_000_000 = 430_000 := by decide
-example : specLocalSpecBasicDeduction 24_000_001 = 290_000 := by decide
-example : specLocalSpecBasicDeduction 24_500_000 = 290_000 := by decide
-example : specLocalSpecBasicDeduction 24_500_001 = 150_000 := by decide
-example : specLocalSpecBasicDeduction 25_000_000 = 150_000 := by decide
-example : specLocalSpecBasicDeduction 25_000_001 = 0 := by decide
-example : specLocalSpecBasicDeduction 100_000_000 = 0 := by decide
+example : specLocalBasicDeduction 0 = 430_000 := by decide
+example : specLocalBasicDeduction 24_000_000 = 430_000 := by decide
+example : specLocalBasicDeduction 24_000_001 = 290_000 := by decide
+example : specLocalBasicDeduction 24_500_000 = 290_000 := by decide
+example : specLocalBasicDeduction 24_500_001 = 150_000 := by decide
+example : specLocalBasicDeduction 25_000_000 = 150_000 := by decide
+example : specLocalBasicDeduction 25_000_001 = 0 := by decide
+example : specLocalBasicDeduction 100_000_000 = 0 := by decide
 
 -- art. 34(1) 十号: each band and edge ±¥1, regular and elderly
-example : specLocalSpecSpouseDeduction 9_000_000 false = 330_000 := by decide
-example : specLocalSpecSpouseDeduction 9_000_001 false = 220_000 := by decide
-example : specLocalSpecSpouseDeduction 9_500_000 false = 220_000 := by decide
-example : specLocalSpecSpouseDeduction 9_500_001 false = 110_000 := by decide
-example : specLocalSpecSpouseDeduction 10_000_000 false = 110_000 := by decide
-example : specLocalSpecSpouseDeduction 10_000_001 false = 0 := by decide
-example : specLocalSpecSpouseDeduction 9_000_000 true = 380_000 := by decide
-example : specLocalSpecSpouseDeduction 9_500_000 true = 260_000 := by decide
-example : specLocalSpecSpouseDeduction 10_000_000 true = 130_000 := by decide
-example : specLocalSpecSpouseDeduction 10_000_001 true = 0 := by decide
+example : specLocalSpouseDeduction 9_000_000 false = 330_000 := by decide
+example : specLocalSpouseDeduction 9_000_001 false = 220_000 := by decide
+example : specLocalSpouseDeduction 9_500_000 false = 220_000 := by decide
+example : specLocalSpouseDeduction 9_500_001 false = 110_000 := by decide
+example : specLocalSpouseDeduction 10_000_000 false = 110_000 := by decide
+example : specLocalSpouseDeduction 10_000_001 false = 0 := by decide
+example : specLocalSpouseDeduction 9_000_000 true = 380_000 := by decide
+example : specLocalSpouseDeduction 9_500_000 true = 260_000 := by decide
+example : specLocalSpouseDeduction 10_000_000 true = 130_000 := by decide
+example : specLocalSpouseDeduction 10_000_001 true = 0 := by decide
 
 -- art. 35: the two standard rates
-example : (specLocalSpecStandardRate false).num = 4 ∧ (specLocalSpecStandardRate false).den = 100 := by decide
-example : (specLocalSpecStandardRate true).num = 2 ∧ (specLocalSpecStandardRate true).den = 100 := by decide
+example : (specLocalStandardRate false).num = 4 ∧ (specLocalStandardRate false).den = 100 := by decide
+example : (specLocalStandardRate true).num = 2 ∧ (specLocalStandardRate true).den = 100 := by decide
 -- art. 35: 10,000,000 × 4% = 400,000
 example : specLocalIncomeTaxAmount 10_000_000 0 0 false = 400_000 := by decide
 -- art. 35: 10,000,000 × 2% = 200,000（指定都市）
@@ -102,9 +102,9 @@ def agreeLocalIncomeTaxPoints : Bool :=
     | x :: rest =>
         checkAll rest
           (acc &&
-            (basicDeduction x == specLocalSpecBasicDeduction x) &&
-            (spouseDeduction x false == specLocalSpecSpouseDeduction x false) &&
-            (spouseDeduction x true == specLocalSpecSpouseDeduction x true))
+            (basicDeduction x == specLocalBasicDeduction x) &&
+            (spouseDeduction x false == specLocalSpouseDeduction x false) &&
+            (spouseDeduction x true == specLocalSpouseDeduction x true))
   let a := checkAll incomes true
   let b := localPrefecturalIncomeTaxAmount 3_000_000 2_000_000 1_000_000 false ==
     specLocalIncomeTaxAmount 3_000_000 2_000_000 1_000_000 false

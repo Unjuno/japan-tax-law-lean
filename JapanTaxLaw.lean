@@ -92,6 +92,7 @@ import JapanTaxLaw.SpousalGiftDeductionTests
 import JapanTaxLaw.StampTable
 import JapanTaxLaw.StampTableSpec
 import JapanTaxLaw.StampTableTests
+import JapanTaxLaw.CounterexampleSweep
 import JapanTaxLaw.RegistrationTax
 import JapanTaxLaw.RegistrationTaxSpec
 import JapanTaxLaw.RegistrationTaxTests
