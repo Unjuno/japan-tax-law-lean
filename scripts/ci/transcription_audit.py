@@ -154,6 +154,14 @@ def checks():
            "article", "第六十八条",
            ["十億円（事業年度が一年に満たない協同組合等については、十億円に当該事業年度の月数を乗じてこれを十二で除して計算した金額とする。）を超える部分の金額については、百分の二十二"])
 
+    # 租税特別措置法 art. 31の3 — ResidentialTransferSpecialTax.lean (residentialGainTax)
+    yield ("租税特別措置法 art. 31の3（居住用財産を譲渡した場合の長期譲渡所得の課税の特例: ¥60,000,000 以下で百分の十／超で ¥6,000,000 + 百分の十五）↔ ResidentialTransferSpecialTax.lean (residentialGainTax, residentialBoundary)",
+           "332AC0000000026",
+           "article", "第三十一条の三",
+           ["課税長期譲渡所得金額が六千万円以下である場合当該課税長期譲渡所得金額の百分の十に相当する金額",
+            "課税長期譲渡所得金額から六千万円を控除した金額の百分の十五に相当する金額",
+            "所有期間が十年を超えるもののうち居住用財産に該当するものの譲渡"])
+
     # 租税特別措置法 art. 70の2の5 — SpecialGiftRate.lean (specialGiftRateTable)
     yield ("租税特別措置法 art. 70の2の5(1)（直系尊属から贈与を受けた場合の贈与税の税率の特例）↔ SpecialGiftRate.lean (specialGiftRateTable)",
            "332AC0000000026",

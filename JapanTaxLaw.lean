@@ -131,3 +131,7 @@ import JapanTaxLaw.RegistrationCommercialTaxTableTests
 import JapanTaxLaw.InheritanceApportionment
 import JapanTaxLaw.InheritanceApportionmentSpec
 import JapanTaxLaw.InheritanceApportionmentTests
+
+import JapanTaxLaw.ResidentialTransferSpecialTax
+import JapanTaxLaw.ResidentialTransferSpecialTaxSpec
+import JapanTaxLaw.ResidentialTransferSpecialTaxTests
