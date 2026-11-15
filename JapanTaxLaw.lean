@@ -111,3 +111,7 @@ import JapanTaxLaw.RegistrationCommercialTaxTests
 import JapanTaxLaw.PhaseECorpRates
 import JapanTaxLaw.PhaseECorpRatesSpec
 import JapanTaxLaw.PhaseECorpRatesTests
+
+import JapanTaxLaw.SpecialGiftRate
+import JapanTaxLaw.SpecialGiftRateSpec
+import JapanTaxLaw.SpecialGiftRateTests

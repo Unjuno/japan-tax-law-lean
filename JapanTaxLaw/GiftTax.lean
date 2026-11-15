@@ -70,14 +70,19 @@ def giftRateTable : List GiftRateBand :=
 /-- Top rate for the open band. -/
 def giftTopRate : TaxRate := ⟨55, 100, by decide⟩
 
-/-- Art. 21-7 per-portion tax, directly from the table with per-product floor. -/
-def giftPortionTax (x : Money) : Money :=
+/-- Helper: the art. 21-7 per-portion computation over an arbitrary rate-band
+    table and lower offset `lo`. Extracted at top level so the same computation
+    can be reused by the special-rate tables (租税特別措置法) with their own
+    `GiftRateBand` list; semantics identical to the previous inlined `go`. -/
+def portionTaxGo (t : List GiftRateBand) (lo x : Money) : Money :=
   let rec go (lo : Money) : List GiftRateBand → Money
     | [] => giftTopRate.applyFloor (x - lo)
     | b :: rest =>
         (⟨b.pct, 100, by decide⟩ : TaxRate).applyFloor
-          (Nat.min x b.limit - Nat.min x lo) + go b.limit rest
-  go 0 giftRateTable
+          (min x b.limit - min x lo) + go b.limit rest
+  go lo t
+
+def giftPortionTax (x : Money) : Money := portionTaxGo giftRateTable 0 x
 
 /-- 贈与税 — art. 21-7 total. Inputs are taxable gift value (pre-deduction);
     the function applies art. 21-5's ¥600,000 basic deduction first. -/
