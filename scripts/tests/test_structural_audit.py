@@ -156,10 +156,15 @@ class TestRealLaws(unittest.TestCase):
 
     def test_act_articles_count(self):
         self.assertEqual(self.act.main and len(self.act.main.articles), 302)
-        self.assertEqual(sum(len(s.articles) for s in self.act.scopes), 1286)
+        # Pinned assertion counts *real* articles only; synthetic preamble
+        # articles (附則前文 as materialised articles for the reference scanner)
+        # are excluded by the synthetic marker.
+        real = sum(1 for s in self.act.scopes for a in s.articles if not a.synthetic)
+        self.assertEqual(real, 1286)
 
     def test_order_articles_count(self):
-        self.assertEqual(sum(len(s.articles) for s in self.order.scopes), 1142)
+        real = sum(1 for s in self.order.scopes for a in s.articles if not a.synthetic)
+        self.assertEqual(real, 1142)
 
     def test_act_sha256(self):
         self.assertEqual(self.act.sha256, "94C4A7AD83726CDE60787967ED4E959585AD0AF9279D25DB9AA02264B3FE606B")

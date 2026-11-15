@@ -29,20 +29,20 @@
 ## 2. 検査の統計
 
 ### 所得税法
-- 条文数(枝番号含む): 1286
-- 項: 2208 / 号(含細目): 1427
-- 参照抽出: 11080 / 内部検査: 3455 / 他律・未検査: 3082 / 未対応: 5417
+- 条文数(枝番号含む): 1323
+- 項: 2245 / 号(含細目): 1434
+- 参照抽出: 11123 / 内部検査: 3455 / 他律・未検査: 3089 / 未対応: 5453
 - ファイルSHA-256: `94C4A7AD83726CDE60787967ED4E959585AD0AF9279D25DB9AA02264B3FE606B`
 
 ### 所得税法施行令
-- 条文数(枝番号含む): 1142
-- 項: 2204 / 号(含細目): 2091
-- 参照抽出: 12623 / 内部検査: 3605 / 他律・未検査: 4007 / 未対応: 6388
+- 条文数(枝番号含む): 1365
+- 項: 2427 / 号(含細目): 2091
+- 参照抽出: 12928 / 内部検査: 3608 / 他律・未検査: 4139 / 未対応: 6560
 - ファイルSHA-256: `9FACF2E2768D602CCDBBF9891DF142D3A3E7EAD09033EB0634DE00A4C4181392`
 
 ## 3. 検証状態サマリ
 - 検証済み構造異常 (verified-anomaly): **0**
-- 要確認候補 (candidate): **24**
+- 要確認候補 (candidate): **22**
 - 情報 (info): **0**
 
 ## 4. 構造異常 (verified-anomaly)
@@ -55,7 +55,7 @@
 ### 1. [PAREN.UNBALANCED] SP:idx-345/Article 3
 
 - 法令: 所得税法 (340AC0000000033)
-- 行 (正規化テキスト): 3623
+- 行 (正規化テキスト): 3663
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: PAREN.UNBALANCED
@@ -65,7 +65,7 @@
 ### 2. [PAREN.UNBALANCED] SP:idx-345/Article 3
 
 - 法令: 所得税法 (340AC0000000033)
-- 行 (正規化テキスト): 3623
+- 行 (正規化テキスト): 3663
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: PAREN.UNBALANCED
@@ -195,7 +195,7 @@
 ### 15. [PAREN.UNBALANCED] SP:idx-5/Article 5
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 2727
+- 行 (正規化テキスト): 2731
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: PAREN.UNBALANCED
@@ -205,7 +205,7 @@
 ### 16. [PAREN.UNBALANCED] SP:idx-5/Article 5
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 2727
+- 行 (正規化テキスト): 2731
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: PAREN.UNBALANCED
@@ -219,7 +219,7 @@
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: REF.ITEM.MISSING
-- 内容: Reference to item 3の一 but neither enclosing article 71_2 (items ['1', '2', '1', '2', '1', '2', '1', '2', '3', '1', '2', '3', '1', '2', '1', '2', '1', '2']) nor antecedent article 71_2 (items ['1', '2', '1', '2', '1', '2', '1', '2', '3', '1', '2', '3', '1', '2', '1', '2', '1', '2']) contains it
+- 内容: Reference to item 3の一 but neither enclosing article 71_2 (items ['1', '2', '1', '2', '1', '2', '1', '2', '3', '1', '2', '3', '1', '2', '1', '2', '1', '2']) nor antecedent article 71_2 (items ['1', '2', '1', '2', '1', '2', '1', '2', '3', '1', '2', '3', '1', '2', '1', '2', '1', '2']) nor any earlier bound article contains it
 - 証跡: sentence: イ第七項第二号イ又はロの残額当該満たない部分の金額の二分の一に相当する金額（ロに掲げる残額が当該二分の一に相当する金額に満たない場合には、当該満たない部分の金額を加算した金額）ロ第七項第三号の一般退職所得控除額を控除した残額当該満たない部分の金額の二分の一に相当する金額（イに掲げる残額が当該二分の一に相当する金額に満た
 - 検証状態: **未確定 — 独立レビュー未実施**
 ### 18. [REF.ITEM.MISSING] MAIN/Article 71_2
@@ -229,7 +229,7 @@
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: REF.ITEM.MISSING
-- 内容: Reference to item 3の一 but neither enclosing article 71_2 (items ['1', '2', '1', '2', '1', '2', '1', '2', '3', '1', '2', '3', '1', '2', '1', '2', '1', '2']) nor antecedent article 71_2 (items ['1', '2', '1', '2', '1', '2', '1', '2', '3', '1', '2', '3', '1', '2', '1', '2', '1', '2']) contains it
+- 内容: Reference to item 3の一 but neither enclosing article 71_2 (items ['1', '2', '1', '2', '1', '2', '1', '2', '3', '1', '2', '3', '1', '2', '1', '2', '1', '2']) nor antecedent article 71_2 (items ['1', '2', '1', '2', '1', '2', '1', '2', '3', '1', '2', '3', '1', '2', '1', '2', '1', '2']) nor any earlier bound article contains it
 - 証跡: sentence: イ第七項第一号の残額当該満たない部分の金額の二分の一に相当する金額（ロに掲げる残額が当該二分の一に相当する金額に満たない場合には、当該満たない部分の金額を加算した金額）ロ第七項第三号の一般退職所得控除額を控除した残額当該満たない部分の金額の二分の一に相当する金額（イに掲げる残額が当該二分の一に相当する金額に満たない場合
 - 検証状態: **未確定 — 独立レビュー未実施**
 ### 19. [REF.ITEM.MISSING] MAIN/Article 71_2
@@ -239,7 +239,7 @@
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: REF.ITEM.MISSING
-- 内容: Reference to item 3の一 but neither enclosing article 71_2 (items ['1', '2', '1', '2', '1', '2', '1', '2', '3', '1', '2', '3', '1', '2', '1', '2', '1', '2']) nor antecedent article 71_2 (items ['1', '2', '1', '2', '1', '2', '1', '2', '3', '1', '2', '3', '1', '2', '1', '2', '1', '2']) contains it
+- 内容: Reference to item 3の一 but neither enclosing article 71_2 (items ['1', '2', '1', '2', '1', '2', '1', '2', '3', '1', '2', '3', '1', '2', '1', '2', '1', '2']) nor antecedent article 71_2 (items ['1', '2', '1', '2', '1', '2', '1', '2', '3', '1', '2', '3', '1', '2', '1', '2', '1', '2']) nor any earlier bound article contains it
 - 証跡: sentence: イ第七項第一号の残額当該満たない部分の金額の二分の一に相当する金額（ロに掲げる残額が当該二分の一に相当する金額に満たない場合には、当該満たない部分の金額を加算した金額）ロ第七項第三号の一般退職所得控除額を控除した残額当該満たない部分の金額の二分の一に相当する金額（イに掲げる残額が当該二分の一に相当する金額に満たない場合
 - 検証状態: **未確定 — 独立レビュー未実施**
 ### 20. [REF.PARA.MISSING] MAIN/Article 119_4
@@ -252,40 +252,20 @@
 - 内容: Reference to paragraph 3 but neither enclosing article 119_4 (paragraphs [1, 2]) nor antecedent article 119_4 (paragraphs [1, 2]) contains it
 - 証跡: sentence: この場合において、同条第三項中「事業所得の金額」とあるのは、「事業所得の金額又は雑所得の金額」と読み替えるものとする。
 - 検証状態: **未確定 — 独立レビュー未実施**
-### 21. [REF.ITEM.MISSING] MAIN/Article 170_2
+### 21. [REF.ARTICLE.DELETED] SP:idx-69/Article 5
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 1365
-- 重要度: candidate
-- 分類: legal-defect-candidate
-- 検出規則: REF.ITEM.MISSING
-- 内容: Reference to item 3 but neither enclosing article 170_2 (items []) nor antecedent article 170_2 (items []) contains it
-- 証跡: sentence: ３前条第六項の規定は、前項において準用する同条第五項第三号から第十六号までの規定により第百十条（株式の分割又は併合の場合の株式等の取得価額）、第百十一条第二項（株主割当てにより取得した株式の取得価額）、第百十二条（合併により取得した株式等の取得価額）、第百十三条第一項から第三項まで、第六項及び第七項（分割型分割により取
-- 検証状態: **未確定 — 独立レビュー未実施**
-### 22. [REF.ITEM.MISSING] MAIN/Article 170_2
-
-- 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 1365
-- 重要度: candidate
-- 分類: legal-defect-candidate
-- 検出規則: REF.ITEM.MISSING
-- 内容: Reference to item 16 but neither enclosing article 170_2 (items []) nor antecedent article 170_2 (items []) contains it
-- 証跡: sentence: ３前条第六項の規定は、前項において準用する同条第五項第三号から第十六号までの規定により第百十条（株式の分割又は併合の場合の株式等の取得価額）、第百十一条第二項（株主割当てにより取得した株式の取得価額）、第百十二条（合併により取得した株式等の取得価額）、第百十三条第一項から第三項まで、第六項及び第七項（分割型分割により取
-- 検証状態: **未確定 — 独立レビュー未実施**
-### 23. [REF.ARTICLE.DELETED] SP:idx-69/Article 5
-
-- 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 2996
+- 行 (正規化テキスト): 3086
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: REF.ARTICLE.DELETED
 - 内容: Reference to deleted article 第五十五条 in 340AC0000000033
 - 証跡: sentence: 昭和五十六年十二月三十一日において特別修繕引当金勘定の金額（所得税法第五十五条第二項（特別修繕引当金）に規定する特別修繕引当金勘定の金額をいう。以下この条において同じ。）を有する個人は、当該特別修繕引当金勘定の金額が次の各号に掲げる場合の区分に応じ当該各号に定める金額（以下この項において「累積限度額」という。）を超える
 - 検証状態: **未確定 — 独立レビュー未実施**
-### 24. [REF.PARA.MISSING] SP:idx-69/Article 5
+### 22. [REF.PARA.MISSING] SP:idx-69/Article 5
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 2996
+- 行 (正規化テキスト): 3086
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: REF.PARA.MISSING
