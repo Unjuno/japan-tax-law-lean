@@ -299,6 +299,9 @@ JapanTaxLaw/SpousalGiftDeductionTests.lean # art. 21-6 の退行テスト
 JapanTaxLaw/StampTable.lean      # 印紙税法 別表第一 第一〜三号（契約書・請負・手形）L4 税率表モデル
 JapanTaxLaw/StampTableSpec.lean  # 別表第一 第一〜三号の独立定式・表駆動検証
 JapanTaxLaw/StampTableTests.lean # 別表第一 第一〜三号の退行テスト
+JapanTaxLaw/RegistrationTax.lean      # 登録免許税法 別表第一（一）不動産の登記の定率項目 L4 モデル
+JapanTaxLaw/RegistrationTaxSpec.lean  # 別表第一（一）の独立定式・端点検証
+JapanTaxLaw/RegistrationTaxTests.lean # 別表第一（一）/ art. 15・18・19 の退行テスト
 JapanTaxLaw/TaxProcedure.lean      # 国税通則法 第2条第10号（強制換価手続）
 JapanTaxLaw/TaxProcedureSpec.lean  # Act art.2(10) の独立仕様・健全性・整合性定理
 JapanTaxLaw/TaxProcedureTests.lean # Act art.2(10) の退行テスト 12件
@@ -367,7 +370,7 @@ PHASE E の最初の着手点として、`scripts/law_audit/phase_e/cross_law.py
 4. `Raw snapshot sha256:` が台帳の `raw_snapshot.source_sha256` と一致すること（Spec モジュールの `Revision:` のみのピンも台帳の現行改正版と照合）
 5. 台帳で unresolved（完全未施行）の 2 法令（防衛特別所得税関連の政令・省令）がどの Lean モジュールからもピン留めできないこと（弾かれることをテストで担保）
 
-実行結果（2026-11-15）：スキャン 94 ファイル、ピン留め一致 68 モジュール、失敗 0 件。ピン留めのないモジュール（Verdict / TaxFinance / Tests 等、法源を持たない共通知識層）は 26 件で、**検証済みにカウントしません**。バイトレベルの原文 SHA-256 照合自体は `validate_inventory.py` の責務です（この横断検査は台帳↔Lean の整合のみ）。
+実行結果（2026-11-15）：スキャン 97 ファイル、ピン留め一致 71 モジュール、失敗 0 件。ピン留めのないモジュール（Verdict / TaxFinance / Tests 等、法源を持たない共通知識層）は 26 件で、**検証済みにカウントしません**。バイトレベルの原文 SHA-256 照合自体は `validate_inventory.py` の責務です（この横断検査は台帳↔Lean の整合のみ）。
 
 **限界・未完了**: これはピン留め整合の検証であり、条文間の法的意味の矛盾を検出するものではありません。参照グラフは Phase B の候補 3,280 件（すべて**未確定**）のままで、独立レビューなしに欠陥と呼ばず、`verified-anomaly` は 0 件を維持します。PHASE E 完成（重複適用・優先関係の意味的横断検査）は今後の作業です。
 
