@@ -38,3 +38,6 @@ import JapanTaxLaw.ConsumptionTaxActorTests
 import JapanTaxLaw.InheritanceTaxActor
 import JapanTaxLaw.InheritanceTaxActorSpec
 import JapanTaxLaw.InheritanceTaxActorTests
+import JapanTaxLaw.LocalExemption
+import JapanTaxLaw.LocalExemptionSpec
+import JapanTaxLaw.LocalExemptionTests
