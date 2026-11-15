@@ -34,3 +34,7 @@ import JapanTaxLaw.ObligationArt15Tests
 import JapanTaxLaw.ConsumptionTaxActor
 import JapanTaxLaw.ConsumptionTaxActorSpec
 import JapanTaxLaw.ConsumptionTaxActorTests
+import JapanTaxLaw.ConsumptionTaxActorTests
+import JapanTaxLaw.InheritanceTaxActor
+import JapanTaxLaw.InheritanceTaxActorSpec
+import JapanTaxLaw.InheritanceTaxActorTests

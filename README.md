@@ -82,6 +82,19 @@ JapanTaxLaw/TaxationPeriod.lean では、国税通則法第2条第9号の**課�
 - 不明（unknown）は偽として処理せず、conflict は判定不能の上位（矛盾）として扱います。
 - JapanTaxLaw/TaxationPeriodSpec.lean で独立仕様を維持し、健全性・整合性の定理を証明しています（後述）。
 
+### 相続税法第1条の3（相続税の納税義務者・actor-scope）
+
+JapanTaxLaw/InheritanceTaxActor.lean では、相続税法（昭和二十五年法律第七十三号・現行2026-04-01付施行版）第1条の3（相続税の納税義務者）のうち、第一項第一号イほぼ全般（「一時居住者でない個人」が施行地に住所を有し、又は遺贈等により財産を取得した者）を形式化します。
+
+- Act art. 1の3 第一項 一号 イ「一時居住者でない個人」が施行地に住所を有する場合を含む、ほぼこのアウトラインで主にモデル化。
+- 居住者側の判定関数（`isResidentCompliantIndividual`）は、`isIndividual ∧ isResidentInJapanAtAcquisition ∧ isNotTemporaryResident` の `and` 結合。
+- 取得行為（`acquiredThroughInheritanceOrBequest`）は外部判定事実として入力し、騙し口のように「推定」や「みなし相続財産（第3条）」の内部判定は別モジュールとします。
+- 施行地の該当性・相続開始時期・一時居住者の定義（第1条の3第三項一号「相続開始の時において在留資格を有する者にして当該相続の開始前十五年以内においてこの法律の施行地に住所を有していた期間の合計が十年以下であるもの」）は Act art. 1の3第三項参考ですが、本モデルでは双方向 verdict を制約しない外部入力事実として持ちます。
+- Act art. 1の3 第一項 一号 ロ（一時居住者である個人で、被相続人が外国人被相続人又は非居住被相続人である場合を除く。）、二号〜五号、第二項「所得税法第百三十七条の二／百三十七条の三の規定の適用がある場合における納税猶予者のみなし住所規則」は未対応です。
+- Act art. 1の3 第3項の解釈規定（「一時居住者」「外国人被相続人」「非居住被相続人」を定義する規定）も本PRでは未対応。
+- Act art. 1の3 第二項・第三項特別規定、Act art. 66 （相続税額の加算） 及び類似規定等は対象外です。
+- JapanTaxLaw/InheritanceTaxActorSpec.lean で独立仕様を維持し、健全性・整合性の定理を証明しています（後述）。
+
 ### 消費税法第5条（納税義務者）＝登録免許税法の別表記（法定番号）
 
 JapanTaxLaw/ConsumptionTaxActor.lean では、消費税法（昭和六十三年法律第百八号）の**納税義務**の第一項を形式化します：
@@ -199,6 +212,9 @@ JapanTaxLaw/ObligationArt15Tests.lean # Act art.15 の退行テスト 19件
 JapanTaxLaw/ConsumptionTaxActor.lean      # 消費税法 第5条 納税義務者 anchor（事業能力＋課税事象）
 JapanTaxLaw/ConsumptionTaxActorSpec.lean  # 消費税法 Act art.5 anchor の独立仕様・健全性・整合性定理
 JapanTaxLaw/ConsumptionTaxActorTests.lean # 消費税法 anchor の退行テスト 19件
+JapanTaxLaw/InheritanceTaxActor.lean      # 相続税法 第1条の3 anchor（納税義務者・施行地住所）
+JapanTaxLaw/InheritanceTaxActorSpec.lean  # Act art.1の3 actor anchor の独立仕様・健全性・整合性定理
+JapanTaxLaw/InheritanceTaxActorTests.lean # Act art.1の3 anchor の退行テスト 18件
 JapanTaxLaw/TaxProcedure.lean      # 国税通則法 第2条第10号（強制換価手続）
 JapanTaxLaw/TaxProcedureSpec.lean  # Act art.2(10) の独立仕様・健全性・整合性定理
 JapanTaxLaw/TaxProcedureTests.lean # Act art.2(10) の退行テスト 12件
