@@ -83,3 +83,6 @@ import JapanTaxLaw.SpouseReliefTests
 import JapanTaxLaw.CorporateSurtax
 import JapanTaxLaw.CorporateSurtaxSpec
 import JapanTaxLaw.CorporateSurtaxTests
+import JapanTaxLaw.GiftAddBack
+import JapanTaxLaw.GiftAddBackSpec
+import JapanTaxLaw.GiftAddBackTests
