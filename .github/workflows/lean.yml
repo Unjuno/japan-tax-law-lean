@@ -34,7 +34,13 @@ jobs:
 #print axioms JapanTaxLaw.TaxProcedureSpec.spec_complete
 #print axioms JapanTaxLaw.CompulsoryRealizationProcedure.all_nodup
 #print axioms JapanTaxLaw.CompulsoryRealizationProcedure.all_length
-#print axioms JapanTaxLaw.priority_spec_sound\n#print axioms JapanTaxLaw.priority_spec_complete_applyOtherLaw\n#print axioms JapanTaxLaw.priority_spec_complete_applyThisAct\n#print axioms JapanTaxLaw.apply_this_act_iff\n' > _ax.lean
+#print axioms JapanTaxLaw.priority_spec_sound\n#print axioms JapanTaxLaw.priority_spec_complete_applyOtherLaw\n#print axioms JapanTaxLaw.priority_spec_complete_applyThisAct\n#print axioms JapanTaxLaw.accelerated_request_excludes
+#print axioms JapanTaxLaw.extended_payment_excludes
+#print axioms JapanTaxLaw.none_excluded_statutory
+#print axioms JapanTaxLaw.StatutoryDeadlineSpec.spec_excluded_sound
+#print axioms JapanTaxLaw.StatutoryDeadlineSpec.spec_excluded_complete
+#print axioms JapanTaxLaw.StatutoryDeadlineSpec.spec_excluded_imp_not_statutory
+#print axioms JapanTaxLaw.apply_this_act_iff\n' > _ax.lean
           lake env lean _ax.lean > _ax.log 2>&1 || { cat _ax.log; exit 1; }
           cat _ax.log
           ! grep -q 'sorryAx' _ax.log
