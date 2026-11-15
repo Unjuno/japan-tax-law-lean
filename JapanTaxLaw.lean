@@ -6,6 +6,7 @@ import JapanTaxLaw.StatutoryModel
 import JapanTaxLaw.Excluded
 import JapanTaxLaw.ResidencySpec
 import JapanTaxLaw.TaxFinance
+import JapanTaxLaw.TaxRounding
 import JapanTaxLaw.TestsCommon
 import JapanTaxLaw.CorpActor
 import JapanTaxLaw.CorpActorTests
@@ -52,3 +53,6 @@ import JapanTaxLaw.CollectionTaxpayerTests
 import JapanTaxLaw.KanzeiGoods
 import JapanTaxLaw.KanzeiGoodsSpec
 import JapanTaxLaw.KanzeiGoodsTests
+import JapanTaxLaw.IndividualIncomeTax
+import JapanTaxLaw.IndividualIncomeTaxSpec
+import JapanTaxLaw.IndividualIncomeTaxTests

@@ -59,7 +59,7 @@
 
 ## 4. PHASE D の機械検証範囲（意味形式化された条文）
 
-すべて **actor scope / 定義層** の形式化であり、課税標準の計算・端数処理・例外の全結合・得税額との統合は**未着手**です。各モジュールは `Law id`/`Revision`/`sha256` を原文ピンで保持し、`cross_law.py` により台帳との照合を受けます（48 ファイル / 24 ピン留めモジュール一致 / 0 失敗）。
+すべて **actor scope / 定義層** の形式化であり、課税標準の計算・端数処理・例外の全結合・得税額との統合は**未着手**です。各モジュールは `Law id`/`Revision`/`sha256` を原文ピンで保持し、`cross_law.py` により台帳との照合を受けます（58 ファイル / 32 ピン留めモジュール一致 / 0 失敗）。
 
 | 法令 | 条文 | モジュール | PR（base） |
 |---|---|---|---|
@@ -106,7 +106,7 @@
 | L1 Legal Sources | **実装済**（pin・sha256・施行日・改正履歴を台帳＋`data/raw/` に固定） |
 | L2 Legal Structure | **実装済・全件実行済**（`model.py` `rules.py` `audit.py` `sweep.py`；テスト 35 + 誤変更注入 12 クラス） |
 | L3 Legal Semantics | **部分的**（TaxFinance 共通層＋actor/定義層 13 モジュール） |
-| L4 Tax Computation | **未着手**（端数処理・税額計算仕様は存在しない） |
+| L4 Tax Computation | **一部着手**（所得税法 art. 89 税率・端数処理・課税標準の計算の最小モデルIndividualIncomeTax.lean／TaxRounding.lean。その他の L4（控除・予定納税・復興特別所得税・租税特別措置法ほか）は**未着手**） |
 | L5 Formal Verification | **部分的**（L3 の各モジェールに sound/complete 定理対） |
 | L6 Counterexample Discovery | **未着手**（Mutation 注入のみ; 反例探索エンジンではない） |
 | L7 Evidence and Reporting | **ドラフト**（AUDIT_REPORT.md・INVENTORY.md・本書）; 機械生成統合レポートは未完了 |
@@ -116,7 +116,7 @@
 1. **Lean が証明するのは形式モデルの内部命題のみです。** モデルと法文の対応は pin（law_revision_id・施行日・SHA-256 のバイト一致、`cross_law.py` による機械的照合）によってのみ担保されます。正当な解釈は保証しません。
 2. **候補は未確定です。** 3,280 件の `candidate` は、かっこ不整合や参照先欠落に基づく機械検査の出力であり、法的欠陥の認定ではありません。独立の法的レビューなしに「抜け穴」「誤記」と呼べません。
 3. 地方税条例（約 1,788 団体・団体ごと独立法源）、租税条約・通達・裁判例は**未対応**です。国税の現行法令一覧に含まれません。
-4. PHASE F（改正影響）・PHASE E の意味的横断検証・PHASE L4（税額計算）・L6（反例探索）は**未着手**です。
+4. PHASE F（改正影響）・PHASE E の意味的横断検証・PHASE L6（反例探索）は**未着手**です。L4（税額計算）は 所得税法 art. 89 の最小スライスのみ着手済です。
 5. `verify` 関税法／租税特別措置法／印紙税法／登録免許税法／地方税の残りの膨大な条文は**未形式化**です。
 6. 台帳の revision 自体は e-Gov API の応答に基づき `CurrentEnforced` を優先して選択していますが、候補 revision 選択の入力値・時刻依存性は `data/PROVENANCE.json` を参照してください。
 
