@@ -78,7 +78,7 @@
 | 同上 | 第7条（受益に因る不均一課税） | `LocalPrivilege.lean` | #16 |
 | 同上 | 第24条第1項 actor scope（一〜四の二） | `LocalObligor.lean` | #18 |
 
-すべての Phase D モジュールについて、**独立形式仕様（`*Spec.lean`）による健全性・整合性定理対**と、**DecidableEq による決定的スモークテスト（`*Tests.lean`）**を維持します。公理依存は全案 `propext` のみ、または 0 件（`lake env lean` で `#print axioms` を直接確認・CI ガード登録済み・52 スキーマ print 登録）。**proof-of-anomaly はどこにもありません。**
+すべての Phase D モジュールについて、**独立形式仕様（`*Spec.lean`）による健全性・整合性定理対**と、**DecidableEq による決定的スモークテスト（`*Tests.lean`）**を維持します。公理依存は全案 `propext` のみ、または 0 件（`lake env lean` で `#print axioms` を直接確認・CI ガード登録済み・100 件の print 登録（grep 計測））。**proof-of-anomaly はどこにもありません。**
 
 ## 5. 現在の完成率（完成判定への進捗）
 
