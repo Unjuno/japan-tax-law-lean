@@ -80,3 +80,6 @@ import JapanTaxLaw.InheritanceSuccessiveDeductionTests
 import JapanTaxLaw.SpouseRelief
 import JapanTaxLaw.SpouseReliefSpec
 import JapanTaxLaw.SpouseReliefTests
+import JapanTaxLaw.CorporateSurtax
+import JapanTaxLaw.CorporateSurtaxSpec
+import JapanTaxLaw.CorporateSurtaxTests
