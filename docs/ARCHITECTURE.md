@@ -10,7 +10,7 @@
 | L4 Tax Computation | 課税標準・税率・控除・税額・端数処理の形式モデル | 未実装（フェーズ D） | 単位・期間・丸め・適用日を明示するテストが必要 |
 | L5 Formal Verification | Lean 4 による健全性・決定性・規則間整合性・適用範囲の検証 | `JapanTaxLaw/ResidencySpec.lean`（独立形式仕様）、`Tests.lean` | `residency_spec_sound` / `residency_spec_complete` |
 | L6 Counterexample Discovery | 矛盾、未定義、重複適用、参照不整合、境界値、改正前後差分の探索 | `scripts/tests/test_mutation_injection.py`（誤変更の検出機構）、候補のみを `AUDIT_REPORT.md` に記録 | 誤変更注入 12 クラス検出 |
-| L7 Evidence and Reporting | 検出候補と原文・証明・反例・レビュー状況を紐づけた監査報告 | `docs/AUDIT_REPORT.md`（生成物）、`docs/INVENTORY.md`（Phase A 報告）、`docs/METHODOLOGY.md`、`docs/ARCHITECTURE.md`（本書） | 再現手順を各文書に記載 |
+| L7 Evidence and Reporting | 検出候補と原文・証明・反例・レビュー状況を紐づけた監査報告 | `docs/AUDIT_REPORT.md`（生成物）、`docs/INVENTORY.md`（Phase A 報告）、`docs/METHODOLOGY.md`、`docs/ARCHITECTURE.md`（本書）、`docs/CROSS_LAW.md`（Phase E シード） | 再現手順を各文書に記載 |
 
 ## 原則
 
