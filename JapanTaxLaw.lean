@@ -46,3 +46,6 @@ import JapanTaxLaw.LocalPrivilegeTests
 import JapanTaxLaw.LocalObligor
 import JapanTaxLaw.LocalObligorSpec
 import JapanTaxLaw.LocalObligorTests
+import JapanTaxLaw.CollectionTaxpayer
+import JapanTaxLaw.CollectionTaxpayerSpec
+import JapanTaxLaw.CollectionTaxpayerTests
