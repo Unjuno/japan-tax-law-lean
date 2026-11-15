@@ -62,3 +62,6 @@ import JapanTaxLaw.CorporateTaxRateTests
 import JapanTaxLaw.InheritanceTax
 import JapanTaxLaw.InheritanceTaxSpec
 import JapanTaxLaw.InheritanceTaxTests
+import JapanTaxLaw.ConsumptionTaxRate
+import JapanTaxLaw.ConsumptionTaxRateSpec
+import JapanTaxLaw.ConsumptionTaxRateTests
