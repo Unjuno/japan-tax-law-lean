@@ -276,6 +276,13 @@ def checks():
             "合計所得金額が九百万円を超え九百五十万円以下である場合当該配偶者のイ（１）から（３）までに掲げる区分に応じ、それぞれイ（１）から（３）までに定める金額の三分の二に相当する金額",
             "合計所得金額が九百五十万円を超え千万円以下である場合当該配偶者のイ（１）から（３）までに掲げる区分に応じ、それぞれイ（１）から（３）までに定める金額の三分の一に相当する金額"])
 
+    # 相続税法 art. 19-3/19-4 — InheritanceMinorDisabledDeduction.lean (minorDeduction, disabledDeduction, yearsCeil)
+    yield ("相続税法 art. 19-3/19-4（未成年者控除（十万円 × 18歳達年数）／障害者控除（十万円／特別障害者二十万円 × 85歳達年数）、一年未満・端数は一年とする）↔ InheritanceMinorDisabledDeduction.lean (minorDeduction, disabledDeduction, yearsCeil)",
+           "325AC0000000073",
+           "file", None,
+           ["十万円にその者が十八歳に達するまでの年数",
+            "十万円（その者が特別障害者である場合には、二十万円）にその者が八十五歳に達するまでの年数"])
+
     # 地方税法 art. 314の3 — LocalInhabitantTax.lean (6% / 8% 指定都市)
     yield ("地方税法 art. 314の3（市町村民税 所得割の税率・百分の六／指定都市の区域内住所者百分の八）↔ LocalInhabitantTax.lean (localInhabitantStandardRate)",
            "325AC0000000226",

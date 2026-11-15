@@ -119,3 +119,7 @@ import JapanTaxLaw.SpecialGiftRateTests
 import JapanTaxLaw.StampDutySpecial91
 import JapanTaxLaw.StampDutySpecial91Spec
 import JapanTaxLaw.StampDutySpecial91Tests
+
+import JapanTaxLaw.InheritanceMinorDisabledDeduction
+import JapanTaxLaw.InheritanceMinorDisabledDeductionSpec
+import JapanTaxLaw.InheritanceMinorDisabledDeductionTests
