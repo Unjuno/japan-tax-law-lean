@@ -4,7 +4,6 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -25,12 +24,14 @@ jobs:
         run: lake build
 
       - name: No sorry/admit in adopted proofs
-        run: |
-          ! grep -rnE '\bsorry\b|\badmit\b' JapanTaxLaw/
+        # Comment- and string-aware scan: the previous naive grep false-triggered
+        # on the repo's own doc comments ("No `sorry`, `admit`..."). This checker
+        # strips comments/strings before matching, so only real proof code is scanned.
+        run: python3 scripts/ci/check_no_sorry.py
 
       - name: Axioms of key theorems
         run: |
-          printf 'import JapanTaxLaw\n#print axioms JapanTaxLaw.residency_spec_sound\n#print axioms JapanTaxLaw.residentClassification\n#print axioms JapanTaxLaw.excludedFromFiction_yes\n#print axioms JapanTaxLaw.corp_classification_always_one\n#print axioms JapanTaxLaw.actor_spec_sound\n#print axioms JapanTaxLaw.actor_spec_complete\n#print axioms JapanTaxLaw.actor_foreign_spec_sound\n#print axioms JapanTaxLaw.actor_foreign_spec_complete\n#print axioms JapanTaxLaw.foreign_judgment_negates_offices\n' > _ax.lean
+          python3 scripts/ci/generate_axiom_probe.py > _ax.lean
           lake env lean _ax.lean > _ax.log 2>&1 || { cat _ax.log; exit 1; }
           cat _ax.log
           ! grep -q 'sorryAx' _ax.log
@@ -62,8 +63,16 @@ jobs:
         run: python -m unittest scripts.tests.test_mutation_injection -v
       - name: Inventory selection tests
         run: python -m unittest scripts.tests.test_inventory_selection -v
+      - name: Cross-law consistency tests
+        run: python -m unittest scripts.tests.test_cross_law -v
+      - name: Revision impact tests
+        run: python -m unittest scripts.tests.test_revision_impact -v
       - name: Phase A inventory integrity
         run: python scripts/law_audit/inventory/validate_inventory.py
+      - name: Phase E cross-law pin consistency
+        run: python scripts/law_audit/phase_e/cross_law.py
+      - name: Phase F revision impact integrity
+        run: python scripts/law_audit/phase_f/revision_impact.py
       - name: Run audit and verify hashes
         run: |
           python -m scripts.law_audit.audit --out build
