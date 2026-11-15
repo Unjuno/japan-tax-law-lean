@@ -138,6 +138,31 @@ class TestSynthetic(unittest.TestCase):
         report = cross_law.run(self.lean, self.inv)
         self.assertTrue(report["ok"])
 
+    def test_two_law_module_blocks_checked_independently(self):
+        # A Phase E module may carry pins for more than one law; each block
+        # must be checked against its own ledger entry. Cross-contamination
+        # (rev A checked against entry A while rev B pins law B) must not
+        # raise a false failure, and a bad pin in either block must fail.
+        two = _ledger(law_ids=("337AC0000000066", "338AC0000000066"))
+        self.inv.write_text(json.dumps(two), encoding="utf-8")
+        self._write(
+            "TwoLaws.lean",
+            "/-!\n"
+            + _full_pin("337AC0000000066")
+            + _full_pin("338AC0000000066")
+            + "-/\n",
+        )
+        report = cross_law.run(self.lean, self.inv)
+        self.assertTrue(report["ok"], report["modules"])
+
+    def test_two_law_module_bad_second_block_fails(self):
+        two = _ledger(law_ids=("337AC0000000066", "338AC0000000066"))
+        self.inv.write_text(json.dumps(two), encoding="utf-8")
+        bad_b = _full_pin("338AC0000000066").replace("A" * 64, "B" * 64)
+        self._write("TwoLaws.lean", "/-!\n" + _full_pin("337AC0000000066") + bad_b + "-/\n")
+        report = cross_law.run(self.lean, self.inv)
+        self.assertFalse(report["ok"])
+
     def test_revision_only_unknown_fails(self):
         self._write("Spec.lean", "/-!\nRevision: 337AC0000000066_19000101_DEADBEEF00000000\n-/\n")
         report = cross_law.run(self.lean, self.inv)
