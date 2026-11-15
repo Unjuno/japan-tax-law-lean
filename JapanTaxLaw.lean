@@ -86,3 +86,6 @@ import JapanTaxLaw.CorporateSurtaxTests
 import JapanTaxLaw.GiftAddBack
 import JapanTaxLaw.GiftAddBackSpec
 import JapanTaxLaw.GiftAddBackTests
+import JapanTaxLaw.SpousalGiftDeduction
+import JapanTaxLaw.SpousalGiftDeductionSpec
+import JapanTaxLaw.SpousalGiftDeductionTests
