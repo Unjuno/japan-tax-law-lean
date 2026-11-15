@@ -89,7 +89,7 @@
 
 ## 4. PHASE D の機械検証範囲（意味形式化された条文）
 
-すべて **actor scope / 定義層** の形式化であり、課税標準の計算・端数処理・例外の全結合・得税額との統合は**未着手**です。各モジュールは `Law id`/`Revision`/`sha256` を原文ピンで保持し、`cross_law.py` により台帳との照合を受けます（104 ファイル / 77 ピン留めモジュール一致 / 0 失敗）。
+すべて **actor scope / 定義層** の形式化であり、課税標準の計算・端数処理・例外の全結合・得税額との統合は**未着手**です。各モジュールは `Law id`/`Revision`/`sha256` を原文ピンで保持し、`cross_law.py` により台帳との照合を受けます（107 ファイル / 80 ピン留めモジュール一致 / 0 失敗）。
 
 | 法令 | 条文 | モジュール | PR（base） |
 |---|---|---|---|
@@ -118,7 +118,7 @@
 - 原文取得率（ピン留め可能な法令）: **325/327 = 99.4%**（2 件は完全未施行・取得不能、成功件数に不算入）
 - 構造監査実施率: **325/325 = 100%**（パース・監査とも失敗 0）
 - 意味モデルの条文対応率: **actor scope 13 モジュール**（33,652 条中 ~0.04%）— すなわち**意味検証はほぼ未達**です。「全体系の構造監査完了＋部分的な意味検証完了」の状態を区別します
-- 再現性: `lake build`（107 jobs・CI 再現可能）/ `lake clean` → `lake build` ×2 再現 / Python 単体テスト 74 件 / `validate_inventory.py` / `cross_law.py` — すべて CI に登録・有効
+- 再現性: `lake build`（110 jobs・CI 再現可能）/ `lake clean` → `lake build` ×2 再現 / Python 単体テスト 74 件 / `validate_inventory.py` / `cross_law.py` — すべて CI に登録・有効
 - 変異注入: `scripts/tests/test_mutation_injection.py` — 12 クラスで規律検査が検出に使われることを確認
 
 ### 検出候補と確定異常
@@ -136,7 +136,7 @@
 | L1 Legal Sources | **実装済**（pin・sha256・施行日・改正履歴を台帳＋`data/raw/` に固定） |
 | L2 Legal Structure | **実装済・全件実行済**（`model.py` `rules.py` `audit.py` `sweep.py`；テスト 35 + 誤変更注入 12 クラス） |
 | L3 Legal Semantics | **部分的**（TaxFinance 共通層＋actor/定義層 13 モジュール） |
-| L4 Tax Computation | **一部着手（3 法令ぶん）**（所得税法 art. 89 IndividualIncomeTax.lean・法人税法 art. 66 CorporateTaxRate.lean・国税通則法 art. 118/119 端数切り捨て TaxRounding.lean・相続税法 art. 15-17 InheritanceTax.lean・消費税法 art. 29 ConsumptionTaxRate.lean・相続税法 art. 21-7 GiftTax.lean・印紙税法 art. 20 StampDuty.lean・相続税法 art. 18 InheritanceSurcharge.lean・相続税法 art. 20 InheritanceSuccessiveDeduction.lean・相続税法 art. 19-2 SpouseRelief.lean・法人税法 art. 67 CorporateSurtax.lean（特定同族会社の特別税率）・相続税法 art. 19 GiftAddBack.lean（相続開始前7年以内の贈与加算）・相続税法 art. 21-6 SpousalGiftDeduction.lean（贈与税の配偶者控除）・印紙税法 別表第一 StampTable.lean（第一〜三号 課税物件表の税率）・登録免許税法 別表第一（一）RegistrationTax.lean（不動産の登記の定率項目）・地方税法 道府県民税 LocalIncomeTax.lean（art. 34(2)基礎控除・(1)十号配偶者控除・art. 35 所得割の税率）・地方税法 市町村民税 LocalInhabitantTax.lean（art. 314の3 所得割の税率 6%/8%）。その他の L4（控除・予定納税・復興/防衛特別所得税・租税特別措置法ほか多く）は**未着手**） |
+| L4 Tax Computation | **一部着手（3 法令ぶん）**（所得税法 art. 89 IndividualIncomeTax.lean・法人税法 art. 66 CorporateTaxRate.lean・国税通則法 art. 118/119 端数切り捨て TaxRounding.lean・相続税法 art. 15-17 InheritanceTax.lean・消費税法 art. 29 ConsumptionTaxRate.lean・相続税法 art. 21-7 GiftTax.lean・印紙税法 art. 20 StampDuty.lean・相続税法 art. 18 InheritanceSurcharge.lean・相続税法 art. 20 InheritanceSuccessiveDeduction.lean・相続税法 art. 19-2 SpouseRelief.lean・法人税法 art. 67 CorporateSurtax.lean（特定同族会社の特別税率）・相続税法 art. 19 GiftAddBack.lean（相続開始前7年以内の贈与加算）・相続税法 art. 21-6 SpousalGiftDeduction.lean（贈与税の配偶者控除）・印紙税法 別表第一 StampTable.lean（第一〜三号 課税物件表の税率）・登録免許税法 別表第一（一）RegistrationTax.lean（不動産の登記の定率項目）・地方税法 道府県民税 LocalIncomeTax.lean（art. 34(2)基礎控除・(1)十号配偶者控除・art. 35 所得割の税率）・地方税法 市町村民税 LocalInhabitantTax.lean（art. 314の3 所得割の税率 6%/8%）・租税特別措置法 DeemedCapitalGainsCost.lean（art. 31の4 長期譲渡所得 概算取得費控除）。その他の L4（控除・予定納税・復興/防衛特別所得税・租税特別措置法ほか多く）は**未着手**） |
 | L5 Formal Verification | **部分的**（L3 の各モジェールに sound/complete 定理対） |
 | L6 Counterexample Discovery | **着手（v1・spec↔impl 有限領域反例検査）**`JapanTaxLaw/CounterexampleSweep.lean` — マージ済み L4 全モデル（~3,500 組の実点）で SPEC↔impl の一致をカーネルに `decide` させて証明。初検査で 2 件の spec↔impl 不一致を検出し（相次相続控除 r1/r2 の cap 周り）、法文に整合するよう修正。**普遍領域の反例の不存在・法的欠陥の発見は主張しない** |
 | L7 Evidence and Reporting | **v1 実装済**（`docs/L7_LEDGER.md` — pins/audit/unsupported/review-state を CI が毎回再生成照合・不一致で FAIL）; `AUDIT_REPORT.md`・`INVENTORY.md` と併存 |
@@ -146,7 +146,7 @@
 1. **Lean が証明するのは形式モデルの内部命題のみです。** モデルと法文の対応は pin（law_revision_id・施行日・SHA-256 のバイト一致、`cross_law.py` による機械的照合）によってのみ担保されます。正当な解釈は保証しません。
 2. **候補は未確定です。** 3,438 件の `candidate` は、かっこ不整合や参照先欠落に基づく機械検査の出力であり、法的欠陥の認定ではありません。独立の法的レビューなしに「抜け穴」「誤記」と呼べません。
 3. 地方税条例（約 1,788 団体・団体ごと独立法源）、租税条約・通達・裁判例は**未対応**です。国税の現行法令一覧に含まれません。
-4. PHASE F（改正影響）・PHASE E の意味的横断検証・PHASE L6（反例探索）は**未着手**です。L4（税額計算）は 所得税法 art. 89・法人税法 art. 66・通則法 art. 118/119・相続税法 art. 15-17・消費税法 art. 29・相続税法 art. 21-7（贈与税）・印紙税法 art. 20（過怠税）・相続税法 art. 18（相続税額の加算）・相続税法 art. 20（相次相続控除）・相続税法 art. 19-2（配偶者軽減）・法人税法 art. 67（特定同族会社の特別税率）・相続税法 art. 19（相続開始前7年以内の贈与加算）・相続税法 art. 21-6（贈与税の配偶者控除）・印紙税法 別表第一第一〜三号（課税物件表）・登録免許税法 別表第一（一）（不動産の登記の定率項目）・地方税法 道府県民税 art. 34(2)/(1)十号/art. 35・地方税法 市町村民税 art. 314の3 の最小スライスのみ着手済です。その他の L4（控除・予定納税ほか）は**未着手**です。
+4. PHASE F（改正影響）・PHASE E の意味的横断検証・PHASE L6（反例探索）は**未着手**です。L4（税額計算）は 所得税法 art. 89・法人税法 art. 66・通則法 art. 118/119・相続税法 art. 15-17・消費税法 art. 29・相続税法 art. 21-7（贈与税）・印紙税法 art. 20（過怠税）・相続税法 art. 18（相続税額の加算）・相続税法 art. 20（相次相続控除）・相続税法 art. 19-2（配偶者軽減）・法人税法 art. 67（特定同族会社の特別税率）・相続税法 art. 19（相続開始前7年以内の贈与加算）・相続税法 art. 21-6（贈与税の配偶者控除）・印紙税法 別表第一第一〜三号（課税物件表）・登録免許税法 別表第一（一）（不動産の登記の定率項目）・地方税法 道府県民税 art. 34(2)/(1)十号/art. 35・地方税法 市町村民税 art. 314の3・租税特別措置法 art. 31の4 の最小スライスのみ着手済です。その他の L4（控除・予定納税ほか）は**未着手**です。
 5. `verify` 関税法／租税特別措置法／印紙税法／登録免許税法／地方税の残りの膨大な条文は**未形式化**です。
 6. 台帳の revision 自体は e-Gov API の応答に基づき `CurrentEnforced` を優先して選択していますが、候補 revision 選択の入力値・時刻依存性は `data/PROVENANCE.json` を参照してください。
 
@@ -157,7 +157,7 @@ python -m unittest scripts.tests.test_structural_audit scripts.tests.test_mutati
   scripts.tests.test_inventory_selection scripts.tests.test_cross_law   # 66 tests
 python scripts/law_audit/inventory/validate_inventory.py                # 台帳整合
 python scripts/law_audit/phase_e/cross_law.py                           # Lean pin vs 台帳
-lake build                                                              # Lean 107 jobs
+lake build                                                              # Lean 110 jobs
 lake clean && lake build                                                # 再現性（×2 CI 登録）
 ```
 

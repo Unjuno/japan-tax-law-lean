@@ -25,7 +25,7 @@
 
 ```
 python scripts/law_audit/phase_e/cross_law.py
-# → scanned 104 Lean files; 77 pinned modules consistent, 0 failed;
+# → scanned 107 Lean files; 80 pinned modules consistent, 0 failed;
 #   27 unpinned (not counted as verified);
 #   unresolved unenforced laws: 508CO0000000106, 508M60000040027
 ```
