@@ -89,7 +89,7 @@
 
 ## 4. PHASE D の機械検証範囲（意味形式化された条文）
 
-すべて **actor scope / 定義層** の形式化であり、課税標準の計算・端数処理・例外の全結合・得税額との統合は**未着手**です。各モジュールは `Law id`/`Revision`/`sha256` を原文ピンで保持し、`cross_law.py` により台帳との照合を受けます（125 ファイル / 98 ピン留めモジュール一致 / 0 失敗）。
+すべて **actor scope / 定義層** の形式化であり、課税標準の計算・端数処理・例外の全結合・得税額との統合は**未着手**です。各モジュールは `Law id`/`Revision`/`sha256` を原文ピンで保持し、`cross_law.py` により台帳との照合を受けます（128 ファイル / 101 ピン留めモジュール一致 / 0 失敗）。
 
 | 法令 | 条文 | モジュール | PR（base） |
 |---|---|---|---|
@@ -118,7 +118,7 @@
 - 原文取得率（ピン留め可能な法令）: **325/327 = 99.4%**（2 件は完全未施行・取得不能、成功件数に不算入）
 - 構造監査実施率: **325/325 = 100%**（パース・監査とも失敗 0）
 - 意味モデルの条文対応率: **actor scope 13 モジュール**（33,652 条中 ~0.04%）— すなわち**意味検証はほぼ未達**です。「全体系の構造監査完了＋部分的な意味検証完了」の状態を区別します
-- 再現性: `lake build`（128 jobs・CI 再現可能）/ `lake clean` → `lake build` ×2 再現 / Python 単体テスト 74 件 / `validate_inventory.py` / `cross_law.py` — すべて CI に登録・有効
+- 再現性: `lake build`（131 jobs・CI 再現可能）/ `lake clean` → `lake build` ×2 再現 / Python 単体テスト 74 件 / `validate_inventory.py` / `cross_law.py` — すべて CI に登録・有効
 - 変異注入: `scripts/tests/test_mutation_injection.py` — 12 クラスで規律検査が検出に使われることを確認
 
 ### 検出候補と確定異常
@@ -136,7 +136,7 @@
 | L1 Legal Sources | **実装済**（pin・sha256・施行日・改正履歴を台帳＋`data/raw/` に固定） |
 | L2 Legal Structure | **実装済・全件実行済**（`model.py` `rules.py` `audit.py` `sweep.py`；テスト 35 + 誤変更注入 12 クラス） |
 | L3 Legal Semantics | **部分的**（TaxFinance 共通層＋actor/定義層 13 モジュール） |
-| L4 Tax Computation | **一部着手（3 法令ぶん）**（所得税法 art. 89 IndividualIncomeTax.lean・法人税法 art. 66 CorporateTaxRate.lean・国税通則法 art. 118/119 端数切り捨て TaxRounding.lean・相続税法 art. 15-17 InheritanceTax.lean・消費税法 art. 29 ConsumptionTaxRate.lean・相続税法 art. 21-7 GiftTax.lean・印紙税法 art. 20 StampDuty.lean・相続税法 art. 18 InheritanceSurcharge.lean・相続税法 art. 20 InheritanceSuccessiveDeduction.lean・相続税法 art. 19-2 SpouseRelief.lean・法人税法 art. 67 CorporateSurtax.lean（特定同族会社の特別税率）・相続税法 art. 19 GiftAddBack.lean（相続開始前7年以内の贈与加算）・相続税法 art. 21-6 SpousalGiftDeduction.lean（贈与税の配偶者控除）・印紙税法 別表第一 StampTable.lean（第一〜三号 課税物件表の税率）・登録免許税法 別表第一（一）RegistrationTax.lean（不動産の登記の定率項目）・地方税法 道府県民税 LocalIncomeTax.lean（art. 34(2)基礎控除・(1)十号配偶者控除・art. 35 所得割の税率）・地方税法 市町村民税 LocalInhabitantTax.lean（art. 314の3 所得割の税率 6%/8%）・租税特別措置法 DeemedCapitalGainsCost.lean（art. 31の4 長期譲渡所得 概算取得費控除）・登録免許税法 RegistrationCommercialTax.lean（別表第一（二）第二十四号（一）イ 株式会社の設立の登記 資本金の千分の七・最低15万円）・RegistrationCommercialTaxTable.lean（同 ロ〜チ： 合名合資／一般社団法人等の設立の登記 ¥60,000固定・合同会社の設立の登記 資本金の千分の七（最低¥60,000）・資本金の増加の登記 千分の七（最低¥30,000）・新設合併等による設立の登記（千分の一・五・直前資本金を超える部分は千分の七・最低¥30,000）・吸収合併による資本金の増加（千分の一・五・直前資本金超過部分は千分の七）・新設分割による設立（千分の七・最低¥30,000）・吸収分割による資本金の増加（千分の七・最低¥30,000））・相続税法 art. 19-3/19-4 InheritanceMinorDisabledDeduction.lean（未成年者控除 十万円×18歳達年数（一年未満切上げ）／障害者控除 十万円・特別障害者二十万円×85歳達年数（同切上げ）・超過部分の扶養義務者控除算定（`minorExcess`/`disabledExcess`）・`yearsCeil` 単調性）。Phase E の 2 モジュール: (a) PhaseECorpRates.lean（法人税法 art. 66 ↔ 租税特別措置法 art. 67の2(1)・art. 68(1)(2) の法人税率整合性: 19%<22%<23.2% の帯順序・¥10億以下で art. 66(3) と同値・超過分の分裂加法性・月数換算 cap・単調非減少・art. 67の2 と art. 66(3) が同一税率関数であること）、(b) SpecialGiftRate.lean（租税特別措置法 art. 70の2の5(1) 特定直系尊属贈与税率の特例 ↔ 相続税法 art. 21-7 一般税率: 両表が ¥2,000,000 以下で同値（kernel証明 `special_eq_general_le_2m`）・¥0以下・¥45,000,000 超までの特別表が一般表を上回らないサンプル支配（有界サンプル・普遍証明ではない）・適格ゲート・¥600,000 控除後計算・非適格時フォールバック）、(c) StampDutySpecial91.lean（租税特別措置法 art. 91(1)(2)（不動産譲渡契約書／建設工事請負契約書の印紙税特別税率）↔ 印紙税法 別表第一第一号／第二号 の一般税率（StampTable.lean モデル）: 普遍支配 `special91Item{1,2}_le_general`（kernel証明）・両表 ¥5,000,000 超同一・上位帯では特別表が一般表の半額より高い（60,000 vs 100,000）・適格ゲート・非適格時 Option フォールバック）。その他の L4（控除・予定納税・復興/防衛特別所得税・租税特別措置法ほか多く）は**未着手**） |
+| L4 Tax Computation | **一部着手（3 法令ぶん）**（所得税法 art. 89 IndividualIncomeTax.lean・法人税法 art. 66 CorporateTaxRate.lean・国税通則法 art. 118/119 端数切り捨て TaxRounding.lean・相続税法 art. 15-17 InheritanceTax.lean・消費税法 art. 29 ConsumptionTaxRate.lean・相続税法 art. 21-7 GiftTax.lean・印紙税法 art. 20 StampDuty.lean・相続税法 art. 18 InheritanceSurcharge.lean・相続税法 art. 20 InheritanceSuccessiveDeduction.lean・相続税法 art. 19-2 SpouseRelief.lean・法人税法 art. 67 CorporateSurtax.lean（特定同族会社の特別税率）・相続税法 art. 19 GiftAddBack.lean（相続開始前7年以内の贈与加算）・相続税法 art. 21-6 SpousalGiftDeduction.lean（贈与税の配偶者控除）・印紙税法 別表第一 StampTable.lean（第一〜三号 課税物件表の税率）・登録免許税法 別表第一（一）RegistrationTax.lean（不動産の登記の定率項目）・地方税法 道府県民税 LocalIncomeTax.lean（art. 34(2)基礎控除・(1)十号配偶者控除・art. 35 所得割の税率）・地方税法 市町村民税 LocalInhabitantTax.lean（art. 314の3 所得割の税率 6%/8%）・租税特別措置法 DeemedCapitalGainsCost.lean（art. 31の4 長期譲渡所得 概算取得費控除）・登録免許税法 RegistrationCommercialTax.lean（別表第一（二）第二十四号（一）イ 株式会社の設立の登記 資本金の千分の七・最低15万円）・相続税法 art. 17 InheritanceApportionment.lean（各相続人等の相続税額： 相続税の総額を当該財産を取得した者の課税価格割合で按分・満額・単調性）・RegistrationCommercialTaxTable.lean（同 ロ〜チ： 合名合資／一般社団法人等の設立の登記 ¥60,000固定・合同会社の設立の登記 資本金の千分の七（最低¥60,000）・資本金の増加の登記 千分の七（最低¥30,000）・新設合併等による設立の登記（千分の一・五・直前資本金を超える部分は千分の七・最低¥30,000）・吸収合併による資本金の増加（千分の一・五・直前資本金超過部分は千分の七）・新設分割による設立（千分の七・最低¥30,000）・吸収分割による資本金の増加（千分の七・最低¥30,000））・相続税法 art. 19-3/19-4 InheritanceMinorDisabledDeduction.lean（未成年者控除 十万円×18歳達年数（一年未満切上げ）／障害者控除 十万円・特別障害者二十万円×85歳達年数（同切上げ）・超過部分の扶養義務者控除算定（`minorExcess`/`disabledExcess`）・`yearsCeil` 単調性）。Phase E の 2 モジュール: (a) PhaseECorpRates.lean（法人税法 art. 66 ↔ 租税特別措置法 art. 67の2(1)・art. 68(1)(2) の法人税率整合性: 19%<22%<23.2% の帯順序・¥10億以下で art. 66(3) と同値・超過分の分裂加法性・月数換算 cap・単調非減少・art. 67の2 と art. 66(3) が同一税率関数であること）、(b) SpecialGiftRate.lean（租税特別措置法 art. 70の2の5(1) 特定直系尊属贈与税率の特例 ↔ 相続税法 art. 21-7 一般税率: 両表が ¥2,000,000 以下で同値（kernel証明 `special_eq_general_le_2m`）・¥0以下・¥45,000,000 超までの特別表が一般表を上回らないサンプル支配（有界サンプル・普遍証明ではない）・適格ゲート・¥600,000 控除後計算・非適格時フォールバック）、(c) StampDutySpecial91.lean（租税特別措置法 art. 91(1)(2)（不動産譲渡契約書／建設工事請負契約書の印紙税特別税率）↔ 印紙税法 別表第一第一号／第二号 の一般税率（StampTable.lean モデル）: 普遍支配 `special91Item{1,2}_le_general`（kernel証明）・両表 ¥5,000,000 超同一・上位帯では特別表が一般表の半額より高い（60,000 vs 100,000）・適格ゲート・非適格時 Option フォールバック）。その他の L4（控除・予定納税・復興/防衛特別所得税・租税特別措置法ほか多く）は**未着手**） |
 | L5 Formal Verification | **部分的**（L3 の各モジェールに sound/complete 定理対） |
 | L6 Counterexample Discovery | **着手（v1・spec↔impl 有限領域反例検査）**`JapanTaxLaw/CounterexampleSweep.lean` — マージ済み L4 全モデル（~3,500 組の実点）で SPEC↔impl の一致をカーネルに `decide` させて証明。初検査で 2 件の spec↔impl 不一致を検出し（相次相続控除 r1/r2 の cap 周り）、法文に整合するよう修正。**普遍領域の反例の不存在・法的欠陥の発見は主張しない** |
 | L7 Evidence and Reporting | **v2 実装済**（`docs/L7_LEDGER.md` — pins/audit/unsupported を機械生成・CI 再生成照合。`docs/L7_CANDIDATES_UNREVIEWED.csv` — **全 3,438 候補の行ごとレビュー状態**（全件 `review_status=unreviewed`）を CI が再生成照合）; `AUDIT_REPORT.md`・`INVENTORY.md` と併存 |
@@ -158,7 +158,7 @@ python -m unittest scripts.tests.test_structural_audit scripts.tests.test_mutati
   scripts.tests.test_inventory_selection scripts.tests.test_cross_law   # 66 tests
 python scripts/law_audit/inventory/validate_inventory.py                # 台帳整合
 python scripts/law_audit/phase_e/cross_law.py                           # Lean pin vs 台帳
-lake build                                                              # Lean 128 jobs
+lake build                                                              # Lean 131 jobs
 lake clean && lake build                                                # 再現性（×2 CI 登録）
 ```
 
