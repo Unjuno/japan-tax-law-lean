@@ -115,6 +115,27 @@ python scripts/law_audit/inventory/validate_inventory.py             # 台帳の
 python -m unittest scripts.tests.test_inventory_selection            # 7 テスト
 ```
 
+## Phase B — 全体系の構造監査（完了）
+
+Phase A でピン留めした 325 件の法令原文に対し、構造監査エンジンを全件に実行しました。
+
+- 対象: pinned 325 トランザクション全件（0 件パース失敗、0 件監査失敗、附則含む）
+- 検査件数: 条 33,652／項 77,471／号 45,836（総計約 15.7 万要素を走査）
+- 参照抽出: 461,067 件（内部解決可能 63,214／外部未解決 169,032／未対応構文 240,799）
+- **監査結果（verified-anomaly）: 0 件** — 既存の検証済み異常はありません。`candidate` 3,280 件は抽出チェックの候補であり、**確定した欠陥ではない**（独立の法的レビュー待ち）。
+  - 候補内訳: かっこ不整合 1,492／参照項目欠落 914／参照条欠落 362／参照項欠落 341／附則参照欠落 95／削除条文参照 67 ほか
+- 未対応範囲（明示）: 別表の内容意味、`AppdxStyle`、表の列構造の意味、租税条約・附則の経過措置の参照解決、R1 で除外した住所認定の詳細は対象外。
+
+検証コマンド:
+
+```sh
+python scripts/law_audit/inventory/sweep.py            # 全法令スイープ
+python scripts/law_audit/inventory/validate_inventory.py  # 台帳整合チェック
+```
+
+候補の一覧と根拠は `build/audit_sweep.json`（生成物・未コミット）に出力されます。
+**`build/` はコミット対象外**。台帳台帳の再現手順は [docs/INVENTORY.md](docs/INVENTORY.md) を参照。
+
 ## R1 の検証結果（2026-11-15 時点）
 
 - **`lake build`**: 成功（Lean v4.35.0、依存なし）

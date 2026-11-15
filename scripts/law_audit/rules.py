@@ -337,17 +337,69 @@ SELF_ACT_NAME = "所得税法"
 SELF_ORDER_NAME = "所得税法施行令"
 
 
+def _law_type_simple(law_id: str) -> str:
+    """法律 / 政令 / 省令などの粗区分。law-D rules 内で共通利用する。"""
+    if "AC" in law_id or law_id.endswith("A"):
+        return "act"
+    if "CO" in law_id or "DM" in law_id:
+        return "order"
+    return "rule"
+
+
+def _family_tokens(title: str) -> set[str]:
+    """Return the self-family article-name tokens for a law title.
+
+    所得税法 -> {所得税法};
+    所得税法施行令 -> {所得税法施行令, 所得税法施行, 所得税法}.
+
+    Strips a fixed list of doc-system suffixes repeatedly until no more
+    suffixes match. This gives the family stem chain for exact classification.
+    """
+    suffixes = ("施行規則", "施行令", "施行細則", "施行準則", "施行細目", "規則", "要領", "細則", "通達")
+    toks = {title.rstrip()}
+    stem = title.rstrip()
+    changed = True
+    while changed:
+        changed = False
+        for s in suffixes:
+            if stem.endswith(s):
+                stem = stem[: -len(s)]
+                toks.add(stem)
+                changed = True
+                break
+    return toks
+
+
 def _classify_law_name(name: str, doc: LawDoc) -> str:
-    """Classify a law-name token preceding a reference."""
-    if name == SELF_ACT_NAME:
-        return "internal" if doc.law_id.startswith("340AC") else "act"
-    if name == SELF_ORDER_NAME:
-        return "internal" if doc.law_id.startswith("340CO") else "order"
+    """Classify a law-name token preceding a reference.
+
+    名前呼び参照はファミリー内参照のみを解決対象とし、それ以外は external とする
+    （未確認の他法令参照を自法令と混同しない）。
+    """
+    if name == doc.law_title:
+        return "internal"
+    toks = _family_tokens(doc.law_title)
+    kind = _law_type_simple(doc.law_id)
+    if kind == "act":
+        if name == doc.law_title + "施行令":
+            return "order"
+        if name == doc.law_title + "施行規則":
+            return "rule"
+        return "external"
+    # order / rule: family members name their immediate parents/ancestors.
+    if name in toks:  # strict family member (excludes self; handled above)
+        if name.endswith(("法律", "法")):
+            return "act"
+        if name.endswith(("政令", "勅令", "令")):
+            return "order"
+        if name.endswith("規則"):
+            return "rule"
     return "external"
 
 
 def _switches(doc: LawDoc, sentence: str) -> list:
     """Context-switching events of a sentence: (start, end, cls), left to right."""
+    kind = _law_type_simple(doc.law_id)
     switches = []
     for m in LAW_NAME_SUFFIX_RE.finditer(sentence):
         switches.append((m.start(), m.end(), _classify_law_name(m.group(0), doc)))
@@ -355,10 +407,10 @@ def _switches(doc: LawDoc, sentence: str) -> list:
         switches.append((m.start(), m.end(), "external"))
     for m in SELF_TOKEN_RE.finditer(sentence):
         switches.append((m.start(), m.end(), "internal"))
-    if doc.law_id.startswith("340CO"):
+    if kind in ("order", "rule"):
         for m in STANDALONE_LAW_RE.finditer(sentence):
             switches.append((m.start(), m.end(), "act"))
-    if doc.law_id.startswith("340AC"):
+    if kind in ("act", "rule"):
         for m in STANDALONE_ORDER_RE.finditer(sentence):
             switches.append((m.start(), m.end(), "order"))
     switches.sort(key=lambda e: (e[0], 0 if e[2] == "internal" else 1))
