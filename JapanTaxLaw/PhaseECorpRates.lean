@@ -129,13 +129,15 @@ theorem min_le_min' {a b c d : Nat} (h1 : a ≤ b) (h2 : c ≤ d) : min a c ≤ 
   · rw [Nat.min_eq_left h]
     by_cases h' : b ≤ d
     · rw [Nat.min_eq_left h']; exact h1
-    · have hd : d ≤ b := Nat.le_of_not_le h'
-      rw [Nat.min_eq_right hd]; omega
+    · rw [Nat.min_eq_right (Nat.le_of_not_le h')]
+      exact Nat.le_trans h h2
   · have hc : c ≤ a := Nat.le_of_not_le h
     rw [Nat.min_eq_right hc]
     by_cases h' : b ≤ d
-    · rw [Nat.min_eq_left h']; omega
-    · rw [Nat.min_eq_right (Nat.le_of_not_le h')]; omega
+    · rw [Nat.min_eq_left h']
+      exact Nat.le_trans hc h1
+    · rw [Nat.min_eq_right (Nat.le_of_not_le h')]
+      exact h2
 
 /-- x - min x cap = (if x ≤ cap then 0 else x - cap). -/
 theorem sub_min_self (x cap : Money) : x - min x cap = if x ≤ cap then 0 else x - cap := by
