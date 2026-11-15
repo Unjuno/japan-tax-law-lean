@@ -1,0 +1,47 @@
+import JapanTaxLaw.StampDuty
+
+/-!
+# StampDuty tests — 印紙税法 art. 20 smoke checks
+
+Decidable smoke tests for the 印紙税法 art. 20 過怠税 model, pinned to
+  Law id: 342AC0000000023
+  Revision: 342AC0000000023_20261001_507AC0000000070
+  Amendment enforcement date: 2026-10-01
+-/
+
+namespace JapanTaxLaw
+
+open JapanTaxLaw.TaxFinance
+
+-- art. 20(1) discovered non-payment: unpaid + 2× unpaid = 3× unpaid
+example : stampAuditPenalty 0 = 0 := by decide
+example : stampAuditPenalty 100 = 300 := by decide
+example : stampAuditPenalty 334 = 1_002 := by decide
+
+-- art. 20(2) anticipated self-declared (before investigation):
+--   unpaid + 10% of unpaid
+example : stampDeclaredPenalty 0 = 0 := by decide
+example : stampDeclaredPenalty 100 = 110 := by decide
+example : stampDeclaredPenalty 200 = 220 := by decide
+example : stampDeclaredPenalty 1_000 = 1_100 := by decide
+
+-- art. 20(4): aggregate underpayment penalty below ¥1,000 is rounded up
+example : stampDutyFloor 0 = 1_000 := by decide
+example : stampDutyFloor 500 = 1_000 := by decide
+example : stampDutyFloor 999 = 1_000 := by decide
+example : stampDutyFloor 1_000 = 1_000 := by decide
+example : stampDutyFloor 1_001 = 1_001 := by decide
+
+-- helper composition: audit penalty with floor applied below threshold
+example : stampAuditPenaltyFloor 0 = 1_000 := by decide
+example : stampAuditPenaltyFloor 333 = 1_000 := by decide
+example : stampAuditPenaltyFloor 334 = 1_002 := by decide
+example : stampAuditPenaltyFloor 500 = 1_500 := by decide
+
+-- art. 20(5) note: the model distinguishes floor-applying aggregates
+example : stampDeclaredOnlyTotalsExcludeFloor = true := by decide
+
+-- art. 20(3): uncancelled stamps -> face value
+example : stampUncancelledPenalty 300 = 300 := by decide
+
+end JapanTaxLaw

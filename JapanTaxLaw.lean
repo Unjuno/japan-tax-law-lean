@@ -68,3 +68,6 @@ import JapanTaxLaw.ConsumptionTaxRateTests
 import JapanTaxLaw.GiftTax
 import JapanTaxLaw.GiftTaxSpec
 import JapanTaxLaw.GiftTaxTests
+import JapanTaxLaw.StampDuty
+import JapanTaxLaw.StampDutySpec
+import JapanTaxLaw.StampDutyTests
