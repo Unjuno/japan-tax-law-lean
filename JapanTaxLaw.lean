@@ -25,3 +25,6 @@ import JapanTaxLaw.TaxProcedureTests
 import JapanTaxLaw.StatutoryDeadline
 import JapanTaxLaw.StatutoryDeadlineSpec
 import JapanTaxLaw.StatutoryDeadlineTests
+import JapanTaxLaw.TaxationPeriod
+import JapanTaxLaw.TaxationPeriodSpec
+import JapanTaxLaw.TaxationPeriodTests
