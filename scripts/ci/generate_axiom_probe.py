@@ -13,8 +13,8 @@ import sys
 
 OUR_NAMESPACE_PATTERN = re.compile(r"^\s*namespace\s+([A-Za-z0-9_.']+)")
 END_PATTERN = re.compile(r"^\s*end(\s+([A-Za-z0-9_.']+))?\s*$")
-THM_PATTERN = re.compile(r"^\s*theorem\s+([A-Za-z0-9_.']+)\b")
-LEMMA_PATTERN = re.compile(r"^\s*lemma\s+([A-Za-z0-9_.']+)\b")
+THM_PATTERN = re.compile(r"^\s*theorem\s+([A-Za-z0-9_.']+)(?=[\s\({:]|$)")
+LEMMA_PATTERN = re.compile(r"^\s*lemma\s+([A-Za-z0-9_.']+)(?=[\s\({:]|$)")
 
 
 def tracked_lean_files():

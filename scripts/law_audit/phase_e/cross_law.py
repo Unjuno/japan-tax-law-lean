@@ -75,11 +75,37 @@ def revision_index(inv: dict) -> dict[str, str]:
 
 
 def parse_pins(text: str) -> dict:
+    """Collect all pins, plus per-law blocks (each Law id: starts a new block).
+
+    A module may carry pins for more than one law (e.g. a Phase E cross-law
+    consistency module). Pins in a block are checked only against that block's
+    own law_id, so citing 法人税法 and 租税特別措置法 in one file does not
+    cross-reject either pin.
+    """
+    blocks = []
+    cur: dict | None = None
+    for line in text.splitlines():
+        m = LAW_ID_RE.search(line)
+        if m:
+            if cur is not None:
+                blocks.append(cur)
+            cur = {"law_id": m.group(1), "lines": []}
+            continue
+        if cur is not None:
+            cur["lines"].append(line)
+    if cur is not None:
+        blocks.append(cur)
+    for b in blocks:
+        btext = "\n".join(b["lines"])
+        b["revisions"] = REVISION_RE.findall(btext)
+        b["sha256s"] = [s.upper() for s in SHA_RE.findall(btext)]
+        b["enforcement_dates"] = ENFORCE_RE.findall(btext)
     return {
         "law_ids": LAW_ID_RE.findall(text),
         "revisions": REVISION_RE.findall(text),
         "sha256s": [s.upper() for s in SHA_RE.findall(text)],
         "enforcement_dates": ENFORCE_RE.findall(text),
+        "blocks": blocks,
     }
 
 
@@ -100,11 +126,12 @@ def check_module(name: str, pins: dict, inv: dict) -> dict:
         if lid in unresolved:
             problems.append(f"{name}: revision pin matches unresolved law {lid}")
 
-    # Law-id pins: full consistency check against the ledger entry.
-    for lid in sorted(set(pins["law_ids"])):
+    # Each law_id block is checked against its own ledger entry only.
+    for block in sorted(pins.get("blocks", []), key=lambda b: b["law_id"]):
+        lid = block["law_id"]
         rec = by_id.get(lid)
         if rec is None:
-            problems.append(f"{name}: law_id {lid} not present in ledger")
+            problems.append(f"{name}: block law_id {lid} not present in ledger")
             continue
         cr = rec.get("current_revision") or {}
         if rec.get("current_revision_status") != "CurrentEnforced":
@@ -114,30 +141,30 @@ def check_module(name: str, pins: dict, inv: dict) -> dict:
             )
         if not rec.get("audit_ready"):
             problems.append(f"{name}: ledger audit_ready is not true for {lid}")
-        if pins["revisions"]:
+        if block["revisions"]:
             expected_rev = cr.get("law_revision_id")
-            for rev in pins["revisions"]:
+            for rev in block["revisions"]:
                 if rev != expected_rev:
                     problems.append(
-                        f"{name}: Revision {rev} != ledger current_revision.law_revision_id "
-                        f"{expected_rev}"
+                        f"{name}: block Revision {rev} != ledger current_revision.law_revision_id "
+                        f"{expected_rev} for law {lid}"
                     )
-        if pins["sha256s"]:
+        if block["sha256s"]:
             snap = rec.get("raw_snapshot") or {}
             expected_sha = (snap.get("source_sha256") or "").upper()
             if not expected_sha:
                 problems.append(f"{name}: ledger has no raw_snapshot.source_sha256 for {lid}")
-            for sha in pins["sha256s"]:
+            for sha in block["sha256s"]:
                 if sha != expected_sha:
                     problems.append(
-                        f"{name}: Raw snapshot sha256 {sha} != ledger {expected_sha}"
+                        f"{name}: block Raw snapshot sha256 {sha} != ledger {expected_sha} for law {lid}"
                     )
-        if pins["enforcement_dates"]:
+        if block["enforcement_dates"]:
             expected_date = cr.get("amendment_enforcement_date")
-            for d in pins["enforcement_dates"]:
+            for d in block["enforcement_dates"]:
                 if expected_date and d != expected_date:
                     problems.append(
-                        f"{name}: Amendment enforcement date {d} != ledger {expected_date}"
+                        f"{name}: block Amendment enforcement date {d} != ledger {expected_date} for law {lid}"
                     )
 
     # Revision-only / sha-only pins not anchored to a law-id line.

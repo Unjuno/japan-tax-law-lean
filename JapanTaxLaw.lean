@@ -108,3 +108,6 @@ import JapanTaxLaw.DeemedCapitalGainsCostTests
 import JapanTaxLaw.RegistrationCommercialTax
 import JapanTaxLaw.RegistrationCommercialTaxSpec
 import JapanTaxLaw.RegistrationCommercialTaxTests
+import JapanTaxLaw.PhaseECorpRates
+import JapanTaxLaw.PhaseECorpRatesSpec
+import JapanTaxLaw.PhaseECorpRatesTests
