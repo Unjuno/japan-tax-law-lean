@@ -34,7 +34,6 @@ import JapanTaxLaw.ObligationArt15Tests
 import JapanTaxLaw.ConsumptionTaxActor
 import JapanTaxLaw.ConsumptionTaxActorSpec
 import JapanTaxLaw.ConsumptionTaxActorTests
-import JapanTaxLaw.ConsumptionTaxActorTests
 import JapanTaxLaw.InheritanceTaxActor
 import JapanTaxLaw.InheritanceTaxActorSpec
 import JapanTaxLaw.InheritanceTaxActorTests
@@ -44,3 +43,6 @@ import JapanTaxLaw.LocalExemptionTests
 import JapanTaxLaw.LocalPrivilege
 import JapanTaxLaw.LocalPrivilegeSpec
 import JapanTaxLaw.LocalPrivilegeTests
+import JapanTaxLaw.LocalObligor
+import JapanTaxLaw.LocalObligorSpec
+import JapanTaxLaw.LocalObligorTests

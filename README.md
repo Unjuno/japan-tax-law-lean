@@ -92,6 +92,22 @@ JapanTaxLaw/LocalPrivilege.lean では、地方税法（昭和二十五年法律
 - Act art. 2（地方団体の課税権）、Act art. 4・5（各課税の対象）、Act art. 3（条例要件）、後続条目（附則・各税目）は未対応。
 - JapanTaxLaw/LocalPrivilegeSpec.lean で独立仕様を維持し、健全性・整合性の定理を証明しています（後述）。
 
+### 地方税法第24条（道府県民税の納税義務者等・actor-scope）
+
+JapanTaxLaw/LocalObligor.lean では、地方税法（昭和二十五年法律第二百二十六号・現行2026-11-01付施行版）第二十四条第1項（道府県民税の納税義務者等）の actor 分類、すなわち適用主体の判定を行う部分を形式化します（第5号〜第7号（利子割・配当割・株式等譲渡所得割）の withholding 系統および第2項以降は本PRでは未対応）。
+
+- Act art. 24(1) の五類型を分類します：
+  - 一（道府県内に住所を有する個人） → `.equalAndIncome`（均等割＋所得割）
+  - 二（事務所等を有する個人で住所を有しない者） → `.equalOnlyIndividual`（均等割のみ）
+  - 三（道府県内に事務所又は事業所を有する法人） → `.equalPlusCorporate`（均等割＋法人税割）
+  - 四（道府県内に寮等を有する法人で事務所又は事業所を有しないもの） → `.equalOnlyDormitory`（均等割のみ）
+  - 四の二（法人課税信託の引受けにより法人税を課される個人で事務所等を有するもの） → `.corporateOnly`（法人税割のみ）
+- 複数類型が同時に確立する場合は `.multipleApplicable` を返します（法人と個人の同一人物像は存在します；立法上の優先順位規則はモデル化していません）。
+- 認定はverdict-levelの外部入力事実として扱います（住所・事務所・寮等の内部認定関数は作成しません）。
+- 対象外（未対応）：第5号（利子割）〜第7号（株式等譲渡所得割）の withholding トラック、第2項〜第9項（みなし規定・収益事業の範囲（政令委任）・人格のない社団等のみなし法人・外国法人の恒久的施設＝事務所/事業所 みなし・一般事業法人の均等割判定・住民基本台帳法参照の記録）、利子割・配当割の実際の処理。
+- ドキュメント化した既知の限界（LocalObligor.lean の module docstring 参照）：Act art. 24(2) 以降との優先関係、item 一と item 四の二の重複（同一人物）に対する課税方式の取捨選択は法律解釈問題であり、本PRでは解決しません（PHASE E の横断検証範囲として記録）。
+- JapanTaxLaw/LocalObligorSpec.lean で独立仕様を維持し、健全性・整合性の定理を証明しています（後述）。
+
 ### 地方税法第6条（公益等に因る課税免除及び不均一課税）
 
 JapanTaxLaw/LocalExemption.lean では、地方税法（昭和二十五年法律第二百二十六号・現行2026-11-01付施行版）第六条（地方団体は、公益上その他の事由に因り課税を不適当とする場合においては、課税をしないことができる／同条第2項：不均一の課税をすることができる）の二項を形式化します。Act art. 7 （受益に因る加重・減免） 及び art. 24 （都道府県税の普通税目・目的税目の枠割と課税免除）・関連する行政規則・市町村税条例は本PRでは**未対応**です。
@@ -237,6 +253,12 @@ JapanTaxLaw/InheritanceTaxActorTests.lean # Act art.1の3 anchor の退行テス
 JapanTaxLaw/LocalExemption.lean        # 地方税法 第6条 （公益等に因る課税免除及び不均一課税）
 JapanTaxLaw/LocalExemptionSpec.lean    # Act art.6 の独立仕様・健全性・整合性定理
 JapanTaxLaw/LocalExemptionTests.lean   # Act art.6 の退行テスト 15件
+JapanTaxLaw/LocalPrivilege.lean      # 地方税法 第7条 （受益に因る不均一課税及び一部課税）
+JapanTaxLaw/LocalPrivilegeSpec.lean  # Act art.7 の独立仕様・健全性・整合性定理
+JapanTaxLaw/LocalPrivilegeTests.lean # Act art.7 の退行テスト 12件
+JapanTaxLaw/LocalObligor.lean         # 地方税法 第24条第1項 actor scope（一〜四の二）
+JapanTaxLaw/LocalObligorSpec.lean     # Act art.24(1) actor anchor の独立仕様・健全性・整合性定理
+JapanTaxLaw/LocalObligorTests.lean    # Act art.24(1) の退行テスト 17件
 JapanTaxLaw/TaxProcedure.lean      # 国税通則法 第2条第10号（強制換価手続）
 JapanTaxLaw/TaxProcedureSpec.lean  # Act art.2(10) の独立仕様・健全性・整合性定理
 JapanTaxLaw/TaxProcedureTests.lean # Act art.2(10) の退行テスト 12件
@@ -305,7 +327,7 @@ PHASE E の最初の着手点として、`scripts/law_audit/phase_e/cross_law.py
 4. `Raw snapshot sha256:` が台帳の `raw_snapshot.source_sha256` と一致すること（Spec モジュールの `Revision:` のみのピンも台帳の現行改正版と照合）
 5. 台帳で unresolved（完全未施行）の 2 法令（防衛特別所得税関連の政令・省令）がどの Lean モジュールからもピン留めできないこと（弾かれることをテストで担保）
 
-実行結果（2026-11-15）：スキャン 45 ファイル、ピン留め一致 22 モジュール、失敗 0 件。ピン留めのないモジュール（Verdict / TaxFinance / Tests 等、法源を持たない共通知識層）は 23 件で、**検証済みにカウントしません**。バイトレベルの原文 SHA-256 照合自体は `validate_inventory.py` の責務です（この横断検査は台帳↔Lean の整合のみ）。
+実行結果（2026-11-15）：スキャン 48 ファイル、ピン留め一致 24 モジュール、失敗 0 件。ピン留めのないモジュール（Verdict / TaxFinance / Tests 等、法源を持たない共通知識層）は 24 件で、**検証済みにカウントしません**。バイトレベルの原文 SHA-256 照合自体は `validate_inventory.py` の責務です（この横断検査は台帳↔Lean の整合のみ）。
 
 **限界・未完了**: これはピン留め整合の検証であり、条文間の法的意味の矛盾を検出するものではありません。参照グラフは Phase B の候補 3,280 件（すべて**未確定**）のままで、独立レビューなしに欠陥と呼ばず、`verified-anomaly` は 0 件を維持します。PHASE E 完成（重複適用・優先関係の意味的横断検査）は今後の作業です。
 
