@@ -191,6 +191,74 @@ def checks():
            "article", "第百十九条",
            ["確定金額に百円未満の端数があるとき、又はその全額が百円未満であるときは、その端数金額又はその全額を切り捨てる"])
 
+    # 相続税法 art. 15 — InheritanceTax.lean (inheritanceBasicDeduction 3,000万 + 600万 × heirs)
+    yield ("相続税法 art. 15(1)（遺産に係る基礎控除：三千万円と六百万円に相続人の数を乗じた金額との合計額）↔ InheritanceTax.lean (inheritanceBasicDeduction)",
+           "325AC0000000073",
+           "article", "第十五条",
+           ["三千万円と六百万円に当該被相続人の相続人の数を乗じて算出した金額との合計額"])
+
+    # 相続税法 art. 16 — InheritanceTax.lean (inheritanceRateTable)
+    yield ("相続税法 art. 16（相続税の総額における速算表・10%/15%/20%/30%/40%/45%/50%, 上限55%）↔ InheritanceTax.lean (inheritanceRateTable, inheritanceTopRate)",
+           "325AC0000000073",
+           "article", "第十六条",
+           ["千万円以下の金額百分の十", "千万円を超え三千万円以下の金額百分の十五",
+            "五千万円を超え一億円以下の金額百分の三十", "六億円を超える金額百分の五十五"])
+
+    # 相続税法 art. 19 — GiftAddBack.lean (giftAddBack: 7年以内贈与加算, 100万円控除)
+    yield ("相続税法 art. 19(1)（相続開始前七年以内の贈与加算・三年超の部分は百万円控除）↔ GiftAddBack.lean (giftAddBack)",
+           "325AC0000000073",
+           "article", "第十九条",
+           ["相続の開始前七年以内に当該相続に係る被相続人から贈与により財産を取得したことがある場合",
+            "当該財産の価額の合計額から百万円を控除した残額",
+            "相続の開始前三年以内に取得した財産以外の財産にあつては"])
+
+    # 相続税法 art. 20 — InheritanceSuccessiveDeduction.lean (successiveRate1/2/3)
+    yield ("相続税法 art. 20（相次相続控除）↔ InheritanceSuccessiveDeduction.lean (successiveRate1/2/3)",
+           "325AC0000000073",
+           "article", "第二十条",
+           ["開始前十年以内に開始した相続", "百分の百を超える場合には、百分の百の割合",
+            "これを一年とする"])
+
+    # 相続税法 art. 21-6 — SpousalGiftDeduction.lean (spousalDeduction 二千万円 cap)
+    yield ("相続税法 art. 21-6(1)（贈与税の配偶者控除・二千万円上限）↔ SpousalGiftDeduction.lean (spousalDeduction)",
+           "325AC0000000073",
+           "article", "第二十一条の六",
+           ["課税価格から二千万円", "婚姻期間が二十年以上"])
+
+    # 印紙税法 art. 20 — StampDuty.lean (stampAuditPenalty 3x, stampDeclaredPenalty +10%, floor ¥1,000)
+    yield ("印紙税法 art. 20（印紙納付に係る過怠税）↔ StampDuty.lean (stampAuditPenalty/stampDeclaredPenalty/stampDutyFloor)",
+           "342AC0000000023",
+           "article", "第二十条",
+           ["その二倍に相当する金額との合計額", "百分の十の割合を乗じて計算した金額",
+            "過怠税の合計額が千円に満たないときは、これを千円とする",
+            "第二項の規定の適用を受けた過怠税のみに係る合計額であるときは、当該過怠税の合計額については、前項の規定の適用はない"])
+
+    # 登録免許税法 別表第一（一） — RegistrationTax.lean (realEstateMilleRate)
+    yield ("登録免許税法 別表第一（一）（不動産の登記）↔ RegistrationTax.lean (realEstateMilleRate)",
+           "342AC0000000035",
+           "file", None,
+           ["所有権の保存の登記不動産の価額千分の四",
+            "その他の原因による移転の登記不動産の価額千分の二十",
+            "設定又は転貸の登記不動産の価額千分の十",
+            "配偶者居住権の設定の登記不動産の価額千分の二",
+            "債権金額、極度金額又は不動産工事費用の予算金額千分の四"])
+
+    # 登録免許税法 別表第一（二）第二十四号（一）イ — RegistrationCommercialTax.lean
+    yield ("登録免許税法 別表第一（二）第二十四号（一）イ（株式会社の設立の登記・千分の七・最低十五万円）↔ RegistrationCommercialTax.lean (stockFormationRate, stockFormationTax)",
+           "342AC0000000035",
+           "file", None,
+           ["イ　株式会社の設立の登記（ホ及びトに掲げる登記を除く。）資本金の額千分の七"])
+
+    # 地方税法 art. 34 — LocalIncomeTax.lean (basicDeduction, spouseDeduction)
+    yield ("地方税法 art. 34(2)/(1)十号（道府県民税 基礎控除・配偶者控除）↔ LocalIncomeTax.lean (basicDeduction, spouseDeduction)",
+           "325AC0000000226",
+           "article", "第三十四条",
+           ["合計所得金額が二千四百万円以下である場合四十三万円",
+            "合計所得金額が二千四百万円を超え二千四百五十万円以下である場合二十九万円",
+            "合計所得金額が二千四百五十万円を超え二千五百万円以下である場合十五万円",
+            "当該納税義務者の前年の合計所得金額が九百万円以下である場合三十三万円",
+            "（その控除対象配偶者が老人控除対象配偶者"])
+
     # 地方税法 art. 314の3 — LocalInhabitantTax.lean (6% / 8% 指定都市)
     yield ("地方税法 art. 314の3（市町村民税 所得割の税率・百分の六／指定都市の区域内住所者百分の八）↔ LocalInhabitantTax.lean (localInhabitantStandardRate)",
            "325AC0000000226",
@@ -207,11 +275,11 @@ def checks():
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
-        "GiftAddBack.lean", "SpousalGiftDeduction.lean", "InheritanceSuccessiveDeduction.lean",
-        "InheritanceTax.lean", "StampDuty.lean", "KanzeiGoods.lean", "RegistrationTax.lean",
-        "RegistrationCommercialTax.lean", "LocalIncomeTax.lean art. 34(2)/(1)十号",
-        "LocalExemption.lean", "LocalPrivilege.lean", "LocalObligor.lean",
+        "LocalIncomeTax.lean art. 34 のその他の控除（生命保険料控除・医療費控除等）の literal",
+        "LocalExemption.lean", "LocalPrivilege.lean", "LocalObligor.lean", "KanzeiGoods.lean",
         "CorporateSurtax.lean art. 67(5) 留保控除額（2,000万円）等の残りの literal",
+        "RegistrationTax.lean の未採用帯域（仮登記・分離の登記等）の literal のうち未検査のもの",
+        "StampDuty.lean art. 20(4)-type の集計・floor にまつわる全 detail",
         "CounterexampleSweep-covered impls (already subject to L6, not pinned-literal audit)",
         "all L3 actor/definition modules (no rate/amount literals to transcribe)",
     ]
