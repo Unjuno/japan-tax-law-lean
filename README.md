@@ -33,6 +33,17 @@ JapanTaxLaw/CorpActor.lean では、法人税法の適用主体（内国法人�
 - 第2条第5号（公共法人）・第6号（公益法人等）、及び適用主体の帰結（法人税の納税義務の範囲、税率、課税標準等）は本PRでは**未対応**です。
 - JapanTaxLaw/CorpActorSpec.lean で実装と独立した形式仕様（spec）を維持し、健全性・整合性の定理を証明しています（後述）。
 
+### 国税通則法第2条第1号～第4号（定義層：国税・源泉徴収等による国税・消費税等・附帯税）
+
+JapanTaxLaw/TaxGeneral.lean では、国税全般の基礎定義を形式化します（消費税法・相続税法などの基礎となる、最も依存性の高い分野です）。以下は**定義層のみ**です。
+
+- 第2条第1号：「国税」の定義（国が課する税のうち、**関税・とん税・特別とん税・森林環境税・特別法人事業税を除く**）を、除外リストによる決定的述語として形式化。
+- 第2条第2号：源泉徴収等による国税（源泉徴収に係る所得税・特別徴収に係る国際観光旅客税）。これらの税に係る附帯税は除外。
+- 第2条第3号：消費税等（消費税・酒税・たばこ税・揮発油税・地方揮発油税・石油ガス税・石油石炭税）を列挙。
+- 第2条第4号：附帯税（延滞税・利子税・過少申告加算税・無申告加算税・不納付加算税・重加算税）を列挙。
+- 第2条第5号以降（納税者・納税申告書・法定申告期限等）、及び第15条以降の課税要件・手続は本PRでは**未対応**です。
+- JapanTaxLaw/TaxGeneralSpec.lean で実装と独立した形式仕様（spec）を維持し、健全性・整合性の定理を証明しています（後述）。
+
 ### 構造監査（e-Gov 法令本文の機械検査）
 
 scripts/law_audit/ は、2026-11-15 適用版の**所得税法**（法令ID 340AC0000000033）と
@@ -98,6 +109,9 @@ JapanTaxLaw/TestsCommon.lean     # 共通意味論のテスト 21件
 JapanTaxLaw/CorpActor.lean       # Phase D: 法人税法 act.2(3),(4) actor分類モデル
 JapanTaxLaw/CorpActorSpec.lean   # 法人税法actorの独立仕様と健全性・整合性定理
 JapanTaxLaw/CorpActorTests.lean  # 法人税法actorの退行テスト 11件
+JapanTaxLaw/TaxGeneral.lean      # Phase D: 国税通則法 定義層（第2条第1号～第4号）
+JapanTaxLaw/TaxGeneralSpec.lean  # 国税通則法 定義層の独立仕様と健全性・整合性定理
+JapanTaxLaw/TaxGeneralTests.lean # 国税通則法 定義層の退行テスト 13件
 scripts/law_audit/               # 構造監査エンジン（Python）
 scripts/tests/                   # 構造監査テスト 35件 ＋ 誤変更注入検出テスト 12件
 data/raw/                        # e-Gov API v2 から取得した適用版XML＋ハッシュ
