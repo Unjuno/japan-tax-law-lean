@@ -71,6 +71,17 @@ JapanTaxLaw/StatutoryDeadline.lean では、国税通則法第2条第8号の但�
 - 不明（unknown）は偽として処理せず、conflict は判定不能の上位（矛盾）として扱います。
 - JapanTaxLaw/StatutoryDeadlineSpec.lean で独立仕様（除外判定の十分条件）を維持し、健全性・整合性（証人形式）を証明しています（後述）。
 
+### 国税通則法第2条第9号（課税期間の定義）
+
+JapanTaxLaw/TaxationPeriod.lean では、国税通則法第2条第9号の**課税期間**の定義を形式化します。条文は原則と例外の二系統に分岐します。
+
+- 原則：国税に関する法律の規定により国税の課税標準の計算の基礎となる期間
+- 例外（消費税関連イベントに限定）：同法第十九条（課税期間）に規定する課税期間
+- 課税資産の譲渡等／特定課税仕入れの判定事実は本モジュールの外の判定事実（四値 Verdict）として入力される。当該課税イベントを法文から推測して決めつけない。
+- 消費税法が本条文で参照される（課税資産の譲渡等・特定課税仕入れ・Art. 19）が、消費税法側の形式化はPhase Dの別スライス。
+- 不明（unknown）は偽として処理せず、conflict は判定不能の上位（矛盾）として扱います。
+- JapanTaxLaw/TaxationPeriodSpec.lean で独立仕様を維持し、健全性・整合性の定理を証明しています（後述）。
+
 ### 国税通則法第4条（他の国税に関する法律との関係・優先規則）
 
 JapanTaxLaw/TaxGeneralPriority.lean では、国税通則法第4条（「この法律に規定する事項と他の国税に関する法律に別段の定めがあるものは、その定めるところによる。」）を形式化します。他の国税に関する法律の別段の定めがあれば、本法より別段の定めが優先します（lex specialis）。
@@ -156,6 +167,9 @@ JapanTaxLaw/TaxGeneralPriorityTests.lean # Act art.4 の退行テスト 15件
 JapanTaxLaw/StatutoryDeadline.lean      # 国税通則法 第2条第8号（除外期限の定義）
 JapanTaxLaw/StatutoryDeadlineSpec.lean  # Act art.2(8) 除外期限の独立仕様・健全性・整合性定理
 JapanTaxLaw/StatutoryDeadlineTests.lean # Act art.2(8) 除外期限の退行テスト 12件
+JapanTaxLaw/TaxationPeriod.lean      # 国税通則法 第2条第9号（課税期間）
+JapanTaxLaw/TaxationPeriodSpec.lean  # Act art.2(9) の独立仕様・健全性・整合性定理
+JapanTaxLaw/TaxationPeriodTests.lean # Act art.2(9) の退行テスト 9件
 JapanTaxLaw/TaxProcedure.lean      # 国税通則法 第2条第10号（強制換価手続）
 JapanTaxLaw/TaxProcedureSpec.lean  # Act art.2(10) の独立仕様・健全性・整合性定理
 JapanTaxLaw/TaxProcedureTests.lean # Act art.2(10) の退行テスト 12件
