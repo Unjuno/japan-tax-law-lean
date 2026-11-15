@@ -5,3 +5,5 @@ import JapanTaxLaw.VerdictLemmas
 import JapanTaxLaw.StatutoryModel
 import JapanTaxLaw.Excluded
 import JapanTaxLaw.ResidencySpec
+import JapanTaxLaw.TaxFinance
+import JapanTaxLaw.TestsCommon
