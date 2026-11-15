@@ -313,11 +313,11 @@ JapanTaxLaw/TaxProcedure.lean      # 国税通則法 第2条第10号（強制換
 JapanTaxLaw/TaxProcedureSpec.lean  # Act art.2(10) の独立仕様・健全性・整合性定理
 JapanTaxLaw/TaxProcedureTests.lean # Act art.2(10) の退行テスト 12件
 scripts/law_audit/               # 構造監査エンジン（Python）
-scripts/tests/                   # 構造監査テスト 35件 ＋ 誤変更注入検出テスト 12件
+docs/AUDIT_REPORT.md             # 監査レポート（生成物）
+docs/L7_LEDGER.md               # L7 統合レジャー（機械生成・CI 再生成照合）
 data/raw/                        # e-Gov API v2 から取得した適用版XML＋ハッシュ
 data/PROVENANCE.json             # 法令ID・履歴ID・施行日・SHA-256
 docs/METHODOLOGY.md              # 法令・モデルの対応づけ、発見の査読基準
-docs/AUDIT_REPORT.md             # 監査レポート（生成物）
 .github/workflows/lean.yml      # Lean ビルド・公理検査・構造監査・誤変更注入のCI
 lakefile.toml / lean-toolchain  # 再現可能なビルド
 ```
