@@ -4,7 +4,6 @@ on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -25,64 +24,14 @@ jobs:
         run: lake build
 
       - name: No sorry/admit in adopted proofs
-        run: |
-          ! grep -rnE '\bsorry\b|\badmit\b' JapanTaxLaw/
+        # Comment- and string-aware scan: the previous naive grep false-triggered
+        # on the repo's own doc comments ("No `sorry`, `admit`..."). This checker
+        # strips comments/strings before matching, so only real proof code is scanned.
+        run: python3 scripts/ci/check_no_sorry.py
 
       - name: Axioms of key theorems
         run: |
-          printf 'import JapanTaxLaw\n#print axioms JapanTaxLaw.residency_spec_sound\n#print axioms JapanTaxLaw.residentClassification\n#print axioms JapanTaxLaw.excludedFromFiction_yes\n#print axioms JapanTaxLaw.corp_classification_always_one\n#print axioms JapanTaxLaw.actor_spec_sound\n#print axioms JapanTaxLaw.actor_spec_complete\n#print axioms JapanTaxLaw.actor_foreign_spec_sound\n#print axioms JapanTaxLaw.actor_foreign_spec_complete\n#print axioms JapanTaxLaw.foreign_judgment_negates_offices\n#print axioms JapanTaxLaw.TaxGeneralSpec.spec_excluded_sound\n#print axioms JapanTaxLaw.TaxGeneralSpec.spec_excluded_complete\n#print axioms JapanTaxLaw.TaxGeneralSpec.spec_consumption_sound\n#print axioms JapanTaxLaw.TaxGeneralSpec.spec_consumption_complete\n#print axioms JapanTaxLaw.TaxGeneralSpec.spec_ancillary_sound\n#print axioms JapanTaxLaw.TaxGeneralSpec.spec_ancillary_complete\n#print axioms JapanTaxLaw.TaxGeneralSpec.spec_source_collected_sound\n#print axioms JapanTaxLaw.TaxGeneralSpec.spec_source_collected_complete\n#print axioms JapanTaxLaw.national_iff_not_excluded\n#print axioms JapanTaxLaw.source_collected_national\n#print axioms JapanTaxLaw.taxpayer_spec_sound\n#print axioms JapanTaxLaw.taxpayer_spec_complete\n#print axioms JapanTaxLaw.source_collection_sufficient\n#print axioms JapanTaxLaw.TaxProcedureSpec.spec_sound
-#print axioms JapanTaxLaw.TaxProcedureSpec.spec_complete
-#print axioms JapanTaxLaw.CompulsoryRealizationProcedure.all_nodup
-#print axioms JapanTaxLaw.CompulsoryRealizationProcedure.all_length
-#print axioms JapanTaxLaw.priority_spec_sound\n#print axioms JapanTaxLaw.priority_spec_complete_applyOtherLaw\n#print axioms JapanTaxLaw.priority_spec_complete_applyThisAct\n#print axioms JapanTaxLaw.accelerated_request_excludes
-#print axioms JapanTaxLaw.extended_payment_excludes
-#print axioms JapanTaxLaw.none_excluded_statutory
-#print axioms JapanTaxLaw.StatutoryDeadlineSpec.spec_excluded_sound
-#print axioms JapanTaxLaw.StatutoryDeadlineSpec.spec_excluded_complete
-#print axioms JapanTaxLaw.StatutoryDeadlineSpec.spec_excluded_imp_not_statutory
-#print axioms JapanTaxLaw.TaxationPeriodSpec.spec_sound
-#print axioms JapanTaxLaw.TaxationPeriodSpec.spec_complete_art19
-#print axioms JapanTaxLaw.TaxationPeriodSpec.spec_complete_general
-#print axioms JapanTaxLaw.consumption_qualified_art19
-#print axioms JapanTaxLaw.apply_this_act_iff\n#print axioms JapanTaxLaw.isBusinessOperatorVerdict_eq_or
-#print axioms JapanTaxLaw.individual_business_operator_sufficient
-#print axioms JapanTaxLaw.corporation_sufficient
-#print axioms JapanTaxLaw.personless_entity_not_sufficient
-#print axioms JapanTaxLaw.business_operator_no_event_no_obligation
-#print axioms JapanTaxLaw.not_business_operator_no_obligation
-#print axioms JapanTaxLaw.owes_iff_business_operator_and_event
-#print axioms JapanTaxLaw.consumption_tax_classification_always_one
-#print axioms JapanTaxLaw.spec_business_operator_sound
-#print axioms JapanTaxLaw.spec_event_sound
-#print axioms JapanTaxLaw.spec_business_operator_complete
-#print axioms JapanTaxLaw.spec_event_complete
-#print axioms JapanTaxLaw.spec_obligation_sound
-#print axioms JapanTaxLaw.spec_obligation_complete
-#print axioms JapanTaxLaw.mayLevyUnevenForBenefit
-#print axioms JapanTaxLaw.mayLevyOnPartOnlyForBenefit
-#print axioms JapanTaxLaw.local_entity_benefit_sufficient
-#print axioms JapanTaxLaw.both_privilege_yes
-#print axioms JapanTaxLaw.privilege_classification_always_one
-#print axioms JapanTaxLaw.conflict_local_entity_inconsistent
-#print axioms JapanTaxLaw.conflict_benefit_inconsistent
-#print axioms JapanTaxLaw.spec_local_privilege_sound
-#print axioms JapanTaxLaw.spec_local_privilege_complete_mayLevyUneven
-#print axioms JapanTaxLaw.spec_local_privilege_complete_mayLevyOnPart
-#print axioms JapanTaxLaw.spec_local_tax_exemption_sound
-#print axioms JapanTaxLaw.spec_local_tax_exemption_complete
-#print axioms JapanTaxLaw.spec_local_tax_exemption_complete_sec2
-#print axioms JapanTaxLaw.mayNotLevy
-#print axioms JapanTaxLaw.mayLevyUnevenly
-#print axioms JapanTaxLaw.local_tax_exemption_classification_always_one
-#print axioms JapanTaxLaw.both_permissions_unique
-#print axioms JapanTaxLaw.inheritance_tax_classification_always_one
-#print axioms JapanTaxLaw.inheritance_plus_bequest_with_resident_implies_owes
-#print axioms JapanTaxLaw.any_no_verdict_gives_no_obligation
-#print axioms JapanTaxLaw.owes_iff_all_verdicts_yes
-#print axioms JapanTaxLaw.isResidentCompliantIndividual_eq_and
-#print axioms JapanTaxLaw.spec_inheritance_act_acquisition_sound
-#print axioms JapanTaxLaw.spec_inheritance_act_acquisition_complete
-#print axioms JapanTaxLaw.establishmentEvent\n#print axioms JapanTaxLaw.under_and_non_declaration_filing_deadline\n#print axioms JapanTaxLaw.non_payment_payment_deadline\n#print axioms JapanTaxLaw.withholding_income_payment\n#print axioms JapanTaxLaw.ObligationArt15Spec.spec_sound\n#print axioms JapanTaxLaw.ObligationArt15Spec.spec_complete_incomePayment\n#print axioms JapanTaxLaw.ObligationArt15Spec.spec_complete_supplyOrRemoval\n#print axioms JapanTaxLaw.ObligationArt15Spec.spec_complete_filingDeadlineExpiry\n#print axioms JapanTaxLaw.ObligationArt15Spec.spec_complete_paymentDeadlineExpiry\n#print axioms JapanTaxLaw.ObligationArt15Spec.spec_complete_noProcedure\n' > _ax.lean
+          python3 scripts/ci/generate_axiom_probe.py > _ax.lean
           lake env lean _ax.lean > _ax.log 2>&1 || { cat _ax.log; exit 1; }
           cat _ax.log
           ! grep -q 'sorryAx' _ax.log
@@ -116,10 +65,14 @@ jobs:
         run: python -m unittest scripts.tests.test_inventory_selection -v
       - name: Cross-law consistency tests
         run: python -m unittest scripts.tests.test_cross_law -v
+      - name: Revision impact tests
+        run: python -m unittest scripts.tests.test_revision_impact -v
       - name: Phase A inventory integrity
         run: python scripts/law_audit/inventory/validate_inventory.py
       - name: Phase E cross-law pin consistency
         run: python scripts/law_audit/phase_e/cross_law.py
+      - name: Phase F revision impact integrity
+        run: python scripts/law_audit/phase_f/revision_impact.py
       - name: Run audit and verify hashes
         run: |
           python -m scripts.law_audit.audit --out build
