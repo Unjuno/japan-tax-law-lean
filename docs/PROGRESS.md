@@ -139,7 +139,7 @@
 | L4 Tax Computation | **一部着手（3 法令ぶん）**（所得税法 art. 89 IndividualIncomeTax.lean・法人税法 art. 66 CorporateTaxRate.lean・国税通則法 art. 118/119 端数切り捨て TaxRounding.lean・相続税法 art. 15-17 InheritanceTax.lean・消費税法 art. 29 ConsumptionTaxRate.lean・相続税法 art. 21-7 GiftTax.lean・印紙税法 art. 20 StampDuty.lean・相続税法 art. 18 InheritanceSurcharge.lean・相続税法 art. 20 InheritanceSuccessiveDeduction.lean・相続税法 art. 19-2 SpouseRelief.lean・法人税法 art. 67 CorporateSurtax.lean（特定同族会社の特別税率）・相続税法 art. 19 GiftAddBack.lean（相続開始前7年以内の贈与加算）・相続税法 art. 21-6 SpousalGiftDeduction.lean（贈与税の配偶者控除）・印紙税法 別表第一 StampTable.lean（第一〜三号 課税物件表の税率）・登録免許税法 別表第一（一）RegistrationTax.lean（不動産の登記の定率項目）・地方税法 道府県民税 LocalIncomeTax.lean（art. 34(2)基礎控除・(1)十号配偶者控除・art. 35 所得割の税率）・地方税法 市町村民税 LocalInhabitantTax.lean（art. 314の3 所得割の税率 6%/8%）。その他の L4（控除・予定納税・復興/防衛特別所得税・租税特別措置法ほか多く）は**未着手**） |
 | L5 Formal Verification | **部分的**（L3 の各モジェールに sound/complete 定理対） |
 | L6 Counterexample Discovery | **着手（v1・spec↔impl 有限領域反例検査）**`JapanTaxLaw/CounterexampleSweep.lean` — マージ済み L4 全モデル（~3,500 組の実点）で SPEC↔impl の一致をカーネルに `decide` させて証明。初検査で 2 件の spec↔impl 不一致を検出し（相次相続控除 r1/r2 の cap 周り）、法文に整合するよう修正。**普遍領域の反例の不存在・法的欠陥の発見は主張しない** |
-| L7 Evidence and Reporting | **ドラフト**（AUDIT_REPORT.md・INVENTORY.md・本書）; 機械生成統合レポートは未完了 |
+| L7 Evidence and Reporting | **v1 実装済**（`docs/L7_LEDGER.md` — pins/audit/unsupported/review-state を CI が毎回再生成照合・不一致で FAIL）; `AUDIT_REPORT.md`・`INVENTORY.md` と併存 |
 
 ## 7. 既知の限界（必読）
 
