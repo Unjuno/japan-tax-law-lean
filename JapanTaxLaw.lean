@@ -41,3 +41,6 @@ import JapanTaxLaw.InheritanceTaxActorTests
 import JapanTaxLaw.LocalExemption
 import JapanTaxLaw.LocalExemptionSpec
 import JapanTaxLaw.LocalExemptionTests
+import JapanTaxLaw.LocalPrivilege
+import JapanTaxLaw.LocalPrivilegeSpec
+import JapanTaxLaw.LocalPrivilegeTests
