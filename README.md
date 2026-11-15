@@ -53,6 +53,16 @@ JapanTaxLaw/Taxpayer.lean では、国税通則法第2条第5号（納税者）�
 - JapanTaxLaw/TaxpayerSpec.lean で独立仕様を維持し、健全性・整合性の定理を証明しています。
 
 
+### 国税通則法第2条第10号（強制換価手続の定義）
+
+JapanTaxLaw/TaxProcedure.lean では、国税通則法第2条第10号の**強制換価手続**の定義を形式化します。本条文は列挙形式です：
+
+- 滞納処分（その例による処分を含む。）／強制執行／担保権の実行としての競売／企業担保権の実行手続／企業価値担保権の実行手続／破産手続
+
+- 法文の列挙を厳密に CompulsoryRealizationProcedure enum として閉じた universe を構成し、Membership/重複なし/個数=6 を機械検証しています。
+- Act art. 2 item 7 （法定申告期限）: 他法令参照のため本PRでは未対応（定義層のみの項目を明記）。
+- JapanTaxLaw/TaxProcedureSpec.lean で独立仕様を維持し、健全性・整合性の定理を証明しています（後述）。
+
 ### 国税通則法第4条（他の国税に関する法律との関係・優先規則）
 
 JapanTaxLaw/TaxGeneralPriority.lean では、国税通則法第4条（「この法律に規定する事項と他の国税に関する法律に別段の定めがあるものは、その定めるところによる。」）を形式化します。他の国税に関する法律の別段の定めがあれば、本法より別段の定めが優先します（lex specialis）。
@@ -135,6 +145,9 @@ JapanTaxLaw/TaxpayerTests.lean  # 納税者スライスの退行テスト 11件
 JapanTaxLaw/TaxGeneralPriority.lean      # 国税通則法 第4条（優先規則）
 JapanTaxLaw/TaxGeneralPrioritySpec.lean  # Act art.4 の独立仕様・健全性・整合性定理
 JapanTaxLaw/TaxGeneralPriorityTests.lean # Act art.4 の退行テスト 15件
+JapanTaxLaw/TaxProcedure.lean      # 国税通則法 第2条第10号（強制換価手続）
+JapanTaxLaw/TaxProcedureSpec.lean  # Act art.2(10) の独立仕様・健全性・整合性定理
+JapanTaxLaw/TaxProcedureTests.lean # Act art.2(10) の退行テスト 12件
 scripts/law_audit/               # 構造監査エンジン（Python）
 scripts/tests/                   # 構造監査テスト 35件 ＋ 誤変更注入検出テスト 12件
 data/raw/                        # e-Gov API v2 から取得した適用版XML＋ハッシュ
