@@ -86,3 +86,20 @@ No real-world drafting error, tax loophole, or tax-saving result has been demons
 ## 6. Suggested next scope
 
 After review of Article 2, model **Article 3's deemed-domicile rule and exclusions** separately, with statute-scoped effects. Then expand to Article 2(1)(iv) non-permanent residence, relevant implementing orders and taxable-income scope. This expansion can reveal missing cases in the model and potential textual questions, but does not predetermine the existence of statutory defects.
+
+## 7. R1 status (2026-11-15, pinned)
+
+| Item | Status |
+|---|---|
+| 所得税法 version | `340AC0000000033_20261001_507AC0000000070` (in force 2026-10-01, amendment law 令和七年法律第七十号) |
+| 所得税法施行令 version | `340CO0000000096_20260522_508CO0000000093` (in force 2026-05-22, amendment order 令和八年政令第九十三号) |
+| Raw source pinned | `data/raw/*.law.json` (SHA-256 verified) |
+| Number of semantic examples | 29 (21 new for the four-valued model; 8 legacy PoC) |
+| Structural audit tests | 35 |
+| Mutation injection tests | 12 (proves detection of 11 distinct mis-change classes + 1 baseline) |
+| Verified anomalies (structural audit) | 0 |
+| Candidates awaiting human review | 24 |
+| `sorry`/`admit` in adopted proofs | None |
+| Axiom dependency of key theorems | `propext` only |
+
+**Caveat**: the above results are engineering results. None of them is a legal opinion, and none of the 24 candidates has been independently reviewed. Model–law correspondence is guaranteed only by the four direct tests in `JapanTaxLaw/Tests.lean` and by the construction of `ResidencySpec`: the spec is an *independent* statement of the same legal text, matched to the implementation by two proofs (soundness/completeness).

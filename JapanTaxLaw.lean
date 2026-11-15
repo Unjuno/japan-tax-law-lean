@@ -1,2 +1,7 @@
 import JapanTaxLaw.Residency
 import JapanTaxLaw.Tests
+import JapanTaxLaw.Verdict
+import JapanTaxLaw.VerdictLemmas
+import JapanTaxLaw.StatutoryModel
+import JapanTaxLaw.Excluded
+import JapanTaxLaw.ResidencySpec

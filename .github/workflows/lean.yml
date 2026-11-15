@@ -1,22 +1,61 @@
-name: Lean verification
+name: Lean & Audit verification
 
 on:
   push:
     branches: [main]
   pull_request:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  build:
-    name: Compile proofs and truth-table tests
+  lean-build:
+    name: Build Lean project and check axioms
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build Lean project
+      - name: Install Lean toolchain
         uses: leanprover/lean-action@v1
         with:
           build: true
+
+      - name: Build explicitly
+        run: lake build
+
+      - name: No sorry/admit in adopted proofs
+        # Comment- and string-aware scan: the previous naive grep false-triggered
+        # on the repo's own doc comments ("No `sorry`, `admit`..."). This checker
+        # strips comments/strings before matching, so only real proof code is scanned.
+        run: python3 scripts/ci/check_no_sorry.py
+
+      - name: Axioms of key theorems
+        run: |
+          python3 scripts/ci/generate_axiom_probe.py > _ax.lean
+          lake env lean _ax.lean > _ax.log 2>&1 || { cat _ax.log; exit 1; }
+          cat _ax.log
+          ! grep -q 'sorryAx' _ax.log
+          ! grep -q 'Classical.choice' _ax.log || { echo "unexpected axioms: $(cat _ax.log)"; exit 1; }
+
+      - name: Reproducibility check 1 (clean build)
+        run: |
+          lake clean
+          lake build
+          echo "reproducibility run 1 passed"
+
+      - name: Reproducibility check 2 (clean build)
+        run: |
+          lake clean
+          lake build
+          echo "reproducibility run 2 passed"
+
+  python-audit:
+    name: Semantic audit and mutation injection
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Python audit gates (present-branch execution, honest skips)
+        run: python3 scripts/ci/run_python_gates.py
