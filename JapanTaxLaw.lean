@@ -10,3 +10,6 @@ import JapanTaxLaw.TestsCommon
 import JapanTaxLaw.CorpActor
 import JapanTaxLaw.CorpActorTests
 import JapanTaxLaw.CorpActorSpec
+import JapanTaxLaw.TaxGeneral
+import JapanTaxLaw.TaxGeneralSpec
+import JapanTaxLaw.TaxGeneralTests
