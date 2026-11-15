@@ -71,10 +71,12 @@ def successiveRate1 (secondTotalInherited firstNetEstate : Money) : Money :=
   else Nat.min ((secondTotalInherited * 100_000) / firstNetEstate) 100_000
 
 /-- Ratio of this heir's share relative to the total acquired on the present
-    succession — art. 20(2). -/
+    succession — art. 20(2). No statutory cap: the heir's acquisition is a
+    *part* of the second total, so the ratio is ≤ 100% for well-formed inputs;
+    unenforced (incoherent) inputs may exceed 100% — the statute does not cap
+    this factor. Downstream arithmetic saturates at zero tax. -/
 def successiveRate2 (thisHeir secondTotalInherited : Money) : Money :=
   if secondTotalInherited = 0 then 0
-  else if thisHeir ≥ secondTotalInherited then 100_000
   else (thisHeir * 100_000) / secondTotalInherited
 
 /-- Discount for the years elapsed between the first and second succession
