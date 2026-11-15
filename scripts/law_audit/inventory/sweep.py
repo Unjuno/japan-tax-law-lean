@@ -27,6 +27,61 @@ OUT = REPO_ROOT / "build" / "audit_sweep.json"
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
+    by_title: dict[str, dict] = {}
+    for rec in inv["laws"]:
+        t = rec.get("official_title")
+        if t and t not in by_title:
+            by_title[t] = rec
+
+    def try_load_pinned_title(title: str):
+        """Parse a pinned law by title. Returns None on missing pin or parse failure.
+
+        Parsed on demand (not cached): every law is parsed at most a few times
+        (as primary doc plus as family member of a sibling). Never counts an
+        unparseable or unpinned sibling as verified — callers treat None honestly.
+        """
+        rec = by_title.get(title)
+        if rec is None:
+            return None
+        snap = rec.get("raw_snapshot")
+        if not snap:
+            return None
+        try:
+            return load_law(REPO_ROOT / snap["source_file"])
+        except Exception:
+            return None
+
+    def family_others(doc) -> dict:
+        """Sibling docs for family-based cross-law resolution (act ↔ order ↔ rule)."""
+        title = doc.law_title
+        others: dict[str, object] = {}
+        if title.endswith("施行規則"):
+            parent = title[: -len("施行規則")]
+            d_act = try_load_pinned_title(parent)
+            d_ord = try_load_pinned_title(parent + "施行令")
+            if d_act is not None:
+                others["act"] = d_act
+            if d_ord is not None:
+                others["order"] = d_ord
+            return others
+        if title.endswith("施行令"):
+            parent = title[: -len("施行令")]
+            d_act = try_load_pinned_title(parent)
+            d_rule = try_load_pinned_title(parent + "施行規則")
+            if d_act is not None:
+                others["act"] = d_act
+            if d_rule is not None:
+                others["rule"] = d_rule
+            return others
+        if rules._law_type_simple(doc.law_id) == "act":
+            d_ord = try_load_pinned_title(title + "施行令")
+            d_rule = try_load_pinned_title(title + "施行規則")
+            if d_ord is not None:
+                others["order"] = d_ord
+            if d_rule is not None:
+                others["rule"] = d_rule
+        return others
+
     records: dict[str, dict] = {}
     totals = {
         "laws_total": len(inv["laws"]),
@@ -34,6 +89,8 @@ def main() -> int:
         "parse_failure": 0,
         "audit_ok": 0,
         "audit_failure": 0,
+        "laws_with_family_others": 0,
+        "family_others_loaded": 0,
         "articles_checked": 0,
         "paragraphs_checked": 0,
         "items_checked": 0,
@@ -48,6 +105,7 @@ def main() -> int:
     failures = []
     for rec in inv["laws"]:
         lid = rec["law_id"]
+        title = rec.get("official_title") or ""
         snap = rec.get("raw_snapshot")
         if not snap:
             records[lid] = {"status": "raw_not_pinned", "audit_ready_note": rec.get("current_revision_status")}
@@ -64,8 +122,13 @@ def main() -> int:
             totals["parse_failure"] += 1
             continue
         totals["parse_ok"] += 1
+        others = family_others(doc)
+        if others:
+            totals["laws_with_family_others"] += 1
+            totals["family_others_loaded"] += len(others)
+        outcome["family_others_loaded"] = sorted(others.keys())
         try:
-            findings, stats = rules.all_findings(doc, {})
+            findings, stats = rules.all_findings(doc, others)
         except Exception as exc:  # noqa: BLE001
             outcome["status"] = "audit_failure"
             outcome["error"] = f"{type(exc).__name__}: {exc}"

@@ -597,7 +597,7 @@ def rule_references(doc: LawDoc, other_docs: dict[str, LawDoc], stats: AuditStat
                     if hits:
                         return hits, scope.name, doc
             return None, None, doc
-        if cls in ("act", "order"):
+        if cls in ("act", "order", "rule"):
             o_idx = other_index(cls)
             if o_idx is None:
                 return (), "MAIN", None
@@ -699,17 +699,23 @@ def rule_references(doc: LawDoc, other_docs: dict[str, LawDoc], stats: AuditStat
                             bound = None
                             prev_end = m.end()
                             continue
-                        if supp_cls in ("act", "order"):
+                        if supp_cls in ("act", "order", "rule"):
                             o_idx = other_index(supp_cls)
+                            if o_idx is None:
+                                # Family member is not part of this compilation:
+                                # the reference cannot be checked. Honest status is
+                                # "external/unverified" — never a false REF.SUPP.MISSING candidate.
+                                stats.references_external_unverified += 1
+                                bound = None
+                                prev_end = m.end()
+                                continue
+                            t_doc = other_docs[supp_cls]
                             hits = None
-                            t_doc = None
-                            if o_idx is not None:
-                                t_doc = other_docs[supp_cls]
-                                for scope in t_doc.scopes:
-                                    if scope.name.startswith("SP"):
-                                        hits = _resolve_article(o_idx, scope.name, integer, branch)
-                                        if hits:
-                                            break
+                            for scope in t_doc.scopes:
+                                if scope.name.startswith("SP"):
+                                    hits = _resolve_article(o_idx, scope.name, integer, branch)
+                                    if hits:
+                                        break
                             stats.references_internal_checked += 1
                             if not hits:
                                 out.append(Finding(
