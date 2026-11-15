@@ -93,6 +93,28 @@ docs/AUDIT_REPORT.md             # 監査レポート（生成物）
 lakefile.toml / lean-toolchain  # 再現可能なビルド
 ```
 
+## Phase A — 全法令インベントリ（完了）
+
+対象法令台帳 `data/INVENTORY.json` を構築しました（2026-11-15 時点・公式法令一覧基準）。
+
+- 母集団：e-Gov 公式全現行法令一覧（`/api/1/lawlists/1`、現行法令 9,001 件、sha256 を `data/INVENTORY.json` に記録）から「税」を含む **327 件**（法律 74・政令 113・省令/府令 140）を決定論的に抽出
+- 現行版の確定：**325 / 327 件**について 2026-11-15 時点の適用版を確定
+  - 324 件は `CurrentEnforced`（内 1 件は PreviousEnforced への退行記録を含むが監査不可として `audit_ready=False`）
+  - **完全未施行の 2 件**（防衛特別所得税関連の政令・省令）は未確定のまま台帳へ記録し、検証対象から除外
+  - 1 件は Historical fallback（e-Gov が `CurrentEnforced` を返さないため）と明示
+- 版・施行日・改正履歴・原文ハッシュ：確定済み 325 件全件の原文 JSON と改正履歴 JSON を `data/raw/` に保存し SHA-256 を `data/INVENTORY.json` に記録（改正履歴 325 件ピン留め・ハッシュ照合済み）
+- 参照関係の収集（走査可能な原文からの形式的抽出のみ）：参照抽出 461,067 件（うち内部解決 81,779 / 外部未解決 161,664 / 未対応 237,132）。**外部未解決・未対応を誤りとして断定しません**
+- 未登録の範囲（地方税条例・租税条約・通達・裁判例）は、それぞれ独立した法源/解釈レイヤーとして台帳上 `unsupported` と明記します
+
+検証スクリプト：
+
+```sh
+python scripts/law_audit/inventory/build_inventory.py --fetch-raw   # 取得（ネットワーク必要）
+python scripts/law_audit/inventory/pin_revisions.py                 # 改正履歴ピン留め＋照合
+python scripts/law_audit/inventory/validate_inventory.py             # 台帳の整合検証（オフライン）
+python -m unittest scripts.tests.test_inventory_selection            # 7 テスト
+```
+
 ## R1 の検証結果（2026-11-15 時点）
 
 - **`lake build`**: 成功（Lean v4.35.0、依存なし）
