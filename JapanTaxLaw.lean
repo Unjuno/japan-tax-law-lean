@@ -71,3 +71,6 @@ import JapanTaxLaw.GiftTaxTests
 import JapanTaxLaw.StampDuty
 import JapanTaxLaw.StampDutySpec
 import JapanTaxLaw.StampDutyTests
+import JapanTaxLaw.InheritanceSurcharge
+import JapanTaxLaw.InheritanceSurchargeSpec
+import JapanTaxLaw.InheritanceSurchargeTests
