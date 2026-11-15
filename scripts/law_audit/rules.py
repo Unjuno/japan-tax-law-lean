@@ -346,23 +346,54 @@ def _law_type_simple(law_id: str) -> str:
     return "rule"
 
 
+def _family_tokens(title: str) -> set[str]:
+    """Return the self-family article-name tokens for a law title.
+
+    所得税法 -> {所得税法};
+    所得税法施行令 -> {所得税法施行令, 所得税法施行, 所得税法}.
+
+    Strips a fixed list of doc-system suffixes repeatedly until no more
+    suffixes match. This gives the family stem chain for exact classification.
+    """
+    suffixes = ("施行規則", "施行令", "施行細則", "施行準則", "施行細目", "規則", "要領", "細則", "通達")
+    toks = {title.rstrip()}
+    stem = title.rstrip()
+    changed = True
+    while changed:
+        changed = False
+        for s in suffixes:
+            if stem.endswith(s):
+                stem = stem[: -len(s)]
+                toks.add(stem)
+                changed = True
+                break
+    return toks
+
+
 def _classify_law_name(name: str, doc: LawDoc) -> str:
-    """Classify a law-name token preceding a reference."""
+    """Classify a law-name token preceding a reference.
+
+    名前呼び参照はファミリー内参照のみを解決対象とし、それ以外は external とする
+    （未確認の他法令参照を自法令と混同しない）。
+    """
     if name == doc.law_title:
         return "internal"
+    toks = _family_tokens(doc.law_title)
     kind = _law_type_simple(doc.law_id)
-    # Parentheses matter: check multi-char suffixes before single chars.
-    if name.endswith("施行規則") or (name.endswith("規則") and not name.endswith("施行令")):
-        # A rule call as an act's or order's rule reference; rules carry no
-        # special internal meaning here, so treat as external unless it is self.
-        return "rule" if kind in ("act", "order") else "external"
-    if name.endswith("施行令"):
-        # An act referencing its own order (or another order rule).
-        return "order" if kind != "rule" else "order"
-    if name.endswith(("法律", "法")):
-        return "act" if kind != "act" else "external"
-    if name.endswith(("政令", "勅令", "令")):
-        return "order" if kind != "order" else "external"
+    if kind == "act":
+        if name == doc.law_title + "施行令":
+            return "order"
+        if name == doc.law_title + "施行規則":
+            return "rule"
+        return "external"
+    # order / rule: family members name their immediate parents/ancestors.
+    if name in toks:  # strict family member (excludes self; handled above)
+        if name.endswith(("法律", "法")):
+            return "act"
+        if name.endswith(("政令", "勅令", "令")):
+            return "order"
+        if name.endswith("規則"):
+            return "rule"
     return "external"
 
 
