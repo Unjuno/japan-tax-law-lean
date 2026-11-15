@@ -23,6 +23,16 @@ JapanTaxLaw/StatutoryModel.lean では、居住者／非居住者の判定を四
 
 JapanTaxLaw/ResidencySpec.lean で**実装と独立した形式仕様**（spec）と、健全性・整合性・例外適用範囲の定理を証明しています（後述）。
 
+### 法人税法第2条第3号・第4号（法人税法の適用主体）
+
+JapanTaxLaw/CorpActor.lean では、法人税法の適用主体（内国法人・外国法人＝「内国法人以外の法人」）を四値論理（Verdict）で形式化します。
+認定事実／不明／矛盾を区別し、**不明を偽として処理しません**。
+
+- 第2条第3号：国内に本店又は主たる事務所を有する法人を内国法人として分類。
+- 第2条第4号：内国法人以外の法人を外国法人として分類。
+- 第2条第5号（公共法人）・第6号（公益法人等）、及び適用主体の帰結（法人税の納税義務の範囲、税率、課税標準等）は本PRでは**未対応**です。
+- JapanTaxLaw/CorpActorSpec.lean で実装と独立した形式仕様（spec）を維持し、健全性・整合性の定理を証明しています（後述）。
+
 ### 構造監査（e-Gov 法令本文の機械検査）
 
 scripts/law_audit/ は、2026-11-15 適用版の**所得税法**（法令ID 340AC0000000033）と
@@ -47,7 +57,7 @@ scripts/law_audit/ は、2026-11-15 適用版の**所得税法**（法令ID 340A
 python -m scripts.law_audit.audit --out build     # 誤検証結果を build/ に出力
 python -m scripts.law_audit.report                # docs/AUDIT_REPORT.md を生成
 python -m unittest scripts.tests.test_structural_audit   # 35 テスト
-python -m unittest scripts.tests.test_mutation_injection # 11 誤変更注入検出テスト
+python -m unittest scripts.tests.test_mutation_injection # 12 誤変更注入検出テスト
 ```
 
 ## 根拠資料
@@ -83,6 +93,11 @@ JapanTaxLaw/ResidencySpec.lean   # 形式仕様（spec）と健全性・整合�
 JapanTaxLaw/Excluded.lean        # 公務員擬制の除外が成立する条件（enum-level）
 JapanTaxLaw/VerdictLemmas.lean   # 四値論理の小さな同値補題集
 JapanTaxLaw/Tests.lean           # 30件の境界・回帰テスト
+JapanTaxLaw/TaxFinance.lean      # 共通意味論 L3/L4: Money/TaxRate/Period/Priority
+JapanTaxLaw/TestsCommon.lean     # 共通意味論のテスト 21件
+JapanTaxLaw/CorpActor.lean       # Phase D: 法人税法 act.2(3),(4) actor分類モデル
+JapanTaxLaw/CorpActorSpec.lean   # 法人税法actorの独立仕様と健全性・整合性定理
+JapanTaxLaw/CorpActorTests.lean  # 法人税法actorの退行テスト 11件
 scripts/law_audit/               # 構造監査エンジン（Python）
 scripts/tests/                   # 構造監査テスト 35件 ＋ 誤変更注入検出テスト 12件
 data/raw/                        # e-Gov API v2 から取得した適用版XML＋ハッシュ
