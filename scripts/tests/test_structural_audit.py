@@ -35,6 +35,8 @@ from scripts.law_audit.rules import (
     _mask_quoted,
     _is_link,
     _sentence_split,
+    _resolve_article,
+    _item_in_article,
 )
 
 ACT_REV = "340AC0000000033_20261001_507AC0000000070"
@@ -291,6 +293,184 @@ def make_synthetic_law(tmpdir: Path) -> Path:
     path = tmpdir / "synthetic.law.json"
     path.write_text(json.dumps(tree, ensure_ascii=False), encoding="utf-8")
     return path
+
+
+def make_regression_law(tmpdir: Path) -> Path:
+    """Synthetic statute exercising the three audit regressions:
+    subitem parsing, branch-number resolution, paragraph-scoped item references."""
+
+    def article(num, caption, title, paragraphs):
+        return {
+            "tag": "Article", "attr": {"Num": num},
+            "children": ([{"tag": "ArticleCaption", "attr": {}, "children": [caption]}] if caption else [])
+            + [{"tag": "ArticleTitle", "attr": {}, "children": [title]}]
+            + paragraphs,
+        }
+
+    def item(num, ititle, itext, subitems=()):
+        children = [{"tag": "ItemTitle", "attr": {}, "children": [ititle]},
+                    {"tag": "ItemSentence", "attr": {}, "children":
+                        [{"tag": "Sentence", "attr": {"Num": "1"}, "children": [itext]}]}]
+        for si_num, si_title, si_text in subitems:
+            children.append({
+                "tag": "Subitem1", "attr": {"Num": si_num},
+                "children": [{"tag": "Subitem1Title", "attr": {}, "children": [si_title]},
+                             {"tag": "Subitem1Sentence", "attr": {}, "children":
+                                 [{"tag": "Sentence", "attr": {"Num": "1"}, "children": [si_text]}]}],
+            })
+        return {"tag": "Item", "attr": {"Num": num}, "children": children}
+
+    def para(num, text, items=()):
+        children = [{"tag": "ParagraphNum", "attr": {}, "children": []},
+                    {"tag": "ParagraphSentence", "attr": {}, "children":
+                        [{"tag": "Sentence", "attr": {"Num": "1"}, "children": [text]}]}]
+        for it in items:
+            children.append(it)
+        return {"tag": "Paragraph", "attr": {"Num": num}, "children": children}
+
+    tree = {
+        "attached_files_info": None,
+        "law_info": {"law_id": "TEST0000000000002", "law_num": "テスト令和八年第二号",
+                     "law_num_era": "Reiwa", "law_num_year": 8, "law_num_type": "CabinetOrder",
+                     "law_num_num": "002", "law_type": "CabinetOrder",
+                     "promulgation_date": "2026-04-01"},
+        "revision_info": {"law_revision_id": "TEST0000000000002_20260401_REV",
+                          "law_title": "テスト法二", "current_revision_status": "CurrentEnforced",
+                          "amendment_enforcement_date": "2026-04-01"},
+        "law_full_text": {
+            "tag": "Law",
+            "attr": {"Lang": "ja", "LawType": "CabinetOrder"},
+            "children": [
+                {"tag": "LawNum", "attr": {}, "children": ["テスト令和八年第二号"]},
+                {"tag": "LawBody", "attr": {}, "children": [
+                    {"tag": "LawTitle", "attr": {}, "children": ["テスト法二"]},
+                    {"tag": "TOC", "attr": {}, "children": [
+                        {"tag": "TOCChapter", "attr": {"Num": "1"}, "children": [
+                            {"tag": "ChapterTitle", "attr": {}, "children": ["第一章 テスト"]},
+                            {"tag": "ArticleRange", "attr": {}, "children": ["（略）"]},
+                        ]},
+                    ]},
+                    {"tag": "MainProvision", "attr": {}, "children": [
+                        {"tag": "Chapter", "attr": {"Num": "1"}, "children": [
+                            {"tag": "ChapterTitle", "attr": {}, "children": ["第一章 テスト"]},
+                            article("20", None, "第二十条", [para("1", "第二十条の本文。")]),
+                            article("20_2", None, "第二十条の二", [para("1", "第二十条の二の本文。")]),
+                            article("21", None, "第二十一条", [
+                                para("1", "第二十一条第一項の本文。", [
+                                    item("1", "一", "第一号の規定。"),
+                                    item("2", "二", "第二号の規定。"),
+                                    item("3", "三", "第三号の規定。"),
+                                ]),
+                                para("2", "第二十一条第二項の本文。", [
+                                    item("1", "一", "第二項第一号の規定。"),
+                                ]),
+                            ]),
+                            article("22", None, "第二十二条", [para("1", "第二十条の五第一項に準じて処理する。")]),
+                            article("23", None, "第二十三条", [para("1", "第二十一条第一項第二号に準じて処理する。")]),
+                            article("24", None, "第二十四条", [para("1", "第二十一条第二項第二号に準じて処理する。")]),
+                            article("25", None, "第二十五条", [
+                                para("1", "第二十五条の本文。", [
+                                    item("1", "一", "第一号。", subitems=[
+                                        ("1", "イ", "イの規定。"),
+                                        ("2", "ロ", "ロの規定。"),
+                                    ]),
+                                ]),
+                            ]),
+                        ]},
+                    ]},
+                    {"tag": "SupplProvision", "attr": {"Num": "1"}, "children": [
+                        {"tag": "SupplProvisionLabel", "attr": {}, "children": ["付"]},
+                        {"tag": "SupplProvisionAppdxTable", "attr": {"Num": "1"}, "children": []},
+                        article("1", None, "第一条", [para("1", "この号は省略する。")]),
+                    ]},
+                ]},
+            ],
+        },
+    }
+    path = tmpdir / "regression.law.json"
+    path.write_text(json.dumps(tree, ensure_ascii=False), encoding="utf-8")
+    return path
+
+
+class TestRegressionAuditFixes(unittest.TestCase):
+    """Regression tests for the three audit-tool defects:
+    (A) subitems (イ/ロ/ハ) must be parsed as nested items;
+    (B) branch-article resolution must not fall back to base-number candidates;
+    (C) an 項-specified 号 reference must resolve within that paragraph only.
+    """
+
+    def setUp(self):
+        import tempfile
+        self.tmp = Path(tempfile.mkdtemp(prefix="law-audit-regress-"))
+        self.path = make_regression_law(self.tmp)
+        self.doc = load_law(self.path)
+
+    def tearDown(self):
+        import shutil
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def test_A_subitems_are_parsed(self):
+        art25 = next(a for a in self.doc.main.articles
+                     if a.keys and a.keys[0].integer == 25)
+        levels = [it.level for p in art25.paragraphs for it in p.items]
+        self.assertEqual(levels, [0, 1, 1])
+        titles = [it.title for p in art25.paragraphs for it in p.items]
+        self.assertEqual(titles, ["一", "イ", "ロ"])
+        # parent linkage: subitems point at their enclosing item's key
+        self.assertIsNone(art25.paragraphs[0].items[0].parent)
+        self.assertEqual(art25.paragraphs[0].items[1].parent, "1")
+        self.assertEqual(art25.paragraphs[0].items[2].parent, "1")
+
+    def test_A_subitem_numbering_gap_checked_per_parent(self):
+        findings, _ = all_findings(self.doc, {})
+        dup_gap = [f for f in findings
+                   if f.rule_id in ("STRUCT.GAP.ITEM", "STRUCT.DUP.ITEM")]
+        for f in dup_gap:
+            self.assertNotIn("25", f.path)
+
+    def test_B_branch_missing_not_accepted(self):
+        idx = self.doc.article_index()
+        self.assertIsNone(_resolve_article(idx, "MAIN", 20, (5,)))
+
+    def test_B_branch_exact_hit(self):
+        idx = self.doc.article_index()
+        hits = _resolve_article(idx, "MAIN", 20, (2,))
+        self.assertIsNotNone(hits)
+        self.assertTrue(all(k.branch == (2,) for h in hits for k in h.keys))
+
+    def test_B_no_branch_returns_all_base_candidates(self):
+        idx = self.doc.article_index()
+        self.assertEqual(len(_resolve_article(idx, "MAIN", 20, None)), 2)
+
+    def test_B_reference_to_missing_branch_article_is_candidate(self):
+        findings, _ = all_findings(self.doc, {})
+        missing = [f for f in findings if f.rule_id == "REF.ARTICLE.MISSING"]
+        self.assertTrue(any("第二十条の五" in f.message for f in missing),
+                        [f.message for f in missing])
+
+    def test_C_item_in_specified_paragraph_only(self):
+        art21 = next(a for a in self.doc.main.articles
+                     if a.keys and a.keys[0].integer == 21)
+        # 第二項 has only item 1 — item 2 must not be found there
+        self.assertFalse(_item_in_article(art21, 2, None, 2))
+        self.assertTrue(_item_in_article(art21, 1, None, 2))
+        # 第一項 has items 1-3 — item 2 exists there
+        self.assertTrue(_item_in_article(art21, 2, None, 1))
+        # unscoped search finds item 2 somewhere in the article
+        self.assertTrue(_item_in_article(art21, 2, None, None))
+
+    def test_C_reference_wrong_paragraph_is_candidate(self):
+        findings, _ = all_findings(self.doc, {})
+        missing_items = [f for f in findings if f.rule_id == "REF.ITEM.MISSING"]
+        self.assertTrue(any("paragraph 2" in f.message for f in missing_items),
+                        [f.message for f in missing_items])
+
+    def test_C_reference_specified_paragraph_ok(self):
+        findings, _ = all_findings(self.doc, {})
+        missing_items = [f for f in findings if f.rule_id == "REF.ITEM.MISSING"]
+        # 第二十三条の chains (21条1項2号) — item exists in 第一項 → no REF.ITEM.MISSING
+        self.assertFalse(any("paragraph 1" in f.message for f in missing_items),
+                         [f.message for f in missing_items])
 
 
 class TestSyntheticLaw(unittest.TestCase):

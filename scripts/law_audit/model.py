@@ -58,6 +58,7 @@ class ItemRec:
     line: int
     deleted: bool = False
     keys: list = field(default_factory=list)   # expanded (int, branch|None) keys
+    parent: str | None = None   # raw num of the directly enclosing item (None at level 0)
 
 
 @dataclass
@@ -292,21 +293,35 @@ def load_law(path: str | Path) -> LawDoc:
         title = text_of(next(iter(children_of(node, "ArticleTitle")), {"children": []})).strip()
         paragraphs: list[ParagraphRec] = []
         has_items = False
+        item_tags = {"Item": 0, "Subitem1": 1, "Subitem2": 2, "Subitem3": 3, "Subitem4": 4}
         for p in children_of(node, "Paragraph"):
             pnum = str(p.get("attr", {}).get("Num", "")) or None
             pcaption_node = next(iter(children_of(p, "ParagraphCaption")), None)
             pcaption = text_of(pcaption_node).strip() if pcaption_node is not None else None
             ptext = clean_text(p)
             items: list[ItemRec] = []
-            for level, tag in enumerate(["Item", "Subitem1", "Subitem2", "Subitem3", "Subitem4"]):
-                for it in children_of(p, tag):
+
+            def _add_items(current, prefix):
+                nonlocal has_items
+                for sub in current.get("children", []):
+                    if not isinstance(sub, dict):
+                        continue
+                    tag = sub.get("tag")
+                    if tag not in item_tags:
+                        _add_items(sub, prefix)
+                        continue
                     has_items = True
-                    ititle_node = next(iter(children_of(it, f"{tag}Title")), None)
+                    level = item_tags[tag]
+                    ititle_node = next(iter(children_of(sub, f"{tag}Title")), None)
                     ititle = text_of(ititle_node).strip() if ititle_node is not None else ""
-                    inum = str(it.get("attr", {}).get("Num", ""))
+                    inum = str(sub.get("attr", {}).get("Num", ""))
                     ideleted, ikeys = _parse_item_num(inum)
-                    line = builder.add(f"[{scope}] Article {num_attr} Paragraph {pnum} {'  ' * level}{ititle} {clean_text(it)}")
-                    items.append(ItemRec(inum, level, ititle, clean_text(it), line, ideleted, ikeys))
+                    my_key = f"{prefix}.{inum}" if prefix else inum
+                    line = builder.add(f"[{scope}] Article {num_attr} Paragraph {pnum} {'  ' * level}{ititle} {clean_text(sub)}")
+                    items.append(ItemRec(inum, level, ititle, clean_text(sub), line, ideleted, ikeys, prefix or None))
+                    _add_items(sub, my_key)
+
+            _add_items(p, "")
             if not items:
                 line = builder.add(f"[{scope}] Article {num_attr} Paragraph {pnum} {ptext}")
             else:

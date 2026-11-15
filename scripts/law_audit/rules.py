@@ -130,11 +130,14 @@ def rule_paragraph_item_integrity(doc: LawDoc, stats: AuditStats) -> list[Findin
                     continue
                 seen_p.setdefault(p2.num, []).append(p2)
             # items: duplicates (verified) and gaps in integer sequence (candidate)
-            by_level: dict[int, list] = {}
+            # level 0 items are grouped per paragraph; level ≥ 1 (subitems) are
+            # grouped per parent item so sibling numbering is scoped per parent.
+            by_group: dict = {}
             for it in p.items:
-                by_level.setdefault(it.level, []).append(it)
+                group_key = (it.level, it.parent if it.level > 0 else None)
+                by_group.setdefault(group_key, []).append(it)
                 stats.items_checked += 1
-            for level, items in by_level.items():
+            for (level, _parent_group), items in by_group.items():
                 # duplicate check on expanded keys (deleted ranges included)
                 seen_key = {}
                 for it in items:
@@ -524,9 +527,11 @@ def _resolve_article(idx: dict, scope: str, integer: int, branch):
     cands = idx.get(scope, {}).get(integer, [])
     if branch:
         exact = [a for a in cands if any(k.branch == branch for k in a.keys)]
-        if exact:
-            return exact
-        return cands if cands else None
+        # No fallback to base-article candidates when the requested 枝番
+        # is absent — that would accept any article with the same base number
+        # (e.g. 第20条 or 第20条の2) as a match for 第20条の5, silently hiding
+        # a genuinely missing reference.
+        return exact or None
     return cands or None
 
 
@@ -538,8 +543,15 @@ def _in_spans(pos, spans):
     return any(s <= pos < e for s, e in spans)
 
 
-def _item_in_article(article: ArticleRec, inum: int, ibranch: int | None) -> bool:
+def _item_in_article(article: ArticleRec, inum: int, ibranch: int | None,
+                     para_num: int | None = None) -> bool:
     for p in article.paragraphs:
+        if para_num is not None:
+            # When a 項番号 was specified in the reference, the 号 must exist
+            # in THAT paragraph — looking anywhere in the article would accept
+            # 号1 of 第1項 as evidence for a 第2項第2号 reference.
+            if not (p.num and p.num.isdigit() and int(p.num) == para_num):
+                continue
         for it in p.items:
             if it.level != 0:
                 continue
@@ -606,13 +618,17 @@ def rule_references(doc: LawDoc, other_docs: dict[str, LawDoc], stats: AuditStat
 
     def check_para_item(a, target_article, t_id, raw, branch_note, sentence, raw_para, raw_item, raw_item_branch):
         local = []
+        pnum_scope: int | None = None
+        para_missing = False
         if raw_para:
             try:
                 pnum = kanji_to_int(raw_para)
+                pnum_scope = pnum
                 stats.references_internal_checked += 1
                 ref_art = target_article if target_article is not None else a
                 ref_id = t_id if target_article is not None else doc.law_id
                 if pnum not in _para_nums(ref_art):
+                    para_missing = True
                     local.append(Finding(
                         "REF.PARA.MISSING", "candidate", doc.law_id, a.path, a.line,
                         f"Reference to paragraph {pnum} but {ref_id} article {raw}{branch_note} has paragraphs {_para_nums(ref_art)}",
@@ -621,17 +637,20 @@ def rule_references(doc: LawDoc, other_docs: dict[str, LawDoc], stats: AuditStat
                     ))
             except ValueError:
                 stats.references_unsupported += 1
-        if raw_item:
+        if raw_item and not para_missing:
             try:
                 inum = kanji_to_int(raw_item)
                 ibranch = (kanji_to_int(raw_item_branch),) if raw_item_branch else None
                 stats.references_internal_checked += 1
                 ref_art = target_article if target_article is not None else a
                 ref_id = t_id if target_article is not None else doc.law_id
-                if not _item_in_article(ref_art, inum, ibranch):
+                scoped_items = ([it.num for p in ref_art.paragraphs for it in p.items
+                                 if p.num and p.num.isdigit() and int(p.num) == pnum_scope and it.level == 0]
+                                if pnum_scope is not None else _item_level0_nums(ref_art))
+                if not _item_in_article(ref_art, inum, ibranch, pnum_scope):
                     local.append(Finding(
                         "REF.ITEM.MISSING", "candidate", doc.law_id, a.path, a.line,
-                        f"Reference to item {inum}{('の' + raw_item_branch) if raw_item_branch else ''} but {ref_id} article {raw}{branch_note} has items {_item_level0_nums(ref_art)}",
+                        f"Reference to item {inum}{('の' + raw_item_branch) if raw_item_branch else ''} but {ref_id} article {raw}{branch_note} has items {scoped_items} in paragraph {pnum_scope if pnum_scope is not None else '*'}",
                         f"sentence: {sentence.strip()[:160]}",
                         "legal-defect-candidate",
                     ))
