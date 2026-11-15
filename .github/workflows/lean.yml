@@ -116,10 +116,14 @@ jobs:
         run: python -m unittest scripts.tests.test_inventory_selection -v
       - name: Cross-law consistency tests
         run: python -m unittest scripts.tests.test_cross_law -v
+      - name: Revision impact tests
+        run: python -m unittest scripts.tests.test_revision_impact -v
       - name: Phase A inventory integrity
         run: python scripts/law_audit/inventory/validate_inventory.py
       - name: Phase E cross-law pin consistency
         run: python scripts/law_audit/phase_e/cross_law.py
+      - name: Phase F revision impact integrity
+        run: python scripts/law_audit/phase_f/revision_impact.py
       - name: Run audit and verify hashes
         run: |
           python -m scripts.law_audit.audit --out build

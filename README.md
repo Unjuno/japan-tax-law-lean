@@ -338,6 +338,26 @@ python -m unittest scripts.tests.test_cross_law   # 12 テスト（実リポジ�
 
 詳細は [docs/CROSS_LAW.md](docs/CROSS_LAW.md) を参照。
 
+## Phase F — 改正影響検証（着手・シード）
+
+PHASE F の最初の着手点として、`scripts/law_audit/phase_f/revision_impact.py` を実装しました。第 4 層（現行改正版の来歴・整合性）を機械的に測る L1×L5 の橋渡しです。PHASE F 完成ではありません。
+
+検査内容（機械的・失敗時は非ゼロ終了）：
+
+1. 解決済み 325 件の現行改正版ピンについて、`law_revision_id` が台帳の `law_id` 接頭で、3 部構成（`{law_id}_{yyyymmdd}_{amendment_law_id}`）であり、埋め込み改正法 id が `amendment_law_id` と一致すること
+2. `amendment_promulgate_date` / `amendment_enforcement_date` が欠落なく解決でき、施行日が `snapshot_date`（2026-11-15）を超えないこと
+3. 原法（新規制定・一度も改正を受けていないことを示す `_{000000000000000}` 終端）48 件を特定して記録
+4. 189 相異なる改正法を記録し、うち本台帳の対象税法一覧に内在するもの（任意の税法が後続改正として関与）は 3 件のみで、残りは台帳外のため `amendment_laws_outside_tax_ledger` として**記録のみ・判断しない**
+
+実行結果（2026-11-15）：pinned 325 件・0 problems。`build/phase_f_revision_impact.json` に出力（`build/` は gitignore）。
+
+**限界・未完了**: これは「現行改正版の来歴の機械的一貫性」の計測であり、旧条文と新条文の意味論的 diff 伝播（定義・条件・参照の変更が関連規則へ与える影響の解析）ではありません。改正法自体の条文は現在も本基盤で監査対象外であり、改正の「意味」を追ったことにはなりません。新旧 diff 比較エンジンは PHASE F 完成に必要であり、今後の作業です。
+
+```sh
+python scripts/law_audit/phase_f/revision_impact.py   # 現行改正版の来歴整合（build/phase_f_revision_impact.json へ）
+python -m unittest scripts.tests.test_revision_impact # 8 テスト（実リポジトリ + 合成失敗）
+```
+
 ## R1 の検証結果（2026-11-15 時点）
 
 - **`lake build`**: 成功（Lean v4.35.0、依存なし）
