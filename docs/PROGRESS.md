@@ -149,6 +149,7 @@
 4. PHASE F（改正影響）・**PHASE E の意味的横断検証（1モジュールのみ・法人税法×租税特別措置法）**・PHASE L6（反例探索の普遍領域）は**未着手/未完了**です。L4（税額計算）は 所得税法 art. 89・法人税法 art. 66・通則法 art. 118/119・相続税法 art. 15-17・消費税法 art. 29・相続税法 art. 21-7（贈与税）・印紙税法 art. 20（過怠税）・相続税法 art. 18（相続税額の加算）・相続税法 art. 20（相次相続控除）・相続税法 art. 19-2（配偶者軽減）・法人税法 art. 67（特定同族会社の特別税率）・相続税法 art. 19（相続開始前7年以内の贈与加算）・相続税法 art. 21-6（贈与税の配偶者控除）・印紙税法 別表第一第一〜三号（課税物件表）・登録免許税法 別表第一（一）（不動産の登記の定率項目）・地方税法 道府県民税 art. 34(2)/(1)十号/art. 35・地方税法 市町村民税 art. 314の3・租税特別措置法 art. 31の4・登録免許税法 別表第一（二）第二十四号（一）イ の最小スライスのみ着手済です。その他の L4（控除・予定納税ほか）は**未着手**です。
 5. `verify` 関税法／租税特別措置法／印紙税法／登録免許税法／地方税の残りの膨大な条文は**未形式化**です。
 6. 台帳の revision 自体は e-Gov API の応答に基づき `CurrentEnforced` を優先して選択していますが、候補 revision 選択の入力値・時刻依存性は `data/PROVENANCE.json` を参照してください。
+7. **転記監査（transcription audit）の現在の射程**: `scripts/ci/transcription_audit.py`（CI ゲートに組込済み）は、L4 の主要モデル **15 本**（法人税法 art. 66/67・相続税法 art. 18/21-5/21-7・所得税法 art. 89・国税通則法 art. 118(1)/119(1)・印紙税法 別表第一第一号/第二号・租税特別措置法 art. 31の4/67の2/68/70の2の5/91・地方税法 art. 314の3/art. 35）の literal が pinned raw bytes に存在することを機械検査します。未検査のモデル（**GiftAddBack・SpousalGiftDeduction・InheritanceSuccessiveDeduction・InheritanceTax・StampDuty・KanzeiGoods・RegistrationTax・RegistrationCommercialTax・LocalIncomeTax art. 34(2)/(1)十号・LocalExemption/Privilege/Obligor・CorporateSurtax art. 67(5) 留保控除額 ¥20,000,000・L3 actor モジュール**）の literal 転記は**目視のみ**で機械監査していません。監査は転記のみの検査であり、意味解釈・適用範囲・本文との整合は一切検査しません。
 
 ## 8. 再現手順（第三者向け）
 
