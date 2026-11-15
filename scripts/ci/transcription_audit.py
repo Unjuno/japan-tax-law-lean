@@ -168,10 +168,14 @@ def checks():
             "百万円を超え二百万円以下のもの二百円", "五十億円を超えるもの四十八万円"])
 
     # 法人税法 art. 67 — CorporateSurtax.lean (特定同族会社の留保金額に対する加算税率 10/15/20%)
-    yield ("法人税法 art. 67(1)（特定同族会社の留保金額に加算される特別税率 10/15/20%）↔ CorporateSurtax.lean (specialSurtax)",
+    yield ("法人税法 art. 67(1)(5)(6)（特定同族会社の留保金額に加算される特別税率 10/15/20%・留保控除額・月数按分）↔ CorporateSurtax.lean (specialSurtax, retentionMinDeduction, incomeFortyPct, prorated)",
            "340AC0000000034",
            "article", "第六十七条",
-           ["年三千万円以下の金額百分の十", "年三千万円を超え、年一億円以下の金額百分の十五", "一億円を超える金額百分の二十"])
+           ["年三千万円以下の金額百分の十", "年三千万円を超え、年一億円以下の金額百分の十五", "一億円を超える金額百分の二十",
+            "二年二千万円", "の百分の四十に相当する金額",
+            "三千万円を十二で除し、これに当該事業年度の月数を乗じて計算した金額",
+            "一億円を十二で除し、これに当該事業年度の月数を乗じて計算した金額",
+            "「二千万円を十二で除し、これに当該事業年度の月数を乗じて計算した金額」とする"])
 
     # 相続税法 art. 18 — InheritanceSurcharge.lean (相続税額の加算 百分の二十)
     yield ("相続税法 art. 18(1)（相続税額の加算・百分の二十）↔ InheritanceSurcharge.lean (surcharge20, inheritanceSurcharge)",
@@ -231,17 +235,28 @@ def checks():
            "article", "第二十条",
            ["その二倍に相当する金額との合計額", "百分の十の割合を乗じて計算した金額",
             "過怠税の合計額が千円に満たないときは、これを千円とする",
-            "第二項の規定の適用を受けた過怠税のみに係る合計額であるときは、当該過怠税の合計額については、前項の規定の適用はない"])
+            "第二項の規定の適用を受けた過怠税のみに係る合計額であるときは、当該過怠税の合計額については、前項の規定の適用はない",
+            "当該消されていない印紙の額面金額に相当する金額の過怠税"])
 
     # 登録免許税法 別表第一（一） — RegistrationTax.lean (realEstateMilleRate)
     yield ("登録免許税法 別表第一（一）（不動産の登記）↔ RegistrationTax.lean (realEstateMilleRate)",
            "342AC0000000035",
            "file", None,
            ["所有権の保存の登記不動産の価額千分の四",
+            "共有物の分割による移転の登記不動産の価額千分の四",
+            "相続又は法人の合併による移転の登記不動産の価額千分の四",
             "その他の原因による移転の登記不動産の価額千分の二十",
             "設定又は転貸の登記不動産の価額千分の十",
+            "相続又は法人の合併による移転の登記不動産の価額千分の二",
+            "共有に係る権利の分割による移転の登記不動産の価額千分の二",
+            "その他の原因による移転の登記不動産の価額千分の十",
             "配偶者居住権の設定の登記不動産の価額千分の二",
-            "債権金額、極度金額又は不動産工事費用の予算金額千分の四"])
+            "債権金額、極度金額又は不動産工事費用の予算金額千分の四",
+            "相続又は法人の合併による移転の登記債権金額又は極度金額千分の一",
+            "その他の原因による移転の登記債権金額又は極度金額千分の二",
+            "所有権の信託の登記不動産の価額千分の四",
+            "先取特権、質権又は抵当権の信託の登記債権金額又は極度金額千分の二",
+            "その他の権利の信託の登記不動産の価額千分の二"])
 
     # 登録免許税法 別表第一（二）第二十四号（一）イ — RegistrationCommercialTax.lean
     yield ("登録免許税法 別表第一（二）第二十四号（一）イ（株式会社の設立の登記・千分の七・最低十五万円）↔ RegistrationCommercialTax.lean (stockFormationRate, stockFormationTax)",
@@ -257,13 +272,21 @@ def checks():
             "合計所得金額が二千四百万円を超え二千四百五十万円以下である場合二十九万円",
             "合計所得金額が二千四百五十万円を超え二千五百万円以下である場合十五万円",
             "当該納税義務者の前年の合計所得金額が九百万円以下である場合三十三万円",
-            "（その控除対象配偶者が老人控除対象配偶者"])
+            "（その控除対象配偶者が老人控除対象配偶者",
+            "合計所得金額が九百万円を超え九百五十万円以下である場合当該配偶者のイ（１）から（３）までに掲げる区分に応じ、それぞれイ（１）から（３）までに定める金額の三分の二に相当する金額",
+            "合計所得金額が九百五十万円を超え千万円以下である場合当該配偶者のイ（１）から（３）までに掲げる区分に応じ、それぞれイ（１）から（３）までに定める金額の三分の一に相当する金額"])
 
     # 地方税法 art. 314の3 — LocalInhabitantTax.lean (6% / 8% 指定都市)
     yield ("地方税法 art. 314の3（市町村民税 所得割の税率・百分の六／指定都市の区域内住所者百分の八）↔ LocalInhabitantTax.lean (localInhabitantStandardRate)",
            "325AC0000000226",
            "article", "第三百十四条の三",
            ["百分の六（所得割の納税義務者が地方自治法第二百五十二条の十九第一項の市（第三百十四条の六及び第三百十四条の七において「指定都市」という。）の区域内に住所を有する場合には、百分の八）"])
+
+    # 消費税法 art. 29 — ConsumptionTaxRate.lean (standardRate 7.8% / reducedRate 6.24%)
+    yield ("消費税法 art. 29（税率: 百分の七・八／軽減対象課税資産の譲渡等及び保税地域から引き取られる軽減対象課税貨物 百分の六・二四）↔ ConsumptionTaxRate.lean (standardRate 78/1000, reducedRate 624/10000)",
+           "363AC0000000108",
+           "article", "第二十九条",
+           ["百分の七・八", "百分の六・二四"])
 
     # 地方税法 art. 35 — LocalIncomeTax.lean (4% / 2% 指定都市)
     yield ("地方税法 art. 35（道府県民税 所得割の税率・百分の四／指定都市の区域内住所者百分の二）↔ LocalIncomeTax.lean (localIncomeStandardRate)",
@@ -276,10 +299,13 @@ def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
         "LocalIncomeTax.lean art. 34 のその他の控除（生命保険料控除・医療費控除等）の literal",
-        "LocalExemption.lean", "LocalPrivilege.lean", "LocalObligor.lean", "KanzeiGoods.lean",
-        "CorporateSurtax.lean art. 67(5) 留保控除額（2,000万円）等の残りの literal",
+        "LocalExemption.lean / LocalPrivilege.lean / LocalObligor.lean（賦課方式の税額算定 literal なし／定義分類器）",
+        "KanzeiGoods.lean（関税法 art. 2 の物品定義分類器・税率 literal なし／cross_law の pin のみ）",
         "RegistrationTax.lean の未採用帯域（仮登記・分離の登記等）の literal のうち未検査のもの",
-        "StampDuty.lean art. 20(4)-type の集計・floor にまつわる全 detail",
+        "RegistrationCommercialTax.lean の未採用帯域（ホ：合併等 千分の一・五／ト：新設分割 等）",
+        "ConsumptionTaxRate.lean の次のアンカー外（art. 29(2)／art. 28 課税標準・art. 30 仕入税額控除 等）— モデル未採用かつ未検査",
+        "InheritanceSurcharge.lean art. 17 の相続税額算出手続き literal",
+        "StampDuty.art. 20 の集計・floor にまつわる全 detail（文言は covered・ロジックは未検査）",
         "CounterexampleSweep-covered impls (already subject to L6, not pinned-literal audit)",
         "all L3 actor/definition modules (no rate/amount literals to transcribe)",
     ]
