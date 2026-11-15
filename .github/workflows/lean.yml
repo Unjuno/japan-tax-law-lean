@@ -30,7 +30,7 @@ jobs:
 
       - name: Axioms of key theorems
         run: |
-          printf 'import JapanTaxLaw\n#print axioms JapanTaxLaw.residency_spec_sound\n#print axioms JapanTaxLaw.residentClassification\n#print axioms JapanTaxLaw.excludedFromFiction_yes\n' > _ax.lean
+          printf 'import JapanTaxLaw\n#print axioms JapanTaxLaw.residency_spec_sound\n#print axioms JapanTaxLaw.residentClassification\n#print axioms JapanTaxLaw.excludedFromFiction_yes\n#print axioms JapanTaxLaw.corp_classification_always_one\n#print axioms JapanTaxLaw.actor_spec_sound\n#print axioms JapanTaxLaw.actor_spec_complete\n#print axioms JapanTaxLaw.actor_foreign_spec_sound\n#print axioms JapanTaxLaw.actor_foreign_spec_complete\n#print axioms JapanTaxLaw.foreign_judgment_negates_offices\n' > _ax.lean
           lake env lean _ax.lean > _ax.log 2>&1 || { cat _ax.log; exit 1; }
           cat _ax.log
           ! grep -q 'sorryAx' _ax.log

@@ -7,3 +7,6 @@ import JapanTaxLaw.Excluded
 import JapanTaxLaw.ResidencySpec
 import JapanTaxLaw.TaxFinance
 import JapanTaxLaw.TestsCommon
+import JapanTaxLaw.CorpActor
+import JapanTaxLaw.CorpActorTests
+import JapanTaxLaw.CorpActorSpec
