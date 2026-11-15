@@ -337,17 +337,38 @@ SELF_ACT_NAME = "所得税法"
 SELF_ORDER_NAME = "所得税法施行令"
 
 
+def _law_type_simple(law_id: str) -> str:
+    """法律 / 政令 / 省令などの粗区分。law-D rules 内で共通利用する。"""
+    if "AC" in law_id or law_id.endswith("A"):
+        return "act"
+    if "CO" in law_id or "DM" in law_id:
+        return "order"
+    return "rule"
+
+
 def _classify_law_name(name: str, doc: LawDoc) -> str:
     """Classify a law-name token preceding a reference."""
-    if name == SELF_ACT_NAME:
-        return "internal" if doc.law_id.startswith("340AC") else "act"
-    if name == SELF_ORDER_NAME:
-        return "internal" if doc.law_id.startswith("340CO") else "order"
+    if name == doc.law_title:
+        return "internal"
+    kind = _law_type_simple(doc.law_id)
+    # Parentheses matter: check multi-char suffixes before single chars.
+    if name.endswith("施行規則") or (name.endswith("規則") and not name.endswith("施行令")):
+        # A rule call as an act's or order's rule reference; rules carry no
+        # special internal meaning here, so treat as external unless it is self.
+        return "rule" if kind in ("act", "order") else "external"
+    if name.endswith("施行令"):
+        # An act referencing its own order (or another order rule).
+        return "order" if kind != "rule" else "order"
+    if name.endswith(("法律", "法")):
+        return "act" if kind != "act" else "external"
+    if name.endswith(("政令", "勅令", "令")):
+        return "order" if kind != "order" else "external"
     return "external"
 
 
 def _switches(doc: LawDoc, sentence: str) -> list:
     """Context-switching events of a sentence: (start, end, cls), left to right."""
+    kind = _law_type_simple(doc.law_id)
     switches = []
     for m in LAW_NAME_SUFFIX_RE.finditer(sentence):
         switches.append((m.start(), m.end(), _classify_law_name(m.group(0), doc)))
@@ -355,10 +376,10 @@ def _switches(doc: LawDoc, sentence: str) -> list:
         switches.append((m.start(), m.end(), "external"))
     for m in SELF_TOKEN_RE.finditer(sentence):
         switches.append((m.start(), m.end(), "internal"))
-    if doc.law_id.startswith("340CO"):
+    if kind in ("order", "rule"):
         for m in STANDALONE_LAW_RE.finditer(sentence):
             switches.append((m.start(), m.end(), "act"))
-    if doc.law_id.startswith("340AC"):
+    if kind in ("act", "rule"):
         for m in STANDALONE_ORDER_RE.finditer(sentence):
             switches.append((m.start(), m.end(), "order"))
     switches.sort(key=lambda e: (e[0], 0 if e[2] == "internal" else 1))
