@@ -30,13 +30,13 @@
 
 ### 所得税法
 - 条文数(枝番号含む): 1286
-- 項: 2208 / 号(含細目): 1120
+- 項: 2208 / 号(含細目): 1427
 - 参照抽出: 11080 / 内部検査: 3455 / 他律・未検査: 3082 / 未対応: 5417
 - ファイルSHA-256: `94C4A7AD83726CDE60787967ED4E959585AD0AF9279D25DB9AA02264B3FE606B`
 
 ### 所得税法施行令
 - 条文数(枝番号含む): 1142
-- 項: 2204 / 号(含細目): 1543
+- 項: 2204 / 号(含細目): 2091
 - 参照抽出: 12623 / 内部検査: 3605 / 他律・未検査: 4007 / 未対応: 6388
 - ファイルSHA-256: `9FACF2E2768D602CCDBBF9891DF142D3A3E7EAD09033EB0634DE00A4C4181392`
 
@@ -55,7 +55,7 @@
 ### 1. [PAREN.UNBALANCED] SP:idx-345/Article 3
 
 - 法令: 所得税法 (340AC0000000033)
-- 行 (正規化テキスト): 3329
+- 行 (正規化テキスト): 3623
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: PAREN.UNBALANCED
@@ -65,7 +65,7 @@
 ### 2. [PAREN.UNBALANCED] SP:idx-345/Article 3
 
 - 法令: 所得税法 (340AC0000000033)
-- 行 (正規化テキスト): 3329
+- 行 (正規化テキスト): 3623
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: PAREN.UNBALANCED
@@ -75,7 +75,7 @@
 ### 3. [REF.PARA.MISSING] MAIN/Article 151_6
 
 - 法令: 所得税法 (340AC0000000033)
-- 行 (正規化テキスト): 958
+- 行 (正規化テキスト): 1060
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: REF.PARA.MISSING
@@ -85,7 +85,7 @@
 ### 4. [REF.PARA.MISSING] MAIN/Article 152
 
 - 法令: 所得税法 (340AC0000000033)
-- 行 (正規化テキスト): 964
+- 行 (正規化テキスト): 1066
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: REF.PARA.MISSING
@@ -95,7 +95,7 @@
 ### 5. [PAREN.UNBALANCED] MAIN/Article 292
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 1693
+- 行 (正規化テキスト): 2197
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: PAREN.UNBALANCED
@@ -105,7 +105,7 @@
 ### 6. [PAREN.UNBALANCED] MAIN/Article 292
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 1693
+- 行 (正規化テキスト): 2197
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: PAREN.UNBALANCED
@@ -115,7 +115,7 @@
 ### 7. [PAREN.UNBALANCED] MAIN/Article 292
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 1693
+- 行 (正規化テキスト): 2197
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: PAREN.UNBALANCED
@@ -125,7 +125,7 @@
 ### 8. [PAREN.UNBALANCED] MAIN/Article 292
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 1693
+- 行 (正規化テキスト): 2197
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: PAREN.UNBALANCED
@@ -135,7 +135,7 @@
 ### 9. [PAREN.UNBALANCED] MAIN/Article 292
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 1693
+- 行 (正規化テキスト): 2197
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: PAREN.UNBALANCED
@@ -145,7 +145,7 @@
 ### 10. [PAREN.UNBALANCED] MAIN/Article 292
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 1693
+- 行 (正規化テキスト): 2197
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: PAREN.UNBALANCED
@@ -155,7 +155,7 @@
 ### 11. [PAREN.UNBALANCED] MAIN/Article 292
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 1693
+- 行 (正規化テキスト): 2197
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: PAREN.UNBALANCED
@@ -165,7 +165,7 @@
 ### 12. [PAREN.UNBALANCED] MAIN/Article 292
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 1693
+- 行 (正規化テキスト): 2197
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: PAREN.UNBALANCED
@@ -175,7 +175,7 @@
 ### 13. [PAREN.UNBALANCED] MAIN/Article 292
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 1693
+- 行 (正規化テキスト): 2197
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: PAREN.UNBALANCED
@@ -185,7 +185,7 @@
 ### 14. [PAREN.UNBALANCED] MAIN/Article 292
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 1693
+- 行 (正規化テキスト): 2197
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: PAREN.UNBALANCED
@@ -195,7 +195,7 @@
 ### 15. [PAREN.UNBALANCED] SP:idx-5/Article 5
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 2193
+- 行 (正規化テキスト): 2727
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: PAREN.UNBALANCED
@@ -205,7 +205,7 @@
 ### 16. [PAREN.UNBALANCED] SP:idx-5/Article 5
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 2193
+- 行 (正規化テキスト): 2727
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: PAREN.UNBALANCED
@@ -215,7 +215,7 @@
 ### 17. [REF.ITEM.MISSING] MAIN/Article 71_2
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 489
+- 行 (正規化テキスト): 596
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: REF.ITEM.MISSING
@@ -225,7 +225,7 @@
 ### 18. [REF.ITEM.MISSING] MAIN/Article 71_2
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 489
+- 行 (正規化テキスト): 596
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: REF.ITEM.MISSING
@@ -235,7 +235,7 @@
 ### 19. [REF.ITEM.MISSING] MAIN/Article 71_2
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 489
+- 行 (正規化テキスト): 596
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: REF.ITEM.MISSING
@@ -245,7 +245,7 @@
 ### 20. [REF.PARA.MISSING] MAIN/Article 119_4
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 771
+- 行 (正規化テキスト): 974
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: REF.PARA.MISSING
@@ -255,7 +255,7 @@
 ### 21. [REF.ITEM.MISSING] MAIN/Article 170_2
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 1058
+- 行 (正規化テキスト): 1365
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: REF.ITEM.MISSING
@@ -265,7 +265,7 @@
 ### 22. [REF.ITEM.MISSING] MAIN/Article 170_2
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 1058
+- 行 (正規化テキスト): 1365
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: REF.ITEM.MISSING
@@ -275,7 +275,7 @@
 ### 23. [REF.ARTICLE.DELETED] SP:idx-69/Article 5
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 2460
+- 行 (正規化テキスト): 2996
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: REF.ARTICLE.DELETED
@@ -285,7 +285,7 @@
 ### 24. [REF.PARA.MISSING] SP:idx-69/Article 5
 
 - 法令: 所得税法施行令 (340CO0000000096)
-- 行 (正規化テキスト): 2460
+- 行 (正規化テキスト): 2996
 - 重要度: candidate
 - 分類: legal-defect-candidate
 - 検出規則: REF.PARA.MISSING
