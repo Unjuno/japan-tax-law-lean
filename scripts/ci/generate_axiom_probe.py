@@ -1,118 +1,71 @@
 """Deterministically emit the #print axioms probe file used by CI.
 
-Kept as a standalone script (no dependencies) so the workflow does not
-rely on fragile multi-line printf escaping. Print the list in the exact
-order recorded in the CI axiom guard.
+Design (v2): scan every tracked .lean file, track namespace nesting, and emit
+`#print axioms <fully-qualified-name>` for each theorem/lemma it declares.
+No hand-maintained theorem list: the probe is derived from the sources, so it
+is always in sync with the tree, on every branch.
+
+Output is deterministic (sorted by fully-qualified name).
 """
+import re
+import subprocess
 import sys
 
-NAMES = [
-    "JapanTaxLaw.residency_spec_sound",
-    "JapanTaxLaw.residentClassification",
-    "JapanTaxLaw.excludedFromFiction_yes",
-    "JapanTaxLaw.corp_classification_always_one",
-    "JapanTaxLaw.actor_spec_sound",
-    "JapanTaxLaw.actor_spec_complete",
-    "JapanTaxLaw.actor_foreign_spec_sound",
-    "JapanTaxLaw.actor_foreign_spec_complete",
-    "JapanTaxLaw.foreign_judgment_negates_offices",
-    "JapanTaxLaw.TaxGeneralSpec.spec_excluded_sound",
-    "JapanTaxLaw.TaxGeneralSpec.spec_excluded_complete",
-    "JapanTaxLaw.TaxGeneralSpec.spec_consumption_sound",
-    "JapanTaxLaw.TaxGeneralSpec.spec_consumption_complete",
-    "JapanTaxLaw.TaxGeneralSpec.spec_ancillary_sound",
-    "JapanTaxLaw.TaxGeneralSpec.spec_ancillary_complete",
-    "JapanTaxLaw.TaxGeneralSpec.spec_source_collected_sound",
-    "JapanTaxLaw.TaxGeneralSpec.spec_source_collected_complete",
-    "JapanTaxLaw.national_iff_not_excluded",
-    "JapanTaxLaw.source_collected_national",
-    "JapanTaxLaw.taxpayer_spec_sound",
-    "JapanTaxLaw.taxpayer_spec_complete",
-    "JapanTaxLaw.source_collection_sufficient",
-    "JapanTaxLaw.TaxProcedureSpec.spec_sound",
-    "JapanTaxLaw.TaxProcedureSpec.spec_complete",
-    "JapanTaxLaw.CompulsoryRealizationProcedure.all_nodup",
-    "JapanTaxLaw.CompulsoryRealizationProcedure.all_length",
-    "JapanTaxLaw.priority_spec_sound",
-    "JapanTaxLaw.priority_spec_complete_applyOtherLaw",
-    "JapanTaxLaw.priority_spec_complete_applyThisAct",
-    "JapanTaxLaw.accelerated_request_excludes",
-    "JapanTaxLaw.extended_payment_excludes",
-    "JapanTaxLaw.none_excluded_statutory",
-    "JapanTaxLaw.StatutoryDeadlineSpec.spec_excluded_sound",
-    "JapanTaxLaw.StatutoryDeadlineSpec.spec_excluded_complete",
-    "JapanTaxLaw.StatutoryDeadlineSpec.spec_excluded_imp_not_statutory",
-    "JapanTaxLaw.TaxationPeriodSpec.spec_sound",
-    "JapanTaxLaw.TaxationPeriodSpec.spec_complete_art19",
-    "JapanTaxLaw.TaxationPeriodSpec.spec_complete_general",
-    "JapanTaxLaw.consumption_qualified_art19",
-    "JapanTaxLaw.apply_this_act_iff",
-    "JapanTaxLaw.isBusinessOperatorVerdict_eq_or",
-    "JapanTaxLaw.individual_business_operator_sufficient",
-    "JapanTaxLaw.corporation_sufficient",
-    "JapanTaxLaw.personless_entity_not_sufficient",
-    "JapanTaxLaw.business_operator_no_event_no_obligation",
-    "JapanTaxLaw.not_business_operator_no_obligation",
-    "JapanTaxLaw.owes_iff_business_operator_and_event",
-    "JapanTaxLaw.consumption_tax_classification_always_one",
-    "JapanTaxLaw.spec_business_operator_sound",
-    "JapanTaxLaw.spec_event_sound",
-    "JapanTaxLaw.spec_business_operator_complete",
-    "JapanTaxLaw.spec_event_complete",
-    "JapanTaxLaw.spec_obligation_sound",
-    "JapanTaxLaw.spec_obligation_complete",
-    "JapanTaxLaw.mayLevyUnevenForBenefit",
-    "JapanTaxLaw.mayLevyOnPartOnlyForBenefit",
-    "JapanTaxLaw.local_entity_benefit_sufficient",
-    "JapanTaxLaw.both_privilege_yes",
-    "JapanTaxLaw.privilege_classification_always_one",
-    "JapanTaxLaw.conflict_local_entity_inconsistent",
-    "JapanTaxLaw.conflict_benefit_inconsistent",
-    "JapanTaxLaw.spec_local_privilege_sound",
-    "JapanTaxLaw.spec_local_privilege_complete_mayLevyUneven",
-    "JapanTaxLaw.spec_local_privilege_complete_mayLevyOnPart",
-    "JapanTaxLaw.spec_local_tax_exemption_sound",
-    "JapanTaxLaw.spec_local_tax_exemption_complete",
-    "JapanTaxLaw.spec_local_tax_exemption_complete_sec2",
-    "JapanTaxLaw.mayNotLevy",
-    "JapanTaxLaw.mayLevyUnevenly",
-    "JapanTaxLaw.local_tax_exemption_classification_always_one",
-    "JapanTaxLaw.both_permissions_unique",
-    "JapanTaxLaw.inheritance_tax_classification_always_one",
-    "JapanTaxLaw.inheritance_plus_bequest_with_resident_implies_owes",
-    "JapanTaxLaw.any_no_verdict_gives_no_obligation",
-    "JapanTaxLaw.owes_iff_all_verdicts_yes",
-    "JapanTaxLaw.isResidentCompliantIndividual_eq_and",
-    "JapanTaxLaw.spec_inheritance_act_acquisition_sound",
-    "JapanTaxLaw.spec_inheritance_act_acquisition_complete",
-    "JapanTaxLaw.establishmentEvent",
-    "JapanTaxLaw.under_and_non_declaration_filing_deadline",
-    "JapanTaxLaw.non_payment_payment_deadline",
-    "JapanTaxLaw.withholding_income_payment",
-    "JapanTaxLaw.ObligationArt15Spec.spec_sound",
-    "JapanTaxLaw.ObligationArt15Spec.spec_complete_incomePayment",
-    "JapanTaxLaw.ObligationArt15Spec.spec_complete_supplyOrRemoval",
-    "JapanTaxLaw.ObligationArt15Spec.spec_complete_filingDeadlineExpiry",
-    "JapanTaxLaw.ObligationArt15Spec.spec_complete_paymentDeadlineExpiry",
-    "JapanTaxLaw.ObligationArt15Spec.spec_complete_noProcedure",
-    "JapanTaxLaw.LocalObligorSpec.spec_local_obligor_sound",
-    "JapanTaxLaw.LocalObligorSpec.spec_equal_and_income_complete",
-    "JapanTaxLaw.LocalObligorSpec.spec_equal_only_complete",
-    "JapanTaxLaw.LocalObligorSpec.spec_equal_plus_corporate_complete",
-    "JapanTaxLaw.LocalObligorSpec.spec_corporate_only_complete",
-    "JapanTaxLaw.LocalObligorSpec.spec_equal_only_dormitory_sound",
-    "JapanTaxLaw.only_item1_gives_equal_and_income",
-    "JapanTaxLaw.dormitory_established_equal_only",
-    "JapanTaxLaw.individual_office_no_address_no_track",
-    "JapanTaxLaw.corporation_established_equal_and_corporate",
-    "JapanTaxLaw.trust_established_corporate_only",
-    "JapanTaxLaw.office_individual_established_equal_only",
-    "JapanTaxLaw.collection_direct_payment_sufficient",
-    "JapanTaxLaw.collection_source_collection_sufficient",
-    "JapanTaxLaw.collection_owes_iff_either_track_yes",
-    "JapanTaxLaw.collection_classification_always_one",
-]
+OUR_NAMESPACE_PATTERN = re.compile(r"^\s*namespace\s+([A-Za-z0-9_.']+)")
+END_PATTERN = re.compile(r"^\s*end(\s+([A-Za-z0-9_.']+))?\s*$")
+THM_PATTERN = re.compile(r"^\s*theorem\s+([A-Za-z0-9_.']+)\b")
+LEMMA_PATTERN = re.compile(r"^\s*lemma\s+([A-Za-z0-9_.']+)\b")
 
-sys.stdout.write("import JapanTaxLaw\n")
-for n in NAMES:
-    sys.stdout.write(f"#print axioms {n}\n")
+
+def tracked_lean_files():
+    out = subprocess.run(
+        ["git", "ls-files", "-z", "*.lean"],
+        capture_output=True,
+        check=True,
+    ).stdout
+    return [f for f in out.decode("utf-8").split("\0") if f]
+
+
+def theorems_of(path):
+    """Yield (qualified_name, path) for every theorem/lemma declared in file."""
+    stack: list[str] = []
+    with open(path, encoding="utf-8") as fh:
+        for line in fh:
+            m = OUR_NAMESPACE_PATTERN.match(line)
+            if m:
+                stack.extend(m.group(1).split("."))
+                continue
+            m = END_PATTERN.match(line)
+            if m:
+                # `end X` closes X (or its ancestors); `end` alone pops one level.
+                if m.group(2):
+                    parts = m.group(2).split(".")
+                    # pop until the stack ends with the named namespace
+                    while stack:
+                        popped_count = len(parts)
+                        if stack[-popped_count:] == parts:
+                            del stack[-popped_count:]
+                            break
+                        stack.pop()
+                elif stack:
+                    stack.pop()
+                continue
+            for pat in (THM_PATTERN, LEMMA_PATTERN):
+                m = pat.match(line)
+                if m:
+                    yield ".".join(stack + [m.group(1)])
+
+
+def main() -> int:
+    names = set()
+    for f in tracked_lean_files():
+        for q in theorems_of(f):
+            names.add(q)
+    print("import JapanTaxLaw")
+    for name in sorted(names):
+        print(f"#print axioms {name}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
