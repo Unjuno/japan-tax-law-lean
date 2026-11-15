@@ -27,7 +27,7 @@
 | **PHASE A — 全法令インベントリ** | **完了（325/327 ピン留め; 2 件は未施行のため検証不能）** | 取得 325/325 OK、ハッシュ検証 OK |
 | **PHASE B — 全体系の構造監査** | **完了（機械処理のみ、未確定）** | 対象 325 件 / パース失敗 0 / 監査失敗 0 |
 | **PHASE C — 共通形式意味論** | **完了**（`JapanTaxLaw/TaxFinance.lean`） | Money、TaxRate(floor/ceil 証明)、Period、Priority（law>order>notice、全順序・推移律・非反射律）; 21 件の dec テスト |
-| **PHASE D — 税目別形式化（actor scope のみ）** | **進行中**（17 本の stacked PR、機械検証は全て `propext` のみ） | 意味モデルは定義層・actor scope に限定 |
+| **PHASE D — 税目別形式化（actor scope のみ）** | **進行中**（PR #1 以降 stacked で PR #5–#18・#20 ほか、機械検証は全て `propext` のみ） | 意味モデルは定義層・actor scope に限定 |
 | **PHASE E — 法令横断検証** | **着手（シード）** `scripts/law_audit/phase_e/cross_law.py` | 実 `JapanTaxLaw/*.lean` のピン留め vs 台帳整合を検査; 12 テスト; **意味横断検証は未完了** |
 | **PHASE F — 改正影響検証** | **着手（シード・計測のみ・意味 diff 未実装）** | `scripts/law_audit/phase_f/revision_impact.py` 実装済み・8 テスト（PR #20）。325 件の現行改正版 pin を機械検査（`{law_id}_{yyyymmdd}_{amendment_law_id}` 形状・埋め込み改正 id と台帳の `amendment_law_id` の一致（原法 `_000000000000000` と null の対応）・施行日 ≤ snapshot_date）。**結果: 0 problems**。189 相異なる改正法を計測・**原始立法 48 件**検出。本台帳（税キーワード 327 件）に内在するのは **3 件**のみ、残り 186 件は台帳外として記録のみ・判定せず。**新旧 diff の意味伝播機構は未実装** |
 | **PHASE G — 統合監査（再現可能）** | **未完了**（`lake build`+`unittest`+`validate_inventory`+clean builds ×2 は CI にある） | 第三者再現手順は `CONTRIBUTING.md` と CI 経由; 統合レポート生成はこれから |
@@ -88,7 +88,7 @@
 - 原文取得率（ピン留め可能な法令）: **325/327 = 99.4%**（2 件は完全未施行・取得不能、成功件数に不算入）
 - 構造監査実施率: **325/325 = 100%**（パース・監査とも失敗 0）
 - 意味モデルの条文対応率: **actor scope 13 モジュール**（33,652 条中 ~0.04%）— すなわち**意味検証はほぼ未達**です。「全体系の構造監査完了＋部分的な意味検証完了」の状態を区別します
-- 再現性: `lake build`（51 jobs）/ `lake clean` → `lake build` ×2 再現 / Python 単体テスト 66 件 / `validate_inventory.py` / `cross_law.py` — すべて CI に登録・有効
+- 再現性: `lake build`（51 jobs）/ `lake clean` → `lake build` ×2 再現 / Python 単体テスト 74 件 / `validate_inventory.py` / `cross_law.py` — すべて CI に登録・有効
 - 変異注入: `scripts/tests/test_mutation_injection.py` — 12 クラスで規律検査が検出に使われることを確認
 
 ### 検出候補と確定異常
