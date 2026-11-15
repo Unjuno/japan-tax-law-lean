@@ -58,6 +58,13 @@ jobs:
 #print axioms JapanTaxLaw.spec_event_complete
 #print axioms JapanTaxLaw.spec_obligation_sound
 #print axioms JapanTaxLaw.spec_obligation_complete
+#print axioms JapanTaxLaw.inheritance_tax_classification_always_one
+#print axioms JapanTaxLaw.inheritance_plus_bequest_with_resident_implies_owes
+#print axioms JapanTaxLaw.any_no_verdict_gives_no_obligation
+#print axioms JapanTaxLaw.owes_iff_all_verdicts_yes
+#print axioms JapanTaxLaw.isResidentCompliantIndividual_eq_and
+#print axioms JapanTaxLaw.spec_inheritance_act_acquisition_sound
+#print axioms JapanTaxLaw.spec_inheritance_act_acquisition_complete
 #print axioms JapanTaxLaw.establishmentEvent\n#print axioms JapanTaxLaw.under_and_non_declaration_filing_deadline\n#print axioms JapanTaxLaw.non_payment_payment_deadline\n#print axioms JapanTaxLaw.withholding_income_payment\n#print axioms JapanTaxLaw.ObligationArt15Spec.spec_sound\n#print axioms JapanTaxLaw.ObligationArt15Spec.spec_complete_incomePayment\n#print axioms JapanTaxLaw.ObligationArt15Spec.spec_complete_supplyOrRemoval\n#print axioms JapanTaxLaw.ObligationArt15Spec.spec_complete_filingDeadlineExpiry\n#print axioms JapanTaxLaw.ObligationArt15Spec.spec_complete_paymentDeadlineExpiry\n#print axioms JapanTaxLaw.ObligationArt15Spec.spec_complete_noProcedure\n' > _ax.lean
           lake env lean _ax.lean > _ax.log 2>&1 || { cat _ax.log; exit 1; }
           cat _ax.log
