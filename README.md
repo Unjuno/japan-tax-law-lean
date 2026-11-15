@@ -82,6 +82,15 @@ JapanTaxLaw/TaxationPeriod.lean では、国税通則法第2条第9号の**課�
 - 不明（unknown）は偽として処理せず、conflict は判定不能の上位（矛盾）として扱います。
 - JapanTaxLaw/TaxationPeriodSpec.lean で独立仕様を維持し、健全性・整合性の定理を証明しています（後述）。
 
+### 地方税法第6条（公益等に因る課税免除及び不均一課税）
+
+JapanTaxLaw/LocalExemption.lean では、地方税法（昭和二十五年法律第二百二十六号・現行2026-11-01付施行版）第六条（地方団体は、公益上その他の事由に因り課税を不適当とする場合においては、課税をしないことができる／同条第2項：不均一の課税をすることができる）の二項を形式化します。Act art. 7 （受益に因る加重・減免） 及び art. 24 （都道府県税の普通税目・目的税目の枠割と課税免除）・関連する行政規則・市町村税条例は本PRでは**未対応**です。
+
+- 適用対象：地方団体（都道府県・市町村・特別区等）が、公益上その他の事由に因り（i）課税をしないことができる（ii）不均一の課税をすることができる。両項は別件の異なる規定（"課税しないことができる"と "不均一の課税をすることができる"）として各々 verdict 判定を分離する。
+- 公益上の事由に因り課税を不適当とする場合は一時的な政策委託ではなく、地方団体の立法裁量と地方税条例による具体的な特定条件も含む。本モデルは verdict-level の規則モデルであり、実際の特定政策条件（防災避難施設、半ば非課税の建物等）へのマッピングは未対応。
+- 不均一課税の実際の計算方法（差し替え税率・差し引き比例課税等）は本PRの対象外。
+- JapanTaxLaw/LocalExemptionSpec.lean で独立仕様を維持し、健全性・整合性の定理を証明しています（後述）。
+
 ### 相続税法第1条の3（相続税の納税義務者・actor-scope）
 
 JapanTaxLaw/InheritanceTaxActor.lean では、相続税法（昭和二十五年法律第七十三号・現行2026-04-01付施行版）第1条の3（相続税の納税義務者）のうち、第一項第一号イほぼ全般（「一時居住者でない個人」が施行地に住所を有し、又は遺贈等により財産を取得した者）を形式化します。
@@ -215,6 +224,9 @@ JapanTaxLaw/ConsumptionTaxActorTests.lean # 消費税法 anchor の退行テス�
 JapanTaxLaw/InheritanceTaxActor.lean      # 相続税法 第1条の3 anchor（納税義務者・施行地住所）
 JapanTaxLaw/InheritanceTaxActorSpec.lean  # Act art.1の3 actor anchor の独立仕様・健全性・整合性定理
 JapanTaxLaw/InheritanceTaxActorTests.lean # Act art.1の3 anchor の退行テスト 18件
+JapanTaxLaw/LocalExemption.lean        # 地方税法 第6条 （公益等に因る課税免除及び不均一課税）
+JapanTaxLaw/LocalExemptionSpec.lean    # Act art.6 の独立仕様・健全性・整合性定理
+JapanTaxLaw/LocalExemptionTests.lean   # Act art.6 の退行テスト 15件
 JapanTaxLaw/TaxProcedure.lean      # 国税通則法 第2条第10号（強制換価手続）
 JapanTaxLaw/TaxProcedureSpec.lean  # Act art.2(10) の独立仕様・健全性・整合性定理
 JapanTaxLaw/TaxProcedureTests.lean # Act art.2(10) の退行テスト 12件
