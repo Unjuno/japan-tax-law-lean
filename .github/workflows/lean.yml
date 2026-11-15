@@ -44,7 +44,7 @@ jobs:
 #print axioms JapanTaxLaw.TaxationPeriodSpec.spec_complete_art19
 #print axioms JapanTaxLaw.TaxationPeriodSpec.spec_complete_general
 #print axioms JapanTaxLaw.consumption_qualified_art19
-#print axioms JapanTaxLaw.apply_this_act_iff\n' > _ax.lean
+#print axioms JapanTaxLaw.apply_this_act_iff\n#print axioms JapanTaxLaw.establishmentEvent\n#print axioms JapanTaxLaw.under_and_non_declaration_filing_deadline\n#print axioms JapanTaxLaw.non_payment_payment_deadline\n#print axioms JapanTaxLaw.withholding_income_payment\n#print axioms JapanTaxLaw.ObligationArt15Spec.spec_sound\n#print axioms JapanTaxLaw.ObligationArt15Spec.spec_complete_incomePayment\n#print axioms JapanTaxLaw.ObligationArt15Spec.spec_complete_supplyOrRemoval\n#print axioms JapanTaxLaw.ObligationArt15Spec.spec_complete_filingDeadlineExpiry\n#print axioms JapanTaxLaw.ObligationArt15Spec.spec_complete_paymentDeadlineExpiry\n#print axioms JapanTaxLaw.ObligationArt15Spec.spec_complete_noProcedure\n' > _ax.lean
           lake env lean _ax.lean > _ax.log 2>&1 || { cat _ax.log; exit 1; }
           cat _ax.log
           ! grep -q 'sorryAx' _ax.log

@@ -28,3 +28,6 @@ import JapanTaxLaw.StatutoryDeadlineTests
 import JapanTaxLaw.TaxationPeriod
 import JapanTaxLaw.TaxationPeriodSpec
 import JapanTaxLaw.TaxationPeriodTests
+import JapanTaxLaw.ObligationArt15
+import JapanTaxLaw.ObligationArt15Spec
+import JapanTaxLaw.ObligationArt15Tests
