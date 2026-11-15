@@ -77,3 +77,6 @@ import JapanTaxLaw.InheritanceSurchargeTests
 import JapanTaxLaw.InheritanceSuccessiveDeduction
 import JapanTaxLaw.InheritanceSuccessiveDeductionSpec
 import JapanTaxLaw.InheritanceSuccessiveDeductionTests
+import JapanTaxLaw.SpouseRelief
+import JapanTaxLaw.SpouseReliefSpec
+import JapanTaxLaw.SpouseReliefTests
