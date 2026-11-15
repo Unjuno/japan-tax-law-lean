@@ -127,3 +127,7 @@ import JapanTaxLaw.InheritanceMinorDisabledDeductionTests
 import JapanTaxLaw.RegistrationCommercialTaxTable
 import JapanTaxLaw.RegistrationCommercialTaxTableSpec
 import JapanTaxLaw.RegistrationCommercialTaxTableTests
+
+import JapanTaxLaw.InheritanceApportionment
+import JapanTaxLaw.InheritanceApportionmentSpec
+import JapanTaxLaw.InheritanceApportionmentTests

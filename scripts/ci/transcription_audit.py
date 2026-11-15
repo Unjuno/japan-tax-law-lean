@@ -318,7 +318,7 @@ def main() -> int:
         "RegistrationTax.lean の未採用帯域（仮登記・分離の登記等）の literal のうち未検査のもの",
         "RegistrationCommercialTaxTable.lean の未採用帯域（リ：相互会社 ¥300,000／ヌ：新株予約権 ¥9万／ル：支店 ¥6万／ヲ：移転 ¥3万／ワ：取締役会事項変更／カ：役員事項変更／ヨ：支配人の選任 等）",
         "ConsumptionTaxRate.lean の次のアンカー外（art. 29(2)／art. 28 課税標準・art. 30 仕入税額控除 等）— モデル未採用かつ未検査",
-        "InheritanceSurcharge.lean art. 17 の相続税額算出手続き literal",
+        "InheritanceSurcharge.lean art. 17 の相続税額算出（相続税法 art. 17 には literal がない・割合計算のみ。InheritanceApportionment.lean としてモデル化済み・literal 監査対象外）",
         "StampDuty.art. 20 の集計・floor にまつわる全 detail（文言は covered・ロジックは未検査）",
         "CounterexampleSweep-covered impls (already subject to L6, not pinned-literal audit)",
         "all L3 actor/definition modules (no rate/amount literals to transcribe)",
