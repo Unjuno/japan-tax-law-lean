@@ -98,6 +98,7 @@ class ArticleRec:
     path: str                   # human readable location, e.g. MAIN/Chapter 2/Article 12
     context: dict | None = None # part/division/chapter/subsection/section nums
     ref_text: str = ""          # scannable text: Paragraph children only (titles/captions excluded)
+    synthetic: bool = False     # True for 附則/前文 paragraphs materialised as synthetic articles
 
 
 @dataclass
@@ -140,11 +141,13 @@ class LawDoc:
             yield from s.articles
 
     def article_index(self):
-        """scope -> {integer: [ArticleRec]} for existence checks."""
+        """scope -> {integer: [ArticleRec]} for existence checks (synthetic 前文 excluded)."""
         idx = {}
         for s in self.scopes:
             idx[s.name] = {}
             for a in s.articles:
+                if a.synthetic:
+                    continue
                 for k in a.keys:
                     idx[s.name].setdefault(k.integer, []).append(a)
         return idx
@@ -240,6 +243,39 @@ class _LineBuilder:
         return len(self.lines)  # 1-based line number
 
 
+_ITEM_TAGS = {"Item": 0, "Subitem1": 1, "Subitem2": 2, "Subitem3": 3, "Subitem4": 4}
+
+
+def _extract_items(p, scope, num_attr, pnum, builder):
+    """Extract nested items/subitems from a paragraph node in document order."""
+    items: list[ItemRec] = []
+    has_items = False
+    item_tags = _ITEM_TAGS
+
+    def _add_items(current, prefix):
+        nonlocal has_items
+        for sub in current.get("children", []):
+            if not isinstance(sub, dict):
+                continue
+            tag = sub.get("tag")
+            if tag not in item_tags:
+                _add_items(sub, prefix)
+                continue
+            has_items = True
+            level = item_tags[tag]
+            ititle_node = next(iter(children_of(sub, f"{tag}Title")), None)
+            ititle = text_of(ititle_node).strip() if ititle_node is not None else ""
+            inum = str(sub.get("attr", {}).get("Num", ""))
+            ideleted, ikeys = _parse_item_num(inum)
+            my_key = f"{prefix}.{inum}" if prefix else inum
+            line = builder.add(f"[{scope}] Article {num_attr} Paragraph {pnum} {'  ' * level}{ititle} {clean_text(sub)}")
+            items.append(ItemRec(inum, level, ititle, clean_text(sub), line, ideleted, ikeys, prefix or None))
+            _add_items(sub, my_key)
+
+    _add_items(p, "")
+    return items, has_items
+
+
 def load_law(path: str | Path) -> LawDoc:
     path = Path(path)
     raw = path.read_bytes()
@@ -293,35 +329,14 @@ def load_law(path: str | Path) -> LawDoc:
         title = text_of(next(iter(children_of(node, "ArticleTitle")), {"children": []})).strip()
         paragraphs: list[ParagraphRec] = []
         has_items = False
-        item_tags = {"Item": 0, "Subitem1": 1, "Subitem2": 2, "Subitem3": 3, "Subitem4": 4}
         for p in children_of(node, "Paragraph"):
             pnum = str(p.get("attr", {}).get("Num", "")) or None
             pcaption_node = next(iter(children_of(p, "ParagraphCaption")), None)
             pcaption = text_of(pcaption_node).strip() if pcaption_node is not None else None
             ptext = clean_text(p)
-            items: list[ItemRec] = []
 
-            def _add_items(current, prefix):
-                nonlocal has_items
-                for sub in current.get("children", []):
-                    if not isinstance(sub, dict):
-                        continue
-                    tag = sub.get("tag")
-                    if tag not in item_tags:
-                        _add_items(sub, prefix)
-                        continue
-                    has_items = True
-                    level = item_tags[tag]
-                    ititle_node = next(iter(children_of(sub, f"{tag}Title")), None)
-                    ititle = text_of(ititle_node).strip() if ititle_node is not None else ""
-                    inum = str(sub.get("attr", {}).get("Num", ""))
-                    ideleted, ikeys = _parse_item_num(inum)
-                    my_key = f"{prefix}.{inum}" if prefix else inum
-                    line = builder.add(f"[{scope}] Article {num_attr} Paragraph {pnum} {'  ' * level}{ititle} {clean_text(sub)}")
-                    items.append(ItemRec(inum, level, ititle, clean_text(sub), line, ideleted, ikeys, prefix or None))
-                    _add_items(sub, my_key)
-
-            _add_items(p, "")
+            items, para_has_items = _extract_items(p, scope, num_attr, pnum, builder)
+            has_items = has_items or para_has_items
             if not items:
                 line = builder.add(f"[{scope}] Article {num_attr} Paragraph {pnum} {ptext}")
             else:
@@ -339,6 +354,32 @@ def load_law(path: str | Path) -> LawDoc:
             ArticleRec(scope, num_attr, keys, deleted, caption, title, paragraphs, text, line, f"{scope}/Article {num_attr}", dict(ctx), ref_text)
         )
 
+    synthetic_seq = 0
+
+    def add_synthetic_article(node, scope, ctx):
+        """Materialise a 附則/前文 paragraph as a synthetic article so the
+        reference scanner sees it. Its ref_text is scanned; structural rules
+        skip it via `a.synthetic`."""
+        nonlocal synthetic_seq
+        synthetic_seq += 1
+        num_attr = f"PREAMBLE:{synthetic_seq}"
+        keys = [ArticleKey(1_000_000_000 + synthetic_seq, None)]
+        pcaption_node = next(iter(children_of(node, "ParagraphCaption")), None)
+        pcaption = text_of(pcaption_node).strip() if pcaption_node is not None else None
+        ptext = clean_text(node)
+        pnum = str(node.get("attr", {}).get("Num", "") or "") or None
+        items, _has_items = _extract_items(node, scope, num_attr, pnum, builder)
+        p_line = builder.add(f"[{scope}] Preamble {synthetic_seq} {ptext}") if not items else min(i.line for i in items)
+        paragraph = ParagraphRec(pnum, ptext, pcaption, items, p_line)
+        text = ptext
+        scope_rec = next(s for s in scopes if s.name == scope)
+        ref_text = ptext
+        scope_rec.articles.append(
+            ArticleRec(scope, num_attr, keys, False, None, f"preamble {synthetic_seq}",
+                       [paragraph], text, p_line, f"{scope}/PREAMBLE {synthetic_seq}",
+                       dict(ctx), ref_text, True)
+        )
+
     def walk_body(node, scope, ctx=None):
         if not isinstance(node, dict):
             return
@@ -348,6 +389,11 @@ def load_law(path: str | Path) -> LawDoc:
             ctx[t.lower()] = str(node.get("attr", {}).get("Num", ""))
         if t == "Article":
             add_article(node, scope, ctx)
+            return
+        if t == "Paragraph":
+            # 附則/前文 paragraph outside any Article — synthetic article so
+            # the reference checker sees its cross-references too.
+            add_synthetic_article(node, scope, ctx)
             return
         if t == "SupplProvision":
             sp_num = str(node.get("attr", {}).get("Num", "")) or f"idx-{len(scopes)}"

@@ -70,6 +70,8 @@ def rule_duplicate_articles(doc: LawDoc) -> list[Finding]:
     for scope in doc.scopes:
         seen: dict[tuple[int, int | None], ArticleRec] = {}
         for a in scope.articles:
+            if a.synthetic:
+                continue
             for k in a.keys:
                 if k.sort_key() in seen:
                     prev = seen[k.sort_key()]
@@ -88,7 +90,7 @@ def rule_article_sequence(doc: LawDoc) -> list[Finding]:
     """MAIN scope articles should appear in non-decreasing (int, branch) order."""
     out = []
     for scope in doc.scopes:
-        keys = [(a.keys[0].sort_key() if a.keys else (0, -1), a) for a in scope.articles]
+        keys = [(a.keys[0].sort_key() if a.keys else (0, -1), a) for a in scope.articles if not a.synthetic]
         for (prev_key, prev), (key, cur) in zip(keys, keys[1:]):
             if key < prev_key:
                 out.append(Finding(
@@ -104,7 +106,7 @@ def rule_article_gaps(doc: LawDoc) -> list[Finding]:
     """Integer article numbers in MAIN should be gapless (deletions keep placeholders)."""
     out = []
     scope = doc.main
-    ints = sorted({k.integer for a in scope.articles for k in a.keys})
+    ints = sorted({k.integer for a in scope.articles if not a.synthetic for k in a.keys})
     if not ints:
         return out
     missing = [n for n in range(1, max(ints) + 1) if n not in set(ints)]
@@ -663,6 +665,7 @@ def rule_references(doc: LawDoc, other_docs: dict[str, LawDoc], stats: AuditStat
         pos_i = scope_articles.index(a)
         bound = None            # (ArticleRec, target_doc) the current list binds to
         prev_end = -1
+        binding_stack: list = []  # every article bound during this scope, newest last
         for sent_off, sentence in _sentence_split(a.ref_text):
             switches = _switches(doc, sentence)
             # Quoted fragments are literal quotations of other provisions; refs
@@ -746,6 +749,7 @@ def rule_references(doc: LawDoc, other_docs: dict[str, LawDoc], stats: AuditStat
                                 bound = None
                             else:
                                 bound = (hits[0], t_doc)
+                                binding_stack.append(bound)
                             prev_end = m.end()
                             continue
                         # 附則 of the self law: search all SP blocks of this doc
@@ -767,6 +771,7 @@ def rule_references(doc: LawDoc, other_docs: dict[str, LawDoc], stats: AuditStat
                             bound = None
                         else:
                             bound = (hits[0], t_doc)
+                            binding_stack.append(bound)
                         prev_end = m.end()
                         continue
                     if cls in ("external",):
@@ -804,6 +809,7 @@ def rule_references(doc: LawDoc, other_docs: dict[str, LawDoc], stats: AuditStat
                                 "legal-defect-candidate",
                             ))
                         bound = (hits[0], t_doc)
+                        binding_stack.append(bound)
                         target_article = hits[0]
                     out.extend(check_para_item(a, target_article, t_doc.law_id, raw, branch_note, sentence, raw_para, raw_item, raw_item_branch))
                     prev_end = m.end()
@@ -828,6 +834,7 @@ def rule_references(doc: LawDoc, other_docs: dict[str, LawDoc], stats: AuditStat
                     elif tok == "前項":
                         stats.references_unsupported += 1
                         bound = (a, doc)
+                        binding_stack.append(bound)
                     else:  # 前条 / 次条
                         if a.scope.startswith("SP"):
                             stats.references_unsupported += 1
@@ -849,6 +856,7 @@ def rule_references(doc: LawDoc, other_docs: dict[str, LawDoc], stats: AuditStat
                             bound = None
                         else:
                             bound = (target_rel, doc)
+                            binding_stack.append(bound)
                     prev_end = m.end()
                 elif kind == "para":
                     if chain_spans and any(s <= m.start() < e for s, e in chain_spans):
@@ -904,12 +912,20 @@ def rule_references(doc: LawDoc, other_docs: dict[str, LawDoc], stats: AuditStat
                         stats.references_internal_checked += 1
                         enclosing_ok = _item_in_article(a, inum, ibranch)
                         antecedent_ok = bound is not None and _item_in_article(bound[0], inum, ibranch)
+                        stack_hit = False
+                        if not enclosing_ok and not antecedent_ok:
+                            # Waterfall: walk earlier article bindings in reverse
+                            # order of appearance; an earlier antecedent that contains
+                            # the item resolves the reference (no candidate emitted).
+                            stack_hit = any(
+                                _item_in_article(art, inum, ibranch) for art, _doc in reversed(binding_stack)
+                            )
                         target_article = bound[0] if bound else a
                         target_id = bound[1].law_id if bound else doc.law_id
-                        if not enclosing_ok and not antecedent_ok:
+                        if not enclosing_ok and not antecedent_ok and not stack_hit:
                             out.append(Finding(
                                 "REF.ITEM.MISSING", "candidate", doc.law_id, a.path, a.line,
-                                f"Reference to item {inum}{('の' + m.group(2)) if m.group(2) else ''} but neither enclosing article {a.num_attr} (items {_item_level0_nums(a)}) nor antecedent article {bound[0].num_attr if bound else '-'} (items {_item_level0_nums(bound[0]) if bound else '-'}) contains it",
+                                f"Reference to item {inum}{('の' + m.group(2)) if m.group(2) else ''} but neither enclosing article {a.num_attr} (items {_item_level0_nums(a)}) nor antecedent article {bound[0].num_attr if bound else '-'} (items {_item_level0_nums(bound[0]) if bound else '-'}) nor any earlier bound article contains it",
                                 f"sentence: {sentence.strip()[:160]}",
                                 "legal-defect-candidate",
                             ))
@@ -934,6 +950,8 @@ def rule_toc_ranges(doc: LawDoc) -> list[Finding]:
 
     body_spans: dict[tuple, list[ArticleRec]] = {}
     for a in doc.main.articles:
+        if a.synthetic:
+            continue
         body_spans.setdefault(ctx_key(a.context), []).append(a)
     kind_map = {"TOCPart": "part", "TOCDivision": "division", "TOCChapter": "chapter",
                 "TOCSection": "section"}
