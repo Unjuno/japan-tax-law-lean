@@ -291,7 +291,30 @@ python scripts/law_audit/inventory/validate_inventory.py  # 台帳整合チェ�
 ```
 
 候補の一覧と根拠は `build/audit_sweep.json`（生成物・未コミット）に出力されます。
-**`build/` はコミット対象外**。台帳台帳の再現手順は [docs/INVENTORY.md](docs/INVENTORY.md) を参照。
+**`build/` はコミット対象外**。台帳の再現手順は [docs/INVENTORY.md](docs/INVENTORY.md) を参照。
+
+## Phase E — 法令横断検証（着手・シード）
+
+PHASE E の最初の着手点として、`scripts/law_audit/phase_e/cross_law.py` を実装しました。Lean モジュールのソースピン留めと Phase A 台帳（`data/INVENTORY.json`）の整合を機械的に検査する L1↔L3 横断チェッカーです（2026-11-15 時点・シード。PHASE E 完成ではありません）。
+
+検査内容（すべて機械的・失敗時は非ゼロ終了）：
+
+1. 各 `JapanTaxLaw/*.lean` のピン留めヘッダ（`Law id:` / `Revision:` / `Amendment enforcement date:` / `Raw snapshot sha256:`）を走査
+2. `Law id:` が台帳に存在し、`current_revision_status` が `CurrentEnforced`、`audit_ready` が true であること
+3. `Revision:` が台帳の `current_revision.law_revision_id` と一致すること
+4. `Raw snapshot sha256:` が台帳の `raw_snapshot.source_sha256` と一致すること（Spec モジュールの `Revision:` のみのピンも台帳の現行改正版と照合）
+5. 台帳で unresolved（完全未施行）の 2 法令（防衛特別所得税関連の政令・省令）がどの Lean モジュールからもピン留めできないこと（弾かれることをテストで担保）
+
+実行結果（2026-11-15）：スキャン 45 ファイル、ピン留め一致 22 モジュール、失敗 0 件。ピン留めのないモジュール（Verdict / TaxFinance / Tests 等、法源を持たない共通知識層）は 23 件で、**検証済みにカウントしません**。バイトレベルの原文 SHA-256 照合自体は `validate_inventory.py` の責務です（この横断検査は台帳↔Lean の整合のみ）。
+
+**限界・未完了**: これはピン留め整合の検証であり、条文間の法的意味の矛盾を検出するものではありません。参照グラフは Phase B の候補 3,280 件（すべて**未確定**）のままで、独立レビューなしに欠陥と呼ばず、`verified-anomaly` は 0 件を維持します。PHASE E 完成（重複適用・優先関係の意味的横断検査）は今後の作業です。
+
+```sh
+python scripts/law_audit/phase_e/cross_law.py     # 横断ピン留め検査（build/cross_law.json へ出力）
+python -m unittest scripts.tests.test_cross_law   # 12 テスト（実リポジトリ整合 + 合成失敗ケース）
+```
+
+詳細は [docs/CROSS_LAW.md](docs/CROSS_LAW.md) を参照。
 
 ## R1 の検証結果（2026-11-15 時点）
 
