@@ -50,30 +50,12 @@ jobs:
           echo "reproducibility run 2 passed"
 
   python-audit:
-    name: Structural audit and mutation injection
+    name: Semantic audit and mutation injection
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Structural audit tests
-        run: python -m unittest scripts.tests.test_structural_audit -v
-      - name: Mutation injection tests
-        run: python -m unittest scripts.tests.test_mutation_injection -v
-      - name: Inventory selection tests
-        run: python -m unittest scripts.tests.test_inventory_selection -v
-      - name: Cross-law consistency tests
-        run: python -m unittest scripts.tests.test_cross_law -v
-      - name: Revision impact tests
-        run: python -m unittest scripts.tests.test_revision_impact -v
-      - name: Phase A inventory integrity
-        run: python scripts/law_audit/inventory/validate_inventory.py
-      - name: Phase E cross-law pin consistency
-        run: python scripts/law_audit/phase_e/cross_law.py
-      - name: Phase F revision impact integrity
-        run: python scripts/law_audit/phase_f/revision_impact.py
-      - name: Run audit and verify hashes
-        run: |
-          python -m scripts.law_audit.audit --out build
-          python -m scripts.law_audit.report
+      - name: Python audit gates (present-branch execution, honest skips)
+        run: python3 scripts/ci/run_python_gates.py
