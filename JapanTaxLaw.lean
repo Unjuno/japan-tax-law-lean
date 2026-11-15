@@ -56,3 +56,6 @@ import JapanTaxLaw.KanzeiGoodsTests
 import JapanTaxLaw.IndividualIncomeTax
 import JapanTaxLaw.IndividualIncomeTaxSpec
 import JapanTaxLaw.IndividualIncomeTaxTests
+import JapanTaxLaw.CorporateTaxRate
+import JapanTaxLaw.CorporateTaxRateSpec
+import JapanTaxLaw.CorporateTaxRateTests
