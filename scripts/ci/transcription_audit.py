@@ -258,11 +258,18 @@ def checks():
             "先取特権、質権又は抵当権の信託の登記債権金額又は極度金額千分の二",
             "その他の権利の信託の登記不動産の価額千分の二"])
 
-    # 登録免許税法 別表第一（二）第二十四号（一）イ — RegistrationCommercialTax.lean
-    yield ("登録免許税法 別表第一（二）第二十四号（一）イ（株式会社の設立の登記・千分の七・最低十五万円）↔ RegistrationCommercialTax.lean (stockFormationRate, stockFormationTax)",
+    # 登録免許税法 別表第一（二）第二十四号（一）イ〜チ — RegistrationCommercialTax.lean (stockFormationRate...) + RegistrationCommercialTaxTable.lean (イ〜チ 全帯)
+    yield ("登録免許税法 別表第一（二）第二十四号（一）イ〜チ（株式会社等の設立・資本金増加の登記）↔ RegistrationCommercialTax.lean + RegistrationCommercialTaxTable.lean",
            "342AC0000000035",
            "file", None,
-           ["イ　株式会社の設立の登記（ホ及びトに掲げる登記を除く。）資本金の額千分の七"])
+           ["イ　株式会社の設立の登記（ホ及びトに掲げる登記を除く。）資本金の額千分の七",
+            "ロ　合名会社若しくは合資会社又は一般社団法人等の設立の登記申請件数一件につき六万円",
+            "ハ　合同会社の設立の登記（ホ及びトに掲げる登記を除く。）資本金の額千分の七",
+            "ニ　株式会社又は合同会社の資本金の増加の登記（ヘ及びチに掲げる登記を除く。）増加した資本金の額千分の七",
+            "ホ　新設合併又は組織変更若しくは種類の変更による株式会社又は合同会社の設立の登記資本金の額千分の一・五",
+            "ヘ　吸収合併による株式会社又は合同会社の資本金の増加の登記増加した資本金の額千分の一・五",
+            "ト　新設分割による株式会社又は合同会社の設立の登記資本金の額千分の七",
+            "チ　吸収分割による株式会社又は合同会社の資本金の増加の登記増加した資本金の額千分の七"])
 
     # 地方税法 art. 34 — LocalIncomeTax.lean (basicDeduction, spouseDeduction)
     yield ("地方税法 art. 34(2)/(1)十号（道府県民税 基礎控除・配偶者控除）↔ LocalIncomeTax.lean (basicDeduction, spouseDeduction)",
@@ -309,7 +316,7 @@ def main() -> int:
         "LocalExemption.lean / LocalPrivilege.lean / LocalObligor.lean（賦課方式の税額算定 literal なし／定義分類器）",
         "KanzeiGoods.lean（関税法 art. 2 の物品定義分類器・税率 literal なし／cross_law の pin のみ）",
         "RegistrationTax.lean の未採用帯域（仮登記・分離の登記等）の literal のうち未検査のもの",
-        "RegistrationCommercialTax.lean の未採用帯域（ホ：合併等 千分の一・五／ト：新設分割 等）",
+        "RegistrationCommercialTaxTable.lean の未採用帯域（リ：相互会社 ¥300,000／ヌ：新株予約権 ¥9万／ル：支店 ¥6万／ヲ：移転 ¥3万／ワ：取締役会事項変更／カ：役員事項変更／ヨ：支配人の選任 等）",
         "ConsumptionTaxRate.lean の次のアンカー外（art. 29(2)／art. 28 課税標準・art. 30 仕入税額控除 等）— モデル未採用かつ未検査",
         "InheritanceSurcharge.lean art. 17 の相続税額算出手続き literal",
         "StampDuty.art. 20 の集計・floor にまつわる全 detail（文言は covered・ロジックは未検査）",
