@@ -123,3 +123,7 @@ import JapanTaxLaw.StampDutySpecial91Tests
 import JapanTaxLaw.InheritanceMinorDisabledDeduction
 import JapanTaxLaw.InheritanceMinorDisabledDeductionSpec
 import JapanTaxLaw.InheritanceMinorDisabledDeductionTests
+
+import JapanTaxLaw.RegistrationCommercialTaxTable
+import JapanTaxLaw.RegistrationCommercialTaxTableSpec
+import JapanTaxLaw.RegistrationCommercialTaxTableTests
