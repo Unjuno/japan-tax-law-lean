@@ -183,18 +183,38 @@ def _parse_item_num(num_attr: str) -> tuple[bool, list]:
 def _parse_article_num(num_attr: str) -> list[ArticleKey]:
     """Expand Article attr Num into one or more keys.
 
-    '2'      -> [ArticleKey(2, None)]
-    '8_2'    -> [ArticleKey(8, 2)]
-    '96:101' -> [ArticleKey(96, None), ..., ArticleKey(101, None)]  (deleted range)
+    '2'        -> [ArticleKey(2, None)]
+    '8_2'      -> [ArticleKey(8, 2)]
+    '96:101'   -> [ArticleKey(96, None), ..., ArticleKey(101, None)]  (deleted range)
+    '71_23:71_24' -> [ArticleKey(71, (23,)), ArticleKey(71, (24,))]   (branch range, sane when both ints equal)
+    '485_7:485_12' -> [ArticleKey(485, (7,)), ..., ArticleKey(485, (12,))]
+
+    e-Gov notation アニメ削除は原文中の単一の削除標記であり、数値の連続ではない。
+    前後の条文を結ぶために枝番号内の範囲展開のみを正規に行い、整数部が異なる場合や
+    枝番号の解釈が難しい場合は端点のみを返す（推測で展開しない）。
     """
     num_attr = num_attr.strip()
     if ":" in num_attr:
         a, b = num_attr.split(":", 1)
-        start, end = int(a), int(b)
-        if end < start:
-            # tolerate reversed placeholder; the audit reports it via STRUCT.DELETED.RANGE
-            return [ArticleKey(start, None), ArticleKey(end, None)]
-        return [ArticleKey(i, None) for i in range(start, end + 1)]
+
+        def parse_part(x):
+            parts = x.split("_")
+            integer = int(parts[0])
+            branch = tuple(int(q) for q in parts[1:]) or None
+            return integer, branch
+
+        si, sb = parse_part(a)
+        ei, eb = parse_part(b)
+        if si == ei:
+            if sb is not None and eb is not None and len(sb) == len(eb) == 1:
+                return [ArticleKey(si, (bb,)) for bb in range(sb[0], eb[0] + 1)]
+            return [ArticleKey(si, sb), ArticleKey(ei, eb)]
+        # 整数部をまたぐ場合は端点のみ（安全側）。ギャップ監査は STRUCT.GAP が別途担う。
+        if eb is None:
+            return [ArticleKey(i, None) for i in range(si, ei + 1)]
+        if sb is None:
+            return [ArticleKey(si, None), ArticleKey(ei, eb)]
+        return [ArticleKey(si, sb), ArticleKey(ei, eb)]
     parts = num_attr.split("_")
     integer = int(parts[0])
     branch = tuple(int(q) for q in parts[1:]) or None
