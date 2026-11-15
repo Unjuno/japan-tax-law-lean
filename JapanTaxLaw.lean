@@ -19,3 +19,6 @@ import JapanTaxLaw.TaxpayerTests
 import JapanTaxLaw.TaxGeneralPriority
 import JapanTaxLaw.TaxGeneralPrioritySpec
 import JapanTaxLaw.TaxGeneralPriorityTests
+import JapanTaxLaw.TaxProcedure
+import JapanTaxLaw.TaxProcedureSpec
+import JapanTaxLaw.TaxProcedureTests
