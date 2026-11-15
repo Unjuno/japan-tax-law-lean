@@ -321,6 +321,7 @@ JapanTaxLaw/TaxProcedureTests.lean # Act art.2(10) の退行テスト 12件
 scripts/law_audit/               # 構造監査エンジン（Python）
 docs/AUDIT_REPORT.md             # 監査レポート（生成物）
 docs/L7_LEDGER.md               # L7 統合レジャー（機械生成・CI 再生成照合）
+docs/L7_CANDIDATES_UNREVIEWED.csv  # 候補ごとの一覧＋レビュー状態（全件 unreviewed／機械生成・CI 再生成照合）
 data/raw/                        # e-Gov API v2 から取得した適用版XML＋ハッシュ
 data/PROVENANCE.json             # 法令ID・履歴ID・施行日・SHA-256
 docs/METHODOLOGY.md              # 法令・モデルの対応づけ、発見の査読基準

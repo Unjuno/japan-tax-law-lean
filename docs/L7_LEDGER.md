@@ -45,6 +45,8 @@
 | REF.RELATIVE.MISSING | 3 |
 | TOC.BODY.MISSING | 1 |
 
+完全な候補ごとの一覧とレビュー状態は [`L7_CANDIDATES_UNREVIEWED.csv`](L7_CANDIDATES_UNREVIEWED.csv) に機械生成で掲載（`scripts/ci/l7_candidates.py`、CI で再生成照合。行は全件 `review_status=unreviewed`）。
+
 ## 4. 明示的に非対応の範囲（非計上・非検証として記録）
 
 | 範囲 | 状態 |
