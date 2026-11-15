@@ -52,11 +52,17 @@ legal semantics; Pin ↔ 原文一致 is the trust boundary):
 2. `special_eq_general_le_2m` — for a taxable base ≤ ¥2,000,000 both tables
    compute the same tax (both are flat 10% on that band).
 3. Both tables share the 55% top rate (kernel-verified via `portionTaxGo`/`decide`).
-4. `specialLeGeneralSamples` — a **kernel-decided bounded sample grid** over the
-   range up to ¥100,000,000: the special tax never exceeds the general tax.
-   **A bounded sample, not a universal proof** — the universal domination proof
-   (piecewise-monotone floor analysis) is recorded as future work and must not
-   be claimed from the sample.
+4. `specialLeGeneralGrid` / sample grid — **kernel-decided dense sample only**,
+   never a universal proof.
+   **Universal domination was attempted and is NOT proven.** Concrete blocker
+   (recorded for future work): after fully unfolding both tables
+   (`portionTaxGo_cons` × 8 + `portionTaxGo_nil`), the residual polynomial is
+   elaborated with mixed Money/Nat numeral instances, which defeats `omega`'s
+   atom detection ("possible counterexample may satisfy the constraints ...
+   where a := ↑x"); `grind` closes the goal but the resulting proof depends on
+   `Classical.choice`, which the repo's CI axiom gate (no `Classical.choice`)
+   forbids. A future proof needs either a pure-Nat normalisation of both
+   polynomials or an explicit floor-aware bandwise inequality chain.
 5. Eligibility gates (lineal ascendant gift ∧ recipient ≥18 on Jan 1) are
    externally established booleans supplied by the caller (`SpecialGiftFacts`);
    art. 70の2の5(2)（年の途中で直系卑属となつた場合の規定）・(3)（特例贈与財産と一般贈与財産の併存時の按分計算）・
