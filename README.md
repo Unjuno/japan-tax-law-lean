@@ -82,6 +82,17 @@ JapanTaxLaw/TaxationPeriod.lean では、国税通則法第2条第9号の**課�
 - 不明（unknown）は偽として処理せず、conflict は判定不能の上位（矛盾）として扱います。
 - JapanTaxLaw/TaxationPeriodSpec.lean で独立仕様を維持し、健全性・整合性の定理を証明しています（後述）。
 
+### 消費税法第5条（納税義務者）＝登録免許税法の別表記（法定番号）
+
+JapanTaxLaw/ConsumptionTaxActor.lean では、消費税法（昭和六十三年法律第百八号）の**納税義務**の第一項を形式化します：
+
+- 事業者は、国内において行つた課税資産の譲渡等（特定資産の譲渡等に該当するものを除く。）及び特定課税仕入れ（課税仕入れのうち特定仕入れに該当するものをいう。）につき、消費税を納める義務がある。
+- Act art. 2 item 4 事業者 = 個人事業者 ∪ 法人（item 3 個人事業者）。item 7 人格のない社団等は別分類として取り扱い、事業者の肯定の分類であれば事業能力として成立するものとして扱います。
+- 課税事象（課税資産の譲渡等・特定課税仕入れ）自体の認定は本モジュールの対象外。外部判定事実として入力する。
+- Act art. 2 items 7（人格のない社団等）、item 12（課税仕入れ）、item 13（事業年度）、item 14（基準期間）、item 16（調整対象固定資産）にまたがる事業能力認定は、本PRでは事業能力に無関係な部分を除き全面未対応（`unsupported`）。
+- Act art. 4 の課税対象の細目（特定役務の提供の場所判定、見なし譲渡の特例等）は未対応。今閉じたのは「納税義務者＝事業者＋課税事象」までの範囲。
+- JapanTaxLaw/ConsumptionTaxActorSpec.lean で独立仕様を維持し、健全性・整合性の定理を証明しています（後述）。
+
 ### 国税通則法第15条（納税義務の成立及びその納付すべき税額の確定）
 
 JapanTaxLaw/ObligationArt15.lean では、国税通則法第15条の納税義務の成立条件のうち、本モデルが対応する税目（closed universe）のものを形式化します。
@@ -185,6 +196,9 @@ JapanTaxLaw/TaxationPeriodTests.lean # Act art.2(9) の退行テスト 9件
 JapanTaxLaw/ObligationArt15.lean      # 国税通則法 第15条（納税義務の成立）
 JapanTaxLaw/ObligationArt15Spec.lean  # Act art.15 の独立仕様・健全性・整合性定理
 JapanTaxLaw/ObligationArt15Tests.lean # Act art.15 の退行テスト 19件
+JapanTaxLaw/ConsumptionTaxActor.lean      # 消費税法 第5条 納税義務者 anchor（事業能力＋課税事象）
+JapanTaxLaw/ConsumptionTaxActorSpec.lean  # 消費税法 Act art.5 anchor の独立仕様・健全性・整合性定理
+JapanTaxLaw/ConsumptionTaxActorTests.lean # 消費税法 anchor の退行テスト 19件
 JapanTaxLaw/TaxProcedure.lean      # 国税通則法 第2条第10号（強制換価手続）
 JapanTaxLaw/TaxProcedureSpec.lean  # Act art.2(10) の独立仕様・健全性・整合性定理
 JapanTaxLaw/TaxProcedureTests.lean # Act art.2(10) の退行テスト 12件
