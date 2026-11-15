@@ -53,6 +53,14 @@ JapanTaxLaw/Taxpayer.lean では、国税通則法第2条第5号（納税者）�
 - JapanTaxLaw/TaxpayerSpec.lean で独立仕様を維持し、健全性・整合性の定理を証明しています。
 
 
+### 国税通則法第4条（他の国税に関する法律との関係・優先規則）
+
+JapanTaxLaw/TaxGeneralPriority.lean では、国税通則法第4条（「この法律に規定する事項と他の国税に関する法律に別段の定めがあるものは、その定めるところによる。」）を形式化します。他の国税に関する法律の別段の定めがあれば、本法より別段の定めが優先します（lex specialis）。
+
+- 別段の定めがあれば他法適用（覆い尽くされた主張）。なければ本法規定が適用。
+- 不明（unknown）は偽として処理せず、conflict は判定不能の上位（矛盾）として扱います。
+- JapanTaxLaw/TaxGeneralPrioritySpec.lean で独立仕様を維持し、健全性・整合性（証人形式）の定理を証明しています（後述）。
+
 ### 構造監査（e-Gov 法令本文の機械検査）
 
 scripts/law_audit/ は、2026-11-15 適用版の**所得税法**（法令ID 340AC0000000033）と
@@ -124,6 +132,9 @@ JapanTaxLaw/TaxGeneralTests.lean # 国税通則法 定義層の退行テスト 1
 JapanTaxLaw/Taxpayer.lean       # Phase D: 国税通則法 第2条第5号（納税者）
 JapanTaxLaw/TaxpayerSpec.lean   # 納税者スライスの独立仕様と健全性・整合性定理
 JapanTaxLaw/TaxpayerTests.lean  # 納税者スライスの退行テスト 11件
+JapanTaxLaw/TaxGeneralPriority.lean      # 国税通則法 第4条（優先規則）
+JapanTaxLaw/TaxGeneralPrioritySpec.lean  # Act art.4 の独立仕様・健全性・整合性定理
+JapanTaxLaw/TaxGeneralPriorityTests.lean # Act art.4 の退行テスト 15件
 scripts/law_audit/               # 構造監査エンジン（Python）
 scripts/tests/                   # 構造監査テスト 35件 ＋ 誤変更注入検出テスト 12件
 data/raw/                        # e-Gov API v2 から取得した適用版XML＋ハッシュ
