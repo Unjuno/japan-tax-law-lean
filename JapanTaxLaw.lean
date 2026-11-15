@@ -99,3 +99,6 @@ import JapanTaxLaw.RegistrationTaxTests
 import JapanTaxLaw.LocalIncomeTax
 import JapanTaxLaw.LocalIncomeTaxSpec
 import JapanTaxLaw.LocalIncomeTaxTests
+import JapanTaxLaw.LocalInhabitantTax
+import JapanTaxLaw.LocalInhabitantTaxSpec
+import JapanTaxLaw.LocalInhabitantTaxTests
