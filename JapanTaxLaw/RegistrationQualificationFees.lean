@@ -287,6 +287,42 @@ def casinoFacilityOperationBusinessLicenseFee : Money := 150_000
     カジノ関連機器等販売業又はカジノ関連機器等修理業の許可につきの額（固定 ¥150,000）。 -/
 def casinoEquipmentManufacturingEtcBusinessLicenseFee : Money := 150_000
 
+/-- 三十六の二（一） 銀行法第五十二条の六十の三（登録）の電子決済等取扱業者の登録につきの額（固定 ¥150,000）。 -/
+def electronicPaymentBusinessOperatorRegistrationFee : Money := 150_000
+
+/-- 三十六の二（二） 信用金庫法第八十五条の三第一項（登録）の信用金庫電子決済等取扱業者の登録につきの額（固定 ¥150,000）。 -/
+def creditDepositoryAssociationElectronicPaymentBusinessOperatorRegistrationFee : Money := 150_000
+
+/-- 三十六の二（三） 協同組合による金融事業に関する法律第六条の四の三第一項（信用協同組合電子決済等取扱業の登録）の信用協同組合電子決済等取扱業者の登録につきの額（固定 ¥150,000）。 -/
+def creditCooperativeElectronicPaymentBusinessOperatorRegistrationFee : Money := 150_000
+
+/-- 三十六の二（四） 銀行法第五十二条の六十の二十五（認定電子決済等取扱事業者協会の認定）の認定電子決済等取扱事業者協会の認定につきの額（固定 ¥150,000）。 -/
+def electronicPaymentBusinessAssociationLicenseFee : Money := 150_000
+
+/-- 三十六の二（五） 信用金庫法第八十五条の三の四（認定信用金庫電子決済等取扱事業者協会の認定）の認定信用金庫電子決済等取扱事業者協会の認定につきの額（固定 ¥150,000）。 -/
+def creditDepositoryAssociationElectronicPaymentBusinessAssociationLicenseFee : Money := 150_000
+
+/-- 三十六の二（六） 協同組合による金融事業に関する法律第六条の四の六（認定信用協同組合電子決済等取扱事業者協会の認定）の認定信用協同組合電子決済等取扱事業者協会の認定につきの額（固定 ¥150,000）。 -/
+def creditCooperativeElectronicPaymentBusinessAssociationLicenseFee : Money := 150_000
+
+theorem electronicPaymentBusinessOperatorRegistrationFee_pos : electronicPaymentBusinessOperatorRegistrationFee > 0 := by decide
+theorem creditDepositoryAssociationElectronicPaymentBusinessOperatorRegistrationFee_pos :
+    creditDepositoryAssociationElectronicPaymentBusinessOperatorRegistrationFee > 0 := by decide
+theorem creditCooperativeElectronicPaymentBusinessOperatorRegistrationFee_pos :
+    creditCooperativeElectronicPaymentBusinessOperatorRegistrationFee > 0 := by decide
+theorem electronicPaymentBusinessAssociationLicenseFee_pos : electronicPaymentBusinessAssociationLicenseFee > 0 := by decide
+theorem creditDepositoryAssociationElectronicPaymentBusinessAssociationLicenseFee_pos :
+    creditDepositoryAssociationElectronicPaymentBusinessAssociationLicenseFee > 0 := by decide
+theorem creditCooperativeElectronicPaymentBusinessAssociationLicenseFee_pos :
+    creditCooperativeElectronicPaymentBusinessAssociationLicenseFee > 0 := by decide
+
+example : electronicPaymentBusinessOperatorRegistrationFee = 150_000 := by decide
+example : creditDepositoryAssociationElectronicPaymentBusinessOperatorRegistrationFee = 150_000 := by decide
+example : creditCooperativeElectronicPaymentBusinessOperatorRegistrationFee = 150_000 := by decide
+example : electronicPaymentBusinessAssociationLicenseFee = 150_000 := by decide
+example : creditDepositoryAssociationElectronicPaymentBusinessAssociationLicenseFee = 150_000 := by decide
+example : creditCooperativeElectronicPaymentBusinessAssociationLicenseFee = 150_000 := by decide
+
 /-- 三十四の三（四） 同法第百五十条第一項（カジノ関連機器等外国製造業の認定）のカジノ関連機器等外国製造業の認定につきの額（固定 ¥150,000）。 -/
 def casinoEquipmentForeignManufacturingLicenseFee : Money := 150_000
 
