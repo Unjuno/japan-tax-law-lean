@@ -70,5 +70,16 @@ example : careerConsultantRegistrationFee = 9_000 := by decide
 example : metrologyOfficerRegistrationFee = 30_000 := by decide
 example : informationProcessingSecuritySupportSpecialistRegistrationFee = 9_000 := by decide
 example : patentAttorneyRegistrationFee = 60_000 := by decide
+-- （二十六）小型船舶操縦士（イ 一級／ロ 二級／ハ 特殊）
+example : smallVesselClass1RegistrationFee = 2_000 := by decide
+example : smallVesselClass2RegistrationFee = 1_800 := by decide
+example : smallVesselClassSpecialRegistrationFee = 1_500 := by decide
+-- （二十七）水先人（イ（１）一級／（２）二級／（３）三級）
+example : pilotClass1RegistrationFee = 60_000 := by decide
+example : pilotClass2RegistrationFee = 30_000 := by decide
+example : pilotClass3RegistrationFee = 15_000 := by decide
+-- （二十八）海事補佐人 ／ （二十九）海事代理士
+example : maritimeAssistantExaminerRegistrationFee = 30_000 := by decide
+example : maritimeAgentRegistrationFee = 30_000 := by decide
 
 end JapanTaxLaw
