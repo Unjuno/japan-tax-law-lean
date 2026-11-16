@@ -77,4 +77,45 @@ example : stampCheckGrid = true := by decide
 example : 333 * 3 = 999 := by decide
 example : 334 * 3 = 1_002 := by decide
 
+
+
+-- ==== §20(4)/(5) aggregate penalty (spec, independent restatement) ====
+
+/-- Spec: §20(5) — floor exempt iff no non-declared components exist. -/
+def specStampFloorExempt (auditPenalty uncancelledPenalty : Money) : Bool :=
+  auditPenalty == 0 && uncancelledPenalty == 0
+
+/-- Spec: §20(4)/(5) — aggregate with floor exemption rule. -/
+def specStampAggregatePenalty (auditPenalty uncancelledPenalty declaredPenalty : Money) : Money :=
+  let rawSum := auditPenalty + uncancelledPenalty + declaredPenalty
+  if specStampFloorExempt auditPenalty uncancelledPenalty then rawSum
+  else if rawSum < 1_000 then 1_000 else rawSum
+
+example : specStampAggregatePenalty 0 0 0 = 0 := by decide
+example : specStampAggregatePenalty 0 0 500 = 500 := by decide
+example : specStampAggregatePenalty 0 0 999 = 999 := by decide
+example : specStampAggregatePenalty 0 0 1_000 = 1_000 := by decide
+example : specStampAggregatePenalty 0 0 2_500 = 2_500 := by decide
+example : specStampAggregatePenalty 0 100 0 = 1_000 := by decide
+example : specStampAggregatePenalty 0 999 0 = 1_000 := by decide
+example : specStampAggregatePenalty 0 1_000 0 = 1_000 := by decide
+example : specStampAggregatePenalty 0 5_000 0 = 5_000 := by decide
+example : specStampAggregatePenalty 100 0 0 = 1_000 := by decide
+example : specStampAggregatePenalty 2_500 0 0 = 2_500 := by decide
+example : specStampAggregatePenalty 300 0 100 = 1_000 := by decide
+example : specStampAggregatePenalty 0 100 200 = 1_000 := by decide
+example : specStampAggregatePenalty 300 300 300 = 1_000 := by decide
+example : specStampAggregatePenalty 2_000 100 500 = 2_600 := by decide
+example : specStampAggregatePenalty 0 400 400 = 1_000 := by decide
+
+/-- Agreement checks between implementation and Spec. -/
+def agreeStampPenaltyPoints : Bool :=
+  [ (0, 0, 0), (0, 0, 500), (0, 0, 999), (0, 0, 1_000), (0, 0, 2_500),
+    (0, 100, 0), (0, 999, 0), (0, 1_000, 0), (0, 5_000, 0),
+    (100, 0, 0), (2_500, 0, 0),
+    (300, 0, 100), (0, 100, 200), (300, 300, 300), (2_000, 100, 500), (0, 400, 400) ].all fun (a, u, d) =>
+    stampAggregatePenalty ⟨a, u, d⟩ == specStampAggregatePenalty a u d
+
+example : agreeStampPenaltyPoints = true := by decide
+
 end JapanTaxLaw

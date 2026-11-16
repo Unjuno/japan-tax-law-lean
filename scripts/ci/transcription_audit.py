@@ -524,7 +524,7 @@ def main() -> int:
         "InheritanceSurcharge.lean art. 17 の相続税額算出（相続税法 art. 17 には literal がない・割合計算のみ。InheritanceApportionment.lean としてモデル化済み・literal 監査対象外）",
         "LowAlcoholDutySpecialRate.lean の射程外（酒税法 art. 23 の一般税率そのもの／art. 87 の承認酒類製造者の特例／art. 87の3以降／発泡性の判定／蒸留酒類ホの除外の条文内定義 — 低アルコール特例の税額式のみモデル化）",
         "ListedDividendWithholding.lean の art. 9の3の二(1) 第一号〜六号 のカテゴリ定義・基准日の政令規定／第三項各号の暫定外国税按分計算（art. 9の3 の 15% 読み替えパスと合わせて非モデル化・caller-established）",
-        "StampDuty.art. 20 のより深い集計（複数 itDebtPenalty 系の合算順・調査前申出と併存した場合の §20(2)(5) 相互作用等）は未検査",
+        "StampDuty.art. 20 の非常に深い集計（構成要素の合算順そのもの・§20(2) と §20(7) の附帯税の係数の遡及計算・他法令の基礎算定との相互作用等）は未検査（§20(2)(5) の interaction はモデル化済み）",
         "CounterexampleSweep-covered impls (already subject to L6, not pinned-literal audit)",
         "all L3 actor/definition modules (no rate/amount literals to transcribe)",
     ]
