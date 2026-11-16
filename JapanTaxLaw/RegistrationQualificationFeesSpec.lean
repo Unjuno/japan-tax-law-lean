@@ -108,6 +108,31 @@ def specInformationProcessingSecuritySupportSpecialistRegistrationFee : Money :=
 /-- Spec: (二十四） 弁理士の登録。 -/
 def specPatentAttorneyRegistrationFee : Money := 60_000
 
+/-- Spec: (二十六）イ 一級小型船舶操縦士の登録。 -/
+def specSmallVesselClass1RegistrationFee : Money := 2_000
+/-- Spec: (二十六）ロ 二級小型船舶操縦士の登録。 -/
+def specSmallVesselClass2RegistrationFee : Money := 1_800
+/-- Spec: (二十六）ハ 特殊小型船舶操縦士の登録。 -/
+def specSmallVesselClassSpecialRegistrationFee : Money := 1_500
+/-- Spec: (二十七）イ（１） 一級水先人の登録。 -/
+def specPilotClass1RegistrationFee : Money := 60_000
+/-- Spec: (二十七）イ（２） 二級水先人の登録。 -/
+def specPilotClass2RegistrationFee : Money := 30_000
+/-- Spec: (二十七）イ（３） 三級水先人の登録。 -/
+def specPilotClass3RegistrationFee : Money := 15_000
+/-- Spec: (二十八） 海事補佐人の登録。 -/
+def specMaritimeAssistantExaminerRegistrationFee : Money := 30_000
+/-- Spec: (二十九） 海事代理士の登録。 -/
+def specMaritimeAgentRegistrationFee : Money := 30_000
+
+example : specSmallVesselClass1RegistrationFee = 2_000 := by decide
+example : specSmallVesselClass2RegistrationFee = 1_800 := by decide
+example : specSmallVesselClassSpecialRegistrationFee = 1_500 := by decide
+example : specPilotClass1RegistrationFee = 60_000 := by decide
+example : specPilotClass2RegistrationFee = 30_000 := by decide
+example : specPilotClass3RegistrationFee = 15_000 := by decide
+example : specMaritimeAssistantExaminerRegistrationFee = 30_000 := by decide
+example : specMaritimeAgentRegistrationFee = 30_000 := by decide
 example : specSocialInsuranceLabourConsultantRegistrationFee = 30_000 := by decide
 example : specSocialInsuranceLabourConsultantConciliationTestAppendedRegistrationFee = 5_000 := by decide
 example : specWorkingEnvironmentMeasurementOfficerType1RegistrationFee = 30_000 := by decide
@@ -193,7 +218,15 @@ def agreeRegistrationQualificationFees : Bool :=
     specCareerConsultantRegistrationFee == careerConsultantRegistrationFee &&
     specMetrologyOfficerRegistrationFee == metrologyOfficerRegistrationFee &&
     specInformationProcessingSecuritySupportSpecialistRegistrationFee == informationProcessingSecuritySupportSpecialistRegistrationFee &&
-    specPatentAttorneyRegistrationFee == patentAttorneyRegistrationFee
+    specPatentAttorneyRegistrationFee == patentAttorneyRegistrationFee &&
+    specSmallVesselClass1RegistrationFee == smallVesselClass1RegistrationFee &&
+    specSmallVesselClass2RegistrationFee == smallVesselClass2RegistrationFee &&
+    specSmallVesselClassSpecialRegistrationFee == smallVesselClassSpecialRegistrationFee &&
+    specPilotClass1RegistrationFee == pilotClass1RegistrationFee &&
+    specPilotClass2RegistrationFee == pilotClass2RegistrationFee &&
+    specPilotClass3RegistrationFee == pilotClass3RegistrationFee &&
+    specMaritimeAssistantExaminerRegistrationFee == maritimeAssistantExaminerRegistrationFee &&
+    specMaritimeAgentRegistrationFee == maritimeAgentRegistrationFee
 
 example : agreeRegistrationQualificationFees = true := by decide
 

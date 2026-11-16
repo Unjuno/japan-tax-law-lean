@@ -169,6 +169,49 @@ def metrologyOfficerRegistrationFee : Money := 30_000
     情報処理安全確保支援士の登録（更新の登録を除く。）につきの額（固定 ¥9,000）。 -/
 def informationProcessingSecuritySupportSpecialistRegistrationFee : Money := 9_000
 
+/-- （二十六）イ 船舶職員及び小型船舶操縦者法第二十三条の五（登録及び小型船舶操縦免許証）の
+    一級小型船舶操縦士の登録につきの額（固定 ¥2,000）。 -/
+def smallVesselClass1RegistrationFee : Money := 2_000
+
+/-- （二十六）ロ 二級小型船舶操縦士の登録につきの額（固定 ¥1,800）。 -/
+def smallVesselClass2RegistrationFee : Money := 1_800
+
+/-- （二十六）ハ 特殊小型船舶操縦士の登録につきの額（固定 ¥1,500）。 -/
+def smallVesselClassSpecialRegistrationFee : Money := 1_500
+
+/-- （二十七）イ（１） 水先法第九条第一項（登録及び水先免状）の一級水先人の登録につきの額（固定 ¥60,000）。 -/
+def pilotClass1RegistrationFee : Money := 60_000
+
+/-- （二十七）イ（２） 水先法第九条第一項の二級水先人の登録につきの額（固定 ¥30,000）。 -/
+def pilotClass2RegistrationFee : Money := 30_000
+
+/-- （二十七）イ（３） 水先法第九条第一項の三級水先人の登録につきの額（固定 ¥15,000）。 -/
+def pilotClass3RegistrationFee : Money := 15_000
+
+/-- （二十八） 海難審判法（昭和二十二年法律第百三十五号）第二十一条第一項（登録）の海事補佐人の登録につきの額（固定 ¥30,000）。 -/
+def maritimeAssistantExaminerRegistrationFee : Money := 30_000
+
+/-- （二十九） 海事代理士法（昭和二十六年法律第三十二号）第九条第一項（登録）の海事代理士の登録につきの額（固定 ¥30,000）。 -/
+def maritimeAgentRegistrationFee : Money := 30_000
+
+theorem smallVesselClass1RegistrationFee_pos : smallVesselClass1RegistrationFee > 0 := by decide
+theorem smallVesselClass2RegistrationFee_pos : smallVesselClass2RegistrationFee > 0 := by decide
+theorem smallVesselClassSpecialRegistrationFee_pos : smallVesselClassSpecialRegistrationFee > 0 := by decide
+theorem pilotClass1RegistrationFee_pos : pilotClass1RegistrationFee > 0 := by decide
+theorem pilotClass2RegistrationFee_pos : pilotClass2RegistrationFee > 0 := by decide
+theorem pilotClass3RegistrationFee_pos : pilotClass3RegistrationFee > 0 := by decide
+theorem maritimeAssistantExaminerRegistrationFee_pos : maritimeAssistantExaminerRegistrationFee > 0 := by decide
+theorem maritimeAgentRegistrationFee_pos : maritimeAgentRegistrationFee > 0 := by decide
+
+example : smallVesselClass1RegistrationFee = 2_000 := by decide
+example : smallVesselClass2RegistrationFee = 1_800 := by decide
+example : smallVesselClassSpecialRegistrationFee = 1_500 := by decide
+example : pilotClass1RegistrationFee = 60_000 := by decide
+example : pilotClass2RegistrationFee = 30_000 := by decide
+example : pilotClass3RegistrationFee = 15_000 := by decide
+example : maritimeAssistantExaminerRegistrationFee = 30_000 := by decide
+example : maritimeAgentRegistrationFee = 30_000 := by decide
+
 /-- （二十四） 弁理士法（平成十二年法律第四十九号）第十七条第一項（登録）の弁理士の登録につきの額（固定 ¥60,000）。 -/
 def patentAttorneyRegistrationFee : Money := 60_000
 
