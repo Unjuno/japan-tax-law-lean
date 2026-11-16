@@ -66,6 +66,17 @@ example : disabilityDeduction false true true = 260_000 := by decide
 example : widowDeduction = 260_000 := by decide
 example : singleParentDeduction = 300_000 := by decide
 
+-- art. 34(1)第十二号 特定親族特別控除額（イ/ロ/ハ/ニ 帯域）
+example : specificDependentDeduction 0 = 450_000 := by decide
+example : specificDependentDeduction 950_000 = 450_000 := by decide
+example : specificDependentDeduction 950_001 = 510_000 := by decide
+example : specificDependentDeduction 1_000_000 = 410_000 := by decide
+example : specificDependentDeduction 1_150_000 = 110_000 := by decide
+example : specificDependentDeduction 1_150_001 = 60_000 := by decide
+example : specificDependentDeduction 1_200_000 = 60_000 := by decide
+example : specificDependentDeduction 1_200_001 = 30_000 := by decide
+example : specificDependentDeduction 2_000_000 = 30_000 := by decide
+
 -- art. 35 標準税率: 百分の四 / 指定都市百分の二
 example : (localPrefecturalStandardRate false).applyFloor 1_000_000 = 40_000 := by decide
 example : (localPrefecturalStandardRate true).applyFloor 1_000_000 = 20_000 := by decide

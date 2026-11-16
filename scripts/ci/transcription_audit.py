@@ -287,8 +287,8 @@ def checks():
             "ト　新設分割による株式会社又は合同会社の設立の登記資本金の額千分の七",
             "チ　吸収分割による株式会社又は合同会社の資本金の増加の登記増加した資本金の額千分の七"])
 
-    # 地方税法 art. 34 — LocalIncomeTax.lean (basicDeduction, spouseDeduction, disabilityDeduction, widowDeduction, singleParentDeduction, medicalExpenseDeduction)
-    yield ("地方税法 art. 34(2)/(1)二号/六号/八号/八の二/十号（道府県民税 基礎控除・医療費控除・障害者控除・寡婦控除・ひとり親控除・配偶者控除）↔ LocalIncomeTax.lean",
+    # 地方税法 art. 34 — LocalIncomeTax.lean (basicDeduction, spouseDeduction, disabilityDeduction, widowDeduction, singleParentDeduction, medicalExpenseDeduction, specificDependentDeduction)
+    yield ("地方税法 art. 34(2)/(1)二号/六号/八号/八の二/十号/十二号（道府県民税 基礎控除・医療費控除・障害者控除・寡婦控除・ひとり親控除・配偶者控除・特定親族特別控除）↔ LocalIncomeTax.lean",
            "325AC0000000226",
            "article", "第三十四条",
            ["合計所得金額が二千四百万円以下である場合四十三万円",
@@ -302,7 +302,11 @@ def checks():
             "（その控除対象配偶者が老人控除対象配偶者",
             "合計所得金額が九百万円を超え九百五十万円以下である場合当該配偶者のイ（１）から（３）までに掲げる区分に応じ、それぞれイ（１）から（３）までに定める金額の三分の二に相当する金額",
             "合計所得金額が九百五十万円を超え千万円以下である場合当該配偶者のイ（１）から（３）までに掲げる区分に応じ、それぞれイ（１）から（３）までに定める金額の三分の一に相当する金額",
-            "当該特別障害者に係る第一項第六号の金額は、五十三万円とする"])
+            "当該特別障害者に係る第一項第六号の金額は、五十三万円とする",
+            "イ前年の合計所得金額が九十五万円以下である特定親族四十五万円",
+            "八十四万一円を超える部分の金額に二を乗じた金額",
+            "ハ前年の合計所得金額が百十五万円を超え百二十万円以下である特定親族六万円",
+            "ニ前年の合計所得金額が百二十万円を超える特定親族三万円"])
 
     # 相続税法 art. 19-3/19-4 — InheritanceMinorDisabledDeduction.lean (minorDeduction, disabledDeduction, yearsCeil)
     yield ("相続税法 art. 19-3/19-4（未成年者控除（十万円 × 18歳達年数）／障害者控除（十万円／特別障害者二十万円 × 85歳達年数）、一年未満・端数は一年とする）↔ InheritanceMinorDisabledDeduction.lean (minorDeduction, disabledDeduction, yearsCeil)",
@@ -333,7 +337,7 @@ def checks():
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
-        "LocalIncomeTax.lean art. 34 のその他の控除（生命保険料控除・地震保険料控除・特定親族特別控除）の literal（医療費控除・障害者控除・寡婦控除・ひとり親控除・配偶者控除・基礎控除は covered）",
+        "LocalIncomeTax.lean art. 34 のその他の控除（生命保険料控除・地震保険料控除）の literal（医療費控除・障害者控除・寡婦控除・ひとり親控除・配偶者控除・基礎控除・特定親族特別控除は covered）",
         "LocalExemption.lean / LocalPrivilege.lean / LocalObligor.lean（賦課方式の税額算定 literal なし／定義分類器）",
         "KanzeiGoods.lean（関税法 art. 2 の物品定義分類器・税率 literal なし／cross_law の pin のみ）",
         "RegistrationTax.lean の未採用帯域（仮登記・分離の登記等）の literal のうち未検査のもの",

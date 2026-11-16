@@ -104,6 +104,37 @@ def agreeDisabilityPoints : Bool :=
 
 example : agreeDisabilityPoints = true := by decide
 
+/-- Spec: art. 34(1)十二 の特定親族特別控除額 — anchor-based logic with
+    `(x - 841_000) * 2` and the "10万整数倍−8万円" stair-step. -/
+def specSpecificDependentDeduction (x : Money) : Money :=
+  if x ≤ 950_000 then 450_000
+  else if x ≤ 1_150_000 then
+    let y := 2 * (x - 841_000)
+    let adjusted := y - ((y + 80_000) % 100_000)
+    630_000 - adjusted
+  else if x ≤ 1_200_000 then 60_000
+  else 30_000
+
+-- ==== points (kernel-decided) ====
+
+example : specSpecificDependentDeduction 0 = 450_000 := by decide
+example : specSpecificDependentDeduction 950_000 = 450_000 := by decide
+example : specSpecificDependentDeduction 950_001 = 510_000 := by decide
+example : specSpecificDependentDeduction 1_000_000 = 410_000 := by decide
+example : specSpecificDependentDeduction 1_150_000 = 110_000 := by decide
+example : specSpecificDependentDeduction 1_150_001 = 60_000 := by decide
+example : specSpecificDependentDeduction 1_200_000 = 60_000 := by decide
+example : specSpecificDependentDeduction 1_200_001 = 30_000 := by decide
+
+/-- Spot-check: implementation agrees with the independent spec at sample points. -/
+def agreeSpecificDependentPoints : Bool :=
+  [0, 100_000, 500_000, 950_000, 950_001, 975_000, 1_000_000,
+   1_050_000, 1_100_000, 1_150_000, 1_150_001, 1_175_000, 1_200_000,
+   1_200_001, 2_000_000].all fun x =>
+    specificDependentDeduction x == specSpecificDependentDeduction x
+
+example : agreeSpecificDependentPoints = true := by decide
+
 -- ==== points, all kernel-decided ====
 
 -- art. 34(2): each band and each edge ±¥1
