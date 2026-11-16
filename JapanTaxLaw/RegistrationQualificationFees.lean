@@ -191,6 +191,83 @@ def pilotClass3RegistrationFee : Money := 15_000
 /-- （二十八） 海難審判法（昭和二十二年法律第百三十五号）第二十一条第一項（登録）の海事補佐人の登録につきの額（固定 ¥30,000）。 -/
 def maritimeAssistantExaminerRegistrationFee : Money := 30_000
 
+/-- （三十）イ 定期運送用操縦士の技能証明につきの額（固定 ¥18,000）。 -/
+def airlineTransportPilotLicenseFee : Money := 18_000
+
+/-- （三十）ロ 事業用操縦士の技能証明につきの額（固定 ¥7,500）。 -/
+def commercialPilotLicenseFee : Money := 7_500
+
+/-- （三十）ハ 自家用操縦士の技能証明につきの額（固定 ¥3,000）。 -/
+def privatePilotLicenseFee : Money := 3_000
+
+/-- （三十）ニ 准定期運送用操縦士の技能証明につきの額（固定 ¥6,000）。 -/
+def associateAirlineTransportPilotLicenseFee : Money := 6_000
+
+/-- （三十）ホ 一等航空士又は航空機関士の技能証明につきの額（固定 ¥12,000）。 -/
+def class1FlightEngineerOrNavigatorLicenseFee : Money := 12_000
+
+/-- （三十）ヘ 二等航空士の技能証明につきの額（固定 ¥7,500）。 -/
+def class2FlightNavigatorLicenseFee : Money := 7_500
+
+/-- （三十）ト 航空通信士の技能証明につきの額（固定 ¥3,000）。 -/
+def aviationCommunicationsOfficerLicenseFee : Money := 3_000
+
+/-- （三十）チ 一等航空整備士の技能証明につきの額（固定 ¥9,000）。 -/
+def class1AircraftMaintenanceEngineerLicenseFee : Money := 9_000
+
+/-- （三十）リ 二等航空整備士の技能証明につきの額（固定 ¥6,000）。 -/
+def class2AircraftMaintenanceEngineerLicenseFee : Money := 6_000
+
+/-- （三十）ヌ 一等航空運航整備士の技能証明につきの額（固定 ¥6,000）。 -/
+def class1AircraftOperationEngineerLicenseFee : Money := 6_000
+
+/-- （三十）ル 二等航空運航整備士の技能証明につきの額（固定 ¥3,000）。 -/
+def class2AircraftOperationEngineerLicenseFee : Money := 3_000
+
+/-- （三十）ヲ 航空工場整備士の技能証明につきの額（固定 ¥9,000）。 -/
+def aircraftFactoryMaintenanceEngineerLicenseFee : Money := 9_000
+
+/-- （三十）ワ 一等無人航空機操縦士の技能証明（更新の技能証明を除く。）につきの額（固定 ¥3,000）。 -/
+def class1UnmannedAircraftPilotLicenseFee : Money := 3_000
+
+/-- （三十）カ 耐空検査員の認定につきの額（固定 ¥6,000）。 -/
+def airworthinessInspectorAuthorizationFee : Money := 6_000
+
+/-- （三十）ヨ 操縦技能審査員の認定につきの額（固定 ¥3,000）。 -/
+def pilotSkillExaminerAuthorizationFee : Money := 3_000
+
+theorem airlineTransportPilotLicenseFee_pos : airlineTransportPilotLicenseFee > 0 := by decide
+theorem commercialPilotLicenseFee_pos : commercialPilotLicenseFee > 0 := by decide
+theorem privatePilotLicenseFee_pos : privatePilotLicenseFee > 0 := by decide
+theorem associateAirlineTransportPilotLicenseFee_pos : associateAirlineTransportPilotLicenseFee > 0 := by decide
+theorem class1FlightEngineerOrNavigatorLicenseFee_pos : class1FlightEngineerOrNavigatorLicenseFee > 0 := by decide
+theorem class2FlightNavigatorLicenseFee_pos : class2FlightNavigatorLicenseFee > 0 := by decide
+theorem aviationCommunicationsOfficerLicenseFee_pos : aviationCommunicationsOfficerLicenseFee > 0 := by decide
+theorem class1AircraftMaintenanceEngineerLicenseFee_pos : class1AircraftMaintenanceEngineerLicenseFee > 0 := by decide
+theorem class2AircraftMaintenanceEngineerLicenseFee_pos : class2AircraftMaintenanceEngineerLicenseFee > 0 := by decide
+theorem class1AircraftOperationEngineerLicenseFee_pos : class1AircraftOperationEngineerLicenseFee > 0 := by decide
+theorem class2AircraftOperationEngineerLicenseFee_pos : class2AircraftOperationEngineerLicenseFee > 0 := by decide
+theorem aircraftFactoryMaintenanceEngineerLicenseFee_pos : aircraftFactoryMaintenanceEngineerLicenseFee > 0 := by decide
+theorem class1UnmannedAircraftPilotLicenseFee_pos : class1UnmannedAircraftPilotLicenseFee > 0 := by decide
+theorem airworthinessInspectorAuthorizationFee_pos : airworthinessInspectorAuthorizationFee > 0 := by decide
+theorem pilotSkillExaminerAuthorizationFee_pos : pilotSkillExaminerAuthorizationFee > 0 := by decide
+
+example : airlineTransportPilotLicenseFee = 18_000 := by decide
+example : commercialPilotLicenseFee = 7_500 := by decide
+example : privatePilotLicenseFee = 3_000 := by decide
+example : associateAirlineTransportPilotLicenseFee = 6_000 := by decide
+example : class1FlightEngineerOrNavigatorLicenseFee = 12_000 := by decide
+example : class2FlightNavigatorLicenseFee = 7_500 := by decide
+example : aviationCommunicationsOfficerLicenseFee = 3_000 := by decide
+example : class1AircraftMaintenanceEngineerLicenseFee = 9_000 := by decide
+example : class2AircraftMaintenanceEngineerLicenseFee = 6_000 := by decide
+example : class1AircraftOperationEngineerLicenseFee = 6_000 := by decide
+example : class2AircraftOperationEngineerLicenseFee = 3_000 := by decide
+example : aircraftFactoryMaintenanceEngineerLicenseFee = 9_000 := by decide
+example : class1UnmannedAircraftPilotLicenseFee = 3_000 := by decide
+example : airworthinessInspectorAuthorizationFee = 6_000 := by decide
+example : pilotSkillExaminerAuthorizationFee = 3_000 := by decide
+
 /-- （二十九） 海事代理士法（昭和二十六年法律第三十二号）第九条第一項（登録）の海事代理士の登録につきの額（固定 ¥30,000）。 -/
 def maritimeAgentRegistrationFee : Money := 30_000
 

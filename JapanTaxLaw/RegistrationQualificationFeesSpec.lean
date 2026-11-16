@@ -125,6 +125,52 @@ def specMaritimeAssistantExaminerRegistrationFee : Money := 30_000
 /-- Spec: (二十九） 海事代理士の登録。 -/
 def specMaritimeAgentRegistrationFee : Money := 30_000
 
+/-- Spec: (三十）イ 定期運送用操縦士の技能証明。 -/
+def specAirlineTransportPilotLicenseFee : Money := 18_000
+/-- Spec: (三十）ロ 事業用操縦士の技能証明。 -/
+def specCommercialPilotLicenseFee : Money := 7_500
+/-- Spec: (三十）ハ 自家用操縦士の技能証明。 -/
+def specPrivatePilotLicenseFee : Money := 3_000
+/-- Spec: (三十）ニ 准定期運送用操縦士の技能証明。 -/
+def specAssociateAirlineTransportPilotLicenseFee : Money := 6_000
+/-- Spec: (三十）ホ 一等航空士又は航空機関士の技能証明。 -/
+def specClass1FlightEngineerOrNavigatorLicenseFee : Money := 12_000
+/-- Spec: (三十）ヘ 二等航空士の技能証明。 -/
+def specClass2FlightNavigatorLicenseFee : Money := 7_500
+/-- Spec: (三十）ト 航空通信士の技能証明。 -/
+def specAviationCommunicationsOfficerLicenseFee : Money := 3_000
+/-- Spec: (三十）チ 一等航空整備士の技能証明。 -/
+def specClass1AircraftMaintenanceEngineerLicenseFee : Money := 9_000
+/-- Spec: (三十）リ 二等航空整備士の技能証明。 -/
+def specClass2AircraftMaintenanceEngineerLicenseFee : Money := 6_000
+/-- Spec: (三十）ヌ 一等航空運航整備士の技能証明。 -/
+def specClass1AircraftOperationEngineerLicenseFee : Money := 6_000
+/-- Spec: (三十）ル 二等航空運航整備士の技能証明。 -/
+def specClass2AircraftOperationEngineerLicenseFee : Money := 3_000
+/-- Spec: (三十）ヲ 航空工場整備士の技能証明。 -/
+def specAircraftFactoryMaintenanceEngineerLicenseFee : Money := 9_000
+/-- Spec: (三十）ワ 一等無人航空機操縦士の技能証明。 -/
+def specClass1UnmannedAircraftPilotLicenseFee : Money := 3_000
+/-- Spec: (三十）カ 耐空検査員の認定。 -/
+def specAirworthinessInspectorAuthorizationFee : Money := 6_000
+/-- Spec: (三十）ヨ 操縦技能審査員の認定。 -/
+def specPilotSkillExaminerAuthorizationFee : Money := 3_000
+
+example : specAirlineTransportPilotLicenseFee = 18_000 := by decide
+example : specCommercialPilotLicenseFee = 7_500 := by decide
+example : specPrivatePilotLicenseFee = 3_000 := by decide
+example : specAssociateAirlineTransportPilotLicenseFee = 6_000 := by decide
+example : specClass1FlightEngineerOrNavigatorLicenseFee = 12_000 := by decide
+example : specClass2FlightNavigatorLicenseFee = 7_500 := by decide
+example : specAviationCommunicationsOfficerLicenseFee = 3_000 := by decide
+example : specClass1AircraftMaintenanceEngineerLicenseFee = 9_000 := by decide
+example : specClass2AircraftMaintenanceEngineerLicenseFee = 6_000 := by decide
+example : specClass1AircraftOperationEngineerLicenseFee = 6_000 := by decide
+example : specClass2AircraftOperationEngineerLicenseFee = 3_000 := by decide
+example : specAircraftFactoryMaintenanceEngineerLicenseFee = 9_000 := by decide
+example : specClass1UnmannedAircraftPilotLicenseFee = 3_000 := by decide
+example : specAirworthinessInspectorAuthorizationFee = 6_000 := by decide
+example : specPilotSkillExaminerAuthorizationFee = 3_000 := by decide
 example : specSmallVesselClass1RegistrationFee = 2_000 := by decide
 example : specSmallVesselClass2RegistrationFee = 1_800 := by decide
 example : specSmallVesselClassSpecialRegistrationFee = 1_500 := by decide
@@ -226,7 +272,22 @@ def agreeRegistrationQualificationFees : Bool :=
     specPilotClass2RegistrationFee == pilotClass2RegistrationFee &&
     specPilotClass3RegistrationFee == pilotClass3RegistrationFee &&
     specMaritimeAssistantExaminerRegistrationFee == maritimeAssistantExaminerRegistrationFee &&
-    specMaritimeAgentRegistrationFee == maritimeAgentRegistrationFee
+    specMaritimeAgentRegistrationFee == maritimeAgentRegistrationFee &&
+    specAirlineTransportPilotLicenseFee == airlineTransportPilotLicenseFee &&
+    specCommercialPilotLicenseFee == commercialPilotLicenseFee &&
+    specPrivatePilotLicenseFee == privatePilotLicenseFee &&
+    specAssociateAirlineTransportPilotLicenseFee == associateAirlineTransportPilotLicenseFee &&
+    specClass1FlightEngineerOrNavigatorLicenseFee == class1FlightEngineerOrNavigatorLicenseFee &&
+    specClass2FlightNavigatorLicenseFee == class2FlightNavigatorLicenseFee &&
+    specAviationCommunicationsOfficerLicenseFee == aviationCommunicationsOfficerLicenseFee &&
+    specClass1AircraftMaintenanceEngineerLicenseFee == class1AircraftMaintenanceEngineerLicenseFee &&
+    specClass2AircraftMaintenanceEngineerLicenseFee == class2AircraftMaintenanceEngineerLicenseFee &&
+    specClass1AircraftOperationEngineerLicenseFee == class1AircraftOperationEngineerLicenseFee &&
+    specClass2AircraftOperationEngineerLicenseFee == class2AircraftOperationEngineerLicenseFee &&
+    specAircraftFactoryMaintenanceEngineerLicenseFee == aircraftFactoryMaintenanceEngineerLicenseFee &&
+    specClass1UnmannedAircraftPilotLicenseFee == class1UnmannedAircraftPilotLicenseFee &&
+    specAirworthinessInspectorAuthorizationFee == airworthinessInspectorAuthorizationFee &&
+    specPilotSkillExaminerAuthorizationFee == pilotSkillExaminerAuthorizationFee
 
 example : agreeRegistrationQualificationFees = true := by decide
 
