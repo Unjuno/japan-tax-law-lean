@@ -327,7 +327,7 @@ JapanTaxLaw/StampDutySpecial91Tests.lean # 同上 退行テスト
 JapanTaxLaw/InheritanceMinorDisabledDeduction.lean      # 相続税法 art. 19-3/19-4（未成年者控除・障害者控除）L4 モデル
 JapanTaxLaw/InheritanceMinorDisabledDeductionSpec.lean  # 同上 独立定式
 JapanTaxLaw/InheritanceMinorDisabledDeductionTests.lean # 同上 退行テスト
-JapanTaxLaw/RegistrationCommercialTaxTable.lean  # 登録免許税法 別表第一（二）第二十四〜二十八の二号（ロ〜ナ・（二）/（三）外国会社・清算・SPC・投資法人・有限責任事業組合契約・投資事業有限責任組合契約・限定責任信託 等）
+JapanTaxLaw/RegistrationCommercialTaxTable.lean  # 登録免許税法 別表第一（二）第二十四〜三十一号（ロ〜ナ・（二）/（三）外国会社・清算・SPC・投資法人・有限責任事業組合契約・投資事業有限責任組合契約・限定責任信託・個人の商業登記・船舶管理人・夫婦財産契約 等）
 JapanTaxLaw/RegistrationCommercialTaxTableSpec.lean  # 同上 独立定式
 JapanTaxLaw/RegistrationCommercialTaxTableTests.lean # 同上 退行テスト
 JapanTaxLaw/InheritanceApportionment.lean       # 相続税法 art. 17（各相続人等の相続税額： 総額を課税価格割合で按分）L4 モデル

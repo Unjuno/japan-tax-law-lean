@@ -143,6 +143,23 @@ example : limitLiabilityTrustLiquidatorOtherFee = 6_000 := by decide
 example : limitLiabilityTrustLiquidationCompletionFee = 2_000 := by decide
 example : limitLiabilityTrustLiquidatorCorrectionErasureFee = 6_000 := by decide
 
+-- 二十九（一）イ〜ヘ（本店）／（二）イ〜ロ（支店）: 個人の商業登記
+example : individualNameNewFee = 30_000 := by decide
+example : individualManagerFee = 30_000 := by decide
+example : individualMinorOrGuardianFee = 18_000 := by decide
+example : individualBusinessTransferFee = 18_000 := by decide
+example : individualStorefrontClosureFee = 6_000 := by decide
+example : individualErasureFee = 6_000 := by decide
+example : individualBranchFee = 9_000 := by decide
+example : individualBranchErasureFee = 6_000 := by decide
+-- 三十（一）/（二）: 船舶管理人の登記
+example : shipManagerFee = 30_000 := by decide
+example : shipManagerCorrectionFee = 6_000 := by decide
+-- 三十一（一）〜（三）: 夫婦財産契約の登記
+example : matrimonialPropertyFee = 18_000 := by decide
+example : matrimonialPropertyCorrectionFee = 6_000 := by decide
+example : matrimonialPropertyErasureFee = 6_000 := by decide
+
 -- 千分の一・五と千分の七の単位比較
 example : commercial24LowMilleRate.applyFloor 1_000_000_000 = 1_500_000 := by decide
 example : commercial24DefaultMilleRate.applyFloor 1_000_000_000 = 7_000_000 := by decide
