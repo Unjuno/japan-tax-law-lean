@@ -46,6 +46,26 @@ example : spouseDeduction 9_500_001 true = 130_000 := by decide
 example : spouseDeduction 10_000_000 true = 130_000 := by decide
 example : spouseDeduction 10_000_001 true = 0 := by decide
 
+-- art. 34(1) 第二号 医療費控除額（threshold-based）
+example : medicalExpenseDeduction ⟨100_000_000, 0⟩ = 0 := by decide
+example : medicalExpenseDeduction ⟨100_000_000, 100_000⟩ = 0 := by decide
+example : medicalExpenseDeduction ⟨100_000_000, 300_000⟩ = 200_000 := by decide
+example : medicalExpenseDeduction ⟨100_000_000, 2_100_000⟩ = 2_000_000 := by decide
+example : medicalExpenseDeduction ⟨1_000_000, 60_000⟩ = 10_000 := by decide
+example : medicalExpenseDeduction ⟨1_000_000, 90_000⟩ = 40_000 := by decide
+example : medicalExpenseDeduction ⟨1_000_000, 100_000_000⟩ = 2_000_000 := by decide
+
+-- art. 34(1) 第六号 障害者控除額（同一生計配偶者又は扶養親族が特別障害者・同居常況 → 五十三万円）
+example : disabilityDeduction false false false = 260_000 := by decide
+example : disabilityDeduction true false false = 300_000 := by decide
+example : disabilityDeduction true true false = 300_000 := by decide
+example : disabilityDeduction true true true = 530_000 := by decide
+example : disabilityDeduction false true true = 260_000 := by decide
+
+-- art. 34(1) 第八号 寡婦控除額 = ¥260,000 / 第八号の二 ひとり親控除額 = ¥300,000
+example : widowDeduction = 260_000 := by decide
+example : singleParentDeduction = 300_000 := by decide
+
 -- art. 35 標準税率: 百分の四 / 指定都市百分の二
 example : (localPrefecturalStandardRate false).applyFloor 1_000_000 = 40_000 := by decide
 example : (localPrefecturalStandardRate true).applyFloor 1_000_000 = 20_000 := by decide

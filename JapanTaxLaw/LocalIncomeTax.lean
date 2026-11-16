@@ -83,6 +83,47 @@ def localPrefecturalIncomeTaxAmount
   (localPrefecturalStandardRate livesInDesignatedCity).applyFloor
     (taxableTotalIncome + taxableRetirementIncome + taxableForestIncome)
 
+/-- art. 34(1)第六号 障害者控除額（各障害者につき二十六万円）。
+    特別障害者である場合は三十万円。同一生計配偶者又は扶養親族が特別障害者で、
+    かつ、当該納税義務者等との同居を常況としている者に該当する場合には、
+    当該特別障害者に係る控除額は五十三万円とする（art. 34(3)）。
+    `isDependentOrSpouse` / `isCohabiting` は externally established booleans。 -/
+def disabilityDeduction (isSpecialDisabled isDependentOrSpouse isCohabiting : Bool) : Money :=
+  if isSpecialDisabled && isDependentOrSpouse && isCohabiting then 530_000
+  else if isSpecialDisabled then 300_000 else 260_000
+
+/-- art. 34(1)第八号 寡婦控除額: 二十六万円。 -/
+def widowDeduction : Money := 260_000
+
+/-- art. 34(1)第八号の二 ひとり親控除額: 三十万円。 -/
+def singleParentDeduction : Money := 300_000
+
+/-- art. 34(1)第二号 医療費控除 — caller-supplied facts（前年の総所得金額・
+    退職所得金額・山林所得金額の合計額と、保険金等で補塡される部分を控除した
+    医療費支出額の合計額）。
+    控除額（art. 34(1)イ）:
+      支払医療費の合計額 − min(5% × 所得合計額, ¥100,000) の残額
+      （その金額が ¥2,000,000 を超える場合には ¥2,000,000）
+    閾値は min(5% × 所得合計額, ¥100,000)。 -/
+structure MedicalDeductionFacts where
+  /-- 前年の総所得金額・退職所得金額・山林所得金額の合計額。 -/
+  totalGeneralIncome : Money
+  /-- 前年中に支払つた医療費の合計額（保険金等で補塡される部分を除く）。 -/
+  medicalExpensesPaid : Money
+  deriving DecidableEq, Repr
+
+/-- art. 34(1)第二号 の閾値（¥100,000 の下限）。 -/
+def medicalThresholdFloor : Money := 100_000
+
+/-- art. 34(1)第二号 の控除上限。 -/
+def medicalDeductionCap : Money := 2_000_000
+
+/-- art. 34(1)第二号 医療費控除額。 -/
+def medicalExpenseDeduction (f : MedicalDeductionFacts) : Money :=
+  min (if f.medicalExpensesPaid > min (f.totalGeneralIncome * 5 / 100) medicalThresholdFloor
+    then f.medicalExpensesPaid - min (f.totalGeneralIncome * 5 / 100) medicalThresholdFloor else 0)
+    medicalDeductionCap
+
 -- ==== verified facts about the model (no performance of the law, only model consistency) ====
 
 /-- 合計所得金額が 2,400万円ぴったりなら基礎控除は 430,000 円（art. 34(2) 一号の上限端）。 -/
@@ -152,5 +193,64 @@ theorem basicDeduction_antitone {a b : Money} (h : a ≤ b) :
               exact absurd hlt (Nat.not_lt.mpr hb3)
       · rw [ite_eq_right hb3]
         exact Nat.zero_le _
+
+-- ==== art. 34 の新規控除項目の検証済み性質 ====
+
+/-- min monotony helper. -/
+theorem min_le_min_of_le {a b : Nat} (h : a ≤ b) (c : Nat) : min a c ≤ min b c := by
+  by_cases hb : b ≤ c
+  · rw [Nat.min_eq_left hb]
+    exact Nat.le_trans (Nat.min_le_left a c) h
+  · rw [Nat.min_eq_right (Nat.le_of_not_le hb)]
+    exact Nat.min_le_right a c
+
+
+example : disabilityDeduction false false false = 260_000 := by decide
+example : disabilityDeduction true false false = 300_000 := by decide
+example : disabilityDeduction true true false = 300_000 := by decide
+example : disabilityDeduction true true true = 530_000 := by decide
+example : disabilityDeduction false true true = 260_000 := by decide
+
+theorem disabilityDeduction_special (isDep isCob : Bool) :
+    disabilityDeduction true isDep isCob = if isDep && isCob then 530_000 else 300_000 := by
+  cases isDep <;> cases isCob <;> decide
+
+theorem disabilityDeduction_regular (isDep isCob : Bool) :
+    disabilityDeduction false isDep isCob = 260_000 := rfl
+
+theorem widowDeduction_eq : widowDeduction = 260_000 := rfl
+theorem singleParentDeduction_eq : singleParentDeduction = 300_000 := rfl
+
+example : medicalExpenseDeduction ⟨100_000_000, 300_000⟩ = 200_000 := by decide
+example : medicalExpenseDeduction ⟨100_000_000, 0⟩ = 0 := by decide
+example : medicalExpenseDeduction ⟨100_000_000, 1_000_000⟩ = 900_000 := by decide
+example : medicalExpenseDeduction ⟨1_000_000, 90_000⟩ = 40_000 := by decide
+example : medicalExpenseDeduction ⟨1_000_000, 60_000⟩ = 10_000 := by decide
+example : medicalExpenseDeduction ⟨1_000_000, 100_000_000⟩ = 2_000_000 := by decide
+
+/-- 医療費控除は上限 ¥2,000,000 を超えない。 -/
+theorem medicalExpenseDeduction_le_cap (f : MedicalDeductionFacts) :
+    medicalExpenseDeduction f ≤ medicalDeductionCap := by
+  unfold medicalExpenseDeduction
+  exact Nat.min_le_right _ _
+
+/-- 医療費控除は支出力に対して単調非減少。 -/
+theorem medicalExpenseDeduction_mono {a b : MedicalDeductionFacts}
+    (h : a.medicalExpensesPaid ≤ b.medicalExpensesPaid) (h2 : a.totalGeneralIncome = b.totalGeneralIncome) :
+    medicalExpenseDeduction a ≤ medicalExpenseDeduction b := by
+  unfold medicalExpenseDeduction
+  rw [h2]
+  by_cases hb : b.medicalExpensesPaid > min (b.totalGeneralIncome * 5 / 100) medicalThresholdFloor
+  · rw [ite_eq_left hb]
+    by_cases ha : a.medicalExpensesPaid > min (b.totalGeneralIncome * 5 / 100) medicalThresholdFloor
+    · rw [ite_eq_left ha]
+      exact min_le_min_of_le (Nat.sub_le_sub_right h _) _
+    · rw [ite_eq_right ha]
+      exact Nat.zero_le _
+  · rw [ite_eq_right hb]
+    by_cases ha2 : a.medicalExpensesPaid > min (b.totalGeneralIncome * 5 / 100) medicalThresholdFloor
+    · exact absurd ha2 (fun hh => Nat.not_le_of_lt hh (Nat.le_trans h (Nat.le_of_not_lt hb)))
+    · rw [ite_eq_right ha2]
+      exact Nat.zero_le _
 
 end JapanTaxLaw
