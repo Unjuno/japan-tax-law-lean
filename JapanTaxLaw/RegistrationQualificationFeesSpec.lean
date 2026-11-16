@@ -242,6 +242,25 @@ def specInsuranceClaimsTrustBusinessLicenseFee : Money := 150_000
 /-- Spec: 三十七（七） 保険持株会社に係る認可。 -/
 def specInsuranceHoldingCompanyLicenseFee : Money := 150_000
 
+/-- Spec: 三十八（一） 信託業の免許。 -/
+def specTrustBusinessLicenseFee : Money := 150_000
+/-- Spec: 三十八（二） 管理型信託会社の登録。 -/
+def specManagementTypeTrustCompanyRegistrationFee : Money := 150_000
+/-- Spec: 三十八（三） 管理型外国信託会社の登録。 -/
+def specManagementTypeForeignTrustCompanyRegistrationFee : Money := 150_000
+/-- Spec: 三十八（四） 自己信託に係る事務に関する事業の登録。 -/
+def specSelfTrustBusinessRegistrationFee : Money := 150_000
+/-- Spec: 三十八（五） 特定大学技術移転事業承認事業者の登録。 -/
+def specTechnologyTransferApprovalBusinessOperatorRegistrationFee : Money := 150_000
+/-- Spec: 三十八（六） 信託契約代理店の登録。 -/
+def specTrustContractAgentRegistrationFee : Money := 90_000
+
+example : specTrustBusinessLicenseFee = 150_000 := by decide
+example : specManagementTypeTrustCompanyRegistrationFee = 150_000 := by decide
+example : specManagementTypeForeignTrustCompanyRegistrationFee = 150_000 := by decide
+example : specSelfTrustBusinessRegistrationFee = 150_000 := by decide
+example : specTechnologyTransferApprovalBusinessOperatorRegistrationFee = 150_000 := by decide
+example : specTrustContractAgentRegistrationFee = 90_000 := by decide
 example : specInsuranceBusinessLicenseFee = 150_000 := by decide
 example : specSmallShortTermInsuranceBusinessOperatorRegistrationFee = 150_000 := by decide
 example : specSpecialInsuranceBusinessLicenseFee = 150_000 := by decide
@@ -453,7 +472,13 @@ def agreeRegistrationQualificationFees : Bool :=
     specInsuranceBrokerRegistrationFee == insuranceBrokerRegistrationFee &&
     specSpecialInsuranceSolicitorRegistrationFee == specialInsuranceSolicitorRegistrationFee &&
     specInsuranceClaimsTrustBusinessLicenseFee == insuranceClaimsTrustBusinessLicenseFee &&
-    specInsuranceHoldingCompanyLicenseFee == insuranceHoldingCompanyLicenseFee
+    specInsuranceHoldingCompanyLicenseFee == insuranceHoldingCompanyLicenseFee &&
+    specTrustBusinessLicenseFee == trustBusinessLicenseFee &&
+    specManagementTypeTrustCompanyRegistrationFee == managementTypeTrustCompanyRegistrationFee &&
+    specManagementTypeForeignTrustCompanyRegistrationFee == managementTypeForeignTrustCompanyRegistrationFee &&
+    specSelfTrustBusinessRegistrationFee == selfTrustBusinessRegistrationFee &&
+    specTechnologyTransferApprovalBusinessOperatorRegistrationFee == technologyTransferApprovalBusinessOperatorRegistrationFee &&
+    specTrustContractAgentRegistrationFee == trustContractAgentRegistrationFee
 
 example : agreeRegistrationQualificationFees = true := by decide
 

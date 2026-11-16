@@ -345,6 +345,42 @@ def specialInsuranceSolicitorRegistrationFee : Money := 15_000
 /-- 三十七（六） 保険業法第九十九条第七項（業務の範囲等）の保険金信託業務の認可につきの額（固定 ¥150,000）。 -/
 def insuranceClaimsTrustBusinessLicenseFee : Money := 150_000
 
+/-- 三十八（一） 信託業法（平成十六年法律第百五十四号）第三条（免許）又は第五十三条第一項（免許）の
+    規定による信託業の免許につきの額（固定 ¥150,000）。 -/
+def trustBusinessLicenseFee : Money := 150_000
+
+/-- 三十八（二） 信託業法第七条第一項（登録）の管理型信託会社の登録につきの額（固定 ¥150,000）。 -/
+def managementTypeTrustCompanyRegistrationFee : Money := 150_000
+
+/-- 三十八（三） 信託業法第五十四条第一項（登録）の管理型外国信託会社の登録につきの額（固定 ¥150,000）。 -/
+def managementTypeForeignTrustCompanyRegistrationFee : Money := 150_000
+
+/-- 三十八（四） 信託業法第五十条の二第一項（信託法第三条第三号に掲げる方法によつてする信託についての特例）の
+    自己信託に係る事務に関する事業の登録につきの額（固定 ¥150,000）。 -/
+def selfTrustBusinessRegistrationFee : Money := 150_000
+
+/-- 三十八（五） 信託業法第五十二条第一項（特定大学技術移転事業に係る信託についての特例）の
+    特定大学技術移転事業承認事業者の登録につきの額（固定 ¥150,000）。 -/
+def technologyTransferApprovalBusinessOperatorRegistrationFee : Money := 150_000
+
+/-- 三十八（六） 信託業法第六十七条第一項（登録）の信託契約代理店の登録につきの額（固定 ¥90,000）。 -/
+def trustContractAgentRegistrationFee : Money := 90_000
+
+theorem trustBusinessLicenseFee_pos : trustBusinessLicenseFee > 0 := by decide
+theorem managementTypeTrustCompanyRegistrationFee_pos : managementTypeTrustCompanyRegistrationFee > 0 := by decide
+theorem managementTypeForeignTrustCompanyRegistrationFee_pos : managementTypeForeignTrustCompanyRegistrationFee > 0 := by decide
+theorem selfTrustBusinessRegistrationFee_pos : selfTrustBusinessRegistrationFee > 0 := by decide
+theorem technologyTransferApprovalBusinessOperatorRegistrationFee_pos :
+    technologyTransferApprovalBusinessOperatorRegistrationFee > 0 := by decide
+theorem trustContractAgentRegistrationFee_pos : trustContractAgentRegistrationFee > 0 := by decide
+
+example : trustBusinessLicenseFee = 150_000 := by decide
+example : managementTypeTrustCompanyRegistrationFee = 150_000 := by decide
+example : managementTypeForeignTrustCompanyRegistrationFee = 150_000 := by decide
+example : selfTrustBusinessRegistrationFee = 150_000 := by decide
+example : technologyTransferApprovalBusinessOperatorRegistrationFee = 150_000 := by decide
+example : trustContractAgentRegistrationFee = 90_000 := by decide
+
 /-- 三十七（七） 保険業法第二百七十一条の十八第一項又は第三項ただし書（保険持株会社に係る認可等）の認可につきの額（固定 ¥150,000）。 -/
 def insuranceHoldingCompanyLicenseFee : Money := 150_000
 

@@ -145,5 +145,12 @@ example : insuranceBrokerRegistrationFee = 90_000 := by decide
 example : specialInsuranceSolicitorRegistrationFee = 15_000 := by decide
 example : insuranceClaimsTrustBusinessLicenseFee = 150_000 := by decide
 example : insuranceHoldingCompanyLicenseFee = 150_000 := by decide
+-- 三十八（一）〜（六） 信託業の免許・管理型信託会社／外国信託会社の登録・自己信託登録・特定大学技術移転事業承認事業者の登録
+example : trustBusinessLicenseFee = 150_000 := by decide
+example : managementTypeTrustCompanyRegistrationFee = 150_000 := by decide
+example : managementTypeForeignTrustCompanyRegistrationFee = 150_000 := by decide
+example : selfTrustBusinessRegistrationFee = 150_000 := by decide
+example : technologyTransferApprovalBusinessOperatorRegistrationFee = 150_000 := by decide
+example : trustContractAgentRegistrationFee = 90_000 := by decide
 
 end JapanTaxLaw
