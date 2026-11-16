@@ -233,6 +233,20 @@ def class1UnmannedAircraftPilotLicenseFee : Money := 3_000
 /-- （三十）カ 耐空検査員の認定につきの額（固定 ¥6,000）。 -/
 def airworthinessInspectorAuthorizationFee : Money := 6_000
 
+/-- （三十一）イ 不動産の鑑定評価に関する法律第十五条（登録）の不動産鑑定士の登録につきの額（固定 ¥60,000）。 -/
+def realEstateAppraiserRegistrationFee : Money := 60_000
+
+/-- （三十二） 建築士法（昭和二十五年法律第二百二号）第五条第一項（登録）の一級建築士の登録につきの額（固定 ¥60,000）。 -/
+def firstClassArchitectRegistrationFee : Money := 60_000
+
+theorem realEstateAppraiserRegistrationFee_pos : realEstateAppraiserRegistrationFee > 0 := by decide
+theorem firstClassArchitectRegistrationFee_pos : firstClassArchitectRegistrationFee > 0 := by decide
+
+example : realEstateAppraiserRegistrationFee = 60_000 := by decide
+example : firstClassArchitectRegistrationFee = 60_000 := by decide
+-- （三十一）ロ 変更の登録につきの額は既モデル化の `registrationModificationFee`（¥1,000）
+--   （同一モジュール内で別証明済／保留）
+
 /-- （三十）ヨ 操縦技能審査員の認定につきの額（固定 ¥3,000）。 -/
 def pilotSkillExaminerAuthorizationFee : Money := 3_000
 
