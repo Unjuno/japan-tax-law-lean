@@ -53,6 +53,29 @@ example : absorptionMergerIncreaseTax 0 0 = 30_000 := by decide
 example : absorptionMergerIncreaseTax 2_000_000_000 5_000_000_000 = 3_000_000 := by decide
 example : absorptionMergerIncreaseTax 7_000_000_000 5_000_000_000 = 7_500_000 + 14_000_000 := by decide
 
+-- リ: 相互会社の設立の登記は固定 ¥300,000
+example : mutualCompanyFormationFee = 300_000 := by decide
+-- ヌ: 新株予約権の発行による変更の登記は固定 ¥90,000
+example : shareSubscriptionModificationFee = 90_000 := by decide
+-- ル: 支店又は従たる事務所の設置の登記は、各 ¥60,000
+example : branchInstallationFee 0 = 0 := by decide
+example : branchInstallationFee 1 = 60_000 := by decide
+example : branchInstallationFee 2 = 120_000 := by decide
+-- ヲ: 本店若しくは主たる事務所又は支店若しくは従たる事務所の移転の登記は、各 ¥30,000
+example : relocationFee 0 = 0 := by decide
+example : relocationFee 1 = 30_000 := by decide
+example : relocationFee 3 = 90_000 := by decide
+-- ワ: 役員会等事項の変更の登記は固定 ¥30,000
+example : boardMattersModificationFee = 30_000 := by decide
+-- カ: 役員等の事項の変更の登記は ¥30,000（資本金が一億円以下の場合は ¥10,000）
+example : directorMattersModificationFee 0 = 10_000 := by decide
+example : directorMattersModificationFee 50_000_000 = 10_000 := by decide
+example : directorMattersModificationFee 100_000_000 = 10_000 := by decide
+example : directorMattersModificationFee 100_000_001 = 30_000 := by decide
+example : directorMattersModificationFee 1_000_000_000 = 30_000 := by decide
+-- ヨ: 支配人の選任の登記又はその代理権の消滅の登記は固定 ¥30,000
+example : representativeAttachmentFee = 30_000 := by decide
+
 -- 千分の一・五と千分の七の単位比較
 example : commercial24LowMilleRate.applyFloor 1_000_000_000 = 1_500_000 := by decide
 example : commercial24DefaultMilleRate.applyFloor 1_000_000_000 = 7_000_000 := by decide

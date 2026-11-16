@@ -141,6 +141,61 @@ def absorptionDivisionIncreaseTax (increase : Money) : Money :=
   let computed := TaxRate.applyFloor commercial24DefaultMilleRate increase
   if computed < 30_000 then 30_000 else computed
 
+/-- リ: 相互会社の設立（新設合併又は組織変更による設立を含む。）の登記。
+    申請件数一件につき三十万円。 -/
+def mutualCompanyFormationFee : Money := 300_000
+
+/-- ヌ: 新株予約権の発行による変更の登記。申請件数一件につき九万円。 -/
+def shareSubscriptionModificationFee : Money := 90_000
+
+/-- ル: 支店又は従たる事務所の設置の登記。
+    支店又は従たる事務所の数「一箇所につき」六万円（件数 × 六万円）。 -/
+def branchInstallationFee (branchCount : Nat) : Money := branchCount * 60_000
+
+/-- ヲ: 本店若しくは主たる事務所又は支店若しくは従たる事務所の移転の登記。
+    同じく「一箇所につき」三万円（件数 × 三万円）。 -/
+def relocationFee (branchCount : Nat) : Money := branchCount * 30_000
+
+/-- ワ: 取締役会、監査役会、監査等委員会若しくは指名委員会等又は理事会に関する事項の
+    変更の登記。申請件数一件につき三万円。 -/
+def boardMattersModificationFee : Money := 30_000
+
+/-- カ: 取締役、代表取締役若しくは特別取締役、会計参与、監査役、会計監査人、
+    指名委員会等の委員、執行役若しくは代表執行役若しくは社員又は理事、監事、
+    代表理事若しくは評議員に関する事項の変更（会社又は相互会社若しくは一般社団法人等
+    の代表に関する事項の変更を含む。）の登記。
+    申請件数一件につき三万円。
+    ただし、資本金の額が一億円以下の会社又は一般社団法人等については、一万円。
+    `capital` は externally established な当該株式会社等の資本金の額。 -/
+def directorMattersModificationFee (capital : Money) : Money :=
+  if capital ≤ 100_000_000 then 10_000 else 30_000
+
+/-- ヨ: 支配人の選任の登記又はその代理権の消滅の登記。
+    申請件数一件につき三万円。 -/
+def representativeAttachmentFee : Money := 30_000
+
+theorem mutualCompanyFormationFee_pos : mutualCompanyFormationFee > 0 := by decide
+theorem shareSubscriptionModificationFee_pos : shareSubscriptionModificationFee > 0 := by decide
+theorem boardMattersModificationFee_pos : boardMattersModificationFee > 0 := by decide
+theorem representativeAttachmentFee_pos : representativeAttachmentFee > 0 := by decide
+theorem branchInstallationFee_succ_pos (n : Nat) : branchInstallationFee (n + 1) > 0 := by
+  unfold branchInstallationFee
+  exact Nat.mul_pos (Nat.succ_pos n) (by decide : 0 < 60_000)
+
+example : mutualCompanyFormationFee = 300_000 := by decide
+example : shareSubscriptionModificationFee = 90_000 := by decide
+example : branchInstallationFee 0 = 0 := by decide
+example : branchInstallationFee 1 = 60_000 := by decide
+example : branchInstallationFee 2 = 120_000 := by decide
+example : relocationFee 0 = 0 := by decide
+example : relocationFee 1 = 30_000 := by decide
+example : relocationFee 3 = 90_000 := by decide
+example : boardMattersModificationFee = 30_000 := by decide
+example : directorMattersModificationFee 0 = 10_000 := by decide
+example : directorMattersModificationFee 100_000_000 = 10_000 := by decide
+example : directorMattersModificationFee 100_000_001 = 30_000 := by decide
+example : representativeAttachmentFee = 30_000 := by decide
+
 /-- art. 19 は別表第一の欄の最低下限（¥30,000/60,000/150,000）によって上書きされるため
     ここで独立モデル化しない。 -/
 
