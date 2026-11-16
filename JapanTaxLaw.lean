@@ -172,3 +172,7 @@ import JapanTaxLaw.SpouseSpecialDeductionTests
 import JapanTaxLaw.RegistrationQualificationFees
 import JapanTaxLaw.RegistrationQualificationFeesSpec
 import JapanTaxLaw.RegistrationQualificationFeesTests
+
+import JapanTaxLaw.CorporateGroupLossOffset
+import JapanTaxLaw.CorporateGroupLossOffsetSpec
+import JapanTaxLaw.CorporateGroupLossOffsetTests

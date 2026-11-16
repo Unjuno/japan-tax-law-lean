@@ -433,6 +433,14 @@ def checks():
            "article", "第三百十四条の三",
            ["百分の六（所得割の納税義務者が地方自治法第二百五十二条の十九第一項の市（第三百十四条の六及び第三百十四条の七において「指定都市」という。）の区域内に住所を有する場合には、百分の八）"])
 
+    # 法人税法 art. 64の5 — CorporateGroupLossOffset.lean (intercompanyLossDeduction, intercompanyIncomeInclusion)
+    yield ("法人税法 art. 64の5（損益通算: 通算対象欠損金額／通算対象所得金額 — 割合×プール配分）↔ CorporateGroupLossOffset.lean",
+           "340AC0000000034",
+           "article", "第六十四条の五",
+           ["第二号に掲げる金額が第三号に掲げる金額のうちに占める割合を乗じて計算した金額",
+            "一前項に規定する他の通算法人の基準日に終了する事業年度において生ずる通算前欠損金額の合計額",
+            "一前項に規定する他の通算法人の基準日に終了する事業年度の通算前所得金額の合計額"])
+
     # 法人税法 art. 57 — CorporateLossCarryforward.lean (lossCarryforwardDeduction, lossDeductionCapBase, effectiveLossCap)
     yield ("法人税法 art. 57（欠損金の繰越し: 前十年以内の欠損金を損金算入／ただし書: 百分の五十上限／第十一項: 中小法人等の場合は「所得の金額」へ読み替え）↔ CorporateLossCarryforward.lean",
            "340AC0000000034",
