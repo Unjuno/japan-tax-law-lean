@@ -40,5 +40,24 @@ example : physicianDentistRegistrationFee = 60_000 := by decide
 example : pharmacistRegistrationFee = 30_000 := by decide
 example : healthNurseEtcRegistrationFee = 9_000 := by decide
 example : registrationModificationFee = 1_000 := by decide
+-- （十）〜（十三） 歯科衛生士・歯科技工士・救急救命士・言語聴覚士・あん摩・きゆう師
+example : dentalHygienistRegistrationFee = 9_000 := by decide
+example : dentalTechnicianRegistrationFee = 9_000 := by decide
+example : emergencyMedicalTechnicianRegistrationFee = 9_000 := by decide
+example : speechLanguageHearingTherapistRegistrationFee = 9_000 := by decide
+example : anmaMassageShiatsuPractitionerRegistrationFee = 9_000 := by decide
+-- （十四）柔道整復師 ／ （十五）管理栄養士 ／ （十六）理容師 ／ （十七）美容師
+example : judoTherapistRegistrationFee = 9_000 := by decide
+example : dieticianRegistrationFee = 15_000 := by decide
+example : barberRegistrationFee = 9_000 := by decide
+example : hairdresserRegistrationFee = 9_000 := by decide
+-- （十八）社会福祉士・介護福祉士 ／ （十九）精神保健福祉士
+example : socialWorkerRegistrationFee = 15_000 := by decide
+example : careWorkerRegistrationFee = 9_000 := by decide
+example : mentalHealthWorkerRegistrationFee = 15_000 := by decide
+-- （二十）獣医師／仮免状の所有者 ／ （二十の二）愛玩動物看護師
+example : veterinarianRegistrationFee = 30_000 := by decide
+example : provisionalVeterinarianRegistrationFee = 9_000 := by decide
+example : petAnimalNurseRegistrationFee = 9_000 := by decide
 
 end JapanTaxLaw

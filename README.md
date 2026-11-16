@@ -359,7 +359,7 @@ JapanTaxLaw/LowAlcoholDutySpecialRateTests.lean # 同上 退行テスト
 JapanTaxLaw/SpouseSpecialDeduction.lean      # 地方税法 art. 34(1)第十号の二（配偶者特別控除: 帯域計算 ¥330,000／¥380,000−taper taper=¥50,000整数倍−¥30,000切下・所得¥9,000,000〜¥10,000,000 で 2/3・1/3（¥10,000 切上げ））L4 モデル
 JapanTaxLaw/SpouseSpecialDeductionSpec.lean  # 同上 独立定式
 JapanTaxLaw/SpouseSpecialDeductionTests.lean # 同上 退行テスト
-JapanTaxLaw/RegistrationQualificationFees.lean      # 登録免許税法 別表第一（二）第三十二号 (一)〜(九)（人の資格の登録若しくは認定又は技能証明： 公認会計士・行政書士・弁護士・司法書士・土地家屋調査士・税理士・技術士・公認心理師・医師歯科医師・薬剤師・保健師等 他 affiliates flat fee）L4 モデル
+JapanTaxLaw/RegistrationQualificationFees.lean      # 登録免許税法 別表第一（二）第三十二号 (一)〜(二十の二)（人の資格の登録若しくは認定又は技能証明： 公認会計士・行政書士・弁護士・司法書士・土地家屋調査士・税理士・技術士・公認心理師・医師歯科医師・薬剤師・保健師等・歯科衛生士・歯科技工士・救急救命士・言語聴覚士・あん摩等・柔道整復師・管理栄養士・理容師・美容師・社会福祉士・精神保健福祉士・獣医師・愛玩動物看護師 登録等の flat fee）L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesSpec.lean  # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesTests.lean # 同上 退行テスト
 JapanTaxLaw/CounterexampleSweep.lean  # L6: マージ済み L4 全モデル × Spec の有限領域反例バウンド検査（decide）
