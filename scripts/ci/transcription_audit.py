@@ -395,6 +395,16 @@ def checks():
             "ロ公益法人等又は協同組合等",
             "ハ人格のない社団等"])
 
+    # 地方税法 art. 34(1)第一号 — DisasterLossDeduction.lean (disasterLossThreshold, disasterLossDeduction)
+    yield ("地方税法 art. 34(1)第一号（雑損控除 災害関連支出 ¥50,000 以下／超／全額 の閾値計算・超える金額控除）↔ DisasterLossDeduction.lean",
+           "325AC0000000226",
+           "article", "第三十四条",
+           ["イ損失の金額に含まれる災害関連支出の金額（損失の金額のうち災害に直接関連して支出をした金額として政令で定める金額をいう。以下この号において同じ。）が五万円以下である場合",
+            "当該納税義務者の前年の総所得金額、退職所得金額及び山林所得金額の合計額の十分の一に相当する金額",
+            "ロ損失の金額に含まれる災害関連支出の金額が五万円を超える場合損失の金額の合計額から災害関連支出の金額のうち",
+            "ハ損失の金額が全て災害関連支出の金額である場合五万円とイに定める金額とのいずれか低い金額",
+            "が五万円以下である場合（災害関連支出の金額がない場合を含む。）"])
+
     # 地方税法 art. 34(1)第五号／第五号の三 — LocalInsuranceDeduction.lean (newLifeInsuranceDeduction, oldLifeInsuranceDeduction, lifeInsuranceDeduction, earthquakeInsuranceDeduction)
     yield ("地方税法 art. 34(1)第五号／第五号の三（生命保険料控除 新旧区分の帯域計算・¥28,000 合計上限・¥70,000 上限／地震保険料控除 ¥25,000 上限）↔ LocalInsuranceDeduction.lean",
            "325AC0000000226",
