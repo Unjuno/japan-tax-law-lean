@@ -149,3 +149,7 @@ import JapanTaxLaw.CorporateLossCarryforwardTests
 import JapanTaxLaw.LocalInsuranceDeduction
 import JapanTaxLaw.LocalInsuranceDeductionSpec
 import JapanTaxLaw.LocalInsuranceDeductionTests
+
+import JapanTaxLaw.DisasterLossDeduction
+import JapanTaxLaw.DisasterLossDeductionSpec
+import JapanTaxLaw.DisasterLossDeductionTests

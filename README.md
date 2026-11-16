@@ -345,6 +345,9 @@ JapanTaxLaw/CorporateLossCarryforwardTests.lean # 同上 退行テスト
 JapanTaxLaw/LocalInsuranceDeduction.lean      # 地方税法 art. 34(1)第五号（生命保険料控除 新旧別・合計上限 ¥70,000）／第五号の三（地震保険料控除 ¥25,000）L4 モデル
 JapanTaxLaw/LocalInsuranceDeductionSpec.lean  # 同上 独立定式
 JapanTaxLaw/LocalInsuranceDeductionTests.lean # 同上 退行テスト
+JapanTaxLaw/DisasterLossDeduction.lean      # 地方税法 art. 34(1)第一号（雑損控除: イ/ロ/ハ の閾値計算・超える金額控除）L4 モデル
+JapanTaxLaw/DisasterLossDeductionSpec.lean  # 同上 独立定式
+JapanTaxLaw/DisasterLossDeductionTests.lean # 同上 退行テスト
 JapanTaxLaw/CounterexampleSweep.lean  # L6: マージ済み L4 全モデル × Spec の有限領域反例バウンド検査（decide）
 JapanTaxLaw/TaxProcedure.lean      # 国税通則法 第2条第10号（強制換価手続）
 JapanTaxLaw/TaxProcedureSpec.lean  # Act art.2(10) の独立仕様・健全性・整合性定理
@@ -415,7 +418,7 @@ PHASE E の最初の着手点として、`scripts/law_audit/phase_e/cross_law.py
 4. `Raw snapshot sha256:` が台帳の `raw_snapshot.source_sha256` と一致すること（Spec モジュールの `Revision:` のみのピンも台帳の現行改正版と照合）
 5. 台帳で unresolved（完全未施行）の 2 法令（防衛特別所得税関連の政令・省令）がどの Lean モジュールからもピン留めできないこと（弾かれることをテストで担保）
 
-実行結果（2026-11-15）：スキャン 141 ファイル、ピン留め一致 114 モジュール、失敗 0 件。ピン留めのないモジュール（Verdict / TaxFinance / Tests / CounterexampleSweep 等、法源を持たない共通知識層）は 27 件で、**検証済みにカウントしません**。バイトレベルの原文 SHA-256 照合自体は `validate_inventory.py` の責務です（この横断検査は台帳↔Lean の整合のみ）。
+実行結果（2026-11-15）：スキャン 144 ファイル、ピン留め一致 117 モジュール、失敗 0 件。ピン留めのないモジュール（Verdict / TaxFinance / Tests / CounterexampleSweep 等、法源を持たない共通知識層）は 27 件で、**検証済みにカウントしません**。バイトレベルの原文 SHA-256 照合自体は `validate_inventory.py` の責務です（この横断検査は台帳↔Lean の整合のみ）。
 
 **限界・未完了**: これはピン留め整合の検証であり、条文間の法的意味の矛盾を検出するものではありません。参照グラフは Phase B の候補 3,438 件（すべて**未確定**）のままで、独立レビューなしに欠陥と呼ばず、`verified-anomaly` は 0 件を維持します。PHASE E 完成（重複適用・優先関係の意味的横断検査）は今後の作業です。
 
