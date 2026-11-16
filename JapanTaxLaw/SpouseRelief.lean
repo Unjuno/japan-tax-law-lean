@@ -95,6 +95,60 @@ def taxAfterSpouseRelief (f : SpouseReliefFacts) : Money :=
 
 -- ==== verified facts ====
 
+/-- If the spouse is the only heir, the basis is total acquisition itself. -/
+theorem spouseReliefYiBasis_of_onlyHeir (f : SpouseReliefFacts) (h : f.spouseIsOnlyHeir = true) :
+    spouseReliefYiBasis f = f.totalAcquisition := by
+  unfold spouseReliefYiBasis
+  simp [h]
+
+/-- Otherwise the basis is at least ¥160,000,000 (art. 19-2(1) イ bottom amount). -/
+theorem spouseReliefYiBasis_ge_160m_of_not_onlyHeir (f : SpouseReliefFacts)
+    (h : f.spouseIsOnlyHeir = false) :
+    160_000_000 ≤ spouseReliefYiBasis f := by
+  unfold spouseReliefYiBasis
+  rw [h]
+  by_cases hh : f.spouseLegalShareRaw < 160_000_000
+  · rw [ite_eq_left hh]
+    exact Nat.le_refl 160_000_000
+  · rw [ite_eq_right hh]
+    exact Nat.le_of_not_lt hh
+
+/-- The portion used in the rate is no greater than the spouse's own acquisition. -/
+theorem spouseReliefRelevantBasis_le_spouseAcquisition (f : SpouseReliefFacts) :
+    spouseReliefRelevantBasis f ≤ f.spouseAcquisition := by
+  unfold spouseReliefRelevantBasis
+  by_cases h : spouseReliefYiBasis f ≤ f.spouseAcquisition
+  · rw [ite_eq_left h]
+    exact h
+  · rw [ite_eq_right h]
+    exact Nat.le_refl _
+
+/-- The relief amount does not exceed the tax before relief (consistent-input case). -/
+theorem spouseRelief_le_taxBeforeRelief (f : SpouseReliefFacts)
+    (h : f.spouseAcquisition ≤ f.totalAcquisition) (ht : f.totalAcquisition ≠ 0) :
+    spouseRelief f ≤ f.taxBeforeRelief := by
+  unfold spouseRelief
+  rw [ite_eq_right (fun e => ht e)]
+  have hb : spouseReliefRelevantBasis f ≤ f.totalAcquisition :=
+    Nat.le_trans (spouseReliefRelevantBasis_le_spouseAcquisition f) h
+  have hmul : f.taxBeforeRelief * spouseReliefRelevantBasis f ≤ f.totalAcquisition * f.taxBeforeRelief := by
+    have e := Nat.mul_comm f.taxBeforeRelief f.totalAcquisition
+    calc f.taxBeforeRelief * spouseReliefRelevantBasis f
+        ≤ f.taxBeforeRelief * f.totalAcquisition := Nat.mul_le_mul_left f.taxBeforeRelief hb
+      _ = f.totalAcquisition * f.taxBeforeRelief := e
+  exact Nat.div_le_of_le_mul hmul
+
+/-- Zero tax stays zero relief. -/
+theorem spouseRelief_zero_of_zero_tax (f : SpouseReliefFacts) (h : f.taxBeforeRelief = 0) :
+    spouseRelief f = 0 := by
+  unfold spouseRelief
+  rw [h]
+  simp
+
+/-- Tax after spouse relief never exceeds the tax before relief. -/
+theorem taxAfterSpouseRelief_le_taxBeforeRelief (f : SpouseReliefFacts) :
+    taxAfterSpouseRelief f ≤ f.taxBeforeRelief := Nat.sub_le _ _
+
 def f1 : SpouseReliefFacts := ⟨100_000_000, 90_000_000, 300_000_000, 30_000_000, false⟩
 /-- share below 1.6億 → floor applies -/
 example : spouseReliefYiBasis f1 = 160_000_000 := by decide

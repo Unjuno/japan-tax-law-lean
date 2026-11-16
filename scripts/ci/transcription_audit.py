@@ -154,6 +154,14 @@ def checks():
            "article", "第六十八条",
            ["十億円（事業年度が一年に満たない協同組合等については、十億円に当該事業年度の月数を乗じてこれを十二で除して計算した金額とする。）を超える部分の金額については、百分の二十二"])
 
+    # 相続税法 art. 19-2 — SpouseRelief.lean (spouseReliefYiBasis, spouseReliefRelevantBasis, spouseRelief, taxAfterSpouseRelief)
+    yield ("相続税法 art. 19-2（配偶者に対する相続税額の軽減・イの法定相続分／一億六千万円の下限額・ロの課税価格）↔ SpouseRelief.lean (spouseReliefYiBasis, spouseReliefRelevantBasis, spouseRelief, taxAfterSpouseRelief)",
+           "325AC0000000073",
+           "article", "第十九条の二",
+           ["イ当該相続又は遺贈により財産を取得した全ての者に係る相続税の課税価格の合計額に民法第九百条（法定相続分）の規定による当該配偶者の相続分",
+            "一億六千万円",
+            "ロ当該相続又は遺贈により財産を取得した配偶者に係る相続税の課税価格に相当する金額"])
+
     # 租税特別措置法 art. 31の3 — ResidentialTransferSpecialTax.lean (residentialGainTax)
     yield ("租税特別措置法 art. 31の3（居住用財産を譲渡した場合の長期譲渡所得の課税の特例: ¥60,000,000 以下で百分の十／超で ¥6,000,000 + 百分の十五）↔ ResidentialTransferSpecialTax.lean (residentialGainTax, residentialBoundary)",
            "332AC0000000026",
