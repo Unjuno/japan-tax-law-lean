@@ -52,17 +52,12 @@ legal semantics; Pin ↔ 原文一致 is the trust boundary):
 2. `special_eq_general_le_2m` — for a taxable base ≤ ¥2,000,000 both tables
    compute the same tax (both are flat 10% on that band).
 3. Both tables share the 55% top rate (kernel-verified via `portionTaxGo`/`decide`).
-4. `specialLeGeneralGrid` / sample grid — **kernel-decided dense sample only**,
-   never a universal proof.
-   **Universal domination was attempted and is NOT proven.** Concrete blocker
-   (recorded for future work): after fully unfolding both tables
-   (`portionTaxGo_cons` × 8 + `portionTaxGo_nil`), the residual polynomial is
-   elaborated with mixed Money/Nat numeral instances, which defeats `omega`'s
-   atom detection ("possible counterexample may satisfy the constraints ...
-   where a := ↑x"); `grind` closes the goal but the resulting proof depends on
-   `Classical.choice`, which the repo's CI axiom gate (no `Classical.choice`)
-   forbids. A future proof needs either a pure-Nat normalisation of both
-   polynomials or an explicit floor-aware bandwise inequality chain.
+4. `specialLeGeneralGrid` — bounded dense sample grid only.
+   **The universal domination is now proven** in
+   `JapanTaxLaw/SpecialGiftRateDomination.lean` (`specialGiftPortionTax_le_giftPortionTax`):
+   pure-Nat normalisation of both tables + 9-interval decomposition, `omega` per
+   interval; no `grind`, no `sorry`, no `admit`, no custom axioms. The grid here
+   remains a bounded regression sample only; it does not claim universality.
 5. Eligibility gates (lineal ascendant gift ∧ recipient ≥18 on Jan 1) are
    externally established booleans supplied by the caller (`SpecialGiftFacts`);
    art. 70の2の5(2)（年の途中で直系卑属となつた場合の規定）・(3)（特例贈与財産と一般贈与財産の併存時の按分計算）・
@@ -249,9 +244,9 @@ example : specialGiftTax ⟨true, true⟩ 2_600_000 = specialGiftPortionTax 2_00
 example : specialGiftPortionTax 100_000_000 < giftPortionTax 100_000_000 := by decide
 
 /-- Bounded kernel-decided dense sample grid: special never exceeds general.
-    Grid: every ¥100,000 step from 0 to ¥50,000,000, plus every band edge ±1.
-    **A bounded dense sample, not a universal proof.** Universal domination
-    (piecewise-monotone argument over both tables' floor interaction) is future work. -/
+    Grid: every ¥1,000,000 step from 0 to ¥50,000,000, plus every band edge ±1.
+    (The universal theorem `specialGiftPortionTax_le_giftPortionTax` is proved in
+    `SpecialGiftRateDomination.lean`; this grid remains a regression sample.) -/
 def specialLeGeneralGrid : List Money :=
   (List.range 51).map (fun k => k * 1_000_000)
   ++

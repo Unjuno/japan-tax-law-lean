@@ -28,7 +28,7 @@
 | **PHASE B — 全体系の構造監査** | **完了（機械処理のみ、未確定）** | 対象 325 件 / パース失敗 0 / 監査失敗 0 |
 | **PHASE C — 共通形式意味論** | **完了**（`JapanTaxLaw/TaxFinance.lean`） | Money、TaxRate(floor/ceil 証明)、Period、Priority（law>order>notice、全順序・推移律・非反射律）; 21 件の dec テスト |
 | **PHASE D — 税目別形式化（actor scope のみ）** | **進行中**（PR #1 以降 stacked で PR #5–#18・#20 ほか、機械検証は全て `propext` のみ） | 意味モデルは定義層・actor scope に限定 |
-| **PHASE E — 法令横断検証** | **着手（シード＋意味横断モジュール ×3）** `scripts/law_audit/phase_e/cross_law.py` + `JapanTaxLaw/PhaseECorpRates.lean` + `JapanTaxLaw/SpecialGiftRate.lean` + `JapanTaxLaw/StampDutySpecial91.lean` | 実 `JapanTaxLaw/*.lean` のピン vs 台帳整合（**複数法令ピンのブロック単位独立照合対応・テスト14**）に加え、法人税法 art. 66 ↔ 租税特別措置法 art. 67の2(1)・art. 68(1)(2) の**税率整合性**を機械検査（19%<22%<23.2%・¥10億以下で art. 66(3) と同値・超過分の分裂加法性・月数換算 cap・単調非減少）。他の法令間の意味横断検証は未完了 |
+| **PHASE E — 法令横断検証** | **着手（シード＋意味横断モジュール ×3＋普遍支配定理1件）** `scripts/law_audit/phase_e/cross_law.py` + `JapanTaxLaw/PhaseECorpRates.lean` + `JapanTaxLaw/SpecialGiftRate.lean` + `JapanTaxLaw/StampDutySpecial91.lean` + `JapanTaxLaw/SpecialGiftRateDomination.lean`（租税特別措置法 art. 70の2の5 特別表 ≤ 相続税法 art. 21-7 一般表の**普遍支配定理** `specialGiftPortionTax_le_giftPortionTax`: pure-Nat 展開 + 9区間 `omega`、`grind` 不使用） | 実 `JapanTaxLaw/*.lean` のピン vs 台帳整合（**複数法令ピンのブロック単位独立照合対応・テスト14**）に加え、法人税法 art. 66 ↔ 租税特別措置法 art. 67の2(1)・art. 68(1)(2) の**税率整合性**を機械検査（19%<22%<23.2%・¥10億以下で art. 66(3) と同値・超過分の分裂加法性・月数換算 cap・単調非減少）・贈与税率表の**普遍支配**（pure-Nat 分割・exact 証明・公理なし）。他の法令間の意味横断検証は未完了 |
 | **PHASE F — 改正影響検証** | **着手（シード・計測のみ・意味 diff 未実装）** | `scripts/law_audit/phase_f/revision_impact.py` 実装済み・8 テスト（PR #20）。325 件の現行改正版 pin を機械検査（`{law_id}_{yyyymmdd}_{amendment_law_id}` 形状・埋め込み改正 id と台帳の `amendment_law_id` の一致（原法 `_000000000000000` と null の対応）・施行日 ≤ snapshot_date）。**結果: 0 problems**。189 相異なる改正法を計測・**原始立法 48 件**検出。本台帳（税キーワード 327 件）に内在するのは **3 件**のみ、残り 186 件は台帳外として記録のみ・判定せず。**新旧 diff の意味伝播機構は未実装** |
 | **PHASE G — 統合監査（再現可能）** | **未完了**（`lake build`+`unittest`+`validate_inventory`+clean builds ×2 は CI にある） | 第三者再現手順は `CONTRIBUTING.md` と CI 経由; 統合レポート生成はこれから |
 
@@ -89,7 +89,7 @@
 
 ## 4. PHASE D の機械検証範囲（意味形式化された条文）
 
-すべて **actor scope / 定義層** の形式化であり、課税標準の計算・端数処理・例外の全結合・得税額との統合は**未着手**です。各モジュールは `Law id`/`Revision`/`sha256` を原文ピンで保持し、`cross_law.py` により台帳との照合を受けます（131 ファイル / 104 ピン留めモジュール一致 / 0 失敗）。
+すべて **actor scope / 定義層** の形式化であり、課税標準の計算・端数処理・例外の全結合・得税額との統合は**未着手**です。各モジュールは `Law id`/`Revision`/`sha256` を原文ピンで保持し、`cross_law.py` により台帳との照合を受けます（132 ファイル / 105 ピン留めモジュール一致 / 0 失敗）。
 
 | 法令 | 条文 | モジュール | PR（base） |
 |---|---|---|---|
@@ -118,7 +118,7 @@
 - 原文取得率（ピン留め可能な法令）: **325/327 = 99.4%**（2 件は完全未施行・取得不能、成功件数に不算入）
 - 構造監査実施率: **325/325 = 100%**（パース・監査とも失敗 0）
 - 意味モデルの条文対応率: **actor scope 13 モジュール**（33,652 条中 ~0.04%）— すなわち**意味検証はほぼ未達**です。「全体系の構造監査完了＋部分的な意味検証完了」の状態を区別します
-- 再現性: `lake build`（134 jobs・CI 再現可能）/ `lake clean` → `lake build` ×2 再現 / Python 単体テスト 74 件 / `validate_inventory.py` / `cross_law.py` — すべて CI に登録・有効
+- 再現性: `lake build`（135 jobs・CI 再現可能）/ `lake clean` → `lake build` ×2 再現 / Python 単体テスト 74 件 / `validate_inventory.py` / `cross_law.py` — すべて CI に登録・有効
 - 変異注入: `scripts/tests/test_mutation_injection.py` — 12 クラスで規律検査が検出に使われることを確認
 
 ### 検出候補と確定異常
@@ -158,7 +158,7 @@ python -m unittest scripts.tests.test_structural_audit scripts.tests.test_mutati
   scripts.tests.test_inventory_selection scripts.tests.test_cross_law   # 66 tests
 python scripts/law_audit/inventory/validate_inventory.py                # 台帳整合
 python scripts/law_audit/phase_e/cross_law.py                           # Lean pin vs 台帳
-lake build                                                              # Lean 134 jobs
+lake build                                                              # Lean 135 jobs
 lake clean && lake build                                                # 再現性（×2 CI 登録）
 ```
 
