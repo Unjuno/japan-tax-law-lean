@@ -176,3 +176,9 @@ import JapanTaxLaw.RegistrationQualificationFeesTests
 import JapanTaxLaw.CorporateGroupLossOffset
 import JapanTaxLaw.CorporateGroupLossOffsetSpec
 import JapanTaxLaw.CorporateGroupLossOffsetTests
+import JapanTaxLaw.ConsumptionTaxableBase
+import JapanTaxLaw.ConsumptionTaxableBaseSpec
+import JapanTaxLaw.ConsumptionTaxableBaseTests
+import JapanTaxLaw.ConsumptionTaxImportBase
+import JapanTaxLaw.ConsumptionTaxImportBaseSpec
+import JapanTaxLaw.ConsumptionTaxImportBaseTests

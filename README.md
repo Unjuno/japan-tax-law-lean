@@ -365,6 +365,12 @@ JapanTaxLaw/RegistrationQualificationFeesTests.lean # 同上 退行テスト
 JapanTaxLaw/CorporateGroupLossOffset.lean      # 法人税法 art. 64の5（損益通算: 通算対象欠損金額・通算対象所得金額 — プール×割合配分）L4 モデル
 JapanTaxLaw/CorporateGroupLossOffsetSpec.lean  # 同上 独立定式
 JapanTaxLaw/CorporateGroupLossOffsetTests.lean # 同上 退行テスト
+JapanTaxLaw/ConsumptionTaxableBase.lean          # 消費税法 art. 28(1)(2)(3)（課税標準: 対価の額・著しく低い役員譲渡は資産の価額・特定課税仕入れは支払対価・消費/使用/贈与は資産の価額）L4 モデル
+JapanTaxLaw/ConsumptionTaxableBaseSpec.lean      # 同上 独立定式
+JapanTaxLaw/ConsumptionTaxableBaseTests.lean     # 同上 退行テスト
+JapanTaxLaw/ConsumptionTaxImportBase.lean        # 消費税法 art. 28(4)（輸入課税貨物の課税標準: 関税定率法に準じた価格＋附帯税除き消費税等＋附帯税除き関税）L4 モデル
+JapanTaxLaw/ConsumptionTaxImportBaseSpec.lean    # 同上 独立定式
+JapanTaxLaw/ConsumptionTaxImportBaseTests.lean   # 同上 退行テスト
 JapanTaxLaw/CounterexampleSweep.lean  # L6: マージ済み L4 全モデル × Spec の有限領域反例バウンド検査（decide）
 JapanTaxLaw/TaxProcedure.lean      # 国税通則法 第2条第10号（強制換価手続）
 JapanTaxLaw/TaxProcedureSpec.lean  # Act art.2(10) の独立仕様・健全性・整合性定理
