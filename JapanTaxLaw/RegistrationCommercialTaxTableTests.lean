@@ -76,6 +76,30 @@ example : directorMattersModificationFee 1_000_000_000 = 30_000 := by decide
 -- ヨ: 支配人の選任の登記又はその代理権の消滅の登記は固定 ¥30,000
 example : representativeAttachmentFee = 30_000 := by decide
 
+-- タ: 職務執行の停止・職務代行者の選任等は ¥30,000
+example : officerSuspensionFee = 30_000 := by decide
+-- レ: 解散の登記は ¥30,000
+example : dissolutionFee = 30_000 := by decide
+-- ソ: 継続・回復・設立無効取消しの登記は ¥30,000
+example : companyContinuationFee = 30_000 := by decide
+-- ツ: 登記事項の変更、消滅又は廃止の登記（イ〜ソを除く）は ¥30,000
+example : residualRegistrationModificationFee = 30_000 := by decide
+-- ネ: 更正の登記は ¥20,000／ナ: 抹消の登記は ¥20,000
+example : registrationCorrectionFee = 20_000 := by decide
+example : registrationErasureFee = 20_000 := by decide
+-- （二）外国会社: イ 営業所設置は 各 ¥90,000／ロ 初設置又は不設置の場合は ¥60,000／ハ その他は ¥9,000／ニ 更正・抹消は ¥6,000
+example : foreignCompanyOfficeInstallationFee 0 = 0 := by decide
+example : foreignCompanyOfficeInstallationFee 1 = 90_000 := by decide
+example : foreignCompanyOfficeInstallationFee 2 = 180_000 := by decide
+example : foreignCompanyFirstOfficeFee = 60_000 := by decide
+example : foreignCompanyOtherRegistrationFee = 9_000 := by decide
+example : foreignCompanyCorrectionErasureFee = 6_000 := by decide
+-- （三）清算: イ 清算人登記 ¥9,000／ロ 停止・選解任 ¥6,000／ハ 清算結了 ¥2,000／ニ その他・更正・抹消 ¥6,000
+example : liquidatorRegistrationFee = 9_000 := by decide
+example : liquidatorModificationFee = 6_000 := by decide
+example : liquidationCompletionFee = 2_000 := by decide
+example : liquidationOtherModificationFee = 6_000 := by decide
+
 -- 千分の一・五と千分の七の単位比較
 example : commercial24LowMilleRate.applyFloor 1_000_000_000 = 1_500_000 := by decide
 example : commercial24DefaultMilleRate.applyFloor 1_000_000_000 = 7_000_000 := by decide

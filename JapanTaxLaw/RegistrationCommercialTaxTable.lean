@@ -196,6 +196,96 @@ example : directorMattersModificationFee 100_000_000 = 10_000 := by decide
 example : directorMattersModificationFee 100_000_001 = 30_000 := by decide
 example : representativeAttachmentFee = 30_000 := by decide
 
+/-- タ: 役員等の職務執行の停止若しくは職務代行者の選任等の登記。
+    申請件数一件につき三万円。 -/
+def officerSuspensionFee : Money := 30_000
+
+/-- レ: 会社又は相互会社若しくは一般社団法人等の解散の登記。
+    申請件数一件につき三万円。 -/
+def dissolutionFee : Money := 30_000
+
+/-- ソ: 会社若しくは一般社団法人等の継続の登記、合併を無効とする判決が確定した場合における
+    合併により消滅した会社若しくは相互会社若しくは一般社団法人等の回復の登記又は
+    会社若しくは相互会社若しくは一般社団法人等の設立の無効若しくはその設立の取消しの登記。
+    申請件数一件につき三万円。 -/
+def companyContinuationFee : Money := 30_000
+
+/-- ツ: 登記事項の変更、消滅又は廃止の登記（これらの登記のうちイからソまでに掲げるものを除く。）。
+    申請件数一件につき三万円。 -/
+def residualRegistrationModificationFee : Money := 30_000
+
+/-- ネ: 登記の更正の登記。申請件数一件につき二万円。 -/
+def registrationCorrectionFee : Money := 20_000
+
+/-- ナ: 登記の抹消の登記。申請件数一件につき二万円。 -/
+def registrationErasureFee : Money := 20_000
+
+/-- （二）外国会社又は外国相互会社の登記（イ）営業所の設置の登記（ロに掲げる登記を除く。）。
+    営業所の数「一箇所につき」九万円。 -/
+def foreignCompanyOfficeInstallationFee (officeCount : Nat) : Money := officeCount * 90_000
+
+/-- （二）ロ 営業所を設置していない場合の外国会社の登記又は
+    当該営業所を設置していない外国会社が初めて設置する一の営業所の設置の登記。
+    申請件数一件につき六万円。 -/
+def foreignCompanyFirstOfficeFee : Money := 60_000
+
+/-- （二）ハ イ、ロ及びニに掲げる登記以外の登記。申請件数一件につき九千円。 -/
+def foreignCompanyOtherRegistrationFee : Money := 9_000
+
+/-- （二）ニ 登記の更正の登記又は登記の抹消。申請件数一件につき六千円。 -/
+def foreignCompanyCorrectionErasureFee : Money := 6_000
+
+/-- （三）イ 清算人又は代表清算人の登記（外国会社又は外国相互会社の清算に係る登記を含む）。
+    申請件数一件につき九千円。 -/
+def liquidatorRegistrationFee : Money := 9_000
+
+/-- （三）ロ 清算人若しくは代表清算人の職務執行の停止若しくはその取消し若しくは変更又は
+    清算人若しくは代表清算人の職務代行者の選任、解任若しくは変更の登記。
+    申請件数一件につき六千円。 -/
+def liquidatorModificationFee : Money := 6_000
+
+/-- （三）ハ 清算の結了の登記。申請件数一件につき二千円。 -/
+def liquidationCompletionFee : Money := 2_000
+
+/-- （三）ニ 登記事項の変更、消滅若しくは廃止の登記（これらの登記のうちロに掲げるものを除く。）、
+    登記の更正の登記又は登記の抹消。申請件数一件につき六千円。 -/
+def liquidationOtherModificationFee : Money := 6_000
+
+theorem officerSuspensionFee_pos : officerSuspensionFee > 0 := by decide
+theorem dissolutionFee_pos : dissolutionFee > 0 := by decide
+theorem companyContinuationFee_pos : companyContinuationFee > 0 := by decide
+theorem residualRegistrationModificationFee_pos : residualRegistrationModificationFee > 0 := by decide
+theorem registrationCorrectionFee_pos : registrationCorrectionFee > 0 := by decide
+theorem registrationErasureFee_pos : registrationErasureFee > 0 := by decide
+theorem foreignCompanyFirstOfficeFee_pos : foreignCompanyFirstOfficeFee > 0 := by decide
+theorem foreignCompanyOtherRegistrationFee_pos : foreignCompanyOtherRegistrationFee > 0 := by decide
+theorem foreignCompanyCorrectionErasureFee_pos : foreignCompanyCorrectionErasureFee > 0 := by decide
+theorem liquidatorRegistrationFee_pos : liquidatorRegistrationFee > 0 := by decide
+theorem liquidatorModificationFee_pos : liquidatorModificationFee > 0 := by decide
+theorem liquidationCompletionFee_pos : liquidationCompletionFee > 0 := by decide
+theorem liquidationOtherModificationFee_pos : liquidationOtherModificationFee > 0 := by decide
+theorem foreignCompanyOfficeInstallationFee_succ_pos (n : Nat) :
+    foreignCompanyOfficeInstallationFee (n + 1) > 0 := by
+  unfold foreignCompanyOfficeInstallationFee
+  exact Nat.mul_pos (Nat.succ_pos n) (by decide : 0 < 90_000)
+
+example : officerSuspensionFee = 30_000 := by decide
+example : dissolutionFee = 30_000 := by decide
+example : companyContinuationFee = 30_000 := by decide
+example : residualRegistrationModificationFee = 30_000 := by decide
+example : registrationCorrectionFee = 20_000 := by decide
+example : registrationErasureFee = 20_000 := by decide
+example : foreignCompanyOfficeInstallationFee 0 = 0 := by decide
+example : foreignCompanyOfficeInstallationFee 1 = 90_000 := by decide
+example : foreignCompanyOfficeInstallationFee 3 = 270_000 := by decide
+example : foreignCompanyFirstOfficeFee = 60_000 := by decide
+example : foreignCompanyOtherRegistrationFee = 9_000 := by decide
+example : foreignCompanyCorrectionErasureFee = 6_000 := by decide
+example : liquidatorRegistrationFee = 9_000 := by decide
+example : liquidatorModificationFee = 6_000 := by decide
+example : liquidationCompletionFee = 2_000 := by decide
+example : liquidationOtherModificationFee = 6_000 := by decide
+
 /-- art. 19 は別表第一の欄の最低下限（¥30,000/60,000/150,000）によって上書きされるため
     ここで独立モデル化しない。 -/
 
