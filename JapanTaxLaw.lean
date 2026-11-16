@@ -164,3 +164,7 @@ import JapanTaxLaw.LocalDependentAndStudentTests
 import JapanTaxLaw.LowAlcoholDutySpecialRate
 import JapanTaxLaw.LowAlcoholDutySpecialRateSpec
 import JapanTaxLaw.LowAlcoholDutySpecialRateTests
+
+import JapanTaxLaw.SpouseSpecialDeduction
+import JapanTaxLaw.SpouseSpecialDeductionSpec
+import JapanTaxLaw.SpouseSpecialDeductionTests
