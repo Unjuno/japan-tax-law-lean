@@ -100,5 +100,20 @@ example : pilotSkillExaminerAuthorizationFee = 3_000 := by decide
 -- （三十一）不動産鑑定士 ／ （三十二）一級建築士
 example : realEstateAppraiserRegistrationFee = 60_000 := by decide
 example : firstClassArchitectRegistrationFee = 60_000 := by decide
+-- （三十三）〜（三十五） 建築基準適合判定資格者／マンション管理士／測量士・測量士補
+example : class1BuildingStandardsAssessmentQualifiedOfficerRegistrationFee = 10_000 := by decide
+example : class2BuildingStandardsAssessmentQualifiedOfficerRegistrationFee = 5_000 := by decide
+example : structureCalculationAssessmentQualifiedOfficerRegistrationFee = 10_000 := by decide
+example : mansionManagementOfficerRegistrationFee = 9_000 := by decide
+example : surveyorRegistrationFee = 30_000 := by decide
+example : surveyorAssistantRegistrationFee = 15_000 := by decide
+-- 三十二の二（認定匿名加工医療情報作成事業者等）／三十三 認定個人情報保護団体／三十四 警備員登録講習機関／三十四の二 登録誘引情報提供機関
+example : anonymousMedicalInfoCreationBusinessLicenseFee = 150_000 := by decide
+example : pseudonymousMedicalInfoCreationBusinessLicenseFee = 150_000 := by decide
+example : pseudonymousMedicalInfoUtilizationBusinessLicenseFee = 150_000 := by decide
+example : medicalInfoHandlingContractorLicenseFee = 150_000 := by decide
+example : personalInfoProtectionAssociationLicenseFee = 90_000 := by decide
+example : securityGuardTrainingInstitutionRegistrationFee = 90_000 := by decide
+example : internetMatchmakingSolicitationInfoProviderRegistrationFee = 15_000 := by decide
 
 end JapanTaxLaw

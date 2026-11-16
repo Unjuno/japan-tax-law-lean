@@ -161,6 +161,46 @@ def specRealEstateAppraiserRegistrationFee : Money := 60_000
 /-- Spec: (三十二） 一級建築士の登録。 -/
 def specFirstClassArchitectRegistrationFee : Money := 60_000
 
+/-- Spec: (三十三）イ 一級建築基準適合判定資格者の登録。 -/
+def specClass1BuildingStandardsAssessmentQualifiedOfficerRegistrationFee : Money := 10_000
+/-- Spec: (三十三）ロ 二級建築基準適合判定資格者の登録。 -/
+def specClass2BuildingStandardsAssessmentQualifiedOfficerRegistrationFee : Money := 5_000
+/-- Spec: (三十三）ハ 構造計算適合判定資格者の登録。 -/
+def specStructureCalculationAssessmentQualifiedOfficerRegistrationFee : Money := 10_000
+/-- Spec: (三十四） マンション管理士の登録。 -/
+def specMansionManagementOfficerRegistrationFee : Money := 9_000
+/-- Spec: (三十五）イ 測量士の登録。 -/
+def specSurveyorRegistrationFee : Money := 30_000
+/-- Spec: (三十五）ロ 測量士補の登録。 -/
+def specSurveyorAssistantRegistrationFee : Money := 15_000
+/-- Spec: 三十二の二（一） 認定匿名加工医療情報作成事業者の認定。 -/
+def specAnonymousMedicalInfoCreationBusinessLicenseFee : Money := 150_000
+/-- Spec: 三十二の二（二） 認定仮名加工医療情報作成事業者の認定。 -/
+def specPseudonymousMedicalInfoCreationBusinessLicenseFee : Money := 150_000
+/-- Spec: 三十二の二（三） 認定仮名加工医療情報利用事業者の認定。 -/
+def specPseudonymousMedicalInfoUtilizationBusinessLicenseFee : Money := 150_000
+/-- Spec: 三十二の二（四） 認定医療情報等取扱受託事業者の認定。 -/
+def specMedicalInfoHandlingContractorLicenseFee : Money := 150_000
+/-- Spec: 三十三 認定個人情報保護団体の認定。 -/
+def specPersonalInfoProtectionAssociationLicenseFee : Money := 90_000
+/-- Spec: 三十四 警備員等に係る登録講習機関の登録。 -/
+def specSecurityGuardTrainingInstitutionRegistrationFee : Money := 90_000
+/-- Spec: 三十四の二 登録誘引情報提供機関の登録。 -/
+def specInternetMatchmakingSolicitationInfoProviderRegistrationFee : Money := 15_000
+
+example : specClass1BuildingStandardsAssessmentQualifiedOfficerRegistrationFee = 10_000 := by decide
+example : specClass2BuildingStandardsAssessmentQualifiedOfficerRegistrationFee = 5_000 := by decide
+example : specStructureCalculationAssessmentQualifiedOfficerRegistrationFee = 10_000 := by decide
+example : specMansionManagementOfficerRegistrationFee = 9_000 := by decide
+example : specSurveyorRegistrationFee = 30_000 := by decide
+example : specSurveyorAssistantRegistrationFee = 15_000 := by decide
+example : specAnonymousMedicalInfoCreationBusinessLicenseFee = 150_000 := by decide
+example : specPseudonymousMedicalInfoCreationBusinessLicenseFee = 150_000 := by decide
+example : specPseudonymousMedicalInfoUtilizationBusinessLicenseFee = 150_000 := by decide
+example : specMedicalInfoHandlingContractorLicenseFee = 150_000 := by decide
+example : specPersonalInfoProtectionAssociationLicenseFee = 90_000 := by decide
+example : specSecurityGuardTrainingInstitutionRegistrationFee = 90_000 := by decide
+example : specInternetMatchmakingSolicitationInfoProviderRegistrationFee = 15_000 := by decide
 example : specRealEstateAppraiserRegistrationFee = 60_000 := by decide
 example : specFirstClassArchitectRegistrationFee = 60_000 := by decide
 example : specAirlineTransportPilotLicenseFee = 18_000 := by decide
@@ -296,7 +336,20 @@ def agreeRegistrationQualificationFees : Bool :=
     specAirworthinessInspectorAuthorizationFee == airworthinessInspectorAuthorizationFee &&
     specPilotSkillExaminerAuthorizationFee == pilotSkillExaminerAuthorizationFee &&
     specRealEstateAppraiserRegistrationFee == realEstateAppraiserRegistrationFee &&
-    specFirstClassArchitectRegistrationFee == firstClassArchitectRegistrationFee
+    specFirstClassArchitectRegistrationFee == firstClassArchitectRegistrationFee &&
+    specClass1BuildingStandardsAssessmentQualifiedOfficerRegistrationFee == class1BuildingStandardsAssessmentQualifiedOfficerRegistrationFee &&
+    specClass2BuildingStandardsAssessmentQualifiedOfficerRegistrationFee == class2BuildingStandardsAssessmentQualifiedOfficerRegistrationFee &&
+    specStructureCalculationAssessmentQualifiedOfficerRegistrationFee == structureCalculationAssessmentQualifiedOfficerRegistrationFee &&
+    specMansionManagementOfficerRegistrationFee == mansionManagementOfficerRegistrationFee &&
+    specSurveyorRegistrationFee == surveyorRegistrationFee &&
+    specSurveyorAssistantRegistrationFee == surveyorAssistantRegistrationFee &&
+    specAnonymousMedicalInfoCreationBusinessLicenseFee == anonymousMedicalInfoCreationBusinessLicenseFee &&
+    specPseudonymousMedicalInfoCreationBusinessLicenseFee == pseudonymousMedicalInfoCreationBusinessLicenseFee &&
+    specPseudonymousMedicalInfoUtilizationBusinessLicenseFee == pseudonymousMedicalInfoUtilizationBusinessLicenseFee &&
+    specMedicalInfoHandlingContractorLicenseFee == medicalInfoHandlingContractorLicenseFee &&
+    specPersonalInfoProtectionAssociationLicenseFee == personalInfoProtectionAssociationLicenseFee &&
+    specSecurityGuardTrainingInstitutionRegistrationFee == securityGuardTrainingInstitutionRegistrationFee &&
+    specInternetMatchmakingSolicitationInfoProviderRegistrationFee == internetMatchmakingSolicitationInfoProviderRegistrationFee
 
 example : agreeRegistrationQualificationFees = true := by decide
 

@@ -236,6 +236,91 @@ def airworthinessInspectorAuthorizationFee : Money := 6_000
 /-- （三十一）イ 不動産の鑑定評価に関する法律第十五条（登録）の不動産鑑定士の登録につきの額（固定 ¥60,000）。 -/
 def realEstateAppraiserRegistrationFee : Money := 60_000
 
+/-- （三十三）イ 建築基準法（昭和二十五年法律第二百一号）第七十七条の五十八第一項（登録）の
+    一級建築基準適合判定資格者の登録につきの額（固定 ¥10,000）。 -/
+def class1BuildingStandardsAssessmentQualifiedOfficerRegistrationFee : Money := 10_000
+
+/-- （三十三）ロ 二級建築基準適合判定資格者の登録につきの額（固定 ¥5,000）。 -/
+def class2BuildingStandardsAssessmentQualifiedOfficerRegistrationFee : Money := 5_000
+
+/-- （三十三）ハ 構造計算適合判定資格者の登録につきの額（固定 ¥10,000）。 -/
+def structureCalculationAssessmentQualifiedOfficerRegistrationFee : Money := 10_000
+
+/-- （三十四） マンションの管理の適正化の推進に関する法律（平成十二年法律第百四十九号）第三十条第一項（登録）の
+    マンション管理士の登録につきの額（固定 ¥9,000）。 -/
+def mansionManagementOfficerRegistrationFee : Money := 9_000
+
+/-- （三十五）イ 測量法（昭和二十四年法律第百八十八号）第四十九条第一項（測量士及び測量士補の登録）の
+    測量士の登録につきの額（固定 ¥30,000）。 -/
+def surveyorRegistrationFee : Money := 30_000
+
+/-- （三十五）ロ 測量士補の登録につきの額（固定 ¥15,000）。 -/
+def surveyorAssistantRegistrationFee : Money := 15_000
+
+/-- 三十二の二（一） 医療分野の研究開発に資するための匿名加工医療情報及び仮名加工医療情報に関する法律
+    （平成二十九年法律第二十八号）第九条第一項（認定）の認定匿名加工医療情報作成事業者の認定につきの額（固定 ¥150,000）。 -/
+def anonymousMedicalInfoCreationBusinessLicenseFee : Money := 150_000
+
+/-- 三十二の二（二） 同法第三十三条（認定）の認定仮名加工医療情報作成事業者の認定につきの額（固定 ¥150,000）。 -/
+def pseudonymousMedicalInfoCreationBusinessLicenseFee : Money := 150_000
+
+/-- 三十二の二（三） 同法第四十一条（認定）の認定仮名加工医療情報利用事業者の認定につきの額（固定 ¥150,000）。 -/
+def pseudonymousMedicalInfoUtilizationBusinessLicenseFee : Money := 150_000
+
+/-- 三十二の二（四） 同法第四十五条（認定）の認定医療情報等取扱受託事業者の認定につきの額（固定 ¥150,000）。 -/
+def medicalInfoHandlingContractorLicenseFee : Money := 150_000
+
+/-- 三十三 認定個人情報保護団体の認定（個人情報の保護に関する法律（平成十五年法律第五十七号）第四十七条第一項（認定）、（政令で定めるものに限る。）につきの額（固定 ¥90,000）。 -/
+def personalInfoProtectionAssociationLicenseFee : Money := 90_000
+
+/-- 三十四 警備業法（昭和四十七年法律第百十七号）第二十三条第三項（登録講習機関の登録）の
+    警備員等に係る登録講習機関の登録につきの額（固定 ¥90,000）。 -/
+def securityGuardTrainingInstitutionRegistrationFee : Money := 90_000
+
+/-- 三十四の二 インターネット異性紹介事業を利用して児童を誘引する行為の規制等に関する法律
+    （平成十五年法律第八十三号）第十八条第一項（登録誘引情報提供機関の登録）の
+    インターネット異性紹介事業者に係る登録誘引情報提供機関の登録につきの額（固定 ¥15,000）。 -/
+def internetMatchmakingSolicitationInfoProviderRegistrationFee : Money := 15_000
+
+theorem class1BuildingStandardsAssessmentQualifiedOfficerRegistrationFee_pos :
+    class1BuildingStandardsAssessmentQualifiedOfficerRegistrationFee > 0 := by decide
+theorem class2BuildingStandardsAssessmentQualifiedOfficerRegistrationFee_pos :
+    class2BuildingStandardsAssessmentQualifiedOfficerRegistrationFee > 0 := by decide
+theorem structureCalculationAssessmentQualifiedOfficerRegistrationFee_pos :
+    structureCalculationAssessmentQualifiedOfficerRegistrationFee > 0 := by decide
+theorem mansionManagementOfficerRegistrationFee_pos :
+    mansionManagementOfficerRegistrationFee > 0 := by decide
+theorem surveyorRegistrationFee_pos : surveyorRegistrationFee > 0 := by decide
+theorem surveyorAssistantRegistrationFee_pos : surveyorAssistantRegistrationFee > 0 := by decide
+theorem anonymousMedicalInfoCreationBusinessLicenseFee_pos :
+    anonymousMedicalInfoCreationBusinessLicenseFee > 0 := by decide
+theorem pseudonymousMedicalInfoCreationBusinessLicenseFee_pos :
+    pseudonymousMedicalInfoCreationBusinessLicenseFee > 0 := by decide
+theorem pseudonymousMedicalInfoUtilizationBusinessLicenseFee_pos :
+    pseudonymousMedicalInfoUtilizationBusinessLicenseFee > 0 := by decide
+theorem medicalInfoHandlingContractorLicenseFee_pos :
+    medicalInfoHandlingContractorLicenseFee > 0 := by decide
+theorem personalInfoProtectionAssociationLicenseFee_pos :
+    personalInfoProtectionAssociationLicenseFee > 0 := by decide
+theorem securityGuardTrainingInstitutionRegistrationFee_pos :
+    securityGuardTrainingInstitutionRegistrationFee > 0 := by decide
+theorem internetMatchmakingSolicitationInfoProviderRegistrationFee_pos :
+    internetMatchmakingSolicitationInfoProviderRegistrationFee > 0 := by decide
+
+example : class1BuildingStandardsAssessmentQualifiedOfficerRegistrationFee = 10_000 := by decide
+example : class2BuildingStandardsAssessmentQualifiedOfficerRegistrationFee = 5_000 := by decide
+example : structureCalculationAssessmentQualifiedOfficerRegistrationFee = 10_000 := by decide
+example : mansionManagementOfficerRegistrationFee = 9_000 := by decide
+example : surveyorRegistrationFee = 30_000 := by decide
+example : surveyorAssistantRegistrationFee = 15_000 := by decide
+example : anonymousMedicalInfoCreationBusinessLicenseFee = 150_000 := by decide
+example : pseudonymousMedicalInfoCreationBusinessLicenseFee = 150_000 := by decide
+example : pseudonymousMedicalInfoUtilizationBusinessLicenseFee = 150_000 := by decide
+example : medicalInfoHandlingContractorLicenseFee = 150_000 := by decide
+example : personalInfoProtectionAssociationLicenseFee = 90_000 := by decide
+example : securityGuardTrainingInstitutionRegistrationFee = 90_000 := by decide
+example : internetMatchmakingSolicitationInfoProviderRegistrationFee = 15_000 := by decide
+
 /-- （三十二） 建築士法（昭和二十五年法律第二百二号）第五条第一項（登録）の一級建築士の登録につきの額（固定 ¥60,000）。 -/
 def firstClassArchitectRegistrationFee : Money := 60_000
 
