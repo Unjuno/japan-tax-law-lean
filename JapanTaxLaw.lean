@@ -168,3 +168,7 @@ import JapanTaxLaw.LowAlcoholDutySpecialRateTests
 import JapanTaxLaw.SpouseSpecialDeduction
 import JapanTaxLaw.SpouseSpecialDeductionSpec
 import JapanTaxLaw.SpouseSpecialDeductionTests
+
+import JapanTaxLaw.RegistrationQualificationFees
+import JapanTaxLaw.RegistrationQualificationFeesSpec
+import JapanTaxLaw.RegistrationQualificationFeesTests
