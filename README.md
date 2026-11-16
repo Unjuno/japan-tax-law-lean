@@ -374,6 +374,9 @@ JapanTaxLaw/ConsumptionTaxImportBaseTests.lean   # 同上 退行テスト
 JapanTaxLaw/ConsumptionTaxInputCredit.lean          # 消費税法 art. 30(1)（仕入れに係る消費税額の控除: 課税標準額に対する消費税額から課税仕入れ税額＋特定課税仕入れ税額（支払対価×7.8%）＋保税貨物税額を控除）L4 モデル
 JapanTaxLaw/ConsumptionTaxInputCreditSpec.lean      # 同上 独立定式
 JapanTaxLaw/ConsumptionTaxInputCreditTests.lean     # 同上 退行テスト
+JapanTaxLaw/NonpaymentSurcharge.lean                # 国税通則法 art. 67（不納付加算税: 告知税額等×10%／調査予知でない納付×5%）L4 モデル
+JapanTaxLaw/NonpaymentSurchargeSpec.lean            # 同上 独立定式
+JapanTaxLaw/NonpaymentSurchargeTests.lean           # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト

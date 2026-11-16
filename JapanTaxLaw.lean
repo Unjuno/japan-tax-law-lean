@@ -227,3 +227,6 @@ import JapanTaxLaw.RegistrationQualificationFeesP8NTests
 import JapanTaxLaw.ConsumptionTaxInputCredit
 import JapanTaxLaw.ConsumptionTaxInputCreditSpec
 import JapanTaxLaw.ConsumptionTaxInputCreditTests
+import JapanTaxLaw.NonpaymentSurcharge
+import JapanTaxLaw.NonpaymentSurchargeSpec
+import JapanTaxLaw.NonpaymentSurchargeTests
