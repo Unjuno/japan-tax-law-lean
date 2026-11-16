@@ -120,6 +120,61 @@ def agreeRegistrationFees : Bool :=
 
 example : agreeRegistrationFees = true := by decide
 
+/-- Spec: タ〜ナ 国内フラット -/
+def specOfficerSuspensionFee : Money := 30_000
+def specDissolutionFee : Money := 30_000
+def specCompanyContinuationFee : Money := 30_000
+def specResidualRegistrationModificationFee : Money := 30_000
+def specRegistrationCorrectionFee : Money := 20_000
+def specRegistrationErasureFee : Money := 20_000
+
+/-- Spec: （二） 外国会社の登記 -/
+def specForeignCompanyOfficeInstallationFee (officeCount : Nat) : Money := officeCount * 90_000
+def specForeignCompanyFirstOfficeFee : Money := 60_000
+def specForeignCompanyOtherRegistrationFee : Money := 9_000
+def specForeignCompanyCorrectionErasureFee : Money := 6_000
+
+/-- Spec: （三） 清算に係る登記 -/
+def specLiquidatorRegistrationFee : Money := 9_000
+def specLiquidatorModificationFee : Money := 6_000
+def specLiquidationCompletionFee : Money := 2_000
+def specLiquidationOtherModificationFee : Money := 6_000
+
+example : specOfficerSuspensionFee = 30_000 := by decide
+example : specDissolutionFee = 30_000 := by decide
+example : specCompanyContinuationFee = 30_000 := by decide
+example : specResidualRegistrationModificationFee = 30_000 := by decide
+example : specRegistrationCorrectionFee = 20_000 := by decide
+example : specRegistrationErasureFee = 20_000 := by decide
+example : specForeignCompanyOfficeInstallationFee 0 = 0 := by decide
+example : specForeignCompanyOfficeInstallationFee 2 = 180_000 := by decide
+example : specForeignCompanyFirstOfficeFee = 60_000 := by decide
+example : specForeignCompanyOtherRegistrationFee = 9_000 := by decide
+example : specForeignCompanyCorrectionErasureFee = 6_000 := by decide
+example : specLiquidatorRegistrationFee = 9_000 := by decide
+example : specLiquidatorModificationFee = 6_000 := by decide
+example : specLiquidationCompletionFee = 2_000 := by decide
+example : specLiquidationOtherModificationFee = 6_000 := by decide
+
+def agreeRegistrationFeesExtended : Bool :=
+  specOfficerSuspensionFee == officerSuspensionFee &&
+    specDissolutionFee == dissolutionFee &&
+    specCompanyContinuationFee == companyContinuationFee &&
+    specResidualRegistrationModificationFee == residualRegistrationModificationFee &&
+    specRegistrationCorrectionFee == registrationCorrectionFee &&
+    specRegistrationErasureFee == registrationErasureFee &&
+    [0, 1, 2, 3].all fun n =>
+      specForeignCompanyOfficeInstallationFee n == foreignCompanyOfficeInstallationFee n &&
+    specForeignCompanyFirstOfficeFee == foreignCompanyFirstOfficeFee &&
+    specForeignCompanyOtherRegistrationFee == foreignCompanyOtherRegistrationFee &&
+    specForeignCompanyCorrectionErasureFee == foreignCompanyCorrectionErasureFee &&
+    specLiquidatorRegistrationFee == liquidatorRegistrationFee &&
+    specLiquidatorModificationFee == liquidatorModificationFee &&
+    specLiquidationCompletionFee == liquidationCompletionFee &&
+    specLiquidationOtherModificationFee == liquidationOtherModificationFee
+
+example : agreeRegistrationFeesExtended = true := by decide
+
 -- ==== points, all kernel-decided ====
 
 example : specGmporGeneralFormationTax = 60_000 := by decide
