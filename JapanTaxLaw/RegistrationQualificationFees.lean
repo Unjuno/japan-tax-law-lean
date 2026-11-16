@@ -363,6 +363,74 @@ def selfTrustBusinessRegistrationFee : Money := 150_000
     特定大学技術移転事業承認事業者の登録につきの額（固定 ¥150,000）。 -/
 def technologyTransferApprovalBusinessOperatorRegistrationFee : Money := 150_000
 
+/-- 三十九 担保付社債信託法（昭和二十八年法律第百九号）第三条（免許）の担保付社債に関する
+    信託事業の免許につきの額（固定 ¥150,000）。 -/
+def securedBondTrustBusinessLicenseFee : Money := 150_000
+
+/-- 三十九の二 事業性融資の推進等に関する法律（令和六年法律第五十二号）第三十二条（免許）の
+    企業価値担保権に関する信託業務の免許につきの額（固定 ¥150,000）。 -/
+def enterpriseValueCollateralRightTrustBusinessLicenseFee : Money := 150_000
+
+/-- 四十（一） 金融商品取引法（昭和二十三年法律第二十五号）第八十条第一項（免許）の
+    金融商品市場の開設の免許につきの額（固定 ¥150,000）。 -/
+def financialInstrumentsMarketEstablishmentLicenseFee : Money := 150_000
+
+/-- 四十（二） 金融商品取引法第八十七条の二第一項ただし書（国際協力排出削減量に係る取引を行う市場の開設等の認可）の
+    認可につきの額（固定 ¥150,000）。 -/
+def internationalCooperationEmissionsReductionAmountTradingMarketEstablishmentApprovalFee : Money := 150_000
+
+/-- 四十（三） 金融商品取引法第百一条の十七第一項（組織変更の認可）の組織変更の認可につきの額（固定 ¥150,000）。 -/
+def organizationalChangeApprovalFee : Money := 150_000
+
+/-- 四十（四） 金融商品取引法第六十七条の十二（規則の認可）の店頭売買有価証券市場の開設の認可につきの額（固定 ¥150,000）。 -/
+def overTheCounterSecuritiesTradingMarketEstablishmentApprovalFee : Money := 150_000
+
+/-- 四十（五） 金融商品取引法第百五十五条第一項（認可）の外国市場取引の認可につきの額（固定 ¥150,000）。 -/
+def foreignMarketTradingApprovalFee : Money := 150_000
+
+/-- 四十（六） 金融商品取引法第百六条の十第一項又は第三項ただし書（認可等）の認可につきの額（固定 ¥150,000）。 -/
+def financialInstrumentsExchangeHoldingCompanyApprovalFee : Money := 150_000
+
+/-- 四十（七） 金融商品取引法第七十八条第一項（認定金融商品取引業協会の認定）の認定金融商品取引業協会の認定につきの額（固定 ¥150,000）。 -/
+def certifiedFinancialInstrumentsBusinessAssociationAuthorizationFee : Money := 150_000
+
+/-- 四十（八） 金融商品取引法第七十九条の七第一項（認定投資者保護団体の目的及び業務）の認定投資者保護団体の認定につきの額（固定 ¥90,000）。 -/
+def certifiedInvestorProtectionAssociationAuthorizationFee : Money := 90_000
+
+/-- 四十（九） 金融商品取引法第百二条の十四（自主規制法人による自主規制業務）の自主規制業務の認可につきの額（固定 ¥150,000）。 -/
+def selfRegulationBusinessApprovalFee : Money := 150_000
+
+theorem securedBondTrustBusinessLicenseFee_pos : securedBondTrustBusinessLicenseFee > 0 := by decide
+theorem enterpriseValueCollateralRightTrustBusinessLicenseFee_pos :
+    enterpriseValueCollateralRightTrustBusinessLicenseFee > 0 := by decide
+theorem financialInstrumentsMarketEstablishmentLicenseFee_pos :
+    financialInstrumentsMarketEstablishmentLicenseFee > 0 := by decide
+theorem internationalCooperationEmissionsReductionAmountTradingMarketEstablishmentApprovalFee_pos :
+    internationalCooperationEmissionsReductionAmountTradingMarketEstablishmentApprovalFee > 0 := by decide
+theorem organizationalChangeApprovalFee_pos : organizationalChangeApprovalFee > 0 := by decide
+theorem overTheCounterSecuritiesTradingMarketEstablishmentApprovalFee_pos :
+    overTheCounterSecuritiesTradingMarketEstablishmentApprovalFee > 0 := by decide
+theorem foreignMarketTradingApprovalFee_pos : foreignMarketTradingApprovalFee > 0 := by decide
+theorem financialInstrumentsExchangeHoldingCompanyApprovalFee_pos :
+    financialInstrumentsExchangeHoldingCompanyApprovalFee > 0 := by decide
+theorem certifiedFinancialInstrumentsBusinessAssociationAuthorizationFee_pos :
+    certifiedFinancialInstrumentsBusinessAssociationAuthorizationFee > 0 := by decide
+theorem certifiedInvestorProtectionAssociationAuthorizationFee_pos :
+    certifiedInvestorProtectionAssociationAuthorizationFee > 0 := by decide
+theorem selfRegulationBusinessApprovalFee_pos : selfRegulationBusinessApprovalFee > 0 := by decide
+
+example : securedBondTrustBusinessLicenseFee = 150_000 := by decide
+example : enterpriseValueCollateralRightTrustBusinessLicenseFee = 150_000 := by decide
+example : financialInstrumentsMarketEstablishmentLicenseFee = 150_000 := by decide
+example : internationalCooperationEmissionsReductionAmountTradingMarketEstablishmentApprovalFee = 150_000 := by decide
+example : organizationalChangeApprovalFee = 150_000 := by decide
+example : overTheCounterSecuritiesTradingMarketEstablishmentApprovalFee = 150_000 := by decide
+example : foreignMarketTradingApprovalFee = 150_000 := by decide
+example : financialInstrumentsExchangeHoldingCompanyApprovalFee = 150_000 := by decide
+example : certifiedFinancialInstrumentsBusinessAssociationAuthorizationFee = 150_000 := by decide
+example : certifiedInvestorProtectionAssociationAuthorizationFee = 90_000 := by decide
+example : selfRegulationBusinessApprovalFee = 150_000 := by decide
+
 /-- 三十八（六） 信託業法第六十七条第一項（登録）の信託契約代理店の登録につきの額（固定 ¥90,000）。 -/
 def trustContractAgentRegistrationFee : Money := 90_000
 
