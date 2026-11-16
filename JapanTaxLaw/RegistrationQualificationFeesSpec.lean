@@ -188,6 +188,19 @@ def specSecurityGuardTrainingInstitutionRegistrationFee : Money := 90_000
 /-- Spec: 三十四の二 登録誘引情報提供機関の登録。 -/
 def specInternetMatchmakingSolicitationInfoProviderRegistrationFee : Money := 15_000
 
+/-- Spec: 三十四の三（一） カジノ事業の免許。 -/
+def specCasinoBusinessLicenseFee : Money := 150_000
+/-- Spec: 三十四の三（二） カジノ施設供用事業の免許。 -/
+def specCasinoFacilityOperationBusinessLicenseFee : Money := 150_000
+/-- Spec: 三十四の三（三） カジノ関連機器等製造業等の許可。 -/
+def specCasinoEquipmentManufacturingEtcBusinessLicenseFee : Money := 150_000
+/-- Spec: 三十四の三（四） カジノ関連機器等外国製造業の認定。 -/
+def specCasinoEquipmentForeignManufacturingLicenseFee : Money := 150_000
+
+example : specCasinoBusinessLicenseFee = 150_000 := by decide
+example : specCasinoFacilityOperationBusinessLicenseFee = 150_000 := by decide
+example : specCasinoEquipmentManufacturingEtcBusinessLicenseFee = 150_000 := by decide
+example : specCasinoEquipmentForeignManufacturingLicenseFee = 150_000 := by decide
 example : specClass1BuildingStandardsAssessmentQualifiedOfficerRegistrationFee = 10_000 := by decide
 example : specClass2BuildingStandardsAssessmentQualifiedOfficerRegistrationFee = 5_000 := by decide
 example : specStructureCalculationAssessmentQualifiedOfficerRegistrationFee = 10_000 := by decide
@@ -349,7 +362,11 @@ def agreeRegistrationQualificationFees : Bool :=
     specMedicalInfoHandlingContractorLicenseFee == medicalInfoHandlingContractorLicenseFee &&
     specPersonalInfoProtectionAssociationLicenseFee == personalInfoProtectionAssociationLicenseFee &&
     specSecurityGuardTrainingInstitutionRegistrationFee == securityGuardTrainingInstitutionRegistrationFee &&
-    specInternetMatchmakingSolicitationInfoProviderRegistrationFee == internetMatchmakingSolicitationInfoProviderRegistrationFee
+    specInternetMatchmakingSolicitationInfoProviderRegistrationFee == internetMatchmakingSolicitationInfoProviderRegistrationFee &&
+    specCasinoBusinessLicenseFee == casinoBusinessLicenseFee &&
+    specCasinoFacilityOperationBusinessLicenseFee == casinoFacilityOperationBusinessLicenseFee &&
+    specCasinoEquipmentManufacturingEtcBusinessLicenseFee == casinoEquipmentManufacturingEtcBusinessLicenseFee &&
+    specCasinoEquipmentForeignManufacturingLicenseFee == casinoEquipmentForeignManufacturingLicenseFee
 
 example : agreeRegistrationQualificationFees = true := by decide
 

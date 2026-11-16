@@ -115,5 +115,10 @@ example : medicalInfoHandlingContractorLicenseFee = 150_000 := by decide
 example : personalInfoProtectionAssociationLicenseFee = 90_000 := by decide
 example : securityGuardTrainingInstitutionRegistrationFee = 90_000 := by decide
 example : internetMatchmakingSolicitationInfoProviderRegistrationFee = 15_000 := by decide
+-- 三十四の三（一）〜（四） カジノ事業／カジノ施設供用事業／カジノ関連機器等製造業等／外国製造業の認定
+example : casinoBusinessLicenseFee = 150_000 := by decide
+example : casinoFacilityOperationBusinessLicenseFee = 150_000 := by decide
+example : casinoEquipmentManufacturingEtcBusinessLicenseFee = 150_000 := by decide
+example : casinoEquipmentForeignManufacturingLicenseFee = 150_000 := by decide
 
 end JapanTaxLaw
