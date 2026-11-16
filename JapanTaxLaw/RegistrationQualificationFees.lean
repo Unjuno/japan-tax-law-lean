@@ -537,8 +537,73 @@ def certifiedAuthenticationBusinessOperatorAuthorizationFee : Money := 90_000
     認定外国認証事業者の認定につきの額（固定 ¥90,000）。 -/
 def certifiedForeignAuthenticationBusinessOperatorAuthorizationFee : Money := 90_000
 
-/-- 五十三の二 電子委任状の普及の促進に関する法律（平成二十九年法律第六十四号）第五条第一項（電子委任状取扱業務の認定）の
-    認定電子委任状取扱事業者の認定につきの額（固定 ¥90,000）。 -/
+/-- 五十四（一） 電波法（昭和二十五年法律第百三十一号）第四条（無線局の開設）の
+    無線局の免許（再免許及び政令で定める無線局の免許を除く。）につきの額
+    （一局につき ¥30,000、放送をする無線局については ¥150,000）。 -/
+def radioStationLicenseFee (broadcasting : Bool) : Money :=
+  if broadcasting then 150_000 else 30_000
+
+/-- 五十四（二） 電波法第二十七条の二十一第一項（登録）の無線局の登録
+    （再登録その他政令で定める登録を除く。）につきの額（一局につき ¥30,000）。 -/
+def radioStationRegistrationFee : Money := 30_000
+
+/-- 五十四（三） 電波法第二十四条の二第一項（検査等事業者の登録）の
+    無線設備等の検査又は点検に係る事業者の登録につきの額（固定 ¥90,000）。 -/
+def radioEquipmentInspectionBusinessOperatorRegistrationFee : Money := 90_000
+
+/-- 五十四（四） 電波法第二十四条の十二第一項（外国点検事業者の登録）の
+    外国における無線設備等の点検に係る事業者の登録につきの額（固定 ¥90,000）。 -/
+def foreignRadioEquipmentInspectionBusinessOperatorRegistrationFee : Money := 90_000
+
+/-- 五十四（五） 電波法第三十八条の二の二第一項（登録証明機関の登録）の
+    登録証明機関の登録につきの額（固定 ¥90,000）。 -/
+def radioEquipmentCertificationBodyRegistrationFee : Money := 90_000
+
+/-- 五十四（六） 電波法第七十一条の三の二第一項（登録周波数終了対策機関の登録）の
+    登録につきの額（固定 ¥90,000）。 -/
+def radioFrequencyTerminationMeasureBodyRegistrationFee : Money := 90_000
+
+/-- 五十五（一） 放送法（昭和二十五年法律第百三十二号）第九十三条第一項（認定）の
+    認定基幹放送事業者の認定につきの額（固定 ¥90,000）。 -/
+def certifiedCoreBroadcastingBusinessOperatorAuthorizationFee : Money := 90_000
+
+/-- 五十五（二） 放送法第百二十六条第一項（一般放送の業務の登録）の登録一般放送事業者の登録
+    又は同法第百三十条第一項（変更登録）の変更登録につきの額（固定 ¥90,000）。 -/
+def registeredGeneralBroadcastingBusinessOperatorFee : Money := 90_000
+
+/-- 五十五（三） 放送法第百五十九条第一項（認定）の認定放送持株会社の認定につきの額（固定 ¥150,000）。 -/
+def certifiedBroadcastingHoldingCompanyAuthorizationFee : Money := 150_000
+
+theorem radioStationLicenseFee_pos (broadcasting : Bool) : radioStationLicenseFee broadcasting > 0 := by
+  unfold radioStationLicenseFee
+  split <;> decide
+theorem radioStationRegistrationFee_pos : radioStationRegistrationFee > 0 := by decide
+theorem radioEquipmentInspectionBusinessOperatorRegistrationFee_pos :
+    radioEquipmentInspectionBusinessOperatorRegistrationFee > 0 := by decide
+theorem foreignRadioEquipmentInspectionBusinessOperatorRegistrationFee_pos :
+    foreignRadioEquipmentInspectionBusinessOperatorRegistrationFee > 0 := by decide
+theorem radioEquipmentCertificationBodyRegistrationFee_pos :
+    radioEquipmentCertificationBodyRegistrationFee > 0 := by decide
+theorem radioFrequencyTerminationMeasureBodyRegistrationFee_pos :
+    radioFrequencyTerminationMeasureBodyRegistrationFee > 0 := by decide
+theorem certifiedCoreBroadcastingBusinessOperatorAuthorizationFee_pos :
+    certifiedCoreBroadcastingBusinessOperatorAuthorizationFee > 0 := by decide
+theorem registeredGeneralBroadcastingBusinessOperatorFee_pos :
+    registeredGeneralBroadcastingBusinessOperatorFee > 0 := by decide
+theorem certifiedBroadcastingHoldingCompanyAuthorizationFee_pos :
+    certifiedBroadcastingHoldingCompanyAuthorizationFee > 0 := by decide
+
+example : radioStationLicenseFee false = 30_000 := by decide
+example : radioStationLicenseFee true = 150_000 := by decide
+example : radioStationRegistrationFee = 30_000 := by decide
+example : radioEquipmentInspectionBusinessOperatorRegistrationFee = 90_000 := by decide
+example : foreignRadioEquipmentInspectionBusinessOperatorRegistrationFee = 90_000 := by decide
+example : radioEquipmentCertificationBodyRegistrationFee = 90_000 := by decide
+example : radioFrequencyTerminationMeasureBodyRegistrationFee = 90_000 := by decide
+example : certifiedCoreBroadcastingBusinessOperatorAuthorizationFee = 90_000 := by decide
+example : registeredGeneralBroadcastingBusinessOperatorFee = 90_000 := by decide
+example : certifiedBroadcastingHoldingCompanyAuthorizationFee = 150_000 := by decide
+
 def electronicAgentAuthorizationBusinessOperatorAuthorizationFee : Money := 90_000
 
 theorem telecommunicationsBusinessOperatorRegistrationFee_pos :

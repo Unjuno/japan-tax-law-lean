@@ -376,6 +376,35 @@ def specCertifiedForeignAuthenticationBusinessOperatorAuthorizationFee : Money :
 /-- Spec: 五十三の二 認定電子委任状取扱事業者の認定。 -/
 def specElectronicAgentAuthorizationBusinessOperatorAuthorizationFee : Money := 90_000
 
+/-- Spec: 五十四（一） 無線局の免許（放送用は ¥150,000、それ以外は ¥30,000）。 -/
+def specRadioStationLicenseFee (broadcasting : Bool) : Money := if broadcasting then 150_000 else 30_000
+/-- Spec: 五十四（二） 無線局の登録（¥30,000）。 -/
+def specRadioStationRegistrationFee : Money := 30_000
+/-- Spec: 五十四（三） 検査等事業者の登録（¥90,000）。 -/
+def specRadioEquipmentInspectionBusinessOperatorRegistrationFee : Money := 90_000
+/-- Spec: 五十四（四） 外国点検事業者の登録（¥90,000）。 -/
+def specForeignRadioEquipmentInspectionBusinessOperatorRegistrationFee : Money := 90_000
+/-- Spec: 五十四（五） 登録証明機関の登録（¥90,000）。 -/
+def specRadioEquipmentCertificationBodyRegistrationFee : Money := 90_000
+/-- Spec: 五十四（六） 登録周波数終了対策機関の登録（¥90,000）。 -/
+def specRadioFrequencyTerminationMeasureBodyRegistrationFee : Money := 90_000
+/-- Spec: 五十五（一） 認定基幹放送事業者の認定（¥90,000）。 -/
+def specCertifiedCoreBroadcastingBusinessOperatorAuthorizationFee : Money := 90_000
+/-- Spec: 五十五（二） 登録一般放送事業者の登録／変更登録（¥90,000）。 -/
+def specRegisteredGeneralBroadcastingBusinessOperatorFee : Money := 90_000
+/-- Spec: 五十五（三） 認定放送持株会社の認定（¥150,000）。 -/
+def specCertifiedBroadcastingHoldingCompanyAuthorizationFee : Money := 150_000
+
+example : specRadioStationLicenseFee false = 30_000 := by decide
+example : specRadioStationLicenseFee true = 150_000 := by decide
+example : specRadioStationRegistrationFee = 30_000 := by decide
+example : specRadioEquipmentInspectionBusinessOperatorRegistrationFee = 90_000 := by decide
+example : specForeignRadioEquipmentInspectionBusinessOperatorRegistrationFee = 90_000 := by decide
+example : specRadioEquipmentCertificationBodyRegistrationFee = 90_000 := by decide
+example : specRadioFrequencyTerminationMeasureBodyRegistrationFee = 90_000 := by decide
+example : specCertifiedCoreBroadcastingBusinessOperatorAuthorizationFee = 90_000 := by decide
+example : specRegisteredGeneralBroadcastingBusinessOperatorFee = 90_000 := by decide
+example : specCertifiedBroadcastingHoldingCompanyAuthorizationFee = 150_000 := by decide
 example : specTelecommunicationsBusinessOperatorRegistrationFee = 150_000 := by decide
 example : specCertifiedAntiCyberAttackAssociationAuthorizationFee = 150_000 := by decide
 example : specTelecommunicationsTechnologyMainEngineerCourseRegistrationFee = 90_000 := by decide
@@ -715,7 +744,17 @@ def agreeRegistrationQualificationFees : Bool :=
     specSpecificEmailTransmissionOptimizationRegistrationFee == specificEmailTransmissionOptimizationRegistrationFee &&
     specCertifiedAuthenticationBusinessOperatorAuthorizationFee == certifiedAuthenticationBusinessOperatorAuthorizationFee &&
     specCertifiedForeignAuthenticationBusinessOperatorAuthorizationFee == certifiedForeignAuthenticationBusinessOperatorAuthorizationFee &&
-    specElectronicAgentAuthorizationBusinessOperatorAuthorizationFee == electronicAgentAuthorizationBusinessOperatorAuthorizationFee
+    specElectronicAgentAuthorizationBusinessOperatorAuthorizationFee == electronicAgentAuthorizationBusinessOperatorAuthorizationFee &&
+    specRadioStationLicenseFee false == radioStationLicenseFee false &&
+    specRadioStationLicenseFee true == radioStationLicenseFee true &&
+    specRadioStationRegistrationFee == radioStationRegistrationFee &&
+    specRadioEquipmentInspectionBusinessOperatorRegistrationFee == radioEquipmentInspectionBusinessOperatorRegistrationFee &&
+    specForeignRadioEquipmentInspectionBusinessOperatorRegistrationFee == foreignRadioEquipmentInspectionBusinessOperatorRegistrationFee &&
+    specRadioEquipmentCertificationBodyRegistrationFee == radioEquipmentCertificationBodyRegistrationFee &&
+    specRadioFrequencyTerminationMeasureBodyRegistrationFee == radioFrequencyTerminationMeasureBodyRegistrationFee &&
+    specCertifiedCoreBroadcastingBusinessOperatorAuthorizationFee == certifiedCoreBroadcastingBusinessOperatorAuthorizationFee &&
+    specRegisteredGeneralBroadcastingBusinessOperatorFee == registeredGeneralBroadcastingBusinessOperatorFee &&
+    specCertifiedBroadcastingHoldingCompanyAuthorizationFee == certifiedBroadcastingHoldingCompanyAuthorizationFee
 
 example : agreeRegistrationQualificationFees = true := by decide
 
