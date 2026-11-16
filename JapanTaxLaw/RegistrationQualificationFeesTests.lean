@@ -97,5 +97,8 @@ example : aircraftFactoryMaintenanceEngineerLicenseFee = 9_000 := by decide
 example : class1UnmannedAircraftPilotLicenseFee = 3_000 := by decide
 example : airworthinessInspectorAuthorizationFee = 6_000 := by decide
 example : pilotSkillExaminerAuthorizationFee = 3_000 := by decide
+-- （三十一）不動産鑑定士 ／ （三十二）一級建築士
+example : realEstateAppraiserRegistrationFee = 60_000 := by decide
+example : firstClassArchitectRegistrationFee = 60_000 := by decide
 
 end JapanTaxLaw

@@ -156,6 +156,13 @@ def specAirworthinessInspectorAuthorizationFee : Money := 6_000
 /-- Spec: (三十）ヨ 操縦技能審査員の認定。 -/
 def specPilotSkillExaminerAuthorizationFee : Money := 3_000
 
+/-- Spec: (三十一）イ 不動産鑑定士の登録。 -/
+def specRealEstateAppraiserRegistrationFee : Money := 60_000
+/-- Spec: (三十二） 一級建築士の登録。 -/
+def specFirstClassArchitectRegistrationFee : Money := 60_000
+
+example : specRealEstateAppraiserRegistrationFee = 60_000 := by decide
+example : specFirstClassArchitectRegistrationFee = 60_000 := by decide
 example : specAirlineTransportPilotLicenseFee = 18_000 := by decide
 example : specCommercialPilotLicenseFee = 7_500 := by decide
 example : specPrivatePilotLicenseFee = 3_000 := by decide
@@ -287,7 +294,9 @@ def agreeRegistrationQualificationFees : Bool :=
     specAircraftFactoryMaintenanceEngineerLicenseFee == aircraftFactoryMaintenanceEngineerLicenseFee &&
     specClass1UnmannedAircraftPilotLicenseFee == class1UnmannedAircraftPilotLicenseFee &&
     specAirworthinessInspectorAuthorizationFee == airworthinessInspectorAuthorizationFee &&
-    specPilotSkillExaminerAuthorizationFee == pilotSkillExaminerAuthorizationFee
+    specPilotSkillExaminerAuthorizationFee == pilotSkillExaminerAuthorizationFee &&
+    specRealEstateAppraiserRegistrationFee == realEstateAppraiserRegistrationFee &&
+    specFirstClassArchitectRegistrationFee == firstClassArchitectRegistrationFee
 
 example : agreeRegistrationQualificationFees = true := by decide
 
