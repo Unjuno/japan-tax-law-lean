@@ -210,6 +210,31 @@ def specCreditDepositoryAssociationElectronicPaymentBusinessAssociationLicenseFe
 /-- Spec: 三十六の二（六） 認定信用協同組合電子決済等取扱事業者協会の認定。 -/
 def specCreditCooperativeElectronicPaymentBusinessAssociationLicenseFee : Money := 150_000
 
+/-- Spec: 三十六の三（一） 電子決済等代行業者の登録。 -/
+def specElectronicPaymentProxyBusinessOperatorRegistrationFee : Money := 90_000
+/-- Spec: 三十六の三（二） 信用金庫電子決済等代行業者の登録。 -/
+def specCreditDepositoryAssociationElectronicPaymentProxyBusinessOperatorRegistrationFee : Money := 90_000
+/-- Spec: 三十六の三（三） 労働金庫電子決済等代行業者の登録。 -/
+def specLaborBankElectronicPaymentProxyBusinessOperatorRegistrationFee : Money := 90_000
+/-- Spec: 三十六の三（四） 信用協同組合電子決済等代行業者の登録。 -/
+def specCreditCooperativeElectronicPaymentProxyBusinessOperatorRegistrationFee : Money := 90_000
+/-- Spec: 三十六の三（五） 認定電子決済等代行事業者協会の認定。 -/
+def specElectronicPaymentProxyBusinessAssociationLicenseFee : Money := 150_000
+/-- Spec: 三十六の三（六） 認定信用金庫電子決済等代行事業者協会の認定。 -/
+def specCreditDepositoryAssociationElectronicPaymentProxyBusinessAssociationLicenseFee : Money := 150_000
+/-- Spec: 三十六の三（七） 認定労働金庫電子決済等代行事業者協会の認定。 -/
+def specLaborBankElectronicPaymentProxyBusinessAssociationLicenseFee : Money := 150_000
+/-- Spec: 三十六の三（八） 認定信用協同組合電子決済等代行事業者協会の認定。 -/
+def specCreditCooperativeElectronicPaymentProxyBusinessAssociationLicenseFee : Money := 150_000
+
+example : specElectronicPaymentProxyBusinessOperatorRegistrationFee = 90_000 := by decide
+example : specCreditDepositoryAssociationElectronicPaymentProxyBusinessOperatorRegistrationFee = 90_000 := by decide
+example : specLaborBankElectronicPaymentProxyBusinessOperatorRegistrationFee = 90_000 := by decide
+example : specCreditCooperativeElectronicPaymentProxyBusinessOperatorRegistrationFee = 90_000 := by decide
+example : specElectronicPaymentProxyBusinessAssociationLicenseFee = 150_000 := by decide
+example : specCreditDepositoryAssociationElectronicPaymentProxyBusinessAssociationLicenseFee = 150_000 := by decide
+example : specLaborBankElectronicPaymentProxyBusinessAssociationLicenseFee = 150_000 := by decide
+example : specCreditCooperativeElectronicPaymentProxyBusinessAssociationLicenseFee = 150_000 := by decide
 example : specElectronicPaymentBusinessOperatorRegistrationFee = 150_000 := by decide
 example : specCreditDepositoryAssociationElectronicPaymentBusinessOperatorRegistrationFee = 150_000 := by decide
 example : specCreditCooperativeElectronicPaymentBusinessOperatorRegistrationFee = 150_000 := by decide
@@ -391,7 +416,15 @@ def agreeRegistrationQualificationFees : Bool :=
     specCreditCooperativeElectronicPaymentBusinessOperatorRegistrationFee == creditCooperativeElectronicPaymentBusinessOperatorRegistrationFee &&
     specElectronicPaymentBusinessAssociationLicenseFee == electronicPaymentBusinessAssociationLicenseFee &&
     specCreditDepositoryAssociationElectronicPaymentBusinessAssociationLicenseFee == creditDepositoryAssociationElectronicPaymentBusinessAssociationLicenseFee &&
-    specCreditCooperativeElectronicPaymentBusinessAssociationLicenseFee == creditCooperativeElectronicPaymentBusinessAssociationLicenseFee
+    specCreditCooperativeElectronicPaymentBusinessAssociationLicenseFee == creditCooperativeElectronicPaymentBusinessAssociationLicenseFee &&
+    specElectronicPaymentProxyBusinessOperatorRegistrationFee == electronicPaymentProxyBusinessOperatorRegistrationFee &&
+    specCreditDepositoryAssociationElectronicPaymentProxyBusinessOperatorRegistrationFee == creditDepositoryAssociationElectronicPaymentProxyBusinessOperatorRegistrationFee &&
+    specLaborBankElectronicPaymentProxyBusinessOperatorRegistrationFee == laborBankElectronicPaymentProxyBusinessOperatorRegistrationFee &&
+    specCreditCooperativeElectronicPaymentProxyBusinessOperatorRegistrationFee == creditCooperativeElectronicPaymentProxyBusinessOperatorRegistrationFee &&
+    specElectronicPaymentProxyBusinessAssociationLicenseFee == electronicPaymentProxyBusinessAssociationLicenseFee &&
+    specCreditDepositoryAssociationElectronicPaymentProxyBusinessAssociationLicenseFee == creditDepositoryAssociationElectronicPaymentProxyBusinessAssociationLicenseFee &&
+    specLaborBankElectronicPaymentProxyBusinessAssociationLicenseFee == laborBankElectronicPaymentProxyBusinessAssociationLicenseFee &&
+    specCreditCooperativeElectronicPaymentProxyBusinessAssociationLicenseFee == creditCooperativeElectronicPaymentProxyBusinessAssociationLicenseFee
 
 example : agreeRegistrationQualificationFees = true := by decide
 

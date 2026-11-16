@@ -302,6 +302,54 @@ def electronicPaymentBusinessAssociationLicenseFee : Money := 150_000
 /-- 三十六の二（五） 信用金庫法第八十五条の三の四（認定信用金庫電子決済等取扱事業者協会の認定）の認定信用金庫電子決済等取扱事業者協会の認定につきの額（固定 ¥150,000）。 -/
 def creditDepositoryAssociationElectronicPaymentBusinessAssociationLicenseFee : Money := 150_000
 
+/-- 三十六の三（一） 銀行法第五十二条の六十一の二（登録）の電子決済等代行業者の登録につきの額（固定 ¥90,000）。 -/
+def electronicPaymentProxyBusinessOperatorRegistrationFee : Money := 90_000
+
+/-- 三十六の三（二） 信用金庫法第八十五条の四第一項（登録）の信用金庫電子決済等代行業者の登録につきの額（固定 ¥90,000）。 -/
+def creditDepositoryAssociationElectronicPaymentProxyBusinessOperatorRegistrationFee : Money := 90_000
+
+/-- 三十六の三（三） 労働金庫法第八十九条の五第一項（登録）の労働金庫電子決済等代行業者の登録につきの額（固定 ¥90,000）。 -/
+def laborBankElectronicPaymentProxyBusinessOperatorRegistrationFee : Money := 90_000
+
+/-- 三十六の三（四） 協同組合による金融事業に関する法律第六条の五の二第一項（信用協同組合電子決済等代行業の登録）の信用協同組合電子決済等代行業者の登録につきの額（固定 ¥90,000）。 -/
+def creditCooperativeElectronicPaymentProxyBusinessOperatorRegistrationFee : Money := 90_000
+
+/-- 三十六の三（五） 銀行法第五十二条の六十一の十九（認定電子決済等代行事業者協会の認定）の認定電子決済等代行事業者協会の認定につきの額（固定 ¥150,000）。 -/
+def electronicPaymentProxyBusinessAssociationLicenseFee : Money := 150_000
+
+/-- 三十六の三（六） 信用金庫法第八十五条の九（認定信用金庫電子決済等代行事業者協会の認定）の認定信用金庫電子決済等代行事業者協会の認定につきの額（固定 ¥150,000）。 -/
+def creditDepositoryAssociationElectronicPaymentProxyBusinessAssociationLicenseFee : Money := 150_000
+
+/-- 三十六の三（七） 労働金庫法第八十九条の十（認定労働金庫電子決済等代行事業者協会の認定）の認定労働金庫電子決済等代行事業者協会の認定につきの額（固定 ¥150,000）。 -/
+def laborBankElectronicPaymentProxyBusinessAssociationLicenseFee : Money := 150_000
+
+/-- 三十六の三（八） 協同組合による金融事業に関する法律第六条の五の七（認定信用協同組合電子決済等代行事業者協会の認定）の認定信用協同組合電子決済等代行事業者協会の認定につきの額（固定 ¥150,000）。 -/
+def creditCooperativeElectronicPaymentProxyBusinessAssociationLicenseFee : Money := 150_000
+
+theorem electronicPaymentProxyBusinessOperatorRegistrationFee_pos : electronicPaymentProxyBusinessOperatorRegistrationFee > 0 := by decide
+theorem creditDepositoryAssociationElectronicPaymentProxyBusinessOperatorRegistrationFee_pos :
+    creditDepositoryAssociationElectronicPaymentProxyBusinessOperatorRegistrationFee > 0 := by decide
+theorem laborBankElectronicPaymentProxyBusinessOperatorRegistrationFee_pos :
+    laborBankElectronicPaymentProxyBusinessOperatorRegistrationFee > 0 := by decide
+theorem creditCooperativeElectronicPaymentProxyBusinessOperatorRegistrationFee_pos :
+    creditCooperativeElectronicPaymentProxyBusinessOperatorRegistrationFee > 0 := by decide
+theorem electronicPaymentProxyBusinessAssociationLicenseFee_pos : electronicPaymentProxyBusinessAssociationLicenseFee > 0 := by decide
+theorem creditDepositoryAssociationElectronicPaymentProxyBusinessAssociationLicenseFee_pos :
+    creditDepositoryAssociationElectronicPaymentProxyBusinessAssociationLicenseFee > 0 := by decide
+theorem laborBankElectronicPaymentProxyBusinessAssociationLicenseFee_pos :
+    laborBankElectronicPaymentProxyBusinessAssociationLicenseFee > 0 := by decide
+theorem creditCooperativeElectronicPaymentProxyBusinessAssociationLicenseFee_pos :
+    creditCooperativeElectronicPaymentProxyBusinessAssociationLicenseFee > 0 := by decide
+
+example : electronicPaymentProxyBusinessOperatorRegistrationFee = 90_000 := by decide
+example : creditDepositoryAssociationElectronicPaymentProxyBusinessOperatorRegistrationFee = 90_000 := by decide
+example : laborBankElectronicPaymentProxyBusinessOperatorRegistrationFee = 90_000 := by decide
+example : creditCooperativeElectronicPaymentProxyBusinessOperatorRegistrationFee = 90_000 := by decide
+example : electronicPaymentProxyBusinessAssociationLicenseFee = 150_000 := by decide
+example : creditDepositoryAssociationElectronicPaymentProxyBusinessAssociationLicenseFee = 150_000 := by decide
+example : laborBankElectronicPaymentProxyBusinessAssociationLicenseFee = 150_000 := by decide
+example : creditCooperativeElectronicPaymentProxyBusinessAssociationLicenseFee = 150_000 := by decide
+
 /-- 三十六の二（六） 協同組合による金融事業に関する法律第六条の四の六（認定信用協同組合電子決済等取扱事業者協会の認定）の認定信用協同組合電子決済等取扱事業者協会の認定につきの額（固定 ¥150,000）。 -/
 def creditCooperativeElectronicPaymentBusinessAssociationLicenseFee : Money := 150_000
 
