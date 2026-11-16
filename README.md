@@ -383,6 +383,12 @@ JapanTaxLaw/RegistrationQualificationFeesP3CTests.lean   # 同上 退行テス�
 JapanTaxLaw/RegistrationQualificationFeesP3D.lean        # 登録免許税法 別表第三十二号 八十三〜八十九（労働安全衛生・作業環境測定・卸売市場・農産物検査・JAS・肥料・特定飼料）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP3DSpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP3DTests.lean   # 同上 退行テスト
+JapanTaxLaw/RegistrationQualificationFeesP4E.lean        # 登録免許税法 別表第三十二号 九十〜九十六（食品循環資源・農林漁業民宿・木材・馬主・農林中央金庫代理業・電子決済代行・商品取引所等）flat fee L4 モデル
+JapanTaxLaw/RegistrationQualificationFeesP4ESpec.lean    # 同上 独立定式
+JapanTaxLaw/RegistrationQualificationFeesP4ETests.lean   # 同上 退行テスト
+JapanTaxLaw/RegistrationQualificationFeesP4F.lean        # 登録免許税法 別表第三十二号 九十七〜百二（石油パイプライン・石油輸入・揮発油・LPガス・ガス小売・高圧ガス・熱供給）flat fee L4 モデル
+JapanTaxLaw/RegistrationQualificationFeesP4FSpec.lean    # 同上 独立定式
+JapanTaxLaw/RegistrationQualificationFeesP4FTests.lean   # 同上 退行テスト
 JapanTaxLaw/CounterexampleSweep.lean  # L6: マージ済み L4 全モデル × Spec の有限領域反例バウンド検査（decide）
 JapanTaxLaw/TaxProcedure.lean      # 国税通則法 第2条第10号（強制換価手続）
 JapanTaxLaw/TaxProcedureSpec.lean  # Act art.2(10) の独立仕様・健全性・整合性定理
