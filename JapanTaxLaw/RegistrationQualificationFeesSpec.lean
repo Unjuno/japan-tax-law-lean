@@ -359,6 +359,31 @@ def specConsumerLivelihoodSupportConsultantExaminationInstitutionRegistrationFee
 /-- Spec: 五十の三 特定適格消費者団体の認定。 -/
 def specSpecificQualifiedConsumerGroupAuthorizationFee : Money := 15_000
 
+/-- Spec: 五十一（一） 電気通信事業者の登録。 -/
+def specTelecommunicationsBusinessOperatorRegistrationFee : Money := 150_000
+/-- Spec: 五十一（二） 認定送信型対電気通信設備サイバー攻撃対処協会の認定。 -/
+def specCertifiedAntiCyberAttackAssociationAuthorizationFee : Money := 150_000
+/-- Spec: 五十一（三） 電気通信主任技術者に係る登録講習機関の登録。 -/
+def specTelecommunicationsTechnologyMainEngineerCourseRegistrationFee : Money := 90_000
+/-- Spec: 五十一（四） 端末機器に係る登録認定機関の登録。 -/
+def specTelecommunicationsTerminalEquipmentRegistrationAuthorizationFee : Money := 90_000
+/-- Spec: 五十二 特定電子メール等に係る登録送信適正化機関の登録。 -/
+def specSpecificEmailTransmissionOptimizationRegistrationFee : Money := 90_000
+/-- Spec: 五十三（一） 認定認証事業者の認定。 -/
+def specCertifiedAuthenticationBusinessOperatorAuthorizationFee : Money := 90_000
+/-- Spec: 五十三（二） 認定外国認証事業者の認定。 -/
+def specCertifiedForeignAuthenticationBusinessOperatorAuthorizationFee : Money := 90_000
+/-- Spec: 五十三の二 認定電子委任状取扱事業者の認定。 -/
+def specElectronicAgentAuthorizationBusinessOperatorAuthorizationFee : Money := 90_000
+
+example : specTelecommunicationsBusinessOperatorRegistrationFee = 150_000 := by decide
+example : specCertifiedAntiCyberAttackAssociationAuthorizationFee = 150_000 := by decide
+example : specTelecommunicationsTechnologyMainEngineerCourseRegistrationFee = 90_000 := by decide
+example : specTelecommunicationsTerminalEquipmentRegistrationAuthorizationFee = 90_000 := by decide
+example : specSpecificEmailTransmissionOptimizationRegistrationFee = 90_000 := by decide
+example : specCertifiedAuthenticationBusinessOperatorAuthorizationFee = 90_000 := by decide
+example : specCertifiedForeignAuthenticationBusinessOperatorAuthorizationFee = 90_000 := by decide
+example : specElectronicAgentAuthorizationBusinessOperatorAuthorizationFee = 90_000 := by decide
 example : specThirdPartyPrepaidPaymentInstrumentIssuerRegistrationFee = 150_000 := by decide
 example : specMoneyTransferBusinessOperatorRegistrationFee = 150_000 := by decide
 example : specMoneyTransferBusinessOperatorRegistrationChangeFee = 150_000 := by decide
@@ -682,7 +707,15 @@ def agreeRegistrationQualificationFees : Bool :=
     specRegisteredListedCompanyAuditorRegistrationFee == registeredListedCompanyAuditorRegistrationFee &&
     specPracticalTrainingCorporationAuthorizationFee == practicalTrainingCorporationAuthorizationFee &&
     specConsumerLivelihoodSupportConsultantExaminationInstitutionRegistrationFee == consumerLivelihoodSupportConsultantExaminationInstitutionRegistrationFee &&
-    specSpecificQualifiedConsumerGroupAuthorizationFee == specificQualifiedConsumerGroupAuthorizationFee
+    specSpecificQualifiedConsumerGroupAuthorizationFee == specificQualifiedConsumerGroupAuthorizationFee &&
+    specTelecommunicationsBusinessOperatorRegistrationFee == telecommunicationsBusinessOperatorRegistrationFee &&
+    specCertifiedAntiCyberAttackAssociationAuthorizationFee == certifiedAntiCyberAttackAssociationAuthorizationFee &&
+    specTelecommunicationsTechnologyMainEngineerCourseRegistrationFee == telecommunicationsTechnologyMainEngineerCourseRegistrationFee &&
+    specTelecommunicationsTerminalEquipmentRegistrationAuthorizationFee == telecommunicationsTerminalEquipmentRegistrationAuthorizationFee &&
+    specSpecificEmailTransmissionOptimizationRegistrationFee == specificEmailTransmissionOptimizationRegistrationFee &&
+    specCertifiedAuthenticationBusinessOperatorAuthorizationFee == certifiedAuthenticationBusinessOperatorAuthorizationFee &&
+    specCertifiedForeignAuthenticationBusinessOperatorAuthorizationFee == certifiedForeignAuthenticationBusinessOperatorAuthorizationFee &&
+    specElectronicAgentAuthorizationBusinessOperatorAuthorizationFee == electronicAgentAuthorizationBusinessOperatorAuthorizationFee
 
 example : agreeRegistrationQualificationFees = true := by decide
 

@@ -208,5 +208,15 @@ example : registeredListedCompanyAuditorRegistrationFee = 90_000 := by decide
 example : practicalTrainingCorporationAuthorizationFee = 150_000 := by decide
 example : consumerLivelihoodSupportConsultantExaminationInstitutionRegistrationFee = 150_000 := by decide
 example : specificQualifiedConsumerGroupAuthorizationFee = 15_000 := by decide
+-- 五十一（一）〜（四） 電気通信事業者登録・認定サイバー攻撃対処協会認定／電気通信主任技術者登録講習機関／端末機器登録認定機関（¥150,000／¥150,000／¥90,000／¥90,000）
+example : telecommunicationsBusinessOperatorRegistrationFee = 150_000 := by decide
+example : certifiedAntiCyberAttackAssociationAuthorizationFee = 150_000 := by decide
+example : telecommunicationsTechnologyMainEngineerCourseRegistrationFee = 90_000 := by decide
+example : telecommunicationsTerminalEquipmentRegistrationAuthorizationFee = 90_000 := by decide
+-- 五十二 特定電子メール登録送信適正化機関 ¥90,000 ／ 五十三（一）（二） 認定認証事業者・認定外国認証事業者の認定 ¥90,000 ／ 五十三の二 認定電子委任状取扱事業者の認定 ¥90,000
+example : specificEmailTransmissionOptimizationRegistrationFee = 90_000 := by decide
+example : certifiedAuthenticationBusinessOperatorAuthorizationFee = 90_000 := by decide
+example : certifiedForeignAuthenticationBusinessOperatorAuthorizationFee = 90_000 := by decide
+example : electronicAgentAuthorizationBusinessOperatorAuthorizationFee = 90_000 := by decide
 
 end JapanTaxLaw
