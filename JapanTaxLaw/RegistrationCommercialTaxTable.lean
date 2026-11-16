@@ -286,6 +286,114 @@ example : liquidatorModificationFee = 6_000 := by decide
 example : liquidationCompletionFee = 2_000 := by decide
 example : liquidationOtherModificationFee = 6_000 := by decide
 
+/-- 二十五（一） 特定目的会社の設立の登記。申請件数一件につき三万円。 -/
+def spcFormationFee : Money := 30_000
+
+/-- 二十五（二） 特定目的会社の登記で（一）（三）に掲げる登記以外の登記。
+    申請件数一件につき一万五千円。 -/
+def spcOtherRegistrationFee : Money := 15_000
+
+/-- 二十五（三） 特定目的会社の登記の抹消。申請件数一件につき一万円。 -/
+def spcErasureFee : Money := 10_000
+
+/-- 二十六（一） 投資法人の設立の登記。申請件数一件につき三万円。 -/
+def investmentCorporationFormationFee : Money := 30_000
+
+/-- 二十六（二） 投資法人の登記で（一）（三）に掲げる登記以外の登記。
+    申請件数一件につき一万五千円。 -/
+def investmentCorporationOtherRegistrationFee : Money := 15_000
+
+/-- 二十六（三） 投資法人の登記の抹消。申請件数一件につき一万円。 -/
+def investmentCorporationErasureFee : Money := 10_000
+
+/-- 二十七（一）イ 有限責任事業組合契約の効力の発生の登記（（二）の登記を除く）。
+    申請件数一件につき六万円。 -/
+def llpContractEffectivenessFee : Money := 60_000
+
+/-- 二十七（一）ロ 有限責任事業組合契約の従たる事務所の設置の登記。
+    申請件数一件につき六万円。 -/
+def llpBranchInstallationFee : Money := 60_000
+
+/-- 二十七（一）ハ 有限責任事業組合契約の主たる事務所又は従たる事務所の移転の登記。
+    申請件数一件につき三万円。 -/
+def llpMoveFee : Money := 30_000
+
+/-- 二十七（一）ニ 有限責任事業組合契約の組合員に関する事項の変更の登記。
+    申請件数一件につき一万円。 -/
+def llpPartnerModificationFee : Money := 10_000
+
+/-- 二十七（一）ホ 有限責任事業組合契約の組合員の業務執行の停止又は
+    業務代行者の選任の登記。申請件数一件につき三万円。 -/
+def llpPartnerSuspensionFee : Money := 30_000
+
+/-- 二十七（一）ヘ 有限責任事業組合契約の組合契約の登記で
+    イからホまで、ト及びチに掲げる登記以外の登記。申請件数一件につき三万円。 -/
+def llpOtherRegistrationFee : Money := 30_000
+
+/-- 二十七（一）ト 有限責任事業組合契約の登記の更正の登記。
+    申請件数一件につき二万円。 -/
+def llpCorrectionFee : Money := 20_000
+
+/-- 二十七（一）チ 有限責任事業組合契約の登記の抹消の登記。
+    申請件数一件につき二万円。 -/
+def llpErasureFee : Money := 20_000
+
+/-- 二十七（二）イ 有限責任事業組合契約の清算に係る登記の清算人の登記。
+    申請件数一件につき六千円。 -/
+def llpLiquidatorRegistrationFee : Money := 6_000
+
+/-- 二十七（二）ロ 有限責任事業組合契約の清算に係る登記で
+    イ、ハ及びニに掲げる登記以外の登記。申請件数一件につき六千円。 -/
+def llpLiquidatorOtherFee : Money := 6_000
+
+/-- 二十七（二）ハ 有限責任事業組合契約の清算に係る清算結了の登記。
+    申請件数一件につき二千円。 -/
+def llpLiquidationCompletionFee : Money := 2_000
+
+/-- 二十七（二）ニ 有限責任事業組合契約の清算に係る登記の更正の登記又は登記の抹消。
+    申請件数一件につき六千円。 -/
+def llpLiquidatorCorrectionErasureFee : Money := 6_000
+
+theorem spcFormationFee_pos : spcFormationFee > 0 := by decide
+theorem spcOtherRegistrationFee_pos : spcOtherRegistrationFee > 0 := by decide
+theorem spcErasureFee_pos : spcErasureFee > 0 := by decide
+theorem investmentCorporationFormationFee_pos : investmentCorporationFormationFee > 0 := by decide
+theorem investmentCorporationOtherRegistrationFee_pos :
+    investmentCorporationOtherRegistrationFee > 0 := by decide
+theorem investmentCorporationErasureFee_pos : investmentCorporationErasureFee > 0 := by decide
+theorem llpContractEffectivenessFee_pos : llpContractEffectivenessFee > 0 := by decide
+theorem llpBranchInstallationFee_pos : llpBranchInstallationFee > 0 := by decide
+theorem llpMoveFee_pos : llpMoveFee > 0 := by decide
+theorem llpPartnerModificationFee_pos : llpPartnerModificationFee > 0 := by decide
+theorem llpPartnerSuspensionFee_pos : llpPartnerSuspensionFee > 0 := by decide
+theorem llpOtherRegistrationFee_pos : llpOtherRegistrationFee > 0 := by decide
+theorem llpCorrectionFee_pos : llpCorrectionFee > 0 := by decide
+theorem llpErasureFee_pos : llpErasureFee > 0 := by decide
+theorem llpLiquidatorRegistrationFee_pos : llpLiquidatorRegistrationFee > 0 := by decide
+theorem llpLiquidatorOtherFee_pos : llpLiquidatorOtherFee > 0 := by decide
+theorem llpLiquidationCompletionFee_pos : llpLiquidationCompletionFee > 0 := by decide
+theorem llpLiquidatorCorrectionErasureFee_pos :
+    llpLiquidatorCorrectionErasureFee > 0 := by decide
+
+example : spcFormationFee = 30_000 := by decide
+example : spcOtherRegistrationFee = 15_000 := by decide
+example : spcErasureFee = 10_000 := by decide
+example : investmentCorporationFormationFee = 30_000 := by decide
+example : investmentCorporationOtherRegistrationFee = 15_000 := by decide
+example : investmentCorporationErasureFee = 10_000 := by decide
+example : llpContractEffectivenessFee = 60_000 := by decide
+example : llpBranchInstallationFee = 60_000 := by decide
+example : llpMoveFee = 30_000 := by decide
+example : llpPartnerModificationFee = 10_000 := by decide
+example : llpPartnerSuspensionFee = 30_000 := by decide
+example : llpOtherRegistrationFee = 30_000 := by decide
+example : llpCorrectionFee = 20_000 := by decide
+example : llpErasureFee = 20_000 := by decide
+example : llpLiquidatorRegistrationFee = 6_000 := by decide
+example : llpLiquidatorOtherFee = 6_000 := by decide
+example : llpLiquidationCompletionFee = 2_000 := by decide
+example : llpLiquidatorCorrectionErasureFee = 6_000 := by decide
+
 /-- art. 19 は別表第一の欄の最低下限（¥30,000/60,000/150,000）によって上書きされるため
     ここで独立モデル化しない。 -/
 

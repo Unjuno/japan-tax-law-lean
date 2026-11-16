@@ -175,6 +175,73 @@ def agreeRegistrationFeesExtended : Bool :=
 
 example : agreeRegistrationFeesExtended = true := by decide
 
+/-- Spec: 二十五（一）/（二）/（三） 特定目的会社の登記 -/
+def specSpcFormationFee : Money := 30_000
+def specSpcOtherRegistrationFee : Money := 15_000
+def specSpcErasureFee : Money := 10_000
+
+/-- Spec: 二十六（一）/（二）/（三） 投資法人の登記 -/
+def specInvestmentCorporationFormationFee : Money := 30_000
+def specInvestmentCorporationOtherRegistrationFee : Money := 15_000
+def specInvestmentCorporationErasureFee : Money := 10_000
+
+/-- Spec: 二十七（一） 有限責任事業組合契約の組合契約の登記 -/
+def specLlpContractEffectivenessFee : Money := 60_000
+def specLlpBranchInstallationFee : Money := 60_000
+def specLlpMoveFee : Money := 30_000
+def specLlpPartnerModificationFee : Money := 10_000
+def specLlpPartnerSuspensionFee : Money := 30_000
+def specLlpOtherRegistrationFee : Money := 30_000
+def specLlpCorrectionFee : Money := 20_000
+def specLlpErasureFee : Money := 20_000
+
+/-- Spec: 二十七（二） 有限責任事業組合契約の組合契約の清算に係る登記 -/
+def specLlpLiquidatorRegistrationFee : Money := 6_000
+def specLlpLiquidatorOtherFee : Money := 6_000
+def specLlpLiquidationCompletionFee : Money := 2_000
+def specLlpLiquidatorCorrectionErasureFee : Money := 6_000
+
+example : specSpcFormationFee = 30_000 := by decide
+example : specSpcOtherRegistrationFee = 15_000 := by decide
+example : specSpcErasureFee = 10_000 := by decide
+example : specInvestmentCorporationFormationFee = 30_000 := by decide
+example : specInvestmentCorporationOtherRegistrationFee = 15_000 := by decide
+example : specInvestmentCorporationErasureFee = 10_000 := by decide
+example : specLlpContractEffectivenessFee = 60_000 := by decide
+example : specLlpBranchInstallationFee = 60_000 := by decide
+example : specLlpMoveFee = 30_000 := by decide
+example : specLlpPartnerModificationFee = 10_000 := by decide
+example : specLlpPartnerSuspensionFee = 30_000 := by decide
+example : specLlpOtherRegistrationFee = 30_000 := by decide
+example : specLlpCorrectionFee = 20_000 := by decide
+example : specLlpErasureFee = 20_000 := by decide
+example : specLlpLiquidatorRegistrationFee = 6_000 := by decide
+example : specLlpLiquidatorOtherFee = 6_000 := by decide
+example : specLlpLiquidationCompletionFee = 2_000 := by decide
+example : specLlpLiquidatorCorrectionErasureFee = 6_000 := by decide
+
+def agreeArt25_27Fees : Bool :=
+  specSpcFormationFee == spcFormationFee &&
+    specSpcOtherRegistrationFee == spcOtherRegistrationFee &&
+    specSpcErasureFee == spcErasureFee &&
+    specInvestmentCorporationFormationFee == investmentCorporationFormationFee &&
+    specInvestmentCorporationOtherRegistrationFee == investmentCorporationOtherRegistrationFee &&
+    specInvestmentCorporationErasureFee == investmentCorporationErasureFee &&
+    specLlpContractEffectivenessFee == llpContractEffectivenessFee &&
+    specLlpBranchInstallationFee == llpBranchInstallationFee &&
+    specLlpMoveFee == llpMoveFee &&
+    specLlpPartnerModificationFee == llpPartnerModificationFee &&
+    specLlpPartnerSuspensionFee == llpPartnerSuspensionFee &&
+    specLlpOtherRegistrationFee == llpOtherRegistrationFee &&
+    specLlpCorrectionFee == llpCorrectionFee &&
+    specLlpErasureFee == llpErasureFee &&
+    specLlpLiquidatorRegistrationFee == llpLiquidatorRegistrationFee &&
+    specLlpLiquidatorOtherFee == llpLiquidatorOtherFee &&
+    specLlpLiquidationCompletionFee == llpLiquidationCompletionFee &&
+    specLlpLiquidatorCorrectionErasureFee == llpLiquidatorCorrectionErasureFee
+
+example : agreeArt25_27Fees = true := by decide
+
 -- ==== points, all kernel-decided ====
 
 example : specGmporGeneralFormationTax = 60_000 := by decide
