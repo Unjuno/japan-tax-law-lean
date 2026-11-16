@@ -100,6 +100,29 @@ example : liquidatorModificationFee = 6_000 := by decide
 example : liquidationCompletionFee = 2_000 := by decide
 example : liquidationOtherModificationFee = 6_000 := by decide
 
+-- 二十五（一）/（二）/（三）: 特定目的会社の登記
+example : spcFormationFee = 30_000 := by decide
+example : spcOtherRegistrationFee = 15_000 := by decide
+example : spcErasureFee = 10_000 := by decide
+-- 二十六（一）/（二）/（三）: 投資法人の登記
+example : investmentCorporationFormationFee = 30_000 := by decide
+example : investmentCorporationOtherRegistrationFee = 15_000 := by decide
+example : investmentCorporationErasureFee = 10_000 := by decide
+-- 二十七（一）イ〜チ: 有限責任事業組合契約の組合契約の登記
+example : llpContractEffectivenessFee = 60_000 := by decide
+example : llpBranchInstallationFee = 60_000 := by decide
+example : llpMoveFee = 30_000 := by decide
+example : llpPartnerModificationFee = 10_000 := by decide
+example : llpPartnerSuspensionFee = 30_000 := by decide
+example : llpOtherRegistrationFee = 30_000 := by decide
+example : llpCorrectionFee = 20_000 := by decide
+example : llpErasureFee = 20_000 := by decide
+-- 二十七（二）イ〜ニ: 組合契約の清算に係る登記
+example : llpLiquidatorRegistrationFee = 6_000 := by decide
+example : llpLiquidatorOtherFee = 6_000 := by decide
+example : llpLiquidationCompletionFee = 2_000 := by decide
+example : llpLiquidatorCorrectionErasureFee = 6_000 := by decide
+
 -- 千分の一・五と千分の七の単位比較
 example : commercial24LowMilleRate.applyFloor 1_000_000_000 = 1_500_000 := by decide
 example : commercial24DefaultMilleRate.applyFloor 1_000_000_000 = 7_000_000 := by decide
