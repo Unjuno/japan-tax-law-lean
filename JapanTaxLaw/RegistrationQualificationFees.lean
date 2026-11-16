@@ -146,6 +146,54 @@ def veterinarianRegistrationFee : Money := 30_000
 /-- （二十）ロ 獣医師法附則第十五項（獣医師法の準用）において準用する同法第七条第一項の獣医仮免状の所有者の登録につきの額（固定 ¥9,000）。 -/
 def provisionalVeterinarianRegistrationFee : Money := 9_000
 
+/-- （二十一）イ 社会保険労務士法第十四条の二第一項（登録）の社会保険労務士の登録につきの額（固定 ¥30,000）。 -/
+def socialInsuranceLabourConsultantRegistrationFee : Money := 30_000
+
+/-- （二十一）ロ 社会保険労務士法第二条第二項（社会保険労務士の業務）の紛争解決手続代理業務試験に合格した旨の付記申請につきの額（固定 ¥5,000）。 -/
+def socialInsuranceLabourConsultantConciliationTestAppendedRegistrationFee : Money := 5_000
+
+/-- （二十二）イ 作業環境測定法第七条（登録）の第一種作業環境測定士の登録につきの額（固定 ¥30,000）。 -/
+def workingEnvironmentMeasurementOfficerType1RegistrationFee : Money := 30_000
+
+/-- （二十二）ロ 作業環境測定法第七条（登録）の第二種作業環境測定士の登録につきの額（固定 ¥15,000）。 -/
+def workingEnvironmentMeasurementOfficerType2RegistrationFee : Money := 15_000
+
+/-- （二十二の二） 職業能力開発促進法（昭和四十四年法律第六十四号）第三十条の十九第一項（キャリアコンサルタントの登録）の
+    キャリアコンサルタントの登録（更新の登録を除く。）につきの額（固定 ¥9,000）。 -/
+def careerConsultantRegistrationFee : Money := 9_000
+
+/-- （二十三） 計量法（平成四年法律第五十一号）第百二十二条第一項（登録）の計量士の登録につきの額（固定 ¥30,000）。 -/
+def metrologyOfficerRegistrationFee : Money := 30_000
+
+/-- （二十三の二） 情報処理の促進に関する法律（昭和四十五年法律第九十号）第十二条第一項（登録）の
+    情報処理安全確保支援士の登録（更新の登録を除く。）につきの額（固定 ¥9,000）。 -/
+def informationProcessingSecuritySupportSpecialistRegistrationFee : Money := 9_000
+
+/-- （二十四） 弁理士法（平成十二年法律第四十九号）第十七条第一項（登録）の弁理士の登録につきの額（固定 ¥60,000）。 -/
+def patentAttorneyRegistrationFee : Money := 60_000
+
+theorem socialInsuranceLabourConsultantRegistrationFee_pos : socialInsuranceLabourConsultantRegistrationFee > 0 := by decide
+theorem socialInsuranceLabourConsultantConciliationTestAppendedRegistrationFee_pos :
+    socialInsuranceLabourConsultantConciliationTestAppendedRegistrationFee > 0 := by decide
+theorem workingEnvironmentMeasurementOfficerType1RegistrationFee_pos :
+    workingEnvironmentMeasurementOfficerType1RegistrationFee > 0 := by decide
+theorem workingEnvironmentMeasurementOfficerType2RegistrationFee_pos :
+    workingEnvironmentMeasurementOfficerType2RegistrationFee > 0 := by decide
+theorem careerConsultantRegistrationFee_pos : careerConsultantRegistrationFee > 0 := by decide
+theorem metrologyOfficerRegistrationFee_pos : metrologyOfficerRegistrationFee > 0 := by decide
+theorem informationProcessingSecuritySupportSpecialistRegistrationFee_pos :
+    informationProcessingSecuritySupportSpecialistRegistrationFee > 0 := by decide
+theorem patentAttorneyRegistrationFee_pos : patentAttorneyRegistrationFee > 0 := by decide
+
+example : socialInsuranceLabourConsultantRegistrationFee = 30_000 := by decide
+example : socialInsuranceLabourConsultantConciliationTestAppendedRegistrationFee = 5_000 := by decide
+example : workingEnvironmentMeasurementOfficerType1RegistrationFee = 30_000 := by decide
+example : workingEnvironmentMeasurementOfficerType2RegistrationFee = 15_000 := by decide
+example : careerConsultantRegistrationFee = 9_000 := by decide
+example : metrologyOfficerRegistrationFee = 30_000 := by decide
+example : informationProcessingSecuritySupportSpecialistRegistrationFee = 9_000 := by decide
+example : patentAttorneyRegistrationFee = 60_000 := by decide
+
 /-- （二十の二）イ 愛玩動物看護師法第六条第一項（登録）の愛玩動物看護師の登録につきの額（固定 ¥9,000）。 -/
 def petAnimalNurseRegistrationFee : Money := 9_000
 
