@@ -55,6 +55,55 @@ def specLocalIncomeTaxAmount
   (specLocalStandardRate livesInDesignatedCity).applyFloor
     (taxableTotalIncome + taxableRetirementIncome + taxableForestIncome)
 
+/-- Spec: art. 34(1)第六号 障害者控除額 — literal fixed amounts. -/
+def specDisabilityDeduction (isSpecialDisabled isDependentOrSpouse isCohabiting : Bool) : Money :=
+  if isSpecialDisabled && isDependentOrSpouse && isCohabiting then 530_000
+  else if isSpecialDisabled then 300_000 else 260_000
+
+def specWidowDeduction : Money := 260_000
+
+def specSingleParentDeduction : Money := 300_000
+
+/-- Spec: art. 34(1)第二号 医療費控除額 — literal form of the statute. -/
+def specMedicalExpenseDeduction (totalGeneralIncome medicalExpensesPaid : Money) : Money :=
+  let floor := min (totalGeneralIncome * 5 / 100) 100_000
+  let excess := if medicalExpensesPaid > floor then medicalExpensesPaid - floor else 0
+  min excess 2_000_000
+
+-- ==== points (kernel-decided) ====
+
+example : (specDisabilityDeduction false false false) = 260_000 := by decide
+example : (specDisabilityDeduction true false false) = 300_000 := by decide
+example : (specDisabilityDeduction true true true) = 530_000 := by decide
+example : specWidowDeduction = 260_000 := by decide
+example : specSingleParentDeduction = 300_000 := by decide
+example : specMedicalExpenseDeduction 100_000_000 300_000 = 200_000 := by decide
+example : specMedicalExpenseDeduction 100_000_000 0 = 0 := by decide
+example : specMedicalExpenseDeduction 100_000_000 1_000_000 = 900_000 := by decide
+example : specMedicalExpenseDeduction 1_000_000 90_000 = 40_000 := by decide
+example : specMedicalExpenseDeduction 1_000_000 0 = 0 := by decide
+example : specMedicalExpenseDeduction 1_000_000 100_000_000 = 2_000_000 := by decide
+
+/-- Spot-check: implementation agrees with the independent spec at medical points. -/
+def agreeMedicalPoints : Bool :=
+  let samples : List (MedicalDeductionFacts) :=
+    [ ⟨0, 0⟩, ⟨100_000_000, 0⟩, ⟨100_000_000, 250_001⟩, ⟨100_000_000, 300_000⟩,
+      ⟨100_000_000, 1_000_000⟩, ⟨1_000_000, 60_000⟩, ⟨1_000_000, 90_000⟩,
+      ⟨1_000_000, 100_000_000⟩ ]
+  samples.all fun f =>
+    medicalExpenseDeduction f ==
+      specMedicalExpenseDeduction f.totalGeneralIncome f.medicalExpensesPaid
+
+example : agreeMedicalPoints = true := by decide
+
+def agreeDisabilityPoints : Bool :=
+  [false, true].all fun a =>
+    [false, true].all fun b =>
+      [false, true].all fun c =>
+        disabilityDeduction a b c == specDisabilityDeduction a b c
+
+example : agreeDisabilityPoints = true := by decide
+
 -- ==== points, all kernel-decided ====
 
 -- art. 34(2): each band and each edge ±¥1

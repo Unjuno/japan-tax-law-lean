@@ -287,17 +287,22 @@ def checks():
             "ト　新設分割による株式会社又は合同会社の設立の登記資本金の額千分の七",
             "チ　吸収分割による株式会社又は合同会社の資本金の増加の登記増加した資本金の額千分の七"])
 
-    # 地方税法 art. 34 — LocalIncomeTax.lean (basicDeduction, spouseDeduction)
-    yield ("地方税法 art. 34(2)/(1)十号（道府県民税 基礎控除・配偶者控除）↔ LocalIncomeTax.lean (basicDeduction, spouseDeduction)",
+    # 地方税法 art. 34 — LocalIncomeTax.lean (basicDeduction, spouseDeduction, disabilityDeduction, widowDeduction, singleParentDeduction, medicalExpenseDeduction)
+    yield ("地方税法 art. 34(2)/(1)二号/六号/八号/八の二/十号（道府県民税 基礎控除・医療費控除・障害者控除・寡婦控除・ひとり親控除・配偶者控除）↔ LocalIncomeTax.lean",
            "325AC0000000226",
            "article", "第三十四条",
            ["合計所得金額が二千四百万円以下である場合四十三万円",
             "合計所得金額が二千四百万円を超え二千四百五十万円以下である場合二十九万円",
             "合計所得金額が二千四百五十万円を超え二千五百万円以下である場合十五万円",
+            "その金額が十万円を超える場合には、十万円",
+            "その金額が二百万円を超える場合には、二百万円",
+            "六障害者である所得割の納税義務者又は障害者である同一生計配偶者若しくは扶養親族を有する所得割の納税義務者各障害者につき二十六万円（その者が特別障害者（障害者のうち、精神又は身体に重度の障害がある者で政令で定めるものをいう。第三項及び第八項並びに第三十七条において同じ。）である場合には、三十万円）",
+            "三十万円）七削除八寡婦である所得割の納税義務者二十六万円八の二ひとり親である所得割の納税義務者三十万円",
             "当該納税義務者の前年の合計所得金額が九百万円以下である場合三十三万円",
             "（その控除対象配偶者が老人控除対象配偶者",
             "合計所得金額が九百万円を超え九百五十万円以下である場合当該配偶者のイ（１）から（３）までに掲げる区分に応じ、それぞれイ（１）から（３）までに定める金額の三分の二に相当する金額",
-            "合計所得金額が九百五十万円を超え千万円以下である場合当該配偶者のイ（１）から（３）までに掲げる区分に応じ、それぞれイ（１）から（３）までに定める金額の三分の一に相当する金額"])
+            "合計所得金額が九百五十万円を超え千万円以下である場合当該配偶者のイ（１）から（３）までに掲げる区分に応じ、それぞれイ（１）から（３）までに定める金額の三分の一に相当する金額",
+            "当該特別障害者に係る第一項第六号の金額は、五十三万円とする"])
 
     # 相続税法 art. 19-3/19-4 — InheritanceMinorDisabledDeduction.lean (minorDeduction, disabledDeduction, yearsCeil)
     yield ("相続税法 art. 19-3/19-4（未成年者控除（十万円 × 18歳達年数）／障害者控除（十万円／特別障害者二十万円 × 85歳達年数）、一年未満・端数は一年とする）↔ InheritanceMinorDisabledDeduction.lean (minorDeduction, disabledDeduction, yearsCeil)",
@@ -328,7 +333,7 @@ def checks():
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
-        "LocalIncomeTax.lean art. 34 のその他の控除（生命保険料控除・医療費控除等）の literal",
+        "LocalIncomeTax.lean art. 34 のその他の控除（生命保険料控除・地震保険料控除・特定親族特別控除）の literal（医療費控除・障害者控除・寡婦控除・ひとり親控除・配偶者控除・基礎控除は covered）",
         "LocalExemption.lean / LocalPrivilege.lean / LocalObligor.lean（賦課方式の税額算定 literal なし／定義分類器）",
         "KanzeiGoods.lean（関税法 art. 2 の物品定義分類器・税率 literal なし／cross_law の pin のみ）",
         "RegistrationTax.lean の未採用帯域（仮登記・分離の登記等）の literal のうち未検査のもの",
