@@ -277,6 +277,29 @@ def personalInfoProtectionAssociationLicenseFee : Money := 90_000
     警備員等に係る登録講習機関の登録につきの額（固定 ¥90,000）。 -/
 def securityGuardTrainingInstitutionRegistrationFee : Money := 90_000
 
+/-- 三十四の三（一） 特定複合観光施設区域整備法（平成三十年法律第八十号）第三十九条（免許等）のカジノ事業の免許につきの額（固定 ¥150,000）。 -/
+def casinoBusinessLicenseFee : Money := 150_000
+
+/-- 三十四の三（二） 同法第百二十四条（免許）のカジノ施設供用事業の免許につきの額（固定 ¥150,000）。 -/
+def casinoFacilityOperationBusinessLicenseFee : Money := 150_000
+
+/-- 三十四の三（三） 同法第百四十三条第一項（許可）のカジノ関連機器等製造業、カジノ関連機器等輸入業、
+    カジノ関連機器等販売業又はカジノ関連機器等修理業の許可につきの額（固定 ¥150,000）。 -/
+def casinoEquipmentManufacturingEtcBusinessLicenseFee : Money := 150_000
+
+/-- 三十四の三（四） 同法第百五十条第一項（カジノ関連機器等外国製造業の認定）のカジノ関連機器等外国製造業の認定につきの額（固定 ¥150,000）。 -/
+def casinoEquipmentForeignManufacturingLicenseFee : Money := 150_000
+
+theorem casinoBusinessLicenseFee_pos : casinoBusinessLicenseFee > 0 := by decide
+theorem casinoFacilityOperationBusinessLicenseFee_pos : casinoFacilityOperationBusinessLicenseFee > 0 := by decide
+theorem casinoEquipmentManufacturingEtcBusinessLicenseFee_pos : casinoEquipmentManufacturingEtcBusinessLicenseFee > 0 := by decide
+theorem casinoEquipmentForeignManufacturingLicenseFee_pos : casinoEquipmentForeignManufacturingLicenseFee > 0 := by decide
+
+example : casinoBusinessLicenseFee = 150_000 := by decide
+example : casinoFacilityOperationBusinessLicenseFee = 150_000 := by decide
+example : casinoEquipmentManufacturingEtcBusinessLicenseFee = 150_000 := by decide
+example : casinoEquipmentForeignManufacturingLicenseFee = 150_000 := by decide
+
 /-- 三十四の二 インターネット異性紹介事業を利用して児童を誘引する行為の規制等に関する法律
     （平成十五年法律第八十三号）第十八条第一項（登録誘引情報提供機関の登録）の
     インターネット異性紹介事業者に係る登録誘引情報提供機関の登録につきの額（固定 ¥15,000）。 -/
