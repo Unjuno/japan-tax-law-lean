@@ -433,6 +433,61 @@ def financialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee : M
 /-- 四十一（十二） 金融商品取引法第百五十六条の二十の二（免許）の外国金融商品取引清算機関の金融商品債務引受業の免許につきの額（固定 ¥150,000）。 -/
 def foreignFinancialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee : Money := 150_000
 
+/-- 四十四 金融商品取引法第百五十六条の二十四第一項（免許及び免許の申請）の証券金融会社の免許につきの額（固定 ¥150,000）。 -/
+def securitiesFinanceCompanyLicenseFee : Money := 150_000
+
+/-- 四十五 金融業者の貸付業務のための社債の発行等に関する法律（平成十一年法律第三十二号）第三条（登録）の
+    特定金融会社等の登録につきの額（固定 ¥150,000）。 -/
+def specificFinanceCompanyRegistrationFee : Money := 150_000
+
+/-- 四十六（一） 貸金業法（昭和五十八年法律第三十二号）第三条第一項（登録）の
+    内閣総理大臣がする貸金業者の登録につきの額（固定 ¥150,000）。 -/
+def moneyLendingBusinessOperatorRegistrationFee : Money := 150_000
+
+/-- 四十六（二） 貸金業法第二十四条の二十五第二項（登録講習機関の登録）の登録につきの額（固定 ¥90,000）。 -/
+def moneyLendingBusinessOperatorTrainingManagerRegistrationFee : Money := 90_000
+
+/-- 四十七（一） 無尽業法（昭和六年法律第四十二号）第二条第一項（免許）の無尽業の免許につきの額（固定 ¥150,000）。 -/
+def mujinBusinessLicenseFee : Money := 150_000
+
+/-- 四十七（二） 無尽業法第七条第三号（認可）の無尽会社の出張所又は代理店の設置の認可につきの額（固定 ¥90,000）。 -/
+def mujinCompanyBranchOrAgentEstablishmentApprovalFee : Money := 90_000
+
+/-- 四十八（一） 金融サービスの提供及び利用環境の整備等に関する法律（平成十二年法律第百一号）第十二条（登録）の
+    金融サービス仲介業者の登録につきの額（固定 ¥90,000）。 -/
+def financialServicesIntermediaryBusinessOperatorRegistrationFee : Money := 90_000
+
+/-- 四十八（二） 同法第十六条第一項（変更登録等）の変更登録につきの額（固定 ¥90,000）。 -/
+def financialServicesIntermediaryBusinessOperatorRegistrationChangeFee : Money := 90_000
+
+/-- 四十八（三） 同法第四十条（認定金融サービス仲介業協会の認定）の認定金融サービス仲介業協会の認定につきの額（固定 ¥150,000）。 -/
+def certifiedFinancialServicesIntermediaryBusinessAssociationAuthorizationFee : Money := 150_000
+
+theorem securitiesFinanceCompanyLicenseFee_pos : securitiesFinanceCompanyLicenseFee > 0 := by decide
+theorem specificFinanceCompanyRegistrationFee_pos : specificFinanceCompanyRegistrationFee > 0 := by decide
+theorem moneyLendingBusinessOperatorRegistrationFee_pos : moneyLendingBusinessOperatorRegistrationFee > 0 := by decide
+theorem moneyLendingBusinessOperatorTrainingManagerRegistrationFee_pos :
+    moneyLendingBusinessOperatorTrainingManagerRegistrationFee > 0 := by decide
+theorem mujinBusinessLicenseFee_pos : mujinBusinessLicenseFee > 0 := by decide
+theorem mujinCompanyBranchOrAgentEstablishmentApprovalFee_pos :
+    mujinCompanyBranchOrAgentEstablishmentApprovalFee > 0 := by decide
+theorem financialServicesIntermediaryBusinessOperatorRegistrationFee_pos :
+    financialServicesIntermediaryBusinessOperatorRegistrationFee > 0 := by decide
+theorem financialServicesIntermediaryBusinessOperatorRegistrationChangeFee_pos :
+    financialServicesIntermediaryBusinessOperatorRegistrationChangeFee > 0 := by decide
+theorem certifiedFinancialServicesIntermediaryBusinessAssociationAuthorizationFee_pos :
+    certifiedFinancialServicesIntermediaryBusinessAssociationAuthorizationFee > 0 := by decide
+
+example : securitiesFinanceCompanyLicenseFee = 150_000 := by decide
+example : specificFinanceCompanyRegistrationFee = 150_000 := by decide
+example : moneyLendingBusinessOperatorRegistrationFee = 150_000 := by decide
+example : moneyLendingBusinessOperatorTrainingManagerRegistrationFee = 90_000 := by decide
+example : mujinBusinessLicenseFee = 150_000 := by decide
+example : mujinCompanyBranchOrAgentEstablishmentApprovalFee = 90_000 := by decide
+example : financialServicesIntermediaryBusinessOperatorRegistrationFee = 90_000 := by decide
+example : financialServicesIntermediaryBusinessOperatorRegistrationChangeFee = 90_000 := by decide
+example : certifiedFinancialServicesIntermediaryBusinessAssociationAuthorizationFee = 150_000 := by decide
+
 /-- 四十一（十三） 金融商品取引法第百五十六条の二十の十六第一項（他の金融商品取引清算機関等と連携する場合の認可）の
     連攜金融商品債務引受業務の認可につきの額（固定 ¥150,000）。 -/
 def financialInstrumentsClearingOrganizationLinkedDebtAssumptionBusinessApprovalFee : Money := 150_000

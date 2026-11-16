@@ -179,5 +179,15 @@ example : investmentManagementRelatedServicesContractorRegistrationChangeFee = 9
 example : financialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee = 150_000 := by decide
 example : foreignFinancialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee = 150_000 := by decide
 example : financialInstrumentsClearingOrganizationLinkedDebtAssumptionBusinessApprovalFee = 150_000 := by decide
+-- 四十四〜四十八 証券金融会社の免許／特定金融会社等の登録／貸金業者の登録・登録講習機関（¥150,000／¥90,000）／無尽業の免許・出張所認可（¥150,000／¥90,000）／金融サービス仲介業者の登録・変更登録・認定金融サービス仲介業協会の認定（¥90,000／¥90,000／¥150,000）
+example : securitiesFinanceCompanyLicenseFee = 150_000 := by decide
+example : specificFinanceCompanyRegistrationFee = 150_000 := by decide
+example : moneyLendingBusinessOperatorRegistrationFee = 150_000 := by decide
+example : moneyLendingBusinessOperatorTrainingManagerRegistrationFee = 90_000 := by decide
+example : mujinBusinessLicenseFee = 150_000 := by decide
+example : mujinCompanyBranchOrAgentEstablishmentApprovalFee = 90_000 := by decide
+example : financialServicesIntermediaryBusinessOperatorRegistrationFee = 90_000 := by decide
+example : financialServicesIntermediaryBusinessOperatorRegistrationChangeFee = 90_000 := by decide
+example : certifiedFinancialServicesIntermediaryBusinessAssociationAuthorizationFee = 150_000 := by decide
 
 end JapanTaxLaw

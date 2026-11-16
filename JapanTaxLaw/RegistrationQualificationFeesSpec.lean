@@ -305,6 +305,34 @@ def specForeignFinancialInstrumentsClearingOrganizationDebtAssumptionBusinessLic
 /-- Spec: 四十一（十三） 連携金融商品債務引受業務の認可。 -/
 def specFinancialInstrumentsClearingOrganizationLinkedDebtAssumptionBusinessApprovalFee : Money := 150_000
 
+/-- Spec: 四十四 証券金融会社の免許。 -/
+def specSecuritiesFinanceCompanyLicenseFee : Money := 150_000
+/-- Spec: 四十五 特定金融会社等の登録。 -/
+def specSpecificFinanceCompanyRegistrationFee : Money := 150_000
+/-- Spec: 四十六（一） 貸金業者の登録。 -/
+def specMoneyLendingBusinessOperatorRegistrationFee : Money := 150_000
+/-- Spec: 四十六（二） 貸金業務取扱主任者に係る登録講習機関の登録。 -/
+def specMoneyLendingBusinessOperatorTrainingManagerRegistrationFee : Money := 90_000
+/-- Spec: 四十七（一） 無尽業の免許。 -/
+def specMujinBusinessLicenseFee : Money := 150_000
+/-- Spec: 四十七（二） 無尽会社の出張所又は代理店の設置の認可。 -/
+def specMujinCompanyBranchOrAgentEstablishmentApprovalFee : Money := 90_000
+/-- Spec: 四十八（一） 金融サービス仲介業者の登録。 -/
+def specFinancialServicesIntermediaryBusinessOperatorRegistrationFee : Money := 90_000
+/-- Spec: 四十八（二） 金融サービス仲介業者の変更登録。 -/
+def specFinancialServicesIntermediaryBusinessOperatorRegistrationChangeFee : Money := 90_000
+/-- Spec: 四十八（三） 認定金融サービス仲介業協会の認定。 -/
+def specCertifiedFinancialServicesIntermediaryBusinessAssociationAuthorizationFee : Money := 150_000
+
+example : specSecuritiesFinanceCompanyLicenseFee = 150_000 := by decide
+example : specSpecificFinanceCompanyRegistrationFee = 150_000 := by decide
+example : specMoneyLendingBusinessOperatorRegistrationFee = 150_000 := by decide
+example : specMoneyLendingBusinessOperatorTrainingManagerRegistrationFee = 90_000 := by decide
+example : specMujinBusinessLicenseFee = 150_000 := by decide
+example : specMujinCompanyBranchOrAgentEstablishmentApprovalFee = 90_000 := by decide
+example : specFinancialServicesIntermediaryBusinessOperatorRegistrationFee = 90_000 := by decide
+example : specFinancialServicesIntermediaryBusinessOperatorRegistrationChangeFee = 90_000 := by decide
+example : specCertifiedFinancialServicesIntermediaryBusinessAssociationAuthorizationFee = 150_000 := by decide
 example : specFinancialInstrumentsBusinessOperatorRegistrationFee = 150_000 := by decide
 example : specFinancialInstrumentsBusinessOperatorRegistrationChangeFee = 150_000 := by decide
 example : specFinancialInstrumentsBusinessApprovalFee = 150_000 := by decide
@@ -576,7 +604,16 @@ def agreeRegistrationQualificationFees : Bool :=
     specInvestmentManagementRelatedServicesContractorRegistrationChangeFee == investmentManagementRelatedServicesContractorRegistrationChangeFee &&
     specFinancialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee == financialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee &&
     specForeignFinancialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee == foreignFinancialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee &&
-    specFinancialInstrumentsClearingOrganizationLinkedDebtAssumptionBusinessApprovalFee == financialInstrumentsClearingOrganizationLinkedDebtAssumptionBusinessApprovalFee
+    specFinancialInstrumentsClearingOrganizationLinkedDebtAssumptionBusinessApprovalFee == financialInstrumentsClearingOrganizationLinkedDebtAssumptionBusinessApprovalFee &&
+    specSecuritiesFinanceCompanyLicenseFee == securitiesFinanceCompanyLicenseFee &&
+    specSpecificFinanceCompanyRegistrationFee == specificFinanceCompanyRegistrationFee &&
+    specMoneyLendingBusinessOperatorRegistrationFee == moneyLendingBusinessOperatorRegistrationFee &&
+    specMoneyLendingBusinessOperatorTrainingManagerRegistrationFee == moneyLendingBusinessOperatorTrainingManagerRegistrationFee &&
+    specMujinBusinessLicenseFee == mujinBusinessLicenseFee &&
+    specMujinCompanyBranchOrAgentEstablishmentApprovalFee == mujinCompanyBranchOrAgentEstablishmentApprovalFee &&
+    specFinancialServicesIntermediaryBusinessOperatorRegistrationFee == financialServicesIntermediaryBusinessOperatorRegistrationFee &&
+    specFinancialServicesIntermediaryBusinessOperatorRegistrationChangeFee == financialServicesIntermediaryBusinessOperatorRegistrationChangeFee &&
+    specCertifiedFinancialServicesIntermediaryBusinessAssociationAuthorizationFee == certifiedFinancialServicesIntermediaryBusinessAssociationAuthorizationFee
 
 example : agreeRegistrationQualificationFees = true := by decide
 
