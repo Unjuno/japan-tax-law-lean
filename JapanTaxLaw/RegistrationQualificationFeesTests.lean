@@ -81,5 +81,21 @@ example : pilotClass3RegistrationFee = 15_000 := by decide
 -- （二十八）海事補佐人 ／ （二十九）海事代理士
 example : maritimeAssistantExaminerRegistrationFee = 30_000 := by decide
 example : maritimeAgentRegistrationFee = 30_000 := by decide
+-- （三十）航空従事者技能証明（イ〜ヨ：定期運送用操縦士〜操縦技能審査員）
+example : airlineTransportPilotLicenseFee = 18_000 := by decide
+example : commercialPilotLicenseFee = 7_500 := by decide
+example : privatePilotLicenseFee = 3_000 := by decide
+example : associateAirlineTransportPilotLicenseFee = 6_000 := by decide
+example : class1FlightEngineerOrNavigatorLicenseFee = 12_000 := by decide
+example : class2FlightNavigatorLicenseFee = 7_500 := by decide
+example : aviationCommunicationsOfficerLicenseFee = 3_000 := by decide
+example : class1AircraftMaintenanceEngineerLicenseFee = 9_000 := by decide
+example : class2AircraftMaintenanceEngineerLicenseFee = 6_000 := by decide
+example : class1AircraftOperationEngineerLicenseFee = 6_000 := by decide
+example : class2AircraftOperationEngineerLicenseFee = 3_000 := by decide
+example : aircraftFactoryMaintenanceEngineerLicenseFee = 9_000 := by decide
+example : class1UnmannedAircraftPilotLicenseFee = 3_000 := by decide
+example : airworthinessInspectorAuthorizationFee = 6_000 := by decide
+example : pilotSkillExaminerAuthorizationFee = 3_000 := by decide
 
 end JapanTaxLaw
