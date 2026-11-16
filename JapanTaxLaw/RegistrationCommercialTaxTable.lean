@@ -494,6 +494,84 @@ example : limitLiabilityTrustLiquidatorOtherFee = 6_000 := by decide
 example : limitLiabilityTrustLiquidationCompletionFee = 2_000 := by decide
 example : limitLiabilityTrustLiquidatorCorrectionErasureFee = 6_000 := by decide
 
+/-- 二十九（一）イ 個人の商業登記（本店）・商号の新設の登記又はその取得による変更の登記。
+    申請件数一件につき三万円。 -/
+def individualNameNewFee : Money := 30_000
+
+/-- 二十九（一）ロ 支配人の選任又はその代理権の消滅の登記。
+    申請件数一件につき三万円。 -/
+def individualManagerFee : Money := 30_000
+
+/-- 二十九（一）ハ 商法第五条又は第六条第一項の規定による登記（未成年者登記・後見人登記）。
+    申請件数一件につき一万八千円。 -/
+def individualMinorOrGuardianFee : Money := 18_000
+
+/-- 二十九（一）ニ 商法第十七条第二項の規定による登記（営業譲渡の際の免責の登記）。
+    申請件数一件につき一万八千円。 -/
+def individualBusinessTransferFee : Money := 18_000
+
+/-- 二十九（一）ホ 商号の廃止の登記又は登記の更正、変更若しくは消滅の登記
+    （これらの登記のうちイ又はロに掲げるものを除く。）。申請件数一件につき六千円。 -/
+def individualStorefrontClosureFee : Money := 6_000
+
+/-- 二十九（一）ヘ 登記の抹消の登記。申請件数一件につき六千円。 -/
+def individualErasureFee : Money := 6_000
+
+/-- 二十九（二）イ 個人につきその支店の所在地においてする登記
+    （（一）イからニまでに掲げる登記）。申請件数一件につき九千円。 -/
+def individualBranchFee : Money := 9_000
+
+/-- 二十九（二）ロ （一）ホに掲げる登記又は登記の抹消。
+    申請件数一件につき六千円。 -/
+def individualBranchErasureFee : Money := 6_000
+
+/-- 三十（一） 船舶管理人の選任又はその代理権の消滅の登記。
+    申請件数一件につき三万円。 -/
+def shipManagerFee : Money := 30_000
+
+/-- 三十（二） 抹消された登記の回復の登記又は登記事項の更正若しくは変更の登記。
+    申請件数一件につき六千円。 -/
+def shipManagerCorrectionFee : Money := 6_000
+
+/-- 三十一（一） 民法第七百五十六条の登記（夫婦財産契約の対抗要件）。
+    申請件数一件につき一万八千円。 -/
+def matrimonialPropertyFee : Money := 18_000
+
+/-- 三十一（二） 夫婦財産契約の登記の更正又は変更の登記。
+    申請件数一件につき六千円。 -/
+def matrimonialPropertyCorrectionFee : Money := 6_000
+
+/-- 三十一（三） 夫婦財産契約の登記の抹消。申請件数一件につき六千円。 -/
+def matrimonialPropertyErasureFee : Money := 6_000
+
+theorem individualNameNewFee_pos : individualNameNewFee > 0 := by decide
+theorem individualManagerFee_pos : individualManagerFee > 0 := by decide
+theorem individualMinorOrGuardianFee_pos : individualMinorOrGuardianFee > 0 := by decide
+theorem individualBusinessTransferFee_pos : individualBusinessTransferFee > 0 := by decide
+theorem individualStorefrontClosureFee_pos : individualStorefrontClosureFee > 0 := by decide
+theorem individualErasureFee_pos : individualErasureFee > 0 := by decide
+theorem individualBranchFee_pos : individualBranchFee > 0 := by decide
+theorem individualBranchErasureFee_pos : individualBranchErasureFee > 0 := by decide
+theorem shipManagerFee_pos : shipManagerFee > 0 := by decide
+theorem shipManagerCorrectionFee_pos : shipManagerCorrectionFee > 0 := by decide
+theorem matrimonialPropertyFee_pos : matrimonialPropertyFee > 0 := by decide
+theorem matrimonialPropertyCorrectionFee_pos : matrimonialPropertyCorrectionFee > 0 := by decide
+theorem matrimonialPropertyErasureFee_pos : matrimonialPropertyErasureFee > 0 := by decide
+
+example : individualNameNewFee = 30_000 := by decide
+example : individualManagerFee = 30_000 := by decide
+example : individualMinorOrGuardianFee = 18_000 := by decide
+example : individualBusinessTransferFee = 18_000 := by decide
+example : individualStorefrontClosureFee = 6_000 := by decide
+example : individualErasureFee = 6_000 := by decide
+example : individualBranchFee = 9_000 := by decide
+example : individualBranchErasureFee = 6_000 := by decide
+example : shipManagerFee = 30_000 := by decide
+example : shipManagerCorrectionFee = 6_000 := by decide
+example : matrimonialPropertyFee = 18_000 := by decide
+example : matrimonialPropertyCorrectionFee = 6_000 := by decide
+example : matrimonialPropertyErasureFee = 6_000 := by decide
+
 /-- art. 19 は別表第一の欄の最低下限（¥30,000/60,000/150,000）によって上書きされるため
     ここで独立モデル化しない。 -/
 

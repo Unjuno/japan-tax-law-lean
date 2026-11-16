@@ -302,6 +302,56 @@ def agreeArt28Fees : Bool :=
 
 example : agreeArt28Fees = true := by decide
 
+/-- Spec: 二十九（一）/（二） 個人の商業登記 -/
+def specIndividualNameNewFee : Money := 30_000
+def specIndividualManagerFee : Money := 30_000
+def specIndividualMinorOrGuardianFee : Money := 18_000
+def specIndividualBusinessTransferFee : Money := 18_000
+def specIndividualStorefrontClosureFee : Money := 6_000
+def specIndividualErasureFee : Money := 6_000
+def specIndividualBranchFee : Money := 9_000
+def specIndividualBranchErasureFee : Money := 6_000
+
+/-- Spec: 三十 船舶管理人の登記 -/
+def specShipManagerFee : Money := 30_000
+def specShipManagerCorrectionFee : Money := 6_000
+
+/-- Spec: 三十一 夫婦財産契約の登記 -/
+def specMatrimonialPropertyFee : Money := 18_000
+def specMatrimonialPropertyCorrectionFee : Money := 6_000
+def specMatrimonialPropertyErasureFee : Money := 6_000
+
+example : specIndividualNameNewFee = 30_000 := by decide
+example : specIndividualManagerFee = 30_000 := by decide
+example : specIndividualMinorOrGuardianFee = 18_000 := by decide
+example : specIndividualBusinessTransferFee = 18_000 := by decide
+example : specIndividualStorefrontClosureFee = 6_000 := by decide
+example : specIndividualErasureFee = 6_000 := by decide
+example : specIndividualBranchFee = 9_000 := by decide
+example : specIndividualBranchErasureFee = 6_000 := by decide
+example : specShipManagerFee = 30_000 := by decide
+example : specShipManagerCorrectionFee = 6_000 := by decide
+example : specMatrimonialPropertyFee = 18_000 := by decide
+example : specMatrimonialPropertyCorrectionFee = 6_000 := by decide
+example : specMatrimonialPropertyErasureFee = 6_000 := by decide
+
+def agreeArt29_31Fees : Bool :=
+  specIndividualNameNewFee == individualNameNewFee &&
+    specIndividualManagerFee == individualManagerFee &&
+    specIndividualMinorOrGuardianFee == individualMinorOrGuardianFee &&
+    specIndividualBusinessTransferFee == individualBusinessTransferFee &&
+    specIndividualStorefrontClosureFee == individualStorefrontClosureFee &&
+    specIndividualErasureFee == individualErasureFee &&
+    specIndividualBranchFee == individualBranchFee &&
+    specIndividualBranchErasureFee == individualBranchErasureFee &&
+    specShipManagerFee == shipManagerFee &&
+    specShipManagerCorrectionFee == shipManagerCorrectionFee &&
+    specMatrimonialPropertyFee == matrimonialPropertyFee &&
+    specMatrimonialPropertyCorrectionFee == matrimonialPropertyCorrectionFee &&
+    specMatrimonialPropertyErasureFee == matrimonialPropertyErasureFee
+
+example : agreeArt29_31Fees = true := by decide
+
 -- ==== points, all kernel-decided ====
 
 example : specGmporGeneralFormationTax = 60_000 := by decide

@@ -339,7 +339,16 @@ def checks():
             "　信託法第二百三十三条第一項（変更の登記）の規定による新事務処理地においてする同法第二百三十二条各号に掲げる事項の登記申請件数一件につき一万五千円",
             "（一）、（二）及び（四）から（六）までに掲げる登記以外の登記申請件数一件につき一万五千円",
             "（六）ニに掲げる登記を除く。）申請件数一件につき一万円",
-            "　清算受託者の登記申請件数一件につき六千円"])
+            "　清算受託者の登記申請件数一件につき六千円",
+            "　個人の商業登記（一）　個人につきその本店の所在地においてする登記",
+            "　商号の新設の登記又はその取得による変更の登記申請件数一件につき三万円",
+            "　支配人の選任又はその代理権の消滅の登記申請件数一件につき三万円",
+            "　商法（明治三十二年法律第四十八号）第五条（未成年者登記）又は第六条第一項（後見人登記）の規定による登記申請件数一件につき一万八千円",
+            "　商法第十七条第二項（営業譲渡の際の免責の登記）の登記申請件数一件につき一万八千円",
+            "　船舶管理人の登記（一）　船舶管理人の選任又はその代理権の消滅の登記申請件数一件につき三万円",
+            "　抹消された登記の回復の登記又は登記事項の更正若しくは変更の登記申請件数一件につき六千円",
+            "　夫婦財産契約の登記（一）　民法（明治二十九年法律第八十九号）第七百五十六条（夫婦財産契約の対抗要件）の登記申請件数一件につき一万八千円",
+            "　登記事項の更正又は変更の登記申請件数一件につき六千円"])
 
     # 地方税法 art. 34 — LocalIncomeTax.lean (basicDeduction, spouseDeduction, disabilityDeduction, widowDeduction, singleParentDeduction, medicalExpenseDeduction, specificDependentDeduction)
     yield ("地方税法 art. 34(2)/(1)二号/六号/八号/八の二/十号/十二号（道府県民税 基礎控除・医療費控除・障害者控除・寡婦控除・ひとり親控除・配偶者控除・特定親族特別控除）↔ LocalIncomeTax.lean",
@@ -406,7 +415,7 @@ def main() -> int:
         "LocalExemption.lean / LocalPrivilege.lean / LocalObligor.lean（賦課方式の税額算定 literal なし／定義分類器）",
         "KanzeiGoods.lean（関税法 art. 2 の物品定義分類器・税率 literal なし／cross_law の pin のみ）",
         "RegistrationTax.lean の未採用帯域（仮登記・分離の登記等）の literal のうち未検査のもの",
-        "RegistrationCommercialTaxTable.lean の未採用帯域（二十九：個人の商業登記〜以降： 船舶管理人／夫婦財産契約等の非会社登記 数百点／三十二〜百六十： 資格者登記等 数百点 など）",
+        "RegistrationCommercialTaxTable.lean の未採用帯域（三十二： 人の資格の登録・認定・技能証明 91種類 数百円／三十三以降： 免許登録型登記 数百点 など）",
         "ConsumptionTaxRate.lean の次のアンカー外（art. 29(2)／art. 28 課税標準・art. 30 仕入税額控除 等）— モデル未採用かつ未検査",
         "InheritanceSurcharge.lean art. 17 の相続税額算出（相続税法 art. 17 には literal がない・割合計算のみ。InheritanceApportionment.lean としてモデル化済み・literal 監査対象外）",
         "ListedDividendWithholding.lean の art. 9の3の二(1) 第一号〜六号 のカテゴリ定義・基准日の政令規定／第三項各号の暫定外国税按分計算（art. 9の3 の 15% 読み替えパスと合わせて非モデル化・caller-established）",
