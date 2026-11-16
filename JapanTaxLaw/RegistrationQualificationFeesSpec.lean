@@ -324,6 +324,58 @@ def specFinancialServicesIntermediaryBusinessOperatorRegistrationChangeFee : Mon
 /-- Spec: 四十八（三） 認定金融サービス仲介業協会の認定。 -/
 def specCertifiedFinancialServicesIntermediaryBusinessAssociationAuthorizationFee : Money := 150_000
 
+/-- Spec: 四十九（一） 第三者型前払式支払手段の発行者の登録。 -/
+def specThirdPartyPrepaidPaymentInstrumentIssuerRegistrationFee : Money := 150_000
+/-- Spec: 四十九（二） 資金移動業者の登録。 -/
+def specMoneyTransferBusinessOperatorRegistrationFee : Money := 150_000
+/-- Spec: 四十九（三） 資金移動業者の変更登録。 -/
+def specMoneyTransferBusinessOperatorRegistrationChangeFee : Money := 150_000
+/-- Spec: 四十九（四） 電子決済手段等取引業者の登録。 -/
+def specElectronicSettlementTransactionsBusinessOperatorRegistrationFee : Money := 150_000
+/-- Spec: 四十九（五） 電子決済手段等取引業者の変更登録。 -/
+def specElectronicSettlementTransactionsBusinessOperatorRegistrationChangeFee : Money := 150_000
+/-- Spec: 四十九（六） 暗号資産交換業者の登録。 -/
+def specCryptoAssetExchangeBusinessOperatorRegistrationFee : Money := 150_000
+/-- Spec: 四十九（七） 電子決済手段・暗号資産サービス仲介業者の登録（固定 ¥90,000）。 -/
+def specElectronicSettlementServiceAndCryptoAssetServiceIntermediaryRegistrationFee : Money := 90_000
+/-- Spec: 四十九（八） 電子決済手段・暗号資産サービス仲介業者の変更登録。 -/
+def specElectronicSettlementServiceAndCryptoAssetServiceIntermediaryRegistrationChangeFee : Money := 90_000
+/-- Spec: 四十九（九） 為替取引分析業者の許可。 -/
+def specExchangeTransactionAnalysisBusinessApprovalFee : Money := 150_000
+/-- Spec: 四十九（十） 為替取引分析業者の業務の種別の変更の許可。 -/
+def specExchangeTransactionAnalysisBusinessKindChangeApprovalFee : Money := 150_000
+/-- Spec: 四十九（十一） 資金清算業の免許。 -/
+def specFundsClearingBusinessLicenseFee : Money := 150_000
+/-- Spec: 四十九（十二） 認定資金決済事業者協会の認定。 -/
+def specCertifiedFundsSettlementBusinessOperatorAssociationAuthorizationFee : Money := 150_000
+/-- Spec: 五十（一） 有限責任監査法人の登録。 -/
+def specLimitedLiabilityAuditCorporationRegistrationFee : Money := 150_000
+/-- Spec: 五十（二） 登録上場会社等監査人の登録。 -/
+def specRegisteredListedCompanyAuditorRegistrationFee : Money := 90_000
+/-- Spec: 五十（三） 実務補習団体等の認定。 -/
+def specPracticalTrainingCorporationAuthorizationFee : Money := 150_000
+/-- Spec: 五十の二 消費生活相談員に係る登録試験機関の登録。 -/
+def specConsumerLivelihoodSupportConsultantExaminationInstitutionRegistrationFee : Money := 150_000
+/-- Spec: 五十の三 特定適格消費者団体の認定。 -/
+def specSpecificQualifiedConsumerGroupAuthorizationFee : Money := 15_000
+
+example : specThirdPartyPrepaidPaymentInstrumentIssuerRegistrationFee = 150_000 := by decide
+example : specMoneyTransferBusinessOperatorRegistrationFee = 150_000 := by decide
+example : specMoneyTransferBusinessOperatorRegistrationChangeFee = 150_000 := by decide
+example : specElectronicSettlementTransactionsBusinessOperatorRegistrationFee = 150_000 := by decide
+example : specElectronicSettlementTransactionsBusinessOperatorRegistrationChangeFee = 150_000 := by decide
+example : specCryptoAssetExchangeBusinessOperatorRegistrationFee = 150_000 := by decide
+example : specElectronicSettlementServiceAndCryptoAssetServiceIntermediaryRegistrationFee = 90_000 := by decide
+example : specElectronicSettlementServiceAndCryptoAssetServiceIntermediaryRegistrationChangeFee = 90_000 := by decide
+example : specExchangeTransactionAnalysisBusinessApprovalFee = 150_000 := by decide
+example : specExchangeTransactionAnalysisBusinessKindChangeApprovalFee = 150_000 := by decide
+example : specFundsClearingBusinessLicenseFee = 150_000 := by decide
+example : specCertifiedFundsSettlementBusinessOperatorAssociationAuthorizationFee = 150_000 := by decide
+example : specLimitedLiabilityAuditCorporationRegistrationFee = 150_000 := by decide
+example : specRegisteredListedCompanyAuditorRegistrationFee = 90_000 := by decide
+example : specPracticalTrainingCorporationAuthorizationFee = 150_000 := by decide
+example : specConsumerLivelihoodSupportConsultantExaminationInstitutionRegistrationFee = 150_000 := by decide
+example : specSpecificQualifiedConsumerGroupAuthorizationFee = 15_000 := by decide
 example : specSecuritiesFinanceCompanyLicenseFee = 150_000 := by decide
 example : specSpecificFinanceCompanyRegistrationFee = 150_000 := by decide
 example : specMoneyLendingBusinessOperatorRegistrationFee = 150_000 := by decide
@@ -613,7 +665,24 @@ def agreeRegistrationQualificationFees : Bool :=
     specMujinCompanyBranchOrAgentEstablishmentApprovalFee == mujinCompanyBranchOrAgentEstablishmentApprovalFee &&
     specFinancialServicesIntermediaryBusinessOperatorRegistrationFee == financialServicesIntermediaryBusinessOperatorRegistrationFee &&
     specFinancialServicesIntermediaryBusinessOperatorRegistrationChangeFee == financialServicesIntermediaryBusinessOperatorRegistrationChangeFee &&
-    specCertifiedFinancialServicesIntermediaryBusinessAssociationAuthorizationFee == certifiedFinancialServicesIntermediaryBusinessAssociationAuthorizationFee
+    specCertifiedFinancialServicesIntermediaryBusinessAssociationAuthorizationFee == certifiedFinancialServicesIntermediaryBusinessAssociationAuthorizationFee &&
+    specThirdPartyPrepaidPaymentInstrumentIssuerRegistrationFee == thirdPartyPrepaidPaymentInstrumentIssuerRegistrationFee &&
+    specMoneyTransferBusinessOperatorRegistrationFee == moneyTransferBusinessOperatorRegistrationFee &&
+    specMoneyTransferBusinessOperatorRegistrationChangeFee == moneyTransferBusinessOperatorRegistrationChangeFee &&
+    specElectronicSettlementTransactionsBusinessOperatorRegistrationFee == electronicSettlementTransactionsBusinessOperatorRegistrationFee &&
+    specElectronicSettlementTransactionsBusinessOperatorRegistrationChangeFee == electronicSettlementTransactionsBusinessOperatorRegistrationChangeFee &&
+    specCryptoAssetExchangeBusinessOperatorRegistrationFee == cryptoAssetExchangeBusinessOperatorRegistrationFee &&
+    specElectronicSettlementServiceAndCryptoAssetServiceIntermediaryRegistrationFee == electronicSettlementServiceAndCryptoAssetServiceIntermediaryRegistrationFee &&
+    specElectronicSettlementServiceAndCryptoAssetServiceIntermediaryRegistrationChangeFee == electronicSettlementServiceAndCryptoAssetServiceIntermediaryRegistrationChangeFee &&
+    specExchangeTransactionAnalysisBusinessApprovalFee == exchangeTransactionAnalysisBusinessApprovalFee &&
+    specExchangeTransactionAnalysisBusinessKindChangeApprovalFee == exchangeTransactionAnalysisBusinessKindChangeApprovalFee &&
+    specFundsClearingBusinessLicenseFee == fundsClearingBusinessLicenseFee &&
+    specCertifiedFundsSettlementBusinessOperatorAssociationAuthorizationFee == certifiedFundsSettlementBusinessOperatorAssociationAuthorizationFee &&
+    specLimitedLiabilityAuditCorporationRegistrationFee == limitedLiabilityAuditCorporationRegistrationFee &&
+    specRegisteredListedCompanyAuditorRegistrationFee == registeredListedCompanyAuditorRegistrationFee &&
+    specPracticalTrainingCorporationAuthorizationFee == practicalTrainingCorporationAuthorizationFee &&
+    specConsumerLivelihoodSupportConsultantExaminationInstitutionRegistrationFee == consumerLivelihoodSupportConsultantExaminationInstitutionRegistrationFee &&
+    specSpecificQualifiedConsumerGroupAuthorizationFee == specificQualifiedConsumerGroupAuthorizationFee
 
 example : agreeRegistrationQualificationFees = true := by decide
 
