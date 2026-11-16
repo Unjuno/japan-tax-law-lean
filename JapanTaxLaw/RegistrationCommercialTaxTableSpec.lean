@@ -242,6 +242,66 @@ def agreeArt25_27Fees : Bool :=
 
 example : agreeArt25_27Fees = true := by decide
 
+/-- Spec: 二十八 投資事業有限責任組合契約の登記 -/
+def specViclpContractEffectivenessFee : Money := 30_000
+def specViclpOtherRegistrationFee : Money := 15_000
+def specViclpCorrectionFee : Money := 10_000
+def specViclpErasureFee : Money := 10_000
+def specViclpLiquidatorRegistrationFee : Money := 6_000
+def specViclpLiquidatorOtherFee : Money := 6_000
+def specViclpLiquidationCompletionFee : Money := 2_000
+def specViclpLiquidatorCorrectionErasureFee : Money := 6_000
+
+/-- Spec: 二十八の二 限定責任信託の登記 -/
+def specLimitLiabilityTrustProvisionFee : Money := 30_000
+def specLimitLiabilityTrustNewDomicileFee : Money := 15_000
+def specLimitLiabilityTrustOtherRegistrationFee : Money := 15_000
+def specLimitLiabilityTrustCorrectionFee : Money := 10_000
+def specLimitLiabilityTrustErasureFee : Money := 10_000
+def specLimitLiabilityTrustLiquidatorRegistrationFee : Money := 6_000
+def specLimitLiabilityTrustLiquidatorOtherFee : Money := 6_000
+def specLimitLiabilityTrustLiquidationCompletionFee : Money := 2_000
+def specLimitLiabilityTrustLiquidatorCorrectionErasureFee : Money := 6_000
+
+example : specViclpContractEffectivenessFee = 30_000 := by decide
+example : specViclpOtherRegistrationFee = 15_000 := by decide
+example : specViclpCorrectionFee = 10_000 := by decide
+example : specViclpErasureFee = 10_000 := by decide
+example : specViclpLiquidatorRegistrationFee = 6_000 := by decide
+example : specViclpLiquidatorOtherFee = 6_000 := by decide
+example : specViclpLiquidationCompletionFee = 2_000 := by decide
+example : specViclpLiquidatorCorrectionErasureFee = 6_000 := by decide
+example : specLimitLiabilityTrustProvisionFee = 30_000 := by decide
+example : specLimitLiabilityTrustNewDomicileFee = 15_000 := by decide
+example : specLimitLiabilityTrustOtherRegistrationFee = 15_000 := by decide
+example : specLimitLiabilityTrustCorrectionFee = 10_000 := by decide
+example : specLimitLiabilityTrustErasureFee = 10_000 := by decide
+example : specLimitLiabilityTrustLiquidatorRegistrationFee = 6_000 := by decide
+example : specLimitLiabilityTrustLiquidatorOtherFee = 6_000 := by decide
+example : specLimitLiabilityTrustLiquidationCompletionFee = 2_000 := by decide
+example : specLimitLiabilityTrustLiquidatorCorrectionErasureFee = 6_000 := by decide
+
+def agreeArt28Fees : Bool :=
+  specViclpContractEffectivenessFee == viclpContractEffectivenessFee &&
+    specViclpOtherRegistrationFee == viclpOtherRegistrationFee &&
+    specViclpCorrectionFee == viclpCorrectionFee &&
+    specViclpErasureFee == viclpErasureFee &&
+    specViclpLiquidatorRegistrationFee == viclpLiquidatorRegistrationFee &&
+    specViclpLiquidatorOtherFee == viclpLiquidatorOtherFee &&
+    specViclpLiquidationCompletionFee == viclpLiquidationCompletionFee &&
+    specViclpLiquidatorCorrectionErasureFee == viclpLiquidatorCorrectionErasureFee &&
+    specLimitLiabilityTrustProvisionFee == limitLiabilityTrustProvisionFee &&
+    specLimitLiabilityTrustNewDomicileFee == limitLiabilityTrustNewDomicileFee &&
+    specLimitLiabilityTrustOtherRegistrationFee == limitLiabilityTrustOtherRegistrationFee &&
+    specLimitLiabilityTrustCorrectionFee == limitLiabilityTrustCorrectionFee &&
+    specLimitLiabilityTrustErasureFee == limitLiabilityTrustErasureFee &&
+    specLimitLiabilityTrustLiquidatorRegistrationFee == limitLiabilityTrustLiquidatorRegistrationFee &&
+    specLimitLiabilityTrustLiquidatorOtherFee == limitLiabilityTrustLiquidatorOtherFee &&
+    specLimitLiabilityTrustLiquidationCompletionFee == limitLiabilityTrustLiquidationCompletionFee &&
+    specLimitLiabilityTrustLiquidatorCorrectionErasureFee == limitLiabilityTrustLiquidatorCorrectionErasureFee
+
+example : agreeArt28Fees = true := by decide
+
 -- ==== points, all kernel-decided ====
 
 example : specGmporGeneralFormationTax = 60_000 := by decide
