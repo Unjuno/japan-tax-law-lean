@@ -218,5 +218,18 @@ example : specificEmailTransmissionOptimizationRegistrationFee = 90_000 := by de
 example : certifiedAuthenticationBusinessOperatorAuthorizationFee = 90_000 := by decide
 example : certifiedForeignAuthenticationBusinessOperatorAuthorizationFee = 90_000 := by decide
 example : electronicAgentAuthorizationBusinessOperatorAuthorizationFee = 90_000 := by decide
+-- 五十四（一） 無線局の免許： 一般 ¥30,000／放送用 ¥150,000
+example : radioStationLicenseFee false = 30_000 := by decide
+example : radioStationLicenseFee true = 150_000 := by decide
+-- 五十四（二）〜（六） 登録 ¥30,000／検査・点検・証明・終了対策各 ¥90,000
+example : radioStationRegistrationFee = 30_000 := by decide
+example : radioEquipmentInspectionBusinessOperatorRegistrationFee = 90_000 := by decide
+example : foreignRadioEquipmentInspectionBusinessOperatorRegistrationFee = 90_000 := by decide
+example : radioEquipmentCertificationBodyRegistrationFee = 90_000 := by decide
+example : radioFrequencyTerminationMeasureBodyRegistrationFee = 90_000 := by decide
+-- 五十五（一）〜（三） 認定基幹放送事業者／登録一般放送事業者 ¥90,000・認定放送持株会社 ¥150,000
+example : certifiedCoreBroadcastingBusinessOperatorAuthorizationFee = 90_000 := by decide
+example : registeredGeneralBroadcastingBusinessOperatorFee = 90_000 := by decide
+example : certifiedBroadcastingHoldingCompanyAuthorizationFee = 150_000 := by decide
 
 end JapanTaxLaw
