@@ -394,6 +394,106 @@ example : llpLiquidatorOtherFee = 6_000 := by decide
 example : llpLiquidationCompletionFee = 2_000 := by decide
 example : llpLiquidatorCorrectionErasureFee = 6_000 := by decide
 
+/-- 二十八（一）イ 投資事業有限責任組合契約の効力の発生の登記。
+    申請件数一件につき三万円。 -/
+def viclpContractEffectivenessFee : Money := 30_000
+
+/-- 二十八（一）ロ イ、ハ及びニに掲げる登記以外の登記。
+    申請件数一件につき一万五千円。 -/
+def viclpOtherRegistrationFee : Money := 15_000
+
+/-- 二十八（一）ハ 登記の更正の登記。申請件数一件につき一万円。 -/
+def viclpCorrectionFee : Money := 10_000
+
+/-- 二十八（一）ニ 登記の抹消申請件数。申請件数一件につき一万円。 -/
+def viclpErasureFee : Money := 10_000
+
+/-- 二十八（二）イ 組合契約の清算に係る清算人の登記。
+    申請件数一件につき六千円。 -/
+def viclpLiquidatorRegistrationFee : Money := 6_000
+
+/-- 二十八（二）ロ イ、ハ及びニに掲げる登記以外の登記。
+    申請件数一件につき六千円。 -/
+def viclpLiquidatorOtherFee : Money := 6_000
+
+/-- 二十八（二）ハ 清算結了の登記。申請件数一件につき二千円。 -/
+def viclpLiquidationCompletionFee : Money := 2_000
+
+/-- 二十八（二）ニ 登記の更正の登記又は登記の抹消申請件数。
+    申請件数一件につき六千円。 -/
+def viclpLiquidatorCorrectionErasureFee : Money := 6_000
+
+/-- 二十八の二（一） 信託法第二百三十二条の限定責任信託の定めの登記。
+    申請件数一件につき三万円。 -/
+def limitLiabilityTrustProvisionFee : Money := 30_000
+
+/-- 二十八の二（二） 信託法第二百三十三条第一項の規定による
+    新事務処理地においてする同法第二百三十二条各号に掲げる事項の登記。
+    申請件数一件につき一万五千円。 -/
+def limitLiabilityTrustNewDomicileFee : Money := 15_000
+
+/-- 二十八の二（三） （一）、（二）及び（四）から（六）までに掲げる登記以外の登記。
+    申請件数一件につき一万五千円。 -/
+def limitLiabilityTrustOtherRegistrationFee : Money := 15_000
+
+/-- 二十八の二（四） 登記の更正の登記（（六）ニに掲げる登記を除く。）。
+    申請件数一件につき一万円。 -/
+def limitLiabilityTrustCorrectionFee : Money := 10_000
+
+/-- 二十八の二（五） 登記の抹消（（六）ニに掲げる登記を除く。）。
+    申請件数一件につき一万円。 -/
+def limitLiabilityTrustErasureFee : Money := 10_000
+
+/-- 二十八の二（六）イ 清算受託者の登記。申請件数一件につき六千円。 -/
+def limitLiabilityTrustLiquidatorRegistrationFee : Money := 6_000
+
+/-- 二十八の二（六）ロ イ、ハ及びニに掲げる登記以外の登記。
+    申請件数一件につき六千円。 -/
+def limitLiabilityTrustLiquidatorOtherFee : Money := 6_000
+
+/-- 二十八の二（六）ハ 清算結了の登記。申請件数一件につき二千円。 -/
+def limitLiabilityTrustLiquidationCompletionFee : Money := 2_000
+
+/-- 二十八の二（六）ニ 登記の更正の登記又は登記の抹消申請件数。
+    申請件数一件につき六千円。 -/
+def limitLiabilityTrustLiquidatorCorrectionErasureFee : Money := 6_000
+
+theorem viclpContractEffectivenessFee_pos : viclpContractEffectivenessFee > 0 := by decide
+theorem viclpOtherRegistrationFee_pos : viclpOtherRegistrationFee > 0 := by decide
+theorem viclpCorrectionFee_pos : viclpCorrectionFee > 0 := by decide
+theorem viclpErasureFee_pos : viclpErasureFee > 0 := by decide
+theorem viclpLiquidatorRegistrationFee_pos : viclpLiquidatorRegistrationFee > 0 := by decide
+theorem viclpLiquidatorOtherFee_pos : viclpLiquidatorOtherFee > 0 := by decide
+theorem viclpLiquidationCompletionFee_pos : viclpLiquidationCompletionFee > 0 := by decide
+theorem viclpLiquidatorCorrectionErasureFee_pos : viclpLiquidatorCorrectionErasureFee > 0 := by decide
+theorem limitLiabilityTrustProvisionFee_pos : limitLiabilityTrustProvisionFee > 0 := by decide
+theorem limitLiabilityTrustNewDomicileFee_pos : limitLiabilityTrustNewDomicileFee > 0 := by decide
+theorem limitLiabilityTrustOtherRegistrationFee_pos : limitLiabilityTrustOtherRegistrationFee > 0 := by decide
+theorem limitLiabilityTrustCorrectionFee_pos : limitLiabilityTrustCorrectionFee > 0 := by decide
+theorem limitLiabilityTrustErasureFee_pos : limitLiabilityTrustErasureFee > 0 := by decide
+theorem limitLiabilityTrustLiquidatorRegistrationFee_pos : limitLiabilityTrustLiquidatorRegistrationFee > 0 := by decide
+theorem limitLiabilityTrustLiquidatorOtherFee_pos : limitLiabilityTrustLiquidatorOtherFee > 0 := by decide
+theorem limitLiabilityTrustLiquidationCompletionFee_pos : limitLiabilityTrustLiquidationCompletionFee > 0 := by decide
+theorem limitLiabilityTrustLiquidatorCorrectionErasureFee_pos : limitLiabilityTrustLiquidatorCorrectionErasureFee > 0 := by decide
+
+example : viclpContractEffectivenessFee = 30_000 := by decide
+example : viclpOtherRegistrationFee = 15_000 := by decide
+example : viclpCorrectionFee = 10_000 := by decide
+example : viclpErasureFee = 10_000 := by decide
+example : viclpLiquidatorRegistrationFee = 6_000 := by decide
+example : viclpLiquidatorOtherFee = 6_000 := by decide
+example : viclpLiquidationCompletionFee = 2_000 := by decide
+example : viclpLiquidatorCorrectionErasureFee = 6_000 := by decide
+example : limitLiabilityTrustProvisionFee = 30_000 := by decide
+example : limitLiabilityTrustNewDomicileFee = 15_000 := by decide
+example : limitLiabilityTrustOtherRegistrationFee = 15_000 := by decide
+example : limitLiabilityTrustCorrectionFee = 10_000 := by decide
+example : limitLiabilityTrustErasureFee = 10_000 := by decide
+example : limitLiabilityTrustLiquidatorRegistrationFee = 6_000 := by decide
+example : limitLiabilityTrustLiquidatorOtherFee = 6_000 := by decide
+example : limitLiabilityTrustLiquidationCompletionFee = 2_000 := by decide
+example : limitLiabilityTrustLiquidatorCorrectionErasureFee = 6_000 := by decide
+
 /-- art. 19 は別表第一の欄の最低下限（¥30,000/60,000/150,000）によって上書きされるため
     ここで独立モデル化しない。 -/
 

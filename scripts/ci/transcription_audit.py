@@ -331,7 +331,15 @@ def checks():
             "　登記の抹消申請件数一件につき二万円",
             "　清算人の登記申請件数一件につき六千円",
             "　イ、ハ及びニに掲げる登記以外の登記申請件数一件につき六千円",
-            "　清算結了の登記申請件数一件につき二千円"])
+            "　清算結了の登記申請件数一件につき二千円",
+            "　投資事業有限責任組合契約の登記（一）　投資事業有限責任組合契約に関する法律（平成十年法律第九十号）第三条第一項（投資事業有限責任組合契約）に規定する投資事業有限責任組合契約",
+            "　組合契約の効力の発生の登記申請件数一件につき三万円",
+            "　イ、ハ及びニに掲げる登記以外の登記申請件数一件につき一万五千円",
+            "　限定責任信託の登記（一）　信託法（平成十八年法律第百八号）第二百三十二条（限定責任信託の定めの登記）の限定責任信託の定めの登記申請件数一件につき三万円",
+            "　信託法第二百三十三条第一項（変更の登記）の規定による新事務処理地においてする同法第二百三十二条各号に掲げる事項の登記申請件数一件につき一万五千円",
+            "（一）、（二）及び（四）から（六）までに掲げる登記以外の登記申請件数一件につき一万五千円",
+            "（六）ニに掲げる登記を除く。）申請件数一件につき一万円",
+            "　清算受託者の登記申請件数一件につき六千円"])
 
     # 地方税法 art. 34 — LocalIncomeTax.lean (basicDeduction, spouseDeduction, disabilityDeduction, widowDeduction, singleParentDeduction, medicalExpenseDeduction, specificDependentDeduction)
     yield ("地方税法 art. 34(2)/(1)二号/六号/八号/八の二/十号/十二号（道府県民税 基礎控除・医療費控除・障害者控除・寡婦控除・ひとり親控除・配偶者控除・特定親族特別控除）↔ LocalIncomeTax.lean",
@@ -387,7 +395,7 @@ def main() -> int:
         "LocalExemption.lean / LocalPrivilege.lean / LocalObligor.lean（賦課方式の税額算定 literal なし／定義分類器）",
         "KanzeiGoods.lean（関税法 art. 2 の物品定義分類器・税率 literal なし／cross_law の pin のみ）",
         "RegistrationTax.lean の未採用帯域（仮登記・分離の登記等）の literal のうち未検査のもの",
-        "RegistrationCommercialTaxTable.lean の未採用帯域（二十七：組合契約の清算はモデル化済み・二十八以降： 投資事業有限責任組合契約／二十八の二： 限定責任信託／二十八の三： 損害保険契約に係る登記 等）",
+        "RegistrationCommercialTaxTable.lean の未採用帯域（二十九：個人の商業登記〜以降： 船舶管理人／夫婦財産契約等の非会社登記 数百点／三十二〜百六十： 資格者登記等 数百点 など）",
         "ConsumptionTaxRate.lean の次のアンカー外（art. 29(2)／art. 28 課税標準・art. 30 仕入税額控除 等）— モデル未採用かつ未検査",
         "InheritanceSurcharge.lean art. 17 の相続税額算出（相続税法 art. 17 には literal がない・割合計算のみ。InheritanceApportionment.lean としてモデル化済み・literal 監査対象外）",
         "ListedDividendWithholding.lean の art. 9の3の二(1) 第一号〜六号 のカテゴリ定義・基准日の政令規定／第三項各号の暫定外国税按分計算（art. 9の3 の 15% 読み替えパスと合わせて非モデル化・caller-established）",

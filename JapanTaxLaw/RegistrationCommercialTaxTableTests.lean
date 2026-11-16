@@ -123,6 +123,26 @@ example : llpLiquidatorOtherFee = 6_000 := by decide
 example : llpLiquidationCompletionFee = 2_000 := by decide
 example : llpLiquidatorCorrectionErasureFee = 6_000 := by decide
 
+-- 二十八（一）イ〜ニ / （二）イ〜ニ: 投資事業有限責任組合契約の登記
+example : viclpContractEffectivenessFee = 30_000 := by decide
+example : viclpOtherRegistrationFee = 15_000 := by decide
+example : viclpCorrectionFee = 10_000 := by decide
+example : viclpErasureFee = 10_000 := by decide
+example : viclpLiquidatorRegistrationFee = 6_000 := by decide
+example : viclpLiquidatorOtherFee = 6_000 := by decide
+example : viclpLiquidationCompletionFee = 2_000 := by decide
+example : viclpLiquidatorCorrectionErasureFee = 6_000 := by decide
+-- 二十八の二（一）〜（六）: 限定責任信託の登記
+example : limitLiabilityTrustProvisionFee = 30_000 := by decide
+example : limitLiabilityTrustNewDomicileFee = 15_000 := by decide
+example : limitLiabilityTrustOtherRegistrationFee = 15_000 := by decide
+example : limitLiabilityTrustCorrectionFee = 10_000 := by decide
+example : limitLiabilityTrustErasureFee = 10_000 := by decide
+example : limitLiabilityTrustLiquidatorRegistrationFee = 6_000 := by decide
+example : limitLiabilityTrustLiquidatorOtherFee = 6_000 := by decide
+example : limitLiabilityTrustLiquidationCompletionFee = 2_000 := by decide
+example : limitLiabilityTrustLiquidatorCorrectionErasureFee = 6_000 := by decide
+
 -- 千分の一・五と千分の七の単位比較
 example : commercial24LowMilleRate.applyFloor 1_000_000_000 = 1_500_000 := by decide
 example : commercial24DefaultMilleRate.applyFloor 1_000_000_000 = 7_000_000 := by decide
