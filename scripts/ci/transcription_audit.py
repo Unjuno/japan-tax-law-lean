@@ -162,6 +162,14 @@ def checks():
             "一億六千万円",
             "ロ当該相続又は遺贈により財産を取得した配偶者に係る相続税の課税価格に相当する金額"])
 
+    # 租税特別措置法 art. 9の3の二 — ListedDividendWithholding.lean (listedDividendRate, withholdingBase, withholdingNet)
+    yield ("租税特別措置法 art. 9の3の二（上場株式等の配当等に係る源泉徴収義務等の特例: 百分の十五（大口株主等については百分の二十）／控除対象額は所得税の額を限度とする）↔ ListedDividendWithholding.lean (listedDividendRate, withholdingGross, withholdingDeduction, withholdingNet)",
+           "332AC0000000026",
+           "article", "第九条の三の二",
+           ["その交付をする金額（第三項の規定により控除する同項各号に定める金額がある場合には、当該金額その他の政令で定める金額を加算した金額）",
+            "に百分の十五（第一号に掲げる配当等でその配当等の支払をする内国法人に係る大口株主等に対し交付をするものについては、百分の二十）の税率を乗じて計算した金額の所得税を徴収し",
+            "当該各号に定める金額は、同項の規定により徴収して納付すべき当該上場株式等の配当等に係る所得税の額を限度として当該所得税の額から控除する"])
+
     # 租税特別措置法 art. 31の3 — ResidentialTransferSpecialTax.lean (residentialGainTax)
     yield ("租税特別措置法 art. 31の3（居住用財産を譲渡した場合の長期譲渡所得の課税の特例: ¥60,000,000 以下で百分の十／超で ¥6,000,000 + 百分の十五）↔ ResidentialTransferSpecialTax.lean (residentialGainTax, residentialBoundary)",
            "332AC0000000026",
@@ -352,6 +360,7 @@ def main() -> int:
         "RegistrationCommercialTaxTable.lean の未採用帯域（タ以降： 職務執行の停止等／レ：解散の登記／ソ：継続・回復の登記／ツ：登記事項の変更・消滅・廃止／ネ：登記の更正 等）",
         "ConsumptionTaxRate.lean の次のアンカー外（art. 29(2)／art. 28 課税標準・art. 30 仕入税額控除 等）— モデル未採用かつ未検査",
         "InheritanceSurcharge.lean art. 17 の相続税額算出（相続税法 art. 17 には literal がない・割合計算のみ。InheritanceApportionment.lean としてモデル化済み・literal 監査対象外）",
+        "ListedDividendWithholding.lean の art. 9の3の二(1) 第一号〜六号 のカテゴリ定義・基准日の政令規定／第三項各号の暫定外国税按分計算（art. 9の3 の 15% 読み替えパスと合わせて非モデル化・caller-established）",
         "StampDuty.art. 20 の集計・floor にまつわる全 detail（文言は covered・ロジックは未検査）",
         "CounterexampleSweep-covered impls (already subject to L6, not pinned-literal audit)",
         "all L3 actor/definition modules (no rate/amount literals to transcribe)",

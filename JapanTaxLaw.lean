@@ -137,3 +137,7 @@ import JapanTaxLaw.ResidentialTransferSpecialTaxSpec
 import JapanTaxLaw.ResidentialTransferSpecialTaxTests
 
 import JapanTaxLaw.SpecialGiftRateDomination
+
+import JapanTaxLaw.ListedDividendWithholding
+import JapanTaxLaw.ListedDividendWithholdingSpec
+import JapanTaxLaw.ListedDividendWithholdingTests
