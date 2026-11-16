@@ -145,3 +145,7 @@ import JapanTaxLaw.ListedDividendWithholdingTests
 import JapanTaxLaw.CorporateLossCarryforward
 import JapanTaxLaw.CorporateLossCarryforwardSpec
 import JapanTaxLaw.CorporateLossCarryforwardTests
+
+import JapanTaxLaw.LocalInsuranceDeduction
+import JapanTaxLaw.LocalInsuranceDeductionSpec
+import JapanTaxLaw.LocalInsuranceDeductionTests
