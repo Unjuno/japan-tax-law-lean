@@ -141,3 +141,7 @@ import JapanTaxLaw.SpecialGiftRateDomination
 import JapanTaxLaw.ListedDividendWithholding
 import JapanTaxLaw.ListedDividendWithholdingSpec
 import JapanTaxLaw.ListedDividendWithholdingTests
+
+import JapanTaxLaw.CorporateLossCarryforward
+import JapanTaxLaw.CorporateLossCarryforwardSpec
+import JapanTaxLaw.CorporateLossCarryforwardTests
