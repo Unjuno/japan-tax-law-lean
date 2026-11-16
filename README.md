@@ -401,6 +401,12 @@ JapanTaxLaw/RegistrationQualificationFeesP6ITests.lean   # 同上 退行テス�
 JapanTaxLaw/RegistrationQualificationFeesP6J.lean        # 登録免許税法 別表第三十二号 百二十五〜百二十九（船舶製造工事認定・海洋汚染防止・船舶保安・再資源化・船舶運航事業）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP6JSpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP6JTests.lean   # 同上 退行テスト
+JapanTaxLaw/RegistrationQualificationFeesP7K.lean        # 登録免許税法 別表第三十二号 百三十〜百三十四（船舶安全法認定・海洋汚染防止・船舶保安・船舶運航・港湾運送）flat fee L4 モデル
+JapanTaxLaw/RegistrationQualificationFeesP7KSpec.lean    # 同上 独立定式
+JapanTaxLaw/RegistrationQualificationFeesP7KTests.lean   # 同上 退行テスト
+JapanTaxLaw/RegistrationQualificationFeesP7L.lean        # 登録免許税法 別表第三十二号 百三十五〜百三十九（内航海運・船舶職員・船員派遣・航空法許可・無人航空機・貨物利用運送）flat fee L4 モデル
+JapanTaxLaw/RegistrationQualificationFeesP7LSpec.lean    # 同上 独立定式
+JapanTaxLaw/RegistrationQualificationFeesP7LTests.lean   # 同上 退行テスト
 JapanTaxLaw/CounterexampleSweep.lean  # L6: マージ済み L4 全モデル × Spec の有限領域反例バウンド検査（decide）
 JapanTaxLaw/TaxProcedure.lean      # 国税通則法 第2条第10号（強制換価手続）
 JapanTaxLaw/TaxProcedureSpec.lean  # Act art.2(10) の独立仕様・健全性・整合性定理
