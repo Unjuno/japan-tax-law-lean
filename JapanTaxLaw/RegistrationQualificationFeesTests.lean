@@ -127,5 +127,14 @@ example : creditCooperativeElectronicPaymentBusinessOperatorRegistrationFee = 15
 example : electronicPaymentBusinessAssociationLicenseFee = 150_000 := by decide
 example : creditDepositoryAssociationElectronicPaymentBusinessAssociationLicenseFee = 150_000 := by decide
 example : creditCooperativeElectronicPaymentBusinessAssociationLicenseFee = 150_000 := by decide
+-- 三十六の三（一）〜（八） 電子決済等代行業者 ¥90,000／代行協会 ¥150,000（¥90,000／¥150,000 固定）
+example : electronicPaymentProxyBusinessOperatorRegistrationFee = 90_000 := by decide
+example : creditDepositoryAssociationElectronicPaymentProxyBusinessOperatorRegistrationFee = 90_000 := by decide
+example : laborBankElectronicPaymentProxyBusinessOperatorRegistrationFee = 90_000 := by decide
+example : creditCooperativeElectronicPaymentProxyBusinessOperatorRegistrationFee = 90_000 := by decide
+example : electronicPaymentProxyBusinessAssociationLicenseFee = 150_000 := by decide
+example : creditDepositoryAssociationElectronicPaymentProxyBusinessAssociationLicenseFee = 150_000 := by decide
+example : laborBankElectronicPaymentProxyBusinessAssociationLicenseFee = 150_000 := by decide
+example : creditCooperativeElectronicPaymentProxyBusinessAssociationLicenseFee = 150_000 := by decide
 
 end JapanTaxLaw
