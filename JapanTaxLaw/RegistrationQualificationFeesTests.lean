@@ -136,5 +136,14 @@ example : electronicPaymentProxyBusinessAssociationLicenseFee = 150_000 := by de
 example : creditDepositoryAssociationElectronicPaymentProxyBusinessAssociationLicenseFee = 150_000 := by decide
 example : laborBankElectronicPaymentProxyBusinessAssociationLicenseFee = 150_000 := by decide
 example : creditCooperativeElectronicPaymentProxyBusinessAssociationLicenseFee = 150_000 := by decide
+-- 三十七（一）〜（七） 保険業の新規免許・少額短期保険業者の登録・特定保険業の認可・保険仲立人の登録（¥150,000／¥90,000／¥150,000／¥90,000固定）
+example : insuranceBusinessLicenseFee = 150_000 := by decide
+example : smallShortTermInsuranceBusinessOperatorRegistrationFee = 150_000 := by decide
+example : specialInsuranceBusinessLicenseFee = 150_000 := by decide
+example : insuranceBrokerRegistrationFee = 90_000 := by decide
+-- 三十七（五）〜（七） 特定保険募集人（¥15,000）・保険金信託業務の認可（¥150,000）・保険持株会社（¥150,000）
+example : specialInsuranceSolicitorRegistrationFee = 15_000 := by decide
+example : insuranceClaimsTrustBusinessLicenseFee = 150_000 := by decide
+example : insuranceHoldingCompanyLicenseFee = 150_000 := by decide
 
 end JapanTaxLaw

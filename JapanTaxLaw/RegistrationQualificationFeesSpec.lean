@@ -227,6 +227,28 @@ def specLaborBankElectronicPaymentProxyBusinessAssociationLicenseFee : Money := 
 /-- Spec: 三十六の三（八） 認定信用協同組合電子決済等代行事業者協会の認定。 -/
 def specCreditCooperativeElectronicPaymentProxyBusinessAssociationLicenseFee : Money := 150_000
 
+/-- Spec: 三十七（一） 保険業の新規免許。 -/
+def specInsuranceBusinessLicenseFee : Money := 150_000
+/-- Spec: 三十七（二） 少額短期保険業者の登録。 -/
+def specSmallShortTermInsuranceBusinessOperatorRegistrationFee : Money := 150_000
+/-- Spec: 三十七（三） 特定保険業の認可。 -/
+def specSpecialInsuranceBusinessLicenseFee : Money := 150_000
+/-- Spec: 三十七（四） 保険仲立人の登録。 -/
+def specInsuranceBrokerRegistrationFee : Money := 90_000
+/-- Spec: 三十七（五） 特定保険募集人の登録。 -/
+def specSpecialInsuranceSolicitorRegistrationFee : Money := 15_000
+/-- Spec: 三十七（六） 保険金信託業務の認可。 -/
+def specInsuranceClaimsTrustBusinessLicenseFee : Money := 150_000
+/-- Spec: 三十七（七） 保険持株会社に係る認可。 -/
+def specInsuranceHoldingCompanyLicenseFee : Money := 150_000
+
+example : specInsuranceBusinessLicenseFee = 150_000 := by decide
+example : specSmallShortTermInsuranceBusinessOperatorRegistrationFee = 150_000 := by decide
+example : specSpecialInsuranceBusinessLicenseFee = 150_000 := by decide
+example : specInsuranceBrokerRegistrationFee = 90_000 := by decide
+example : specSpecialInsuranceSolicitorRegistrationFee = 15_000 := by decide
+example : specInsuranceClaimsTrustBusinessLicenseFee = 150_000 := by decide
+example : specInsuranceHoldingCompanyLicenseFee = 150_000 := by decide
 example : specElectronicPaymentProxyBusinessOperatorRegistrationFee = 90_000 := by decide
 example : specCreditDepositoryAssociationElectronicPaymentProxyBusinessOperatorRegistrationFee = 90_000 := by decide
 example : specLaborBankElectronicPaymentProxyBusinessOperatorRegistrationFee = 90_000 := by decide
@@ -424,7 +446,14 @@ def agreeRegistrationQualificationFees : Bool :=
     specElectronicPaymentProxyBusinessAssociationLicenseFee == electronicPaymentProxyBusinessAssociationLicenseFee &&
     specCreditDepositoryAssociationElectronicPaymentProxyBusinessAssociationLicenseFee == creditDepositoryAssociationElectronicPaymentProxyBusinessAssociationLicenseFee &&
     specLaborBankElectronicPaymentProxyBusinessAssociationLicenseFee == laborBankElectronicPaymentProxyBusinessAssociationLicenseFee &&
-    specCreditCooperativeElectronicPaymentProxyBusinessAssociationLicenseFee == creditCooperativeElectronicPaymentProxyBusinessAssociationLicenseFee
+    specCreditCooperativeElectronicPaymentProxyBusinessAssociationLicenseFee == creditCooperativeElectronicPaymentProxyBusinessAssociationLicenseFee &&
+    specInsuranceBusinessLicenseFee == insuranceBusinessLicenseFee &&
+    specSmallShortTermInsuranceBusinessOperatorRegistrationFee == smallShortTermInsuranceBusinessOperatorRegistrationFee &&
+    specSpecialInsuranceBusinessLicenseFee == specialInsuranceBusinessLicenseFee &&
+    specInsuranceBrokerRegistrationFee == insuranceBrokerRegistrationFee &&
+    specSpecialInsuranceSolicitorRegistrationFee == specialInsuranceSolicitorRegistrationFee &&
+    specInsuranceClaimsTrustBusinessLicenseFee == insuranceClaimsTrustBusinessLicenseFee &&
+    specInsuranceHoldingCompanyLicenseFee == insuranceHoldingCompanyLicenseFee
 
 example : agreeRegistrationQualificationFees = true := by decide
 
