@@ -323,6 +323,48 @@ def creditDepositoryAssociationElectronicPaymentProxyBusinessAssociationLicenseF
 /-- 三十六の三（七） 労働金庫法第八十九条の十（認定労働金庫電子決済等代行事業者協会の認定）の認定労働金庫電子決済等代行事業者協会の認定につきの額（固定 ¥150,000）。 -/
 def laborBankElectronicPaymentProxyBusinessAssociationLicenseFee : Money := 150_000
 
+/-- 三十七（一） 保険業法第三条第一項（免許）、第百八十五条第一項（免許）又は第二百十九条第一項（免許）の
+    規定による保険業の新規免許につきの額（固定 ¥150,000）。 -/
+def insuranceBusinessLicenseFee : Money := 150_000
+
+/-- 三十七（二） 保険業法第二百七十二条第一項（登録）の少額短期保険業者の登録につきの額（固定 ¥150,000）。 -/
+def smallShortTermInsuranceBusinessOperatorRegistrationFee : Money := 150_000
+
+/-- 三十七（三） 保険業法等の一部を改正する法律（平成十七年法律第三十八号）附則第二条第一項
+    （特定保険業を行つていた一般社団法人等に関する特例）の特定保険業の認可につきの額（固定 ¥150,000）。 -/
+def specialInsuranceBusinessLicenseFee : Money := 150_000
+
+/-- 三十七（四） 保険業法第二百八十六条（登録）の保険仲立人の登録につきの額（固定 ¥90,000）。 -/
+def insuranceBrokerRegistrationFee : Money := 90_000
+
+/-- 三十七（五） 保険業法第二百七十六条の特定保険募集人の登録（同法第二条第二十四項に規定する所属保険会社等からの委託又は
+    同法第二百七十五条第三項に規定する保険募集再委託者からの再委託（一時的な必要に基づき期限を付して行われる委託又は
+    再委託で財務省令で定めるものを除く。）を受けた者に係るものに限る。）につきの額（固定 ¥15,000）。 -/
+def specialInsuranceSolicitorRegistrationFee : Money := 15_000
+
+/-- 三十七（六） 保険業法第九十九条第七項（業務の範囲等）の保険金信託業務の認可につきの額（固定 ¥150,000）。 -/
+def insuranceClaimsTrustBusinessLicenseFee : Money := 150_000
+
+/-- 三十七（七） 保険業法第二百七十一条の十八第一項又は第三項ただし書（保険持株会社に係る認可等）の認可につきの額（固定 ¥150,000）。 -/
+def insuranceHoldingCompanyLicenseFee : Money := 150_000
+
+theorem insuranceBusinessLicenseFee_pos : insuranceBusinessLicenseFee > 0 := by decide
+theorem smallShortTermInsuranceBusinessOperatorRegistrationFee_pos :
+    smallShortTermInsuranceBusinessOperatorRegistrationFee > 0 := by decide
+theorem specialInsuranceBusinessLicenseFee_pos : specialInsuranceBusinessLicenseFee > 0 := by decide
+theorem insuranceBrokerRegistrationFee_pos : insuranceBrokerRegistrationFee > 0 := by decide
+theorem specialInsuranceSolicitorRegistrationFee_pos : specialInsuranceSolicitorRegistrationFee > 0 := by decide
+theorem insuranceClaimsTrustBusinessLicenseFee_pos : insuranceClaimsTrustBusinessLicenseFee > 0 := by decide
+theorem insuranceHoldingCompanyLicenseFee_pos : insuranceHoldingCompanyLicenseFee > 0 := by decide
+
+example : insuranceBusinessLicenseFee = 150_000 := by decide
+example : smallShortTermInsuranceBusinessOperatorRegistrationFee = 150_000 := by decide
+example : specialInsuranceBusinessLicenseFee = 150_000 := by decide
+example : insuranceBrokerRegistrationFee = 90_000 := by decide
+example : specialInsuranceSolicitorRegistrationFee = 15_000 := by decide
+example : insuranceClaimsTrustBusinessLicenseFee = 150_000 := by decide
+example : insuranceHoldingCompanyLicenseFee = 150_000 := by decide
+
 /-- 三十六の三（八） 協同組合による金融事業に関する法律第六条の五の七（認定信用協同組合電子決済等代行事業者協会の認定）の認定信用協同組合電子決済等代行事業者協会の認定につきの額（固定 ¥150,000）。 -/
 def creditCooperativeElectronicPaymentProxyBusinessAssociationLicenseFee : Money := 150_000
 
