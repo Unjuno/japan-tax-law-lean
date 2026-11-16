@@ -135,3 +135,5 @@ import JapanTaxLaw.InheritanceApportionmentTests
 import JapanTaxLaw.ResidentialTransferSpecialTax
 import JapanTaxLaw.ResidentialTransferSpecialTaxSpec
 import JapanTaxLaw.ResidentialTransferSpecialTaxTests
+
+import JapanTaxLaw.SpecialGiftRateDomination
