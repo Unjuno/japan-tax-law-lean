@@ -60,6 +60,53 @@ def specHealthNurseEtcRegistrationFee : Money := 9_000
 /-- Spec: (九）ロ 登録事項の変更の登録。 -/
 def specRegistrationModificationFee : Money := 1_000
 
+/-- Spec: (十）イ 歯科衛生士の登録。 -/
+def specDentalHygienistRegistrationFee : Money := 9_000
+/-- Spec: (十の二）イ 歯科技工士の登録。 -/
+def specDentalTechnicianRegistrationFee : Money := 9_000
+/-- Spec: (十一）イ 救急救命士の登録。 -/
+def specEmergencyMedicalTechnicianRegistrationFee : Money := 9_000
+/-- Spec: (十二）イ 言語聴覚士の登録。 -/
+def specSpeechLanguageHearingTherapistRegistrationFee : Money := 9_000
+/-- Spec: (十三）イ あん摩マツサージ指圧師、はり師、きゆう師の登録。 -/
+def specAnmaMassageShiatsuPractitionerRegistrationFee : Money := 9_000
+/-- Spec: (十四）イ 柔道整復師の登録。 -/
+def specJudoTherapistRegistrationFee : Money := 9_000
+/-- Spec: (十五） 管理栄養士の登録。 -/
+def specDieticianRegistrationFee : Money := 15_000
+/-- Spec: (十六）イ 理容師の登録。 -/
+def specBarberRegistrationFee : Money := 9_000
+/-- Spec: (十七）イ 美容師の登録。 -/
+def specHairdresserRegistrationFee : Money := 9_000
+/-- Spec: (十八）イ 社会福祉士の登録。 -/
+def specSocialWorkerRegistrationFee : Money := 15_000
+/-- Spec: (十八）ロ 介護福祉士又は准介護福祉士の登録。 -/
+def specCareWorkerRegistrationFee : Money := 9_000
+/-- Spec: (十九） 精神保健福祉士の登録。 -/
+def specMentalHealthWorkerRegistrationFee : Money := 15_000
+/-- Spec: (二十）イ 獣医師の登録。 -/
+def specVeterinarianRegistrationFee : Money := 30_000
+/-- Spec: (二十）ロ 獣医師仮免状の所有者の登録。 -/
+def specProvisionalVeterinarianRegistrationFee : Money := 9_000
+/-- Spec: (二十の二）イ 愛玩動物看護師の登録。 -/
+def specPetAnimalNurseRegistrationFee : Money := 9_000
+
+example : specDentalHygienistRegistrationFee = 9_000 := by decide
+example : specDentalTechnicianRegistrationFee = 9_000 := by decide
+example : specEmergencyMedicalTechnicianRegistrationFee = 9_000 := by decide
+example : specSpeechLanguageHearingTherapistRegistrationFee = 9_000 := by decide
+example : specAnmaMassageShiatsuPractitionerRegistrationFee = 9_000 := by decide
+example : specJudoTherapistRegistrationFee = 9_000 := by decide
+example : specDieticianRegistrationFee = 15_000 := by decide
+example : specBarberRegistrationFee = 9_000 := by decide
+example : specHairdresserRegistrationFee = 9_000 := by decide
+example : specSocialWorkerRegistrationFee = 15_000 := by decide
+example : specCareWorkerRegistrationFee = 9_000 := by decide
+example : specMentalHealthWorkerRegistrationFee = 15_000 := by decide
+example : specVeterinarianRegistrationFee = 30_000 := by decide
+example : specProvisionalVeterinarianRegistrationFee = 9_000 := by decide
+example : specPetAnimalNurseRegistrationFee = 9_000 := by decide
+
 example : specCertifiedPublicAccountantRegistrationFee = 60_000 := by decide
 example : specForeignCertifiedPublicAccountantRegistrationFee = 60_000 := by decide
 example : specAdministrativeScrivenerRegistrationFee = 30_000 := by decide
@@ -98,7 +145,22 @@ def agreeRegistrationQualificationFees : Bool :=
     specPhysicianDentistRegistrationFee == physicianDentistRegistrationFee &&
     specPharmacistRegistrationFee == pharmacistRegistrationFee &&
     specHealthNurseEtcRegistrationFee == healthNurseEtcRegistrationFee &&
-    specRegistrationModificationFee == registrationModificationFee
+    specRegistrationModificationFee == registrationModificationFee &&
+    specDentalHygienistRegistrationFee == dentalHygienistRegistrationFee &&
+    specDentalTechnicianRegistrationFee == dentalTechnicianRegistrationFee &&
+    specEmergencyMedicalTechnicianRegistrationFee == emergencyMedicalTechnicianRegistrationFee &&
+    specSpeechLanguageHearingTherapistRegistrationFee == speechLanguageHearingTherapistRegistrationFee &&
+    specAnmaMassageShiatsuPractitionerRegistrationFee == anmaMassageShiatsuPractitionerRegistrationFee &&
+    specJudoTherapistRegistrationFee == judoTherapistRegistrationFee &&
+    specDieticianRegistrationFee == dieticianRegistrationFee &&
+    specBarberRegistrationFee == barberRegistrationFee &&
+    specHairdresserRegistrationFee == hairdresserRegistrationFee &&
+    specSocialWorkerRegistrationFee == socialWorkerRegistrationFee &&
+    specCareWorkerRegistrationFee == careWorkerRegistrationFee &&
+    specMentalHealthWorkerRegistrationFee == mentalHealthWorkerRegistrationFee &&
+    specVeterinarianRegistrationFee == veterinarianRegistrationFee &&
+    specProvisionalVeterinarianRegistrationFee == provisionalVeterinarianRegistrationFee &&
+    specPetAnimalNurseRegistrationFee == petAnimalNurseRegistrationFee
 
 example : agreeRegistrationQualificationFees = true := by decide
 

@@ -102,6 +102,84 @@ def pharmacistRegistrationFee : Money := 30_000
     臨床検査技師、視能訓練士、臨床工学技士又は義肢装具士の登録の件数につきの額（固定 ¥9,000）。 -/
 def healthNurseEtcRegistrationFee : Money := 9_000
 
+/-- （十）イ 歯科衛生士法第六条第一項（登録）の歯科衛生士の登録につきの額（固定 ¥9,000）。 -/
+def dentalHygienistRegistrationFee : Money := 9_000
+
+/-- （十の二）イ 歯科技工士法第六条第一項（登録）の歯科技工士の登録につきの額（固定 ¥9,000）。 -/
+def dentalTechnicianRegistrationFee : Money := 9_000
+
+/-- （十一）イ 救急救命士法第六条第一項（登録）の救急救命士の登録につきの額（固定 ¥9,000）。 -/
+def emergencyMedicalTechnicianRegistrationFee : Money := 9_000
+
+/-- （十二）イ 言語聴覚士法第六条第一項（登録）の言語聴覚士の登録につきの額（固定 ¥9,000）。 -/
+def speechLanguageHearingTherapistRegistrationFee : Money := 9_000
+
+/-- （十三）イ あん摩マツサージ指圧師、はり師、きゆう師等に関する法律第三条の三第一項（登録）の
+    あん摩マツサージ指圧師、はり師又はきゆう師の登録につきの額（固定 ¥9,000）。 -/
+def anmaMassageShiatsuPractitionerRegistrationFee : Money := 9_000
+
+/-- （十四）イ 柔道整復師法第六条第一項（登録）の柔道整復師の登録につきの額（固定 ¥9,000）。 -/
+def judoTherapistRegistrationFee : Money := 9_000
+
+/-- （十五） 栄養士法第四条第三項（登録）の管理栄養士の登録につきの額（固定 ¥15,000）。 -/
+def dieticianRegistrationFee : Money := 15_000
+
+/-- （十六）イ 理容師法第五条の二第一項（登録）の理容師の登録につきの額（固定 ¥9,000）。 -/
+def barberRegistrationFee : Money := 9_000
+
+/-- （十七）イ 美容師法第五条の二第一項（登録）の美容師の登録につきの額（固定 ¥9,000）。 -/
+def hairdresserRegistrationFee : Money := 9_000
+
+/-- （十八）イ 社会福祉士及び介護福祉士法第二十八条（登録）の社会福祉士の登録につきの額（固定 ¥15,000）。 -/
+def socialWorkerRegistrationFee : Money := 15_000
+
+/-- （十八）ロ 同法第四十二条第一項（登録）の介護福祉士の登録若しくは同法附則第四条第一項（登録）の
+    准介護福祉士の登録につきの額（固定 ¥9,000）。 -/
+def careWorkerRegistrationFee : Money := 9_000
+
+/-- （十九） 精神保健福祉士法第二十八条（登録）の精神保健福祉士の登録につきの額（固定 ¥15,000）。 -/
+def mentalHealthWorkerRegistrationFee : Money := 15_000
+
+/-- （二十）イ 獣医師法第七条第一項（登録）の獣医師の登録につきの額（固定 ¥30,000）。 -/
+def veterinarianRegistrationFee : Money := 30_000
+
+/-- （二十）ロ 獣医師法附則第十五項（獣医師法の準用）において準用する同法第七条第一項の獣医仮免状の所有者の登録につきの額（固定 ¥9,000）。 -/
+def provisionalVeterinarianRegistrationFee : Money := 9_000
+
+/-- （二十の二）イ 愛玩動物看護師法第六条第一項（登録）の愛玩動物看護師の登録につきの額（固定 ¥9,000）。 -/
+def petAnimalNurseRegistrationFee : Money := 9_000
+
+theorem dentalHygienistRegistrationFee_pos : dentalHygienistRegistrationFee > 0 := by decide
+theorem dentalTechnicianRegistrationFee_pos : dentalTechnicianRegistrationFee > 0 := by decide
+theorem emergencyMedicalTechnicianRegistrationFee_pos : emergencyMedicalTechnicianRegistrationFee > 0 := by decide
+theorem speechLanguageHearingTherapistRegistrationFee_pos : speechLanguageHearingTherapistRegistrationFee > 0 := by decide
+theorem anmaMassageShiatsuPractitionerRegistrationFee_pos : anmaMassageShiatsuPractitionerRegistrationFee > 0 := by decide
+theorem judoTherapistRegistrationFee_pos : judoTherapistRegistrationFee > 0 := by decide
+theorem dieticianRegistrationFee_pos : dieticianRegistrationFee > 0 := by decide
+theorem barberRegistrationFee_pos : barberRegistrationFee > 0 := by decide
+theorem hairdresserRegistrationFee_pos : hairdresserRegistrationFee > 0 := by decide
+theorem socialWorkerRegistrationFee_pos : socialWorkerRegistrationFee > 0 := by decide
+theorem careWorkerRegistrationFee_pos : careWorkerRegistrationFee > 0 := by decide
+theorem mentalHealthWorkerRegistrationFee_pos : mentalHealthWorkerRegistrationFee > 0 := by decide
+theorem veterinarianRegistrationFee_pos : veterinarianRegistrationFee > 0 := by decide
+theorem provisionalVeterinarianRegistrationFee_pos : provisionalVeterinarianRegistrationFee > 0 := by decide
+theorem petAnimalNurseRegistrationFee_pos : petAnimalNurseRegistrationFee > 0 := by decide
+example : dentalHygienistRegistrationFee = 9_000 := by decide
+example : dentalTechnicianRegistrationFee = 9_000 := by decide
+example : emergencyMedicalTechnicianRegistrationFee = 9_000 := by decide
+example : speechLanguageHearingTherapistRegistrationFee = 9_000 := by decide
+example : anmaMassageShiatsuPractitionerRegistrationFee = 9_000 := by decide
+example : judoTherapistRegistrationFee = 9_000 := by decide
+example : dieticianRegistrationFee = 15_000 := by decide
+example : barberRegistrationFee = 9_000 := by decide
+example : hairdresserRegistrationFee = 9_000 := by decide
+example : socialWorkerRegistrationFee = 15_000 := by decide
+example : careWorkerRegistrationFee = 9_000 := by decide
+example : mentalHealthWorkerRegistrationFee = 15_000 := by decide
+example : veterinarianRegistrationFee = 30_000 := by decide
+example : provisionalVeterinarianRegistrationFee = 9_000 := by decide
+example : petAnimalNurseRegistrationFee = 9_000 := by decide
+
 /-- （九）ロ イ（１）から（３）までに掲げる者に係る登録事項の変更の登録の件数につきの額（固定 ¥1,000）。 -/
 def registrationModificationFee : Money := 1_000
 
