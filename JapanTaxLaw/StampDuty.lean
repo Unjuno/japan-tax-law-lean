@@ -119,6 +119,106 @@ theorem stampAuditPenaltyFloor_ge_thousand (n : Money) :
 theorem stampDeclaredOnlyTotalsExcludeFloor_is_true :
     stampDeclaredOnlyTotalsExcludeFloor = true := rfl
 
+/-- art. 20(4)/(5) の複合的な floor の有無の判定と、
+    複合的な合計（第二項の過怠税を含む場合）の金額計算。
+
+    柱書:
+      「１第一項又は前項の場合において、過怠税の合計額が千円に満たないときは、これを千円とする。
+        ５前項に規定する過怠税の合計額が、第二項の規定の適用を受けた過怠税のみに係る合計額であるときは、
+          当該過怠税の合計額については、前項の規定の適用はないものとする。」
+
+    第五項の意味: 「過怠税の合計額」が「第二項の規定の適用を受けた過怠税のみ」であるときだけは
+    第四項（¥1,000 切り上げ）を適用しない。いかなる場合にも自己申告の過怠税だけである場合に限り
+    floor を除外する — いずれかの構成要素（§20(1) admin penalty 又は §20(3) un-cancelled penalty）が
+    存在すれば §20(4) の floor を合計額全体に適用する。 -/
+structure StampPenaltyFacts where
+  /-- §20(1) の行政による過怠税部分（未納付印紙税額 × 3）。 -/
+  auditPenalty : Money
+  /-- §20(3) の消印しなかった印紙税部分（未消印の印紙税額面の合計）。 -/
+  uncancelledPenalty : Money
+  /-- §20(2) の自己申告による過怠税部分（未納 + 未納×10%）。 -/
+  declaredPenalty : Money
+  deriving DecidableEq, Repr
+
+/-- art. 20(5): 「第二項の規定の適用を受けた過怠税のみに係る合計額であるときは」
+    — declaredPenalty 以外の構成要素が一つもないときだけ true。 -/
+def stampFloorExempt (f : StampPenaltyFacts) : Bool :=
+  f.auditPenalty = 0 && f.uncancelledPenalty = 0
+
+/-- art. 20(4)/(5): 複合的な合計の金額。
+    第五項の適用がある場合（§20(2) のみ）は raw 合計をそのまま。
+    それ以外は第四項に従って ¥1,000 未満なら ¥1,000 に切り上げる。 -/
+def stampAggregatePenalty (f : StampPenaltyFacts) : Money :=
+  let rawSum := f.auditPenalty + f.uncancelledPenalty + f.declaredPenalty
+  if stampFloorExempt f then rawSum else stampDutyFloor rawSum
+
+/-- §20(5) の除外は、非申告要素がゼロのときだけ true。 -/
+theorem stampFloorExempt_of_zero_other (f : StampPenaltyFacts)
+    (h1 : f.auditPenalty = 0) (h2 : f.uncancelledPenalty = 0) :
+    stampFloorExempt f = true := by
+  unfold stampFloorExempt
+  rw [h1, h2]
+  rfl
+
+/-- §20(5) の除外は、いずれかの非申告要素が正のときは必ず false。 -/
+theorem stampFloorExempt_not_of_positive_audit (f : StampPenaltyFacts)
+    (h1 : f.auditPenalty > 0) : stampFloorExempt f = false := by
+  unfold stampFloorExempt
+  simp [Nat.ne_of_gt h1]
+
+/-- §20(5) の除外は、非消印要素が正のときも必ず false。 -/
+theorem stampFloorExempt_not_of_positive_uncancelled (f : StampPenaltyFacts)
+    (h1 : f.uncancelledPenalty > 0) : stampFloorExempt f = false := by
+  unfold stampFloorExempt
+  simp [Nat.ne_of_gt h1]
+
+/-- §20(5) が適用される場合は raw 合計をそのまま（floor 非適用）。 -/
+theorem stampAggregatePenalty_declaredOnly (f : StampPenaltyFacts)
+    (h1 : f.auditPenalty = 0) (h2 : f.uncancelledPenalty = 0) :
+    stampAggregatePenalty f = f.declaredPenalty := by
+  unfold stampAggregatePenalty stampFloorExempt
+  simp [h1, h2]
+
+/-- §20(4) が適用される場合は ¥1,000 未満なら ¥1,000 に切り上げ。 -/
+theorem stampAggregatePenalty_floor_of_not_exempt (f : StampPenaltyFacts)
+    (h : stampFloorExempt f = false) :
+    stampAggregatePenalty f = stampDutyFloor
+      (f.auditPenalty + f.uncancelledPenalty + f.declaredPenalty) := by
+  unfold stampAggregatePenalty
+  simp [h]
+
+/-- §20(4)/(5) を適用するときの複合合計は ¥1,000 以上。 -/
+theorem stampAggregatePenalty_ge_thousand (f : StampPenaltyFacts)
+    (h : stampFloorExempt f = false) :
+    1_000 ≤ stampAggregatePenalty f := by
+  rw [stampAggregatePenalty_floor_of_not_exempt f h]
+  exact stampDutyFloor_ge_thousand _
+
+-- ==== kernel-decided smoke checks ====
+
+example : stampAggregatePenalty ⟨0, 0, 0⟩ = 0 := by decide
+-- declared-only excluded from floor
+example : stampAggregatePenalty ⟨0, 0, 500⟩ = 500 := by decide
+example : stampAggregatePenalty ⟨0, 0, 999⟩ = 999 := by decide
+example : stampAggregatePenalty ⟨0, 0, 1_000⟩ = 1_000 := by decide
+example : stampAggregatePenalty ⟨0, 0, 2_500⟩ = 2_500 := by decide
+-- uncancelled-only: floor applies even under ¥1,000
+example : stampAggregatePenalty ⟨0, 100, 0⟩ = 1_000 := by decide
+example : stampAggregatePenalty ⟨0, 999, 0⟩ = 1_000 := by decide
+example : stampAggregatePenalty ⟨0, 1_000, 0⟩ = 1_000 := by decide
+example : stampAggregatePenalty ⟨0, 5_000, 0⟩ = 5_000 := by decide
+-- audit-only
+example : stampAggregatePenalty ⟨100, 0, 0⟩ = 1_000 := by decide
+example : stampAggregatePenalty ⟨2_500, 0, 0⟩ = 2_500 := by decide
+-- mixed: floor applies on the whole aggregate even below ¥1,000
+example : stampAggregatePenalty ⟨300, 0, 100⟩ = 1_000 := by decide
+example : stampAggregatePenalty ⟨0, 100, 200⟩ = 1_000 := by decide
+example : stampAggregatePenalty ⟨300, 300, 300⟩ = 1_000 := by decide
+-- mixed above ¥1,000
+example : stampAggregatePenalty ⟨2_000, 100, 500⟩ = 2_600 := by decide
+-- declared + uncancelled, declared would be excluded alone but uncancelled forces floor
+example : stampAggregatePenalty ⟨0, 400, 400⟩ = 1_000 := by decide
+
 /-- Art. 20(1): the admin penalty equals three times the unpaid amount. -/
 theorem stampAuditPenalty_eq_three (n : Money) : stampAuditPenalty n = n * 3 := by
   unfold stampAuditPenalty

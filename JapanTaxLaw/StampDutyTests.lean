@@ -44,4 +44,22 @@ example : stampDeclaredOnlyTotalsExcludeFloor = true := by decide
 -- art. 20(3): uncancelled stamps -> face value
 example : stampUncancelledPenalty 300 = 300 := by decide
 
+-- art. 20(4)/(5): aggregate with §20(5) exemption
+example : stampAggregatePenalty ⟨0, 0, 0⟩ = 0 := by decide
+example : stampAggregatePenalty ⟨0, 0, 500⟩ = 500 := by decide
+example : stampAggregatePenalty ⟨0, 0, 999⟩ = 999 := by decide
+example : stampAggregatePenalty ⟨0, 0, 1_000⟩ = 1_000 := by decide
+example : stampAggregatePenalty ⟨0, 0, 2_500⟩ = 2_500 := by decide
+example : stampAggregatePenalty ⟨0, 100, 0⟩ = 1_000 := by decide
+example : stampAggregatePenalty ⟨0, 999, 0⟩ = 1_000 := by decide
+example : stampAggregatePenalty ⟨0, 1_000, 0⟩ = 1_000 := by decide
+example : stampAggregatePenalty ⟨0, 5_000, 0⟩ = 5_000 := by decide
+example : stampAggregatePenalty ⟨100, 0, 0⟩ = 1_000 := by decide
+example : stampAggregatePenalty ⟨2_500, 0, 0⟩ = 2_500 := by decide
+example : stampAggregatePenalty ⟨300, 0, 100⟩ = 1_000 := by decide
+example : stampAggregatePenalty ⟨0, 100, 200⟩ = 1_000 := by decide
+example : stampAggregatePenalty ⟨300, 300, 300⟩ = 1_000 := by decide
+example : stampAggregatePenalty ⟨2_000, 100, 500⟩ = 2_600 := by decide
+example : stampAggregatePenalty ⟨0, 400, 400⟩ = 1_000 := by decide
+
 end JapanTaxLaw
