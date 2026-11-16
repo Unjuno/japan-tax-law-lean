@@ -230,3 +230,6 @@ import JapanTaxLaw.ConsumptionTaxInputCreditTests
 import JapanTaxLaw.NonpaymentSurcharge
 import JapanTaxLaw.NonpaymentSurchargeSpec
 import JapanTaxLaw.NonpaymentSurchargeTests
+import JapanTaxLaw.UnreportedSurcharge
+import JapanTaxLaw.UnreportedSurchargeSpec
+import JapanTaxLaw.UnreportedSurchargeTests

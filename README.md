@@ -377,6 +377,9 @@ JapanTaxLaw/ConsumptionTaxInputCreditTests.lean     # 同上 退行テスト
 JapanTaxLaw/NonpaymentSurcharge.lean                # 国税通則法 art. 67（不納付加算税: 告知税額等×10%／調査予知でない納付×5%）L4 モデル
 JapanTaxLaw/NonpaymentSurchargeSpec.lean            # 同上 独立定式
 JapanTaxLaw/NonpaymentSurchargeTests.lean           # 同上 退行テスト
+JapanTaxLaw/UnreportedSurcharge.lean              # 国税通則法 art. 66（無申告加算税: 納付税額×15%／軽減10%／3項三段階 50万以下15%・50万超300万以下20%・300万超30%）L4 モデル
+JapanTaxLaw/UnreportedSurchargeSpec.lean          # 同上 独立定式
+JapanTaxLaw/UnreportedSurchargeTests.lean         # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト
