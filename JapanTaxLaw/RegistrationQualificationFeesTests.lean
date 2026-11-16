@@ -120,5 +120,12 @@ example : casinoBusinessLicenseFee = 150_000 := by decide
 example : casinoFacilityOperationBusinessLicenseFee = 150_000 := by decide
 example : casinoEquipmentManufacturingEtcBusinessLicenseFee = 150_000 := by decide
 example : casinoEquipmentForeignManufacturingLicenseFee = 150_000 := by decide
+-- 三十六の二（一）〜（六） 電子決済等取扱業者／協会 等の登録・認定（¥150,000 固定）
+example : electronicPaymentBusinessOperatorRegistrationFee = 150_000 := by decide
+example : creditDepositoryAssociationElectronicPaymentBusinessOperatorRegistrationFee = 150_000 := by decide
+example : creditCooperativeElectronicPaymentBusinessOperatorRegistrationFee = 150_000 := by decide
+example : electronicPaymentBusinessAssociationLicenseFee = 150_000 := by decide
+example : creditDepositoryAssociationElectronicPaymentBusinessAssociationLicenseFee = 150_000 := by decide
+example : creditCooperativeElectronicPaymentBusinessAssociationLicenseFee = 150_000 := by decide
 
 end JapanTaxLaw

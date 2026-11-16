@@ -197,6 +197,25 @@ def specCasinoEquipmentManufacturingEtcBusinessLicenseFee : Money := 150_000
 /-- Spec: 三十四の三（四） カジノ関連機器等外国製造業の認定。 -/
 def specCasinoEquipmentForeignManufacturingLicenseFee : Money := 150_000
 
+/-- Spec: 三十六の二（一） 電子決済等取扱業者の登録。 -/
+def specElectronicPaymentBusinessOperatorRegistrationFee : Money := 150_000
+/-- Spec: 三十六の二（二） 信用金庫電子決済等取扱業者の登録。 -/
+def specCreditDepositoryAssociationElectronicPaymentBusinessOperatorRegistrationFee : Money := 150_000
+/-- Spec: 三十六の二（三） 信用協同組合電子決済等取扱業者の登録。 -/
+def specCreditCooperativeElectronicPaymentBusinessOperatorRegistrationFee : Money := 150_000
+/-- Spec: 三十六の二（四） 認定電子決済等取扱事業者協会の認定。 -/
+def specElectronicPaymentBusinessAssociationLicenseFee : Money := 150_000
+/-- Spec: 三十六の二（五） 認定信用金庫電子決済等取扱事業者協会の認定。 -/
+def specCreditDepositoryAssociationElectronicPaymentBusinessAssociationLicenseFee : Money := 150_000
+/-- Spec: 三十六の二（六） 認定信用協同組合電子決済等取扱事業者協会の認定。 -/
+def specCreditCooperativeElectronicPaymentBusinessAssociationLicenseFee : Money := 150_000
+
+example : specElectronicPaymentBusinessOperatorRegistrationFee = 150_000 := by decide
+example : specCreditDepositoryAssociationElectronicPaymentBusinessOperatorRegistrationFee = 150_000 := by decide
+example : specCreditCooperativeElectronicPaymentBusinessOperatorRegistrationFee = 150_000 := by decide
+example : specElectronicPaymentBusinessAssociationLicenseFee = 150_000 := by decide
+example : specCreditDepositoryAssociationElectronicPaymentBusinessAssociationLicenseFee = 150_000 := by decide
+example : specCreditCooperativeElectronicPaymentBusinessAssociationLicenseFee = 150_000 := by decide
 example : specCasinoBusinessLicenseFee = 150_000 := by decide
 example : specCasinoFacilityOperationBusinessLicenseFee = 150_000 := by decide
 example : specCasinoEquipmentManufacturingEtcBusinessLicenseFee = 150_000 := by decide
@@ -366,7 +385,13 @@ def agreeRegistrationQualificationFees : Bool :=
     specCasinoBusinessLicenseFee == casinoBusinessLicenseFee &&
     specCasinoFacilityOperationBusinessLicenseFee == casinoFacilityOperationBusinessLicenseFee &&
     specCasinoEquipmentManufacturingEtcBusinessLicenseFee == casinoEquipmentManufacturingEtcBusinessLicenseFee &&
-    specCasinoEquipmentForeignManufacturingLicenseFee == casinoEquipmentForeignManufacturingLicenseFee
+    specCasinoEquipmentForeignManufacturingLicenseFee == casinoEquipmentForeignManufacturingLicenseFee &&
+    specElectronicPaymentBusinessOperatorRegistrationFee == electronicPaymentBusinessOperatorRegistrationFee &&
+    specCreditDepositoryAssociationElectronicPaymentBusinessOperatorRegistrationFee == creditDepositoryAssociationElectronicPaymentBusinessOperatorRegistrationFee &&
+    specCreditCooperativeElectronicPaymentBusinessOperatorRegistrationFee == creditCooperativeElectronicPaymentBusinessOperatorRegistrationFee &&
+    specElectronicPaymentBusinessAssociationLicenseFee == electronicPaymentBusinessAssociationLicenseFee &&
+    specCreditDepositoryAssociationElectronicPaymentBusinessAssociationLicenseFee == creditDepositoryAssociationElectronicPaymentBusinessAssociationLicenseFee &&
+    specCreditCooperativeElectronicPaymentBusinessAssociationLicenseFee == creditCooperativeElectronicPaymentBusinessAssociationLicenseFee
 
 example : agreeRegistrationQualificationFees = true := by decide
 
