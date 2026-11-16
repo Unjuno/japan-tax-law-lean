@@ -189,5 +189,24 @@ example : mujinCompanyBranchOrAgentEstablishmentApprovalFee = 90_000 := by decid
 example : financialServicesIntermediaryBusinessOperatorRegistrationFee = 90_000 := by decide
 example : financialServicesIntermediaryBusinessOperatorRegistrationChangeFee = 90_000 := by decide
 example : certifiedFinancialServicesIntermediaryBusinessAssociationAuthorizationFee = 150_000 := by decide
+-- 四十九（一）〜（十二） 資金決済： 前払式支払手段発行者／資金移動業者／電子決済手段取引業者／暗号資産交換業者の登録・変更（¥150,000）・暗号資産サービス仲介〜 ¥90,000（変更含）・為替取引分析業者の許可／変更の許可（¥150,000）・資金清算業の免許・認定資金決済事業者協会の認定
+example : thirdPartyPrepaidPaymentInstrumentIssuerRegistrationFee = 150_000 := by decide
+example : moneyTransferBusinessOperatorRegistrationFee = 150_000 := by decide
+example : moneyTransferBusinessOperatorRegistrationChangeFee = 150_000 := by decide
+example : electronicSettlementTransactionsBusinessOperatorRegistrationFee = 150_000 := by decide
+example : electronicSettlementTransactionsBusinessOperatorRegistrationChangeFee = 150_000 := by decide
+example : cryptoAssetExchangeBusinessOperatorRegistrationFee = 150_000 := by decide
+example : electronicSettlementServiceAndCryptoAssetServiceIntermediaryRegistrationFee = 90_000 := by decide
+example : electronicSettlementServiceAndCryptoAssetServiceIntermediaryRegistrationChangeFee = 90_000 := by decide
+example : exchangeTransactionAnalysisBusinessApprovalFee = 150_000 := by decide
+example : exchangeTransactionAnalysisBusinessKindChangeApprovalFee = 150_000 := by decide
+example : fundsClearingBusinessLicenseFee = 150_000 := by decide
+example : certifiedFundsSettlementBusinessOperatorAssociationAuthorizationFee = 150_000 := by decide
+-- 五十（一）〜（三） 有限責任監査法人¥150,000／登録上場会社等監査人¥90,000／実務補習団体等認定¥150,000 ／ 五十の二 消費生活相談員登録試験機関¥150,000 ／ 五十の三 特定適格消費者団体認定¥15,000
+example : limitedLiabilityAuditCorporationRegistrationFee = 150_000 := by decide
+example : registeredListedCompanyAuditorRegistrationFee = 90_000 := by decide
+example : practicalTrainingCorporationAuthorizationFee = 150_000 := by decide
+example : consumerLivelihoodSupportConsultantExaminationInstitutionRegistrationFee = 150_000 := by decide
+example : specificQualifiedConsumerGroupAuthorizationFee = 15_000 := by decide
 
 end JapanTaxLaw

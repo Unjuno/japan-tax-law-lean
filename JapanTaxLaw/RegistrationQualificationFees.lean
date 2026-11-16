@@ -460,6 +460,113 @@ def financialServicesIntermediaryBusinessOperatorRegistrationFee : Money := 90_0
 /-- 四十八（二） 同法第十六条第一項（変更登録等）の変更登録につきの額（固定 ¥90,000）。 -/
 def financialServicesIntermediaryBusinessOperatorRegistrationChangeFee : Money := 90_000
 
+/-- 四十九（一） 資金決済に関する法律（平成二十一年法律第五十九号）第七条（第三者型発行者の登録）の
+    第三者型前払式支払手段の発行者の登録につきの額（固定 ¥150,000）。 -/
+def thirdPartyPrepaidPaymentInstrumentIssuerRegistrationFee : Money := 150_000
+
+/-- 四十九（二） 資金決済に関する法律第三十七条（資金移動業者の登録）の資金移動業者の登録につきの額（固定 ¥150,000）。 -/
+def moneyTransferBusinessOperatorRegistrationFee : Money := 150_000
+
+/-- 四十九（三） 資金決済に関する法律第四十一条第一項（変更登録等）の変更登録につきの額（固定 ¥150,000）。 -/
+def moneyTransferBusinessOperatorRegistrationChangeFee : Money := 150_000
+
+/-- 四十九（四） 資金決済に関する法律第六十二条の三（電子決済手段等取引業者の登録）の電子決済手段等取引業者の登録につきの額（固定 ¥150,000）。 -/
+def electronicSettlementTransactionsBusinessOperatorRegistrationFee : Money := 150_000
+
+/-- 四十九（五） 資金決済に関する法律第六十二条の七第一項（変更登録等）の変更登録につきの額（固定 ¥150,000）。 -/
+def electronicSettlementTransactionsBusinessOperatorRegistrationChangeFee : Money := 150_000
+
+/-- 四十九（六） 資金決済に関する法律第六十三条の二（暗号資産交換業者の登録）の暗号資産交換業者の登録につきの額（固定 ¥150,000）。 -/
+def cryptoAssetExchangeBusinessOperatorRegistrationFee : Money := 150_000
+
+/-- 四十九（七） 資金決済に関する法律第六十三条の二十二の二（電子決済手段・暗号資産サービス仲介業者の登録）の
+    電子決済手段・暗号資産サービス仲介業者の登録につきの額（固定 ¥90,000）。 -/
+def electronicSettlementServiceAndCryptoAssetServiceIntermediaryRegistrationFee : Money := 90_000
+
+/-- 四十九（八） 資金決済に関する法律第六十三条の二十二の六第一項（変更登録等）の変更登録につきの額（固定 ¥90,000）。 -/
+def electronicSettlementServiceAndCryptoAssetServiceIntermediaryRegistrationChangeFee : Money := 90_000
+
+/-- 四十九（九） 資金決済に関する法律第六十三条の二十三（為替取引分析業者の許可）の為替取引分析業者の許可につきの額（固定 ¥150,000）。 -/
+def exchangeTransactionAnalysisBusinessApprovalFee : Money := 150_000
+
+/-- 四十九（十） 資金決済に関する法律第六十三条の三十三第一項（業務の種別の変更の許可等）の変更の許可につきの額（固定 ¥150,000）。 -/
+def exchangeTransactionAnalysisBusinessKindChangeApprovalFee : Money := 150_000
+
+/-- 四十九（十一） 資金決済に関する法律第六十四条第一項（資金清算機関の免許等）の資金清算業の免許につきの額（固定 ¥150,000）。 -/
+def fundsClearingBusinessLicenseFee : Money := 150_000
+
+/-- 四十九（十二） 資金決済に関する法律第八十七条（認定資金決済事業者協会の認定）の認定資金決済事業者協会の認定につきの額（固定 ¥150,000）。 -/
+def certifiedFundsSettlementBusinessOperatorAssociationAuthorizationFee : Money := 150_000
+
+/-- 五十（一） 公認会計士法第三十四条の二十四（有限責任監査法人の登録）の登録につきの額（固定 ¥150,000）。 -/
+def limitedLiabilityAuditCorporationRegistrationFee : Money := 150_000
+
+/-- 五十（二） 公認会計士法第三十四条の三十四の二（登録上場会社等監査人の登録）の登録につきの額（固定 ¥90,000）。 -/
+def registeredListedCompanyAuditorRegistrationFee : Money := 90_000
+
+/-- 五十（三） 公認会計士法第十六条第一項（実務補習）の実務補習団体等の認定につきの額（固定 ¥150,000）。 -/
+def practicalTrainingCorporationAuthorizationFee : Money := 150_000
+
+/-- 五十の二 消費者安全法（平成二十一年法律第五十号）第十条の三第一項（登録試験機関の登録）の
+    消費生活相談員に係る登録試験機関の登録につきの額（固定 ¥150,000）。 -/
+def consumerLivelihoodSupportConsultantExaminationInstitutionRegistrationFee : Money := 150_000
+
+/-- 五十の三 消費者の財産的被害等の集団的な回復のための民事の裁判手続の特例に関する法律（平成二十五年法律第九十六号）
+    第七十一条第一項（特定適格消費者団体の認定）の認定につきの額（固定 ¥15,000）。 -/
+def specificQualifiedConsumerGroupAuthorizationFee : Money := 15_000
+
+theorem thirdPartyPrepaidPaymentInstrumentIssuerRegistrationFee_pos :
+    thirdPartyPrepaidPaymentInstrumentIssuerRegistrationFee > 0 := by decide
+theorem moneyTransferBusinessOperatorRegistrationFee_pos :
+    moneyTransferBusinessOperatorRegistrationFee > 0 := by decide
+theorem moneyTransferBusinessOperatorRegistrationChangeFee_pos :
+    moneyTransferBusinessOperatorRegistrationChangeFee > 0 := by decide
+theorem electronicSettlementTransactionsBusinessOperatorRegistrationFee_pos :
+    electronicSettlementTransactionsBusinessOperatorRegistrationFee > 0 := by decide
+theorem electronicSettlementTransactionsBusinessOperatorRegistrationChangeFee_pos :
+    electronicSettlementTransactionsBusinessOperatorRegistrationChangeFee > 0 := by decide
+theorem cryptoAssetExchangeBusinessOperatorRegistrationFee_pos :
+    cryptoAssetExchangeBusinessOperatorRegistrationFee > 0 := by decide
+theorem electronicSettlementServiceAndCryptoAssetServiceIntermediaryRegistrationFee_pos :
+    electronicSettlementServiceAndCryptoAssetServiceIntermediaryRegistrationFee > 0 := by decide
+theorem electronicSettlementServiceAndCryptoAssetServiceIntermediaryRegistrationChangeFee_pos :
+    electronicSettlementServiceAndCryptoAssetServiceIntermediaryRegistrationChangeFee > 0 := by decide
+theorem exchangeTransactionAnalysisBusinessApprovalFee_pos :
+    exchangeTransactionAnalysisBusinessApprovalFee > 0 := by decide
+theorem exchangeTransactionAnalysisBusinessKindChangeApprovalFee_pos :
+    exchangeTransactionAnalysisBusinessKindChangeApprovalFee > 0 := by decide
+theorem fundsClearingBusinessLicenseFee_pos : fundsClearingBusinessLicenseFee > 0 := by decide
+theorem certifiedFundsSettlementBusinessOperatorAssociationAuthorizationFee_pos :
+    certifiedFundsSettlementBusinessOperatorAssociationAuthorizationFee > 0 := by decide
+theorem limitedLiabilityAuditCorporationRegistrationFee_pos :
+    limitedLiabilityAuditCorporationRegistrationFee > 0 := by decide
+theorem registeredListedCompanyAuditorRegistrationFee_pos :
+    registeredListedCompanyAuditorRegistrationFee > 0 := by decide
+theorem practicalTrainingCorporationAuthorizationFee_pos :
+    practicalTrainingCorporationAuthorizationFee > 0 := by decide
+theorem consumerLivelihoodSupportConsultantExaminationInstitutionRegistrationFee_pos :
+    consumerLivelihoodSupportConsultantExaminationInstitutionRegistrationFee > 0 := by decide
+theorem specificQualifiedConsumerGroupAuthorizationFee_pos :
+    specificQualifiedConsumerGroupAuthorizationFee > 0 := by decide
+
+example : thirdPartyPrepaidPaymentInstrumentIssuerRegistrationFee = 150_000 := by decide
+example : moneyTransferBusinessOperatorRegistrationFee = 150_000 := by decide
+example : moneyTransferBusinessOperatorRegistrationChangeFee = 150_000 := by decide
+example : electronicSettlementTransactionsBusinessOperatorRegistrationFee = 150_000 := by decide
+example : electronicSettlementTransactionsBusinessOperatorRegistrationChangeFee = 150_000 := by decide
+example : cryptoAssetExchangeBusinessOperatorRegistrationFee = 150_000 := by decide
+example : electronicSettlementServiceAndCryptoAssetServiceIntermediaryRegistrationFee = 90_000 := by decide
+example : electronicSettlementServiceAndCryptoAssetServiceIntermediaryRegistrationChangeFee = 90_000 := by decide
+example : exchangeTransactionAnalysisBusinessApprovalFee = 150_000 := by decide
+example : exchangeTransactionAnalysisBusinessKindChangeApprovalFee = 150_000 := by decide
+example : fundsClearingBusinessLicenseFee = 150_000 := by decide
+example : certifiedFundsSettlementBusinessOperatorAssociationAuthorizationFee = 150_000 := by decide
+example : limitedLiabilityAuditCorporationRegistrationFee = 150_000 := by decide
+example : registeredListedCompanyAuditorRegistrationFee = 90_000 := by decide
+example : practicalTrainingCorporationAuthorizationFee = 150_000 := by decide
+example : consumerLivelihoodSupportConsultantExaminationInstitutionRegistrationFee = 150_000 := by decide
+example : specificQualifiedConsumerGroupAuthorizationFee = 15_000 := by decide
+
 /-- 四十八（三） 同法第四十条（認定金融サービス仲介業協会の認定）の認定金融サービス仲介業協会の認定につきの額（固定 ¥150,000）。 -/
 def certifiedFinancialServicesIntermediaryBusinessAssociationAuthorizationFee : Money := 150_000
 
