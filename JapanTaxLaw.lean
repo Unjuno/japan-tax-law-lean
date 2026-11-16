@@ -160,3 +160,7 @@ import JapanTaxLaw.SocialInsuranceMutualAidDeductionTests
 
 import JapanTaxLaw.LocalDependentAndStudentSpec
 import JapanTaxLaw.LocalDependentAndStudentTests
+
+import JapanTaxLaw.LowAlcoholDutySpecialRate
+import JapanTaxLaw.LowAlcoholDutySpecialRateSpec
+import JapanTaxLaw.LowAlcoholDutySpecialRateTests

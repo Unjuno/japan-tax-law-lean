@@ -162,6 +162,15 @@ def checks():
             "一億六千万円",
             "ロ当該相続又は遺贈により財産を取得した配偶者に係る相続税の課税価格に相当する金額"])
 
+    # 租税特別措置法 art. 87の2 — LowAlcoholDutySpecialRate.lean (lowAlcoholDutyPerKiloLitre)
+    yield ("租税特別措置法 art. 87の2（低アルコール分の蒸留酒類等に係る酒税の税率の特例: 十一度未満 10万円／十一度以上十三度未満 10万円＋10度超一度ごとに1万円）↔ LowAlcoholDutySpecialRate.lean",
+           "332AC0000000026",
+           "article", "第八十七条の二",
+           ["酒類の製造場から移出され、又は保税地域から引き取られる酒税法第三条第五号に規定する蒸留酒類",
+            "（リキュールについては、アルコール分が十二度未満のものに限る。）",
+            "一アルコール分が十一度未満のもの十万円",
+            "二アルコール分が十一度以上十三度未満のもの十万円にアルコール分が十度を超える一度ごとに一万円を加えた金額"])
+
     # 租税特別措置法 art. 9の3の二 — ListedDividendWithholding.lean (listedDividendRate, withholdingBase, withholdingNet)
     yield ("租税特別措置法 art. 9の3の二（上場株式等の配当等に係る源泉徴収義務等の特例: 百分の十五（大口株主等については百分の二十）／控除対象額は所得税の額を限度とする）↔ ListedDividendWithholding.lean (listedDividendRate, withholdingGross, withholdingDeduction, withholdingNet)",
            "332AC0000000026",
@@ -463,6 +472,7 @@ def main() -> int:
         "RegistrationCommercialTaxTable.lean の未採用帯域（三十二： 人の資格の登録・認定・技能証明 91種類 数百円／三十三以降： 免許登録型登記 数百点 など）",
         "ConsumptionTaxRate.lean の次のアンカー外（art. 29(2)／art. 28 課税標準・art. 30 仕入税額控除 等）— モデル未採用かつ未検査",
         "InheritanceSurcharge.lean art. 17 の相続税額算出（相続税法 art. 17 には literal がない・割合計算のみ。InheritanceApportionment.lean としてモデル化済み・literal 監査対象外）",
+        "LowAlcoholDutySpecialRate.lean の射程外（酒税法 art. 23 の一般税率そのもの／art. 87 の承認酒類製造者の特例／art. 87の3以降／発泡性の判定／蒸留酒類ホの除外の条文内定義 — 低アルコール特例の税額式のみモデル化）",
         "ListedDividendWithholding.lean の art. 9の3の二(1) 第一号〜六号 のカテゴリ定義・基准日の政令規定／第三項各号の暫定外国税按分計算（art. 9の3 の 15% 読み替えパスと合わせて非モデル化・caller-established）",
         "StampDuty.art. 20 のより深い集計（複数 itDebtPenalty 系の合算順・調査前申出と併存した場合の §20(2)(5) 相互作用等）は未検査",
         "CounterexampleSweep-covered impls (already subject to L6, not pinned-literal audit)",
