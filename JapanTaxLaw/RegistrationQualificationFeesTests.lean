@@ -152,5 +152,18 @@ example : managementTypeForeignTrustCompanyRegistrationFee = 150_000 := by decid
 example : selfTrustBusinessRegistrationFee = 150_000 := by decide
 example : technologyTransferApprovalBusinessOperatorRegistrationFee = 150_000 := by decide
 example : trustContractAgentRegistrationFee = 90_000 := by decide
+-- 三十九〜三十九の二 担保付社債信託事業の免許／企業価値担保権に関する信託業務の免許（¥150,000）
+example : securedBondTrustBusinessLicenseFee = 150_000 := by decide
+example : enterpriseValueCollateralRightTrustBusinessLicenseFee = 150_000 := by decide
+-- 四十（一）〜（九） 金融商品市場開設の免許・国際協力排出削減量市場認可・組織変更の認可・店頭売買市場認可・外国市場取引の認可・金融商品取引所持株会社認可・認定金融商品取引業協会認定・認定投資者保護団体認定（¥90,000）・自主規制業務認可
+example : financialInstrumentsMarketEstablishmentLicenseFee = 150_000 := by decide
+example : internationalCooperationEmissionsReductionAmountTradingMarketEstablishmentApprovalFee = 150_000 := by decide
+example : organizationalChangeApprovalFee = 150_000 := by decide
+example : overTheCounterSecuritiesTradingMarketEstablishmentApprovalFee = 150_000 := by decide
+example : foreignMarketTradingApprovalFee = 150_000 := by decide
+example : financialInstrumentsExchangeHoldingCompanyApprovalFee = 150_000 := by decide
+example : certifiedFinancialInstrumentsBusinessAssociationAuthorizationFee = 150_000 := by decide
+example : certifiedInvestorProtectionAssociationAuthorizationFee = 90_000 := by decide
+example : selfRegulationBusinessApprovalFee = 150_000 := by decide
 
 end JapanTaxLaw

@@ -255,6 +255,40 @@ def specTechnologyTransferApprovalBusinessOperatorRegistrationFee : Money := 150
 /-- Spec: 三十八（六） 信託契約代理店の登録。 -/
 def specTrustContractAgentRegistrationFee : Money := 90_000
 
+/-- Spec: 三十九 担保付社債に関する信託事業の免許。 -/
+def specSecuredBondTrustBusinessLicenseFee : Money := 150_000
+/-- Spec: 三十九の二 企業価値担保権に関する信託業務の免許。 -/
+def specEnterpriseValueCollateralRightTrustBusinessLicenseFee : Money := 150_000
+/-- Spec: 四十（一） 金融商品市場の開設の免許。 -/
+def specFinancialInstrumentsMarketEstablishmentLicenseFee : Money := 150_000
+/-- Spec: 四十（二） 国際協力排出削減量に係る取引を行う市場の開設等の認可。 -/
+def specInternationalCooperationEmissionsReductionAmountTradingMarketEstablishmentApprovalFee : Money := 150_000
+/-- Spec: 四十（三） 組織変更の認可。 -/
+def specOrganizationalChangeApprovalFee : Money := 150_000
+/-- Spec: 四十（四） 店頭売買有価証券市場の開設の認可。 -/
+def specOverTheCounterSecuritiesTradingMarketEstablishmentApprovalFee : Money := 150_000
+/-- Spec: 四十（五） 外国市場取引の認可。 -/
+def specForeignMarketTradingApprovalFee : Money := 150_000
+/-- Spec: 四十（六） 金融商品取引所持株会社に係る認可。 -/
+def specFinancialInstrumentsExchangeHoldingCompanyApprovalFee : Money := 150_000
+/-- Spec: 四十（七） 認定金融商品取引業協会の認定。 -/
+def specCertifiedFinancialInstrumentsBusinessAssociationAuthorizationFee : Money := 150_000
+/-- Spec: 四十（八） 認定投資者保護団体の認定。 -/
+def specCertifiedInvestorProtectionAssociationAuthorizationFee : Money := 90_000
+/-- Spec: 四十（九） 自主規制業務の認可。 -/
+def specSelfRegulationBusinessApprovalFee : Money := 150_000
+
+example : specSecuredBondTrustBusinessLicenseFee = 150_000 := by decide
+example : specEnterpriseValueCollateralRightTrustBusinessLicenseFee = 150_000 := by decide
+example : specFinancialInstrumentsMarketEstablishmentLicenseFee = 150_000 := by decide
+example : specInternationalCooperationEmissionsReductionAmountTradingMarketEstablishmentApprovalFee = 150_000 := by decide
+example : specOrganizationalChangeApprovalFee = 150_000 := by decide
+example : specOverTheCounterSecuritiesTradingMarketEstablishmentApprovalFee = 150_000 := by decide
+example : specForeignMarketTradingApprovalFee = 150_000 := by decide
+example : specFinancialInstrumentsExchangeHoldingCompanyApprovalFee = 150_000 := by decide
+example : specCertifiedFinancialInstrumentsBusinessAssociationAuthorizationFee = 150_000 := by decide
+example : specCertifiedInvestorProtectionAssociationAuthorizationFee = 90_000 := by decide
+example : specSelfRegulationBusinessApprovalFee = 150_000 := by decide
 example : specTrustBusinessLicenseFee = 150_000 := by decide
 example : specManagementTypeTrustCompanyRegistrationFee = 150_000 := by decide
 example : specManagementTypeForeignTrustCompanyRegistrationFee = 150_000 := by decide
@@ -478,7 +512,18 @@ def agreeRegistrationQualificationFees : Bool :=
     specManagementTypeForeignTrustCompanyRegistrationFee == managementTypeForeignTrustCompanyRegistrationFee &&
     specSelfTrustBusinessRegistrationFee == selfTrustBusinessRegistrationFee &&
     specTechnologyTransferApprovalBusinessOperatorRegistrationFee == technologyTransferApprovalBusinessOperatorRegistrationFee &&
-    specTrustContractAgentRegistrationFee == trustContractAgentRegistrationFee
+    specTrustContractAgentRegistrationFee == trustContractAgentRegistrationFee &&
+    specSecuredBondTrustBusinessLicenseFee == securedBondTrustBusinessLicenseFee &&
+    specEnterpriseValueCollateralRightTrustBusinessLicenseFee == enterpriseValueCollateralRightTrustBusinessLicenseFee &&
+    specFinancialInstrumentsMarketEstablishmentLicenseFee == financialInstrumentsMarketEstablishmentLicenseFee &&
+    specInternationalCooperationEmissionsReductionAmountTradingMarketEstablishmentApprovalFee == internationalCooperationEmissionsReductionAmountTradingMarketEstablishmentApprovalFee &&
+    specOrganizationalChangeApprovalFee == organizationalChangeApprovalFee &&
+    specOverTheCounterSecuritiesTradingMarketEstablishmentApprovalFee == overTheCounterSecuritiesTradingMarketEstablishmentApprovalFee &&
+    specForeignMarketTradingApprovalFee == foreignMarketTradingApprovalFee &&
+    specFinancialInstrumentsExchangeHoldingCompanyApprovalFee == financialInstrumentsExchangeHoldingCompanyApprovalFee &&
+    specCertifiedFinancialInstrumentsBusinessAssociationAuthorizationFee == certifiedFinancialInstrumentsBusinessAssociationAuthorizationFee &&
+    specCertifiedInvestorProtectionAssociationAuthorizationFee == certifiedInvestorProtectionAssociationAuthorizationFee &&
+    specSelfRegulationBusinessApprovalFee == selfRegulationBusinessApprovalFee
 
 example : agreeRegistrationQualificationFees = true := by decide
 
