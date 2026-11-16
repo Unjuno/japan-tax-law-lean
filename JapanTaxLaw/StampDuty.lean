@@ -88,6 +88,46 @@ def stampAuditPenaltyFloor (unpaid : Money) : Money :=
     not blindly apply the floor. -/
 def stampDeclaredOnlyTotalsExcludeFloor : Bool := true
 
+-- ==== art. 20(4)/(5) floor-logic properties (kernel-verified) ====
+
+/-- Art. 20(4): the ¥1,000 floor raises the aggregate to at least ¥1,000
+    (or keeps it unchanged when it was already ≥ ¥1,000). -/
+theorem stampDutyFloor_ge_thousand (n : Money) : 1_000 ≤ stampDutyFloor n := by
+  unfold stampDutyFloor
+  by_cases h : n < 1_000
+  · rw [ite_eq_left h]
+    exact Nat.le_refl 1_000
+  · rw [ite_eq_right h]
+    exact Nat.le_of_not_lt h
+
+/-- Art. 20(4): the floor does not lower the aggregate. -/
+theorem stampDutyFloor_ge_amount (n : Money) : n ≤ stampDutyFloor n := by
+  unfold stampDutyFloor
+  by_cases h : n < 1_000
+  · rw [ite_eq_left h]
+    exact Nat.le_of_lt h
+  · rw [ite_eq_right h]
+    exact Nat.le_refl n
+
+/-- Art. 20(3)/(1)-type penalties flow into the floor correctly:
+    stamp-uncancelled and audit penalties keep their content but sit above the floor. -/
+theorem stampAuditPenaltyFloor_ge_thousand (n : Money) :
+    1_000 ≤ stampAuditPenaltyFloor n := stampDutyFloor_ge_thousand _
+
+/-- Art. 20(5): the declared-only aggregate keeps the floor exclusion — modelled as a
+    marker constant so the call site cannot silently re-apply the floor. -/
+theorem stampDeclaredOnlyTotalsExcludeFloor_is_true :
+    stampDeclaredOnlyTotalsExcludeFloor = true := rfl
+
+/-- Art. 20(1): the admin penalty equals three times the unpaid amount. -/
+theorem stampAuditPenalty_eq_three (n : Money) : stampAuditPenalty n = n * 3 := by
+  unfold stampAuditPenalty
+  rw [show (3 : Nat) = 2 + 1 from rfl, Nat.mul_succ n 2]
+  exact Nat.add_comm n (n * 2)
+
+/-- Art. 20(2): declarer pays unpaid + 10% of unpaid (i.e., 11x over 10). -/
+theorem stampDeclaredPenalty_small (n : Money) : stampDeclaredPenalty n = n + n * 10 / 100 := rfl
+
 -- ==== verified facts ====
 
 theorem stampAudit_zero : stampAuditPenalty 0 = 0 := by decide

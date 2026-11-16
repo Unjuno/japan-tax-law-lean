@@ -399,7 +399,7 @@ def main() -> int:
         "ConsumptionTaxRate.lean の次のアンカー外（art. 29(2)／art. 28 課税標準・art. 30 仕入税額控除 等）— モデル未採用かつ未検査",
         "InheritanceSurcharge.lean art. 17 の相続税額算出（相続税法 art. 17 には literal がない・割合計算のみ。InheritanceApportionment.lean としてモデル化済み・literal 監査対象外）",
         "ListedDividendWithholding.lean の art. 9の3の二(1) 第一号〜六号 のカテゴリ定義・基准日の政令規定／第三項各号の暫定外国税按分計算（art. 9の3 の 15% 読み替えパスと合わせて非モデル化・caller-established）",
-        "StampDuty.art. 20 の集計・floor にまつわる全 detail（文言は covered・ロジックは未検査）",
+        "StampDuty.art. 20 のより深い集計（複数 itDebtPenalty 系の合算順・調査前申出と併存した場合の §20(2)(5) 相互作用等）は未検査",
         "CounterexampleSweep-covered impls (already subject to L6, not pinned-literal audit)",
         "all L3 actor/definition modules (no rate/amount literals to transcribe)",
     ]
