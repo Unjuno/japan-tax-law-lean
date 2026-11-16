@@ -395,6 +395,16 @@ def checks():
             "ロ公益法人等又は協同組合等",
             "ハ人格のない社団等"])
 
+    # 地方税法 art. 34(1)九号／ art. 34(4) — LocalIncomeTax.lean (workingStudentDeduction, dependentDeduction, elderlyDependentDeductionWithCoHabitation)
+    yield ("地方税法 art. 34(1)九号（勤労学生 ¥260,000 控除）／第十一号（控除対象扶養親族・特定扶養親族 ¥450,000・老人扶養親族 ¥380,000）／art. 34(4)（同居直系尊属・¥450,000）↔ LocalIncomeTax.lean",
+           "325AC0000000226",
+           "article", "第三十四条",
+           ["九勤労学生である所得割の納税義務者二十六万円",
+            "控除対象扶養親族（扶養親族のうち、次に掲げる者の区分に応じそれぞれ次に定める者をいう。以下この目及び第四十五条の三の三第一項において同じ。）を有する所得割の納税義務者各控除対象扶養親族につき三十三万円",
+            "年齢十九歳以上二十三歳未満の者をいう。第八項及び第三十七条において同じ。）である場合には四十五万円",
+            "年齢七十歳以上の者をいう。第四項及び第八項並びに第三十七条において同じ。）である場合には三十八万円",
+            "当該老人扶養親族に係る第一項第十一号の金額は、四十五万円とする"])
+
     # 地方税法 art. 34(1)第三号／第四号 — SocialInsuranceMutualAidDeduction.lean (socialInsuranceDeduction, smallEnterpriseMutualAidDeduction)
     yield ("地方税法 art. 34(1)第三号／第四号（社会保険料控除・小規模企業共済等掛金控除）↔ SocialInsuranceMutualAidDeduction.lean",
            "325AC0000000226",

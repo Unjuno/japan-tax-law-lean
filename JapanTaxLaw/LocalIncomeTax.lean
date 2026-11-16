@@ -239,6 +239,68 @@ theorem specificDependentDeduction_gt_1200000 (x : Money) (h : x > 1_200_000) :
   rw [ite_eq_right (Nat.not_le_of_gt (Nat.lt_trans (by decide : 1_150_000 < 1_200_000) h))]
   rw [ite_eq_right (Nat.not_le_of_gt h)]
 
+/-- art. 34(1)第九号 勤労学生控除額: 二十六万円（固定額）。
+    所得税法第七十四条第二項等で別途所得制限（合計所得金額）等の適用があるが、
+    ここでは控除額部分のみをモデル化し、所得制限可否は caller-established boolean で扱う。 -/
+def workingStudentDeduction : Money := 260_000
+
+/-- art. 34(1)第十一号 控除対象扶養親族（各控除対象扶養親族につき三十三万円）。
+    その者が特定扶養親族（控除対象扶養親族のうち、年齢十九歳以上二十三歳未満の者をいう。
+    第八項及び第三十七条において同じ。）である場合には四十五万円。
+    その者が老人扶養親族（控除対象扶養親族のうち、年齢七十歳以上の者をいう。
+    第四項及び第八項並びに第三十七条において同じ。）である場合には三十八万円。 -/
+inductive DependentKind
+  | regular
+  | specifiedAllocated  -- 特定扶養親族（年齢 19〜22 歳未満）
+  | elderly             -- 老人扶養親族（年齢 70 歳以上）
+  deriving DecidableEq, Repr
+
+def dependentDeduction (kind : DependentKind) : Money :=
+  match kind with
+  | DependentKind.regular => 330_000
+  | DependentKind.specifiedAllocated => 450_000
+  | DependentKind.elderly => 380_000
+
+/-- art. 34(4): 所得割の納税義務者の有する老人扶養親族が当該納税義務者又は
+    当該納税義務者の配偶者の直系尊属で、かつ、当該納税義務者又は当該配偶者の
+    いずれかとの同居を常況としている者（第三十七条において「同居直系尊属」という。）
+    である場合には、当該老人扶養親族に係る第一項第十一号の金額は、**四十五万円**とする。
+    （平常の老人扶養親族 ¥380,000 を上書き。） -/
+def coHabitingDirectAscendantElderlyDependentDeduction : Money := 450_000
+
+/-- art. 34(4) による同居直系尊属の老人扶養親族控除額の上書き。 -/
+def elderlyDependentDeductionWithCoHabitation (isCohabitingDirectAscendant : Bool) : Money :=
+  if isCohabitingDirectAscendant then coHabitingDirectAscendantElderlyDependentDeduction
+  else dependentDeduction DependentKind.elderly
+
+theorem workingStudentDeduction_eq : workingStudentDeduction = 260_000 := rfl
+
+theorem dependentDeduction_spec :
+    dependentDeduction DependentKind.regular = 330_000 ∧
+    dependentDeduction DependentKind.specifiedAllocated = 450_000 ∧
+    dependentDeduction DependentKind.elderly = 380_000 := ⟨rfl, rfl, rfl⟩
+
+theorem coHabitingDirectAscendantElderlyDependentDeduction_eq :
+    coHabitingDirectAscendantElderlyDependentDeduction = 450_000 := rfl
+
+theorem elderlyDependentDeductionWithCoHabitation_of_cohabiting :
+    elderlyDependentDeductionWithCoHabitation true = 450_000 := rfl
+
+theorem elderlyDependentDeductionWithCoHabitation_of_not_cohabiting :
+    elderlyDependentDeductionWithCoHabitation false = 380_000 := rfl
+
+/-- 同居直系尊属は平常の老人扶養親族 ¥380,000 より大きい。 -/
+theorem coHabitingDirectAscendantElderlyDependent_ge_elderly :
+    coHabitingDirectAscendantElderlyDependentDeduction ≥ dependentDeduction DependentKind.elderly := by
+  decide
+
+example : workingStudentDeduction = 260_000 := by decide
+example : dependentDeduction DependentKind.regular = 330_000 := by decide
+example : dependentDeduction DependentKind.specifiedAllocated = 450_000 := by decide
+example : dependentDeduction DependentKind.elderly = 380_000 := by decide
+example : elderlyDependentDeductionWithCoHabitation true = 450_000 := by decide
+example : elderlyDependentDeductionWithCoHabitation false = 380_000 := by decide
+
 -- ==== art. 34 の新規控除項目の検証済み性質 ====
 
 /-- min monotony helper. -/

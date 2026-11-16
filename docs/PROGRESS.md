@@ -89,7 +89,7 @@
 
 ## 4. PHASE D の機械検証範囲（意味形式化された条文）
 
-すべて **actor scope / 定義層** の形式化であり、課税標準の計算・端数処理・例外の全結合・得税額との統合は**未着手**です。各モジュールは `Law id`/`Revision`/`sha256` を原文ピンで保持し、`cross_law.py` により台帳との照合を受けます（147 ファイル / 120 ピン留めモジュール一致 / 0 失敗）。
+すべて **actor scope / 定義層** の形式化であり、課税標準の計算・端数処理・例外の全結合・得税額との統合は**未着手**です。各モジュールは `Law id`/`Revision`/`sha256` を原文ピンで保持し、`cross_law.py` により台帳との照合を受けます（149 ファイル / 122 ピン留めモジュール一致 / 0 失敗）。
 
 | 法令 | 条文 | モジュール | PR（base） |
 |---|---|---|---|
@@ -149,7 +149,7 @@
 4. PHASE F（改正影響）・**PHASE E の意味的横断検証（1モジュールのみ・法人税法×租税特別措置法）**・PHASE L6（反例探索の普遍領域）は**未着手/未完了**です。L4（税額計算）は 所得税法 art. 89・法人税法 art. 66・通則法 art. 118/119・相続税法 art. 15-17・消費税法 art. 29・相続税法 art. 21-7（贈与税）・印紙税法 art. 20（過怠税）・相続税法 art. 18（相続税額の加算）・相続税法 art. 20（相次相続控除）・相続税法 art. 19-2（配偶者軽減）・法人税法 art. 67（特定同族会社の特別税率）・相続税法 art. 19（相続開始前7年以内の贈与加算）・相続税法 art. 21-6（贈与税の配偶者控除）・印紙税法 別表第一第一〜三号（課税物件表）・登録免許税法 別表第一（一）（不動産の登記の定率項目）・地方税法 道府県民税 art. 34(2)/(1)十号/art. 35・地方税法 市町村民税 art. 314の3・租税特別措置法 art. 31の4・登録免許税法 別表第一（二）第二十四号（一）イ の最小スライスのみ着手済です。その他の L4（控除・予定納税ほか）は**未着手**です。
 5. `verify` 関税法／租税特別措置法／印紙税法／登録免許税法／地方税の残りの膨大な条文は**未形式化**です。
 6. 台帳の revision 自体は e-Gov API の応答に基づき `CurrentEnforced` を優先して選択していますが、候補 revision 選択の入力値・時刻依存性は `data/PROVENANCE.json` を参照してください。
-7. **転記監査（transcription audit）の現在の射程**: `scripts/ci/transcription_audit.py`（CI ゲートに組込済み）は、主要モデル **25 モデル / 32 anchor チェック（193 literal）**（登録免許税法 別表第一（二）第二十四号（一）イ〜チ・相続税法 art. 19-2/19-3/19-4・租税特別措置法 art. 31の3 を含む）（相続税法 art. 19-3/19-4 未成年者控除・障害者控除を含む（法人税法 art. 66/67(1)(5)(6)・相続税法 art. 15/16/18/19/20/21-5/21-6/21-7・所得税法 art. 89・国税通則法 art. 118(1)/119(1)・印紙税法 art. 20（含む art. 20(2)/(3)/(4)/(5)）・別表第一第一号/第二号・租税特別措置法 art. 31の4/67の2/68/70の2の5/91・消費税法 art. 29・地方税法 art. 34(2)/(1)十号（配偶者控除の 3 区分含む）/art. 314の3/art. 35・登録免許税法 別表第一（一）**全15項目の採用 literal（`realEstateMilleRate` の全枝）**/（二）第二十四号（一）イ）の literal が pinned raw bytes に存在することを機械検査します。未検査のモデル（**LocalIncomeTax art. 34 のその他の控除（生命保険料控除等）・LocalExemption/Privilege/Obligor・KanzeiGoods（定義分類器・literal なし）・RegistrationTax の未採用帯域・RegistrationCommercialTax の未採用帯域（ホ／ト）・ConsumptionTaxRate の次のアンカー外・InheritanceSurcharge art. 17・StampDuty の集計ロジック詳細・CounterexampleSweep-covered impls・L3 actor モジュール**）の literal 転記は**目視のみ**で機械監査していません（`NOT YET COVERED` として監査出力にも毎回表示）。監査は転記のみの検査であり、意味解釈・適用範囲・本文との整合は一切検査しません。
+7. **転記監査（transcription audit）の現在の射程**: `scripts/ci/transcription_audit.py`（CI ゲートに組込済み）は、主要モデル **25 モデル / 32 anchor チェック（198 literal）**（登録免許税法 別表第一（二）第二十四号（一）イ〜チ・相続税法 art. 19-2/19-3/19-4・租税特別措置法 art. 31の3 を含む）（相続税法 art. 19-3/19-4 未成年者控除・障害者控除を含む（法人税法 art. 66/67(1)(5)(6)・相続税法 art. 15/16/18/19/20/21-5/21-6/21-7・所得税法 art. 89・国税通則法 art. 118(1)/119(1)・印紙税法 art. 20（含む art. 20(2)/(3)/(4)/(5)）・別表第一第一号/第二号・租税特別措置法 art. 31の4/67の2/68/70の2の5/91・消費税法 art. 29・地方税法 art. 34(2)/(1)十号（配偶者控除の 3 区分含む）/art. 314の3/art. 35・登録免許税法 別表第一（一）**全15項目の採用 literal（`realEstateMilleRate` の全枝）**/（二）第二十四号（一）イ）の literal が pinned raw bytes に存在することを機械検査します。未検査のモデル（**LocalIncomeTax art. 34 のその他の控除（生命保険料控除等）・LocalExemption/Privilege/Obligor・KanzeiGoods（定義分類器・literal なし）・RegistrationTax の未採用帯域・RegistrationCommercialTax の未採用帯域（ホ／ト）・ConsumptionTaxRate の次のアンカー外・InheritanceSurcharge art. 17・StampDuty の集計ロジック詳細・CounterexampleSweep-covered impls・L3 actor モジュール**）の literal 転記は**目視のみ**で機械監査していません（`NOT YET COVERED` として監査出力にも毎回表示）。監査は転記のみの検査であり、意味解釈・適用範囲・本文との整合は一切検査しません。
 
 ## 8. 再現手順（第三者向け）
 
@@ -158,7 +158,7 @@ python -m unittest scripts.tests.test_structural_audit scripts.tests.test_mutati
   scripts.tests.test_inventory_selection scripts.tests.test_cross_law   # 66 tests
 python scripts/law_audit/inventory/validate_inventory.py                # 台帳整合
 python scripts/law_audit/phase_e/cross_law.py                           # Lean pin vs 台帳
-lake build                                                              # Lean 150 jobs
+lake build                                                              # Lean 152 jobs
 lake clean && lake build                                                # 再現性（×2 CI 登録）
 ```
 
