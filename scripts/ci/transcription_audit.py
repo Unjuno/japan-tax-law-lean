@@ -414,6 +414,16 @@ def checks():
             "年齢七十歳以上の者をいう。第四項及び第八項並びに第三十七条において同じ。）である場合には三十八万円",
             "当該老人扶養親族に係る第一項第十一号の金額は、四十五万円とする"])
 
+    # 地方税法 art. 34(1)第十号の二 — SpouseSpecialDeduction.lean (spouseSpecialDeductionBase, spouseSpecialDeduction)
+    yield ("地方税法 art. 34(1)第十号の二（配偶者特別控除: 所得 ¥1,000,000／¥1,300,000／¥1,330,000 の帯域・三分の二・三分の一・¥10,000 切り上げ）↔ SpouseSpecialDeduction.lean",
+           "325AC0000000226",
+           "article", "第三十四条",
+           ["前年の合計所得金額が百万円以下である配偶者三十三万円",
+            "三十八万円から当該配偶者の前年の合計所得金額のうち九十三万一円を超える部分の金額",
+            "前年の合計所得金額が百三十万円を超える配偶者三万円",
+            "当該金額に一万円未満の端数がある場合には、これを切り上げた金額",
+            "控除対象配偶者に該当しないものを有する所得割の納税義務者（その配偶者が前号又はこの号に規定する所得割の納税義務者としてこれらの規定の適用を受けているものを除き"])
+
     # 地方税法 art. 34(1)第三号／第四号 — SocialInsuranceMutualAidDeduction.lean (socialInsuranceDeduction, smallEnterpriseMutualAidDeduction)
     yield ("地方税法 art. 34(1)第三号／第四号（社会保険料控除・小規模企業共済等掛金控除）↔ SocialInsuranceMutualAidDeduction.lean",
            "325AC0000000226",
