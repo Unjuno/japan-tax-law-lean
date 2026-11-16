@@ -157,3 +157,6 @@ import JapanTaxLaw.DisasterLossDeductionTests
 import JapanTaxLaw.SocialInsuranceMutualAidDeduction
 import JapanTaxLaw.SocialInsuranceMutualAidDeductionSpec
 import JapanTaxLaw.SocialInsuranceMutualAidDeductionTests
+
+import JapanTaxLaw.LocalDependentAndStudentSpec
+import JapanTaxLaw.LocalDependentAndStudentTests
