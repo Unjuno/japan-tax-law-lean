@@ -91,6 +91,31 @@ def specProvisionalVeterinarianRegistrationFee : Money := 9_000
 /-- Spec: (二十の二）イ 愛玩動物看護師の登録。 -/
 def specPetAnimalNurseRegistrationFee : Money := 9_000
 
+/-- Spec: (二十一）イ 社会保険労務士の登録。 -/
+def specSocialInsuranceLabourConsultantRegistrationFee : Money := 30_000
+/-- Spec: (二十一）ロ 紛争解決手続代理業務試験合格の付記申請。 -/
+def specSocialInsuranceLabourConsultantConciliationTestAppendedRegistrationFee : Money := 5_000
+/-- Spec: (二十二）イ 第一種作業環境測定士の登録。 -/
+def specWorkingEnvironmentMeasurementOfficerType1RegistrationFee : Money := 30_000
+/-- Spec: (二十二）ロ 第二種作業環境測定士の登録。 -/
+def specWorkingEnvironmentMeasurementOfficerType2RegistrationFee : Money := 15_000
+/-- Spec: (二十二の二） キャリアコンサルタントの登録。 -/
+def specCareerConsultantRegistrationFee : Money := 9_000
+/-- Spec: (二十三） 計量士の登録。 -/
+def specMetrologyOfficerRegistrationFee : Money := 30_000
+/-- Spec: (二十三の二） 情報処理安全確保支援士の登録。 -/
+def specInformationProcessingSecuritySupportSpecialistRegistrationFee : Money := 9_000
+/-- Spec: (二十四） 弁理士の登録。 -/
+def specPatentAttorneyRegistrationFee : Money := 60_000
+
+example : specSocialInsuranceLabourConsultantRegistrationFee = 30_000 := by decide
+example : specSocialInsuranceLabourConsultantConciliationTestAppendedRegistrationFee = 5_000 := by decide
+example : specWorkingEnvironmentMeasurementOfficerType1RegistrationFee = 30_000 := by decide
+example : specWorkingEnvironmentMeasurementOfficerType2RegistrationFee = 15_000 := by decide
+example : specCareerConsultantRegistrationFee = 9_000 := by decide
+example : specMetrologyOfficerRegistrationFee = 30_000 := by decide
+example : specInformationProcessingSecuritySupportSpecialistRegistrationFee = 9_000 := by decide
+example : specPatentAttorneyRegistrationFee = 60_000 := by decide
 example : specDentalHygienistRegistrationFee = 9_000 := by decide
 example : specDentalTechnicianRegistrationFee = 9_000 := by decide
 example : specEmergencyMedicalTechnicianRegistrationFee = 9_000 := by decide
@@ -160,7 +185,15 @@ def agreeRegistrationQualificationFees : Bool :=
     specMentalHealthWorkerRegistrationFee == mentalHealthWorkerRegistrationFee &&
     specVeterinarianRegistrationFee == veterinarianRegistrationFee &&
     specProvisionalVeterinarianRegistrationFee == provisionalVeterinarianRegistrationFee &&
-    specPetAnimalNurseRegistrationFee == petAnimalNurseRegistrationFee
+    specPetAnimalNurseRegistrationFee == petAnimalNurseRegistrationFee &&
+    specSocialInsuranceLabourConsultantRegistrationFee == socialInsuranceLabourConsultantRegistrationFee &&
+    specSocialInsuranceLabourConsultantConciliationTestAppendedRegistrationFee == socialInsuranceLabourConsultantConciliationTestAppendedRegistrationFee &&
+    specWorkingEnvironmentMeasurementOfficerType1RegistrationFee == workingEnvironmentMeasurementOfficerType1RegistrationFee &&
+    specWorkingEnvironmentMeasurementOfficerType2RegistrationFee == workingEnvironmentMeasurementOfficerType2RegistrationFee &&
+    specCareerConsultantRegistrationFee == careerConsultantRegistrationFee &&
+    specMetrologyOfficerRegistrationFee == metrologyOfficerRegistrationFee &&
+    specInformationProcessingSecuritySupportSpecialistRegistrationFee == informationProcessingSecuritySupportSpecialistRegistrationFee &&
+    specPatentAttorneyRegistrationFee == patentAttorneyRegistrationFee
 
 example : agreeRegistrationQualificationFees = true := by decide
 

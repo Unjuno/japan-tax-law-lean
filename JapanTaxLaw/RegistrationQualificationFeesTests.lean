@@ -59,5 +59,16 @@ example : mentalHealthWorkerRegistrationFee = 15_000 := by decide
 example : veterinarianRegistrationFee = 30_000 := by decide
 example : provisionalVeterinarianRegistrationFee = 9_000 := by decide
 example : petAnimalNurseRegistrationFee = 9_000 := by decide
+-- （二十一）社会保険労務士（イ 登録／ロ 紛争解決手続代理業務試験合格の付記）
+example : socialInsuranceLabourConsultantRegistrationFee = 30_000 := by decide
+example : socialInsuranceLabourConsultantConciliationTestAppendedRegistrationFee = 5_000 := by decide
+-- （二十二）作業環境測定士（イ 第一種／ロ 第二種）
+example : workingEnvironmentMeasurementOfficerType1RegistrationFee = 30_000 := by decide
+example : workingEnvironmentMeasurementOfficerType2RegistrationFee = 15_000 := by decide
+-- （二十二の二）キャリアコンサルタント ／ （二十三）計量士 ／ （二十三の二）情報処理安全確保支援士 ／ （二十四）弁理士
+example : careerConsultantRegistrationFee = 9_000 := by decide
+example : metrologyOfficerRegistrationFee = 30_000 := by decide
+example : informationProcessingSecuritySupportSpecialistRegistrationFee = 9_000 := by decide
+example : patentAttorneyRegistrationFee = 60_000 := by decide
 
 end JapanTaxLaw
