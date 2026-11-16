@@ -194,6 +194,51 @@ theorem basicDeduction_antitone {a b : Money} (h : a ≤ b) :
       · rw [ite_eq_right hb3]
         exact Nat.zero_le _
 
+/-- art. 34(1)第十二号 の特定親族特別控除額（自己の自己と生計を一にする年齢十九歳以上二十三歳未満の親族で、
+    控除対象扶養親族に該当しない者の前年の合計所得金額による帯域判定）。
+    モデル満たすべき rule（e-Gov pinned raw bytes 逐語）:
+      イ 前年の合計所得金額が九十五万円以下 → ¥450,000
+      ロ 九十五万円を超え百十五万円以下 → 六十三万円 − F(x)
+         F(x) = 「x のうち八十四万一円を超える部分の金額」に 2 を乗じた金額、
+         十万円の整数倍 − 8万円 を下から拾う（y = F(x) が十万円の整数倍 − 8万円 でなければ、
+         y に満たない最大の「十万円の整数倍の金額から八万円を控除した金額」）。
+      ハ 百十五万円を超え百二十万円以下 → ¥60,000
+      ニ 百二十万円を超える → ¥30,000
+    x は当該特定親族の前年の合計所得金額（caller-established）。 -/
+def specificDependentDeduction (totalIncome : Money) : Money :=
+  if totalIncome ≤ 950_000 then 450_000
+  else if totalIncome ≤ 1_150_000 then  -- ロ 帯域
+    let y := 2 * (totalIncome - 841_000)
+    let adjusted := y - ((y + 80_000) % 100_000)  -- y に満たない最大の 10万整数倍−8万
+    630_000 - adjusted
+  else if totalIncome ≤ 1_200_000 then 60_000
+  else 30_000
+
+-- ==== art. 34（第十二号）の性質の検証済み性質 ====
+
+example : specificDependentDeduction 0 = 450_000 := by decide
+example : specificDependentDeduction 950_000 = 450_000 := by decide
+example : specificDependentDeduction 950_001 = 510_000 := by decide
+example : specificDependentDeduction 1_000_000 = 410_000 := by decide
+example : specificDependentDeduction 1_150_000 = 110_000 := by decide
+example : specificDependentDeduction 1_150_001 = 60_000 := by decide
+example : specificDependentDeduction 1_200_000 = 60_000 := by decide
+example : specificDependentDeduction 1_200_001 = 30_000 := by decide
+
+/-- 特定親族特別控除: "イ" 帯域 (x ≤ 950_000) は 450,000 円。 -/
+theorem specificDependentDeduction_zero_below (x : Money) (h : x ≤ 950_000) :
+    specificDependentDeduction x = 450_000 := by
+  unfold specificDependentDeduction
+  rw [ite_eq_left h]
+
+/-- 特定親族特別控除: "ニ" 帯域 (x > 1_200_000) は 30,000 円。 -/
+theorem specificDependentDeduction_gt_1200000 (x : Money) (h : x > 1_200_000) :
+    specificDependentDeduction x = 30_000 := by
+  unfold specificDependentDeduction
+  rw [ite_eq_right (Nat.not_le_of_gt (Nat.lt_trans (by decide : 950_000 < 1_200_000) h))]
+  rw [ite_eq_right (Nat.not_le_of_gt (Nat.lt_trans (by decide : 1_150_000 < 1_200_000) h))]
+  rw [ite_eq_right (Nat.not_le_of_gt h)]
+
 -- ==== art. 34 の新規控除項目の検証済み性質 ====
 
 /-- min monotony helper. -/
