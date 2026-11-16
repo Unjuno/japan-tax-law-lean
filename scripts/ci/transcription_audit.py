@@ -274,8 +274,8 @@ def checks():
             "先取特権、質権又は抵当権の信託の登記債権金額又は極度金額千分の二",
             "その他の権利の信託の登記不動産の価額千分の二"])
 
-    # 登録免許税法 別表第一（二）第二十四号（一）イ〜チ — RegistrationCommercialTax.lean (stockFormationRate...) + RegistrationCommercialTaxTable.lean (イ〜チ 全帯)
-    yield ("登録免許税法 別表第一（二）第二十四号（一）イ〜チ（株式会社等の設立・資本金増加の登記）↔ RegistrationCommercialTax.lean + RegistrationCommercialTaxTable.lean",
+    # 登録免許税法 別表第一（二）第二十四号（一）イ〜ヨ — RegistrationCommercialTax.lean (stockFormationRate...) + RegistrationCommercialTaxTable.lean (イ〜ヨ 全帯)
+    yield ("登録免許税法 別表第一（二）第二十四号（一）イ〜ヨ（株式会社等の設立・資本金増加・各種の登記）↔ RegistrationCommercialTax.lean + RegistrationCommercialTaxTable.lean",
            "342AC0000000035",
            "file", None,
            ["イ　株式会社の設立の登記（ホ及びトに掲げる登記を除く。）資本金の額千分の七",
@@ -285,7 +285,15 @@ def checks():
             "ホ　新設合併又は組織変更若しくは種類の変更による株式会社又は合同会社の設立の登記資本金の額千分の一・五",
             "ヘ　吸収合併による株式会社又は合同会社の資本金の増加の登記増加した資本金の額千分の一・五",
             "ト　新設分割による株式会社又は合同会社の設立の登記資本金の額千分の七",
-            "チ　吸収分割による株式会社又は合同会社の資本金の増加の登記増加した資本金の額千分の七"])
+            "チ　吸収分割による株式会社又は合同会社の資本金の増加の登記増加した資本金の額千分の七",
+            "　相互会社の設立（新設合併又は組織変更による設立を含む。）の登記申請件数一件につき三十万円",
+            "　新株予約権の発行による変更の登記申請件数一件につき九万円",
+            "　支店又は従たる事務所の設置の登記支店又は従たる事務所の数一箇所につき六万円",
+            "　本店若しくは主たる事務所又は支店若しくは従たる事務所の移転の登記本店若しくは主たる事務所又は支店若しくは従たる事務所の数一箇所につき三万円",
+            "　取締役会、監査役会、監査等委員会若しくは指名委員会等（会社法第二条第十二号（定義）に規定する指名委員会等をいう。以下（一）において同じ。）又は理事会に関する事項の変更の登記申請件数一件につき三万円",
+            "　取締役、代表取締役若しくは特別取締役、会計参与、監査役、会計監査人、指名委員会等の委員、執行役若しくは代表執行役若しくは社員又は理事、監事、代表理事若しくは評議員に関する事項の変更（会社又は相互会社若しくは一般社団法人等の代表に関する事項の変更を含む。）の登記申請件数一件につき三万円",
+            "（資本金の額が一億円以下の会社又は一般社団法人等については、一万円）",
+            "　支配人の選任の登記又はその代理権の消滅の登記申請件数一件につき三万円"])
 
     # 地方税法 art. 34 — LocalIncomeTax.lean (basicDeduction, spouseDeduction, disabilityDeduction, widowDeduction, singleParentDeduction, medicalExpenseDeduction, specificDependentDeduction)
     yield ("地方税法 art. 34(2)/(1)二号/六号/八号/八の二/十号/十二号（道府県民税 基礎控除・医療費控除・障害者控除・寡婦控除・ひとり親控除・配偶者控除・特定親族特別控除）↔ LocalIncomeTax.lean",
@@ -341,7 +349,7 @@ def main() -> int:
         "LocalExemption.lean / LocalPrivilege.lean / LocalObligor.lean（賦課方式の税額算定 literal なし／定義分類器）",
         "KanzeiGoods.lean（関税法 art. 2 の物品定義分類器・税率 literal なし／cross_law の pin のみ）",
         "RegistrationTax.lean の未採用帯域（仮登記・分離の登記等）の literal のうち未検査のもの",
-        "RegistrationCommercialTaxTable.lean の未採用帯域（リ：相互会社 ¥300,000／ヌ：新株予約権 ¥9万／ル：支店 ¥6万／ヲ：移転 ¥3万／ワ：取締役会事項変更／カ：役員事項変更／ヨ：支配人の選任 等）",
+        "RegistrationCommercialTaxTable.lean の未採用帯域（タ以降： 職務執行の停止等／レ：解散の登記／ソ：継続・回復の登記／ツ：登記事項の変更・消滅・廃止／ネ：登記の更正 等）",
         "ConsumptionTaxRate.lean の次のアンカー外（art. 29(2)／art. 28 課税標準・art. 30 仕入税額控除 等）— モデル未採用かつ未検査",
         "InheritanceSurcharge.lean art. 17 の相続税額算出（相続税法 art. 17 には literal がない・割合計算のみ。InheritanceApportionment.lean としてモデル化済み・literal 監査対象外）",
         "StampDuty.art. 20 の集計・floor にまつわる全 detail（文言は covered・ロジックは未検査）",

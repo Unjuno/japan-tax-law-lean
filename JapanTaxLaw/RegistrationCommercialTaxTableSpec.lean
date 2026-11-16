@@ -71,6 +71,55 @@ def specNewMergerFormationTax (capital preMergerCapitalBasis : Money) : Money :=
 def specAbsorptionMergerIncreaseTax (increase preMergerCapitalBasis : Money) : Money :=
   max (specMergedPortionTax increase preMergerCapitalBasis) 30_000
 
+/-- Spec: リ — 相互会社の設立（新設合併又は組織変更による設立を含む。）の登記、固定額。 -/
+def specMutualCompanyFormationFee : Money := 300_000
+
+/-- Spec: ヌ — 新株予約権の発行による変更の登記、固定額。 -/
+def specShareSubscriptionModificationFee : Money := 90_000
+
+/-- Spec: ル — 支店又は従たる事務所の設置の登記、「一箇所につき」六万円。 -/
+def specBranchInstallationFee (branchCount : Nat) : Nat := branchCount * 60_000
+
+/-- Spec: ヲ — 本店若しくは主たる事務所又は支店若しくは従たる事務所の移転の登記、「一箇所につき」三万円。 -/
+def specRelocationFee (branchCount : Nat) : Nat := branchCount * 30_000
+
+/-- Spec: ワ — 取締役会、監査役会、監査等委員会若しくは指名委員会等又は理事会に関する事項の
+    変更の登記、固定額。 -/
+def specBoardMattersModificationFee : Money := 30_000
+
+/-- Spec: カ — 役員等に関する事項の変更の登記、「資本金の額が一億円以下の場合一万円、そうでなければ三万円」。 -/
+def specDirectorMattersModificationFee (capital : Money) : Money :=
+  if capital ≤ 100_000_000 then 10_000 else 30_000
+
+/-- Spec: ヨ — 支配人の選任の登記又はその代理権の消滅の登記、固定額。 -/
+def specRepresentativeAttachmentFee : Money := 30_000
+
+-- Spec points (kernel-decided)
+example : specMutualCompanyFormationFee = 300_000 := by decide
+example : specShareSubscriptionModificationFee = 90_000 := by decide
+example : specBranchInstallationFee 0 = 0 := by decide
+example : specBranchInstallationFee 1 = 60_000 := by decide
+example : specBranchInstallationFee 3 = 180_000 := by decide
+example : specRelocationFee 0 = 0 := by decide
+example : specRelocationFee 1 = 30_000 := by decide
+example : specRelocationFee 5 = 150_000 := by decide
+example : specBoardMattersModificationFee = 30_000 := by decide
+example : specDirectorMattersModificationFee 100_000_000 = 10_000 := by decide
+example : specDirectorMattersModificationFee 100_000_001 = 30_000 := by decide
+example : specRepresentativeAttachmentFee = 30_000 := by decide
+
+def agreeRegistrationFees : Bool :=
+  specMutualCompanyFormationFee == mutualCompanyFormationFee &&
+    specShareSubscriptionModificationFee == shareSubscriptionModificationFee &&
+    [0, 1, 2, 3].all (fun n => specBranchInstallationFee n == branchInstallationFee n) &&
+    [0, 1, 2, 5].all (fun n => specRelocationFee n == relocationFee n) &&
+    specBoardMattersModificationFee == boardMattersModificationFee &&
+    [0, 100_000_000, 100_000_001, 2_000_000_000].all (fun cap =>
+      specDirectorMattersModificationFee cap == directorMattersModificationFee cap) &&
+    specRepresentativeAttachmentFee == representativeAttachmentFee
+
+example : agreeRegistrationFees = true := by decide
+
 -- ==== points, all kernel-decided ====
 
 example : specGmporGeneralFormationTax = 60_000 := by decide
