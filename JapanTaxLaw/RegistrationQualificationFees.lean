@@ -511,6 +511,62 @@ def practicalTrainingCorporationAuthorizationFee : Money := 150_000
     消費生活相談員に係る登録試験機関の登録につきの額（固定 ¥150,000）。 -/
 def consumerLivelihoodSupportConsultantExaminationInstitutionRegistrationFee : Money := 150_000
 
+/-- 五十一（一） 電気通信事業法（昭和五十九年法律第八十六号）第九条（電気通信事業の登録）の電気通信事業者の登録又は
+    同法第十三条第一項（変更登録等）の変更登録につきの額（固定 ¥150,000）。 -/
+def telecommunicationsBusinessOperatorRegistrationFee : Money := 150_000
+
+/-- 五十一（二） 電気通信事業法第百十六条の二第一項（認定送信型対電気通信設備サイバー攻撃対処協会の認定）の
+    認定送信型対電気通信設備サイバー攻撃対処協会の認定につきの額（固定 ¥150,000）。 -/
+def certifiedAntiCyberAttackAssociationAuthorizationFee : Money := 150_000
+
+/-- 五十一（三） 電気通信事業法第八十五条の二第一項（登録講習機関の登録）の登録講習機関の登録につきの額（固定 ¥90,000）。 -/
+def telecommunicationsTechnologyMainEngineerCourseRegistrationFee : Money := 90_000
+
+/-- 五十一（四） 電気通信事業法第八十六条第一項（登録認定機関の登録）の登録認定機関の登録につきの額（固定 ¥90,000）。 -/
+def telecommunicationsTerminalEquipmentRegistrationAuthorizationFee : Money := 90_000
+
+/-- 五十二 特定電子メールの送信の適正化等に関する法律（平成十四年法律第二十六号）第十四条第一項（登録送信適正化機関の登録）の
+    登録につきの額（固定 ¥90,000）。 -/
+def specificEmailTransmissionOptimizationRegistrationFee : Money := 90_000
+
+/-- 五十三（一） 電子署名及び認証業務に関する法律（平成十二年法律第百二号）第四条第一項（認定）の
+    認定認証事業者の認定につきの額（固定 ¥90,000）。 -/
+def certifiedAuthenticationBusinessOperatorAuthorizationFee : Money := 90_000
+
+/-- 五十三（二） 電子署名及び認証業務に関する法律第十五条第一項（認定）の
+    認定外国認証事業者の認定につきの額（固定 ¥90,000）。 -/
+def certifiedForeignAuthenticationBusinessOperatorAuthorizationFee : Money := 90_000
+
+/-- 五十三の二 電子委任状の普及の促進に関する法律（平成二十九年法律第六十四号）第五条第一項（電子委任状取扱業務の認定）の
+    認定電子委任状取扱事業者の認定につきの額（固定 ¥90,000）。 -/
+def electronicAgentAuthorizationBusinessOperatorAuthorizationFee : Money := 90_000
+
+theorem telecommunicationsBusinessOperatorRegistrationFee_pos :
+    telecommunicationsBusinessOperatorRegistrationFee > 0 := by decide
+theorem certifiedAntiCyberAttackAssociationAuthorizationFee_pos :
+    certifiedAntiCyberAttackAssociationAuthorizationFee > 0 := by decide
+theorem telecommunicationsTechnologyMainEngineerCourseRegistrationFee_pos :
+    telecommunicationsTechnologyMainEngineerCourseRegistrationFee > 0 := by decide
+theorem telecommunicationsTerminalEquipmentRegistrationAuthorizationFee_pos :
+    telecommunicationsTerminalEquipmentRegistrationAuthorizationFee > 0 := by decide
+theorem specificEmailTransmissionOptimizationRegistrationFee_pos :
+    specificEmailTransmissionOptimizationRegistrationFee > 0 := by decide
+theorem certifiedAuthenticationBusinessOperatorAuthorizationFee_pos :
+    certifiedAuthenticationBusinessOperatorAuthorizationFee > 0 := by decide
+theorem certifiedForeignAuthenticationBusinessOperatorAuthorizationFee_pos :
+    certifiedForeignAuthenticationBusinessOperatorAuthorizationFee > 0 := by decide
+theorem electronicAgentAuthorizationBusinessOperatorAuthorizationFee_pos :
+    electronicAgentAuthorizationBusinessOperatorAuthorizationFee > 0 := by decide
+
+example : telecommunicationsBusinessOperatorRegistrationFee = 150_000 := by decide
+example : certifiedAntiCyberAttackAssociationAuthorizationFee = 150_000 := by decide
+example : telecommunicationsTechnologyMainEngineerCourseRegistrationFee = 90_000 := by decide
+example : telecommunicationsTerminalEquipmentRegistrationAuthorizationFee = 90_000 := by decide
+example : specificEmailTransmissionOptimizationRegistrationFee = 90_000 := by decide
+example : certifiedAuthenticationBusinessOperatorAuthorizationFee = 90_000 := by decide
+example : certifiedForeignAuthenticationBusinessOperatorAuthorizationFee = 90_000 := by decide
+example : electronicAgentAuthorizationBusinessOperatorAuthorizationFee = 90_000 := by decide
+
 /-- 五十の三 消費者の財産的被害等の集団的な回復のための民事の裁判手続の特例に関する法律（平成二十五年法律第九十六号）
     第七十一条第一項（特定適格消費者団体の認定）の認定につきの額（固定 ¥15,000）。 -/
 def specificQualifiedConsumerGroupAuthorizationFee : Money := 15_000
