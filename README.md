@@ -371,6 +371,12 @@ JapanTaxLaw/ConsumptionTaxableBaseTests.lean     # 同上 退行テスト
 JapanTaxLaw/ConsumptionTaxImportBase.lean        # 消費税法 art. 28(4)（輸入課税貨物の課税標準: 関税定率法に準じた価格＋附帯税除き消費税等＋附帯税除き関税）L4 モデル
 JapanTaxLaw/ConsumptionTaxImportBaseSpec.lean    # 同上 独立定式
 JapanTaxLaw/ConsumptionTaxImportBaseTests.lean   # 同上 退行テスト
+JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
+JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
+JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト
+JapanTaxLaw/RegistrationQualificationFeesP2B.lean        # 登録免許税法 別表第三十二号 六十九〜七十五（放射性同位元素・研究施設・水道・食品検査・採血・臓器あつせん 登録/認可/許可）flat fee L4 モデル
+JapanTaxLaw/RegistrationQualificationFeesP2BSpec.lean    # 同上 独立定式
+JapanTaxLaw/RegistrationQualificationFeesP2BTests.lean   # 同上 退行テスト
 JapanTaxLaw/CounterexampleSweep.lean  # L6: マージ済み L4 全モデル × Spec の有限領域反例バウンド検査（decide）
 JapanTaxLaw/TaxProcedure.lean      # 国税通則法 第2条第10号（強制換価手続）
 JapanTaxLaw/TaxProcedureSpec.lean  # Act art.2(10) の独立仕様・健全性・整合性定理
