@@ -397,6 +397,83 @@ def certifiedFinancialInstrumentsBusinessAssociationAuthorizationFee : Money := 
 /-- 四十（八） 金融商品取引法第七十九条の七第一項（認定投資者保護団体の目的及び業務）の認定投資者保護団体の認定につきの額（固定 ¥90,000）。 -/
 def certifiedInvestorProtectionAssociationAuthorizationFee : Money := 90_000
 
+/-- 四十一（一） 金融商品取引法第二十九条（登録）の金融商品取引業者の登録につきの額（固定 ¥150,000）。 -/
+def financialInstrumentsBusinessOperatorRegistrationFee : Money := 150_000
+
+/-- 四十一（二） 金融商品取引法第三十一条第四項（変更登録等）の変更登録につきの額（固定 ¥150,000）。 -/
+def financialInstrumentsBusinessOperatorRegistrationChangeFee : Money := 150_000
+
+/-- 四十一（三） 金融商品取引法第三十条第一項（認可）の業務の認可につきの額（固定 ¥150,000）。 -/
+def financialInstrumentsBusinessApprovalFee : Money := 150_000
+
+/-- 四十一（四） 金融商品取引法第五十九条第一項（引受業務の一部の許可）の引受業務の許可につきの額（固定 ¥90,000）。 -/
+def underwritingBusinessPartApprovalFee : Money := 90_000
+
+/-- 四十一（五） 金融商品取引法第六十条第一項（取引所取引業務の許可）の取引所取引業務の許可につきの額（固定 ¥150,000）。 -/
+def exchangeTradingBusinessApprovalFee : Money := 150_000
+
+/-- 四十一（六） 金融商品取引法第六十条の十四第一項（電子店頭デリバティブ取引等業務の許可）の電子店頭デリバティブ取引等業務の許可につきの額（固定 ¥150,000）。 -/
+def electronicOverTheCounterDerivativesTradingBusinessApprovalFee : Money := 150_000
+
+/-- 四十一（七） 金融商品取引法第六十六条（登録）の金融商品仲介業者の登録につきの額（固定 ¥90,000）。 -/
+def financialInstrumentsIntermediaryBusinessOperatorRegistrationFee : Money := 90_000
+
+/-- 四十一（八） 金融商品取引法第六十六条の二十七（登録）の信用格付業者の登録につきの額（固定 ¥90,000）。 -/
+def creditRatingBusinessOperatorRegistrationFee : Money := 90_000
+
+/-- 四十一（九） 金融商品取引法第六十六条の七十一（登録）の投資運用関係業務受託業者の登録につきの額（固定 ¥90,000）。 -/
+def investmentManagementRelatedServicesContractorRegistrationFee : Money := 90_000
+
+/-- 四十一（十） 金融商品取引法第六十六条の七十五第四項（変更登録等）の変更登録につきの額（固定 ¥90,000）。 -/
+def investmentManagementRelatedServicesContractorRegistrationChangeFee : Money := 90_000
+
+/-- 四十一（十一） 金融商品取引法第百五十六条の二（免許）の金融商品取引清算機関の金融商品債務引受業の免許につきの額（固定 ¥150,000）。 -/
+def financialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee : Money := 150_000
+
+/-- 四十一（十二） 金融商品取引法第百五十六条の二十の二（免許）の外国金融商品取引清算機関の金融商品債務引受業の免許につきの額（固定 ¥150,000）。 -/
+def foreignFinancialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee : Money := 150_000
+
+/-- 四十一（十三） 金融商品取引法第百五十六条の二十の十六第一項（他の金融商品取引清算機関等と連携する場合の認可）の
+    連攜金融商品債務引受業務の認可につきの額（固定 ¥150,000）。 -/
+def financialInstrumentsClearingOrganizationLinkedDebtAssumptionBusinessApprovalFee : Money := 150_000
+
+theorem financialInstrumentsBusinessOperatorRegistrationFee_pos : financialInstrumentsBusinessOperatorRegistrationFee > 0 := by decide
+theorem financialInstrumentsBusinessOperatorRegistrationChangeFee_pos :
+    financialInstrumentsBusinessOperatorRegistrationChangeFee > 0 := by decide
+theorem financialInstrumentsBusinessApprovalFee_pos : financialInstrumentsBusinessApprovalFee > 0 := by decide
+theorem underwritingBusinessPartApprovalFee_pos : underwritingBusinessPartApprovalFee > 0 := by decide
+theorem exchangeTradingBusinessApprovalFee_pos : exchangeTradingBusinessApprovalFee > 0 := by decide
+theorem electronicOverTheCounterDerivativesTradingBusinessApprovalFee_pos :
+    electronicOverTheCounterDerivativesTradingBusinessApprovalFee > 0 := by decide
+theorem financialInstrumentsIntermediaryBusinessOperatorRegistrationFee_pos :
+    financialInstrumentsIntermediaryBusinessOperatorRegistrationFee > 0 := by decide
+theorem creditRatingBusinessOperatorRegistrationFee_pos :
+    creditRatingBusinessOperatorRegistrationFee > 0 := by decide
+theorem investmentManagementRelatedServicesContractorRegistrationFee_pos :
+    investmentManagementRelatedServicesContractorRegistrationFee > 0 := by decide
+theorem investmentManagementRelatedServicesContractorRegistrationChangeFee_pos :
+    investmentManagementRelatedServicesContractorRegistrationChangeFee > 0 := by decide
+theorem financialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee_pos :
+    financialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee > 0 := by decide
+theorem foreignFinancialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee_pos :
+    foreignFinancialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee > 0 := by decide
+theorem financialInstrumentsClearingOrganizationLinkedDebtAssumptionBusinessApprovalFee_pos :
+    financialInstrumentsClearingOrganizationLinkedDebtAssumptionBusinessApprovalFee > 0 := by decide
+
+example : financialInstrumentsBusinessOperatorRegistrationFee = 150_000 := by decide
+example : financialInstrumentsBusinessOperatorRegistrationChangeFee = 150_000 := by decide
+example : financialInstrumentsBusinessApprovalFee = 150_000 := by decide
+example : underwritingBusinessPartApprovalFee = 90_000 := by decide
+example : exchangeTradingBusinessApprovalFee = 150_000 := by decide
+example : electronicOverTheCounterDerivativesTradingBusinessApprovalFee = 150_000 := by decide
+example : financialInstrumentsIntermediaryBusinessOperatorRegistrationFee = 90_000 := by decide
+example : creditRatingBusinessOperatorRegistrationFee = 90_000 := by decide
+example : investmentManagementRelatedServicesContractorRegistrationFee = 90_000 := by decide
+example : investmentManagementRelatedServicesContractorRegistrationChangeFee = 90_000 := by decide
+example : financialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee = 150_000 := by decide
+example : foreignFinancialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee = 150_000 := by decide
+example : financialInstrumentsClearingOrganizationLinkedDebtAssumptionBusinessApprovalFee = 150_000 := by decide
+
 /-- 四十（九） 金融商品取引法第百二条の十四（自主規制法人による自主規制業務）の自主規制業務の認可につきの額（固定 ¥150,000）。 -/
 def selfRegulationBusinessApprovalFee : Money := 150_000
 

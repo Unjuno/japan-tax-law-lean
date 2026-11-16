@@ -278,6 +278,46 @@ def specCertifiedInvestorProtectionAssociationAuthorizationFee : Money := 90_000
 /-- Spec: 四十（九） 自主規制業務の認可。 -/
 def specSelfRegulationBusinessApprovalFee : Money := 150_000
 
+/-- Spec: 四十一（一） 金融商品取引業者の登録。 -/
+def specFinancialInstrumentsBusinessOperatorRegistrationFee : Money := 150_000
+/-- Spec: 四十一（二） 金融商品取引業者の変更登録。 -/
+def specFinancialInstrumentsBusinessOperatorRegistrationChangeFee : Money := 150_000
+/-- Spec: 四十一（三） 金融商品取引業の業務の認可。 -/
+def specFinancialInstrumentsBusinessApprovalFee : Money := 150_000
+/-- Spec: 四十一（四） 引受業務の一部の許可。 -/
+def specUnderwritingBusinessPartApprovalFee : Money := 90_000
+/-- Spec: 四十一（五） 取引所取引業務の許可。 -/
+def specExchangeTradingBusinessApprovalFee : Money := 150_000
+/-- Spec: 四十一（六） 電子店頭デリバティブ取引等業務の許可。 -/
+def specElectronicOverTheCounterDerivativesTradingBusinessApprovalFee : Money := 150_000
+/-- Spec: 四十一（七） 金融商品仲介業者の登録。 -/
+def specFinancialInstrumentsIntermediaryBusinessOperatorRegistrationFee : Money := 90_000
+/-- Spec: 四十一（八） 信用格付業者の登録。 -/
+def specCreditRatingBusinessOperatorRegistrationFee : Money := 90_000
+/-- Spec: 四十一（九） 投資運用関係業務受託業者の登録。 -/
+def specInvestmentManagementRelatedServicesContractorRegistrationFee : Money := 90_000
+/-- Spec: 四十一（十） 投資運用関係業務受託業者の変更登録。 -/
+def specInvestmentManagementRelatedServicesContractorRegistrationChangeFee : Money := 90_000
+/-- Spec: 四十一（十一） 金融商品取引清算機関の金融商品債務引受業の免許。 -/
+def specFinancialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee : Money := 150_000
+/-- Spec: 四十一（十二） 外国金融商品取引清算機関の金融商品債務引受業の免許。 -/
+def specForeignFinancialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee : Money := 150_000
+/-- Spec: 四十一（十三） 連携金融商品債務引受業務の認可。 -/
+def specFinancialInstrumentsClearingOrganizationLinkedDebtAssumptionBusinessApprovalFee : Money := 150_000
+
+example : specFinancialInstrumentsBusinessOperatorRegistrationFee = 150_000 := by decide
+example : specFinancialInstrumentsBusinessOperatorRegistrationChangeFee = 150_000 := by decide
+example : specFinancialInstrumentsBusinessApprovalFee = 150_000 := by decide
+example : specUnderwritingBusinessPartApprovalFee = 90_000 := by decide
+example : specExchangeTradingBusinessApprovalFee = 150_000 := by decide
+example : specElectronicOverTheCounterDerivativesTradingBusinessApprovalFee = 150_000 := by decide
+example : specFinancialInstrumentsIntermediaryBusinessOperatorRegistrationFee = 90_000 := by decide
+example : specCreditRatingBusinessOperatorRegistrationFee = 90_000 := by decide
+example : specInvestmentManagementRelatedServicesContractorRegistrationFee = 90_000 := by decide
+example : specInvestmentManagementRelatedServicesContractorRegistrationChangeFee = 90_000 := by decide
+example : specFinancialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee = 150_000 := by decide
+example : specForeignFinancialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee = 150_000 := by decide
+example : specFinancialInstrumentsClearingOrganizationLinkedDebtAssumptionBusinessApprovalFee = 150_000 := by decide
 example : specSecuredBondTrustBusinessLicenseFee = 150_000 := by decide
 example : specEnterpriseValueCollateralRightTrustBusinessLicenseFee = 150_000 := by decide
 example : specFinancialInstrumentsMarketEstablishmentLicenseFee = 150_000 := by decide
@@ -523,7 +563,20 @@ def agreeRegistrationQualificationFees : Bool :=
     specFinancialInstrumentsExchangeHoldingCompanyApprovalFee == financialInstrumentsExchangeHoldingCompanyApprovalFee &&
     specCertifiedFinancialInstrumentsBusinessAssociationAuthorizationFee == certifiedFinancialInstrumentsBusinessAssociationAuthorizationFee &&
     specCertifiedInvestorProtectionAssociationAuthorizationFee == certifiedInvestorProtectionAssociationAuthorizationFee &&
-    specSelfRegulationBusinessApprovalFee == selfRegulationBusinessApprovalFee
+    specSelfRegulationBusinessApprovalFee == selfRegulationBusinessApprovalFee &&
+    specFinancialInstrumentsBusinessOperatorRegistrationFee == financialInstrumentsBusinessOperatorRegistrationFee &&
+    specFinancialInstrumentsBusinessOperatorRegistrationChangeFee == financialInstrumentsBusinessOperatorRegistrationChangeFee &&
+    specFinancialInstrumentsBusinessApprovalFee == financialInstrumentsBusinessApprovalFee &&
+    specUnderwritingBusinessPartApprovalFee == underwritingBusinessPartApprovalFee &&
+    specExchangeTradingBusinessApprovalFee == exchangeTradingBusinessApprovalFee &&
+    specElectronicOverTheCounterDerivativesTradingBusinessApprovalFee == electronicOverTheCounterDerivativesTradingBusinessApprovalFee &&
+    specFinancialInstrumentsIntermediaryBusinessOperatorRegistrationFee == financialInstrumentsIntermediaryBusinessOperatorRegistrationFee &&
+    specCreditRatingBusinessOperatorRegistrationFee == creditRatingBusinessOperatorRegistrationFee &&
+    specInvestmentManagementRelatedServicesContractorRegistrationFee == investmentManagementRelatedServicesContractorRegistrationFee &&
+    specInvestmentManagementRelatedServicesContractorRegistrationChangeFee == investmentManagementRelatedServicesContractorRegistrationChangeFee &&
+    specFinancialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee == financialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee &&
+    specForeignFinancialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee == foreignFinancialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee &&
+    specFinancialInstrumentsClearingOrganizationLinkedDebtAssumptionBusinessApprovalFee == financialInstrumentsClearingOrganizationLinkedDebtAssumptionBusinessApprovalFee
 
 example : agreeRegistrationQualificationFees = true := by decide
 

@@ -165,5 +165,19 @@ example : financialInstrumentsExchangeHoldingCompanyApprovalFee = 150_000 := by 
 example : certifiedFinancialInstrumentsBusinessAssociationAuthorizationFee = 150_000 := by decide
 example : certifiedInvestorProtectionAssociationAuthorizationFee = 90_000 := by decide
 example : selfRegulationBusinessApprovalFee = 150_000 := by decide
+-- 四十一（一）〜（十三） 金融商品取引業者の登録・変更登録・業務の認可・引受業務許可（¥90,000）・取引所取引業務許可・電子店頭デリバティブ取引等業務許可・仲介業者登録（¥90,000）・信用格付業者登録（¥90,000）・投資運用関係業務受託業者登録／変更登録（¥90,000）・金融商品取引清算機関／外国金融商品取引清算機関の金融商品債務引受業免許・連携金融商品債務引受業務認可
+example : financialInstrumentsBusinessOperatorRegistrationFee = 150_000 := by decide
+example : financialInstrumentsBusinessOperatorRegistrationChangeFee = 150_000 := by decide
+example : financialInstrumentsBusinessApprovalFee = 150_000 := by decide
+example : underwritingBusinessPartApprovalFee = 90_000 := by decide
+example : exchangeTradingBusinessApprovalFee = 150_000 := by decide
+example : electronicOverTheCounterDerivativesTradingBusinessApprovalFee = 150_000 := by decide
+example : financialInstrumentsIntermediaryBusinessOperatorRegistrationFee = 90_000 := by decide
+example : creditRatingBusinessOperatorRegistrationFee = 90_000 := by decide
+example : investmentManagementRelatedServicesContractorRegistrationFee = 90_000 := by decide
+example : investmentManagementRelatedServicesContractorRegistrationChangeFee = 90_000 := by decide
+example : financialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee = 150_000 := by decide
+example : foreignFinancialInstrumentsClearingOrganizationDebtAssumptionBusinessLicenseFee = 150_000 := by decide
+example : financialInstrumentsClearingOrganizationLinkedDebtAssumptionBusinessApprovalFee = 150_000 := by decide
 
 end JapanTaxLaw
