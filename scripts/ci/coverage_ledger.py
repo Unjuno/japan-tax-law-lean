@@ -31,6 +31,7 @@ INVENTORY = REPO / "data" / "INVENTORY.json"
 SWEEP = REPO / "build" / "audit_sweep.json"
 CROSS = REPO / "build" / "cross_law.json"
 CANDIDATES = REPO / "docs" / "L7_CANDIDATES_UNREVIEWED.csv"
+REFERENCES = REPO / "build" / "reference_stats.json"
 OUT = REPO / "docs" / "COVERAGE.md"
 OUT_TMP = REPO / "build" / "coverage.md"
 AUDIT = REPO / "scripts" / "ci" / "transcription_audit.py"
@@ -53,6 +54,8 @@ def build() -> str:
     sweep = _load(SWEEP)
     totals = (sweep or {}).get("totals", {})
     cross = _load(CROSS) or {}
+    refs = _load(REFERENCES) or {}
+    ref_totals = refs.get("totals", {})
     checks = audit_checks()
 
     n_laws = len(laws)
@@ -120,6 +123,20 @@ def build() -> str:
         f"| items checked | {totals.get('items_checked', 'n/a')} |",
         f"| verified anomalies | {totals.get('findings_verified_anomaly', 'n/a')} |",
         f"| unreviewed candidates | {totals.get('findings_candidate', 'n/a')} |",
+        "",
+        "## Reference-relation axes (Objective §1 — recursive discovery)",
+        "",
+        "| axis | count |",
+        "|---|---:|",
+        f"| references extracted | {ref_totals.get('references_extracted', 'n/a')} |",
+        f"| internal references checked | {ref_totals.get('references_internal_checked', 'n/a')} |",
+        f"| external references NOT bound to the ledger | {ref_totals.get('references_external_unverified', 'n/a')} |",
+        f"| references classified unsupported | {ref_totals.get('references_unsupported', 'n/a')} |",
+        "",
+        "external_unverified references are NOT verified and are NOT silently counted",
+        "as covered scope. Recursive discovery of target laws from reference and",
+        "delegation relations remains incomplete; the current ledger was enumerated",
+        "by the '税' keyword in the law name only.",
         "",
         "## Formalisation axes (denominator = distinct laws / article pins)",
         "",
