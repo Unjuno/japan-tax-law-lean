@@ -31,6 +31,20 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | verified anomalies | 0 |
 | unreviewed candidates | 3438 |
 
+## Reference-relation axes (Objective §1 — recursive discovery)
+
+| axis | count |
+|---|---:|
+| references extracted | 476500 |
+| internal references checked | 63234 |
+| external references NOT bound to the ledger | 175186 |
+| references classified unsupported | 250043 |
+
+external_unverified references are NOT verified and are NOT silently counted
+as covered scope. Recursive discovery of target laws from reference and
+delegation relations remains incomplete; the current ledger was enumerated
+by the '税' keyword in the law name only.
+
 ## Formalisation axes (denominator = distinct laws / article pins)
 
 | axis | count | denominator | rate |
