@@ -410,6 +410,9 @@ JapanTaxLaw/CustomsSmallConsignmentTests.lean # 同上 退行テスト
 JapanTaxLaw/CustomsExchangeRate.lean        # 関税定率法 art. 4の7（換算に用いる外国為替相場の日付選択: 輸入申告の日／関税法第五条第一号貨物は同号の日）L4 モデル
 JapanTaxLaw/CustomsExchangeRateSpec.lean    # 同上 独立定式
 JapanTaxLaw/CustomsExchangeRateTests.lean   # 同上 退行テスト
+JapanTaxLaw/CustomsDamageReduction.lean      # 関税定率法 art. 10(1)（変質・損傷の関税軽減: 価格低下率基準／差額以内の上限）L4 モデル
+JapanTaxLaw/CustomsDamageReductionSpec.lean  # 同上 独立定式
+JapanTaxLaw/CustomsDamageReductionTests.lean # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト

@@ -263,3 +263,6 @@ import JapanTaxLaw.CustomsSmallConsignmentTests
 import JapanTaxLaw.CustomsExchangeRate
 import JapanTaxLaw.CustomsExchangeRateSpec
 import JapanTaxLaw.CustomsExchangeRateTests
+import JapanTaxLaw.CustomsDamageReduction
+import JapanTaxLaw.CustomsDamageReductionSpec
+import JapanTaxLaw.CustomsDamageReductionTests
