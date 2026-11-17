@@ -518,6 +518,15 @@ JapanTaxLaw/LocalTaxVehicleSnowRateTests.lean      # 同上 退行テスト
 JapanTaxLaw/LocalTaxInsuranceEstimate.lean         # 地方税法施行令 art. 56の89の6（国保税額の月割見込）L4 モデル
 JapanTaxLaw/LocalTaxInsuranceEstimateSpec.lean     # 同上 独立定式
 JapanTaxLaw/LocalTaxInsuranceEstimateTests.lean    # 同上 退行テスト
+JapanTaxLaw/LocalTaxOrderRate99A.lean          # 地方税法施行令 art. 9の14/9の18（99%）L4 モデル
+JapanTaxLaw/LocalTaxOrderRate99ASpec.lean      # 同上 独立定式
+JapanTaxLaw/LocalTaxOrderRate99ATests.lean     # 同上 退行テスト
+JapanTaxLaw/LocalTaxOrderRate77.lean           # 地方税法施行令 art. 9の22/35の4の5（99%・7.7%）L4 モデル
+JapanTaxLaw/LocalTaxOrderRate77Spec.lean       # 同上 独立定式
+JapanTaxLaw/LocalTaxOrderRate77Tests.lean      # 同上 退行テスト
+JapanTaxLaw/SpecialOrderCapitalGainDeduction.lean    # 租税特別措置法施行令 art. 24（譲渡所得特別控除5000万円上限）L4 モデル
+JapanTaxLaw/SpecialOrderCapitalGainDeductionSpec.lean # 同上 独立定式
+JapanTaxLaw/SpecialOrderCapitalGainDeductionTests.lean # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト
