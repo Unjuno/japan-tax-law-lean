@@ -1,217 +1,227 @@
-# STAGING — W-J（登録免許税法 別表第一（二）第三十二号 百二十五〜百二十九 の flat fee）受け渡しメモ
+# STAGING — W-J（相続税法 第22条〜第25条 資産評価・地上権割合表を主とする bounded L4 モデル）受け渡しメモ
 
 > 実装担当 W-J からメインセッション（統合担当）への受け渡し用。
 > ブランチ操作・add/commit/push/merge は一切していません。
 > 書き換えたのは下記 4 ファイルのみです（他は読み取り専用）。
+> 本ファイルは **旧 W-J（登録免許税法 第三十二号 百二十五〜百二十九／P6J）の受け渡しメモを
+> 上書き**したものです。旧 P6J モジュールは既に `JapanTaxLaw.lean` に import 済みで、
+> 本タスクでは一切触れていません。
 
 ## 0. 対象ファイル
 
 | ファイル | 状態 |
 | --- | --- |
-| `JapanTaxLaw/RegistrationQualificationFeesP6J.lean` | 新規 |
-| `JapanTaxLaw/RegistrationQualificationFeesP6JSpec.lean` | 新規 |
-| `JapanTaxLaw/RegistrationQualificationFeesP6JTests.lean` | 新規 |
-| `docs/STAGING_WJ.md` | 新規（本ファイル） |
+| `JapanTaxLaw/InheritanceAssetValuation.lean` | 新規 |
+| `JapanTaxLaw/InheritanceAssetValuationSpec.lean` | 新規 |
+| `JapanTaxLaw/InheritanceAssetValuationTests.lean` | 新規 |
+| `docs/STAGING_WJ.md` | 既存（旧 W-J メモ）を本タスク用に overwritten（本ファイル） |
 
-pinned source: `data/raw/342AC0000000035_20261101_508AC0000000021.law.json`
-law id `342AC0000000035` / revision `342AC0000000035_20261101_508AC0000000021`
-amendment enforcement date `2026-11-01`（RegistrationQualificationFees / P2A〜P6J と同一ピン）。
-担当範囲原文: `art32_125_129.txt`（百二十五〜百二十九、UTF-8、1 行 5177 文字、
-正規化後 5148 文字）。pinned bytes から金額を日本語数字で読み取り Arabic に変換
-（九万円→90,000 / 十二万円→120,000 / 六万円→60,000 / 三万円→30,000 / 一万五千円→15,000 /
-五千円→5,000 / 三千円→3,000 / 十五万円→150,000、全件一致確認済み）。
+pinned source: 相続税法 `data/raw/325AC0000000073_20260401_506AC0000000008.law.json`
+law id `325AC0000000073` / revision `325AC0000000073_20260401_506AC0000000008`
+（施行日 2026-04-01、既存 `InheritanceTax*` / `InheritanceMiscRates*` と同一ピン）。
+担当範囲原文: `C:\Users\junny\AppData\Local\Temp\opencode\W_J_inheritance_eval.txt`
+（第22条〜第25条・正規化済み・UTF-8）。
+名前空間は他と衝突しないよう **`JapanTaxLaw.InheritanceAssetValuation`** を採用
+（既存モジュールの多くは `namespace JapanTaxLaw` だが、本タスクは明示的にサブ名前空間を指定されました）。
 
-## 1. 担当範囲のカテゴリ一覧（百二十五〜百二十九）
+## 1. スコープ判断（4 条文）
 
-| 条号 | 区分／法律 | 件数 |
+| 条 | 題 | 判断 | 根拠 |
+| --- | --- | --- | --- |
+| 22 | 評価の原則 | **NOT MODELLED** | 「時価による」「債務の金額はその時の現況による」のみで算術式なし。時価・債務額の認定は caller-established。 |
+| 23 | 地上権及び永小作権の評価 | **MODELLED（主対象）** | 残存期間 10 区分の割合表と「土地時価 × 割合（切り捨て）」の明示的算術式がある。 |
+| 24 | 定期金に関する権利の評価 | **NOT MODELLED** | 複利年金現価率（財務省令で定める割合・原文に数式なし）・予定利率・政令で定める余命年数を用い、複数区分で「いずれか多い／少ない金額」の比較を伴う。bounded な再現を主張できない。 |
+| 25 | 定期金給付契約 | **明確な部分のみ MODELLED** | 定期金給付事由未発生のうち「解約返戻金の定めがない場合」に「百分の九十を乗じて得た金額」の明示的算術がある。基礎の複利計算額は caller-established。第二号（解約返戻金のある場合）の金額認定は非モデル化。 |
+
+caller-established（本モデルへの入力・判定は行わない）:
+
+- 土地の時価、残存期間（年）、存続期間の定めのない地上権かどうか（art. 23）。
+- art. 23 の借地借家法の借地権・民法269条の2第1項（地下/空間を目的とする地上権）の除外該当性。
+- art. 25 の生命保険契約の除外、定期金給付事由が発生済みか（発生済みなら art. 24 の対象）、
+  解約返戻金の定めがあるか、複利計算額（予定利率の元利合計額／複利年金終価率）。
+- 端数は `TaxRate.applyFloor`（切り捨て）。政令の丸め細目・申告手続は射程外。
+
+## 2. 追加した def 一覧
+
+`namespace JapanTaxLaw.InheritanceAssetValuation`、`open JapanTaxLaw.TaxFinance`、`Money = Nat`。
+
+### 実装モジュール（`InheritanceAssetValuation.lean`）— def 5 本 / 定理 4 本
+
+| # | 条 | def 名 | 内容 |
+| --- | --- | --- | --- |
+| 1 | 23 | `pctRate` | 百分率 `pct` を `⟨pct, 100, by decide⟩ : TaxRate` に（分母 100） |
+| 2 | 23 | `superficiesRate` | `(years : Nat) → (perpetual : Bool) → TaxRate`。下記割合表を全区分実装 |
+| 3 | 23 | `superficiesValue` | `(landMarketValue : Money) → years → perpetual → Money`。時価 × 割合（`applyFloor`、切り捨て） |
+| 4 | 25 | `art25NoSurrenderRate` | 百分の九十を `⟨90, 100, by decide⟩ : TaxRate` に |
+| 5 | 25 | `art25NoSurrenderValue` | `(compoundBase : Money) → Money` = 基礎額 × 90%（切り捨て） |
+
+定理 4 本: `superficiesValue_eq`（rfl）、`art25NoSurrenderValue_eq`（rfl）、
+`superficiesValue_mono` / `art25NoSurrenderValue_mono`（時価・基礎額について単調）。
+
+`superficiesRate` の割合表（原文の全 10 区分を漏れなく実装）:
+
+| 残存期間 | 割合 | 実装 |
 | --- | --- | --- |
-| 百二十五(一) | 道路運送法（一般旅客自動車運送事業の許可：イ乗合・貸切／ロ乗用） | 2 |
-| 百二十五(二) | 道路運送法（事業計画の変更の認可：イ・ロ・ハ） | 3 |
-| 百二十五(三) | 道路運送法（特定旅客自動車運送事業の許可） | 1 |
-| 百二十五(四)(五) | 貨物自動車運送事業法（一般貨物／特定貨物の許可） | 2 |
-| 百二十五(六)(七) | 貨物自動車運送事業法（登録貨物軽自動車安全管理者講習機関／定期講習機関の登録） | 2 |
-| 百二十五の二 | タクシー業務適正化特別措置法（登録実施機関の登録） | 1 |
-| 百二十五の三 | 道路運送法（自家用有償旅客運送者の登録／変更登録） | 2 |
-| 百二十六 | 道路運送法（自家用自動車の有償貸渡しの許可） | 1 |
-| 百二十七 | 運河法（運河開設の免許） | 1 |
-| 百二十七の二 | 港湾法（登録確認機関の登録） | 1 |
-| 百二十八 | 造船法（(一) 施設の新設等／(二) 設備の新設等の許可） | 2 |
-| 百二十九 | 小型船造船業法（小型船造船業者の登録） | 1 |
-| **合計** | | **19** |
+| 10 年以下 | 5% | `years ≤ 10`（perpetual=false） |
+| 10 超 15 以下 | 10% | `years ≤ 15` |
+| 15 超 20 以下 | 20% | `years ≤ 20` |
+| 20 超 25 以下 | 30% | `years ≤ 25` |
+| 25 超 30 以下 **及び存続期間の定めのない地上権** | 40% | `years ≤ 30` 又は `perpetual = true` |
+| 30 超 35 以下 | 50% | `years ≤ 35` |
+| 35 超 40 以下 | 60% | `years ≤ 40` |
+| 40 超 45 以下 | 70% | `years ≤ 45` |
+| 45 超 50 以下 | 80% | `years ≤ 50` |
+| 50 超 | 90% | 上記いずれでもない場合 |
 
-原文の「〜件数一件につき△△円」フレーズ出現数は **19**（`につき` / `一件につき` の出現数も 19）で、
-タスク指定の 19 件と一致します。本範囲に割合（千分の△）はありません。
-`政令` の出現は 6 回（適用除外・限定の文言、すべて caller-established）、`既に`（デーミング）は 0 回です。
+`perpetual = true` は残存期間の値にかかわらず最優先で 40%（存続期間不定の地上権）。
 
-**金額なし／fee def を作らない行**: 百二十五(一)ロ 括弧内の「個人の受ける一般乗用旅客自動車
-運送事業の許可で政令で定めるものについては、一万五千円」は軽減額の例外であり
-「一件につき」の主たる fee string ではないため別 def を作りません（caller-established の軽減例外）。
-また 百二十五・百二十五の三・百二十八の（注）のみなし規定（各種計画の認定等を許可等とみなす）
-も適用判定であり金額定数には反映しません。デーミング規定・金額なし行は本範囲に存在しないため、
-fee string 19 行すべてを fee def 化しました。
+境界の意味: ちょうど 10 年 → 5%、10 年を超え 15 年 → 10%、…、ちょうど 50 年 → 80%、
+50 年を超える → 90%。これを全区分の smoke（impl / Tests）で `decide` 確認済み。
 
-## 2. 追加した def 一覧（名前 → 金額 → 条号／区分）
+### Spec モジュール（`InheritanceAssetValuationSpec.lean`）— def 7 本
 
-`namespace JapanTaxLaw`、`open JapanTaxLaw.TaxFinance`。各 def は `Money := <額>` の flat 定数
-（課税標準は一件につき）。各 def に `<name>_pos : <name> > 0 := by decide` と
-`example : <name> = <額> := by decide` を付与済み（19 本ずつ）。
+| # | 条 | def 名 | 内容 |
+| --- | --- | --- | --- |
+| 1 | 23 | `specRatePct` | 独立定式。区間を「`< 上限+1`」で記述（実装は「`≤ 上限`」） |
+| 2 | 23 | `specSuperficiesRate` | spec 側の `TaxRate` 化 |
+| 3 | 23 | `specSuperficiesValue` | spec 側の `時価 × 割合 / 100` |
+| 4 | 25 | `specArt25NoSurrenderValue` | spec 側の `compoundBase * 90 / 100` |
+| 5 | 23 | `agreeSuperficiesRate` | years = 0..60 × perpetual 双方の割合一致・分母 100 を `decide` |
+| 6 | 23 | `agreeSuperficiesValue` | years = 0..60 × perpetual 双方 × 代表時価の評価額一致を `decide` |
+| 7 | 25 | `agreeArt25NoSurrenderValue` | compoundBase = 0..64 の 90% 適用一致を `decide` |
 
-| # | 条号／区分 | def 名 | 金額 | 原文 fee |
-| --- | --- | --- | --- | --- |
-| 1 | 百二十五(一)イ | `generalRouteCharterPassengerTransportPermitFee` | 90,000 | 九万円 |
-| 2 | 百二十五(一)ロ | `generalPassengerCarTransportPermitFee` | 30,000 | 三万円 |
-| 3 | 百二十五(二)イ | `routeAreaIncreasePlanChangeApprovalFee` | 15,000 | 一万五千円 |
-| 4 | 百二十五(二)ロ | `businessAreaIncreasePlanChangeApprovalFee` | 5,000 | 五千円 |
-| 5 | 百二十五(二)ハ | `semiSpecificAreaCapacityIncreasePlanChangeApprovalFee` | 5,000 | 五千円 |
-| 6 | 百二十五(三) | `specifiedPassengerTransportBizPermitFee` | 30,000 | 三万円 |
-| 7 | 百二十五(四) | `generalFreightTransportBizPermitFee` | 120,000 | 十二万円 |
-| 8 | 百二十五(五) | `specifiedFreightTransportBizPermitFee` | 60,000 | 六万円 |
-| 9 | 百二十五(六) | `registeredLightFreightSafetyInstructorTrainingOrgRegFee` | 90,000 | 九万円 |
-| 10 | 百二十五(七) | `registeredLightFreightSafetyInstructorPeriodicTrainingOrgRegFee` | 90,000 | 九万円 |
-| 11 | 百二十五の二 | `taxiDriverRegistrationOrgRegFee` | 90,000 | 九万円 |
-| 12 | 百二十五の三(一) | `privatePaidPassengerTransportRegFee` | 15,000 | 一万五千円 |
-| 13 | 百二十五の三(二) | `privatePaidPassengerTransportChangeRegFee` | 3,000 | 三千円 |
-| 14 | 百二十六 | `privateCarPaidLoanPermitFee` | 90,000 | 九万円 |
-| 15 | 百二十七 | `canalConstructionLicenseFee` | 150,000 | 十五万円 |
-| 16 | 百二十七の二 | `portTechnicalStandardVerificationOrgRegFee` | 90,000 | 九万円 |
-| 17 | 百二十八(一) | `shipMfgRepairFacilityNewPermitFee` | 150,000 | 十五万円 |
-| 18 | 百二十八(二) | `shipMfgRepairEquipmentExpansionPermitFee` | 30,000 | 三万円 |
-| 19 | 百二十九 | `smallVesselShipbuilderRegFee` | 90,000 | 九万円 |
+### Tests モジュール（`InheritanceAssetValuationTests.lean`）
 
-金額一致の内訳: 九万円=7 件（90,000）／ 三万円=3 件（30,000）／ 一万五千円=2 件（15,000）／
-五千円=2 件（5,000）／ 十二万円=1 件（120,000）／ 六万円=1 件（60,000）／ 三千円=1 件（3,000）／
-十五万円=2 件（150,000）＝ 合計 19 件。pinned 原文の fee フレーズ出現数と完全一致。
+def はなし。`example … := by decide` の kernel-decide smoke 37 件のみ
+（割合表の全区分・全境界、存続期間不定の 40%、評価額、art. 25 の 90%）。
 
-`RegistrationQualificationFeesP6JSpec.lean` は `spec` 接頭辞の独立定式 19 本 +
-`agreeRegistrationQualificationFeesP6J : Bool`（実装 ≡ spec の `==` 一致）+
-`example : agreeRegistrationQualificationFeesP6J = true := by decide`。
-`RegistrationQualificationFeesP6JTests.lean` は `example := by decide` のスモーク 19 件のみ。
-
-doc-comment に明記した射程外（overclaim 防止）:
-
-- 「政令で定めるものに限る」「政令で定めるものを除く」「更新の登録を除く」「更新の許可を除く」
-  「財務省令で定めるもの」の適用判定は **caller-established** とし、金額定数には反映していません。
-- 百二十五(一)ロ の軽減例外（政令で定める個人は一万五千円）も caller-established とし、別 def は作っていません。
-- 百二十五・百二十五の三・百二十八の（注）のみなし規定も caller-established です。
-- 百二十四 以前・百三十 以降は NOT YET COVERED。「認定件数」「登録件数」「許可件数」「免許件数」
-  「申請件数」の意味上の区別は非モデル化（一律 `Money`）。
+**def 合計 12 本（impl 5 / Spec 7）**、定理 4 本、`by decide` smoke 合計 88 件
+（impl 41 / Spec 10 / Tests 37、agree の true 確認 3 件を含む）。
 
 ## 3. 転記監査に追加すべき check（JSON 断片）
 
 `scripts/ci/transcription_audit.py` の `checks()` に追加する check の JSON 表現です
-（`law_id` / `kind` / `title` / `needles` の 4 キー）。needle 文字列は一字も変えないこと。
-**文字正規化・全角／半角変換・異体字変換を行わず、そのまま移してください。**
+（`law_id` / `kind` / `title` / `needles` の 4 キー）。needle は原文から**一字も変えず**抽出し、
+正規化（`_norm` = `re.sub(r"[\s　]+", "", …)`）済みの形で記載しています。
+全 needle は担当範囲原文・pinned JSON の双方で `.find()` に命中します（§6）。
 
 ```json
 {
-  "law_id": "342AC0000000035",
+  "law_id": "325AC0000000073",
   "kind": "file",
   "title": null,
   "needles": [
-    "（一）道路運送法第四条第一項（一般旅客自動車運送事業の許可）の一般旅客自動車運送事業の許可イ一般乗合旅客自動車運送事業の許可又は一般貸切旅客自動車運送事業の許可（更新の許可を除く。）許可件数一件につき九万円",
-    "一般乗合旅客自動車運送事業の許可又は一般貸切旅客自動車運送事業の許可（更新の許可を除く。）許可件数一件につき九万円ロ一般乗用旅客自動車運送事業の許可許可件数一件につき三万円",
-    "イ（一）イに掲げる許可を受けている者が道路運送法第五条第一項第三号（許可申請）の路線又は営業区域を増加することに係る事業計画の変更の認可で財務省令で定めるもの認可件数一件につき一万五千円",
-    "ロ（一）ロに掲げる許可（政令で定めるものを除く。ハにおいて同じ。）を受けている者が道路運送法第五条第一項第三号の営業区域を増加することに係る事業計画の変更の認可で財務省令で定めるもの認可件数一件につき五千円",
-    "に規定する準特定地域における一般乗用旅客自動車運送事業の供給輸送力を増加させる事業計画の変更の認可で財務省令で定めるもの認可件数一件につき五千円",
-    "件数一件につき五千円（三）道路運送法第四十三条第一項（特定旅客自動車運送事業）の特定旅客自動車運送事業の許可許可件数一件につき三万円",
-    "（四）貨物自動車運送事業法第三条（一般貨物自動車運送事業の許可）の一般貨物自動車運送事業の許可許可件数一件につき十二万円",
-    "（五）貨物自動車運送事業法第三十五条第一項（特定貨物自動車運送事業）の特定貨物自動車運送事業の許可許可件数一件につき六万円",
-    "（六）貨物自動車運送事業法第五十八条の二（登録貨物軽自動車安全管理者講習機関の登録）の登録貨物軽自動車安全管理者講習機関の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "（七）貨物自動車運送事業法第五十八条の十六第一項（登録貨物軽自動車安全管理者定期講習機関の登録）の登録貨物軽自動車安全管理者定期講習機関の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "百二十五の二タクシーの運転者に係る登録実施機関の登録タクシー業務適正化特別措置法（昭和四十五年法律第七十五号）第十九条第一項（登録実施機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "（一）道路運送法第七十九条（登録）の自家用有償旅客運送者の登録（政令で定めるものに限り、更新の登録を除く。）登録件数一件につき一万五千円",
-    "一万五千円（二）道路運送法第七十九条の七第一項（変更登録等）の変更登録（政令で定めるものに限る。）登録件数一件につき三千円",
-    "百二十六自家用自動車の有償貸渡しの許可道路運送法第八十条第一項（有償貸渡し）の規定による自家用自動車の貸渡しの事業の許可（政令で定めるものを除く。）許可件数一件につき九万円",
-    "百二十七運河開設の免許運河法（大正二年法律第十六号）第一条（免許）の規定による運河の開設の免許免許件数一件につき十五万円",
-    "百二十七の二港湾の技術基準対象施設に係る登録確認機関の登録港湾法（昭和二十五年法律第二百十八号）第五十六条の二の二第三項（登録確認機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "の規定による船舶の製造又は修繕に係る施設の新設、譲受け又は借受けの許可（当該許可を受けている者が当該許可に係る施設について受けるもの及び一時的な需要のために行う許可で財務省令で定めるものを除く。）許可件数一件につき十五万円",
-    "（二）造船法第三条第一項（設備の新設等の許可等）の規定による船舶の製造又は修繕に必要な設備の新設、増設又は拡張の許可（当該設備に係る拡張の許可で政令で定めるもの及び一時的な需要のために行う許可で財務省令で定めるものを除く。）許可件数一件につき三万円",
-    "百二十九小型船造船業者の登録小型船造船業法（昭和四十一年法律第百十九号）第四条（登録）の規定による小型船造船業者の登録登録件数一件につき九万円"
+    "（評価の原則）第二十二条この章で特別の定めのあるものを除くほか、相続、遺贈又は贈与により取得した財産の価額は、当該財産の取得の時における時価により",
+    "（地上権及び永小作権の評価）第二十三条",
+    "その残存期間に応じ、その目的となつている土地のこれらの権利を取得した時におけるこれらの権利が設定されていない場合の時価に、次に定める割合を乗じて算出した金額による",
+    "残存期間が十年以下のもの百分の五",
+    "残存期間が十年を超え十五年以下のもの百分の十",
+    "残存期間が十五年を超え二十年以下のもの百分の二十",
+    "残存期間が二十年を超え二十五年以下のもの百分の三十",
+    "残存期間が二十五年を超え三十年以下のもの及び地上権で存続期間の定めのないもの百分の四十",
+    "残存期間が三十年を超え三十五年以下のもの百分の五十",
+    "残存期間が三十五年を超え四十年以下のもの百分の六十",
+    "残存期間が四十年を超え四十五年以下のもの百分の七十",
+    "残存期間が四十五年を超え五十年以下のもの百分の八十",
+    "残存期間が五十年を超えるもの百分の九十",
+    "（定期金に関する権利の評価）第二十四条",
+    "当該契約に係る予定利率による複利年金現価率",
+    "第二十五条定期金給付契約（生命保険契約を除く。）",
+    "当該契約に係る予定利率による複利年金終価率",
+    "百分の九十を乗じて得た金額"
   ]
 }
 ```
 
-参考：現行スクリプト形式への変換例（name は任意、needles は上記 19 本をそのまま使用）:
+参考：現行スクリプト形式への変換例（name は任意、needles は上記 18 本を一字も変えずに列挙）:
 
 ```python
-yield ("登録免許税法 別表第一（二）第三十二号 百二十五〜百二十九（道路運送・貨物自動車運送・タクシー登録実施機関・自家用有償旅客・運河・港湾・造船・小型船）↔ RegistrationQualificationFeesP6J.lean",
-       "342AC0000000035",
-       "file", None,
-       [ ...上記 needles 19 本を一字も変えずに列挙... ])
+yield ("相続税法 art. 22〜25（資産評価）↔ InheritanceAssetValuation.lean（art.23 地上権割合表 5/10/20/30/40/50/60/70/80/90%・存続期間不定 40%、art.25 の 90% のみ）",
+       "325AC0000000073", "file", None,
+       [ ...上記 needles 18 本を一字も変えずに列挙... ])
 ```
+
+needle とモデルとの対応:
+
+| # | 対応 | 備考 |
+| --- | --- | --- |
+| 1 | art. 22（NOT MODELLED の根拠） | 評価原則・算術式なし |
+| 2, 3 | art. 23 の条題名と算定規定 | `superficiesRate` / `superficiesValue` |
+| 4〜13 | art. 23 の割合表 10 区分（5%〜90%） | `superficiesRate` の全区分（#8 に存続期間不定の 40% を含む） |
+| 14, 15 | art. 24（NOT MODELLED の根拠） | 複利年金現価率（出現回数 2: 第一号ハ・第三号ハ） |
+| 16, 17, 18 | art. 25（部分モデルの根拠） | 17 は複利計算が外部パラメータである根拠、18 は 90% |
 
 ## 4. 期待 literal 増分
 
-- W-J 担当分: 新規 check **19 needles** なので **+19**。
+- W-J 担当分: 新規 check **18 needles** なので **+18**。
 - `docs/PROGRESS.md` の監査 literal 総数はメインセッションが再確認して加算してください
   （起点値は本メモでは書きません）。
 
 ## 5. 検証結果（すべて本セッションで実行済み）
 
-- `lake build JapanTaxLaw.RegistrationQualificationFeesP6J JapanTaxLaw.RegistrationQualificationFeesP6JSpec JapanTaxLaw.RegistrationQualificationFeesP6JTests`
-  → **成功（5 jobs、warning なし）**。※自作 3 モジュールのみビルド（全体ビルド／CI／`run_python_gates.py` は実行していません）。
+- `lake build JapanTaxLaw.InheritanceAssetValuation JapanTaxLaw.InheritanceAssetValuationSpec JapanTaxLaw.InheritanceAssetValuationTests`
+  → **成功（5 jobs、warning なし）**。※自作 3 モジュールのみビルド。全体ビルド／CI／
+  `run_python_gates.py` は**実行していません**。
 - `python scripts/ci/check_no_sorry.py` → `no forbidden placeholder proofs found in tracked Lean sources`。
   （新規 3 ファイルは未追跡のため走査対象外ですが、人力でも `sorry` / `admit` はありません。）
-- `#print axioms`（一時ファイル `WJAxiomProbe.lean` を approved temp dir に作成、`lake env lean` で実行後 **削除済み**）:
-  - 新規 positivity 定理 **19 本すべて** と `agreeRegistrationQualificationFeesP6J` の計 **20 件**が
-    `does not depend on any axioms`。
-  - **`Classical.choice` も `sorryAx` も `propext` も一切なし**（出力 20 行を全文走査、いずれも 0 回）。
-- 原文逐語検証（pinned JSON を正規化テキストに対して `.find()`）: **19/19 FOUND、MISS 0 件**（§6）。
-  担当範囲原文 `art32_125_129.txt` 正規化テキストに対しても **19/19 FOUND、MISS 0 件**。
-  各 needle は両テキストで出現回数 **1**（一意）、長さはすべて **60〜124 文字**、19 本すべて相互に異なることを確認。
-  law id `342AC0000000035` … FOUND / revision `342AC0000000035_20261101_508AC0000000021` … FOUND。
-- 金額一致: 九万円=7 / 三万円=3 / 一万五千円=2 / 五千円=2 / 十二万円=1 / 六万円=1 / 三千円=1 / 十五万円=2
-  ＝ 19 件、pinned 原文の fee フレーズ出現数と完全一致。
+- `#print axioms`（一時ファイル `WJAxiomProbe.lean` を approved temp dir に作成、
+  `lake env lean` で実行後 **削除済み**、残ファイル数 0）: 新規定理 4 件を検査。
+  - `superficiesValue_eq` / `art25NoSurrenderValue_eq`（rfl）の **2 件は `does not depend on any axioms`**。
+  - `superficiesValue_mono` / `art25NoSurrenderValue_mono` の **2 件は `propext` のみ**（許可範囲）。
+  - **`Classical.choice` も `sorryAx` も一切なし**。
+- 原文逐語検証: **18/18 FOUND、MISS 0 件**。needle は一字も変えず原文から抽出。
+  - 担当範囲原文 `W_J_inheritance_eval.txt` を `_norm` と同一の
+    `re.sub(r"[\s　]+", "", …)` で正規化した文字列に `.find()` → 18/18 FOUND。
+  - pinned JSON を `transcription_audit.py` の `text()` と同一ロジックで平坦化・正規化した
+    文字列に対しても 18/18 FOUND（§6）。
+  - law id `325AC0000000073` / revision `325AC0000000073_20260401_506AC0000000008` は
+    `data/INVENTORY.json` の当該 law レコードで FOUND（pinned snapshot 名も一致）。
+- 割合表の境界 smoke: 10/15/20/25/30/35/40/45/50 の各「ちょうど」と「+1」、
+  および perpetual = true の 40% を impl・Spec・Tests の三方で `decide` 確認。
 
 ## 6. 逐語検証 FOUND / MISS 一覧（一字も変更せず）
 
-担当範囲原文 `art32_125_129.txt` を、転記監査と同じ `re.sub(r"[\s\u3000]+", "", ...)` で正規化した文字列に
-対して各 needle を Python の `.find()` で検索（`art@`）。
-`json@` は pinned JSON `law_full_text` を `transcription_audit.py` と同一ロジックで平坦化・正規化した文字列上の offset。
-各 needle の出現回数は両方とも **1**（一意）。
+`art@` は担当範囲原文の正規化文字列上の offset、`json@` は pinned JSON の平坦化・正規化文字列上の
+offset。needle 15 のみ複数回出現（第一号ハ・第三号ハで 2 回）で、それ以外は出現回数 1。
 
-| # | 条号/区分 | def | 結果 | art@ | json@ | 出現回数(art/json) | len |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 百二十五(一)イ | `generalRouteCharterPassengerTransportPermitFee` | FOUND | 2436 | 183911 | 1/1 | 103 |
-| 2 | 百二十五(一)ロ | `generalPassengerCarTransportPermitFee` | FOUND | 2482 | 183957 | 1/1 | 86 |
-| 3 | 百二十五(二)イ | `routeAreaIncreasePlanChangeApprovalFee` | FOUND | 2652 | 184127 | 1/1 | 93 |
-| 4 | 百二十五(二)ロ | `businessAreaIncreasePlanChangeApprovalFee` | FOUND | 2745 | 184220 | 1/1 | 103 |
-| 5 | 百二十五(二)ハ | `semiSpecificAreaCapacityIncreasePlanChangeApprovalFee` | FOUND | 2923 | 184398 | 1/1 | 72 |
-| 6 | 百二十五(三) | `specifiedPassengerTransportBizPermitFee` | FOUND | 2985 | 184460 | 1/1 | 66 |
-| 7 | 百二十五(四) | `generalFreightTransportBizPermitFee` | FOUND | 3051 | 184526 | 1/1 | 60 |
-| 8 | 百二十五(五) | `specifiedFreightTransportBizPermitFee` | FOUND | 3111 | 184586 | 1/1 | 61 |
-| 9 | 百二十五(六) | `registeredLightFreightSafetyInstructorTrainingOrgRegFee` | FOUND | 3172 | 184647 | 1/1 | 86 |
-| 10 | 百二十五(七) | `registeredLightFreightSafetyInstructorPeriodicTrainingOrgRegFee` | FOUND | 3258 | 184733 | 1/1 | 94 |
-| 11 | 百二十五の二 | `taxiDriverRegistrationOrgRegFee` | FOUND | 3352 | 184827 | 1/1 | 99 |
-| 12 | 百二十五の三(一) | `privatePaidPassengerTransportRegFee` | FOUND | 4194 | 185669 | 1/1 | 68 |
-| 13 | 百二十五の三(二) | `privatePaidPassengerTransportChangeRegFee` | FOUND | 4257 | 185732 | 1/1 | 61 |
-| 14 | 百二十六 | `privateCarPaidLoanPermitFee` | FOUND | 4318 | 185793 | 1/1 | 86 |
-| 15 | 百二十七 | `canalConstructionLicenseFee` | FOUND | 4404 | 185879 | 1/1 | 60 |
-| 16 | 百二十七の二 | `portTechnicalStandardVerificationOrgRegFee` | FOUND | 4464 | 185939 | 1/1 | 97 |
-| 17 | 百二十八(一) | `shipMfgRepairFacilityNewPermitFee` | FOUND | 4842 | 186317 | 1/1 | 111 |
-| 18 | 百二十八(二) | `shipMfgRepairEquipmentExpansionPermitFee` | FOUND | 4953 | 186428 | 1/1 | 124 |
-| 19 | 百二十九 | `smallVesselShipbuilderRegFee` | FOUND | 5077 | 186552 | 1/1 | 71 |
+| # | 結果 | art@(回数) | json@(回数) | 長さ | 区分 |
+| --- | --- | --- | --- | --- | --- |
+| 1 | FOUND | 15 (1) | 34603 (1) | 73 | art.22 見出し＋評価原則 |
+| 2 | FOUND | 135 (1) | 34708 (1) | 19 | art.23 条題名 |
+| 3 | FOUND | 248 (1) | 34821 (1) | 81 | art.23 算定規定 |
+| 4 | FOUND | 330 (1) | 34903 (1) | 16 | 10 年以下 5% |
+| 5 | FOUND | 346 (1) | 34919 (1) | 22 | 10 超 15 以下 10% |
+| 6 | FOUND | 368 (1) | 34941 (1) | 24 | 15 超 20 以下 20% |
+| 7 | FOUND | 392 (1) | 34965 (1) | 25 | 20 超 25 以下 30% |
+| 8 | FOUND | 417 (1) | 34990 (1) | 43 | 25 超 30 以下＋存続期間不定 40% |
+| 9 | FOUND | 460 (1) | 35033 (1) | 25 | 30 超 35 以下 50% |
+| 10 | FOUND | 485 (1) | 35058 (1) | 25 | 35 超 40 以下 60% |
+| 11 | FOUND | 510 (1) | 35083 (1) | 25 | 40 超 45 以下 70% |
+| 12 | FOUND | 535 (1) | 35108 (1) | 25 | 45 超 50 以下 80% |
+| 13 | FOUND | 560 (1) | 35133 (1) | 19 | 50 超 90% |
+| 14 | FOUND | 595 (1) | 36339 (1) | 19 | art.24 条題名 |
+| 15 | FOUND | 943 (2) | 36687 (2) | 21 | art.24 複利年金現価率（2 回出現） |
+| 16 | FOUND | 2193 (1) | 37922 (1) | 24 | art.25 条題名 |
+| 17 | FOUND | 2551 (1) | 38280 (1) | 21 | art.25 複利年金終価率 |
+| 18 | FOUND | 2348 (1) | 38077 (1) | 13 | art.25 百分の九十 |
 
-- **FOUND 19 / MISS 0**。needle の長さはすべて **60〜124 文字**、19 本すべて相互に異なることを確認。
-  アンカーの勝手な変更・正規化・文字変換はしていません（原文の `運` / `輸` / `運送` の使い分けも保持）。
-- 各 needle には原則として項目の条号（百二十五〜百二十九）又は区分（（一）〜（七）、イ／ロ／ハ）を含めています。
-  原文が極端に長いため 130 文字制約と fee literal の逐語確認を両立させる目的で一意な連続部分を
-  アンカーとした項目（#1, #2, #3, #4, #5, #6, #9, #10, #11, #12, #13, #14, #16, #17, #18）では、
-  対応する条号／区分を上表および def の doc-comment に明記しています。
-- 金額の日本語数字との対応も全件一致（九万円=90,000 / 十二万円=120,000 / 六万円=60,000 /
-  三万円=30,000 / 一万五千円=15,000 / 五千円=5,000 / 三千円=3,000 / 十五万円=150,000）。
+- **FOUND 18 / MISS 0**。needle の長さは 13〜81 文字。アンカーの勝手な変更・正規化・
+  文字変換はしていません（原文の `つ / つて` の使い分け、例:「取得した時における」等も保持）。
+- needle 15 は原文内で 2 回出現します（`複利年金現価率（…第三号ハにおいて同じ。）` の
+  定義と第三号ハでの参照）。転記監査の `contains()` は `.find()` 命中のみを要求するため
+  問題ありませんが、回数をここに正直に記録します。
 
 ## 7. README / PROGRESS に足す 1 行文案
 
 CROSS_LAW の scan/pin 件数や監査 literal 総数はメインセッションが計算するため、ここでは書きません。
 
-- **README.md**（モジュール一覧・`RegistrationQualificationFeesP5H*` 行の直後に追加）:
+- **README.md**（モジュール一覧末尾に追加）:
   ```text
-  JapanTaxLaw/RegistrationQualificationFeesP6J.lean / -Spec.lean / -Tests.lean  # 登録免許税法 別表第一（二）第三十二号 百二十五〜百二十九（道路運送・貨物自動車運送・タクシー登録実施機関・自家用有償旅客・運河・港湾・造船・小型船）の flat fee L4 モデル・独立定式・退行テスト
+  JapanTaxLaw/InheritanceAssetValuation.lean / -Spec.lean / -Tests.lean  # 相続税法 art. 22〜25（資産評価）の bounded L4 モデル（art.23 地上権・永小作権の残存期間別割合表 5/10/20/30/40/50/60/70/80/90%・存続期間不定は 40%、土地時価×割合の切り捨て。art.25 は 90% のみ。art.22/24 は NOT MODELLED）・独立定式・退行テスト
   ```
 - **docs/PROGRESS.md**（L4 着手済みモジュール一覧の末尾に追記）:
   ```text
-  登録免許税法 別表第一（二）第三十二号 百二十五〜百二十九（RegistrationQualificationFeesP6J.lean：19 件の flat fee 額を Money 定数化、百二十四 以前・百三十 以降 NOT YET COVERED）
+  相続税法 art. 22〜25 資産評価（InheritanceAssetValuation.lean：art.23 の地上権残存期間 10 区分の割合表と評価額をモデル化、存続期間不定の地上権は 40%、art.25 は「百分の九十」のみ、art.22/24 は NOT MODELLED、土地時価・残存期間・複利計算額は caller-established）
   ```
 
 ## 8. インテグレーターへの明示事項
@@ -219,32 +229,35 @@ CROSS_LAW の scan/pin 件数や監査 literal 総数はメインセッション
 **インテグレーターは `JapanTaxLaw.lean` に以下の 3 つの import を追加すること。**
 
 ```lean
-import JapanTaxLaw.RegistrationQualificationFeesP6J
-import JapanTaxLaw.RegistrationQualificationFeesP6JSpec
-import JapanTaxLaw.RegistrationQualificationFeesP6JTests
+import JapanTaxLaw.InheritanceAssetValuation
+import JapanTaxLaw.InheritanceAssetValuationSpec
+import JapanTaxLaw.InheritanceAssetValuationTests
 ```
 
-（W-A〜W-H, W-I の各 3 件と併せてメインが行数を確認してください。
-W-J は `JapanTaxLaw.lean` を書き換えていません。W-I の P6I ファイルには触れていません。）
+（W-J は `JapanTaxLaw.lean` を書き換えていません。旧 W-J の `RegistrationQualificationFeesP6J*`
+ほか既存モジュール（`InheritanceTax*` / `InheritanceMiscRates*` を含む）には一切触れていません。
+W-K / W-L の担当ファイル、`data/*`、L7 CSV にも触れていません。メインが統合してください。）
 
 ## 9. 範囲・残ブロッカーの正直な申告（最終報告）
 
 - **build**: 自作 3 モジュールのみ `lake build` 成功（5 jobs / warning なし）。全体ビルド・CI・
   `run_python_gates.py` は未実行です。
-- **axiom**: 新規 positivity 19 本 + agree 1 本の計 20 件すべて axiom-free、
-  `Classical.choice` / `sorryAx` / `propext` なし（一時ファイルは削除済み）。
-- **逐語**: FOUND 19 / MISS 0（担当範囲原文・pinned JSON の両方、出現回数 1、長さ 60〜124）。
-- **def 数**: 19（九万円 7 / 三万円 3 / 一万五千円 2 / 五千円 2 / 十二万円 1 / 六万円 1 /
-  三千円 1 / 十五万円 2）。百二十五(一)ロ の軽減例外の別 def は作っていません。
-- **STAGING**: 本ファイル `docs/STAGING_WJ.md` を作成済みです。
-- これは **L4 のごく小さなスライス**です。**完成・網羅を主張しません**。
-- 担当は 別表第一（二）第三十二号 **百二十五〜百二十九 のみ**。**百二十四 以前・百三十 以降は NOT YET COVERED**。
-- 「政令で定めるものに限る／除く」「更新の登録／許可を除く」「財務省令で定めるもの」、
-  百二十五(一)ロ の軽減例外、および（注）のみなし規定の該当性はすべて caller-established とし、
+- **axiom**: 検査 4 件のうち 2 件 axiom-free（rfl）、2 件は `propext` のみ。
+  `Classical.choice` / `sorryAx` なし（一時ファイルは削除済み）。
+- **逐語**: FOUND 18 / MISS 0（担当範囲原文・pinned JSON の両方）。needle 15 は 2 回出現、
+  それ以外は 1 回。長さ 13〜81 文字。
+- **def 数**: 12（impl 5 / Spec 7）。定理 4 本、by decide smoke 88 件。needle 増分 +18。
+- **STAGING**: 本ファイル `docs/STAGING_WJ.md` を作成（旧 W-J メモを上書き）済みです。
+- これは **L4 のごく小さな bounded スライス**です。**完成・網羅を主張しません**。
+- 主対象は相続税法 **第23条のみ**（割合表 10 区分と評価額）。第22条・第24条は **NOT MODELLED**、
+  第25条は **「百分の九十」の明確な部分のみ** のモデル化です。
+- 土地時価・残存期間・存続期間不定か・複利計算額の認定、借地権/地下地上権の除外、
+  生命保険契約の除外、解約返戻金の有無はすべて caller-established とし、
   法的判断の自動化はしていません。
-- `agreeRegistrationQualificationFeesP6J` は定数同士の `==` 一致確認であり、法的意味の等価証明ではありません。
+- `agree*` は有限サンプル（years 0..60／compoundBase 0..64）の `==` 一致確認であり、
+  全 `Nat` に対する普遍的同値でも、法的意味の等価証明でもありません。
 - 転記監査は fidelity-only（原文 bytes との一致確認）であり、法的正しさを保証しません。
 - **L7 候補 3,438 件は unreviewed のまま**です（本スライスでは一切レビューしていません）。
-- 残ブロッカー: 転記監査 check の `checks()` への組み込み（§3、+19）、`JapanTaxLaw.lean` への
+- 残ブロッカー: 転記監査 check の `checks()` への組み込み（§3、+18）、`JapanTaxLaw.lean` への
   import 追加（§8）、README / PROGRESS の 1 行追記（§7）、および全体ビルド・CI ゲートの
   実行は**すべてメインセッションの担当**です（W-J は実行していません）。
