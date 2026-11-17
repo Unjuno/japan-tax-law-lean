@@ -455,6 +455,15 @@ JapanTaxLaw/IncomeBasicDeductionTests.lean     # 同上 退行テスト
 JapanTaxLaw/ForeignCorpResidualRate.lean       # 法人税法 art. 145の4（外国法人 国際最低課税残余額90.7%）L4 モデル
 JapanTaxLaw/ForeignCorpResidualRateSpec.lean   # 同上 独立定式
 JapanTaxLaw/ForeignCorpResidualRateTests.lean  # 同上 退行テスト
+JapanTaxLaw/SpecialMeasuresApportionment.lean   # 租税特別措置法施行令 art. 25の18/40の5の2（按分計算）L4 モデル
+JapanTaxLaw/SpecialMeasuresApportionmentSpec.lean # 同上 独立定式
+JapanTaxLaw/SpecialMeasuresApportionmentTests.lean# 同上 退行テスト
+JapanTaxLaw/CorpAssetCompression.lean         # 法人税法施行令 art. 79の2/82の3/83の4（固定資産圧縮限度額の按分）L4 モデル
+JapanTaxLaw/CorpAssetCompressionSpec.lean     # 同上 独立定式
+JapanTaxLaw/CorpAssetCompressionTests.lean    # 同上 退行テスト
+JapanTaxLaw/IncomeSocialInsuranceDeduction.lean      # 所得税法 art. 74（社会保険料控除＝支払額を控除）L4 モデル
+JapanTaxLaw/IncomeSocialInsuranceDeductionSpec.lean  # 同上 独立定式
+JapanTaxLaw/IncomeSocialInsuranceDeductionTests.lean # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト

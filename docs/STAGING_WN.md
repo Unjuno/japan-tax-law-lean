@@ -1,140 +1,66 @@
-# STAGING — W-N（登録免許税法 別表第一（二）第三十二号 百五十二〜百五十九 の flat fee）受け渡しメモ
+# STAGING — W-N（法人税法施行令 第七十九条の二 / 第八十二条の三 / 第八十三条の四：固定資産圧縮限度額の按分計算）受け渡しメモ
 
 > 実装担当 W-N からメインセッション（統合担当）への受け渡し用。
 > ブランチ操作・add/commit/push/merge は一切していません。
 > 書き換えたのは下記 4 ファイルのみです（他は読み取り専用）。
+> 本ファイルは前回割当（登録免許税法 P8N）のメモを**上書き**し、今回の割当の内容に置き換えました。
 
-## 0. 対象ファイル
+## 0. 対象ファイル / pinned source
 
 | ファイル | 状態 |
 | --- | --- |
-| `JapanTaxLaw/RegistrationQualificationFeesP8N.lean` | 新規 |
-| `JapanTaxLaw/RegistrationQualificationFeesP8NSpec.lean` | 新規 |
-| `JapanTaxLaw/RegistrationQualificationFeesP8NTests.lean` | 新規 |
-| `docs/STAGING_WN.md` | 新規（本ファイル） |
+| `JapanTaxLaw/CorpAssetCompression.lean` | 新規 |
+| `JapanTaxLaw/CorpAssetCompressionSpec.lean` | 新規 |
+| `JapanTaxLaw/CorpAssetCompressionTests.lean` | 新規 |
+| `docs/STAGING_WN.md` | 上書き（本ファイル） |
 
-pinned source: `data/raw/342AC0000000035_20261101_508AC0000000021.law.json`
-law id `342AC0000000035` / revision `342AC0000000035_20261101_508AC0000000021`
-amendment enforcement date `2026-11-01`（RegistrationQualificationFees / P2A〜P7L と同一ピン）。
-担当範囲原文: `art32_152_159.txt`（百五十二〜百五十九、UTF-8、1 行、正規化後 4190 文字）。
-pinned bytes から金額を日本語数字で読み取り Arabic に変換
-（九万円→90,000 / 十五万円→150,000 / 三万円→30,000 / 一万五千円→15,000、全件一致確認済み）。
+pinned source: `data/raw/340CO0000000097_20261001_507CO0000000121.law.json`
+law id `340CO0000000097` / revision `340CO0000000097_20261001_507CO0000000121`
+（Cabinet Order = 法人税法施行令。amendment enforcement date `2026-10-01`）。
+担当範囲原文（正規化済み・UTF-8）: `W_N_corp_order.txt`（3 条、改行・ヘッダ除き正規化後 831 文字）。
+名前空間は `JapanTaxLaw.CorpAssetCompression`（他モジュールと衝突しません）。
 
-### 件数についての正直な申告（38 vs 39）
+## 1. モデル化した 3 条と算術
 
-タスク文は「38件」と記載していましたが、pinned 原文を精査した結果、**39 件**の
-「一件につき△△円」fee 行が存在します。内訳は 九万円 19 / 十五万円 11 / 三万円 7 /
- 一万五千円 2 ＝ 39 で、pinned JSON の全文でも `一件につき` は 39 回です。
-「38」は、担当範囲 txt の末尾が「…一件につき九万」で切れており（百五十九(四) の
-「円」が欠落）、完成した「万円」文字列だけを数えると 18+11+7+2=38 になることに
-起因するものと判断しました。pinned JSON 全文では当該行は「九万円」が完在し、
-百五十九(四) は正当な ¥90,000 の fee 行です。**原文に忠実な 39 件すべてを def 化**し、
-この差分をここに明示します（メインセッションで 38/39 の扱いを最終判断してください）。
+3 条はいずれも同じ構造：圧縮限度額 = 帳簿価額 × (第二条金額 / 第一条金額)。
 
-## 1. 担当範囲のカテゴリ一覧（百五十二〜百五十九）
+| 条号（見出し） | 第一条金額 | 第二条金額 | 「達するまで」 |
+| --- | --- | --- | --- |
+| 第七十九条の二（国庫補助金等の交付前に取得した固定資産等の圧縮限度額） | 当該固定資産の取得又は改良をするために要した金額 | その返還を要しないこととなつた当該国庫補助金等の額 | なし |
+| 第八十二条の三（工事負担金の交付前に取得した固定資産の圧縮限度額） | 当該固定資産の取得をするために要した金額 | 当該交付を受けた金銭の額又は資材の価額のうち、前号に掲げる金額に達するまでの金額 | あり → `min` |
+| 第八十三条の四（賦課金の納付前に取得した固定資産等の圧縮限度額） | 当該固定資産の取得又は改良をするために要した金額 | 当該賦課に基づいて納付された金額のうち前号に掲げる金額に達するまでの金額 | あり → `min` |
 
-| 条号 | 区分／法律 | 件数 |
-| --- | --- | --- |
-| 百五十二 | 測量法（測量業者の登録／測量士に係る登録養成施設の登録、（一）（二）） | 2 |
-| 百五十三 | 屋外広告物法（業務主任者に係る登録試験機関の登録） | 1 |
-| 百五十四 | 建築士法（登録講習機関の登録、（一）〜（三）） | 3 |
-| 百五十五 | 住宅の品質確保の促進等に関する法律（登録住宅性能評価機関／登録講習機関／登録住宅型式性能認定等機関／登録試験機関、（一）〜（四）） | 4 |
-| 百五十五の二 | 建築物のエネルギー消費性能の向上等に関する法律（登録建築物エネルギー消費性能判定機関／評価機関、（一）（二）） | 2 |
-| 百五十五の三 | 都市緑地法（登録調査機関の登録） | 1 |
-| 百五十六 | 廃棄物の処理及び清掃に関する法律（再生利用／広域的処理／無害化処理の認定、処理変更認定、（一）〜（四）） | 4 |
-| 百五十六の二 | 資源の有効な利用の促進に関する法律（自主回収・再資源化事業計画の認定・変更認定、（一）（二）） | 2 |
-| 百五十六の三 | 使用済小型電子機器等の再資源化の促進に関する法律（再資源化事業計画の認定・変更認定イ・ロ、（一）（二）） | 3 |
-| 百五十六の四 | プラスチックに係る資源循環の促進等に関する法律（自主回収・再資源化／再資源化事業計画の認定、（一）（二）） | 2 |
-| 百五十六の五 | 資源循環の促進のための再資源化事業等の高度化に関する法律（高度再資源化／高度分離・回収の認定・変更認定、登録調査機関、（一）〜（五）） | 5 |
-| 百五十六の六 | 太陽電池廃棄物の再資源化等の推進に関する法律（事業計画の認定・変更認定、（一）（二）） | 2 |
-| 百五十七 | 環境教育等による環境保全の取組の促進に関する法律（人材認定等事業の登録、体験の機会の場の認定、（一）（二）） | 2 |
-| 百五十八 | 特定特殊自動車排出ガスの規制等に関する法律（登録特定原動機検査機関／登録特定特殊自動車検査機関、（一）（二）） | 2 |
-| 百五十九 | 絶滅のおそれのある野生動植物の種の保存に関する法律（特別国際種事業者／個体等登録機関／事業登録機関／認定機関、（一）〜（四）） | 4 |
-| **合計** | | **39** |
+- Money = Nat。丸めは**切り捨て（floor）**、`bookValue * secondAmount / firstAmount`。
+- 分母 `firstAmount = 0` のときは **0 を返す安全版**（`if` で明示。原文はゼロの場合を定めないため、
+  defensive な選択であることを doc-comment に明記済み）。
+- 82の3・83の4 の「達するまで」は `min secondAmount firstAmount` で表現。79の2 には適用しない。
+- 帳簿価額・第一条金額・第二条金額はすべて **caller-established**。交付確定日・改良部分の
+  帳簿価額・返還不要の確定・金銭/資材の交付・賦課に基づく納付の適用判定は一切モデル化せず、
+  Bool は式に入れていません。
 
-原文の「〜件数一件につき△△円」フレーズ出現数は **39**（`一件につき` の出現数も 39）で、
-日本語数字の内訳（九万円 19 / 十五万円 11 / 三万円 7 / 一万五千円 2）とも一致します。
-本範囲に割合（千分の△）はありません。`既に`（デーミング）／`政令`／`割合`／`千分`／`みな`
-の出現はいずれも 0 回です。
+## 2. 追加した宣言一覧
 
-**金額なし／fee def を作らない行**: 本範囲にはデーミング規定・金額なし fee 行は存在しません。
-百五十六の三(二) の「再資源化事業計画の変更の認定」はイ・ロの細目で、それぞれ独立した
-「一件につき三万円」の fee 行であるため 2 件の def を与えました。
-「財務省令で定めるものに限る／定めるもの」「更新の登録（／認定）を除く。」
-「測量士が受ける登録を除く。」「同条第一項第二号に掲げる者が受けるものに限る。」
-「対象製品の種類の増加／実施区域の増加に係るものに限る。」等の適用判定は caller-established
-とし、軽減額の別 def は作っていません。
+`namespace JapanTaxLaw.CorpAssetCompression`、`open JapanTaxLaw.TaxFinance`。
 
-## 2. 追加した def 一覧（名前 → 金額 → 条号／区分）
+実装（`CorpAssetCompression.lean`）— **4 def**:
+| def | 式 |
+| --- | --- |
+| `compressionLimit` | `if firstAmount = 0 then 0 else bookValue * secondAmount / firstAmount` |
+| `art79_2CompressionLimit` | `compressionLimit bookValue firstAmount secondAmount`（min なし） |
+| `art82_3CompressionLimit` | `compressionLimit bookValue firstAmount (min secondAmount firstAmount)` |
+| `art83_4CompressionLimit` | `compressionLimit bookValue firstAmount (min secondAmount firstAmount)` |
 
-`namespace JapanTaxLaw`、`open JapanTaxLaw.TaxFinance`。各 def は `Money := <額>` の flat 定数
-（課税標準は一件につき）。各 def に `<name>_pos : <name> > 0 := by decide` と
-`example : <name> = <額> := by decide` を付与済み（39 本ずつ）。
+独立定式・一致確認（`CorpAssetCompressionSpec.lean`）— **4 spec def + 4 agree def + 4 agree theorem**:
+| 宣言 | 内容 |
+| --- | --- |
+| `specCompressionLimit` 他 4 本 | 実装の `compressionLimit` を呼ばない独立 Nat 定式 |
+| `agreeCompressionLimit` / `agreeArt79_2CompressionLimit` / `agreeArt82_3CompressionLimit` / `agreeArt83_4CompressionLimit` | 14 ポイント（端数・分母 0・second > first を含む）で実装 ≡ spec を `==` 比較する Bool |
+| `agreeCompressionLimit_true` / `agreeArt79_2CompressionLimit_true` / `agreeArt82_3CompressionLimit_true` / `agreeArt83_4CompressionLimit_true` | 上記が `true`（すべて `by decide`） |
 
-| # | 条号／区分 | def 名 | 金額 | 原文 fee |
-| --- | --- | --- | --- | --- |
-| 1 | 百五十二(一) 測量業者の登録 | `surveyorBizRegFee` | 90,000 | 九万円 |
-| 2 | 百五十二(二) 測量士に係る登録養成施設の登録 | `surveyorTrainingFacilityRegFee` | 90,000 | 九万円 |
-| 3 | 百五十三 業務主任者に係る登録試験機関の登録 | `outdoorAdDisplayExamOrgRegFee` | 150,000 | 十五万円 |
-| 4 | 百五十四(一) 登録講習機関の登録（第十条の三） | `structuralDesignArchitectTrainingOrgRegFee` | 90,000 | 九万円 |
-| 5 | 百五十四(二) 登録講習機関の登録（第二十二条の二） | `architectTrainingOrgArticle22RegFee` | 90,000 | 九万円 |
-| 6 | 百五十四(三) 登録講習機関の登録（第二十四条第二項） | `architectTrainingOrgArticle24RegFee` | 90,000 | 九万円 |
-| 7 | 百五十五(一) 登録住宅性能評価機関の登録 | `registeredHousingPerformanceEvalOrgRegFee` | 90,000 | 九万円 |
-| 8 | 百五十五(二) 住宅性能評価に係る登録講習機関の登録 | `housingPerfTrainingOrgRegFee` | 90,000 | 九万円 |
-| 9 | 百五十五(三) 登録住宅型式性能認定等機関の登録 | `registeredHousingModelCertOrgRegFee` | 90,000 | 九万円 |
-| 10 | 百五十五(四) 住宅の特別評価方法認定に係る登録試験機関の登録 | `housingExamOrgRegFee` | 90,000 | 九万円 |
-| 11 | 百五十五の二(一) 登録建築物エネルギー消費性能判定機関の登録 | `registeredBuildingEnergyPerfAssessOrgRegFee` | 90,000 | 九万円 |
-| 12 | 百五十五の二(二) 登録建築物エネルギー消費性能評価機関の登録 | `registeredBuildingEnergyPerfEvalOrgRegFee` | 90,000 | 九万円 |
-| 13 | 百五十五の三 登録調査機関の登録 | `urbanGreenSpaceSurveyOrgRegFee` | 90,000 | 九万円 |
-| 14 | 百五十六(一) 再生利用の認定 | `generalIndustrialWasteRecycleCertFee` | 150,000 | 十五万円 |
-| 15 | 百五十六(二) 広域的処理の認定 | `generalIndustrialWasteWideAreaCertFee` | 150,000 | 十五万円 |
-| 16 | 百五十六(三) 無害化処理の認定 | `generalIndustrialWasteDetoxCertFee` | 150,000 | 十五万円 |
-| 17 | 百五十六(四) 処理に係る変更の認定 | `wasteProcessingChangeCertFee` | 30,000 | 三万円 |
-| 18 | 百五十六の二(一) 自主回収・再資源化事業計画の認定 | `usedSpecifiedRecycledProductPlanCertFee` | 150,000 | 十五万円 |
-| 19 | 百五十六の二(二) 同事業計画の変更の認定 | `usedSpecifiedRecycledProductPlanChangeCertFee` | 30,000 | 三万円 |
-| 20 | 百五十六の三(一) 再資源化事業計画の認定 | `usedSmallElectronicsRecyclePlanCertFee` | 150,000 | 十五万円 |
-| 21 | 百五十六の三(二)イ 収集区域の増加に係る変更認定 | `usedSmallElectronicsPlanChangeAreaCertFee` | 30,000 | 三万円 |
-| 22 | 百五十六の三(二)ロ 収集運搬処分者・業務種別の増加に係る変更認定 | `usedSmallElectronicsPlanChangeOperatorCertFee` | 30,000 | 三万円 |
-| 23 | 百五十六の四(一) 自主回収・再資源化事業計画の認定 | `plasticProductRecyclePlanCertFee` | 150,000 | 十五万円 |
-| 24 | 百五十六の四(二) 再資源化事業計画の認定 | `plasticWasteRecyclePlanCertFee` | 150,000 | 十五万円 |
-| 25 | 百五十六の五(一) 高度再資源化事業計画の認定 | `advancedRecyclePlanCertFee` | 150,000 | 十五万円 |
-| 26 | 百五十六の五(二) 高度再資源化事業計画の変更の認定 | `advancedRecyclePlanChangeCertFee` | 30,000 | 三万円 |
-| 27 | 百五十六の五(三) 高度分離・回収事業計画の認定 | `advancedSeparationRecoveryPlanCertFee` | 150,000 | 十五万円 |
-| 28 | 百五十六の五(四) 高度分離・回収事業計画の変更の認定 | `advancedSeparationRecoveryPlanChangeCertFee` | 30,000 | 三万円 |
-| 29 | 百五十六の五(五) 登録調査機関の登録 | `advancedRecycleSurveyOrgRegFee` | 90,000 | 九万円 |
-| 30 | 百五十六の六(一) 太陽電池廃棄物再資源化等事業計画の認定 | `solarPanelWasteRecyclePlanCertFee` | 150,000 | 十五万円 |
-| 31 | 百五十六の六(二) 同事業計画の変更の認定 | `solarPanelWasteRecyclePlanChangeCertFee` | 30,000 | 三万円 |
-| 32 | 百五十七(一) 人材認定等事業の登録 | `environmentalHumanResourceCertBizRegFee` | 15,000 | 一万五千円 |
-| 33 | 百五十七(二) 体験の機会の場の認定 | `experienceOpportunitySiteCertFee` | 15,000 | 一万五千円 |
-| 34 | 百五十八(一) 登録特定原動機検査機関の登録 | `registeredSpecificEngineInspectionOrgRegFee` | 90,000 | 九万円 |
-| 35 | 百五十八(二) 登録特定特殊自動車検査機関の登録 | `registeredSpecialVehicleInspectionOrgRegFee` | 90,000 | 九万円 |
-| 36 | 百五十九(一) 特別国際種事業者の登録 | `specialInternationalSpeciesBizRegFee` | 90,000 | 九万円 |
-| 37 | 百五十九(二) 個体等登録機関の登録 | `individualRegistrationOrgRegFee` | 90,000 | 九万円 |
-| 38 | 百五十九(三) 事業登録機関の登録 | `bizRegistrationOrgRegFee` | 90,000 | 九万円 |
-| 39 | 百五十九(四) 認定機関の登録 | `certificationOrgRegFee` | 90,000 | 九万円 |
+退行テスト（`CorpAssetCompressionTests.lean`）: `example ... := by decide` のスモーク 25 件
+（端数・分母 0・second > first の境界を重点再確認）。定理名は追加していません。
 
-金額一致の内訳: 九万円=19 件（90,000）／ 十五万円=11 件（150,000）／
- 三万円=7 件（30,000）／ 一万五千円=2 件（15,000）＝ 合計 39 件。
-pinned 原文・pinned JSON の fee フレーズ出現数と完全一致します。
-
-`RegistrationQualificationFeesP8NSpec.lean` は `spec` 接頭辞の独立定式 39 本 +
-`agreeRegistrationQualificationFeesP8N : Bool`（実装 ≡ spec の `==` 一致）+
-`example : agreeRegistrationQualificationFeesP8N = true := by decide`。
-`RegistrationQualificationFeesP8NTests.lean` は `example := by decide` のスモーク 39 件のみ。
-
-doc-comment に明記した射程外（overclaim 防止）:
-
-- 「更新の登録（／認定）を除く」「測量士が受ける登録を除く。」「財務省令で定めるものに限る／
-  定めるもの」「同条第一項第二号に掲げる者が受けるものに限る。」「対象とする製品の種類の増加／
-  実施区域の増加に係るものに限る。」の適用判定は **caller-established** とし、金額定数には
-  反映していません（Bool を式に入れていません）。軽減額の別 def も作っていません。
-- 原文に「既に…については一万五千円」型の軽減例外は存在しません。
-- 百五十六の三(二) イ・ロは独立した fee 行として各 1 def を与えました。
-- 百五十九(四) は pinned txt 末尾が「九万」で切れていますが、pinned JSON 全文で
-  「九万円」が完在するため ¥90,000 としてモデル化しました（needle は txt の逐語に合わせ
-  「…一件につき九万」で終えています。JSON 上でも一意に FOUND）。
-- 百五十一 以前・百六十 以降は NOT YET COVERED。「認定件数」「登録件数」の意味上の区別は
-  非モデル化（一律 `Money`）。
+**def（宣言）総数: 実装 4 + spec 4 + agree 4 = 12 def、さらに agree 真値定理 4 本。**
 
 ## 3. 転記監査に追加すべき check（JSON 断片）
 
@@ -142,162 +68,86 @@ doc-comment に明記した射程外（overclaim 防止）:
 （`law_id` / `kind` / `title` / `needles` の 4 キー）。needle 文字列は一字も変えないこと。
 **文字正規化・全角／半角変換・異体字変換を行わず、そのまま移してください。**
 各 needle は正規化テキスト（空白・全角空白除去）上の連続部分そのもので、
-pinned 原文 `art32_152_159.txt` と pinned JSON の両方で出現回数 1（一意）です。
+担当範囲原文 `W_N_corp_order.txt` と pinned JSON の両方で出現回数 **1**（一意）です。
 
 ```json
 {
-  "law_id": "342AC0000000035",
+  "law_id": "340CO0000000097",
   "kind": "file",
   "title": null,
   "needles": [
-    "（一）測量法第五十五条第一項（測量業者の登録）の測量業者の登録（更新の登録及び同法第四十九条第一項（測量士及び測量士補の登録）の測量士が受ける登録を除く。）登録件数一件につき九万円",
-    "つき九万円（二）測量法第五十条第三号又は第四号（登録養成施設の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "録屋外広告物法（昭和二十四年法律第百八十九号）第十条第二項第三号イ（登録試験機関の登録）の登録登録件数一件につき十五万円",
-    "機関の登録（一）建築士法第十条の三第一項第一号（登録講習機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "数一件につき九万円（二）建築士法第二十二条の二（登録講習機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "一件につき九万円（三）建築士法第二十四条第二項（登録講習機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "（一）住宅の品質確保の促進等に関する法律（平成十一年法律第八十一号）第五条第一項（登録住宅性能評価機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "（二）住宅の品質確保の促進等に関する法律第十三条（登録講習機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "（三）住宅の品質確保の促進等に関する法律第三十一条第一項（登録住宅型式性能認定等機関の登録）又は第三十三条第一項（登録住宅型式性能認定等機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "（四）住宅の品質確保の促進等に関する法律第五十九条第一項（登録試験機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "（一）建築物のエネルギー消費性能の向上等に関する法律（平成二十七年法律第五十三号）第十四条第一項（登録建築物エネルギー消費性能判定機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "（二）建築物のエネルギー消費性能の向上等に関する法律第十七条第一項（登録建築物エネルギー消費性能評価機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "百五十五の三優良緑地確保計画の認定手続に係る登録調査機関の登録都市緑地法（昭和四十八年法律第七十二号）第九十五条第一項（登録調査機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "（一）廃棄物の処理及び清掃に関する法律（昭和四十五年法律第百三十七号）第九条の八第一項（一般廃棄物の再生利用に係る特例）又は第十五条の四の二第一項（産業廃棄物の再生利用に係る特例）の一般廃棄物又は産業廃棄物の再生利用の認定認定件数一件につき十五万円",
-    "（二）廃棄物の処理及び清掃に関する法律第九条の九第一項（一般廃棄物の広域的処理に係る特例）又は第十五条の四の三第一項（産業廃棄物の広域的処理に係る特例）の一般廃棄物又は産業廃棄物の広域的な処理の認定認定件数一件につき十五万円",
-    "（三）廃棄物の処理及び清掃に関する法律第九条の十第一項（一般廃棄物の無害化処理に係る特例）又は第十五条の四の四第一項（産業廃棄物の無害化処理に係る特例）の一般廃棄物又は産業廃棄物の無害化処理の認定認定件数一件につき十五万円",
-    "（四）一般廃棄物又は産業廃棄物の処理に係る変更の認定（当該処理の内容に関する事項の変更の認定で財務省令で定めるものに限る。）認定件数一件につき三万円",
-    "（一）資源の有効な利用の促進に関する法律（平成三年法律第四十八号）第五十四条第三項（自主回収・再資源化事業計画の認定）の自主回収・再資源化事業計画の認定認定件数一件につき十五万円",
-    "効な利用の促進に関する法律第五十五条第一項（自主回収・再資源化事業計画の変更等）の自主回収・再資源化事業計画の変更の認定（同法第五十四条第二項第四号の自主回収及び再資源化の対象とする使用済指定再資源化製品の種類の増加に係るものに限る。）認定件数一件につき三万円",
-    "（一）使用済小型電子機器等の再資源化の促進に関する法律（平成二十四年法律第五十七号）第十条第三項（再資源化事業計画の認定）の規定による再資源化事業計画の認定認定件数一件につき十五万円",
-    "イ使用済小型電子機器等の再資源化の促進に関する法律第十条第二項第四号の使用済小型電子機器等の収集を行おうとする区域の増加に係る再資源化事業計画の変更の認定で財務省令で定めるもの認定件数一件につき三万円",
-    "ロ使用済小型電子機器等の再資源化の促進に関する法律第十条第二項第六号の使用済小型電子機器等の収集、運搬若しくは処分を行う者又は業務の種別（その者が行う収集、運搬又は処分の別をいう。）の増加に係る再資源化事業計画の変更の認定認定件数一件につき三万円",
-    "（一）プラスチックに係る資源循環の促進等に関する法律（令和三年法律第六十号）第三十九条第三項（自主回収・再資源化事業計画の認定）の規定による自主回収・再資源化事業計画の認定認定件数一件につき十五万円",
-    "（二）プラスチックに係る資源循環の促進等に関する法律第四十八条第三項（再資源化事業計画の認定）の規定による再資源化事業計画の認定（同条第一項第二号に掲げる者が受けるものに限る。）認定件数一件につき十五万円",
-    "（一）資源循環の促進のための再資源化事業等の高度化に関する法律（令和六年法律第四十一号）第十一条第一項（高度再資源化事業計画の認定）の高度再資源化事業計画の認定認定件数一件につき十五万円",
-    "（二）資源循環の促進のための再資源化事業等の高度化に関する法律第十二条第一項（高度再資源化事業計画の変更等）の高度再資源化事業計画の変更の認定（同法第十一条第二項第五号の高度再資源化事業を実施する区域の増加に係るものに限る。）認定件数一件につき三万円",
-    "（三）資源循環の促進のための再資源化事業等の高度化に関する法律第十六条第一項（高度分離・回収事業計画の認定）の高度分離・回収事業計画の認定認定件数一件につき十五万円",
-    "（四）資源循環の促進のための再資源化事業等の高度化に関する法律第十七条第一項（高度分離・回収事業計画の変更等）の高度分離・回収事業計画の変更の認定（同法第十六条第二項第五号の高度分離・回収事業を実施する区域の増加に係るものに限る。）認定件数一件につき三万円",
-    "（五）資源循環の促進のための再資源化事業等の高度化に関する法律第二十二条第一項（登録調査機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "（一）太陽電池廃棄物の再資源化等の推進に関する法律（令和八年法律第三十三号）第十二条第三項（太陽電池廃棄物再資源化等事業計画の認定）の太陽電池廃棄物再資源化等事業計画の認定認定件数一件につき十五万円",
-    "電池廃棄物の再資源化等の推進に関する法律第十三条第一項（太陽電池廃棄物再資源化等事業計画の変更等）の太陽電池廃棄物再資源化等事業計画の変更の認定（同法第十二条第二項第四号の太陽電池廃棄物の収集を行おうとする区域の増加に係るものに限る。）認定件数一件につき三万円",
-    "（一）環境教育等による環境保全の取組の促進に関する法律（平成十五年法律第百三十号）第十一条第一項（人材認定等事業の登録）の人材認定等事業の登録登録件数一件につき一万五千円",
-    "する法律第二十条の八（体験の機会の場として提供される土地又は建物が二以上の都府県にわたる場合の認定等）の規定により読み替えて適用する同法第二十条第一項（体験の機会の場の認定）の主務大臣がする体験の機会の場の認定（更新の認定を除く。）認定件数一件につき一万五千円",
-    "（一）特定特殊自動車排出ガスの規制等に関する法律（平成十七年法律第五十一号）第十九条第一項（登録特定原動機検査機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "（二）特定特殊自動車排出ガスの規制等に関する法律第二十六条第一項（登録特定特殊自動車検査機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "（一）絶滅のおそれのある野生動植物の種の保存に関する法律（平成四年法律第七十五号）第三十三条の六第一項（特別国際種事業者の登録）の特別国際種事業者の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "（二）絶滅のおそれのある野生動植物の種の保存に関する法律第二十三条第一項（個体等登録機関の登録）の登録登録件数一件につき九万円",
-    "（三）絶滅のおそれのある野生動植物の種の保存に関する法律第三十三条の十五第一項（事業登録機関の登録）の登録登録件数一件につき九万円",
-    "（四）絶滅のおそれのある野生動植物の種の保存に関する法律第三十三条の二十六第一項（認定機関の登録）の登録登録件数一件につき九万円"
+    "（国庫補助金等の交付前に取得した固定資産等の圧縮限度額）第七十九条の二法第四十二条第一項",
+    "一当該固定資産の取得又は改良をするために要した金額二その返還を要しないこととなつた当該国庫補助金等の額",
+    "（工事負担金の交付前に取得した固定資産の圧縮限度額）第八十二条の三法第四十五条第一項",
+    "一当該固定資産の取得をするために要した金額二当該交付を受けた金銭の額又は資材の価額のうち、前号に掲げる金額に達するまでの金額",
+    "（賦課金の納付前に取得した固定資産等の圧縮限度額）第八十三条の四法第四十六条第一項",
+    "一当該固定資産の取得又は改良をするために要した金額二当該賦課に基づいて納付された金額のうち前号に掲げる金額に達するまでの金額"
   ]
 }
 ```
 
-参考：現行スクリプト形式への変換例（name は任意、needles は上記 39 本をそのまま使用）:
+参考：現行スクリプト形式への変換例（name は任意、needles は上記 6 本を一字も変えずに列挙）:
 
 ```python
-yield ("登録免許税法 別表第一（二）第三十二号 百五十二〜百五十九（測量／屋外広告物／建築士／住宅性能／建築物エネルギー／都市緑地／廃棄物／各種再資源化事業計画／環境保全／特定特殊自動車／野生動植物）↔ RegistrationQualificationFeesP8N.lean",
-       "342AC0000000035",
+yield ("法人税法施行令 art. 79の2/82の3/83の4（固定資産圧縮限度額の按分計算）↔ CorpAssetCompression.lean",
+       "340CO0000000097",
        "file", None,
-       [ ...上記 needles 39 本を一字も変えずに列挙... ])
+       [ ...上記 needles 6 本を一字も変えずに列挙... ])
 ```
 
 ## 4. 期待 literal 増分
 
-- W-N 担当分: 新規 check **39 needles** なので **+39**。
-  （タスク文の 38 件とは §0 の理由で 1 件差があります。39 が原文忠実な数です。）
+- W-N 担当分: 新規 check **6 needles** なので **+6**。
 - `docs/PROGRESS.md` の監査 literal 総数はメインセッションが再確認して加算してください
   （起点値は本メモでは書きません）。
 
 ## 5. 検証結果（すべて本セッションで実行済み）
 
-- `lake build JapanTaxLaw.RegistrationQualificationFeesP8N JapanTaxLaw.RegistrationQualificationFeesP8NSpec JapanTaxLaw.RegistrationQualificationFeesP8NTests`
+- `lake build JapanTaxLaw.CorpAssetCompression JapanTaxLaw.CorpAssetCompressionSpec JapanTaxLaw.CorpAssetCompressionTests`
   → **成功（5 jobs、warning なし）**。※自作 3 モジュールのみビルド（全体ビルド／CI／
   `run_python_gates.py` は実行していません）。
 - `python scripts/ci/check_no_sorry.py` → `no forbidden placeholder proofs found in tracked Lean sources`。
   （新規 3 ファイルは未追跡のため走査対象外ですが、人力でも `sorry` / `admit` はありません。）
 - `#print axioms`（一時ファイル `WNAxiomProbe.lean` を approved temp dir に作成、`lake env lean` で
   実行後 **削除済み**）:
-  - 新規 positivity 定理 **39 本すべて** と `agreeRegistrationQualificationFeesP8N` の計 **40 件**が
+  - 上記 16 定数（実装 4 def + spec 4 def + agree 4 def + agree 真値定理 4 本）すべて
     `does not depend on any axioms`。
-  - **`Classical.choice` も `sorryAx` も `propext` も一切なし**（出力 40 行を全文走査、いずれも 0 回）。
-- 原文逐語検証（pinned 原文 / pinned JSON を正規化テキストに対して `.find()`）:
-  **39/39 FOUND、MISS 0 件**（§6）。各 needle は両テキストで出現回数 **1**（一意）、
-  長さはすべて **60〜130 文字**、39 本すべて相互に異なることを確認。
-- 金額一致: 一件につき九万円=19 / 十五万円=11 / 三万円=7 / 一万五千円=2
-  ＝ 39 件、pinned 原文・JSON の fee フレーズ出現数と完全一致（既に 0 回、割合なし）。
+  - **`Classical.choice` も `sorryAx` も `propext` も一切なし**（出力 16 行を全文走査、いずれも 0 回）。
+- 原文逐語検証（担当範囲原文 / pinned JSON を `re.sub(r"[\s\u3000]+", "", ...)` で正規化した
+  文字列に対して Python の `.find()`）: **6/6 FOUND、MISS 0 件**（§6）。
+  各 needle は両テキストで出現回数 **1**（一意）、長さ 41〜62 文字。
 
 ## 6. 逐語検証 FOUND / MISS 一覧（一字も変更せず）
 
-担当範囲原文 `art32_152_159.txt` を、転記監査と同じ `re.sub(r"[\s　]+", "", ...)` で正規化した文字列に
-対して各 needle を Python の `.find()` で検索（`art@`）。
-`json@` は pinned JSON `law_full_text` を `transcription_audit.py` と同一ロジックで平坦化・正規化した文字列上の offset。
-各 needle の出現回数は両方とも **1**（一意）。
+担当範囲原文 `W_N_corp_order.txt` を `re.sub(r"[\s\u3000]+", "", ...)` で正規化した文字列に
+対して各 needle を `.find()` で検索（`art@`）。`json@` は pinned JSON `law_full_text` を
+`transcription_audit.py` と同一ロジックで平坦化・正規化した文字列上の offset。
 
-| # | 条号/区分 | def | 結果 | art@ | json@ | 出現回数(art/json) | len |
+| # | 条号 | needle 先頭 | 結果 | art@ | json@ | 出現回数(art/json) | len |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 百五十二(一) 測量業者の登録 | `surveyorBizRegFee` | FOUND | 28 | 199418 | 1/1 | 90 |
-| 2 | 百五十二(二) 測量士に係る登録養成施設の登録 | `surveyorTrainingFacilityRegFee` | FOUND | 113 | 199503 | 1/1 | 60 |
-| 3 | 百五十三 業務主任者に係る登録試験機関の登録 | `outdoorAdDisplayExamOrgRegFee` | FOUND | 203 | 199593 | 1/1 | 60 |
-| 4 | 百五十四(一) 登録講習機関の登録（第十条の三） | `structuralDesignArchitectTrainingOrgRegFee` | FOUND | 284 | 199674 | 1/1 | 60 |
-| 5 | 百五十四(二) 登録講習機関の登録（第二十二条の二） | `architectTrainingOrgArticle22RegFee` | FOUND | 335 | 199725 | 1/1 | 60 |
-| 6 | 百五十四(三) 登録講習機関の登録（第二十四条第二項） | `architectTrainingOrgArticle24RegFee` | FOUND | 387 | 199777 | 1/1 | 60 |
-| 7 | 百五十五(一) 登録住宅性能評価機関の登録 | `registeredHousingPerformanceEvalOrgRegFee` | FOUND | 525 | 199915 | 1/1 | 81 |
-| 8 | 百五十五(二) 住宅性能評価に係る登録講習機関の登録 | `housingPerfTrainingOrgRegFee` | FOUND | 606 | 199996 | 1/1 | 61 |
-| 9 | 百五十五(三) 登録住宅型式性能認定等機関の登録 | `registeredHousingModelCertOrgRegFee` | FOUND | 667 | 200057 | 1/1 | 100 |
-| 10 | 百五十五(四) 住宅の特別評価方法認定に係る登録試験機関の登録 | `housingExamOrgRegFee` | FOUND | 767 | 200157 | 1/1 | 65 |
-| 11 | 百五十五の二(一) 登録建築物エネルギー消費性能判定機関の登録 | `registeredBuildingEnergyPerfAssessOrgRegFee` | FOUND | 879 | 200269 | 1/1 | 97 |
-| 12 | 百五十五の二(二) 登録建築物エネルギー消費性能評価機関の登録 | `registeredBuildingEnergyPerfEvalOrgRegFee` | FOUND | 976 | 200366 | 1/1 | 82 |
-| 13 | 百五十五の三 登録調査機関の登録 | `urbanGreenSpaceSurveyOrgRegFee` | FOUND | 1058 | 200448 | 1/1 | 96 |
-| 14 | 百五十六(一) 再生利用の認定 | `generalIndustrialWasteRecycleCertFee` | FOUND | 1191 | 200581 | 1/1 | 124 |
-| 15 | 百五十六(二) 広域的処理の認定 | `generalIndustrialWasteWideAreaCertFee` | FOUND | 1315 | 200705 | 1/1 | 112 |
-| 16 | 百五十六(三) 無害化処理の認定 | `generalIndustrialWasteDetoxCertFee` | FOUND | 1427 | 200817 | 1/1 | 111 |
-| 17 | 百五十六(四) 処理に係る変更の認定 | `wasteProcessingChangeCertFee` | FOUND | 1538 | 200928 | 1/1 | 74 |
-| 18 | 百五十六の二(一) 自主回収・再資源化事業計画の認定 | `usedSpecifiedRecycledProductPlanCertFee` | FOUND | 1646 | 201036 | 1/1 | 89 |
-| 19 | 百五十六の二(二) 同事業計画の変更の認定 | `usedSpecifiedRecycledProductPlanChangeCertFee` | FOUND | 1742 | 201132 | 1/1 | 130 |
-| 20 | 百五十六の三(一) 再資源化事業計画の認定 | `usedSmallElectronicsRecyclePlanCertFee` | FOUND | 1900 | 201290 | 1/1 | 91 |
-| 21 | 百五十六の三(二)イ 収集区域の増加に係る変更認定 | `usedSmallElectronicsPlanChangeAreaCertFee` | FOUND | 2059 | 201449 | 1/1 | 100 |
-| 22 | 百五十六の三(二)ロ 収集運搬処分者・業務種別の増加に係る変更認定 | `usedSmallElectronicsPlanChangeOperatorCertFee` | FOUND | 2159 | 201549 | 1/1 | 123 |
-| 23 | 百五十六の四(一) 自主回収・再資源化事業計画の認定 | `plasticProductRecyclePlanCertFee` | FOUND | 2345 | 201735 | 1/1 | 99 |
-| 24 | 百五十六の四(二) 再資源化事業計画の認定 | `plasticWasteRecyclePlanCertFee` | FOUND | 2444 | 201834 | 1/1 | 102 |
-| 25 | 百五十六の五(一) 高度再資源化事業計画の認定 | `advancedRecyclePlanCertFee` | FOUND | 2610 | 202000 | 1/1 | 93 |
-| 26 | 百五十六の五(二) 高度再資源化事業計画の変更の認定 | `advancedRecyclePlanChangeCertFee` | FOUND | 2703 | 202093 | 1/1 | 125 |
-| 27 | 百五十六の五(三) 高度分離・回収事業計画の認定 | `advancedSeparationRecoveryPlanCertFee` | FOUND | 2828 | 202218 | 1/1 | 82 |
-| 28 | 百五十六の五(四) 高度分離・回収事業計画の変更の認定 | `advancedSeparationRecoveryPlanChangeCertFee` | FOUND | 2910 | 202300 | 1/1 | 128 |
-| 29 | 百五十六の五(五) 登録調査機関の登録 | `advancedRecycleSurveyOrgRegFee` | FOUND | 3038 | 202428 | 1/1 | 76 |
-| 30 | 百五十六の六(一) 太陽電池廃棄物再資源化等事業計画の認定 | `solarPanelWasteRecyclePlanCertFee` | FOUND | 3139 | 202529 | 1/1 | 99 |
-| 31 | 百五十六の六(二) 同事業計画の変更の認定 | `solarPanelWasteRecyclePlanChangeCertFee` | FOUND | 3243 | 202633 | 1/1 | 130 |
-| 32 | 百五十七(一) 人材認定等事業の登録 | `environmentalHumanResourceCertBizRegFee` | FOUND | 3407 | 202797 | 1/1 | 85 |
-| 33 | 百五十七(二) 体験の機会の場の認定 | `experienceOpportunitySiteCertFee` | FOUND | 3515 | 202905 | 1/1 | 130 |
-| 34 | 百五十八(一) 登録特定原動機検査機関の登録 | `registeredSpecificEngineInspectionOrgRegFee` | FOUND | 3678 | 203068 | 1/1 | 87 |
-| 35 | 百五十八(二) 登録特定特殊自動車検査機関の登録 | `registeredSpecialVehicleInspectionOrgRegFee` | FOUND | 3765 | 203155 | 1/1 | 76 |
-| 36 | 百五十九(一) 特別国際種事業者の登録 | `specialInternationalSpeciesBizRegFee` | FOUND | 3900 | 203290 | 1/1 | 99 |
-| 37 | 百五十九(二) 個体等登録機関の登録 | `individualRegistrationOrgRegFee` | FOUND | 3999 | 203389 | 1/1 | 63 |
-| 38 | 百五十九(三) 事業登録機関の登録 | `bizRegistrationOrgRegFee` | FOUND | 4062 | 203452 | 1/1 | 65 |
-| 39 | 百五十九(四) 認定機関の登録 | `certificationOrgRegFee` | FOUND | 4127 | 203517 | 1/1 | 63 |
+| 1 | 79の2 | （国庫補助金等の交付前に取得した固定資産等… | FOUND | 17 | 199903 | 1/1 | 44 |
+| 2 | 79の2 | 一当該固定資産の取得又は改良をするために要した金額… | FOUND | 247 | 200133 | 1/1 | 51 |
+| 3 | 82の3 | （工事負担金の交付前に取得した固定資産の圧縮限度額）… | FOUND | 315 | 202220 | 1/1 | 42 |
+| 4 | 82の3 | 一当該固定資産の取得をするために要した金額… | FOUND | 488 | 202393 | 1/1 | 62 |
+| 5 | 83の4 | （賦課金の納付前に取得した固定資産等の圧縮限度額）… | FOUND | 567 | 203410 | 1/1 | 41 |
+| 6 | 83の4 | 一当該固定資産の取得又は改良をするために要した金額… | FOUND | 769 | 203612 | 1/1 | 62 |
 
-- **FOUND 39 / MISS 0**。needle の長さはすべて **60〜130 文字**、39 本すべて相互に異なることを確認。
-  アンカーの勝手な変更・正規化・文字変換はしていません（原文の `運` / `輸` / `運送` の使い分けも保持）。
-- 各 needle には原則として項目の条号（百五十二〜百五十九）又は区分（（一）〜（五）、イ／ロ）を
-  含めています。原文が極端に長いため 130 文字制約と fee literal の逐語確認を両立させる目的で
-  一意な連続部分をアンカーとした項目（#2, #3, #5, #6, #19, #21, #22, #31, #33, #39）では、
-  対応する条号／区分を上表および def の doc-comment に明記しています。
-  特に #39 は pinned txt 末尾が「九万」で切れているため、needle も逐語で「…一件につき九万」
-  としています（pinned JSON では「九万円」の部分文字列として一意に FOUND）。
-- 金額の日本語数字との対応も全件一致（九万円=90,000 / 十五万円=150,000 /
-  三万円=30,000 / 一万五千円=15,000）。
+- **FOUND 6 / MISS 0**。needle の長さは 41〜62 文字、6 本すべて相互に異なることを確認。
+  アンカーの勝手な変更・正規化・文字変換はしていません（原文の `あつて` / `となつた` 等の
+  旧仮名遣いも保持）。各 needle に条号（第七十九条の二 / 第八十二条の三 / 第八十三条の四）
+  を含むため一意性が担保されています。
 
 ## 7. README / PROGRESS に足す 1 行文案
 
 CROSS_LAW の scan/pin 件数や監査 literal 総数はメインセッションが計算するため、ここでは書きません。
 
-- **README.md**（モジュール一覧・`RegistrationQualificationFeesP7L*` 行の直後に追加）:
+- **README.md**（法人税率モジュール一覧の末尾付近、例: `ForeignCorpResidualRate*` 行の直後に追加）:
   ```text
-  JapanTaxLaw/RegistrationQualificationFeesP8N.lean / -Spec.lean / -Tests.lean  # 登録免許税法 別表第一（二）第三十二号 百五十二〜百五十九（測量／屋外広告物／建築士／住宅性能／建築物エネルギー／都市緑地／廃棄物／各種再資源化事業計画／環境保全／特定特殊自動車／野生動植物）の flat fee L4 モデル・独立定式・退行テスト
+  JapanTaxLaw/CorpAssetCompression.lean / -Spec.lean / -Tests.lean  # 法人税法施行令 art. 79の2/82の3/83の4（固定資産圧縮限度額 = 帳簿価額 × 第二条/第一条、82の3・83の4 は「達するまで」を min で表現）L4 モデル・独立定式・退行テスト
   ```
 - **docs/PROGRESS.md**（L4 着手済みモジュール一覧の末尾に追記）:
   ```text
-  登録免許税法 別表第一（二）第三十二号 百五十二〜百五十九（RegistrationQualificationFeesP8N.lean：39 件の flat fee 額を Money 定数化、百五十一 以前・百六十 以降 NOT YET COVERED）
+  法人税法施行令 art. 79の2/82の3/83の4（CorpAssetCompression.lean：圧縮限度額の按分計算 3 条を Money 上の floor 除算でモデル化、分母 0 は 0、「達するまで」は min、帳簿価額・各金額は caller-established、他条・周辺計算 NOT YET COVERED）
   ```
 
 ## 8. インテグレーターへの明示事項
@@ -305,34 +155,34 @@ CROSS_LAW の scan/pin 件数や監査 literal 総数はメインセッション
 **インテグレーターは `JapanTaxLaw.lean` に以下の 3 つの import を追加すること。**
 
 ```lean
-import JapanTaxLaw.RegistrationQualificationFeesP8N
-import JapanTaxLaw.RegistrationQualificationFeesP8NSpec
-import JapanTaxLaw.RegistrationQualificationFeesP8NTests
+import JapanTaxLaw.CorpAssetCompression
+import JapanTaxLaw.CorpAssetCompressionSpec
+import JapanTaxLaw.CorpAssetCompressionTests
 ```
 
-（W-A〜W-L, W-M の各 3 件と併せてメインが行数を確認してください。
-W-N は `JapanTaxLaw.lean` を書き換えていません。W-M の P8M ファイルには触れていません。）
+（W-A〜W-M, W-O の各 3 件と併せてメインが行数を確認してください。
+W-N は `JapanTaxLaw.lean` を書き換えていません。）
 
 ## 9. 範囲・残ブロッカーの正直な申告（最終報告）
 
 - **build**: 自作 3 モジュールのみ `lake build` 成功（5 jobs / warning なし）。全体ビルド・CI・
   `run_python_gates.py` は未実行です。
-- **axiom**: 新規 positivity 39 本 + agree 1 本の計 40 件すべて axiom-free、
+- **axiom**: 新規 12 def + 4 定理の計 16 件すべて axiom-free、
   `Classical.choice` / `sorryAx` / `propext` なし（一時ファイルは削除済み）。
-- **逐語**: FOUND 39 / MISS 0（担当範囲原文・pinned JSON の両方、出現回数 1、長さ 60〜130）。
-- **def 数**: 39（九万円 19 / 十五万円 11 / 三万円 7 / 一万五千円 2）。
-  タスク文の「38件」との差分は §0 に明示しました。
-  百五十六の三(二) イ・ロは独立した fee 行として各 1 def、百五十九(四) は pinned JSON の
-  「九万円」を根拠に ¥90,000 でモデル化しました。
-- **STAGING**: 本ファイル `docs/STAGING_WN.md` を作成済みです。
+- **逐語**: FOUND 6 / MISS 0（担当範囲原文・pinned JSON の両方、出現回数 1）。
+- **def 数**: 実装 4 + spec 4 + agree 4 = **12 def**（＋ agree 真値定理 4 本）。
+- **STAGING**: 本ファイル `docs/STAGING_WN.md` を作成（上書き）済みです。
 - これは **L4 のごく小さなスライス**です。**完成・網羅を主張しません**。
-- 担当は 別表第一（二）第三十二号 **百五十二〜百五十九 のみ**。**百五十一 以前・百六十 以降は
-  NOT YET COVERED**。
-- 「更新の登録／認定を除く」「財務省令で定めるものに限る／定めるもの」等の該当性はすべて
+- 担当は 法人税法施行令 **第七十九条の二 / 第八十二条の三 / 第八十三条の四 の 3 条のみ**。
+  79の3 / 82の4 / 83の5 を含む他の圧縮限度額規定、および法人税法 42 / 45 / 46 各第一項の
+  損金算入限度額・周辺計算は **NOT YET COVERED**。
+- 帳簿価額（改良の場合は改良部分の帳簿価額）・第一条金額・第二条金額はすべて
   caller-established とし、法的判断の自動化はしていません。
-- `agreeRegistrationQualificationFeesP8N` は定数同士の `==` 一致確認であり、法的意味の等価証明ではありません。
+- 分母 0 を 0 とするのは原文に明示された規則ではなく、モデル定義性のための defensive な
+  選択です（doc-comment に明記済み）。法的な取扱いの確定はメインセッションの判断に委ねます。
+- `agree*` は定数同士の `==` 一致確認であり、法的意味の等価証明ではありません。
 - 転記監査は fidelity-only（原文 bytes との一致確認）であり、法的正しさを保証しません。
 - **L7 候補 3,438 件は unreviewed のまま**です（本スライスでは一切レビューしていません）。
-- 残ブロッカー: 転記監査 check の `checks()` への組み込み（§3、+39）、`JapanTaxLaw.lean` への
-  import 追加（§8）、README / PROGRESS の 1 行追記（§7）、38/39 件数の最終判断（§0）、
-  および全体ビルド・CI ゲートの実行は**すべてメインセッションの担当**です（W-N は実行していません）。
+- 残ブロッカー: 転記監査 check の `checks()` への組み込み（§3、+6）、`JapanTaxLaw.lean` への
+  import 追加（§8）、README / PROGRESS の 1 行追記（§7）、および全体ビルド・CI ゲートの
+  実行は**すべてメインセッションの担当**です（W-N は実行していません）。
