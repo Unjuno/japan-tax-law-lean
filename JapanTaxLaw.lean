@@ -239,3 +239,6 @@ import JapanTaxLaw.DelinquencyTaxTests
 import JapanTaxLaw.RefundInterest
 import JapanTaxLaw.RefundInterestSpec
 import JapanTaxLaw.RefundInterestTests
+import JapanTaxLaw.GroupLossRatio
+import JapanTaxLaw.GroupLossRatioSpec
+import JapanTaxLaw.GroupLossRatioTests
