@@ -419,6 +419,15 @@ JapanTaxLaw/CustomsRetaliatoryDutyTests.lean # 同上 退行テスト
 JapanTaxLaw/GiftSpecialDeduction.lean      # 相続税法 art. 21の12（相続時精算課税の特別控除: min(2500万−既控除, 控除後課税価格)）L4 モデル
 JapanTaxLaw/GiftSpecialDeductionSpec.lean  # 同上 独立定式
 JapanTaxLaw/GiftSpecialDeductionTests.lean # 同上 退行テスト
+JapanTaxLaw/InheritanceMiscRates.lean       # 相続税法 art. 21の13/26/17（相続時精算課税20%・立木評価85%・相続税額按分）L4 モデル
+JapanTaxLaw/InheritanceMiscRatesSpec.lean   # 同上 独立定式
+JapanTaxLaw/InheritanceMiscRatesTests.lean  # 同上 退行テスト
+JapanTaxLaw/CorporateMiscRates.lean         # 法人税法 art. 87/82の5/145の12（退職年金積立金1%・国際最低課税90.7%等）L4 モデル
+JapanTaxLaw/CorporateMiscRatesSpec.lean     # 同上 独立定式
+JapanTaxLaw/CorporateMiscRatesTests.lean    # 同上 退行テスト
+JapanTaxLaw/IncomeMiscDeductions.lean       # 所得税法 art. 80/81/82/211/209の3/182/170（寡婦・ひとり親・勤労学生控除／源泉徴収税率）L4 モデル
+JapanTaxLaw/IncomeMiscDeductionsSpec.lean   # 同上 独立定式
+JapanTaxLaw/IncomeMiscDeductionsTests.lean  # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト
