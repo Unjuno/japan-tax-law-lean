@@ -539,6 +539,9 @@ JapanTaxLaw/SpecialOrderPensionMinimumTests.lean   # 同上 退行テスト
 JapanTaxLaw/InheritanceAnnuityValuation.lean        # 相続税法 art. 25（定期金給付契約の権利の評価: 基礎額×90%／解約返戻金）L4 モデル
 JapanTaxLaw/InheritanceAnnuityValuationSpec.lean    # 同上 独立定式
 JapanTaxLaw/InheritanceAnnuityValuationTests.lean   # 同上 退行テスト
+JapanTaxLaw/TaxCollectionNextBid.lean              # 国税徴収法 art. 104の2（次順位買受申込者の決定: 下限＝max(見積, 最高−保証金)）L4 モデル
+JapanTaxLaw/TaxCollectionNextBidSpec.lean          # 同上 独立定式
+JapanTaxLaw/TaxCollectionNextBidTests.lean         # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト

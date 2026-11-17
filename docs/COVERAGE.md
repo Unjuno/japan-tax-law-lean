@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 14 | 327 | 4.28% |
+| laws with >=1 pinned literal check | 15 | 327 | 4.59% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -49,9 +49,9 @@ by the '税' keyword in the law name only.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 112 | n/a | n/a |
+| pinned literal checks | 113 | n/a | n/a |
 | distinct article pins | 46 | 42584 | 0.11% |
-| pinned Lean modules (cross-law) | 348 | n/a | n/a |
+| pinned Lean modules (cross-law) | 349 | n/a | n/a |
 
 ## Independent transcription-review axis (Objective §4, separate from fidelity-only audit)
 
@@ -81,6 +81,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `329AC0000000061` 関税法
 - `332AC0000000026` 租税特別措置法
 - `332CO0000000043` 租税特別措置法施行令
+- `334AC0000000147` 国税徴収法
 - `337AC0000000066` 国税通則法
 - `340AC0000000033` 所得税法
 - `340AC0000000034` 法人税法
