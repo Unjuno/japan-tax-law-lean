@@ -30,4 +30,14 @@ example : taxAfterCredit 500_000 50_000 200_000 30_000 = 404_400 := by decide
 example : taxAfterCredit 10_000 20_000 100_000 12_000 = 0 := by decide
 example : taxAfterCredit 0 0 0 0 = 0 := by decide
 
+
+-- art. 30(2): 按分ゲート
+example : Apportionment.needsApportionment 100_000_000 ⟨95, 100, by decide⟩ = false := by decide
+example : Apportionment.needsApportionment 500_000_001 ⟨95, 100, by decide⟩ = true := by decide
+example : Apportionment.needsApportionment 100_000_000 ⟨90, 100, by decide⟩ = true := by decide
+-- art. 30(2)一: 区分明らか
+example : Apportionment.apportionedIfSeparated 100_000 200_000 ⟨95, 100, by decide⟩ = 290_000 := by decide
+-- art. 30(2)二: 区分不明
+example : Apportionment.apportionedIfUnseparated 300_000 ⟨90, 100, by decide⟩ = 270_000 := by decide
+
 end JapanTaxLaw

@@ -132,4 +132,76 @@ example : taxAfterCredit 100_000 20_000 100_000 12_000 = 60_200 := by decide
 -- underflow: output 10,000 < input 39,800 → 0（還付は射程外）
 example : taxAfterCredit 10_000 20_000 100_000 12_000 = 0 := by decide
 
+
+-- ============================================================
+-- art. 30(2) — 課税売上割合による按分（pinned bytes 逐語）
+--
+-- 「同項に規定する課税期間における課税売上高が五億円を超えるとき、又は当該課税期間における
+--   課税売上割合が百分の九十五に満たないときは、…課税仕入れ等の税額…の合計額は、
+--   同項の規定にかかわらず、次の各号に掲げる場合の区分に応じ当該各号に定める方法により
+--   計算した金額とする。
+--   一 …課税資産の譲渡等にのみ要するもの、課税資産の譲渡等以外の資産の譲渡等…
+--         …に共通して要するものにその区分が明らかにされている場合
+--      イに掲げる金額にロに掲げる金額を加算する方法
+--      イ 課税資産の譲渡等にのみ要する…税額の合計額
+--      ロ 課税資産の譲渡等とその他の資産の譲渡等に共通して要する…税額の合計額に
+--          課税売上割合を乗じて計算した金額
+--   二 前号に掲げる場合以外の場合
+--      当該課税期間における課税仕入れ等の税額の合計額に課税売上割合を乗じて計算する方法」
+--
+-- Honest boundaries:
+--   * 課税売上割合は caller-established TaxRate (num/den)。その算定（課税売上高/総売上高、
+--     95% special rule、政令の価額算定）は art. 30(6)(7) 等の射程で本モジュール外。
+--   * 課税売上高 (Money) は caller-established。
+--   * 「区分が明らかにされている」かどうかは caller-established Bool。
+--   * 税率適用の端数は切り捨て（TaxRate.applyFloor）。政令の丸め細目は射程外。
+--   * art. 30(3)〜(12) — NOT YET COVERED。
+namespace Apportionment
+
+open JapanTaxLaw.TaxFinance
+
+/-- art. 30(2) — 按分が必要か: 課税売上高 > 5億 または 課税売上割合 < 95%。
+    95% 判定は交差掛け算 num*100 < 95*den（den>0 は TaxRate の不変条件）。 -/
+def needsApportionment (taxableSalesAmount : Money) (ratio : TaxRate) : Bool :=
+  decide (taxableSalesAmount > 500_000_000 || ratio.num * 100 < 95 * ratio.den)
+
+/-- art. 30(2)一ロ — 共通税額 × 課税売上割合。 -/
+def commonPortion (commonTax : Money) (ratio : TaxRate) : Money :=
+  ratio.applyFloor commonTax
+
+/-- art. 30(2)一 — 区分明らか: 課税資産のみ + 共通 × 割合。 -/
+def apportionedIfSeparated (exclusiveTax commonTax : Money) (ratio : TaxRate) : Money :=
+  exclusiveTax + commonPortion commonTax ratio
+
+/-- art. 30(2)二 — 区分不明: 合計 × 割合。 -/
+def apportionedIfUnseparated (totalInputTaxes : Money) (ratio : TaxRate) : Money :=
+  ratio.applyFloor totalInputTaxes
+
+-- ==== verified facts ====
+
+theorem needsApportionment_of_large_sales (sales : Money) (ratio : TaxRate) (h : sales > 500_000_000) :
+    needsApportionment sales ratio = true := by
+  unfold needsApportionment
+  simp [h]
+
+theorem needsApportionment_of_low_ratio (sales : Money) (ratio : TaxRate)
+    (h : ratio.num * 100 < 95 * ratio.den) :
+    needsApportionment sales ratio = true := by
+  unfold needsApportionment
+  simp [h]
+
+-- ==== kernel-decided smoke checks ====
+
+def ratio95 : TaxRate := ⟨95, 100, by decide⟩
+def ratio90 : TaxRate := ⟨90, 100, by decide⟩
+
+example : needsApportionment 100_000_000 ratio95 = false := by decide
+example : needsApportionment 500_000_001 ratio95 = true := by decide
+example : needsApportionment 100_000_000 ratio90 = true := by decide
+example : commonPortion 200_000 ratio95 = 190_000 := by decide
+example : apportionedIfSeparated 100_000 200_000 ratio95 = 290_000 := by decide
+example : apportionedIfUnseparated 300_000 ratio90 = 270_000 := by decide
+
+end Apportionment
+
 end JapanTaxLaw

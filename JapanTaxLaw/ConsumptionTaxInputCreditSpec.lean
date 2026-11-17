@@ -56,4 +56,43 @@ def agreeConsumptionTaxInputCredit : Bool :=
 
 example : agreeConsumptionTaxInputCredit = true := by decide
 
+
+-- ============================================================
+-- art. 30(2) — 課税売上割合による按分（独立定式）
+namespace ApportionmentSpec
+
+open JapanTaxLaw.TaxFinance
+
+def specNeedsApportionment (sales : Money) (num den : Money) : Bool :=
+  decide (sales > 500_000_000 || num * 100 < 95 * den)
+
+def specCommonPortion (common num den : Money) : Money := common * num / den
+
+def specApportionedSeparated (excl common num den : Money) : Money :=
+  excl + common * num / den
+
+def specApportionedUnseparated (total num den : Money) : Money := total * num / den
+
+example : specNeedsApportionment 100_000_000 95 100 = false := by decide
+example : specNeedsApportionment 500_000_001 95 100 = true := by decide
+example : specNeedsApportionment 100_000_000 90 100 = true := by decide
+example : specCommonPortion 200_000 95 100 = 190_000 := by decide
+example : specApportionedSeparated 100_000 200_000 95 100 = 290_000 := by decide
+example : specApportionedUnseparated 300_000 90 100 = 270_000 := by decide
+
+/-- Agreement checks between implementation and Spec. -/
+def agreeApportionment : Bool :=
+  let r95 : TaxRate := ⟨95, 100, by decide⟩
+  let r90 : TaxRate := ⟨90, 100, by decide⟩
+  Apportionment.needsApportionment 100_000_000 r95 == specNeedsApportionment 100_000_000 95 100
+  && Apportionment.needsApportionment 500_000_001 r95 == specNeedsApportionment 500_000_001 95 100
+  && Apportionment.needsApportionment 100_000_000 r90 == specNeedsApportionment 100_000_000 90 100
+  && Apportionment.commonPortion 200_000 r95 == specCommonPortion 200_000 95 100
+  && Apportionment.apportionedIfSeparated 100_000 200_000 r95 == specApportionedSeparated 100_000 200_000 95 100
+  && Apportionment.apportionedIfUnseparated 300_000 r90 == specApportionedUnseparated 300_000 90 100
+
+example : agreeApportionment = true := by decide
+
+end ApportionmentSpec
+
 end JapanTaxLaw
