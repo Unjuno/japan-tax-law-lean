@@ -464,6 +464,15 @@ JapanTaxLaw/CorpAssetCompressionTests.lean    # 同上 退行テスト
 JapanTaxLaw/IncomeSocialInsuranceDeduction.lean      # 所得税法 art. 74（社会保険料控除＝支払額を控除）L4 モデル
 JapanTaxLaw/IncomeSocialInsuranceDeductionSpec.lean  # 同上 独立定式
 JapanTaxLaw/IncomeSocialInsuranceDeductionTests.lean # 同上 退行テスト
+JapanTaxLaw/RegistryRealEstateFeesP1A.lean        # 登録免許税法 別表第一（一）(一)〜(五) 不動産登記手数料 L4 モデル
+JapanTaxLaw/RegistryRealEstateFeesP1ASpec.lean    # 同上 独立定式
+JapanTaxLaw/RegistryRealEstateFeesP1ATests.lean   # 同上 退行テスト
+JapanTaxLaw/RegistryRealEstateFeesP1B.lean        # 登録免許税法 別表第一（一）(六)〜(十) L4 モデル
+JapanTaxLaw/RegistryRealEstateFeesP1BSpec.lean    # 同上 独立定式
+JapanTaxLaw/RegistryRealEstateFeesP1BTests.lean   # 同上 退行テスト
+JapanTaxLaw/RegistryRealEstateFeesP1C.lean        # 登録免許税法 別表第一（一）(十一)〜(十五) 仮登記等 L4 モデル
+JapanTaxLaw/RegistryRealEstateFeesP1CSpec.lean    # 同上 独立定式
+JapanTaxLaw/RegistryRealEstateFeesP1CTests.lean   # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト
