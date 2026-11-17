@@ -281,3 +281,12 @@ import JapanTaxLaw.CorporateMiscRatesTests
 import JapanTaxLaw.IncomeMiscDeductions
 import JapanTaxLaw.IncomeMiscDeductionsSpec
 import JapanTaxLaw.IncomeMiscDeductionsTests
+import JapanTaxLaw.CustomsProcedureRates
+import JapanTaxLaw.CustomsProcedureRatesSpec
+import JapanTaxLaw.CustomsProcedureRatesTests
+import JapanTaxLaw.SpecialMeasuresMisc
+import JapanTaxLaw.SpecialMeasuresMiscSpec
+import JapanTaxLaw.SpecialMeasuresMiscTests
+import JapanTaxLaw.CorporateGlobeRates
+import JapanTaxLaw.CorporateGlobeRatesSpec
+import JapanTaxLaw.CorporateGlobeRatesTests
