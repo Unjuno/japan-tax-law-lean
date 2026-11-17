@@ -20,7 +20,7 @@ RegistryPropertyRightsFees / RegistryShipFees / RegistryCorporateSecurityFees �
 担当範囲原文: `C:\Users\junny\AppData\Local\Temp\opencode\reg_rem_A.txt`
 （十九 鉱業権又は租鉱権 〜 二十二の二 試掘権又は貯留権、UTF-8、raw 4,550 文字 /
 正規化後 4,248 文字。冒頭の育成者権の末尾は前区分のため対象外。二十二の二（十三）は
-原文が文中で途切れており fee string を持たないため対象外）。
+原文が文中で途切れており fee string は W-Z モデル化済み（重複回避）ため対象外）。
 
 Namespace: `JapanTaxLaw.RegistryMiningFees`（専用サブ名前空間。
 `JapanTaxLaw` 直下の `realEstateMilleRate`（RegistrationTax.lean）や
@@ -228,7 +228,7 @@ W-Y は `JapanTaxLaw.lean` を書き換えていません。他ワーカーの�
   二十一 鉱業法第百十四条第二項（予定された損害賠償額） / 二十二 特定鉱業権 /
   二十二の二 試掘権又は貯留権 のみ**。別表第一の他の号・他の条文、
   登録免許税の納付手続・端数処理の通則法的詳細は **NOT YET COVERED**。
-- 二十二の二（十三）は原文が文中で途切れており fee string を持たないため対象外。
+- 二十二の二（十三）は原文が文中で途切れており fee string は W-Z モデル化済み（重複回避）ため対象外。
   担当範囲原文に「漁業権」の fee string は含まれていません（未提供スライドのためモデル化せず）。
 - 課税標準、面積、件数・個数、各区分への該当性はすべて caller-established とし、
   法的判断の自動化・Bool の金額式への組込みはしていません。

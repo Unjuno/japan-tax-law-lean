@@ -32,6 +32,7 @@ SWEEP = REPO / "build" / "audit_sweep.json"
 CROSS = REPO / "build" / "cross_law.json"
 CANDIDATES = REPO / "docs" / "L7_CANDIDATES_UNREVIEWED.csv"
 REFERENCES = REPO / "build" / "reference_stats.json"
+ADVERSARIAL = REPO / "docs" / "ADVERSARIAL_REVIEW.md"
 OUT = REPO / "docs" / "COVERAGE.md"
 OUT_TMP = REPO / "build" / "coverage.md"
 AUDIT = REPO / "scripts" / "ci" / "transcription_audit.py"
@@ -57,6 +58,10 @@ def build() -> str:
     refs = _load(REFERENCES) or {}
     ref_totals = refs.get("totals", {})
     checks = audit_checks()
+    import re as _re
+    review_sessions = 0
+    if ADVERSARIAL.exists():
+        review_sessions = len(_re.findall(r"^## Batch [A-Z] review", ADVERSARIAL.read_text(encoding="utf-8"), _re.M))
 
     n_laws = len(laws)
     n_enforced = sum(
@@ -145,6 +150,15 @@ def build() -> str:
         f"| pinned literal checks | {len(checks)} | n/a | n/a |",
         f"| distinct article pins | {len(article_pins)} | {totals.get('articles_checked', 'n/a')} | {pct(len(article_pins), totals.get('articles_checked', 0))} |",
         f"| pinned Lean modules (cross-law) | {n_pinned} | n/a | n/a |",
+        "",
+        "## Independent transcription-review axis (Objective §4, separate from fidelity-only audit)",
+        "",
+        "| axis | count |",
+        "|---|---:|",
+        f"| adversarial review sessions recorded | {review_sessions} |",
+        "",
+        "These are machine-based independent cross-checks by a separate review",
+        "agent, NOT human legal review and NOT a count of fully reviewed articles.",
         "",
         "## Human legal review axis (denominator = L7 candidates)",
         "",

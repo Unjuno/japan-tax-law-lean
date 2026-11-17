@@ -78,6 +78,10 @@ def specForeignCompanyLiquidationMiscFeePerApplication : Nat := 6000
 def specSpecialPurposeCompanyEstablishmentFeePerApplication : Nat := 30000
 def specSpecialPurposeCompanyOtherRegistrationFeePerApplication : Nat := 15000
 
+/-- Spec: 二十五（三） 特定目的会社の登記の抹消（¥10,000）。 -/
+def specSpecialPurposeCompanyCancellationFeePerApplication : Nat := 10000
+example : specSpecialPurposeCompanyCancellationFeePerApplication = 10000 := by decide
+
 -- ==== 独立定式の smoke（kernel-decide） ====
 example : specFishingRightLienPreservationFee 0 = 0 := by decide
 example : specFishingRightLienPreservationFee 1000 = 4 := by decide
@@ -174,6 +178,7 @@ def agreeRegistryForeignCompanyFees : Bool :=
   foreignCompanyLiquidationMiscFeePerApplication == specForeignCompanyLiquidationMiscFeePerApplication &&
   specialPurposeCompanyEstablishmentFeePerApplication == specSpecialPurposeCompanyEstablishmentFeePerApplication &&
   specialPurposeCompanyOtherRegistrationFeePerApplication == specSpecialPurposeCompanyOtherRegistrationFeePerApplication
+  && specialPurposeCompanyCancellationFeePerApplication == specSpecialPurposeCompanyCancellationFeePerApplication
 
 example : agreeRegistryForeignCompanyFees = true := by decide
 
