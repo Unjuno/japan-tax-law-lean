@@ -473,6 +473,15 @@ JapanTaxLaw/RegistryRealEstateFeesP1BTests.lean   # 同上 退行テスト
 JapanTaxLaw/RegistryRealEstateFeesP1C.lean        # 登録免許税法 別表第一（一）(十一)〜(十五) 仮登記等 L4 モデル
 JapanTaxLaw/RegistryRealEstateFeesP1CSpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistryRealEstateFeesP1CTests.lean   # 同上 退行テスト
+JapanTaxLaw/RegistryCopyrightFees.lean       # 登録免許税法 別表第一（二）十〜十二 著作権/出版権/著作隣接権 L4 モデル
+JapanTaxLaw/RegistryCopyrightFeesSpec.lean   # 同上 独立定式
+JapanTaxLaw/RegistryCopyrightFeesTests.lean  # 同上 退行テスト
+JapanTaxLaw/RegistryPatentFees.lean          # 登録免許税法 別表第一（二）十三〜十四 特許権/実用新案権 L4 モデル
+JapanTaxLaw/RegistryPatentFeesSpec.lean      # 同上 独立定式
+JapanTaxLaw/RegistryPatentFeesTests.lean     # 同上 退行テスト
+JapanTaxLaw/RegistryDesignTrademarkFees.lean # 登録免許税法 別表第一（二）十五〜十七 意匠権/商標権/回路配置 L4 モデル
+JapanTaxLaw/RegistryDesignTrademarkFeesSpec.lean # 同上 独立定式
+JapanTaxLaw/RegistryDesignTrademarkFeesTests.lean # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト
