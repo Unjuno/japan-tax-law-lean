@@ -380,6 +380,9 @@ JapanTaxLaw/NonpaymentSurchargeTests.lean           # 同上 退行テスト
 JapanTaxLaw/UnreportedSurcharge.lean              # 国税通則法 art. 66（無申告加算税: 納付税額×15%／軽減10%／3項三段階 50万以下15%・50万超300万以下20%・300万超30%）L4 モデル
 JapanTaxLaw/UnreportedSurchargeSpec.lean          # 同上 独立定式
 JapanTaxLaw/UnreportedSurchargeTests.lean         # 同上 退行テスト
+JapanTaxLaw/DelinquencyTax.lean                   # 国税通則法 art. 60（延滞税: 年7.3%／年14.6% の利率と「納期限の翌日から二月を経過する日まで」の期間区分 — 日割り分母は条文に明示なく未モデル化）L4 モデル
+JapanTaxLaw/DelinquencyTaxSpec.lean               # 同上 独立定式
+JapanTaxLaw/DelinquencyTaxTests.lean              # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト
