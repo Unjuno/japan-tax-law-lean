@@ -254,3 +254,6 @@ import JapanTaxLaw.CustomsSimilarGoodsTests
 import JapanTaxLaw.CustomsDomesticValue
 import JapanTaxLaw.CustomsDomesticValueSpec
 import JapanTaxLaw.CustomsDomesticValueTests
+import JapanTaxLaw.CustomsAirCargo
+import JapanTaxLaw.CustomsAirCargoSpec
+import JapanTaxLaw.CustomsAirCargoTests
