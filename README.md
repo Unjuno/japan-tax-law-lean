@@ -428,6 +428,15 @@ JapanTaxLaw/CorporateMiscRatesTests.lean    # 同上 退行テスト
 JapanTaxLaw/IncomeMiscDeductions.lean       # 所得税法 art. 80/81/82/211/209の3/182/170（寡婦・ひとり親・勤労学生控除／源泉徴収税率）L4 モデル
 JapanTaxLaw/IncomeMiscDeductionsSpec.lean   # 同上 独立定式
 JapanTaxLaw/IncomeMiscDeductionsTests.lean  # 同上 退行テスト
+JapanTaxLaw/CustomsProcedureRates.lean    # 関税法 art. 14の5（換価代金充当の上限: 公売代金−関税に先だつ費用）L4 モデル
+JapanTaxLaw/CustomsProcedureRatesSpec.lean # 同上 独立定式
+JapanTaxLaw/CustomsProcedureRatesTests.lean# 同上 退行テスト
+JapanTaxLaw/SpecialMeasuresMisc.lean       # 租税特別措置法 art. 36/37の15/41の10（5000万円上限・貸付信託不足額控除・給付補填金15%分離課税）L4 モデル
+JapanTaxLaw/SpecialMeasuresMiscSpec.lean   # 同上 独立定式
+JapanTaxLaw/SpecialMeasuresMiscTests.lean  # 同上 退行テスト
+JapanTaxLaw/CorporateGlobeRates.lean       # 法人税法 art. 82の13/82の21/145の8（GloBE 90.7%/75.3%）L4 モデル
+JapanTaxLaw/CorporateGlobeRatesSpec.lean   # 同上 独立定式
+JapanTaxLaw/CorporateGlobeRatesTests.lean  # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト

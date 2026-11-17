@@ -1,4 +1,4 @@
-# STAGING — W-E (登録免許税法 別表第一（二）第三十二号 九十〜九十六 の flat fee) 受け渡しメモ
+# STAGING — W-E (租税特別措置法 art. 29の4 / 36 / 37の15 / 41の10 の bounded L4 モデル) 受け渡しメモ
 
 > 実装担当 W-E からメインセッション（統合担当）への受け渡し用。
 > ブランチ操作・add/commit/push/merge は一切していません。
@@ -8,231 +8,165 @@
 
 | ファイル | 状態 |
 | --- | --- |
-| `JapanTaxLaw/RegistrationQualificationFeesP4E.lean` | 新規 |
-| `JapanTaxLaw/RegistrationQualificationFeesP4ESpec.lean` | 新規 |
-| `JapanTaxLaw/RegistrationQualificationFeesP4ETests.lean` | 新規 |
-| `docs/STAGING_WE.md` | 新規（本ファイル） |
+| `JapanTaxLaw/SpecialMeasuresMisc.lean` | 新規 |
+| `JapanTaxLaw/SpecialMeasuresMiscSpec.lean` | 新規 |
+| `JapanTaxLaw/SpecialMeasuresMiscTests.lean` | 新規 |
+| `docs/STAGING_WE.md` | 既存ファイルを本タスク用に overwritten（本ファイル） |
 
-pinned source: `data/raw/342AC0000000035_20261101_508AC0000000021.law.json`
-law id `342AC0000000035` / revision `342AC0000000035_20261101_508AC0000000021`
-amendment enforcement date `2026-11-01`（RegistrationQualificationFees.lean / P2A / P2B / P3C / P3D と同一ピン）。
-担当範囲の原文: `C:\Users\junny\AppData\Local\Temp\opencode\art32_90_96.txt`（九十〜九十六、UTF-8、2,761 bytes）。
-section 開始マーカー: `"三十二　人の資格の登録若しくは認定又は技能証明"`（`\u3000` は全角空白）。
-pinned bytes から金額を日本語数字で読み取り Arabic に変換（九万円→90,000 / 十五万円→150,000 /
-一万五千円→15,000 / 三万円→30,000、全件一致確認済み）。
+pinned source: `data/raw/332AC0000000026_20261101_507AC0000000013.law.json`
+law id `332AC0000000026` / revision `332AC0000000026_20261101_507AC0000000013`
+amendment enforcement date `2026-11-01`（DeemedCapitalGainsCost / ResidentialTransferSpecialTax /
+ListedDividendWithholding / SpecialGiftRate と同一ピン）。
+担当範囲の原文: `C:\Users\junny\AppData\Local\Temp\opencode\W_E_special.txt`
+（4 条文・正規化済み・UTF-8: 第二十九条の四 / 第三十六条 / 第三十七条の十五 / 第四十一条の十）。
 
-## 1. 担当範囲のカテゴリ一覧（九十〜九十六）
+## 1. スコープ判断（明示的な計算式の有無）
 
-| 条号 | 区分／法律 | 件数 |
-| --- | --- | --- |
-| 九十 | 食品循環資源 登録再生利用事業者の登録 | 1 |
-| 九十一 | 農林漁業体験民宿業者 (一) ＋ 登録実施機関 (二) | 2 |
-| 九十一の二 | 木材関連事業者 (一) ＋ 登録実施機関 (二) | 2 |
-| 九十二 | 馬主の登録 | 1 |
-| 九十三 | 農林中央金庫 外国業務委託認可 (一) ＋ 代理業許可 (二) ＋ 特定信用事業代理業許可（農協 (三)／水協 (四)） | 4 |
-| 九十三の二 | 電子決済等代行業者等の登録 (一)(二)(三) ＋ 認定事業者協会の認定 (四)(五)(六) | 6 |
-| 九十四 | 商品取引所の設立・市場開設・組織変更・持株会社・類似施設の開設・変更の許可 (一)〜(七) | 7 |
-| 九十五 | 商品先物取引業の許可・仲介業者の登録・債務引受業の許可・委託者保護基金の設立認可 (一)〜(四) | 4 |
-| 九十六 | 商品投資顧問業の許可 (一) ＋ 業務の種類の変更の認可 (二) | 2 |
-| 九十六の二 | 商工組合中央金庫電子決済等代行業者の登録 (一) ＋ 認定事業者協会の認定 (二) | 2 |
-| **合計** | | **31** |
+原文を精読し、**明示的な計算式がある 3 条文のみ**をモデル化しました。
 
-内訳（件数）: 九十 1 / 九十一 2 / 九十一の二 2 / 九十二 1 / 九十三 4 / 九十三の二 6 /
-九十四 7 / 九十五 4 / 九十六 2 / 九十六の二 2 ＝ **31 件**。
-本範囲には割合（千分の△）やデーミング規定はなく、金額なしの行もありません（全 31 行が一件につきの固定額）。
+| 条 | 題名 | 判断 | 根拠 |
+| --- | --- | --- | --- |
+| 第二十九条の四 | 未払賃金課税の特例 | **NOT MODELLED** | 「…退職手当等の金額とみなして、同法の規定を適用する」のみ。みなし前の給与等・退職手当等の額に算定式はなく caller-established。def を作らない。 |
+| 第三十六条 | 資産譲渡の課税の特例 | **モデル化（上限のみ）** | 「通じて五千万円の範囲内」という明示的上限（五千万円）を定数＋cap 関数でモデル化。ただし「政令で定めるところにより計算した金額」そのものは政令委任で数式なし → 非モデル化。 |
+| 第三十七条の十五 | 貸付信託受益権等の譲渡 | **モデル化（第2項のみ）** | 第2項「収入金額が…合計額…に満たない場合におけるその不足額については…ないものとみなす」→ saturating Nat 減算で差益をモデル化。第1項「所得税を課さない」は免税宣言で数式なし → NOT MODELLED。 |
+| 第四十一条の十 | 定期積金の給付補塡金等の分離課税 | **モデル化（第1項）** | 「その支払を受けるべき金額に対し百分の十五の税率を適用して所得税を課する」→ 金額 × 15/100 (floor)。 |
 
-## 2. 追加した def 一覧（名前 → 金額 → 条号／区分）
+## 2. 追加した def 一覧
 
-`namespace JapanTaxLaw`、`open JapanTaxLaw.TaxFinance`。各 def は `Money := <額>` の flat 定数
-（課税標準は一件につき）。各 def に `<name>_pos : <name> > 0 := by decide` と
-`example : <name> = <額> := by decide` を付与済み（31 本ずつ）。
+`namespace JapanTaxLaw`、`open JapanTaxLaw.TaxFinance`、`Money = Nat`。
 
-| # | 条号／区分 | def 名 | 金額 | 原文 fee |
-| --- | --- | --- | --- | --- |
-| 1 | 九十 | `foodRecyclingRegistrantRegFee` | 90_000 | 九万円 |
-| 2 | 九十一（一） | `farmStayBizRegFee` | 15_000 | 一万五千円 |
-| 3 | 九十一（二） | `farmStayRegOrgRegFee` | 90_000 | 九万円 |
-| 4 | 九十一の二（一） | `timberRelatedBizRegFee` | 15_000 | 一万五千円 |
-| 5 | 九十一の二（二） | `timberRegOrgRegFee` | 90_000 | 九万円 |
-| 6 | 九十二 | `horseOwnerRegFee` | 90_000 | 九万円 |
-| 7 | 九十三（一） | `norinchukinForeignOutsourceApprovalFee` | 90_000 | 九万円 |
-| 8 | 九十三（二） | `norinchukinAgencyPermitFee` | 90_000 | 九万円 |
-| 9 | 九十三（三） | `jaCreditAgencyPermitFee` | 90_000 | 九万円 |
-| 10 | 九十三（四） | `fisheriesCreditAgencyPermitFee` | 90_000 | 九万円 |
-| 11 | 九十三の二（一） | `norinchukinEpiAgentRegFee` | 90_000 | 九万円 |
-| 12 | 九十三の二（二） | `jaEpiAgentRegFee` | 90_000 | 九万円 |
-| 13 | 九十三の二（三） | `fisheriesEpiAgentRegFee` | 90_000 | 九万円 |
-| 14 | 九十三の二（四） | `certNorinchukinEpiAssocCertFee` | 150_000 | 十五万円 |
-| 15 | 九十三の二（五） | `certJaEpiAssocCertFee` | 150_000 | 十五万円 |
-| 16 | 九十三の二（六） | `certFisheriesEpiAssocCertFee` | 150_000 | 十五万円 |
-| 17 | 九十四（一） | `commodityExchangeEstabPermitFee` | 150_000 | 十五万円 |
-| 18 | 九十四（二） | `intlEmissionMarketApprovalFee` | 150_000 | 十五万円 |
-| 19 | 九十四（三） | `commodityOrgChangeApprovalFee` | 150_000 | 十五万円 |
-| 20 | 九十四（四） | `commodityHoldingCoApprovalFee` | 150_000 | 十五万円 |
-| 21 | 九十四（五） | `type1SimilarMarketFacilityPermitFee` | 150_000 | 十五万円 |
-| 22 | 九十四（六） | `type2SimilarMarketFacilityPermitFee` | 150_000 | 十五万円 |
-| 23 | 九十四（七） | `commodityChangePermitFee` | 30_000 | 三万円 |
-| 24 | 九十五（一） | `commodityFuturesBizPermitFee` | 150_000 | 十五万円 |
-| 25 | 九十五（二） | `commodityFuturesBrokerRegFee` | 90_000 | 九万円 |
-| 26 | 九十五（三） | `commodityDebtAssumptionPermitFee` | 150_000 | 十五万円 |
-| 27 | 九十五（四） | `clientProtectionFundApprovalFee` | 150_000 | 十五万円 |
-| 28 | 九十六（一） | `commodityInvestAdvisorPermitFee` | 150_000 | 十五万円 |
-| 29 | 九十六（二） | `commodityBizTypeChangeApprovalFee` | 30_000 | 三万円 |
-| 30 | 九十六の二（一） | `shokochukinEpiAgentRegFee` | 90_000 | 九万円 |
-| 31 | 九十六の二（二） | `certShokochukinEpiAssocCertFee` | 150_000 | 十五万円 |
+### 実装モジュール（`SpecialMeasuresMisc.lean`）— model defs 5 本
 
-金額一致の内訳: 九万円=13 件（90,000）／ 十五万円=14 件（150,000）／ 一万五千円=2 件（15,000）／
-三万円=2 件（30,000）＝ 合計 31 件。pinned 原文の fee フレーズ出現数 13+14+2+2=31 と完全一致。
+| # | 条 | def 名 | 内容 |
+| --- | --- | --- | --- |
+| 1 | 41の10(1) | `benefitSupplementSeparateRate` | `TaxRate := ⟨15, 100, by decide⟩`（百分の十五） |
+| 2 | 41の10(1) | `benefitSupplementSeparateTax` | `rate.applyFloor paymentAmount` = 金額 × 15 / 100（切り捨て） |
+| 3 | 36 | `assetTransferDeductionCeiling` | `Money := 50_000_000`（五千万円） |
+| 4 | 36 | `assetTransferDeductionCapped` | `min computed ceiling`（「通じて五千万円の範囲内」の上限強制。`computed` は政令計算額を caller-established で受け取り、政令の計算自体は非モデル化） |
+| 5 | 37の15(2) | `lendingTrustGain` | `proceeds - cost`（saturating Nat 減算。不足額をないものとみなす） |
 
-`RegistrationQualificationFeesP4ESpec.lean` は `spec` 接頭辞の独立定式 31 本 +
-`agreeRegistrationQualificationFeesP4E : Bool`（実装 ≡ spec の `==` 一致）+
-`example : agreeRegistrationQualificationFeesP4E = true := by decide`。
-`RegistrationQualificationFeesP4ETests.lean` は `example := by decide` のスモーク 31 件のみ。
+実装モジュールの定理 11 本（positivity 4・`*_eq` 接続 1・上限系 3・saturating 系 3）を付与。
+各 def に相当する kernel-decided smoke を 9 件同梱。
 
-doc-comment に明記した射程外（overclaim 防止）:
+### Spec モジュール（`SpecialMeasuresMiscSpec.lean`）— def 6 本
 
-- 「更新の登録を除く。」「更新の許可を除く。」「政令で定めるものに限る。」
-  「同項ただし書の金融商品市場の開設の業務又は金融商品債務引受業等に係るものを除く。」
-  「同法第三百三十二条第二項第三号又は第三百四十二条第二項第三号の取引の対象となる商品又は商品指数の
-  増加に係るものに限る。」「同法第五条第一項第六号（許可の申請）の業務の種類の増加に係るものに限る。」
-  等の適用判定は **caller-established** とし、金額定数には反映していません（Bool は式に入れていません）。
-- 八十九 以前・九十七 以降は NOT YET COVERED。
+| # | 条 | def 名 | 内容 |
+| --- | --- | --- | --- |
+| 1 | 41の10 | `specBenefitSupplementTax` | 独立定式 `amount * 15 / 100`（impl は applyFloor 経由） |
+| 2 | 36 | `specAssetTransferCapped` | 独立定式 `if computed ≤ 50_000_000 then computed else 50_000_000` |
+| 3 | 37の15(2) | `specLendingTrustGain` | 独立定式 `if cost ≤ proceeds then proceeds - cost else 0` |
+| 4 | 41の10 | `agreeBenefitSupplementTax` | `Bool`（impl ≡ spec の `==` 一致・8 点） |
+| 5 | 36 | `agreeAssetTransferCapped` | `Bool`（impl ≡ spec・7 点） |
+| 6 | 37の15(2) | `agreeLendingTrustGain` | `Bool`（impl ≡ spec・8 点） |
+
+Spec に points 6 件＋`agree*` の `example … = true := by decide` 3 件。
+Tests モジュール（`SpecialMeasuresMiscTests.lean`）は kernel-decided smoke 17 件のみ。
+**合計 35 件の `by decide` smoke**（impl 9 / Spec 9 / Tests 17）。
+
+### doc-comment に明記した射程外（overclaim 防止）
+
+- 課税標準額・適用判定（居住者／恒久的施設を有する非居住者、支払時期、国内源泉該当性、
+  給付補塡金等の該当性、二以上の規定の適用、貸付信託受益権等への該当、取得費と必要経費の別）
+  は **caller-established**。Bool は計算式に入れていません。
+- 政令細目（art. 36 の控除額の具体的計算・art. 37の15 の受益権等の範囲）は非モデル化。
+- 丸めは条文に明記がないため、Nat 除算の切り捨てを丸め規則として明示（他モジュールの
+  `applyFloor` と同一慣例）。復興特別所得税・確定申告調整は非対応。
+- `agree*` は有限サンプルの `==` 一致確認であり、法的意味の等価証明ではありません。
 
 ## 3. 転記監査に追加すべき check（JSON 断片）
 
 `scripts/ci/transcription_audit.py` の `checks()` に追加する check の JSON 表現です
-（`law_id` / `kind` / `title` / `needles` の 4 キー）。needle 文字列は一字も変えないこと。
-**文字正規化・全角／半角変換・異体字変換を行わず、そのまま移してください。**
-needle は `_norm`（`re.sub(r"[\s　]+","",...)`）済みの形で記載しています（空白・全角空白除去済み）。
+（`law_id` / `kind` / `title` / `needles` の 4 キー）。needle は原文から**一字も変えず**抽出し、
+正規化（`_norm` = `re.sub(r"[\s　]+", "", …)`）済みの形で記載しています。
+全 needle は担当範囲原文・pinned JSON の双方で **出現回数 1（一意）** を確認済みです。
 
 ```json
 {
-  "law_id": "342AC0000000035",
+  "law_id": "332AC0000000026",
   "kind": "file",
   "title": null,
   "needles": [
-    "九十食品循環資源に係る登録再生利用事業者の登録食品循環資源の再生利用等の促進に関する法律（平成十二年法律第百十六号）第十一条第一項（登録）の規定による登録再生利用事業者の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "（一）農山漁村滞在型余暇活動のための基盤整備の促進に関する法律（平成六年法律第四十六号）第十六条第一項（農林漁業体験民宿業者の登録）の農林漁業体験民宿業者の登録登録件数一件につき一万五千円",
-    "（二）農山漁村滞在型余暇活動のための基盤整備の促進に関する法律第十六条第一項の登録実施機関に係る登録（更新の登録を除く。）登録件数一件につき九万円",
-    "（一）合法伐採木材等の流通及び利用の促進に関する法律（平成二十八年法律第四十八号）第十五条（木材関連事業者の登録）の木材関連事業者の登録（更新の登録を除く。）登録件数一件につき一万五千円",
-    "（二）合法伐採木材等の流通及び利用の促進に関する法律第十五条の登録実施機関に係る登録（更新の登録を除く。）登録件数一件につき九万円",
-    "（二）合法伐採木材等の流通及び利用の促進に関する法律第十五条の登録実施機関に係る登録（更新の登録を除く。）登録件数一件につき九万円九十二馬主の登録競馬法（昭和二十三年法律第百五十八号）第十三条第一項（馬主の登録）の馬主の登録登録件数一件につき九万円",
-    "律第百五十八号）第十三条第一項（馬主の登録）の馬主の登録登録件数一件につき九万円九十三農林中央金庫の外国における業務の委託契約の締結に係る認可又は農林中央金庫等の代理業の許可（一）農林中央金庫の外国における業務の委託契約の締結に係る認可認可件数一件につき九万円",
-    "（二）農林中央金庫法（平成十三年法律第九十三号）第九十五条の二第一項（許可）の農林中央金庫代理業の許可許可件数一件につき九万円",
-    "（三）農業協同組合法（昭和二十二年法律第百三十二号）第九十二条の二第一項（許可）の特定信用事業代理業の許可許可件数一件につき九万円",
-    "（四）水産業協同組合法（昭和二十三年法律第二百四十二号）第百六条第一項（許可）の特定信用事業代理業の許可許可件数一件につき九万円",
-    "定信用事業代理業の許可許可件数一件につき九万円九十三の二農林中央金庫電子決済等代行業者等の登録又は認定農林中央金庫電子決済等代行事業者協会等の認定（一）農林中央金庫法第九十五条の五の二第一項（登録）の農林中央金庫電子決済等代行業者の登録登録件数一件につき九万円",
-    "電子決済等代行事業者協会等の認定（一）農林中央金庫法第九十五条の五の二第一項（登録）の農林中央金庫電子決済等代行業者の登録登録件数一件につき九万円（二）農業協同組合法第九十二条の五の二第一項（登録）の特定信用事業電子決済等代行業者の登録登録件数一件につき九万円",
-    "等代行業者の登録登録件数一件につき九万円（二）農業協同組合法第九十二条の五の二第一項（登録）の特定信用事業電子決済等代行業者の登録登録件数一件につき九万円（三）水産業協同組合法第百十条第一項（登録）の特定信用事業電子決済等代行業者の登録登録件数一件につき九万円",
-    "（四）農林中央金庫法第九十五条の五の七（認定農林中央金庫電子決済等代行事業者協会の認定）の認定農林中央金庫電子決済等代行事業者協会の認定認定件数一件につき十五万円",
-    "（五）農業協同組合法第九十二条の五の六（認定特定信用事業電子決済等代行事業者協会の認定）の認定特定信用事業電子決済等代行事業者協会の認定認定件数一件につき十五万円",
-    "（六）水産業協同組合法第百十四条（認定特定信用事業電子決済等代行事業者協会の認定）の認定特定信用事業電子決済等代行事業者協会の認定認定件数一件につき十五万円",
-    "（一）商品先物取引法（昭和二十五年法律第二百三十九号）第九条（設立の許可）の会員商品取引所の設立の許可又は同法第七十八条（株式会社商品取引所の許可）の株式会社商品取引所の許可許可件数一件につき十五万円",
-    "（二）商品先物取引法第三条第一項ただし書（国際協力排出削減量に係る取引を行う市場の開設等の認可）の認可（同項ただし書の金融商品市場の開設の業務又は金融商品債務引受業等に係るものを除く。）認可件数一件につき十五万円",
-    "排出削減量に係る取引を行う市場の開設等の認可）の認可（同項ただし書の金融商品市場の開設の業務又は金融商品債務引受業等に係るものを除く。）認可件数一件につき十五万円（三）商品先物取引法第百三十二条第一項（組織変更の認可）の組織変更の認可認可件数一件につき十五万円",
-    "債務引受業等に係るものを除く。）認可件数一件につき十五万円（三）商品先物取引法第百三十二条第一項（組織変更の認可）の組織変更の認可認可件数一件につき十五万円（四）商品先物取引法第九十六条の二十五第一項又は第三項ただし書（認可等）の認可認可件数一件につき十五万円",
-    "（五）商品先物取引法第三百三十二条第一項（第一種特定商品市場類似施設の開設の許可）の第一種特定商品市場類似施設の開設の許可許可件数一件につき十五万円",
-    "（六）商品先物取引法第三百四十二条第一項（第二種特定商品市場類似施設の開設の許可）の第二種特定商品市場類似施設の開設の許可許可件数一件につき十五万円",
-    "三百三十五条第一項（変更の許可等）（同法第三百四十五条（準用）において準用する場合を含む。）の規定による変更の許可（同法第三百三十二条第二項第三号又は第三百四十二条第二項第三号の取引の対象となる商品又は商品指数の増加に係るものに限る。）許可件数一件につき三万円",
-    "（一）商品先物取引法第百九十条第一項（商品先物取引業の許可）の商品先物取引業の許可（更新の許可を除く。）許可件数一件につき十五万円",
-    "（二）商品先物取引法第二百四十条の二第一項（登録）の商品先物取引仲介業者の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "新の許可を除く。）許可件数一件につき十五万円（二）商品先物取引法第二百四十条の二第一項（登録）の商品先物取引仲介業者の登録（更新の登録を除く。）登録件数一件につき九万円（三）商品先物取引法第百六十七条（許可）の商品取引債務引受業の許可許可件数一件につき十五万円",
-    "仲介業者の登録（更新の登録を除く。）登録件数一件につき九万円（三）商品先物取引法第百六十七条（許可）の商品取引債務引受業の許可許可件数一件につき十五万円（四）商品先物取引法第二百七十九条第一項（認可の申請）の委託者保護基金の設立の認可認可件数一件につき十五万円",
-    "（一）商品投資に係る事業の規制に関する法律（平成三年法律第六十六号）第三条（商品投資顧問業者の許可）の商品投資顧問業の許可（更新の許可を除く。）許可件数一件につき十五万円",
-    "（二）商品投資に係る事業の規制に関する法律第九条（変更の認可）の規定による変更の認可（同法第五条第一項第六号（許可の申請）の業務の種類の増加に係るものに限る。）認可件数一件につき三万円",
-    "（一）株式会社商工組合中央金庫法（平成十九年法律第七十四号）第六十条の三（登録）の商工組合中央金庫電子決済等代行業者の登録登録件数一件につき九万円",
-    "（二）株式会社商工組合中央金庫法第六十条の二十一（認定商工組合中央金庫電子決済等代行事業者協会の認定）の認定商工組合中央金庫電子決済等代行事業者協会の認定認定件数一件につき十五万円"
+    "給付補塡金、利息、利益又は差益（以下この条及び次条において「給付補塡金等」という。）については、同法第二十二条及び第八十九条並びに第百六十五条の規定にかかわらず、他の所得と区分し、その支払を受けるべき金額に対し百分の十五の税率を適用して所得税を課する",
+    "控除すべき金額の合計額が五千万円を超えることとなるときは、これらの規定により控除すべき金額は、通じて五千万円の範囲内において、政令で定めるところにより計算した金額とする",
+    "収入金額が当該貸付信託の受益権等の所得税法第三十三条第三項に規定する取得費及びその譲渡に要した費用の額の合計額又はその譲渡に係る必要経費に満たない場合におけるその不足額については、同法の規定の適用については、ないものとみなす",
+    "貸付信託の受益権その他政令で定めるもの（次項において「貸付信託の受益権等」という。）の譲渡による所得については、所得税を課さない"
   ]
 }
 ```
 
-参考：現行スクリプト形式への変換例（name は任意、needles は上記 31 本をそのまま使用）:
+needle とモデルとの対応:
+
+| # | 条 | 対応 | 長さ |
+| --- | --- | --- | --- |
+| 1 | 41の10(1) | `benefitSupplementSeparateRate` / `benefitSupplementSeparateTax`（百分の十五） | 125 |
+| 2 | 36 | `assetTransferDeductionCeiling` / `assetTransferDeductionCapped`（五千万円の範囲内） | 84 |
+| 3 | 37の15(2) | `lendingTrustGain`（不足額をないものとみなす） | 112 |
+| 4 | 37の15(1) | NOT MODELLED 判定の doc-comment 根拠（免税宣言・数式なしの確認用） | 64 |
+
+参考：現行スクリプト形式への変換例（name は任意、needles は上記 4 本を一字も変えずに列挙）:
 
 ```python
-yield ("登録免許税法 別表第一（二）第三十二号 九十〜九十六（食品循環資源・農林漁業体験民宿・木材関連・馬主・農林中央金庫／農協／水協代理業・電子決済等代行・商品取引所／商品先物／商品投資顧問・商工組合中央金庫）↔ RegistrationQualificationFeesP4E.lean",
-       "342AC0000000035", "file", None,
-       [ ...上記 needles 31 本を一字も変えずに列挙... ])
+yield ("租税特別措置法 art. 29の4/36/37の15/41の10 ↔ SpecialMeasuresMisc.lean",
+       "332AC0000000026", "file", None,
+       [ ...上記 needles 4 本を一字も変えずに列挙... ])
 ```
 
 ## 4. 期待 literal 増分
 
-- W-E 担当分: 新規 check **31 needles** なので **+31**。
+- W-E 担当分: 新規 check **4 needles** なので **+4**。
 - `docs/PROGRESS.md` の監査 literal 総数はメインセッションが再確認して加算してください
   （起点値は本メモでは書きません）。
 
 ## 5. 検証結果（すべて本セッションで実行済み）
 
-- `lake build JapanTaxLaw.RegistrationQualificationFeesP4E JapanTaxLaw.RegistrationQualificationFeesP4ESpec JapanTaxLaw.RegistrationQualificationFeesP4ETests`
-  → **成功（5 jobs、warning なし）**。※自作 3 モジュールのみビルド（全体ビルド／CI／`run_python_gates.py` は実行していません）。
-- `python scripts/ci/check_no_sorry.py` → `no forbidden placeholder proofs found in tracked Lean sources`。
+- `lake build JapanTaxLaw.SpecialMeasuresMisc JapanTaxLaw.SpecialMeasuresMiscSpec JapanTaxLaw.SpecialMeasuresMiscTests`
+  → **成功（5 jobs、warning なし）**。※自作 3 モジュールのみビルド。全体ビルド／CI／
+  `run_python_gates.py` は**実行していません**。
+- `python scripts/ci/check_no_sorry.py` →
+  `no forbidden placeholder proofs found in tracked Lean sources`。
   （新規 3 ファイルは未追跡のため走査対象外ですが、人力でも `sorry` / `admit` はありません。）
-- `#print axioms`（一時ファイル `WEAxiomProbe.lean` を approved temp dir に作成、`lake env lean` で実行後 **削除済み**）:
-  - 新規 positivity 定理 **31 本すべて** と `agreeRegistrationQualificationFeesP4E` の計 **32 件**が
-    `does not depend on any axioms`。
-  - **`Classical.choice` も `sorryAx` も `propext` も一切なし**。
-- 原文逐語検証（pinned 原文／pinned JSON を正規化テキストに対して `.find()`）: **31/31 FOUND、MISS 0 件**（§6）。
-  law id `342AC0000000035` … FOUND / revision `342AC0000000035_20261101_508AC0000000021` … FOUND /
-  開始マーカー … FOUND。
-- 金額一致: 全 31 件で日本語数字（九万円／十五万円／一万五千円／三万円）と Arabic 定数が一致。
+- `#print axioms`（一時ファイル `WEAxiomProbeSpecial.lean` を approved temp dir に作成、
+  `lake env lean` で実行後**削除済み**）: 主要 14 件を検査。
+  - **11 件は `does not depend on any axioms`**。
+  - 残り 3 件（`assetTransferDeductionCapped_le_ceiling` /
+    `assetTransferDeductionCapped_le_computed` / `lendingTrustGain_zero_of_shortfall`）は
+    **`propext` のみ**（許可範囲）。
+  - **`Classical.choice` も `sorryAx` も一切なし**。
+- 原文逐語検証: 4/4 **FOUND、MISS 0 件**。
+  - `W_E_special.txt` を `_norm` と同一の `re.sub(r"[\s　]+", "", …)` で正規化した文字列に
+    対して各 needle を `.find()` → 4/4 FOUND、出現回数すべて 1。
+  - pinned JSON を `transcription_audit.py` の `text()` と同一ロジックで平坦化・正規化した
+    文字列に対しても 4/4 FOUND、出現回数すべて 1（§6）。
+  - law id `332AC0000000026` / revision `332AC0000000026_20261101_507AC0000000013` は
+    pinned JSON 内に **FOUND**（条文本文ファイルにはメータデータは含まれないため、
+    原文テキスト側での検索対象外）。
+- .constant 一致: `assetTransferDeductionCeiling = 50,000,000`（五千万円）、
+  `benefitSupplementSeparateRate = 15/100`（百分の十五）を原文フレーズと確認済み。
 
 ## 6. 逐語検証 FOUND / MISS 一覧（一字も変更せず）
 
-pinned 原文 `art32_90_96.txt` と pinned JSON `law_full_text` を `transcription_audit.py` の `text()` と
-同一ロジックで平坦化し、`_norm` と同じ `re.sub(r"[\s　]+", "", ...)` で正規化した文字列に対して
-各 needle を Python の `.find()` で検索（needle 側も同正規化）。
-`art@` は切り出しテキスト正規化上の offset、`json@` は pinned JSON 平坦化・正規化上の offset。
-各 needle の出現回数は両方とも **1**（一意）。needle の長さはすべて **60〜130 文字**、31 本すべて相互に異なることを確認。
-アンカーの勝手な変更・正規化・文字変換はしていません。
-
-| # | def | 結果 | art@ | json@ | 出現回数 | 長さ |
+| # | 条 | 結果 | art@ | json@ | 出現回数(art/json) | 長さ |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | `foodRecyclingRegistrantRegFee` | FOUND | 0 | 167383 | 1/1 | 110 |
-| 2 | `farmStayBizRegFee` | FOUND | 150 | 167533 | 1/1 | 94 |
-| 3 | `farmStayRegOrgRegFee` | FOUND | 244 | 167627 | 1/1 | 73 |
-| 4 | `timberRelatedBizRegFee` | FOUND | 353 | 167736 | 1/1 | 93 |
-| 5 | `timberRegOrgRegFee` | FOUND | 446 | 167829 | 1/1 | 65 |
-| 6 | `horseOwnerRegFee` | FOUND | 446 | 167829 | 1/1 | 124 |
-| 7 | `norinchukinForeignOutsourceApprovalFee` | FOUND | 530 | 167913 | 1/1 | 130 |
-| 8 | `norinchukinAgencyPermitFee` | FOUND | 660 | 168043 | 1/1 | 63 |
-| 9 | `jaCreditAgencyPermitFee` | FOUND | 723 | 168106 | 1/1 | 65 |
-| 10 | `fisheriesCreditAgencyPermitFee` | FOUND | 788 | 168171 | 1/1 | 64 |
-| 11 | `norinchukinEpiAgentRegFee` | FOUND | 829 | 168212 | 1/1 | 130 |
-| 12 | `jaEpiAgentRegFee` | FOUND | 886 | 168269 | 1/1 | 130 |
-| 13 | `fisheriesEpiAgentRegFee` | FOUND | 939 | 168322 | 1/1 | 130 |
-| 14 | `certNorinchukinEpiAssocCertFee` | FOUND | 1069 | 168452 | 1/1 | 81 |
-| 15 | `certJaEpiAssocCertFee` | FOUND | 1150 | 168533 | 1/1 | 81 |
-| 16 | `certFisheriesEpiAssocCertFee` | FOUND | 1231 | 168614 | 1/1 | 78 |
-| 17 | `commodityExchangeEstabPermitFee` | FOUND | 1426 | 168809 | 1/1 | 100 |
-| 18 | `intlEmissionMarketApprovalFee` | FOUND | 1526 | 168909 | 1/1 | 106 |
-| 19 | `commodityOrgChangeApprovalFee` | FOUND | 1551 | 168934 | 1/1 | 130 |
-| 20 | `commodityHoldingCoApprovalFee` | FOUND | 1603 | 168986 | 1/1 | 130 |
-| 21 | `type1SimilarMarketFacilityPermitFee` | FOUND | 1733 | 169116 | 1/1 | 74 |
-| 22 | `type2SimilarMarketFacilityPermitFee` | FOUND | 1807 | 169190 | 1/1 | 74 |
-| 23 | `commodityChangePermitFee` | FOUND | 1892 | 169275 | 1/1 | 130 |
-| 24 | `commodityFuturesBizPermitFee` | FOUND | 2077 | 169460 | 1/1 | 65 |
-| 25 | `commodityFuturesBrokerRegFee` | FOUND | 2142 | 169525 | 1/1 | 62 |
-| 26 | `commodityDebtAssumptionPermitFee` | FOUND | 2120 | 169503 | 1/1 | 130 |
-| 27 | `clientProtectionFundApprovalFee` | FOUND | 2174 | 169557 | 1/1 | 130 |
-| 28 | `commodityInvestAdvisorPermitFee` | FOUND | 2330 | 169713 | 1/1 | 85 |
-| 29 | `commodityBizTypeChangeApprovalFee` | FOUND | 2415 | 169798 | 1/1 | 92 |
-| 30 | `shokochukinEpiAgentRegFee` | FOUND | 2559 | 169942 | 1/1 | 73 |
-| 31 | `certShokochukinEpiAssocCertFee` | FOUND | 2632 | 170015 | 1/1 | 90 |
+| 1 | 41の10(1) | FOUND | 984 | 479924 | 1/1 | 125 |
+| 2 | 36 | FOUND | 460 | 239870 | 1/1 | 84 |
+| 3 | 37の15(2) | FOUND | 757 | 356846 | 1/1 | 112 |
+| 4 | 37の15(1) | FOUND | 676 | 356765 | 1/1 | 64 |
 
-- **FOUND 31 / MISS 0**。
-- 金額の日本語数字との対応も全件一致（九万円=90,000 / 十五万円=150,000 / 一万五千円=15,000 /
-  三万円=30,000）。pinned 原文の fee フレーズ出現数 13+14+2+2=31 と一致。
+- **FOUND 4 / MISS 0**。needle の長さは 64〜125 文字、4 本すべて相互に異なることを確認。
+  アンカーの勝手な変更・正規化・文字変換はしていません（原文の「給付補塡金」の「塡」も
+  そのまま保持）。
 
 ## 7. README / PROGRESS に足す 1 行文案
 
 CROSS_LAW の scan/pin 件数や監査 literal 総数はメインセッションが計算するため、ここでは書きません。
 
-- **README.md**（モジュール一覧・`RegistrationQualificationFeesP3D*` 行の直後に追加）:
+- **README.md**（モジュール一覧末尾に追加）:
   ```text
-  JapanTaxLaw/RegistrationQualificationFeesP4E.lean / -Spec.lean / -Tests.lean  # 登録免許税法 別表第一（二）第三十二号 九十〜九十六（食品循環資源・農林漁業体験民宿・木材関連・馬主・農林中央金庫／農協／水協代理業・電子決済等代行・商品取引所／商品先物／商品投資顧問・商工組合中央金庫）の flat fee L4 モデル・独立定式・退行テスト
+  JapanTaxLaw/SpecialMeasuresMisc.lean / -Spec.lean / -Tests.lean  # 租税特別措置法 art. 29の4/36/37の15/41の10 の bounded L4 モデル（41の10 15%分離課税・36 五千万円上限・37の15(2) saturating 差益、29の4 と 37の15(1) は数式なしで NOT MODELLED）・独立定式・退行テスト
   ```
 - **docs/PROGRESS.md**（L4 着手済みモジュール一覧の末尾に追記）:
   ```text
-  登録免許税法 別表第一（二）第三十二号 九十〜九十六（RegistrationQualificationFeesP4E.lean：31 件の flat fee 額を Money 定数化、八十九 以前・九十七 以降 NOT YET COVERED）
+  租税特別措置法 art. 41の10/36/37の15（SpecialMeasuresMisc.lean：15%分離課税・五千万円上限・不足額みなしの saturating 差益をモデル化、art. 29の4 はみなし規定、37の15(1) は免税宣言でいずれも数式なし・NOT MODELLED）
   ```
 
 ## 8. インテグレーターへの明示事項
@@ -240,24 +174,30 @@ CROSS_LAW の scan/pin 件数や監査 literal 総数はメインセッション
 **インテグレーターは `JapanTaxLaw.lean` に以下の 3 つの import を追加すること。**
 
 ```lean
-import JapanTaxLaw.RegistrationQualificationFeesP4E
-import JapanTaxLaw.RegistrationQualificationFeesP4ESpec
-import JapanTaxLaw.RegistrationQualificationFeesP4ETests
+import JapanTaxLaw.SpecialMeasuresMisc
+import JapanTaxLaw.SpecialMeasuresMiscSpec
+import JapanTaxLaw.SpecialMeasuresMiscTests
 ```
 
-（W-A / W-B / W-C / W-D 各 3 件と併せて計 15 行の追加になる見込みです。メインが統合してください。
- W-E は `JapanTaxLaw.lean` を書き換えていません。）
+（W-E は `JapanTaxLaw.lean` を書き換えていません。メインが統合してください。）
 
 ## 9. 範囲・残ブロッカーの正直な申告
 
-- これは **L4 のごく小さなスライス**です。**完成・網羅を主張しません**。
-- 担当は 別表第一（二）第三十二号 **九十〜九十六 のみ**。**八十九 以前・九十七 以降は NOT YET COVERED**。
-- 登録・認定・認可・許可の要件・適用、「更新の登録を除く」「政令で定めるものに限る」等の該当性は
-  すべて caller-established とし、法的判断の自動化はしていません。
-- 本範囲には割合やデーミング規定はなく、金額なしの行はありません（全 31 行を fee def 化）。
-- `agreeRegistrationQualificationFeesP4E` は定数同士の `==` 一致確認であり、法的意味の等価証明ではありません。
+- これは **L4 のごく小さな bounded スライス**です。**完成・網羅を主張しません**。
+- 担当は租税特別措置法の **4 条文のうち計算式のある 3 条文の一部计入れ**（36 は上限のみ、
+  41の10 は第1項のみ、37の15 は第2項のみ）。**29の4 は NOT MODELLED**。
+- **NOT MODELLED 理由（再掲）**:
+  - **第二十九条の四**: 未払賃金を退職手当等と「みなして」所得税法を適用する規定で、
+    金額算定の数式が条文にない。みなし対象の給与等・退職手当等の額は caller-established。
+  - **第三十七条の十五 第1項**: 「所得税を課さない」という免税の宣言規定で数式がない。
+  - **第三十六条の政令計算**: 「政令で定めるところにより計算した金額」は政令委任であり、
+    条文に計算式がない。上限（五千万円の範囲内）のみをモデル化し、政令計算自体は
+    caller-established・非モデル化。
+- 課税標準額・適用判定・政令細目はすべて caller-established とし、法的判断の自動化はしていません。
+  Bool は計算式に混入させていません。
+- `agree*` は有限サンプルの `==` 一致確認であり、法的意味の等価証明ではありません。
 - 転記監査は fidelity-only（原文 bytes との一致確認）であり、法的正しさを保証しません。
 - **L7 候補 3,438 件は unreviewed のまま**です（本スライスでは一切レビューしていません）。
-- 残ブロッカー: 転記監査 check の `checks()` への組み込み（§3、+31）、`JapanTaxLaw.lean` への
+- 残ブロッカー: 転記監査 check の `checks()` への組み込み（§3、+4）、`JapanTaxLaw.lean` への
   import 追加（§8）、README / PROGRESS の 1 行追記（§7）、および全体ビルド・CI ゲートの
   実行は**すべてメインセッションの担当**です（W-E は実行していません）。
