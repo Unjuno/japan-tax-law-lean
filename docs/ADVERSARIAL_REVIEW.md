@@ -1503,3 +1503,148 @@ pinned 原文から導いた整数式を Python で再計算し、さらに一�
 - 残る UNRESOLVED（U-M1「おおむね」の程度と境界 3/10 の扱い、U-M2 端数処理の法的正当性）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・kansuji 変換による定数照合・整数式の反例走査・needle の `.find()` 検証・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+## Art.25 annuity review (2026-11-18)
+
+### A-0. 範囲・独立性の申告
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当 Coordinator から独立）。Coordinator の STAGING／doc-comment の記述は参照したが、**その正否は信じず**、pinned JSON から Python で直接再抽出して照合した。
+- **対象モジュール（読み取り専用・本レビューで一切変更していない）**:
+  - `JapanTaxLaw/InheritanceAnnuityValuation.lean` — 相続税法 art. 25（定期金給付契約の権利の評価）、L4 モデル
+  - `JapanTaxLaw/InheritanceAnnuityValuationSpec.lean` — 独立定式 `specAnnuityRightValue` / `agreeInheritanceAnnuityValuation`
+  - `JapanTaxLaw/InheritanceAnnuityValuationTests.lean` — 回帰 smoke checks
+- **一次資料（pinned・改変禁止）**: `data/raw/325AC0000000073_20260401_506AC0000000008.law.json`（856,326 bytes、law_id `325AC0000000073`、revision `325AC0000000073_20260401_506AC0000000008`、適用日 2026-04-01）。Python で直接読み取り、`law_id` / `law_revision_id` / enforcement date 的一致を確認（A-1）。
+- **抽出方法**: `law_full_text` を `transcription_audit.py` の `text()` と同一ロジックで平坦化（正規化後 154,766 文字）。`MainProvision` 配下の `Article`（`attr.Num = 25`）を直接走査し、art. 25 本文を逐語取得。needle は **CI 実装 `scripts/ci/transcription_audit.py` の `checks()` を Python で import して文字列を取得**（手打ちしない）。率は有理数として、反例は Nat 整数式として独立再計算した。
+- **ツール**: `lake build`（3 モジュール、exit 0）＋ `lake env lean`（`#print axioms`・`example := by decide`、exit 0）。
+- **書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ**。Lean モジュール・Spec・Tests・`data/*` は読み取り専用（レビュー前後で `git status --short` はクリーン、ブランチ `main` のまま）。commit / push / merge / ブランチ切替は行っていない。
+
+### A-1. 原文 art. 25 の直接抽出と独立判定（百分の九十／解約返戻金）
+
+pinned 原文 art. 25（`Article.attr.Num = 25`、main provision）から直接抽出した逐語（要点）:
+
+> 第二十五条 定期金給付契約（生命保険契約を除く。）で…権利の価額は、次の各号に掲げる場合の区分に応じ、当該各号に定める金額による。**一 当該契約に解約返戻金を支払う旨の定めがない場合** 次に掲げる場合の区分に応じ、それぞれ次に定める金額に、**百分の九十**を乗じて得た金額（イ 予定利率の複利による元利合計額／ロ 複利年金終価率を乗じて得た金額）。**二 前号に掲げる場合以外の場合** …支払われるべき**解約返戻金の金額**。
+
+独立抽出したキーフレーズ出現（pinned art. 25 本文・生テキスト）:
+
+| フレーズ | 出現回数 | 判定 |
+|---|---|---|
+| `百分の九十` | **1** | 第1号に唯一出現。90/100 の根拠。 |
+| `解約返戻金` | **2** | 第1号の条件（「支払う旨の定めがない」）と第2号の金額（「解約返戻金の金額」）に各 1 回。 |
+| `生命保険契約を除く` | 1 | 適用範囲（除外）。 |
+| `複利年金終価率` | 1 | 第1号ロの基礎額算定（財務省令で定める）。 |
+| `財務省令` | 1 | 複利年金終価率の定義を財務省令に委譲。 |
+
+**号区分 → Lean 分岐の独立対応表（反転なし）:**
+
+| 原文 | 区分 | Lean | 金額 |
+|---|---|---|---|
+| 一 解約返戻金を支払う旨の定めがない場合 | 第1号 | `noSurrenderClause = true` | `base * 90 / 100`（＝ 基礎額 × 百分の九十） |
+| 二 前号に掲げる場合以外の場合 | 第2号 | `noSurrenderClause = false` | `baseOrSurrenderValue` をそのまま（＝ 解約返戻金の金額） |
+
+独立判定:
+
+- **`annuityNinetyPercentRate = ⟨90, 100, by decide⟩` は原文「百分の九十」に忠実。** 九十＝90、百＝100 をそのまま分子・分母に写像し、`9/10` へ約分していない点も文言に整合。0.9 倍を表す。`applyFloor r m = m * num / den` なので第1号は `m * 90 / 100`（**掛けてから割る**順序）。`m / 100 * 90` のように先に割る順序を採れば base=99 で 0 となり原文と乖離するが、本実装はそうなっていない（`annuityRightValue_no_surrender_clause` が `rfl` で `base * 90 / 100` を確認）。
+- **第2号分岐も忠実。** `noSurrenderClause = false` のとき `annuityRightValue false base = base`。第2号の金額は「解約するとしたならば支払われるべき解約返戻金の金額」であり、引数 `baseOrSurrenderValue` がその解約返戻金を表す（doc-comment の「第2号の解約返戻金も caller-established Money」と整合）。Bool の向きは「定めがない場合 → 第1号 → 90%」で、原文の号番号と一致しており**反転バグは不在**。
+- 第1号の基礎額（イの元利合計額／ロの複利年金終価率×平均額）は原文どおり「予定利率の複利による計算」「財務省令で定めるもの」に依存し、モジュールはこれを `Money` 入力として受け取る設計（A-5 の B-A3 / U-A2）。
+
+→ **90/100 ・第2号分岐ともに原文に忠実で、食い違いは検出されず。**
+
+### A-2. needle 健全性（CI 実装の 4 本を直接検証）
+
+`scripts/ci/transcription_audit.py` の `checks()` を import し、law_id `325AC0000000073` かつ check 名に `InheritanceAnnuityValuation` を含む 1 check から needle を抽出。pinned `law_full_text` の正規化テキスト（`re.sub(r"[\s\u3000]+", "", …)`、CI と同一条件）に対して `.find()` / `.count()` を実行した。STAGING の申告は信じていない。
+
+| 項目 | 結果 |
+|---|---|
+| check 数 | **1**（相続税法 art. 25 ↔ InheritanceAnnuityValuation.lean） |
+| needle 総数 | **4**（指定どおり） |
+| U+3000（全角空白）を含む needle | **0 件** |
+| 長さ | 72 / 64 / 29 / 64 文字 |
+| pinned 正規化テキストに対する `.find()` | **4/4 FOUND、MISS 0** |
+| `.count()` | 全 needle で **1**（一意） |
+
+- 正規化 offset: #1 = 37922 / #2 = 38026 / #3 = 38195 / #4 = 38348（すべて count 1）。
+- 4 本はそれぞれ ①art.25 前文、②第1号（「百分の九十」含有）、③第1号ロの「元利合計額」、④第2号（「解約返戻金の金額」）を逐語保持しており、A-1 の独立抽出とも整合。
+
+**needle 健全性: 問題なし（4/4 FOUND、U+3000 0 件、MISS 0、すべて count 1）。**
+
+### A-3. 反例探索（独立再計算＋kernel-decide）
+
+pinned 原文から導いた整数式（第1号 `floor(base*90/100)`、第2号 `base` そのまま）を Python で独立再計算し、一時 Lean ファイル `#eval` テーブル（18 行）と突き合わせた。さらに一時 Lean ファイルに境界 `example := by decide` を追加し、`lake env lean`（exit code **0**、error / warning 0）で走査した。
+
+| 攻撃対象 | 独立再計算／Lean 結果 | 結果 |
+|---|---|---|
+| base = 0（Bool 2 通り） | 第1号 0／第2号 0 | 矛盾なし |
+| base = 1（切り捨て） | 第1号 `floor(90/100) = 0`／第2号 1 | 矛盾なし（急激な切捨てだが `applyFloor` 規約どおり、U-A1） |
+| base = 100（90% 境界） | 第1号 90／第2号 100 | 矛盾なし |
+| base = 1,000,000 | 第1号 900,000／第2号 1,000,000 | 矛盾なし |
+| 90% 境界付近 | 99 → 89、101 → 90、999 → 899、1001 → 900 | 矛盾なし（超えで即 90% 相当に収束） |
+| 端数連続域 | 2 → 1、9 → 8、11 → 9、49 → 44、51 → 45、999,999 → 899,999 | 矛盾なし（すべて Nat floor） |
+| Bool 2 通り | `true` = 90%、`false` = 解約返戻金そのまま（全 18 行で確認） | 矛盾なし（反転なし） |
+
+- 走査行数 **18**、不一致 **0**。`floor verified = True`（全行で第1号 = `(base*90)//100`、第2号 = `base`）。
+- `example by decide` で `true 0 = 0` / `true 1 = 0` / `true 99 = 89` / `true 100 = 90` / `true 1_000_000 = 900_000` / `false 0 = 0` / `false 1 = 1` / `false 1_000_000 = 1_000_000` をすべて確認。
+
+**反例探索で検出された原文↔Lean の矛盾: 0 件（ゼロ）。**
+
+### A-4. 公理監査
+
+一時 Lean ファイルに 3 モジュールの名前付き `def` / `theorem` 計 **8 宣言**すべてを `#print axioms` 対象として記載し、`lake env lean`（exit code **0**）で走査した。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | **8** |
+| `does not depend on any axioms` | **7** |
+| `Classical.choice`（choice） | **0 件**（不在） |
+| `sorryAx` | **0 件**（不在） |
+| `Quot.sound` | **0 件**（不在） |
+| `propext` | **1 件**: `JapanTaxLaw.annuityRightValue_le_base` のみ（`simp` / Nat 補題由来の**許容**範囲） |
+
+- axiom-free（7 件）: `annuityNinetyPercentRate` / `annuityRightValue` / `annuityNinetyPercentRate_eq` / `annuityRightValue_no_surrender_clause` / `annuityRightValue_with_surrender_clause` / `specAnnuityRightValue` / `agreeInheritanceAnnuityValuation`。
+- 3 モジュール内に `sorry` / `admit` / `axiom` / `unsafe` の文字列は **0 件**（grep 確認）。
+
+→ **禁止公理（Classical.choice / sorryAx / Quot.sound）は一切検出されず。許容された propext のみ。公理監査は合格。**
+
+### A-5. CONFIRMED / BY-DESIGN / UNRESOLVED の件数と一覧
+
+| 分類 | 件数 |
+|---|---|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **6** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = ゼロ）を明示する。** 率・号区分・定数・算術・needle・公理・反例のいずれにも原文との食い違いは検出されなかった。件数を手柄にしない。
+
+#### CONFIRMED（0 件）
+
+- 率: `⟨90,100⟩` は原文「百分の九十」に一致（1 回出现、A-1）。
+- 号区分: 第1号 → `true` → 90%、第2号 → `false` → 解約返戻金そのまま、反転なし（A-1）。
+- 算術: `base * 90 / 100`（掛けてから割る）は「金額に百分の九十を乗じて得た金額」に忠実。`base / 100 * 90` 型の早期切捨てバグは不在（A-1 / A-3）。
+- needle: 4/4 FOUND、U+3000 0 件、MISS 0（A-2）。
+- 反例: 18 行・矛盾 0（A-3）。
+- 公理: 禁止公理 0 件（A-4）。
+
+#### BY-DESIGN（6 件）
+
+- **B-A1** 「百分の九十」を `⟨90,100⟩`（den=100 のまま、`9/10` に約分しない）とした写像は原文の文言に忠実。
+- **B-A2** 原文の号区分を Bool `noSurrenderClause` に写像（true=第1号 90%／false=第2号 解約返戻金そのまま）。Bool は金額算術を汚さず分岐選択にのみ現れる。
+- **B-A3** 第1号の基礎額（予定利率の複利による元利合計額／複利年金終価率×平均額、財務省令で定める複利計算）と第2号の解約返戻金額は `Money` 入力として caller-established とし、**NOT MODELLED**。doc-comment に「財務省令で定める複利計算に依存」「解約返戻金も caller-established」と明記（法的十分性は U-A2 で保留）。
+- **B-A4** 「解約返戻金を支払う旨の定めがない場合」該当性、生命保険契約の除外、定期金給付事由の発生有無は caller-established として算術式の外に置く（原文の適用範囲条件を数式に混入させない設計）。
+- **B-A5** 丸めは `TaxRate.applyFloor`（Nat 切り捨て）をモデル規約として明示。art. 25 自体に端数規定はなく、原文は「乗じて得た金額」のみを述べる（法的正当性は U-A1 で保留）。
+- **B-A6** `annuityRightValue_le_base` は `propext` に依存するが、これは許容公理。計算本体 `annuityRightValue` / `annuityNinetyPercentRate` は axiom-free。
+
+#### UNRESOLVED（2 件）
+
+- **U-A1 端数処理（floor）の法的正当性**: art. 25 は「百分の九十を乗じて得た金額」とし、円未満端数の切捨て／切り上げを明文で定めない。本モデルは `applyFloor`（Nat 切り捨て）を採用し、base=1 で 0 を返す。pinned 原文のみではこの切り捨てが法的に正しいか決定不能。**人間の法律専門家によるレビューを要する**（バッチ G〜M の U-1 と同趣旨）。定数・率・号区分の一致（発見ゼロ）には影響しない。
+- **U-A2 複利基礎額・解約返戻金額を caller-established としたことの法的十分性**: 第1号の基礎額は原文で「予定利率の複利による計算」「財務省令で定める」複利年金終価率に依存し、第2号の金額も解約時に支払われるべき解約返戻金として算定される。本モジュールはこれらを `Money` 入力として受け取り、算定自体を NOT MODELLED とした。この「computable core のみを形式化する」範囲設定が法的に十分かは pinned 原文のみでは決定不能。**人間の法律専門家によるレビューを要する**。
+
+### A-6. 総合判定・最終報告（サマリ）
+
+- **CONFIRMED: 0 件（ゼロ）** / **BY-DESIGN: 6 件** / **UNRESOLVED: 2 件**。発見ゼロを明示する。
+- **最重要 2 点の独立判定**: ① `annuityNinetyPercentRate = ⟨90,100⟩` と `base * 90 / 100` は原文「百分の九十を乗じて得た金額」に **忠実**（den=100 を維持、早期切捨てなし）／② 第2号の `noSurrenderClause = false → base`（解約返戻金そのまま）は原文「解約返戻金の金額」に **忠実**で、Bool の向きは反転して **いない**。
+- **needle 健全性**: U+3000 **0 件**、pinned 正規化テキストに **4/4 FOUND**（MISS 0、すべて count 1）。
+- **公理結果**: Classical.choice / sorryAx / Quot.sound とも **0 件**。propext のみ 1 件（`annuityRightValue_le_base`、許容）。8 宣言すべてを走査、exit code 0。
+- **反例探索**: base 0 / 1 / 100 / 1,000,000、Bool 2 通り、90% 境界（99/100/101/999/1001/999,999）、切り捨てを含む 18 行で矛盾 **0 件**。
+- **Lean モジュール変更: なし**（3 対象モジュールは読み取り専用）。書き換えたのは本ファイルのみで、既存のバッチ G/H/I/J/K/L/M レビューは保持した。commit / push / merge / ブランチ切替は行っていない。
+- 残る UNRESOLVED（U-A1 端数処理の法的正当性、U-A2 複利基礎額・解約返戻金額を caller-established とした範囲設定の法的十分性）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・率／号区分の原文照合・整数式の反例走査・CI needle の `.find()` 検証・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
