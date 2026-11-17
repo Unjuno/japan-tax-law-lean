@@ -1364,3 +1364,142 @@ Python で Lean と同一の整数式を再計算し、指定された攻撃点�
 - 残る UNRESOLVED（U-L1 端数処理の法的正当性、U-L2 art. 24 の NOT MODELLED の法的十分性）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・`Fraction` での率照合・integer 式の反例走査・CI needle の `.find()` 検証・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+---
+
+## Batch M review (2026-11-18)
+
+### M-0. 範囲・独立性の申告
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当 W-AK / W-AL / W-AM から独立）。担当者 STAGING（`STAGING_WAK.md` / `STAGING_WAL.md` / `STAGING_WAM.md`）の数値・needle 記載は参照したが、**その正否は信じず**、pinned JSON から Python で直接再抽出して照合した。
+- **対象モジュール（読み取り専用・本レビューで一切変更していない）**:
+  - `JapanTaxLaw/LocalTaxMedicalIncomeRatio.lean` — 地方税法施行令 art. 21の8、W-AK
+  - `JapanTaxLaw/LocalTaxOfficeApportionment.lean` — 同 art. 56の五十、W-AL
+  - `JapanTaxLaw/SpecialOrderPensionMinimum.lean` — 租税特別措置法施行令 art. 26の27、W-AM
+  - 各 `-Spec.lean` / `-Tests.lean` も読み取りのみ。
+- **一次資料（pinned・改変禁止）**:
+  - `data/raw/325CO0000000245_20261101_508CO0000000083.law.json`（地方税法施行令、7,509,563 bytes、適用日 2026-11-01）
+  - `data/raw/332CO0000000043_20261101_507CO0000000127.law.json`（租税特別措置法施行令、13,874,873 bytes、適用日 2026-11-01）
+- **抽出方法**: `law_full_text` を `transcription_audit.py` の `text()` と同一ロジックで平坦化（地方令 正規化後 1,219,606 文字、租特令 正規化後 2,743,179 文字）。`MainProvision` 配下の `Article` を走査し、`ArticleTitle` が `第二十一条の八` / `第五十六条の五十` / `第五十六条の八十` / `第二十六条の二十七` の本文を逐語取得（各タイトル **1 件ずつ**、一意）。日本語金額は repo の `scripts/law_audit/kansuji.py`（`kanji_to_int`）で Arabic 変換した。率は `fractions.Fraction` で比較した。
+- **書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ**。Lean モジュール・Spec・Tests・`data/*` は読み取り専用（レビュー前後で `git status --short` はクリーン）。commit / push / merge / ブランチ切替は行っていない。
+
+### M-1. 最重要 3 点の独立判定
+
+| # | 争点 | 委譲元／Coordinator の記述 | pinned 原文（独立抽出） | ワーカーの採用 | 独立判定 |
+|---|---|---|---|---|---|
+| 1 | W-AL のファイル割当誤りの訂正 | Coordinator プロンプトは「**M2 = 56条の五十**」と誤記 | `第五十六条の五十`（正規化 336 文字）は「…当該従業者給与総額に当該指定都市等所在部分の事業所床面積の当該事業所等に係る事業所床面積に対する割合を乗じて得た額とする。」＝**床面積按分算術が実在**。一方 `第五十六条の八十`（437 文字）は「法第七百一条の六十一第八項の**申告書の提出期限**…」で、`事業所床面積` 0 回／`割合を乗じて得た額` 0 回 | W-AL は `local_order_M3.txt`（56条の五十・336 文字）を正規原文として採用 | **ワーカーの訂正は正しい（BY-DESIGN）。** Coordinator の誤記が原因で、形式化モジュールの欠陥ではない。**CONFIRMED ではない。** |
+| 2 | art. 21の8 の 3/10 判定 | 医療収入割合 ≤ 3/10 を `medicalIncome*10 ≤ 3*totalIncome` で判定 | 「…医療に関する収入金額中に占める割合が**おおむね常時十分の三以下**であるものとして道府県知事が認めた医療施設…」（`十分の三以下` 1 回／`おおむね常時` 1 回／`道府県知事が認めた` 1 回） | `decide (medicalIncome * 10 ≤ 3 * totalIncome)`（交差掛け）。「おおむね常時」「知事認定」は caller-established Bool として `&&` 結合、金額式外 | **原文「十分の三以下」= ≤ 3/10 に忠実。** 交差掛けは total>0 で同値、total=0 も停止。境界 3/10 は true。Bool は算術を汚していない。**CONFIRMED ではない（BY-DESIGN）。** 「おおむね」の程度は U-M1 で保留。 |
+| 3 | art. 26の27 の最低控除額 3 定数 | 118万／168万／90万円 | 「百十八万円」「百六十八万円」「九十万円」が各 1 回（他に `六十五歳` 2 回、`十二月三十一日` 1 回） | `baseMinimumDeduction=1_180_000` / `specialMinimumDeduction=1_680_000` / `adjustedPensionMinimumDeduction=900_000`、`minimumDeduction` は `if` による**定数選択のみ** | **3 定数すべて原文どおり（kansuji 変換で独立確認、multiset 一致）。** Bool は金額算術に入らず定数選択にのみ現れる。**CONFIRMED ではない（BY-DESIGN）。** |
+
+補足（判定の理由）:
+
+- **56条の五十 vs 56条の八十**: pinned JSON の両条文を個別抽出し、キーワード出現を比較した（M-2 表参照）。「第五十六条の五十」に床面積按分の算術が存在すること、「第五十六条の八十」にそれが存在しないことは mechanical に確定した。W-AL の STAGING §0 の申告（`local_order_M2.txt` は 56条の八十／437 文字、`local_order_M3.txt` は 56条の五十／336 文字）は、pinned JSON の独立抽出と整合していた。Coordinator プロンプト側のラベル誤記をワーカーが正しく是正しており、非難すべき実装ミスはない。
+- **3/10 の交差掛け**: `10·medicalIncome ≤ 3·totalIncome` は `totalIncome > 0` のとき `medicalIncome/totalIncome ≤ 3/10` と同値（`Fraction(3,10)` で確認）。除算を避けるため `totalIncome = 0` でも停止し、`0 ≤ 0 → true`。原文の「おおむね常時」は程度を定める法的判断であり金額算術ではないため、caller-established Bool（`generallyConstant` / `governorRecognized`）として式外で `&&` 結合する設計は妥当（厳密な境界と「おおむね」の扱いは U-M1）。
+- **3 定数の選択**: `minimumDeduction` の本体は `if isAge65OrOlder then (if isAdjustedPension then adjustedPensionMinimumDeduction else specialMinimumDeduction) else baseMinimumDeduction` で、3 つの `Money` 定数を選ぶだけ（乗除・加減なし）。第2項の基準日「その年十二月三十一日」は doc-comment に記録するのみで計算に用いない旨も明記され、原文と整合する。
+
+→ **3 点すべてでワーカーの判断は pinned 原文に忠実であり、モデル値・定数・算術の誤りは発見されなかった。**
+
+### M-2. 独立抽出結果（条号 → 原文 → 算術／定数 → Lean）
+
+| 条号 | 原文（正規化・抜粋／文字数） | 独立抽出した算術／定数 | Lean 定数／式 | 照合 |
+|---|---|---|---|---|
+| 地方令 21の8 | 「…同項に規定する金額の当該医療施設に係る医療に関する収入金額中に占める割合がおおむね常時十分の三以下であるものとして道府県知事が認めた医療施設…」（182 文字） | 十分の三 = **3/10**、`おおむね常時`・`知事認定` は法的 Bool | `medicalIncomeRatioWithin3Tenths = decide (medicalIncome*10 ≤ 3*totalIncome)`、`medicalFacilityApplicationExcluded = 割合Bool && generallyConstant && governorRecognized` | ✅ |
+| 地方令 56の五十 | 「…当該事業所等に係る従業者給与総額は、当該従業者給与総額に当該指定都市等所在部分の事業所床面積の当該事業所等に係る事業所床面積に対する割合を乗じて得た額とする。」（336 文字） | 割合 = 指定都市等所在部分床面積／全事業所床面積、給与総額 × 割合（端数規定なし） | `apportion base numerator denominator = base*numerator/denominator`、`apportionedEmployeeSalary totalSalary designatedCityArea totalArea = apportion totalSalary designatedCityArea totalArea`（分子=部分面積、分母=全面積） | ✅ |
+| 地方令 56の八十（比較対照） | 「（法第七百一条の六十一第八項の申告書の提出期限までに提出する意思があつたと認められる場合）第五十六条の八十…」（437 文字） | 床面積按分なし（申告書提出期限の認定要件） | 対応 def なし（スコープ外） | ✅（BY-DESIGN） |
+| 租特令 26の27 | 「…同条中「百十八万円」とあるのは、「百六十八万円（…掲げるものである場合にあつては、九十万円）」とする。２前項の居住者の年齢が六十五歳以上であるかどうかの判定は、その年十二月三十一日の年齢によるものとする。」（264 文字） | 百十八万円 = 118×10,000 = **1,180,000**／百六十八万円 = 168×10,000 = **1,680,000**／九十万円 = 90×10,000 = **900,000**、数的関係 900,000 < 1,180,000 < 1,680,000 | 3 `Money` 定数＋`minimumDeduction` の 4 通り選択、すべて `by decide` | ✅ |
+
+- 56条の五十のキーワード出現（独立カウント）: `第五十六条の五十` = 1、`事業所床面積` = 5、`指定都市等所在部分` = 2、`従業者給与総額` = 2、`に対する割合を乗じて得た額とする` = 1。56条の八十では `事業所床面積` = 0、`割合を乗じて得た額` = 0、`申告書の提出期限` = あり。
+- 26条の27 の金額リテラルは `kanji_to_int` で変換し、Lean 3 定数と multiset 比較（昇順 [900000, 1180000, 1680000] 同値）を機械確認した。
+- 21条の8 の `十分の三以下` / `おおむね常時` / `道府県知事が認めた` はいずれも 1 回で、needle との食い違いなし。
+
+### M-3. needle 健全性（12 本を pinned 正規化テキストに対して直接検証）
+
+STAGING 3 ファイルの JSON ブロックから候補 needle を **文字列としてそのまま Python で parse** し、pinned `law_full_text` の正規化テキスト（`re.sub(r"[\s\u3000]+", "", …)`、`transcription_audit.py` と同一条件）に対して `.find()` / `.count()` を実行した。STAGING の「FOUND」という申告は信じていない。
+
+| 項目 | 結果 |
+|---|---|
+| needle 総数 | **12**（W-AK/M1: 4 ／ W-AL/M3: 4 ／ W-AM: 4） |
+| U+3000（全角空白）を含む needle | **0 件** |
+| 長さ範囲 | 60〜105 文字（すべて指定の 60〜130 の範囲内） |
+| pinned 正規化テキストに対する `.find()` | **12/12 FOUND、MISS 0** |
+| `.count()` | 全 needle で **1**（一意） |
+
+- 正規化 offset: M1 = 149110 / 149173 / 149213 / 149228、M3 = 415534 / 415630 / 415724 / 415765、26の27 = 666182 / 666282 / 666322 / 666377（全部 count 1）。
+- 監査上の注記（レビュア側ハーネスの自己訂正）: 最初にレビュアが STAGING の needle を手で打ち直したところ M3 の第 4 本が 95 文字になり一時的に MISS したが、STAGING の JSON ブロックを直接 parse し直すと 105 文字で FOUND（count 1）となった。これは**打ち直しによるレビュア側の転記ミス**であり、STAGING の needle・Lean モジュールの欠陥ではない（バッチ L の注記と同種）。最終結果は上表のとおり 12/12 FOUND。
+
+### M-4. CONFIRMED / BY-DESIGN / UNRESOLVED の件数と一覧
+
+| 分類 | 件数 |
+|---|---|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **7** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = ゼロ）を明示する。** 原文との食い違い（誤記・桁違い・算術不一致・needle MISS・公理混入・反例矛盾）は一切検出されなかった。件数を手柄にしない。
+
+#### CONFIRMED（0 件）
+
+- 定数: 1,180,000 / 1,680,000 / 900,000 は「百十八万円」「百六十八万円」「九十万円」に一致（kansuji 独立変換）。
+- 算術: `medicalIncome*10 ≤ 3*totalIncome`（= ≤ 3/10）、`base*numerator/denominator`（56条の五十の按分）、Bool による 3 定数選択、いずれも原文に忠実。
+- 割当: 56条の五十に床面積按分が実在し、56条の八十は別条文（申告書提出期限）。ワーカーの M3 採用は正しい。
+- needle: 12/12 FOUND、U+3000 0 件、MISS 0。
+- 公理: 禁止公理 0 件（M-6）。
+
+#### BY-DESIGN（7 件）
+
+- **B-M1** W-AL のファイル割当訂正（M3 = 56条の五十を採用）は pinned 原文に照らして正しい。Coordinator プロンプトの「M2 = 56条の五十」は誤記で、実 M2 = 56条の八十。形式化実装の欠陥ではない。
+- **B-M2** 21条の8 の「おおむね常時」「道府県知事が認めた」は caller-established Bool（`generallyConstant` / `governorRecognized`）として割合 Bool と `&&` 結合するのみで、金額式には入れない設計。
+- **B-M3** 21条の8 の二金額（原文の「同項に規定する金額」と「医療に関する収入金額」）を引数 `medicalIncome` / `totalIncome` へ対応づけるのは caller-established と doc-comment で明記。変数名は便宜的な略称であり、計算自体は与えられた二金額への算術判定のみ。
+- **B-M4** 56条の五十の端数処理は Nat 除算の切り捨て（原文に端数規定なし）をモデル規約として明示。法的正当性は U-M2 で保留。
+- **B-M5** 56条の五十の面積・給与額・区域判定・該当性は caller-established、Bool を算定式に入れない。「読み替えて適用する」手続指定そのものは NOT MODELLED、`designatedCityFloorArea a = a` は定数的同一値の読み替えとして記録（算術ではない）。
+- **B-M6** 26条の27 の `isAge65OrOlder` / `isAdjustedPension` は caller-established Bool で、3 つの `Money` 定数の**選択にのみ**使用（算術には不入）。基準日・年金種別・居住者性・支払の有無はモジュール外（`ConsumptionTaxRate.rateOf` 等と同型の設計）。
+- **B-M7** 退化入力（`totalIncome = 0`、`totalArea = 0`、`designatedCityArea = 0`、部分面積 > 全面積）はモデル規約（`Nat.div` の `n/0 = 0`、クランプなし）として明示し、入力妥当性は caller が担保すると宣言。
+
+#### UNRESOLVED（2 件）
+
+- **U-M1 「おおむね常時十分の三以下」の「おおむね」の程度と厳密境界 3/10 の扱い**: 原文は「割合がおおむね常時十分の三以下であるものとして道府県知事が認めた」とし、「おおむね」の許容幅を数値化しない。本モデルは `≤ 3/10`（境界 3/10 を true）と「おおむね常時」の Bool を分離して結合するが、この形式化が原文の法的意味に十分かは pinned 原文のみでは決定不能。**人間の法律専門家によるレビューを要する**。定数・境界値の一致（発見ゼロ）には影響しない。
+- **U-M2 端数処理（floor）の法的正当性**: 56条の五十は按分の割合を示し端数規定を持たない。モデルは `base*numerator/denominator` の Nat 切り捨てを採用（21条の8 は除算なしのため該当しない）。pinned 原文のみではこの切り捨てが法的に正しいか決定不能。**人間の法律専門家による確認を要する**（バッチ G/H/I/J/K/L の U-1 と同趣旨）。
+
+### M-5. 反例探索（独立再計算＋kernel-decide）
+
+pinned 原文から導いた整数式を Python で再計算し、さらに一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\batchM_counterexamples.lean` に追加の境界 `example := by decide` を書いて `lake env lean`（exit code **0**、error 0）で走査した。下表はすべて Lean の `by decide` と一致（矛盾 0 件）。
+
+| 攻撃対象 | 独立再計算／Lean 結果 | 結果 |
+|---|---|---|
+| 医療収入 0 ／ total 0 | `0*10 ≤ 3*0` → true（`0/0` も停止）／`1*10 ≤ 3*0` → false | 矛盾なし |
+| 医療収入 0 ／ total 100 | `0 ≤ 300` → true | 矛盾なし |
+| 境界 3/10 | `3/10` → true、`4/10` → false、`30/100` → true、`31/100` → false、`300000/1000000` → true、`300001/1000000` → false、`2/7` → true | 矛盾なし（超えで即 false） |
+| 適用除外 Bool 8 通り | 割合 true かつ `generallyConstant=true` かつ `governorRecognized=true` のときのみ true（他は false）。`4/10` は Bool が全部 true でも false | 矛盾なし（Bool は算術外） |
+| 床面積 0（分子／分母） | `apportion 10 0 3 = 0`、`apportionedEmployeeSalary 10_000_000 0 10_000 = 0`、分母 0 も `0`（`5 3 0 = 0`） | 矛盾なし |
+| 按分境界（1:1／端数／按分） | `apportion 100 100 100 = 100`、`apportion 10 7 3 = 23`、`10_000_000*1/3 = 3_333_333`、`10_000_000*3000/10000 = 3_000_000` | 矛盾なし（Nat floor で Original の割合と整合） |
+| 部分面積 > 全面積 | `apportionedEmployeeSalary 100 200 100 = 200`（クランプなし、妥当性は caller-established） | 矛盾なし（B-M7） |
+| 年金区分 4 通り | (F,F)→1,180,000 ／ (F,T)→1,180,000 ／ (T,F)→1,680,000 ／ (T,T)→900,000。数的関係 900,000 < 1,180,000 < 1,680,000 | 矛盾なし（原文の読み替え順と一致） |
+
+**反例探索で検出された原文↔Lean の矛盾: 0 件（ゼロ）。**
+
+### M-6. 公理監査結果
+
+- 一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\batchM_axiom_probe.lean` を作成し、3 モジュールの名前付き `def` / `theorem` 計 **38 宣言**（21の8: 6 ／ 56の五十: 14 ／ 26の27: 18）すべてに `#print axioms` を実行（`lake env lean`、exit code **0**）。監査後、一時ファイル・一時スクリプトは削除済み。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | **38** |
+| `does not depend on any axioms` | **28** |
+| `Classical.choice` | **0 件**（不在） |
+| `sorryAx` | **0 件**（不在） |
+| `Quot.sound` | **0 件**（不在） |
+| `propext` | **10 件**: `medicalIncomeRatioWithin3Tenths_true_iff` / `medicalFacilityApplicationExcluded_true_iff`（2）、`apportion_zero_denominator` / `_zero_numerator` / `_one_to_one`、`apportionedEmployeeSalary_zero_totalArea` / `_zero_designatedCityArea` / `_full` / `_mono`（7）、`minimumDeduction_is_one_of`（1）。いずれも `simp` / Nat 補題由来の許容範囲。 |
+
+→ **禁止公理（Classical.choice / sorryAx / Quot.sound）は一切検出されず。許容された propext のみ。公理監査は合格。**
+
+### M-7. 総合判定・最終報告（サマリ）
+
+- **CONFIRMED: 0 件（ゼロ）** / **BY-DESIGN: 7 件** / **UNRESOLVED: 2 件**。発見ゼロを明示する。
+- **最重要 3 点の独立判定**: ① W-AL のファイル割当訂正（M3 = 56条の五十）は **正しい** — pinned で 56条の五十に床面積按分算術が実在し、56条の八十は申告書提出期限の別条文（Coordinator 側の誤記を是正したもので CONFIRMED ではない）／② 21条の8 の `medicalIncome*10 ≤ 3*totalIncome` は原文「十分の三以下」に **忠実**（境界 3/10 true、Bool は算術外）／③ 26条の27 の 1,180,000 / 1,680,000 / 900,000 は原文どおりで、Bool は定数選択のみに使用し金額算術を汚して **いない**。
+- **needle 健全性**: U+3000 **0 件**、pinned 正規化テキストに **12/12 FOUND**（MISS 0、すべて count 1）。
+- **公理結果**: Classical.choice / sorryAx / Quot.sound とも **0 件**。propext のみ 10 件（許容）。38 宣言すべてを走査、exit code 0。監査用一時ファイルは削除済み。
+- **反例探索**: 医療収入 0／total 0／境界 3/10、床面積 0／按分境界、年金区分 4 通りを含む全攻撃点で矛盾 **0 件**。
+- **Lean モジュール変更: なし**（3 対象モジュール＋各 Spec/Tests は読み取り専用）。書き換えたのは本ファイルのみで、既存のバッチ G/H/I/J/K/L レビューは保持した。commit / push / merge / ブランチ切替は行っていない。
+- 残る UNRESOLVED（U-M1「おおむね」の程度と境界 3/10 の扱い、U-M2 端数処理の法的正当性）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・kansuji 変換による定数照合・整数式の反例走査・needle の `.find()` 検証・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。

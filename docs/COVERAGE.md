@@ -57,7 +57,7 @@ by the '税' keyword in the law name only.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 6 |
+| adversarial review sessions recorded | 7 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
