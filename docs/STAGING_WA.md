@@ -1,3 +1,191 @@
+# STAGING — W-A（相続税法 3 条文の bounded L4 モデル化）受け渡しメモ
+
+> 実装担当 W-A からメインセッション（統合担当）への受け渡し用。
+> ブランチ操作・add/commit/push/merge は一切していません。
+> 本タスクで書き換えたのは下記 4 ファイルのみです（他は読み取り専用）。
+> 末尾 §9 に**以前の W-A 担当分（登録免許税法）の STAGING を保全**として添付しています
+> （内容は既に `JapanTaxLaw.lean` へ import 済みで統合完了、参考情報のみ）。
+
+## 0. 対象ファイル
+
+| ファイル | 状態 |
+| --- | --- |
+| `JapanTaxLaw/InheritanceMiscRates.lean` | 新規 |
+| `JapanTaxLaw/InheritanceMiscRatesSpec.lean` | 新規 |
+| `JapanTaxLaw/InheritanceMiscRatesTests.lean` | 新規 |
+| `docs/STAGING_WA.md` | 更新（本ファイル） |
+
+pinned source:
+
+- law id `325AC0000000073`
+- revision `325AC0000000073_20260401_506AC0000000008`
+- amendment enforcement date `2026-04-01`
+- 正規化済み原文: `C:\Users\junny\AppData\Local\Temp\opencode\W_A_inheritance.txt`（UTF-8、3 条文のみ）
+  （本メモの needles はすべてこのファイルから一字も変えず抽出）
+
+## 1. 追加した def / theorem 一覧
+
+`namespace JapanTaxLaw`、`open JapanTaxLaw.TaxFinance`。`Money := Nat`。
+既存 `InheritanceApportionment.heirApportionedTax` と名前が衝突しないよう、
+art. 17 は別名 `heirInheritanceTax`（割合を caller-established `TaxRate` で受け取る表現）とした。
+
+### 実装（`InheritanceMiscRates.lean`）
+
+| 条文 | 名前 | 内容 |
+| --- | --- | --- |
+| 21 の 13 | `inheritanceSettlementGiftTaxRate` | 税率「百分の二十」= `⟨20,100,by decide⟩` |
+| 21 の 13 | `inheritanceSettlementGiftTax` | 控除後課税価格 × 20/100（`applyFloor`） |
+| 26 | `standingTimberRate` | 割合「百分の八十五」= `⟨85,100,by decide⟩` |
+| 26 | `standingTimberValue` | 時価 × 85/100（`applyFloor`） |
+| 17 | `heirInheritanceTax` | 総額 × 割合（`ratio.applyFloor`、割合は caller-established `TaxRate`） |
+
+定理: `inheritanceSettlementGiftTax_eq` / `standingTimberValue_eq` / `heirInheritanceTax_eq`
+（いずれも `rfl`）、`inheritanceSettlementGiftTax_zero` / `standingTimberValue_zero` /
+`heirInheritanceTax_zero`、`inheritanceSettlementGiftTax_mono` / `standingTimberValue_mono` /
+`heirInheritanceTax_mono`。各計算 def に zero 定理・mono 定理・kernel-decide smoke を付与済み。
+
+### 独立定式（`InheritanceMiscRatesSpec.lean`）
+
+`specInheritanceSettlementGiftTax` / `specStandingTimberValue` / `specHeirInheritanceTax`
+（整数式 `m * num / den`）、`agreeInheritanceMiscRates : Bool`（`==` 一致、9 項目）、
+`example : agreeInheritanceMiscRates = true := by decide`。
+
+### 退行テスト（`InheritanceMiscRatesTests.lean`）
+
+`by decide` の kernel-decide smoke 9 件（小数の切り捨て、ゼロ、1/3 の例を含む）。
+
+### doc-comment に明記した射程
+
+- 適用判定（相続時精算課税適用者・特定贈与者・包括遺贈等の該当性）、
+  控除後課税価格、立木の時価、相続税の総額、各相続人の課税価格・合計課税価格は
+  **すべて caller-established**。法的判断は自動化していない。
+- art. 17 の割合は caller が `⟨課税価格, 合計課税価格, 正性証明⟩ : TaxRate` として渡す。
+  分母の正性証明が「合計課税価格 ≠ 0」を担保し、ゼロ除算分岐（`if`）を式に入れない。
+  **Bool は計算式に入れていない**。
+- 端数は切り捨て（`TaxRate.applyFloor`）。政令の丸め細目・申告手続は射程外。
+- 転記監査は fidelity-only であり法的正しさを保証しない。
+
+## 2. 転記監査に追加すべき check（JSON 断片）
+
+`scripts/ci/transcription_audit.py` の `checks()` に追加する check の JSON 表現です
+（`law_id` / `kind` / `title` / `needles` の 4 キー）。needle 文字列は正規化原文の一字一句です。
+**文字正規化・全角／半角変換・異体字変換を行わず、そのまま移してください。**
+
+```json
+{
+  "law_id": "325AC0000000073",
+  "kind": "file",
+  "title": null,
+  "needles": [
+    "（相続時精算課税に係る贈与税の税率）第二十一条の十三",
+    "百分の二十の税率を乗じて計算した金額とする",
+    "（立木の評価）第二十六条",
+    "立木の時価に百分の八十五の割合を乗じて算出した金額による",
+    "（各相続人等の相続税額）第十七条",
+    "課税価格の合計額のうちに占める割合を乗じて算出した金額とする"
+  ]
+}
+```
+
+参考：現行スクリプト形式への変換例（name は任意、needles は上記 6 本を一字も変えずに列挙）:
+
+```python
+yield ("相続税法 3 条文（21の十三 / 26 / 17）↔ InheritanceMiscRates.lean",
+       "325AC0000000073",
+       "file", None,
+       [ ...上記 needles 6 本を一字も変えずに列挙... ])
+```
+
+## 3. 期待 literal 増分
+
+- 新規 check **6 needles**（3 条文 × 2）なので **+6**。
+- `docs/PROGRESS.md` の監査 literal 総数はメインセッションが再確認して加算してください
+  （起点値は本メモでは書きません）。
+
+## 4. 検証結果（すべて本セッションで実行済み）
+
+- `lake build JapanTaxLaw.InheritanceMiscRates JapanTaxLaw.InheritanceMiscRatesSpec JapanTaxLaw.InheritanceMiscRatesTests`
+  → **成功（5 jobs、warning なし）**。※全体ビルド／CI／`run_python_gates.py` は実行していません。
+  初回ビルドで 4 件の型エラー（`decide` が自由変数を含む／`applyFloor` は `m * num` なので
+  `Nat.mul_le_mul_left` ではなく `Nat.mul_le_mul_right` が必要）が出たため、`_eq` 定理経由の
+  `rw` に修正して再ビルド成功。
+- `python scripts/ci/check_no_sorry.py` → `no forbidden placeholder proofs found in tracked Lean sources`。
+  （新規 3 ファイルは未追跡のため走査対象外ですが、人力でも `sorry` / `admit` はありません。）
+- `#print axioms`（一時ファイル `WA_Inheritance_AxiomProbe.lean` を approved temp dir に作成、
+  `lake env lean` で実行後 **削除済み**、第 2 探針 `WA_Inheritance_AxiomProbe2.lean` も削除済み）:
+  - 新規定理 10 本を検査。**`Classical.choice` も `sorryAx` も一切なし**。
+  - `inheritanceSettlementGiftTax_eq` / `standingTimberValue_eq` / `heirInheritanceTax_eq` /
+    `inheritanceSettlementGiftTax_zero` / `standingTimberValue_zero` /
+    `agreeInheritanceMiscRates` は `does not depend on any axioms`。
+  - `heirInheritanceTax_zero` / 3 本の `*_mono` は `propext` に依存（既存
+    `InheritanceApportionment.heirApportionedTax_mono` 等と同じ repo 通常パターン）。
+- 原文逐語検証: **6/6 FOUND、MISS 0 件**（§5）。
+
+## 5. 逐語検証 FOUND / MISS 一覧（一字も変更せず）
+
+`W_A_inheritance.txt` をそのまま haystack とし、needle も同じ文字列で Python `.find()` を実行。
+`norm@` は `re.sub(r"[\s　]+", "", ...)` 正規化后的 offset（transcription_audit.py の
+`contains()` と同一条件）、`raw@` は未正規化テキスト上の offset です。
+
+| # | needle（全文） | 結果 | norm@ | raw@ |
+| --- | --- | --- | --- | --- |
+| 1 | （相続時精算課税に係る贈与税の税率）第二十一条の十三 | **FOUND** | 183 | 189 |
+| 2 | 百分の二十の税率を乗じて計算した金額とする | **FOUND** | 342 | 348 |
+| 3 | （立木の評価）第二十六条 | **FOUND** | 373 | 383 |
+| 4 | 立木の時価に百分の八十五の割合を乗じて算出した金額による | **FOUND** | 447 | 457 |
+| 5 | （各相続人等の相続税額）第十七条 | **FOUND** | 8 | 10 |
+| 6 | 課税価格の合計額のうちに占める割合を乗じて算出した金額とする | **FOUND** | 140 | 142 |
+
+- **FOUND 6 / MISS 0**。アンカーの勝手な変更・正規化・文字変換はしていません。
+- MISS が出ていた場合はここで作業を止めて報告する手順でしたが、該当なしです。
+
+## 6. README / PROGRESS に足す 1 行文案
+
+CROSS_LAW の scan/pin 件数や監査 literal 総数はメインセッションが計算するため、ここでは書きません。
+
+- **README.md**（モジュール一覧の該当付近に追加）:
+  ```text
+  JapanTaxLaw/InheritanceMiscRates.lean / -Spec.lean / -Tests.lean  # 相続税法 第21条の十三（相続時精算課税20%）・第26条（立木 時価×85%）・第17条（相続税額=総額×課税価格比率）の L4 計算スライス・独立定式・退行テスト
+  ```
+- **docs/PROGRESS.md**（L4 着手済みモジュール一覧の末尾に追記）:
+  ```text
+  相続税法 第21条の十三 / 第26条 / 第17条（InheritanceMiscRates.lean：20%・85%・割合適用を TaxRate.applyFloor でモデル化、割合・課税価格・総額・適用判定は caller-established。art.17 は既存 InheritanceApportionment と別表現）
+  ```
+
+## 7. インテグレーターへの明示事項
+
+**インテグレーターは `JapanTaxLaw.lean` に以下の 3 つの import を追加すること。**
+
+```lean
+import JapanTaxLaw.InheritanceMiscRates
+import JapanTaxLaw.InheritanceMiscRatesSpec
+import JapanTaxLaw.InheritanceMiscRatesTests
+```
+
+（W-A は `JapanTaxLaw.lean` を書き換えていません。メインが統合してください。）
+
+## 8. 範囲・残ブロッカーの正直な申告
+
+- これは **L4 のごく小さなスライス**です。**完成・網羅を主張しません**。
+- 担当は 3 条文のみ。第16条（税率表・総額計算）、第15条（控除）、第21条の十一の二
+  （控除後課税価格の算定）、申告・納付手続は NOT YET COVERED。
+- art. 17 は既存 `InheritanceApportionment.heirApportionedTax`（`if totalTaxable = 0` 表現）と
+  **別の表現**（caller-established `TaxRate` 表現）です。統合時に重複・方針統一を判断してください。
+- `agreeInheritanceMiscRates` は定数同士の `==` 一致確認であり、法的意味の等価証明ではありません。
+- 転記監査は fidelity-only（原文 bytes との一致確認）であり、法的正しさを保証しません。
+- **L7 候補 3,438 件は unreviewed のまま**です（本スライスでは一切レビューしていません）。
+- 残ブロッカー: 転記監査 check の `checks()` への組み込み（§2、+6）、`JapanTaxLaw.lean` への
+  import 追加（§7）、README / PROGRESS の 1 行追記（§6）、および全体ビルド・CI ゲートの
+  実行は**すべてメインセッションの担当**です（W-A は実行していません）。
+
+## 9. 付録（保全）：以前の W-A 担当分（登録免許税法）の STAGING
+
+> 以下は**別タスク**（`RegistrationQualificationFeesP2A`）の旧受け渡しメモを一字も改ずに保全したものです。
+> 当該 3 モジュールは既に `JapanTaxLaw.lean` に import 済みで**統合完了**。参考情報のみとして扱ってください。
+> （本タスクの正式な成果物は §0〜§8 です。）
+
+<!-- PRIOR_STAGING_WA_BEGIN -->
+
 # STAGING — W-A (登録免許税法 別表第一（二）第三十二号 五十九〜六十八 の flat fee) 受け渡しメモ
 
 > 実装担当 W-A からメインセッション（統合担当）への受け渡し用。
@@ -205,3 +393,5 @@ import JapanTaxLaw.RegistrationQualificationFeesP2ATests
 - 残ブロッカー: 転記監査 check の `checks()` への組み込み（§2、+21、W-B の +20 と合わせ +41）、
   `JapanTaxLaw.lean` への import 追加（§7）、README / PROGRESS の 1 行追記（§6）、および全体ビルド・CI ゲートの
   実行は**すべてメインセッションの担当**です（W-A は実行していません）。
+
+<!-- PRIOR_STAGING_WA_END -->
