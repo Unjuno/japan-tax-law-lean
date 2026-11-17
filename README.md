@@ -491,6 +491,15 @@ JapanTaxLaw/RegistryPropertyRightsFeesTests.lean # 同上 退行テスト
 JapanTaxLaw/RegistryCorporateSecurityFees.lean   # 登録免許税法 別表第一（二）六〜九 企業担保権等 L4 モデル
 JapanTaxLaw/RegistryCorporateSecurityFeesSpec.lean   # 同上 独立定式
 JapanTaxLaw/RegistryCorporateSecurityFeesTests.lean  # 同上 退行テスト
+JapanTaxLaw/RegistryMiningFees.lean            # 登録免許税法 別表第一（二）十九〜二十二の二 鉱業権等 L4 モデル
+JapanTaxLaw/RegistryMiningFeesSpec.lean        # 同上 独立定式
+JapanTaxLaw/RegistryMiningFeesTests.lean       # 同上 退行テスト
+JapanTaxLaw/RegistryForeignCompanyFees.lean     # 登録免許税法 別表第一（二）二十二〜二十五 外国会社等 L4 モデル
+JapanTaxLaw/RegistryForeignCompanyFeesSpec.lean # 同上 独立定式
+JapanTaxLaw/RegistryForeignCompanyFeesTests.lean# 同上 退行テスト
+JapanTaxLaw/RegistryTrustMarriageFees.lean      # 登録免許税法 別表第一（二）二十六〜三十一 信託・夫婦財産契約等 L4 モデル
+JapanTaxLaw/RegistryTrustMarriageFeesSpec.lean  # 同上 独立定式
+JapanTaxLaw/RegistryTrustMarriageFeesTests.lean # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト
