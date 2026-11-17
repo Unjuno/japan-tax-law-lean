@@ -263,4 +263,14 @@ example : individualRegistrationOrgRegFee = 90_000 := by decide
 example : bizRegistrationOrgRegFee = 90_000 := by decide
 example : certificationOrgRegFee = 90_000 := by decide
 
+/-- 第三十二号 百六十 遺伝子組換え生物等の輸入に係る登録検査機関の登録
+    （遺伝子組換え生物等の使用等の規制による生物の多様性の確保に関する法律
+      平成十五年法律第九十七号 第十七条第一項（登録検査機関の登録））— 一件につき ¥90,000。 -/
+def geneticallyModifiedOrganismImportInspectionOrgRegFee : Money := 90_000
+
+theorem geneticallyModifiedOrganismImportInspectionOrgRegFee_pos :
+    geneticallyModifiedOrganismImportInspectionOrgRegFee > 0 := by decide
+
+example : geneticallyModifiedOrganismImportInspectionOrgRegFee = 90_000 := by decide
+
 end JapanTaxLaw
