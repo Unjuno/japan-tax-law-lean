@@ -91,5 +91,7 @@ example : individualRegistrationOrgRegFee = 90_000 := by decide
 example : bizRegistrationOrgRegFee = 90_000 := by decide
 -- 百五十九(四) 認定機関の登録
 example : certificationOrgRegFee = 90_000 := by decide
+-- 第三十二号 百六十 遺伝子組換え生物等輸入検査機関 ¥90,000
+example : geneticallyModifiedOrganismImportInspectionOrgRegFee = 90_000 := by decide
 
 end JapanTaxLaw

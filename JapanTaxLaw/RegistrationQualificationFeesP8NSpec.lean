@@ -140,7 +140,12 @@ example : specIndividualRegistrationOrgRegFee = 90_000 := by decide
 example : specBizRegistrationOrgRegFee = 90_000 := by decide
 example : specCertificationOrgRegFee = 90_000 := by decide
 
+/-- Spec: 第三十二号 百六十 遺伝子組換え生物等輸入検査機関の登録（¥90,000）。 -/
+def specGeneticallyModifiedOrganismImportInspectionOrgRegFee : Money := 90_000
+example : specGeneticallyModifiedOrganismImportInspectionOrgRegFee = 90_000 := by decide
+
 /-- Agreement checks between implementation and Spec. -/
+
 def agreeRegistrationQualificationFeesP8N : Bool :=
   specSurveyorBizRegFee == surveyorBizRegFee &&
   specSurveyorTrainingFacilityRegFee == surveyorTrainingFacilityRegFee &&
@@ -180,8 +185,10 @@ def agreeRegistrationQualificationFeesP8N : Bool :=
   specSpecialInternationalSpeciesBizRegFee == specialInternationalSpeciesBizRegFee &&
   specIndividualRegistrationOrgRegFee == individualRegistrationOrgRegFee &&
   specBizRegistrationOrgRegFee == bizRegistrationOrgRegFee &&
-  specCertificationOrgRegFee == certificationOrgRegFee
+  specCertificationOrgRegFee == certificationOrgRegFee &&
+  specGeneticallyModifiedOrganismImportInspectionOrgRegFee == geneticallyModifiedOrganismImportInspectionOrgRegFee
 
 example : agreeRegistrationQualificationFeesP8N = true := by decide
+
 
 end JapanTaxLaw
