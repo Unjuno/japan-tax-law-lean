@@ -392,3 +392,6 @@ import JapanTaxLaw.SpecialOrderPensionMinimumTests
 import JapanTaxLaw.InheritanceAnnuityValuation
 import JapanTaxLaw.InheritanceAnnuityValuationSpec
 import JapanTaxLaw.InheritanceAnnuityValuationTests
+import JapanTaxLaw.TaxCollectionNextBid
+import JapanTaxLaw.TaxCollectionNextBidSpec
+import JapanTaxLaw.TaxCollectionNextBidTests
