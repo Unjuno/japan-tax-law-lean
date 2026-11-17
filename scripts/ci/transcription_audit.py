@@ -807,6 +807,12 @@ def checks():
            "article", "第六十四条の七",
            ["欠損金の通算）第六十四条の七通算法人及び通算法人であつた内国法人", "（当該合計額が零である場合には零とし、当該割合が一を超える場合には一とする。）", "所得合計額が零である場合には、零", "非特定欠損金配賦額", "特定損金算入限度額"])
 
+    # 相続税法 art. 21の12 — GiftSpecialDeduction.lean (special deduction capped at 25M minus prior deductions)
+    yield ("相続税法 art. 21の12（相続時精算課税の特別控除: 2500万円から既控除合計を控除した残額と控除後課税価格の低い方を控除 — 既控除額・控除後課税価格は caller-established）↔ GiftSpecialDeduction.lean",
+           "325AC0000000073",
+           "article", "第二十一条の十二",
+           ["（相続時精算課税に係る贈与税の特別控除）第二十一条の十二", "特定贈与者ごとの前条第一項の規定による控除後の贈与税の課税価格からそれぞれ次に掲げる金額のうちいずれか低い金額を控除する", "一二千五百万円（既にこの条の規定の適用を受けて控除した金額がある場合には、その金額の合計額を控除した残額）", "二特定贈与者ごとの前条第一項の規定による控除後の贈与税の課税価格"])
+
     # 関税定率法 art. 6 — CustomsRetaliatoryDuty.lean (retaliatory duty cap = customs value)
     yield ("関税定率法 art. 6（報復関税等: 別表税率による関税のほか課税価格と同額以下の関税を課すことができる — 追加関税の上限をモデル化、国・貨物指定／WTO承認／政令細目・通常関税は caller-established）↔ CustomsRetaliatoryDuty.lean",
            "143AC0000000054",
