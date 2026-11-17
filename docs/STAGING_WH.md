@@ -1,4 +1,4 @@
-# STAGING — W-H（登録免許税法 別表第一（二）第三十二号 百十一〜百十九 の flat fee）受け渡しメモ
+# STAGING — W-H（所得税法 扶養控除 art. 84／art. 186の2）受け渡しメモ
 
 > 実装担当 W-H からメインセッション（統合担当）への受け渡し用。
 > ブランチ操作・add/commit/push/merge は一切していません。
@@ -8,226 +8,168 @@
 
 | ファイル | 状態 |
 | --- | --- |
-| `JapanTaxLaw/RegistrationQualificationFeesP5H.lean` | 新規 |
-| `JapanTaxLaw/RegistrationQualificationFeesP5HSpec.lean` | 新規 |
-| `JapanTaxLaw/RegistrationQualificationFeesP5HTests.lean` | 新規 |
-| `docs/STAGING_WH.md` | 新規（本ファイル） |
+| `JapanTaxLaw/IncomeDependentDeductions.lean` | 新規 |
+| `JapanTaxLaw/IncomeDependentDeductionsSpec.lean` | 新規 |
+| `JapanTaxLaw/IncomeDependentDeductionsTests.lean` | 新規 |
+| `docs/STAGING_WH.md` | 上書き（本ファイル。旧内容は別担当 ART の P5H メモでした） |
 
-pinned source: `data/raw/342AC0000000035_20261101_508AC0000000021.law.json`
-law id `342AC0000000035` / revision `342AC0000000035_20261101_508AC0000000021`
-amendment enforcement date `2026-11-01`（RegistrationQualificationFees / P2A〜P4F と同一ピン）。
-担当範囲原文: `art32_111_119.txt`（百十一〜百十九、UTF-8、1 行 2,623 文字、正規化後 2,594 文字）。
-pinned bytes から金額を日本語数字で読み取り Arabic に変換
-（九万円→90,000 / 十五万円→150,000 / 一万五千円→15,000、全件一致確認済み）。
+pinned source: `data/raw/340AC0000000033_20261001_507AC0000000070.law.json`
+law id `340AC0000000033` / revision `340AC0000000033_20261001_507AC0000000070`
+amendment enforcement date `2026-10-01`（IndividualIncomeTax / IncomeMiscDeductions と同一ピン、
+sha256 `94C4A7AD83726CDE60787967ED4E959585AD0AF9279D25DB9AA02264B3FE606B`）。
+担当範囲原文: `C:\Users\junny\AppData\Local\Temp\opencode\W_H_income_order.txt`
+（第八十四条・第百八十六条の二、正規化済み UTF-8）。
 
-## 1. 担当範囲のカテゴリ一覧（百十一〜百十九）
+### 原文の金額（重要：指示文と原文が食い違う点）
 
-| 条号 | 区分／法律 | 件数 |
+| 区分 | 原文 | 金額 |
 | --- | --- | --- |
-| 百十一 | 電気用品安全法（検査機関の登録） | 1 |
-| 百十二 | 消費生活用製品安全法（検査機関の登録） | 1 |
-| 百十三 | 産業標準化法（(一)〜(三)：登録認証機関・試験事業者） | 3 |
-| 百十四 | 計量法（(一) 校正事業者の登録／(二) 認定計量証明事業者の認定） | 2 |
-| 百十五 | 半導体集積回路の回路配置に関する法律（登録機関の登録） | 1 |
-| 百十六 | 工業所有権に関する手続等の特例に関する法律（(一)〜(三)） | 3 |
-| 百十七 | 相互承認の実施に関する法律（国外適合性評価事業の認定） | 1 |
-| 百十七の二 | 特定原産地証明書の発給等に関する法律（認定輸出者の認定） | 1 |
-| 百十八 | 割賦販売法（(一)〜(七)） | 7 |
-| 百十九 | フロン類の使用の合理化及び管理の適正化に関する法律（(一)(二)） | 2 |
-| 百十九の二 | 産業競争力強化法（認証機関の認定） | 1 |
-| 百十九の三 | 脱炭素成長型経済構造への円滑な移行の推進に関する法律（登録確認機関） | 1 |
-| **合計** | | **24** |
+| 控除対象扶養親族（一般） | 三十八万円 | 380,000 |
+| 特定扶養親族 | 六十三万円 | 630,000 |
+| 老人扶養親族 | **四十八万円** | **480,000** |
 
-原文の「〜件数一件につき△△円」フレーズ出現数は **24**（`につき` の出現数も 24）で、
-タスク指定の 24 件と一致します。本範囲に割合（千分の△）はありません。
-「政令で定めるものに限る」は本範囲に存在しません（`.count('政令') == 0`）。
+指示文は「老人控除対象扶養親族は58万円」と記載していましたが、**原文は
+「その者が老人扶養親族である場合には四十八万円」** です（用語も「老人扶養親族」）。
+指示文自身が「原文を正確に読んで金額を確認すること」と求めているため、
+原文に従い **480,000** を採用しました。580,000 は誤りです。
 
-デーミング規定は **7 箇所**（百十一・百十二・百十三(一)(二)(三)・百十四(一)・百十七）にあり、
-いずれも主額（九万円）の括弧内で「既に登録／認定を受けている者については、一万五千円」と
-定められています（`.count('既に') == 7`）。タスク指示に従い、これらは **金額なし行として扱い、
-デーミング用の fee def は作りません**（主額の九万円のみを def 化）。
-「更新の登録を除く」12・「更新の認定を除く」4・「更新の許可を除く」2（計 18）も
-金額定数には反映せず caller-established とします。
+## 1. 追加した def 一覧
 
-## 2. 追加した def 一覧（名前 → 金額 → 条号／区分）
+`namespace JapanTaxLaw.IncomeDependentDeductions`、`open JapanTaxLaw.TaxFinance`。
+flat `JapanTaxLaw` 名前空間の `specificDependentDeduction`（地方税法 art. 34、¥450,000 等）と
+衝突しないよう dedicated sub-namespace を採用（`IncomeMiscDeductions` と同じ方針）。
 
-`namespace JapanTaxLaw`、`open JapanTaxLaw.TaxFinance`。各 def は `Money := <額>` の flat 定数
-（課税標準は一件につき）。各 def に `<name>_pos : <name> > 0 := by decide` と
-`example : <name> = <額> := by decide` を付与済み（24 本ずつ）。
+### 実装（`IncomeDependentDeductions.lean`）— 6 def / 2 型 / 12 定理（＋ private 1）
 
-| # | 条号／区分 | def 名 | 金額 | 原文 fee |
-| --- | --- | --- | --- | --- |
-| 1 | 百十一 特定電気用品の検査機関の登録 | `specifiedElectricalApplianceInspectOrgRegFee` | 90,000 | 九万円 |
-| 2 | 百十二 特別特定製品の検査機関の登録 | `specialSpecificProductInspectOrgRegFee` | 90,000 | 九万円 |
-| 3 | 百十三(一) 登録認証機関の登録 | `jisConformityCertificationBodyRegFee` | 90,000 | 九万円 |
-| 4 | 百十三(二) 国内試験所の試験事業者の登録 | `domesticTestLabBusinessOperatorRegFee` | 90,000 | 九万円 |
-| 5 | 百十三(三) 外国試験所の試験事業者の登録 | `foreignTestLabBusinessOperatorRegFee` | 90,000 | 九万円 |
-| 6 | 百十四(一) 計量器の校正等に係る事業者の登録 | `measuringInstrumentCalibrationBizRegFee` | 90,000 | 九万円 |
-| 7 | 百十四(二) 認定特定計量証明事業者の認定 | `certifiedMetrologyCertificationBizLicenseFee` | 90,000 | 九万円 |
-| 8 | 百十五 回路配置利用権の登録機関の登録 | `circuitLayoutRightRegOrgRegFee` | 90,000 | 九万円 |
-| 9 | 百十六(一) 登録情報処理機関の登録 | `registeredInfoProcessingOrgRegFee` | 90,000 | 九万円 |
-| 10 | 百十六(二) 登録調査機関の登録 | `registeredInvestigationOrgRegFee` | 90,000 | 九万円 |
-| 11 | 百十六(三) 特定登録調査機関の登録 | `specifiedRegisteredInvestigationOrgRegFee` | 90,000 | 九万円 |
-| 12 | 百十七 国外適合性評価事業の認定 | `foreignConformityAssessmentBizLicenseFee` | 90,000 | 九万円 |
-| 13 | 百十七の二 認定輸出者の認定 | `certifiedExporterLicenseFee` | 90,000 | 九万円 |
-| 14 | 百十八(一) 前払式割賦販売業の許可 | `prepaidInstallmentSalesBizPermitFee` | 150,000 | 十五万円 |
-| 15 | 百十八(二) 包括信用購入あつせん業者の登録 | `comprehensiveCreditPurchaseAgencyRegFee` | 150,000 | 十五万円 |
-| 16 | 百十八(三) 少額包括信用購入あつせん業者の登録 | `smallComprehensiveCreditPurchaseAgencyRegFee` | 150,000 | 十五万円 |
-| 17 | 百十八(四) 個別信用購入あつせん業者の登録 | `individualCreditPurchaseAgencyRegFee` | 150,000 | 十五万円 |
-| 18 | 百十八(五) 前払式特定取引業の許可 | `prepaidSpecificTransactionBizPermitFee` | 150,000 | 十五万円 |
-| 19 | 百十八(六) クレジットカード番号等取扱契約締結事業者の登録 | `creditCardNumberHandlingContractBizRegFee` | 150,000 | 十五万円 |
-| 20 | 百十八(七) 認定割賦販売協会の認定 | `certifiedInstallmentSalesAssociationLicenseFee` | 150,000 | 十五万円 |
-| 21 | 百十九(一) 第一種フロン類再生業者の許可 | `class1FluorocarbonRecyclingBizPermitFee` | 90,000 | 九万円 |
-| 22 | 百十九(二) フロン類破壊業者の許可 | `fluorocarbonDestructionBizPermitFee` | 90,000 | 九万円 |
-| 23 | 百十九の二 認定技術等情報漏えい防止措置認証機関の認定 | `techInfoLeakPreventionCertOrgLicenseFee` | 15,000 | 一万五千円 |
-| 24 | 百十九の三 登録確認機関の登録 | `registeredVerificationOrgRegFee` | 90,000 | 九万円 |
+| 区分 | 名前 | 値／意味 |
+| --- | --- | --- |
+| 定数 | `generalDependentAmount` | `Money := 380_000`（一般・三十八万円） |
+| 定数 | `specificDependentAmount` | `Money := 630_000`（特定扶養親族・六十三万円） |
+| 定数 | `elderlyDependentAmount` | `Money := 480_000`（老人扶養親族・四十八万円） |
+| 型 | `DependentCategory` | `general` / `specific` / `elderly`（区分は caller-established） |
+| def | `art84AmountPerDependent (c)` | 区分別一人当たり額（上の定数を返す） |
+| 型 | `DependentBreakdown` | `generalCount` / `specificCount` / `elderlyCount`（人数は caller-established） |
+| def | `art84TotalDependentDeduction (b)` | `g*380000 + s*630000 + e*480000`（通常の Nat 掛け算、**上限なし**・端数なし） |
+| def | `art84IncomeAfterDependentDeduction (totalIncome) (b)` | `totalIncome − 合計`（saturating Nat） |
 
-金額一致の内訳: 九万円=16 件（90,000）／ 十五万円=7 件（150,000）／ 一万五千円=1 件（15,000）
-＝ 合計 24 件。pinned 原文の fee フレーズ出現数と完全一致。
+定理: 各定数の `_pos`（3 本）、区分選択の characterization（3 本）、
+合計額の `_zero` / `_eq` / `_eq_sum`（3 本）、saturating 減算の `_of_ge` / `_of_lt`
+/ `_le_total`（3 本）＝ 公共 12 本＋ private `natSubEqZeroOfLeFree` 1 本。
 
-`RegistrationQualificationFeesP5HSpec.lean` は `spec` 接頭辞の独立定式 24 本 +
-`agreeRegistrationQualificationFeesP5H : Bool`（実装 ≡ spec の `==` 一致）+
-`example : agreeRegistrationQualificationFeesP5H = true := by decide`。
-`RegistrationQualificationFeesP5HTests.lean` は `example := by decide` のスモーク 24 件のみ。
+### 独立仕様（`IncomeDependentDeductionsSpec.lean`）— 6 def
 
-doc-comment に明記した射程外（overclaim 防止）:
+`spec` 接頭辞で impl 定数を一切参照しない（リテラル直書き）:
+`specGeneralDependentAmount` / `specSpecificDependentAmount` /
+`specElderlyDependentAmount` / `specArt84Total` / `specArt84IncomeAfter` /
+`agreeIncomeDependentDeductions`。`agree` は counts `[0,1,2,3,7,12]` × totals
+9 点の有限グリッドで `==` 一致を検査（`by decide`、全称主張ではない）。
 
-- 「更新の登録を除く。」「更新の認定を除く。」「更新の許可を除く。」の適用判定は
-  **caller-established** とし、金額定数には反映していません（本範囲に「政令で定めるものに限る」なし）。
-- デーミング規定 7 箇所（既登録／既認定者は一万五千円）も caller-established とし、
-  デーミング用の別 def は作っていません。
-- 百十 以前・百二十 以降は NOT YET COVERED（百十七の二・百十九の二・百十九の三は担当範囲に含む）。
-  「認定件数」「登録件数」「許可件数」「申請件数」の意味上の区別は非モデル化（一律 `Money`）。
+### 退行テスト（`IncomeDependentDeductionsTests.lean`）
+
+新規定理名なし、全件 `example ... := by decide` の kernel-decide smoke のみ。
+
+**def 数合計: 実装 6 ＋ 仕様 6 ＝ 12**（＋ 型 2、定理 12＋private 1、agree 1）。
+
+## 2. NOT MODELLED — 第百八十六条の二（源泉控除対象配偶者に係る控除の適用）
+
+原文を全文精読しましたが、本条は **金額・率・算定式などの明確な計算規則を含みません**。
+内容は、扶養控除等申告書に源泉控除対象配偶者として記載された配偶者が、当該居住者を
+自らの申告書等に源泉控除対象配偶者として記載して第185条1項1号・2号／第186条1項1号・
+2項1号／第203条の3第1号〜第3号の適用を受ける場合に、**当該居住者の申告書には
+記載がなかったものとして**これらの規定を適用する、という **重複申告を排除するための
+法的擬制・適用順位の規定** です。
+
+数値モデルを立てるには第185条・第186条・第203条の3の源泉徴収税額計算と、
+申告書記載という事実変数（caller-established）のモデル化が別途必要であり、
+本スライス（art. 84 の控除額算出）の範囲外です。よって **NOT MODELLED** と明記し、
+計算 def・spec・test は作っていません（原文を読んだ証拠として needle 2 本を保持）。
 
 ## 3. 転記監査に追加すべき check（JSON 断片）
 
 `scripts/ci/transcription_audit.py` の `checks()` に追加する check の JSON 表現です
-（`law_id` / `kind` / `title` / `needles` の 4 キー）。needle 文字列は一字も変えないこと。
-**文字正規化・全角／半角変換・異体字変換を行わず、そのまま移してください。**
+（`law_id` / `kind` / `title` / `needles` の 4 キー）。needle 文字列は一字も変えず原文から
+抽出しました。**文字正規化・全角／半角変換・異体字変換を行っていません。**
 
 ```json
 {
-  "law_id": "342AC0000000035",
+  "law_id": "340AC0000000033",
   "kind": "file",
   "title": null,
   "needles": [
-    "百十一特定電気用品に係る検査機関の登録電気用品安全法（昭和三十六年法律第二百三十四号）第九条第一項（検査機関の登録）の登録（更新の登録を除く。以下この号において単に「登録」という。）申請件数一件につき九万円（既に登録を受けている者については、一万五千円）",
-    "百十二特別特定製品に係る検査機関の登録消費生活用製品安全法（昭和四十八年法律第三十一号）第十二条第一項（検査機関の登録）の登録（更新の登録を除く。以下この号において単に「登録」という。）申請件数一件につき九万円（既に登録を受けている者については、一万五千円）",
-    "第三十三条第一項（登録認証機関の登録）又は第三十七条第一項から第六項まで（登録認証機関の登録）の登録（更新の登録を除く。）申請件数一件につき九万円（既に（一）に掲げる登録を受けている者については、一万五千円）",
-    "（二）産業標準化法第五十七条第一項（試験事業者の試験所の登録）の国内にある試験所における製品試験等に係る事業者の登録（更新の登録を除く。）申請件数一件につき九万円（既に（二）に掲げる登録を受けている者については、一万五千円）",
-    "（三）産業標準化法第六十六条第一項（外国試験事業者の試験所の登録）の外国にある試験所における製品試験等に係る試験事業者の登録（更新の登録を除く。）申請件数一件につき九万円（既に（三）に掲げる登録を受けている者については、一万五千円）",
-    "（一）計量法第百四十三条第一項（登録）の計量器の校正等に係る事業者の登録（更新の登録を除く。）申請件数一件につき九万円（既に（一）に掲げる登録を受けている者については、一万五千円）",
-    "（一）に掲げる登録を受けている者については、一万五千円）（二）計量法第百二十一条の二（認定）の認定特定計量証明事業者の認定（更新の認定を除く。）認定件数一件につき九万円",
-    "百十五回路配置利用権の設定登録等事務に係る登録機関の登録半導体集積回路の回路配置に関する法律（昭和六十年法律第四十三号）第二十八条第一項（登録機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "（一）工業所有権に関する手続等の特例に関する法律（平成二年法律第三十号）第九条第一項（登録情報処理機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "（二）工業所有権に関する手続等の特例に関する法律第三十六条第一項（登録調査機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "（三）工業所有権に関する手続等の特例に関する法律第三十九条の二（特定登録調査機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円",
-    "の相互承認の実施に関する法律（平成十三年法律第百十一号）第三条第一項（認定）の国外適合性評価事業の認定（更新の認定を除く。以下この号において単に「認定」という。）申請件数一件につき九万円（既に認定を受けている者については、一万五千円）",
-    "百十七の二第二種特定原産地証明書の作成に係る認定輸出者の認定経済連携協定に基づく特定原産地証明書の発給等に関する法律（平成十六年法律第百四十三号）第七条の二第一項（認定）の認定輸出者の認定（更新の認定を除く。）認定件数一件につき九万円",
-    "（一）割賦販売法（昭和三十六年法律第百五十九号）第十一条（前払式割賦販売業の許可）の規定による前払式割賦販売の事業の許可許可件数一件につき十五万円",
-    "（二）割賦販売法第三十一条（包括信用購入あつせん業者の登録）の登録包括信用購入あつせん業者の登録登録件数一件につき十五万円",
-    "登録件数一件につき十五万円（三）割賦販売法第三十五条の二の三第一項（登録）の登録少額包括信用購入あつせん業者の登録登録件数一件につき十五万円",
-    "（四）割賦販売法第三十五条の三の二十三（個別信用購入あつせん業者の登録）の登録個別信用購入あつせん業者の登録（更新の登録を除く。）登録件数一件につき十五万円",
-    "（五）割賦販売法第三十五条の三の六十一（前払式特定取引業の許可）の規定による前払式特定取引の事業の許可許可件数一件につき十五万円",
-    "（六）割賦販売法第三十五条の十七の二（クレジットカード番号等取扱契約締結事業者の登録）のクレジットカード番号等取扱契約締結事業者の登録登録件数一件につき十五万円",
-    "（七）割賦販売法第三十五条の十八第一項（認定割賦販売協会の認定及び業務）の認定割賦販売協会の認定認定件数一件につき十五万円",
-    "（一）フロン類の使用の合理化及び管理の適正化に関する法律（平成十三年法律第六十四号）第五十条第一項（第一種フロン類再生業者の許可）の第一種フロン類再生業者の許可（更新の許可を除く。）許可件数一件につき九万円",
-    "（二）フロン類の使用の合理化及び管理の適正化に関する法律第六十三条第一項（フロン類破壊業者の許可）のフロン類破壊業者の許可（更新の許可を除く。）許可件数一件につき九万円",
-    "百十九の二認定技術等情報漏えい防止措置認証機関の認定産業競争力強化法（平成二十五年法律第九十八号）第六十八条第一項（認定技術等情報漏えい防止措置認証機関の認定）の認定技術等情報漏えい防止措置認証機関の認定（更新の認定を除く。）認定件数一件につき一万五千円",
-    "百十九の三排出目標量及び排出実績量に係る登録確認機関の登録脱炭素成長型経済構造への円滑な移行の推進に関する法律（令和五年法律第三十二号）第三十三条第二項（登録確認機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円"
+    "居住者が控除対象扶養親族を有する場合には、その居住者のその年分の総所得金額、退職所得金額又は山林所得金額から、その控除対象扶養親族一人につき三十八万円",
+    "その者が特定扶養親族である場合には六十三万円",
+    "その者が老人扶養親族である場合には四十八万円",
+    "前項の規定による控除は、扶養控除という。",
+    "（源泉控除対象配偶者に係る控除の適用）第百八十六条の二",
+    "に源泉控除対象配偶者である旨の記載がされていないものとして、第百八十五条第一項第一号及び第二号並びに前条第一項第一号及び第二項第一号の規定を適用する。"
   ]
 }
 ```
 
-参考：現行スクリプト形式への変換例（name は任意、needles は上記 24 本をそのまま使用）:
+参考：現行スクリプト形式への変換例（name は任意、needles は上記 6 本をそのまま使用）:
 
 ```python
-yield ("登録免許税法 別表第一（二）第三十二号 百十一〜百十九（検査機関・登録認証機関・試験事業者・計量・回路配置・工業所有権・割賦販売・フロン類等）↔ RegistrationQualificationFeesP5H.lean",
-       "342AC0000000035",
+yield ("所得税法 art. 84（扶養控除 38万/63万/48万）↔ IncomeDependentDeductions.lean; art. 186の2 は NOT MODELLED",
+       "340AC0000000033",
        "file", None,
-       [ ...上記 needles 24 本を一字も変えずに列挙... ])
+       [ ...上記 needles 6 本を一字も変えずに列挙... ])
 ```
 
 ## 4. 期待 literal 増分
 
-- W-H 担当分: 新規 check **24 needles** なので **+24**。
+- W-H 担当分: 新規 check **6 needles** なので **+6**。
 - `docs/PROGRESS.md` の監査 literal 総数はメインセッションが再確認して加算してください
   （起点値は本メモでは書きません）。
 
 ## 5. 検証結果（すべて本セッションで実行済み）
 
-- `lake build JapanTaxLaw.RegistrationQualificationFeesP5H JapanTaxLaw.RegistrationQualificationFeesP5HSpec JapanTaxLaw.RegistrationQualificationFeesP5HTests`
-  → **成功（5 jobs、warning なし）**。※自作 3 モジュールのみビルド（全体ビルド／CI／`run_python_gates.py` は実行していません）。
-- `python scripts/ci/check_no_sorry.py` → `no forbidden placeholder proofs found in tracked Lean sources`。
+- `lake build JapanTaxLaw.IncomeDependentDeductions JapanTaxLaw.IncomeDependentDeductionsSpec JapanTaxLaw.IncomeDependentDeductionsTests`
+  → **成功（5 jobs、warning なし）**。※自作 3 モジュールのみビルド（全体ビルド／CI／
+  `run_python_gates.py` は実行していません）。
+- `python scripts/ci/check_no_sorry.py` →
+  `no forbidden placeholder proofs found in tracked Lean sources`。
   （新規 3 ファイルは未追跡のため走査対象外ですが、人力でも `sorry` / `admit` はありません。）
-- `#print axioms`（一時ファイル `P5HAxiomProbe.lean` を approved temp dir に作成、`lake env lean` で実行後 **削除済み**）:
-  - 新規 positivity 定理 **24 本すべて** と `agreeRegistrationQualificationFeesP5H` の計 **25 件**が
+- `#print axioms`（一時ファイル `WHAxiomProbe.lean` を approved temp dir に作成、
+  `lake env lean` で実行後 **削除済み**）:
+  - 公共定理 **12 本** ＋ `agreeIncomeDependentDeductions` の計 **13 件**が
     `does not depend on any axioms`。
-  - **`Classical.choice` も `sorryAx` も `propext` も一切なし**（出力 25 行を全文走査）。
-- 原文逐語検証（pinned JSON を正規化テキストに対して `.find()`）: **24/24 FOUND、MISS 0 件**（§6）。
-  担当範囲原文 `art32_111_119.txt` 正規化テキストに対しても **24/24 FOUND、MISS 0 件**。
-  各 needle は両テキストで出現回数 **1**（一意）、長さはすべて **60〜130 文字**、24 本すべて相互に異なることを確認。
-  law id `342AC0000000035` … FOUND / revision `342AC0000000035_20261101_508AC0000000021` … FOUND。
-- 金額一致: 九万円=16 件 / 十五万円=7 件 / 一万五千円=1 件 ＝ 24 件、pinned 原文の fee フレーズ出現数と完全一致。
+  - **`Classical.choice` も `sorryAx` も `propext` も一切なし**（出力 13 行を全文走査）。
+- 原文逐語検証: 担当範囲原文・pinned JSON の両方に対して
+  `re.sub(r"[\s　]+", "", ...)` 正規化後、各 needle を Python `.find()` で検索し
+  **6/6 FOUND、MISS 0 件**（§6）。各 needle の出現回数は両テキストで **1**（一意）。
+  law id `340AC0000000033` … FOUND / revision `340AC0000000033_20261001_507AC0000000070` … FOUND。
+- 金額一致: 三十八万円=380,000 / 六十三万円=630,000 / 四十八万円=480,000、
+  原文の日本語数字と全件一致（58 万円は采用していません）。
 
 ## 6. 逐語検証 FOUND / MISS 一覧（一字も変更せず）
 
-担当範囲原文 `art32_111_119.txt` を、転記監査と同じ `re.sub(r"[\s\u3000]+", "", ...)` で正規化した文字列に
-対して各 needle を Python の `.find()` で検索（`art@`）。
-`json@` は pinned JSON `law_full_text` を `transcription_audit.py` と同一ロジックで平坦化・正規化した文字列上の offset。
-各 needle の出現回数は両方とも **1**（一意）。
+`art@` は担当範囲原文 `W_H_income_order.txt` の正規化文字列上の offset、
+`json@` は pinned JSON `law_full_text` を `transcription_audit.py` と同一ロジックで
+平坦化・正規化した文字列上の offset。各 needle の出現回数は両方とも **1**。
 
-| # | 条号/区分 | def | 結果 | art@ | json@ | 出現回数(art/json) | len |
+| # | 条 | def／用途 | 結果 | art@ | json@ | 出現回数 | len |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 百十一 | `specifiedElectricalApplianceInspectOrgRegFee` | FOUND | 0 | 176068 | 1/1 | 127 |
-| 2 | 百十二 | `specialSpecificProductInspectOrgRegFee` | FOUND | 127 | 176195 | 1/1 | 129 |
-| 3 | 百十三(一) | `jisConformityCertificationBodyRegFee` | FOUND | 411 | 176479 | 1/1 | 104 |
-| 4 | 百十三(二) | `domesticTestLabBusinessOperatorRegFee` | FOUND | 515 | 176583 | 1/1 | 112 |
-| 5 | 百十三(三) | `foreignTestLabBusinessOperatorRegFee` | FOUND | 627 | 176695 | 1/1 | 116 |
-| 6 | 百十四(一) | `measuringInstrumentCalibrationBizRegFee` | FOUND | 778 | 176846 | 1/1 | 90 |
-| 7 | 百十四(二) | `certifiedMetrologyCertificationBizLicenseFee` | FOUND | 840 | 176908 | 1/1 | 84 |
-| 8 | 百十五 | `circuitLayoutRightRegOrgRegFee` | FOUND | 924 | 176992 | 1/1 | 103 |
-| 9 | 百十六(一) | `registeredInfoProcessingOrgRegFee` | FOUND | 1072 | 177140 | 1/1 | 81 |
-| 10 | 百十六(二) | `registeredInvestigationOrgRegFee` | FOUND | 1153 | 177221 | 1/1 | 69 |
-| 11 | 百十六(三) | `specifiedRegisteredInvestigationOrgRegFee` | FOUND | 1222 | 177290 | 1/1 | 70 |
-| 12 | 百十七 | `foreignConformityAssessmentBizLicenseFee` | FOUND | 1337 | 177405 | 1/1 | 117 |
-| 13 | 百十七の二 | `certifiedExporterLicenseFee` | FOUND | 1454 | 177522 | 1/1 | 117 |
-| 14 | 百十八(一) | `prepaidInstallmentSalesBizPermitFee` | FOUND | 1666 | 177734 | 1/1 | 73 |
-| 15 | 百十八(二) | `comprehensiveCreditPurchaseAgencyRegFee` | FOUND | 1739 | 177807 | 1/1 | 61 |
-| 16 | 百十八(三) | `smallComprehensiveCreditPurchaseAgencyRegFee` | FOUND | 1787 | 177855 | 1/1 | 70 |
-| 17 | 百十八(四) | `individualCreditPurchaseAgencyRegFee` | FOUND | 1857 | 177925 | 1/1 | 78 |
-| 18 | 百十八(五) | `prepaidSpecificTransactionBizPermitFee` | FOUND | 1935 | 178003 | 1/1 | 64 |
-| 19 | 百十八(六) | `creditCardNumberHandlingContractBizRegFee` | FOUND | 1999 | 178067 | 1/1 | 80 |
-| 20 | 百十八(七) | `certifiedInstallmentSalesAssociationLicenseFee` | FOUND | 2079 | 178147 | 1/1 | 61 |
-| 21 | 百十九(一) | `class1FluorocarbonRecyclingBizPermitFee` | FOUND | 2167 | 178235 | 1/1 | 103 |
-| 22 | 百十九(二) | `fluorocarbonDestructionBizPermitFee` | FOUND | 2270 | 178338 | 1/1 | 84 |
-| 23 | 百十九の二 | `techInfoLeakPreventionCertOrgLicenseFee` | FOUND | 2354 | 178422 | 1/1 | 127 |
-| 24 | 百十九の三 | `registeredVerificationOrgRegFee` | FOUND | 2481 | 178549 | 1/1 | 113 |
+| 1 | 84 | `generalDependentAmount` | FOUND | 11 | 100647 | 1/1 | 75 |
+| 2 | 84 | `specificDependentAmount` | FOUND | 87 | 100723 | 1/1 | 22 |
+| 3 | 84 | `elderlyDependentAmount` | FOUND | 112 | 100748 | 1/1 | 22 |
+| 4 | 84 | 扶養控除の名称 | FOUND | 146 | 100782 | 1/1 | 20 |
+| 5 | 186の2 | NOT MODELLED 記録 | FOUND | 166 | 201410 | 1/1 | 27 |
+| 6 | 186の2 | NOT MODELLED 記録 | FOUND | 560 | 201804 | 1/1 | 75 |
 
-- **FOUND 24 / MISS 0**。needle の長さはすべて **60〜130 文字**、24 本すべて相互に異なることを確認。
+- **FOUND 6 / MISS 0**。needle の長さは 20〜75 文字、6 本すべて相互に異なることを確認。
   アンカーの勝手な変更・正規化・文字変換はしていません。
-- 各 needle には原則として項目の条号（百十一〜百十九の三）又は区分（（一）〜（七））を含めています。
-  例外は以下のとおりで、原文が極端に長いため 130 文字制約と fee literal の逐語確認を両立させる目的で
-  一意な連続部分をアンカーとしました（対応する条号／区分は上表および def の doc-comment に明記）:
-  - #3 百十三(一): 先頭の法律引用が長いため「第三十三条第一項…第三十七条第一項から第六項まで…」を
-    アンカー（デーミング括弧内に「（一）」を含む）。
-  - #7 百十四(二): 主額までの距離が長いため (一) のデーミング括弧末尾を起点に「（二）計量法…」をアンカー。
-  - #12 百十七: 条号「百十七」から fee までが 138 文字のため、固有の法律名・第三条第一項・
-    「以下この号において単に「認定」という。」を含む連続部分をアンカー。
-  - #16 百十八(三): 主額までの距離が短いため直前の (二) の fee 末尾を起点に「（三）割賦販売法…」をアンカー。
-- 金額の日本語数字との対応も全件一致（九万円=90,000 / 十五万円=150,000 / 一万五千円=15,000）。
 
 ## 7. README / PROGRESS に足す 1 行文案
 
 CROSS_LAW の scan/pin 件数や監査 literal 総数はメインセッションが計算するため、ここでは書きません。
 
-- **README.md**（モジュール一覧・`RegistrationQualificationFeesP4F*` 行の直後に追加）:
+- **README.md**（モジュール一覧・`IncomeMiscDeductions*` 行の直後に追加）:
   ```text
-  JapanTaxLaw/RegistrationQualificationFeesP5H.lean / -Spec.lean / -Tests.lean  # 登録免許税法 別表第一（二）第三十二号 百十一〜百十九（検査機関・登録認証機関・試験事業者・計量・回路配置・工業所有権・国外適合性評価・割賦販売・フロン類等）の flat fee L4 モデル・独立定式・退行テスト
+  JapanTaxLaw/IncomeDependentDeductions.lean / -Spec.lean / -Tests.lean  # 所得税法 art. 84（扶養控除: 一般38万／特定63万／老人48万、区分別額×人数、上限なし）の bounded L4 モデル・独立定式・退行テスト（art. 186の2 は NOT MODELLED）
   ```
 - **docs/PROGRESS.md**（L4 着手済みモジュール一覧の末尾に追記）:
   ```text
-  登録免許税法 別表第一（二）第三十二号 百十一〜百十九（RegistrationQualificationFeesP5H.lean：24 件の flat fee 額を Money 定数化、百十 以前・百二十 以降 NOT YET COVERED）
+  所得税法 art. 84 扶養控除（IncomeDependentDeductions.lean：3区分の一人当たり額を Money 定数化、区分別額×人数で合計、art. 186の2 は計算規則不在のため NOT MODELLED、他の所得控除条 NOT YET COVERED）
   ```
 
 ## 8. インテグレーターへの明示事項
@@ -235,30 +177,33 @@ CROSS_LAW の scan/pin 件数や監査 literal 総数はメインセッション
 **インテグレーターは `JapanTaxLaw.lean` に以下の 3 つの import を追加すること。**
 
 ```lean
-import JapanTaxLaw.RegistrationQualificationFeesP5H
-import JapanTaxLaw.RegistrationQualificationFeesP5HSpec
-import JapanTaxLaw.RegistrationQualificationFeesP5HTests
+import JapanTaxLaw.IncomeDependentDeductions
+import JapanTaxLaw.IncomeDependentDeductionsSpec
+import JapanTaxLaw.IncomeDependentDeductionsTests
 ```
 
-（W-A〜W-G の各 3 件、W-F の P4F 3 件と併せてメインが行数を確認してください。
-W-H は `JapanTaxLaw.lean` を書き換えていません。W-G の P5G ファイルには触れていません。）
+（他ワーカーの import と併せてメインが行数を確認してください。
+W-H は `JapanTaxLaw.lean` を書き換えていません。`IncomeMiscDeductions*` namespace にも
+触れていません。）
 
 ## 9. 範囲・残ブロッカーの正直な申告（最終報告）
 
 - **build**: 自作 3 モジュールのみ `lake build` 成功（5 jobs / warning なし）。全体ビルド・CI・
   `run_python_gates.py` は未実行です。
-- **axiom**: 新規 positivity 24 本 + agree 1 本の計 25 件すべて axiom-free、
+- **axiom**: 公共定理 12 本＋agree 1 本の計 13 件すべて axiom-free、
   `Classical.choice` / `sorryAx` / `propext` なし（一時ファイルは削除済み）。
-- **逐語**: FOUND 24 / MISS 0（担当範囲原文・pinned JSON の両方、出現回数 1、長さ 60〜130）。
-- **def 数**: 24（九万円 16 / 十五万円 7 / 一万五千円 1）。デーミング 7 箇所の別 def は作っていません。
-- **STAGING**: 本ファイル `docs/STAGING_WH.md` を作成済みです。
+- **逐語**: FOUND 6 / MISS 0（担当範囲原文・pinned JSON の両方、出現回数 1、長さ 20〜75）。
+- **def 数**: 実装 6 ＋ 仕様 6 ＝ 12（＋ 型 2、定理 12＋private 1、agree 1）。
+- **STAGING**: 本ファイル `docs/STAGING_WH.md` を作成済みです（旧内容を上書き）。
 - これは **L4 のごく小さなスライス**です。**完成・網羅を主張しません**。
-- 担当は 別表第一（二）第三十二号 **百十一〜百十九 のみ**。**百十 以前・百二十 以降は NOT YET COVERED**。
-- 「更新の登録／認定／許可を除く。」およびデーミング規定（既登録／既認定者は一万五千円）の該当性は
-  すべて caller-established とし、法的判断の自動化はしていません。
-- `agreeRegistrationQualificationFeesP5H` は定数同士の `==` 一致確認であり、法的意味の等価証明ではありません。
+- 担当は 所得税法 **第84条・第186条の2 のみ**。他の所得控除条（配偶者控除・基礎控除等）は
+  NOT YET COVERED。第186条の2 は明確な計算規則がないため **NOT MODELLED**。
+- 扶養親族の該当性（控除対象扶養親族／特定扶養親族／老人扶養親族であること）と人数は
+  すべて caller-established とし、法的判断の自動化はしていません。上限なし・端数処理なし。
+- 指示文の「58万円」は原文と異なるため采用せず、原文の「四十八万円」＝480,000 を使用しました。
+- `agreeIncomeDependentDeductions` は有限点での `==` 一致確認であり、法的意味の等価証明ではありません。
 - 転記監査は fidelity-only（原文 bytes との一致確認）であり、法的正しさを保証しません。
 - **L7 候補 3,438 件は unreviewed のまま**です（本スライスでは一切レビューしていません）。
-- 残ブロッカー: 転記監査 check の `checks()` への組み込み（§3、+24）、`JapanTaxLaw.lean` への
+- 残ブロッカー: 転記監査 check の `checks()` への組み込み（§3、+6）、`JapanTaxLaw.lean` への
   import 追加（§8）、README / PROGRESS の 1 行追記（§7）、および全体ビルド・CI ゲートの
   実行は**すべてメインセッションの担当**です（W-H は実行していません）。
