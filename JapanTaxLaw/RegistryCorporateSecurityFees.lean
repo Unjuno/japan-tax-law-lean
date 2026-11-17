@@ -20,10 +20,10 @@ Sources (pinned):
 切り捨て）としてモデル化する。金額は日本語数字で検証して Arabic に変換。
 
   【六 企業担保権の登記】
-  （一）設定 ........................ 債権金額千分の二・五 ..... 25/100000
-  （二）移転 ........................ 債権金額千分の一・五 ..... 15/100000
+  （一）設定 ........................ 債権金額千分の二・五 ..... 25/10000
+  （二）移転 ........................ 債権金額千分の一・五 ..... 15/10000
   （三）順位の変更 .................. 企業担保権の件数一件につき六千円 .. 6,000
-  （四）信託の登記 .................. 債権金額千分の一・五 ..... 15/100000
+  （四）信託の登記 .................. 債権金額千分の一・五 ..... 15/10000
   （五）付記・仮登記・回復・更正/変更 .. 申請件数一件につき六千円 .... 6,000
   （六）登記の抹消 .................. 申請件数一件につき六千円 .... 6,000
 
@@ -36,21 +36,21 @@ Sources (pinned):
   （六）登記の抹消 .................. 申請件数一件につき六千円 .... 6,000
 
   【七 鉄道財団、軌道財団又は運河財団の登録】
-  （一）抵当権設定/強制競売・管理 ..... 債権金額又は極度金額千分の二・五 25/1000
-  （二）抵当権の移転 ................ 債権金額又は極度金額千分の一・五 15/1000
-  （三）根抵当権の一部譲渡/法人分割 ... 計算した金額千分の一・五 ..... 15/100000
+  （一）抵当権設定/強制競売・管理 ..... 債権金額又は極度金額千分の二・五 25/10000
+  （二）抵当権の移転 ................ 債権金額又は極度金額千分の一・五 15/10000
+  （三）根抵当権の一部譲渡/法人分割 ... 計算した金額千分の一・五 ..... 15/10000
   （四）抵当権の順位の変更 .......... 抵当権の件数一件につき六千円 ... 6,000
-  （五）信託の登録 .................. 債権金額又は極度金額千分の一・五 15/1000
+  （五）信託の登録 .................. 債権金額又は極度金額千分の一・五 15/10000
   （六）付記登録/更正・変更 .......... 財団の数一個につき六千円 ..... 6,000
   （七）登録の抹消 .................. 財団の数一個につき六千円 ..... 6,000
 
   【八 動産の抵当権に関する登記又は登録】
-  （一）農業用動産: イ 設定 3/1000 / ロ 移転 15/1000 / ハ 一部譲渡 15/1000 /
-      ニ 順位変更 1,000 / ホ 信託 15/1000 / ヘ 付記等 1,000 / ト 抹消 1,000
-  （二）建設機械:   イ 設定 3/1000 / ロ 移転 15/1000 / ハ 一部譲渡 15/1000 /
-      ニ 順位変更 1,000 / ホ 信託 15/1000 / ヘ 付記等 1,000 / ト 抹消 1,000
-  （三）自動車:     イ 設定 3/1000 / ロ 移転 15/1000 / ハ 一部譲渡 15/1000 /
-      ニ 信託 15/1000 / ホ 回復・更正/変更 1,000 / ヘ 登録の抹消 1,000
+  （一）農業用動産: イ 設定 3/1000 / ロ 移転 15/10000 / ハ 一部譲渡 15/10000 /
+      ニ 順位変更 1,000 / ホ 信託 15/10000 / ヘ 付記等 1,000 / ト 抹消 1,000
+  （二）建設機械:   イ 設定 3/1000 / ロ 移転 15/10000 / ハ 一部譲渡 15/10000 /
+      ニ 順位変更 1,000 / ホ 信託 15/10000 / ヘ 付記等 1,000 / ト 抹消 1,000
+  （三）自動車:     イ 設定 3/1000 / ロ 移転 15/10000 / ハ 一部譲渡 15/10000 /
+      ニ 信託 15/10000 / ホ 回復・更正/変更 1,000 / ヘ 登録の抹消 1,000
 
   【九 動産の譲渡又は債権の譲渡若しくは質権の設定の登記】
   （一）動産の譲渡 .................. 申請件数一件につき一万五千円 ... 15,000
@@ -59,7 +59,7 @@ Sources (pinned):
   （四）登記の抹消 .................. 申請件数一件につき千円 ....... 1,000
 
 小数点表記「二・五」「一・五」は pinned のモデリング規約に従い分子 25 / 15
-（分母 1000）として符号化する。原文の率文字列は各 doc-comment に一字も変えず保持する。
+（小数点表記は分母 10000、整数千分率は分母 1000）として符号化する。原文の率文字列は各 doc-comment に一字も変えず保持する。
 
 Scope & honest boundaries:
 
@@ -88,79 +88,79 @@ namespace JapanTaxLaw.RegistryCorporateSecurityFees
 open JapanTaxLaw.TaxFinance
 
 /-! === 割合型: 税率定数（分母 1000）+ 税額関数（applyFloor） === -/
-/-- 六（一） 企業担保権の設定の登記 — 債権金額千分の二・五（pinned モデル num=25, den=1000）. -/
+/-- 六（一） 企業担保権の設定の登記 — 債権金額千分の二・五（pinned モデル num=25, den=100000）. -/
 def corporateSecurityEstablishmentRate : TaxRate := ⟨25, 10000, by decide⟩
 /-- 上記税率を caller-established な課税標準 `base` に適用（切り捨て）。 -/
 def corporateSecurityEstablishmentFee (base : Money) : Money := corporateSecurityEstablishmentRate.applyFloor base
-/-- 六（二） 企業担保権の移転の登記 — 債権金額千分の一・五（pinned モデル num=15, den=1000）. -/
+/-- 六（二） 企業担保権の移転の登記 — 債権金額千分の一・五（pinned モデル num=15, den=100000）. -/
 def corporateSecurityTransferRate : TaxRate := ⟨15, 10000, by decide⟩
 /-- 上記税率を caller-established な課税標準 `base` に適用（切り捨て）。 -/
 def corporateSecurityTransferFee (base : Money) : Money := corporateSecurityTransferRate.applyFloor base
-/-- 六（四） 信託の登記 — 債権金額千分の一・五（pinned モデル num=15, den=1000）. -/
+/-- 六（四） 信託の登記 — 債権金額千分の一・五（pinned モデル num=15, den=100000）. -/
 def corporateSecurityTrustRate : TaxRate := ⟨15, 10000, by decide⟩
 /-- 上記税率を caller-established な課税標準 `base` に適用（切り捨て）。 -/
 def corporateSecurityTrustFee (base : Money) : Money := corporateSecurityTrustRate.applyFloor base
-/-- 七（一） 抵当権の設定又は強制競売若しくは強制管理の申立ての登録 — 債権金額又は極度金額千分の二・五（num=25, den=1000）. -/
+/-- 七（一） 抵当権の設定又は強制競売若しくは強制管理の申立ての登録 — 債権金額又は極度金額千分の二・五（num=25, den=100000）. -/
 def railwayFoundationMortgageEstablishmentRate : TaxRate := ⟨25, 10000, by decide⟩
 /-- 上記税率を caller-established な課税標準 `base` に適用（切り捨て）。 -/
 def railwayFoundationMortgageEstablishmentFee (base : Money) : Money := railwayFoundationMortgageEstablishmentRate.applyFloor base
-/-- 七（二） 抵当権の移転の登録 — 債権金額又は極度金額千分の一・五（num=15, den=1000）. -/
+/-- 七（二） 抵当権の移転の登録 — 債権金額又は極度金額千分の一・五（num=15, den=100000）. -/
 def railwayFoundationMortgageTransferRate : TaxRate := ⟨15, 10000, by decide⟩
 /-- 上記税率を caller-established な課税標準 `base` に適用（切り捨て）。 -/
 def railwayFoundationMortgageTransferFee (base : Money) : Money := railwayFoundationMortgageTransferRate.applyFloor base
-/-- 七（三） 根抵当権の一部譲渡又は法人の分割による移転の登録 — 一部譲渡又は分割後の共有者の数で極度金額を除して計算した金額千分の一・五（num=15, den=1000）. -/
+/-- 七（三） 根抵当権の一部譲渡又は法人の分割による移転の登録 — 一部譲渡又は分割後の共有者の数で極度金額を除して計算した金額千分の一・五（num=15, den=100000）. -/
 def railwayFoundationRootMortgagePartialTransferRate : TaxRate := ⟨15, 10000, by decide⟩
 /-- 上記税率を caller-established な課税標準 `base` に適用（切り捨て）。 -/
 def railwayFoundationRootMortgagePartialTransferFee (base : Money) : Money := railwayFoundationRootMortgagePartialTransferRate.applyFloor base
-/-- 七（五） 信託の登録 — 債権金額又は極度金額千分の一・五（num=15, den=1000）. -/
+/-- 七（五） 信託の登録 — 債権金額又は極度金額千分の一・五（num=15, den=100000）. -/
 def railwayFoundationTrustRate : TaxRate := ⟨15, 10000, by decide⟩
 /-- 上記税率を caller-established な課税標準 `base` に適用（切り捨て）。 -/
 def railwayFoundationTrustFee (base : Money) : Money := railwayFoundationTrustRate.applyFloor base
-/-- 八（一）イ 農業用動産の抵当権の設定の登記 — 債権金額又は極度金額千分の三（num=3, den=1000）. -/
+/-- 八（一）イ 農業用動産の抵当権の設定の登記 — 債権金額又は極度金額千分の三（num=3, den=10000）. -/
 def agriculturalMovableMortgageEstablishmentRate : TaxRate := ⟨3, 1000, by decide⟩
 /-- 上記税率を caller-established な課税標準 `base` に適用（切り捨て）。 -/
 def agriculturalMovableMortgageEstablishmentFee (base : Money) : Money := agriculturalMovableMortgageEstablishmentRate.applyFloor base
-/-- 八（一）ロ 農業用動産の抵当権の移転の登記 — 債権金額又は極度金額千分の一・五（num=15, den=1000）. -/
+/-- 八（一）ロ 農業用動産の抵当権の移転の登記 — 債権金額又は極度金額千分の一・五（num=15, den=100000）. -/
 def agriculturalMovableMortgageTransferRate : TaxRate := ⟨15, 10000, by decide⟩
 /-- 上記税率を caller-established な課税標準 `base` に適用（切り捨て）。 -/
 def agriculturalMovableMortgageTransferFee (base : Money) : Money := agriculturalMovableMortgageTransferRate.applyFloor base
-/-- 八（一）ハ 農業用動産の根抵当権の一部譲渡又は法人の分割による移転の登記 — 計算した金額千分の一・五（num=15, den=1000）. -/
+/-- 八（一）ハ 農業用動産の根抵当権の一部譲渡又は法人の分割による移転の登記 — 計算した金額千分の一・五（num=15, den=100000）. -/
 def agriculturalMovableRootMortgagePartialTransferRate : TaxRate := ⟨15, 10000, by decide⟩
 /-- 上記税率を caller-established な課税標準 `base` に適用（切り捨て）。 -/
 def agriculturalMovableRootMortgagePartialTransferFee (base : Money) : Money := agriculturalMovableRootMortgagePartialTransferRate.applyFloor base
-/-- 八（一）ホ 農業用動産の抵当権の信託の登記 — 債権金額又は極度金額千分の一・五（num=15, den=1000）. -/
+/-- 八（一）ホ 農業用動産の抵当権の信託の登記 — 債権金額又は極度金額千分の一・五（num=15, den=100000）. -/
 def agriculturalMovableMortgageTrustRate : TaxRate := ⟨15, 10000, by decide⟩
 /-- 上記税率を caller-established な課税標準 `base` に適用（切り捨て）。 -/
 def agriculturalMovableMortgageTrustFee (base : Money) : Money := agriculturalMovableMortgageTrustRate.applyFloor base
-/-- 八（二）イ 建設機械の抵当権の設定の登記 — 債権金額又は極度金額千分の三（num=3, den=1000）. -/
+/-- 八（二）イ 建設機械の抵当権の設定の登記 — 債権金額又は極度金額千分の三（num=3, den=10000）. -/
 def constructionMachineryMortgageEstablishmentRate : TaxRate := ⟨3, 1000, by decide⟩
 /-- 上記税率を caller-established な課税標準 `base` に適用（切り捨て）。 -/
 def constructionMachineryMortgageEstablishmentFee (base : Money) : Money := constructionMachineryMortgageEstablishmentRate.applyFloor base
-/-- 八（二）ロ 建設機械の抵当権の移転の登記 — 債権金額又は極度金額千分の一・五（num=15, den=1000）. -/
+/-- 八（二）ロ 建設機械の抵当権の移転の登記 — 債権金額又は極度金額千分の一・五（num=15, den=100000）. -/
 def constructionMachineryMortgageTransferRate : TaxRate := ⟨15, 10000, by decide⟩
 /-- 上記税率を caller-established な課税標準 `base` に適用（切り捨て）。 -/
 def constructionMachineryMortgageTransferFee (base : Money) : Money := constructionMachineryMortgageTransferRate.applyFloor base
-/-- 八（二）ハ 建設機械の根抵当権の一部譲渡又は法人の分割による移転の登記 — 計算した金額千分の一・五（num=15, den=1000）. -/
+/-- 八（二）ハ 建設機械の根抵当権の一部譲渡又は法人の分割による移転の登記 — 計算した金額千分の一・五（num=15, den=100000）. -/
 def constructionMachineryRootMortgagePartialTransferRate : TaxRate := ⟨15, 10000, by decide⟩
 /-- 上記税率を caller-established な課税標準 `base` に適用（切り捨て）。 -/
 def constructionMachineryRootMortgagePartialTransferFee (base : Money) : Money := constructionMachineryRootMortgagePartialTransferRate.applyFloor base
-/-- 八（二）ホ 建設機械の抵当権の信託の登記 — 債権金額又は極度金額千分の一・五（num=15, den=1000）. -/
+/-- 八（二）ホ 建設機械の抵当権の信託の登記 — 債権金額又は極度金額千分の一・五（num=15, den=100000）. -/
 def constructionMachineryMortgageTrustRate : TaxRate := ⟨15, 10000, by decide⟩
 /-- 上記税率を caller-established な課税標準 `base` に適用（切り捨て）。 -/
 def constructionMachineryMortgageTrustFee (base : Money) : Money := constructionMachineryMortgageTrustRate.applyFloor base
-/-- 八（三）イ 自動車の抵当権の設定の登録 — 債権金額又は極度金額千分の三（num=3, den=1000）. -/
+/-- 八（三）イ 自動車の抵当権の設定の登録 — 債権金額又は極度金額千分の三（num=3, den=10000）. -/
 def automobileMortgageEstablishmentRate : TaxRate := ⟨3, 1000, by decide⟩
 /-- 上記税率を caller-established な課税標準 `base` に適用（切り捨て）。 -/
 def automobileMortgageEstablishmentFee (base : Money) : Money := automobileMortgageEstablishmentRate.applyFloor base
-/-- 八（三）ロ 自動車の抵当権の移転の登録 — 債権金額又は極度金額千分の一・五（num=15, den=1000）. -/
+/-- 八（三）ロ 自動車の抵当権の移転の登録 — 債権金額又は極度金額千分の一・五（num=15, den=100000）. -/
 def automobileMortgageTransferRate : TaxRate := ⟨15, 10000, by decide⟩
 /-- 上記税率を caller-established な課税標準 `base` に適用（切り捨て）。 -/
 def automobileMortgageTransferFee (base : Money) : Money := automobileMortgageTransferRate.applyFloor base
-/-- 八（三）ハ 自動車の根抵当権の一部譲渡又は法人の分割による移転の登録 — 計算した金額千分の一・五（num=15, den=1000）. -/
+/-- 八（三）ハ 自動車の根抵当権の一部譲渡又は法人の分割による移転の登録 — 計算した金額千分の一・五（num=15, den=100000）. -/
 def automobileRootMortgagePartialTransferRate : TaxRate := ⟨15, 10000, by decide⟩
 /-- 上記税率を caller-established な課税標準 `base` に適用（切り捨て）。 -/
 def automobileRootMortgagePartialTransferFee (base : Money) : Money := automobileRootMortgagePartialTransferRate.applyFloor base
-/-- 八（三）ニ 自動車の抵当権の信託の登録 — 債権金額又は極度金額千分の一・五（num=15, den=1000）. -/
+/-- 八（三）ニ 自動車の抵当権の信託の登録 — 債権金額又は極度金額千分の一・五（num=15, den=100000）. -/
 def automobileMortgageTrustRate : TaxRate := ⟨15, 10000, by decide⟩
 /-- 上記税率を caller-established な課税標準 `base` に適用（切り捨て）。 -/
 def automobileMortgageTrustFee (base : Money) : Money := automobileMortgageTrustRate.applyFloor base
