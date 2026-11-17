@@ -251,3 +251,247 @@ W-G は `JapanTaxLaw.lean` を書き換えていません。）
 - 残ブロッカー: 転記監査 check の `checks()` への組み込み（§3、+24）、`JapanTaxLaw.lean` への
   import 追加（§8）、README / PROGRESS の 1 行追記（§7）、および全体ビルド・CI ゲートの
   実行は**すべてメインセッションの担当**です（W-G は実行していません）。
+
+---
+---
+
+# STAGING — W-G（所得税法 art. 208 / 175 / 179 源泉徴収税率）受け渡しメモ
+
+> **⚠ ラベル衝突について（統合担当へ）**: 本ファイルは元々「W-G＝登録免許税法 別表第一（二）
+> 第三十二号 百三〜百十」担当の受け渡しメモでした（上記 `## 0`〜`## 9`、その工作は既に
+> `JapanTaxLaw.lean` に import 済み）。今回の W-G（所得税 源泉徴収税率）は**別の作業項目**に
+> 同じラベルが割り当てられたため、既存記録を消さずに**追記**しています。下記 `## 10` 以降が
+> 本次（所得税 art. 208 / 175 / 179）の受け渡しメモです。
+
+> 実装担当 W-G（所得税 源泉徴収税率）からメインセッション（統合担当）への受け渡し用。
+> ブランチ操作・add/commit/push/merge は一切していません。
+> 書き換えたのは下記 4 ファイルのみです（他は読み取り専用）。
+
+## 10. 対象ファイル
+
+| ファイル | 状態 |
+| --- | --- |
+| `JapanTaxLaw/IncomeWithholdingRates.lean` | 新規 |
+| `JapanTaxLaw/IncomeWithholdingRatesSpec.lean` | 新規 |
+| `JapanTaxLaw/IncomeWithholdingRatesTests.lean` | 新規 |
+| `docs/STAGING_WG.md` | 本ファイル（§10 以降を追記、既存 §0〜§9 は保持） |
+
+pinned source: `data/raw/340AC0000000033_20261001_507AC0000000070.law.json`
+law id `340AC0000000033` / revision `340AC0000000033_20261001_507AC0000000070`
+amendment enforcement date `2026-10-01` / raw snapshot sha256
+`94C4A7AD83726CDE60787967ED4E959585AD0AF9279D25DB9AA02264B3FE606B`
+（`IndividualIncomeTax.lean` / `IncomeMiscDeductions.lean` と同一ピン。）
+
+**名前空間: `JapanTaxLaw.IncomeWithholdingRates`（サブ名前空間）**。
+フラットな `JapanTaxLaw` には `IncomeMiscDeductions.lean` の
+`dividendWithholdingRate` / `interestWithholdingRate` 等が別サブ名前空間に存在するため、
+同名衝突を避けるためです。`annuityWithholdingRate`（15%）という名称は担当指定に従って
+います（対象は art. 175 第一号の**利子等**であり、art. 208 の年金とは別物です）。
+
+## 11. def 一覧
+
+### 11.1 `IncomeWithholdingRates.lean`（12 defs + 1 inductive / 21 公開定理 / 16 smoke）
+
+**art. 208（徴収税額）: 年金 − 保険料対応額 × 10%（saturating Nat + floor）**
+
+| def | 条 | 値／式 | needle 対応 |
+| --- | --- | --- | --- |
+| `article208WithholdingRate` | 第208条 | `⟨10,100⟩` | #7 |
+| `article208DeductedAnnuity` | 第208条 | `年金 − 保険料対応額`（saturating） | #7 |
+| `article208WithholdingTax` | 第208条 | `(年金 − 保険料対応額) × 10/100` | #7 |
+
+**art. 175（内国法人の税率）: 利子等 15% / 配当等 20%**
+
+| def | 条 | 値／式 | needle 対応 |
+| --- | --- | --- | --- |
+| `annuityWithholdingRate` | 第175条 第一号（利子等） | `⟨15,100⟩` | #1 |
+| `dividendWithholdingRate` | 第175条 第二号（配当等） | `⟨20,100⟩` | #2 |
+| `article175Rate` | 第175条 区分選択 | `isDividend ? 20% : 15%` | #1, #2 |
+| `article175WithholdingTax` | 第175条 | `金額 × (15% or 20%)/100` | #1, #2 |
+
+**art. 179（外国法人の税率）: 一号 20% / 二号 10% / 三号 15%**
+
+| def | 条 | 値／式 | needle 対応 |
+| --- | --- | --- | --- |
+| `foreignCorpGeneralRate` | 第179条 一号 | `⟨20,100⟩` | #4 |
+| `foreignCorpArticle161Item5Rate` | 第179条 二号 | `⟨10,100⟩` | #5 |
+| `foreignCorpArticle161Item8Or15Rate` | 第179条 三号 | `⟨15,100⟩` | #6 |
+| `ForeignCorpDomesticSourceCategory`（inductive） | 第179条 3区分 | `general / item5 / item8Or15` | #4, #5, #6 |
+| `article179Rate` | 第179条 率選択 | `category → 20% / 10% / 15%` | #4, #5, #6 |
+| `article179WithholdingTax` | 第179条 | `金額 × (20% or 10% or 15%)/100` | #4, #5, #6 |
+
+- 公開定理 21 本: 率 `*_num_pos`（6 本, 内 1 本は `*_den_pos`）、
+  saturating の `article208DeductedAnnuity_of_ge / _of_lt / _le_annuity` 3、
+  法定リテラルへの `*_eq` 接続（`article208WithholdingTax_eq` 1）、
+  率選択 characterization（`article175Rate_dividend/_interest` 2,
+  `article179Rate_general/_item5/_item8Or15` 3）、
+  税額 exact（`article175WithholdingTax_dividend/_interest` 2,
+  `article179WithholdingTax_*` 3）。
+  （`Nat.sub_eq_zero_of_le` は core で `propext` 依存のため、自前の axiom-free 補助
+  `natSubEqZeroOfLeFree`（`private`）で `article208DeductedAnnuity_of_lt` を証明。）
+- 課税標準額（年金の額・利子等／配当等の金額・国内源泉所得の金額）、区分該当性、
+  および第208条の「政令で定めるところにより計算した金額」（保険料対応額）は
+  caller-established とし、金額算出式には入れていません（Bool を式に混入させていません）。
+
+### 11.2 `IncomeWithholdingRatesSpec.lean`（5 defs / 10 smoke）
+
+- 独立整数定式: `specArticle208DeductedAnnuity` / `specArticle208WithholdingTax` /
+  `specArticle175WithholdingTax` / `specArticle179WithholdingTax`。
+  `TaxRate.applyFloor` を使わず `* 20 / 100` 等を直接記述し、art. 208 の控除は
+  明示 `if` で saturating を表現（Nat 減算のアンダーフローに依存しない）。
+- `agreeIncomeWithholdingRates : Bool` — impl と spec の全テスト点
+  （(年金, 保険料対応額) 8 点 × art.208、金額 12 点 × art.175 2 通り × art.179 3 通り）を
+  `==` 比較。`example : agreeIncomeWithholdingRates = true := by decide`。
+
+### 11.3 `IncomeWithholdingRatesTests.lean`
+
+- `example ... := by decide` の kernel-decide smoke **31 本**のみ（新規定理名なし）。
+- `TaxRate` は `den_pos` 証明フィールドを持ち構造体等号が decide 不能なため、
+  率選択のスモークは `.num` フィールドで検証（`article175Rate_dividend` 等の
+  構造体等号は impl 側の `rfl` 定理で担保）。
+
+### 11.4 NOT MODELLED（正直な射程外）
+
+- **第179条の全体**: 原文は 3 区分とも明確な率（20% / 10% / 15%）を規定するため
+  当該 3 率を定数化しましたが、**「いずれの号に該当するか」の判定ロジック**および
+  **第百六十九条第一号・第二号・第四号・第五号による課税標準の読み替え**
+  「第百六十一条第一項第五号／第八号及び第十五号の該当性」は複雑なため
+  **NOT MODELLED** です。区分と課税標準は caller-established としました。
+  租税条約上の軽減・免除も非モデル化。
+- **第175条 第三号（賞金）**: 「賞金その金額から政令で定める金額を控除した残額に
+  百分の十の税率」は政令細目に依存するため **NOT MODELLED**（needle #3 は原文逐語
+  証拠としてのみ採録）。
+- **第208条の保険料対応額**: 「政令で定めるところにより計算した金額」の算定そのものは
+  **NOT MODELLED**（caller-established な入力値として扱う）。
+- 丸めは切り捨て（`TaxRate.applyFloor`）。端数処理（通則法 art. 118 / 119）、
+  復興特別所得税・防衛特別所得税、確定申告調整は非モデル化。
+- 転記監査は fidelity-only（原文 bytes との一致確認）であり、法的正しさを保証しません。
+
+## 12. 転記監査に追加すべき check（JSON 断片）
+
+`scripts/ci/transcription_audit.py` の `checks()` に追加する check の JSON 表現です
+（`law_id` / `kind` / `title` / `needles` の 4 キー）。needle 文字列は一字も変えないこと。
+
+```json
+{
+  "law_id": "340AC0000000033",
+  "kind": "file",
+  "title": null,
+  "needles": [
+    "給付補てん金、利息、利益若しくは差益その金額に百分の十五の税率を乗じて計算した金額",
+    "配当等又は同条第九号に掲げる利益の分配その金額に百分の二十の税率を乗じて計算した金額",
+    "前条第十号に掲げる賞金その金額から政令で定める金額を控除した残額に百分の十の税率を乗じて計算した金額",
+    "第百六十九条第二号、第四号及び第五号（分離課税に係る所得税の課税標準）に掲げる国内源泉所得については、これらの規定に定める金額）に百分の二十の税率を乗じて計算した金額",
+    "第百六十一条第一項第五号（国内源泉所得）に掲げる国内源泉所得その金額に百分の十の税率を乗じて計算した金額",
+    "第百六十一条第一項第八号及び第十五号に掲げる国内源泉所得その金額（第百六十九条第一号に掲げる国内源泉所得については、同号に定める金額）に百分の十五の税率を乗じて計算した金額",
+    "その支払われる年金の額に対応するものとして政令で定めるところにより計算した金額を控除した金額に百分の十の税率を乗じて計算した金額"
+  ]
+}
+```
+
+> **重要（統合時の注意）**: needle は原文 pinned bytes の一字一句です。
+> 文字正規化・全角／半角変換・異体字変換を行わず、そのまま移してください。
+> §14 の検証で実際に `.find()` したのは、まさに上記 7 文字列です（`_norm` は
+> 空白・全角空白を除去するだけなので、needle 中の文字は一切変換していません）。
+
+参考：現行スクリプト形式への変換例（name は任意）:
+
+```python
+yield ("所得税法 art. 208/175/179（源泉徴収税率）↔ IncomeWithholdingRates.lean",
+       "340AC0000000033",
+       "file", None,
+       [ ...上記 needles 7 本を一字も変えずに列挙... ])
+```
+
+## 13. 期待 literal 増分
+
+- 新規 check 1 件 × needles **7 本**なので **+7**。
+- needle 数 = 7（art.175 × 3、art.179 × 3、art.208 × 1）。
+- `docs/PROGRESS.md` §7 の記載値はメインセッションで再確認してください。
+
+## 14. 検証結果（すべて本セッションで実行済み）
+
+- `lake build JapanTaxLaw.IncomeWithholdingRates JapanTaxLaw.IncomeWithholdingRatesSpec JapanTaxLaw.IncomeWithholdingRatesTests`
+  → **成功（5 jobs、warning なし）**。※自作 3 モジュールのみビルド（全体ビルド／CI／
+  `run_python_gates.py` は未実行）。
+- `python scripts/ci/check_no_sorry.py` →
+  `no forbidden placeholder proofs found in tracked Lean sources`。
+  （新規 3 ファイルは未追跡のため本スクリプトの走査対象外ですが、人力でも
+  `sorry` / `admit` はありません。）
+- `#print axioms`（一時ファイル `WGIncomeAxiomProbe.lean` を approved temp dir に作成、
+  `lake env lean` で実行後 **削除済み**）:
+  - 21 本の公開定理と `agreeIncomeWithholdingRates` の計 **22 件**が
+    `does not depend on any axioms`。
+  - **`Classical.choice` も `sorryAx` も `propext` も一切なし**。
+- 原文逐語検証: 下記 §15 のとおり **7/7 FOUND、MISS 0 件**。
+  支給テキスト `W_G_income.txt`（正規化済み）と pinned JSON の `law_full_text` を
+  `transcription_audit.py` と同一ロジックで平坦化・正規化した両方で
+  各 needle の出現回数は **1**（一意）。
+
+## 15. 逐語検証 FOUND / MISS 一覧（一字も変更せず）
+
+needle を `_norm = re.sub(r"[\s　]+", "", ...)` で正規化し、Python の `.find()` で検索
+（needle 側も同正規化）。`art@` は支給テキスト `W_G_income.txt` 正規化文字列上の offset、
+`json@` は pinned JSON `law_full_text` 平坦化・正規化文字列上の offset。
+law id `340AC0000000033` / revision `340AC0000000033_20261001_507AC0000000070` /
+sha256 `94C4A7AD…FE606B` は INVENTORY.json で一致確認済み。
+
+| # | 対象 | 結果 | len | 出現回数(art/json) | art@ | json@ |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | art.175 利子等 15% | FOUND | 41 | 1/1 | 110 | 191861 |
+| 2 | art.175 配当等 20% | FOUND | 42 | 1/1 | 161 | 191912 |
+| 3 | art.175 賞金 10%（NOT MODELLED） | FOUND | 50 | 1/1 | 204 | 191955 |
+| 4 | art.179 一号 20% | FOUND | 83 | 1/1 | 371 | 194358 |
+| 5 | art.179 二号 10% | FOUND | 52 | 1/1 | 455 | 194442 |
+| 6 | art.179 三号 15% | FOUND | 86 | 1/1 | 508 | 194495 |
+| 7 | art.208 10% | FOUND | 64 | 1/1 | 692 | 228938 |
+
+- **FOUND 7 / MISS 0**。needle の長さはすべて 41〜86 文字、7 本すべて相互に異なることを確認。
+  アンカーの勝手な変更・正規化・文字変換はしていません。
+
+## 16. README / PROGRESS に足す 1 行文案
+
+CROSS_LAW の scan/pin 件数や監査 literal 総数はメインセッションが計算するため、ここでは書きません。
+
+- **README.md**（モジュール一覧・`IncomeMiscDeductions` 3 行の直後に追加）:
+  ```text
+  JapanTaxLaw/IncomeWithholdingRates.lean / -Spec.lean / -Tests.lean  # 所得税法 art.208/175/179（年金・利子等/配当等・外国法人の源泉徴収税率）bounded L4 モデル・独立定式・退行テスト
+  ```
+- **docs/PROGRESS.md**（L4 着手済みモジュール一覧の末尾に追記）:
+  ```text
+  所得税法 art.208/175/179 源泉徴収税率 IncomeWithholdingRates.lean（208 は年金−保険料対応額×10% を saturating Nat、175 は 15%/20%、179 は 20%/10%/15% を定数化。区分・課税標準・政令細目は caller-established、179 の区分判定と 169 条読み替えは NOT MODELLED）
+  ```
+
+## 17. インテグレーターへの明示事項
+
+**インテグレーターは `JapanTaxLaw.lean` に以下の 3 つの import を追加すること。**
+
+```lean
+import JapanTaxLaw.IncomeWithholdingRates
+import JapanTaxLaw.IncomeWithholdingRatesSpec
+import JapanTaxLaw.IncomeWithholdingRatesTests
+```
+
+（W-A / W-B / W-C / W-D / W-F 等の各 3 件と併せてメインが統合してください。
+W-G は `JapanTaxLaw.lean` を書き換えていません。）
+
+## 18. 範囲・残ブロッカーの正直な申告
+
+- これは **L4 のごく小さなスライス**です。**完成・網羅を主張しません**。
+- 担当は 所得税法の上記 **3 条文のみ**（art. 208 / 175 / 179）。
+  所得税法全体、他の源泉徴収・申告・納付・分離課税の詳細は NOT YET COVERED。
+- 第179条は 3 率（20/10/15%）のみ定数化し、区分判定ロジック・第百六十九条による
+  課税標準の読み替え・第百六十一条各号の該当性は **NOT MODELLED**。
+  第175条第三号（賞金・政令控除・10%）および第208条の保険料対応額の算定も
+  **NOT MODELLED**。
+- 区分該当性・課税標準額・政令細目はすべて caller-established であり、
+  法的判断の自動化はしていません。
+- `agreeIncomeWithholdingRates` は有限点での `==` 一致確認であり、
+  法的意味の等価証明ではありません。
+- 転記監査は fidelity-only（原文 bytes との一致確認）であり、法的正しさを保証しません。
+- **L7 候補 3,438 件は unreviewed のまま**です（本スライスでは一切レビューしていません）。
+- 残ブロッカー: 転記監査 check の `checks()` への組み込み（§12、+7）、
+  `JapanTaxLaw.lean` への import 追加（§17）、README / PROGRESS の 1 行追記（§16）、
+  および全体ビルド・CI ゲートの実行は**すべてメインセッションの担当**です
+  （W-G は実行していません）。
+

@@ -437,6 +437,15 @@ JapanTaxLaw/SpecialMeasuresMiscTests.lean  # 同上 退行テスト
 JapanTaxLaw/CorporateGlobeRates.lean       # 法人税法 art. 82の13/82の21/145の8（GloBE 90.7%/75.3%）L4 モデル
 JapanTaxLaw/CorporateGlobeRatesSpec.lean   # 同上 独立定式
 JapanTaxLaw/CorporateGlobeRatesTests.lean  # 同上 退行テスト
+JapanTaxLaw/IncomeWithholdingRates.lean     # 所得税法 art. 208/175/179（源泉徴収: 年金×10%・利子15%配当20%・外国法人20/10/15%）L4 モデル
+JapanTaxLaw/IncomeWithholdingRatesSpec.lean # 同上 独立定式
+JapanTaxLaw/IncomeWithholdingRatesTests.lean# 同上 退行テスト
+JapanTaxLaw/IncomeDependentDeductions.lean   # 所得税法 art. 84/186の2（扶養控除 一般38万・特定63万・老人48万）L4 モデル
+JapanTaxLaw/IncomeDependentDeductionsSpec.lean # 同上 独立定式
+JapanTaxLaw/IncomeDependentDeductionsTests.lean# 同上 退行テスト
+JapanTaxLaw/SpecialMeasuresCasinoRatio.lean # 租税特別措置法施行令 art. 46の4（カジノ収入5%割合判定）L4 モデル
+JapanTaxLaw/SpecialMeasuresCasinoRatioSpec.lean # 同上 独立定式
+JapanTaxLaw/SpecialMeasuresCasinoRatioTests.lean# 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト
