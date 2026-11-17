@@ -536,6 +536,9 @@ JapanTaxLaw/LocalTaxOfficeApportionmentTests.lean  # 同上 退行テスト
 JapanTaxLaw/SpecialOrderPensionMinimum.lean        # 租税特別措置法施行令 art. 26の27（公的年金控除最低額118/168/90万円）L4 モデル
 JapanTaxLaw/SpecialOrderPensionMinimumSpec.lean    # 同上 独立定式
 JapanTaxLaw/SpecialOrderPensionMinimumTests.lean   # 同上 退行テスト
+JapanTaxLaw/InheritanceAnnuityValuation.lean        # 相続税法 art. 25（定期金給付契約の権利の評価: 基礎額×90%／解約返戻金）L4 モデル
+JapanTaxLaw/InheritanceAnnuityValuationSpec.lean    # 同上 独立定式
+JapanTaxLaw/InheritanceAnnuityValuationTests.lean   # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト
