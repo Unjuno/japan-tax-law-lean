@@ -392,6 +392,9 @@ JapanTaxLaw/GroupLossRatioTests.lean               # 同上 退行テスト
 JapanTaxLaw/CustomsValueAfterDamage.lean          # 関税定率法 art. 4の5（変質又は損傷後の課税価格: 仮想課税価格−減価額、saturating Nat 減算・input≤output のとき正確）L4 モデル
 JapanTaxLaw/CustomsValueAfterDamageSpec.lean      # 同上 独立定式
 JapanTaxLaw/CustomsValueAfterDamageTests.lean     # 同上 退行テスト
+JapanTaxLaw/CustomsTransactionPrice.lean        # 関税定率法 art. 4（課税価格の決定の原則: 現実支払価格＋輸入港運賃・手数料・無償提供物品役務・知財使用対価・売手帰属収益の10項目）L4 モデル
+JapanTaxLaw/CustomsTransactionPriceSpec.lean    # 同上 独立定式
+JapanTaxLaw/CustomsTransactionPriceTests.lean   # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト

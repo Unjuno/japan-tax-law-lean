@@ -245,3 +245,6 @@ import JapanTaxLaw.GroupLossRatioTests
 import JapanTaxLaw.CustomsValueAfterDamage
 import JapanTaxLaw.CustomsValueAfterDamageSpec
 import JapanTaxLaw.CustomsValueAfterDamageTests
+import JapanTaxLaw.CustomsTransactionPrice
+import JapanTaxLaw.CustomsTransactionPriceSpec
+import JapanTaxLaw.CustomsTransactionPriceTests
