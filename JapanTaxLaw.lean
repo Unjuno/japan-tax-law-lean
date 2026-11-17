@@ -236,3 +236,6 @@ import JapanTaxLaw.UnreportedSurchargeTests
 import JapanTaxLaw.DelinquencyTax
 import JapanTaxLaw.DelinquencyTaxSpec
 import JapanTaxLaw.DelinquencyTaxTests
+import JapanTaxLaw.RefundInterest
+import JapanTaxLaw.RefundInterestSpec
+import JapanTaxLaw.RefundInterestTests
