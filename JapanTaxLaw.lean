@@ -248,3 +248,6 @@ import JapanTaxLaw.CustomsValueAfterDamageTests
 import JapanTaxLaw.CustomsTransactionPrice
 import JapanTaxLaw.CustomsTransactionPriceSpec
 import JapanTaxLaw.CustomsTransactionPriceTests
+import JapanTaxLaw.CustomsSimilarGoods
+import JapanTaxLaw.CustomsSimilarGoodsSpec
+import JapanTaxLaw.CustomsSimilarGoodsTests
