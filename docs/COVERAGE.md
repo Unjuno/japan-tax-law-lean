@@ -49,9 +49,9 @@ by the '税' keyword in the law name only.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 96 | n/a | n/a |
+| pinned literal checks | 99 | n/a | n/a |
 | distinct article pins | 46 | 42584 | 0.11% |
-| pinned Lean modules (cross-law) | 302 | n/a | n/a |
+| pinned Lean modules (cross-law) | 311 | n/a | n/a |
 
 ## Human legal review axis (denominator = L7 candidates)
 
