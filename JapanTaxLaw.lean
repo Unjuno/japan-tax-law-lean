@@ -269,3 +269,6 @@ import JapanTaxLaw.CustomsDamageReductionTests
 import JapanTaxLaw.CustomsRetaliatoryDuty
 import JapanTaxLaw.CustomsRetaliatoryDutySpec
 import JapanTaxLaw.CustomsRetaliatoryDutyTests
+import JapanTaxLaw.GiftSpecialDeduction
+import JapanTaxLaw.GiftSpecialDeductionSpec
+import JapanTaxLaw.GiftSpecialDeductionTests

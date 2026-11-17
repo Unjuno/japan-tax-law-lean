@@ -416,6 +416,9 @@ JapanTaxLaw/CustomsDamageReductionTests.lean # 同上 退行テスト
 JapanTaxLaw/CustomsRetaliatoryDuty.lean    # 関税定率法 art. 6（報復関税: 別表関税のほか課税価格と同額以下の追加関税）L4 モデル
 JapanTaxLaw/CustomsRetaliatoryDutySpec.lean# 同上 独立定式
 JapanTaxLaw/CustomsRetaliatoryDutyTests.lean # 同上 退行テスト
+JapanTaxLaw/GiftSpecialDeduction.lean      # 相続税法 art. 21の12（相続時精算課税の特別控除: min(2500万−既控除, 控除後課税価格)）L4 モデル
+JapanTaxLaw/GiftSpecialDeductionSpec.lean  # 同上 独立定式
+JapanTaxLaw/GiftSpecialDeductionTests.lean # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト
