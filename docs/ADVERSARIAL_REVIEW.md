@@ -786,3 +786,237 @@
 - 残る UNRESOLVED（U-1 端数処理の法的正当性、U-2 「除く」条件の個別明記要否）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（原文 parse・定数照合・境界値走査・公理監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+## Batch J review (2026-11-18)
+
+### J-0. 範囲・独立性の申告
+- 対象: `JapanTaxLaw/RegistryQualificationFeesJ1.lean`（三十三〜三十八）/ `...J2.lean`（三十九〜四十九）/ `...J3.lean`（五十〜五十九）および各 Spec/Tests（読み取り専用）。**Lean モジュールは一切変更していない。**
+- 一次資料: `data/raw/342AC0000000035_20261101_508AC0000000021.law.json`（law id `342AC0000000035` / revision `342AC0000000035_20261101_508AC0000000021`、改変せず）。
+- `docs/STAGING_WAB.md` / `STAGING_WAC.md` / `STAGING_WAD.md` は参照したが、記載された件数・金額は**信じず**、pinned JSON から Python で独立再抽出して照合した。
+- 書き換えたファイルは `docs/ADVERSARIAL_REVIEW.md` のみ。既存のバッチ G/H/I レビューは保持した。
+
+### J-1. 独立抽出 fee 一覧（区分 → 金額 → 原文文字列）
+方法: `law_full_text` を `transcription_audit.py` と同一ロジックで平坦化し、`re.sub(r"[\s\u3000]+", "", …)` で正規化。別表第一（二）三十三〜五十九を offset 147142〜157770（正規化文字列）で切り出し（10,628 文字）。その region に対し `につき([日本語数字]+)円` を正規表現で列挙。
+
+- 独立確認した割合型の有無: `千分` **0 回** / `百分` **0 回** / `割合` **0 回** → **本範囲に割合型は実在しない**（num/den 検証対象なし）。
+- 抽出された金額付き fee: `につき…円` **124 件** ＋ 括弧内の特例「（電波法第五条第四項の放送をする無線局については、十五万円）」**1 件** ＝ **125 件**。
+- 金額内訳（独立抽出）: 十五万円 **76** / 九万円 **43** / 一万五千円 **3** / 三万円 **3** ＝ 125。
+- Lean 定数内訳: J1 55 件（15万36/9万17/1.5万2）＋ J2 45 件（15万33/9万12）＋ J3 25 件（15万7/9万14/3万3/1.5万1）＝ **125 件**。multiset は完全一致。
+- **順序照合**: 原文出現順と Lean def 定義順を zip して 125 行すべて比較 → **不一致 0**（MISMATCH 0）。各 def の doc-comment 内の日本語金額と def 値の整合も **125/125**（不一致 0）。
+
+下表の「原文 fee 文字列」は独立抽出した region の連続部分（末尾 46 文字＋金額）をそのまま記載したもので、STAGING の needle をコピーしたものではない。
+
+| # | Lean 定数 | 金額 | 独立抽出した原文 fee 文字列 | 一致 |
+|---:|---|---:|---|:---:|
+| 1 | J1:`certifiedPersonalInfoProtectionOrgCertFee` | 90,000 | …第四十七条第一項（認定）の認定個人情報保護団体の認定（政令で定めるものに限る。）認定件数一件につき九万円 | ✓ |
+| 2 | J1:`securityGuardTrainingOrgRegFee` | 90,000 | …律第百十七号）第二十三条第三項（登録講習機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円 | ✓ |
+| 3 | J1:`datingInducementInfoProviderRegFee` | 15,000 | …十三号）第十八条第一項（登録誘引情報提供機関の登録）の登録誘引情報提供機関の登録登録件数一件につき一万五千円 | ✓ |
+| 4 | J1:`casinoBusinessLicenseFee` | 150,000 | …三十年法律第八十号）第三十九条（免許等）のカジノ事業の免許（更新の免許を除く。）免許件数一件につき十五万円 | ✓ |
+| 5 | J1:`casinoFacilityOperationBusinessLicenseFee` | 150,000 | …設区域整備法第百二十四条（免許）のカジノ施設供用事業の免許（更新の免許を除く。）免許件数一件につき十五万円 | ✓ |
+| 6 | J1:`casinoRelatedEquipmentBusinessPermitFee` | 150,000 | …業、カジノ関連機器等販売業又はカジノ関連機器等修理業の許可（更新の許可を除く。）許可件数一件につき十五万円 | ✓ |
+| 7 | J1:`casinoRelatedEquipmentForeignManufacturerCertFee` | 150,000 | …機器等外国製造業の認定）のカジノ関連機器等外国製造業の認定（更新の認定を除く。）認定件数一件につき十五万円 | ✓ |
+| 8 | J1:`foreignBankBusinessLicenseFee` | 150,000 | …年法律第五十九号）第十条第二項第八号（業務の範囲）に規定する外国銀行の営業の免許免許件数一件につき十五万円 | ✓ |
+| 9 | J1:`bankForeignBankAgencyBusinessApprovalFee` | 150,000 | …二条の二第一項又は第二項（外国銀行代理業務に係る認可等）の外国銀行代理業務の認可認可件数一件につき十五万円 | ✓ |
+| 10 | J1:`longTermCreditBankForeignBankAgencyApprovalFee` | 150,000 | …六条の三第一項又は第二項（外国銀行代理業務に係る認可等）の外国銀行代理業務の認可認可件数一件につき十五万円 | ✓ |
+| 11 | J1:`bankForeignBranchEstablishmentApprovalFeePerPlace` | 150,000 | …）銀行に係る法令の規定による次に掲げる認可イ銀行の外国における支店の設置の認可支店の数一箇所につき十五万円 | ✓ |
+| 12 | J1:`bankForeignOfficeEstablishmentApprovalFeePerPlace` | 90,000 | …の変更の認可（臨時の営業所の設置に係る認可その他の政令で定める認可を除く。）営業所の数一箇所につき九万円 | ✓ |
+| 13 | J1:`bankForeignBusinessOutsourcingContractApprovalFee` | 90,000 | …）営業所の数一箇所につき九万円ハ銀行の外国における業務の委託契約の締結に係る認可認可件数一件につき九万円 | ✓ |
+| 14 | J1:`subsidiaryForeignBankBranchEstablishmentApprovalFeePerPlace` | 150,000 | …る次に掲げる認可イ銀行法第十条第二項第八号に規定する外国銀行の支店の設置の認可支店の数一箇所につき十五万円 | ✓ |
+| 15 | J1:`subsidiaryForeignBankOfficeEstablishmentApprovalFeePerPlace` | 90,000 | …の変更の認可（臨時の営業所の設置に係る認可その他の政令で定める認可を除く。）営業所の数一箇所につき九万円 | ✓ |
+| 16 | J1:`creditCooperativeBusinessLicenseFee` | 150,000 | …政令で定める認可を除く。）営業所の数一箇所につき九万円（六）信用金庫の事業の免許免許件数一件につき十五万円 | ✓ |
+| 17 | J1:`creditCooperativeForeignBankAgencyApprovalFee` | 150,000 | …号）第五十四条の二第一項（外国銀行代理業務に係る認可等）の外国銀行代理業務の認可認可件数一件につき十五万円 | ✓ |
+| 18 | J1:`creditCooperativeSubOfficeEstablishmentApprovalFeePerPlace` | 90,000 | …件数一件につき十五万円（八）信用金庫の従たる事務所の設置に係る定款変更の認可事務所の数一箇所につき九万円 | ✓ |
+| 19 | J1:`financialInstitutionConversionApprovalFee` | 150,000 | …よる転換（当該転換後の法人が労働金庫又は信用協同組合であるものを除く。）の認可転換の件数一件につき十五万円 | ✓ |
+| 20 | J1:`financialInstitutionRegistrationFee` | 150,000 | …融商品取引法（昭和二十三年法律第二十五号）第三十三条の二（金融機関の登録）の登録登録件数一件につき十五万円 | ✓ |
+| 21 | J1:`trustBusinessConcurrentOperationApprovalFee` | 150,000 | …法律（昭和十八年法律第四十三号）第一条第一項（兼営の認可）の規定による営業の認可認可件数一件につき十五万円 | ✓ |
+| 22 | J1:`bankHoldingCompanyApprovalFee` | 150,000 | …銀行法第五十二条の十七第一項又は第三項ただし書（銀行持株会社に係る認可等）の認可認可件数一件につき十五万円 | ✓ |
+| 23 | J1:`longTermCreditBankHoldingCompanyApprovalFee` | 150,000 | …十六条の二の四第一項又は第三項ただし書（長期信用銀行持株会社に係る認可等）の認可認可件数一件につき十五万円 | ✓ |
+| 24 | J1:`bankAgencyBusinessPermitFee` | 90,000 | …機関の代理業の許可（一）銀行法第五十二条の三十六第一項（許可）の銀行代理業の許可許可件数一件につき九万円 | ✓ |
+| 25 | J1:`longTermCreditBankAgencyBusinessPermitFee` | 90,000 | …用銀行法第十六条の五第一項（長期信用銀行代理業の許可）の長期信用銀行代理業の許可許可件数一件につき九万円 | ✓ |
+| 26 | J1:`creditCooperativeAgencyBusinessPermitFee` | 90,000 | …件につき九万円（三）信用金庫法第八十五条の二第一項（許可）の信用金庫代理業の許可許可件数一件につき九万円 | ✓ |
+| 27 | J1:`laborBankAgencyBusinessPermitFee` | 90,000 | …和二十八年法律第二百二十七号）第八十九条の三第一項（許可）の労働金庫代理業の許可許可件数一件につき九万円 | ✓ |
+| 28 | J1:`creditCooperativeFinancialBusinessAgencyPermitFee` | 90,000 | …八十三号）第六条の三第一項（信用協同組合代理業の許可）の信用協同組合代理業の許可許可件数一件につき九万円 | ✓ |
+| 29 | J1:`electronicPaymentOperatorRegFee` | 150,000 | …者協会等の認定（一）銀行法第五十二条の六十の三（登録）の電子決済等取扱業者の登録登録件数一件につき十五万円 | ✓ |
+| 30 | J1:`creditCooperativeElectronicPaymentOperatorRegFee` | 150,000 | …円（二）信用金庫法第八十五条の三第一項（登録）の信用金庫電子決済等取扱業者の登録登録件数一件につき十五万円 | ✓ |
+| 31 | J1:`creditCooperativeFinancialBusinessElectronicPaymentOperatorRegFee` | 150,000 | …一項（信用協同組合電子決済等取扱業の登録）の信用協同組合電子決済等取扱業者の登録登録件数一件につき十五万円 | ✓ |
+| 32 | J1:`certifiedElectronicPaymentOperatorAssociationCertFee` | 150,000 | …二十五（認定電子決済等取扱事業者協会の認定）の認定電子決済等取扱事業者協会の認定認定件数一件につき十五万円 | ✓ |
+| 33 | J1:`certifiedCreditCooperativeElectronicPaymentOperatorAssociationCertFee` | 150,000 | …金庫電子決済等取扱事業者協会の認定）の認定信用金庫電子決済等取扱事業者協会の認定認定件数一件につき十五万円 | ✓ |
+| 34 | J1:`certifiedCreditCooperativeFinancialBusinessElectronicPaymentAssociationCertFee` | 150,000 | …電子決済等取扱事業者協会の認定）の認定信用協同組合電子決済等取扱事業者協会の認定認定件数一件につき十五万円 | ✓ |
+| 35 | J1:`electronicPaymentProxyOperatorRegFee` | 90,000 | …協会等の認定（一）銀行法第五十二条の六十一の二（登録）の電子決済等代行業者の登録登録件数一件につき九万円 | ✓ |
+| 36 | J1:`creditCooperativeElectronicPaymentProxyOperatorRegFee` | 90,000 | …円（二）信用金庫法第八十五条の四第一項（登録）の信用金庫電子決済等代行業者の登録登録件数一件につき九万円 | ✓ |
+| 37 | J1:`laborBankElectronicPaymentProxyOperatorRegFee` | 90,000 | …円（三）労働金庫法第八十九条の五第一項（登録）の労働金庫電子決済等代行業者の登録登録件数一件につき九万円 | ✓ |
+| 38 | J1:`creditCooperativeFinancialBusinessElectronicPaymentProxyOperatorRegFee` | 90,000 | …一項（信用協同組合電子決済等代行業の登録）の信用協同組合電子決済等代行業者の登録登録件数一件につき九万円 | ✓ |
+| 39 | J1:`certifiedElectronicPaymentProxyOperatorAssociationCertFee` | 150,000 | …の十九（認定電子決済等代行事業者協会の認定）の認定電子決済等代行事業者協会の認定認定件数一件につき十五万円 | ✓ |
+| 40 | J1:`certifiedCreditCooperativeElectronicPaymentProxyAssociationCertFee` | 150,000 | …金庫電子決済等代行事業者協会の認定）の認定信用金庫電子決済等代行事業者協会の認定認定件数一件につき十五万円 | ✓ |
+| 41 | J1:`certifiedLaborBankElectronicPaymentProxyAssociationCertFee` | 150,000 | …金庫電子決済等代行事業者協会の認定）の認定労働金庫電子決済等代行事業者協会の認定認定件数一件につき十五万円 | ✓ |
+| 42 | J1:`certifiedCreditCooperativeFinancialBusinessElectronicPaymentProxyAssociationCertFee` | 150,000 | …電子決済等代行事業者協会の認定）の認定信用協同組合電子決済等代行事業者協会の認定認定件数一件につき十五万円 | ✓ |
+| 43 | J1:`newInsuranceBusinessLicenseFee` | 150,000 | …八十五条第一項（免許）又は第二百十九条第一項（免許）の規定による保険業の新規免許免許件数一件につき十五万円 | ✓ |
+| 44 | J1:`smallShortTermInsuranceBusinessOperatorRegFee` | 150,000 | …につき十五万円（二）保険業法第二百七十二条第一項（登録）の少額短期保険業者の登録登録件数一件につき十五万円 | ✓ |
+| 45 | J1:`specialInsuranceBusinessApprovalFee` | 150,000 | …特例）の特定保険業の認可（国の行政機関による認可として政令で定めるものに限る。）認可件数一件につき十五万円 | ✓ |
+| 46 | J1:`insuranceBrokerRegFee` | 90,000 | …認可件数一件につき十五万円（四）保険業法第二百八十六条（登録）の保険仲立人の登録登録件数一件につき九万円 | ✓ |
+| 47 | J1:`specialInsuranceSolicitorRegFee` | 15,000 | …れる委託又は再委託で財務省令で定めるものを除く。）を受けた者に係るものに限る。）登録件数一件につき一万五千円 | ✓ |
+| 48 | J1:`insuranceClaimsTrustBusinessApprovalFee` | 150,000 | …き一万五千円（六）保険業法第九十九条第七項（業務の範囲等）の保険金信託業務の認可認可件数一件につき十五万円 | ✓ |
+| 49 | J1:`insuranceHoldingCompanyApprovalFee` | 150,000 | …法第二百七十一条の十八第一項又は第三項ただし書（保険持株会社に係る認可等）の認可認可件数一件につき十五万円 | ✓ |
+| 50 | J1:`trustBusinessLicenseFee` | 150,000 | …第百五十四号）第三条（免許）又は第五十三条第一項（免許）の規定による信託業の免許免許件数一件につき十五万円 | ✓ |
+| 51 | J1:`managementTypeTrustCompanyRegFee` | 150,000 | …円（二）信託業法第七条第一項（登録）の管理型信託会社の登録（更新の登録を除く。）登録件数一件につき十五万円 | ✓ |
+| 52 | J1:`managementTypeForeignTrustCompanyRegFee` | 150,000 | …信託業法第五十四条第一項（登録）の管理型外国信託会社の登録（更新の登録を除く。）登録件数一件につき十五万円 | ✓ |
+| 53 | J1:`selfTrustBusinessRegFee` | 150,000 | …信託についての特例）の自己信託に係る事務に関する事業の登録（更新の登録を除く。）登録件数一件につき十五万円 | ✓ |
+| 54 | J1:`universityTechnologyTransferApprovedBusinessRegFee` | 150,000 | …大学技術移転事業に係る信託についての特例）の特定大学技術移転事業承認事業者の登録登録件数一件につき十五万円 | ✓ |
+| 55 | J1:`trustContractAgencyRegFee` | 90,000 | …数一件につき十五万円（六）信託業法第六十七条第一項（登録）の信託契約代理店の登録登録件数一件につき九万円 | ✓ |
+| 56 | J2:`securedBondTrustBizLicenseFee` | 150,000 | …る信託事業の免許担保付社債信託法第三条（免許）の担保付社債に関する信託事業の免許免許件数一件につき十五万円 | ✓ |
+| 57 | J2:`enterpriseValueSecurityTrustBizLicenseFee` | 150,000 | …令和六年法律第五十二号）第三十二条（免許）の企業価値担保権に関する信託業務の免許免許件数一件につき十五万円 | ✓ |
+| 58 | J2:`financialProductMarketOpeningLicenseFee` | 150,000 | …制業務の認可（一）金融商品取引法第八十条第一項（免許）の金融商品市場の開設の免許免許件数一件につき十五万円 | ✓ |
+| 59 | J2:`internationalCooperationEmissionReductionMarketApprovalFee` | 150,000 | …する二以上の会社（金融商品会員制法人を含む。）に共通する業務に係るものを除く。）認可件数一件につき十五万円 | ✓ |
+| 60 | J2:`financialExchangeOrgReorganizationApprovalFee` | 150,000 | …五万円（三）金融商品取引法第百一条の十七第一項（組織変更の認可）の組織変更の認可認可件数一件につき十五万円 | ✓ |
+| 61 | J2:`otcSecuritiesMarketOpeningApprovalFee` | 150,000 | …）金融商品取引法第六十七条の十二（規則の認可）の店頭売買有価証券市場の開設の認可認可件数一件につき十五万円 | ✓ |
+| 62 | J2:`foreignMarketTransactionApprovalFee` | 150,000 | …につき十五万円（五）金融商品取引法第百五十五条第一項（認可）の外国市場取引の認可認可件数一件につき十五万円 | ✓ |
+| 63 | J2:`financialExchangeHoldingCompanyApprovalFee` | 150,000 | …十五万円（六）金融商品取引法第百六条の十第一項又は第三項ただし書（認可等）の認可認可件数一件につき十五万円 | ✓ |
+| 64 | J2:`certifiedFinancialInstrumentsFirmAssociationCertFee` | 150,000 | …法第七十八条第一項（認定金融商品取引業協会の認定）の認定金融商品取引業協会の認定認定件数一件につき十五万円 | ✓ |
+| 65 | J2:`certifiedInvestorProtectionOrgCertFee` | 90,000 | …七十九条の七第一項（認定投資者保護団体の目的及び業務）の認定投資者保護団体の認定認定件数一件につき九万円 | ✓ |
+| 66 | J2:`selfRegulatoryBusinessApprovalFee` | 150,000 | …融商品取引法第百二条の十四（自主規制法人による自主規制業務）の自主規制業務の認可認可件数一件につき十五万円 | ✓ |
+| 67 | J2:`financialInstrumentsBusinessRegistrationFee` | 150,000 | …債務引受業務の認可（一）金融商品取引法第二十九条（登録）の金融商品取引業者の登録登録件数一件につき十五万円 | ✓ |
+| 68 | J2:`financialInstrumentsBusinessChangeRegistrationFee` | 150,000 | …法第二十九条の二第一項第八号若しくは第九号の業務を行うために受けるものに限る。）登録件数一件につき十五万円 | ✓ |
+| 69 | J2:`financialInstrumentsBusinessApprovalFee` | 150,000 | …登録件数一件につき十五万円（三）金融商品取引法第三十条第一項（認可）の業務の認可認可件数一件につき十五万円 | ✓ |
+| 70 | J2:`foreignSecuritiesUnderwritingPermissionFee` | 90,000 | …万円（四）金融商品取引法第五十九条第一項（引受業務の一部の許可）の引受業務の許可許可件数一件につき九万円 | ✓ |
+| 71 | J2:`exchangeTransactionBusinessPermissionFee` | 150,000 | …（五）金融商品取引法第六十条第一項（取引所取引業務の許可）の取引所取引業務の許可許可件数一件につき十五万円 | ✓ |
+| 72 | J2:`electronicOtcDerivativeBusinessPermissionFee` | 150,000 | …項（電子店頭デリバティブ取引等業務の許可）の電子店頭デリバティブ取引等業務の許可許可件数一件につき十五万円 | ✓ |
+| 73 | J2:`financialInstrumentsIntermediaryRegistrationFee` | 90,000 | …一件につき十五万円（七）金融商品取引法第六十六条（登録）の金融商品仲介業者の登録登録件数一件につき九万円 | ✓ |
+| 74 | J2:`creditRatingAgencyRegistrationFee` | 90,000 | …件につき九万円（八）金融商品取引法第六十六条の二十七（登録）の信用格付業者の登録登録件数一件につき九万円 | ✓ |
+| 75 | J2:`investmentManagementRelatedBusinessTrusteeRegistrationFee` | 90,000 | …円（九）金融商品取引法第六十六条の七十一（登録）の投資運用関係業務受託業者の登録登録件数一件につき九万円 | ✓ |
+| 76 | J2:`financialInstrumentsBusinessChangeRegistrationArticle66_75Fee` | 90,000 | …六十六条の七十二第一項第六号（登録の申請）の業務の種別の増加に係るものに限る。）登録件数一件につき九万円 | ✓ |
+| 77 | J2:`financialInstrumentClearingCorpDebtAssumptionLicenseFee` | 150,000 | …品取引法第百五十六条の二（免許）の金融商品取引清算機関の金融商品債務引受業の免許免許件数一件につき十五万円 | ✓ |
+| 78 | J2:`foreignFinancialInstrumentClearingCorpDebtAssumptionLicenseFee` | 150,000 | …百五十六条の二十の二（免許）の外国金融商品取引清算機関の金融商品債務引受業の免許免許件数一件につき十五万円 | ✓ |
+| 79 | J2:`linkedFinancialInstrumentDebtAssumptionApprovalFee` | 150,000 | …他の金融商品取引清算機関等と連携する場合の認可）の連携金融商品債務引受業務の認可認可件数一件につき十五万円 | ✓ |
+| 80 | J2:`securitiesFinanceCompanyLicenseFee` | 150,000 | …融商品取引法第百五十六条の二十四第一項（免許及び免許の申請）の証券金融会社の免許免許件数一件につき十五万円 | ✓ |
+| 81 | J2:`specifiedFinancialCompanyRegistrationFee` | 150,000 | …行等に関する法律（平成十一年法律第三十二号）第三条（登録）の特定金融会社等の登録登録件数一件につき十五万円 | ✓ |
+| 82 | J2:`moneyLenderRegistrationFee` | 150,000 | …号）第三条第一項（登録）の内閣総理大臣がする貸金業者の登録（更新の登録を除く。）登録件数一件につき十五万円 | ✓ |
+| 83 | J2:`moneyLendingBusinessManagerTrainingInstitutionRegistrationFee` | 90,000 | …金業法第二十四条の二十五第二項（登録講習機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円 | ✓ |
+| 84 | J2:`mutualFinancingBusinessLicenseFee` | 150,000 | …の認可（一）無尽業法（昭和六年法律第四十二号）第二条第一項（免許）の無尽業の免許免許件数一件につき十五万円 | ✓ |
+| 85 | J2:`mutualFinancingCompanyBranchOfficeApprovalFee` | 90,000 | …尽業法第七条第三号（認可）の無尽会社の出張所又は代理店の設置の認可出張所又は代理店の数一箇所につき九万円 | ✓ |
+| 86 | J2:`financialServicesIntermediaryRegistrationFee` | 90,000 | …関する法律（平成十二年法律第百一号）第十二条（登録）の金融サービス仲介業者の登録登録件数一件につき九万円 | ✓ |
+| 87 | J2:`financialServicesIntermediaryChangeRegistrationFee` | 90,000 | …録（同法第十三条第一項第四号（登録の申請）の業務の種別の増加に係るものに限る。）登録件数一件につき九万円 | ✓ |
+| 88 | J2:`certifiedFinancialServicesIntermediaryAssociationCertFee` | 150,000 | …律第四十条（認定金融サービス仲介業協会の認定）の認定金融サービス仲介業協会の認定認定件数一件につき十五万円 | ✓ |
+| 89 | J2:`thirdPartyPrepaidPaymentInstrumentIssuerRegistrationFee` | 150,000 | …第五十九号）第七条（第三者型発行者の登録）の第三者型前払式支払手段の発行者の登録登録件数一件につき十五万円 | ✓ |
+| 90 | J2:`fundsTransferServiceProviderRegistrationFee` | 150,000 | …円（二）資金決済に関する法律第三十七条（資金移動業者の登録）の資金移動業者の登録登録件数一件につき十五万円 | ✓ |
+| 91 | J2:`fundsTransferServiceProviderChangeRegistrationFee` | 150,000 | …につき十五万円（三）資金決済に関する法律第四十一条第一項（変更登録等）の変更登録登録件数一件につき十五万円 | ✓ |
+| 92 | J2:`electronicPaymentInstrumentEtcTransactionBusinessRegistrationFee` | 150,000 | …法律第六十二条の三（電子決済手段等取引業者の登録）の電子決済手段等取引業者の登録登録件数一件につき十五万円 | ✓ |
+| 93 | J2:`electronicPaymentInstrumentEtcTransactionBusinessChangeRegistrationFee` | 150,000 | …き十五万円（五）資金決済に関する法律第六十二条の七第一項（変更登録等）の変更登録登録件数一件につき十五万円 | ✓ |
+| 94 | J2:`cryptoAssetExchangeBusinessRegistrationFee` | 150,000 | …決済に関する法律第六十三条の二（暗号資産交換業者の登録）の暗号資産交換業者の登録登録件数一件につき十五万円 | ✓ |
+| 95 | J2:`electronicPaymentCryptoAssetServiceIntermediaryRegistrationFee` | 90,000 | …・暗号資産サービス仲介業者の登録）の電子決済手段・暗号資産サービス仲介業者の登録登録件数一件につき九万円 | ✓ |
+| 96 | J2:`electronicPaymentCryptoAssetServiceIntermediaryChangeRegistrationFee` | 90,000 | …円（八）資金決済に関する法律第六十三条の二十二の六第一項（変更登録等）の変更登録登録件数一件につき九万円 | ✓ |
+| 97 | J2:`foreignExchangeAnalysisBusinessPermissionFee` | 150,000 | …に関する法律第六十三条の二十三（為替取引分析業者の許可）の為替取引分析業者の許可許可件数一件につき十五万円 | ✓ |
+| 98 | J2:`businessCategoryChangePermissionFee` | 150,000 | …決済に関する法律第六十三条の三十三第一項（業務の種別の変更の許可等）の変更の許可許可件数一件につき十五万円 | ✓ |
+| 99 | J2:`fundsClearingBusinessLicenseFee` | 150,000 | …）資金決済に関する法律第六十四条第一項（資金清算機関の免許等）の資金清算業の免許免許件数一件につき十五万円 | ✓ |
+| 100 | J2:`certifiedFundsSettlementBusinessAssociationCertFee` | 150,000 | …する法律第八十七条（認定資金決済事業者協会の認定）の認定資金決済事業者協会の認定認定件数一件につき十五万円 | ✓ |
+| 101 | J3:`limitedLiabilityAuditCorpRegFee` | 150,000 | …団体等の認定（一）公認会計士法第三十四条の二十四（有限責任監査法人の登録）の登録登録件数一件につき十五万円 | ✓ |
+| 102 | J3:`registeredListedCompanyAuditFirmRegFee` | 90,000 | …万円（二）公認会計士法第三十四条の三十四の二（登録上場会社等監査人の登録）の登録登録件数一件につき九万円 | ✓ |
+| 103 | J3:`cpaPracticalTrainingOrgCertFee` | 150,000 | …件につき九万円（三）公認会計士法第十六条第一項（実務補習）の実務補習団体等の認定認定件数一件につき十五万円 | ✓ |
+| 104 | J3:`consumerAffairsCounselorExamOrgRegFee` | 150,000 | …法律第五十号）第十条の三第一項（登録試験機関の登録）の登録（更新の登録を除く。）登録件数一件につき十五万円 | ✓ |
+| 105 | J3:`specifiedQualifiedConsumerOrgCertFee` | 15,000 | …十六号）第七十一条第一項（特定適格消費者団体の認定）の認定（更新の認定を除く。）認定件数一件につき一万五千円 | ✓ |
+| 106 | J3:`telecomBusinessRegFee` | 150,000 | …同法第十条第一項第三号（電気通信事業の登録）の業務区域の増加に係るものに限る。）登録件数一件につき十五万円 | ✓ |
+| 107 | J3:`certifiedCyberAttackResponseAssocCertFee` | 150,000 | …サイバー攻撃対処協会の認定）の認定送信型対電気通信設備サイバー攻撃対処協会の認定認定件数一件につき十五万円 | ✓ |
+| 108 | J3:`telecomChiefEngineerTrainingOrgRegFee` | 90,000 | …十五条の二第一項（登録講習機関の登録）の登録講習機関の登録（更新の登録を除く。）登録件数一件につき九万円 | ✓ |
+| 109 | J3:`terminalEquipmentCertOrgRegFee` | 90,000 | …第八十六条第一項（登録認定機関の登録）の登録認定機関の登録（更新の登録を除く。）登録件数一件につき九万円 | ✓ |
+| 110 | J3:`registeredSenderOptimizationOrgRegFee` | 90,000 | …二十六号）第十四条第一項（登録送信適正化機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円 | ✓ |
+| 111 | J3:`certifiedCertificationBusinessRegFee` | 90,000 | …年法律第百二号）第四条第一項（認定）の認定認証事業者の認定（更新の認定を除く。）認定件数一件につき九万円 | ✓ |
+| 112 | J3:`certifiedForeignCertificationBusinessRegFee` | 90,000 | …関する法律第十五条第一項（認定）の認定外国認証事業者の認定（更新の認定を除く。）認定件数一件につき九万円 | ✓ |
+| 113 | J3:`certifiedElectronicPowerOfAttorneyBusinessRegFee` | 90,000 | …電子委任状取扱業務の認定）の認定電子委任状取扱事業者の認定（更新の認定を除く。）認定件数一件につき九万円 | ✓ |
+| 114 | J3:`radioStationLicenseFee` | 30,000 | …設備に係る特例）に規定する実験等無線局その他政令で定める無線局の免許を除く。）無線局の数一局につき三万円 | ✓ |
+| 115 | J3:`broadcastRadioStationLicenseFee` | 150,000 | …定める無線局の免許を除く。）無線局の数一局につき三万円（電波法第五条第四項の放送をする無線局については、十五万円 | ✓ |
+| 116 | J3:`radioStationRegFee` | 30,000 | …条の二十一第一項（登録）の無線局の登録（再登録その他政令で定める登録を除く。）無線局の数一局につき三万円 | ✓ |
+| 117 | J3:`radioEquipmentInspectionBusinessRegFee` | 90,000 | …事業者の登録）の無線設備等の検査又は点検に係る事業者の登録（更新の登録を除く。）登録件数一件につき九万円 | ✓ |
+| 118 | J3:`foreignRadioEquipmentInspectionBusinessRegFee` | 90,000 | …二第一項（外国点検事業者の登録）の外国における無線設備等の点検に係る事業者の登録登録件数一件につき九万円 | ✓ |
+| 119 | J3:`registeredRadioEquipmentCertOrgRegFee` | 90,000 | …条の二の二第一項（登録証明機関の登録）の登録証明機関の登録（更新の登録を除く。）登録件数一件につき九万円 | ✓ |
+| 120 | J3:`registeredFrequencyTerminationOrgRegFee` | 90,000 | …十一条の三の二第一項（登録周波数終了対策機関の登録）の登録（更新の登録を除く。）登録件数一件につき九万円 | ✓ |
+| 121 | J3:`certifiedKeyBroadcastBusinessCertFee` | 90,000 | …十二号）第九十三条第一項（認定）の認定基幹放送事業者の認定（更新の認定を除く。）認定件数一件につき九万円 | ✓ |
+| 122 | J3:`registeredGeneralBroadcastBusinessRegFee` | 90,000 | …いる業務区域の属する都道府県における業務区域の増加に係るものを除く。）に限る。）登録件数一件につき九万円 | ✓ |
+| 123 | J3:`certifiedBroadcastHoldingCompanyCertFee` | 150,000 | …数一件につき九万円（三）放送法第百五十九条第一項（認定）の認定放送持株会社の認定認定件数一件につき十五万円 | ✓ |
+| 124 | J3:`generalMailBusinessLicenseFee` | 90,000 | …関する法律（平成十四年法律第九十九号）第六条（事業の許可）の一般信書便事業の許可許可件数一件につき九万円 | ✓ |
+| 125 | J3:`specifiedMailBusinessLicenseFee` | 30,000 | …事業者による信書の送達に関する法律第二十九条（事業の許可）の特定信書便事業の許可許可件数一件につき三万円 | ✓ |
+
+### J-2. needle 健全性の独立検証
+`scripts/ci/transcription_audit.py` の `checks()` を Python で import し、`RegistryQualificationFeesJ1/J2/J3` の 3 check に含まれる needle を抽出して検証した（STAGING の needle テキストを信じず、実際に CI が使う文字列を検査）。
+
+| 項目 | 結果 |
+|---|---|
+| needle 総数 | **56**（J1 15 / J2 17 / J3 24） |
+| U+3000（全角空白）を含む needle | **0 件** |
+| pinned 正規化テキスト長 | 211,508 文字 |
+| `.find()` 結果 | **56/56 FOUND、MISS 0** |
+| 出現回数 | 全 needle で **count = 1**（一意） |
+
+- J1 needle の offset: 147158 / 147240 / 147355 / 147519 / 147759 / 147901 / 148155 / 148750 / 149017 / 149346 / 149795 / 150555 / 150999 / 151329 / 151528。
+- J2 needle の offset: 151638 / 151855 / 152073 / 152290 / 152506 / 152724 / 152943 / 153160 / 153376 / 153593 / 153809 / 154025 / 154241 / 154458 / 154675 / 154891 / 155108（すべて count 1）。
+- J3 needle の offset: 155251 / 155348 / 155441 / 155534 / 156007 / 156113 / 156199 / 156263 / 156348 / 156464 / 156540 / 156603 / 156793 / 156883 / 156960 / 157022 / 157094 / 157159 / 157221 / 157322 / 157464 / 157569 / 157622 / 157691（すべて count 1）。
+- 補足: `STAGING_WAC.md` §3 は「原文の … 全角空白等も保持」と書いているが、**実際に `transcription_audit.py` に組み込まれた needle は正規化済みで U+3000 を一切含まない**。Coordinator による初回の全角空白検出・正規化が反映済みであり、pinned 原文の正規化テキストに対する `.find()` は全件通る。原文側の全角空白は `_norm` で除去されるため、needle が原文の全角空白を含んでいても検証は通るが、現状は含まない。
+
+### J-3. 条件漏れ・デーミング・削除条項の扱い（独立確認）
+
+| 原文現象 | 独立抽出での確認 | モデル側の扱い | 判定 |
+|---|---|---|---|
+| 「更新の登録（免許／許可／認定）を除く。」 | region に `更新` **23 回** | 該当性は caller-established、Bool は金額式に入れず | BY-DESIGN |
+| 「政令で定めるものに限る。」「政令で定める認可を除く。」等 | region に `政令` **6 回** | 同上（caller-established） | BY-DESIGN |
+| 三十七（注）「…特定保険募集人の登録とみなす。」 | region に `みなす` 2 回のうち 1 回 | 金額なし。**fee def なし**、doc-comment に逐語記載のみ | BY-DESIGN |
+| 五十一（注）「…変更の認定は当該登録とみなす。」 | `みなす` 2 回のうち 1 回 | 金額なし。**fee def なし**、doc-comment（caller-established）のみ | BY-DESIGN |
+| 四十二及び四十三「削除」 | region に `削除` 2 回のうち 1 回 | fee string なし。**fee def なし**（impl/Spec/Tests とも対応定数なし） | BY-DESIGN |
+| 五十六から五十八まで「削除」 | `削除` 2 回のうち 1 回 | 同上。**fee def なし** | BY-DESIGN |
+| 「既に…については一万五千円」の軽減（デーミング）規定 | **本範囲（三十三〜五十九）に 0 回**。pinned 全文では 19 回だが、いずれも百号台（百一〜百十九・百四十二の三 等）で本バッチ範囲外 | 本バッチの範囲外として **NOT COVERED**（正しい範囲扱い） | BY-DESIGN |
+| 「〜数一箇所につき」（三十五(四)イ・ロ、(五)イ・ロ、(八)） | 原文どおり一箇所あたり単価 | `...PerPlace` suffix、箇所数は caller-established（Nat 掛け算なし） | BY-DESIGN |
+| 五十四(一) 特例「放送をする無線局については、十五万円」 | region に 1 回（括弧内） | 独立定数 `broadcastRadioStationLicenseFee` = 150,000 としてモデル化、適用判定は caller-established | BY-DESIGN |
+
+- 「消防設備等」について: pinned 原文では **`六十` 号**（「六十消防の設備等に係る登録検定機関の登録…」）であり、五十〜五十九の region には `消防` **0 回**。`transcription_audit.py` の J3 check 名にある「消防設備等」は**表記の緩み**だが、needle はすべて五十〜五十九内（offset 155251〜157691）、六十 は NOT YET COVERED であり、**fee 欠落・金額不一致ではない**。
+
+### J-4. 反例探索
+
+| 反例 | 結果 |
+|---|---|
+| 件数 0 | 全 125 件が定額 `Money` 定数なので計算は存在しない。件数 0 のとき 0 円を返すのは呼び出し側の責任（caller-established）。定数側に矛盾なし。 |
+| 件数 1 | 定数がそのまま 1 件分の額（例: `insuranceBrokerRegFee = 90_000`）。原文「一件につき九万円」と一致。矛盾なし。 |
+| 境界値（更新登録・既登録者・業務区域増加等） | 適用判定 Bool を金額式に組んでいないため、どの条件でも定数値は不変。矛盾なし。 |
+| ゼロ円定数 | 全 125 定数に `*_pos : fee > 0 := by decide` が付与され、原文の最小額も 15,000 円。**0 円定数なし**。 |
+| 割合型の誤転記（10 倍過大） | 本範囲に割合型が存在しないため対象外。小数点率定数は 1 件もない。 |
+| 単調性 | 本モジュールは定数のみで関数計算がないため、単調性定理の対象なし（BY-DESIGN）。 |
+
+**反例探索で見つかった原文↔Lean の矛盾: 0 件。**
+
+### J-5. 公理監査
+一時ファイル `C:\Users\junny\AppData\Local\Temp\opencode\BatchJAxiomProbe.lean` を作成し、3 モジュール＋3 Spec の**名前付き宣言 378 件**（J1 impl 110 / J1Spec 56 / J2 impl 90 / J2Spec 46 / J3 impl 50 / J3Spec 26）すべてに `#print axioms` を実行（`lake env lean`、exit code **0**）。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 378 |
+| `does not depend on any axioms` | **378/378** |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+
+一時 lean ファイル（および一時 Python スクリプト・出力）は**削除済み**。
+
+### J-6. 判定
+
+#### CONFIRMED（0 件）
+**ゼロ。** 金額不一致・fee 脱落・needle MISS・公理混入・反例矛盾はいずれも発見されなかった。
+
+#### BY-DESIGN（9 件）
+- **B-J1** 全 125 件が定額 `Money` 定数。件数・箇所数の Nat 掛け算は行わず caller-established。
+- **B-J2** 本範囲に割合型なし（`千分`/`百分`/`割合` 各 0 回を独立確認）。`TaxRate`/`applyFloor` 不使用。
+- **B-J3** 「更新の登録を除く」「政令で定めるものに限る」等の適用判定は caller-established、Bool を式に入れない。
+- **B-J4** 三十七（注）・五十一（注）のみなし（デーミング）規定は金額なし、fee def なし（doc-comment のみ）。
+- **B-J5** 四十二・四十三、五十六〜五十八の削除行は fee def なし。
+- **B-J6** 「既に…については一万五千円」軽減規定は本範囲に存在せず、百一以降の範囲外として NOT COVERED。
+- **B-J7** 「一箇所につき」5 件は `PerPlace` suffix（一箇所あたり単価）、箇所数は caller-established。
+- **B-J8** 五十四(一) の放送用無線局の特例十五万円は独立定数としてモデル化、適用判定は caller-established。
+- **B-J9** 五十以前・六十以降（消防設備等＝六十 を含む）は NOT YET COVERED。check 名の「消防設備等」は表記の緩みで、needle・fee への影響なし。
+
+#### UNRESOLVED（2 件）
+- **U-J1** 「更新の登録を除く」「政令で定めるものに限る」「業務区域の増加に係るものに限る」等の適用条件をモデル化せず caller-established とする処理が、形式化として法的に十分か。pinned 原文のみでは解けず、**人間の法律専門家によるレビューを要する**（バッチ I の U-2 と同種）。
+- **U-J2** 五十四(一) の「放送をする無線局については、十五万円」という条件付き代替額を独立定数で表現することが原文の法的意味に合致するか。pinned 原文のみでは確定できず、**専門家判断を要する**。
+
+#### 要約
+- **CONFIRMED: 0 件（発見ゼロ）** / **BY-DESIGN: 9 件** / **UNRESOLVED: 2 件**。
+- needle 健全性: U+3000 **0 件**、**56/56 FOUND**（MISS 0、すべて count 1）。
+- 公理結果: Choice / sorryAx / Quot.sound / propext すべて **0 件**、378/378 axiom-free。一時ファイルは削除済み。
+- Lean モジュール変更: **なし**。書き換えたのは本ファイルのみ（既存 G/H/I レビュー保持）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・125 定数との金額/順序照合・needle の `.find()` 検証・反例走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
