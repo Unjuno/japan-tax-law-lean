@@ -527,6 +527,15 @@ JapanTaxLaw/LocalTaxOrderRate77Tests.lean      # 同上 退行テスト
 JapanTaxLaw/SpecialOrderCapitalGainDeduction.lean    # 租税特別措置法施行令 art. 24（譲渡所得特別控除5000万円上限）L4 モデル
 JapanTaxLaw/SpecialOrderCapitalGainDeductionSpec.lean # 同上 独立定式
 JapanTaxLaw/SpecialOrderCapitalGainDeductionTests.lean # 同上 退行テスト
+JapanTaxLaw/LocalTaxMedicalIncomeRatio.lean        # 地方税法施行令 art. 21の8（医療収入割合≤3/10）L4 モデル
+JapanTaxLaw/LocalTaxMedicalIncomeRatioSpec.lean    # 同上 独立定式
+JapanTaxLaw/LocalTaxMedicalIncomeRatioTests.lean   # 同上 退行テスト
+JapanTaxLaw/LocalTaxOfficeApportionment.lean       # 地方税法施行令 art. 56の50（事業所税の床面積按分）L4 モデル
+JapanTaxLaw/LocalTaxOfficeApportionmentSpec.lean   # 同上 独立定式
+JapanTaxLaw/LocalTaxOfficeApportionmentTests.lean  # 同上 退行テスト
+JapanTaxLaw/SpecialOrderPensionMinimum.lean        # 租税特別措置法施行令 art. 26の27（公的年金控除最低額118/168/90万円）L4 モデル
+JapanTaxLaw/SpecialOrderPensionMinimumSpec.lean    # 同上 独立定式
+JapanTaxLaw/SpecialOrderPensionMinimumTests.lean   # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト

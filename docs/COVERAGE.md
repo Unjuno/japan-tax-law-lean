@@ -49,9 +49,9 @@ by the '税' keyword in the law name only.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 108 | n/a | n/a |
+| pinned literal checks | 111 | n/a | n/a |
 | distinct article pins | 46 | 42584 | 0.11% |
-| pinned Lean modules (cross-law) | 338 | n/a | n/a |
+| pinned Lean modules (cross-law) | 347 | n/a | n/a |
 
 ## Independent transcription-review axis (Objective §4, separate from fidelity-only audit)
 
