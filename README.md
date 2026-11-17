@@ -509,6 +509,15 @@ JapanTaxLaw/RegistryQualificationFeesJ2Tests.lean   # 同上 退行テスト
 JapanTaxLaw/RegistryQualificationFeesJ3.lean        # 登録免許税法 別表第一（二）五十〜五十九 L4 モデル
 JapanTaxLaw/RegistryQualificationFeesJ3Spec.lean    # 同上 独立定式
 JapanTaxLaw/RegistryQualificationFeesJ3Tests.lean   # 同上 退行テスト
+JapanTaxLaw/LocalTaxLightOilQuantity.lean          # 地方税法施行令 art. 43の13（軽油引取数量の減少）L4 モデル
+JapanTaxLaw/LocalTaxLightOilQuantitySpec.lean      # 同上 独立定式
+JapanTaxLaw/LocalTaxLightOilQuantityTests.lean     # 同上 退行テスト
+JapanTaxLaw/LocalTaxVehicleSnowRate.lean           # 地方税法施行令 art. 44の3（自動車税の積雪軽減）L4 モデル
+JapanTaxLaw/LocalTaxVehicleSnowRateSpec.lean       # 同上 独立定式
+JapanTaxLaw/LocalTaxVehicleSnowRateTests.lean      # 同上 退行テスト
+JapanTaxLaw/LocalTaxInsuranceEstimate.lean         # 地方税法施行令 art. 56の89の6（国保税額の月割見込）L4 モデル
+JapanTaxLaw/LocalTaxInsuranceEstimateSpec.lean     # 同上 独立定式
+JapanTaxLaw/LocalTaxInsuranceEstimateTests.lean    # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト
