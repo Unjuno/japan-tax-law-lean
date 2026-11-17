@@ -14,8 +14,8 @@ Independent restatement of the statutory fee amounts as plain Nat arithmetic,
 **not** reusing the implementation's `TaxRate.applyFloor` helper:
 
   割合型 19 件（課税標準基準、切り捨て）:
-    千分の二・五 ..... (base * 25) / 10000  （pinned モデル num=25, den=1000）
-    千分の一・五 ..... (base * 15) / 10000  （pinned モデル num=15, den=1000）
+    千分の二・五 ..... (base * 25) / 10000  （pinned モデル num=25, den=10000）
+    千分の一・五 ..... (base * 15) / 10000  （pinned モデル num=15, den=10000）
     千分の三 ......... (base * 3) / 1000   （num=3, den=1000）
   定額型 24 件: 6,000 / 30,000 / 1,000 / 15,000 / 7,500 円（一件・一個・一両あたり）。
 
@@ -29,43 +29,43 @@ namespace JapanTaxLaw.RegistryCorporateSecurityFees
 open JapanTaxLaw.TaxFinance
 
 /-! === 独立整数定式: 割合型 (base * X) / 1000 === -/
-/-- Spec: 六（一） 企業担保権の設定の登記 — 債権金額千分の二・五（pinned モデル num=25, den=1000）。 -/
+/-- Spec: 六（一） 企業担保権の設定の登記 — 債権金額千分の二・五（pinned モデル num=25, den=10000）。 -/
 def specCorporateSecurityEstablishmentFee (base : Nat) : Nat := (base * 25) / 10000
-/-- Spec: 六（二） 企業担保権の移転の登記 — 債権金額千分の一・五（pinned モデル num=15, den=1000）。 -/
+/-- Spec: 六（二） 企業担保権の移転の登記 — 債権金額千分の一・五（pinned モデル num=15, den=10000）。 -/
 def specCorporateSecurityTransferFee (base : Nat) : Nat := (base * 15) / 10000
-/-- Spec: 六（四） 信託の登記 — 債権金額千分の一・五（pinned モデル num=15, den=1000）。 -/
+/-- Spec: 六（四） 信託の登記 — 債権金額千分の一・五（pinned モデル num=15, den=10000）。 -/
 def specCorporateSecurityTrustFee (base : Nat) : Nat := (base * 15) / 10000
-/-- Spec: 七（一） 抵当権の設定又は強制競売若しくは強制管理の申立ての登録 — 債権金額又は極度金額千分の二・五（num=25, den=1000）。 -/
+/-- Spec: 七（一） 抵当権の設定又は強制競売若しくは強制管理の申立ての登録 — 債権金額又は極度金額千分の二・五（num=25, den=10000）。 -/
 def specRailwayFoundationMortgageEstablishmentFee (base : Nat) : Nat := (base * 25) / 10000
-/-- Spec: 七（二） 抵当権の移転の登録 — 債権金額又は極度金額千分の一・五（num=15, den=1000）。 -/
+/-- Spec: 七（二） 抵当権の移転の登録 — 債権金額又は極度金額千分の一・五（num=15, den=10000）。 -/
 def specRailwayFoundationMortgageTransferFee (base : Nat) : Nat := (base * 15) / 10000
-/-- Spec: 七（三） 根抵当権の一部譲渡又は法人の分割による移転の登録 — 一部譲渡又は分割後の共有者の数で極度金額を除して計算した金額千分の一・五（num=15, den=1000）。 -/
+/-- Spec: 七（三） 根抵当権の一部譲渡又は法人の分割による移転の登録 — 一部譲渡又は分割後の共有者の数で極度金額を除して計算した金額千分の一・五（num=15, den=10000）。 -/
 def specRailwayFoundationRootMortgagePartialTransferFee (base : Nat) : Nat := (base * 15) / 10000
-/-- Spec: 七（五） 信託の登録 — 債権金額又は極度金額千分の一・五（num=15, den=1000）。 -/
+/-- Spec: 七（五） 信託の登録 — 債権金額又は極度金額千分の一・五（num=15, den=10000）。 -/
 def specRailwayFoundationTrustFee (base : Nat) : Nat := (base * 15) / 10000
 /-- Spec: 八（一）イ 農業用動産の抵当権の設定の登記 — 債権金額又は極度金額千分の三（num=3, den=1000）。 -/
 def specAgriculturalMovableMortgageEstablishmentFee (base : Nat) : Nat := (base * 3) / 1000
-/-- Spec: 八（一）ロ 農業用動産の抵当権の移転の登記 — 債権金額又は極度金額千分の一・五（num=15, den=1000）。 -/
+/-- Spec: 八（一）ロ 農業用動産の抵当権の移転の登記 — 債権金額又は極度金額千分の一・五（num=15, den=10000）。 -/
 def specAgriculturalMovableMortgageTransferFee (base : Nat) : Nat := (base * 15) / 10000
-/-- Spec: 八（一）ハ 農業用動産の根抵当権の一部譲渡又は法人の分割による移転の登記 — 計算した金額千分の一・五（num=15, den=1000）。 -/
+/-- Spec: 八（一）ハ 農業用動産の根抵当権の一部譲渡又は法人の分割による移転の登記 — 計算した金額千分の一・五（num=15, den=10000）。 -/
 def specAgriculturalMovableRootMortgagePartialTransferFee (base : Nat) : Nat := (base * 15) / 10000
-/-- Spec: 八（一）ホ 農業用動産の抵当権の信託の登記 — 債権金額又は極度金額千分の一・五（num=15, den=1000）。 -/
+/-- Spec: 八（一）ホ 農業用動産の抵当権の信託の登記 — 債権金額又は極度金額千分の一・五（num=15, den=10000）。 -/
 def specAgriculturalMovableMortgageTrustFee (base : Nat) : Nat := (base * 15) / 10000
 /-- Spec: 八（二）イ 建設機械の抵当権の設定の登記 — 債権金額又は極度金額千分の三（num=3, den=1000）。 -/
 def specConstructionMachineryMortgageEstablishmentFee (base : Nat) : Nat := (base * 3) / 1000
-/-- Spec: 八（二）ロ 建設機械の抵当権の移転の登記 — 債権金額又は極度金額千分の一・五（num=15, den=1000）。 -/
+/-- Spec: 八（二）ロ 建設機械の抵当権の移転の登記 — 債権金額又は極度金額千分の一・五（num=15, den=10000）。 -/
 def specConstructionMachineryMortgageTransferFee (base : Nat) : Nat := (base * 15) / 10000
-/-- Spec: 八（二）ハ 建設機械の根抵当権の一部譲渡又は法人の分割による移転の登記 — 計算した金額千分の一・五（num=15, den=1000）。 -/
+/-- Spec: 八（二）ハ 建設機械の根抵当権の一部譲渡又は法人の分割による移転の登記 — 計算した金額千分の一・五（num=15, den=10000）。 -/
 def specConstructionMachineryRootMortgagePartialTransferFee (base : Nat) : Nat := (base * 15) / 10000
-/-- Spec: 八（二）ホ 建設機械の抵当権の信託の登記 — 債権金額又は極度金額千分の一・五（num=15, den=1000）。 -/
+/-- Spec: 八（二）ホ 建設機械の抵当権の信託の登記 — 債権金額又は極度金額千分の一・五（num=15, den=10000）。 -/
 def specConstructionMachineryMortgageTrustFee (base : Nat) : Nat := (base * 15) / 10000
 /-- Spec: 八（三）イ 自動車の抵当権の設定の登録 — 債権金額又は極度金額千分の三（num=3, den=1000）。 -/
 def specAutomobileMortgageEstablishmentFee (base : Nat) : Nat := (base * 3) / 1000
-/-- Spec: 八（三）ロ 自動車の抵当権の移転の登録 — 債権金額又は極度金額千分の一・五（num=15, den=1000）。 -/
+/-- Spec: 八（三）ロ 自動車の抵当権の移転の登録 — 債権金額又は極度金額千分の一・五（num=15, den=10000）。 -/
 def specAutomobileMortgageTransferFee (base : Nat) : Nat := (base * 15) / 10000
-/-- Spec: 八（三）ハ 自動車の根抵当権の一部譲渡又は法人の分割による移転の登録 — 計算した金額千分の一・五（num=15, den=1000）。 -/
+/-- Spec: 八（三）ハ 自動車の根抵当権の一部譲渡又は法人の分割による移転の登録 — 計算した金額千分の一・五（num=15, den=10000）。 -/
 def specAutomobileRootMortgagePartialTransferFee (base : Nat) : Nat := (base * 15) / 10000
-/-- Spec: 八（三）ニ 自動車の抵当権の信託の登録 — 債権金額又は極度金額千分の一・五（num=15, den=1000）。 -/
+/-- Spec: 八（三）ニ 自動車の抵当権の信託の登録 — 債権金額又は極度金額千分の一・五（num=15, den=10000）。 -/
 def specAutomobileMortgageTrustFee (base : Nat) : Nat := (base * 15) / 10000
 
 /-! === 独立整数定式: 定額 24 件 === -/
