@@ -136,4 +136,7 @@ example : fishingRightLienTrustFee 1001 = 2 := by decide
 example : fishingRightLienTrustFee 12345 = 24 := by decide
 example : fishingRightLienTrustFee 1000000 = 2000 := by decide
 
+-- 二十五（三） 特定目的会社の登記の抹消 ¥10,000
+example : specialPurposeCompanyCancellationFeePerApplication = 10000 := by decide
+
 end JapanTaxLaw.RegistryForeignCompanyFees

@@ -47,7 +47,7 @@ Scope & honest boundaries:
     持たないため、floor を per-law business data として採用した。
   * 割合型の税額は `base` が小さいと 0 になり得るため strict positivity は成り立たない。
     代わりに各率定数の `den_pos` と各定数の正性、各税額関数の smoke を付与する。
-  * 二十二の二（十三）は担当範囲原文が文中で途切れており fee string を持たないため
+  * 二十二の二（十三）は担当範囲原文が文中で途切れており fee string は W-Z モデル化済み（重複回避）ため
     モデル化しない。担当範囲外の号・他の別表・登録免許税法全体（免税・軽減、納税義務者等）は
     **NOT YET COVERED**。pinned evidence は doc-comment のみで、各定理は実法的意味ではなく
     モデルの性質のみを主張する（誠実性の原則）。

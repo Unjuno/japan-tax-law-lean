@@ -53,6 +53,15 @@ by the '税' keyword in the law name only.
 | distinct article pins | 46 | 42584 | 0.11% |
 | pinned Lean modules (cross-law) | 311 | n/a | n/a |
 
+## Independent transcription-review axis (Objective §4, separate from fidelity-only audit)
+
+| axis | count |
+|---|---:|
+| adversarial review sessions recorded | 3 |
+
+These are machine-based independent cross-checks by a separate review
+agent, NOT human legal review and NOT a count of fully reviewed articles.
+
 ## Human legal review axis (denominator = L7 candidates)
 
 | axis | count | denominator | rate |

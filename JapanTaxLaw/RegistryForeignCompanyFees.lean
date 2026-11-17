@@ -17,7 +17,7 @@ Sources (pinned):
 `TaxRate ⟨X, 1000⟩` 定数と税額関数 `base.applyFloor`（= 課税標準 × X / 1000、
 切り捨て）としてモデル化する。金額は日本語数字で検証して Arabic に変換した。
 
-  【二十二 鉱業権（末尾のみ）】
+  【二十二の二（十三）（十四） 試掘区域/貯留区域 変更・抹消（末尾のみ）】
     変更の登録 ........................ 試掘区域又は貯留区域の数一個につき千円 ... 1,000
     （十四）登録の抹消 ................ 試掘区域又は貯留区域の数一個につき千円 ... 1,000
 
@@ -185,6 +185,14 @@ def foreignCompanyLiquidationMiscFeePerApplication : Money := 6000
 def specialPurposeCompanyEstablishmentFeePerApplication : Money := 30000
 /-- 二十五（二） （一）及び（三）に掲げる登記以外の登記 — 申請件数一件につき一万五千円（¥15,000）。 -/
 def specialPurposeCompanyOtherRegistrationFeePerApplication : Money := 15000
+
+/-- 二十五（三） 特定目的会社の登記の抹消 — 申請件数一件につき一万円（¥10,000）。 -/
+def specialPurposeCompanyCancellationFeePerApplication : Money := 10000
+
+theorem specialPurposeCompanyCancellationFeePerApplication_pos :
+    specialPurposeCompanyCancellationFeePerApplication > 0 := by decide
+
+example : specialPurposeCompanyCancellationFeePerApplication = 10000 := by decide
 
 /-! === well-definedness（positivity） === -/
 theorem fishingRightLienPreservationRate_den_pos : 0 < fishingRightLienPreservationRate.den := by decide

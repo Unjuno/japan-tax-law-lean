@@ -13,7 +13,9 @@
 
 ---
 
-## 1. 独立抽出した fee 一覧（原文 → 抽出値 → Lean def）
+## Batch G review (2026-11-18)
+
+### 1. 独立抽出した fee 一覧（原文 → 抽出値 → Lean def）
 
 原文文字列は `#` で区切った 3 列（区分 | 課税標準 | fee）をそのまま転記したもの。`row` は原文テーブル行 index。全 **81** 項目（定額 63 / 割合 18）を抽出。
 
@@ -445,5 +447,342 @@
 - **公理結果**: Classical.choice / sorryAx / Quot.sound とも 0 件。propext のみ 3 件（許容）。監査用一時 Lean ファイルは削除済み。
 - **Lean モジュール変更**: なし（3 対象モジュールおよび Spec/Tests は読み取り専用）。作業ツリーには他エージェントによる既存の無関係な変更があるが、本レビューでは一切触れていない。
 - 残る UNRESOLVED（U-1 端数処理の法的正当性、U-2 「除く」条件の個別明記の要否）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
+
+> **本レビューは機械的独立照合（原文 parse・定数照合・境界値走査・公理監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+---
+
+## Batch I review (2026-11-18)
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当 W-Y / W-Z / W-AA から独立）。担当者の STAGING は信じず、pinned 原文から直接再抽出した機械的照合をもって判定した。
+- **対象モジュール（読み取り専用・本レビューで変更していない）**:
+  - `JapanTaxLaw/RegistryMiningFees.lean`（十九〜二十二の二 鉱業権等、W-Y）
+  - `JapanTaxLaw/RegistryForeignCompanyFees.lean`（二十二末尾〜二十五 外国会社等、W-Z）
+  - `JapanTaxLaw/RegistryTrustMarriageFees.lean`（二十六〜三十一 信託・夫婦財産契約等、W-AA）
+  - 各 `-Spec.lean` / `-Tests.lean` も読み取りのみ。
+- **一次資料（pinned・改変禁止）**: `data/raw/342AC0000000035_20261101_508AC0000000021.law.json`
+  - law_id `342AC0000000035` / revision `342AC0000000035_20261101_508AC0000000021`、適用日 2026-11-01。
+- **独立抽出方法**: `law_full_text.children[1].children[508]`（AppdxTable＝別表第一）配下の `TableStruct/Table` の `TableRow` **1,414 行**を Python で再帰走査し、各 `TableColumn`（区分／課税標準／税率）の文字列を取得。対象は **0-based row 344〜600**（十九〜三十一）。日本語数字（九万・四万五千・千二百・一万五千・二・五・一・五 等）を自前パーサで Arabic 変換し、率は分数比較した。**担当者の抜粋ファイル `reg_rem_A/B/C.txt` は信じず、pinned JSON を唯一の根拠とした**（この判断が下記 C-1〜C-3 の発見に直結した。抜粋 3 ファイルはいずれも文中で切れていることを確認済み）。
+
+### I-1. 独立抽出した fee 一覧（区分 → 金額／率 → 原文文字列）
+
+原文 fee string は `区分 | 課税標準 | 税率` の 3 列から税率列を転記したもの。抽出値は日本語数字を Arabic 変換した値。全範囲で **196 の fee 行**（十九〜二十二の二 101／二十三〜二十五 50／二十六〜三十一 45）を抽出・照合した。
+
+#### （一）十九 鉱業権又は租鉱権（row 344–383、31 fee）— W-Y
+
+| row | 区分 | 原文 fee string | 抽出値 | Lean 定数 |
+|---|---|---|---|---|
+| 345 | （一）試掘権設定 | `一個につき九万円` | 90,000 | `miningTrialMiningRightEstablishment` |
+| 347 | （二）イ 鉱区増加 | `一個につき四万五千円` | 45,000 | `miningTrialAreaIncreaseChange` |
+| 348 | （二）ロ 鉱区減少 | `一個につき六千円` | 6,000 | `miningTrialAreaDecreaseChange` |
+| 350 | （三）イ 移転・相続合併 | `一個につき九千円` | 9,000 | `miningTrialTransferInheritanceOrMerger` |
+| 351 | （三）ロ 移転・その他 | `一個につき四万五千円` | 45,000 | `miningTrialTransferOther` |
+| 352 | （四）放棄消滅 | `一個につき三千円` | 3,000 | `miningTrialAbandonmentExtinction` |
+| 353 | （五）採掘権設定 | `一個につき十八万円` | 180,000 | `miningMiningRightEstablishment` |
+| 355 | （六）イ 鉱区増加 | `一個につき九万円` | 90,000 | `miningMiningAreaIncreaseChange` |
+| 356 | （六）ロ 鉱区減少 | `一個につき一万二千円` | 12,000 | `miningMiningAreaDecreaseChange` |
+| 357 | （六）ハ 合併後 | `一個につき四万五千円` | 45,000 | `miningMiningAreaMergerChange` |
+| 358 | （六）ニ 分割後 | `一個につき四万五千円` | 45,000 | `miningMiningAreaDivisionChange` |
+| 360 | （七）イ 移転・相続合併 | `一個につき一万八千円` | 18,000 | `miningMiningTransferInheritanceOrMerger` |
+| 361 | （七）ロ 移転・その他 | `一個につき九万円` | 90,000 | `miningMiningTransferOther` |
+| 362 | （八）放棄消滅 | `一個につき三千円` | 3,000 | `miningMiningAbandonmentExtinction` |
+| 363 | （九）租鉱権設定 | `一個につき一万八千円` | 18,000 | `miningRoyaltyRightEstablishment` |
+| 365 | （十）イ 租鉱区増加 | `一個につき六千円` | 6,000 | `miningRoyaltyAreaIncreaseChange` |
+| 366 | （十）ロ 租鉱区減少 | `一個につき千二百円` | 1,200 | `miningRoyaltyAreaDecreaseChange` |
+| 368 | （十一）イ 移転・相続合併 | `一個につき千八百円` | 1,800 | `miningRoyaltyTransferInheritanceOrMerger` |
+| 369 | （十一）ロ 移転・その他 | `一個につき九千円` | 9,000 | `miningRoyaltyTransferOther` |
+| 370 | （十二）満了前消滅 | `一個につき千円` | 1,000 | `miningRoyaltyExtinctionBeforeExpiry` |
+| 371 | （十三）抵当権設定 | `千分の四` | 4/1000 | `miningMortgageEstablishment` |
+| 372 | （十四）51条承諾変更 | `一個につき三千円` | 3,000 | `miningMortgageChangeByMiningLaw51Consent` |
+| 373 | （十五）順位変更（（十四）除く） | `一個につき六千円` | 6,000 | `miningMortgageRankChangeByOrderChange` |
+| 375 | （十六）イ 移転・相続合併 | `一個につき四千五百円` | 4,500 | `miningMortgageTransferInheritanceOrMerger` |
+| 376 | （十六）ロ 移転・その他 | `一個につき九千円` | 9,000 | `miningMortgageTransferOther` |
+| 377 | （十七）抵当権順位変更 | `一件につき千円` | 1,000 | `miningMortgageRankChange` |
+| 379 | （十八）イ 抵当権信託 | `千分の二` | 2/1000 | `miningMortgageTrust` |
+| 380 | （十八）ロ その他信託 | `一個につき九千円` | 9,000 | `miningNonMortgageRightTrust` |
+| 381 | （十九）共同権者脱退 | `一個につき四千五百円` | 4,500 | `miningCoOwnerWithdrawal` |
+| 382 | （二十）付記等（（一）〜（十九）除く） | `一個につき千円` | 1,000 | `miningIncidentalOrRestorationOrCorrection` |
+| 383 | （二十一）抹消 | `一個につき千円` | 1,000 | `miningCancellation` |
+
+#### （二）二十 砂鉱権又は租鉱権（row 384–413、24 fee）— W-Y
+
+| row | 区分 | 原文 fee string | 抽出値 | Lean 定数 |
+|---|---|---|---|---|
+| 385 | （一）砂鉱権設定 | `十万平方メートルにつき四千五百円` | 4,500/100,000m² | `placerRightEstablishmentPerArea` |
+| 387 | （二）イ 鉱区増加 | `十万平方メートルにつき三千円` | 3,000 | `placerIncreasedAreaChangePerArea` |
+| 388 | （二）ロ 鉱区減少 | `一個につき千円` | 1,000 | `placerAreaDecreaseChange` |
+| 389 | （二）ハ 合併後 | `一個につき二千円` | 2,000 | `placerAreaMergerChange` |
+| 390 | （二）ニ 分割後 | `一個につき二千円` | 2,000 | `placerAreaDivisionChange` |
+| 392 | （三）イ 移転・相続合併 | `一個につき四千五百円` | 4,500 | `placerTransferInheritanceOrMerger` |
+| 393 | （三）ロ 移転・その他 | `一個につき一万三千五百円` | 13,500 | `placerTransferOther` |
+| 394 | （四）放棄消滅 | `一個につき千円` | 1,000 | `placerAbandonmentExtinction` |
+| 395 | （五）租鉱権設定 | `十万平方メートルにつき四百五十円` | 450 | `placerRoyaltyEstablishmentPerArea` |
+| 397 | （六）イ 租鉱区増加 | `十万平方メートルにつき三百円` | 300 | `placerIncreasedRoyaltyAreaChangePerArea` |
+| 398 | （六）ロ 租鉱区減少 | `一個につき千円` | 1,000 | `placerRoyaltyAreaDecreaseChange` |
+| 399 | （七）租鉱権移転 | `一個につき千五百円` | 1,500 | `placerRoyaltyTransfer` |
+| 400 | （八）満了前消滅 | `一個につき千円` | 1,000 | `placerRoyaltyExtinctionBeforeExpiry` |
+| 401 | （九）抵当権設定 | `千分の四` | 4/1000 | `placerMortgageEstablishment` |
+| 402 | （十）51条承諾変更 | `一個につき三千円` | 3,000 | `placerMortgageChangeByMiningLaw51Consent` |
+| 403 | （十一）順位変更（（十）除く） | `一個につき六千円` | 6,000 | `placerMortgageRankChangeByOrderChange` |
+| 405 | （十二）イ 移転・相続合併 | `一個につき四千五百円` | 4,500 | `placerMortgageTransferInheritanceOrMerger` |
+| 406 | （十二）ロ 移転・その他 | `一個につき九千円` | 9,000 | `placerMortgageTransferOther` |
+| 407 | （十三）抵当権順位変更 | `一件につき千円` | 1,000 | `placerMortgageRankChange` |
+| 409 | （十四）イ 抵当権信託 | `千分の二` | 2/1000 | `placerMortgageTrust` |
+| 410 | （十四）ロ その他信託 | `一個につき四千五百円` | 4,500 | `placerNonMortgageRightTrust` |
+| 411 | （十五）共同権者脱退 | `一個につき四千五百円` | 4,500 | `placerCoOwnerWithdrawal` |
+| 412 | （十六）付記等（（一）〜（十五）除く） | `一個につき千円` | 1,000 | `placerIncidentalOrRestorationOrCorrection` |
+| 413 | （十七）抹消 | `一個につき千円` | 1,000 | `placerCancellation` |
+
+#### （三）二十一 鉱業法114条2項（row 414–417、3 fee）／二十二 特定鉱業権（row 418–443、21 fee）— W-Y
+
+| row | 区分 | 原文 fee string | 抽出値 | Lean 定数 |
+|---|---|---|---|---|
+| 415 | 二十一（一）新規登録 | `千分の一` | 1/1000 | `damagesRegistration` |
+| 416 | 二十一（二）回復・更正 | `一個につき千円` | 1,000 | `damagesRestorationOrCorrection` |
+| 417 | 二十一（三）抹消 | `一個につき千円` | 1,000 | `damagesCancellation` |
+| 419 | 二十二（一）探査権設定 | `十万平方メートルにつき三百円` | 300 | `specialExplorationEstablishmentPerArea` |
+| 420 | 二十二（二）鉱区減少 | `一個につき十二万円` | 120,000 | `specialExplorationAreaDecrease` |
+| 422 | 二十二（三）イ 移転・相続合併 | `十万平方メートルにつき三十円` | 30 | `specialExplorationTransferInheritanceOrMergerPerArea` |
+| 423 | 二十二（三）ロ 移転・その他 | `十万平方メートルにつき百五十円` | 150 | `specialExplorationTransferOtherPerArea` |
+| 424 | 二十二（四）放棄消滅 | `一個につき六万円` | 60,000 | `specialExplorationAbandonmentExtinction` |
+| 425 | 二十二（五）採掘権設定 | `十万平方メートルにつき二千四百円` | 2,400 | `specialMiningRightEstablishmentPerArea` |
+| 426 | 二十二（六）存続延長 | `十万平方メートルにつき二百四十円` | 240 | `specialMiningTermExtensionPerArea` |
+| 427 | 二十二（七）鉱区減少 | `一個につき二十四万円` | 240,000 | `specialMiningAreaDecrease` |
+| 429 | 二十二（八）イ 移転・相続合併 | `十万平方メートルにつき二百四十円` | 240 | `specialMiningTransferInheritanceOrMergerPerArea` |
+| 430 | 二十二（八）ロ 移転・その他 | `十万平方メートルにつき千二百円` | 1,200 | `specialMiningTransferOtherPerArea` |
+| 431 | 二十二（九）放棄消滅 | `一個につき六万円` | 60,000 | `specialMiningAbandonmentExtinction` |
+| 432 | 二十二（十）抵当権設定 | `千分の四` | 4/1000 | `specialMiningMortgageEstablishment` |
+| 433 | 二十二（十一）順位変更 | `一個につき十二万円` | 120,000 | `specialMortgageRankChangeByOrderChange` |
+| 435 | 二十二（十二）イ 移転・相続合併 | `十万平方メートルにつき六十円` | 60 | `specialMortgageTransferInheritanceOrMergerPerArea` |
+| 436 | 二十二（十二）ロ 移転・その他 | `十万平方メートルにつき百二十円` | 120 | `specialMortgageTransferOtherPerArea` |
+| 437 | 二十二（十三）抵当権順位変更 | `一件につき二万円` | 20,000 | `specialMortgageRankChange` |
+| 439 | 二十二（十四）イ 抵当権信託 | `千分の二` | 2/1000 | `specialMiningMortgageTrust` |
+| 440 | 二十二（十四）ロ その他信託 | `十万平方メートルにつき百二十円` | 120 | `specialNonMortgageRightTrustPerArea` |
+| 441 | 二十二（十五）共有者脱退 | `一個につき九万円` | 90,000 | `specialCoOwnerWithdrawal` |
+| 442 | 二十二（十六）付記等（（一）〜（十五）除く） | `一個につき二万円` | 20,000 | `specialIncidentalOrRestorationOrCorrection` |
+| 443 | 二十二（十七）抹消 | `一個につき二万円` | 20,000 | `specialCancellation` |
+
+#### （四）二十二の二 試掘権又は貯留権（row 444–472、22 fee）— W-Y／W-Z
+
+| row | 区分 | 原文 fee string | 抽出値 | Lean 定数（担当） |
+|---|---|---|---|---|
+| 445 | （一）試掘権設定 | `一個につき九万円` | 90,000 | `storageExplorationRightEstablishment`（W-Y） |
+| 447 | （二）イ 試掘区域増加 | `一個につき四万五千円` | 45,000 | `storageExplorationAreaIncreaseChange` |
+| 448 | （二）ロ 試掘区域減少 | `一個につき六千円` | 6,000 | `storageExplorationAreaDecreaseChange` |
+| 450 | （三）イ 移転・相続合併 | `一個につき九千円` | 9,000 | `storageExplorationTransferInheritanceOrMerger` |
+| 451 | （三）ロ 移転・その他 | `一個につき四万五千円` | 45,000 | `storageExplorationTransferOther` |
+| 452 | （四）貯留権設定 | `一個につき十八万円` | 180,000 | `storageRightEstablishment` |
+| 454 | （五）イ 貯留区域増加 | `一個につき九万円` | 90,000 | `storageAreaIncreaseChange` |
+| 455 | （五）ロ 貯留区域減少 | `一個につき一万二千円` | 12,000 | `storageAreaDecreaseChange` |
+| 456 | （五）ハ 合併後 | `一個につき四万五千円` | 45,000 | `storageAreaMergerChange` |
+| 457 | （五）ニ 分割後 | `一個につき四万五千円` | 45,000 | `storageAreaDivisionChange` |
+| 459 | （六）イ 移転・相続合併 | `一個につき一万八千円` | 18,000 | `storageTransferInheritanceOrMerger` |
+| 460 | （六）ロ 移転・その他 | `一個につき九万円` | 90,000 | `storageTransferOther` |
+| 461 | （七）抵当権設定 | `千分の四` | 4/1000 | `storageMortgageEstablishment` |
+| 462 | （八）CO2法承諾変更 | `一個につき三千円` | 3,000 | `storageMortgageChangeByCO2LawConsent` |
+| 463 | （九）順位変更（（八）除く） | `一個につき六千円` | 6,000 | `storageMortgageRankChangeByOrderChange` |
+| 465 | （十）イ 移転・相続合併 | `一個につき四千五百円` | 4,500 | `storageMortgageTransferInheritanceOrMerger` |
+| 466 | （十）ロ 移転・その他 | `一個につき九千円` | 9,000 | `storageMortgageTransferOther` |
+| 467 | （十一）抵当権順位変更 | `一件につき千円` | 1,000 | `storageMortgageRankChange` |
+| 469 | （十二）イ 抵当権信託 | `千分の二` | 2/1000 | `storageMortgageTrust` |
+| 470 | （十二）ロ その他信託 | `一個につき九千円` | 9,000 | `storageNonMortgageRightTrust`（W-Y） |
+| **471** | **（十三）付記等（（一）〜（十二）除く）** | **`一個につき千円`** | **1,000** | **`miningAreaChangeRegistrationFeePerArea`（W-Z）／W-Y は未モデル化 → C-2** |
+| **472** | **（十四）抹消** | **`一個につき千円`** | **1,000** | **`miningAreaCancellationFeePerArea`（W-Z）／W-Y は言及なし → C-2** |
+
+#### （五）二十三 漁業権又は入漁権（row 473–497、18 fee）／二十四・二十五（row 498–541）— W-Z
+
+| row | 区分 | 原文 fee string | 抽出値 | Lean 定数 |
+|---|---|---|---|---|
+| 475 | 二十三（一）イ 移転・相続合併 | `一件につき千八百円` | 1,800 | `fishingRightTransferByInheritanceOrMergerFeePerCase` |
+| 476 | 二十三（一）ロ 移転・その他 | `一件につき九千円` | 9,000 | `fishingRightTransferOtherFeePerCase` |
+| 478 | 二十三（二）イ 持分・相続合併 | `一件につき千五百円` | 1,500 | `fishingRightShareTransferByInheritanceOrMergerFeePerCase` |
+| 479 | 二十三（二）ロ 持分・その他 | `一件につき三千円` | 3,000 | `fishingRightShareTransferOtherFeePerCase` |
+| 480 | 二十三（三）入漁権設定 | `一件につき六千円` | 6,000 | `anglingRightEstablishmentFeePerCase` |
+| 481 | 二十三（四）入漁権保存 | `一件につき千五百円` | 1,500 | `anglingRightPreservationFeePerCase` |
+| 483 | 二十三（五）イ 移転・相続合併 | `一件につき千五百円` | 1,500 | `anglingRightTransferByInheritanceOrMergerFeePerCase` |
+| 484 | 二十三（五）ロ 移転・その他 | `一件につき四千五百円` | 4,500 | `anglingRightTransferOtherFeePerCase` |
+| 486 | 二十三（六）イ 持分・相続合併 | `一件につき千五百円` | 1,500 | `anglingRightShareTransferByInheritanceOrMergerFeePerCase` |
+| 487 | 二十三（六）ロ 持分・その他 | `一件につき三千円` | 3,000 | `anglingRightShareTransferOtherFeePerCase` |
+| 488 | 二十三（七）処分制限 | `千分の四` | 4/1000 | `fishingRightLienPreservationRate` |
+| 490 | 二十三（八）イ 移転・相続合併 | `一件につき千五百円` | 1,500 | `lienOrMortgageTransferByInheritanceOrMergerFeePerCase` |
+| 491 | 二十三（八）ロ 移転・その他 | `一件につき三千円` | 3,000 | `lienOrMortgageTransferOtherFeePerCase` |
+| 492 | 二十三（九）順位変更 | `一件につき千円` | 1,000 | `mortgageRankChangeFeePerCase` |
+| 494 | 二十三（十）イ 先取特権信託 | `千分の二` | 2/1000 | `fishingRightLienTrustRate` |
+| 495 | 二十三（十）ロ その他信託 | `一件につき四千五百円` | 4,500 | `nonLienOrMortgageRightTrustFeePerCase` |
+| 496 | 二十三（十一）付記等 | `一件につき千円` | 1,000 | `fishingIncidentalOrRestorationOrCorrectionFeePerCase` |
+| 497 | 二十三（十二）抹消 | `一件につき千円` | 1,000 | `fishingRightCancellationFeePerCase` |
+
+二十四（一）イ〜チ（row 500–514）は W-Z が明示的に委譲した区分（下記 B-6）。fee 値は `千分の七` ×7（500/503/505/511/513 等）、`千分の一・五` ×2（507/509）、最低税額 `一件につき十五万円/六万円/三万円` の括弧書で、いずれも `RegistrationCommercialTax*.lean` 担当（`commercial24LowMilleRate = ⟨15,10000⟩` を確認）。
+
+| row | 区分 | 原文 fee string | 抽出値 | Lean 定数 |
+|---|---|---|---|---|
+| 515 | 二十四（一）リ 相互会社設立 | `一件につき三十万円` | 300,000 | `mutualCompanyEstablishmentFeePerApplication` |
+| 516 | 二十四（一）ヌ 新株予約権発行 | `一件につき九万円` | 90,000 | `newShareOptionIssuanceChangeFeePerApplication` |
+| 517 | 二十四（一）ル 支店設置 | `一箇所につき六万円` | 60,000 | `branchOrSubsidiaryOfficeEstablishmentFeePerOffice` |
+| 518 | 二十四（一）ヲ 移転 | `一箇所につき三万円` | 30,000 | `headOrBranchOfficeRelocationFeePerOffice` |
+| 519 | 二十四（一）ワ 取締役会等変更 | `一件につき三万円` | 30,000 | `boardAndCommitteeMatterChangeFeePerApplication` |
+| 520 | 二十四（一）カ 役員変更 | `一件につき三万円（資本金一億円以下…一万円）` | 30,000／10,000 | `directorAndOfficerMatterChange*FeePerApplication`（2 定数） |
+| 521 | 二十四（一）ヨ 支配人 | `一件につき三万円` | 30,000 | `managerAppointmentOrAgencyRevocationFeePerApplication` |
+| 522 | 二十四（一）タ 職務停止等 | `一件につき三万円` | 30,000 | `directorDutySuspensionOrSubstituteAppointmentFeePerApplication` |
+| 523 | 二十四（一）レ 解散 | `一件につき三万円` | 30,000 | `companyDissolutionFeePerApplication` |
+| 524 | 二十四（一）ソ 継続・回復等 | `一件につき三万円` | 30,000 | `companyContinuationOrRestorationFeePerApplication` |
+| 525 | 二十四（一）ツ 登記事項変更（イ〜ソ除く） | `一件につき三万円` | 30,000 | `companyMiscRegistrationChangeFeePerApplication` |
+| 526 | 二十四（一）ネ 更正 | `一件につき二万円` | 20,000 | `companyCorrectionFeePerApplication` |
+| 527 | 二十四（一）ナ 抹消 | `一件につき二万円` | 20,000 | `companyCancellationFeePerApplication` |
+| 529 | 二十四（二）イ 営業所設置 | `一箇所につき九万円` | 90,000 | `foreignCompanyBusinessOfficeEstablishmentFeePerOffice` |
+| 530 | 二十四（二）ロ 営業所なし登録 | `一件につき六万円` | 60,000 | `foreignCompanyWithoutBusinessOfficeRegistrationFeePerApplication` |
+| 531 | 二十四（二）ハ その他 | `一件につき九千円` | 9,000 | `foreignCompanyOtherRegistrationFeePerApplication` |
+| 532 | 二十四（二）ニ 更正・抹消 | `一件につき六千円` | 6,000 | `foreignCompanyCorrectionOrCancellationFeePerApplication` |
+| 534 | 二十四（三）イ 清算人 | `一件につき九千円` | 9,000 | `foreignCompanyLiquidatorAppointmentFeePerApplication` |
+| 535 | 二十四（三）ロ 職務停止等 | `一件につき六千円` | 6,000 | `foreignCompanyLiquidatorDutySuspensionFeePerApplication` |
+| 536 | 二十四（三）ハ 清算結了 | `一件につき二千円` | 2,000 | `foreignCompanyLiquidationCompletionFeePerApplication` |
+| 537 | 二十四（三）ニ 変更・更正・抹消 | `一件につき六千円` | 6,000 | `foreignCompanyLiquidationMiscFeePerApplication` |
+| 539 | 二十五（一）特定目的会社設立 | `一件につき三万円` | 30,000 | `specialPurposeCompanyEstablishmentFeePerApplication` |
+| 540 | 二十五（二）その他 | `一件につき一万五千円` | 15,000 | `specialPurposeCompanyOtherRegistrationFeePerApplication` |
+| **541** | **二十五（三）抹消** | **`一件につき一万円`** | **10,000** | **未モデル化 → C-1** |
+
+#### （六）二十六〜三十一（row 542–600、37 fee）— W-AA
+
+| row | 区分 | 原文 fee string | 抽出値 | Lean 定数 |
+|---|---|---|---|---|
+| 543 | 二十六（一）投資法人設立 | `一件につき三万円` | 30,000 | `investmentCorporationFormationFee` |
+| 544 | 二十六（二）その他 | `一件につき一万五千円` | 15,000 | `investmentCorporationOtherRegistrationFee` |
+| 545 | 二十六（三）抹消 | `一件につき一万円` | 10,000 | `investmentCorporationErasureFee` |
+| 548 | 二十七（一）イ 効力発生 | `一件につき六万円` | 60,000 | `llpContractEffectivenessFee` |
+| 549 | 二十七（一）ロ 従たる事務所設置 | `一件につき六万円` | 60,000 | `llpBranchInstallationFee` |
+| 550 | 二十七（一）ハ 移転 | `一件につき三万円` | 30,000 | `llpRelocationFee` |
+| 551 | 二十七（一）ニ 組合員事項変更 | `一件につき一万円` | 10,000 | `llpPartnerMattersChangeFee` |
+| 552 | 二十七（一）ホ 業務執行停止等 | `一件につき三万円` | 30,000 | `llpPartnerSuspensionOrDeputyFee` |
+| 553 | 二十七（一）ヘ その他 | `一件につき三万円` | 30,000 | `llpOtherRegistrationFee` |
+| 554 | 二十七（一）ト 更正 | `一件につき二万円` | 20,000 | `llpCorrectionFee` |
+| 555 | 二十七（一）チ 抹消 | `一件につき二万円` | 20,000 | `llpErasureFee` |
+| 557 | 二十七（二）イ 清算人 | `一件につき六千円` | 6,000 | `llpLiquidatorRegistrationFee` |
+| 558 | 二十七（二）ロ その他 | `一件につき六千円` | 6,000 | `llpLiquidationOtherFee` |
+| 559 | 二十七（二）ハ 清算結了 | `一件につき二千円` | 2,000 | `llpLiquidationCompletionFee` |
+| 560 | 二十七（二）ニ 更正・抹消 | `一件につき六千円` | 6,000 | `llpLiquidationCorrectionOrErasureFee` |
+| 563 | 二十八（一）イ 効力発生 | `一件につき三万円` | 30,000 | `viclpContractEffectivenessFee` |
+| 564 | 二十八（一）ロ その他 | `一件につき一万五千円` | 15,000 | `viclpOtherRegistrationFee` |
+| 565 | 二十八（一）ハ 更正 | `一件につき一万円` | 10,000 | `viclpCorrectionFee` |
+| 566 | 二十八（一）ニ 抹消 | `一件につき一万円` | 10,000 | `viclpErasureFee` |
+| 568 | 二十八（二）イ 清算人 | `一件につき六千円` | 6,000 | `viclpLiquidatorRegistrationFee` |
+| 569 | 二十八（二）ロ その他 | `一件につき六千円` | 6,000 | `viclpLiquidationOtherFee` |
+| 570 | 二十八（二）ハ 清算結了 | `一件につき二千円` | 2,000 | `viclpLiquidationCompletionFee` |
+| 571 | 二十八（二）ニ 更正・抹消 | `一件につき六千円` | 6,000 | `viclpLiquidationCorrectionOrErasureFee` |
+| 573 | 二十八の二（一）定め登記 | `一件につき三万円` | 30,000 | `limitedLiabilityTrustProvisionFee` |
+| 574 | 二十八の二（二）新事務処理地 | `一件につき一万五千円` | 15,000 | `limitedLiabilityTrustNewOfficeFee` |
+| 575 | 二十八の二（三）その他 | `一件につき一万五千円` | 15,000 | `limitedLiabilityTrustOtherRegistrationFee` |
+| 576 | 二十八の二（四）更正 | `一件につき一万円` | 10,000 | `limitedLiabilityTrustCorrectionFee` |
+| 577 | 二十八の二（五）抹消 | `一件につき一万円` | 10,000 | `limitedLiabilityTrustErasureFee` |
+| 579 | 二十八の二（六）イ 清算受託者 | `一件につき六千円` | 6,000 | `limitedLiabilityTrustLiquidatorRegistrationFee` |
+| 580 | 二十八の二（六）ロ その他 | `一件につき六千円` | 6,000 | `limitedLiabilityTrustLiquidationOtherFee` |
+| 581 | 二十八の二（六）ハ 清算結了 | `一件につき二千円` | 2,000 | `limitedLiabilityTrustLiquidationCompletionFee` |
+| 582 | 二十八の二（六）ニ 更正・抹消 | `一件につき六千円` | 6,000 | `limitedLiabilityTrustLiquidationCorrectionOrErasureFee` |
+| 585 | 二十九（一）イ 商号新設等 | `一件につき三万円` | 30,000 | `individualNameEstablishmentOrChangeFee` |
+| 586 | 二十九（一）ロ 支配人 | `一件につき三万円` | 30,000 | `individualManagerFee` |
+| 587 | 二十九（一）ハ 未成年者・後見人 | `一件につき一万八千円` | 18,000 | `individualMinorOrGuardianFee` |
+| 588 | 二十九（一）ニ 営業譲渡免責 | `一件につき一万八千円` | 18,000 | `individualBusinessTransferLiabilityFee` |
+| 589 | 二十九（一）ホ 廃止・更正等 | `一件につき六千円` | 6,000 | `individualNameAbolitionOrCorrectionFee` |
+| 590 | 二十九（一）ヘ 抹消 | `一件につき六千円` | 6,000 | `individualErasureFee` |
+| 592 | 二十九（二）イ 支店 | `一件につき九千円` | 9,000 | `individualBranchOfficeFee` |
+| 593 | 二十九（二）ロ ホ・抹消 | `一件につき六千円` | 6,000 | `individualBranchOfficeErasureFee` |
+| 595 | 三十（一）船舶管理人選任 | `一件につき三万円` | 30,000 | `shipManagerFee` |
+| 596 | 三十（二）回復・更正変更 | `一件につき六千円` | 6,000 | `shipManagerCorrectionOrChangeFee` |
+| 598 | 三十一（一）民法756条 | `一件につき一万八千円` | 18,000 | `matrimonialPropertyContractFee` |
+| 599 | 三十一（二）更正・変更 | `一件につき六千円` | 6,000 | `matrimonialPropertyContractCorrectionOrChangeFee` |
+| 600 | 三十一（三）抹消 | `一件につき六千円` | 6,000 | `matrimonialPropertyContractErasureFee` |
+
+> 注: 二十七（一）ヘ（row 553）は原文 `一件につき三万円`、W-AA の doc-comment も三万円で、抽出値 30,000 と一致する（レビュー表の転記ミスは修正済み）。
+
+**照合結果（金額・率）**: 上表のうち、W-Y 99 行／W-Z 43 行（44 定数、二十四（一）カの 10,000 円は 1 行に 2 定数）／W-AA 45 行、合計 **187 行（188 定数）すべて**で原文と Lean 定数が一致。**モデル化された定数・率の食い違いは 0 件（ゼロ）**。ただし未モデル化の 3 列 fee 行が 9 行ある（委譲 8 行＋二十五（三）1 行）。後者は金額が確定しているにもかかわらず脱落している（C-1）。
+
+### I-2. 小数点率の有無と符号化の独立判定
+
+| 槍查 | 独立抽出結果 | 判定 |
+|---|---|---|
+| 十九〜二十二の二（row 344–472）の `・五` | **0 件**。割合は `千分の四`(4/1000) / `千分の二`(2/1000) / `千分の一`(1/1000) のみ | W-Y の「小数点率なし・分母 1000」は**正しい** |
+| 二十三〜二十五（row 473–541）の `二・五` | **0 件** | — |
+| 二十三〜二十五（row 473–541）の `一・五` | **2 件**: row 507（二十四（一）ホ）・row 509（二十四（一）ヘ）の `千分の一・五` | W-Z の「本範囲に一・五は現れない」は**モデル化部分に限れば正しい**が、号全体（二十二〜二十五）としては文字列が存在する（下記 BY-DESIGN B-6 の委譲先で `⟨15,10000⟩` として正しく符号化）。記述はやや不正確。 |
+| 二十六〜三十一（row 542–600）の `・五` | **0 件**。すべて定額 | W-AA の「小数点率なし・TaxRate 導入せず」は**正しい** |
+| 25/10000・15/10000 の妥当性 | `千分の二・五` = 2.5/1000 = 25/10000、`千分の一・五` = 1.5/1000 = 15/10000。過去の `⟨25,1000⟩`/`⟨15,1000⟩`（10 倍過大）は誤り | **25/10000・15/10000 は数学的に正しい**。本バッチの 3 モジュールは decimal 率を一切持たず、`/ 1000` の分母を誤った箇所も smoke・Spec・Tests に**不存在**（`/ 10000` の登場は全て「10000 を使わない」旨の注釈か 10,000 円定額）。→ 10 倍過大バグの再発なし。 |
+
+### I-3. 条件漏れ・軽減除外の独立検証
+
+| チェック項目 | pinned 原文での出現（本スコープ / 別表全体） | モデル側の扱い | 判定 |
+|---|---|---|---|
+| `更新の登録を除く` | **0 件** / 163 件 | 反映義務なし（他号の条項） | BY-DESIGN（B-4） |
+| `既に…については一万五千円`（既登録者軽減） | **0 件** / 19 件 | 反映義務なし。本スコープの `一万五千円` 5 箇所（row 540/544/564/574/575）は全て単純な「一件につき一万五千円」で、Lean 定数 15,000 と一致（軽減条項ではない） | BY-DESIGN（B-5） |
+| `（…を除く。）` 型の除外 | **23 行**（row 344/373/382/403/412/442/463/471/496/498/499/500/503/505/525/528/529/537/547/562/576/577/589） | 各モジュールとも「該当性・原因判定は caller-established」と包括宣言し Bool を金額式に入れない。個別列挙はなし | BY-DESIGN（B-2）だが個別明記の要否は UNRESOLVED（U-2） |
+| 途中で切れた行の扱い | W-Y が「二十二の二（十三）は fee なし」、W-Z が「二十五（三）は金額確定不能」、W-AA が冒頭「つき一万円」を断片として除外と申告 | **pinned JSON ではいずれも完全な fee string が存在**（row 471 `一個につき千円`、row 472 `一個につき千円`、row 541 `一件につき一万円`）。切断は担当者が作成した抜粋 `reg_rem_A/B/C.txt` の末尾側の現象にすぎない | **CONFIRMED（C-1/C-2/C-3）**。pinned を根拠にすれば「金額を確定できない」は事実誤認。 |
+
+### I-4. CONFIRMED / BY-DESIGN / UNRESOLVED の件数と一覧
+
+| 分類 | 件数 |
+|---|---|
+| **CONFIRMED** | **3** |
+| **BY-DESIGN** | **7** |
+| **UNRESOLVED** | **2** |
+
+> モデル化された **180 の定数・率の数値自体は原文とすべて一致（発見ゼロ）**。下記 CONFIRMED はすべて「pinned 原文の読み落とし／doc-comment の事実誤認」に関するもので、実装値の誤りではない。両者を混同しないこと。
+
+#### CONFIRMED（3 件）
+
+- **C-1 二十五（三）登記の抹消（¥10,000）の脱落と「金額確定不能」という誤った理由**: pinned row 541 は `（三）登記の抹消 | 申請件数 | 一件につき一万円` と完全。しかし W-Z は `二十五（三）は原文が「申請件数一件に」で切れており金額を確定できないため NOT COVERED` とし、W-AA も担当範囲冒頭の「つき一万円」を「不完全な断片」としてモデル化しなかった。いずれも抜粋ファイル `reg_rem_B.txt` / `reg_rem_C.txt` の末尾切断に起因する誤認。**バッチ I 全体で唯一、金額が確定しているのに未モデル化の fee**（10,000 円）。→ 実質的なカバレッジギャップ＋根拠の事実誤認。修正は形式化担当の責任範囲（本レビューは読み取り専用のため未修正）。
+- **C-2 W-Y の二十二の二（十三）（十四）に関する原文記述の誤り**: W-Y の doc-comment／STAGING は「二十二の二（十三）は原文が文中で途切れており fee string を持たないためモデル化しない」と記載するが、pinned row 471 は `一個につき千円`（¥1,000）を持つ。また row 472（十四）登録の抹消 `一個につき千円`（¥1,000）については doc-comment に一切言及がない（黙示的な脱落）。両値は W-Z が `miningAreaChangeRegistrationFeePerArea` / `miningAreaCancellationFeePerArea` としてモデル化しているため**合計ではカバーされている**が、W-Y の「fee string を持たない」という記述は pinned 原文に対して false。
+- **C-3 W-Z の区分ラベリング誤り**: W-Z は上記 2 行（row 471/472）を doc-comment で「【二十二 鉱業権（末尾のみ）】変更の登録／（十四）登録の抹消」と表示しているが、pinned 原文ではこれらは**二十二の二（十三）（十四）**（試掘区域又は貯留区域の数一個につき千円）である。金額（1,000）は正しいが、原文の号ラベルが誤っている（fidelity 上の記載誤り）。
+
+#### BY-DESIGN（7 件）
+
+- **B-1 課税標準・面積・件数は caller-established／Nat 掛け算なし**: 3 モジュールすべてで明記。面積型は「十万平方メートル 1 単位あたり」の単価のみで、十万平方メートル単位への除法・端数は呼び出し側の責任。
+- **B-2 該当性・原因判定は caller-established／Bool を金額式に入れない**: 相続／法人の合併／その他、設定／変更／移転／消滅／信託／抵当権、砂鉱の別、CO2 貯留事業等を金額式に含めない設計を明記。
+- **B-3 端数処理は `TaxRate.applyFloor`（切り捨て）**: per-law business data として明示。法的正当性は U-1 で保留。
+- **B-4 更新登録除外はスコープ外**: `更新の登録を除く` は本スコープ 0 件。反映漏れではない。
+- **B-5 既登録者軽減はスコープ外**: `既に…一万五千円` は本スコープ 0 件。スコープ内の 15,000 円は全て単純定額で正しく反映。
+- **B-6 二十四（一）イ〜チは委譲済み**: `千分の七`・`千分の一・五`・最低税額（15/6/3 万円）は `RegistrationCommercialTax*.lean` 担当。重複定義なし。委譲先の `commercial24LowMilleRate = ⟨15,10000⟩` を確認し、符号化は正しい。W-Z の「本範囲に小数点率なし」はこの委譲部分を除けば成立。
+- **B-7 W-AA のスコープ解釈**: 見出しは「二十六〜二十九」だが原文 reg_rem_C.txt が二十六〜三十一を含むため、原文に存在する全 fee（二十六／二十七／二十八／二十八の二／二十九／三十／三十一）を漏れなく対象とした判断は妥当（下記 U-2 を除く）。末尾の「三十二 人の資格…」は見出しのみの断片で除外も妥当（ただし冒頭断片の扱いは C-1 参照）。
+
+#### UNRESOLVED（2 件）
+
+- **U-1 端数処理（floor）の法的正当性**: 原文は「千分の X」のみで当該区分に端数規定を持たない。pinned 原文のみでは登録免許税の端数処理が切り捨てであるか決定不能。**人間の法律専門家による確認を要する**（バッチ G/H と同趣旨）。
+- **U-2 「除く」条件の個別列挙の要否**: 本スコープ内にも 23 行の除外文言が存在（例: row 373「（十四）に掲げる登録を除く」、row 382/412/442/471/496/525/537「（一）から…までに掲げるものを除く」、row 576/577「（六）ニに掲げる登記を除く」等）。各モジュールは「該当性は caller-established」と包括宣言するが個別列挙はない。包括宣言で足りるかの判断は保留。金額・率の一致（発見ゼロ）には影響しない。
+
+### I-5. 反例探索結果
+
+| 攻撃対象 | 結果 |
+|---|---|
+| 件数 0 | 定額は「一件／一個／一箇所あたり」の単価のみ（B-1）。件数 0 のとき税額 0 は caller-established の入力側責任。定数が正であることと原文は矛盾しない。**矛盾なし**。 |
+| 件数 1 | 定数がそのまま 1 件分。原文「一件につき△△円」と整合。**矛盾なし**。 |
+| 面積 0／十万平方メートル単価の掛け算 | 面積型は 100,000 m² あたり単価（例 `placerRightEstablishmentPerArea = 4_500`）。250,000 m² なら 11,250 円となるが、単位換算・除算・端数は caller-established（B-1）。モデルは単価のみを提供し矛盾しない。**矛盾なし**。 |
+| 債権金額 0 | 割合型は `applyFloor 0 = 0`。smoke（例 `fishingRightLienPreservationFee 0 = 0`）も一致。**矛盾なし**。 |
+| 境界値（den→num / 999→floor） | 例: 4/1000 で 1,000→4、999→3；2/1000 で 1,000→2、999→1；1/1000 で 1,000→1、999→0。全割合型で smoke が原文の率と整合。**矛盾なし**。 |
+| 小数点率の丸め | 本バッチに decimal 率定数はなし。委譲先の 15/10000 は 1,000→1 で正しく、`⟨15,1000⟩` なら 15（10 倍）となるところ訂正効果も確認。**矛盾なし**。 |
+| 単調性 | `miningRateFeeMono` は `Nat.mul_le_mul_right` + `Nat.div_le_div_right` の証明で順序保存。反例なし。 |
+| 未モデル化行 | C-1（二十五（三）10,000 円）は金額確定済みで脱落 → **矛盾 1 件**。C-2/C-3 の 2 行は W-Z が補完しているため金額上の矛盾はなし。 |
+
+**反例探索で検出された原文・Lean 間の金額矛盾: 1 件（C-1）。それ以外は 0 件。**
+
+### I-6. 公理監査結果
+
+- 一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\batchI_axiom_probe.lean` を作成し、3 モジュールの名前付き `def`／`theorem` 計 **388 宣言**（W-Y 208／W-Z 90／W-AA 90）すべてに `#print axioms` を実行（`lake env lean`、exit code **0**）。監査後、一時ファイルおよび一時スクリプトは**削除済み**（担当者の抜粋ファイル `reg_rem_A/B/C.txt` や他の既存一時ファイルは触れていない）。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 388 |
+| axiom-free（`does not depend on any axioms`） | **387** |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **1 件**: `JapanTaxLaw.RegistryMiningFees.miningRateFeeMono`（`simp` 由来、許容範囲） |
+
+→ **禁止公理（Classical.choice / sorryAx / Quot.sound）は一切検出されず。許容された propext のみ。公理監査は合格。**
+
+### I-7. 総合判定・最終報告
+
+- pinned revision `342AC0000000035_20261101_508AC0000000021` の別表第一（二）十九〜三十一から独立抽出した **196 fee 行のうち、モデル化された 187 行（188 定数）すべて**で金額・率・fee string が Lean 定数と一致。**モデル化定数の誤りは 0 件（ゼロ）**。
+- **小数点率判定**: 本バッチの 3 モジュールの担当範囲に decimal 率は存在しない（分母 1000 が正しい）。号範囲全体では 二十四（一）ホ/ヘ に `千分の一・五` が 2 件あるが委譲済みで `⟨15,10000⟩` として正しく符号化。**25/10000・15/10000 の訂正は数学的に正しく、10 倍過大バグの再発なし**。
+- **CONFIRMED: 3 件**（C-1 二十五（三）10,000 円の脱落＋誤った「確定不能」理由／C-2 W-Y の二十二の二（十三）（十四）に関する原文記述誤り／C-3 W-Z の号ラベル誤り）。いずれもモデル値の誤りではなく原文読み落とし・記載誤り。金額矛盾は C-1 の 1 件のみ。
+- **BY-DESIGN: 7 件** / **UNRESOLVED: 2 件**。
+- **公理結果**: Classical.choice / sorryAx / Quot.sound とも **0 件**。propext のみ 1 件（許容）。監査用一時 Lean ファイルは削除済み。
+- **Lean モジュール変更: なし**（3 対象モジュールおよび Spec/Tests は読み取り専用）。書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみで、既存のバッチ G/H レビューは保持した。
+- 残る UNRESOLVED（U-1 端数処理の法的正当性、U-2 「除く」条件の個別明記要否）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（原文 parse・定数照合・境界値走査・公理監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
