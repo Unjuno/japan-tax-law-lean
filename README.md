@@ -446,6 +446,15 @@ JapanTaxLaw/IncomeDependentDeductionsTests.lean# 同上 退行テスト
 JapanTaxLaw/SpecialMeasuresCasinoRatio.lean # 租税特別措置法施行令 art. 46の4（カジノ収入5%割合判定）L4 モデル
 JapanTaxLaw/SpecialMeasuresCasinoRatioSpec.lean # 同上 独立定式
 JapanTaxLaw/SpecialMeasuresCasinoRatioTests.lean# 同上 退行テスト
+JapanTaxLaw/InheritanceAssetValuation.lean     # 相続税法 art. 23/25（地上権残存期間別割合表 5〜90%・評価額）L4 モデル
+JapanTaxLaw/InheritanceAssetValuationSpec.lean # 同上 独立定式
+JapanTaxLaw/InheritanceAssetValuationTests.lean# 同上 退行テスト
+JapanTaxLaw/IncomeBasicDeduction.lean          # 所得税法 art. 86（基礎控除 58/48/32/16万円の4段階）L4 モデル
+JapanTaxLaw/IncomeBasicDeductionSpec.lean      # 同上 独立定式
+JapanTaxLaw/IncomeBasicDeductionTests.lean     # 同上 退行テスト
+JapanTaxLaw/ForeignCorpResidualRate.lean       # 法人税法 art. 145の4（外国法人 国際最低課税残余額90.7%）L4 モデル
+JapanTaxLaw/ForeignCorpResidualRateSpec.lean   # 同上 独立定式
+JapanTaxLaw/ForeignCorpResidualRateTests.lean  # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト
