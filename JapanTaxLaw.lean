@@ -233,3 +233,6 @@ import JapanTaxLaw.NonpaymentSurchargeTests
 import JapanTaxLaw.UnreportedSurcharge
 import JapanTaxLaw.UnreportedSurchargeSpec
 import JapanTaxLaw.UnreportedSurchargeTests
+import JapanTaxLaw.DelinquencyTax
+import JapanTaxLaw.DelinquencyTaxSpec
+import JapanTaxLaw.DelinquencyTaxTests
