@@ -1648,3 +1648,152 @@ pinned 原文から導いた整数式（第1号 `floor(base*90/100)`、第2号 `
 - 残る UNRESOLVED（U-A1 端数処理の法的正当性、U-A2 複利基礎額・解約返戻金額を caller-established とした範囲設定の法的十分性）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・率／号区分の原文照合・整数式の反例走査・CI needle の `.find()` 検証・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+---
+
+## 国税徴収法 104の2 review (2026-11-18)
+
+### T-0. 範囲・独立性の申告
+
+- **レビュア役割**: Adversarial Review Agent（Coordinator が直接実装したモジュールから独立）。形式化担当の doc-comment／STAGING／CI 申告は参照したが、**その正否は信じず**、pinned JSON から Python で原文を直接再抽出し、Lean カーネルで反例・公理を走査して判定した。
+- **対象モジュール（読み取り専用・本レビューで変更していない）**:
+  - `JapanTaxLaw/TaxCollectionNextBid.lean`（`nextBidFloor`／`nextBidEligible` と verified facts）
+  - `JapanTaxLaw/TaxCollectionNextBidSpec.lean`（独立定式 `specNextBidFloor`／`specNextBidEligible`／`agreeTaxCollectionNextBid`）
+  - `JapanTaxLaw/TaxCollectionNextBidTests.lean`（smoke checks）
+- **一次資料（pinned・改変禁止）**: `data/raw/334AC0000000147_20260525_506AC0000000052.law.json`
+  - law_id `334AC0000000147` / revision `334AC0000000147_20260525_506AC0000000052`（`revision_info.amendment_enforcement_date = 2026-05-25`、モジュール doc-comment と一致）。
+  - `data/INVENTORY.json` 経由で当該 raw snapshot を引いた（`raw_snapshot.source_file` が上ファイルであることを確認）。
+- **抽出方法**: `law_full_text` を CI `transcription_audit.py` の `text()` と同一ロジックで平坦化・`_norm()`（`re.sub(r"[\s\u3000]+", "", …)`）正規化（正規化後 **93,175** 文字）。`MainProvision` 配下の `Article`（`attr.Num = "104_2"`）を直接走査し、art. 104の2 本文を逐語取得。needle は **CI 実装 `checks()` を Python で import して文字列を取得**（手打ちしない）。
+- **書き込み先は `docs/ADVERSARIAL_REVIEW.md` のみ**。commit / push / merge / ブランチ切替は行っていない。`git status --short` はクリーン（Lean モジュール無変更）。監査用一時 Lean ファイル・一時 Python スクリプトはリポジトリ外の TEMP に置き、監査後に削除済み。
+
+### T-1. 原文 art. 104の2 からの直接抽出と独立判定
+
+pinned 原文 `Article[Num=104_2]` から逐語抽出した核心部（正規化テキスト、一字も改変せず引用）:
+
+> （次順位買受申込者の決定）第百四条の二徴収職員は、入札の方法により不動産、船舶、航空機、自動車、建設機械、小型船舶、債権又は電話加入権以外の無体財産権等（以下「不動産等」という。）の公売をした場合において、最高価申込者の入札価額（以下この条において「最高入札価額」という。）に**次ぐ高い価額**（**見積価額以上で、かつ、最高入札価額から公売保証金の額を控除した金額以上であるものに限る。**第三項において同じ。）による入札者（前条第二項の規定によりくじで最高価申込者を定めた場合には、当該最高価申込者以外の最高の価額の入札者とする。第三項において同じ。）から次順位による買受けの申込みがあるときは、その者を次順位買受申込者として定めなければならない。２前項の次順位による買受けの申込みは、最高価申込者の決定後直ちにしなければならない。３第一項の場合において、最高入札価額に次ぐ高い価額による入札者が二人以上あるときは、くじで定める。
+
+※ 上の引用は pinned `Article[Num=104_2]` の正規化本文を逐語（強調のため **太字** を付したのみ）で、一字も改変していない。needle 1 も同じ「不動産等」を含む原文を保持している。
+
+独立抽出したキーフレーズ（すべて art. 104の2 正規化本文に **count = 1** で存在）:
+
+| 原文フレーズ（pinned 逐語） | 意味 | Lean 対応 |
+|---|---|---|
+| `見積価額以上で、かつ、` | 第1の下限（以上＝ inclusive） | `estimate ≤ floor` |
+| `最高入札価額から公売保証金の額を控除した金額以上` | 第2の下限（以上＝ inclusive） | `highestBid - deposit ≤ floor` |
+| `最高入札価額に次ぐ高い価額` | 最高より下位（strict < 最高） | `bid < highestBid` |
+
+**独立判定（下限 = max(見積, 最高−保証金) は忠実か）**: 原文は「見積価額以上で、かつ、最高入札価額から公売保証金の額を控除した金額以上であるものに限る。」と、二つの下限を **「で、かつ、」** で接続している。すなわち下位入札価額は `見積価額以上` **かつ** `最高入札価額−公売保証金 以上` を同時に満たす必要があり、その下限は両者の **max** になる。`nextBidFloor = max estimate (highestBid - deposit)` はこの二条件をそのまま算術化しており、**原文に忠実**（BY-DESIGN B-T1）。Spec の独立定式 `if estimate ≤ highest - deposit then highest - deposit else estimate` とも全ポイントで一致（`agreeTaxCollectionNextBid = true` をカーネル確認）。
+
+**saturating 減算（保証金 > 最高で 0）が原文に反しないか**: 原文は「控除した金額」を負数として定義しない（金額は円単位の `Money = Nat`）。`highestBid - deposit` が saturating で 0 になるとき、下限は `max estimate 0 = estimate`（estimate ≥ 0）となる。仮に整数減算で負値を許しても `max estimate (負) = estimate` であり、**下限および適格判定の結果は同一**である。したがって saturating は原文の趣旨（見積価額以上という下限が支配する）を変えず、**原文に反しない**（BY-DESIGN B-T2）。なお実務上は art. 100 の公売保証金（見積価額の百分の十以上）と art. 104 の「見積価額以上の入札者」から `deposit ≤ highest` が通常成り立ち、この場合分けはほぼ仮想的な境界である。
+
+### T-2. 第2項・第3項・art.104(2) 特例の NOT MODELLED 判定
+
+| 条項 | pinned 原文（逐語） | 法的性格 | モデル側の扱い | 判定 |
+|---|---|---|---|---|
+| 第2項 | `前項の次順位による買受けの申込みは、最高価申込者の決定後直ちにしなければならない。` | 申込時期（手続） | NOT MODELLED／caller-established | ✅ BY-DESIGN |
+| 第3項 | `第一項の場合において、最高入札価額に次ぐ高い価額による入札者が二人以上あるときは、くじで定める。` | 同額二人以上のくじ（手続） | NOT MODELLED／caller-established | ✅ BY-DESIGN |
+| art. 104(2) の特例（第1項括弧内） | `前条第二項の規定によりくじで最高価申込者を定めた場合には、当該最高価申込者以外の最高の価額の入札者とする。` | 最高価申込者をくじで定めた場合の入札者定義（手続） | NOT MODELLED／caller-established | ✅ BY-DESIGN（下記 U-T2 の注記あり） |
+| 対象財産の限定 | `入札の方法により…無体財産権等（以下「不動産等」という。）の公売をした場合において` | 適用対象（公売方法・財産種別） | caller-established（算術条件に Bool を入れない） | ✅ BY-DESIGN |
+
+**判定: いずれも「NOT MODELLED / caller-established」と正しく扱われている。** 3 モジュールの doc-comment は第2項・第3項・art.104(2) 特例を明示的に NOT MODELLED と申告しており、算術コア（下限・適格）だけを形式化する範囲設定と整合する。
+
+**注記（U-T2）**: art. 104(2) で最高価申込者がくじで決まった場合、「当該最高価申込者以外の最高の価額の入札者」の入札価額は **最高入札価額と同額** になり得る（最高額同額のくじ引き残りの片方）。この経路ではモデルの `bid < highestBid` は成立しないため、本モデルは当該経路を表現しない。これは申告済みの NOT MODELLED 境界であり実装の誤りではないが、完全性の判断は pinned 算術原文のみでは解けない（下記 UNRESOLVED 参照）。
+
+### T-3. needle 健全性（CI 実装の 4 本を直接検証）
+
+`scripts/ci/transcription_audit.py` の `checks()` を import し、law_id `334AC0000000147` かつ check 名に `TaxCollectionNextBid` を含む **1 check** から needle を取得（STAGING の申告ではなく CI が実際に使う文字列を検査）。pinned `law_full_text` の正規化テキスト（`_norm()`、CI と同一条件）に対して `.find()` / `.count()` を実行した。
+
+| 監査項目 | 結果 |
+|---|---|
+| CI check 数（ law `334AC0000000147`） | **1**（`国税徴収法 art. 104の2 … ↔ TaxCollectionNextBid.lean`） |
+| needle 総数 | **4**（指定どおり） |
+| U+3000（全角空白）を含む needle | **0 件** |
+| FOUND / MISS | **4/4 FOUND**（MISS **0**） |
+| `.count()` | 全 needle で **1**（一意） |
+
+- needle offsets（正規化テキスト）: **44133 / 44236 / 44333 / 44426**（長さ 76 / 86 / 60 / 26 文字、すべて count 1）。
+- 4 本はいずれも art. 104の2 本文（「次順位買受申込者の決定」見出し、上限・下限条件、くじ特例、結語）を逐語保持しており、T-1 のキーフレーズ抽出と整合。
+- **needle 健全性: 問題なし（4/4 FOUND、U+3000 0 件、MISS 0、すべて count 1）。**
+
+### T-4. 反例探索結果（Lean カーネル `by decide` で走査）
+
+一時 Lean ファイルに独立期待値を `example … := by decide` として書き、`lake env lean`（exit code **0**、エラーなし）で全件パスした。
+
+| 攻撃対象（入力: 見積／最高／保証金／bid） | 独立期待値 | 結果 |
+|---|---|---|
+| 見積 > 最高−保証金 (1.9M/2M/0.2M) | floor = max(1.9M,1.8M) = **1.9M** | ✅ 一致／矛盾なし |
+| 見積 < 最高−保証金 (1M/2M/0.2M) | floor = max(1M,1.8M) = **1.8M** | ✅ 一致／矛盾なし |
+| 保証金 > 最高 (0.1M/0.2M/0.3M) | saturating 0 → floor = **0.1M**（整数減算でも同値） | ✅ 一致／原文に反さない |
+| 保証金 = 最高 (0.1M/0.2M/0.2M) | floor = **0.1M** | ✅ 一致 |
+| **bid = 最高** (1M/2M/0.2M/**2M**) | `bid < highestBid` 不成立 → **不適格** | ✅ 一致（最高価申込者は別途 art.104） |
+| **bid = 下限（最高−保証金 = 1.8M）** | 下限以上かつ最高未満 → **適格** | ✅ 一致（「以上」inclusive） |
+| **bid = 下限（見積支配 = 1.9M）** | 適格 | ✅ 一致 |
+| **bid < 下限** (1,799,999／1,700,000) | **不適格** | ✅ 一致 |
+| bid > 最高 (2.1M) | 不適格 | ✅ 一致 |
+| 保証金>最高 で bid=見積 | 適格（下限=見積、最高未満） | ✅ 一致 |
+| floor = 最高 (2M/2M/0) → 下限未満 bid | 適格な bid なし → 不適格 | ✅ 一致 |
+| 全 0 (0/0/0/0) | `0 < 0` 不成立 → 不適格 | ✅ 一致 |
+| impl vs 独立定式 (spec) | 追加ポイント (5,7,3)/(5,7,3,4) も一致 | ✅ `agreeTaxCollectionNextBid = true` |
+
+**反例探索で検出された原文・Lean 間の矛盾: 0 件（ゼロ）。**
+
+### T-5. 公理監査結果
+
+一時 Lean ファイル（TEMP 配置・監査後削除）に 3 モジュールの名前付き `def`／`theorem` 計 **10 宣言**の `#print axioms` を記載し、`lake env lean`（exit code **0**）で走査。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | **10**（本 7: `nextBidFloor`, `nextBidEligible`, 5 theorem／Spec 3: `specNextBidFloor`, `specNextBidEligible`, `agreeTaxCollectionNextBid`。Tests は `example` のみで名前付き宣言なし） |
+| axiom-free（`does not depend on any axioms`） | **6**（`nextBidFloor`, `nextBidEligible`, `nextBidEligible_iff`, `specNextBidFloor`, `specNextBidEligible`, `agreeTaxCollectionNextBid`） |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **4 件**: `nextBidFloor_ge_estimate`, `nextBidFloor_ge_highest_minus_deposit`, `nextBidEligible_excludes_highest`, `nextBidEligible_excludes_below_floor`（いずれも `Nat.le_max_*`／`simp` 由来、許容範囲） |
+
+→ **禁止公理（Classical.choice / sorryAx / Quot.sound）は一切検出されず。許容された propext のみ。公理監査は合格。**
+
+### T-6. CONFIRMED / BY-DESIGN / UNRESOLVED の件数と一覧
+
+| 分類 | 件数 |
+|---|---|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **8** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 原文との食い違い（下限式の誤り・saturating 減算の原文不整合・上限判定の逆転・needle MISS・公理混入・反例矛盾）は一切検出されなかった。件数を手柄にしない。下記 UNRESOLVED は実装の誤りではなく、pinned 算術原文のみでは解けない法的判断の保留である。
+
+#### CONFIRMED（0 件）
+
+- 下限式: `max(見積, 最高−保証金)` は原文の二つの「以上」条件に一致（T-1）。
+- saturating 減算: 保証金 > 最高 でも下限結果は不変で、原文に反さない（T-1）。
+- 上限: `bid < highestBid` は「最高に次ぐ」の strict 性に一致し、bid=最高 を正しく除外（T-4）。
+- 簡体字・全角混入: 3 モジュールの `def`／doc-comment に簡体字混入なし。needle の U+3000 も 0 件（T-3）。
+
+#### BY-DESIGN（8 件）
+
+- **B-T1** 下限 = `max(見積, 最高−保証金)` は原文「見積価額以上で、かつ、…控除した金額以上」の忠実な算術化（T-1）。
+- **B-T2** saturating Nat 減算（保証金>最高 → 0）は下限・適格結果を変えず原文に反しない（T-1）。
+- **B-T3** `bid < highestBid` は「最高入札価額に次ぐ高い価額」の必要条件的算術化。「次ぐ高い」の順位確定は caller-established（T-1／U-T1）。
+- **B-T4** 第2項（申込時期「直ちに」）は手続として NOT MODELLED／caller-established（T-2）。
+- **B-T5** 第3項（同額二人以上のくじ）は手続として NOT MODELLED／caller-established（T-2）。
+- **B-T6** art. 104(2) のくじ特例は手続として NOT MODELLED／caller-established（T-2／U-T2）。
+- **B-T7** 入札価額・見積価額・公売保証金・入札者および公売対象財産は caller-established（doc-comment 明示、T-2）。
+- **B-T8** 丸め規定は本条になく金額は円単位 `Money = Nat`。Spec の独立定式と impl が `agreeTaxCollectionNextBid = true` で一致（T-1／T-4）。
+
+#### UNRESOLVED（2 件）
+
+- **U-T1 「次ぐ高い価額」の順位セマンティクス**: 原文は「最高入札価額に次ぐ高い価額」＝最高の直下の順位を要求するが、モデルは `bid < highestBid` と二つの下限のみを checking し、「第3順位以下の入札を『次ぐ高い価額』として扱ってよいか」の順位判定は caller-established に委ねる。モデル算術には矛盾がないが、この範囲設定が法的に十分かは pinned 原文のみでは決定不能。**人間の法律専門家によるレビューを要する**。
+- **U-T2 art. 104(2) くじ特例の完全性**: くじで最高価申込者を定めた場合、第1項括弧は入札者を「当該最高価申込者以外の最高の価額の入札者」と読み替えるため、その価額は最高入札価額と同額になり得る。モデルの `bid < highestBid` はこの経路を表現しない（NOT MODELLED として申告済みで実装誤りではない）。この経路を別途扱う要否・完全性は法的判断であり、pinned 算術原文のみでは決定不能。**人間の法律専門家によるレビューを要する**。
+
+### T-7. 総合判定・最終報告（サマリ）
+
+- 原文（pinned revision `334AC0000000147_20260525_506AC0000000052`）の `Article[Num=104_2]` から直接抽出した「見積価額以上」「最高入札価額から公売保証金の額を控除した金額以上」を照合し、下限 = `max(見積, 最高−保証金)` が **忠実**であると独立判定した。saturating 減算（保証金>最高 → 0）も下限結果を変えず **原文に反しない**。
+- 第2項・第3項・art. 104(2) 特例はいずれも **NOT MODELLED／caller-established と正しく扱われている**（T-2）。
+- **CONFIRMED: 0 件（ゼロ）**／**BY-DESIGN: 8 件**／**UNRESOLVED: 2 件**。発見ゼロを明示する。
+- **needle 健全性**: U+3000 **0 件**、CI 実装の **4/4 FOUND**（MISS 0、すべて count 1、offsets 44133/44236/44333/44426）。
+- **反例探索**: 見積>最高−保証金／保証金>最高／bid=最高／bid=下限／bid<下限 を含む 15 行で矛盾 **0 件**（`lake env lean` exit 0）。
+- **公理結果**: Classical.choice / sorryAx / Quot.sound とも **0 件**。propext のみ 4 件（許容）。10 宣言すべてを走査、exit code 0。
+- **Lean モジュール変更: なし**（3 対象モジュールおよび各 Spec/Tests は読み取り専用）。書き換えたのは本ファイルのみで、既存のバッチ G〜M／Art.25 レビューは保持した。commit / push / merge / ブランチ切替は行っていない。監査用一時ファイルは削除済み、`git status --short` はクリーン。
+- 残る UNRESOLVED（U-T1 順位セマンティクス、U-T2 くじ特例の完全性）は pinned 原文のみでは解けない法的判断であり、**人間の法律専門家によるレビューを要する**。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・下限／上限式の原文照合・整数式の反例走査・CI needle の `.find()` 検証・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。

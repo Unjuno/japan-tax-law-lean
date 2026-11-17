@@ -61,7 +61,7 @@ def build() -> str:
     import re as _re
     review_sessions = 0
     if ADVERSARIAL.exists():
-        review_sessions = len(_re.findall(r"^## (?:Batch [A-Z]|Art\.\d+)[^\n]*review", ADVERSARIAL.read_text(encoding="utf-8"), _re.M))
+        review_sessions = len(_re.findall(r"^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review", ADVERSARIAL.read_text(encoding="utf-8"), _re.M))
 
     n_laws = len(laws)
     n_enforced = sum(
