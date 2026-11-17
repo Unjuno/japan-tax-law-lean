@@ -386,6 +386,9 @@ JapanTaxLaw/DelinquencyTaxTests.lean              # 同上 退行テスト
 JapanTaxLaw/RefundInterest.lean                    # 国税通則法 art. 58（還付加算金: 還付金等×年7.3%（art.60低率を再利用）／差押送達翌日から7日・仮差押え期間は控除 — 日割り分母は条文に明示なく未モデル化）L4 モデル
 JapanTaxLaw/RefundInterestSpec.lean                # 同上 独立定式
 JapanTaxLaw/RefundInterestTests.lean               # 同上 退行テスト
+JapanTaxLaw/GroupLossRatio.lean                    # 法人税法 art. 64の7（欠損金の通算: 割合 零分母→零・1超→1キャップ／非特定欠損金配賦額＝金額×割合 — 配分規定全体は未モデル化）L4 モデル
+JapanTaxLaw/GroupLossRatioSpec.lean                # 同上 独立定式
+JapanTaxLaw/GroupLossRatioTests.lean               # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト
