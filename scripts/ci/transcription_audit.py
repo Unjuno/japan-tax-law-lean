@@ -807,6 +807,12 @@ def checks():
            "article", "第六十四条の七",
            ["欠損金の通算）第六十四条の七通算法人及び通算法人であつた内国法人", "（当該合計額が零である場合には零とし、当該割合が一を超える場合には一とする。）", "所得合計額が零である場合には、零", "非特定欠損金配賦額", "特定損金算入限度額"])
 
+    # 関税定率法 art. 6 — CustomsRetaliatoryDuty.lean (retaliatory duty cap = customs value)
+    yield ("関税定率法 art. 6（報復関税等: 別表税率による関税のほか課税価格と同額以下の関税を課すことができる — 追加関税の上限をモデル化、国・貨物指定／WTO承認／政令細目・通常関税は caller-established）↔ CustomsRetaliatoryDuty.lean",
+           "143AC0000000054",
+           "article", "第六条",
+           ["（報復関税等）第六条", "別表の税率による関税のほか、当該貨物の課税価格と同額以下の関税を課することができる", "別表の税率による関税のほか、その貨物の課税価格と同額以下の関税を課することができる", "ただし、前項第一号に規定する紛争解決機関の手続に委ねられるべき場合は、この限りでない"])
+
     # 関税定率法 art. 10(1) — CustomsDamageReduction.lean (depreciation-rate reduction / difference cap)
     yield ("関税定率法 art. 10(1)（変質・損傷の場合の関税軽減: 価格低下率基準の軽減（関税額×低下率）／差額（元の関税額−損傷後課税額）以内の軽減 — 低下率・損傷後税額・適用判断は政令・caller-established、第2項以降は未モデル化）↔ CustomsDamageReduction.lean",
            "143AC0000000054",

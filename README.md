@@ -413,6 +413,9 @@ JapanTaxLaw/CustomsExchangeRateTests.lean   # 同上 退行テスト
 JapanTaxLaw/CustomsDamageReduction.lean      # 関税定率法 art. 10(1)（変質・損傷の関税軽減: 価格低下率基準／差額以内の上限）L4 モデル
 JapanTaxLaw/CustomsDamageReductionSpec.lean  # 同上 独立定式
 JapanTaxLaw/CustomsDamageReductionTests.lean # 同上 退行テスト
+JapanTaxLaw/CustomsRetaliatoryDuty.lean    # 関税定率法 art. 6（報復関税: 別表関税のほか課税価格と同額以下の追加関税）L4 モデル
+JapanTaxLaw/CustomsRetaliatoryDutySpec.lean# 同上 独立定式
+JapanTaxLaw/CustomsRetaliatoryDutyTests.lean # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト
