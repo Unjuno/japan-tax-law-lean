@@ -44,6 +44,22 @@ SOURCES: dict[str, list[tuple[str, str, str, str, str, int, int]]] = {
     ],
 }
 
+# Intentional statutory overrides (Objective §5: 特例を機械的な矛盾と誤認しない).
+# Each entry: (name, base law/article/rate needle/module/def/expected,
+#              special law/article/rate needle/override phrase/module/def/referenced rate def/expected)
+OVERRIDES = [
+    (
+        "特定の医療法人の法人税率の特例 (租税特別措置法 art.67の2(1) → 法人税法 art.66(1))",
+        "340AC0000000034", "第六十六条内国法人である普通法人、一般社団法人等",
+        "各事業年度の所得の金額に百分の二十三・二の税率を乗じて計算した金額とする",
+        "CorporateTaxRate.lean", "ordinaryRate", (232, 1000),
+        "332AC0000000026", "特定の医療法人の法人税率の特例）第六十七条の二",
+        "百分の十九の税率により、法人税を課する",
+        "法人税法第六十六条第一項、第二項及び第六項の規定にかかわらず",
+        "PhaseECorpRates.lean", "specialMedicalCorpTax", "smeRate", (19, 100),
+    ),
+]
+
 
 def flat(node) -> str:
     if isinstance(node, str):
@@ -125,6 +141,68 @@ def build() -> str:
         ]
 
     lines += [
+        "## Intentional special-rate overrides (BY-DESIGN, not contradictions)",
+        "",
+        "Objective §5 requires that intended 特例 / 優先関係 not be mistaken for a",
+        "contradiction. An override is recognised only when the pinned special-law",
+        "text contains an express override phrase (e.g. 「…の規定にかかわらず」).",
+        "",
+    ]
+    override_ok = 0
+    for entry in OVERRIDES:
+        (name, blaw, bmarker, bneedle, bmod, bdef, bexp,
+         slaw, smarker, sneedle, phrase, smod, sdef, referenced, sexp) = entry
+        checks = []
+        for law, marker, needle, label in [
+            (blaw, bmarker, bneedle, "base article + rate"),
+            (slaw, smarker, sneedle, "special article + rate"),
+            (slaw, phrase, phrase, "express override phrase"),
+        ]:
+            if law not in texts:
+                rec = laws.get(law)
+                sf = (rec or {}).get("raw_snapshot", {}).get("source_file")
+                pp = REPO / sf if sf else None
+                texts[law] = norm(flat(json.loads(pp.read_text(encoding="utf-8")).get("law_full_text"))) if pp and pp.exists() else ""
+            found = marker in texts[law] and (needle in texts[law] if needle != marker else True)
+            checks.append((label, found))
+
+        def read_def(module, defname):
+            mp = REPO / "JapanTaxLaw" / module
+            mt = mp.read_text(encoding="utf-8") if mp.exists() else ""
+            return re.search(r"^def " + re.escape(defname) + r"\s*:\s*TaxRate\s*:=\s*⟨\s*(\d+)\s*,\s*(\d+)", mt, re.M), mt
+
+        bm, _ = read_def(bmod, bdef)
+        base_ok = bool(bm) and (int(bm.group(1)), int(bm.group(2))) == bexp
+        # special def references a rate def; verify both the reference and that rate def
+        smp = REPO / "JapanTaxLaw" / smod
+        smt = smp.read_text(encoding="utf-8") if smp.exists() else ""
+        ref_ok = bool(re.search(r"\b" + re.escape(referenced) + r"\b", smt))
+        # resolve the referenced rate from the module it is defined in
+        resolved = None
+        for cand in [smod, "CorporateTaxRate.lean"]:
+            cm, _ = read_def(cand, referenced)
+            if cm:
+                resolved = (int(cm.group(1)), int(cm.group(2)))
+                break
+        special_ok = ref_ok and resolved == sexp
+        all_ok = base_ok and special_ok and all(v for _, v in checks)
+        if all_ok:
+            override_ok += 1
+        lines += [
+            f"### {name}",
+            "",
+            "| check | result |",
+            "|---|---|",
+            *[f"| {label} | {'FOUND' if ok else 'MISS'} |" for label, ok in checks],
+            f"| base Lean rate {bmod}::{bdef} = {bexp[0]}/{bexp[1]} | {'OK' if base_ok else 'MISMATCH'} |",
+            f"| special Lean def {smod}::{sdef} references `{referenced}` = {sexp[0]}/{sexp[1]} | "
+            f"{'OK' if special_ok else 'MISMATCH'} |",
+            "",
+            f"Classification: {'BY-DESIGN — express statutory override of the base rate' if all_ok else 'UNRESOLVED — requires independent legal review'}",
+            "",
+        ]
+
+    lines += [
         "## Totals",
         "",
         f"- semantic keys checked: {len(SOURCES)}",
@@ -132,6 +210,7 @@ def build() -> str:
         f"- pinned needles FOUND: {total_fidelity_ok}/{total_sources}",
         f"- Lean rate constants matching expected: {total_model_ok}/{total_sources}",
         f"- candidate inconsistencies: {candidates}",
+        f"- intentional overrides verified BY-DESIGN: {override_ok}/{len(OVERRIDES)}",
         "",
         "candidate inconsistencies are NOT confirmed defects: they require the same",
         "independent human legal review tracked in docs/BLOCKED.md.",
