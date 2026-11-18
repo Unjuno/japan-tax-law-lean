@@ -602,6 +602,15 @@ JapanTaxLaw/LocalCorporationTaxRateTests.lean  # 同上 退行テスト
 JapanTaxLaw/SpouseResidenceValuation.lean      # 相続税法 art. 23の2（配偶者居住権の評価）L4 モデル
 JapanTaxLaw/SpouseResidenceValuationSpec.lean  # 同上 独立定式
 JapanTaxLaw/SpouseResidenceValuationTests.lean # 同上 退行テスト
+JapanTaxLaw/PublicPensionWithholding.lean       # 所得税法 art. 203の3（公的年金源泉徴収 5%/超過10%）L4 モデル
+JapanTaxLaw/PublicPensionWithholdingSpec.lean   # 同上 独立定式
+JapanTaxLaw/PublicPensionWithholdingTests.lean  # 同上 退行テスト
+JapanTaxLaw/SpecialLandHoldingTax.lean          # 地方税法 art. 596（特別土地保有税）L4 モデル
+JapanTaxLaw/SpecialLandHoldingTaxSpec.lean      # 同上 独立定式
+JapanTaxLaw/SpecialLandHoldingTaxTests.lean     # 同上 退行テスト
+JapanTaxLaw/RetainedAmountLocalTax.lean         # 法人税法施行令 art. 139の10（留保金額地方税控除）L4 モデル
+JapanTaxLaw/RetainedAmountLocalTaxSpec.lean     # 同上 独立定式
+JapanTaxLaw/RetainedAmountLocalTaxTests.lean    # 同上 退行テスト
 JapanTaxLaw/CounterexampleSweep.lean  # L6: マージ済み L4 全モデル × Spec の有限領域反例バウンド検査（decide）
 JapanTaxLaw/TaxProcedure.lean      # 国税通則法 第2条第10号（強制換価手続）
 JapanTaxLaw/TaxProcedureSpec.lean  # Act art.2(10) の独立仕様・健全性・整合性定理
