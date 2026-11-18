@@ -77,7 +77,25 @@ def build() -> str:
         f"distinct unmatched reference names: {len(names)}",
         f"total unmatched reference occurrences: {sum(names.values())}",
         "",
-        "## Unmatched reference names (top 60 by frequency)",
+    ]
+    # Priority subset: names containing 税 are the most likely in-scope tax laws.
+    tax_names = [(n, c) for n, c in names.items() if "税" in n]
+    tax_names.sort(key=lambda x: (-x[1], x[0]))
+    lines += [
+        f"## Tax-name candidates (contain '税', not in ledger) — {len(tax_names)} names",
+        "",
+        "These are the highest-priority DISCOVERED-CANDIDATE entries for sponsor review:",
+        "names containing '税' that precede an article reference but are not in INVENTORY.",
+        "They are NOT added automatically and NOT counted as verified or acquired.",
+        "",
+        "| count | name |",
+        "|---:|---|",
+    ]
+    for name, count in tax_names[:80]:
+        lines.append(f"| {count} | {name} |")
+    lines += [
+        "",
+        "## All unmatched reference names (top 60 by frequency)",
         "",
         "| count | name |",
         "|---:|---|",

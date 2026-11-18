@@ -542,6 +542,15 @@ JapanTaxLaw/InheritanceAnnuityValuationTests.lean   # 同上 退行テスト
 JapanTaxLaw/TaxCollectionNextBid.lean              # 国税徴収法 art. 104の2（次順位買受申込者の決定: 下限＝max(見積, 最高−保証金)）L4 モデル
 JapanTaxLaw/TaxCollectionNextBidSpec.lean          # 同上 独立定式
 JapanTaxLaw/TaxCollectionNextBidTests.lean         # 同上 退行テスト
+JapanTaxLaw/InheritanceAnnuityMaxima.lean          # 相続税法 art. 24(1) 一号〜三号（定期金 max 構造）L4 モデル
+JapanTaxLaw/InheritanceAnnuityMaximaSpec.lean      # 同上 独立定式
+JapanTaxLaw/InheritanceAnnuityMaximaTests.lean     # 同上 退行テスト
+JapanTaxLaw/InheritanceAnnuityMinMax.lean          # 相続税法 art. 24(1)四号/24(3)(4)（一時金・min/max）L4 モデル
+JapanTaxLaw/InheritanceAnnuityMinMaxSpec.lean      # 同上 独立定式
+JapanTaxLaw/InheritanceAnnuityMinMaxTests.lean     # 同上 退行テスト
+JapanTaxLaw/InheritanceAnnuityDeathException.lean  # 相続税法 art. 24(2)(5)（死亡特例・準用は NOT MODELLED）L4 モデル
+JapanTaxLaw/InheritanceAnnuityDeathExceptionSpec.lean  # 同上 独立定式
+JapanTaxLaw/InheritanceAnnuityDeathExceptionTests.lean # 同上 退行テスト
 JapanTaxLaw/RegistrationQualificationFeesP2A.lean        # 登録免許税法 別表第三十二号 五十九〜六十八（信書便・消防検定・債権回収・通関・酒類・たばこ・塩・著作権等 登録/免許/許可）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP2ASpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP2ATests.lean   # 同上 退行テスト
