@@ -77,6 +77,7 @@ def build() -> str:
     article_pins = sorted({(law_id, art) for _, law_id, _, art, _ in checks if art})
     modules = cross.get("modules") or []
     n_pinned = sum(1 for m in modules if m.get("pinned"))
+    n_unpinned = sum(1 for m in modules if not m.get("pinned"))
 
     # Human review axis: reviewer/review_date must be recorded.
     reviewed = 0
@@ -150,6 +151,21 @@ def build() -> str:
         f"| pinned literal checks | {len(checks)} | n/a | n/a |",
         f"| distinct article pins | {len(article_pins)} | {totals.get('articles_checked', 'n/a')} | {pct(len(article_pins), totals.get('articles_checked', 0))} |",
         f"| pinned Lean modules (cross-law) | {n_pinned} | n/a | n/a |",
+        "",
+        "## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)",
+        "",
+        "| axis | count |",
+        "|---|---:|",
+        f"| unpinned Lean modules (not counted as verified) | {n_unpinned} |",
+        f"| L7 candidates awaiting human legal review | {n_candidates - reviewed} |",
+        f"| verified anomalies (requires independent review to establish) | {totals.get('findings_verified_anomaly', 'n/a')} |",
+        f"| unresolved (unenforced) laws | {len(unresolved)} |",
+        f"| external references NOT bound to the ledger | {ref_totals.get('references_external_unverified', 'n/a')} |",
+        "",
+        "An unpinned module, an unreviewed candidate, an unbound reference and an",
+        "unenforced law are NOT counted as verified or completed. verified-anomaly = 0",
+        "means no independent legal review has established a defect; it is not",
+        "evidence of absence of defects.",
         "",
         "## Independent transcription-review axis (Objective §4, separate from fidelity-only audit)",
         "",
