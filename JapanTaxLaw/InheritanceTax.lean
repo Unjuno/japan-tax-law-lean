@@ -137,10 +137,12 @@ theorem limitedAdoptedHeirs_le (naturalChildren adoptedChildren : Nat) :
     limitedAdoptedHeirs naturalChildren adoptedChildren ≤ naturalChildren + 2 := by
   unfold limitedAdoptedHeirs
   split
-  · have h1 : Nat.min adoptedChildren 1 ≤ 1 := Nat.min_le_right _ _
-    omega
-  · have h2 : Nat.min adoptedChildren 2 ≤ 2 := Nat.min_le_right _ _
-    omega
+  · -- naturalChildren ≥ 1: naturalChildren + min adoptedChildren 1 ≤ naturalChildren + 2
+    exact Nat.add_le_add_left
+      (Nat.le_trans (Nat.min_le_right adoptedChildren 1) (by decide : 1 ≤ 2)) naturalChildren
+  · -- otherwise: min adoptedChildren 2 ≤ 2 ≤ naturalChildren + 2 (no omega: avoids Quot.sound)
+    exact Nat.le_trans (Nat.min_le_right adoptedChildren 2) (by
+      simp)
 
 /-- Tax is zero at zero. -/
 theorem inheritedPortionTax_zero : inheritedPortionTax 0 = 0 := by decide

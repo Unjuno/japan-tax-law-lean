@@ -19,7 +19,7 @@ obligations. Human legal review is a further separate axis in docs/BLOCKED.md.
 - articles with explicit pin: 52
 - machine-verification-complete: 52
 - incomplete: 0
-- articles with independent adversarial review coverage: 0/52 (separate axis)
+- articles with independent adversarial review coverage: 16/52 (separate axis)
 - human legal review completed: 0 (out of repo — see docs/BLOCKED.md)
 
 ## Per-article status

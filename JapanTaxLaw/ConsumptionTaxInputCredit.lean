@@ -47,7 +47,7 @@ Scope & honest boundaries:
   それは本スライスの射程外。Nat の saturating subtraction を使い、
   `taxAfterCredit_exact` は input ≤ output のときだけ正確であることを証明する。
   output < input のときに 0 を返すのは「還付なし」を主張するものではない。
-* art. 30(2)（課税売上高 5億円超／課税売上割合 95%未満の按分）、(3)〜(12) — NOT YET COVERED。
+* art. 30(2)（課税売上高 5億円超／課税売上割合 95%未満の按分）は `Apportionment` 名前空間でモデル化済み（needApportionment / commonPortion / apportionedIfSeparated / apportionedIfUnseparated）。(3)〜(12) — NOT YET COVERED。
 * 転記監査は fidelity-only であり法的正しさを保証しない。
 
 Pinned evidence in doc-comments only; all theorems claim model properties only.

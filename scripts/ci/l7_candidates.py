@@ -13,8 +13,10 @@ Gate mode: fails if the committed CSV differs from regeneration.
 This file is machine-authored: hand-editing it fails CI.
 """
 import csv
+import hashlib
 import io
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -26,6 +28,63 @@ from scripts.law_audit import rules  # noqa: E402
 
 INVENTORY = REPO_ROOT / "data" / "INVENTORY.json"
 OUT = REPO_ROOT / "docs" / "L7_CANDIDATES_UNREVIEWED.csv"
+
+OVERLAY = REPO_ROOT / "data" / "HUMAN_REVIEWS.csv"
+OVERLAY_HEADER = ["candidate_key", "review_status", "reviewer", "review_date", "source_citation"]
+
+
+def candidate_key(row: list) -> str:
+    """Stable identity of a candidate row, independent of generation order.
+
+    rows are positional lists: [rule_id, severity, law_id, title, path, line,
+    message, evidence, review_status, reviewer, review_date].
+    """
+    parts = [str(row[i]) for i in (0, 2, 4, 5, 6)]
+    return hashlib.sha256("||".join(parts).encode("utf-8")).hexdigest()[:20]
+
+
+def load_overlay() -> tuple[dict[str, dict], list[str]]:
+    """Read sponsor-populated human review records; return (key -> row, errors).
+
+    An absent or header-only overlay is valid and leaves every candidate
+    unreviewed. Review records are NEVER fabricated by this script.
+    """
+    records: dict[str, dict] = {}
+    errors: list[str] = []
+    if not OVERLAY.exists():
+        return records, errors
+    with OVERLAY.open(encoding="utf-8", newline="") as f:
+        reader = csv.DictReader(f)
+        if reader.fieldnames != OVERLAY_HEADER:
+            errors.append(f"HUMAN_REVIEWS.csv header mismatch: {reader.fieldnames}")
+            return records, errors
+        for i, row in enumerate(reader, start=2):
+            key = (row.get("candidate_key") or "").strip()
+            reviewer = (row.get("reviewer") or "").strip()
+            date = (row.get("review_date") or "").strip()
+            status = (row.get("review_status") or "").strip()
+            citation = (row.get("source_citation") or "").strip()
+            if not key:
+                errors.append(f"row {i}: missing candidate_key")
+                continue
+            if status not in ("reviewed", "confirmed-anomaly", "not-anomaly"):
+                errors.append(f"row {i}: invalid review_status {status!r}")
+                continue
+            if not reviewer or not date:
+                errors.append(f"row {i}: reviewer and review_date are mandatory")
+                continue
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", date):
+                errors.append(f"row {i}: review_date must be YYYY-MM-DD")
+                continue
+            if not citation:
+                errors.append(f"row {i}: source_citation is mandatory")
+                continue
+            if key in records:
+                errors.append(f"row {i}: duplicate candidate_key {key}")
+                continue
+            records[key] = row
+    return records, errors
+
 
 HEADER = [
     "rule_id", "severity", "law_id", "official_title", "path", "line",
@@ -124,8 +183,23 @@ def render():
     buf = io.StringIO()
     w = csv.writer(buf, lineterminator="\n")
     w.writerow(HEADER)
+    overlay, errors = load_overlay()
+    if errors:
+        for e in errors:
+            print("FAIL HUMAN_REVIEWS.csv:", e)
+        raise SystemExit(1)
+    applied = 0
     for r in rows:
+        rec = overlay.get(candidate_key(r))
+        if rec:
+            r[8] = rec["review_status"].strip()
+            r[9] = rec["reviewer"].strip()
+            r[10] = rec["review_date"].strip()
+            applied += 1
         w.writerow(r)
+    if overlay and applied != len(overlay):
+        print(f"FAIL: {len(overlay) - applied} HUMAN_REVIEWS.csv key(s) did not match any candidate")
+        raise SystemExit(1)
     return buf.getvalue(), len(rows), law_failures
 
 
