@@ -52,4 +52,17 @@ example : surchargeCheckGrid = true := by decide
 
 example : specSurchargeTotal 100_000 == taxWithSurcharge false 100_000 := by decide
 
+/-- Agreement of the implementation with the independent spec at finite sample
+    points (rate binding, surcharge amount and final tax, plus the existing grid).
+    A finite cross-check only: no universal theorem is claimed. -/
+def agreeInheritanceSurcharge : Bool :=
+  inheritanceSurcharge.numDen == (20, 100) &&
+  surchargeCheckGrid &&
+  [0, 1, 99, 100, 125, 101, 999, 37_500, 100_000, 1_000_000].all fun base =>
+    specSurcharge base == surcharge20 base &&
+    specSurchargeTotal base == taxWithSurcharge false base &&
+    taxWithSurcharge true base == base
+
+example : agreeInheritanceSurcharge = true := by decide
+
 end JapanTaxLaw

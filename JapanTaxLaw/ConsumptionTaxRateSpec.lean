@@ -68,4 +68,21 @@ def reducedLower : Bool :=
 
 example : reducedLower = true := by decide
 
+/-- Agreement of the implementation with the independent spec at finite sample
+    points (rate bindings, both rate selections, the existing grid and reduced
+    separation, and the tax amount at standard and reduced rates).
+    A finite cross-check only: no universal theorem is claimed. -/
+def agreeConsumptionTaxRate : Bool :=
+  standardRate.numDen == (78, 1000) &&
+  reducedRate.numDen == (624, 10000) &&
+  (rateOf false).numDen == (78, 1000) &&
+  (rateOf true).numDen == (624, 10000) &&
+  consTaxRateCheckGrid &&
+  reducedLower &&
+  [0, 1, 99, 100, 101, 999, 1000, 37_500, 100_000, 1_000_000].all fun base =>
+    specConsumptionTax base false == consumptionTax base false &&
+    specConsumptionTax base true == consumptionTax base true
+
+example : agreeConsumptionTaxRate = true := by decide
+
 end JapanTaxLaw

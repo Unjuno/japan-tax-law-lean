@@ -60,4 +60,25 @@ def specBasicDeduction : Money := 600_000
 example : specBasicDeduction = 600_000 := by decide
 example : specBasicDeduction = giftBasicDeduction := by decide
 
+/-- Independent spec ≡ impl correspondence over the whole `giftCheckGrid`
+    point set. Checks the art. 21-7 per-portion function, the art. 21-5 basic
+    deduction, and the full `giftTax` (deduction then portion) at each point.
+    Kernel-verified by `decide`. -/
+def agreeGiftTax : Bool :=
+  let rec go (k : Nat) : Bool :=
+    match k with
+    | 0 =>
+        let x := 0
+        giftPortionTax x == specGiftPortion x &&
+        giftTax x == specGiftPortion (if x ≤ specBasicDeduction then 0 else x - specBasicDeduction)
+    | k + 1 =>
+        let x := (k + 1) * 850_000
+        let residual := if x ≤ specBasicDeduction then 0 else x - specBasicDeduction
+        go k &&
+          (giftPortionTax x == specGiftPortion x) &&
+          (giftTax x == specGiftPortion residual)
+  giftBasicDeduction == specBasicDeduction && go 50
+
+example : agreeGiftTax = true := by decide
+
 end JapanTaxLaw
