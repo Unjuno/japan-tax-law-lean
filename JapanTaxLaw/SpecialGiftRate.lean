@@ -135,11 +135,18 @@ structure SpecialGiftFacts where
 def specialGiftEligible (f : SpecialGiftFacts) : Bool :=
   f.isFromLinealAscendant && f.recipientIsAdultOnGiftYearJan1
 
-/-- art. 70の2の5(1) applied after the same art. 21-5 ¥600,000 basic deduction.
+/-- art. 70の2の5(1) applied after the art. 70の2の4 basic deduction.
+    租税特別措置法 art. 70の2の4(1) — 「課税価格から百十万円を控除する」。
+    相続税法 art. 21-5 の六十万円控除（`giftBasicDeduction`）ではなく、
+    本特例では 1,100,000 円を控除する（原文 pinned 確認 2026-11-18）。
     Ineligible inputs fall back to the general art. 21-7 computation. -/
+def specialGiftBasicDeduction : Money := 1_100_000
+
+theorem specialGiftBasicDeduction_eq : specialGiftBasicDeduction = 1_100_000 := rfl
+
 def specialGiftTax (f : SpecialGiftFacts) (x : Money) : Money :=
   if f.isFromLinealAscendant && f.recipientIsAdultOnGiftYearJan1 then
-    specialGiftPortionTax (if x ≤ giftBasicDeduction then 0 else x - giftBasicDeduction)
+    specialGiftPortionTax (if x ≤ specialGiftBasicDeduction then 0 else x - specialGiftBasicDeduction)
   else
     giftTax x
 
@@ -237,8 +244,10 @@ example : specialGiftPortionTax 15_000_000 = 4_100_000 := by decide
 example : specialGiftPortionTax 30_000_000 = 10_850_000 := by decide
 example : specialGiftPortionTax 45_000_000 = 18_350_000 := by decide
 example : specialGiftPortionTax 50_000_000 = 21_100_000 := by decide
--- 600,000円の基礎控除後の課税価格で計算
-example : specialGiftTax ⟨true, true⟩ 2_600_000 = specialGiftPortionTax 2_000_000 := by decide
+-- art. 70の2の4: 1,100,000円の基礎控除後の課税価格で計算
+example : specialGiftTax ⟨true, true⟩ 3_100_000 = specialGiftPortionTax 2_000_000 := by decide
+example : specialGiftTax ⟨true, true⟩ 1_100_000 = 0 := by decide
+example : specialGiftTax ⟨true, true⟩ 1_100_001 = specialGiftPortionTax 1 := by decide
 
 -- 支配例（特別 <= 一般）: deciable sample over the full range
 example : specialGiftPortionTax 100_000_000 < giftPortionTax 100_000_000 := by decide

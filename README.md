@@ -699,7 +699,7 @@ python -m unittest scripts.tests.test_revision_impact # 8 テスト（実リポ�
 - **`lake build`**: 成功（Lean v4.35.0、依存なし）
 - **構造監査**: 所得税法 1,286 条文・所得税法施行令 1,142 条文を機械検査
 - **意味モデル**: 実装:ジェネラリティを 3 種の網羅パターン（居住者／非居住者／不明）に分解して証明
-- **監査結果**: `verified-anomaly` **0 件**、`candidate` 24 件（すべて**未確定**、独立レビュー未実施）
+- **監査結果**: `verified-anomaly` **0 件**、`candidate` **3,438 件**（すべて `review_status=unreviewed`、独立レビュー未実施）
 - **詳細**: [docs/AUDIT_REPORT.md](docs/AUDIT_REPORT.md)
 - **公理依存**: 主要定理は `propext` のみ（`sorry` 未使用）
 
@@ -708,6 +708,22 @@ python -m unittest scripts.tests.test_revision_impact # 8 テスト（実リポ�
 「矛盾」「抜け穴」「誤記」を称する前に、**(1) 法令・施行日時点、(2) 原文の参照箇所、(3) 形式化の前提、(4) 再現可能な証明／反例、(5) 別解釈・適用除外の検討、(6) 人による法的レビュー**を提示します。
 
 **ビルド成功 ≠ 法令の正確な形式化 ≠ 現実の法的問題の発見** です。
+
+## 監査成果物（すべてコードから再生成・gate 化）
+
+| 成果物 | 内容 |
+|---|---|
+| [docs/COVERAGE.md](docs/COVERAGE.md) | 別軸の機械的網羅率（法・構造単位・意味形式化・人間レビューを混同しない） |
+| [docs/LAW_STATUS.md](docs/LAW_STATUS.md) | 台帳の**全 327 法**それぞれの取得・解析・形式化・レビュー状況 |
+| [docs/ARTICLE_OBLIGATIONS.md](docs/ARTICLE_OBLIGATIONS.md) | 条文ごとの検証義務（needle / impl / Spec / Tests / 公理 / agree の 6 項目） |
+| [docs/BLOCKED.md](docs/BLOCKED.md) | §6 完了に必須の権限外前提条件（有資格レビュー／対象範囲宣言） |
+| [docs/ADVERSARIAL_REVIEW.md](docs/ADVERSARIAL_REVIEW.md) | 形式化担当と分離した独立エージェントによる原文照合・反例探索 |
+| [docs/RATE_CONSISTENCY.md](docs/RATE_CONSISTENCY.md) | 法令横断の税率整合性（意図的特例は BY-DESIGN と分類し矛盾と誤認しない） |
+| [docs/RECURSIVE_DISCOVERY.md](docs/RECURSIVE_DISCOVERY.md) | 参照関係からの対象発見（未一致名・歴史版参照を自動追加せず記録） |
+
+いずれも `python scripts/ci/run_python_gates.py` の regeneration gate で決定的に再生成されます。
+
+**完了判定（§6）は未達**です。`verified-anomaly=0` は独立レビューゼロを意味し、欠陥不在の証拠ではありません。
 
 ## コントリビュート
 

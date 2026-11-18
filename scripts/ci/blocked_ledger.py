@@ -34,7 +34,7 @@ def build() -> str:
 
     review_text = REVIEW.read_text(encoding="utf-8") if REVIEW.exists() else ""
     unresolved_reviews = len(re.findall(r"U-[A-Z]?\d+", review_text))
-    review_sessions = len(re.findall(r"^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review", review_text, re.M))
+    review_sessions = len(re.findall(r"^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review", review_text, re.M))
 
     discovery_text = DISCOVERY.read_text(encoding="utf-8") if DISCOVERY.exists() else ""
     m = re.search(r"tax-name candidates prefixed '新' or '旧': (\d+) names / (\d+) occurrences", discovery_text)

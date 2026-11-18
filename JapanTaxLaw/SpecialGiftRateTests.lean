@@ -32,9 +32,9 @@ example : specialGiftEligible ⟨false, false⟩ = false := by decide
 example : specialGiftTax ⟨false, true⟩ 10_000_000 = giftTax 10_000_000 := by decide
 example : specialGiftTax ⟨true, false⟩ 10_000_000 = giftTax 10_000_000 := by decide
 
--- art. 70の2の5(1) 柱書: 600,000円控除後の課税価格
-example : specialGiftTax ⟨true, true⟩ 600_000 = 0 := by decide
-example : specialGiftTax ⟨true, true⟩ 600_001 = specialGiftPortionTax 1 := by decide
+-- art. 70の2の4: 1,100,000円控除後の課税価格（600,000円ではない）
+example : specialGiftTax ⟨true, true⟩ 1_100_000 = 0 := by decide
+example : specialGiftTax ⟨true, true⟩ 1_100_001 = specialGiftPortionTax 1 := by decide
 
 -- 一般表との共通帯（¥2,000,000 までは両表とも 10%）
 example : specialGiftPortionTax 2_000_000 = giftPortionTax 2_000_000 := by decide
