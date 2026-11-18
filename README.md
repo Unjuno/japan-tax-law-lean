@@ -593,6 +593,15 @@ JapanTaxLaw/RegistrationQualificationFeesP8MTests.lean   # 同上 退行テス�
 JapanTaxLaw/RegistrationQualificationFeesP8N.lean        # 登録免許税法 別表第三十二号 百五十二〜百五十九（測量業・住宅性能評価・建築物エネルギー消費性能・廃棄物再生利用・希少野生動植物登録機関等）flat fee L4 モデル
 JapanTaxLaw/RegistrationQualificationFeesP8NSpec.lean    # 同上 独立定式
 JapanTaxLaw/RegistrationQualificationFeesP8NTests.lean   # 同上 退行テスト
+JapanTaxLaw/LandValueTaxRate.lean              # 地価税法 art. 22/23（課税価格−基礎控除×千分の3、評価の原則は NOT MODELLED）L4 モデル
+JapanTaxLaw/LandValueTaxRateSpec.lean          # 同上 独立定式
+JapanTaxLaw/LandValueTaxRateTests.lean         # 同上 退行テスト
+JapanTaxLaw/LocalCorporationTaxRate.lean       # 地方法人税法 art. 10（課税標準×103/1000、加算額控除）L4 モデル
+JapanTaxLaw/LocalCorporationTaxRateSpec.lean   # 同上 独立定式
+JapanTaxLaw/LocalCorporationTaxRateTests.lean  # 同上 退行テスト
+JapanTaxLaw/SpouseResidenceValuation.lean      # 相続税法 art. 23の2（配偶者居住権の評価）L4 モデル
+JapanTaxLaw/SpouseResidenceValuationSpec.lean  # 同上 独立定式
+JapanTaxLaw/SpouseResidenceValuationTests.lean # 同上 退行テスト
 JapanTaxLaw/CounterexampleSweep.lean  # L6: マージ済み L4 全モデル × Spec の有限領域反例バウンド検査（decide）
 JapanTaxLaw/TaxProcedure.lean      # 国税通則法 第2条第10号（強制換価手続）
 JapanTaxLaw/TaxProcedureSpec.lean  # Act art.2(10) の独立仕様・健全性・整合性定理
