@@ -62,4 +62,42 @@ example : specSuccessiveRate3 7 = 30_000 := by decide
 example : specSuccessiveRate3 10 = 0 := by decide
 example : specSuccessiveRate3 11 = 0 := by decide
 
+/-- Spec: the art. 20 three-factor discount (百分の X を順次乗じて), written from
+    the independent factor definitions above rather than the implementation. -/
+def specSuccessiveDeductionAmount (firstTaxPaid : Money)
+    (secondTotalInherited firstNetEstate : Money)
+    (thisHeir : Money) (yearsElapsed : Nat) : Money :=
+  let r1 := specSuccessiveRate1 secondTotalInherited firstNetEstate
+  let r2 := specSuccessiveRate2 thisHeir secondTotalInherited
+  let r3 := specSuccessiveRate3 yearsElapsed
+  ((firstTaxPaid * r1 / 100_000) * r2 / 100_000) * r3 / 100_000
+
+/-- Agreement of the implementation with the independent spec at finite sample
+    points (each of the three rates, the discount product, and the final tax).
+    A finite cross-check only: no universal theorem is claimed. -/
+def agreeInheritanceSuccessiveDeduction : Bool :=
+  [ (0, 0, 0, 0, 0),
+    (100, 100, 100, 100, 0),
+    (100, 100, 100, 100, 5),
+    (250, 200, 100, 50, 3),
+    (1_000, 400, 200, 250, 9),
+    (500, 50, 100, 100, 10),
+    (2_000, 1_000, 100, 25, 11),
+    (300, 100, 200, 0, 20),
+    (90_000, 37_500, 12_000, 9_000, 7) ].all
+    fun (firstTaxPaid, secondTotalInherited, firstNetEstate, thisHeir, yearsElapsed) =>
+      specSuccessiveRate1 secondTotalInherited firstNetEstate ==
+          successiveRate1 secondTotalInherited firstNetEstate &&
+      specSuccessiveRate2 thisHeir secondTotalInherited ==
+          successiveRate2 thisHeir secondTotalInherited &&
+      specSuccessiveRate3 yearsElapsed == successiveRate3 yearsElapsed &&
+      specSuccessiveDeductionAmount firstTaxPaid secondTotalInherited firstNetEstate thisHeir yearsElapsed ==
+          successiveDeduction firstTaxPaid secondTotalInherited firstNetEstate thisHeir yearsElapsed &&
+      (firstTaxPaid + 2_000_000) -
+          specSuccessiveDeductionAmount firstTaxPaid secondTotalInherited firstNetEstate thisHeir yearsElapsed ==
+          taxWithSuccessiveDeduction (firstTaxPaid + 2_000_000) firstTaxPaid
+            secondTotalInherited firstNetEstate thisHeir yearsElapsed
+
+example : agreeInheritanceSuccessiveDeduction = true := by decide
+
 end JapanTaxLaw
