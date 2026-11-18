@@ -2182,3 +2182,139 @@ Python で各モジュールの算術を独立再実装し、境界値・0・端
 - 残る UNRESOLVED はいずれも pinned 原文のみでは解けない法的判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・率／定数の有理数照合・境界値反例走査・CI needle の `.find()` 検証・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。発見候補は確定欠陥と断定せず、上記 CONFIRMED はいずれも pinned 原文・公理出力から機械的に導けるもののみを記載した。
+
+## Batch N review (2026-11-19)
+
+担当: Adversarial Review Agent（形式化担当ワーカーから独立）。commit / push / merge / ブランチ切替は行わず、Lean モジュールは**一切変更していない**（読み取り専用）。書き込みは `docs/ADVERSARIAL_REVIEW.md` のみ。
+
+### N-0. レビュー対象と方法
+
+| 項目 | 内容 |
+|---|---|
+| 対象 impl | `JapanTaxLaw/PublicPensionWithholding.lean`（所得税法 art. 203の3）／`JapanTaxLaw/SpecialLandHoldingTax.lean`（地方税法 art. 596）／`JapanTaxLaw/RetainedAmountLocalTax.lean`（法人税法施行令 art. 139の10） |
+| 対象 Spec/Tests | 各 `*Spec.lean` / `*Tests.lean`（計 9 ファイル、公理監査のみ） |
+| pinned 原文 | `data/raw/340AC0000000033_20261001_507AC0000000070.law.json`／`data/raw/325AC0000000226_20261101_508AC0000000002.law.json`／`data/raw/340CO0000000097_20261001_507CO0000000121.law.json` |
+| 抽出方法 | STAGING（`STAGING_PPW` / `STAGING_SLH` / `STAGING_RALT`）の数値・needle 申告は**信じず**、pinned JSON の `law_full_text` を Python で直接平坦化・正規化して率・文字列を再抽出。needle 文字列は CI 実装 `scripts/ci/transcription_audit.py` の `checks()` を import して取得（手打ちしない）。率は `Fraction`、反例は Nat の saturating 減算として独立再計算。 |
+| 実行 | Python 3（`python -X utf8`）＋ `lake env lean`（`#print axioms`、exit 0 / error 0） |
+
+### N-1. 原文からの独立抽出（pinned JSON 直接）
+
+**N-1-a. 所得税法 art. 203の3**（ArticleTitle `第二百三条の三`、正規化本文 2,299 文字）冒頭を逐語抽出:
+
+> （徴収税額）第二百三条の三前条の規定により徴収すべき所得税の額は、公的年金等の金額から、次の各号に掲げる公的年金等の区分に応じ当該各号に定める金額を控除した残額に**百分の五**（第三号又は第六号に掲げる公的年金等の当該残額が**十六万二千五百円**に当該公的年金等の金額に係る**月数**を乗じて計算した金額を超える場合におけるその超える部分の金額及び第七号に掲げる公的年金等の当該残額については、**百分の十**）の税率を乗じて計算した金額とする。
+
+- 出現回数: `百分の五` = 1、`百分の十` = 1、`十六万二千五百円` = 1。第一号〜第七号まで存在し、税率区分は「第一・二・四・五号＝5%／第三・六号＝5%＋超過分10%／第七号＝10%」。Lean の 3 区分 Bool 選択（`isSeventh` / `isThirdOrSixth` / その他）は全 7 号を漏れなく被覆。
+- 各号控除額は原文に実在し、Lean の doc-comment 列挙と**一字一句一致**: 政令月割額×25%＋75,000 円と100,000 円のいずれか多い額／障害者 22,500・特別障害者 35,000／寡婦 22,500・ひとり親 30,000／源泉控除対象配偶者 32,500・老人 40,000／源泉控除対象親族 32,500・特定扶養親族及び特定親族 52,500・老人扶養親族 40,000／同一生計配偶者・扶養親族の障害者 22,500・同居特別障害者 62,500・その他特別障害者 35,000／第七号は公的年金等の金額の 25%。これらは `netAmount`（caller-established の控除後残額）に吸収され、**NOT MODELLED** が正しい。
+
+**N-1-b. 地方税法 art. 596**（第五百九十六条、正規化本文 480 文字）:
+
+> 一 …同条第二項第一号の課税標準額に**第五百九十四条の税率**を乗じて得た額から、**当該額を限度として**、…固定資産税の課税標準となるべき価格に**百分の一・四**を乗じて得た額の合計額を控除した額
+> 二 …（同条第二項第二号又は第三号）…不動産取得税の課税標準となるべき価格（…政令で定める額）に**百分の四**を乗じて得た額の合計額を控除した額
+
+- `第五百九十四条の税率` = 2、`当該額を限度として` = 2、`百分の一・四` = 1、`百分の四` = 1、`政令で定める額` = 1。art. 594 は別条文の税率表であり、本モデルが `taxRate : TaxRate` を caller-established で受け取るのは原文構造と整合。
+- 「当該額を限度として」＝税額を上限とする `min` 構造を直接支持。1.4%＝14/1000、4%＝4/100 のリテラルを確認（14/100＝140% あるいは 4/1000 という 10 倍誤りは原文に不存在）。
+
+**N-1-c. 法人税法施行令 art. 139の10**（第百三十九条の十、第1項括弧内まで抽出）:
+
+> 法人税額から当該法人税額に係る**税額控除額**を控除した金額に**百分の十・四**を乗じて計算した金額（…特定寄附金…当該特定寄附金の額（当該事業年度の所得の金額の計算上**損金の額に算入されるものに限る**。）の合計額の**百分の四十**に相当する金額と**調整地方税額**（当該計算した金額に次項第二号イ…百分の十・四…を加算した金額から同項第一号イ…百分の十・四…を控除した金額をいう。）に**百分の二十**を乗じて計算した金額とのうち**いずれか少ない金額**を控除した金額）
+
+- `百分の十・四` = 3、`百分の四十` = 1、`百分の二十` = 1、`いずれか少ない金額` = 1、`調整地方税額` = 1、`税額控除額` = 2、`損金の額に算入されるものに限る` = 1。
+- 10.4%＝104/1000（1040/1000＝104% の 10 倍誤りは原文に不存在）。min(寄附金×40%, 調整地方税額×20%) と「少ない金額を控除」が一致。調整地方税額の算定定義は原文に存在するが第2項細目依存のため caller-established、損金限定も caller-established が妥当。
+
+### N-2. 最重要チェック 3 点の独立判定
+
+| # | チェック | 原文抽出値 | Lean 定数／構造 | 判定 |
+|---|---|---|---|---|
+| 1 | art. 203の3 基本 5%／超過・第七号 10%／閾値 162,500×月数 | 百分の五・百分の十・十六万二千五百円×月数（各 1 回） | `pensionWithholdingBasicRate=⟨5,100⟩`、`ExcessRate=⟨10,100⟩`、`pensionExcessThresholdUnit=162_500`、`excessThreshold m = 162500*m`、超過分は saturating | **CONFIRMED（原文どおり）**。各号控除額は全件 NOT MODELLED が妥当（N-1-a）。 |
+| 2 | art. 596 一号 14/1000、二号/三号 4/100、min 構造 | 百分の一・四／百分の四／当該額を限度として | `fixedAssetDeductionRate=⟨14,1000⟩`、`realEstateDeductionRate=⟨4,100⟩`、`tax − min tax (dedRate×base)` | **CONFIRMED（原文どおり、10 倍過大でない）**。 |
+| 3 | art. 139の10 104/1000、min(40%,20%)、saturating、Option | 百分の十・四／百分の四十／百分の二十／いずれか少ない金額 | `localTaxBaseRate=⟨104,1000⟩`、`donationFortyRate=⟨40,100⟩`、`twentyRate=⟨20,100⟩`、`min`＋saturating、`Option Money` で該当性 | **CONFIRMED（原文どおり、10 倍過大でない）**。 |
+
+3 点とも率和構造は原文と完全一致し、**桁違い（10 倍）バグは検出されなかった**。`Fraction` による独立有理数照合も 8 項目すべて `OK=True`（0.05 / 0.1 / 162500 / 0.014 / 0.04 / 0.104 / 0.4 / 0.2）。
+
+### N-3. needle 健全性（CI 実装を直接検証）
+
+`transcription_audit.py` の `checks()` から 3 check を抽出し、pinned 正規化テキスト（`re.sub(r"[\s　]+","",…)`、CI と同一条件）に `.find()` / `.count()` を実行。STAGING の「FOUND」申告は信じていない。
+
+| 監査項目 | 結果 |
+|---|---|
+| check 数 | 3（203の3 / 596 / 139の10） |
+| needle 総数 | **18**（PPW 8 ／ SLH 5 ／ RALT 5）— 指定どおり |
+| U+3000（全角空白）を含む needle | **0 件** |
+| FOUND | **18/18**（MISS **0**） |
+| 正規化本文長 | PPW 1,095,718 ／ SLH 2,355,516 ／ RALT 1,184,229 文字 |
+| `.count()` | 17 本は 1。**SLH の 1 本**（`当該不動産取得税の課税標準となるべき価格として政令で定める額`）はファイル全体で 3。**ただし art. 596 本文内では count 1** であり、残り 2 件は他条文からの参照。CI の `contains()` は存在のみを要求するため欠陥ではない。 |
+
+- offset（正規化）: PPW = 219912 / 219972 / 220017 / 220213 / 220277 / 220360 / 221470 / 222097。SLH = 746768 / 746848 / 746938 / 747195 / 747226。RALT = 459553 / 459608 / 459856 / 459917 / 460032。
+- needle 4〜8（PPW）は各号控除額・該当性の原文保持であり、NOT MODELLED 判定の根拠（欠落ではない）。
+
+**needle 健全性: 問題なし（18/18 FOUND、U+3000 0 件、MISS 0）。**
+
+### N-4. 反例探索（境界値・min 両側・端数）
+
+pinned 原文から導いた整数式を Python で独立再計算（Nat 減算は saturating として扱い、負数は出さない）。下表はすべて Lean モジュールの `example := by decide` と一致、**矛盾 0 件**。
+
+| モジュール | 境界ケース | 独立再計算 | Lean の例 |
+|---|---|---|---|
+| PPW | 閾値ちょうど `162500, m=1` | 5% 分 8,125＋超過 0 = **8,125** | `= 8125` ✓ |
+| PPW | 閾値+1 円 `162501, m=1` | 8,125＋floor(1×10%)=0 → **8,125**（1 円の超過は切り捨てで 0） | `= 8125` ✓ |
+| PPW | 超過 `1162500, m=1` | 8,125＋100,000 = **108,125** | `= 108125` ✓ |
+| PPW | `m=0` → 閾値 0、`100000` | 超過分 10% のみ = **10,000** | `= 10000` ✓ |
+| PPW | 残額 < 閾値 `1, m=1` | saturating で超過 0 → **0**（5% も切り捨て） | 同種の例と整合 |
+| SLH | 控除 ≥ 税額 | `min` が税額を選択 → 結果 **0**（アンダーフローなし） | `landHoldingTax_eq_zero_of_deduction_ge_tax` ✓ |
+| SLH | 控除 0 | 結果 = 税額そのもの | `landHoldingTax_zero_deduction` ✓ |
+| SLH | min 両側・端数 `taxRate=103/1000, base=3000, 4%, dedbase=500` | tax=309, ded=20 → **289** | グリッド `slhCheckGrid` が同期を確認 |
+| RALT | min 両側 `1000/1000` → 20% 側、**`1000/10000` → 40% 側** | **200 / 400** | `= 200 / = 400` ✓ |
+| RALT | 基本 10400 − 調整 200 / 400 | **10200 / 10000** | `= 10200 / = 10000` ✓ |
+| RALT | 調整 > 基本 → saturating **0**（還付は射程外） | **0** | `= 0` ✓ |
+| RALT | `none` → 基本のみ、`base 1000 → 104`（1040/1000 なら 1040） | **104** | `= 104` ✓ |
+
+### N-5. 条件漏れ（NOT MODELLED）の妥当性
+
+| 対象 | 原文根拠 | 扱い | 判定 |
+|---|---|---|---|
+| art. 203の3 各号控除額・政令月割額（N-1-a の全額） | 原文に実在するが政令依存・該当性判定を伴う | `netAmount` / `months` / 区分 Bool を caller-established とし NOT MODELLED | **BY-DESIGN（妥当）** |
+| art. 203の3 前条手続・復興特別所得税附帯徴収・納付期限 | 本条の税率算術ではない | NOT MODELLED | **BY-DESIGN** |
+| art. 596 art. 594 税率 | 別条文（税率表） | `taxRate` パラメータ（caller-established） | **BY-DESIGN** |
+| art. 596 課税標準価格・政令額・該当区分 | 当該価格は納税者ごとの確定値 | `Money` / 選択を caller-established | **BY-DESIGN** |
+| art. 596 「合計額」の集約 | 原文は複数土地の (価格×率) の和 | caller が集約した価格 1 件に率を 1 回適用（集約後切り捨て）と明記 | **UNRESOLVED（U-N2）**: 個別土地ごと切り捨てとの差（数円）の法的扱いは機械的照合では確定できない |
+| art. 139の10 調整地方税額の算定 | 原文に定義が存在するが第2項細目依存 | caller-established `adjustedLocalTax`、NOT MODELLED | **BY-DESIGN（妥当）** |
+| art. 139の10 特定寄附金の損金算入限定・該当性 | 原文に限定が存在 | `Option Money`（Bool を金額式に入れない）＋ caller-established | **BY-DESIGN（妥当）** |
+| 3 モジュールの丸め | 原文は「乗じて計算した金額」で本条に丸め規定なし | `TaxRate.applyFloor`（切り捨て）を明示的 modeling choice として採用 | **UNRESOLVED（U-N1）**: 法的に正しい丸め単位かは人間の専門判断待ち |
+
+### N-6. 公理監査
+
+9 モジュールの名前付き `def` / `theorem` / `structure` 計 **78 宣言**（PPW 20 + Spec 7、SLH 11 + Spec 7、RALT 27 + Spec 6、Tests 3 ファイルは名前付き宣言なし）すべてに `#print axioms` を実行（一時 Lean ファイルを temp に作成、`lake env lean` exit code **0**、error **0**）。監査後、一時ファイルは削除済み。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | **78** |
+| axiom-free（`does not depend on any axioms`） | **66** |
+| `Classical.choice`（choice） | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext`（許容） | **12 件**: `PPW.pensionWithholdingTax_mono` / `SLH.landHoldingTax_deduction_le_tax` / `SLH.landHoldingTax_zero_deduction` / `RALT.baseLocalTax_le` / `_mono` / `_mul_thousand` / `_pos` / `RALT.specialDonationAdjustment_le_donation` / `_le_twenty` / `_eq_twenty_when` / `_zero_of_donation_zero` / `RALT.retainedAmountLocalTax_zero_of_over`。いずれも `simp` / Nat 補題由来の**許容範囲**。 |
+| コード部の `sorry` / `admit` / `axiom` / `unsafe` / `Classical.choice` 実使用 | **0 件**（9 ファイル、コメント除去後に grep） |
+
+→ **禁止公理（choice / sorryAx / Quot.sound）は一切検出されず。許容された propext のみ。公理監査は合格。**
+
+### N-7. CONFIRMED / BY-DESIGN / UNRESOLVED の件数
+
+| 分類 | 件数 |
+|---|---|
+| **CONFIRMED**（原文との食い違い） | **0（ゼロ）** |
+| **BY-DESIGN**（明示的スコープで妥当） | **11** |
+| **UNRESOLVED**（人間の法的判断待ち） | **2**（U-N1 丸め、U-N2 合計額の集約切り捨て） |
+
+**ゼロを明示する。** 率・閾値・min 構造・saturating 控除・needle・公理・反例のいずれにも pinned 原文との食い違いは検出されなかった。件数を手柄にしない。
+
+BY-DESIGN 11 件: 203の3 各号控除額／203の3 政令月割額／203の3 月数・区分 Bool／203の3 前条手続等／596 art.594 税率／596 価格・政令額・区分／596 政令で定める額の適用判断／139の10 調整地方税額算定／139の10 損金限定・該当性 Option／139の10 saturating（還付なし）／3 モジュールの floor を modeling choice として開示したこと。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・`Fraction` での率照合・Nat 整数式の反例走査・CI needle の `.find()` 検証・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断（特に U-N1 / U-N2）は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+### N-8. 最終報告（まとめ）
+
+- **判定**: CONFIRMED **0（ゼロ）** ／ BY-DESIGN **11** ／ UNRESOLVED **2**。3 点の最重要チェックはいずれも **CONFIRMED（原文どおり）** で、10 倍桁違いバグなし。
+- **needle**: **18/18 FOUND**、U+3000 **0**、MISS **0**（1 本はファイル全体で count 3 だが art. 596 内では count 1、欠陥ではない）。
+- **公理**: choice / sorryAx / Quot.sound とも **0**、propext 12（許容）、78/78 宣言走査・exit 0。
+- **反例**: 境界・min 両側・端数・saturating の全ケースで Lean `by decide` と一致、矛盾 **0**。
+- **追記**: `docs/ADVERSARIAL_REVIEW.md` に見出し `## Batch N review (2026-11-19)`（coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に一致）を末尾追記。既存セクションはすべて保持。Lean モジュールの変更なし。
