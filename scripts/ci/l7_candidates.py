@@ -203,7 +203,36 @@ def render():
     return buf.getvalue(), len(rows), law_failures
 
 
+def emit_review_template() -> int:
+    """Write a sponsor-fillable CSV containing one stable key per candidate.
+
+    The output goes to build/review_template.csv (git-ignored). Copy it to
+    data/HUMAN_REVIEWS.csv and fill review_status / reviewer / review_date /
+    source_citation. Blank records are NOT accepted by load_overlay, so an
+    unfilled copy never creates a false review claim.
+    """
+    rows, law_failures = collect_rows()
+    template = REPO_ROOT / "build" / "review_template.csv"
+    template.parent.mkdir(parents=True, exist_ok=True)
+    with template.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=OVERLAY_HEADER, lineterminator="\n")
+        w.writeheader()
+        for r in rows:
+            w.writerow({
+                "candidate_key": candidate_key(r),
+                "review_status": "",
+                "reviewer": "",
+                "review_date": "",
+                "source_citation": "",
+            })
+    print(f"wrote {template} ({len(rows)} candidate key(s), {law_failures} law failure(s))")
+    print("Copy to data/HUMAN_REVIEWS.csv and fill only the rows you actually review.")
+    return 0
+
+
 def main():
+    if sys.argv[1:] == ["--emit-review-template"]:
+        return emit_review_template()
     out, n, law_failures = render()
     if sys.argv[1:] == ["--write"]:
         OUT.write_text(out, encoding="utf-8", newline="")
