@@ -81,7 +81,26 @@ def build() -> str:
     # Priority subset: names containing 税 are the most likely in-scope tax laws.
     tax_names = [(n, c) for n, c in names.items() if "税" in n]
     tax_names.sort(key=lambda x: (-x[1], x[0]))
+    historical = [(n, c) for n, c in tax_names if "新" in n or "旧" in n]
+    historical.sort(key=lambda x: (-x[1], x[0]))
     lines += [
+        "## Historical-version references (Phase F: amendment impact)",
+        "",
+        f"tax-name candidates prefixed '新' or '旧': {len(historical)} names / "
+        f"{sum(c for _, c in historical)} occurrences",
+        "",
+        "These are references to historical/amended versions of laws already in the",
+        "ledger, found in 附則・経過措置. They are NOT new target laws. Verifying",
+        "amendment impact (Phase F) requires pinning those historical revisions to",
+        "e-Gov snapshots, which is NOT DONE. They are NOT counted as verified.",
+        "",
+        "| count | name |",
+        "|---:|---|",
+    ]
+    for name, count in historical[:20]:
+        lines.append(f"| {count} | {name} |")
+    lines += [
+        "",
         f"## Tax-name candidates (contain '税', not in ledger) — {len(tax_names)} names",
         "",
         "These are the highest-priority DISCOVERED-CANDIDATE entries for sponsor review:",

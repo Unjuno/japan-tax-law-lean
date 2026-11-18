@@ -16,6 +16,38 @@ raw snapshots scanned: 325
 distinct unmatched reference names: 7526
 total unmatched reference occurrences: 47081
 
+## Historical-version references (Phase F: amendment impact)
+
+tax-name candidates prefixed '新' or '旧': 795 names / 12977 occurrences
+
+These are references to historical/amended versions of laws already in the
+ledger, found in 附則・経過措置. They are NOT new target laws. Verifying
+amendment impact (Phase F) requires pinning those historical revisions to
+e-Gov snapshots, which is NOT DONE. They are NOT counted as verified.
+
+| count | name |
+|---:|---|
+| 3190 | 新租税特別措置法 |
+| 3052 | 旧租税特別措置法 |
+| 724 | 旧法人税法 |
+| 609 | 新法人税法 |
+| 403 | 新所得税法 |
+| 369 | 旧所得税法 |
+| 187 | 旧地方税法 |
+| 175 | 新租税特別措置法施行令 |
+| 140 | 新消費税法 |
+| 132 | 新関税法 |
+| 109 | 新法人税法施行令 |
+| 109 | 旧租税特別措置法施行令 |
+| 108 | 新相続税法 |
+| 87 | 新地方税法 |
+| 77 | 旧法人税法施行令 |
+| 70 | 新酒税法 |
+| 63 | 新国税通則法 |
+| 62 | 元年旧地方税法 |
+| 61 | 旧所得税法施行令 |
+| 51 | 新所得税法施行令 |
+
 ## Tax-name candidates (contain '税', not in ledger) — 2873 names
 
 These are the highest-priority DISCOVERED-CANDIDATE entries for sponsor review:
