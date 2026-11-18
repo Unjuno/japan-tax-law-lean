@@ -26,11 +26,23 @@ def tracked_lean_files():
     return [f for f in out.decode("utf-8").split("\0") if f]
 
 
+def strip_comments(text: str) -> str:
+    """Blank out Lean block/doc/line comments so prose such as
+    "theorem is claimed." inside a -/ doc comment is not mistaken for a
+    declaration. Line structure is preserved so namespace tracking still works.
+    """
+    import re as _re
+    text = _re.sub(r"/-.*?-/", lambda m: _re.sub(r"[^\n]", " ", m.group(0)), text, flags=_re.S)
+    text = _re.sub(r"--[^\n]*", "", text)
+    return text
+
+
 def theorems_of(path):
     """Yield (qualified_name, path) for every theorem/lemma declared in file."""
     stack: list[str] = []
     with open(path, encoding="utf-8") as fh:
-        for line in fh:
+        source = strip_comments(fh.read())
+        for line in source.splitlines():
             m = OUR_NAMESPACE_PATTERN.match(line)
             if m:
                 stack.extend(m.group(1).split("."))
