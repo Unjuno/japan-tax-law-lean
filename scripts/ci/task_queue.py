@@ -130,9 +130,12 @@ def main() -> int:
     spec = importlib.util.spec_from_file_location("tq_ta", AUDIT)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
-    pin_map = {}
+    # Map each law's pinned audit needles to the articles that actually contain
+    # them. This handles both explicit article pins (kanji numerals) and
+    # file-level checks whose needles span one or more articles.
+    pin_needles = {}
     for name, law_id, kind, art, needles in mod.checks():
-        pin_map.setdefault(law_id, set()).add(art if art else "(file-level)")
+        pin_needles.setdefault(law_id, []).extend(needles)
 
     tasks = []
     for law in laws:
@@ -146,6 +149,13 @@ def main() -> int:
             continue
         doc = json.loads(p.read_text(encoding="utf-8"))
         full = norm(flat(doc.get("law_full_text")))
+        covered_articles = set()
+        for needle in pin_needles.get(lid, []):
+            n = norm(needle)
+            for apath, anode in iter_articles(doc.get("law_full_text")):
+                an, _, _, _ = paths_of(anode)
+                if an and n in norm(flat(anode)):
+                    covered_articles.add(an)
         for path, node in iter_articles(doc.get("law_full_text")):
             anum, title, paras, rows = paths_of(node)
             if not anum:
@@ -153,7 +163,7 @@ def main() -> int:
             text = norm(flat(node))
             key = f"{lid}|{rev}|{'/'.join(path)}|{anum}"
             task_id = hashlib.sha256(key.encode("utf-8")).hexdigest()[:16]
-            covered = anum in pin_map.get(lid, set())
+            covered = anum in covered_articles
             tasks.append({
                 "task_id": task_id,
                 "law_id": lid,
