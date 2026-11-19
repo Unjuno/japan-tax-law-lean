@@ -2644,3 +2644,95 @@ Grid 走査（Python）:
 - **書き換え**: `docs/ADVERSARIAL_REVIEW.md` に本セクション `## Batch P review (2026-11-19)`（coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に一致）を追記。既存セクションはすべて保持。Lean モジュール変更なし。commit / push / merge / ブランチ切替なし。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・原文キーフレーズの `.find()` 抽出・整数式の grid／カーネル反例走査・CI needle の `.find()` 検証・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断（U-P1〜U-P5）は専門家に委ねる。本レビューをもって人間の法的レビューを完了したものとはみなさない。
+
+## Batch Q review (2026-11-19)
+
+### Q-0.範囲・独立性の声明
+
+- **レビュア**: Adversarial Review Agent。形式化担当 3 ワーカーと独立に cycle-5 を監査。STAGING / doc-comment / 担当範囲テキストは**参照のみで信用せず**、pinned JSON から Python で直接抽出して照合した。
+- **対象モジュール（読み取り専用・一切変更せず）**:
+  - `JapanTaxLaw/IncomeAdjustmentDeduction.lean`（租税特別措置法 art. 41の3の11）
+  - `JapanTaxLaw/SpecialBaselineIncomeTax.lean`（租税特別措置法 art. 41の19）
+  - `JapanTaxLaw/DiscountBondRefund.lean`（租税特別措置法施行令 art. 26の12）
+  - 各 `*Spec.lean` / `*Tests.lean` も参照（読み取りのみ）。
+- **一次資料（pinned・改変禁止）**:
+  - `data/raw/332AC0000000026_20261101_507AC0000000013.law.json`（租特法、revision `332AC0000000026_20261101_507AC0000000013`、sha256 `E6E6013BBB…5EE`、amendment_enforcement_date 2026-11-01）
+  - `data/raw/332CO0000000043_20261101_507CO0000000127.law.json`（租特法施行令、revision `332CO0000000043_20261101_507CO0000000127`、sha256 `D0AD21A838…4D`、2026-11-01）
+- **抽出法**: `law_full_text` の `children` を再帰的に辿り `tag="Article"` の `attr.Num` で選択（art. 41の3の11 → `41_3_11`、art. 41の19 → `41_19`、art. 26の12 → `26_12`、各 1 件のみ一致）。配下の文字列を文書順に連結し `re.sub(r"[\s\u3000]+", "", …)` で正規化。日本語数字は自前パーサで Arabic 化し、算術は別実装 Python で再計算して Lean の kernel-decided smoke 期待値と比較。
+- **ツール**: Python 3.x 独立抽出、`lake env lean`（`#print axioms` 40 定理、exit code 0）。
+- **書き込みは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ**。既存セクション（Batch G〜P / Art.25 / 国税徴収法 / Art.24 等）はすべて保持。Lean モジュール・Spec・Tests・`data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。一時ファイルは approved temp dir（`C:\Users\junny\AppData\Local\Temp\opencode`）に置き、repo 外で処理（repo 内に作った一時ファイルは削除済み）。
+
+### Q-1.独立抽出結果（pinned 原文 → 日本語数字 → Arabic → Lean 定数）
+
+pinned 正規化テキスト長: art. 41の3の11 = 1361 文字、art. 41の19 = 3353 文字、art. 26の12 = 747 文字（いずれも RAW 長 = NORM 長、U+3000 なし）。日本語数字パーサの抽出は全項目で期待値と一致。
+
+| 条項 | 原文トークン | 独立抽出（Arabic） | Lean 定数 / 式 | 照合 |
+|---|---|---|---|---|
+| 41の3の11(1) 閾値 | 八百五十万円 | 8,500,000 | `salaryIncomeThreshold = 8_500_000` | 一致 |
+| 41の3の11(1) 上限 | 千万円 | 10,000,000 | `salaryIncomeCap = 10_000_000` | 一致 |
+| 41の3の11(1) 率 | 百分の十 | 10/100 | `adjustmentRateNumerator=10`, `...Denominator=100` | 一致 |
+| 41の3の11(2) 上限・控除 | 十万円 | 100,000 | `smallIncomeCap = 100_000` | 一致 |
+| 41の19(1) 閾値 | 三億三千万円 | 330,000,000 | `thresholdAmount = 330_000_000` | 一致 |
+| 41の19(1) 率 | 百分の二十二・五 | 22.5/100 = **225/1000** | `specialRate = ⟨225,1000⟩`、`applyFloor = amount*225/1000` | 一致（2250/1000 ではない） |
+| 26の12 本則 | 券面金額−償還金額 × 徴収税率 | (face−red)×rate | `discountBondRefund = rate.applyFloor (face−red)` | 一致 |
+| 26の12 外国分 | (券面−償還) × (ロ/イ)、イ=社債発行差金、ロ=国内帰属部分 | (face−red)×dom/iss | `foreignBondBase = (face−red)*domesticPart/issuanceDiscount` | 一致 |
+
+率の 10 倍トラップ確認: `225/1000 = 22.5/100` は True、`2250/1000 = 22.5/100` は False。`applySpecialRate 1000 = 225`（2250/1000 なら 2250 となる 10 倍誤り）を kernel smoke が確認。
+
+### Q-2.最重要チェック 3 点の独立判定
+
+1. **art. 41の3の11 → CONFIRMED（不整合なし）**: 原文(1)「…千万円を超える場合には、千万円）から八百五十万円を控除した金額の百分の十に相当する金額…」は `(min 給与 10_000_000 − 8_500_000) × 10 / 100` と一字対応。原文(2)「…十万円）及び…十万円）の合計額から十万円を控除した残額」は `min salaryAfter 100_000 + min pensionOther 100_000 − 100_000` と一字対応。第3項の判定基準日（その年 12 月 31 日／死亡・出国の時／死亡者は死亡の時の現況）は原文に実在し、日付・現況判定を含む法的判断であるため **NOT MODELLED は妥当（BY-DESIGN）**。
+2. **art. 41の19 → CONFIRMED（不整合なし）**: 原文「基準所得金額が三億三千万円を超える…当該超える部分の金額の百分の二十二・五に相当する金額からその年分の基準所得税額を控除した金額」は `excess = max(inc−330_000_000,0)`、`applyFloor(excess)`、`− baselineTaxAmount`（saturating）と一字対応。**225/1000 を採用し 2250/1000 の 10 倍誤りは不在**。第2項の基準所得金額算定（一号〜九号の合計・特別控除・政令規定）は他条文参照が多数にわたり **NOT MODELLED は妥当（BY-DESIGN）**。第3項の基準所得税額・第4項・第5項も NOT MODELLED（BY-DESIGN）。
+3. **art. 26の12 → CONFIRMED（不整合なし）**: 原文本則「割引債の券面金額から償還金額（買入消却が行われる場合には、その買入金額）を控除した金額…に…徴収された所得税の税率を乗じて計算した金額」は `rate.applyFloor (face−red)` と一字対応。外国法人分「券面金額から償還金額を控除した金額にイに掲げる金額のうちにロに掲げる金額の占める割合を乗じて計算した金額」（イ＝社債発行差金、ロ＝国内帰属部分）は `(face−red)*domesticPart/issuanceDiscount` と対応（乗じてから除する形式、割合 = ロ/イ）。平成二十六年旧法人税法第百四十一条第一号・第二号・第三号の具体的認定は法認定であり **NOT MODELLED は妥当（BY-DESIGN）**。
+
+**3 点とも原文どおりであり、正式な不整合・転記誤りはゼロ件。**
+
+### Q-3.needle 健全性（15 本）
+
+doc-comment の「Pinned bytes 逐語（needle evidence）」箇条書きから 15 本を抽出（IncomeAdjustmentDeduction 5 / SpecialBaselineIncomeTax 5 / DiscountBondRefund 5）。各 needle を pinned 正規化テキストに `.find()` で照合。
+
+| モジュール | needle 本数 | U+3000 | `.find()` | 出現位置（pinned 正規化テキスト） |
+|---|---:|---:|---|---|
+| IncomeAdjustmentDeduction.lean（41の3の11） | 5 | 0 | 5/5 FOUND | 20 / 133 / 223 / 332 / 505 |
+| SpecialBaselineIncomeTax.lean（41の19） | 5 | 0 | 5/5 FOUND | 0 / 76 / 141 / 443 / 861 |
+| DiscountBondRefund.lean（26の12） | 5 | 0 | 5/5 FOUND | 0 / 149 / 288 / 372 / 640 |
+| **合計** | **15** | **0 本** | **15/15 FOUND（MISS 0）** | — |
+
+- **needle 健全性: 健全（15/15 FOUND、U+3000 0 本、MISS 0）**。DiscountBondRefund の doc-comment が主張する出現位置 0/149/288/372/640 は独立抽出と完全一致。
+- 備考: doc-comment 内の「第1項の規定の適用がある場合には、同項の規定による控除をした残額」「…を控除した金額…に…税率を乗じて…」等の**説明用引用（「…」を含む paraphrase）は needle ではない**ため 15 本には数えない。これらは needle 箇条書き外の方法中の表現であり、`.find()` 非該当でも健全性判定に影響しない。
+
+### Q-4.反例探索（境界・端数・ゼロ分母）
+
+独立 Python 再実装で全テストを再計算し、Lean の kernel-decided smoke 期待値と比較。**不一致 0 件**。
+
+- 850万境界: `s=8_499_999→0`, `8_500_000→0`（ちょうどを含む）, `8_500_001→0`, `8_500_010→1`, `9_000_000→50_000`。1000万上限: `10_000_000→150_000`, `10_000_001→150_000`（頭打ち）。
+- 10万境界（第2項）: `(0,0)→0`, `(100_000,0)→0`, `(200_000,0)→0`, `(200_000,50_000)→50_000`, `(200_000,200_000)→100_000`, `(99_999,2)→1`。
+- 3.3億境界: `330_000_000→0`（「超える」なので等号は 0）, `330_000_001→0`（1×225/1000 の floor）, `330_001_000→225`, `基準所得税額 300 → 0`（saturating）。
+- 225/1000: `rate(1000)=225`。`2250/1000` なら 2250 となる 10 倍誤りを明示的に排除。
+- 発行差金 0: `foreignBondBase(…, iss=0, …)=0`（Nat の `n/0=0` 安全版）。券面=償還 → 0、券面<償還 → 0（saturating）、`iss=100,dom=100` → 割合 1、`(1000,999,3,1)` → 0（端数）、`(1000,991,7,3)` → 3。`foreignBondRefund(1_000_000,900_000,100_000,25_000,10/100)=2_500`。
+- 端数切り捨ては全モジュールで一貫（`TaxRate.applyFloor` / Nat 除算）。**8_500_001→0 や 330_000_001→0 は切り捨ての帰結であり、通則法 art. 118/119 の端数処理は NOT MODELLED と明記されているため BY-DESIGN（不具合ではない）**。有理数割合の厳密性・丸め規則も art. 26の12 で NOT MODELLED（BY-DESIGN）。
+
+### Q-5.公理監査（`lake env lean` / `#print axioms`、40 定理、exit code 0）
+
+- **Classical.choice: 0 件、sorryAx: 0 件、Quot.sound: 0 件**。grep でも `sorry` / `admit` / `Classical` / `choice` / `Quot.sound` / `axiom` の実コードは 0（コメント中の言及のみ）。
+- **propext: 一部定理にのみ出現（仕様で許容）**。具体的には IncomeAdjustmentDeduction の `incomeAdjustmentDeduction1_of_le_threshold` / `..._of_ge_cap` / `..._of_both_ge_cap`、SpecialBaselineIncomeTax の `..._eq_zero_of_applied_le`、DiscountBondRefund の `simp` 利用定理の一部。必要条件（choice/sorryAx/Quot.sound = 0）はすべて満たす。
+- 補足（BY-DESIGN・軽微な記述差）: IncomeAdjustmentDeduction.lean の doc-comment は「no … propext」と述べるが、上記 3 定理は propext に依存する。**propext は本レビュー仕様で許容されるため不具合ではない**が、コメントの記述はやや不正確（機械監査で検出）。
+- `specialRate` をはじめとする**金額算定の定数・等式定理はすべて axiom-free**（`thresholdAmount_eq` / `specialRate_numDen` / `applySpecialRate_eq` / `specialBaselineIncomeTax_eq` / `discountBondRefund_eq` / `foreignBondBase_eq` / `foreignBondRefund_eq` 等）。
+
+### Q-6.分類・最終報告（サマリ）
+
+| 分類 | 件数 | 内容 |
+|---|---:|---|
+| **CONFIRMED** | 3 | 3 モジュールとも原文どおり（41の3の11 / 41の19 / 26の12）。独立抽出・算術・needle・反例の全照合で不整合なし。 |
+| **BY-DESIGN** | 11 | 下記 B1〜B11（NOT MODELLED 項目、caller-established、端数・丸め、propext 記述差）。 |
+| **UNRESOLVED** | 0 | 未解決事項なし。 |
+| **発見（正式な不整合・転記誤り）** | **ゼロ** | — |
+
+BY-DESIGN 内訳: B1 art.41の3の11 第3項 判定基準日（死亡・出国・死亡者現況）NOT MODELLED / B2 同 該当性・適用可否（居住者・特別障害者・23歳未満扶養親族等）は caller-established / B3 同 第2項の「第1項の控除をした残額」は caller-established 入力 / B4 同 端数処理（通則法 art. 118/119）NOT MODELLED（floor 採用）/ B5 art.41の19 第2項 基準所得金額算定（一号〜九号・特別控除・政令）NOT MODELLED / B6 同 第3項 基準所得税額算定 NOT MODELLED / B7 同 第4項・第5項 NOT MODELLED / B8 art.26の12 旧法人税法第141条 各号の外国法人認定・一号/二号区分 NOT MODELLED（caller-established）/ B9 同 割合の有理数性・厳密丸め NOT MODELLED（整数乘除で近似、分母 0 安全版）/ B10 同 税率算定・還付成立/手続・還付額の控除 NOT MODELLED（caller-established）/ B11 IncomeAdjustmentDeduction の doc-comment「no propext」記述が実際の公理フットプリントとやや不一致（propext は仕様許容のため不具合ではない）。
+
+- **公理結果**: choice / sorryAx / Quot.sound = **0 件**、propext は許容範囲で一部定理のみ。条件を満たす。
+- **needle 健全性**: 15/15 FOUND、U+3000 **0 本**、MISS 0。
+- **反例探索**: 境界・端数・ゼロ分母を含む全ポイントで不一致 **0 件**。
+- **追記完了**: 本セクション `## Batch Q review (2026-11-19)` を `docs/ADVERSARIAL_REVIEW.md` 末尾に追記（coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に一致）。既存セクションはすべて保持。Lean モジュールは一切変更していない。commit / push / merge / ブランチ切替は行っていない。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 照合・独立算術再計算・境界ポイント列挙による反例探索・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な最終判断・解釈・有効性の評価は人間専門家に委ねる。本レビューが人間の法的レビューを称するものではない。
