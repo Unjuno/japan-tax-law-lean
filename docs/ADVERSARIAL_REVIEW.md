@@ -2979,3 +2979,140 @@ BY-DESIGN 内訳: B1 art.148 §1 括弧「当該調整前控除限度額が零�
 - **追記完了**: 本セクション `## Batch S review (2026-11-20)` を `docs/ADVERSARIAL_REVIEW.md` 末尾に追記（coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に一致）。既存セクションはすべて保持。Lean モジュールは一切変更していない。commit / push / merge / ブランチ切替は行っていない。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 照合・漢数字→Arabic 抽出・独立算術再計算・境界ポイント列挙による反例探索・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈・有効性の最終判断は専門家に委ねる。本レビューが人間の法的レビューを称するものではない。
+
+## Batch T review (2026-11-20)
+
+Adversarial Review Agent（形式化担当 W-NTSC / W-LVTD から独立）。レビュー対象は cycle-8 の
+`JapanTaxLaw/NonTaxSavingsCeiling.lean`（所得税法施行令 art.40 / law `340CO0000000096`）と
+`JapanTaxLaw/LandValueTaxBasicDeduction.lean`（地価税法 art.18 / law `403AC0000000069`）。
+一次資料は pinned の
+`data/raw/340CO0000000096_20260522_508CO0000000093.law.json` と
+`data/raw/403AC0000000069_20250601_504AC0000000068.law.json` のみ。
+coordinator の要約・`STAGING_NTSC.md` / `STAGING_LVTD.md` の数値・needle 申告は**信じず**、
+pinned JSON の `law_full_text` を Python で直接走査して金額・算術・原文文字列を再抽出した。
+commit / push / merge / ブランチ切替は行っていない。Lean モジュールは読み取り専用で一切変更していない。
+
+### T-1. 独立抽出結果（pinned 原文からの直接 parse）
+
+- **art.40**: `Article[attr.Num=40]` の平坦本文を直接取得。長さ **186 文字**、U+3000 = **0**。
+  逐語（186 文字、一字一句改変なし）:
+  `（非課税貯蓄申告書）第四十条国内に住所を有する個人が非課税貯蓄申告書を提出する場合には、当該申告書に記載する法第十条第三項第三号（非課税貯蓄申告書の記載事項）に掲げる最高限度額は、一万円に整数を乗じた金額で、かつ、三百万円（当該申告書に記載すべき同項第四号に掲げる最高限度額がある場合には、三百万円から当該最高限度額の合計額を控除した残額）以下の金額としなければならない。`
+  - 「一万円」= **10,000** → `unitYen = 10_000` と一致（10 倍誤りなし）。
+  - 「三百万円」= **3,000,000**（本文に 2 回出現）→ `baseCeilingYen = 3_000_000` と一致。
+    「三千万円」「三億円」は本文に **0 回**（上限の 10 倍／100 倍誤りなし）。
+  - 「三百万円から当該最高限度額の合計額を控除した残額」
+    → `residualCeiling item4 = 3_000_000 − item4`（saturating）、**控除方向は原文どおり**
+    （合計額を 300 万から引く。逆方向・加算ではない）。
+  - 制約「かつ、…以下の金額」→ `declaredCeiling units ≤ residualCeiling item4`。
+- **art.18**: 同一 law id の `Article[attr.Num=18]` は 2 件。本文に「基礎控除」を含む
+  **平坦長 565 文字・U+3000 = 2** のものが対象（他方は経過措置・平坦長 254 文字で対象外）。
+  - 冒頭「次の各号に掲げる金額の**いずれか多い金額**は、課税価格から控除する」
+    → `basicDeduction = max(item1Amount, item2Amount)` の max 構造と一致。
+  - 一号イ「**十億円**」= **1,000,000,000** → `item1LargeCorpAmount` と一致。
+  - 一号ロ「**十五億円**」= **1,500,000,000** → `item1OtherAmount` と一致。
+  - 区分閾値「資本金の額又は出資金の額が**一億円**を超える法人」= **100,000,000**
+    → `capitalThreshold` と一致。**十億（1e9）・十五億（1.5e9）との混同なし**。
+  - 二号の単価「**三万円**」= **30,000**（本文に 3 回出現）→ `unitPriceBase = 30_000` と一致
+    （30 万への 10 倍誤りなし）。
+  - 「一平方メートル当たりの金額（…当該金額に**二分の一**を乗じて計算した金額）に、
+    当該土地等の面積を乗じて計算した金額の合計額」
+    → 1/2 は**面積を掛ける前の単価**にかかる。Lean は
+    `unitPricePerSqm = prev.applyFloor(単価)` → `parcelAmount = 単価 × 面積` の順で、
+    原文の係り受けと一致（面積に 1/2 を掛ける誤りなし）。
+  - `TaxRate.applyFloor r m = m * r.num / r.den` を直接確認。`⟨1,2⟩` は `m/2`、
+    偶数 `m` でちょうど半分（30,000→15,000、21,000→10,500）。
+
+### T-2. 独立判定（2 点）
+
+| # | 対象 | 判定 | 根拠（pinned 原文との照合） |
+|---|---|---|---|
+| 1 | art.40 | **CONFIRMED（一致・不一致なし）** | 一万円=10,000／三百万円=3,000,000／「300 万から合計額を控除した残額」の減算方向、いずれも逐語一致。10 倍・100 倍誤り、控除方向誤りなし。 |
+| 2 | art.18 | **CONFIRMED（一致・不一致なし）** | 「いずれか多い金額」= max(一号,二号)、一号=10 億/15 億、閾値=1 億、単価=3 万円、1/2 は単価に適用、いずれも逐語一致。混同・桁違いなし。 |
+
+### T-3. needle 健全性（CI 実装の 8 本を直接検証）
+
+`scripts/ci/transcription_audit.py` の `checks()` を Python で import し、
+`NTSC NonTaxSavingsCeiling`（3 本）と `LVTD LandValueTaxBasicDeduction`（5 本）に
+実際に組み込まれた needle 文字列を取得（STAGING の申告は信じていない）。
+正規化は CI と同一の `_norm(s) = re.sub(r"[\s　]+", "", s)` を使用。
+
+| check | needle 本数 | U+3000 を含む本数 | FOUND（正規化テキスト） | count |
+|---|---:|---:|---:|---:|
+| NTSC NonTaxSavingsCeiling | 3 | 0 | 3/3 | すべて 1 |
+| LVTD LandValueTaxBasicDeduction | 5 | 0 | 5/5 | すべて 1 |
+| **合計** | **8** | **0** | **8/8（MISS 0）** | **すべて 1** |
+
+- needle 別 offset（正規化テキスト）: NTSC = 42214 / 42283 / 42312、
+  LVTD = 7401 / 7488 / 7672 / 7754 / 7847（すべて count = 1、一意）。
+- **注記（BY-DESIGN の表記 nuance）**: LVTD の 4・5 本目は、pinned art.18 本文中の
+  2 個の U+3000（「…であるとき。**　**三万円に…」）を needle 側が含まないため、
+  正規化**前**の生テキストへの完全一致 `.find()` は `-1` となる。しかし CI の
+  `contains()` は haystack も needle も正規化して比較するため、正規化テキストでは
+  FOUND（count 1）。doc-comment の「flatten テキストに `.find()` / `.count()` で各 1 回」
+  は**正規化済み比較**と読むべきであり、モデル・数値・needle 自体の欠陥ではない。
+- CI ゲート: `python scripts/ci/transcription_audit.py` は **exit 0（139 PASS / 0 FAIL）**、
+  NTSC / LVTD の両 check とも PASS。
+
+### T-4. 反例探索（独立再計算 vs Lean モデル）
+
+Lean の `by decide` smoke check を信じず、Python で定数・式を独立再実装して
+指定境界を走査（`applyFloor` の floor セマンティクス含む）。
+
+| 対象 | 境界ケース | 独立計算 | Lean / モデル式 | 結果 |
+|---|---|---|---|---|
+| art.40 | 合計額 3,000,000 / 3,000,001 / 3,500,000 / 9,999,999 / 1e9 | すべて残額 0 | `residualCeiling` saturating | 一致 |
+| art.40 | 整数 0 → 金額 0 | 0 | `declaredCeiling 0 = 0` | 一致 |
+| art.40 | 300 × 一万円 = 3,000,000 / 301 unit は超過 | 3,000,000 / 超過 | `ceilingWithinLimit 300 0` / `¬ … 301 0` | 一致 |
+| art.40 | 控除後 1,000,000 → 残額 2,000,000 | 2,000,000 | `residualCeiling 1_000_000` | 一致 |
+| art.40 | 端数 残額 2,999,999 で 299 unit OK / 300 unit NG | OK / NG | `ceilingWithinLimit 299 1` / `¬ … 300 1` | 一致 |
+| art.40 | `maxAllowedUnits 0/1/3_000_000` | 300 / 299 / 0 | 同値（端数切り捨て） | 一致 |
+| art.18 | 一号 > 二号（土地等なし） | 1e9 / 1.5e9 | `basicDeduction … []` | 一致 |
+| art.18 | 二号 > 一号（30,000×40,000=1.2e9 / ×60,000=1.8e9） | 1.2e9 / 1.8e9 | `basicDeduction … [area]` | 一致 |
+| art.18 | 1/2 適用（単価 30,000→15,000、面積 100→1,500,000） | 15,000 / 1,500,000 | `unitPricePerSqm … half` / `parcelAmount … half` | 一致 |
+| art.18 | 割合 0（7/10 等ではなく 0/1） | 単価 0 → 金額 0 | `unitPricePerSqm_ratio_zero` / `parcelAmount_ratio_zero` | 一致 |
+| art.18 | 面積 0 | 0 | `parcelAmount_area_zero` | 一致 |
+| art.18 | 借地権割合 7/10 → 21,000、底地割合 3/10 → 9,000、各 1/2 → 10,500 / 4,500 | 同左 | Lean の各 theorem | 一致 |
+
+- 追加の網羅的不変式走査（`units` 0〜399 × 複数 `item4Total`、残額の単調非増加、
+  `declaredCeiling % 10_000 = 0`、上限内 unit の単調性）も **PASS**。
+- **反例（不一致）検出数: 0 件**。桁違い・係り受け逆転・saturating 境界の誤りはなし。
+
+### T-5. 公理監査（`lake env lean` / `#print axioms`）
+
+対象 2 モジュールの名前付き宣言を全件走査し、`#print axioms` を実行（**exit code 0**、
+両モジュールの import・全 `by decide` smoke check もコンパイル成功）。
+監査用 one-off ファイルは approved temp dir に置き、run 後に削除、repo には残していない。
+
+| 項目 | 結果 |
+|---|---:|
+| 監査対象宣言数 | **65**（NTSC 20 / LVTD 45） |
+| axiom-free（`does not depend on any axioms`） | **55** |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` のみ（許容） | **10 件**（NTSC 4 / LVTD 6） |
+| `sorry` / `admit` の実使用 | **0 件**（ソース中の言及は「使用なし」の doc-comment のみ） |
+
+- propext 依存は `declaredCeiling_mod_unitYen` / `residualCeiling_pos` /
+  `ceilingWithinLimit_zero_units` / `maxAllowedUnits_saturate`（NTSC）、
+  `parcelAmount_area_zero` / `item2Amount_cons` / `basicDeduction_ge_item1` /
+  `basicDeduction_ge_item2` / `basicDeduction_pos` /
+  `basicDeduction_eq_item1_of_item2_le`（LVTD）で、いずれも `if`・Nat 減算・
+  単純定理に由来する core `propext` のみ。**禁止公理の混入はゼロ**。
+
+### T-6. 分類・最終報告
+
+| 分類 | 件数 | 内容 |
+|---|---:|---|
+| **CONFIRMED（原文不一致／欠陥）** | **0（ゼロ）** | 金額不一致・10 倍/100 倍誤り・控除方向誤り・算術不一致・needle MISS・公理混入・反例矛盾はいずれも検出されず。 |
+| **BY-DESIGN** | **9** | B1 一万円の「整数」を Nat（非負）で表現、caller-established／B2 第四号合計額・該当性は caller-established（該当なしは `item4Total=0`）／B3 `residualCeiling` の saturating 減算（原文に「零を下回る場合零」の明示句なし。法的詳細は主張しない）／B4 `maxAllowedUnits` は便宜的派生量で端数切り捨て／B5 art.18 一号の該当性（資本金・相互会社等）NOT MODELLED／B6 前条適用判定 NOT MODELLED、二分の一を caller-established `TaxRate` で受領／B7 割合は caller-established `TaxRate`、丸めは `applyFloor`（原文に丸め規則の明示なし）／B8 区画認定・面積・課税価格からの控除適用（art.22）・端数処理等 NOT MODELLED／B9 needle の U+3000 正規化 nuance（T-3 注記。正規化テキストでは 8/8 FOUND）。 |
+| **UNRESOLVED** | **0** | 機械的照合で解けない法的判断の保留は、いずれも B3 / B5〜B8 の BY-DESIGN 境界に包含したため独立件はゼロ。 |
+
+- **CONFIRMED / BY-DESIGN / UNRESOLVED 件数: 0 / 9 / 0**。
+- **発見ゼロ（CONFIRMED ＝ ゼロ）を明示する。** 件数を手柄にしない。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` = **0 件**、`propext` のみ 10 件（許容範囲）、監査は正常（exit 0）。
+- **needle 健全性**: U+3000 **0 本**、CI 実装の **8/8 FOUND**（MISS 0、すべて count 1）、CI ゲート 139 PASS / 0 FAIL。
+- **反例**: 不一致 **0 件**（指定境界 6 種をすべて走査、追加不変式走査も PASS）。
+- **追記**: 本セクション `## Batch T review (2026-11-20)` を `docs/ADVERSARIAL_REVIEW.md` 末尾に追記（coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に整合）。既存セクションはすべて保持。Lean モジュールは一切変更せず、commit / push / merge / ブランチ切替は行っていない。解析用一時ファイルはすべて削除済み。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・金額/算術の Arabic 数値照合・最大値/減算/1/2 係り受けの独立再計算・CI needle の `.find()` 検証・反例走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
