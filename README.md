@@ -663,6 +663,12 @@ JapanTaxLaw/SpecialDeliveryTaxMarchTests.lean   # 同上 退行テスト
 JapanTaxLaw/ExplorationReserve.lean             # 租税特別措置法施行規則 art.9（探鉱準備金）L4 モデル
 JapanTaxLaw/ExplorationReserveSpec.lean         # 同上 独立定式
 JapanTaxLaw/ExplorationReserveTests.lean        # 同上 退行テスト
+JapanTaxLaw/QualifiedInvoiceTaxAmount.lean      # 消費税法施行令 art.70の10（適格請求書消費税額）L4 モデル
+JapanTaxLaw/QualifiedInvoiceTaxAmountSpec.lean  # 同上 独立定式
+JapanTaxLaw/QualifiedInvoiceTaxAmountTests.lean # 同上 退行テスト
+JapanTaxLaw/CorporateSpecialTaxBase.lean        # 法人特別税法 art.9（課税標準法人税額）L4 モデル
+JapanTaxLaw/CorporateSpecialTaxBaseSpec.lean    # 同上 独立定式
+JapanTaxLaw/CorporateSpecialTaxBaseTests.lean   # 同上 退行テスト
 scripts/law_audit/               # 構造監査エンジン（Python）
 docs/AUDIT_REPORT.md             # 監査レポート（生成物）
 docs/L7_LEDGER.md               # L7 統合レジャー（機械生成・CI 再生成照合）

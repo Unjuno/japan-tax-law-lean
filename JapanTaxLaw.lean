@@ -479,3 +479,9 @@ import JapanTaxLaw.SpecialDeliveryTaxMarchTests
 import JapanTaxLaw.ExplorationReserve
 import JapanTaxLaw.ExplorationReserveSpec
 import JapanTaxLaw.ExplorationReserveTests
+import JapanTaxLaw.QualifiedInvoiceTaxAmount
+import JapanTaxLaw.QualifiedInvoiceTaxAmountSpec
+import JapanTaxLaw.QualifiedInvoiceTaxAmountTests
+import JapanTaxLaw.CorporateSpecialTaxBase
+import JapanTaxLaw.CorporateSpecialTaxBaseSpec
+import JapanTaxLaw.CorporateSpecialTaxBaseTests
