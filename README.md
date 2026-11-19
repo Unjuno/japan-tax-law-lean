@@ -633,6 +633,15 @@ JapanTaxLaw/SpecialBaselineIncomeTaxTests.lean   # 同上 退行テスト
 JapanTaxLaw/DiscountBondRefund.lean              # 租税特別措置法施行令 art.26の12（割引債還付）L4 モデル
 JapanTaxLaw/DiscountBondRefundSpec.lean          # 同上 独立定式
 JapanTaxLaw/DiscountBondRefundTests.lean         # 同上 退行テスト
+JapanTaxLaw/IncomeArt205Withholding.lean        # 所得税法 art.205（源泉徴収10%/20%）L4 モデル
+JapanTaxLaw/IncomeArt205WithholdingSpec.lean    # 同上 独立定式
+JapanTaxLaw/IncomeArt205WithholdingTests.lean   # 同上 退行テスト
+JapanTaxLaw/InheritedPropertyTransferGain.lean  # 租税特別措置法施行令 art.25の16（相続財産譲渡所得）L4 モデル
+JapanTaxLaw/InheritedPropertyTransferGainSpec.lean  # 同上 独立定式
+JapanTaxLaw/InheritedPropertyTransferGainTests.lean # 同上 退行テスト
+JapanTaxLaw/LightOilBaseTax.lean               # 軽油引取税法施行令 art.23の2（基準税額11,250円）L4 モデル
+JapanTaxLaw/LightOilBaseTaxSpec.lean           # 同上 独立定式
+JapanTaxLaw/LightOilBaseTaxTests.lean          # 同上 退行テスト
 scripts/law_audit/               # 構造監査エンジン（Python）
 docs/AUDIT_REPORT.md             # 監査レポート（生成物）
 docs/L7_LEDGER.md               # L7 統合レジャー（機械生成・CI 再生成照合）

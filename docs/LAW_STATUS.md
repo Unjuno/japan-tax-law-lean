@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 18
+- with >=1 pinned literal check (semantic model): 19
 - with recorded human legal review: 0
 
 ## All laws
@@ -75,7 +75,7 @@ a completion flag.
 | `332AC0000000026` | 租税特別措置法 | 332AC0000000026_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 3736 | YES (11) | NO |
 | `332AC0000000037` | とん税法 | 332AC0000000037_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 77 | NO (0) | NO |
 | `332AC0000000038` | 特別とん税法 | 332AC0000000038_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 47 | NO (0) | NO |
-| `332CO0000000043` | 租税特別措置法施行令 | 332CO0000000043_20261101_507CO0000000127 | CurrentEnforced | YES | ok | 2820 | YES (5) | NO |
+| `332CO0000000043` | 租税特別措置法施行令 | 332CO0000000043_20261101_507CO0000000127 | CurrentEnforced | YES | ok | 2820 | YES (6) | NO |
 | `332CO0000000048` | とん税法施行令 | 332CO0000000048_20201001_502CO0000000128 | CurrentEnforced | YES | ok | 20 | NO (0) | NO |
 | `332CO0000000049` | 特別とん税法施行令 | 332CO0000000049_20201001_502CO0000000128 | CurrentEnforced | YES | ok | 14 | NO (0) | NO |
 | `332M50000040015` | 租税特別措置法施行規則 | 332M50000040015_20261101_507M60000040026 | CurrentEnforced | YES | ok | 1776 | NO (0) | NO |
@@ -101,12 +101,12 @@ a completion flag.
 | `337M50000040031` | 国税徴収法施行規則 | 337M50000040031_20260521_506M60000040023 | CurrentEnforced | YES | ok | 32 | NO (0) | NO |
 | `337AC0000000144` | 外国居住者等の所得に対する相互主義による所得税等の非課税等に関する法律 | 337AC0000000144_20260401_508AC0000000002 | CurrentEnforced | YES | ok | 113 | NO (0) | NO |
 | `337CO0000000227` | 外国居住者等の所得に対する相互主義による所得税等の非課税等に関する法律施行令 | 337CO0000000227_20260401_508CO0000000083 | CurrentEnforced | YES | ok | 122 | NO (0) | NO |
-| `337M50000008017` | 普通交付税に関する省令 | 337M50000008017_20260724_508M60000008092 | CurrentEnforced | YES | ok | 244 | NO (0) | NO |
+| `337M50000008017` | 普通交付税に関する省令 | 337M50000008017_20260724_508M60000008092 | CurrentEnforced | YES | ok | 244 | YES (1) | NO |
 | `338CO0000000122` | 外貨公債の発行に関する法律に基づく外貨債の利子の非課税等に関する規定の適用を受けない者の | 338CO0000000122_20171001_429CO0000000106 | CurrentEnforced | YES | ok | 9 | NO (0) | NO |
 | `338CO0000000275` | 明治三十二年発行の英貨公債を償還する等のため発行する外貨公債に関する特別措置法に基づく外 | 338CO0000000275_20171001_429CO0000000106 | CurrentEnforced | YES | ok | 8 | NO (0) | NO |
 | `339AC0000000101` | 自家用自動車の一時輸入に関する通関条約の実施に伴う関税法等の特例に関する法律 | 339AC0000000101_20010106_411AC0000000160 | CurrentEnforced | YES | ok | 21 | NO (0) | NO |
 | `339CO0000000182` | 自家用自動車の一時輸入に関する通関条約の実施に伴う関税法等の特例に関する法律施行令 | 339CO0000000182_20030401_415CO0000000142 | CurrentEnforced | YES | ok | 16 | NO (0) | NO |
-| `340AC0000000033` | 所得税法 | 340AC0000000033_20261001_507AC0000000070 | CurrentEnforced | YES | ok | 1323 | YES (8) | NO |
+| `340AC0000000033` | 所得税法 | 340AC0000000033_20261001_507AC0000000070 | CurrentEnforced | YES | ok | 1323 | YES (9) | NO |
 | `340AC0000000034` | 法人税法 | 340AC0000000034_20261001_508AC0000000012 | CurrentEnforced | YES | ok | 1183 | YES (8) | NO |
 | `340CO0000000084` | 国際復興開発銀行等からの外資の受入に関する特別措置に関する法律に基づく債券の利子の非課税 | 340CO0000000084_20171001_429CO0000000106 | CurrentEnforced | YES | ok | 8 | NO (0) | NO |
 | `340CO0000000096` | 所得税法施行令 | 340CO0000000096_20260522_508CO0000000093 | CurrentEnforced | YES | ok | 1365 | NO (0) | NO |

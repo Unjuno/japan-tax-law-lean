@@ -8,8 +8,8 @@ formalization and is tracked as an independent axis (Directive §6).
 
 - laws in inventory: 327
 - work units generated: 33652
-- units with a pinned literal check: 342
-- units NOT_STARTED: 33310
+- units with a pinned literal check: 345
+- units NOT_STARTED: 33307
 
 ## Status axes (independent — Directive §6)
 
