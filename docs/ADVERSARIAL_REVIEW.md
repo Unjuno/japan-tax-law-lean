@@ -3116,3 +3116,111 @@ Lean の `by decide` smoke check を信じず、Python で定数・式を独立�
 - **追記**: 本セクション `## Batch T review (2026-11-20)` を `docs/ADVERSARIAL_REVIEW.md` 末尾に追記（coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に整合）。既存セクションはすべて保持。Lean モジュールは一切変更せず、commit / push / merge / ブランチ切替は行っていない。解析用一時ファイルはすべて削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・金額/算術の Arabic 数値照合・最大値/減算/1/2 係り受けの独立再計算・CI needle の `.find()` 検証・反例走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+## Batch U review (2026-11-20)
+
+対象: `JapanTaxLaw/SpecialDeliveryTaxMarch.lean`（特別交付税に関する省令 art.10 / law `351M50000008035`,
+revision `351M50000008035_20260316_508M60000008025`）および `JapanTaxLaw/ExplorationReserve.lean`
+（租税特別措置法施行規則 art.9 / law `332M50000040015`,
+revision `332M50000040015_20261101_507M60000040026`）。一次資料は pinned raw の 2 ファイルのみ。
+coordinator の要約・`docs/STAGING_SDTM.md` / `STAGING_EXPL.md` の申告は一切信じず、
+pinned JSON の `law_full_text` ツリーを Python で直接再帰走査して leaf 文字列を連結し、
+率・金額・算術を独立抽出して Lean 定数と照合した。Lean モジュールは読み取り専用で一切変更していない。
+
+### U-1. 独立抽出結果（pinned 原文からの直接 parse）
+
+| 項目 | 独立抽出（pinned leaf テキストを直接走査） | Lean 側の定数/式 |
+|---|---|---|
+| art.10 本文 | 1052 chars、U+3000 **0**（SupplProvision 配下の `Article Num=10` を選択）。冒頭「（東日本大震災に係る道府県の三月分の算定方法の特例）第十条令和七年度に限り、第四条第一項第一号の額は…」 | doc-comment の 1052 chars / U+3000 0 と一致 |
+| art.10 率 | 「〇・八」を **4 回**、「〇・七」を **1 回**検出。十進表記「〇・八 = 0.8」「〇・七 = 0.7」を直接確認（「八割」等の等価表記ではない） | `rate08=⟨8,10⟩`, `rate07=⟨7,10⟩`（`TaxRate.applyFloor r m = m*r.num/r.den` を `TaxFinance.lean` で直接確認 → 1000→800 / 1000→700） |
+| art.10 丸め | 「表示単位は千円とし、表示単位未満の端数があるときは、その端数を四捨五入する。」を検出 | `roundToThousand x=(x+500)/1000*1000`（四捨五入、500 で切り上げ） |
+| art.10 加算 | 「…の合算額を加えた額とする。」を検出。対象は「次の各号によって算定した額」＝一号〜八号（附則第八条第一項第一号〜第八号の参照を 8 本すべて検出） | `marchAmount = base + totalAddition i1..i8` |
+| art.9 本文 | 484 chars、U+3000 **0**（MainProvision 配下の `Article Num=9`、探鉱準備金の条） | doc-comment の 484 chars / U+3000 0 と一致 |
+| art.9 割合 | 「第一号に掲げる金額が第二号に掲げる金額のうちに占める割合を**乗じて**計算した金額」を逐語検出。「加えた」「加算」「+」「足す」は本文に **1 回も出現しない** | `explorationReserve = base * first / second`（乗算形。art.148 の誤った `+` の再発なし） |
+| art.9 控除 | 「…鉱物等がある場合には、当該鉱物等の取得に要した金額を**控除した金額**」を 2 箇所（本文括弧内・第二号）で検出 | `netSalesAmount = if acquisition ≤ sales then sales - acquisition else 0`（saturating） |
+| art.9 その他 | 「著しく異なるときは、その通常受けるべき金額」を検出（金額式外の caller-established 選択） | Bool は金額式に入れず scope 境界として明示 |
+
+### U-2. 独立判定（2 点）
+
+| # | 対象 | 判定 | 根拠（pinned 原文との独立照合） |
+|---|---|---|---|
+| 1 | art.10 | **CONFIRMED（一致・不一致なし）** | 「〇・八=8/10・〇・七=7/10」（80/10・70/10 の 10 倍誤りでない）を原文の十進表記から直接確認し、`rate08/rate07` と一致。「表示単位は千円…四捨五入」は `roundToThousand` の half-up（499→0 / 500→1000）と一致。「合算額を加えた額」は `base + Σ(8 号)` の加算形と一致。8 号すべての附則参照を検出。 |
+| 2 | art.9 | **CONFIRMED（一致・不一致なし）** | 「占める割合を**乗じて**計算した金額」を原文逐語で確認し、`base * first / second` の乗算形と一致（原文に加算語は皆無、art.148 の `+` 失敗は再発していない）。「取得に要した金額を控除した金額」は saturating 減算と一致。分母 0・一号>二号・端数は原文が沈黙する境界で、モデルは安全な全関数として処理。 |
+
+### U-3. needle 健全性（8 本を直接検証）
+
+`STAGING_SDTM.md` / `STAGING_EXPL.md` の申告を信じず、`scripts/ci/transcription_audit.py` に実際に
+組み込まれた needle 文字列（`SpecialDeliveryTaxMarch.lean` 4 本 / `ExplorationReserve.lean` 4 本）を取得し、
+pinned 本文から独立抽出した正規化 leaf テキスト（art.10 = 1052 chars、art.9 = 484 chars）に対して照合した。
+
+| check | needle 本数 | U+3000 を含む本数 | FOUND | count |
+|---|---:|---:|---:|---:|
+| SpecialDeliveryTaxMarch.lean（351M50000008035） | 4 | 0 | 4/4 | すべて 1 |
+| ExplorationReserve.lean（332M50000040015） | 4 | 0 | 4/4 | すべて 1 |
+| **合計** | **8** | **0** | **8/8（MISS 0）** | **すべて 1** |
+
+- 各 needle の offset（正規化テキスト）: art.10 = 0 / 81 / 183 / 923、art.9 = 0 / 207 / 347 / 405。
+  いずれも count = 1 で一意。U+3000 を含む needle は **0 本**。
+- CI ゲート `python scripts/ci/transcription_audit.py` は **exit 0（141 PASS / 0 FAIL）**。
+  両 cycle-9 check（SpecialDeliveryTaxMarch / ExplorationReserve）とも PASS。
+
+### U-4. 反例探索（独立再計算 vs Lean モデル）
+
+`by decide` スモークを信じず、Python で Nat セマンティクス（`applyFloor` の floor、整数除算、saturating 減算）を
+独立再実装し、指定境界を走査した。
+
+| 対象 | 境界ケース | 独立計算 | Lean / モデル式 | 結果 |
+|---|---|---|---|---|
+| art.10 | 〇・八 10 倍誤り検出: survey 1000 | 8/10 → 800（10 倍誤りの 80/10 なら 8000） | `rate08=⟨8,10⟩`, `scaledSurvey 1000 rate08=800` | 一致（10 倍誤りなし） |
+| art.10 | 〇・七 10 倍誤り検出: survey 1000 | 7/10 → 700（70/10 なら 7000） | `rate07=⟨7,10⟩`, `scaledSurvey 1000 rate07=700` | 一致（10 倍誤りなし） |
+| art.10 | 四捨五入 499 / 500 / 1500 | 0 / 1000（500 で切り上げ）/ 2000 | `roundToThousand 499=0`, `500=1000`, `1500=2000` | 一致 |
+| art.10 | 控除 > 対象（100 から 150 を控除） | 0（saturating） | `itemAfterDeduction 100 150=0` | 一致 |
+| art.10 | 合算額を加えた額: base 100 + 10..80 | 460 | `marchAmount 100 10 20 30 40 50 60 70 80=460` | 一致 |
+| art.9 | 乗算形（base 1000, 一号 1, 二号 2） | 1000×1/2 = 500（加算なら 1000+1+2 等となり不一致） | `explorationReserve 1000 0 1 2=500` | 一致（`+` なし） |
+| art.9 | 取得控除後の乗算（1000−200=800, 1/2） | 400 | `explorationReserve 1000 200 1 2=400` | 一致 |
+| art.9 | 分母 0（二号 = 0） | 0（安全版） | `explorationReserve 1000 0 5 0=0` | 一致 |
+| art.9 | 一号 > 二号（3/2） | 1000×3/2 = 1500（クランプなし） | モデル式 `base*first/second` = 1500 | 一致（原文に上限の明示なし） |
+| art.9 | 控除 > 対象（売上 1000, 取得 1500） | 0（saturating） | `netSalesAmount 100 150=0` / `expl(1000,1500,1,2)=0` | 一致 |
+| art.9 | 端数切り捨て（100, 一号 1, 二号 3） | 33（floor、原文に丸め規則なし） | `explorationReserve 100 0 1 3=33` | 一致 |
+
+- **反例（不一致）検出数: 0 件**。桁違い（10 倍）・加算混入（art.148 型）・控除方向逆転・
+  saturating 境界・丸め境界の誤りはいずれも検出されず。
+
+### U-5. 公理監査（`lake env lean` / `#print axioms`）
+
+対象 2 モジュールに加え cycle-9 の Spec/Tests モジュールを import し、
+名前付き宣言 **30 件**を全件走査（`Lean.collectAxioms`）/ `#print axioms` を実行（**exit code 0**、
+全 import と全 `by decide` smoke もコンパイル成功）。監査用 one-off ファイルは approved temp dir に置き、
+run 後に削除、repo には残していない。
+
+| 項目 | 結果 |
+|---|---:|
+| 走査宣言数 | **30**（SDTM 系 + EXPL 系、Spec/Tests を含む） |
+| axiom-free（`does not depend on any axioms`） | **28** |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` のみ（許容） | **2 件**（`roundToThousand_mono`, `explorationReserve_zero_denominator`） |
+| `sorry` / `admit` / `axiom` / `unsafe` / `noncomputable` の実使用 | **0 件**（6 モジュールを走査） |
+
+- propext 依存は上記 2 定理のみで、いずれも `if`・Nat 減算・単純定理に由来する core `propext`。
+  **禁止公理の混入はゼロ**。
+
+### U-6. 分類・最終報告
+
+| 分類 | 件数 | 内容 |
+|---|---:|---|
+| **CONFIRMED（原文不一致／欠陥）** | **0（ゼロ）** | 率の 10 倍誤り・加算混入（art.148 型）・控除方向誤り・丸め境界誤り・算術不一致・needle MISS・公理混入・反例矛盾はいずれも検出されず。 |
+| **BY-DESIGN** | **10** | B1 〇・八/〇・七を `⟨8,10⟩/⟨7,10⟩` の分数で表現（乗算の中間端数は `applyFloor` の切り捨てを modeling choice として明示）／B2 特定県該当性・号ごとの率適用は caller-established `TaxRate`（Bool を金額式に入れない）／B3 `itemAfterDeduction` の saturating 減算（原文に零下限の明示句なし）／B4 四捨五入を各号ごとに適用してから合算（原文「各号によって算定した額…の合算額」）、ちょうど 500 の half-up は日本語「四捨五入」の慣習解釈／B5 令和七年度・附則第八条各号の具体的算定・第四条表の各号 NOT MODELLED／B6 art.9 の割合は整数除算 `base*first/second` で floor（原文に丸め規則の明示なし、1/3→33 を境界として明示）／B7 `firstOverSecond` は未使用の補助定義であり、実計算は乗算先行の `base*first/second`（将来の誤用注意）／B8 分母 0 → 0 の安全版（原文沈黙）／B9 一号>二号（割合>1）をクランプせず原文の算術に忠実（「占める割合」≤1 が暗黙前提かは人間の法的レビューに委ねる）／B10 著しく異なるときの「通常受けるべき金額」選択・鉱物定義・選鉱後価格の具体算定 NOT MODELLED。 |
+| **UNRESOLVED** | **0** | 機械的照合で解けない法的判断の保留は、いずれも BY-DESIGN 境界（特に B9）に包含したため独立件はゼロ。 |
+
+- **CONFIRMED / BY-DESIGN / UNRESOLVED 件数: 0 / 10 / 0**。
+- **発見ゼロ（CONFIRMED ＝ ゼロ）を明示する。** 件数を手柄にしない。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` = **0 件**、`propext` のみ 2 件（許容範囲）、監査は正常（exit 0）。
+- **needle 健全性**: 8 本、U+3000 **0 本**、正規化テキスト **8/8 FOUND**（MISS 0、すべて count 1）、CI ゲート 141 PASS / 0 FAIL。
+- **反例**: 不一致 **0 件**（指定境界 6 種をすべて走査、10 倍誤り・加算混入・saturating・分母 0・一号>二号・端数切り捨てを含む）。
+- **追記**: 本セクション `## Batch U review (2026-11-20)` を `docs/ADVERSARIAL_REVIEW.md` 末尾に追記
+  （coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に整合）。既存セクションはすべて保持。
+  Lean モジュールは一切変更せず、commit / push / merge / ブランチ切替は行っていない。解析用一時ファイルはすべて削除済み。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・率/金額/算術の独立抽出と再計算・needle の直接検証・反例走査・`#print axioms` 公理監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
