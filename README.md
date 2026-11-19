@@ -657,6 +657,12 @@ JapanTaxLaw/NonTaxSavingsCeilingTests.lean       # 同上 退行テスト
 JapanTaxLaw/LandValueTaxBasicDeduction.lean      # 地価税法 art.18（基礎控除）L4 モデル
 JapanTaxLaw/LandValueTaxBasicDeductionSpec.lean  # 同上 独立定式
 JapanTaxLaw/LandValueTaxBasicDeductionTests.lean # 同上 退行テスト
+JapanTaxLaw/SpecialDeliveryTaxMarch.lean        # 特別交付税省令 art.10（東日本大震災道府県三月分）L4 モデル
+JapanTaxLaw/SpecialDeliveryTaxMarchSpec.lean    # 同上 独立定式
+JapanTaxLaw/SpecialDeliveryTaxMarchTests.lean   # 同上 退行テスト
+JapanTaxLaw/ExplorationReserve.lean             # 租税特別措置法施行規則 art.9（探鉱準備金）L4 モデル
+JapanTaxLaw/ExplorationReserveSpec.lean         # 同上 独立定式
+JapanTaxLaw/ExplorationReserveTests.lean        # 同上 退行テスト
 scripts/law_audit/               # 構造監査エンジン（Python）
 docs/AUDIT_REPORT.md             # 監査レポート（生成物）
 docs/L7_LEDGER.md               # L7 統合レジャー（機械生成・CI 再生成照合）
