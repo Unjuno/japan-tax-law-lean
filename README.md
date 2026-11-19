@@ -669,6 +669,15 @@ JapanTaxLaw/QualifiedInvoiceTaxAmountTests.lean # 同上 退行テスト
 JapanTaxLaw/CorporateSpecialTaxBase.lean        # 法人特別税法 art.9（課税標準法人税額）L4 モデル
 JapanTaxLaw/CorporateSpecialTaxBaseSpec.lean    # 同上 独立定式
 JapanTaxLaw/CorporateSpecialTaxBaseTests.lean   # 同上 退行テスト
+JapanTaxLaw/AuctionDepositValuation.lean      # 国税徴収法施行令 art.42の5（公売保証金を徴しない見積価額）L4 モデル
+JapanTaxLaw/AuctionDepositValuationSpec.lean  # 同上 独立定式
+JapanTaxLaw/AuctionDepositValuationTests.lean # 同上 退行テスト
+JapanTaxLaw/GasolineTransferRounding.lean     # 地方揮発油譲与税法 art.5（千円未満端数控除）L4 モデル
+JapanTaxLaw/GasolineTransferRoundingSpec.lean # 同上 独立定式
+JapanTaxLaw/GasolineTransferRoundingTests.lean# 同上 退行テスト
+JapanTaxLaw/LegalRatePresentValue.lean        # 相続税法施行令 art.12の4（法定利率現価割合）L4 モデル
+JapanTaxLaw/LegalRatePresentValueSpec.lean    # 同上 独立定式
+JapanTaxLaw/LegalRatePresentValueTests.lean   # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト

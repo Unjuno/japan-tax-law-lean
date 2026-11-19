@@ -1053,6 +1053,24 @@ def checks():
            "file", None,
            ["（欠減控除）第二条法第八条第一項の規定により揮発油の製造場から移出し、又は保税地域から引き取る揮発油の数量から控除する数量は、当該移出又は引取に係る揮発油の数量の百分の一・三五に相当する数量とする"])
 
+    # AuctionDepositValuation — cycle-12
+    yield ("AuctionDepositValuation.lean",
+           "334CO0000000329",
+           "file", None,
+           ["（公売保証金を徴しないで公売することができる財産の見積価額）第四十二条の五法第百条第一項（公売保証金）に規定する政令で定める金額は、五十万円とする"])
+
+    # GasolineTransferRounding — cycle-12
+    yield ("GasolineTransferRounding.lean",
+           "330AC0000000113",
+           "file", None,
+           ["（譲与時期ごとの譲与額の計算）第五条各都道府県及び市町村に対する前条第一項に規定する各譲与時期ごとに譲与すべき地方揮発油譲与税の額", "計算した金額に千円未満の端数金額があるときは、その端数金額を控除した金額をもつて、当該各譲与時期ごとに譲与すべき地方揮発油譲与税の額とする"])
+
+    # LegalRatePresentValue — cycle-12
+    yield ("LegalRatePresentValue.lean",
+           "325M50000040017",
+           "file", None,
+           ["（法定利率による複利の計算で現価を算出するための割合）第十二条の四法第二十三条の二第一項第三号に規定する財務省令で定める割合", "法定利率に一を加えた数を同項第二号イに規定する配偶者居住権の存続年数で累乗して得た数をもつて一を除して得た割合"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",

@@ -3379,3 +3379,160 @@ run 後に削除、repo には残していない。
 - **追記完了**: 本セクション `## Batch V review (2026-11-20)` を `docs/ADVERSARIAL_REVIEW.md` 末尾に追記（coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に整合）。既存セクションはすべて保持。Lean モジュール / Spec / Tests / `data/*` は一切変更せず、commit / push / merge / ブランチ切替は行っていない。解析用一時ファイルはすべて削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・率／金額／算術の独立抽出と再計算・CI needle の直接検証・整数式の反例走査・`#print axioms` 公理監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断（U-V1／U-V2）は専門家に委ねる。本レビューをもって人間の法的レビューを完了したものとはみなさない。
+
+
+---
+
+## Batch W review (2026-11-20)
+
+### W-0. 範囲・独立性・手法
+
+- **レビュア**: Adversarial Review Agent。形式化担当と独立に **cycle-11** の 3 モジュールを原文照合・反例探索した。coordinator の要約・STAGING・doc-comment の数値／算術主張は**一切信じず**、pinned 原文 JSON の `law_full_text` から Python で直接再抽出・再計算して照合した（Batch S の art.148「要約依存」失敗の再発回避）。
+- **対象モジュール（読み取り専用・一切変更せず）**:
+  - `JapanTaxLaw/AmamiCurrencyConversion.lean`（奄美群島税法施行令 art.6 / law `328CO0000000407`）
+  - `JapanTaxLaw/TonnageTax.lean`（とん税法 art.3 / law `332AC0000000037`）
+  - `JapanTaxLaw/GasolineDeduction.lean`（揮発油税法施行令 art.2 / law `332CO0000000057`）
+  - 各 `*Spec.lean` / `*Tests.lean`（計 9 ファイル、公理監査のため参照のみ）。
+- **一次資料（pinned・改変禁止）**:
+  - `data/raw/328CO0000000407_19660331_341CO0000000078.law.json`（revision `328CO0000000407_19660331_341CO0000000078`）
+  - `data/raw/332AC0000000037_20250601_504AC0000000068.law.json`（revision `332AC0000000037_20250601_504AC0000000068`）
+  - `data/raw/332CO0000000057_20250401_507CO0000000006.law.json`（revision `332CO0000000057_20250401_507CO0000000006`）
+- **抽出法**: `law_full_text` を再帰平坦化し `tag="Article"` のうち `MainProvision` 配下の `第六条` / `第三条` / `第二条` を `ArticleTitle` で同定。配下の文字列を文書順に連結し `re.sub(r"[\s\u3000]+","",…)` で正規化（CI と同一条件）。needle は CI 実装 `scripts/ci/transcription_audit.py` の `checks()` を Python で import して文字列を取得（手打ちせず、STAGING の申告も信じない）。算術は Python の整数演算で独立再計算し Lean 定数／kernel-decide smoke と比較した。
+- **書き込みは `docs/ADVERSARIAL_REVIEW.md` の本セクション追記のみ**。Lean モジュール / Spec / Tests / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない（`main` のまま）。解析用一時ファイルは approved temp dir（`C:\Users\junny\AppData\Local\Temp\opencode`）に置き、**すべて削除済み**（repo 内には作成せず）。
+
+### W-1. 独立原文抽出結果（pinned 原文 → 数値 → Lean 定数）
+
+対象 3 条の正規化本文を逐語取得（見出し括弧を含む）。原文側の全角空白（U+3000）は正規化で除去される。needle の U+3000 含有は 0 本（W-3）。
+
+| 条（law_id） | 抽出した正規化本文（逐語・一字一句改変なし） | 長さ | Lean 側の定数／式 |
+|---|---|---:|---|
+| art.6（328CO…0407） | `（通貨の換算）第六条奄美群島税法及びこれに基く規則の適用については、当該法令の規定に定められている金額は、当該金額一円につき三円の割合で換算した金額とする。` | 78 | `conversionFactor=3`、`convert a = a * 3` |
+| art.3（332AC…0037） | `（課税標準及び税率）第三条とん税は、外国貿易船の純トン数を課税標準とし、次の各号に掲げる場合について当該各号に掲げる税率により課する。一開港への入港ごとに納付する場合純トン数一トンまでごとに十六円二開港ごとに一年分を一時に納付する場合純トン数一トンまでごとに四十八円` | 133 | `entryRate=16`、`annualRate=48`、`tonCeil`、`entryTax`/`annualTax` |
+| art.2（332CO…0057） | `（欠減控除）第二条法第八条第一項の規定により揮発油の製造場から移出し、又は保税地域から引き取る揮発油の数量から控除する数量は、当該移出又は引取に係る揮発油の数量の百分の一・三五に相当する数量とする。` | 99 | `deductionNum=135`、`deductionDen=10000`、`deduction q = q*135/10000` |
+
+キーフレーズの出現回数（対象条の正規化本文／pinned ファイル全体）を Python `.find()` / `.count()` で直接確認:
+
+| キーフレーズ | 条内 count | ファイル全体 count | 意味 |
+|---|---:|---:|---|
+| `一円につき三円` | 1 | 1 | 一円→三円 = **3 倍** |
+| `一円につき一円` / `一円につき三十円` | 0 / 0 | 0 / 0 | 1/3 倍・30 倍誤りの文字列は**不在** |
+| `純トン数一トンまでごとに十六円` | 1 | 1 | 入港ごと = **16 円／トン** |
+| `純トン数一トンまでごとに四十八円` | 1 | 1 | 一年分一時 = **48 円／トン** |
+| `一トンまでごとに` | 2 | 3 | 一号・二号とも「一トンまでごとに」（切り上げ） |
+| `十六円` / `四十八円` | 1 / 1 | 1 / 1 | 160/480 円（10 倍）の文字列は**不在** |
+| `百分の一・三五` | 1 | 4 | **1.35/100 = 135/10000** |
+| `百分の十三・五` | 0 | 0 | 13.5/100（10 倍誤り）の文字列は**不在** |
+
+### W-2. 3 点の最重要チェック — 独立判定
+
+**判定 1 — art.6「一円につき三円」= amount × 3（CONFIRMED 忠実）**
+
+- 原文は `当該金額一円につき三円の割合で換算した金額` であり、換算割合は **3**（`一円につき三円` count 1）。`convert a = a * 3` と一致。
+- `一円につき一円`（= 1/3 を意図する誤り）と `一円につき三十円`（= 30 倍誤り）は対象条・pinned ファイル全体とも **count 0**。3 倍誤り（1/3 や 30 倍）は**検出されなかった**。
+- 境界: `convert 0 = 0` / `convert 1 = 3` / `convert 1000 = 3000`（Lean の `example` と独立再計算が一致）。単調性 `convert_mono` も `Nat.mul_le_mul_right 3` で順序保存。
+
+**判定 2 — art.3「一トンまでごとに十六円」／「…四十八円」＋切り上げ（CONFIRMED 忠実）**
+
+- 原文の一号は `純トン数一トンまでごとに十六円`、二号は `純トン数一トンまでごとに四十八円`（各 count 1）。`entryRate=16` / `annualRate=48` と一致。**16/48 円の桁違い（160/480）は原文に存在せず、モデルも 16/48**。
+- 「**一トンまでごとに**」は一トン未満の端数も一トンとして数える趣旨であり、`tonCeil whole fraction = if fraction = 0 then whole else whole + 1` がこれを実装（fraction 0 → whole、非 0 → whole+1）。境界: `(10,0)→10` / `(10,1)→11`、したがって `entryTax 10 0 = 160` / `entryTax 10 1 = 176`、`annualTax 10 0 = 480` / `annualTax 10 1 = 528`（すべて Lean `example` と一致）。**一トン未満（例 `entryTax 0 1 = 16`）も 1 トン分として課税**される点を確認。
+- 48 = 16 × 3 の関係も原文どおり。入港ごと／一年分一時の分岐は caller-established（W-6 B-W3）。
+
+**判定 3 — art.2「百分の一・三五」= 数量 × 135/10000（CONFIRMED 忠実）**
+
+- 原文 `当該移出又は引取に係る揮発油の数量の百分の一・三五に相当する数量`（`百分の一・三五` count 1）。十進「一・三五 = 1.35」を百分で割るので **1.35/100 = 135/10000 = 0.0135（1.35%）**。`deductionNum=135` / `deductionDen=10000` と一致。
+- `deduction q = q * 135 / 10000`（Nat 除算で切り捨て）。境界: `deduction 10000 = 135`（1.35%）／`deduction 1000 = 13`（**13.5/100 や 1.35/10 なら 135 となる 10 倍誤りを回避**）／`deduction 0 = 0`／`deduction 1 = 0`（切捨て）／`deduction 100000 = 1350`。`百分の十三・五` は原文・モデルとも **count 0**。
+- `deduction_le` の証明は `135 ≤ 10000` と `Nat.mul_div_right` によるもので、算術は妥当（公理は W-5 で監査）。
+
+→ **3 点すべて原文に忠実であり、数値・率・算術の原文との食い違いは 0 件（ゼロ）。** art.148 型の「要約を信じた誤り」は再発していない。
+
+### W-3. needle 健全性（4 本を CI 実装から直接検証）
+
+`scripts/ci/transcription_audit.py` の `checks()` を import し、3 対象モジュールに対応する **3 check・計 4 本**（Amami 1 / Tonnage 2 / Gasoline 1）の needle 文字列を取得（手打ちせず、STAGING／doc-comment の申告は信じない）。pinned `law_full_text` の正規化テキスト（CI `contains()` / `_norm()` と同一条件）に対して `.find()` / `.count()` を実行した。
+
+| check | needle 本数 | 長さ | U+3000 | FOUND | count |
+|---|---:|---|---|---:|---|
+| `AmamiCurrencyConversion.lean`（328CO…0407） | 1 | 77 | 0 | 1/1 | 1 |
+| `TonnageTax.lean`（332AC…0037） | 2 | 66 / 66 | 0 | 2/2 | 1 / 1 |
+| `GasolineDeduction.lean`（332CO…0057） | 1 | 98 | 0 | 1/1 | 1 |
+| **合計** | **4** | — | **0 本** | **4/4（MISS 0）** | **すべて 1** |
+
+- 正規化テキスト長: Amami = 24,449 / Tonnage = 9,982 / Gasoline = 15,837 文字。needle offsets（正規化）: Amami = 2834、Tonnage = 289 / 356、Gasoline = 617（すべて count = 1、一意）。
+- **needle 健全性: 問題なし（4/4 FOUND、U+3000 0 本、MISS 0、すべて count 1）。** needle 文字列の改変・正規化・異体字変換はしていない。
+
+### W-4. 反例探索（独立再計算 vs Lean モデル）
+
+`by decide` スモークを信じず、Python で 3 モジュールの算術を独立再実装し、境界・3 倍／16・48 円／一トン未満切り上げ／1.35%／0／端数切り捨てを走査した。**不一致 0 件（MISMATCH_COUNT = 0）**。
+
+| 標的 | 境界ケース | 独立計算 | Lean / モデル式 | 結果 |
+|---|---|---|---|---|
+| art.6 | `convert 0` / `1` / `1000` | 0 / 3 / 3000 | 同値 | 一致 |
+| art.6 | 3 倍誤りガード: 1/3 なら `convert 3 = 1`、30 倍なら `convert 1 = 30` | モデルは 9 / 3 | `a*3` | 一致（誤り回避） |
+| art.3 | `entryTax 10 0` / `10 1` | 160 / 176 | 同値 | 一致 |
+| art.3 | `annualTax 10 0` / `10 1` | 480 / 528 | 同値 | 一致 |
+| art.3 | `entryTax 0 0` / `0 1`（一トン未満も一トン） | 0 / 16 | 同値 | 一致（切り上げ確認） |
+| art.3 | 10 倍ガード: 160/480 なら `entryTax 10 0 = 1600` | モデルは 160 | `ceil*16/48` | 一致（誤り回避） |
+| art.2 | `deduction 0` / `1`（切捨て） | 0 / 0 | 同値 | 一致 |
+| art.2 | `deduction 1000`（10 倍誤りなら 135 または 130） | 13 | `q*135/10000` | 一致（誤り回避） |
+| art.2 | `deduction 10000` / `100000` | 135 / 1350 | 同値 | 一致 |
+| art.2 | 1.35% ガード: 13.5/100 または 1.35/10 なら `deduction 1000 = 135` | モデルは 13 | `q*135/10000` | 一致（誤り回避） |
+| art.2 | `deduction_le` 単調性 grid（q = 0..100000 step 7） | 全て `q*135/10000 ≤ q` | 定理で証明 | 反例なし |
+
+- **反例（不一致）検出数: 0 件。** 3 倍誤り・16/48 円の桁違い・一トン未満切り上げの誤り・1.35% の 10 倍誤り・0／端数切り捨ての誤りはいずれも検出されず。
+
+### W-5. 公理監査（`lake env lean` / `#print axioms`）
+
+- 一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\batchW_axiom_probe.lean` を作成し、3 モジュール＋Spec（Tests は名前付き宣言なし）の名前付き `def` / `theorem` 計 **20 宣言**（Amami 5 / Tonnage 9 / Gasoline 6）すべてに `#print axioms` を実行（`lake env lean`、exit code **0**、エラー 0）。監査後、一時ファイル群は削除済み。
+
+| 監査項目 | 結果 |
+|---|---:|
+| 走査宣言数 | 20（Amami 5 / Tonnage 9 / Gasoline 6） |
+| axiom-free（`does not depend on any axioms`） | **19** |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext`（許容） | **1 件**: `JapanTaxLaw.GasolineDeduction.deduction_le`（`simp`／Nat 除算由来の core `propext`） |
+
+- **重点確認 — `GasolineDeduction.deduction_le` に `Quot.sound` は残っていないか**: 監査出力は `'JapanTaxLaw.GasolineDeduction.deduction_le' depends on axioms: [propext]` であり、**`Quot.sound` は含まれていない**。禁止公理（choice / sorryAx / Quot.sound）は全 20 宣言で 0 件（出力中に `Quot.sound` / `sorryAx` / `choice` の文字列は 0 行）。`deduction_le` は `135 ≤ 10000` と `Nat.mul_div_right` による比較証明で、`omega` 由来の `Quot.sound` 混入（Batch A の A-1 型）は再発していない。
+- → **禁止公理は一切検出されず。許容された `propext` のみ。公理監査は合格。**
+
+### W-6. CONFIRMED / BY-DESIGN / UNRESOLVED の件数と一覧
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED**（原文との食い違い／欠陥） | **0（ゼロ）** |
+| **BY-DESIGN**（申告済みの境界・modeling choice） | **8** |
+| **UNRESOLVED**（pinned 原文のみでは解けない法的判断） | **2** |
+
+> **発見ゼロ（CONFIRMED ＝ ゼロ）を明示する。** 3 倍誤り（1/3・30 倍）・16/48 円の桁違い・一トン未満切り上げの誤り・1.35% の 10 倍誤り・0／端数切り捨ての誤り・needle MISS・禁止公理混入・反例矛盾はいずれも検出されなかった。件数を手柄にしない。
+
+#### CONFIRMED（0 件）
+
+- W-1／W-2 のとおり、art.6 の 3 倍、art.3 の 16/48 円と切り上げ、art.2 の 135/10000（1.35%）は原文どおり（完全一致）。
+- needle 4/4 FOUND、U+3000 0、禁止公理 0（`deduction_le` に `Quot.sound` なし）、反例矛盾 0（W-3〜W-5）。
+
+#### BY-DESIGN（8 件）
+
+- **B-W1** 換算対象となる「当該法令の規定に定められている金額」は caller-established（Amami doc-comment 明示）。Bool や金額の抽出を金額式に入れない。
+- **B-W2** `Money = Nat`（非負整数）による金額表現。原文に負数・還付の規定はなく、下限は呼出側の責任。
+- **B-W3** 入港ごと／一年分一時納付の区分、純トン数そのものの算定は caller-established（Tonnage doc-comment 明示）。分岐 Bool を税額式に入れない。
+- **B-W4** 「一トンまでごとに」の実装 `tonCeil` は、1 トン未満の端数を抽象的な非 0 残余として受け取り `whole+1` とする表現。原文の趣旨（一トン未満も一トン）に忠実だが、純トン数の具体的測定は呼出側の責任。
+- **B-W5** Gasoline の数量は caller-established。控除数量は `q*135/10000`（Nat 除算・切捨て）で算出（原文に丸め方法の明示なし、法的妥当性は U-W1）。
+- **B-W6** Tonnage の附則の経過措置・罰則、および各法の他の条項は NOT MODELLED（Tonnage doc-comment 明示）。反映漏れではない。
+- **B-W7** 各 Spec の独立定式（`specConvert` / `specEntry` / `specAnnual` / `specDeduction`）は impl と同一の整数算術で、有限グリッドのみを検証（普遍的正確性を主張しない）。
+- **B-W8** `deduction_le` が core `propext` に依存する点は本レビュー仕様で許容される（禁止公理ではない）。実装値・証明の正中には影響なし。
+
+#### UNRESOLVED（2 件）
+
+- **U-W1 Gasoline の端数処理（floor）の法的妥当性**: 原文は「数量の百分の一・三五に**相当する数量**」とし、1 円／1 リットル未満の端数の丸め方向（切捨て／切上げ／四捨五入）を指定しない。モデルは `q*135/10000` の Nat 除算（切捨て）を採用し Spec も一致するが、法律上求められる丸めは pinned 原文のみでは決定不能。**人間の法律専門家によるレビューを要する**（従来バッチの端数 U-1 と同趣旨）。
+- **U-W2 Tonnage の純トン数算定と「一トンまでごとに」の法的詳細**: 原文は「外国貿易船の**純トン数**を課税標準とし…純トン数**一トンまでごとに**十六円／四十八円」と規定する。モデルは「一トン未満も一トン」として `tonCeil` を適用し、これは原文の文言どおりであるが、純トン数の定義・算定方法（トン数測度や端数の取扱い）は pinned 原文に無く他法令／政令に委任されている。当該抽象化で実務を十分に被覆しているかは法解釈の問題で、pinned 原文のみでは決定不能。**人間の法律専門家によるレビューを要する**。税額の数値（16/48 円と切り上げ）自体は原文と一致し、影響はない。
+
+### W-7. 総合判定・最終報告（サマリ）
+
+- 3 つの pinned revision の `law_full_text` から直接抽出した率・金額・算術を、coordinator 要約／STAGING／doc-comment に依存せず独立に再計算して照合した。「一円につき三円 = 3 倍」「一トンまでごとに 16/48 円＋一トン未満切り上げ」「百分の一・三五 = 135/10000（1.35%）」のすべてが原文どおりであり、**3 倍誤り・桁違い・10 倍誤り・切り上げ誤りは検出されなかった**。
+- **CONFIRMED: 0 件（ゼロ）**／**BY-DESIGN: 8 件**／**UNRESOLVED: 2 件**。発見ゼロを明示する。
+- **needle 健全性**: 4 本、U+3000 **0 本**、pinned 正規化テキスト **4/4 FOUND**（MISS 0、すべて count 1）。CI 実装の文字列を直接検証。
+- **反例探索**: 3 倍／16・48 円／一トン未満切り上げ／1.35%／0／端数切り捨てを含む全ポイントで不一致 **0 件**。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` = **0 件**、`propext` のみ 1 件（`GasolineDeduction.deduction_le`、`Quot.sound` なし）。20/20 宣言を走査、exit code 0。監査用一時ファイルは削除済み。
+- **追記完了**: 本セクション `## Batch W review (2026-11-20)` を `docs/ADVERSARIAL_REVIEW.md` 末尾に追記（coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に整合）。既存セクションはすべて保持。Lean モジュール / Spec / Tests / `data/*` は一切変更せず、commit / push / merge / ブランチ切替は行っていない。解析用一時ファイルはすべて削除済み。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・率／金額／算術の独立抽出と再計算・CI needle の直接検証・整数式の反例走査・`#print axioms` 公理監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断（U-W1／U-W2）は専門家に委ねる。本レビューをもって人間の法的レビューを完了したものとはみなさない。
