@@ -624,6 +624,15 @@ JapanTaxLaw/StandardRateExcessRatioTests.lean # 同上 退行テスト
 JapanTaxLaw/IntermediateSurchargeRefund.lean  # 地方税法施行令 art.26（延滞金還付）L4 モデル
 JapanTaxLaw/IntermediateSurchargeRefundSpec.lean  # 同上 独立定式
 JapanTaxLaw/IntermediateSurchargeRefundTests.lean # 同上 退行テスト
+JapanTaxLaw/IncomeAdjustmentDeduction.lean       # 租税特別措置法 art.41の3の11（所得金額調整控除）L4 モデル
+JapanTaxLaw/IncomeAdjustmentDeductionSpec.lean   # 同上 独立定式
+JapanTaxLaw/IncomeAdjustmentDeductionTests.lean  # 同上 退行テスト
+JapanTaxLaw/SpecialBaselineIncomeTax.lean        # 租税特別措置法 art.41の19（基準所得22.5%特例）L4 モデル
+JapanTaxLaw/SpecialBaselineIncomeTaxSpec.lean    # 同上 独立定式
+JapanTaxLaw/SpecialBaselineIncomeTaxTests.lean   # 同上 退行テスト
+JapanTaxLaw/DiscountBondRefund.lean              # 租税特別措置法施行令 art.26の12（割引債還付）L4 モデル
+JapanTaxLaw/DiscountBondRefundSpec.lean          # 同上 独立定式
+JapanTaxLaw/DiscountBondRefundTests.lean         # 同上 退行テスト
 scripts/law_audit/               # 構造監査エンジン（Python）
 docs/AUDIT_REPORT.md             # 監査レポート（生成物）
 docs/L7_LEDGER.md               # L7 統合レジャー（機械生成・CI 再生成照合）

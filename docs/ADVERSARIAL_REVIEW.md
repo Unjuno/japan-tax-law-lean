@@ -2480,3 +2480,167 @@ Grid 走査（Python）:
 - **書き換え**: `docs/ADVERSARIAL_REVIEW.md` に本セクション `## Batch O review (2026-11-19)`（coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に一致）を追記。既存セクションはすべて保持。Lean モジュール変更なし。commit / push / merge / ブランチ切替なし。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・自前 kansuji による率抽出・原文照合・整数式の grid／カーネル反例走査・CI needle の `.find()` 検証・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断（U-O1／U-O2／U-O3）は専門家に委ねる。本レビューをもって人間の法的レビューを完了したものとはみなさない。
+
+## Batch P review (2026-11-19)
+
+### P-0. 範囲・独立性の申告
+
+- **レビュア役割**: Adversarial Review Agent。形式化担当 3 ワーカーから独立。STAGING／doc-comment は参照したが、**その正否は信じず**、pinned JSON から Python で直接再抽出し、CI `transcription_audit.py` の needle を直接 import して照合した。
+- **対象モジュール（読み取り専用・本レビューで一切変更していない）**:
+  - `JapanTaxLaw/BusinessOwnerDeduction.lean`（地方税法 art. 72の49の14）
+  - `JapanTaxLaw/StandardRateExcessRatio.lean`（地方税法施行令 art. 35の4の6）
+  - `JapanTaxLaw/IntermediateSurchargeRefund.lean`（地方税法施行令 art. 26）
+  - および各 `*Spec.lean` / `*Tests.lean`（計 9 ファイル、すべて読み取り専用）
+- **一次資料（pinned・改変禁止、SHA-256 を実ファイルで再計算）**:
+  - `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`（地方税法、revision `325AC0000000226_20261101_508AC0000000002`、sha256 `3DD29E00…68D53`）
+  - `data/raw/325CO0000000245_20261101_508CO0000000083.law.json`（地方税法施行令、revision `325CO0000000245_20261101_508CO0000000083`、sha256 `9BC03B23…B17`）
+- **抽出方法**: `law_full_text` を CI `text()` と同一ロジック（辞書の `children` 再帰連結）で平坦化し、`re.sub(r"[\s　]+", "", …)` で正規化。`MainProvision` 配下の `Article` を `Num` 属性で特定（art. 72の49の14 → `Num=72_49_14`、art. 35の4の6 → `Num=35_4_6`、art. 26 → `Num=26`）。日本語数字は原文の漢字をそのまま比較し、`二百九十万 = 290 × 10,000` として独立に算定。
+- **ツール**: Python 3.12 直接再抽出＋`lake env lean`（`#print axioms` 56 宣言／独立反例 28 行、いずれも exit code 0）。
+- **書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ**。既存の Batch G〜O／Art.25／国税徴収法／Art.24 レビューは**すべて保持**。Lean モジュール・Spec・Tests・`data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。監査用一時ファイルは approved temp dir（`C:\Users\junny\AppData\Local\Temp\opencode`）に置き、repo 外。
+
+### P-1. 独立抽出結果（pinned 原文 → 算術 → Lean 定数）
+
+正規化後本文長: art. 72の49の14 = 186 文字、art. 35の4の6 = 833 文字、art. 26 = 471 文字（STAGING の申告長と一致）。原文キーフレーズの出現を Python `.find()` / `.count()` で直接確認した。
+
+| 条 | 原文キーフレーズ（逐語・要所） | 独立抽出値 | Lean 定数／定義 | 照合 |
+|---|---|---|---|---|
+| 72の49の14(1) | 「事業の所得の計算上**二百九十万円を控除する**」（count 1） | 290 万 = 2,900,000 | `businessOwnerDeductionFull = 2_900_000` | ✅ |
+| 72の49の14(2) | 「事業を行つた期間が**一年に満たないとき**は…**二百九十万円に…月数を乗じて得た額を十二で除して**算定した金額とする」（各 count 1） | 2,900,000 × 月数 ÷ 12（**乗算先行**） | `monthlyBusinessDeduction = full * months / 12` | ✅ |
+| 72の49の14(2)  trap | 「十二で除し、これに月数を乗じ」（法人税法 art. 67(6) 型の**除算先行**）は本文に **count 0（不在）** | 除算先行ではない | 乗算先行を採用 | ✅（ trap 回避） |
+| 72の49の14(3) | 「**暦に従い計算し、一月に満たない端数を生じたときは、一月とする**」（各 count 1） | 丸め規定あり | 月数は caller-established、本モデルは丸めを行わない | ✅（BY-DESIGN、下記 P-2） |
+| 35の4の6(1) | 「**基準事業税額から標準税率相当額を控除した額を当該基準事業税額で除して算定した率**」（count 1） | (基準 − 相当) ÷ 基準 | `standardRateExcessRatio = if base=0 then 0 else (base-std)/base` | ✅ |
+| 35の4の6(2) | 「**第一号から第三号まで及び第五号に掲げる事業税額の合計額から第四号に掲げる事業税額を控除した額**」（count 1） | sum(一号〜三号・五号) − sum(四号) | `baseBusinessTax = sumMoney amounts − sumMoney deductions` | ✅ |
+| 35の4の6(3) | 「**標準税率相当額とは**…」（count 1） | 3項で定義 | 再計算は NOT MODELLED / caller-established | ✅ |
+| 26 本則 | 「当該中間納付額について納付された**延滞金額に**…**の占める割合を乗じて得た金額**」（各 count 1） | 延滞金額 × 還付額 ÷ 中間納付額 | `surchargeRefund = surchargePaid * refundAmount / intermediateTotal` | ✅ |
+| 26 本則 但書内 | 「**次条第一項第一号又は第二号の規定により充当される金額があるときは、これを控除した金額**」（count 1） | 充当額控除済み | `refundAmount` を控除済み入力として受け取る | ✅（caller-established） |
+| 26 ただし書 | 「**第一号に掲げる金額から第二号に掲げる金額を控除した金額とする**」（count 1） | 第一号 − 第二号（saturating） | `splitRefund = amount1 − amount2` | ✅ |
+| 26 二号 | 「**法の規定により計算される延滞金額の合計額**」（count 1、本条内に算定式なし） | 算定式は他条委任 | `amount2` は caller-established、算定は NOT MODELLED | ✅（BY-DESIGN） |
+
+> 原文に存在しない算術・額の「でっち上げ」は検出されず。原文にある算術の「落とし」も検出されなかった（本則・ただし書・1項・2項すべてを写している）。
+
+### P-2. 最重要チェック 3 点の独立判定
+
+1. **art. 72の49の14 — CONFIRMED（忠実）**: 原文(1)「二百九十万円」を独立に `290 × 10,000 = 2,900,000` と算出し、`businessOwnerDeductionFull` と一致。(2) は「一年に満たないとき」のみ月割で、「二百九十万円に…月数を乗じて得た額を**十二で除して**」＝**乗算先行** `2,900,000 * months / 12`。法人税法 art. 67(6) の除算先行（「十二で除し、これに月数を乗じて」）に相当する文字列は本文に **0 回**で、trap を回避している。(3)「一月に満たない端数を一月とする」は原文に実在するが、本モデルは `months` を**入力として受け取り**、丸め自体は行わない。doc-comment が「caller-established（呼出側で applyFloor）」と明示しており、**丸め規定を無視したのではなく境界を正直に外に出している**と判定（BY-DESIGN・B-P1）。丸めを本スライスで実装すべきかは法解釈の問題で UNRESOLVED・U-P2 に回す。
+2. **art. 35の4の6 — CONFIRMED（忠実）**: 原文(1)は「基準事業税額から標準税率相当額を控除した額を当該基準事業税額で除して算定した率」で、`(base − standard) / base` と一致。分母 0 → 0 の安全化と Nat 除算の切り捨ては原文に規定がなく **BY-DESIGN**（totalize／有限精度）。ただし原文の分数を整数除算で近似したことにより、`0 < 相当額 ≤ 基準` で比が 0 に潰れる点は doc-comment が明示しており隠蔽ではない。原文(2)は「第一号から第三号まで及び第五号…合計額から第四号…控除した額」で、`sumMoney amounts − sumMoney deductions`（一号〜三号・五号を `amounts`、四号を `deductions` に対応）と一致。控除 > 合計で 0 になる saturating も原文に丸め規定が無いため BY-DESIGN、法的妥当性は UNRESOLVED・U-P3。
+3. **art. 26 — CONFIRMED（忠実）**: 本則は「延滞金額に…還付すべき金額…の占める割合を乗じて得た金額」＝ `surchargePaid * refundAmount / intermediateTotal`（割合を分子/分母ペアで表現）で一致。ただし書は「第一号に掲げる金額から第二号に掲げる金額を控除した金額とする」＝ `amount1 − amount2` で一致。二号の「法の規定により計算される延滞金額の合計額」は art. 26 自体に算定式が無く（法 72の28 等に委任）、架空の式を仮定せず `amount2` を caller-established 入力として受け取る **NOT MODELLED** は正直で妥当（BY-DESIGN・B-P14）。本則の `refundAmount` が「充当される金額があるときは、これを控除した金額」を適用済みである点も原文どおり caller-established。
+
+→ **3 点すべて原文に忠実で、原文との食い違いは検出されなかった（発見ゼロ）。**
+
+### P-3. needle 健全性（12 本を CI 実装から直接検証）
+
+`scripts/ci/transcription_audit.py` の `checks()` を Python で import し、3 対象モジュールに対応する **3 check** から needle 文字列を取得（手打ちせず、STAGING の申告も信じない）。pinned `law_full_text` の正規化テキスト（CI `contains()` と同一条件）に対して `.find()` / `.count()` を実行した。
+
+| check | needle 数 | 長さ | U+3000 | `.find()` | `.count()` |
+|---|---:|---|---|---:|---|
+| 地方税法 art. 72の49の14 ↔ `BusinessOwnerDeduction.lean` | **3** | 39/88/38 | 0 | 3/3 FOUND | 全て 1 |
+| 地方税法施行令 art. 35の4の6 ↔ `StandardRateExcessRatio.lean` | **5** | 75/62/101/38/100 | 0 | 5/5 FOUND | 4 本 1、**1 本 2** |
+| 地方税法施行令 art. 26 ↔ `IntermediateSurchargeRefund.lean` | **4** | 107/145/57/162 | 0 | 4/4 FOUND | 3 本 1、**1 本 2** |
+| **合計** | **12** | — | **0 件** | **12/12 FOUND** | MISS 0 |
+
+- **needle 健全性: 問題なし（12/12 FOUND、U+3000 0 件、MISS 0）。**
+- 2 本（SRER の「前項の基準事業税額とは…」、ISR の「ただし書…」）は**全文 haystack 上で count=2**。これは同施行令の市町村対応条（art. 57の2の7 等）に同一文言が並存するためで、`contains()` 監査は「≥1 回」を要求するので健全性上問題ない。STAGING が「条 leaf-text 上で count 1」と申告したことと矛盾しない（走査単位が全文か条か異なる）。needle の勝手な変更・正規化・文字変換は一切していない。
+
+### P-4. 反例探索結果
+
+独立 Python 参照モデルを実装し、同じ期待値を一時 Lean ファイルの `example … := by decide` として記載（`lake env lean` exit code **0**、エラーなし、**28 行**すべてパス）。さらに総当たり grid で等価性を走査した。
+
+| 攻撃対象（入力） | 独立期待値 | Lean | 結果 |
+|---|---|---|---|
+| BOD **月数 0** | `2_900_000*0/12 = 0` | ✅ | 一致 |
+| BOD **月数 1**（端数） | `2_900_000*1/12 = 241_666`（端数 8 を切捨て） | ✅ | 一致 |
+| BOD **月数 11** | `2_658_333` | ✅ | 一致 |
+| BOD **月数 12**（境界） | 月割 = 年額 = `2_900_000` | ✅ | 一致 |
+| BOD **月数 13** | 分岐により年額 `2_900_000`（月割なら `3_141_666` とならない） | ✅ | 一致 |
+| BOD 乗算先行 trap | `full*m/12` と `(full/12)*m` は 1〜12 月のうち **11 月で差異**（例 m=2: 483333 vs 483332）。原文は乗算先行 → impl は `full*m/12` | ✅ | 一致（除算先行でないことを確認） |
+| SRER **分母 0** `(0,0)` / `(0,100)` | `0` / `0`（停止） | ✅ | 一致 |
+| SRER 分子 0 `(100,100)` | `0` | ✅ | 一致 |
+| SRER 控除 0 `(100,0)` | `1` | ✅ | 一致 |
+| SRER **端数** `(100,1)` / `(7,3)` | `0` / `0`（切捨て） | ✅ | 一致 |
+| SRER **控除>基準** `(100,200)` | saturating `0` | ✅ | 一致 |
+| SRER **控除>課税標準** `baseBusinessTax [10][50]` / `[] [5]` | `0` / `0` | ✅ | 一致 |
+| SRER 合計−控除 `[1,2,3,5][4]` / `[10,20,30][]` | `7` / `60` | ✅ | 一致 |
+| ISR **分母 0** `(1000,300,0)` | `0`（停止） | ✅ | 一致 |
+| ISR 還付額 0 / 延滞額 0 | `0` / `0` | ✅ | 一致 |
+| ISR **端数** `(1000,1,3)` / `(12345,3000,10000)` | `333` / `3_703` | ✅ | 一致 |
+| ISR 全額還付 `(1000,1000,1000)` | `1_000` | ✅ | 一致 |
+| ISR **amount2 > amount1** `splitRefund 2000 5000` / `0 1` | saturating `0` | ✅ | 一致 |
+| ISR 通常 `splitRefund 5000 2000` | `3_000` | ✅ | 一致 |
+
+Grid 走査（Python）:
+
+- BOD: 月数 0〜24 で単調非減 `True`、月数 ≤ 12 で月割 ≤ 年額 `True`。
+- SRER: `base ∈ 0..300, std ∈ 0..300` の **90,601 点**で `0 ≤ ratio ≤ 1` 成立、`base ≤ std ⇒ ratio = 0` 成立、saturating 減算の合計順不同 `True`。
+- ISR: `refundAmount` に対する単調非減、`refund ≤ total ⇒ refund ≤ surchargePaid`、`∀ a1,a2 ∈ 0..29: splitRefund ≤ a1` すべて成立。
+
+**反例探索で検出された原文・Lean 間の矛盾: 0 件（ゼロ）。**
+
+### P-5. 公理監査結果
+
+一時 Lean ファイルに 9 ファイル中の名前付き `def` / `theorem` の **56 宣言**（BOD 12+4、SRER 16+5、ISR 15+4）の `#print axioms` を記載し、`lake env lean`（exit code **0**、エラー 0）で走査。`/ JapanTaxLaw` 配下の 9 対象ファイルに `sorry` / `admit` / `axiom` / `unsafe` の文字列は grep で **0 件**。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | **56** |
+| axiom-free（`does not depend on any axioms`） | **36** |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **20 件**（許容）: BOD 3（`monthlyBusinessDeduction_mono` / `_le_full` / `businessOwnerDeduction_le_full`）、SRER 7（`standardRateExcessRatio_zero_base` / `_eq_div` / `_self` / `_zero_of_ge` / `_le_one` / `baseBusinessTax_eq_zero_of_ge` / `_eq_amounts_of_no_deduction`）、ISR 10（`surchargeRefund_zero_denominator` / `_zero_refund` / `_zero_surchargePaid` / `_full` / `_pos` / `_mono` / `_le_surchargePaid` / `splitRefund_zero_of_le` / `_pos_of_lt` / `_zero_applied`）。いずれも `simp`／Nat 不等式由来。 |
+
+→ **禁止公理（Classical.choice / sorryAx / Quot.sound）は一切検出されず。許容された propext のみ。公理監査は合格。**
+
+### P-6. CONFIRMED / BY-DESIGN / UNRESOLVED の件数と一覧
+
+| 分類 | 件数 |
+|---|---|
+| **CONFIRMED**（原文との食い違い） | **0（ゼロ）** |
+| **BY-DESIGN**（申告済みの範囲設定・ modeling choice） | **16** |
+| **UNRESOLVED**（pinned 算術原文のみでは解けない法的判断） | **5** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 額・算術・乗算先行・厳密な合計−控除構造・按分・saturating・needle・公理・反例のいずれにも原文との食い違いは検出されなかった。件数を手柄にしない。
+
+#### CONFIRMED（0 件）
+
+- 290 万円、1 年未満の月割 `290万 × 月数 ÷ 12`（乗算先行）、年額/月割の分岐 — すべて原文どおり（P-1／P-2）。
+- 標準税率超過率 `(基準−相当)/基準`、基準事業税額 = 一号〜三号・五号の合計 − 四号 — 原文どおり（P-1／P-2）。
+- art. 26 本則の按分、ただし書の第一号−第二号、充当額控除済みの取扱い — 原文どおり（P-1／P-2）。
+- needle 12/12 FOUND、U+3000 0、禁止公理 0、反例矛盾 0（P-3〜P-5）。
+
+#### BY-DESIGN（16 件）
+
+- **B-P1** 3項の月数丸め（「一月に満たない端数を一月とする」）は caller-established。本モデルは丸め済み月数を入力として受け取る（丸め自体は applyFloor を呼出側が実施）。
+- **B-P2** 「事業を行う個人であるか」の該当性・事業所得額自体の算定は caller-established、Bool は金額式に入れない。
+- **B-P3** BOD の端数は Nat 除算の切り捨て（原文に丸め単位・方向の明記なし）。
+- **B-P4** BOD の確定申告・他の所得控除との調整・通則法 art. 118/119 の端数処理は NOT MODELLED。
+- **B-P5** 基準事業税額・標準税率相当額・各号の事業税額・該当性はすべて caller-established。
+- **B-P6** SRER の算定期間（前年度三月〜当該年度二月）および各申告書（72の25/28/29、修正申告、更正、決定）の具体的認定は NOT MODELLED。
+- **B-P7** SRER 3項の標準税率相当額の再計算、4項の総務省令、「毎年度」「第四項及び次条」の定義は NOT MODELLED / caller-established。
+- **B-P8** SRER 1項の分母 0 → 0（安全版 totalize）。
+- **B-P9** SRER の Nat 除算（切り捨て）・有理数割合や丸め規則は NOT MODELLED（doc-comment が限于界を明示）。
+- **B-P10** SRER 2項の控除超過は saturating Nat 減算で 0。
+- **B-P11** 延滞金額・還付すべき金額・中間納付額・充当額・分割納付かどうかの区分は caller-established。
+- **B-P12** `surchargeRefund.refundAmount` は「充当される金額があるときは、これを控除した金額」を適用済みの値として受け取る。
+- **B-P13** ISR 本則の分母 0 → 0（安全版 totalize）、Nat 除算の切り捨て。
+- **B-P14** art. 26 二号の「法の規定により計算される延滞金額の合計額」の算定は NOT MODELLED、`amount2` は caller-established 入力。
+- **B-P15** 前条（art. 25）中間納付額還付の成立・次条（art. 27）充当の成立・法 72の44/45 の延滞金の発生と額そのものは NOT MODELLED。
+- **B-P16** ただし書の saturating Nat 減算（`amount2 > amount1` → 0）、端数・分母零の退化ケースに法的意味があるとは主張しない。
+
+#### UNRESOLVED（5 件）
+
+- **U-P1 端数処理の法的妥当性（3 モジュール共通）**: 原文は「算定した金額」「控除した額」「乗じて得た金額」等とし、丸め単位・方向を明記しない。モデルは Nat 除算（切り捨て）を採用し Spec も一致するが、法律上求められる丸め（切捨て／切上げ／四捨五入）は pinned 算術原文のみでは決定不能。**人間の法律専門家によるレビューを要する**。
+- **U-P2 BOD 3項の丸めを caller-established としたことの十分性**: 原文は一月未満の端数を一月とする丸めを明文で要求する。本モデルは丸めを呼出側に委ねており、丸めの算定自体を実装していない。境界設定としては整合するが、本スライスで実務を十分に被覆しているか（丸めをモデル化すべきか）は法解釈の問題で pinned 原文のみでは決定不能。**人間の法律専門家によるレビューを要する**。
+- **U-P3 SRER の saturating 減算と有限精度比の法的妥当性**: 控除額が合計を超える場合の 0 丸め、および `0 < 相当額 ≤ 基準` で整数除算が比を 0 に潰す点は、原文に例外・丸め規定が無いため model 規約である。実務上許容されるかは原文のみでは決定不能。**人間の法律専門家によるレビューを要する**。
+- **U-P4 ISR 二号 NOT MODELLED の実務被覆**: 二号の延滞金額合計の算定は他条（法 72の28 等）に委任され art. 26 に算式が無いため NOT MODELLED は範囲設定として整合する。ただし実際の延滞金計算を別途モデル化すべきか、本スライスで実務を十分に被覆しているかは法解釈の問題で決定不能。**人間の法律専門家によるレビューを要する**。
+- **U-P5 分母 0 の退化ケース**: SRER の基準事業税額 0、ISR の中間納付額 0 でモデルは 0 を返す（停止性は確認済み）。しかし原式は分母 0 で定義されず、この特例をどう扱うかは pinned 原文のみでは解けない。実務上は caller が分母 > 0 を認定する想定だが、完全性の判断は保留。**人間の法律専門家によるレビューを要する**。
+
+### P-7. 総合判定・最終報告（サマリ）
+
+- 3 つの pinned revision の `law_full_text` から直接抽出した額・算術を照合し、3 モデルはいずれも**原文に忠実**と独立判定した。290 万円・月割 `290万 × 月数 ÷ 12`（乗算先行）、`(基準−相当)/基準` と一号〜三号・五号合計 − 四号、art. 26 本則按分とただし書第一号−第二号のすべてが一致し、**原文に無い算術の捏造も原文にある算術の省略も無い**。
+- 月数丸め（3項）の caller-established 化、各額・該当性の caller-established 化、二号延滞金算定の NOT MODELLED は**正しく扱われている**（BY-DESIGN・B-P1／B-P14）。
+- **CONFIRMED: 0 件（ゼロ）**／**BY-DESIGN: 16 件**／**UNRESOLVED: 5 件**。発見ゼロを明示する。
+- **needle 健全性**: U+3000 **0 件**、CI 実装の **12/12 FOUND**（MISS 0。全文 haystack で 2 本が count=2 だが `contains()` 条件は満たす）。
+- **反例探索**: 月数 0/11/12/13、分母 0、控除>基準／課税標準、端数、`amount2 > amount1` を含む **28 行**（`lake env lean` exit 0）＋grid **90,601 点超**で矛盾 **0 件**。乗算先行と除算先行の 11 か月での差異も確認し、原文どおり乗算先行を採用している。
+- **公理結果**: Classical.choice / sorryAx / Quot.sound とも **0 件**。propext のみ 20 件（許容）。56/56 宣言を走査、exit code 0。
+- **書き換え**: `docs/ADVERSARIAL_REVIEW.md` に本セクション `## Batch P review (2026-11-19)`（coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に一致）を追記。既存セクションはすべて保持。Lean モジュール変更なし。commit / push / merge / ブランチ切替なし。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・原文キーフレーズの `.find()` 抽出・整数式の grid／カーネル反例走査・CI needle の `.find()` 検証・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断（U-P1〜U-P5）は専門家に委ねる。本レビューをもって人間の法的レビューを完了したものとはみなさない。
