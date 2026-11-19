@@ -2736,3 +2736,117 @@ BY-DESIGN 内訳: B1 art.41の3の11 第3項 判定基準日（死亡・出国�
 - **追記完了**: 本セクション `## Batch Q review (2026-11-19)` を `docs/ADVERSARIAL_REVIEW.md` 末尾に追記（coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に一致）。既存セクションはすべて保持。Lean モジュールは一切変更していない。commit / push / merge / ブランチ切替は行っていない。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 照合・独立算術再計算・境界ポイント列挙による反例探索・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な最終判断・解釈・有効性の評価は人間専門家に委ねる。本レビューが人間の法的レビューを称するものではない。
+
+---
+
+## Batch R review (2026-11-19)
+
+### R-0. 範囲・独立性の申告
+
+- **レビュア**: Adversarial Review Agent。形式化担当 3 ワーカーと独立に **cycle-6** を監査。担当者の STAGING / doc-comment / 担当範囲テキストは**参照のみで信用せず**、pinned JSON から Python で直接再抽出して照合した。
+- **対象モジュール（読み取り専用・一切変更せず）**:
+  - `JapanTaxLaw/IncomeArt205Withholding.lean`（所得税法 art. 205）
+  - `JapanTaxLaw/InheritedPropertyTransferGain.lean`（租税特別措置法施行令 art. 25の16）
+  - `JapanTaxLaw/LightOilBaseTax.lean`（軽油引取税法施行令 art. 23の2）
+  - 各 `*Spec.lean` / `*Tests.lean` の存在は確認したが、数値照合の根拠には用いていない（pinned 原文を唯一の根拠とした）。
+- **一次資料（pinned・改変禁止）**:
+  - `data/raw/340AC0000000033_20261001_507AC0000000070.law.json`（所得税法、revision `340AC0000000033_20261001_507AC0000000070`、amendment 2026-10-01）
+  - `data/raw/332CO0000000043_20261101_507CO0000000127.law.json`（租特法施行令、revision `332CO0000000043_20261101_507CO0000000127`、2026-11-01）
+  - `data/raw/337M50000008017_20260724_508M60000008092.law.json`（軽油引取税法施行令、revision `337M50000008017_20260724_508M60000008092`、2026-07-24）
+- **抽出法**: `law_full_text` を再帰走査し `tag="Article"` かつ `attr.Num` が `205` / `25_16` / `23_2` のノードを各 1 件のみ同定。配下の文字列を文書順に連結し `re.sub(r"[\s\u3000]+","",…)` で正規化。日本語数字は自前パーサ（十/百/千/万＋数字連続）で Arabic 化し、算術は独立 Python 再実装で再計算して Lean の定数・kernel-decided smoke 期待値と比較した。
+- **正規化テキスト長**: art. 205 = 439 文字、art. 25の16 = 1095 文字、art. 23の2 = 238 文字（いずれも RAW 長 = NORM 長、U+3000 は 0 個）。
+- **ツール**: Python 3.x 独立抽出、`lake env lean`（`#print axioms` 54 宣言、exit code 0）。一時ファイルは approved temp dir（`C:\Users\junny\AppData\Local\Temp\opencode`）のみに置き、repo 内には作成していない。
+- **書き込みは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ**。既存セクション（Batch G〜Q / Art.25 / 国税徴収法 / Art.24 等）はすべて保持。Lean モジュール・Spec・Tests・`data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。
+
+### R-1. 独立抽出結果（pinned 原文 → 日本語数字 → Arabic → Lean 定数）
+
+| 条項 | 原文トークン（独立抽出） | Arabic / 算術 | Lean 定数・式 | 照合 |
+|---|---|---|---|---|
+| 205 一号 基本率 | `百分の十` | 10/100 | `art205BasicRate = ⟨10,100⟩` | 一致 |
+| 205 一号 超過率 | `百分の二十`（「その超える部分の金額については」） | 20/100 | `art205ExcessRate = ⟨20,100⟩` | 一致 |
+| 205 一号 閾値 | `百万円`（「超える場合」＝強い >） | 1,000,000 | `art205Threshold = 1_000_000` | 一致 |
+| 205 二号 率 | `百分の十`（控除後残額に適用） | 10/100 | `art205TaxAfterDeduction = basic.applyFloor (amount−deduction)` | 一致 |
+| 25の16 上限 | `収入金額 −（取得費＋譲渡費用）` の残額 | max(proceeds−cost,0) | `inheritedResidualGain = max (proceeds−cost) 0` | 一致 |
+| 25の16 特例額 | 一号×二号 を残額で上限、収入<合計額は「ないもの」 | min(base, residual) | `inheritedTransferGain = min base residual` | 一致 |
+| 23の2 法定額 | `一一、二五〇円` | 11,250 | `lightOilBaseAmount = 11_250` | 一致 |
+| 23の2 端数 | `一キロリットル未満の端数を四捨五入`（本文に 2 回） | round half up | `roundDiv a b = (2*a+b)/(2*b)` | 一致（下記 R-2 第3点） |
+
+`百分の` トークンの出現は一号 [十, 二十, 十]（＝[10,20,10]）、`百万円` は 1 回、`四捨五入` と `一キロリットル未満` は各 2 回を独立確認。いずれも Lean 定数と一致し、**数値・率の食い違いは 0 件**。
+
+### R-2. 最重要チェック 3 点の独立判定
+
+1. **art. 205 → CONFIRMED（不整合なし）**: 原文「その金額に百分の十（同一人に対し一回に支払われる金額が百万円を超える場合には、その超える部分の金額については、百分の二十）の税率を乗じて計算した金額」は、`min(amount,1_000_000)×10/100 + max(amount−1_000_000,0)×20/100` と一字対応。**10% は 100 万円まで、20% は超過部分のみ**（全体に 20% を掛けるのでも、10% と 20% を足すのでもない）という読み替え構造を `art205Tax` が正しく実装。二号「…から政令で定める金額を控除した残額に百分の十の税率を乗じて計算した金額」は `art205TaxAfterDeduction = basic.applyFloor (amount−deduction)` と対応。**報酬×10% / 同一人一回 100 万円超部分×20% / 政令控除後×10% の 3 点すべて原文どおり**。政令控除額・賞金の金銭外価額・各号該当性は caller-established / NOT MODELLED（下記 B-1〜B-3）。
+2. **art. 25の16 → CONFIRMED（不整合なし）**: 原文「第一号に掲げる相続税額に第二号に掲げる割合を乗じて計算した金額とする。ただし、…収入金額から…取得費及び…費用の額の合計額を控除した残額に相当する金額を超える場合には、その残額に相当する金額とし、当該収入金額が当該合計額に満たない場合には、当該計算した金額は、ないものとする。」は、`base = ratio.applyFloor 相続税額`、`residual = max(収入−合計額, 0)`、`gain = min base residual` と一字対応。**収入 < 合計額 → residual=0 → gain=0（「ないもの」）**、**計算額 > 残額 → 残額を採用**の 2 分岐を `min` が正しく表現。二号割合の具体的算定（相続税法 11の2 / 19 / 21の14〜18 / 13 の読替え等、他条文参照多数）は **NOT MODELLED が妥当（BY-DESIGN、下記 B-5）**。原文に端数規定はなく、Nat 除算の切り捨てを明示する慣例も透明（下記 B-7）。
+3. **art. 23の2 → CONFIRMED（不整合なし）**: 原文「一一、二五〇円に、…数量（…四捨五入する。）に別表第十一に定める率を乗じて得た数量（…四捨五入する。）を乗じて得た額とする。ただし、指定都市を包括する都道府県の基準税額は、当該額から…指定都市ごとに第三十八条の規定によつて算定した額を控除した額とする。」は、`11_250 × roundKiloliter 数量 率`、ただし書 `base − Σ指定都市額`（saturating）と対応。**`roundDiv(a,b) = floor((2a+b)/(2b))` は正の a,b に対する round-half-up であり、原文の「四捨五入」（0.5 を切り上げ）に相当する**（R-4 の境界表で数値確認）。別表第十一条の率・第三十八条の算定は **NOT MODELLED が妥当（BY-DESIGN、下記 B-8/B-9）**。率適用「前」の四捨五入は caller-established（R-4、下記 B-10）。
+
+**3 点とも原文どおりであり、正式な不整合・転記誤りはゼロ件。**
+
+### R-3. needle 健全性（14 本）
+
+3 モジュールの doc-comment に記載された pinned bytes 逐語（needle evidence）を原文从属の点検対象とし、14 本を選定。各 needle を pinned 正規化テキストに `.find()` で照合した（art.205: 5 / art.25の16: 5 / art.23の2: 4）。なお art.205 二号税額 needle は doc-comment が「…」で省略しているが、点検には**省略を展開した完全逐語文字列**を用いた（pinned 原文に実在）。
+
+| モジュール | 本数 | U+3000 | `.find()` | offset（pinned 正規化テキスト） |
+|---|---:|---:|---|---|
+| IncomeArt205Withholding（art.205） | 5 | 0 | 5/5 FOUND | 0 / 58 / 122 / 196 / 342 |
+| InheritedPropertyTransferGain（25の16） | 5 | 0 | 5/5 FOUND | 78 / 117 / 230 / 428 / 733 |
+| LightOilBaseTax（23の2） | 4 | 0 | 4/4 FOUND | 36 / 69 / 102 / 168 |
+| **合計** | **14** | **0 本** | **14/14 FOUND（MISS 0）** | — |
+
+- **needle 健全性: 健全（14/14 FOUND、U+3000 0 本、MISS 0）**。
+- 備考: 各 doc-comment の見出しや方法中の説明用引用（「…」を含む paraphrase）は needle に数えない。art.23の2 の doc-comment が全文 1 ブロックで引用する本文から、数値・端数・控除の各条項を逐語分割して 4 本とした（いずれも pinned 原文の部分文字列）。
+
+### R-4. 反例探索（境界・端数・控除過大）
+
+独立 Python 再実装で全ポイントを再計算し、Lean の定数・kernel-decided smoke 期待値と比較。**不一致 0 件**。
+
+| 攻撃対象 | 独立再計算 | Lean 期待値 | 結果 |
+|---|---|---|---|
+| 100 万円ちょうど | `a205(1_000_000)=100_000`（「超える」で等号は 20% なし） | `art205Tax_at_threshold = 100_000` | 矛盾なし |
+| 100 万円+1 円 | `a205(1_000_001)=100_000`（1×20/100 の floor） | `art205Tax_one_above_threshold = 100_000` | 矛盾なし |
+| 100 万円超（例 110 万 / 200 万） | `a205(1_100_000)=120_000`, `a205(2_000_000)=300_000` | smoke と一致 | 矛盾なし |
+| 控除 > 金額（二号） | `a205ded(100,200)=0`（saturating） | `art205TaxAfterDeduction 100 200 = 0` | 矛盾なし |
+| 端数切り捨て（二号） | `a205ded(9,0)=0`, `a205ded(100,50)=5` | smoke と一致 | 矛盾なし |
+| 収入 < 取得費（「ないもの」） | `i2516(…,100000,300000)=0`、`(…,300000,300000)=0` | smoke（两者 0）と一致 | 矛盾なし |
+| 残額上限が効く | `i2516(5_000_000,1/10,400000,100000)=300_000` | smoke と一致 | 矛盾なし |
+| 計算額 < 残額 | `i2516(1_000_000,1/10,500000,300000)=100_000` | smoke と一致 | 矛盾なし |
+| round half up 境界 | `roundDiv(1,2)=1`, `(3,2)=2`, `(5,2)=3`, `(7,2)=4`, `(1,3)=0`, `(2,3)=1` | 定義式 `(2a+b)/(2b)` と一致 | 矛盾なし |
+| 基準税額（11,250×四捨五入数量） | `lot(1,⟨1,1⟩)=11250`, `lot(3,⟨1,2⟩)=22500`, `lot(0,⋯)=0` | `lightOilBaseTax_eq_literal` と整合 | 矛盾なし |
+| 控除 > 基準税額（ただし書） | Nat saturating → 0 | `afterDeduction_eq_zero_of_ge` | 矛盾なし |
+
+- **四捨五入の等同性**: 0.5 を切り上げる round-half-up は原文「四捨五入」の整数モデルに一致。別の丸め（五捨五入・切り捨て等）を断定するものではない（下記 B-11）。
+- **丸め規則の法的正当性**（art.205/25の16 の floor、art.23の2 の round-half-up、通則法 art.118/119 の端数処理）は pinned 原文からは決定不能で、人間の法律専門家の確認を要するが、pinned 原文と矛盾するものではない（下記 B-11 / 免責）。
+
+### R-5. 公理監査（`lake env lean` / `#print axioms`、54 宣言、exit code 0）
+
+- 一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\batchR_axiom_probe.lean` を作成し、3 モジュールの名前付き `def` / `theorem` 計 **54 宣言**（IncomeArt205 18 / InheritedProperty 17 / LightOil 19）すべてに `#print axioms` を実行。監査後、一時ファイル群は repo 外の approved temp dir に置かれ、repo 内には残していない。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 54 |
+| axiom-free（`does not depend on any axioms`） | **40** |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **14 件**（IncomeArt205 3 / InheritedProperty 10 / LightOil 1。いずれも `simp` 由来、許容範囲） |
+
+- propext の内訳: `art205Tax_of_le` / `art205Tax_of_gt` / `art205TaxAfterDeduction_of_lt` / `inheritedTransferBase_zero_tax` / `..._zero_num` / `..._le_tax` / `inheritedResidualGain_eq_sub` / `..._zero_when_le` / `..._zero_when_lt` / `inheritedTransferGain_le_base` / `..._le_residual` / `..._eq_residual` / `..._zero_when_proceeds_le_cost` / `afterDeduction_eq_zero_of_ge`。
+- **禁止公理（Classical.choice / sorryAx / Quot.sound）は一切検出されず。許容された propext のみ。公理監査は合格。**
+- 軽微な記述差（BY-DESIGN・下記 B-12）: `IncomeArt205Withholding` と `LightOilBaseTax` の doc-comment は「no … propext」と述べるが、上記のとおり一部定理が propext に依存する。propext は仕様で許容されるため不具合ではないが、コメントの記述は機械監査でやや不正確と検出された。金額算定の定数・等式定理（各 `*_eq` / `art205Tax` / `inheritedTransferGain` / `roundDiv` / `lightOilBaseTax` 等）はすべて axiom-free。
+
+### R-6. 分類・最終報告（サマリ）
+
+| 分類 | 件数 | 内容 |
+|---|---:|---|
+| **CONFIRMED** | 3 | 3 モジュールとも原文どおり（205 / 25の16 / 23の2）。独立抽出・率/算術・needle・反例の全照合で不整合なし。 |
+| **BY-DESIGN** | 12 | 下記 B1〜B12（NOT MODELLED 項目、caller-established、丸め規則、propext 記述差）。 |
+| **UNRESOLVED** | 0 | 未解決事项なし（丸めの法的正当性は B11 のとおり pin 原文を超える判断として BY-DESIGN 側に集約）。 |
+| **発見（正式な不整合・転記誤り）** | **ゼロ** | — |
+
+BY-DESIGN 内訳: B1 art.205 二号の政令で定める控除額は caller-established / NOT MODELLED / B2 同 賞金の金銭外価額算定（政令で定めるところにより計算した金額）NOT MODELLED / B3 同 前条第一項各号の該当性・一号/二号の区分・「同一人に対し一回」の集計は caller-established / B4 同 通則法 art.118/119 の端数処理・租税条約軽減・復興/防衛特別所得税・確定申告調整 NOT MODELLED（floor 採用）/ B5 art.25の16 二号割合の具体的算定（相続税法 11の2 / 19 / 21の14〜18 / 13 読替え等）NOT MODELLED / B6 同 相続税額の確定時点・第2項修正申告/更正・第3項贈与税控除読替え・附帯税相当額控除の具体的算定 NOT MODELLED / B7 同 収入金額・取得費・譲渡費用・特例該当性は caller-established、原文に端数規定なしで Nat 除算の切り捨てを明示 / B8 art.23の2 別表第十一条の率の値・適用 NOT MODELLED（caller-established な `TaxRate` として受け取る）/ B9 同 第三十八条の指定都市ごとの算定額 NOT MODELLED（各額 caller-established、合計を saturating 減算）/ B10 同 前年度課税標準数量の確定・率適用「前」の四捨五入は caller-established（丸め済み数量を渡す）/ B11 丸め規則（floor / round-half-up / 通則法端数処理）の法的正当性は pin 原文から決定不能で人間の法律専門家の確認を要するが、原文と矛盾しない透明なモデル選択 / B12 二モジュールの doc-comment「no propext」記述が実際の公理フットプリントとやや不一致（propext は仕様許容のため不具合ではない）。
+
+- **公理結果**: Classical.choice / sorryAx / Quot.sound = **0 件**、propext は 14 件のみ（許容範囲）。条件を満たす。
+- **needle 健全性**: 14/14 FOUND、U+3000 **0 本**、MISS 0。
+- **反例探索**: 100 万円境界・収入<取得費・round half up 境界・控除>税額を含む全ポイントで不一致 **0 件**。
+- **追記完了**: 本セクション `## Batch R review (2026-11-19)` を `docs/ADVERSARIAL_REVIEW.md` 末尾に追記（coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に一致）。既存セクションはすべて保持。Lean モジュールは一切変更していない。commit / push / merge / ブランチ切替は行っていない。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 照合・自前日本語数字パーサによる抽出・独立算術再計算・境界ポイント列挙による反例探索・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈・有効性の最終判断は専門家に委ねる。本レビューが人間の法的レビューを称するものではない。
