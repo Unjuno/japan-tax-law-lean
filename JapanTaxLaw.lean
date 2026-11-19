@@ -494,3 +494,12 @@ import JapanTaxLaw.TonnageTaxTests
 import JapanTaxLaw.GasolineDeduction
 import JapanTaxLaw.GasolineDeductionSpec
 import JapanTaxLaw.GasolineDeductionTests
+import JapanTaxLaw.AuctionDepositValuation
+import JapanTaxLaw.AuctionDepositValuationSpec
+import JapanTaxLaw.AuctionDepositValuationTests
+import JapanTaxLaw.GasolineTransferRounding
+import JapanTaxLaw.GasolineTransferRoundingSpec
+import JapanTaxLaw.GasolineTransferRoundingTests
+import JapanTaxLaw.LegalRatePresentValue
+import JapanTaxLaw.LegalRatePresentValueSpec
+import JapanTaxLaw.LegalRatePresentValueTests
