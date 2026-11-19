@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 31
+- with >=1 pinned literal check (semantic model): 32
 - with recorded human legal review: 0
 
 ## All laws
@@ -57,7 +57,7 @@ a completion flag.
 | `329M50000040039` | 国税収納金整理資金事務取扱規則 | 329M50000040039_20260924_508M60000040059 | CurrentEnforced | YES | ok | 251 | NO (0) | NO |
 | `329AC0000000149` | 日本国における国際連合の軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法 | 329AC0000000149_20190107_430AC0000000016 | CurrentEnforced | YES | ok | 48 | NO (0) | NO |
 | `329CO0000000128` | 日本国における国際連合の軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法 | 329CO0000000128_20190107_430CO0000000161 | CurrentEnforced | YES | ok | 17 | NO (0) | NO |
-| `329CO0000000150` | 関税法施行令 | 329CO0000000150_20260701_508CO0000000217 | CurrentEnforced | YES | ok | 534 | NO (0) | NO |
+| `329CO0000000150` | 関税法施行令 | 329CO0000000150_20260701_508CO0000000217 | CurrentEnforced | YES | ok | 534 | YES (1) | NO |
 | `329AC0000000188` | 日本国における国際連合の軍隊の地位に関する協定の実施に伴う地方税法の臨時特例に関する法律 | 329AC0000000188_20260401_508AC0000000002 | CurrentEnforced | YES | ok | 19 | NO (0) | NO |
 | `329CO0000000155` | 関税定率法施行令 | 329CO0000000155_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 306 | NO (0) | NO |
 | `329AC0000000194` | 遺産、相続及び贈与に対する租税に関する二重課税の回避及び脱税の防止のための日本国とアメリ | 329AC0000000194_20010106_411AC0000000160 | CurrentEnforced | YES | ok | 11 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 90
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 92

@@ -681,6 +681,9 @@ JapanTaxLaw/LegalRatePresentValueTests.lean   # 同上 退行テスト
 JapanTaxLaw/RefundRounding.lean              # 国税庁関係政令 art.120（還付金等の端数計算）L4 モデル
 JapanTaxLaw/RefundRoundingSpec.lean          # 同上 独立定式
 JapanTaxLaw/RefundRoundingTests.lean         # 同上 退行テスト
+JapanTaxLaw/CustomsStorageFee.lean            # 関税法施行令 art.70の3（収容に要した費用）L4 モデル
+JapanTaxLaw/CustomsStorageFeeSpec.lean        # 同上 独立定式
+JapanTaxLaw/CustomsStorageFeeTests.lean       # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト

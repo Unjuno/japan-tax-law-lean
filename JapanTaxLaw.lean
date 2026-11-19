@@ -506,3 +506,6 @@ import JapanTaxLaw.LegalRatePresentValueTests
 import JapanTaxLaw.RefundRounding
 import JapanTaxLaw.RefundRoundingSpec
 import JapanTaxLaw.RefundRoundingTests
+import JapanTaxLaw.CustomsStorageFee
+import JapanTaxLaw.CustomsStorageFeeSpec
+import JapanTaxLaw.CustomsStorageFeeTests
