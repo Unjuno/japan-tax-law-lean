@@ -94,7 +94,7 @@ a completion flag.
 | `336M50000400035` | 重油及び粗油等の関税割当制度に関する省令 | 336M50000400035_20201228_502M60000400092 | CurrentEnforced | YES | ok | 16 | NO (0) | NO |
 | `337CO0000000097` | 酒税法施行令 | 337CO0000000097_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 165 | NO (0) | NO |
 | `337M50000040026` | 酒税法施行規則 | 337M50000040026_20250401_507M60000040034 | CurrentEnforced | YES | ok | 75 | NO (0) | NO |
-| `337AC0000000066` | 国税通則法 | 337AC0000000066_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 433 | YES (6) | NO |
+| `337AC0000000066` | 国税通則法 | 337AC0000000066_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 433 | YES (7) | NO |
 | `337CO0000000135` | 国税通則法施行令 | 337CO0000000135_20260401_507CO0000000126 | CurrentEnforced | YES | ok | 193 | NO (0) | NO |
 | `337M50000040028` | 国税通則法施行規則 | 337M50000040028_20261101_507M60000040025 | CurrentEnforced | YES | ok | 95 | NO (0) | NO |
 | `337M50000040030` | 揮発油税法施行規則 | 337M50000040030_20191216_501M60000040036 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 86
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 90
