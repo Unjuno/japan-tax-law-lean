@@ -449,3 +449,12 @@ import JapanTaxLaw.SpecialBaselineIncomeTaxTests
 import JapanTaxLaw.DiscountBondRefund
 import JapanTaxLaw.DiscountBondRefundSpec
 import JapanTaxLaw.DiscountBondRefundTests
+import JapanTaxLaw.IncomeArt205Withholding
+import JapanTaxLaw.IncomeArt205WithholdingSpec
+import JapanTaxLaw.IncomeArt205WithholdingTests
+import JapanTaxLaw.InheritedPropertyTransferGain
+import JapanTaxLaw.InheritedPropertyTransferGainSpec
+import JapanTaxLaw.InheritedPropertyTransferGainTests
+import JapanTaxLaw.LightOilBaseTax
+import JapanTaxLaw.LightOilBaseTaxSpec
+import JapanTaxLaw.LightOilBaseTaxTests

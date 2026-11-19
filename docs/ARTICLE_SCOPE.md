@@ -7,7 +7,7 @@ NOT article-level verification. This report records, per transcription
 check, which article / appendix table cell actually contains the needles.
 It is a DIAGNOSTIC for the independent-audit axis, not a completion gate.
 
-- checks with article/table-cell scoped needles: 131
+- checks with article/table-cell scoped needles: 134
 - checks with no scoped unit (whole-text or cross-article needles): 0
 
 | law_id | stated article | needles | containing unit(s) | check |
@@ -102,6 +102,9 @@ It is a DIAGNOSTIC for the independent-audit axis, not a completion gate.
 | `325AC0000000073` | (file-level) | 6 | MainProvision/Article/24×6 | 相続税法 art. 24(1) 一号〜三号（定期金の評価: 有期/無期/終身 = max(解約返戻金, 一時金, 基礎額 |
 | `325AC0000000073` | (file-level) | 4 | MainProvision/Article/24×4 | 相続税法 art. 24(1) 四号・24(3)(4)（一時金＝給付金額、3項＝min(有期,終身)、4項＝max(有期 |
 | `325AC0000000073` | (file-level) | 3 | MainProvision/Article/24×3 | 相続税法 art. 24(2)(5)（死亡による給付終了の特例: 権利者分＋第三者分の加算、死亡時期・第三者該当性は c |
+| `340AC0000000033` | (file-level) | 6 | MainProvision/Article/205×6 | 所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除 |
+| `332CO0000000043` | (file-level) | 4 | MainProvision/Article/25_16×4 | 租税特別措置法施行令 art. 25の16（相続財産に係る譲渡所得の特例: 相続税額×割合を残額(収入−取得費−費用)で |
+| `337M50000008017` | (file-level) | 4 | MainProvision/Article/23_2×4 | 軽油引取税法施行令 art. 23の2（軽油引取税の基準税額: 11,250円×四捨五入(数量×別表率)、指定都市分を控 |
 | `332AC0000000026` | (file-level) | 5 | MainProvision/Article/41_3_11×5 | 租税特別措置法 art. 41の3の11（所得金額調整控除: 1項 (min給与1000万−850万)×10%、2項 m |
 | `332AC0000000026` | (file-level) | 5 | MainProvision/Article/41_19×5 | 租税特別措置法 art. 41の19（特定の基準所得金額の課税の特例: 3.3億超部分×225/1000(22.5%)− |
 | `332CO0000000043` | (file-level) | 5 | MainProvision/Article/26_12×5 | 租税特別措置法施行令 art. 26の12（繰上償還等の場合の所得税還付: (券面−償還)×徴収税率、外国法人分は発行差 |
