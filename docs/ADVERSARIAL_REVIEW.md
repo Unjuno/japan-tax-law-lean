@@ -2318,3 +2318,165 @@ BY-DESIGN 11 件: 203の3 各号控除額／203の3 政令月割額／203の3 �
 - **公理**: choice / sorryAx / Quot.sound とも **0**、propext 12（許容）、78/78 宣言走査・exit 0。
 - **反例**: 境界・min 両側・端数・saturating の全ケースで Lean `by decide` と一致、矛盾 **0**。
 - **追記**: `docs/ADVERSARIAL_REVIEW.md` に見出し `## Batch N review (2026-11-19)`（coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に一致）を末尾追記。既存セクションはすべて保持。Lean モジュールの変更なし。
+
+
+---
+
+## Batch O review (2026-11-19)
+
+### O-0. 範囲・独立性の申告
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当 3 ワーカーから独立）。STAGING／doc-comment は参照したが、**その正否は信じず**、pinned JSON から Python で直接再抽出して照合した。
+- **対象モジュール（読み取り専用・本レビューで一切変更していない）**:
+  - `JapanTaxLaw/IncomeArt213Withholding.lean`（所得税法 art. 213）
+  - `JapanTaxLaw/LocalAddedValueStandard.lean`（地方税法 art. 72の20）
+  - `JapanTaxLaw/LocalGrantRevenueBase.lean`（地方交付税法 art. 14）
+  - および各 `*Spec.lean` / `*Tests.lean`（計 9 ファイル、すべて読み取り専用）
+- **一次資料（pinned・改変禁止）**:
+  - `data/raw/340AC0000000033_20261001_507AC0000000070.law.json`（revision `340AC0000000033_20261001_507AC0000000070`、適用日 2026-10-01、sha256 `94C4A7AD…FE606B` を実ファイルで再計算し一致確認）
+  - `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`（revision `325AC0000000226_20261101_508AC0000000002`、適用日 2026-11-01）
+  - `data/raw/325AC0000000211_20261102_508AC0000000062.law.json`（revision `325AC0000000211_20261102_508AC0000000062`、適用日 2026-11-02）
+- **抽出方法**: `law_full_text` を CI `transcription_audit.py` の `text()` と同一ロジックで平坦化し、`re.sub(r"[\s　]+", "", …)` で正規化。`MainProvision` 配下を再帰走査して `Article` を `Num` 属性で特定（art. 213 → `Num=213`、art. 72の20 → `Num=72_20`、art. 14 → `Num=14`）。率は日本語数字（二十／十／七十／七十五 等）を自前の `kansuji()` で Arabic に変換して抽出。
+- **ツール**: Python 3.12 直接再抽出＋`lake env lean`（`#print axioms` 79 宣言／独立反例 56 行、いずれも exit code 0）。
+- **書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ**。既存の Batch G〜M／Art.25／国税徴収法／Art.24／Batch N レビューは**すべて保持**。Lean モジュール・Spec・Tests・`data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。監査用一時ファイルは approved temp dir（`C:\Users\junny\AppData\Local\Temp\opencode`）に置き、repo 外。`git status --short` はクリーン。
+
+### O-1. 独立抽出結果（pinned 原文 → 算術 → Lean 定数）
+
+正規化後本文長: art. 213 = 782 文字、art. 72の20 = 469 文字、art. 14 = 4,982 文字。日本語数字を自前変換した `百分の…` 出現は art. 213 が `{20:2, 10:2, 15:2}`、art. 72の20 が `{70:2}`、art. 14 が `{75:26}`（他は全て 75%）。pinned 原文に 750/100 や 7.5 相当の語は存在しない。
+
+| 条 | 原文キーフレーズ（逐語・要所） | 独立抽出値 | Lean 定数／定義 | 照合 |
+|---|---|---|---|---|
+| 213 一号 | 「…その金額（…）に**百分の二十**の税率を乗じて計算した金額」 | 20/100 | `art213GeneralRate = ⟨20,100⟩` | ✅ |
+| 213 一号イ | 「…**五万円にその支払われる年金の額に係る月数を乗じて**計算した金額を控除した残額」 | 50,000 × 月数 | `pensionDeduction months = 50_000 * months` | ✅ |
+| 213 一号ロ | 「…から**五十万円を控除した残額**」 | 500,000 | `prizeDeduction = 500_000` | ✅ |
+| 213 一号ハ | 「…**保険料又は掛金の額のうちその支払われる年金の額に対応するものとして政令で定めるところにより計算した金額を控除した残額**」 | 政令委任（算定式なし） | `art213Pension14Base annuity premiumCorrespondingAmount = annuity - …`／額は caller-established | ✅（NOT MODELLED 申告どおり） |
+| 213 二号 | 「第百六十一条第一項第五号に掲げる国内源泉所得その金額に**百分の十**の税率を乗じて計算した金額」 | 10/100 | `art213ReducedRate = ⟨10,100⟩` | ✅ |
+| 213 三号／二項 | 「…**百分の十五**の税率…」「前条第三項の規定により…」 | 15%／二項あり | 範囲外として NOT MODELLED | ✅（申告どおり） |
+| 72の20 1項 | 「…報酬給与額の占める割合が**百分の七十を超える**法人…」 | 厳密 `>` | `salaryRatioExceeds70 = decide (salary*100 > 70*distribution)` | ✅ |
+| 72の20 1項 | 「付加価値額（前条の規定により控除すべき金額があるときは、これを控除した後の金額とする。）から**雇用安定控除額を控除**するものとする。」 | 付加価値額 − 控除 | `addedValueStandard = addedValue - deduction` | ✅ |
+| 72の20 2項 | 「報酬給与額から当該事業年度の**収益配分額に百分の七十の割合を乗じて得た金額を控除した金額**とする。」 | 報酬 − 収益配分×70% | `employmentStabilityDeduction = salary - distribution*70/100` | ✅ |
+| 72の20 3項 | 「…**政令で定めるところにより計算した金額をもつて**…みなす。」 | 政令委任 | NOT MODELLED（needle で原文保持） | ✅ |
+| 14(1) 利子割 | 「利子割交付金の交付見込額の**百分の七十五に相当する額を控除した額**」 | 75/100 | `grantDeductionRate = ⟨75,100⟩`／`netRevenue e g = e - g*75/100` | ✅ |
+| 14(1) 配当割 | 「…配当割に係る交付金（以下…「配当割交付金」という。）の交付見込額の**百分の七十五に相当する額を控除した額**」 | 75/100 | 同上（共通関数を呼ぶ） | ✅ |
+| 14(1) 株式等 | 「…株式等譲渡所得割交付金…の交付見込額の**百分の七十五に相当する額を控除した額**」 | 75/100 | 同上（共通関数を呼ぶ） | ✅ |
+| 14 他税目・経過 | 法人事業税交付金／地方消費税／ゴルフ場／軽油／市町村たばこ税／基準税率 75%／第三項算定基礎表／附則 | 範囲外 | NOT MODELLED（doc-comment 明示） | ✅ |
+
+### O-2. 最重要チェック 3 点の独立判定
+
+1. **art. 213 — CONFIRMED（忠実）**: 原文で一号 `百分の二十`・二号 `百分の十` を直接確認。年金控除は `五万円 × 月数`、賞金控除は `五十万円` で、Lean の `pensionDeduction` / `prizeDeduction` と一致。一号ハの「保険料対応額」は原文が「政令で定めるところにより計算した金額」と委任するだけで算定式が無く、**NOT MODELLED ＋ caller-established `Money` パラメータ**という扱いは妥当。第 161 条各号・ロ／ハの該当性判定も原文に算術が無く、Bool を分岐条件に閉じ込める設計と整合。三号（15%）・二項は pinned 原文に**実際に存在**し、範囲外として申告されている（過剰な省略ではない）。
+2. **art. 72の20 — CONFIRMED（忠実）**: 原文は「割合が百分の七十を**超える**」で、**「以上」ではなく厳密不等式**。原文に `百分の七十以上` は存在せず、`salaryRatioExceeds70` は交差掛け `salary * 100 > 70 * distribution` の strict `>`（70% ちょうど → false、70% 超 → true）。2 項の雇用安定控除も原文「報酬給与額から収益配分額に百分の七十の割合を乗じて得た金額を控除した金額」＝ `salary - distribution*70/100` と一致。3 項の政令みなし額は算定内容が原文に無く **NOT MODELLED が妥当**。
+3. **art. 14 — CONFIRMED（忠実・10 倍過大なし）**: 原文「百分の七十五」を自前 kansuji 変換で 75 と抽出、`grantDeductionRate = ⟨75,100⟩`（= 0.75）と一致。`netRevenue` は「収入見込額 − 交付金見込額×75%（floor）」の saturating 減算で原文構造どおり。750/100（= 7.5）や「七百五十」は原文にも Lean にも無く、**10 倍誤りは検出されず**。他税目・経過措置・附則の NOT MODELLED も申告と整合。
+
+→ **3 点すべて原文に忠実で、食い違いは検出されなかった（発見ゼロ）。**
+
+### O-3. needle 健全性（14 本を CI 実装から直接検証）
+
+`scripts/ci/transcription_audit.py` の `checks()` を Python で import し、3 対象モジュールに対応する **3 check** から needle 文字列を取得（手打ちせず、STAGING の申告も信じない）。pinned `law_full_text` の正規化テキスト（`_norm()`、CI と同一条件）に対して `.find()` / `.count()` を実行した。
+
+| check | needle 数 | 長さ | U+3000 | `.find()` | `.count()` | 主な offset |
+|---|---:|---|---|---:|---|---|
+| 所得税法 art. 213 ↔ `IncomeArt213Withholding.lean` | **6** | 62/88/79/90/118/70 | 0 | 6/6 FOUND | 全て 1 | 231087 / 231147 / 231235 / 231314 / 231404 / 231497 |
+| 地方税法 art. 72の20 ↔ `LocalAddedValueStandard.lean` | **5** | 66/71/66/111/104 | 0 | 5/5 FOUND | 全て 1 | 239445 / 239511 / 239583 / 239650 / 239761 |
+| 地方交付税法 art. 14 ↔ `LocalGrantRevenueBase.lean` | **3** | 77/117/130 | 0 | 3/3 FOUND | 全て 1 | 21015 / 21118 / 21266 |
+| **合計** | **14** | — | **0 件** | **14/14 FOUND** | **全て 1** | — |
+
+- **needle 健全性: 問題なし（14/14 FOUND、U+3000 0 件、MISS 0、すべて count 1）。**
+- 14 本はいずれも各条の率・控除・判定・委任規定を逐語保持しており、O-1 のキーフレーズ抽出と整合（例: 一号ハ needle は doc-comment の省略形ではなく原文の完全形「保険料又は掛金の額のうち…政令で定めるところにより計算した金額を控除した残額」）。
+
+### O-4. 反例探索結果
+
+独立参照モデルを Python で実装し、同じ期待値を一時 Lean ファイルの `example … := by decide` として記載（`lake env lean` exit code **0**、エラーなし、**56 行**すべてパス）。さらに総当たり grid で等価性を走査した。
+
+| 攻撃対象（入力） | 独立期待値 | Lean | 結果 |
+|---|---|---|---|
+| art. 213 一号 20% / 二号 10%（9 円で端数） | `9*20/100=1` / `9*10/100=0` | ✅ | 一致 |
+| 年金控除 **月数 0** (`amount=1000, m=0`, 一号イ) | 控除 0 → `200` | ✅ | 一致 |
+| 年金控除 **月数 1** で控除>金額 (`1000, m=1`) | `1000-50000` → saturating **0** | ✅ | 一致（初回の手計算ミス 190 を検出・修正、実装は正しかった） |
+| 年金控除 通常 (`1,000,000, m=12`) | `400,000*20%=80,000` | ✅ | 一致 |
+| 賞金控除 50 万ちょうど／境界 (`500000`, `500001`) | `0` / `1*20%=0`（1 円は floor で 0） | ✅ | 一致 |
+| 控除>課税標準 (一号ハ `250000` vs `250001`) | saturating **0** | ✅ | 一致 |
+| **70% ちょうど** (`d=100,s=70` / `1000,700`) | false | ✅ | 一致（「超える」） |
+| **70% 超** (`d=100,s=71` / `1000,701`) | true | ✅ | 一致 |
+| `d=0,s=0` / `d=0,s=1` | false / true（totalize、下記 U-O2） | ✅ | 停止・一致 |
+| 2 項 端数 (`d=101,s=71`) / 控除>報酬 (`d=100,s=10`) | `1` / **0** | ✅ | 一致 |
+| 課税標準 控除>付加価値 (`50,100`) | saturating **0** | ✅ | 一致 |
+| **75% 端数** (`applyFloor 100/101/1`) | `75 / 75 / 0` | ✅ | 一致（750 ではない） |
+| 75% 控除境界 `netRevenue 74/75/76, g=100` | `0 / 0 / 1` | ✅ | 一致 |
+| `netRevenue 1000,100` / `101,100` | `925` / `26` | ✅ | 一致 |
+
+Grid 走査（Python）:
+
+- `salaryRatioExceeds70` の交差掛け vs 厳密分数 `salary/distribution > 70/100`（`d>0`, `d,s ∈ 0..400`）: **160,400 件、不一致 0**。
+- 70% 丸め同一性 `d*70/100 == d*7/10 == floor(0.7d)`（`d ∈ 0..2000`）: **不一致 0**。
+- 75% 乗法順序 `g*75/100 == 75*g/100` と saturating 単調性（`grid 0..300`）: **不一致 0**。
+- 10 倍トラップ: `applyFloor(100)=75`（誤りなら 750）→ **10 倍過大なし**。
+
+**反例探索で検出された原文・Lean 間の矛盾: 0 件（ゼロ）。**
+
+### O-5. 公理監査結果
+
+一時 Lean ファイルに 9 ファイル中の名前付き `def`/`theorem`/`structure`/`lemma` のうちアクセス可能な **79 宣言**の `#print axioms` を記載し、`lake env lean`（exit code **0**、エラー 0）で走査。`/ JapanTaxLaw` 配下の 9 対象ファイルに `sorry` / `admit` / `axiom` / `unsafe` / `Classical.choice` / `propext` / `Quot.sound` の文字列はgrep で **0 件**。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | **79**（IncomeArt213 34＋Spec 8、LocalAddedValue 9＋Spec 6、LocalGrant 14＋Spec 9、Tests 3 ファイルは名前付き宣言なし。`private natSubEqZeroOfLeFree` は inaccessible のため除外） |
+| axiom-free（`does not depend on any axioms`） | **73** |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **6 件**: `IncomeArt213Withholding.art213Item1Base_pension12` / `_prize13` / `_pension14` / `_general`、`LocalAddedValueStandard.salaryRatioExceeds70_true_iff`、`LocalGrantRevenueBase.netRevenue_eq_zero_of_deduction_ge`（いずれも `simp`／Nat 不等式由来、許容範囲） |
+
+→ **禁止公理（Classical.choice / sorryAx / Quot.sound）は一切検出されず。許容された propext のみ。公理監査は合格。**
+
+### O-6. CONFIRMED / BY-DESIGN / UNRESOLVED の件数と一覧
+
+| 分類 | 件数 |
+|---|---|
+| **CONFIRMED**（原文との食い違い） | **0（ゼロ）** |
+| **BY-DESIGN**（申告済みの範囲設定・ modeling choice） | **14** |
+| **UNRESOLVED**（pinned 算術原文のみでは解けない法的判断） | **3** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 率・算術・厳密不等式・saturating・needle・公理・反例のいずれにも原文との食い違いは検出されなかった。件数を手柄にしない。
+
+#### CONFIRMED（0 件）
+
+- 一号 20% / 二号 10%、5 万×月数、50 万控除 — すべて原文どおり（O-1／O-2）。
+- 「70% 超」の strict `>` と、`以上` でないこと — 原文どおり（O-2）。
+- 雇用安定控除 = 報酬 − 収益配分×70%、課税標準 = 付加価値 − 控除 — 原文どおり（O-2）。
+- 「百分の七十五」= 75/100、控除後 = 収入見込 − 交付金×75%（saturating）、10 倍過大なし — 原文どおり（O-2／O-4）。
+- needle 14/14 FOUND、U+3000 0、禁止公理 0、反例矛盾 0（O-3〜O-5）。
+
+#### BY-DESIGN（14 件）
+
+- **B-O1** art. 213 の号・区分（一号/二号、イ/ロ/ハ）該当性は caller-established Bool、金額式には入れない。
+- **B-O2** 一号ハの保険料対応額（政令で定める額）は算定式が原文に無く NOT MODELLED／caller-established `Money`。
+- **B-O3** 第 161 条各号・ロ／ハの該当性判定は原文に算術が無く NOT MODELLED。
+- **B-O4** 賞金の金銭以外の価額算定（政令）は NOT MODELLED／caller-established。
+- **B-O5** art. 213 第一項三号（15%）・第二項は範囲外として NOT MODELLED（原文には存在）。
+- **B-O6** 課税標準・月数・租税条約軽減・端数処理（通則法 118/119）・復興特別／防衛特別所得税・確定申告調整は NOT MODELLED。
+- **B-O7** art. 72の20 の前条控除額・付加価値額・報酬給与額・収益配分額・70% 超該当性は caller-established。
+- **B-O8** art. 72の20 3項の政令みなし額は NOT MODELLED（needle で原文保持）。
+- **B-O9** 70% 超判定を交差掛け `salary*100 > 70*distribution` で totalize（`distribution=0` でも停止）。
+- **B-O10** art. 72の20 2項の 70% を `distribution*70/100`（自然数除算・切り捨て）で符号化（doc-comment 明示）。
+- **B-O11** art. 14 の基準税率・収入見込額・交付金見込額・該当性は caller-established。
+- **B-O12** art. 14 の他税目・控除（法人事業税交付金の算定、地方消費税・ゴルフ場・軽油・市町村たばこ税の 75% 控除、市町村たばこ税都道府県交付金／特別法人事業譲与税の「75% の額」、各種譲与税・国有資産等所在交付金、基準税率自体、第三項算定基礎表）は NOT MODELLED。
+- **B-O13** art. 14 の経過措置・附則は NOT MODELLED。
+- **B-O14** 丸めを `TaxRate.applyFloor`（切り捨て）に委ね、3 モジュール＋Spec で一貫（原文に丸め細目の明記なし、O-5 の U-O1 で法的判断を保留）。
+
+#### UNRESOLVED（3 件）
+
+- **U-O1 端数処理の法的妥当性**: 原文は art. 213「税率を乗じて計算した金額」、art. 72の20「乗じて得た金額」、art. 14「相当する額」とし、丸め単位・方向の明記がない。モデルは `applyFloor`／Nat 除算（切り捨て）を採用し Spec も一致するが、法律上求められる丸め（切捨て／切上げ／四捨五入）は pinned 算術原文のみでは決定不能。**人間の法律専門家によるレビューを要する**。
+- **U-O2 `distribution=0` での 70% 超判定**: 交差掛けは `distribution=0, salary>0` を「70% 超＝true」と totalize する（doc-comment 明示、停止性は確認済み）。しかし原式「収益配分額のうちに報酬給与額の占める割合」は分母 0 で定義されず、この特例をどう扱うかは原文のみでは解けない。実務上は caller が `distribution>0` を認定する想定だが、完全性の判断は保留。**人間の法律専門家によるレビューを要する**。
+- **U-O3 NOT MODELLED スライスの法的十分性（政令委任事項）**: 一号ハ保険料対応額・賞金現物価額・art. 72の20 3項政令みなし額・art. 14 他税目／経過措置は、いずれも pinned 原文に算定内容が無いため NOT MODELLED は範囲設定として整合する。ただし政令の実際の算定を別途モデル化すべきか、また本スライスで実務を十分に被覆しているかは法解釈の問題であり、pinned 算術原文のみでは決定不能。**人間の法律専門家によるレビューを要する**。
+
+### O-7. 総合判定・最終報告（サマリ）
+
+- 原文（3 pinned revision）の `law_full_text` から直接抽出した率・控除・算術を照合し、3 モジュールのモデルは **いずれも原文に忠実**と独立判定した。一号 20%／二号 10%、5 万×月数・50 万控除、「70% 超」の厳密不等式、報酬−配分×70%、75/100 控除（saturating）のすべてが一致し、**10 倍誤りは無い**。
+- 一号ハの保険料対応額・第 161 条該当性、3 項政令みなし額、art. 14 の他税目／経過措置は **NOT MODELLED / caller-established と正しく扱われている**（O-2／O-6）。
+- **CONFIRMED: 0 件（ゼロ）**／**BY-DESIGN: 14 件**／**UNRESOLVED: 3 件**。発見ゼロを明示する。
+- **needle 健全性**: U+3000 **0 件**、CI 実装の **14/14 FOUND**（MISS 0、すべて count 1）。
+- **反例探索**: 月数 0／70% ちょうど・超／控除>課税標準／75% 端数を含む 56 行（`lake env lean` exit 0）＋grid 163,000 件超で矛盾 **0 件**。
+- **公理結果**: Classical.choice / sorryAx / Quot.sound とも **0 件**。propext のみ 6 件（許容）。79/79 宣言を走査、exit code 0。
+- **書き換え**: `docs/ADVERSARIAL_REVIEW.md` に本セクション `## Batch O review (2026-11-19)`（coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に一致）を追記。既存セクションはすべて保持。Lean モジュール変更なし。commit / push / merge / ブランチ切替なし。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・自前 kansuji による率抽出・原文照合・整数式の grid／カーネル反例走査・CI needle の `.find()` 検証・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断（U-O1／U-O2／U-O3）は専門家に委ねる。本レビューをもって人間の法的レビューを完了したものとはみなさない。
