@@ -651,6 +651,12 @@ JapanTaxLaw/TrustPensionReserveTests.lean       # 同上 退行テスト
 JapanTaxLaw/ResidentTaxTransitionalRates.lean   # 地方税法施行令 art.12（市町村民税経過措置税率）L4 モデル
 JapanTaxLaw/ResidentTaxTransitionalRatesSpec.lean   # 同上 独立定式
 JapanTaxLaw/ResidentTaxTransitionalRatesTests.lean  # 同上 退行テスト
+JapanTaxLaw/NonTaxSavingsCeiling.lean            # 所得税法施行令 art.40（非課税貯蓄申告書最高限度額）L4 モデル
+JapanTaxLaw/NonTaxSavingsCeilingSpec.lean        # 同上 独立定式
+JapanTaxLaw/NonTaxSavingsCeilingTests.lean       # 同上 退行テスト
+JapanTaxLaw/LandValueTaxBasicDeduction.lean      # 地価税法 art.18（基礎控除）L4 モデル
+JapanTaxLaw/LandValueTaxBasicDeductionSpec.lean  # 同上 独立定式
+JapanTaxLaw/LandValueTaxBasicDeductionTests.lean # 同上 退行テスト
 scripts/law_audit/               # 構造監査エンジン（Python）
 docs/AUDIT_REPORT.md             # 監査レポート（生成物）
 docs/L7_LEDGER.md               # L7 統合レジャー（機械生成・CI 再生成照合）

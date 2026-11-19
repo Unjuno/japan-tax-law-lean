@@ -467,3 +467,9 @@ import JapanTaxLaw.TrustPensionReserveTests
 import JapanTaxLaw.ResidentTaxTransitionalRates
 import JapanTaxLaw.ResidentTaxTransitionalRatesSpec
 import JapanTaxLaw.ResidentTaxTransitionalRatesTests
+import JapanTaxLaw.NonTaxSavingsCeiling
+import JapanTaxLaw.NonTaxSavingsCeilingSpec
+import JapanTaxLaw.NonTaxSavingsCeilingTests
+import JapanTaxLaw.LandValueTaxBasicDeduction
+import JapanTaxLaw.LandValueTaxBasicDeductionSpec
+import JapanTaxLaw.LandValueTaxBasicDeductionTests
