@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 19
+- with >=1 pinned literal check (semantic model): 20
 - with recorded human legal review: 0
 
 ## All laws
@@ -110,7 +110,7 @@ a completion flag.
 | `340AC0000000034` | 法人税法 | 340AC0000000034_20261001_508AC0000000012 | CurrentEnforced | YES | ok | 1183 | YES (8) | NO |
 | `340CO0000000084` | 国際復興開発銀行等からの外資の受入に関する特別措置に関する法律に基づく債券の利子の非課税 | 340CO0000000084_20171001_429CO0000000106 | CurrentEnforced | YES | ok | 8 | NO (0) | NO |
 | `340CO0000000096` | 所得税法施行令 | 340CO0000000096_20260522_508CO0000000093 | CurrentEnforced | YES | ok | 1365 | NO (0) | NO |
-| `340CO0000000097` | 法人税法施行令 | 340CO0000000097_20261001_507CO0000000121 | CurrentEnforced | YES | ok | 1541 | YES (2) | NO |
+| `340CO0000000097` | 法人税法施行令 | 340CO0000000097_20261001_507CO0000000121 | CurrentEnforced | YES | ok | 1541 | YES (4) | NO |
 | `340M50000040011` | 所得税法施行規則 | 340M50000040011_20261001_507M60000040018 | CurrentEnforced | YES | ok | 886 | NO (0) | NO |
 | `340M50000040012` | 法人税法施行規則 | 340M50000040012_20261001_505M60000040013 | CurrentEnforced | YES | ok | 874 | NO (0) | NO |
 | `340M50010000013` | とうもろこし等の関税割当制度に関する省令 | 340M50010000013_20220401_504M60000200005 | CurrentEnforced | YES | ok | 12 | NO (0) | NO |
@@ -153,7 +153,7 @@ a completion flag.
 | `347CO0000000150` | 沖縄の復帰に伴う国税関係以外の大蔵省関係法令の適用の特別措置等に関する政令 | 347CO0000000150_20251231_507CO0000000426 | CurrentEnforced | YES | ok | 88 | NO (0) | NO |
 | `347CO0000000151` | 沖縄の復帰に伴う国税関係法令の適用の特別措置等に関する政令 | 347CO0000000151_20251231_507CO0000000426 | CurrentEnforced | YES | ok | 322 | NO (0) | NO |
 | `347CO0000000160` | 沖縄の復帰に伴う地方税関係以外の自治省関係法令の適用の特別措置等に関する政令 | 347CO0000000160_19750430_350CO0000000141 | CurrentEnforced | YES | ok | 31 | NO (0) | NO |
-| `347CO0000000161` | 沖縄の復帰に伴う地方税法の適用の特別措置等に関する政令 | 347CO0000000161_20010106_412CO0000000304 | CurrentEnforced | YES | ok | 32 | NO (0) | NO |
+| `347CO0000000161` | 沖縄の復帰に伴う地方税法の適用の特別措置等に関する政令 | 347CO0000000161_20010106_412CO0000000304 | CurrentEnforced | YES | ok | 32 | YES (1) | NO |
 | `347CO0000000167` | 航空機燃料譲与税法施行令 | 347CO0000000167_20140312_426CO0000000059 | CurrentEnforced | YES | ok | 48 | NO (0) | NO |
 | `347M50000040042` | 沖縄の復帰に伴う国税関係法令の適用の特別措置等に関する省令 | 347M50000040042_20251231_507M60000040072 | CurrentEnforced | YES | ok | 97 | NO (0) | NO |
 | `347M50000040044` | 沖繩の復帰に伴う国税関係以外の大蔵省関係法令の適用の特別措置等に関する省令 | 347M50000040044_19740711_349M50000040044 | CurrentEnforced | YES | ok | 22 | NO (0) | NO |

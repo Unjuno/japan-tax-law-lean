@@ -7,7 +7,7 @@ NOT article-level verification. This report records, per transcription
 check, which article / appendix table cell actually contains the needles.
 It is a DIAGNOSTIC for the independent-audit axis, not a completion gate.
 
-- checks with article/table-cell scoped needles: 134
+- checks with article/table-cell scoped needles: 137
 - checks with no scoped unit (whole-text or cross-article needles): 0
 
 | law_id | stated article | needles | containing unit(s) | check |
@@ -102,6 +102,9 @@ It is a DIAGNOSTIC for the independent-audit axis, not a completion gate.
 | `325AC0000000073` | (file-level) | 6 | MainProvision/Article/24×6 | 相続税法 art. 24(1) 一号〜三号（定期金の評価: 有期/無期/終身 = max(解約返戻金, 一時金, 基礎額 |
 | `325AC0000000073` | (file-level) | 4 | MainProvision/Article/24×4 | 相続税法 art. 24(1) 四号・24(3)(4)（一時金＝給付金額、3項＝min(有期,終身)、4項＝max(有期 |
 | `325AC0000000073` | (file-level) | 3 | MainProvision/Article/24×3 | 相続税法 art. 24(2)(5)（死亡による給付終了の特例: 権利者分＋第三者分の加算、死亡時期・第三者該当性は c |
+| `340CO0000000097` | (file-level) | 3 | MainProvision/Article/148×3 | 法人税法施行令 art. 148（通算法人の控除限度額 = 調整前控除限度額−控除限度調整額、調整前 = 第一号+第二号 |
+| `340CO0000000097` | (file-level) | 6 | MainProvision/Article/157×6; SupplProvision/Article/13×2 | 法人税法施行令 art. 157（信託に係る退職年金等積立金額 = (一号+二号−三号−四号)×調整割合、saturat |
+| `347CO0000000161` | (file-level) | 5 | MainProvision/Article/12×5 | 地方税法施行令 art. 12（市町村民税の経過措置税率: 均等割290/150/430/230円・所得割×80%・制限 |
 | `340AC0000000033` | (file-level) | 6 | MainProvision/Article/205×6 | 所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除 |
 | `332CO0000000043` | (file-level) | 4 | MainProvision/Article/25_16×4 | 租税特別措置法施行令 art. 25の16（相続財産に係る譲渡所得の特例: 相続税額×割合を残額(収入−取得費−費用)で |
 | `337M50000008017` | (file-level) | 4 | MainProvision/Article/23_2×4 | 軽油引取税法施行令 art. 23の2（軽油引取税の基準税額: 11,250円×四捨五入(数量×別表率)、指定都市分を控 |
