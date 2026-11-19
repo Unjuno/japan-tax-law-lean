@@ -503,3 +503,6 @@ import JapanTaxLaw.GasolineTransferRoundingTests
 import JapanTaxLaw.LegalRatePresentValue
 import JapanTaxLaw.LegalRatePresentValueSpec
 import JapanTaxLaw.LegalRatePresentValueTests
+import JapanTaxLaw.RefundRounding
+import JapanTaxLaw.RefundRoundingSpec
+import JapanTaxLaw.RefundRoundingTests

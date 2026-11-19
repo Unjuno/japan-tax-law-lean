@@ -7,7 +7,7 @@ NOT article-level verification. This report records, per transcription
 check, which article / appendix table cell actually contains the needles.
 It is a DIAGNOSTIC for the independent-audit axis, not a completion gate.
 
-- checks with article/table-cell scoped needles: 149
+- checks with article/table-cell scoped needles: 150
 - checks with no scoped unit (whole-text or cross-article needles): 0
 
 | law_id | stated article | needles | containing unit(s) | check |
@@ -117,6 +117,7 @@ It is a DIAGNOSTIC for the independent-audit axis, not a completion gate.
 | `334CO0000000329` | (file-level) | 1 | MainProvision/Article/42_5×1 | AuctionDepositValuation.lean |
 | `330AC0000000113` | (file-level) | 2 | MainProvision/Article/5×2 | GasolineTransferRounding.lean |
 | `325M50000040017` | (file-level) | 2 | MainProvision/Article/12_4×2 | LegalRatePresentValue.lean |
+| `337AC0000000066` | (file-level) | 4 | MainProvision/Article/120×4 | RefundRounding.lean |
 | `340AC0000000033` | (file-level) | 6 | MainProvision/Article/205×6 | 所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除 |
 | `332CO0000000043` | (file-level) | 4 | MainProvision/Article/25_16×4 | 租税特別措置法施行令 art. 25の16（相続財産に係る譲渡所得の特例: 相続税額×割合を残額(収入−取得費−費用)で |
 | `337M50000008017` | (file-level) | 4 | MainProvision/Article/23_2×4 | 軽油引取税法施行令 art. 23の2（軽油引取税の基準税額: 11,250円×四捨五入(数量×別表率)、指定都市分を控 |
