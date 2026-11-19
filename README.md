@@ -615,6 +615,15 @@ JapanTaxLaw/CounterexampleSweep.lean  # L6: マージ済み L4 全モデル × S
 JapanTaxLaw/TaxProcedure.lean      # 国税通則法 第2条第10号（強制換価手続）
 JapanTaxLaw/TaxProcedureSpec.lean  # Act art.2(10) の独立仕様・健全性・整合性定理
 JapanTaxLaw/TaxProcedureTests.lean # Act art.2(10) の退行テスト 12件
+JapanTaxLaw/BusinessOwnerDeduction.lean       # 地方税法 art.72の49の14（事業主控除290万円・月割）L4 モデル
+JapanTaxLaw/BusinessOwnerDeductionSpec.lean   # 同上 独立定式
+JapanTaxLaw/BusinessOwnerDeductionTests.lean  # 同上 退行テスト
+JapanTaxLaw/StandardRateExcessRatio.lean      # 地方税法施行令 art.35の4の6（標準税率超過率）L4 モデル
+JapanTaxLaw/StandardRateExcessRatioSpec.lean  # 同上 独立定式
+JapanTaxLaw/StandardRateExcessRatioTests.lean # 同上 退行テスト
+JapanTaxLaw/IntermediateSurchargeRefund.lean  # 地方税法施行令 art.26（延滞金還付）L4 モデル
+JapanTaxLaw/IntermediateSurchargeRefundSpec.lean  # 同上 独立定式
+JapanTaxLaw/IntermediateSurchargeRefundTests.lean # 同上 退行テスト
 scripts/law_audit/               # 構造監査エンジン（Python）
 docs/AUDIT_REPORT.md             # 監査レポート（生成物）
 docs/L7_LEDGER.md               # L7 統合レジャー（機械生成・CI 再生成照合）
