@@ -2850,3 +2850,132 @@ BY-DESIGN 内訳: B1 art.205 二号の政令で定める控除額は caller-esta
 - **追記完了**: 本セクション `## Batch R review (2026-11-19)` を `docs/ADVERSARIAL_REVIEW.md` 末尾に追記（coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に一致）。既存セクションはすべて保持。Lean モジュールは一切変更していない。commit / push / merge / ブランチ切替は行っていない。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 照合・自前日本語数字パーサによる抽出・独立算術再計算・境界ポイント列挙による反例探索・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈・有効性の最終判断は専門家に委ねる。本レビューが人間の法的レビューを称するものではない。
+
+---
+
+## Batch S review (2026-11-20)
+
+### S-0. 範囲・手法・独立性
+
+- **レビュア**: Adversarial Review Agent。形式化担当 3 ワーカーと独立に **cycle-7** を原文照合・反例探索した。STAGING / doc-comment / 担当範囲テキストは**参照のみ**に用い、pinned JSON から Python で直接抽出して照合した（STAGING の「FOUND」主張は信じず再計算）。
+- **対象モジュール（読み取り専用・一切変更せず）**:
+  - `JapanTaxLaw/ConsolidationCreditLimit.lean`（法人税法施行令 art.148）
+  - `JapanTaxLaw/TrustPensionReserve.lean`（法人税法施行令 art.157）
+  - `JapanTaxLaw/ResidentTaxTransitionalRates.lean`（地方税法施行令 art.12）
+  - 各 `*Spec.lean` / `*Tests.lean` は誤りの伝播確認のため参照のみ（判定の根拠には使用せず）。
+- **一次資料（pinned・改変禁止）**:
+  - `data/raw/340CO0000000097_20261001_507CO0000000121.law.json`（法人税法施行令、revision 一致）
+  - `data/raw/347CO0000000161_20010106_412CO0000000304.law.json`（地方税法施行令、revision 一致）
+- **抽出法**: `law_full_text` を再帰的に flatten し、`tag='Article'` かつ `attr.Num` が `148` / `157` / `12` の **MainProvision 配下**ノードの leaf-text を連結、`re.sub(r"[\s\u3000]+","",…)` で正規化。漢数字は独立に readings を割り当て（二百九十=290 他）、算術は Python で再計算して Lean の定数・kernel-decide smoke と比較。needle は STAGING の JSON 断片を**候補リストとしてのみ**使い、pinned 正規化テキストへ `.find()` を実行。
+- **実行環境**: Python 3.12.10、`lake env lean`（Lean 4.35.0）。一時ファイルは approved temp dir（`C:\Users\junny\AppData\Local\Temp\opencode`）のみに配置、repo 内には作成せず。
+- **書き込みは `docs/ADVERSARIAL_REVIEW.md` の本セクション追記のみ**。Lean モジュール / Spec / Tests / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。
+
+### S-1. 独立抽出結果（pinned 原文 → 漢数字 → Lean 定数）
+
+| 条文 | pinned leaf-text 正規化後 | U+3000 | doc-comment 主張文字数 | 照合 |
+|---|---:|---:|---:|---|
+| art.148（340） | 3094 文字 | 0 | 3094 | 一致 |
+| art.157（340） | 2375 文字 | 0 | 2375 | 一致 |
+| art.12 MainProvision（347） | 5921 文字 | 0 | 5921 | 一致 |
+
+- 347 の `Num='12'` は 3 ノード（MainProvision 1 + 附則 `AmendLawNum` 付き 2）。レビュー対象は MainProvision の art.12（市町村民税に関する経過措置）のみ）。
+- 原文リテラルの直接ヒット（いずれも FOUND、needle U+3000 = 0）:
+  - art.148 §1 saturating 句 … offset 113 / 61 文字。
+  - art.148 §2「調整前控除限度額とは、第一号に掲げる金額に第二号に掲げる金額のうちに第三号に掲げる金額の占める割合を乗じて計算した金額」… offset 182（前方 7 文字を含む完全 needle は offset 175 / 66 文字）。
+  - art.157 §1 算式 … offset 161 / 65 文字。
+  - art.12「年額二百九十円（人口五万未満の市及び町村にあつては、百五十円）」… offset 84 /「四百三十円…二百三十円」… offset 120 /「百分の八十」… offset 197 /「一・五」… offset 221。
+
+### S-2. 3 点の独立判定
+
+**1. art.148 — §1 は一致、§2 は原文不一致（CONFIRMED MISMATCH・要修正）**
+
+- §1 原文:「調整前控除限度額から当該通算事業年度の控除限度調整額を控除した金額（当該調整前控除限度額が零を下回る場合には、零）とする。」
+  → Lean `consolidationCreditLimit p a = if p ≤ a then 0 else p - a` = `max(p−a, 0)`。**saturating 減算として一致（CONFIRMED）**。括弧の主語が逐語上「調整前控除限度額」である点は下記 B1（BY-DESIGN・人間の法的確認待ち）。
+- §2 原文（needle #2 で逐語確認済み）:「調整前控除限度額とは、**第一号に掲げる金額に**第二号に掲げる金額のうちに第三号に掲げる金額の占める割合**を乗じて**計算した金額」。
+  → 正しい算術は **第一号 ×（第三号 ÷ 第二号）**。ところが Lean は
+  `preAdjustmentLimit f s t = if s = 0 then 0 else f + s * t / s`（= `f + t`, s≠0）を実装している。**加算（`+`）であり原文の乗算（`×`）ではない。不一致を確定（CONFIRMED 不一致）**。
+  - 具体例: `f=100, s=200, t=50` は原文なら `100*50/200 = 25`、モデルは `150`。`f=0,s=200,t=50` は原文 `0` / モデル `50`。`f=100,s=200,t=0` は原文 `0` / モデル `100`。
+  - 次元にも矛盾: 税額 × 割合 = 税額（妥当）に対し、モデルは税額 + 所得金額（次元不同）。
+  - §7「控除限度調整額」も同型の乗算文（needle #3「第一号に掲げる金額に…同号イに掲げる金額の占める割合を乗じて計算した金額」）だが、本モジュールは §7 を caller-established としており直接の誤記はない。
+  - **誤りの伝播**: `ConsolidationCreditLimitSpec.lean` の `specPreAdjustmentLimit = if s=0 then 0 else f + t` および `agreeConsolidationCreditLimit` も同じ加算式を共有しており、"独立 spec" が誤りを検出できていない（共通の誤記）。`example : preAdjustmentLimit 100 200 50 = 150 := by decide` も誤った期待値を固定している。
+  - 修正方針例（本レビューは Lean を変更しない）: `if secondAmount = 0 then 0 else firstAmount * thirdAmount / secondAmount`。厳密な有理数割合・丸め規則は人間の法的レビュー事项（B4）。
+
+**2. art.157 — 一致（CONFIRMED）**
+
+- 原文 §1:「第一号及び第二号に掲げる金額の合計額から第三号及び第四号に掲げる金額の合計額を控除した金額に、調整割合を乗じて計算した金額とする。」
+  → Lean `trustPensionBase = (first+second) - (third+fourth)`、`trustPensionReserve = adjustmentRate.applyFloor base` = `floor(base × 調整割合)`。**原文の算術 (一号+二号−三号−四号)×調整割合 と一致（CONFIRMED）**。§2（ロ 確定給付年金基金資産運用契約）も同式で同じ def で表現可能。
+- BY-DESIGN: 各号の具体的算定・第 5 項の調整割合算定（百分の七に月数を乗じ十二で除し百分の百を加える）NOT MODELLED（B6/B8）、Nat saturating 減算（B5）、§3/§4 の異なり式（三号のみ）NOT MODELLED（B7）。
+
+**3. art.12 — 一致（CONFIRMED）**
+
+- 原文: 均等割 標準「年額二百九十円（人口五万未満…百五十円）」/ 制限「年額四百三十円（…二百三十円）」、所得割 標準「…百分の八十を乗じて得た率」、制限「イの率に**一・五**を乗じて得た率」、退職所得割「…百分の八十を乗じて得た率」。
+  → Lean `290 / 150 / 430 / 230`、`percent80Rate = ⟨80,100⟩`、`oneAndHalfRate = ⟨15,10⟩`、`incomeTaxLimitRate = oneAndHalfRate.applyFloor (incomeTaxStandardRate …)`。**全定数・算術が一致（CONFIRMED）**。
+- **1.5 倍トラップ回避を確認**: `一・五 = 15/10` であり `150/10` ではない。独立計算で `incomeTaxLimitRate 2 = 1`（15/10 経路）に対し 150/10 なら `15` となる。モデルは正しい側。境界 `populationUnder50k 49_999 = true / 50_000 = false` も原文「五万未満」どおり。
+- BY-DESIGN: 表の率 caller-established、floor 丸め、人口区分 caller-established、第 2 項以降 NOT MODELLED（B9/B10/B11）。
+
+### S-3. needle 健全性（14 本）
+
+STAGING の JSON 断片から候補を取得したが、判定は pinned 正規化テキストへの直接 `.find()` による（STAGING の FOUND 主張は未信頼）。
+
+| モジュール | 本数 | U+3000 | `.find()` | offset（pinned 正規化 leaf-text） |
+|---|---:|---:|---|---|
+| ConsolidationCreditLimit（art.148） | 3 | 0 本 | 3/3 FOUND | 113 / 175 / 2569 |
+| TrustPensionReserve（art.157） | 6 | 0 本 | 6/6 FOUND | 149 / 0 / 226 / 382 / 1967 / 1379 |
+| ResidentTaxTransitionalRates（art.12） | 5 | 0 本 | 5/5 FOUND | 1 / 75 / 152 / 221 / 473 |
+| **合計** | **14** | **0 本** | **14/14 FOUND（MISS 0）** | — |
+
+- **needle 健全性: 健全（14/14 FOUND、U+3000 0 本、MISS 0）**。needle 文字列の改変・正規化・異体字変換はしていない。
+
+### S-4. 反例探索（独立再計算 vs Lean）
+
+| 標的 | ケース | 独立計算 | Lean / モデル | 結果 |
+|---|---|---|---|---|
+| art.148 §2 | `f=100,s=200,t=50` | `100*50/200=25` | `150` | **不一致（誤記）** |
+| art.148 §2 | `f=0,s=200,t=50` | `0` | `50` | **不一致（誤記）** |
+| art.148 §2 | `f=100,s=200,t=0` | `0` | `100` | **不一致（誤記）** |
+| art.148 §2 | `f=100,s=3,t=1`（割り切れない割合） | `33` | `101` | **不一致（誤記）** |
+| art.148 §2 | 分母 0（`s=0`） | `0` | `0` | 一致 |
+| art.148 §1 | `p=500,a=120` / `500,500` / `500,501` / `0,100` | `380` / `0` / `0` / `0` | 同値 | 一致 |
+| art.157 | 控除>加算 `10,5,8,9` | base `0` → 積立 `0` | 同値 | 一致 |
+| art.157 | 率分子 0 / base 0 | `0` | 同値 | 一致 |
+| art.157 | `100,0,0,0, rate=7/12` | `floor(100*7/12)=58` | 同値（applyFloor） | 一致 |
+| art.12 | 人口 `49,999` / `50,000` | `true` / `false` | 同値 | 一致 |
+| art.12 | 1.5 倍トラップ `incomeTaxLimitRate 2` | 15/10 → `1`（150/10 なら 15） | `1` | 一致（正しい側） |
+| art.12 | 均等割 4 定数 | 290/150/430/230 | 同値 | 一致 |
+
+- **不一致 4 件、すべて art.148 §2 の加算/乗算誤記に起因**。art.157 / art.12 の境界（分母 0、控除>調整前、控除>加算、5 万未満/以上、1.5 倍の 10 倍誤り）では不一致 **0 件**。
+
+### S-5. 公理監査（`lake env lean` / `#print axioms`）
+
+対象 3 モジュールの名前付き宣言 **44 本**（CCL 10 / TPR 9 / RTTR 25）に `#print axioms` を実行、**exit code 0**。一時ファイルは approved temp dir にのみ配置し削除済み、repo 内に残していない。
+
+| 項目 | 結果 |
+|---|---:|
+| 監査宣言数 | 44 |
+| axiom-free（`does not depend on any axioms`） | **32**（CCL 6 / TPR 4 / RTTR 22） |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` のみ（許容） | **12**（CCL 4 / TPR 5 / RTTR 3） |
+
+- propext 依存: CCL `preAdjustmentLimit_zero_denominator` / `preAdjustmentLimit_eq_add` / `preAdjustmentLimit_pos` / `consolidationCreditLimit_pos`、TPR `trustPensionBase_pos_of_lt` / `trustPensionBase_eq_zero_of_le` / `trustPensionReserve_zero_rate` / `trustPensionReserve_zero_of_base_zero` / `trustPensionReserve_eq_zero_of_deduction_ge`、RTTR `incomeTaxStandardRate_mono` / `incomeTaxLimitRate_mono` / `retirementIncomeTaxStandardRate_mono`（いずれも `if` / Nat 除算 / 単調性の定理経由）。
+- **禁止公理（choice / sorryAx / Quot.sound）はすべて 0 件**。propext は仕様許容。**公理監査は条件を満たす**。※ 監査対象はレビュー対象の 3 モジュール（impl）のみで、Spec / Tests は本監査に含めていない。
+
+### S-6. 分類・最終報告（要約）
+
+| 分類 | 件数 | 内容 |
+|---|---:|---|
+| **CONFIRMED（独立照合を確定）** | **3** | 3 点すべてで独立判定を完了。内訳: 原文一致 **2**（art.157 / art.12）、**原文不一致 1**（art.148 §2 の乗算→加算の誤記）。 |
+| **BY-DESIGN** | **11** | 下記 B1〜B11（NOT MODELLED、caller-established、丸め、解釈上の nuance、分母 0 の安全版）。 |
+| **UNRESOLVED** | **0** | 未解決事项なし。art.148 §1 括弧の解釈 nuance は B1 に集約。 |
+| **発見（原文不一致・要修正）** | **1** | **art.148 §2: `f + s*t/s`（= f+t）は原文の `f * t/s` ではない。発見は「ゼロ」ではない（1 件）。** |
+
+BY-DESIGN 内訳: B1 art.148 §1 括弧「当該調整前控除限度額が零を下回る場合には、零」は逐語上 調整前控除限度額（§2 の和なので非負・空凍結的）を指すが、モデルは減算結果を saturating に floor——慣用解釈に沿うが人間の法的確認待ち / B2 art.148 §2 の分母（第二号）0→0 の安全版は原文の割合が未定義な点の modeling choice（ただし分子側の加算自体は CONFIRMED 不一致）/ B3 art.148 第 2 項各号の具体的算定（法 67–70・租税特別措置法 42 の 4 等）・第 3 項以降 NOT MODELLED、各額 caller-established / B4 art.148 の割合を Nat 乗除（乗算先行・切り捨て）で近似、厳密有理数・丸めは主張しない / B5 art.157 の `(一号+二号)−(三号+四号)` を Nat saturating 減算（原文に下限規定の明示なし、Money=Nat）/ B6 art.157 調整割合は caller-established な `TaxRate`、第 5 項の割合算定 NOT MODELLED / B7 art.157 第 3 項・第 4 項は（一号+二号）−三号（四号なし）の異なり式で本スライスの射程外 / B8 art.157 各号の具体的算定（原価法・時価・収益分配・掛金）・第 6〜8 項 NOT MODELLED / B9 art.12 表の率（314 条の 3 / 328 条の 3）caller-established、端数は floor（原文に端数規定なし）/ B10 art.12 人口区分「人口五万未満」は caller-established、`populationUnder50k` は境界述語のみで金額式に不在 / B11 art.12 第 2 項以降（他条項適用・沖縄経過措置・読替え表・控除・四分の三特例等）NOT MODELLED。
+
+- **CONFIRMED / BY-DESIGN / UNRESOLVED 件数: 3 / 11 / 0**（CONFIRMED 3 の内訳は原文一致 2・原文不一致 1）。
+- **公理結果**: Classical.choice / sorryAx / Quot.sound = **0 件**、propext は 12 件のみ（許容範囲）。条件を満たす。
+- **needle 健全性**: 14/14 FOUND、U+3000 **0 本**、MISS 0。
+- **反例探索**: 不一致 **4 件**（すべて art.148 §2 の加算/乗算誤記）。art.157 / art.12 の全境界で不一致 0 件。
+- **追記完了**: 本セクション `## Batch S review (2026-11-20)` を `docs/ADVERSARIAL_REVIEW.md` 末尾に追記（coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に一致）。既存セクションはすべて保持。Lean モジュールは一切変更していない。commit / push / merge / ブランチ切替は行っていない。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 照合・漢数字→Arabic 抽出・独立算術再計算・境界ポイント列挙による反例探索・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈・有効性の最終判断は専門家に委ねる。本レビューが人間の法的レビューを称するものではない。
