@@ -422,3 +422,12 @@ import JapanTaxLaw.SpecialLandHoldingTaxTests
 import JapanTaxLaw.RetainedAmountLocalTax
 import JapanTaxLaw.RetainedAmountLocalTaxSpec
 import JapanTaxLaw.RetainedAmountLocalTaxTests
+import JapanTaxLaw.IncomeArt213Withholding
+import JapanTaxLaw.IncomeArt213WithholdingSpec
+import JapanTaxLaw.IncomeArt213WithholdingTests
+import JapanTaxLaw.LocalAddedValueStandard
+import JapanTaxLaw.LocalAddedValueStandardSpec
+import JapanTaxLaw.LocalAddedValueStandardTests
+import JapanTaxLaw.LocalGrantRevenueBase
+import JapanTaxLaw.LocalGrantRevenueBaseSpec
+import JapanTaxLaw.LocalGrantRevenueBaseTests
