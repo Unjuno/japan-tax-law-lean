@@ -473,3 +473,9 @@ import JapanTaxLaw.NonTaxSavingsCeilingTests
 import JapanTaxLaw.LandValueTaxBasicDeduction
 import JapanTaxLaw.LandValueTaxBasicDeductionSpec
 import JapanTaxLaw.LandValueTaxBasicDeductionTests
+import JapanTaxLaw.SpecialDeliveryTaxMarch
+import JapanTaxLaw.SpecialDeliveryTaxMarchSpec
+import JapanTaxLaw.SpecialDeliveryTaxMarchTests
+import JapanTaxLaw.ExplorationReserve
+import JapanTaxLaw.ExplorationReserveSpec
+import JapanTaxLaw.ExplorationReserveTests
