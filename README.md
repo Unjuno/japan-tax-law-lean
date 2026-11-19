@@ -669,6 +669,15 @@ JapanTaxLaw/QualifiedInvoiceTaxAmountTests.lean # 同上 退行テスト
 JapanTaxLaw/CorporateSpecialTaxBase.lean        # 法人特別税法 art.9（課税標準法人税額）L4 モデル
 JapanTaxLaw/CorporateSpecialTaxBaseSpec.lean    # 同上 独立定式
 JapanTaxLaw/CorporateSpecialTaxBaseTests.lean   # 同上 退行テスト
+JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
+JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
+JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト
+JapanTaxLaw/TonnageTax.lean                   # とん税法 art.3（課税標準及び税率）L4 モデル
+JapanTaxLaw/TonnageTaxSpec.lean               # 同上 独立定式
+JapanTaxLaw/TonnageTaxTests.lean              # 同上 退行テスト
+JapanTaxLaw/GasolineDeduction.lean            # 揮発油税法施行令 art.2（欠減控除）L4 モデル
+JapanTaxLaw/GasolineDeductionSpec.lean        # 同上 独立定式
+JapanTaxLaw/GasolineDeductionTests.lean       # 同上 退行テスト
 scripts/law_audit/               # 構造監査エンジン（Python）
 docs/AUDIT_REPORT.md             # 監査レポート（生成物）
 docs/L7_LEDGER.md               # L7 統合レジャー（機械生成・CI 再生成照合）
