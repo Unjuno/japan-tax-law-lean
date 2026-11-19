@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 25
+- with >=1 pinned literal check (semantic model): 28
 - with recorded human legal review: 0
 
 ## All laws
@@ -46,7 +46,7 @@ a completion flag.
 | `328AC0000000007` | 酒税の保全及び酒類業組合等に関する法律 | 328AC0000000007_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 210 | NO (0) | NO |
 | `328CO0000000028` | 酒税の保全及び酒類業組合等に関する法律施行令 | 328CO0000000028_20220401_504CO0000000151 | CurrentEnforced | YES | ok | 48 | NO (0) | NO |
 | `328M50000040011` | 酒税の保全及び酒類業組合等に関する法律施行規則 | 328M50000040011_20260901_506M60000040032 | CurrentEnforced | YES | ok | 111 | NO (0) | NO |
-| `328CO0000000407` | 奄美群島の復帰に伴う国税関係法令の適用の暫定措置等に関する政令 | 328CO0000000407_19660331_341CO0000000078 | CurrentEnforced | YES | ok | 67 | NO (0) | NO |
+| `328CO0000000407` | 奄美群島の復帰に伴う国税関係法令の適用の暫定措置等に関する政令 | 328CO0000000407_19660331_341CO0000000078 | CurrentEnforced | YES | ok | 67 | YES (1) | NO |
 | `328M50000002091` | 地方税法第三百八十九条第一項の規定により道府県知事又は総務大臣が決定する固定資産の価格の | 328M50000002091_20240425_506M60000008045 | CurrentEnforced | YES | ok | 28 | NO (0) | NO |
 | `329AC0000000036` | 国税収納金整理資金に関する法律 | 329AC0000000036_20240101_431AC0000000003 | CurrentEnforced | YES | ok | 52 | NO (0) | NO |
 | `329CO0000000051` | 国税収納金整理資金に関する法律施行令 | 329CO0000000051_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 283 | NO (0) | NO |
@@ -73,14 +73,14 @@ a completion flag.
 | `331M50000002007` | 地方揮発油譲与税法施行規則 | 331M50000002007_20230401_505M60000008036 | CurrentEnforced | YES | ok | 55 | NO (0) | NO |
 | `331M50000002047` | アメリカ合衆国軍隊等が行う免税軽油の引取りの手続に関する総理府令 | 331M50000002047_20090401_421M60000008036 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `332AC0000000026` | 租税特別措置法 | 332AC0000000026_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 3736 | YES (11) | NO |
-| `332AC0000000037` | とん税法 | 332AC0000000037_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 77 | NO (0) | NO |
+| `332AC0000000037` | とん税法 | 332AC0000000037_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 77 | YES (1) | NO |
 | `332AC0000000038` | 特別とん税法 | 332AC0000000038_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 47 | NO (0) | NO |
 | `332CO0000000043` | 租税特別措置法施行令 | 332CO0000000043_20261101_507CO0000000127 | CurrentEnforced | YES | ok | 2820 | YES (6) | NO |
 | `332CO0000000048` | とん税法施行令 | 332CO0000000048_20201001_502CO0000000128 | CurrentEnforced | YES | ok | 20 | NO (0) | NO |
 | `332CO0000000049` | 特別とん税法施行令 | 332CO0000000049_20201001_502CO0000000128 | CurrentEnforced | YES | ok | 14 | NO (0) | NO |
 | `332M50000040015` | 租税特別措置法施行規則 | 332M50000040015_20261101_507M60000040026 | CurrentEnforced | YES | ok | 1776 | YES (1) | NO |
 | `332AC0000000055` | 揮発油税法 | 332AC0000000055_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 94 | NO (0) | NO |
-| `332CO0000000057` | 揮発油税法施行令 | 332CO0000000057_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 60 | NO (0) | NO |
+| `332CO0000000057` | 揮発油税法施行令 | 332CO0000000057_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 60 | YES (1) | NO |
 | `332AC0000000077` | 特別とん譲与税法 | 332AC0000000077_20010106_411AC0000000160 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `332M50000002021` | 特別とん譲与税法施行規則 | 332M50000002021_20010106_412M50000008044 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `333M50000040019` | アメリカ合衆国軍隊の構成員等の免税輸入物品の譲渡申告書等の様式を定める省令 | 333M50000040019_20210901_503M60000040052 | CurrentEnforced | YES | ok | 27 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 79
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 82

@@ -485,3 +485,12 @@ import JapanTaxLaw.QualifiedInvoiceTaxAmountTests
 import JapanTaxLaw.CorporateSpecialTaxBase
 import JapanTaxLaw.CorporateSpecialTaxBaseSpec
 import JapanTaxLaw.CorporateSpecialTaxBaseTests
+import JapanTaxLaw.AmamiCurrencyConversion
+import JapanTaxLaw.AmamiCurrencyConversionSpec
+import JapanTaxLaw.AmamiCurrencyConversionTests
+import JapanTaxLaw.TonnageTax
+import JapanTaxLaw.TonnageTaxSpec
+import JapanTaxLaw.TonnageTaxTests
+import JapanTaxLaw.GasolineDeduction
+import JapanTaxLaw.GasolineDeductionSpec
+import JapanTaxLaw.GasolineDeductionTests
