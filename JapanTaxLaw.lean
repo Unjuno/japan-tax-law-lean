@@ -458,3 +458,12 @@ import JapanTaxLaw.InheritedPropertyTransferGainTests
 import JapanTaxLaw.LightOilBaseTax
 import JapanTaxLaw.LightOilBaseTaxSpec
 import JapanTaxLaw.LightOilBaseTaxTests
+import JapanTaxLaw.ConsolidationCreditLimit
+import JapanTaxLaw.ConsolidationCreditLimitSpec
+import JapanTaxLaw.ConsolidationCreditLimitTests
+import JapanTaxLaw.TrustPensionReserve
+import JapanTaxLaw.TrustPensionReserveSpec
+import JapanTaxLaw.TrustPensionReserveTests
+import JapanTaxLaw.ResidentTaxTransitionalRates
+import JapanTaxLaw.ResidentTaxTransitionalRatesSpec
+import JapanTaxLaw.ResidentTaxTransitionalRatesTests

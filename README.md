@@ -642,6 +642,15 @@ JapanTaxLaw/InheritedPropertyTransferGainTests.lean # 同上 退行テスト
 JapanTaxLaw/LightOilBaseTax.lean               # 軽油引取税法施行令 art.23の2（基準税額11,250円）L4 モデル
 JapanTaxLaw/LightOilBaseTaxSpec.lean           # 同上 独立定式
 JapanTaxLaw/LightOilBaseTaxTests.lean          # 同上 退行テスト
+JapanTaxLaw/ConsolidationCreditLimit.lean       # 法人税法施行令 art.148（通算法人控除限度額）L4 モデル
+JapanTaxLaw/ConsolidationCreditLimitSpec.lean   # 同上 独立定式
+JapanTaxLaw/ConsolidationCreditLimitTests.lean  # 同上 退行テスト
+JapanTaxLaw/TrustPensionReserve.lean            # 法人税法施行令 art.157（信託退職年金積立金）L4 モデル
+JapanTaxLaw/TrustPensionReserveSpec.lean        # 同上 独立定式
+JapanTaxLaw/TrustPensionReserveTests.lean       # 同上 退行テスト
+JapanTaxLaw/ResidentTaxTransitionalRates.lean   # 地方税法施行令 art.12（市町村民税経過措置税率）L4 モデル
+JapanTaxLaw/ResidentTaxTransitionalRatesSpec.lean   # 同上 独立定式
+JapanTaxLaw/ResidentTaxTransitionalRatesTests.lean  # 同上 退行テスト
 scripts/law_audit/               # 構造監査エンジン（Python）
 docs/AUDIT_REPORT.md             # 監査レポート（生成物）
 docs/L7_LEDGER.md               # L7 統合レジャー（機械生成・CI 再生成照合）
