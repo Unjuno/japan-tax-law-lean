@@ -1033,7 +1033,7 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:180/Article#180/Paragraph#3/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
       "decomposition_audit": "build/task_queue.json: kind=DEEMING, decomposed=true, exact span, unhandled_conditions=[], id unique",
       "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS 地方税法 art.180(3)（百アール未満の端数は百アールとみなす）; 175/175 checks passed; needle with terminal 。 unique in pinned file and in Article 第百八十条 / Paragraph 3",
-      "independent_spec": "JapanTaxLaw/LocalTaxAresRoundingSpec.lean sha256=49393cd26fe4931a9a08eaa1642443986221ee335c1aad358460a97b01712e00 (specDeemed structural pattern match 0->0, succ->100; different form from if-on-zero)",
+      "independent_spec": "JapanTaxLaw/LocalTaxAresRoundingSpec.lean sha256=392499af2691100321bbc812c4a4745f480dd258551ae615cdb07a879942e11b (specDeemed structural pattern match 0->0, succ->100; different form from if-on-zero)",
       "implementation": "JapanTaxLaw/LocalTaxAresRounding.lean sha256=5a02642479fa726e15435f7dbd88689d1852f102eb3484480565743088e6d7f0 (fractionUnitAres=100, deemedFraction r = if r=0 then 0 else 100; unit アール documented)",
       "kernel_proof": "LOCAL VERIFICATION (not CI-attested): lake build 575 jobs success; agree_ares_rounding is case analysis over all Nat; axiom probe propext for equivalence/boundedness, boundary theorems axiom-free, no sorryAx/Classical.choice",
       "proof_scope": "docs/UNIT_LOCAL_TAX_ARES_ROUNDING_180_3.md (computable deeming-rounding slice; art.180(1) tax-base computation explicitly NOT MODELLED)",
@@ -1104,7 +1104,7 @@
       "proof_scope": "docs/UNIT_US_FORCES_DEEMED_FOREIGN_GOODS_12_6.md (computable cross-law scoped-deeming slice; art.12(1) substance, 関税法 外国貨物 definition and para.6 second sentence explicitly NOT MODELLED)",
       "boundary_proof": "JapanTaxLaw/UsForcesDeemedForeignGoodsSpec.lean: no_deeming_under_other_law, no_deeming_without_paragraph1, deeming_monotone_customs (sound ex-falso branch), agree_deemed_foreign_goods",
       "cross_law_proof": "this unit IS a cross-law deeming: 関税法の適用については外国貨物とみなす — modeled via LegalContext scope (customsLaw vs otherLaw) so the deeming cannot leak to other statutes; 関税法 foreign-goods definition NOT MODELLED",
-      "tests": "JapanTaxLaw/UsForcesDeemedForeignGoodsTests.lean sha256=19547e9c2aa4a61f0c5f00d725dab0b28d93c458dfeb3e63d1943cbb728ad882 (kernel-decided boundary examples)",
+      "tests": "JapanTaxLaw/UsForcesDeemedForeignGoodsTests.lean sha256=8f0a7bd98163d7722897009d2c6ded142febbc52db6c0f8e5cf339e9ece06b70 (kernel-decided boundary examples)",
       "adversarial_review": "docs/ADVERSARIAL_US_FORCES_DEEMED_FOREIGN_GOODS_12_6.md — independent agent recomputed pin sha256 (ca251c41…c1a6d, 107,649 bytes), located needle uniquely in Article 12 / Paragraph 6 / Sentence 1, confirmed art.12(1) para-1 referent and the explicit 関税法 scope limiter, verified the exhaustive universal proof and cross-law LegalContext model. NO CONCRETE FINDINGS in the four audited files. Adjacent artifacts fixed: evidence entry added, dead doc link created, cosmetic typo corrected, U4 caveat that deemedForeignGoods=false does not mean 'not 外国貨物 under 関税法' documented. No claim of legal correctness."
     },
     "NORM|9bf46ad16d56d2e0a19aaca24bc5d0dbacb63018ec45a4e002ebdb565dc9d7d0": {
