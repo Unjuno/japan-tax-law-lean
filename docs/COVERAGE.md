@@ -49,15 +49,15 @@ by the '税' keyword in the law name only.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 154 | n/a | n/a |
+| pinned literal checks | 155 | n/a | n/a |
 | distinct article pins | 46 | 42584 | 0.11% |
-| pinned Lean modules (cross-law) | 442 | n/a | n/a |
+| pinned Lean modules (cross-law) | 443 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 63 |
+| unpinned Lean modules (not counted as verified) | 65 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -72,7 +72,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 26 |
+| adversarial review sessions recorded | 27 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.

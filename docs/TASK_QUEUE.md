@@ -8,8 +8,8 @@ formalization and is tracked as an independent axis (Directive §6).
 
 - laws in inventory: 327
 - work units generated: 33652
-- units with a pinned literal check: 452
-- units NOT_STARTED: 33200
+- units with a pinned literal check: 463
+- units NOT_STARTED: 33189
 
 ## Status axes (independent — Directive §6)
 
@@ -30,7 +30,6 @@ verifies determinism. Coordinator selects unfinished units from the queue.
 | law_id | article | title | paragraphs | refs |
 |---|---|---|---:|---:|
 | `143AC0000000054` | 1 | 第一条 | 1 | 0 |
-| `143AC0000000054` | 2 | 第二条 | 1 | 0 |
 | `143AC0000000054` | 3 | 第三条 | 1 | 0 |
 | `143AC0000000054` | 3_2 | 第三条の二 | 2 | 0 |
 | `143AC0000000054` | 4_4 | 第四条の四 | 1 | 0 |
@@ -49,3 +48,4 @@ verifies determinism. Coordinator selects unfinished units from the queue.
 | `143AC0000000054` | 14_2 | 第十四条の二 | 1 | 0 |
 | `143AC0000000054` | 14_3 | 第十四条の三 | 2 | 0 |
 | `143AC0000000054` | 15 | 第十五条 | 2 | 0 |
+| `143AC0000000054` | 16 | 第十六条 | 2 | 0 |
