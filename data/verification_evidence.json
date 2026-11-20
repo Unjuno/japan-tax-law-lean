@@ -119,6 +119,19 @@
       "source_location": "data/raw/363AC0000000108_20261101_507AC0000000013.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:30/Article#30/Paragraph#1/ParagraphSentence/Sentence#1 sha256=25dccebffb6690902c117a4ab9c16e4d64db087bba6d184a10ea6aeb58ab4a82 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/ConsumptionTaxInputCreditTests.lean sha256=c50f5dda31ac5159d0c3378c554b53eed6cf0ded827bcb86c4ed114343d375b3 (15 kernel-decided examples)"
     },
+    "NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8": {
+      "adversarial_review": "docs/ADVERSARIAL_LOCAL_GASOLINE_TAX_RATE_4.md — independent agent found 5 fabricated scope citations (第六条 未納税移出等, 第七条 申告及び納付等, 第八条 担保の提供, 第九条 戻入れ控除等, 第十条 延滞税) + stale queue; all fixed before this flag was set. Transcription, pin, spec independence and universal induction survived challenge.",
+      "boundary_proof": "JapanTaxLaw/LocalGasolineTaxRateSpec.lean: specSum_zero, specSum_pos_of_pos, taxForKilolitres_mono, rate_not_scaled; boundary examples 0/1/2 kL in Tests module",
+      "cross_law_proof": "queue unit dependencies=[]; revision 330AC0000000104_20260401_508AC0000000012 resolved from INVENTORY; no cross-law relation declared in art.4",
+      "decomposition_audit": "build/task_queue.json: kind=EFFECT, decomposed=true, coverage exact, unhandled_conditions=[], id unique among 396854 units",
+      "implementation": "JapanTaxLaw/LocalGasolineTaxRate.lean sha256=a521cf2bdf620dfc2e17f6a56ae461b56021f0c9fe2669adac69f5ab2fc6c1f7 (ratePerKilolitre=4_400, taxForKilolitres=k*rate)",
+      "independent_spec": "JapanTaxLaw/LocalGasolineTaxRateSpec.lean sha256=f096b9e6f3c51e22e7330755c033a9eca2ae1aebcc2a89f34467432901b8b9c0 (specSum recursive addition; different form from implementation)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): lake build 566 jobs success; agree_local_gasoline_tax is induction over all Nat; axiom probe propext only, no sorryAx/Classical.choice",
+      "proof_scope": "docs/UNIT_LOCAL_GASOLINE_TAX_RATE_4.md (computable slice; explicit NOT MODELLED list with exact article citations)",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS 地方揮発油税法 art. 4; 172/172 checks passed; needle with terminal 。 unique in pinned file and in 第四条",
+      "source_location": "data/raw/330AC0000000104_20260401_508AC0000000012.law.json#LawBody[1]/MainProvision/MainProvision[3]/Article:4/Article#4/Paragraph#1/ParagraphSentence/Sentence#1 sha256=c37f8a705911e90745b865522b1040e3ede192c0a3fee7bbb95727320bc9900a",
+      "tests": "JapanTaxLaw/LocalGasolineTaxRateTests.lean sha256=81f3ea80b7304b39f475b2ded76eec6f9931e1c999382fbe4c807c582d72b676 (7 kernel-decided examples, incl. 0/1/2/3/100 kL)"
+    },
     "NORM|84f30566e583de635fc2da0096497d579f38dd9935595a55259fd024a6e24c0f": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 31 kernel-decided examples covering boundary inputs",
