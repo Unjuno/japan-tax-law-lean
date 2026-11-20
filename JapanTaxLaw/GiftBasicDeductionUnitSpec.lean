@@ -32,8 +32,8 @@ theorem agree_gift_basic_deduction (taxableBase : Money) :
   by_cases h : taxableBase ≤ 600000
   · rw [Nat.min_eq_left h]
     simp [h]
-  · have hlt : 600000 < taxableBase := lt_of_not_ge h
-    have hle : 600000 ≤ taxableBase := le_of_lt hlt
+  · have hlt : 600000 < taxableBase := Nat.lt_of_not_le h
+    have hle : 600000 ≤ taxableBase := Nat.le_of_lt hlt
     rw [Nat.min_eq_right hle]
     simp [h]
 
