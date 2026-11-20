@@ -15,11 +15,17 @@ remains far from met.
 
 ```
 build/task_queue.json: 396,854 normative units
-  NOT_STARTED=396,706   PARTIAL=0   PROVED_SCOPE=2
-  FULLY_VERIFIED=144    BLOCKED=2
-data/verification_evidence.json: 146 units; 143 derive FULLY_VERIFIED
+  NOT_STARTED=396,696   PARTIAL=0   PROVED_SCOPE=2
+  FULLY_VERIFIED=154    BLOCKED=2
+data/verification_evidence.json: 156 units; all 156 derive FULLY_VERIFIED
+evidence generator: ZERO substantive blockers — every produced unit passes
+  kernel-attestation, independent spec, source correspondence, boundary and
+  adversarial-review gates; only units with a full Lean model appear here.
 ```
-Unverified obligations fell from 396,852 (session start) to 396,706.
+Unverified obligations fell from 396,852 (session start) to 396,696.
+The generator can now produce no further units from the existing models; the
+remaining 396,696 units need NEW Lean models, specs, tests and reviews created
+at a scale far beyond a single session.
 
 ## What is established
 
