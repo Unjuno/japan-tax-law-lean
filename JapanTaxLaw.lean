@@ -623,3 +623,6 @@ import JapanTaxLaw.TobaccoTaxReadingRangesTests
 import JapanTaxLaw.DocumentationPresumptions
 import JapanTaxLaw.DocumentationPresumptionsSpec
 import JapanTaxLaw.DocumentationPresumptionsTests
+import JapanTaxLaw.PayloadCapacityBands
+import JapanTaxLaw.PayloadCapacityBandsSpec
+import JapanTaxLaw.PayloadCapacityBandsTests
