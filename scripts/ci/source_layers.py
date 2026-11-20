@@ -32,6 +32,7 @@ INVENTORY = REPO / "data" / "INVENTORY.json"
 DISCOVERY = REPO / "docs" / "RECURSIVE_DISCOVERY.md"
 DISCOVERED = REPO / "data" / "DISCOVERED_INVENTORY.json"
 AUX_INDEX = REPO / "data" / "raw_circulars" / "nta_tsutatsu_index.meta.json"
+HIST_PINNED = REPO / "data" / "HISTORICAL_PINNED.json"
 BLOCKED = REPO / "docs" / "BLOCKED.md"
 OUT_JSON = REPO / "data" / "SOURCE_LAYERS.json"
 OUT_MD = REPO / "docs" / "SOURCE_LAYERS.md"
@@ -93,6 +94,9 @@ def build() -> dict:
     aux_index = json.loads(AUX_INDEX.read_text(encoding="utf-8")) if AUX_INDEX.exists() else None
     l4_acquired = (aux_index or {}).get("documents_acquired_count", 0)
     l4_status = "ACQUIRED_PINNED_ONLY" if l4_acquired else "NOT_ACQUIRED"
+    hist_ledger = json.loads(HIST_PINNED.read_text(encoding="utf-8")) if HIST_PINNED.exists() else None
+    l6_acquired = (hist_ledger or {}).get("count_acquired", 0)
+    l6_status = "ACQUIRED_PINNED_ONLY" if l6_acquired else "NOT_PINNED"
 
     layers = [
         {
@@ -184,14 +188,14 @@ def build() -> dict:
             "label_ja": "歴史的施行版",
             "legal_nature": "旧法・新法（同一法令の別施行版）",
             "authority": "e-Gov 歴史情報",
-            "acquisition_status": "NOT_PINNED",
+            "acquisition_status": l6_status,
             "scope_status": "HISTORICAL_LAYER",
             "count": hist_names,
-            "count_acquired": 0,
+            "count_acquired": l6_acquired,
             "pinned_snapshot": "",
             "verification_status": "OUT_OF_SCOPE",
             "auxiliary": False,
-            "notes": "附則・経過措置の新旧参照。施行版を別途固定するまで未検証。",
+            "notes": "歴史的/未施行版を別途 pin 取得のみ。parse・形式化・証明・人間レビューは未実施。L0 に合算しない。",
         },
         {
             "layer_id": "L7_DISCOVERED_SCOPE",
@@ -234,6 +238,7 @@ def build() -> dict:
         },
         "layer_separation_rule": "auxiliary layers are never merged into L0; counts are separate denominators",
         "auxiliary_index_acquisition": aux_index,
+        "historical_acquisition": hist_ledger,
         "layers": layers,
     }
 
@@ -275,6 +280,17 @@ def main() -> int:
             f"bytes={ai['raw_bytes']} hrefs={ai['index_href_count']}",
             f"  content_acquired={ai['content_acquired']} (underlying circular texts NOT acquired)",
         ]
+    ha = payload["historical_acquisition"]
+    if ha is None:
+        lines += ["", "## Historical revision acquisition", "", "- none acquired"]
+    else:
+        lines += [
+            "", "## Historical revision acquisition", "",
+            f"- revisions recorded: {ha.get('count_total')}; "
+            f"ACQUIRED_PINNED: {ha.get('count_acquired')}",
+            f"- verification_status: {ha.get('verification_status')} "
+            "(pinned only; NOT parsed, formalized, proved or legally reviewed)",
+        ]
     lines += [
         "",
         "| layer | label | legal nature | acquisition | scope | count | verification |",
@@ -295,8 +311,10 @@ def main() -> int:
         "",
         p["note"],
         "",
-        "No layer other than L0 has acquired source texts in this repository;",
-        "the pinned L4 item is an index page only. No completion claim is made.",
+        "No layer other than L0 has source texts PARSED, FORMALIZED or PROVED here.",
+        "The pinned L4 item is an index page plus one circular page; the pinned L6",
+        "items are historical revision snapshots. All are acquisition-only with",
+        "verification OUT_OF_SCOPE. No completion claim is made.",
         "",
     ]
     OUT_MD.parent.mkdir(parents=True, exist_ok=True)

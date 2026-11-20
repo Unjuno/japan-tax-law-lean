@@ -2,6 +2,7 @@
 """Regression tests for separate source-layer management (Objective §2)."""
 from __future__ import annotations
 
+import hashlib
 import importlib.util
 import json
 import unittest
@@ -95,6 +96,38 @@ class LayerTests(unittest.TestCase):
             self.assertIsNone(sl.build()["verification_pipeline"]["fully_verified_units"])
         finally:
             sl.QUEUE = original
+
+
+class HistoricalLayerTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.reg = sl.build()
+
+    def test_historical_snapshots_pinned_only_not_verified(self):
+        by = {l["layer_id"]: l for l in self.reg["layers"]}
+        l6 = by["L6_HISTORICAL"]
+        self.assertEqual(l6["scope_status"], "HISTORICAL_LAYER")
+        self.assertEqual(l6["verification_status"], "OUT_OF_SCOPE")
+        self.assertIn(l6["acquisition_status"], ("NOT_PINNED", "ACQUIRED_PINNED_ONLY"))
+
+    def test_historical_acquisition_is_honest(self):
+        ha = self.reg.get("historical_acquisition")
+        if ha is None:
+            self.skipTest("no historical revision pinned in this checkout")
+        self.assertEqual(ha["verification_status"], "OUT_OF_SCOPE")
+        self.assertIn("pinned only", ha["claim"])
+        acquired = [v for v in ha["revisions"].values()
+                    if v.get("acquisition_status") == "ACQUIRED_PINNED"]
+        self.assertEqual(ha["count_acquired"], len(acquired))
+        for v in acquired:
+            self.assertEqual(len(v["raw_sha256"]), 64)
+            self.assertGreater(v["raw_bytes"], 1000)
+            self.assertIn(v["revision_status"], ("PreviousEnforced", "UnEnforced"))
+            raw = sl.REPO / v["raw_file"]
+            self.assertTrue(raw.exists())
+            self.assertEqual(hashlib.sha256(raw.read_bytes()).hexdigest(), v["raw_sha256"])
+            payload = json.loads(raw.read_text(encoding="utf-8"))
+            self.assertTrue(payload.get("law_full_text"))
 
 
 if __name__ == "__main__":

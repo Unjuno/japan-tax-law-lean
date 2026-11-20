@@ -55,6 +55,28 @@ The remaining circular texts are still NOT_ACQUIRED. L4 is now
 evidence in the separate `auxiliary_index_acquisition` block and 9/9
 source-layer tests pass.
 
+## L6 historical revision acquisition (2026-11-21) — first real pin
+
+`scripts/ci/acquire_historical_revisions.py` now pins non-current e-Gov revisions
+of laws already in the L0 inventory, as a **separate L6 denominator**:
+
+```
+143AC0000000054 (関税定率法):
+  20260401_508AC0000000005  2026-04-01  PreviousEnforced  sha256 510b12e1af8e6a94…
+  20250401_507AC0000000016  2025-04-01  PreviousEnforced  sha256 b750b8b63cf37f7a…
+  20241001_506AC0000000009  2024-10-01  PreviousEnforced  sha256 5b04e5213f1b52db…
+  20240401_506AC0000000009  2024-04-01  PreviousEnforced  sha256 eb6a35536faba717…
+```
+Each response was validated as real law-data JSON (`law_full_text` present, so
+HTML 404 templates are rejected) and its SHA-256 verified against the on-disk
+bytes under `data/raw_historical/`. `data/HISTORICAL_PINNED.json` and
+`docs/HISTORICAL_PINNED.md` record the result. `data/SOURCE_LAYERS.json` now
+reports `L6_HISTORICAL = ACQUIRED_PINNED_ONLY`, `count_acquired=4`, still
+`verification_status=OUT_OF_SCOPE` and NOT merged into L0. 11/11 source-layer
+tests pass, including hash re-verification and status-honesty checks. The
+remaining 791 discovered historical names stay unacquired; no parse, formalization,
+proof or human review is claimed for the four pinned snapshots.
+
 ## H / T / D / C / U
 
 | id | content |
