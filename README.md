@@ -687,6 +687,9 @@ JapanTaxLaw/CustomsStorageFeeTests.lean       # 同上 退行テスト
 JapanTaxLaw/TobaccoTaxFixedAmount.lean        # 地方税法施行規則 art.16の4の4（たばこ税課税定額）L4 モデル
 JapanTaxLaw/TobaccoTaxFixedAmountSpec.lean    # 同上 独立定式
 JapanTaxLaw/TobaccoTaxFixedAmountTests.lean   # 同上 退行テスト
+JapanTaxLaw/RoadGrantAllocation.lean          # 地方税等減収補てん臨時交付金政令 art.5（地方道路譲与税按分）L4 モデル
+JapanTaxLaw/RoadGrantAllocationSpec.lean      # 同上 独立定式
+JapanTaxLaw/RoadGrantAllocationTests.lean     # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト
