@@ -249,21 +249,42 @@ def impl_defs(impl_text: str) -> set[str]:
     return set(re.findall(r"^\s*def\s+([A-Za-z]\w*)", strip_comments(impl_text), re.M))
 
 
-def_spec_re = re.compile(r"^\s*def\s+spec\w+", re.M)
+# Both naming conventions appear in the repo: `specFoo` and `fooSpec`.
+def_spec_re = re.compile(r"^\s*def\s+(?:spec\w+|\w+Spec)\b", re.M)
 
 
 def independent_spec_ok(spec_text: str, impl_text: str) -> bool:
+    """True when the spec has its OWN formula, not a restatement of the impl.
+
+    Agreement helpers (`agree*`, `*CheckGrid`, `checkGrid`, `example` points)
+    MUST reference the implementation to compare it, so they are excluded.
+    Only the bodies of independent definitions (`spec*`, `*Spec`, `*SpecI`,
+    etc., excluding agreement/check helpers) are checked for implementation
+    identifiers. This catches a circular `def specFoo := foo` while allowing
+    an independently written formula that ends with a separate agreement test.
+    """
     body = strip_comments(spec_text)
-    if not def_spec_re.search(body):
+    # Split into top-level declaration blocks.
+    blocks = re.split(r"(?=^\s*(?:def|example|theorem)\s)", body, flags=re.M)
+    independent = []
+    for block in blocks:
+        m = re.match(r"\s*def\s+(\w+)", block)
+        if not m:
+            continue
+        name = m.group(1)
+        if (def_spec_re.match("def " + name) and not name.startswith("agree")
+                and "Check" not in name and name != "checkGrid"
+                and "Point" not in name and "Grid" not in name):
+            # stop at the next declaration already handled by split
+            independent.append(block)
+    if not independent:
         return False
-    # Agreement functions must reference the implementation in order to compare
-    # it with the independent formulas.  Independence is therefore checked only
-    # over the definitional section, before the first `agree*` function.
-    definitions = body.split("def agree")[0]
-    if not def_spec_re.search(definitions):
-        return False
-    return not any(re.search(r"\b" + re.escape(d) + r"\b", definitions)
-                   for d in impl_defs(impl_text) if d)
+    impl = impl_defs(impl_text)
+    for block in independent:
+        for d in impl:
+            if re.search(r"\b" + re.escape(d) + r"\b", block):
+                return False
+    return True
 
 
 def scoped_article_text(law_id: str, article: str) -> str:

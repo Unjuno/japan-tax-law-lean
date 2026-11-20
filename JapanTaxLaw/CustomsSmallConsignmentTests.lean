@@ -25,4 +25,11 @@ example : smallConsignmentApplies 100_000 true false = false := by decide
 example : smallConsignmentApplies 100_000 false true = false := by decide
 example : smallConsignmentApplies 100_000 true true = false := by decide
 
+-- 追加の必須境界 (b) 小さい正の入力 (1..13): 閾値以下・除外/申出なし → 適用。
+-- ((a) 零入力 0 と (c) saturation/入力一致は上示例で既にカバー。)
+example : smallConsignmentApplies 1 false false = true := by decide
+example : smallConsignmentApplies 13 false false = true := by decide
+-- (c) 閾値境界の saturation: 閾値を 1 円超える価格に対する残額は 0（saturating Nat 減算）。
+example : smallConsignmentThreshold - 200_001 = 0 := by decide
+
 end JapanTaxLaw

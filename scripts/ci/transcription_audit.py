@@ -1166,6 +1166,20 @@ def checks():
            "article", "第九条",
            ["揮発油税の税率は、揮発油一キロリットルにつき二万四千三百円とする。"])
 
+    # 関税定率法 art.14 item 17 proviso — CustomsSameContentLimit.lean (≤2 same-content items)
+    # Norm unit NORM|4f809b7fbadedd5606d99bdd90eff711ca1b77bc66fc8a481845a6c117dba46d
+    yield ("関税定率法 art.14 第十七号ただし書（同内容の物品は二本以内）↔ CustomsSameContentLimit.lean (sameContentLimit 2)",
+           "143AC0000000054",
+           "article", "第十四条",
+           ["ただし、内容を同じくするものについては、そのうちの二本以内に限る。"])
+
+    # 地方税法 art.180(3) — LocalTaxAresRounding.lean (fraction <100 ares deemed 100)
+    # Norm unit NORM|926a979408404763d53009242e359b92c26e5b2abb2ebada6c8ca095f50419db
+    yield ("地方税法 art.180(3)（百アール未満の端数は百アールとみなす）↔ LocalTaxAresRounding.lean (fractionUnitAres 100)",
+           "325AC0000000226",
+           "article", "第百八十条",
+           ["第一項の場合において、百アール未満の端数は、百アールとみなす。"])
+
     # 在日米軍特例法 art. 11(3) — UsForcesDutyFreePenalty.lean (norm unit)
     yield ("在日米軍特例法 art. 11(3)（免税物品の用途外譲渡違反の罰則: 一年以下の拘禁刑又は五十万円以下の罰金 — 代替刑、併科なし。違反要件・徴収・法人重課・附則は NOT MODELLED）↔ UsForcesDutyFreePenalty.lean",
            "327AC0000000111",
@@ -1207,6 +1221,12 @@ def checks():
            "337CO0000000097",
            "file", None,
            ["粉末酒の重量に〇・七三（一キログラム当たりのリットル数）を乗じて計算する方法とする", "（粉末酒に係る数量の計算）第十二条の三法第七条第六項に規定する政令で定める方法は"])
+
+    # TobaccoRate — cycle-29
+    yield ("TobaccoRate.lean",
+           "359AC0000000072",
+           "file", None,
+           ["たばこ税の税率は、千本につき六千八百二円とする", "（税率）第十一条"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",

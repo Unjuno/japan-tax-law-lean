@@ -531,6 +531,12 @@ import JapanTaxLaw.LocalGasolineTaxRateTests
 import JapanTaxLaw.GasolineTaxRate
 import JapanTaxLaw.GasolineTaxRateSpec
 import JapanTaxLaw.GasolineTaxRateTests
+import JapanTaxLaw.CustomsSameContentLimit
+import JapanTaxLaw.CustomsSameContentLimitSpec
+import JapanTaxLaw.CustomsSameContentLimitTests
+import JapanTaxLaw.LocalTaxAresRounding
+import JapanTaxLaw.LocalTaxAresRoundingSpec
+import JapanTaxLaw.LocalTaxAresRoundingTests
 import JapanTaxLaw.UsForcesDutyFreePenalty
 import JapanTaxLaw.UsForcesDutyFreePenaltySpec
 import JapanTaxLaw.UsForcesDutyFreePenaltyTests
@@ -564,3 +570,6 @@ import JapanTaxLaw.SavingsDepositInterestTests
 import JapanTaxLaw.PowderSakeQuantity
 import JapanTaxLaw.PowderSakeQuantitySpec
 import JapanTaxLaw.PowderSakeQuantityTests
+import JapanTaxLaw.TobaccoRate
+import JapanTaxLaw.TobaccoRateSpec
+import JapanTaxLaw.TobaccoRateTests

@@ -726,6 +726,9 @@ JapanTaxLaw/SavingsDepositInterestTests.lean       # 同上 退行テスト
 JapanTaxLaw/PowderSakeQuantity.lean              # 酒税法施行令 art.12の3（粉末酒数量=重量×0.73）L4 モデル
 JapanTaxLaw/PowderSakeQuantitySpec.lean          # 同上 独立定式
 JapanTaxLaw/PowderSakeQuantityTests.lean         # 同上 退行テスト
+JapanTaxLaw/TobaccoRate.lean                     # たばこ税法 art.11（6802円/千本）L4 モデル
+JapanTaxLaw/TobaccoRateSpec.lean                 # 同上 独立定式
+JapanTaxLaw/TobaccoRateTests.lean                # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト
