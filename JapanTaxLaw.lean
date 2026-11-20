@@ -561,6 +561,9 @@ import JapanTaxLaw.LocalAllocationTaxEnforcementDateTests
 import JapanTaxLaw.TaxSavingsPenaltyCeiling
 import JapanTaxLaw.TaxSavingsPenaltyCeilingSpec
 import JapanTaxLaw.TaxSavingsPenaltyCeilingTests
+import JapanTaxLaw.BondedAreaKinds
+import JapanTaxLaw.BondedAreaKindsSpec
+import JapanTaxLaw.BondedAreaKindsTests
 import JapanTaxLaw.UsForcesDutyFreePenalty
 import JapanTaxLaw.UsForcesDutyFreePenaltySpec
 import JapanTaxLaw.UsForcesDutyFreePenaltyTests

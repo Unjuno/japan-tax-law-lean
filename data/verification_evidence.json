@@ -2055,6 +2055,19 @@
       "cross_law_proof": "queue unit dependencies analyzed; single-law penalty ceiling in 納税貯蓄組合法 art.14; no cross-law constant claimed; the enumerated 各号 (who is liable) NOT MODELLED",
       "tests": "JapanTaxLaw/TaxSavingsPenaltyCeilingTests.lean sha256=81bfd7712f27248228102688f833ced97f4bb7d49716fe8d72f5a0a571ac5541 (kernel-decided boundary examples)",
       "adversarial_review": "docs/ADVERSARIAL_TAX_SAVINGS_PENALTY_CEILING_14.md — independent agent recomputed pin sha256 (fc6c4ca1…c4e2b), located needle uniquely in Article 14 / Paragraph 1, confirmed law identity 納税貯蓄組合法 in BOTH INVENTORY and raw revision_info/law_title (guarding against the prior wrong-law finding), verified inclusive 以下 and the absence of the hinted 的 typo (all U+306E の). NO CONCRETE FINDINGS: spec independence (truncated subtraction vs ≤), universal agree_penalty_ceiling, boundary theorems and honest scope all PASS. No claim of legal correctness."
+    },
+    "NORM|82181433a122f927ffe22c13314bc4aa5d5b3e8df17fd13c98f2a46c498b47b0": {
+      "source_location": "data/raw/329AC0000000061_20260601_508AC0000000005.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:29/Article#29/Paragraph#1/ParagraphSentence/Sentence#1 sha256=1701272a2e4eaf434b6d953026c340efa4e15b2ca952fc941eeeb676d32204ea",
+      "decomposition_audit": "build/task_queue.json: kind=EFFECT, decomposed=true, exact span, unhandled_conditions=[], id unique",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS 関税法 art.29（保税地域は五種とする）; 186/186 checks passed; verbatim needle unique in pinned file and in Article 29 / Paragraph 1; law identity from INVENTORY official_title=関税法 and raw law_title=関税法",
+      "independent_spec": "JapanTaxLaw/BondedAreaKindsSpec.lean sha256=145c723006556f46033349d2c26610579e0eee151ec774bf9e1aea0a96db655c (specKindCount derived from allKinds.length, distinct from literal kindCount=5; agree_kind_count, all_kinds_nodup, all_kinds_exhaustive universal over 5 constructors)",
+      "implementation": "JapanTaxLaw/BondedAreaKinds.lean sha256=1c469160dbf5585fb5ec15a7358f51a7e7d3a5098a972e9821eab81e1df4732f (BondedAreaKind 5-constructor enum; kindCount=5=五種; allKinds list; law identity verified)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (608 jobs); agree_kind_count + kind_count_is_five axiom-free; nodup/exhaustive propext; no sorryAx/Classical.choice",
+      "proof_scope": "docs/UNIT_BONDED_AREA_KINDS_29.md (computable enumeration/cardinality slice of 関税法 art.29; substantive definitions of each bonded area, other paragraphs and 政令 explicitly NOT MODELLED)",
+      "boundary_proof": "JapanTaxLaw/BondedAreaKindsSpec.lean: agree_kind_count (literal vs derived length), all_kinds_nodup, all_kinds_exhaustive (universal over all 5 constructors), kind_count_is_five",
+      "cross_law_proof": "queue unit dependencies analyzed; single-law enumeration in 関税法 art.29; no cross-law constant claimed; substantive bonded-area definitions NOT MODELLED",
+      "tests": "JapanTaxLaw/BondedAreaKindsTests.lean sha256=79e3172b3c72edda8cdfefdf3424d54da8237b9f462d0577d9cb3342701e6aff (kernel-decided enumeration/cardinality checks)",
+      "adversarial_review": "docs/ADVERSARIAL_BONDED_AREA_KINDS_29.md — independent agent recomputed pin sha256 (1701272a…32204ea, 1,266,341 bytes), located needle uniquely in Article 第二十九条（保税地域の種類）, confirmed law identity 関税法 in BOTH INVENTORY and raw revision_info/law_title (no false label), verified all five named kinds including 総合保税地域. NO CONCRETE FINDINGS: spec independence (literal count vs derived list length), universal all_kinds_exhaustive over 5 constructors, and honest scope all PASS. One C (queue taxonomy EFFECT vs enumeration) and one U (norm-id hash not recomputed), neither an artifact error. No claim of legal correctness."
     }
   }
 }

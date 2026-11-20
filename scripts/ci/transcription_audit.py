@@ -1232,6 +1232,13 @@ def checks():
            "article", "第十四条",
            ["次の各号のいずれかに該当する者は、十万円以下の過料に処する。"])
 
+    # 関税法 art.29 — BondedAreaKinds.lean (保税地域の五種)
+    # Norm unit NORM|82181433a122f927ffe22c13314bc4aa5d5b3e8df17fd13c98f2a46c498b47b0
+    yield ("関税法 art.29（保税地域は五種とする）↔ BondedAreaKinds.lean (kindCount 5)",
+           "329AC0000000061",
+           "article", "第二十九条",
+           ["保税地域は、指定保税地域、保税蔵置場、保税工場、保税展示場及び総合保税地域の五種とする。"])
+
     # 在日米軍特例法 art. 11(3) — UsForcesDutyFreePenalty.lean (norm unit)
     yield ("在日米軍特例法 art. 11(3)（免税物品の用途外譲渡違反の罰則: 一年以下の拘禁刑又は五十万円以下の罰金 — 代替刑、併科なし。違反要件・徴収・法人重課・附則は NOT MODELLED）↔ UsForcesDutyFreePenalty.lean",
            "327AC0000000111",
