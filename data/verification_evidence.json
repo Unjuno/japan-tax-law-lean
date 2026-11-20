@@ -1,0 +1,20 @@
+{
+  "tool": "independent-verification-agent",
+  "schema": "verification-evidence-v1",
+  "units": {
+    "NORM|4cd756c89d1d4861be56ba03c83c189d8981f13a9d09cd010124885ebe50d245": {
+      "source_location": {"evidence_ref": "build/task_queue.json", "date": "2026-11-20", "detail": "exact source_path + SHA-256 in pinned queue; 国際観光旅客税法 art.15(1)"},
+      "decomposition_audit": {"evidence_ref": "build/task_queue.json", "date": "2026-11-20", "detail": "coverage.status=COVERED, original_length=36, reconstructed_length=36, unresolved=0"},
+      "source_correspondence_audit": {"evidence_ref": "data/source_correspondence_20261120.json", "date": "2026-11-20", "detail": "independent needle + kansuji check against pinned raw text"},
+      "independent_spec": {"evidence_ref": "JapanTaxLaw/InternationalTouristTaxRateSpec.lean", "date": "2026-11-20", "detail": "independent bare-Nat restatement from 原文「三千円」"},
+      "implementation": {"evidence_ref": "JapanTaxLaw/InternationalTouristTaxRate.lean", "date": "2026-11-20", "detail": "departureTaxRate : Money := 3_000; theorem departureTaxRate_value"},
+      "tests": {"evidence_ref": "JapanTaxLaw/InternationalTouristTaxRateTests.lean", "date": "2026-11-20", "detail": "kernel-decided smoke checks incl. 桁違い 300 / 30,000"},
+      "kernel_proof": "",
+      "proof_scope": "",
+      "boundary_proof": "",
+      "cross_law_proof": "",
+      "adversarial_review": "",
+      "notes": "kernel_proof deliberately unrecorded: local lake unavailable; CI must verify the Lean build first. Human legal review remains pending."
+    }
+  }
+}

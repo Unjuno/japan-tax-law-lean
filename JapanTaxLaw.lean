@@ -536,3 +536,6 @@ import JapanTaxLaw.CertFeeTests
 import JapanTaxLaw.GiftBasicDeductionUnit
 import JapanTaxLaw.GiftBasicDeductionUnitSpec
 import JapanTaxLaw.GiftBasicDeductionUnitTests
+import JapanTaxLaw.InternationalTouristTaxRate
+import JapanTaxLaw.InternationalTouristTaxRateSpec
+import JapanTaxLaw.InternationalTouristTaxRateTests

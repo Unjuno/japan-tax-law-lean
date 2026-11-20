@@ -1131,6 +1131,12 @@ def checks():
            "file", None,
            ["証明書類一枚ごとに四百円とする。ただし、電子情報処理組織を使用して交付の申請を行う場合にあつては、三百円とする。", "記録媒体一巻ごと又は同項第二号若しくは第三号に掲げる記録媒体一枚ごとに二万三千五百円とする。"])
 
+    # 国際観光旅客税法 art. 15 — InternationalTouristTaxRate.lean (norm unit)
+    yield ("国際観光旅客税法 art. 15（税率: 出国一回につき三千円）↔ InternationalTouristTaxRate.lean",
+           "430AC0000000016",
+           "article", "第十五条",
+           ["本邦からの出国一回につき、三千円とする"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
