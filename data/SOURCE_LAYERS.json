@@ -1,0 +1,114 @@
+{
+  "all_complete_claimable": false,
+  "finding": {
+    "C": "A discovered related statute may be merely a cross-reference rather than an independent norm source.",
+    "D": "FAIL — the statutory ledger is a provisional subset; four layers remain separate/unenumerated.",
+    "H": "The 327-law ledger covers the whole Japanese tax-law universe.",
+    "T": "Compare INVENTORY, recursively discovered ids and the declared auxiliary layers.",
+    "U": "Counts for unenumerated layers are unknown; no legal conclusion is drawn."
+  },
+  "historical_reference_occurrences": null,
+  "layers": [
+    {
+      "acquired_count": 325,
+      "counted_in_target": true,
+      "counted_in_verified": false,
+      "declared_count": 327,
+      "enumerated_count": 327,
+      "enumeration_status": "ENUMERATED_PINNED",
+      "evidence": [
+        "data/INVENTORY.json"
+      ],
+      "id": "NATIONAL_TAX_STATUTE",
+      "legal_nature": "国法上の法源（法律・政令・省令・規則）",
+      "note": "暂定母集団。全日本税法ではない（§2）。未取得2件、未施行2件は別扱い。",
+      "snapshot_date": "2026-11-15",
+      "source": "e-Gov 法令一覧（'税' キーワード暂定母集団）"
+    },
+    {
+      "acquired_count": null,
+      "counted_in_target": true,
+      "counted_in_verified": false,
+      "declared_count": null,
+      "enumerated_count": null,
+      "enumeration_status": "UNENUMERATED",
+      "evidence": [
+        "data/DISCOVERED_INVENTORY.json",
+        "docs/RECURSIVE_DISCOVERY_RESOLVED.md"
+      ],
+      "id": "RELATED_STATUTE_DISCOVERED",
+      "legal_nature": "国法上の法源（名称に '税' を含まない関連法令）",
+      "note": "取得済みでも未解析・未形式化・未証明。解析対象への組込みは別途の作業。",
+      "snapshot_date": "2026-11-15",
+      "source": "参照・準用・委任・改正関係の再帰探索"
+    },
+    {
+      "acquired_count": 0,
+      "counted_in_target": true,
+      "counted_in_verified": false,
+      "declared_count": 1788,
+      "enumerated_count": null,
+      "enumeration_status": "UNENUMERATED",
+      "evidence": [
+        "docs/BLOCKED.md",
+        "docs/L7_LEDGER.md"
+      ],
+      "id": "LOCAL_TAX_ORDINANCE",
+      "legal_nature": "自治体ごとに独立した法源（条例）",
+      "note": "自治体単位の列挙が未実装。declared_count は参考値であり取得数ではない。",
+      "snapshot_date": "",
+      "source": "地方公共団体の例規集（e-Gov 国家法令一覧には含まれない）"
+    },
+    {
+      "acquired_count": 0,
+      "counted_in_target": false,
+      "counted_in_verified": false,
+      "declared_count": null,
+      "enumerated_count": null,
+      "enumeration_status": "UNENUMERATED",
+      "evidence": [
+        "docs/L7_LEDGER.md"
+      ],
+      "id": "TAX_TREATY",
+      "legal_nature": "条約（国内法令とは法源の性質が異なる）",
+      "note": "解釈補助層。法定要件の直接の根拠として本台帳に混入させない。",
+      "snapshot_date": "",
+      "source": "租税条約原典（別層管理）"
+    },
+    {
+      "acquired_count": 0,
+      "counted_in_target": false,
+      "counted_in_verified": false,
+      "declared_count": null,
+      "enumerated_count": null,
+      "enumeration_status": "UNENUMERATED",
+      "evidence": [
+        "docs/L7_LEDGER.md"
+      ],
+      "id": "ADMINISTRATIVE_CIRCULAR",
+      "legal_nature": "通達（解釈補助層、法源ではない）",
+      "note": "原文との対応は別層で管理し、LEAN 証明の根拠に転用しない。",
+      "snapshot_date": "",
+      "source": "国税庁・自治体の通達／解釈指針"
+    },
+    {
+      "acquired_count": 0,
+      "counted_in_target": false,
+      "counted_in_verified": false,
+      "declared_count": null,
+      "enumerated_count": null,
+      "enumeration_status": "UNENUMERATED",
+      "evidence": [
+        "docs/L7_LEDGER.md"
+      ],
+      "id": "CASE_LAW",
+      "legal_nature": "裁判例（解釈補助層、法源ではない）",
+      "note": "法的妥当性は人間の独立レビューを要する。未確定のまま保持。",
+      "snapshot_date": "",
+      "source": "判決・裁決例"
+    }
+  ],
+  "schema": "source-layers/v1",
+  "snapshot_date": "2026-11-15",
+  "tool": "scripts/law_audit/inventory/source_layers.py"
+}
