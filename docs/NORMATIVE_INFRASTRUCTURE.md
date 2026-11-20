@@ -16,6 +16,8 @@ It changes only Python tooling and generated ledgers; no Lean file is modified.
 | `scripts/ci/article_obligations.py` | reports status counts from evidence; needle/file/theorem-name matches are not completion signals |
 | `scripts/law_audit/phase_e/article_scope.py` | article/table-cell scoped diagnostic plus mechanical reconstruction counts; explicitly not a completion gate |
 | `scripts/ci/completion_gate_adversary.py` | independent auditor with H/T/D/C/U findings; checks source rules AND inspects the durable evidence ledger for unsupported FULLY_VERIFIED claims, without importing the queue modules |
+| `scripts/ci/lean_kernel_audit.py` | records a successful `lake build` + forbidden-proof scan as a NECESSARY_NOT_SUFFICIENT gate; never marks a unit verified |
+| `scripts/ci/link_existing_proofs.py` | attaches genuine kernel evidence to pinned units whose needles and compiled Lean artifacts exist; linked units become PARTIAL, never FULLY_VERIFIED |
 | `scripts/ci/run_python_gates.py` | mandatory gate set; absent mandatory gate = FAIL; SKIP never counted as PASS |
 
 ## Status vocabulary
@@ -54,6 +56,12 @@ and `docs/ARTICLE_SCOPE.md` for the current measured values. All 24 registered
 Python gates pass, with `SKIP=0`. Lean build is executed by
 `leanprover/lean-action` in CI; no `.lean` file was changed here, so the existing
 kernel proofs are carried forward unchanged.
+
+Measured after evidence linking: 265,008 NOT_STARTED / 3,099 PARTIAL /
+0 FULLY_VERIFIED. The 3,099 linked units carry 12,610 evidence records from
+the pinned needle audit and the successful 518-job Lean kernel build; they
+still lack DECOMPOSITION_AUDIT, PROOF_SCOPE, PROOF_BOUNDARY and
+ADVERSARIAL_REVIEW, so no completion is claimed.
 
 This is **not** a claim that all Japanese tax law is verified. Unresolved
 fragments, delegated facts, unenforced revisions and human legal review remain
