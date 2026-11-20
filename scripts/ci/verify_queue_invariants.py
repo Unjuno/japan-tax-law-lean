@@ -14,7 +14,12 @@ import re
 import sys
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parents[2]
+HERE = Path(__file__).resolve().parent
+if str(HERE) not in sys.path:
+    # Works both as `python scripts/ci/verify_queue_invariants.py` and when
+    # imported as `scripts.ci.verify_queue_invariants` by unittest.
+    sys.path.insert(0, str(HERE))
+REPO = HERE.parents[1]
 QUEUE = REPO / "build" / "task_queue.json"
 EXPECTED = {"NOT_STARTED", "PARTIAL", "PROVED_SCOPE", "FULLY_VERIFIED", "BLOCKED"}
 
