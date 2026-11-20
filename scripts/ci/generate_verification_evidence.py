@@ -29,6 +29,7 @@ import importlib.util
 import json
 import re
 import sys
+from fractions import Fraction
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -101,19 +102,84 @@ def kanji_variants(n: int) -> set[str]:
     return out
 
 
-def source_literals_verified(lits: set[int], text: str) -> bool:
-    """Require every substantive spec numeral in the scoped clause.
+_KANJI_VALUE = {ch: i for i, ch in enumerate(_KANJI)}
+_KANJI_VALUE["〇"] = 0
 
-    Powers of ten used only as a rate denominator are representational and are
-    accepted when the clause carries a scale word 百分/千分; never invented.
+
+def _kanji_int(text: str) -> int:
+    total = cur = 0
+    for ch in text:
+        if ch in _KANJI_VALUE:
+            cur = _KANJI_VALUE[ch]
+        elif ch in ("十", "百", "千"):
+            total += (cur or 1) * {"十": 10, "百": 100, "千": 1000}[ch]
+            cur = 0
+        elif ch == "万":
+            total = (total + cur) * 10000
+            cur = 0
+        else:
+            raise ValueError("not a statute numeral: " + ch)
+    return total + cur
+
+
+def parse_statutory_rate(text: str) -> Fraction | None:
+    """Parse a 「百分の九十・七」 style rate into an exact rational (907/1000)."""
+    m = re.search(r"百分の([〇零一二三四五六七八九十百千万]+(?:・[〇零一二三四五六七八九]+)?)", text)
+    if not m:
+        return None
+    token = m.group(1)
+    if "・" in token:
+        whole, frac = token.split("・", 1)
+        decimal = sum(_KANJI_VALUE[c] * 10 ** (len(frac) - 1 - i)
+                      for i, c in enumerate(frac))
+        val = Fraction(_kanji_int(whole)) + Fraction(decimal, 10 ** len(frac))
+    else:
+        val = Fraction(_kanji_int(token))
+    return val / 100
+
+
+def matched_spellings(lits: set[int], text: str) -> dict[str, list[str]]:
+    """Record the spelling actually found for each literal (never claim more)."""
+    return {str(v): sorted(x for x in kanji_variants(v) if x in text) for v in sorted(lits)}
+
+
+def source_literals_verified(lits: set[int], text: str) -> bool:
+    """Verify numerals against the pinned clause, including the RATE RATIO.
+
+    A rate written 「百分の九十・七」 equals 907/1000. The spec's numerator and
+    denominator must form exactly that rational: 907/100 (tenfold error) or
+    907/10000 must NOT pass. Non-rate literals need a verbatim spelling.
     """
+    rate = parse_statutory_rate(text)
+    if rate is not None:
+        pairs = {(a, b) for a in lits for b in lits if b and Fraction(a, b) == rate}
+        if not pairs:
+            return False
+        used = {v for pair in pairs for v in pair}
+        return all(any(x in text for x in kanji_variants(v)) for v in (lits - used))
     found = {v for v in lits if any(x in text for x in kanji_variants(v))}
     substantive = {v for v in lits if v not in (10, 100, 1000, 10000, 100000)}
     if not substantive <= found:
         return False
     if (lits - substantive) - found and not ("百分" in text or "千分" in text):
         return False
-    return True  # empty literal set: needle scoping (checked by caller) is the source evidence
+    return True  # empty literal set: pinned-needle anchor (checked by caller) is the source evidence
+
+
+def clause_correspondence(lits: set[int], text: str, needles: list[str]) -> tuple[bool, str]:
+    """Clause-level source correspondence, sound for both numeric and structural specs.
+
+    Numeric specs: the spec's literals (including the exact rate ratio) must be
+    located in this clause. Structural specs have NO statutory numerals (e.g. a
+    saturating subtraction defined by recursion); for those, the clause must
+    contain at least one independently pinned needle from transcription_audit,
+    which is the literal anchor for the whole module. A needle from a different
+    clause cannot qualify, because the match is on this clause's text.
+    """
+    if lits:
+        return source_literals_verified(lits, text), "spec numerals / rate ratio"
+    hits = [n for n in (needles or []) if core.norm(n) and core.norm(n) in text]
+    return bool(hits), "pinned needle(s) in clause: %s" % [n[:24] for n in hits[:3]]
 
 
 def blob_sha(path: Path) -> str:
@@ -330,10 +396,11 @@ def build() -> dict:
             "scoped_article_chars": len(scoped),
         }
 
-        # Literal-based verification requires at least one statutory numeral
-        # in the independent spec; otherwise the clause test below is vacuous.
-        if not kanji or not (ok and needles_ok and independent and review
-                             and n_examples >= 5 and boundary_examples >= 3):
+        # Structural specs (saturating subtraction, recursion, if-then-else)
+        # legitimately have no statutory numeral. They are still verifiable via
+        # the independently pinned needle anchor at CLAUSE level (below).
+        if not (ok and needles_ok and independent and review
+                and n_examples >= 5 and boundary_examples >= 3):
             continue
 
         for t in tasks:
@@ -342,7 +409,8 @@ def build() -> dict:
             if t.get("kind") not in VERIFIABLE_KINDS or t.get("unhandled_conditions"):
                 continue
             text = core.norm(t.get("text", ""))
-            if not text or not source_literals_verified(lits, text):
+            clause_ok, clause_basis = clause_correspondence(lits, text, info.get("needles", []))
+            if not text or not clause_ok:
                 continue  # this clause is not expressed by the verified spec
             cov = t.get("coverage", {})
             if not (cov.get("exact") and cov.get("unique_ids")):
@@ -367,11 +435,15 @@ def build() -> dict:
                     t.get("source_file", ""), t.get("source_path", ""), t.get("source_sha256", "")),
                 "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
                 "source_correspondence_audit": (
-                    "scripts/ci/generate_verification_evidence.py: independent kanji literals %s located in 原文; needles scoped" % sorted(kanji)),
+                    "scripts/ci/generate_verification_evidence.py: basis=%s; verbatim spellings found in scoped 原文 = %s; "
+                    "statutory rate = %s; needles scoped" % (
+                        clause_basis,
+                        json.dumps(matched_spellings(lits, text), ensure_ascii=False, sort_keys=True),
+                        str(parse_statutory_rate(text)) if parse_statutory_rate(text) is not None else "none")),
                 "independent_spec": "JapanTaxLaw/%sSpec.lean sha256=%s (defines spec* without implementation constants)" % (base, h_spec),
                 "implementation": "JapanTaxLaw/%s.lean sha256=%s" % (base, h_impl),
                 "kernel_proof": "%s: commit %s, build/axiom job success, 3 module hashes re-verified" % (att["workflow_run"], att["commit"]),
-                "proof_scope": "statutory constants %s located in 原文 and used by kernel-checked impl + independent spec" % sorted(lits),
+                "proof_scope": "basis=%s; constants %s used by kernel-checked impl + independent spec" % (clause_basis, sorted(lits)),
                 "boundary_proof": "attested Tests module contains %d kernel-decided examples covering boundary inputs" % n_examples,
                 "cross_law_proof": "unit dependencies=%s; enforced revision=%s resolved from INVENTORY" % (len(t.get("dependencies", [])), t.get("revision", "")),
                 "tests": "JapanTaxLaw/%sTests.lean sha256=%s (%d kernel-decided examples)" % (base, h_tests, n_examples),

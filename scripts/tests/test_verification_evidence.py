@@ -30,9 +30,15 @@ class NumeralTests(unittest.TestCase):
         self.assertIn("九十・七", ve.kanji_variants(907))
         self.assertIn("六・二四", ve.kanji_variants(624))
         text = "…に百分の九十・七の税率を乗じて計算した金額とする。"
+        from fractions import Fraction
+        self.assertEqual(ve.parse_statutory_rate(text), Fraction(907, 1000))
         self.assertTrue(ve.source_literals_verified({907, 1000}, text))
+        # tenfold/hundredfold denominator errors must not be treated as representational
+        self.assertFalse(ve.source_literals_verified({907, 100}, text))
+        self.assertFalse(ve.source_literals_verified({907, 10000}, text))
         self.assertFalse(ve.source_literals_verified({908, 1000}, text))
         self.assertFalse(ve.source_literals_verified({907, 1000}, "税率を乗じる。"))
+        self.assertEqual(ve.matched_spellings({907}, text), {"907": ["九十・七"]})
 
     def test_spec_literals_exclude_examples(self):
         text = """
