@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 54 | 327 | 16.51% |
+| laws with >=1 pinned literal check | 57 | 327 | 17.43% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 188 | n/a | n/a |
-| distinct article pins | 63 | 42584 | 0.15% |
-| pinned Lean modules (cross-law) | 493 | n/a | n/a |
+| pinned literal checks | 193 | n/a | n/a |
+| distinct article pins | 66 | 42584 | 0.15% |
+| pinned Lean modules (cross-law) | 501 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 120 |
+| unpinned Lean modules (not counted as verified) | 127 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -112,6 +112,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `143AC0000000054` 関税定率法
 - `322AC0000000175` 昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律）
 - `322CO0000000109` 昭和二十二年政令第百九号（財産税法等による物納に因る不動産登記の特例に関する政令）
+- `322CO0000000268` 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施行に関する政令）
 - `325AC0000000073` 相続税法
 - `325AC0000000211` 地方交付税法
 - `325AC0000000226` 地方税法
@@ -149,6 +150,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `340CO0000000097` 法人税法施行令
 - `342AC0000000023` 印紙税法
 - `342AC0000000035` 登録免許税法
+- `346AC0000000089` 自動車重量税法
 - `346AC0000000090` 自動車重量譲与税法
 - `347AC0000000007` 航空機燃料税法
 - `347CO0000000161` 沖縄の復帰に伴う地方税法の適用の特別措置等に関する政令
@@ -159,6 +161,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `363CO0000000360` 消費税法施行令
 - `403AC0000000069` 地価税法
 - `404AC0000000015` 法人特別税法
+- `415M60000008069` 収入印紙及び自動車重量税印紙の売りさばきに関する省令
 - `420AC0000000084` 地方税等減収補てん臨時交付金に関する法律
 - `426AC0000000011` 地方法人税法
 - `430AC0000000016` 国際観光旅客税法

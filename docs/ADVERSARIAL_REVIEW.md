@@ -4967,3 +4967,13 @@ STAGING の needle テキストを信じず、`scripts/ci/transcription_audit.py
 - **対立解釈 (C)**: 軽減率の丸め・端数処理は原文に明示がなく、本モジュールは分数の選択のみを扱う。税額への適用・適用要件（甚大な被害、千万円以下、第七十二条非適用）は caller-established として未モデル化。
 - **不確かさ (U)**: `二・五` を 5/20 と通分したことは算術的等価だが、行政実務上の端数処理は別途政令に委任されており未検証。
 - **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+### VehicleWeightUnit.lean — 自動車重量税法 art. 7（〇・五トン単位）
+
+- **pin**: law_id `346AC0000000089` / revision `…_20220401_504AC0000000004`, raw snapshot sha256 verified; needle 2/2 FOUND in the scoped article.
+- **H**: 「車両重量〇・五トン又はその端数ごとに」は 0.5 t（=5/10 t）ごとの切上単位を意味し、`(w+4)/5`（w は 0.1 t 単位）として独立に読み取れる。
+- **T**: pinned art.7 から needle を独立再抽出し、w=0,1,5,6,11 の単位数を独立計算して Lean 申告値と比較。
+- **D**: 2/2 literal + 5/5 ケース一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 「端数」の扱いは原文上「一単位として数える」と読むのが自然だが、行政実務の weighing 丸め規則は別途政令・通達に委任され、本モデルは射程外。
+- **U**: 車両区分・税率・有効期間・臨時検査の〇・五乗じは caller-established で未形式化。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
