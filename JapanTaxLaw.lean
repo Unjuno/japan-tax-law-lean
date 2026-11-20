@@ -593,3 +593,6 @@ import JapanTaxLaw.LocalGrantAmountBandsTests
 import JapanTaxLaw.LocalGrantIndexBands
 import JapanTaxLaw.LocalGrantIndexBandsSpec
 import JapanTaxLaw.LocalGrantIndexBandsTests
+import JapanTaxLaw.DelegatedTaxpayerCategories
+import JapanTaxLaw.DelegatedTaxpayerCategoriesSpec
+import JapanTaxLaw.DelegatedTaxpayerCategoriesTests

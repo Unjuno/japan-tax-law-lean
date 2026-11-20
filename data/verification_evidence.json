@@ -41,6 +41,20 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 10: （１０）　総排気量が六リットルを超えるもの)",
       "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
+    "NORM|0620dc02fdeb79da6b46bebef11f59e4c344ed4440ae33d5e763a7833e79d963": {
+      "adversarial_review": "docs/UNIT_DELEGATED_TAXPAYER_CATEGORIES.md: H/T/D/C/U; treating 政令 content as statutory text rejected; 3 vs 4 narrowing preserved",
+      "boundary_proof": "cat3: delegated category （３）　寡婦又はひとり親; narrowing of (3) and cross-law identity proved",
+      "cross_law_proof": "cross_law_cat3/cat4 prove art.37 and art.314_6 categories extensionally identical; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; two parallel delegation tables (art.37, art.314_6)",
+      "group": "D_art37",
+      "implementation": "JapanTaxLaw/DelegatedTaxpayerCategories.lean sha256=92aa3a2e428604bc0775629043679bf178782132772e36fdff4c26120edd1ba4",
+      "independent_spec": "JapanTaxLaw/DelegatedTaxpayerCategoriesSpec.lean sha256=20b2b79f67ededff06fab374d873e664654aee060e72dac22d9fc08f2c80cf11 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; cat4_implies_cat3/cat3_split/cross_law_cat3-4/narrowing_both + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "logical structure of delegated categories only: 政令 determination and widow/single-parent status are caller-supplied opaque Bool inputs (NOT MODELLED); rates/computation/procedures NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_delegated_categories.py: both distinct originals found verbatim (2/2 distinct hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:37/Article#37/Paragraph#1/Item#1/Subitem1#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim D_art37 row 1: （３）　寡婦又はひとり親で政令で定めるものである所得割の納税義務者)",
+      "tests": "JapanTaxLaw/DelegatedTaxpayerCategoriesTests.lean sha256=cb2368de2652a6421e139691c97f3fcf97e1c92cdf1215646885a8f1178293e9 (kernel boundary examples, spec agreement, narrowing/cross-law relations)"
+    },
     "NORM|09f22cf76504d0ef9d5bc9c7fb838521cb96ef18e4394ef149e0d8e50bea55a5": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_INDEX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; C and E thresholds kept separate",
       "boundary_proof": "E.inBand 2 d; exhaustive over all d, globally pairwise exclusive",
@@ -238,6 +252,20 @@
       "source_correspondence_audit": "scripts/ci/source_audit_registration_art3.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; independent literals 前二条/同一の登記所/二箇以上/登記原因/登記の目的/同一の嘱託書 located in pinned original",
       "source_location": "data/raw/322CO0000000109_19470627_000000000000000.law.json#LawBody[1]/MainProvision/MainProvision[2]/Article:3/Article#3/Paragraph#1/ParagraphSentence/Sentence sha256=9ff39f03e58b315d04fbb65246dd5a4e64cf8c6a428eae84c53bb49c530816ec (verbatim 87-char unit text located in scoped article)",
       "tests": "JapanTaxLaw/RegistrationJointRequestTests.lean sha256=ab9297839621f6ee4cdd49dd199feef8868c1feaf6a3050158c5be09ae68c579 (16 kernel-decided examples incl. 0/1/2/3 and cause-difference invariants)"
+    },
+    "NORM|44ed564144dcbfb0666f5bd97f6f4efc7bc472d685f6b97e26092c6995dba5d4": {
+      "adversarial_review": "docs/UNIT_DELEGATED_TAXPAYER_CATEGORIES.md: H/T/D/C/U; treating 政令 content as statutory text rejected; 3 vs 4 narrowing preserved",
+      "boundary_proof": "cat3: delegated category （３）　寡婦又はひとり親; narrowing of (3) and cross-law identity proved",
+      "cross_law_proof": "cross_law_cat3/cat4 prove art.37 and art.314_6 categories extensionally identical; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; two parallel delegation tables (art.37, art.314_6)",
+      "group": "C_art314_6",
+      "implementation": "JapanTaxLaw/DelegatedTaxpayerCategories.lean sha256=92aa3a2e428604bc0775629043679bf178782132772e36fdff4c26120edd1ba4",
+      "independent_spec": "JapanTaxLaw/DelegatedTaxpayerCategoriesSpec.lean sha256=20b2b79f67ededff06fab374d873e664654aee060e72dac22d9fc08f2c80cf11 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; cat4_implies_cat3/cat3_split/cross_law_cat3-4/narrowing_both + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "logical structure of delegated categories only: 政令 determination and widow/single-parent status are caller-supplied opaque Bool inputs (NOT MODELLED); rates/computation/procedures NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_delegated_categories.py: both distinct originals found verbatim (2/2 distinct hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:314_6/Article#314_6/Paragraph#1/Item#1/Subitem1#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim C_art314_6 row 1: （３）　寡婦又はひとり親で政令で定めるものである所得割の納税義務者)",
+      "tests": "JapanTaxLaw/DelegatedTaxpayerCategoriesTests.lean sha256=cb2368de2652a6421e139691c97f3fcf97e1c92cdf1215646885a8f1178293e9 (kernel boundary examples, spec agreement, narrowing/cross-law relations)"
     },
     "NORM|4e4cbc3712a36cbadd4cc844bc1177446b3df1bb7746006e669ce5224b963864": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_AMOUNT_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 3000 recorded explicitly",
@@ -506,6 +534,20 @@
       "source_location": "data/raw/325CO0000000245_20261101_508CO0000000083.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:21_8/Article#21_8/Paragraph#1/ParagraphSentence/Sentence#1 sha256=9bc03b230fb0ed1039e33a1544cd53772939ee25d6d4648a386400ea269dfb17 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalTaxMedicalIncomeRatioTests.lean sha256=30261d035d1b61066ae5c34aaef3aab08965b08ab1eedf54b714ffe484fdb3b9 (19 kernel-decided examples)"
     },
+    "NORM|a76247cca778f5f3f06a9b5093b42592e8dff24594d43567a606ebfe86133e4c": {
+      "adversarial_review": "docs/UNIT_DELEGATED_TAXPAYER_CATEGORIES.md: H/T/D/C/U; treating 政令 content as statutory text rejected; 3 vs 4 narrowing preserved",
+      "boundary_proof": "cat4: delegated category （４）　ひとり親で政令で; narrowing of (3) and cross-law identity proved",
+      "cross_law_proof": "cross_law_cat3/cat4 prove art.37 and art.314_6 categories extensionally identical; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; two parallel delegation tables (art.37, art.314_6)",
+      "group": "D_art37",
+      "implementation": "JapanTaxLaw/DelegatedTaxpayerCategories.lean sha256=92aa3a2e428604bc0775629043679bf178782132772e36fdff4c26120edd1ba4",
+      "independent_spec": "JapanTaxLaw/DelegatedTaxpayerCategoriesSpec.lean sha256=20b2b79f67ededff06fab374d873e664654aee060e72dac22d9fc08f2c80cf11 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; cat4_implies_cat3/cat3_split/cross_law_cat3-4/narrowing_both + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "logical structure of delegated categories only: 政令 determination and widow/single-parent status are caller-supplied opaque Bool inputs (NOT MODELLED); rates/computation/procedures NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_delegated_categories.py: both distinct originals found verbatim (2/2 distinct hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:37/Article#37/Paragraph#1/Item#1/Subitem1#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim D_art37 row 2: （４）　ひとり親で政令で定めるものである所得割の納税義務者)",
+      "tests": "JapanTaxLaw/DelegatedTaxpayerCategoriesTests.lean sha256=cb2368de2652a6421e139691c97f3fcf97e1c92cdf1215646885a8f1178293e9 (kernel boundary examples, spec agreement, narrowing/cross-law relations)"
+    },
     "NORM|ac371ade261bbd9d8681252eb9998c1991cc66b0773a70cd8b45389690aecb6f": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
@@ -635,6 +677,20 @@
       "source_correspondence_audit": "scripts/ci/source_audit_local_grant_bands.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 5: ４００，０００以上９００，０００未満)",
       "tests": "JapanTaxLaw/LocalGrantAmountBandsTests.lean sha256=270f27df97f18db8f4932fe4d9a3bc6cf0380794a92c82c189014fdc3a99e7a1 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
+    "NORM|f01303c423d7afa683635dc5773769296bd02a20030c3ae4cd547cdb0b805d41": {
+      "adversarial_review": "docs/UNIT_DELEGATED_TAXPAYER_CATEGORIES.md: H/T/D/C/U; treating 政令 content as statutory text rejected; 3 vs 4 narrowing preserved",
+      "boundary_proof": "cat4: delegated category （４）　ひとり親で政令で; narrowing of (3) and cross-law identity proved",
+      "cross_law_proof": "cross_law_cat3/cat4 prove art.37 and art.314_6 categories extensionally identical; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; two parallel delegation tables (art.37, art.314_6)",
+      "group": "C_art314_6",
+      "implementation": "JapanTaxLaw/DelegatedTaxpayerCategories.lean sha256=92aa3a2e428604bc0775629043679bf178782132772e36fdff4c26120edd1ba4",
+      "independent_spec": "JapanTaxLaw/DelegatedTaxpayerCategoriesSpec.lean sha256=20b2b79f67ededff06fab374d873e664654aee060e72dac22d9fc08f2c80cf11 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; cat4_implies_cat3/cat3_split/cross_law_cat3-4/narrowing_both + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "logical structure of delegated categories only: 政令 determination and widow/single-parent status are caller-supplied opaque Bool inputs (NOT MODELLED); rates/computation/procedures NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_delegated_categories.py: both distinct originals found verbatim (2/2 distinct hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:314_6/Article#314_6/Paragraph#1/Item#1/Subitem1#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim C_art314_6 row 2: （４）　ひとり親で政令で定めるものである所得割の納税義務者)",
+      "tests": "JapanTaxLaw/DelegatedTaxpayerCategoriesTests.lean sha256=cb2368de2652a6421e139691c97f3fcf97e1c92cdf1215646885a8f1178293e9 (kernel boundary examples, spec agreement, narrowing/cross-law relations)"
     },
     "NORM|f48107230da364c2d029b9ed33ec3632c38e713e1625feccdcb38d3b7748bbf7": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_INDEX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; C and E thresholds kept separate",
