@@ -27,6 +27,7 @@ GATES = [
     ("normative core (queue/completion) tests", ["python", "-m", "unittest", "scripts.tests.test_normative_core", "-v"], ["scripts/tests/test_normative_core.py"]),
     ("completion gate adversary tests", ["python", "-m", "unittest", "scripts.tests.test_completion_gate_adversary", "-v"], ["scripts/tests/test_completion_gate_adversary.py"]),
     ("task selector computable ranking tests", ["python", "-m", "unittest", "scripts.tests.test_task_selector", "-v"], ["scripts/tests/test_task_selector.py", "scripts/ci/task_selector.py"]),
+    ("gate result provenance tests", ["python", "-m", "unittest", "scripts.tests.test_gate_provenance", "-v"], ["scripts/tests/test_gate_provenance.py", "scripts/ci/completion_gate.py"]),
     ("queue invariant gate regression tests", ["python", "-m", "unittest", "scripts.tests.test_queue_invariants", "-v"], ["scripts/tests/test_queue_invariants.py", "scripts/ci/verify_queue_invariants.py"]),
     ("article-scope D/C decision tests", ["python", "-m", "unittest", "scripts.tests.test_article_scope_decision", "-v"], ["scripts/tests/test_article_scope_decision.py"]),
     ("historical-discovery classification tests", ["python", "-m", "unittest", "scripts.tests.test_historical_discovery", "-v"], ["scripts/tests/test_historical_discovery.py"]),
@@ -40,7 +41,9 @@ GATES = [
     ("Per-law status ledger regeneration gate (Objective §1/§6/§7)", ["python", "scripts/ci/law_status_ledger.py"], ["scripts/ci/law_status_ledger.py", "docs/LAW_STATUS.md"]),
     ("Article verification obligations gate (Objective §4)", ["python", "scripts/ci/article_obligations.py"], ["scripts/ci/article_obligations.py", "docs/ARTICLE_OBLIGATIONS.md"]),
     ("Cross-article rate consistency gate (Objective §5)", ["python", "scripts/law_audit/phase_e/rate_consistency.py"], ["scripts/law_audit/phase_e/rate_consistency.py", "docs/RATE_CONSISTENCY.md"]),
-    ("Verification evidence regeneration (Directive §1 evidences FULLY_VERIFIED)", ["python", "scripts/ci/generate_verification_evidence.py"], ["scripts/ci/generate_verification_evidence.py", "data/PROOF_ATTESTATION.json", "data/verification_evidence.json"]),
+    ("spec-scope mapping regression tests", ["python", "-m", "unittest", "scripts.tests.test_spec_scope_map", "-v"], ["scripts/tests/test_spec_scope_map.py"]),
+    ("Explicit spec-scope mapping (Directive §1.5)", ["python", "scripts/ci/spec_scope_map.py"], ["scripts/ci/spec_scope_map.py", "data/SPEC_SCOPE_MAP.json"]),
+    ("Verification evidence regeneration (Directive §1 evidences FULLY_VERIFIED)", ["python", "scripts/ci/generate_verification_evidence.py"], ["scripts/ci/generate_verification_evidence.py", "data/PROOF_ATTESTATION.json", "data/verification_evidence.json", "data/SPEC_SCOPE_MAP.json"]),
     ("Persistent task queue regeneration (Sponsor Directive §3)", ["python", "scripts/ci/task_queue.py"], ["scripts/ci/task_queue.py", "docs/TASK_QUEUE.md"]),
     ("Separate source-layer registry (Objective §2)", ["python", "scripts/ci/source_layers.py"], ["scripts/ci/source_layers.py", "docs/SOURCE_LAYERS.md"]),
     ("normative queue invariants (unique ids, status vocabulary)", ["python", "scripts/ci/verify_queue_invariants.py"], ["scripts/ci/verify_queue_invariants.py"]),
@@ -61,10 +64,13 @@ REQUIRED_GATES = {
     "normative core (queue/completion) tests",
     "completion gate adversary tests",
     "task selector computable ranking tests",
+    "gate result provenance tests",
     "queue invariant gate regression tests",
     "article-scope D/C decision tests",
     "independent completion-mechanism audit",
     "normative queue invariants (unique ids, status vocabulary)",
+    "spec-scope mapping regression tests",
+    "Explicit spec-scope mapping (Directive §1.5)",
     "Verification evidence regeneration (Directive §1 evidences FULLY_VERIFIED)",
     "Persistent task queue regeneration (Sponsor Directive §3)",
     "Separate source-layer registry (Objective §2)",
@@ -110,12 +116,25 @@ for name, cmd, paths in GATES:
 
 # Machine-readable verdicts for the completion gate. This is the ONLY input to
 # the "registered checks" axis; SKIP stays SKIP and is never merged into PASS.
-GATE_RESULTS.parent.mkdir(parents=True, exist_ok=True)
-GATE_RESULTS.write_text(json.dumps({
+# Bind the result to the immutable commit it was produced from: a result from a
+# concurrently edited working tree must not be reported as green against HEAD.
+try:
+    _head = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True,
+                           text=True, check=False)
+    HEAD_SHA = _head.stdout.strip() if _head.returncode == 0 else ""
+except (OSError, ValueError):
+    HEAD_SHA = ""
+payload = {
     "tool": "scripts/ci/run_python_gates.py",
+    "commit_sha": HEAD_SHA,
     "gates": records,
     "summary": {"pass": ran - fails, "fail": fails, "skip": skipped},
-}, ensure_ascii=False, indent=2), encoding="utf-8")
+}
+blob = json.dumps(payload, ensure_ascii=False, indent=2)
+GATE_RESULTS.parent.mkdir(parents=True, exist_ok=True)
+GATE_RESULTS.write_text(blob, encoding="utf-8")
+if HEAD_SHA:
+    (GATE_RESULTS.parent / f"gate_results_{HEAD_SHA}.json").write_text(blob, encoding="utf-8")
 if fails:
     print(f"{fails} gate(s) FAILED; {ran} ran, {skipped} skipped (SKIP is never PASS)")
     sys.exit(1)
