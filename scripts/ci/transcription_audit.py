@@ -1151,6 +1151,42 @@ def checks():
            "article", "第十一条",
            ["一年以下の拘禁刑又は五十万円以下の罰金に処する"])
 
+    # ForestGrantRounding — cycle-23
+    yield ("ForestGrantRounding.lean",
+           "431AC0000000003",
+           "file", None,
+           ["金額に千円未満の端数金額があるときは、その端数金額を控除した金額をもって", "当該譲与時期に譲与すべき森林環境譲与税の額とする。"])
+
+    # MultiDonorDeduction — cycle-24
+    yield ("MultiDonorDeduction.lean",
+           "325CO0000000071",
+           "file", None,
+           ["六十万円に、特定贈与者ごとの贈与税の課税価格が当該課税価格の合計額のうちに占める割合を乗じて計算するものとする", "法第二十一条の十一の二第一項の規定により控除する金額は、特定贈与者の異なるごとに"])
+
+    # ExamFee — cycle-25
+    yield ("ExamFee.lean",
+           "326CO0000000216",
+           "file", None,
+           ["受験科目の数が一である場合にあつては四千円、受験科目の数が二以上である場合にあつては四千円と千五百円に一を超える受験科目の数を乗じて得た額との合計額とする", "法第九条第一項に規定する政令で定める額は"])
+
+    # DutyFreeTransfer — cycle-26
+    yield ("DutyFreeTransfer.lean",
+           "327CO0000000125",
+           "file", None,
+           ["その価格が一万八千円に満たないものである場合以外の場合に限り", "当該物品の所在場所を所轄する税関に申告し、当該物品の検査を経て、当該税関の譲渡の許可を受けなければならない"])
+
+    # SavingsDepositInterest — cycle-27
+    yield ("SavingsDepositInterest.lean",
+           "326AC1000000145",
+           "file", None,
+           ["引き出された部分の金額が政令で定める期間内において十万円をこえる場合", "納税貯蓄組合預金の利子については、所得税を課さない"])
+
+    # PowderSakeQuantity — cycle-28
+    yield ("PowderSakeQuantity.lean",
+           "337CO0000000097",
+           "file", None,
+           ["粉末酒の重量に〇・七三（一キログラム当たりのリットル数）を乗じて計算する方法とする", "（粉末酒に係る数量の計算）第十二条の三法第七条第六項に規定する政令で定める方法は"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -1418,6 +1454,13 @@ def checks():
            "325AC0000000226",
            "article", "第三十五条",
            ["百分の四（所得割の納税義務者が地方自治法第二百五十二条の十九第一項の市（第三十七条及び第三十七条の二において「指定都市」という。）の区域内に住所を有する場合には、百分の二）"])
+
+
+    # 地方税法 art. 38 — PerCapitaEqualRate.lean (standard equal-rate 1,000 yen)
+    yield ("地方税法 art. 38（個人の均等割の標準税率・千円）↔ PerCapitaEqualRate.lean (standardRate 1_000)",
+           "325AC0000000226",
+           "file", None,
+           ["個人の均等割の標準税率は、千円とする"])
 
 
 def main() -> int:

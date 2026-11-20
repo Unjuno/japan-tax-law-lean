@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 41 | 327 | 12.54% |
+| laws with >=1 pinned literal check | 47 | 327 | 14.37% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,7 +62,7 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 163 | n/a | n/a |
+| pinned literal checks | 170 | n/a | n/a |
 | distinct article pins | 49 | 42584 | 0.12% |
 | pinned Lean modules (cross-law) | 447 | n/a | n/a |
 
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 31 |
+| adversarial review sessions recorded | 33 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -113,9 +113,13 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `325AC0000000073` 相続税法
 - `325AC0000000211` 地方交付税法
 - `325AC0000000226` 地方税法
+- `325CO0000000071` 相続税法施行令
 - `325CO0000000245` 地方税法施行令
 - `325M50000040017` 相続税法施行規則
+- `326AC1000000145` 納税貯蓄組合法
+- `326CO0000000216` 税理士法施行令
 - `327AC0000000111` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法律
+- `327CO0000000125` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う関税法等の臨時特例に関する法律施行令
 - `328CO0000000407` 奄美群島の復帰に伴う国税関係法令の適用の暫定措置等に関する政令
 - `329AC0000000061` 関税法
 - `329CO0000000150` 関税法施行令
@@ -132,6 +136,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `334CO0000000329` 国税徴収法施行令
 - `335AC0000000036` 関税暫定措置法
 - `337AC0000000066` 国税通則法
+- `337CO0000000097` 酒税法施行令
 - `337M50000008017` 普通交付税に関する省令
 - `340AC0000000033` 所得税法
 - `340AC0000000034` 法人税法
@@ -150,3 +155,4 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `420AC0000000084` 地方税等減収補てん臨時交付金に関する法律
 - `426AC0000000011` 地方法人税法
 - `430AC0000000016` 国際観光旅客税法
+- `431AC0000000003` 森林環境税及び森林環境譲与税に関する法律
