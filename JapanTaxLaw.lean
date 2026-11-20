@@ -683,3 +683,6 @@ import JapanTaxLaw.BareLabelFragmentsTests
 import JapanTaxLaw.ProvisionalNormsAndLabels
 import JapanTaxLaw.ProvisionalNormsAndLabelsSpec
 import JapanTaxLaw.ProvisionalNormsAndLabelsTests
+import JapanTaxLaw.TemporalApplicationRules
+import JapanTaxLaw.TemporalApplicationRulesSpec
+import JapanTaxLaw.TemporalApplicationRulesTests
