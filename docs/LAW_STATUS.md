@@ -10,7 +10,7 @@ a completion flag.
 
 - laws in ledger: 327
 - with pinned raw snapshot: 325
-- structural audit status ok: 323
+- structural audit status ok: 325
 - with >=1 pinned literal check (semantic model): 39
 - with recorded human legal review: 0
 
@@ -55,7 +55,7 @@ a completion flag.
 | `329AC0000000112` | 日本国とアメリカ合衆国との間の相互防衛援助協定の実施に伴う関税法等の臨時特例に関する法律 | 329AC0000000112_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 38 | NO (0) | NO |
 | `329CO0000000103` | 日本国とアメリカ合衆国との間の相互防衛援助協定の実施に伴う関税法等の臨時特例に関する法律 | 329CO0000000103_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 33 | NO (0) | NO |
 | `329M50000040039` | 国税収納金整理資金事務取扱規則 | 329M50000040039_20260924_508M60000040059 | CurrentEnforced | YES | ok | 251 | NO (0) | NO |
-| `329AC0000000149` | 日本国における国際連合の軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法 | 329AC0000000149_20190107_430AC0000000016 | CurrentEnforced | YES | parse_failure | 0 | NO (0) | NO |
+| `329AC0000000149` | 日本国における国際連合の軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法 | 329AC0000000149_20190107_430AC0000000016 | CurrentEnforced | YES | ok | 48 | NO (0) | NO |
 | `329CO0000000128` | 日本国における国際連合の軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法 | 329CO0000000128_20190107_430CO0000000161 | CurrentEnforced | YES | ok | 17 | NO (0) | NO |
 | `329CO0000000150` | 関税法施行令 | 329CO0000000150_20260701_508CO0000000217 | CurrentEnforced | YES | ok | 534 | YES (1) | NO |
 | `329AC0000000188` | 日本国における国際連合の軍隊の地位に関する協定の実施に伴う地方税法の臨時特例に関する法律 | 329AC0000000188_20260401_508AC0000000002 | CurrentEnforced | YES | ok | 19 | NO (0) | NO |
@@ -110,7 +110,7 @@ a completion flag.
 | `340AC0000000034` | 法人税法 | 340AC0000000034_20261001_508AC0000000012 | CurrentEnforced | YES | ok | 1183 | YES (8) | NO |
 | `340CO0000000084` | 国際復興開発銀行等からの外資の受入に関する特別措置に関する法律に基づく債券の利子の非課税 | 340CO0000000084_20171001_429CO0000000106 | CurrentEnforced | YES | ok | 8 | NO (0) | NO |
 | `340CO0000000096` | 所得税法施行令 | 340CO0000000096_20260522_508CO0000000093 | CurrentEnforced | YES | ok | 1365 | YES (1) | NO |
-| `340CO0000000097` | 法人税法施行令 | 340CO0000000097_20261001_507CO0000000121 | CurrentEnforced | YES | parse_failure | 0 | YES (4) | NO |
+| `340CO0000000097` | 法人税法施行令 | 340CO0000000097_20261001_507CO0000000121 | CurrentEnforced | YES | ok | 1541 | YES (4) | NO |
 | `340M50000040011` | 所得税法施行規則 | 340M50000040011_20261001_507M60000040018 | CurrentEnforced | YES | ok | 886 | NO (0) | NO |
 | `340M50000040012` | 法人税法施行規則 | 340M50000040012_20261001_505M60000040013 | CurrentEnforced | YES | ok | 874 | NO (0) | NO |
 | `340M50010000013` | とうもろこし等の関税割当制度に関する省令 | 340M50010000013_20220401_504M60000200005 | CurrentEnforced | YES | ok | 12 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 110
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 113

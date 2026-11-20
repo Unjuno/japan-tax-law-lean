@@ -9,9 +9,9 @@ only and do NOT establish completion.
 
 ## Sponsor action 1 — independent human legal review
 
-- L7 candidates: 3264
+- L7 candidates: 3438
 - candidates with recorded reviewer: 0
-- candidates still awaiting review: 3264
+- candidates still awaiting review: 3438
 
 Required: a qualified Japanese tax lawyer reviews all candidates and records
 `reviewer` / `review_date` per row in docs/L7_CANDIDATES_UNREVIEWED.csv.

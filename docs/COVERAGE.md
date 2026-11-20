@@ -23,13 +23,13 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 
 | axis | count |
 |---|---:|
-| laws parse-ok | 323 |
-| laws audit-ok | 323 |
-| articles checked | 40995 |
-| paragraphs checked | 83130 |
-| items checked | 58239 |
+| laws parse-ok | 325 |
+| laws audit-ok | 325 |
+| articles checked | 42584 |
+| paragraphs checked | 86403 |
+| items checked | 61672 |
 | verified anomalies | 0 |
-| unreviewed candidates | 3264 |
+| unreviewed candidates | 3438 |
 
 ## Reference-relation axes (Objective §1 — recursive discovery)
 
@@ -50,7 +50,7 @@ by the '税' keyword in the law name only.
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
 | pinned literal checks | 160 | n/a | n/a |
-| distinct article pins | 46 | 40995 | 0.11% |
+| distinct article pins | 46 | 42584 | 0.11% |
 | pinned Lean modules (cross-law) | 448 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
