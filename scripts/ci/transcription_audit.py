@@ -1194,6 +1194,13 @@ def checks():
            "article", "第七条",
            ["この場合において、第七項本文中「一年以内に」とあるのは、「一年以内において速やかに」と読み替えるものとする。"])
 
+    # 日米地位協定関税特例法 art.12(6) — UsForcesDeemedForeignGoods.lean (items deemed foreign goods under 関税法)
+    # Norm unit NORM|9a9d622241c1736e9375241d59f25ec74ed16132c017d586ca0a7e96c9fd5751
+    yield ("日米地位協定関税特例法 art.12(6)（関税法の適用については外国貨物とみなす）↔ UsForcesDeemedForeignGoods.lean (scoped to 関税法)",
+           "327AC0000000112",
+           "article", "第十二条",
+           ["第一項の規定の適用を受ける物品は、関税法の適用については、同法の外国貨物とみなす。"])
+
     # 在日米軍特例法 art. 11(3) — UsForcesDutyFreePenalty.lean (norm unit)
     yield ("在日米軍特例法 art. 11(3)（免税物品の用途外譲渡違反の罰則: 一年以下の拘禁刑又は五十万円以下の罰金 — 代替刑、併科なし。違反要件・徴収・法人重課・附則は NOT MODELLED）↔ UsForcesDutyFreePenalty.lean",
            "327AC0000000111",
