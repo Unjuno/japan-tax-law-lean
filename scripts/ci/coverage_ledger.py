@@ -33,6 +33,7 @@ CROSS = REPO / "build" / "cross_law.json"
 CANDIDATES = REPO / "docs" / "L7_CANDIDATES_UNREVIEWED.csv"
 REFERENCES = REPO / "build" / "reference_stats.json"
 ADVERSARIAL = REPO / "docs" / "ADVERSARIAL_REVIEW.md"
+DISCOVERY = REPO / "data" / "RECURSIVE_DISCOVERY_RESOLVED.json"
 OUT = REPO / "docs" / "COVERAGE.md"
 OUT_TMP = REPO / "build" / "coverage.md"
 AUDIT = REPO / "scripts" / "ci" / "transcription_audit.py"
@@ -57,6 +58,7 @@ def build() -> str:
     cross = _load(CROSS) or {}
     refs = _load(REFERENCES) or {}
     ref_totals = refs.get("totals", {})
+    discovery = _load(DISCOVERY) or {}
     checks = audit_checks()
     import re as _re
     review_sessions = 0
@@ -140,9 +142,21 @@ def build() -> str:
         f"| references classified unsupported | {ref_totals.get('references_unsupported', 'n/a')} |",
         "",
         "external_unverified references are NOT verified and are NOT silently counted",
-        "as covered scope. Recursive discovery of target laws from reference and",
-        "delegation relations remains incomplete; the current ledger was enumerated",
-        "by the '税' keyword in the law name only.",
+        "as covered scope.",
+        "",
+        "## Related-statute discovery axes (Objective §2, SEPARATE denominator)",
+        "",
+        "| axis | count |",
+        "|---|---:|",
+        f"| official national law-list entries | {discovery.get('full_law_list_entries', 'n/a')} |",
+        f"| unmatched reference names from pinned snapshots | {discovery.get('unmatched_reference_names', 'n/a')} |",
+        f"| related statutes resolved to official law ids, NOT in ledger | {discovery.get('resolved_new_law_ids', 'n/a')} |",
+        f"| reference names aliased to laws already in ledger | {discovery.get('resolved_ledger_aliases', 'n/a')} |",
+        f"| unresolved reference names (uncertainty retained) | {discovery.get('unresolved_names', 'n/a')} |",
+        "",
+        "Discovered law ids are NOT added to INVENTORY, NOT acquired, NOT parsed,",
+        "NOT formalised and NOT reviewed. They are a separate discovery denominator",
+        "and must never be merged into the 'laws in ledger' completion rate.",
         "",
         "## Formalisation axes (denominator = distinct laws / article pins)",
         "",
@@ -161,6 +175,7 @@ def build() -> str:
         f"| verified anomalies (requires independent review to establish) | {totals.get('findings_verified_anomaly', 'n/a')} |",
         f"| unresolved (unenforced) laws | {len(unresolved)} |",
         f"| external references NOT bound to the ledger | {ref_totals.get('references_external_unverified', 'n/a')} |",
+        f"| related statutes discovered but not acquired (Objective §2) | {discovery.get('resolved_new_law_ids', 'n/a')} |",
         "",
         "An unpinned module, an unreviewed candidate, an unbound reference and an",
         "unenforced law are NOT counted as verified or completed. verified-anomaly = 0",

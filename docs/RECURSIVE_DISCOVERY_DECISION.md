@@ -1,0 +1,84 @@
+# Recursive discovery: official law-id resolution (Objective §2)
+
+Date: 2026-11-20
+Base: `main` @ `2eb3e38` (PR #186, task-queue/completion fix, CI green)
+Scope: §2 target determination — collect related statutes whose names do NOT
+contain 「税」 by resolving reference relations recursively.
+
+> This is a discovery/tooling record. It does not claim legal correctness,
+> coverage, acquisition of the discovered laws, or completion of the goal.
+
+## Problem
+
+`data/INVENTORY.json` enumerates candidates by the 「税」 keyword in the law
+name only (327 laws; 325 pinned snapshots; 2 fully unenforced). The existing
+`recursive_discovery.py` scans references such as 「会社法第二条」 and reports
+unmatched *names*, but never resolves them to official law IDs and never uses
+the full national law list. Therefore related non-tax statutes remained
+unidentified as concrete target candidates.
+
+## Change
+
+`scripts/law_audit/inventory/recursive_discovery_resolve.py`:
+
+1. parses the full official national law list (`lawlists_1.xml`, category 1);
+2. indexes law names, era-prefixed law numbers and parenthetical short titles;
+3. re-scans all pinned snapshots for 「〈name〉第N条」 references, excluding
+   generic pronouns (この法律 / 同法 / …) and names already in the ledger;
+4. resolves each name to an official law id by exact name, short name, law
+   number, or a conservative unique long-prefix match;
+5. classifies the result into NEW official law-id candidates, aliases of laws
+   already in the ledger, and unresolved names;
+6. emits `data/RECURSIVE_DISCOVERY_RESOLVED.json` and
+   `docs/RECURSIVE_DISCOVERY_RESOLVED.md` deterministically.
+
+Resolved candidates are NOT added to `INVENTORY.json`: adding a target requires
+fetching its official revision and SHA-256 snapshot. They are NOT counted as
+acquired, parsed, formalised, proved or reviewed. Historical/unenforced
+revisions remain a separate layer.
+
+## Measured results (real pinned snapshot, 2026-11-15)
+
+```
+full_law_list_entries:        9001
+ledger laws:                   327
+unmatched reference names:    7524
+resolved NEW official law ids: 382     (all names without 「税」)
+ledger aliases:                  2
+unresolved names:             7138
+```
+
+Highest-frequency new candidates: 金融商品取引法 (319), 会社法 (238),
+福島復興再生特別措置法 (138), 都市計画法 (137), 農地法 (135), 保険業法 (135),
+地方自治法 (128), 建築基準法 (105), 道路運送車両法 (93), 沖縄振興特別措置法 (84).
+
+Code gates/unit tests added and executed locally:
+
+```
+python -m unittest scripts.tests.test_recursive_discovery_resolve -v
+Ran 5 tests ... OK
+python scripts/law_audit/inventory/recursive_discovery_resolve.py   (twice)
+wrote ... / matches committed state (deterministic)
+```
+
+## H / T / D / C / U
+
+- **H (falsifiable)**: if the reference-name scan were limited to the 「税」
+  keyword ledger, zero non-tax statutes would be resolved to official ids.
+- **T (test)**: `python scripts/law_audit/inventory/recursive_discovery_resolve.py`
+  and inspect `data/RECURSIVE_DISCOVERY_RESOLVED.json`.
+- **D (decision)**: 382 non-tax statutes resolved to official ids; H is refuted.
+  This is discovery only, not scope closure.
+- **C (competing interpretation)**: one could treat every name match as a new
+  in-scope target and add it to the ledger. Rejected: addition requires an
+  official revision + SHA-256 pin; otherwise the count would be unverifiable.
+- **U (uncertainty)**: 7,138 names remain unresolved; some are abbreviations,
+  repealed laws or typos. They are retained, not silently dropped. Resolving
+  them and pinning the 382 candidates remains an open obligation.
+
+## Non-claims
+
+- No law is said to be defective; no legal conclusion is drawn.
+- No Lean proof was added, changed or weakened.
+- Existing successful proofs are untouched.
+- Human legal review remains pending and out of repo.
