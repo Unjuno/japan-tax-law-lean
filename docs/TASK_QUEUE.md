@@ -2,50 +2,80 @@
 
 Do not hand-edit. Regenerate with `python scripts/ci/task_queue.py`.
 
-Sponsor Directive §3: every pinned legal provision is a durable work unit.
-Human legal review (`LEGAL_REVIEW_PENDING`) is NOT a precondition for
-formalization and is tracked as an independent axis (Directive §6).
+One work unit = one normative unit (condition / effect / exception /
+fiction / presumption / delegation / reading-substitution / reference /
+definition / procedure / transitional / penalty / UNRESOLVED) with an
+exact 本則・附則・別表・条項号細目・別表セル locator and a sha256 of the
+pinned source fragment. IDs are full 64-hex hashes over law id, history
+revision id, structural path, unit kind and content hash.
+
+Persistent state lives in `data/TASK_STATE.json` and is MERGED, never
+overwritten: owner, attempts, blockers, evidence artifacts and review
+trails survive regeneration and session restarts.
+
+A needle match, a file's existence or a theorem-name string match is
+NEVER sufficient for a terminal state; see `scripts/ci/normative_units.py`.
+
+## Counts (separate axes)
 
 - laws in inventory: 327
-- work units generated: 33652
-- units with a pinned literal check: 485
-- units NOT_STARTED: 33167
+- normative units generated: 127759
+- UNRESOLVED decomposition units: 0
+- UNRESOLVED blocks (not schedulable; see build/unresolved_blocks.json): 88939
+- units with unresolved source characters: 0
+- units with unresolved dependencies: 77730
 
-## Status axes (independent — Directive §6)
+| completion state | units |
+|---|---:|
+| NOT_STARTED | 127759 |
+| UNRESOLVED | 0 |
+| PARTIAL | 0 |
+| PROVED_SCOPE | 0 |
+| FULLY_VERIFIED | 0 |
+| BLOCKED | 0 |
 
-| axis | values |
-|---|---|
-| source_fixed / structure_identified | True for all pinned units |
-| norm_decomposed | False unless explicitly recorded |
-| formalized | NOT_STARTED / COMPLETE_SCOPE / COMPLETE_FULL |
-| proved / boundary_checked / independent_audit | False until verified |
-| legal_review | LEGAL_REVIEW_PENDING (never auto-satisfied) |
+| scope | units |
+|---|---:|
+| FULL_ARTICLE | 56165 |
+| COMPUTABLE_SLICE_ONLY | 71594 |
+| UNRESOLVED_SCOPE | 0 |
 
-The full machine-readable queue is `build/task_queue.json` (git-ignored,
-regenerated from INVENTORY.json + pinned snapshots). The regeneration gate
-verifies determinism. Coordinator selects unfinished units from the queue.
+| unit kind | units |
+|---|---:|
+| APPLICATION_CONDITION | 10799 |
+| DEFINITION | 1212 |
+| DELEGATION | 13473 |
+| EXCEPTION | 8389 |
+| FICTION | 3824 |
+| LEGAL_EFFECT | 9146 |
+| PENALTY | 676 |
+| PRESUMPTION | 87 |
+| PROCEDURE | 8336 |
+| READING_SUBSTITUTION | 3360 |
+| REFERENCE | 65721 |
+| TRANSITIONAL | 2736 |
 
-## Sample NOT_STARTED units (first 20)
+## Sample not-yet-complete units (first 20)
 
-| law_id | article | title | paragraphs | refs |
-|---|---|---|---:|---:|
-| `143AC0000000054` | 1 | 第一条 | 1 | 0 |
-| `143AC0000000054` | 3 | 第三条 | 1 | 0 |
-| `143AC0000000054` | 3_2 | 第三条の二 | 2 | 0 |
-| `143AC0000000054` | 4_4 | 第四条の四 | 1 | 0 |
-| `143AC0000000054` | 4_8 | 第四条の八 | 1 | 0 |
-| `143AC0000000054` | 4_9 | 第四条の九 | 1 | 0 |
-| `143AC0000000054` | 5 | 第五条 | 1 | 0 |
-| `143AC0000000054` | 7 | 第七条 | 33 | 0 |
-| `143AC0000000054` | 8 | 第八条 | 37 | 0 |
-| `143AC0000000054` | 8_2 | 第八条の二 | 17 | 0 |
-| `143AC0000000054` | 9 | 第九条 | 15 | 0 |
-| `143AC0000000054` | 9_2 | 第九条の二 | 2 | 0 |
-| `143AC0000000054` | 11 | 第十一条 | 1 | 0 |
-| `143AC0000000054` | 12 | 第十二条 | 2 | 0 |
-| `143AC0000000054` | 13 | 第十三条 | 8 | 0 |
-| `143AC0000000054` | 14 | 第十四条 | 1 | 0 |
-| `143AC0000000054` | 14_2 | 第十四条の二 | 1 | 0 |
-| `143AC0000000054` | 14_3 | 第十四条の三 | 2 | 0 |
-| `143AC0000000054` | 15 | 第十五条 | 2 | 0 |
-| `143AC0000000054` | 16 | 第十六条 | 2 | 0 |
+| normative_ref | law_id | article | kind | state |
+|---|---|---|---|---|
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[1]/項[1] | LEGAL_EFFECT | NOT_STARTED |
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[3]/項[1] | LEGAL_EFFECT | NOT_STARTED |
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[3_2]/項[2]/号[3] | DELEGATION | NOT_STARTED |
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[3_3]/項[2] | DELEGATION | NOT_STARTED |
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[4]/項[1]/号[4] | EXCEPTION | NOT_STARTED |
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[4]/項[1]/号[4] | DELEGATION | NOT_STARTED |
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[4]/項[2]/号[2] | PROCEDURE | NOT_STARTED |
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[4]/項[2]/号[4] | DELEGATION | NOT_STARTED |
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[4]/項[2]/号[4] | REFERENCE | NOT_STARTED |
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[4]/項[2]/号[4] | APPLICATION_CONDITION | NOT_STARTED |
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[4_3]/項[1]/号[2] | LEGAL_EFFECT | NOT_STARTED |
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[4_3]/項[3] | LEGAL_EFFECT | NOT_STARTED |
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[4_4]/項[1] | DELEGATION | NOT_STARTED |
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[4_5]/項[1] | REFERENCE | NOT_STARTED |
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[4_5]/項[1] | EXCEPTION | NOT_STARTED |
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[4_5]/項[1] | LEGAL_EFFECT | NOT_STARTED |
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[4_6]/項[1] | DELEGATION | NOT_STARTED |
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[4_6]/項[1] | DELEGATION | NOT_STARTED |
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[4_7]/項[1] | REFERENCE | NOT_STARTED |
+| `143AC0000000054@143AC0000000054_20260601_508AC00` | 143AC0000000054 | 本則/条[4_7]/項[2] | DELEGATION | NOT_STARTED |

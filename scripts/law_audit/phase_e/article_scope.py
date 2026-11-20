@@ -1,111 +1,104 @@
 #!/usr/bin/env python3
-"""Article-scoped fidelity diagnostic (Sponsor Directive §4).
+"""Normative-unit source-scope diagnostic (Sponsor Directive §4).
 
-For each transcription_audit check, determine which article(s)/appendix cells
-of the pinned raw snapshot actually contain its needles. A needle that matches
-only an unrelated article is reported as a candidate mis-pin requiring review.
+Reports, for every normative unit in the persistent queue, the exact
+本則/附則/別表 + 条項号細目/別表セル locator, character span, source hash,
+unit kind, decomposition audit result and dependency resolution state.
 
-This is a DIAGNOSTIC, not a completion gate: it reports article/paragraph scope
-per check so a whole-text numeric match is never mistaken for article-level
-verification. Deterministic; regenerate with this script.
+This is a DIAGNOSTIC, not a completion gate: a whole-text numeric match is
+never reported as article-level verification. Unresolved source characters and
+unresolved dependencies are counted explicitly.
+
+Regenerate with `python scripts/law_audit/phase_e/article_scope.py`.
 """
 from __future__ import annotations
 
-import importlib.util
 import json
-import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[3]
-INVENTORY = REPO / "data" / "INVENTORY.json"
-AUDIT = REPO / "scripts" / "ci" / "transcription_audit.py"
+sys.path.insert(0, str(REPO / "scripts" / "ci"))
+from normative_units import DONE_STATES, load_state  # noqa: E402
+
+QUEUE = REPO / "build" / "task_queue.json"
 OUT = REPO / "docs" / "ARTICLE_SCOPE.md"
 
 
-def flat(node) -> str:
-    if isinstance(node, str):
-        return node
-    if isinstance(node, dict):
-        return "".join(flat(c) for c in node.get("children", []))
-    return ""
-
-
-def norm(t: str) -> str:
-    return re.sub(r"[\s\u3000]+", "", t)
-
-
-def iter_units(node, path=()):
-    if isinstance(node, dict):
-        tag = node.get("tag")
-        if tag in ("MainProvision", "SupplProvision", "AppdxTable"):
-            path = path + (tag,)
-        if tag in ("Article", "AppdxTable", "TableRow"):
-            yield path + (tag, str((node.get("attr") or {}).get("Num", ""))), node
-        for c in node.get("children", []):
-            yield from iter_units(c, path)
-    elif isinstance(node, list):
-        for c in node:
-            yield from iter_units(c, path)
-
-
 def main() -> int:
-    inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
-    laws = {l["law_id"]: l for l in inv.get("laws", [])}
-    spec = importlib.util.spec_from_file_location("as_ta", AUDIT)
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
+    if not QUEUE.exists():
+        print("task queue missing; run scripts/ci/task_queue.py first", file=sys.stderr)
+        return 1
+    q = json.loads(QUEUE.read_text(encoding="utf-8"))
+    state = load_state()
+    tasks = q.get("tasks", [])
 
-    docs_cache = {}
+    kinds = Counter()
+    scopes = Counter()
+    states = Counter()
     rows = []
-    scoped = 0
-    whole_only = 0
-    for name, law_id, kind, art, needles in mod.checks():
-        rec = laws.get(law_id)
-        sf = (rec or {}).get("raw_snapshot", {}).get("source_file")
-        if law_id not in docs_cache:
-            p = REPO / sf if sf else None
-            docs_cache[law_id] = json.loads(p.read_text(encoding="utf-8")) if p and p.exists() else None
-        doc = docs_cache[law_id]
-        if doc is None:
-            continue
-        units = []
-        for upath, unode in iter_units(doc.get("law_full_text")):
-            ut = norm(flat(unode))
-            if not ut:
-                continue
-            hits = sum(1 for n in needles if norm(n) in ut)
-            if hits:
-                units.append(("/".join(upath), hits))
-        if units:
-            scoped += 1
-            loc = "; ".join(f"{p}×{h}" for p, h in units[:3])
-        else:
-            whole_only += 1
-            loc = "(no article/table-cell unit contains all needle text)"
-        rows.append((law_id, art or "(file-level)", len(needles), loc, name.split("↔")[0].strip()[:60]))
+    for t in tasks:
+        u = t.get("unit", {})
+        audit = t.get("decomposition", {}).get("audit", {})
+        deps = t.get("dependencies", {})
+        rec = state["tasks"].get(t["task_id"], {})
+        kinds[u.get("kind", "UNRESOLVED")] += 1
+        scopes[t.get("scope", "-")] += 1
+        states[rec.get("completion_state", "NOT_STARTED")] += 1
+        rows.append(
+            f"| `{t.get('normative_ref', t['task_id'])[:44]}` | "
+            f"{u.get('locator', '')} | {u.get('kind', '')} | "
+            f"{u.get('char_start', 0)}-{u.get('char_end', 0)} | "
+            f"{str(u.get('sha256', ''))[:12]} | "
+            f"{'OK' if audit.get('decomposition_ok') else 'FAIL'} | "
+            f"{deps.get('unresolved_dependency_count', 0)} | "
+            f"{t.get('scope', '-')} | "
+            f"{rec.get('completion_state', 'NOT_STARTED')} |"
+        )
 
+    unresolved_units = kinds.get("UNRESOLVED", 0)
+    unresolved_deps = sum(
+        1 for t in tasks if t.get("dependencies", {}).get("unresolved_dependency_count", 0)
+    )
     lines = [
-        "# Article-scoped fidelity diagnostic (machine-generated)",
+        "# Normative-unit source-scope diagnostic (machine-generated)",
         "",
         "Do not hand-edit. Regenerate with `scripts/law_audit/phase_e/article_scope.py`.",
         "",
-        "Sponsor Directive §4: a numeric match anywhere in the whole pinned text is",
-        "NOT article-level verification. This report records, per transcription",
-        "check, which article / appendix table cell actually contains the needles.",
-        "It is a DIAGNOSTIC for the independent-audit axis, not a completion gate.",
+        "Sponsor Directive §4: a numeric match anywhere in the whole pinned text",
+        "is NOT unit-level verification. This report records the exact structural",
+        "locator, character span and source hash for every normative unit, plus its",
+        "decomposition audit and dependency resolution state. It is a diagnostic",
+        "for the independent-audit axis, not a completion gate.",
         "",
-        f"- checks with article/table-cell scoped needles: {scoped}",
-        f"- checks with no scoped unit (whole-text or cross-article needles): {whole_only}",
+        "## Totals",
         "",
-        "| law_id | stated article | needles | containing unit(s) | check |",
-        "|---|---|---:|---|---|",
+        f"- normative units: {len(tasks)}",
+        f"- UNRESOLVED units (source text that could not be decomposed): {unresolved_units}",
+        f"- units with unresolved dependencies: {unresolved_deps}",
+        f"- terminal-state units: {sum(states.get(s, 0) for s in DONE_STATES)}",
+        "",
+        "| unit kind | units |",
+        "|---|---:|",
+        *[f"| {k} | {v} |" for k, v in sorted(kinds.items())],
+        "",
+        "| scope | units |",
+        "|---|---:|",
+        *[f"| {k} | {v} |" for k, v in sorted(scopes.items())],
+        "",
+        "## Per-unit source scope",
+        "",
+        "| unit | locator | kind | span | sha256[:12] | audit | unresolved deps | scope | state |",
+        "|---|---|---|---|---|---|---:|---|---|",
+        *rows,
+        "",
     ]
-    for lid, art, n, loc, nm in rows:
-        lines.append(f"| `{lid}` | {art} | {n} | {loc} | {nm} |")
-    lines.append("")
     OUT.write_text("\n".join(lines), encoding="utf-8")
-    print(f"article-scope diagnostic: {scoped} scoped / {whole_only} whole-text across {len(rows)} checks")
+    print(
+        f"article-scope diagnostic: {len(tasks)} units, "
+        f"{unresolved_units} unresolved, {unresolved_deps} with unresolved deps"
+    )
     return 0
 
 
