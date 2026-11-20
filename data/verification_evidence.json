@@ -41,6 +41,19 @@
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:21_5/Paragraph#1/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7",
       "tests": "JapanTaxLaw/GiftBasicDeductionUnitTests.lean sha256=f58d4bb070157255e2329d22d02a95194115b4b76293449de7d814845a78bcc7 (pinned module, kernel-built)"
     },
+    "NORM|1719cd386262871d3745390bf5918fbab585aaec2c207e8055753cb669bf0cd9": {
+      "adversarial_review": "docs/UNIT_LIMIT_RATE_ART4.md: H/T/D/C/U; 0.12 and >= readings rejected by verbatim original",
+      "boundary_proof": "isTwelvePercent_iff general theorem; 12 true, 0/11/13 false",
+      "cross_law_proof": "unit dependencies=0; enforced revision 362CO0000000335_20260521_506CO0000000150 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; CONDITION unit in table column",
+      "implementation": "JapanTaxLaw/LimitRate12Condition.lean sha256=6a2b3b58f239473c3de61f5a6c04a10f42e6069490d0e46377e49fd30f9ddf03",
+      "independent_spec": "JapanTaxLaw/LimitRate12ConditionSpec.lean sha256=1d45d3054170724e7d2dd80f829e622338512d934b916c04e3eed7f4120d9482 (no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation and isTwelvePercent_iff kernel-checked; no sorry/admit",
+      "proof_scope": "condition only: limit rate (%) equals 12; rate computation, other bands, procedures NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_limit_rate_art4.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 限度税率/百分の十二/場合",
+      "source_location": "data/raw/362CO0000000335_20260521_506CO0000000150.law.json#LawBody[2]/MainProvision/MainProvision[8]/Article:4/Article#4/Paragraph#1/Item#7/ItemSentence/Column#1/Sentence#1 8b21ff78cd78a30af9f90521756b31c40e33d0fd919481bb90822de542421e18 (verbatim 14-char condition)",
+      "tests": "JapanTaxLaw/LimitRate12ConditionTests.lean sha256=c6cde2243565788f6d526a80423cbbb7c4049096ac0c6083c578fbeef7c75a24 (6 kernel-decided examples)"
+    },
     "NORM|19ad3c0f39ad4ec9480de4e7e90ab21b00a4f7dcf2ff45b75927e9e3c81f691e": {
       "adversarial_review": "docs/UNIT_RATE_BAND_ART19.md: H/T/D/C/U; competing reading of 未満 as 以下 rejected by verbatim original",
       "boundary_proof": "inBand_iff general theorem; kernel-decided boundaries 9,999,999 false, 10,000,000 true, 14,999,999 true, 15,000,000 false (upper exclusive)",
@@ -158,18 +171,18 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_49_14/Article#72_49_14/Paragraph#2/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/BusinessOwnerDeductionTests.lean sha256=61b2cc0dc9ba20aeb7d2465e3ecfcc248cb82a687981de2e45d3c349c31be28d (18 kernel-decided examples)"
     },
-    "NORM|1719cd386262871d3745390bf5918fbab585aaec2c207e8055753cb669bf0cd9": {
-      "source_location": "data/raw/362CO0000000335_20260521_506CO0000000150.law.json#LawBody[2]/MainProvision/MainProvision[8]/Article:4/Article#4/Paragraph#1/Item#7/ItemSentence/Column#1/Sentence#1 8b21ff78cd78a30af9f90521756b31c40e33d0fd919481bb90822de542421e18 (verbatim 14-char condition)",
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; CONDITION unit in table column",
-      "source_correspondence_audit": "scripts/ci/source_audit_limit_rate_art4.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 限度税率/百分の十二/場合",
-      "independent_spec": "JapanTaxLaw/LimitRate12ConditionSpec.lean sha256=1d45d3054170724e7d2dd80f829e622338512d934b916c04e3eed7f4120d9482 (no implementation import)",
-      "implementation": "JapanTaxLaw/LimitRate12Condition.lean sha256=6a2b3b58f239473c3de61f5a6c04a10f42e6069490d0e46377e49fd30f9ddf03",
-      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation and isTwelvePercent_iff kernel-checked; no sorry/admit",
-      "proof_scope": "condition only: limit rate (%) equals 12; rate computation, other bands, procedures NOT MODELLED",
-      "boundary_proof": "isTwelvePercent_iff general theorem; 12 true, 0/11/13 false",
-      "cross_law_proof": "unit dependencies=0; enforced revision 362CO0000000335_20260521_506CO0000000150 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/LimitRate12ConditionTests.lean sha256=c6cde2243565788f6d526a80423cbbb7c4049096ac0c6083c578fbeef7c75a24 (6 kernel-decided examples)",
-      "adversarial_review": "docs/UNIT_LIMIT_RATE_ART4.md: H/T/D/C/U; 0.12 and >= readings rejected by verbatim original"
+    "NORM|15dbfd55148fe076292eefe260fcfbef38379592bdf6b51fa59a0a7f7bc8b6f6": {
+      "source_location": "data/raw/431AC0000000003_20260401_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:5/Article#5/Paragraph#1/ParagraphSentence/Sentence#1 b854d3c0e79d4141f03d053f2bedce95934c26f32a8508324a742dc384edfcf4 (verbatim 13-char effect)",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; EFFECT unit at Article:5/Paragraph#1/Sentence#1",
+      "source_correspondence_audit": "scripts/ci/source_audit_forest_tax_art5.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 森林環境税/税率/千円",
+      "independent_spec": "JapanTaxLaw/ForestEnvironmentTaxRateSpec.lean sha256=bdb0eddcd70c33c6ddc087da177cf4a88cbca3b01d9e7d4572919cb2326dea59 (no implementation import)",
+      "implementation": "JapanTaxLaw/ForestEnvironmentTaxRate.lean sha256=b8d1d151783893a3207e1a6d279bea743cefeaa4a38cabc85a17e5e37247bfd6",
+      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation and rateEqualsStatutory_iff kernel-checked; no sorry/admit",
+      "proof_scope": "tax rate constant only: 1,000 yen; taxpayer, base, collection, transitional provisions NOT MODELLED; period caller-established",
+      "boundary_proof": "rateEqualsStatutory_iff general theorem; 1000 true; 0/999/1001 false",
+      "cross_law_proof": "unit dependencies=0; enforced revision 431AC0000000003_20260401_508AC0000000002 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/ForestEnvironmentTaxRateTests.lean sha256=0099a8a1ef2610cc0a1ee0274115693222a8110382ea087401e34a3935c447a1 (7 kernel-decided examples)",
+      "adversarial_review": "docs/UNIT_FOREST_TAX_ART5.md: H/T/D/C/U; monthly-rate and >= readings rejected by verbatim original"
     }
   }
 }

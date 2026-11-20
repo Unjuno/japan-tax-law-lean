@@ -554,3 +554,6 @@ import JapanTaxLaw.RateBandArt19Tests
 import JapanTaxLaw.LimitRate12Condition
 import JapanTaxLaw.LimitRate12ConditionSpec
 import JapanTaxLaw.LimitRate12ConditionTests
+import JapanTaxLaw.ForestEnvironmentTaxRate
+import JapanTaxLaw.ForestEnvironmentTaxRateSpec
+import JapanTaxLaw.ForestEnvironmentTaxRateTests
