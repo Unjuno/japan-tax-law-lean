@@ -1,3 +1,42 @@
+### GiftSpecialDeduction.lean
+
+- Module: `JapanTaxLaw/GiftSpecialDeduction.lean` (+ `Spec`, `Tests`)
+- Law: 相続税法 (law id 325AC0000000073), revision
+  `325AC0000000073_20260401_506AC0000000008`, art. 21の12(1)
+- 一次資料: `data/raw/325AC0000000073_20260401_506AC0000000008.law.json`,
+  article `Num=21_12`.
+
+**独立再抽出 (independent re-extraction).** 1項: 「…特定贈与者ごとの…控除後の
+贈与税の課税価格からそれぞれ次に掲げる金額のうちいずれか低い金額を控除する。
+一 二千五百万円（既にこの条の規定の適用を受けて控除した金額がある場合には、
+その金額の合計額を控除した残額）二 …控除後の贈与税の課税価格」。
+
+**照合 (comparison).** `specGiftSpecialDeduction price prev` computes
+`remaining = 25_000_000 - prev` (saturating at 0 when `prev ≥ 25_000_000`) and
+returns `min(price, remaining)`, matching 一号/二号の「いずれか低い金額」.
+The implementation uses `Nat.min` and `giftSpecialDeductionLimit`, while the
+spec uses a nested `if` with integer literals — an independent formulation.
+
+**H (falsifiable).** If the `min` were replaced by `max`, the kernel-decided
+example `30_000_000 → 25_000_000` would instead yield `30_000_000`.
+
+**T (reproduction).** Re-extract article 21の12 from the pinned JSON; run
+`lake build JapanTaxLaw.GiftSpecialDeductionSpec` and its Tests module.
+
+**D (判定).** PASS for the modelled amount formula of 1項. Not a claim about
+the whole article.
+
+**C (competing interpretation).** 「残額」 cannot be negative; the saturating
+branch at `prev ≥ 25M` is the only reading consistent with Nat amounts. The
+test `(20M, 30M) → 0` pins this boundary.
+
+**U (uncertainty).** 2項 (期限内申告書の記載要件・財務省令事項) and 3項
+(やむを得ない事情がある場合の書類提出) are NOT MODELLED; the caller supplies
+`price` and `prev` and the filing conditions are outside this slice. Human
+legal review remains pending.
+
+Reviewed independently of the implementer; no legal conclusion is drawn.
+
 # Independent source-correspondence reviews (module-specific)
 
 Each section is produced by an ADVERSARIAL reviewer who did not implement the
@@ -87,44 +126,5 @@ documented scope boundary, not a rate error.
 **U (uncertainty).** 1項但し書 (正当な理由 → この限りでない) and 3項 (政令で定める
 場合 + 法定納期限から一月 → 適用しない) are NOT MODELLED; the corresponding
 conditions are outside this slice. Human legal review remains pending.
-
-Reviewed independently of the implementer; no legal conclusion is drawn.
-
-### GiftSpecialDeduction.lean
-
-- Module: `JapanTaxLaw/GiftSpecialDeduction.lean` (+ `Spec`, `Tests`)
-- Law: 相続税法 (law id 325AC0000000073), revision
-  `325AC0000000073_20260401_506AC0000000008`, art. 21の12(1)
-- 一次資料: `data/raw/325AC0000000073_20260401_506AC0000000008.law.json`,
-  article `Num=21_12`.
-
-**独立再抽出 (independent re-extraction).** 1項: 「…特定贈与者ごとの…控除後の
-贈与税の課税価格からそれぞれ次に掲げる金額のうちいずれか低い金額を控除する。
-一 二千五百万円（既にこの条の規定の適用を受けて控除した金額がある場合には、
-その金額の合計額を控除した残額）二 …控除後の贈与税の課税価格」。
-
-**照合 (comparison).** `specGiftSpecialDeduction price prev` computes
-`remaining = 25_000_000 - prev` (saturating at 0 when `prev ≥ 25_000_000`) and
-returns `min(price, remaining)`, matching 一号/二号の「いずれか低い金額」.
-The implementation uses `Nat.min` and `giftSpecialDeductionLimit`, while the
-spec uses a nested `if` with integer literals — an independent formulation.
-
-**H (falsifiable).** If the `min` were replaced by `max`, the kernel-decided
-example `30_000_000 → 25_000_000` would instead yield `30_000_000`.
-
-**T (reproduction).** Re-extract article 21の12 from the pinned JSON; run
-`lake build JapanTaxLaw.GiftSpecialDeductionSpec` and its Tests module.
-
-**D (判定).** PASS for the modelled amount formula of 1項. Not a claim about
-the whole article.
-
-**C (competing interpretation).** 「残額」 cannot be negative; the saturating
-branch at `prev ≥ 25M` is the only reading consistent with Nat amounts. The
-test `(20M, 30M) → 0` pins this boundary.
-
-**U (uncertainty).** 2項 (期限内申告書の記載要件・財務省令事項) and 3項
-(やむを得ない事情がある場合の書類提出) are NOT MODELLED; the caller supplies
-`price` and `prev` and the filing conditions are outside this slice. Human
-legal review remains pending.
 
 Reviewed independently of the implementer; no legal conclusion is drawn.
