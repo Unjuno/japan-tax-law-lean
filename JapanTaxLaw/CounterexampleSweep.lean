@@ -104,7 +104,7 @@ def corpIncomesSweep : List Money :=
 set_option maxRecDepth 4096 in
 theorem sweep_corporate_ordinary :
     (pairs corpFactsSweep corpIncomesSweep).all
-      (fun (f, i) => corporateTax .ordinary f i == specOrdinaryTax f i) = true := by
+      (fun (f, i) => corporateTax .ordinary f i == specOrdinaryTax (smeEligible f) i) = true := by
   decide
 
 theorem sweep_corporate_public :
