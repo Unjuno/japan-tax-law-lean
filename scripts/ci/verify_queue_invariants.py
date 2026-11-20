@@ -15,6 +15,9 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
+# main() imports normative_core lazily; make that module importable both when
+# run as a script and when this file is loaded via importlib from unit tests.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 QUEUE = REPO / "build" / "task_queue.json"
 EXPECTED = {"NOT_STARTED", "PARTIAL", "PROVED_SCOPE", "FULLY_VERIFIED", "BLOCKED"}
 
