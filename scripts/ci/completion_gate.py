@@ -87,8 +87,10 @@ def human_review_count() -> tuple[int, int]:
 
 
 def build() -> str:
-    q = _load(QUEUE) or {"tasks": []}
-    tasks = q.get("tasks", [])
+    q = _load(QUEUE) or {"units": []}
+    # The normative-unit queue generator emits `units`; older rows used
+    # `tasks`. Reading only the legacy key silently reported all zeros.
+    tasks = q.get("units", q.get("tasks", []))
     counts = Counter(t.get("status", "NOT_STARTED") for t in tasks)
     evidence_ledger = _load(REPO / "data" / "verification_evidence.json") or {}
     evidence_by_id = evidence_ledger.get("units", {})

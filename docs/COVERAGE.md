@@ -41,16 +41,29 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | references classified unsupported | 250043 |
 
 external_unverified references are NOT verified and are NOT silently counted
-as covered scope. Recursive discovery of target laws from reference and
-delegation relations remains incomplete; the current ledger was enumerated
-by the '税' keyword in the law name only.
+as covered scope.
+
+## Related-statute discovery axes (Objective §2, SEPARATE denominator)
+
+| axis | count |
+|---|---:|
+| official national law-list entries | 9001 |
+| unmatched reference names from pinned snapshots | 7524 |
+| related statutes resolved to official law ids, NOT in ledger | 380 |
+| reference names aliased to laws already in ledger | 0 |
+| unresolved reference names (uncertainty retained) | 7053 |
+| related statutes ACQUIRED in separate layer (not in ledger) | 2 |
+
+Discovered law ids are NOT added to INVENTORY, NOT acquired, NOT parsed,
+NOT formalised and NOT reviewed. They are a separate discovery denominator
+and must never be merged into the 'laws in ledger' completion rate.
 
 ## Formalisation axes (denominator = distinct laws / article pins)
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 161 | n/a | n/a |
-| distinct article pins | 48 | 42584 | 0.11% |
+| pinned literal checks | 163 | n/a | n/a |
+| distinct article pins | 49 | 42584 | 0.12% |
 | pinned Lean modules (cross-law) | 447 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
@@ -62,6 +75,8 @@ by the '税' keyword in the law name only.
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
 | external references NOT bound to the ledger | 175186 |
+| related statutes discovered but not acquired (Objective §2) | 380 |
+| related statutes acquired but not parsed/modelled/reviewed | 2 |
 
 An unpinned module, an unreviewed candidate, an unbound reference and an
 unenforced law are NOT counted as verified or completed. verified-anomaly = 0

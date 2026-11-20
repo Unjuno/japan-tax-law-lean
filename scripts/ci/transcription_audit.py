@@ -187,6 +187,14 @@ def checks():
             "課税長期譲渡所得金額から六千万円を控除した金額の百分の十五に相当する金額",
             "所有期間が十年を超えるもののうち居住用財産に該当するものの譲渡"])
 
+    # 租税特別措置法 art. 31の2 — ExcellentLandTransferSpecialTax.lean (excellentLandGainTax)
+    yield ("租税特別措置法 art. 31の2（優良住宅地の造成等のために土地等を譲渡した場合の長期譲渡所得の課税の特例: ¥20,000,000 以下で百分の十／超で ¥2,000,000 + 百分の十五）↔ ExcellentLandTransferSpecialTax.lean (excellentLandGainTax, excellentLandBoundary)",
+           "332AC0000000026",
+           "article", "第三十一条の二",
+           ["課税長期譲渡所得金額が二千万円以下である場合当該課税長期譲渡所得金額の百分の十に相当する金額",
+            "課税長期譲渡所得金額から二千万円を控除した金額の百分の十五に相当する金額",
+            "優良住宅地等のための譲渡に該当するとき"])
+
     # 租税特別措置法 art. 70の2の5 — SpecialGiftRate.lean (specialGiftRateTable)
     yield ("租税特別措置法 art. 70の2の5(1)（直系尊属から贈与を受けた場合の贈与税の税率の特例）↔ SpecialGiftRate.lean (specialGiftRateTable)",
            "332AC0000000026",
@@ -1184,6 +1192,12 @@ def checks():
            "325AC0000000226",
            "file", None,
            ["事業を行う個人については、当該個人の事業の所得の計算上二百九十万円を控除する。", "前項の場合において、事業を行つた期間が一年に満たないときは、同項に規定する控除額は、二百九十万円に当該年において事業を行つた月数を乗じて得た額を十二で除して算定した金額とする。", "前項の月数は、暦に従い計算し、一月に満たない端数を生じたときは、一月とする。"])
+
+    # 地方税法 art. 74の5 — LocalTobaccoTaxRate.lean
+    yield ("地方税法 art. 74の5（たばこ税の税率: 千本につき千七十円 = 1,070円/千本、定額のみ。課税標準・按分・附則 NOT MODELLED）↔ LocalTobaccoTaxRate.lean",
+           "325AC0000000226",
+           "file", None,
+           ["たばこ税の税率は、千本につき千七十円とする。"])
 
     # 地方税法施行令 art. 35の4の6 — StandardRateExcessRatio.lean
     yield ("地方税法施行令 art. 35の4の6（標準税率超過率 = (基準事業税額−標準税率相当額)/基準事業税額、分母0→0・切り捨て — 基準額・相当額は caller-established）↔ StandardRateExcessRatio.lean",
