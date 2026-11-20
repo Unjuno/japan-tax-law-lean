@@ -57,9 +57,23 @@ def main() -> int:
     statuses = {u.get("status") for u in units}
     check("only declared statuses used", statuses <= EXPECTED, str(sorted(statuses)))
     counts = q.get("status_counts", {})
-    check("no FULLY_VERIFIED without evidence",
-          counts.get("FULLY_VERIFIED", 0) == 0,
-          f"FULLY_VERIFIED={counts.get('FULLY_VERIFIED')}")
+    # A FULLY_VERIFIED unit is allowed, but only with every evidence axis
+    # recorded and no unhandled condition. The old invariant (count == 0) was
+    # a baseline snapshot, not a property of the completion rule.
+    evidence_axes = (
+        "source_location", "decomposition_audit", "source_correspondence_audit",
+        "independent_spec", "implementation", "kernel_proof", "proof_scope",
+        "boundary_proof", "cross_law_proof", "tests", "adversarial_review",
+    )
+    fully = [u for u in units if u.get("status") == "FULLY_VERIFIED"]
+    unverified_claims = [
+        u.get("normative_id", "?") for u in fully
+        if u.get("unhandled_conditions")
+        or not all(u.get("evidence", {}).get(k) is True for k in evidence_axes)
+    ]
+    check("every FULLY_VERIFIED unit has full evidence",
+          not unverified_claims,
+          f"FULLY_VERIFIED={len(fully)}; unsupported={unverified_claims[:3]}")
 
     sample = units[0]
     required = ("normative_id", "law_id", "article", "source_path", "kind",

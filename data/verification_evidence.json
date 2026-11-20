@@ -1,0 +1,33 @@
+{
+  "schema": "verification-evidence/v1",
+  "note": "Per-unit evidence axes. Booleans are recorded only for artifacts that exist and were independently checked; a numeric match, file existence or theorem-name string is never evidence by itself. Human legal review is a separate axis in data/task_state.json.",
+  "units": {
+    "NORM|4cd756c89d1d4861be56ba03c83c189d8981f13a9d09cd010124885ebe50d245": {
+      "source_location": true,
+      "decomposition_audit": true,
+      "source_correspondence_audit": true,
+      "independent_spec": true,
+      "implementation": true,
+      "kernel_proof": true,
+      "proof_scope": true,
+      "boundary_proof": true,
+      "cross_law_proof": true,
+      "tests": true,
+      "adversarial_review": true,
+      "refs": {
+        "source_pin": "data/raw/430AC0000000016_20260701_508AC0000000012.law.json",
+        "source_path": "LawBody[2]/MainProvision/MainProvision[1]/Article:15/Article#15/Paragraph#1/ParagraphSentence/Sentence#1",
+        "decomposition_audit": "build/task_queue.json: exact=true, decomposed=true, unhandled_conditions=[]",
+        "source_correspondence_audit": "scripts/ci/transcription_audit.py check 国際観光旅客税法 art. 15; 160/160 checks passed",
+        "independent_spec": "JapanTaxLaw/InternationalTouristTaxUnitSpec.lean: specSum (primitive recursion), deliberately different from implementation",
+        "implementation": "JapanTaxLaw/InternationalTouristTaxUnit.lean: ratePerDeparture=3_000, taxForDepartures=n*rate",
+        "kernel_proof": "JapanTaxLaw/InternationalTouristTaxUnitSpec.lean: agree_international_tourist_tax (induction over all Nat); axiom probe: propext only",
+        "proof_scope": "docs/UNIT_INTERNATIONAL_TOURIST_TAX_15.md (computable slice; explicit NOT modelled list)",
+        "boundary_proof": "specSum_zero, specSum_pos_of_pos, taxForDepartures_mono, decided boundary examples",
+        "cross_law_proof": "cross_law_source_collected: 国税通則法 art. 2(2) TaxKind.internationalTourismSpecialCollZei",
+        "tests": "JapanTaxLaw/InternationalTouristTaxUnitTests.lean (kernel-decided), lake build 527 jobs green",
+        "adversarial_review": "docs/ADVERSARIAL_INTERNATIONAL_TOURIST_TAX_15.md — independent agent found 3 wrong scope citations (art. 15(3)(ii) nonexistent; art. 3 is not exemptions; unqualified linearity) + garbled text; all fixed before this flag was set. Core proof/pin claims survived challenge."
+      }
+    }
+  }
+}

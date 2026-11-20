@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 39 | 327 | 11.93% |
+| laws with >=1 pinned literal check | 40 | 327 | 12.23% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -49,15 +49,15 @@ by the '税' keyword in the law name only.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 159 | n/a | n/a |
-| distinct article pins | 46 | 42584 | 0.11% |
+| pinned literal checks | 160 | n/a | n/a |
+| distinct article pins | 47 | 42584 | 0.11% |
 | pinned Lean modules (cross-law) | 447 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 76 |
+| unpinned Lean modules (not counted as verified) | 79 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -128,3 +128,4 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `404AC0000000015` 法人特別税法
 - `420AC0000000084` 地方税等減収補てん臨時交付金に関する法律
 - `426AC0000000011` 地方法人税法
+- `430AC0000000016` 国際観光旅客税法

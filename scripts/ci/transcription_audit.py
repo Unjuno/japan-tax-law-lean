@@ -113,6 +113,13 @@ def checks():
            "article", "第二十一条の五",
            ["課税価格から六十万円を控除する"])
 
+    # 国際観光旅客税法 art. 15 — InternationalTouristTaxUnit.lean (¥3,000 / departure)
+    # Norm unit NORM|4cd756c89d1d4861be56ba03c83c189d8981f13a9d09cd010124885ebe50d245
+    yield ("国際観光旅客税法 art. 15（出国一回につき三千円）↔ InternationalTouristTaxUnit.lean (ratePerDeparture 3_000)",
+           "430AC0000000016",
+           "article", "第十五条",
+           ["国際観光旅客税の税率は、本邦からの出国一回につき、三千円とする"])
+
     # 所得税法 art. 89 — IndividualIncomeTax.lean
     yield ("所得税法 art. 89(1)（税率）↔ IndividualIncomeTax.lean (taxBands 5/10/20/23/33/40%, topTaxRate 45%)",
            "340AC0000000033",

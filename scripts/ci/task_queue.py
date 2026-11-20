@@ -161,7 +161,12 @@ def main() -> int:
         task["artifacts"] = saved.get("artifacts", {})
         task["legal_review"] = saved.get("legal_review", core.LEGAL_REVIEW_PENDING)
         task["unhandled_conditions"] = saved.get("unhandled_conditions") or task.get("unhandled_conditions", [])
-        derived, errors = core.derive_status(task, evidence.get(uid, {}))
+        unit_evidence = {k: bool(v) for k, v in evidence.get(uid, {}).items()
+                         if k in core.EVIDENCE_AXES and isinstance(v, bool)}
+        # Mirror the authoritative evidence ledger into the projection so the
+        # completion gate can count evidence axes independently of status.
+        task["evidence"] = unit_evidence
+        derived, errors = core.derive_status(task, unit_evidence)
         task["status"] = derived
         task["status_errors"] = errors
         task["completion_claim"] = False
