@@ -66,9 +66,14 @@ def build() -> str:
     tasks = q.get("tasks", [])
     counts = Counter(t.get("status", "NOT_STARTED") for t in tasks)
     axes = Counter()
+    evidence_file = _load(REPO / "data" / "verification_evidence.json") or {}
+    evidence_units = evidence_file.get("units", {})
     for t in tasks:
-        for axis, value in (t.get("evidence") or {}).items():
-            if value is True:
+        uid = t.get("id") or t.get("normative_id", "")
+        ev = (t.get("evidence") or {}) or evidence_units.get(uid, {})
+        for axis, value in ev.items():
+            # Evidence is a concrete reference (string), not a boolean claim.
+            if value and value != "SKIP":
                 axes[axis] += 1
     blockers = sum(1 for t in tasks if t.get("blockers"))
     unhandled = sum(1 for t in tasks if t.get("unhandled_conditions"))
@@ -111,7 +116,7 @@ def build() -> str:
         f"- units with unhandled conditions: {unhandled}",
         f"- human legal reviews recorded: {reviews}/{candidates} candidates",
         "",
-        "## Evidence axes recorded (separate denominators; units with axis = True)",
+        "## Evidence axes recorded (separate denominators; units with a non-empty reference)",
         "",
         "| axis | units |",
         "|---|---:|",
