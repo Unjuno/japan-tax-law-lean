@@ -518,3 +518,6 @@ import JapanTaxLaw.RoadGrantAllocationTests
 import JapanTaxLaw.WeightTaxTransfer
 import JapanTaxLaw.WeightTaxTransferSpec
 import JapanTaxLaw.WeightTaxTransferTests
+import JapanTaxLaw.TransitionalTariffRate
+import JapanTaxLaw.TransitionalTariffRateSpec
+import JapanTaxLaw.TransitionalTariffRateTests
