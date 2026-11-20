@@ -24,5 +24,7 @@ example : reductionCap 800_000 900_000 = 0 := by decide
 -- 差額以内判定
 example : reductionWithinCap 1_000_000 850_000 rate10 = true := by decide
 example : reductionWithinCap 1_000_000 950_000 rate10 = false := by decide
+-- 低下率基準の端数境界: 12 × 10 / 100 = 1 (切り捨て)
+example : depreciationReduction 12 rate10 = 1 := by decide
 
 end JapanTaxLaw

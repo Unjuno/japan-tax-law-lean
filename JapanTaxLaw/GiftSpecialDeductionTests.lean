@@ -24,4 +24,7 @@ example : giftSpecialDeduction 20_000_000 30_000_000 = 0 := by decide
 -- 境界: 課税価格 0
 example : giftSpecialDeduction 0 0 = 0 := by decide
 
+-- 追加の境界: 小さい正の入力 (1..13) — min(2500万 − 0, 7) = 7（控除額＝課税価格の単位元）
+example : giftSpecialDeduction 7 0 = 7 := by decide
+
 end JapanTaxLaw

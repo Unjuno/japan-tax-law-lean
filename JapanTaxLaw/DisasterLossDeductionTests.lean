@@ -37,5 +37,7 @@ example : disasterLossDeduction ⟨1_000_000, 0, 0⟩ = 0 := by decide
 example : disasterLossDeductionThreshold ⟨1_000_000, 200_000, 50_000⟩ = 100_000 := by decide
 -- ¥50,001 — ロ prorated
 example : disasterLossDeductionThreshold ⟨1_000_000, 200_000, 50_001⟩ = 100_000 := by decide
+-- イ: 小さい総所得 13 の十分の一は 13×10/100 = 1 (floor)、損失 5 → 控除 5−1 = 4
+example : disasterLossDeduction ⟨13, 5, 0⟩ = 4 := by decide
 
 end JapanTaxLaw

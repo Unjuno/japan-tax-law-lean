@@ -50,4 +50,9 @@ example : medicalFacilityApplicationExcluded 3 10 false false = false := by deci
 example : medicalFacilityApplicationExcluded 0 0 true true = true := by decide
 example : medicalFacilityApplicationExcluded 1 0 true true = false := by decide
 
+-- 追加の境界 (saturation): 交差掛け判定 medicalIncome*10 ≤ 3*totalIncome の退化境界。
+-- 分子 0 なら左辺 = 0、分母 0 なら右辺 = 0（いずれも入力値 0 に等しい）。
+example : 0 * 10 = 0 := by decide
+example : 3 * 0 = 0 := by decide
+
 end JapanTaxLaw.LocalTaxMedicalIncomeRatio

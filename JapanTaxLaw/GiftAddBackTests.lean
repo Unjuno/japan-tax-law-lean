@@ -63,4 +63,9 @@ example : taxDueAfterGiftCredit 15_800_000 2_000_000 = 13_800_000 := by decide
 example : taxDueAfterGiftCredit 3_000_000 5_000_000 = 0 := by decide
 example : taxDueAfterGiftCredit 15_800_000 15_800_000 = 0 := by decide
 
+-- 追加の境界: ゼロ入力、小さい正の入力 (1..13)、加算の単位元
+-- giftAddBack = 3年以内分 + (3〜7年分 − 100万円)_saturating
+example : giftAddBack ⟨0, 0, 0, 0⟩ = 0 := by decide
+example : giftAddBack ⟨7, 0, 0, 0⟩ = 7 := by decide
+
 end JapanTaxLaw

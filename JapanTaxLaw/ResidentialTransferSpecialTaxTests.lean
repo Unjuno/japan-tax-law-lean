@@ -43,4 +43,8 @@ example : residentialGainTax ⟨true, true, true, false⟩ 100_000_000 = 15_000_
 example : residentialGainTax ⟨true, true, true, true⟩ 50_000_000 <
     TaxRate.applyFloor longTermGainRate 50_000_000 := by decide
 
+-- 小さい正の入力（1..13）の境界: 適格・課税長期譲渡所得 10 円は ¥60,000,000 以下なので
+-- 10% の低率を適用 → 10 * 10 / 100 = 1 円
+example : residentialGainTax ⟨true, true, true, true⟩ 10 = 1 := by decide
+
 end JapanTaxLaw

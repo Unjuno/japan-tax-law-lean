@@ -33,5 +33,7 @@ example : intercompanyIncomeInclusion ⟨0, 0, 0, 50, 200, 100⟩ = 50 := by dec
 example : intercompanyIncomeInclusion ⟨0, 0, 0, 0, 100, 0⟩ = 0 := by decide
 -- §4: partner income cap by group loss
 example : intercompanyIncomeInclusion ⟨0, 0, 0, 80, 200, 100⟩ = 80 := by decide
+-- §2: 小入力の floor 境界 — pool = min(2,3) = 2 (超過控除)、2×2/3 = 1 (切り捨て)
+example : intercompanyLossDeduction ⟨2, 2, 3, 0, 0, 0⟩ = 1 := by decide
 
 end JapanTaxLaw

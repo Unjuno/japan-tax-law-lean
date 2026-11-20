@@ -56,4 +56,10 @@ example : specialGiftPortionTax 45_000_001 =
 -- 支配（特別 <= 一般）：有界サンプル
 example : specialGiftPortionTax 100_000_000 < giftPortionTax 100_000_000 := by decide
 
+-- ゼロ入力: 贈与額 0 ≤ 基礎控除 1,100,000 → 控除後課税価格 0 → 税額 0
+example : specialGiftTax ⟨true, true⟩ 0 = 0 := by decide
+-- 小さい正の入力（1..13）: 課税価格 10 円は最初の帯（10%）→ 10 * 10 / 100 = 1 円、
+-- 後続の帯は min 差が 0、頂点帯も 10 - 45,000,000 が 0 に saturation して合計 1
+example : specialGiftPortionTax 10 = 1 := by decide
+
 end JapanTaxLaw

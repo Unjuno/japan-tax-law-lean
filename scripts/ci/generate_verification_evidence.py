@@ -383,6 +383,37 @@ def normalize_article(art: str) -> str:
     return article_from_name("art. " + body)
 
 
+def boundary_evidence_categories(tests_text: str) -> set[str]:
+    """Detect GENUINE boundary coverage in kernel-decided examples.
+
+    The old check counted the substrings 0/1/11/12/13 anywhere in the file,
+    which rewarded incidental digits in large amounts and missed real boundary
+    cases. Categories below are derived from example inputs/results:
+      zero        - an example exercises a zero input;
+      small_input - an example exercises a small positive input (1..13);
+      saturation  - an example where the result equals an input or is zero,
+                    i.e. a floor / saturating-subtraction / identity boundary.
+    """
+    body = strip_comments(tests_text)
+    cats: set[str] = set()
+    for match in re.finditer(r"example\s*:\s*(.+?)\s*:=\s*by\s+(?:decide|rfl)", body):
+        expr = match.group(1)
+        if "=" not in expr:
+            continue
+        lhs, rhs = expr.split("=", 1)
+        inputs = [int(x.replace("_", "")) for x in re.findall(r"\b\d[\d_]*\b", lhs)]
+        result = re.search(r"\b\d[\d_]*\b", rhs)
+        if 0 in inputs:
+            cats.add("zero")
+        if any(1 <= x <= 13 for x in inputs):
+            cats.add("small_input")
+        if result:
+            value = int(result.group(0).replace("_", ""))
+            if value == 0 or value in inputs:
+                cats.add("saturation")
+    return cats
+
+
 def checks_by_module():
     spec = importlib.util.spec_from_file_location("ve_audit", AUDIT)
     mod = importlib.util.module_from_spec(spec)
@@ -428,7 +459,8 @@ def build() -> dict:
         scoped = scoped_article_text(info["law_id"], info["article"])
         needles_ok = bool(info["needles"]) and all(core.norm(n) in scoped for n in info["needles"])
         n_examples = len(re.findall(r"example\s*:", strip_comments(tests_text)))
-        boundary_examples = sum(1 for v in ("0", "1", "11", "12", "13") if v in tests_text)
+        boundary_categories = boundary_evidence_categories(tests_text)
+        boundary_examples = len(boundary_categories)
         review = review_ok(base, review_text)
         independent = independent_spec_ok(spec_text, impl_text)
 

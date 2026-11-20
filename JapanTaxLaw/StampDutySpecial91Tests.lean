@@ -64,4 +64,9 @@ example : special91Item1 900_000_000 ≤ contractStampDuty 900_000_000 := by dec
 example : special91Item1 4_500_000_000 ≤ contractStampDuty 4_500_000_000 := by decide
 example : special91Item1 9_000_000_000 ≤ contractStampDuty 9_000_000_000 := by decide
 
+-- 零入力: 契約金額 0 円は柱書の「十万円超」を下回り特例なし → 0（下限境界）
+example : special91Item1 0 = 0 := by decide
+-- 小額正入力: 13 円も「百万円超」を下回り特例なし → 0（下限境界）
+example : special91Item2 13 = 0 := by decide
+
 end JapanTaxLaw

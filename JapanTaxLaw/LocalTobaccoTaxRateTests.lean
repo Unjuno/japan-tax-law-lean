@@ -23,4 +23,9 @@ example : ratePerThousand ≠ 10_700 := by decide
 example : specRateYen = ratePerThousand := by rfl
 example : agreeLocalTobaccoTaxRate = true := by decide
 
+-- 境界（単一定数まわりの smoke 確認）: 数量 0 千本 → 税額 0、数量 1 千本 → 定額税率そのもの
+-- 1_070 * 0 = 0（ゼロ入力・結果 0）、1_070 * 1 = 1_070（1..13 の小さい正の入力）
+example : ratePerThousand * 0 = 0 := by decide
+example : ratePerThousand * 1 = 1_070 := by decide
+
 end JapanTaxLaw.LocalTobaccoTaxRate
