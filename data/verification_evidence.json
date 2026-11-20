@@ -2042,6 +2042,19 @@
       "cross_law_proof": "queue unit dependencies analyzed; this unit references 政令 (cabinet order) for the enforcement date but the delegated content is NOT MODELLED; no cross-law constant claimed",
       "tests": "JapanTaxLaw/LocalAllocationTaxEnforcementDateTests.lean sha256=05194766e0216d4ead0602ee532df4b3487bba42bf859383c46457d120bc6b2c (kernel-decided boundary examples)",
       "adversarial_review": "docs/ADVERSARIAL_LOCAL_ALLOCATION_TAX_ENFORCEMENT_DATE.md — independent agent found CONCRETE F1-F3 provenance errors: law id 325AC0000000211 is 地方交付税法 not 地方譲与税法 (author confirmed via INVENTORY official_title + zero 地方譲与 entries); needle is a 1963-amendment (昭和三八年法律第二三号) 附則 enforcement-date clause not a main 附則 art.1; file-kind check attested false source correspondence. ALL FIXED: module renamed LocalGrant->LocalAllocationTax, law name/number/source path corrected in all headers, audit check label made honest. Arithmetic/spec/universal proof/boundaries/axioms had NO FINDINGS. No claim of legal correctness."
+    },
+    "NORM|91349ec2d835e0fe4fdd63ea17f15c1ce9a98c22d91c36f03bea07410596f64e": {
+      "source_location": "data/raw/326AC1000000145_20211122_503AC0000000046.law.json#LawBody[1]/MainProvision/MainProvision[14]/Article:14/Article#14/Paragraph#1/ParagraphSentence/Sentence#1 sha256=fc6c4ca152291c10c1218a62303a879195bfbbe95a056d0e264ee0315bbc4e2b",
+      "decomposition_audit": "build/task_queue.json: kind=CONDITION, decomposed=true, exact span, unhandled_conditions=[], id unique",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS 納税貯蓄組合法 art.14（十万円以下の過料に処する）; 184/184 checks passed; needle with 以下 inclusive unique in pinned file and in Article 14 / Paragraph 1; law identity from INVENTORY official_title=納税貯蓄組合法 and raw revision_info/law_title",
+      "independent_spec": "JapanTaxLaw/TaxSavingsPenaltyCeilingSpec.lean sha256=f01b50f10ff10adab1c74b9ff6d10e3497be8ad121d49956d4338ae45ba4d682 (specWithinPenaltyCeiling = amount - ceiling = 0, distinct from ≤; agree_penalty_ceiling universal over all amounts)",
+      "implementation": "JapanTaxLaw/TaxSavingsPenaltyCeiling.lean sha256=18a46161b3564003688fbad1aa3ab895acdd344a66f8cf8b94902f212db7b95d (penaltyCeilingYen=100_000=十万円; withinPenaltyCeiling = amount ≤ ceiling; unit 円; law identity verified)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (602 jobs); agree_penalty_ceiling universal over all amounts; one boundary theorem propext, three axiom-free; no sorryAx/Classical.choice",
+      "proof_scope": "docs/UNIT_TAX_SAVINGS_PENALTY_CEILING_14.md (computable penalty-ceiling slice; enumerated 各号, fine-imposition procedure, other paragraphs and 政令 details explicitly NOT MODELLED)",
+      "boundary_proof": "JapanTaxLaw/TaxSavingsPenaltyCeilingSpec.lean: at_ceiling (¥100,000), one_over_fails (¥100,001), penalty_monotone (all variables), agree_penalty_ceiling",
+      "cross_law_proof": "queue unit dependencies analyzed; single-law penalty ceiling in 納税貯蓄組合法 art.14; no cross-law constant claimed; the enumerated 各号 (who is liable) NOT MODELLED",
+      "tests": "JapanTaxLaw/TaxSavingsPenaltyCeilingTests.lean sha256=81bfd7712f27248228102688f833ced97f4bb7d49716fe8d72f5a0a571ac5541 (kernel-decided boundary examples)",
+      "adversarial_review": "docs/ADVERSARIAL_TAX_SAVINGS_PENALTY_CEILING_14.md — independent agent recomputed pin sha256 (fc6c4ca1…c4e2b), located needle uniquely in Article 14 / Paragraph 1, confirmed law identity 納税貯蓄組合法 in BOTH INVENTORY and raw revision_info/law_title (guarding against the prior wrong-law finding), verified inclusive 以下 and the absence of the hinted 的 typo (all U+306E の). NO CONCRETE FINDINGS: spec independence (truncated subtraction vs ≤), universal agree_penalty_ceiling, boundary theorems and honest scope all PASS. No claim of legal correctness."
     }
   }
 }

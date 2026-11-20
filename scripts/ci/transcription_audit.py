@@ -1225,6 +1225,13 @@ def checks():
            "file", None,
            ["この法律は、公布の日から起算して九十日をこえない範囲内において政令で定める日から施行する。"])
 
+    # 納税貯蓄組合法 art.14 — TaxSavingsPenaltyCeiling.lean (十万円以下の過料)
+    # Norm unit NORM|91349ec2d835e0fe4fdd63ea17f15c1ce9a98c22d91c36f03bea07410596f64e
+    yield ("納税貯蓄組合法 art.14（十万円以下の過料に処する）↔ TaxSavingsPenaltyCeiling.lean (penaltyCeilingYen 100000)",
+           "326AC1000000145",
+           "article", "第十四条",
+           ["次の各号のいずれかに該当する者は、十万円以下の過料に処する。"])
+
     # 在日米軍特例法 art. 11(3) — UsForcesDutyFreePenalty.lean (norm unit)
     yield ("在日米軍特例法 art. 11(3)（免税物品の用途外譲渡違反の罰則: 一年以下の拘禁刑又は五十万円以下の罰金 — 代替刑、併科なし。違反要件・徴収・法人重課・附則は NOT MODELLED）↔ UsForcesDutyFreePenalty.lean",
            "327AC0000000111",
