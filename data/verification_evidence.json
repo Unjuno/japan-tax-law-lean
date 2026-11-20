@@ -432,17 +432,17 @@
       "tests": "JapanTaxLaw/StandardRateExcessRatioTests.lean sha256=f3c78382e2b7b8966f371aa977af0fabe04d20bdf82324b4413aa7674e540f6a (15 kernel-decided examples)"
     },
     "NORM|4034ae765e5c94d4bbd4588b6536d08053f9a82d48e12c78330531a3d78aa234": {
-      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
-      "boundary_proof": "attested Tests module contains 16 kernel-decided examples covering boundary inputs",
-      "cross_law_proof": "unit dependencies=0; enforced revision=143AC0000000054_20260601_508AC0000000005 resolved from INVENTORY",
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
-      "implementation": "JapanTaxLaw/CustomsInvestigationDeadline.lean sha256=8dc2474774698e7dea56878f46099c71de9df9c9c3d81eed5d8086881d889348",
-      "independent_spec": "JapanTaxLaw/CustomsInvestigationDeadlineSpec.lean sha256=7d2c3fcba913b91cfa4e279e1bf2135182d583be210168c0f90d0ebedbe69df7 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44684783591: commit 0b6e084f68c35511d586b601692180ceac28a5dc, build/axiom job success, 3 module hashes re-verified",
-      "proof_scope": "basis=pinned needle(s) in clause: ['前項の調査は、第四項の調査が終了する日までに終了']; constants [] used by kernel-checked impl + independent spec",
-      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['前項の調査は、第四項の調査が終了する日までに終了']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
-      "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[18]/Article:8_2/Article#8_2/Paragraph#8/ParagraphSentence/Sentence#1 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c (verbatim unit text located in scoped article)",
-      "tests": "JapanTaxLaw/CustomsInvestigationDeadlineTests.lean sha256=678cc0066f5308b6263de7a488aacd5fda7e55ae9229de0dc117c7b772343be2 (16 kernel-decided examples)"
+      "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[18]/Article:8_2/Article#8_2/Paragraph#8/ParagraphSentence/Sentence#1 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c",
+      "decomposition_audit": "build/task_queue.json: kind=EFFECT, decomposed=true, exact span, unhandled_conditions=[], id unique",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS 関税定率法 art.8(2) para.8（前項の調査は第四項の調査終了日までに終了）; 177/177 checks passed; needle with terminal 。 unique in pinned file and in Article 8-2 / Paragraph 8",
+      "independent_spec": "JapanTaxLaw/CustomsInvestigationDeadlineSpec.lean sha256=7d2c3fcba913b91cfa4e279e1bf2135182d583be210168c0f90d0ebedbe69df7 (specWithinInvestigationDeadline endDay refDay = endDay - refDay = 0, deliberately different from ≤)",
+      "implementation": "JapanTaxLaw/CustomsInvestigationDeadline.lean sha256=8dc2474774698e7dea56878f46099c71de9df9c9c3d81eed5d8086881d889348 (withinInvestigationDeadline endDay refDay = endDay ≤ refDay; unit 日 day-index documented)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success; agree_investigation_deadline is Nat.sub_eq_zero_iff_le over all day-index pairs; axiom probe propext/Quot.sound only, no sorryAx/Classical.choice",
+      "proof_scope": "docs/UNIT_CUSTOMS_INVESTIGATION_DEADLINE_8_2_8.md (computable temporal-deadline slice; investigation procedure and substantive anti-dumping rules explicitly NOT MODELLED)",
+      "boundary_proof": "JapanTaxLaw/CustomsInvestigationDeadlineSpec.lean: deadline_at_reference (r≤r), deadline_one_day_late (¬ r+1≤r), deadline_extends_to_later_ref (universal transitivity)",
+      "cross_law_proof": "queue unit dependencies analyzed; this is a temporal-deadline EFFECT of 関税定率法 art.8(2) para.8 referencing para.4 within the same article; no cross-law constant claimed; para.7/para.4 procedure NOT MODELLED",
+      "tests": "JapanTaxLaw/CustomsInvestigationDeadlineTests.lean sha256=678cc0066f5308b6263de7a488aacd5fda7e55ae9229de0dc117c7b772343be2 (11 kernel-checked boundary examples)",
+      "adversarial_review": "docs/ADVERSARIAL_CUSTOMS_INVESTIGATION_DEADLINE_8_2_8.md — independent agent recomputed pin sha256 (924a01d3…986ae9c, 9,407,678 bytes), located needle uniquely in Article 第八条の二 / Paragraph 8, confirmed 前項=para.7 / 第四項=para.4 via neighbour paragraphs, refuted the circular-spec hypothesis (≤ vs truncated subtraction), confirmed the universal Nat.sub_eq_zero_iff_le proof and all boundary theorems, and rejected the strict-before competing interpretation (「…日までに」 is inclusive). NO CONCRETE FINDINGS; no fix required."
     },
     "NORM|40e2e9fef96b277e8c95b52690ca3f903e18b9cfd44c20024edaf4ea75eceb87": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -1874,19 +1874,6 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:34/Article#34/Paragraph#1/Item#2/ItemSentence/Column#2/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalIncomeTaxTests.lean sha256=017a1f256a089f692a0f6f7c5971879339d07ba26a588ff0ae0a6c3d01450104 (55 kernel-decided examples)"
     },
-    "NORM|4034ae765e5c94d4bbd4588b6536d08053f9a82d48e12c78330531a3d78aa234": {
-      "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[18]/Article:8_2/Article#8_2/Paragraph#8/ParagraphSentence/Sentence#1 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c",
-      "decomposition_audit": "build/task_queue.json: kind=EFFECT, decomposed=true, exact span, unhandled_conditions=[], id unique",
-      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS 関税定率法 art.8(2) para.8（前項の調査は第四項の調査終了日までに終了）; 177/177 checks passed; needle with terminal 。 unique in pinned file and in Article 8-2 / Paragraph 8",
-      "independent_spec": "JapanTaxLaw/CustomsInvestigationDeadlineSpec.lean sha256=7d2c3fcba913b91cfa4e279e1bf2135182d583be210168c0f90d0ebedbe69df7 (specWithinInvestigationDeadline endDay refDay = endDay - refDay = 0, deliberately different from ≤)",
-      "implementation": "JapanTaxLaw/CustomsInvestigationDeadline.lean sha256=8dc2474774698e7dea56878f46099c71de9df9c9c3d81eed5d8086881d889348 (withinInvestigationDeadline endDay refDay = endDay ≤ refDay; unit 日 day-index documented)",
-      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success; agree_investigation_deadline is Nat.sub_eq_zero_iff_le over all day-index pairs; axiom probe propext/Quot.sound only, no sorryAx/Classical.choice",
-      "proof_scope": "docs/UNIT_CUSTOMS_INVESTIGATION_DEADLINE_8_2_8.md (computable temporal-deadline slice; investigation procedure and substantive anti-dumping rules explicitly NOT MODELLED)",
-      "boundary_proof": "JapanTaxLaw/CustomsInvestigationDeadlineSpec.lean: deadline_at_reference (r≤r), deadline_one_day_late (¬ r+1≤r), deadline_extends_to_later_ref (universal transitivity)",
-      "cross_law_proof": "queue unit dependencies analyzed; this is a temporal-deadline EFFECT of 関税定率法 art.8(2) para.8 referencing para.4 within the same article; no cross-law constant claimed; para.7/para.4 procedure NOT MODELLED",
-      "tests": "JapanTaxLaw/CustomsInvestigationDeadlineTests.lean sha256=e6af4ac156e8f16926f8a75ebb2e2c99b31d70beb5ddc1c6bcd8a51fe0abf7dc (11 kernel-checked boundary examples)",
-      "adversarial_review": "docs/ADVERSARIAL_CUSTOMS_INVESTIGATION_DEADLINE_8_2_8.md — independent agent recomputed pin sha256 (924a01d3…986ae9c, 9,407,678 bytes), located needle uniquely in Article 第八条の二 / Paragraph 8, confirmed 前項=para.7 / 第四項=para.4 via neighbour paragraphs, refuted the circular-spec hypothesis (≤ vs truncated subtraction), confirmed the universal Nat.sub_eq_zero_iff_le proof and all boundary theorems, and rejected the strict-before competing interpretation (「…日までに」 is inclusive). NO CONCRETE FINDINGS; no fix required."
-    },
     "NORM|fc34952b4102c0a6697423e84c629c0eea802fb72c83594cac7374694c7ac66f": {
       "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[16]/Article:7/Article#7/Paragraph#15/ParagraphSentence/Sentence#2 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c",
       "decomposition_audit": "build/task_queue.json: kind=READING, decomposed=true, exact span, unhandled_conditions=[], id unique",
@@ -1912,6 +1899,19 @@
       "cross_law_proof": "this unit IS a cross-law deeming: 関税法の適用については外国貨物とみなす — modeled via LegalContext scope (customsLaw vs otherLaw) so the deeming cannot leak to other statutes; 関税法 foreign-goods definition NOT MODELLED",
       "tests": "JapanTaxLaw/UsForcesDeemedForeignGoodsTests.lean sha256=19547e9c2aa4a61f0c5f00d725dab0b28d93c458dfeb3e63d1943cbb728ad882 (kernel-decided boundary examples)",
       "adversarial_review": "docs/ADVERSARIAL_US_FORCES_DEEMED_FOREIGN_GOODS_12_6.md — independent agent recomputed pin sha256 (ca251c41…c1a6d, 107,649 bytes), located needle uniquely in Article 12 / Paragraph 6 / Sentence 1, confirmed art.12(1) para-1 referent and the explicit 関税法 scope limiter, verified the exhaustive universal proof and cross-law LegalContext model. NO CONCRETE FINDINGS in the four audited files. Adjacent artifacts fixed: evidence entry added, dead doc link created, cosmetic typo corrected, U4 caveat that deemedForeignGoods=false does not mean 'not 外国貨物 under 関税法' documented. No claim of legal correctness."
+    },
+    "NORM|ef7f5c0f1105d358392be865c4f7bac9f076278926d6a9faa8be0e5f000d68a2": {
+      "source_location": "data/raw/322AC0000000175_20220101_503AC0000000011.law.json#LawBody[1]/MainProvision/MainProvision[1]/Article:2/Article#2/Paragraph#1/List/ListSentence/Column#1/Sentence#1 sha256=c3bb5b0bdffbdefd2ee5f358d90ad9e0922d4c887ecb2b133aa7d613f5f4e7ef",
+      "decomposition_audit": "build/task_queue.json: kind=CONDITION, decomposed=true, exact span, unhandled_conditions=[], id unique",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS 災害被害者租税減免法 art.2(1)（合計所得金額七百五十万円以下であるとき）; 180/180 checks passed; verbatim fragment needle unique in pinned file and in Article 2 / Paragraph 1 / List / Column",
+      "independent_spec": "JapanTaxLaw/DisasterVictimIncomeLimitSpec.lean sha256=378c38bb528746ef1ae1af7dcf8f99e21c6ecb91fcd53a11e067bd39773cbbf6 (specWithinIncomeLimit = totalIncome - incomeLimit = 0, different from ≤; agree_income_limit universal over all incomes)",
+      "implementation": "JapanTaxLaw/DisasterVictimIncomeLimit.lean sha256=b3e7a842fdcd931633af13995bb589845e62d7748c32c609c946640c87564fab (incomeLimit=7_500_000=七百五十万円; withinIncomeLimit = totalIncome ≤ incomeLimit; inclusive 以下; unit 円; rate-bracket caveat documented)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (590 jobs); agree_income_limit uses Nat.sub_eq_zero_iff_le over all incomes; three boundary theorems axiom-free, equivalence theorem propext; no sorryAx/Classical.choice",
+      "proof_scope": "docs/UNIT_DISASTER_VICTIM_INCOME_LIMIT_2_1.md (computable income-threshold condition slice; other art.2(1) conditions, relief/deferment effects and 合計所得金額 definition explicitly NOT MODELLED)",
+      "boundary_proof": "JapanTaxLaw/DisasterVictimIncomeLimitSpec.lean: income_at_limit (at 7.5M), income_one_over_fails (7.5M+1), income_monotone (all variables), agree_income_limit (universal)",
+      "cross_law_proof": "queue unit dependencies analyzed; this is a single-law income threshold condition in 災害被害者租税減免法 art.2(1); no cross-law constant claimed; the referenced 合計所得金額 definition and relief effects are NOT MODELLED",
+      "tests": "JapanTaxLaw/DisasterVictimIncomeLimitTests.lean sha256=e7ff3622c3b9071f5e6d9ef49876525560f47403ef6fdd7e270ea9b575a40711 (kernel-decided boundary examples)",
+      "adversarial_review": "docs/ADVERSARIAL_DISASTER_VICTIM_INCOME_LIMIT_2_1.md — independent agent recomputed pin sha256 (c3bb5b0b…3f4e7ef, 86,804 bytes), located needle uniquely in Article 2 / Paragraph 1 / List / Column 1, decoded the three-tier reduction schedule and confirmed 以下 inclusive. NO CONCRETE FINDINGS (F1-F6 all refuted). One interpretive C/U note: the 7.5M clause is a rate-bracket predicate (5/10 row), not the 10M eligibility ceiling — author added a header caveat preventing downstream misuse; rebuild passed. `合計所得金額` as opaque Nat is an honest documented scope boundary."
     }
   }
 }
