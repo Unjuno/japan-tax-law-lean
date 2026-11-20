@@ -248,6 +248,19 @@
       "source_correspondence_audit": "scripts/ci/source_audit_merger_art24.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 合併/適格合併/除く",
       "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:24/Article#24/Paragraph#1/Item#1/ItemSentence/Sentence#1 3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342 (verbatim 12-char exception)",
       "tests": "JapanTaxLaw/MergerExceptionArt24Tests.lean sha256=1f21341257f0dd648c5f04a93bd9303344fe56ec8202374cfa6e479a08ef44ee (6 kernel-decided examples)"
+    },
+    "NORM|1b0899b00c654642e9981f5b9ce1d9a8ce67dbde27f969956cbacee751aca29a": {
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:181/Article#181/Paragraph#1/ParagraphSentence/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim 18-char levy date)",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; EFFECT/temporal unit at Article:181/Paragraph#1/Sentence#1",
+      "source_correspondence_audit": "scripts/ci/source_audit_levy_date_art181.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 鉱区税/賦課期日/四月一日",
+      "independent_spec": "JapanTaxLaw/MiningTaxLevyDateSpec.lean sha256=b21d68ba7f6c9fff8a5357a296d0226ebc644e1309275d92a935cad1985c5fb0 (no implementation import)",
+      "implementation": "JapanTaxLaw/MiningTaxLevyDate.lean sha256=6c7eaaee67cde3132ff917e1748339e912a255a647f05e60e6d8f6311f61d330",
+      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation and isLevyDate_iff kernel-checked; no sorry/admit",
+      "proof_scope": "levy date only: month=4, day=1; leap years, calendar validity, due dates and other procedures NOT MODELLED; month/day caller-established Nat",
+      "boundary_proof": "isLevyDate_iff general theorem; 4/1 true; 4/2, 3/1, 5/1 false",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/MiningTaxLevyDateTests.lean sha256=9de412434d8ea8bf0d7588c1977e93244bf2ecd68e492c2719196172d55ae1be (6 kernel-decided examples)",
+      "adversarial_review": "docs/UNIT_LEVY_DATE_ART181.md: H/T/D/C/U; from-4/1 reading rejected by verbatim original"
     }
   }
 }

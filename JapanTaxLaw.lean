@@ -572,3 +572,6 @@ import JapanTaxLaw.MunicipalTaxQuasiApplyTests
 import JapanTaxLaw.ProfitBusinessDelegation
 import JapanTaxLaw.ProfitBusinessDelegationSpec
 import JapanTaxLaw.ProfitBusinessDelegationTests
+import JapanTaxLaw.MiningTaxLevyDate
+import JapanTaxLaw.MiningTaxLevyDateSpec
+import JapanTaxLaw.MiningTaxLevyDateTests
