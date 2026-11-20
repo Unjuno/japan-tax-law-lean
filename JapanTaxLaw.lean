@@ -545,3 +545,15 @@ import JapanTaxLaw.LocalGasolineRateTests
 import JapanTaxLaw.GasolineTaxRate
 import JapanTaxLaw.GasolineTaxRateSpec
 import JapanTaxLaw.GasolineTaxRateTests
+import JapanTaxLaw.PrefecturalPerCapitaRate
+import JapanTaxLaw.PrefecturalPerCapitaRateSpec
+import JapanTaxLaw.PrefecturalPerCapitaRateTests
+import JapanTaxLaw.MunicipalPerCapitaRate
+import JapanTaxLaw.MunicipalPerCapitaRateSpec
+import JapanTaxLaw.MunicipalPerCapitaRateTests
+import JapanTaxLaw.GolfCourseUseRate
+import JapanTaxLaw.GolfCourseUseRateSpec
+import JapanTaxLaw.GolfCourseUseRateTests
+import JapanTaxLaw.LightOilTaxRate
+import JapanTaxLaw.LightOilTaxRateSpec
+import JapanTaxLaw.LightOilTaxRateTests
