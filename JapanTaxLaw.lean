@@ -671,3 +671,6 @@ import JapanTaxLaw.DualSanctionsAndDelegationTests
 import JapanTaxLaw.TransitionalHeadingsAndDateExprs
 import JapanTaxLaw.TransitionalHeadingsAndDateExprsSpec
 import JapanTaxLaw.TransitionalHeadingsAndDateExprsTests
+import JapanTaxLaw.KanjiOrdinals
+import JapanTaxLaw.KanjiOrdinalsSpec
+import JapanTaxLaw.KanjiOrdinalsTests
