@@ -191,29 +191,45 @@ def scoped_article_text(law_id: str, article: str) -> str:
 def review_ok(base: str, review_text: str) -> bool:
     """Require a MODULE-SPECIFIC independent review with a recorded check.
 
-    Review documents use several equivalent phrasings across batches
-    (独立抽出 / 独立再抽出 / 一次資料, with 照合 / FOUND / 判定 as the decision).
-    Accept any of those, but only inside the section headed by this module:
-    a global keyword hit in an unrelated batch is not evidence for this unit.
+    Review documents use several equivalent phrasings across batches.  All
+    three semantic conditions must be present inside the module's own section:
+      1. a primary/official pinned source is named,
+      2. the check was performed independently (separate path / agent),
+      3. the source text was re-extracted, not trusted from a model.
+    A global keyword hit in an unrelated batch is not evidence for this unit.
     """
-    idx = review_text.find("### " + base + ".lean")
-    if idx < 0:
-        idx = review_text.find(base + ".lean")
-    if idx < 0:
-        return False
-    section = review_text[idx: idx + 4000]
-    independent = ("独立抽出" in section or "独立再抽出" in section or
-                   ("独立" in section and "一次資料" in section))
-    decision = ("照合" in section or "FOUND" in section or "判定" in section)
+    def section_containing(text: str, token: str) -> str:
+        idx = text.find("### " + token)
+        if idx < 0:
+            idx = text.find(token)
+        if idx < 0:
+            return ""
+        nxt = text.find("\n### ", idx + 4)
+        if nxt < 0:
+            nxt = text.find("\n## ", idx + 4)
+        return text[idx: nxt if nxt > idx else min(len(text), idx + 6000)]
+
+    def three_conditions(section: str) -> bool:
+        primary = any(k in section for k in (
+            "一次資料", "pinned 原文", "pinned原文", "pinned 正規文",
+            "原文 pin", "pinned データ"))
+        independent = any(k in section for k in (
+            "独立", "別経路", "独立検算", "独立抽出", "独立再抽出"))
+        reextracted = any(k in section for k in (
+            "再抽出", "直接抽出", "再取得", "抽出し直", "独立再抽出"))
+        decision = any(k in section for k in ("照合", "FOUND", "判定"))
+        return primary and independent and reextracted and decision
+
+    section = section_containing(review_text, base + ".lean")
+    if section and three_conditions(section):
+        return True
     independent_doc = REPO / "docs" / "INDEPENDENT_SOURCE_REVIEW.md"
     if independent_doc.exists():
         itext = independent_doc.read_text(encoding="utf-8", errors="replace")
-        idx = itext.find("### " + base + ".lean")
-        if idx >= 0:
-            section = itext[idx: idx + 4000]
-            if all(k in section for k in ("独立再抽出", "一次資料", "判定")):
-                return True
-    return independent and decision
+        isection = section_containing(itext, base + ".lean")
+        if isection and all(k in isection for k in ("独立再抽出", "一次資料", "判定")):
+            return True
+    return False
 
 
 def article_from_name(name: str) -> str:
