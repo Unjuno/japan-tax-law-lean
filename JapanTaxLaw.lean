@@ -636,3 +636,6 @@ import JapanTaxLaw.CapitalFiveBillionThresholdTests
 import JapanTaxLaw.RemittanceReportLimit
 import JapanTaxLaw.RemittanceReportLimitSpec
 import JapanTaxLaw.RemittanceReportLimitTests
+import JapanTaxLaw.PetroleumCoalFineRange
+import JapanTaxLaw.PetroleumCoalFineRangeSpec
+import JapanTaxLaw.PetroleumCoalFineRangeTests

@@ -1665,6 +1665,13 @@ def checks():
            ["当該法人の資本金額又は出資金額が五十億円以上であること"])
 
 
+    # 石油石炭税法 art. 23 — PetroleumCoalFineRange.lean
+    yield ("石油石炭税法 art. 23（罰金の範囲・三倍が五十万円超）↔ PetroleumCoalFineRange.lean (fineFloor 500_000, multiplier 3)",
+           "353AC0000000025",
+           "article", "第二十三条",
+           ["石油石炭税に相当する金額の三倍が五十万円を超える場合"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
