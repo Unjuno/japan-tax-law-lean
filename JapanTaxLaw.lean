@@ -533,3 +533,6 @@ import JapanTaxLaw.TonnageTaxPenaltyTests
 import JapanTaxLaw.CertFee
 import JapanTaxLaw.CertFeeSpec
 import JapanTaxLaw.CertFeeTests
+import JapanTaxLaw.GiftBasicDeductionUnit
+import JapanTaxLaw.GiftBasicDeductionUnitSpec
+import JapanTaxLaw.GiftBasicDeductionUnitTests
