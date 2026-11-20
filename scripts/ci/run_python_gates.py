@@ -39,14 +39,18 @@ GATES = [
     ("Reference-relation statistics regeneration (Objective §1)", ["python", "scripts/law_audit/inventory/collect_references.py"], ["scripts/law_audit/inventory/collect_references.py"]),
     ("Recursive discovery ledger regeneration gate (Objective §1)", ["python", "scripts/law_audit/inventory/recursive_discovery.py"], ["scripts/law_audit/inventory/recursive_discovery.py", "docs/RECURSIVE_DISCOVERY.md"]),
     ("Per-law status ledger regeneration gate (Objective §1/§6/§7)", ["python", "scripts/ci/law_status_ledger.py"], ["scripts/ci/law_status_ledger.py", "docs/LAW_STATUS.md"]),
-    ("Article verification obligations gate (Objective §4)", ["python", "scripts/ci/article_obligations.py"], ["scripts/ci/article_obligations.py", "docs/ARTICLE_OBLIGATIONS.md"]),
-    ("Cross-article rate consistency gate (Objective §5)", ["python", "scripts/law_audit/phase_e/rate_consistency.py"], ["scripts/law_audit/phase_e/rate_consistency.py", "docs/RATE_CONSISTENCY.md"]),
     ("spec-scope mapping regression tests", ["python", "-m", "unittest", "scripts.tests.test_spec_scope_map", "-v"], ["scripts/tests/test_spec_scope_map.py"]),
     ("Explicit spec-scope mapping (Directive §1.5)", ["python", "scripts/ci/spec_scope_map.py"], ["scripts/ci/spec_scope_map.py", "data/SPEC_SCOPE_MAP.json"]),
     ("Verification evidence regeneration (Directive §1 evidences FULLY_VERIFIED)", ["python", "scripts/ci/generate_verification_evidence.py"], ["scripts/ci/generate_verification_evidence.py", "data/PROOF_ATTESTATION.json", "data/verification_evidence.json", "data/SPEC_SCOPE_MAP.json"]),
+    # The queue must be regenerated BEFORE any gate that reads build/task_queue.json
+    # (article_obligations.py reads it). Otherwise a stale or partially written
+    # queue makes a correct obligations gate fail with a JSONDecodeError.
     ("Persistent task queue regeneration (Sponsor Directive §3)", ["python", "scripts/ci/task_queue.py"], ["scripts/ci/task_queue.py", "docs/TASK_QUEUE.md"]),
     ("Separate source-layer registry (Objective §2)", ["python", "scripts/ci/source_layers.py"], ["scripts/ci/source_layers.py", "docs/SOURCE_LAYERS.md"]),
     ("normative queue invariants (unique ids, status vocabulary)", ["python", "scripts/ci/verify_queue_invariants.py"], ["scripts/ci/verify_queue_invariants.py"]),
+    ("Article verification obligations gate (Objective §4)", ["python", "scripts/ci/article_obligations.py"], ["scripts/ci/article_obligations.py", "docs/ARTICLE_OBLIGATIONS.md"]),
+    ("Cross-article rate consistency gate (Objective §5)", ["python", "scripts/law_audit/phase_e/rate_consistency.py"], ["scripts/law_audit/phase_e/rate_consistency.py", "docs/RATE_CONSISTENCY.md"]),
+
     ("Article-scoped fidelity diagnostic (Sponsor Directive §4)", ["python", "scripts/law_audit/phase_e/article_scope.py"], ["scripts/law_audit/phase_e/article_scope.py", "docs/ARTICLE_SCOPE.md"]),
     ("BLOCKED ledger regeneration gate (Objective §6 out-of-repo prerequisites)", ["python", "scripts/ci/blocked_ledger.py"], ["scripts/ci/blocked_ledger.py", "docs/BLOCKED.md"]),
     ("Coverage ledger regeneration gate (Objective §4 machine-computed coverage)", ["python", "scripts/ci/coverage_ledger.py"], ["scripts/ci/coverage_ledger.py", "docs/COVERAGE.md"]),
