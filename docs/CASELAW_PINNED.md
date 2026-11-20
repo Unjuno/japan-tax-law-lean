@@ -8,7 +8,7 @@ binding, or legally reviewed.
 
 - search keyword: 租税
 - reported hits: 2000
-- ACQUIRED_PINNED pages: 16
+- ACQUIRED_PINNED pages: 31
 - verification_status: OUT_OF_SCOPE
 
 | kind | url | bytes | sha256 | status |
@@ -29,3 +29,18 @@ binding, or legally reviewed.
 | judgment | https://www.courts.go.jp/hanrei/95364/detail5/index.html | 58315 | a773912cabd80fc3 | ACQUIRED_PINNED |
 | judgment | https://www.courts.go.jp/hanrei/95323/detail5/index.html | 58951 | 73d152d892c7aa6c | ACQUIRED_PINNED |
 | judgment | https://www.courts.go.jp/hanrei/95309/detail5/index.html | 53477 | e0edd47d796c1b36 | ACQUIRED_PINNED |
+| judgment | https://www.courts.go.jp/hanrei/95397/detail5/index.html | 55608 | fce2ce34c57044b8 | ACQUIRED_PINNED |
+| judgment | https://www.courts.go.jp/hanrei/93789/detail2/index.html | 54232 | 6fa7633edcdc2754 | ACQUIRED_PINNED |
+| judgment | https://www.courts.go.jp/hanrei/93790/detail2/index.html | 57722 | a9814fc197fb516d | ACQUIRED_PINNED |
+| judgment | https://www.courts.go.jp/hanrei/93791/detail2/index.html | 54242 | 910cd396e26b58cf | ACQUIRED_PINNED |
+| judgment | https://www.courts.go.jp/hanrei/93927/detail4/index.html | 52757 | a6ad8c85f6c0faf3 | ACQUIRED_PINNED |
+| judgment | https://www.courts.go.jp/hanrei/97002/detail5/index.html | 53839 | a3fc3ea118e98294 | ACQUIRED_PINNED |
+| judgment | https://www.courts.go.jp/hanrei/93763/detail4/index.html | 52719 | 8d085a52bce9c0c4 | ACQUIRED_PINNED |
+| judgment | https://www.courts.go.jp/hanrei/94350/detail5/index.html | 55242 | a3424931e9d97688 | ACQUIRED_PINNED |
+| judgment | https://www.courts.go.jp/hanrei/95300/detail5/index.html | 52548 | 763a949c8fea3158 | ACQUIRED_PINNED |
+| judgment | https://www.courts.go.jp/hanrei/93346/detail4/index.html | 52854 | e3a2f4764f9d3d1c | ACQUIRED_PINNED |
+| judgment | https://www.courts.go.jp/hanrei/93220/detail2/index.html | 55391 | f4857e83ca13b0a8 | ACQUIRED_PINNED |
+| judgment | https://www.courts.go.jp/hanrei/93333/detail4/index.html | 53793 | 9a4f3b0cf318c4aa | ACQUIRED_PINNED |
+| judgment | https://www.courts.go.jp/hanrei/93684/detail5/index.html | 52483 | 25420476c7a32347 | ACQUIRED_PINNED |
+| judgment | https://www.courts.go.jp/hanrei/93082/detail4/index.html | 52634 | 56e01d31a727a667 | ACQUIRED_PINNED |
+| judgment | https://www.courts.go.jp/hanrei/92950/detail2/index.html | 53675 | bb3d1e594d75a3eb | ACQUIRED_PINNED |

@@ -63,7 +63,7 @@ were made: an initial depth run (4 revisions of one law) and a breadth run
 (`--limit 12 --per-law 1`). Current state:
 
 ```
-146 ACQUIRED_PINNED revisions across 10 distinct laws (3 FETCH_FAILED recorded):
+346 ACQUIRED_PINNED revisions across 16 distinct laws (3 FETCH_FAILED recorded):
   143AC0000000054 (関税定率法)
   322AC0000000175 (災害被害者租税減免)
   322CO0000000268 (災害被害者租税減免政令)
@@ -71,24 +71,26 @@ were made: an initial depth run (4 revisions of one law) and a breadth run
 ```
 Each response was validated as real law-data JSON (`law_full_text` present, so
 HTML 404 templates are rejected) and its SHA-256 re-verified against the on-disk
-bytes under `data/raw_historical/` (146/146 verified). `data/HISTORICAL_PINNED.json`
+bytes under `data/raw_historical/` (346/346 verified). `data/HISTORICAL_PINNED.json`
 and `docs/HISTORICAL_PINNED.md` record the result. `data/SOURCE_LAYERS.json` now
-reports `L6_HISTORICAL = ACQUIRED_PINNED_ONLY`, `count_acquired=146`, still
+reports `L6_HISTORICAL = ACQUIRED_PINNED_ONLY`, `count_acquired=346`, still
 `verification_status=OUT_OF_SCOPE` and NOT merged into L0. 15/15 source-layer
 tests pass, including hash re-verification and status-honesty checks. The
-remaining ~649 discovered historical names stay unacquired; no parse,
+remaining ~449 discovered historical names stay unacquired; no parse,
 formalization, proof or human review is claimed for the pinned snapshots.
 
 ## L5 case-law acquisition (2026-11-21) — first real pins
 
 `scripts/ci/acquire_caselaw.py` queries the Supreme Court public case-law search
 (`courts.go.jp`, keyword 租税, 2000 reported hits) and pins the result page plus
-fifteen real judgment detail pages (case ids 96975, 96536, 96174, 96019,
-95412, 95315, 95346, 96937, 96930, 95686, 95758, 94302, 95364, 95323, 95309). Each page was validated as genuine content (title 裁判例結果詳細 +
-事件番号 + 裁判年月日), and SHA-256 re-verified against disk (16/16). Dynamic-page
+thirty real judgment detail pages (case ids 96975, 96536, 96174, 96019,
+95412, 95315, 95346, 96937, 96930, 95686, 95758, 94302, 95364, 95323, 95309,
+95397, 93789, 93790, 93791, 93927, 97002, 93763, 94350, 95300, 93346, 93220,
+93333, 93684, 93082, 92950). Each page was validated as genuine content (title 裁判例結果詳細 +
+事件番号 + 裁判年月日), and SHA-256 re-verified against disk (31/31). Dynamic-page
 re-fetches are handled by reusing already-validated on-disk bytes rather than
 overwriting the pin. `data/SOURCE_LAYERS.json` now reports
-`L5_CASELAW = ACQUIRED_PINNED_ONLY`, `count_acquired=16`,
+`L5_CASELAW = ACQUIRED_PINNED_ONLY`, `count_acquired=31`,
 `verification_status=OUT_OF_SCOPE`, never merged into L0.
 These HTML pages are auxiliary material only — NOT parsed, formalized, proved,
 binding or legally reviewed. 15/15 source-layer tests pass, including two new

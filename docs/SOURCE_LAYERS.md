@@ -20,13 +20,13 @@ layer is never folded into the statutory ledger.
 
 ## Historical revision acquisition
 
-- revisions recorded: 149; ACQUIRED_PINNED: 146
+- revisions recorded: 349; ACQUIRED_PINNED: 346
 - verification_status: OUT_OF_SCOPE (pinned only; NOT parsed, formalized, proved or legally reviewed)
 
 ## Case-law acquisition
 
 - keyword: 租税; reported hits: 2000
-- ACQUIRED_PINNED pages: 16 (15 judgments)
+- ACQUIRED_PINNED pages: 31 (30 judgments)
 - verification_status: OUT_OF_SCOPE (pinned only; NOT parsed, formalized, proved, binding or legally reviewed)
 
 ## Ordinance acquisition
