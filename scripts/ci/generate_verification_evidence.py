@@ -37,8 +37,10 @@ if str(HERE) not in sys.path:
 
 import normative_core as core  # noqa: E402
 import task_queue as tq  # noqa: E402
+import spec_scope_map as scope_map  # noqa: E402
 
 REPO = HERE.parents[1]
+SCOPE_MAP = REPO / "data" / "SPEC_SCOPE_MAP.json"
 ATTESTATION = REPO / "data" / "PROOF_ATTESTATION.json"
 INVENTORY = REPO / "data" / "INVENTORY.json"
 REVIEW = REPO / "docs" / "ADVERSARIAL_REVIEW.md"
@@ -237,7 +239,10 @@ def checks_by_module():
         base = m.group(1)
         if base.endswith("Spec") or base.endswith("Tests"):
             continue
-        article = art or article_from_name(name)
+        # Pinned checks cite kanji labels (第三十一条の四) while the queue uses
+        # e-Gov Num keys (31_4). Without normalisation the scope map is empty
+        # and attested modules silently get zero evidenced units.
+        article = core.article_key(art) if art else article_from_name(name)
         if not article:
             continue
         out.setdefault(base, {"law_id": law_id, "article": article, "needles": needles})
@@ -248,6 +253,15 @@ def build() -> dict:
     att = load_attestation()
     review_text = REVIEW.read_text(encoding="utf-8") if REVIEW.exists() else ""
     modules = checks_by_module()
+    # Explicit scope map is authoritative: literal containment alone is not
+    # evidence that a spec models a clause (see docs/EVIDENCE_FALSE_POSITIVE_FIX.md).
+    if not SCOPE_MAP.exists():
+        raise FileNotFoundError(f"{SCOPE_MAP}; run scripts/ci/spec_scope_map.py")
+    scope_data = json.loads(SCOPE_MAP.read_text(encoding="utf-8"))
+    scoped_ids = {
+        base: {r["normative_id"] for r in rows if r.get("in_scope")}
+        for base, rows in scope_data.get("decisions", {}).items()
+    }
     inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
 
     # Build the queue only for laws that actually carry an attested module.
@@ -293,6 +307,8 @@ def build() -> dict:
             continue
 
         for t in tasks:
+            if t.get("normative_id") not in scoped_ids.get(base, set()):
+                continue
             if t.get("law_id") != info["law_id"] or t.get("article") != info["article"]:
                 continue
             if t.get("kind") not in VERIFIABLE_KINDS or t.get("unhandled_conditions"):
