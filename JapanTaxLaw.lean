@@ -635,3 +635,6 @@ import JapanTaxLaw.InsurancePremiumExceptionsTests
 import JapanTaxLaw.PopulationDensityBands
 import JapanTaxLaw.PopulationDensityBandsSpec
 import JapanTaxLaw.PopulationDensityBandsTests
+import JapanTaxLaw.TemporalEnforcementDates
+import JapanTaxLaw.TemporalEnforcementDatesSpec
+import JapanTaxLaw.TemporalEnforcementDatesTests
