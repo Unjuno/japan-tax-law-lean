@@ -71,6 +71,9 @@ def main() -> int:
             evidence = {}
     # Required axes come from the canonical core, never from the ledger under
     # test: a partial ledger must not redefine what counts as complete.
+    # The script is also imported in-process by tests, so its own directory is
+    # not necessarily on sys.path.
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
     import normative_core  # noqa: E402
     axes = set(normative_core.EVIDENCE_AXES)
     fv_units = [u for u in units if u.get("status") == "FULLY_VERIFIED"]
