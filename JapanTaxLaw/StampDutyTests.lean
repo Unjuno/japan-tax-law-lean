@@ -62,4 +62,12 @@ example : stampAggregatePenalty ⟨300, 300, 300⟩ = 1_000 := by decide
 example : stampAggregatePenalty ⟨2_000, 100, 500⟩ = 2_600 := by decide
 example : stampAggregatePenalty ⟨0, 400, 400⟩ = 1_000 := by decide
 
+-- ==== 追加の境界: ゼロ入力 / 小さい正の入力 (1..13) / 飽和・単位元境界 ====
+-- (a) 零入力: 未消印の印紙税額面 0 → 過怠税 0（単位元）
+example : stampUncancelledPenalty 0 = 0 := by decide
+-- (b) 小さい正の入力 (1..13): 自己申告 13 円 → 13 + (13*10)/100 = 13 + 1 = 14
+example : stampDeclaredPenalty 13 = 14 := by decide
+-- (c) 単位元境界: 1 円の 10% は切捨てで 0 → 結果 1 = 入力（自己申告過怠税の identity）
+example : stampDeclaredPenalty 1 = 1 := by decide
+
 end JapanTaxLaw

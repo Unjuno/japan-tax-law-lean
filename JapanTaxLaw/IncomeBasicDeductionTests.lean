@@ -48,4 +48,11 @@ example : taxableAfterBasicDeduction 100_000 580_000 = 0 := by decide
 example : taxableAfterBasicDeduction 0 0 = 0 := by decide
 example : taxableAfterBasicDeduction 24_000_000 (basicDeductionAmount 24_000_000) = 23_520_000 := by decide
 
+-- 追加の必須境界 (b) 小さい正の入力 (1..13) と (c) identity/saturation。
+-- ((a) 零入力 0 と (c) result 0 は上示例で既にカバー。)
+example : basicDeductionAmount 1 = 580_000 := by decide
+example : basicDeductionAmount 13 = 580_000 := by decide
+example : taxableAfterBasicDeduction 13 0 = 13 := by decide  -- 控除 0 → 入力と一致 (identity)
+example : taxableAfterBasicDeduction 5 13 = 0 := by decide  -- 控除 > 所得 → 0 (saturation)
+
 end JapanTaxLaw.IncomeBasicDeduction
