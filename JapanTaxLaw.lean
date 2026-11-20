@@ -611,3 +611,6 @@ import JapanTaxLaw.ProgressiveAgriculturalPointsTests
 import JapanTaxLaw.DeductionCapsAndMonthFloors
 import JapanTaxLaw.DeductionCapsAndMonthFloorsSpec
 import JapanTaxLaw.DeductionCapsAndMonthFloorsTests
+import JapanTaxLaw.MeshPopulationBands
+import JapanTaxLaw.MeshPopulationBandsSpec
+import JapanTaxLaw.MeshPopulationBandsTests
