@@ -27,7 +27,6 @@ def check(name, cond, detail=""):
 
 
 def main() -> int:
-    results.clear()  # allow repeated in-process runs (tests / CI retries)
     q = json.loads(QUEUE.read_text(encoding="utf-8"))
     tasks = q.get("tasks", [])
     units = []
@@ -58,28 +57,24 @@ def main() -> int:
     statuses = {u.get("status") for u in units}
     check("only declared statuses used", statuses <= EXPECTED, str(sorted(statuses)))
     counts = q.get("status_counts", {})
-    # Accept FULLY_VERIFIED only when every evidence axis is backed in the
-    # committed ledger. The old rule (FULLY_VERIFIED must be zero) punished
-    # successful verification; accepting FV without evidence rewards a false
-    # completion claim. Check backing, not absence.
-    evidence_path = REPO / "data" / "verification_evidence.json"
-    evidence = {}
-    if evidence_path.exists():
-        try:
-            evidence = json.loads(evidence_path.read_text(encoding="utf-8")).get("units", {})
-        except (ValueError, OSError):
-            evidence = {}
-    axes = set()
-    for record in evidence.values():
-        axes.update(record.keys())
-    fv_units = [u for u in units if u.get("status") == "FULLY_VERIFIED"]
-    unbacked = [str(u.get("normative_id", ""))[:24] for u in fv_units
-                if not evidence.get(str(u.get("normative_id", "")), {})
-                or any(not str(evidence[str(u.get("normative_id", ""))].get(a, "")).strip()
-                       for a in axes)]
-    check("every FULLY_VERIFIED is evidence-backed",
-          (not fv_units) or (bool(axes) and not unbacked),
-          f"FULLY_VERIFIED={len(fv_units)} axes={len(axes)} unbacked={len(unbacked)}")
+    # FULLY_VERIFIED is now achievable, but ONLY with a recorded evidence entry
+    # covering every axis.  A bare status string or a presence match is not
+    # enough: the durable ledger must contain traceable references.
+    EVIDENCE = REPO / "data" / "verification_evidence.json"
+    ledger = json.loads(EVIDENCE.read_text(encoding="utf-8")) if EVIDENCE.exists() else {}
+    ev_units = ledger.get("units", {})
+    fv = [u for u in units if u.get("status") == "FULLY_VERIFIED"]
+    AXES = ("source_location", "decomposition_audit", "source_correspondence_audit",
+            "independent_spec", "implementation", "kernel_proof", "proof_scope",
+            "boundary_proof", "cross_law_proof", "tests", "adversarial_review")
+    unbacked = []
+    for u in fv:
+        rec = ev_units.get(u.get("normative_id"), {})
+        if not all(isinstance(rec.get(a), str) and rec[a].strip() for a in AXES):
+            unbacked.append(u.get("normative_id"))
+    check("FULLY_VERIFIED backed by complete evidence ledger entries",
+          not unbacked,
+          f"FULLY_VERIFIED={len(fv)} unbacked={len(unbacked)} ledger={len(ev_units)}")
 
     sample = units[0]
     required = ("normative_id", "law_id", "article", "source_path", "kind",
