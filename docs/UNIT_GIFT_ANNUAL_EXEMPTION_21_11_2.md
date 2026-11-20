@@ -24,31 +24,47 @@ Exact source path: `LawBody[3]/MainProvision/MainProvision[1]/Article:21_11_2/Ar
 - `JapanTaxLaw/GiftAnnualExemption.lean` — `giftAnnualExemptionLimit = 600_000`,
   `giftAnnualExemptionBase price = price − 600_000` (Nat saturating), 3 kernel theorems.
 - `JapanTaxLaw/GiftAnnualExemptionSpec.lean` — independent `specGiftAnnualExemptionBase`
-  using an inline literal and explicit `if`; no implementation definition in the
-  definitional section (checked by `independent_spec_ok`).
+  using an inline literal and explicit `if`; no implementation definition in its
+  definitional section (`independent_spec_ok` = true).
 - `JapanTaxLaw/GiftAnnualExemptionTests.lean` — 9 kernel-decided examples incl. boundaries
   0, 1, 599999, 600000, 600001, 611012, 1200000, 13000000.
-- Local `lake build` (Lean 4.35.0): **527 jobs, exit 0**.
+- Local `lake build` (Lean 4.35.0): **527 jobs, exit 0**. `check_no_sorry.py`: no forbidden placeholders.
 - `python scripts/ci/transcription_audit.py` → **160/160 PASS** incl. the new anchor.
 
 ## ADVERSARIAL (H/T/D/C/U)
-See the module-specific section `### GiftAnnualExemption.lean` in
-`docs/ADVERSARIAL_REVIEW.md`: independent re-extraction from the pinned JSON,
-competing interpretation (addition instead of subtraction) rejected by the verbatim
-「控除する」, paragraph 2 (政令委任) recorded as NOT MODELLED, no circular spec.
+Module-specific section `### GiftAnnualExemption.lean` in `docs/ADVERSARIAL_REVIEW.md`:
+independent re-extraction from the pinned JSON, competing interpretation (addition
+instead of subtraction) rejected by the verbatim 「控除する」, paragraph 2 (政令委任)
+recorded as NOT MODELLED, no circular spec.
 
-## Measured effect (simulated with the module hashes added to the attestation)
+## CI ATTESTATION (measured, real)
+Workflow `Lean & Audit verification`, run
+https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44714066256
+(workflow_dispatch, commit `71a2b7c46b37d50126c2e8ac814e338548b927cb`):
+**conclusion = success**. Both jobs success; the Lean job's required steps
+(`Build explicitly`, `No sorry/admit in adopted proofs`, `Axioms of key theorems`,
+two clean-build reproducibility checks) all succeeded.
+
+`data/PROOF_ATTESTATION.json` is bound to that run (459 module blob hashes from the
+CI-built commit). `data/verification_evidence.json` now contains all **11 evidence
+axes** for the target unit, including the CI run id as `kernel_proof`.
+
+## Measured effect (real, not simulated)
 ```
 BEFORE {'NOT_STARTED': 396843, 'PROVED_SCOPE': 1, 'FULLY_VERIFIED': 8, 'BLOCKED': 2}
 AFTER  {'NOT_STARTED': 396842, 'PROVED_SCOPE': 1, 'FULLY_VERIFIED': 9, 'BLOCKED': 2}
-DELTA NOT_STARTED -1, FULLY_VERIFIED +1
+DELTA  NOT_STARTED -1, FULLY_VERIFIED +1
 verify_queue_invariants.py: 12/12 PASS
+  PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=9 axes=11 unbacked=0
 ```
-The simulation was reverted. The real effect requires the attestation to be bound
-to the successful CI run of commit `1e17162` (workflow run 44707360298), after which
-`generate_verification_evidence.py` and `task_queue.py` must be re-run.
+Local Python gates on the final branch: **36 PASS / 0 FAIL / 0 SKIP**.
 
 ## Scope limits
 Paragraph 2 (two-or-more specific donors; cabinet order) is NOT MODELLED.
 Applicability conditions are caller-established. No whole-article completion claim.
 Human legal review remains pending (separate axis).
+
+## Resumption
+Branch `feat/norm-unit-tobacco-grant-2026`, PR **#232** (open).
+Subsequent commits after the attested commit only refresh generated ledgers;
+re-run `python scripts/ci/run_python_gates.py` and a CI dispatch to reconfirm.
