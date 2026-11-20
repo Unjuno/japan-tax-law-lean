@@ -29,17 +29,20 @@
         {
           "detail": "needle reused in art.21-11-2",
           "event": "adversarial_finding_recorded"
+        },
+        {
+          "detail": "needle reused in 21_11_2; queue ids differ (NORM|167b8cabf184adb595d75baba5ffbf319ec3c502be8a820858e8c493b09f57d7 vs NORM|55e13519abd6d766aecf93ee9290185b902fa9d53a6de2dfdab9f7e8fd508781); article-scoped source audit used",
+          "event": "adversarial_finding_resolved_by_structural_identifier"
         }
       ],
       "legal_review": "LEGAL_REVIEW_PENDING",
       "owner": "",
       "review_evidence": [
-        "docs/ADVERSARIAL_FINDING_GIFT_BASIC_21_5.md: independent pinned re-extraction, H/T/D/C/U; D=FAIL for uniqueness hypothesis"
+        "docs/ADVERSARIAL_FINDING_GIFT_BASIC_21_5.md: independent pinned re-extraction, H/T/D/C/U; D=FAIL for uniqueness hypothesis",
+        "scripts/ci/resolve_gift_needle_ambiguity.py: H=text-only id unique; T=re-extract both pinned articles and compare queue ids; D=FAIL for text-only, PASS for structural id; C=separate norms with identical wording; U=human legal review still pending"
       ],
       "status": "NOT_STARTED",
-      "unhandled_conditions": [
-        "NEEDLE_REUSED_IN_21_11_2: verbatim '課税価格から六十万円を控除する' occurs in both art.21-5 and art.21-11-2; article attribution to 21-5 is correct but text-only identification is not unique (see docs/ADVERSARIAL_FINDING_GIFT_BASIC_21_5.md)"
-      ],
+      "unhandled_conditions": [],
       "unit_id": "NORM|167b8cabf184adb595d75baba5ffbf319ec3c502be8a820858e8c493b09f57d7"
     }
   }

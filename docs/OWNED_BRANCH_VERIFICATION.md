@@ -44,11 +44,23 @@ Measured results on this branch (2026-11-20):
 ```
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=396805, PARTIAL=0,
-PROVED_SCOPE=1, FULLY_VERIFIED=46, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=47, BLOCKED=2
 state merge: 396853 change(s)
+
+$ python scripts/ci/verify_queue_invariants.py
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=47 axes=11 unbacked=0
+12/12 invariants passed
+
+The 47th unit was promoted from PROVED_SCOPE after the adversarial
+needle-reuse finding was resolved by STRUCTURAL identity rather than text:
+`scripts/ci/resolve_gift_needle_ambiguity.py` re-extracted both pinned articles
+and confirmed two distinct queue ids for art. 21-5 and art. 21-11-2, then
+cleared the text-only ambiguity from the durable state with an H/T/D/C/U trail.
+This does not weaken the finding — text-only identification is still invalid;
+the unit is identified by article/paragraph/sentence position and source hash.
 ```
 
-So 46+1 = 47 evidence-backed units left NOT_STARTED on this branch; the
+So 47 evidence-backed units left NOT_STARTED on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
 durable. `docs/TASK_QUEUE.md` is regenerated with these counts.
