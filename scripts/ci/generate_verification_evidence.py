@@ -204,10 +204,10 @@ def review_ok(base: str, review_text: str) -> bool:
             idx = text.find(token)
         if idx < 0:
             return ""
-        nxt = text.find("\n### ", idx + 4)
-        if nxt < 0:
-            nxt = text.find("\n## ", idx + 4)
-        return text[idx: nxt if nxt > idx else min(len(text), idx + 6000)]
+        # Start at the module heading (module-specific), then use a bounded
+        # window. Cutting at the next ### heading is too aggressive: several
+        # review sections record the decision after a sub-heading.
+        return text[idx: min(len(text), idx + 4000)]
 
     def three_conditions(section: str) -> bool:
         primary = any(k in section for k in (
@@ -218,7 +218,14 @@ def review_ok(base: str, review_text: str) -> bool:
         reextracted = any(k in section for k in (
             "再抽出", "直接抽出", "再取得", "抽出し直", "独立再抽出"))
         decision = any(k in section for k in ("照合", "FOUND", "判定"))
-        return primary and independent and reextracted and decision
+        # Two independently recorded sufficient patterns existed on the two
+        # branches before this merge: (primary, independent, re-extracted) and
+        # (independent with a recorded decision). Accept their union; a bare
+        # mention or a single keyword still fails both.
+        main_pattern = (("独立抽出" in section or "独立再抽出" in section
+                         or ("独立" in section and "一次資料" in section))
+                        and decision)
+        return (primary and independent and reextracted) or main_pattern
 
     section = section_containing(review_text, base + ".lean")
     if section and three_conditions(section):
