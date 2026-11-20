@@ -696,6 +696,9 @@ JapanTaxLaw/WeightTaxTransferTests.lean       # 同上 退行テスト
 JapanTaxLaw/TransitionalTariffRate.lean        # 関税定率法改正法 附則 art.2（経過期間の税率）L4 モデル
 JapanTaxLaw/TransitionalTariffRateSpec.lean    # 同上 独立定式
 JapanTaxLaw/TransitionalTariffRateTests.lean   # 同上 退行テスト
+JapanTaxLaw/ProvisionalTariffRate.lean          # 関税暫定措置法 附則 art.2-2（経過期間の税率）L4 モデル
+JapanTaxLaw/ProvisionalTariffRateSpec.lean      # 同上 独立定式
+JapanTaxLaw/ProvisionalTariffRateTests.lean     # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト

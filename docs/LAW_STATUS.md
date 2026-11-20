@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 35
+- with >=1 pinned literal check (semantic model): 36
 - with recorded human legal review: 0
 
 ## All laws
@@ -88,7 +88,7 @@ a completion flag.
 | `333CO0000000337` | 産業投資特別会計の貸付の財源に充てるための外貨債の発行に関する法律に基く外貨債の利子の非 | 333CO0000000337_20171001_429CO0000000106 | CurrentEnforced | YES | ok | 11 | NO (0) | NO |
 | `334AC0000000147` | 国税徴収法 | 334AC0000000147_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 371 | YES (1) | NO |
 | `334CO0000000329` | 国税徴収法施行令 | 334CO0000000329_20260525_507CO0000000244 | CurrentEnforced | YES | ok | 116 | YES (1) | NO |
-| `335AC0000000036` | 関税暫定措置法 | 335AC0000000036_20260401_508AC0000000005 | CurrentEnforced | YES | ok | 262 | NO (0) | NO |
+| `335AC0000000036` | 関税暫定措置法 | 335AC0000000036_20260401_508AC0000000005 | CurrentEnforced | YES | ok | 262 | YES (1) | NO |
 | `335CO0000000069` | 関税暫定措置法施行令 | 335CO0000000069_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 287 | NO (0) | NO |
 | `336CO0000000153` | 関税割当制度に関する政令 | 336CO0000000153_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 127 | NO (0) | NO |
 | `336M50000400035` | 重油及び粗油等の関税割当制度に関する省令 | 336M50000400035_20201228_502M60000400092 | CurrentEnforced | YES | ok | 16 | NO (0) | NO |

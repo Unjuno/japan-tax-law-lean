@@ -521,3 +521,6 @@ import JapanTaxLaw.WeightTaxTransferTests
 import JapanTaxLaw.TransitionalTariffRate
 import JapanTaxLaw.TransitionalTariffRateSpec
 import JapanTaxLaw.TransitionalTariffRateTests
+import JapanTaxLaw.ProvisionalTariffRate
+import JapanTaxLaw.ProvisionalTariffRateSpec
+import JapanTaxLaw.ProvisionalTariffRateTests
