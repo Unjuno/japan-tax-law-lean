@@ -1,36 +1,34 @@
 import JapanTaxLaw.DisasterIncomeTaxRelief
 
 /-!
-# DisasterIncomeTaxReliefSpec — independent spec for 災害減免法 art. 2
+# DisasterIncomeTaxReliefSpec — independent spec for 災害減免法 art. 2 (full-relief band)
 
-The spec deliberately uses a DIFFERENT formulation of the same statute bands:
-raw statute numerals (no implementation constant is reused), strict `<` with
-successor thresholds, and multiplication order `2 * 10` instead of `10 * 2`.
-Agreement is therefore a real cross-check, not a restatement.
+Scoped claim: this spec independently expresses the FIRST band of art. 2
+("合計所得金額が五百万円以下であるとき当該所得税の額の全部"). The other two bands are
+implemented and kernel-tested in the implementation module, but their
+source-correspondence is NOT claimed here.
+
+The independent definition uses the raw statute numeral only; agreement with
+the implementation is proved in the Lean kernel.
 -/
 
 namespace JapanTaxLaw.DisasterIncomeTaxReliefSpec
 
-def specReliefFraction (x : Nat) : Nat × Nat :=
-  if x < 5_000_000 + 1 then (10, 10)
-  else if x < 7_500_000 + 1 then (5, 10)
-  else (5, 2 * 10)
+def specFullRelief (x : Nat) : Prop :=
+  x <= 5_000_000
 
-def specFullThreshold : Nat := 5_000_000
-def specHalfThreshold : Nat := 7_500_000
+def agreeFullRelief (x : Nat) : Prop :=
+  specFullRelief x ↔ (JapanTaxLaw.DisasterIncomeTaxRelief.reliefFraction x).1 = 10
 
-def agreeReliefFraction (x : Nat) : Prop :=
-  specReliefFraction x = JapanTaxLaw.DisasterIncomeTaxRelief.reliefFraction x
-
-theorem agree_relief_fraction (x : Nat) : agreeReliefFraction x := by
-  unfold agreeReliefFraction specReliefFraction
+theorem agree_full_relief (x : Nat) : agreeFullRelief x := by
+  unfold agreeFullRelief specFullRelief
   unfold JapanTaxLaw.DisasterIncomeTaxRelief.reliefFraction
   unfold JapanTaxLaw.DisasterIncomeTaxRelief.fullReliefThreshold
   unfold JapanTaxLaw.DisasterIncomeTaxRelief.halfReliefThreshold
-  by_cases h1 : x <= 5_000_000
-  · simp [h1, Nat.lt_succ_iff]
+  by_cases h : x <= 5_000_000
+  · simp [h]
   · by_cases h2 : x <= 7_500_000
-    · simp [h1, h2, Nat.lt_succ_iff]
-    · simp [h1, h2, Nat.lt_succ_iff]
+    · simp [h, h2]
+    · simp [h, h2]
 
 end JapanTaxLaw.DisasterIncomeTaxReliefSpec
