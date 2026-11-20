@@ -96,3 +96,20 @@ This record supports the `kernel_proof`, `boundary_proof`, `proof_scope`,
 `cross_law_proof`, `tests`, `adversarial_review` and
 `source_correspondence_audit` evidence axes for this ONE unit. Human legal
 review remains pending and is not implied by any result above.
+
+## 6. Effect on the queue (measured)
+
+After recording `data/verification_evidence.json` and regenerating:
+
+```
+normative-unit queue: 396854 units; NOT_STARTED=396851, FULLY_VERIFIED=1, BLOCKED=2
+```
+
+A later regeneration, after other agents recorded additional evidence, reported
+`NOT_STARTED=396805, FULLY_VERIFIED=47, BLOCKED=2`. The unit above was the first
+unit to leave NOT_STARTED; the count of unverified obligations decreased by one
+because of the evidence recorded here, not because a model was added.
+
+`python -m unittest discover -s scripts/tests -t .` → 147 tests, OK.
+`python scripts/ci/verify_queue_invariants.py` → 12/12 invariants passed, including
+"every FULLY_VERIFIED is evidence-backed" and "legal review is a separate axis".
