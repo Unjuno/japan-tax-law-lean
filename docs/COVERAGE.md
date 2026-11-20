@@ -23,22 +23,22 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 
 | axis | count |
 |---|---:|
-| laws parse-ok | n/a |
-| laws audit-ok | n/a |
-| articles checked | n/a |
-| paragraphs checked | n/a |
-| items checked | n/a |
-| verified anomalies | n/a |
-| unreviewed candidates | n/a |
+| laws parse-ok | 325 |
+| laws audit-ok | 325 |
+| articles checked | 42584 |
+| paragraphs checked | 86403 |
+| items checked | 61672 |
+| verified anomalies | 0 |
+| unreviewed candidates | 3438 |
 
 ## Reference-relation axes (Objective §1 — recursive discovery)
 
 | axis | count |
 |---|---:|
-| references extracted | n/a |
-| internal references checked | n/a |
-| external references NOT bound to the ledger | n/a |
-| references classified unsupported | n/a |
+| references extracted | 476500 |
+| internal references checked | 63234 |
+| external references NOT bound to the ledger | 175186 |
+| references classified unsupported | 250043 |
 
 external_unverified references are NOT verified and are NOT silently counted
 as covered scope.
@@ -62,19 +62,19 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 188 | n/a | n/a |
-| distinct article pins | 63 | n/a | n/a |
-| pinned Lean modules (cross-law) | 493 | n/a | n/a |
+| pinned literal checks | 189 | n/a | n/a |
+| distinct article pins | 64 | 42584 | 0.15% |
+| pinned Lean modules (cross-law) | 495 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 120 |
+| unpinned Lean modules (not counted as verified) | 121 |
 | L7 candidates awaiting human legal review | 3438 |
-| verified anomalies (requires independent review to establish) | n/a |
+| verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
-| external references NOT bound to the ledger | n/a |
+| external references NOT bound to the ledger | 175186 |
 | related statutes discovered but not acquired (Objective §2) | 380 |
 | related statutes acquired but not parsed/modelled/reviewed | 2 |
 
