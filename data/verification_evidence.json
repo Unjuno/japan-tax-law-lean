@@ -2081,6 +2081,19 @@
       "cross_law_proof": "queue unit dependencies analyzed; single-law enumeration in 関税法 art.29; no cross-law constant claimed; substantive bonded-area definitions NOT MODELLED",
       "tests": "JapanTaxLaw/BondedAreaKindsTests.lean sha256=79e3172b3c72edda8cdfefdf3424d54da8237b9f462d0577d9cb3342701e6aff (kernel-decided enumeration/cardinality checks)",
       "adversarial_review": "docs/ADVERSARIAL_BONDED_AREA_KINDS_29.md — independent agent recomputed pin sha256 (1701272a…32204ea, 1,266,341 bytes), located needle uniquely in Article 第二十九条（保税地域の種類）, confirmed law identity 関税法 in BOTH INVENTORY and raw revision_info/law_title (no false label), verified all five named kinds including 総合保税地域. NO CONCRETE FINDINGS: spec independence (literal count vs derived list length), universal all_kinds_exhaustive over 5 constructors, and honest scope all PASS. One C (queue taxonomy EFFECT vs enumeration) and one U (norm-id hash not recomputed), neither an artifact error. No claim of legal correctness."
+    },
+    "NORM|6b83a747a7e86cb520e53a9ba162dd0beda902d06616239281a19e2cb5460f75": {
+      "source_location": "data/raw/325M50000040017_20260901_506M60000040016.law.json#LawBody[2]/MainProvision/MainProvision[44]/Article:30/Article#30/Paragraph#3/ParagraphSentence/Sentence#1 sha256=a4e46e6eba52b6f8a47365590d34aff35e9eeea4bbc7186ecdace837e35b552f",
+      "decomposition_audit": "build/task_queue.json: kind=EXCEPTION, decomposed=true, exact span, unhandled_conditions=[], id unique",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS 相続税法施行規則 art.30（法59条1項ただし書の財務省令で定める額は百万円）; 188/188 checks passed; verbatim needle unique in pinned file and in Article 30 / Paragraph 3; law identity from INVENTORY official_title=相続税法施行規則 and raw law_title (昭和二十五年大蔵省令第十七号, a 省令)",
+      "independent_spec": "JapanTaxLaw/InheritanceRegPrescribedAmountSpec.lean sha256=094b2362fbd796d754b5e35c5a183cf1cf9f8b003cc278b9d7fa9deafaa4a225 (specIsPrescribedAmount = degenerate interval [1M,1M], distinct from equality predicate; agree_prescribed_amount universal over all amounts)",
+      "implementation": "JapanTaxLaw/InheritanceRegPrescribedAmount.lean sha256=dae5402f95f768c85a99005929a25ec120283466d28d28c38a8fc1b3d3ced02d (prescribedAmountYen=1_000_000=百万円; isPrescribedAmount = a = prescribedAmountYen; unit 円; law identity verified)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (614 jobs); agree_prescribed_amount universal over all amounts; all 5 theorems axiom-free; no sorryAx/Classical.choice",
+      "proof_scope": "docs/UNIT_INHERITANCE_REG_PRESCRIBED_AMOUNT_30.md (computable delegated-amount slice; substantive 相続税法 art.59(1) proviso and applicability conditions explicitly NOT MODELLED)",
+      "boundary_proof": "JapanTaxLaw/InheritanceRegPrescribedAmountSpec.lean: at_prescribed (¥1M), below_prescribed (¥999,999), above_prescribed (¥1,000,001), amount_is_one_million, agree_prescribed_amount",
+      "cross_law_proof": "queue unit dependencies analyzed; this ordinance amount is referenced from 相続税法 art.59(1) proviso; the substantive statute proviso is NOT MODELLED; no cross-law constant claimed",
+      "tests": "JapanTaxLaw/InheritanceRegPrescribedAmountTests.lean sha256=f82f97949ac99535cbd63c88f602444cc9764112bda56d10bc9b1d30116284f8 (kernel-decided boundary examples)",
+      "adversarial_review": "__ADVERSARIAL__"
     }
   }
 }
