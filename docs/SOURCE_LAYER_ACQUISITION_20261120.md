@@ -169,3 +169,25 @@ No completion claim is made for L2–L5. Their denominators remain separate and
 `all-complete claimable` stays False. The next technical work item is to define
 and test acquisition adapters for each family; until then they stay explicit
 gaps, not silently omitted scopes.
+
+
+## L3 treaty — third availability probe (2026-11-21)
+
+Four further routes were checked; none yielded a Japanese tax-treaty original,
+and nothing was pinned for L3:
+
+```
+https://www.oecd.org/en/topics/sub-issues/tax-treaties.html        -> HTTP 403
+https://www.jetro.go.jp/en/invest/setting_up/treaties/             -> HTTP 403
+https://www.ndl.go.jp/jp/access/list/treaty.html                   -> HTTP 404
+https://treaties.un.org/Pages/Home.aspx?clang=_en                  -> reachable (HTML)
+```
+
+The UN Treaty Collection is reachable, but it is the depositary register for
+**multilateral** treaties. It does not provide the Japanese authoritative texts
+of the bilateral income-tax treaties that L3 requires, so it is **not** counted
+as an L3 acquisition (no false acquisition from mere reachability). Competing
+hypothesis ("another official mirror may exist") is not disproven, but none was
+established. L3 remains `NOT_ACQUIRED`, `count_acquired=0`, `OUT_OF_SCOPE`,
+a separate denominator never merged into L0. This is an access/discovery
+limitation, not a legal conclusion; human legal review 0.
