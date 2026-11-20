@@ -537,6 +537,9 @@ import JapanTaxLaw.CustomsSameContentLimitTests
 import JapanTaxLaw.LocalTaxAresRounding
 import JapanTaxLaw.LocalTaxAresRoundingSpec
 import JapanTaxLaw.LocalTaxAresRoundingTests
+import JapanTaxLaw.CustomsInvestigationDeadline
+import JapanTaxLaw.CustomsInvestigationDeadlineSpec
+import JapanTaxLaw.CustomsInvestigationDeadlineTests
 import JapanTaxLaw.UsForcesDutyFreePenalty
 import JapanTaxLaw.UsForcesDutyFreePenaltySpec
 import JapanTaxLaw.UsForcesDutyFreePenaltyTests
