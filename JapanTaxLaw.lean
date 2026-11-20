@@ -600,3 +600,6 @@ import JapanTaxLaw.TobaccoRateTests
 import JapanTaxLaw.CombinedRegistrationRequest
 import JapanTaxLaw.CombinedRegistrationRequestSpec
 import JapanTaxLaw.CombinedRegistrationRequestTests
+import JapanTaxLaw.TaxSavingsPenaltyCap
+import JapanTaxLaw.TaxSavingsPenaltyCapSpec
+import JapanTaxLaw.TaxSavingsPenaltyCapTests
