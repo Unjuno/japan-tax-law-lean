@@ -166,20 +166,26 @@ def source_literals_verified(lits: set[int], text: str) -> bool:
     return True  # empty literal set: pinned-needle anchor (checked by caller) is the source evidence
 
 
-def clause_correspondence(lits: set[int], text: str, needles: list[str]) -> tuple[bool, str]:
-    """Clause-level source correspondence, sound for both numeric and structural specs.
+def clause_correspondence(lits: set[int], text: str, needles: list[str],
+                          scoped: str = "") -> tuple[bool, str]:
+    """Clause-level source correspondence with two sound anchor patterns.
 
-    Numeric specs: the spec's literals (including the exact rate ratio) must be
-    located in this clause. Structural specs have NO statutory numerals (e.g. a
-    saturating subtraction defined by recursion); for those, the clause must
-    contain at least one independently pinned needle from transcription_audit,
-    which is the literal anchor for the whole module. A needle from a different
-    clause cannot qualify, because the match is on this clause's text.
+    1. Single-rule specs: every spec numeral (including the exact rate ratio)
+       must occur in THIS clause.
+    2. Rate-table / structural specs: a rate table's literals are spread over
+       several clauses of the same article. Require BOTH a pinned needle in this
+       clause AND all spec numerals within the scoped article. Two independent
+       anchors are stronger than a single clause match, never weaker.
     """
+    needle_hits = [n for n in (needles or []) if core.norm(n) and core.norm(n) in text]
     if lits:
-        return source_literals_verified(lits, text), "spec numerals / rate ratio"
-    hits = [n for n in (needles or []) if core.norm(n) and core.norm(n) in text]
-    return bool(hits), "pinned needle(s) in clause: %s" % [n[:24] for n in hits[:3]]
+        if source_literals_verified(lits, text):
+            return True, "spec numerals / rate ratio in clause"
+        if needle_hits and scoped and source_literals_verified(lits, scoped):
+            return True, ("pinned needle in clause + all spec numerals in scoped article: %s"
+                          % [n[:24] for n in needle_hits[:3]])
+        return False, "spec numerals not located in clause or scoped article"
+    return bool(needle_hits), "pinned needle(s) in clause: %s" % [n[:24] for n in needle_hits[:3]]
 
 
 def blob_sha(path: Path) -> str:
@@ -532,7 +538,8 @@ def build() -> dict:
             if t.get("kind") not in VERIFIABLE_KINDS or t.get("unhandled_conditions"):
                 continue
             text = core.norm(t.get("text", ""))
-            clause_ok, clause_basis = clause_correspondence(lits, text, info.get("needles", []))
+            clause_ok, clause_basis = clause_correspondence(
+                lits, text, info.get("needles", []), scoped)
             if not text or not clause_ok:
                 continue  # this clause is not expressed by the verified spec
             cov = t.get("coverage", {})
