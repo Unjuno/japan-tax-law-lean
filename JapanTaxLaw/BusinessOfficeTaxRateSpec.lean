@@ -1,9 +1,11 @@
 import JapanTaxLaw.BusinessOfficeTaxRate
 
 /-!
-# BusinessOfficeTaxRateSpec — 地方税法 第七百一条の四十二 の独立定式
+# BusinessOfficeTaxRateSpec — 地方税法 第七百一条の四十二 (art. 701-42) の独立定式
 
 Sources (pinned; identical to BusinessOfficeTaxRate.lean):
+
+  Declared statutory scope (machine-parsed by spec_scope_map.py): art. 701-42
 
   Law id: 325AC0000000226
   Revision: 325AC0000000226_20261101_508AC0000000002

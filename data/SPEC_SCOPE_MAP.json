@@ -1,5 +1,31 @@
 {
   "decisions": {
+    "BusinessOfficeTaxRate": [
+      {
+        "article": "701_42",
+        "in_scope": false,
+        "kind": "UNRESOLVED",
+        "law_id": "325AC0000000226",
+        "normative_id": "NORM|da258751b09e2674fdec3cec0610454ed8763e570268c953d8313005d4fc7b37",
+        "reason": "UNIT_HAS_UNRESOLVED_CONDITIONS"
+      },
+      {
+        "article": "701_42",
+        "in_scope": true,
+        "kind": "STRUCTURE",
+        "law_id": "325AC0000000226",
+        "normative_id": "NORM|4b945e0544789b9f8b922b270e0f6853f29424cf0c5acd74cbc2df1d0324a11b",
+        "reason": "EXPLICIT_SCOPE_MATCH"
+      },
+      {
+        "article": "701_42",
+        "in_scope": true,
+        "kind": "EFFECT",
+        "law_id": "325AC0000000226",
+        "normative_id": "NORM|b88374f074e3f700d1af2082386f4ee785130b28c89694ee506265f9be72a061",
+        "reason": "EXPLICIT_SCOPE_MATCH"
+      }
+    ],
     "BusinessOwnerDeduction": [
       {
         "article": "72_49_14",
@@ -36556,6 +36582,20 @@
     }
   ],
   "modules": {
+    "BusinessOfficeTaxRate": {
+      "articles": [
+        "701_42",
+        "七百一の四十二"
+      ],
+      "header_chars": 975,
+      "law_ids": [
+        "325AC0000000226"
+      ],
+      "revisions": [
+        "325AC0000000226_20261101_508AC0000000002"
+      ],
+      "spec_file": "JapanTaxLaw/BusinessOfficeTaxRateSpec.lean"
+    },
     "BusinessOwnerDeduction": {
       "articles": [
         "72_49"

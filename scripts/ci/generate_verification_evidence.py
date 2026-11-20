@@ -237,7 +237,10 @@ def checks_by_module():
         base = m.group(1)
         if base.endswith("Spec") or base.endswith("Tests"):
             continue
-        article = art or article_from_name(name)
+        # Transcription checks cite kanji titles (第六十六条) while the queue
+        # stores e-Gov Num keys (66). Normalise before matching units, otherwise
+        # every kanji-labelled article check silently yields zero evidence.
+        article = core.article_key(art) if art else article_from_name(name)
         if not article:
             continue
         out.setdefault(base, {"law_id": law_id, "article": article, "needles": needles})
