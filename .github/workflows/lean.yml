@@ -37,6 +37,9 @@ jobs:
           ! grep -q 'sorryAx' _ax.log
           ! grep -q 'Classical.choice' _ax.log || { echo "unexpected axioms: $(cat _ax.log)"; exit 1; }
 
+      - name: Lean kernel audit record (necessary, not sufficient)
+        run: python3 scripts/ci/lean_kernel_audit.py
+
       - name: Reproducibility check 1 (clean build)
         run: |
           lake clean
