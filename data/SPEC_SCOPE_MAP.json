@@ -39814,6 +39814,48 @@
         "reason": "EXPLICIT_SCOPE_MATCH"
       }
     ],
+    "TaxAccountantRegDelegatedAmount": [
+      {
+        "article": "6_2",
+        "in_scope": false,
+        "kind": "UNRESOLVED",
+        "law_id": "326CO0000000216",
+        "normative_id": "NORM|fa16b28484c76f4c33051fb4719462b462b0952a8c67d52382a903be8b035c80",
+        "reason": "UNIT_HAS_UNRESOLVED_CONDITIONS"
+      },
+      {
+        "article": "6_2",
+        "in_scope": true,
+        "kind": "STRUCTURE",
+        "law_id": "326CO0000000216",
+        "normative_id": "NORM|b550ad62352d3ac60a3acf7bf498b91e75d6720eeefc7715f5c7fb1b2a2bec4b",
+        "reason": "EXPLICIT_SCOPE_MATCH"
+      },
+      {
+        "article": "6_2",
+        "in_scope": true,
+        "kind": "DELEGATION",
+        "law_id": "326CO0000000216",
+        "normative_id": "NORM|00ed49ab07aab6d526064ceb9200001c7b273dba8de3646edcddef8f1467cca5",
+        "reason": "EXPLICIT_SCOPE_MATCH"
+      },
+      {
+        "article": "6_2",
+        "in_scope": false,
+        "kind": "UNRESOLVED",
+        "law_id": "326CO0000000216",
+        "normative_id": "NORM|2382c0ccaefa1501d135794e52238cc47dc4e5f593171987ca04b569fe756288",
+        "reason": "UNIT_HAS_UNRESOLVED_CONDITIONS"
+      },
+      {
+        "article": "6_2",
+        "in_scope": true,
+        "kind": "DELEGATION",
+        "law_id": "326CO0000000216",
+        "normative_id": "NORM|5a5e264f44439540b3d5bdd4efa72bc7e2980f2b11cd22c3acb7863e8cb240a7",
+        "reason": "EXPLICIT_SCOPE_MATCH"
+      }
+    ],
     "TaxCollectionNextBid": [
       {
         "article": "104_2",
@@ -43091,6 +43133,20 @@
         "325CO0000000245_20261101_508CO0000000083"
       ],
       "spec_file": "JapanTaxLaw/StandardRateExcessRatioSpec.lean"
+    },
+    "TaxAccountantRegDelegatedAmount": {
+      "articles": [
+        "6_2",
+        "9"
+      ],
+      "header_chars": 844,
+      "law_ids": [
+        "326CO0000000216"
+      ],
+      "revisions": [
+        "326CO0000000216_20240401_505CO0000000146"
+      ],
+      "spec_file": "JapanTaxLaw/TaxAccountantRegDelegatedAmountSpec.lean"
     },
     "TaxCollectionNextBid": {
       "articles": [
