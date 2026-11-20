@@ -13,17 +13,17 @@ obligations being complete. SKIP is never counted as PASS.
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: (none)
-- current HEAD commit: 0e90eb6fb3d1a6d7f70834408f4febc4145594a6
+- current HEAD commit: 3028b776e6d19de22208f1774a520ec2c8dd37f6
 - results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all registered obligations complete
 
 - normative units: 396854
-- NOT_STARTED: 396715
+- NOT_STARTED: 396713
 - PARTIAL: 0
 - PROVED_SCOPE: 2
-- FULLY_VERIFIED: 135
+- FULLY_VERIFIED: 137
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180619
@@ -36,26 +36,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 137 | 396854 |
-| kernel proved (CI-attested proof evidence) | 137 | 396854 |
-| source-audited (原文 correspondence evidence) | 137 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 139 | 396854 |
+| kernel proved (CI-attested proof evidence) | 139 | 396854 |
+| source-audited (原文 correspondence evidence) | 139 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 137 |
-| boundary_proof | 137 |
-| cross_law_proof | 137 |
-| decomposition_audit | 137 |
-| implementation | 137 |
-| independent_spec | 137 |
-| kernel_proof | 137 |
-| proof_scope | 137 |
-| source_correspondence_audit | 137 |
-| source_location | 137 |
-| tests | 137 |
+| adversarial_review | 139 |
+| boundary_proof | 139 |
+| cross_law_proof | 139 |
+| decomposition_audit | 139 |
+| implementation | 139 |
+| independent_spec | 139 |
+| kernel_proof | 139 |
+| proof_scope | 139 |
+| source_correspondence_audit | 139 |
+| source_location | 139 |
+| tests | 139 |
 
 ## Verdict
 
