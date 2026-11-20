@@ -117,6 +117,24 @@ class AdversarialReviewTests(unittest.TestCase):
         for m in mods:
             self.assertTrue(ve.review_ok(m, ""), m + " must be recognised from docs/adversarial/")
 
+    def test_individually_labelled_htcu_is_recognised(self):
+        import tempfile
+        from pathlib import Path
+        with tempfile.TemporaryDirectory() as d:
+            adv = Path(d) / "docs" / "adversarial" / "review.md"
+            adv.parent.mkdir(parents=True, exist_ok=True)
+            adv.write_text(
+                "### Foo.lean — 法令 第一条\n"
+                "独立抽出: 原文 literal.\n 照合 OK\n"
+                "H（仮説）... T（検出）... D（判定）... C（解釈）... U（未解決）...\n",
+                encoding="utf-8")
+            orig = ve.REPO
+            try:
+                ve.REPO = Path(d)
+                self.assertTrue(ve.review_ok("Foo", ""))
+            finally:
+                ve.REPO = orig
+
     def test_unrelated_module_is_not_recognised(self):
         self.assertFalse(ve.review_ok("NoSuchModuleEver", ""))
 
