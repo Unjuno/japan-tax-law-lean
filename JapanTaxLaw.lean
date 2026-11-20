@@ -633,3 +633,6 @@ import JapanTaxLaw.StampExchangeFeeTests
 import JapanTaxLaw.CapitalFiveBillionThreshold
 import JapanTaxLaw.CapitalFiveBillionThresholdSpec
 import JapanTaxLaw.CapitalFiveBillionThresholdTests
+import JapanTaxLaw.RemittanceReportLimit
+import JapanTaxLaw.RemittanceReportLimitSpec
+import JapanTaxLaw.RemittanceReportLimitTests

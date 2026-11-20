@@ -1347,6 +1347,12 @@ def checks():
            "file", None,
            ["印紙の交換手数料の額は、交換の請求に係るもの一枚につき五円とする", "その額に一円未満の端数があるときは、その端数を切り捨てた額）とする"])
 
+    # RemittanceReportLimit — cycle-31
+    yield ("RemittanceReportLimit.lean",
+           "409CO0000000363",
+           "file", None,
+           ["国外送金等調書の提出を要しない国外送金等の上限額）第八条法第四条第一項に規定する政令で定める金額は、百万円とする", "外国通貨で表示された金額で行われる場合における前項の規定の適用に係る外国通貨の本邦通貨への換算は、財務省令で定める外国為替相場を用いて行う"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
