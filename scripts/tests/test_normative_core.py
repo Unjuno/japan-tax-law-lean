@@ -99,6 +99,61 @@ class DependencyTests(unittest.TestCase):
         self.assertIn("resolved_by_name", kinds)
         self.assertTrue(any(d["type"] == "enforcement_version" for d in deps))
 
+    def test_dependency_carries_enforced_version(self):
+        """Directive §1.6: name + article + enforced version, not a bare id."""
+        text = "所得税法第九条の規定によるもの"
+        versions = {LAW: "2026-04-01"}
+        deps = nc.parse_dependencies(text, self.INDEX, versions)
+        la = [d for d in deps if d["type"] == "law_article"]
+        self.assertTrue(la)
+        self.assertEqual(la[0]["law_name"], "所得税法")
+        self.assertEqual(la[0]["law_id"], LAW)
+        self.assertEqual(la[0]["article"], "第九条")
+        self.assertEqual(la[0]["enforcement_version"], "2026-04-01")
+        self.assertEqual(la[0]["resolution"], "resolved_by_name_and_version")
+        self.assertTrue(la[0]["sufficient"])
+
+    def test_missing_enforced_version_is_underdetermined(self):
+        """A name match alone must not discharge a dependency (no false ready)."""
+        text = "所得税法第九条の規定によるもの"
+        deps = nc.parse_dependencies(text, self.INDEX, {})
+        la = [d for d in deps if d["type"] == "law_article"]
+        self.assertTrue(la)
+        self.assertEqual(la[0]["enforcement_version"], "")
+        self.assertEqual(la[0]["resolution"], "unresolved_underdetermined")
+        self.assertFalse(la[0]["sufficient"])
+
+    def test_readiness_uses_dependency_version_not_callers_date(self):
+        """Regression: an unverified future version must not look satisfied.
+
+        The caller is enforced 2026-01-01 but depends on B@2027-01-01, which is
+        not verified.  Keying on the caller's own date previously returned
+        ready=True; the dependency's own version must be used instead.
+        """
+        verified_b = {
+            "id": "B", "law_id": "B-LAW", "article": "第三条",
+            "enforcement_date": "2026-01-01",
+            "status": nc.STATUS_FULLY_VERIFIED, "dependencies": [],
+        }
+
+        def caller(uid, version):
+            return {
+                "id": uid, "law_id": "A-LAW", "article": "第一条",
+                "enforcement_date": "2026-01-01",
+                "status": nc.STATUS_NOT_STARTED,
+                "dependencies": [{
+                    "type": "law_article", "law_name": "Ｂ法", "law_id": "B-LAW",
+                    "article": "第三条", "enforcement_version": version,
+                    "resolution": "resolved_by_name_and_version", "sufficient": True,
+                }],
+            }
+
+        ready = nc.dependency_readiness([
+            verified_b, caller("future", "2027-01-01"), caller("correct", "2026-01-01")
+        ])
+        self.assertFalse(ready["future"])
+        self.assertTrue(ready["correct"])
+
 
 class StateTests(unittest.TestCase):
     def make_unit(self):

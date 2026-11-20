@@ -296,6 +296,7 @@ def decompose_article(
     enforcement_date: str,
     law_index: dict[str, str],
     outer_path: tuple = (),
+    law_versions: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     units: list[dict[str, Any]] = []
     # The article node alone cannot tell Main from Supplementary/Appendix.
@@ -338,7 +339,7 @@ def decompose_article(
             unit["row"], unit["cell"], unit["ordinal"], unit["kind"], unit["text"],
             provision_no=unit["provision_no"], source_path=unit["source_path"],
         )
-        unit["dependencies"] = parse_dependencies(unit["text"], law_index)
+        unit["dependencies"] = parse_dependencies(unit["text"], law_index, law_versions)
         units.append(unit)
     audit = audit_coverage(flat(node), units)
     return {"article": article_no, "units": units, "coverage": audit}
@@ -354,26 +355,66 @@ def build_law_index(laws: list[dict[str, Any]]) -> dict[str, str]:
     return idx
 
 
-def parse_dependencies(text: str, law_index: dict[str, str]) -> list[dict[str, Any]]:
+def build_law_version_index(laws: list[dict[str, Any]]) -> dict[str, str]:
+    """Map law_id -> enforced version of its current revision (Directive §1.6).
+
+    A dependency is only fully analysed when it carries the law name, the
+    article AND the enforcement version.  Inventory stores the latter as
+    ``enforcement_date`` (some snapshots use ``amendment_enforcement_date``).
+    Laws without an enforced version (e.g. fully unenforced orders) map to the
+    empty string, which makes any dependency on them underdetermined rather
+    than silently satisfied.
+    """
+    versions: dict[str, str] = {}
+    for law in laws:
+        lid = str(law.get("law_id", ""))
+        cr = law.get("current_revision") or {}
+        versions[lid] = str(
+            cr.get("enforcement_date") or cr.get("amendment_enforcement_date") or ""
+        )
+    return versions
+
+
+def parse_dependencies(
+    text: str,
+    law_index: dict[str, str],
+    law_versions: dict[str, str] | None = None,
+) -> list[dict[str, Any]]:
     """Structured deps: law name + article + enforcement version.
 
     Bare 15-character identifiers are reported with resolution
-    ``unresolved_underdetermined`` and are never satisfied dependencies.
+    ``unresolved_underdetermined`` and are never satisfied dependencies.  A
+    law-name/article hit whose enforced version cannot be resolved is also
+    ``unresolved_underdetermined`` (Directive §1.6): a name match alone is not
+    dependency analysis.
     """
+    # ``None`` keeps the legacy name-only behaviour for callers/tests that predate
+    # §1.6; an explicit mapping (even empty) enables strict version resolution.
+    strict_versions = law_versions is not None
+    law_versions = law_versions or {}
     deps: list[dict[str, Any]] = []
     names = sorted((k for k in law_index if not LAW_ID_RE.fullmatch(k)), key=len, reverse=True)
     for m in ARTICLE_RE.finditer(text or ""):
         article = m.group(0)
         window = text[max(0, m.start() - 120): m.end() + 40]
         name = next((n for n in names if n in window), "")
+        lid = law_index.get(name, "")
+        version = law_versions.get(lid, "")
+        if strict_versions:
+            sufficient = bool(name and lid and version)
+            resolution = ("resolved_by_name_and_version" if sufficient
+                          else "unresolved_underdetermined")
+        else:
+            sufficient = bool(name)
+            resolution = "resolved_by_name" if name else "unresolved_underdetermined"
         deps.append({
             "type": "law_article",
             "law_name": name,
-            "law_id": law_index.get(name, ""),
+            "law_id": lid,
             "article": article,
-            "enforcement_version": "",
-            "resolution": "resolved_by_name" if name else "unresolved_underdetermined",
-            "sufficient": bool(name),
+            "enforcement_version": version,
+            "resolution": resolution,
+            "sufficient": sufficient,
         })
     for lid in sorted(set(LAW_ID_RE.findall(text or ""))):
         resolved_name = law_index.get(lid, "")
@@ -526,7 +567,12 @@ def dependency_readiness(units: list[dict[str, Any]]) -> dict[str, bool]:
             if not d.get("sufficient"):
                 ok = False
                 continue
-            key = (did, d.get("article", ""), u.get("enforcement_date", ""))
+            # Directive §1.6: a dependency resolves to law name + article +
+            # the DEPENDENCY'S OWN enforced version.  Keying on the caller's
+            # enforcement_date let an unverified future version of a
+            # referenced law masquerade as satisfied (false completion).
+            version = d.get("enforcement_version", "") or u.get("enforcement_date", "")
+            key = (did, d.get("article", ""), version)
             if key not in verified:
                 ok = False
         out[u.get("id", "")] = ok
