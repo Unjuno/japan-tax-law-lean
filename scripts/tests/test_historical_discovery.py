@@ -1,74 +1,66 @@
 #!/usr/bin/env python3
-"""Tests for historical-version reference classification (Objective §2).
-
-Historical references (新／旧＋law name) are references to an enforced version
-of a known law, not unacquired statutes. They must be distinguished from
-truly unresolved names and must never be counted as acquired or proved.
-"""
+"""Historical reference classification tests (Objective §2)."""
 from __future__ import annotations
 
+import importlib.util
 import json
 import unittest
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parents[2]
+INV_DIR = Path(__file__).resolve().parents[1] / "law_audit" / "inventory"
 
 
-class TestHistoricalBase(unittest.TestCase):
+def load():
+    spec = importlib.util.spec_from_file_location("hist_disc", INV_DIR / "historical_discovery.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+hd = load()
+
+
+class HistoricalTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        import importlib.util
-        p = REPO / "scripts" / "law_audit" / "inventory" / "recursive_discovery_resolve.py"
-        spec = importlib.util.spec_from_file_location("rdresolve", p)
-        cls.mod = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(cls.mod)
+        cls.data = hd.build()
 
-    def test_prefixes_stripped(self):
-        m = self.mod
-        self.assertEqual(m.historical_base("新租税特別措置法"), "租税特別措置法")
-        self.assertEqual(m.historical_base("旧法人税法"), "法人税法")
-        self.assertEqual(m.historical_base("改正前地方税法"), "地方税法")
-        self.assertEqual(m.historical_base("租税特別措置法"), "")
+    def test_no_historical_name_is_treated_as_acquired(self):
+        self.assertTrue(self.data["names"])
+        for r in self.data["names"]:
+            self.assertFalse(r["snapshot_pinned"])
+            self.assertEqual(r["acquisition_status"], "NOT_PINNED")
+            self.assertEqual(r["verification_status"], "OUT_OF_SCOPE")
 
-    def test_base_resolves_in_full_law_list(self):
-        m = self.mod
-        entries = m.load_lawlist(m.LAWLIST)
-        exact, short, by_no = m.build_index(entries)
-        base = m.historical_base("旧租税特別措置法")
-        lid, method = m.resolve_name(base, exact, short, by_no)
-        self.assertEqual(lid, "332AC0000000026")
-        self.assertNotEqual(method, "unresolved")
+    def test_prefix_is_stripped_for_base_matching(self):
+        self.assertEqual(hd.PREFIX_RE.match("旧法人税法").group(1), "法人税法")
+        self.assertEqual(hd.PREFIX_RE.match("元年旧地方税法").group(1), "地方税法")
+        self.assertEqual(hd.PREFIX_RE.match("新租税特別措置法").group(1), "租税特別措置法")
 
+    def test_classification_matches_ledger_laws(self):
+        classes = {r["class"] for r in self.data["names"]}
+        self.assertTrue(classes)
+        for r in self.data["names"]:
+            self.assertIn(r["class"], {"HISTORICAL_OF_LEDGER_LAW",
+                                       "UNENFORCED_LEDGER_LAW", "UNMATCHED_HISTORICAL_NAME"})
+            if r["matched_law_id"]:
+                self.assertIn("LEDGER_LAW", r["class"])
 
-class TestLedgerShape(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        p = REPO / "data" / "RECURSIVE_DISCOVERY_RESOLVED.json"
-        cls.data = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+    def test_totals_are_consistent(self):
+        t = self.data["totals"]
+        self.assertEqual(sum(t["by_class"].values()), t["distinct_names"])
+        self.assertEqual(sum(r["occurrences"] for r in self.data["names"]), t["occurrences"])
 
-    def test_historical_layer_present_and_explicit(self):
-        d = self.data
-        self.assertIn("historical_version_references", d)
-        self.assertGreater(d.get("historical_version_refs", 0), 0)
-        for row in d["historical_version_references"]:
-            self.assertTrue(row["name"].startswith(("新", "旧", "舊", "改正前", "改正後")))
-            self.assertTrue(row["base_law_id"])
-            self.assertIs(row["historical_revision_pinned"], False)
-            self.assertIs(row["requires_revision_pin"], True)
-            self.assertEqual(row["method"], "historical_version_of_base")
+    def test_reported_total_is_not_mistaken_for_classified_subset(self):
+        rep = self.data["reported_by_recursive_discovery"]
+        self.assertIsNotNone(rep["names"])
+        self.assertGreater(rep["names"], self.data["totals"]["distinct_names"])
+        self.assertTrue(rep["note"])
 
-    def test_no_double_count_as_unresolved(self):
-        d = self.data
-        hist = {r["name"] for r in d.get("historical_version_references", [])}
-        unresolved = {r["name"] for r in d.get("unresolved", [])}
-        self.assertFalse(hist & unresolved)
-        self.assertEqual(d["unmatched_reference_names"],
-                         d["resolved_new_names"] + d["resolved_ledger_aliases"]
-                         + d["historical_version_refs"] + d["unresolved_names"])
-
-    def test_claim_is_discovery_only(self):
-        self.assertIn("discovery only", self.data.get("claim", ""))
+    def test_committed_registry_is_deterministic(self):
+        committed = json.loads((hd.REPO / "data" / "HISTORICAL_DISCOVERY.json").read_text(encoding="utf-8"))
+        self.assertEqual(committed, self.data)
 
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(verbosity=2)
