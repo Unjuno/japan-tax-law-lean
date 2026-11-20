@@ -95,7 +95,11 @@ def module_facts(base: str, att: dict, review_text: str) -> dict:
         return {"ok": False, "reason": "agree* not kernel-decided by `by decide`"}
     if not re.search(r"\bexample\b", tests):
         return {"ok": False, "reason": "no regression examples"}
-    if att.get("forbidden_axiom_hits"):
+    # Use the field actually emitted by build_kernel_attestation.py. A stale
+    # or forged attestation with forbidden axioms must never be accepted.
+    forbidden = att.get("forbidden_axioms_observed") or att.get("forbidden_axiom_hits") or {}
+    observed = {a for axioms in att.get("theorems", {}).values() for a in axioms}
+    if forbidden or observed & {"sorryAx", "Classical.choice"}:
         return {"ok": False, "reason": "forbidden axioms in attestation"}
     return {
         "ok": True,
@@ -107,16 +111,80 @@ def module_facts(base: str, att: dict, review_text: str) -> dict:
     }
 
 
-def evidence_for(unit: dict, base: str, facts: dict, check_name: str, needles: list[str]) -> dict:
+def flat_text(node) -> str:
+    if isinstance(node, str):
+        return node
+    if isinstance(node, dict):
+        return "".join(flat_text(c) for c in node.get("children", []))
+    if isinstance(node, list):
+        return "".join(flat_text(c) for c in node)
+    return ""
+
+
+def locate_paragraphs(audit_mod, law_id: str, art: str, needles: list[str]) -> tuple[set[str], str]:
+    """Locate each pinned needle in the STATED MAIN article's paragraphs.
+
+    Returns (paragraph_numbers, reason). A check using find_article_text only
+    sees MainProvision, so supplementary provisions with the same article
+    number are never matched. A needle whose prefix is absent from every
+    paragraph is reported; no article-level shortcut is taken.
+    """
+    article_text = audit_mod.find_article_text(law_id, art)
+    if not article_text:
+        return set(), "stated_main_article_not_found"
+    norm = audit_mod._norm
+    normalized = norm(article_text)
+    missing = [n for n in needles if norm(n) not in normalized]
+    if missing:
+        return set(), "needle_not_in_stated_article"
+
+    inv = json.loads((REPO / "data" / "INVENTORY.json").read_text(encoding="utf-8"))
+    rec = next((l for l in inv.get("laws", []) if l.get("law_id") == law_id), None)
+    sf = (rec or {}).get("raw_snapshot", {}).get("source_file")
+    if not sf or not (REPO / sf).exists():
+        return set(), "pinned_source_unavailable"
+    doc = json.loads((REPO / sf).read_text(encoding="utf-8"))
+
+    found: set[str] = set()
+
+    def walk(n, in_main=False):
+        if isinstance(n, dict):
+            tag = n.get("tag")
+            if tag == "MainProvision":
+                in_main = True
+            if in_main and tag == "Article" and str((n.get("attr") or {}).get("Num", "")) == article_key(art).split("_")[0]:
+                for c in n.get("children", []):
+                    if isinstance(c, dict) and c.get("tag") == "Paragraph":
+                        pno = str((c.get("attr") or {}).get("Num", ""))
+                        pt = norm(flat_text(c))
+                        for needle in needles:
+                            probe = norm(needle)[:40]
+                            if probe and probe in pt:
+                                found.add(pno)
+                return
+            for c in n.get("children", []):
+                walk(c, in_main)
+        elif isinstance(n, list):
+            for c in n:
+                walk(c, in_main)
+
+    walk(doc.get("law_full_text", doc))
+    if not found:
+        return set(), "needle_not_located_in_any_paragraph"
+    return found, ""
+
+
+def evidence_for(unit: dict, base: str, facts: dict, check_name: str, needles_ok: bool) -> dict:
+    """Record only axes this check can actually establish for THIS unit."""
     ev = {}
     ev["source_location"] = f"{unit.get('source_file', '')}#{unit.get('source_path', '')}"
     cov = unit.get("coverage") or {}
     if cov.get("status") == "COVERED" and cov.get("exact"):
         ev["decomposition_audit"] = "coverage:COVERED:exact"
-    # The pinned check certifies the STATED ARTICLE's literal (verified
-    # separately by the scoped audit). A unit inside that article inherits the
-    # article-level source correspondence, not a whole-text match.
-    ev["source_correspondence_audit"] = f"scoped-article-check:{check_name[:80]}"
+    if needles_ok:
+        ev["source_correspondence_audit"] = f"scoped-article-check:{check_name[:80]}"
+    # Presence axes and proof references are recorded only for the unit that
+    # the check's literal actually locates; see locate_paragraphs() in main().
     ev["implementation"] = facts["paths"]["impl"]
     ev["independent_spec"] = facts["paths"]["spec"] + ":" + ",".join(facts["agree"])
     ev["tests"] = facts["paths"]["tests"]
@@ -145,10 +213,16 @@ def main() -> int:
     state = json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else {"schema": "task_state/v1", "units": {}}
     evidence_file = (json.loads(EVIDENCE_FILE.read_text(encoding="utf-8"))
                      if EVIDENCE_FILE.exists() else {"schema": "verification-evidence/v1", "units": {}})
-    evidence_file.setdefault("units", {})
+    # Drop this tool's own earlier records before writing a new snapshot.
+    # Otherwise a corrected, narrower mapping would leave stale over-broad
+    # evidence behind and keep units FULLY_VERIFIED for the wrong reason.
+    for uid, rec in list(state.get("units", {}).items()):
+        if any(h.get("actor") == "evidence_recorder.py" for h in rec.get("history", [])):
+            del state["units"][uid]
+    evidence_file = {"schema": "verification-evidence/v1", "units": {}}
     att = json.loads(ATTEST.read_text(encoding="utf-8"))
     review_text = ADVERSARIAL.read_text(encoding="utf-8") if ADVERSARIAL.exists() else ""
-    checks, _audit = load_checks()
+    checks, audit_mod = load_checks()
 
     updated = 0
     statuses: dict[str, int] = {}
@@ -166,14 +240,20 @@ def main() -> int:
             reasons[facts["reason"]] = reasons.get(facts["reason"], 0) + 1
             continue
         key = (law_id, article_key(art))
+        paragraphs, loc_reason = locate_paragraphs(audit_mod, law_id, art, needles)
+        if not paragraphs:
+            reasons[loc_reason] = reasons.get(loc_reason, 0) + 1
+            continue
         candidates = [
             t for t in by_article.get(key, [])
             if t.get("kind") != "UNRESOLVED"
             and t.get("coverage", {}).get("status") == "COVERED"
+            and str(t.get("provision", "")).upper() == "MAIN"
+            and str(t.get("paragraph", "")) in paragraphs
         ]
         hit = False
         for unit in candidates:
-            ev = evidence_for(unit, base, facts, name, needles)
+            ev = evidence_for(unit, base, facts, name, needles_ok=True)
             status, _errs = core.derive_status(unit, ev)
             statuses[status] = statuses.get(status, 0) + 1
             for axis in core.EVIDENCE_AXES:
@@ -181,7 +261,7 @@ def main() -> int:
                     missing_axes[axis] = missing_axes.get(axis, 0) + 1
             if status in ("PROVED_SCOPE", "FULLY_VERIFIED"):
                 hit = True
-                uid = unit["id"]
+                uid = unit.get("id") or unit.get("normative_id") or unit.get("unit_id")
                 rec = state["units"].setdefault(uid, core.default_state(uid))
                 rec.setdefault("evidence", {}).update(ev)
                 rec["status"] = status

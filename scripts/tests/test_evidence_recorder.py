@@ -65,12 +65,31 @@ class TestModuleFacts(unittest.TestCase):
         self.assertFalse(facts["ok"])
 
     def test_forbidden_axiom_attestation_is_refused(self):
-        att = {"forbidden_axiom_hits": {"A.x": ["sorryAx"]}, "ci_run_id": "1", "commit": "abc"}
+        # Use the field name actually emitted by build_kernel_attestation.py.
+        att = {"forbidden_axioms_observed": {"A.x": ["sorryAx"]},
+               "ci_run_id": "1", "commit": "abc", "theorems": {}}
         facts = er.module_facts("CorporateTaxRate", att, "")
         self.assertFalse(facts["ok"])
+        self.assertEqual(facts["reason"], "forbidden axioms in attestation")
+
+    def test_clean_attestation_is_accepted(self):
+        att = {"forbidden_axioms_observed": {}, "ci_run_id": "1", "commit": "abc",
+               "theorems": {"A.x": ["propext"]}}
+        facts = er.module_facts("CorporateTaxRate", att, "")
+        self.assertTrue(facts["ok"])
 
 
 class TestEvidenceDerivation(unittest.TestCase):
+    def test_source_correspondence_requires_located_needles(self):
+        facts = {"paths": {"impl": "a", "spec": "b", "tests": "c"},
+                 "agree": ["agreeX"], "review": False, "ci_run": "1", "commit": "x"}
+        unit = {"coverage": {"status": "COVERED", "exact": True},
+                "source_file": "f", "source_path": "p"}
+        without = er.evidence_for(unit, "Base", facts, "check", needles_ok=False)
+        with_ok = er.evidence_for(unit, "Base", facts, "check", needles_ok=True)
+        self.assertNotIn("source_correspondence_audit", without)
+        self.assertIn("source_correspondence_audit", with_ok)
+
     def test_no_cross_law_dependency_needs_no_cross_law_proof(self):
         unit = {"dependencies": [], "unhandled_conditions": [], "blockers": [],
                 "status": "NOT_STARTED"}

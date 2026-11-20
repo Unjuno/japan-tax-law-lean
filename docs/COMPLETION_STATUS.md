@@ -17,10 +17,10 @@ obligations being complete. SKIP is never counted as PASS.
 ## Axis B — all registered obligations complete
 
 - normative units: 396854
-- NOT_STARTED: 395718
+- NOT_STARTED: 396535
 - PARTIAL: 0
-- PROVED_SCOPE: 967
-- FULLY_VERIFIED: 167
+- PROVED_SCOPE: 264
+- FULLY_VERIFIED: 53
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180617
@@ -30,16 +30,16 @@ obligations being complete. SKIP is never counted as PASS.
 
 | axis | units |
 |---|---:|
-| adversarial_review | 317 |
-| boundary_proof | 1134 |
-| decomposition_audit | 1134 |
-| implementation | 1134 |
-| independent_spec | 1134 |
-| kernel_proof | 1134 |
-| proof_scope | 1134 |
-| source_correspondence_audit | 1134 |
-| source_location | 1134 |
-| tests | 1134 |
+| adversarial_review | 61 |
+| boundary_proof | 317 |
+| decomposition_audit | 317 |
+| implementation | 317 |
+| independent_spec | 317 |
+| kernel_proof | 317 |
+| proof_scope | 317 |
+| source_correspondence_audit | 317 |
+| source_location | 317 |
+| tests | 317 |
 
 ## Verdict
 
