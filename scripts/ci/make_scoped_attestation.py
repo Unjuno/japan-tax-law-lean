@@ -42,7 +42,7 @@ def main() -> int:
         modules[n] = {"sha256": sha(data)}
     payload = {
         "schema": 1,
-        "note": "Scoped attestation: this module was kernel-built at a different commit than the main attestation. lean_job_only covers ONLY the passed Lean build/axiom job, never a failed overall run.",
+        "note": "Scoped attestation: this module was kernel-built at a different commit than the main attestation. scope=full_run means the whole CI run succeeded; scope=lean_job_only would cover ONLY the Lean job.",
         "commit": commit,
         "workflow_run": run_url,
         "scope": "lean_job_only" if conclusion == "lean_job_only" else "full_run",
