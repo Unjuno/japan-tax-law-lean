@@ -27,6 +27,7 @@ GATES = [
     ("normative core (queue/completion) tests", ["python", "-m", "unittest", "scripts.tests.test_normative_core", "-v"], ["scripts/tests/test_normative_core.py"]),
     ("completion gate adversary tests", ["python", "-m", "unittest", "scripts.tests.test_completion_gate_adversary", "-v"], ["scripts/tests/test_completion_gate_adversary.py"]),
     ("task selector computable ranking tests", ["python", "-m", "unittest", "scripts.tests.test_task_selector", "-v"], ["scripts/tests/test_task_selector.py", "scripts/ci/task_selector.py"]),
+    ("gate result provenance tests", ["python", "-m", "unittest", "scripts.tests.test_gate_provenance", "-v"], ["scripts/tests/test_gate_provenance.py", "scripts/ci/completion_gate.py"]),
     ("queue invariant gate regression tests", ["python", "-m", "unittest", "scripts.tests.test_queue_invariants", "-v"], ["scripts/tests/test_queue_invariants.py", "scripts/ci/verify_queue_invariants.py"]),
     ("article-scope D/C decision tests", ["python", "-m", "unittest", "scripts.tests.test_article_scope_decision", "-v"], ["scripts/tests/test_article_scope_decision.py"]),
     ("historical-discovery classification tests", ["python", "-m", "unittest", "scripts.tests.test_historical_discovery", "-v"], ["scripts/tests/test_historical_discovery.py"]),
@@ -63,6 +64,7 @@ REQUIRED_GATES = {
     "normative core (queue/completion) tests",
     "completion gate adversary tests",
     "task selector computable ranking tests",
+    "gate result provenance tests",
     "queue invariant gate regression tests",
     "article-scope D/C decision tests",
     "independent completion-mechanism audit",
@@ -112,12 +114,25 @@ for name, cmd, paths in GATES:
 
 # Machine-readable verdicts for the completion gate. This is the ONLY input to
 # the "registered checks" axis; SKIP stays SKIP and is never merged into PASS.
-GATE_RESULTS.parent.mkdir(parents=True, exist_ok=True)
-GATE_RESULTS.write_text(json.dumps({
+# Bind the result to the immutable commit it was produced from: a result from a
+# concurrently edited working tree must not be reported as green against HEAD.
+try:
+    _head = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True,
+                           text=True, check=False)
+    HEAD_SHA = _head.stdout.strip() if _head.returncode == 0 else ""
+except (OSError, ValueError):
+    HEAD_SHA = ""
+payload = {
     "tool": "scripts/ci/run_python_gates.py",
+    "commit_sha": HEAD_SHA,
     "gates": records,
     "summary": {"pass": ran - fails, "fail": fails, "skip": skipped},
-}, ensure_ascii=False, indent=2), encoding="utf-8")
+}
+blob = json.dumps(payload, ensure_ascii=False, indent=2)
+GATE_RESULTS.parent.mkdir(parents=True, exist_ok=True)
+GATE_RESULTS.write_text(blob, encoding="utf-8")
+if HEAD_SHA:
+    (GATE_RESULTS.parent / f"gate_results_{HEAD_SHA}.json").write_text(blob, encoding="utf-8")
 if fails:
     print(f"{fails} gate(s) FAILED; {ran} ran, {skipped} skipped (SKIP is never PASS)")
     sys.exit(1)

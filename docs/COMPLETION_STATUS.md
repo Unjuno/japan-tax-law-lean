@@ -8,19 +8,22 @@ obligations being complete. SKIP is never counted as PASS.
 ## Axis A — registered checks (last recorded gate run)
 
 - results file available: True
-- PASS: 27
-- FAIL: 2
-- SKIP: 0
-- required gates SKIPped: 0
+- PASS: 28
+- FAIL: 0
+- SKIP: 2
+- required gates SKIPped: 1
+- gate results commit: (none)
+- current HEAD commit: dfb7a5ebe16cc49728fdc39297817b56edfbdba4
+- results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all registered obligations complete
 
 - normative units: 396854
-- NOT_STARTED: 396852
+- NOT_STARTED: 396805
 - PARTIAL: 0
-- PROVED_SCOPE: 0
-- FULLY_VERIFIED: 0
+- PROVED_SCOPE: 1
+- FULLY_VERIFIED: 46
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180618
@@ -33,26 +36,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 46 | 396854 |
-| kernel proved (CI-attested proof evidence) | 46 | 396854 |
-| source-audited (原文 correspondence evidence) | 46 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 73 | 396854 |
+| kernel proved (CI-attested proof evidence) | 73 | 396854 |
+| source-audited (原文 correspondence evidence) | 73 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 46 |
-| boundary_proof | 46 |
-| cross_law_proof | 46 |
-| decomposition_audit | 46 |
-| implementation | 46 |
-| independent_spec | 46 |
-| kernel_proof | 46 |
-| proof_scope | 46 |
-| source_correspondence_audit | 46 |
-| source_location | 46 |
-| tests | 46 |
+| adversarial_review | 73 |
+| boundary_proof | 73 |
+| cross_law_proof | 73 |
+| decomposition_audit | 73 |
+| implementation | 73 |
+| independent_spec | 73 |
+| kernel_proof | 73 |
+| proof_scope | 73 |
+| source_correspondence_audit | 73 |
+| source_location | 73 |
+| tests | 73 |
 
 ## Verdict
 

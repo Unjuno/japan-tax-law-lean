@@ -168,7 +168,10 @@ def scoped_article_text(law_id: str, article: str) -> str:
 
         def walk(n):
             if isinstance(n, dict):
-                if n.get("tag") == "Article" and str((n.get("attr") or {}).get("Num", "")) == article:
+                # Canonicalise both labels: transcription checks cite kanji
+                # titles (第六十六条) or 72_49_14 while e-Gov uses Arabic Num.
+                if n.get("tag") == "Article" and core.article_key(
+                        str((n.get("attr") or {}).get("Num", ""))) == core.article_key(article):
                     return core.norm(core.flat(n))
                 for c in n.get("children", []) or []:
                     found = walk(c)
@@ -186,12 +189,31 @@ def scoped_article_text(law_id: str, article: str) -> str:
 
 
 def review_ok(base: str, review_text: str) -> bool:
-    """Require a module-specific independent review, not a global keyword hit."""
-    idx = review_text.find(base + ".lean")
+    """Require a MODULE-SPECIFIC independent review with a recorded check.
+
+    Review documents use several equivalent phrasings across batches
+    (独立抽出 / 独立再抽出 / 一次資料, with 照合 / FOUND / 判定 as the decision).
+    Accept any of those, but only inside the section headed by this module:
+    a global keyword hit in an unrelated batch is not evidence for this unit.
+    """
+    idx = review_text.find("### " + base + ".lean")
+    if idx < 0:
+        idx = review_text.find(base + ".lean")
     if idx < 0:
         return False
-    section = review_text[max(0, idx - 1500): idx + 4000]
-    return ("一次資料" in section and "独立" in section and "再抽出" in section)
+    section = review_text[idx: idx + 4000]
+    independent = ("独立抽出" in section or "独立再抽出" in section or
+                   ("独立" in section and "一次資料" in section))
+    decision = ("照合" in section or "FOUND" in section or "判定" in section)
+    independent_doc = REPO / "docs" / "INDEPENDENT_SOURCE_REVIEW.md"
+    if independent_doc.exists():
+        itext = independent_doc.read_text(encoding="utf-8", errors="replace")
+        idx = itext.find("### " + base + ".lean")
+        if idx >= 0:
+            section = itext[idx: idx + 4000]
+            if all(k in section for k in ("独立再抽出", "一次資料", "判定")):
+                return True
+    return independent and decision
 
 
 def article_from_name(name: str) -> str:
@@ -264,7 +286,10 @@ def build() -> dict:
             "scoped_article_chars": len(scoped),
         }
 
-        if not (ok and needles_ok and independent and review and n_examples >= 5 and boundary_examples >= 3):
+        # Literal-based verification requires at least one statutory numeral
+        # in the independent spec; otherwise the clause test below is vacuous.
+        if not kanji or not (ok and needles_ok and independent and review
+                             and n_examples >= 5 and boundary_examples >= 3):
             continue
 
         for t in tasks:
@@ -279,6 +304,11 @@ def build() -> dict:
             if not (cov.get("exact") and cov.get("unique_ids")):
                 continue
             source_location = bool(t.get("source_path") and text in scoped)
+            # The clause must occur verbatim in the scoped original of the
+            # audited article; a same-numbered supplementary provision must
+            # not inherit the proof of the main provision.
+            if not source_location:
+                continue
             cross_law = not any(d.get("unresolved") for d in t.get("dependencies", [])) \
                 and bool(t.get("revision"))
             # Evidence values are reproducible REFERENCES, not booleans.  The

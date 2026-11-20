@@ -69,9 +69,10 @@ def main() -> int:
             evidence = json.loads(evidence_path.read_text(encoding="utf-8")).get("units", {})
         except (ValueError, OSError):
             evidence = {}
-    axes = set()
-    for record in evidence.values():
-        axes.update(record.keys())
+    # Required axes come from the canonical core, never from the ledger under
+    # test: a partial ledger must not redefine what counts as complete.
+    import normative_core  # noqa: E402
+    axes = set(normative_core.EVIDENCE_AXES)
     fv_units = [u for u in units if u.get("status") == "FULLY_VERIFIED"]
     unbacked = [str(u.get("normative_id", ""))[:24] for u in fv_units
                 if not evidence.get(str(u.get("normative_id", "")), {})
