@@ -168,7 +168,14 @@ def select_tasks(tasks: list[dict], n: int, claims: dict | None = None) -> dict:
 def main() -> int:
     n = int(sys.argv[1]) if len(sys.argv) > 1 else 12
     q = json.loads(QUEUE.read_text(encoding="utf-8"))
-    print(json.dumps(select_tasks(q.get("tasks", []), n), ensure_ascii=False, indent=2))
+    # Machine-readable output MUST be UTF-8. On Windows, sys.stdout defaults to
+    # cp932; printing raw Japanese then corrupts the JSON for API/CI consumers.
+    payload = json.dumps(select_tasks(q.get("tasks", []), n), ensure_ascii=False, indent=2)
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except (AttributeError, ValueError):
+        pass
+    print(payload)
     return 0
 
 
