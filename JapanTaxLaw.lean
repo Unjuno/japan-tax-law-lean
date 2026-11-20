@@ -563,3 +563,6 @@ import JapanTaxLaw.MergerExceptionArt24Tests
 import JapanTaxLaw.DeemedTaxedAmount
 import JapanTaxLaw.DeemedTaxedAmountSpec
 import JapanTaxLaw.DeemedTaxedAmountTests
+import JapanTaxLaw.DomicilePresumptionArt14
+import JapanTaxLaw.DomicilePresumptionArt14Spec
+import JapanTaxLaw.DomicilePresumptionArt14Tests
