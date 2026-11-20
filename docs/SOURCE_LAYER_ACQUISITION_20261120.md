@@ -58,24 +58,25 @@ source-layer tests pass.
 ## L6 historical revision acquisition (2026-11-21) — first real pin
 
 `scripts/ci/acquire_historical_revisions.py` now pins non-current e-Gov revisions
-of laws already in the L0 inventory, as a **separate L6 denominator**:
+of laws already in the L0 inventory, as a **separate L6 denominator**. Two runs
+were made: an initial depth run (4 revisions of one law) and a breadth run
+(`--limit 12 --per-law 1`). Current state:
 
 ```
-143AC0000000054 (関税定率法):
-  20260401_508AC0000000005  2026-04-01  PreviousEnforced  sha256 510b12e1af8e6a94…
-  20250401_507AC0000000016  2025-04-01  PreviousEnforced  sha256 b750b8b63cf37f7a…
-  20241001_506AC0000000009  2024-10-01  PreviousEnforced  sha256 5b04e5213f1b52db…
-  20240401_506AC0000000009  2024-04-01  PreviousEnforced  sha256 eb6a35536faba717…
+16 ACQUIRED_PINNED revisions across 3 distinct laws:
+  143AC0000000054 (関税定率法)      4 non-current revisions (2024/2025/2026)
+  322AC0000000175 (災害被害者租税減免)  non-current revision(s)
+  322CO0000000268 (災害被害者租税減免政令) non-current revision(s)
 ```
 Each response was validated as real law-data JSON (`law_full_text` present, so
-HTML 404 templates are rejected) and its SHA-256 verified against the on-disk
-bytes under `data/raw_historical/`. `data/HISTORICAL_PINNED.json` and
-`docs/HISTORICAL_PINNED.md` record the result. `data/SOURCE_LAYERS.json` now
-reports `L6_HISTORICAL = ACQUIRED_PINNED_ONLY`, `count_acquired=4`, still
+HTML 404 templates are rejected) and its SHA-256 re-verified against the on-disk
+bytes under `data/raw_historical/` (16/16 verified). `data/HISTORICAL_PINNED.json`
+and `docs/HISTORICAL_PINNED.md` record the result. `data/SOURCE_LAYERS.json` now
+reports `L6_HISTORICAL = ACQUIRED_PINNED_ONLY`, `count_acquired=16`, still
 `verification_status=OUT_OF_SCOPE` and NOT merged into L0. 11/11 source-layer
 tests pass, including hash re-verification and status-honesty checks. The
-remaining 791 discovered historical names stay unacquired; no parse, formalization,
-proof or human review is claimed for the four pinned snapshots.
+remaining ~779 discovered historical names stay unacquired; no parse,
+formalization, proof or human review is claimed for the pinned snapshots.
 
 ## H / T / D / C / U
 

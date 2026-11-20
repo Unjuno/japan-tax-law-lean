@@ -106,15 +106,21 @@ def acquire_one(law_id: str, rev: dict) -> dict:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--limit", type=int, default=4)
+    ap.add_argument("--per-law", type=int, default=1,
+                    help="maximum pinned revisions per law (breadth over depth)")
     args = ap.parse_args()
     ledger = load_ledger()
     revs_ledger = ledger.setdefault("revisions", {})
+    per_law: dict[str, int] = {}
+    for v in revs_ledger.values():
+        lid = v.get("law_id", "")
+        per_law[lid] = per_law.get(lid, 0) + 1
     acquired = 0
     for law in load_inventory():
         if acquired >= args.limit:
             break
         law_id = str(law.get("law_id") or "")
-        if not law_id or any(v.get("law_id") == law_id for v in revs_ledger.values()):
+        if not law_id or per_law.get(law_id, 0) >= args.per_law:
             continue
         try:
             data = bi.http_get_bytes(bi.REVISIONS_URL.format(law_id=law_id))
@@ -137,6 +143,7 @@ def main() -> int:
             revs_ledger[rev_id] = rec
             if rec["acquisition_status"] == "ACQUIRED_PINNED":
                 acquired += 1
+                per_law[law_id] = per_law.get(law_id, 0) + 1
     ledger["count_total"] = len(revs_ledger)
     ledger["count_acquired"] = sum(
         1 for v in revs_ledger.values() if v.get("acquisition_status") == "ACQUIRED_PINNED")
