@@ -4967,3 +4967,13 @@ STAGING の needle テキストを信じず、`scripts/ci/transcription_audit.py
 - **対立解釈 (C)**: 軽減率の丸め・端数処理は原文に明示がなく、本モジュールは分数の選択のみを扱う。税額への適用・適用要件（甚大な被害、千万円以下、第七十二条非適用）は caller-established として未モデル化。
 - **不確かさ (U)**: `二・五` を 5/20 と通分したことは算術的等価だが、行政実務上の端数処理は別途政令に委任されており未検証。
 - **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+### SavingsGroupFine.lean — 納税貯蓄組合法 art. 14（過料の上限）
+
+- **pin**: law_id `326AC1000000145` / revision `…_20211122_503AC0000000046`, raw snapshot sha256 verified. needle 1/1 FOUND (transcription audit 183/183).
+- **H**: doc-comment の「十万円以下の過料に処する」は pinned 原文どおりで、上限 100_000 円の Lean 定数は正しい。
+- **T**: raw JSON の art.14 を独立再抽出し needle を `.find()` 照合、境界 0 / 1 / 11 / 100_000 / 100_001 を独立計算して Lean 申告値と比較。
+- **D**: 1/1 literal + 5/5 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 「過料」と「罰金」の別、各号の該当者認定は本モジュールの射程外（caller-established）。上限額のみをモデル化。
+- **U**: 過料の具体的算出・減免・附則は pinned 原文のみでは解けず、人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。

@@ -1547,6 +1547,13 @@ def checks():
             "合計所得金額が七百五十万円を超えるとき", "当該所得税の額の十分の二・五"])
 
 
+    # 納税貯蓄組合法 art. 14 — SavingsGroupFine.lean (administrative fine cap)
+    yield ("納税貯蓄組合法 art. 14（過料: 十万円以下）↔ SavingsGroupFine.lean (administrativeFineCap 100_000)",
+           "326AC1000000145",
+           "article", "第十四条",
+           ["十万円以下の過料に処する"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

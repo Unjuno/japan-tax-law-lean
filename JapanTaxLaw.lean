@@ -423,6 +423,9 @@ import JapanTaxLaw.BusinessOwnerDeductionTests
 import JapanTaxLaw.DisasterIncomeTaxRelief
 import JapanTaxLaw.DisasterIncomeTaxReliefSpec
 import JapanTaxLaw.DisasterIncomeTaxReliefTests
+import JapanTaxLaw.SavingsGroupFine
+import JapanTaxLaw.SavingsGroupFineSpec
+import JapanTaxLaw.SavingsGroupFineTests
 import JapanTaxLaw.StandardRateExcessRatio
 import JapanTaxLaw.StandardRateExcessRatioSpec
 import JapanTaxLaw.StandardRateExcessRatioTests
