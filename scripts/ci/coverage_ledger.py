@@ -83,15 +83,20 @@ def build() -> str:
     reviewed = 0
     review_date = 0
     n_candidates = 0
+    htcu_complete = 0
     if CANDIDATES.exists():
         with CANDIDATES.open(encoding="utf-8", newline="") as f:
             rows = list(csv.DictReader(f))
         n_candidates = len(rows)
+        htcu_cols = ("hypothesis", "reproduction_test", "decision",
+                     "competing_interpretation", "uncertainty")
         for row in rows:
             if (row.get("reviewer") or "").strip():
                 reviewed += 1
             if (row.get("review_date") or "").strip():
                 review_date += 1
+            if all((row.get(col) or "").strip() for col in htcu_cols):
+                htcu_complete += 1
 
     def pct(a, b):
         return f"{(100.0 * a / b):.2f}%" if b else "n/a"
@@ -182,6 +187,11 @@ def build() -> str:
         "|---|---:|---:|---:|",
         f"| candidates with recorded reviewer | {reviewed} | {n_candidates} | {pct(reviewed, n_candidates)} |",
         f"| candidates with recorded review_date | {review_date} | n/a | n/a |",
+        f"| candidates with H/T/D/C/U complete | {htcu_complete} | {n_candidates} | {pct(htcu_complete, n_candidates)} |",
+        "",
+        "H/T/D/C/U are review-protocol records (falsifiable hypothesis,",
+        "reproduction test, decision, competing interpretation, uncertainty).",
+        "They are NOT findings of a defect and NOT human legal review.",
         "",
         "verified-anomaly = 0 means zero independent legal review has established",
         "any candidate as an anomaly; it is NOT evidence that no defect exists.",
