@@ -581,3 +581,6 @@ import JapanTaxLaw.RemainingPeriodBandTests
 import JapanTaxLaw.FiscalPeriodSixMonthSplit
 import JapanTaxLaw.FiscalPeriodSixMonthSplitSpec
 import JapanTaxLaw.FiscalPeriodSixMonthSplitTests
+import JapanTaxLaw.TaxBandBoundaries
+import JapanTaxLaw.TaxBandBoundariesSpec
+import JapanTaxLaw.TaxBandBoundariesTests

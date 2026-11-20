@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 92,
+  "checks": 100,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -1013,11 +1013,99 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/RemainingPeriodBandTests.lean",
       "unit_id": "NORM|debfc248b22ee3e700e03035ae835d23c48ca62532be58e7d0ea1a7cec8ebe88"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_FISCAL_SPLIT_ART27_12_5.md: H/T/D/C/U; inclusive/exclusive misreadings rejected; rule interaction verified",
+      "unit_id": "NORM|ceaa310499e6aeb291c47fe5f84450e17ebf70b5d4e9ae154ce11794a834144e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/FiscalPeriodSixMonthSplit.lean",
+      "unit_id": "NORM|ceaa310499e6aeb291c47fe5f84450e17ebf70b5d4e9ae154ce11794a834144e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/FiscalPeriodSixMonthSplitSpec.lean",
+      "unit_id": "NORM|ceaa310499e6aeb291c47fe5f84450e17ebf70b5d4e9ae154ce11794a834144e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/FiscalPeriodSixMonthSplitTests.lean",
+      "unit_id": "NORM|ceaa310499e6aeb291c47fe5f84450e17ebf70b5d4e9ae154ce11794a834144e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_FISCAL_SPLIT_ART27_12_5.md: H/T/D/C/U; inclusive/exclusive misreadings rejected; rule interaction verified",
+      "unit_id": "NORM|7176dc3cb4da9ce0a92f0b4cddd094cfaefb5fa95123009cacdad1501e5cc607"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/FiscalPeriodSixMonthSplit.lean",
+      "unit_id": "NORM|7176dc3cb4da9ce0a92f0b4cddd094cfaefb5fa95123009cacdad1501e5cc607"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/FiscalPeriodSixMonthSplitSpec.lean",
+      "unit_id": "NORM|7176dc3cb4da9ce0a92f0b4cddd094cfaefb5fa95123009cacdad1501e5cc607"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/FiscalPeriodSixMonthSplitTests.lean",
+      "unit_id": "NORM|7176dc3cb4da9ce0a92f0b4cddd094cfaefb5fa95123009cacdad1501e5cc607"
     }
   ],
-  "resolved": 82,
+  "resolved": 90,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 21,
+  "units_checked": 23,
   "unresolved": 10
 }

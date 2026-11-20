@@ -171,6 +171,19 @@
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[3]/SupplProvision/SupplProvision[87]/Article:13_4/Article#13_4/Paragraph#3/ParagraphSentence/Sentence#1 5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim 23-char quasi-application)",
       "tests": "JapanTaxLaw/MunicipalTaxQuasiApplyTests.lean sha256=31423b4366568d4ddbc9be2e946f6cab31304d91344c4ab51b74b9e4e5851a42 (6 kernel-decided examples)"
     },
+    "NORM|7176dc3cb4da9ce0a92f0b4cddd094cfaefb5fa95123009cacdad1501e5cc607": {
+      "adversarial_review": "docs/UNIT_FISCAL_SPLIT_ART27_12_5.md: H/T/D/C/U; inclusive/exclusive misreadings rejected; rule interaction verified",
+      "boundary_proof": "isSixMonthsOrMore iff 6<=months; 6/7 true, 5 false; exclusive/exhaustive proved",
+      "cross_law_proof": "unit dependencies=0; enforced revision 332CO0000000043_20261101_507CO0000000127 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; complementary CONDITION pair in Subitem1 #1/#2",
+      "implementation": "JapanTaxLaw/FiscalPeriodSixMonthSplit.lean sha256=1ae4f57faf3ee862ce09518f6fe75a730942c6b0ff9b58cd512958e11b461e6c",
+      "independent_spec": "JapanTaxLaw/FiscalPeriodSixMonthSplitSpec.lean sha256=1038f29697c2a2324540f514026061213ea15cf50b8a6194f9c662b5cf9fab95 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; agrees_under/agrees_more plus exclusive/exhaustive kernel-checked; no sorry/admit",
+      "proof_scope": "six-month split only: months < 6 vs 6 <= months; month computation, rounding and legal effect NOT MODELLED; months caller-established Nat",
+      "source_correspondence_audit": "scripts/ci/source_audit_fiscal_split.py: both originals found verbatim, literals present, spec does not import implementation (4/4)",
+      "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:27_12_5/Article#27_12_5/Paragraph#8/Item#2/Subitem1#2/Subitem1Sentence/Column#1/Sentence#1 d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d (verbatim 15-char >=6 condition)",
+      "tests": "JapanTaxLaw/FiscalPeriodSixMonthSplitTests.lean sha256=6b33cba63fae1668ae1d962cb310d2235a9b554a2104342cb79e258f5819bee5 (10 kernel-decided examples incl. exclusivity/exhaustiveness)"
+    },
     "NORM|84f30566e583de635fc2da0096497d579f38dd9935595a55259fd024a6e24c0f": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
@@ -262,6 +275,19 @@
       "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:24/Article#24/Paragraph#1/Item#1/ItemSentence/Sentence#1 3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342 (verbatim 12-char exception)",
       "tests": "JapanTaxLaw/MergerExceptionArt24Tests.lean sha256=1f21341257f0dd648c5f04a93bd9303344fe56ec8202374cfa6e479a08ef44ee (6 kernel-decided examples)"
     },
+    "NORM|ceaa310499e6aeb291c47fe5f84450e17ebf70b5d4e9ae154ce11794a834144e": {
+      "adversarial_review": "docs/UNIT_FISCAL_SPLIT_ART27_12_5.md: H/T/D/C/U; inclusive/exclusive misreadings rejected; rule interaction verified",
+      "boundary_proof": "isUnderSixMonths iff months<6; 0/5 true, 6 false; exclusive/exhaustive proved",
+      "cross_law_proof": "unit dependencies=0; enforced revision 332CO0000000043_20261101_507CO0000000127 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; complementary CONDITION pair in Subitem1 #1/#2",
+      "implementation": "JapanTaxLaw/FiscalPeriodSixMonthSplit.lean sha256=1ae4f57faf3ee862ce09518f6fe75a730942c6b0ff9b58cd512958e11b461e6c",
+      "independent_spec": "JapanTaxLaw/FiscalPeriodSixMonthSplitSpec.lean sha256=1038f29697c2a2324540f514026061213ea15cf50b8a6194f9c662b5cf9fab95 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; agrees_under/agrees_more plus exclusive/exhaustive kernel-checked; no sorry/admit",
+      "proof_scope": "six-month split only: months < 6 vs 6 <= months; month computation, rounding and legal effect NOT MODELLED; months caller-established Nat",
+      "source_correspondence_audit": "scripts/ci/source_audit_fiscal_split.py: both originals found verbatim, literals present, spec does not import implementation (4/4)",
+      "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:27_12_5/Article#27_12_5/Paragraph#8/Item#2/Subitem1#1/Subitem1Sentence/Column#1/Sentence#1 d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d (verbatim 15-char under-6 condition)",
+      "tests": "JapanTaxLaw/FiscalPeriodSixMonthSplitTests.lean sha256=6b33cba63fae1668ae1d962cb310d2235a9b554a2104342cb79e258f5819bee5 (10 kernel-decided examples incl. exclusivity/exhaustiveness)"
+    },
     "NORM|debfc248b22ee3e700e03035ae835d23c48ca62532be58e7d0ea1a7cec8ebe88": {
       "adversarial_review": "docs/UNIT_PERIOD_ART23.md: H/T/D/C/U; inclusive-lower and exclusive-upper readings rejected by verbatim original",
       "boundary_proof": "inBand_iff general theorem; 9/10 false, 11/14/15 true, 16 false (lower exclusive, upper inclusive)",
@@ -275,31 +301,31 @@
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:23/Article#23/Paragraph#1/List/ListSentence/Column#1/Sentence#1 c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7 (verbatim 16-char period condition)",
       "tests": "JapanTaxLaw/RemainingPeriodBandTests.lean sha256=a8b557c90c89a137d2ac6f86d09dd8d51d8d925d94b226ea732c36e65e44139d (8 kernel-decided examples)"
     },
-    "NORM|ceaa310499e6aeb291c47fe5f84450e17ebf70b5d4e9ae154ce11794a834144e": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; complementary CONDITION pair in Subitem1 #1/#2",
-      "source_correspondence_audit": "scripts/ci/source_audit_fiscal_split.py: both originals found verbatim, literals present, spec does not import implementation (4/4)",
-      "independent_spec": "JapanTaxLaw/FiscalPeriodSixMonthSplitSpec.lean sha256=1038f29697c2a2324540f514026061213ea15cf50b8a6194f9c662b5cf9fab95 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/FiscalPeriodSixMonthSplit.lean sha256=1ae4f57faf3ee862ce09518f6fe75a730942c6b0ff9b58cd512958e11b461e6c",
-      "kernel_proof": "Lean 4.35.0 pinned; agrees_under/agrees_more plus exclusive/exhaustive kernel-checked; no sorry/admit",
-      "proof_scope": "six-month split only: months < 6 vs 6 <= months; month computation, rounding and legal effect NOT MODELLED; months caller-established Nat",
-      "cross_law_proof": "unit dependencies=0; enforced revision 332CO0000000043_20261101_507CO0000000127 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/FiscalPeriodSixMonthSplitTests.lean sha256=6b33cba63fae1668ae1d962cb310d2235a9b554a2104342cb79e258f5819bee5 (10 kernel-decided examples incl. exclusivity/exhaustiveness)",
-      "adversarial_review": "docs/UNIT_FISCAL_SPLIT_ART27_12_5.md: H/T/D/C/U; inclusive/exclusive misreadings rejected; rule interaction verified",
-      "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:27_12_5/Article#27_12_5/Paragraph#8/Item#2/Subitem1#1/Subitem1Sentence/Column#1/Sentence#1 d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d (verbatim 15-char under-6 condition)",
-      "boundary_proof": "isUnderSixMonths iff months<6; 0/5 true, 6 false; exclusive/exhaustive proved"
+    "NORM|1c103b22b685919f9c3f53da73b614b086b10560aaf307a876b47d609bd63573": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; two distinct boundary conventions kept separate",
+      "source_correspondence_audit": "scripts/ci/source_audit_tax_bands.py: both originals found verbatim across their own pinned snapshots, literals present, spec does not import implementation (5/5)",
+      "independent_spec": "JapanTaxLaw/TaxBandBoundariesSpec.lean sha256=960e362fa913f0aff0d6c5cd103a4e396b4829bc3662a5751e2a2b8389217360 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/TaxBandBoundaries.lean sha256=56f25c41179a9b1955819e0a59fa80833375a66c96a0c58e4929da2472c17e18",
+      "kernel_proof": "Lean 4.35.0 pinned; inAmountBand_iff / inPeriodBand_iff + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "two range conventions only: [2,000,000,5,000,000) amount and (20,25] years; amount/year are caller-established Nat; computation, rounding and legal effect NOT MODELLED",
+      "cross_law_proof": "unit dependencies=0; both enforced revisions resolved from INVENTORY",
+      "tests": "JapanTaxLaw/TaxBandBoundariesTests.lean sha256=dfc072a2a73c069e361d089230e69fde7354f0010b2729e03ddc936c6f6bdd60 (kernel-decided boundary examples + spec agreement)",
+      "adversarial_review": "docs/UNIT_TAX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings explicitly rejected",
+      "source_location": "data/raw/347CO0000000151_20251231_507CO0000000426.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:19/Article#19/Paragraph#1/Item#3/TableStruct/Table/TableRow/TableColumn/Sentence#1 8c5521ffb74068dc5b6872a3748b53a6eec38afc3637ece878eb0ca9da74a437 (verbatim 二百万円以上五百万円未満の金額)",
+      "boundary_proof": "inAmountBand iff 2,000,000<=x<5,000,000; 2,000,000/4,999,999 true, 1,999,999/5,000,000 false"
     },
-    "NORM|7176dc3cb4da9ce0a92f0b4cddd094cfaefb5fa95123009cacdad1501e5cc607": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; complementary CONDITION pair in Subitem1 #1/#2",
-      "source_correspondence_audit": "scripts/ci/source_audit_fiscal_split.py: both originals found verbatim, literals present, spec does not import implementation (4/4)",
-      "independent_spec": "JapanTaxLaw/FiscalPeriodSixMonthSplitSpec.lean sha256=1038f29697c2a2324540f514026061213ea15cf50b8a6194f9c662b5cf9fab95 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/FiscalPeriodSixMonthSplit.lean sha256=1ae4f57faf3ee862ce09518f6fe75a730942c6b0ff9b58cd512958e11b461e6c",
-      "kernel_proof": "Lean 4.35.0 pinned; agrees_under/agrees_more plus exclusive/exhaustive kernel-checked; no sorry/admit",
-      "proof_scope": "six-month split only: months < 6 vs 6 <= months; month computation, rounding and legal effect NOT MODELLED; months caller-established Nat",
-      "cross_law_proof": "unit dependencies=0; enforced revision 332CO0000000043_20261101_507CO0000000127 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/FiscalPeriodSixMonthSplitTests.lean sha256=6b33cba63fae1668ae1d962cb310d2235a9b554a2104342cb79e258f5819bee5 (10 kernel-decided examples incl. exclusivity/exhaustiveness)",
-      "adversarial_review": "docs/UNIT_FISCAL_SPLIT_ART27_12_5.md: H/T/D/C/U; inclusive/exclusive misreadings rejected; rule interaction verified",
-      "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:27_12_5/Article#27_12_5/Paragraph#8/Item#2/Subitem1#2/Subitem1Sentence/Column#1/Sentence#1 d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d (verbatim 15-char >=6 condition)",
-      "boundary_proof": "isSixMonthsOrMore iff 6<=months; 6/7 true, 5 false; exclusive/exhaustive proved"
+    "NORM|21bdc2f2f48a4f6a8b27e5ac0c46bb64c25a7cd885f43e3c416ee231b18b7e6e": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; two distinct boundary conventions kept separate",
+      "source_correspondence_audit": "scripts/ci/source_audit_tax_bands.py: both originals found verbatim across their own pinned snapshots, literals present, spec does not import implementation (5/5)",
+      "independent_spec": "JapanTaxLaw/TaxBandBoundariesSpec.lean sha256=960e362fa913f0aff0d6c5cd103a4e396b4829bc3662a5751e2a2b8389217360 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/TaxBandBoundaries.lean sha256=56f25c41179a9b1955819e0a59fa80833375a66c96a0c58e4929da2472c17e18",
+      "kernel_proof": "Lean 4.35.0 pinned; inAmountBand_iff / inPeriodBand_iff + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "two range conventions only: [2,000,000,5,000,000) amount and (20,25] years; amount/year are caller-established Nat; computation, rounding and legal effect NOT MODELLED",
+      "cross_law_proof": "unit dependencies=0; both enforced revisions resolved from INVENTORY",
+      "tests": "JapanTaxLaw/TaxBandBoundariesTests.lean sha256=dfc072a2a73c069e361d089230e69fde7354f0010b2729e03ddc936c6f6bdd60 (kernel-decided boundary examples + spec agreement)",
+      "adversarial_review": "docs/UNIT_TAX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings explicitly rejected",
+      "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:23/Article#23/Paragraph#1/List/ListSentence/Column#1/Sentence#1 c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7 (verbatim 残存期間が二十年を超え二十五年以下のもの)",
+      "boundary_proof": "inPeriodBand iff 20<y<=25; 21/25 true, 19/20/26 false"
     }
   }
 }

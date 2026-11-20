@@ -1,0 +1,31 @@
+{
+  "tool": "scripts/ci/source_audit_tax_bands.py",
+  "normative_ids": [
+    "NORM|1c103b22b685919f9c3f53da73b614b086b10560aaf307a876b47d609bd63573",
+    "NORM|21bdc2f2f48a4f6a8b27e5ac0c46bb64c25a7cd885f43e3c416ee231b18b7e6e"
+  ],
+  "revisions": [
+    "347CO0000000151_20251231_507CO0000000426",
+    "325AC0000000073_20260401_506AC0000000008"
+  ],
+  "raw_sha256": {
+    "347CO0000000151_20251231_507CO0000000426": "8c5521ffb74068dc5b6872a3748b53a6eec38afc3637ece878eb0ca9da74a437",
+    "325AC0000000073_20260401_506AC0000000008": "c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7"
+  },
+  "original_texts": {
+    "unit_a": "二百万円以上五百万円未満の金額",
+    "unit_b": "残存期間が二十年を超え二十五年以下のもの"
+  },
+  "checks": {
+    "unit_a_verbatim": true,
+    "unit_b_verbatim": true,
+    "all_literals_a_in_original": true,
+    "all_literals_b_in_original": true,
+    "spec_does_not_import_implementation": true
+  },
+  "module_sha256": {
+    "JapanTaxLaw/TaxBandBoundaries.lean": "56f25c41179a9b1955819e0a59fa80833375a66c96a0c58e4929da2472c17e18",
+    "JapanTaxLaw/TaxBandBoundariesSpec.lean": "960e362fa913f0aff0d6c5cd103a4e396b4829bc3662a5751e2a2b8389217360",
+    "JapanTaxLaw/TaxBandBoundariesTests.lean": "dfc072a2a73c069e361d089230e69fde7354f0010b2729e03ddc936c6f6bdd60"
+  }
+}
