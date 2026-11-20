@@ -253,7 +253,11 @@ def checks_by_module():
         base = m.group(1)
         if base.endswith("Spec") or base.endswith("Tests"):
             continue
-        article = art or article_from_name(name)
+        # Transcription checks cite kanji labels (第二十九条), while pinned
+        # e-Gov JSON stores `attr.Num` as Arabic (29). normative_core.article_key
+        # is the canonical converter; without it scoped source lookup silently
+        # returns an empty string and a genuine check looks whole-text-only.
+        article = core.article_key(art) if art else article_from_name(name)
         if not article:
             continue
         out.setdefault(base, {"law_id": law_id, "article": article, "needles": needles})
