@@ -272,6 +272,9 @@ import JapanTaxLaw.CustomsRetaliatoryDutyTests
 import JapanTaxLaw.GiftSpecialDeduction
 import JapanTaxLaw.GiftSpecialDeductionSpec
 import JapanTaxLaw.GiftSpecialDeductionTests
+import JapanTaxLaw.GiftAnnualExemption
+import JapanTaxLaw.GiftAnnualExemptionSpec
+import JapanTaxLaw.GiftAnnualExemptionTests
 import JapanTaxLaw.InheritanceMiscRates
 import JapanTaxLaw.InheritanceMiscRatesSpec
 import JapanTaxLaw.InheritanceMiscRatesTests
