@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 794,
+  "checks": 798,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -8735,11 +8735,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/LocalTaxOrderArt15_4AmountTests.lean",
       "unit_id": "NORM|8f218ac0c48735c83d9984a2be0ad3731220bc855d1425dd950952af69cf7476"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_TAX_ACCOUNTANT_REG_DELEGATED_AMOUNT.md — independent agent recomputed pin sha256 (346e24c2…cf8d296 on t",
+      "unit_id": "NORM|5a5e264f44439540b3d5bdd4efa72bc7e2980f2b11cd22c3acb7863e8cb240a7"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/TaxAccountantRegDelegatedAmount.lean",
+      "unit_id": "NORM|5a5e264f44439540b3d5bdd4efa72bc7e2980f2b11cd22c3acb7863e8cb240a7"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/TaxAccountantRegDelegatedAmountSpec.lean",
+      "unit_id": "NORM|5a5e264f44439540b3d5bdd4efa72bc7e2980f2b11cd22c3acb7863e8cb240a7"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/TaxAccountantRegDelegatedAmountTests.lean",
+      "unit_id": "NORM|5a5e264f44439540b3d5bdd4efa72bc7e2980f2b11cd22c3acb7863e8cb240a7"
     }
   ],
-  "resolved": 790,
+  "resolved": 794,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 162,
+  "units_checked": 163,
   "unresolved": 4
 }
