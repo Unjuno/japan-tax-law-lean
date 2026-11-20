@@ -186,12 +186,23 @@ def scoped_article_text(law_id: str, article: str) -> str:
 
 
 def review_ok(base: str, review_text: str) -> bool:
-    """Require a module-specific independent review, not a global keyword hit."""
-    idx = review_text.find(base + ".lean")
+    """Require a MODULE-SPECIFIC independent review with a recorded check.
+
+    Review documents use several equivalent phrasings across batches
+    (独立抽出 / 独立再抽出 / 一次資料, with 照合 / FOUND / 判定 as the decision).
+    Accept any of those, but only inside the section headed by this module:
+    a global keyword hit in an unrelated batch is not evidence for this unit.
+    """
+    idx = review_text.find("### " + base + ".lean")
+    if idx < 0:
+        idx = review_text.find(base + ".lean")
     if idx < 0:
         return False
-    section = review_text[max(0, idx - 1500): idx + 4000]
-    return ("一次資料" in section and "独立" in section and "再抽出" in section)
+    section = review_text[idx: idx + 4000]
+    independent = ("独立抽出" in section or "独立再抽出" in section or
+                   ("独立" in section and "一次資料" in section))
+    decision = ("照合" in section or "FOUND" in section or "判定" in section)
+    return independent and decision
 
 
 def article_from_name(name: str) -> str:
