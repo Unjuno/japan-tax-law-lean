@@ -38,11 +38,9 @@ theorem agree_capital_billion (amount : Nat) :
     exceedsCapitalBillion amount = specExceedsCapital amount := by
   unfold exceedsCapitalBillion capitalBillionFloor specExceedsCapital specCapitalBillionFloor
   by_cases h : 1_000_000_000 < amount
-  · have hs : Nat.succ 1_000_000_000 <= amount := Nat.succ_le_of_lt h
+  · have hs : Nat.succ 1_000_000_000 <= amount := by omega
     simp [h, hs]
-  · have hs : ¬ Nat.succ 1_000_000_000 <= amount := by
-      intro hs'
-      exact h (Nat.lt_of_succ_le hs')
+  · have hs : ¬ Nat.succ 1_000_000_000 <= amount := by omega
     simp [h, hs]
 
 /-- Finite spec-local grid (Bool scaffolding); the universal theorem is the proof. -/

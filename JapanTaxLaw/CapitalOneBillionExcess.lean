@@ -26,9 +26,12 @@ Variable contract:
 
 Scope: ONLY the explicit numeric capital/contribution condition is modelled —
 a corporation's capital or contribution amount strictly exceeds ¥1,000,000,000.
-The rest of art. 7, the special tax measure this condition gates, other items,
-other laws referenced by the act, and all enforcement/operational rules are
-NOT MODELLED.
+Context disclosed by independent review (F2): this condition is a definitional
+subitem (第一号イ) of 「大規模法人」 and is an activation condition for the
+欠損金繰戻し還付 restriction in the proviso of art. 7(1); that legal effect is
+NOT MODELLED. The rest of art. 7, the special tax measure this condition gates,
+other items, other laws referenced by the act, and all enforcement/operational
+rules are NOT MODELLED.
 
 No `sorry`, `admit`, `axiom` or `Classical.choice`.
 -/
