@@ -1193,6 +1193,12 @@ def checks():
            "file", None,
            ["事業を行う個人については、当該個人の事業の所得の計算上二百九十万円を控除する。", "前項の場合において、事業を行つた期間が一年に満たないときは、同項に規定する控除額は、二百九十万円に当該年において事業を行つた月数を乗じて得た額を十二で除して算定した金額とする。", "前項の月数は、暦に従い計算し、一月に満たない端数を生じたときは、一月とする。"])
 
+    # 地方税法 art. 74の5 — LocalTobaccoTaxRate.lean
+    yield ("地方税法 art. 74の5（たばこ税の税率: 千本につき千七十円 = 1,070円/千本、定額のみ。課税標準・按分・附則 NOT MODELLED）↔ LocalTobaccoTaxRate.lean",
+           "325AC0000000226",
+           "file", None,
+           ["たばこ税の税率は、千本につき千七十円とする。"])
+
     # 地方税法施行令 art. 35の4の6 — StandardRateExcessRatio.lean
     yield ("地方税法施行令 art. 35の4の6（標準税率超過率 = (基準事業税額−標準税率相当額)/基準事業税額、分母0→0・切り捨て — 基準額・相当額は caller-established）↔ StandardRateExcessRatio.lean",
            "325CO0000000245",
@@ -1412,6 +1418,13 @@ def checks():
            "325AC0000000226",
            "article", "第三十五条",
            ["百分の四（所得割の納税義務者が地方自治法第二百五十二条の十九第一項の市（第三十七条及び第三十七条の二において「指定都市」という。）の区域内に住所を有する場合には、百分の二）"])
+
+
+    # 地方税法 art. 38 — PerCapitaEqualRate.lean (standard equal-rate 1,000 yen)
+    yield ("地方税法 art. 38（個人の均等割の標準税率・千円）↔ PerCapitaEqualRate.lean (standardRate 1_000)",
+           "325AC0000000226",
+           "file", None,
+           ["個人の均等割の標準税率は、千円とする"])
 
 
 def main() -> int:
