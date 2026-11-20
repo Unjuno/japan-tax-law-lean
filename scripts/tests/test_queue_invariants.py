@@ -98,6 +98,26 @@ class TestBackingInvariant(unittest.TestCase):
         self.write_queue("NOT_STARTED")
         self.assertEqual(qinv.main(), 0)
 
+    def test_partial_axis_set_is_rejected(self):
+        # Codex review finding 1: axes derived from the ledger let a record
+        # with only source_location pass. Required axes are declared by the
+        # core module and must be required even when absent from every record.
+        self.write_queue("FULLY_VERIFIED")
+        (self.root / "data" / "verification_evidence.json").write_text(
+            json.dumps({"units": {UID: {"source_location": "trace"}}}, ensure_ascii=False),
+            encoding="utf-8")
+        self.assertEqual(qinv.main(), 1)
+
+    def test_falsey_evidence_is_rejected(self):
+        # Codex review finding 2: str(None) == "None" is non-empty, so a null
+        # proof axis must be rejected before string conversion.
+        self.write_queue("FULLY_VERIFIED")
+        record = {axis: ("trace " + axis) for axis in AXES}
+        record["kernel_proof"] = None
+        (self.root / "data" / "verification_evidence.json").write_text(
+            json.dumps({"units": {UID: record}}, ensure_ascii=False), encoding="utf-8")
+        self.assertEqual(qinv.main(), 1)
+
 
 if __name__ == "__main__":
     unittest.main()

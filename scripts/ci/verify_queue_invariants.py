@@ -14,6 +14,9 @@ import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from normative_core import EVIDENCE_AXES  # noqa: E402  (declared required axes)
+
 REPO = Path(__file__).resolve().parents[2]
 QUEUE = REPO / "build" / "task_queue.json"
 EXPECTED = {"NOT_STARTED", "PARTIAL", "PROVED_SCOPE", "FULLY_VERIFIED", "BLOCKED"}
@@ -69,16 +72,22 @@ def main() -> int:
             evidence = json.loads(evidence_path.read_text(encoding="utf-8")).get("units", {})
         except (ValueError, OSError):
             evidence = {}
-    axes = set()
-    for record in evidence.values():
-        axes.update(record.keys())
+    # Use the DECLARED axes, never the axes that happen to appear in the
+    # ledger under test: an omitted axis must fail, not silently vanish.
+    axes = tuple(EVIDENCE_AXES)
     fv_units = [u for u in units if u.get("status") == "FULLY_VERIFIED"]
-    unbacked = [str(u.get("normative_id", ""))[:24] for u in fv_units
-                if not evidence.get(str(u.get("normative_id", "")), {})
-                or any(not str(evidence[str(u.get("normative_id", ""))].get(a, "")).strip()
-                       for a in axes)]
+    unbacked = []
+    for u in fv_units:
+        uid = str(u.get("normative_id", ""))
+        record = evidence.get(uid, {})
+        if not record or any(
+            (not record.get(axis))
+            or (isinstance(record[axis], str) and not record[axis].strip())
+            for axis in axes
+        ):
+            unbacked.append(uid[:24])
     check("every FULLY_VERIFIED is evidence-backed",
-          (not fv_units) or (bool(axes) and not unbacked),
+          (not fv_units) or not unbacked,
           f"FULLY_VERIFIED={len(fv_units)} axes={len(axes)} unbacked={len(unbacked)}")
 
     sample = units[0]
