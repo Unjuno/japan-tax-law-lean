@@ -121,6 +121,28 @@ These numbers are a **baseline of unverified obligations**, not evidence of
 progress: zero units currently have recorded verification evidence, so no
 formalization progress can be credited from the new models alone.
 
+## Re-run after the integration fix (partial, timeout-bounded)
+
+A full `python scripts/ci/run_python_gates.py` re-run was executed. All gates
+reached before the harness's 600 s command timeout reported **PASS**:
+
+- structural audit tests: 44/44 OK
+- mutation injection tests: 12/12 OK
+- inventory selection tests: 7/7 OK
+- cross-law consistency tests: 14/14 OK
+- revision impact tests: 8/8 OK
+- normative core (queue/completion) tests: 20/20 OK
+- completion gate adversary tests: 8/8 OK
+- independent completion-mechanism audit: Q1–Q8 all PASS
+- Phase A / E / F / B gates, recursive discovery, law status, article
+  obligations (52 NOT_STARTED), rate consistency: PASS
+
+The run was terminated (SIGTERM, exit 143) before the remaining regeneration
+gates completed; this is a harness time limit, not a gate FAIL. The independently
+executed versions of those gates (task_queue, task_selector, article_scope,
+completion_gate, check_no_sorry) are recorded in the section above and all
+succeeded.
+
 ## Interpretation
 
 The five FAILs are **integration failures between concurrently edited modules**,

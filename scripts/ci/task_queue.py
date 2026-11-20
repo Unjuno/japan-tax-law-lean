@@ -54,11 +54,18 @@ def iter_articles(node, path=()):
             anum = str((node.get("attr") or {}).get("Num", ""))
             yield path + (f"Article:{anum}",), node
             return
-        for child in node.get("children", []) or []:
-            yield from iter_articles(child, path)
+        # Sibling index is part of the path: e-Gov Supplementary provisions
+        # frequently repeat the same (empty) Num and article numbers. Without
+        # the index, 67 distinct provisions collapse to one structural path and
+        # their normative ids collide (§1.1 requires collision-free ids).
+        for i, child in enumerate(node.get("children", []) or []):
+            child_path = path + (f"{tag}[{i}]",) if tag in (
+                "MainProvision", "SupplProvision", "AppdxTable", "LawBody"
+            ) else path
+            yield from iter_articles(child, child_path)
     elif isinstance(node, list):
-        for child in node:
-            yield from iter_articles(child, path)
+        for i, child in enumerate(node):
+            yield from iter_articles(child, path + (f"list[{i}]",))
 
 
 def build_tasks(inv: dict) -> list[dict]:
