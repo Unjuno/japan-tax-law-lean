@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 39 | 327 | 11.93% |
+| laws with >=1 pinned literal check | 41 | 327 | 12.54% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -49,8 +49,8 @@ by the '税' keyword in the law name only.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 160 | n/a | n/a |
-| distinct article pins | 46 | 42584 | 0.11% |
+| pinned literal checks | 162 | n/a | n/a |
+| distinct article pins | 48 | 42584 | 0.11% |
 | pinned Lean modules (cross-law) | 448 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
@@ -95,6 +95,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `325AC0000000226` 地方税法
 - `325CO0000000245` 地方税法施行令
 - `325M50000040017` 相続税法施行規則
+- `327AC0000000111` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法律
 - `328CO0000000407` 奄美群島の復帰に伴う国税関係法令の適用の暫定措置等に関する政令
 - `329AC0000000061` 関税法
 - `329CO0000000150` 関税法施行令
@@ -128,3 +129,4 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `404AC0000000015` 法人特別税法
 - `420AC0000000084` 地方税等減収補てん臨時交付金に関する法律
 - `426AC0000000011` 地方法人税法
+- `430AC0000000016` 国際観光旅客税法

@@ -21,5 +21,16 @@ layer is never folded into the statutory ledger.
 | L5_CASELAW | 裁判例 | 判決・裁定（法源ではなく判断例） | NOT_ACQUIRED | AUXILIARY_LAYER | - | OUT_OF_SCOPE |
 | L6_HISTORICAL | 歴史的施行版 | 旧法・新法（同一法令の別施行版） | NOT_PINNED | HISTORICAL_LAYER | 795 | OUT_OF_SCOPE |
 
+## Obligation counts (separate denominators)
+
+- normative_units_total: unknown
+- fully_verified_units: 8
+- proved_scope_units: 1
+- not_started_units: 396843
+- blocked_units: 2
+- human_legal_reviews: 0
+
+Separate denominators; unknown (None) means the input is absent, never zero.
+
 No layer other than L0 has acquired content in this repository. No
 completion claim is made for any layer.

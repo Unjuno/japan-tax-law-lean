@@ -17,6 +17,8 @@ from __future__ import annotations
 
 import csv
 import json
+import re
+import subprocess
 import sys
 from collections import Counter
 from pathlib import Path
@@ -34,22 +36,45 @@ def _load(path: Path):
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
 
 
+def _head_sha() -> str:
+    try:
+        out = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True,
+                             text=True, check=False)
+        return out.stdout.strip() if out.returncode == 0 else ""
+    except (OSError, ValueError):
+        return ""
+
+
 def registered_checks() -> dict:
     r = _load(GATE_RESULTS)
     if not r:
         return {"available": False, "pass": 0, "fail": 0, "skip": 0,
-                "required_skip": 0, "gates": []}
+                "required_skip": 0, "commit_matches_head": False,
+                "results_sha": "", "head_sha": _head_sha(), "gates": []}
     gates = r.get("gates", [])
     verdicts = Counter(g.get("verdict", "UNKNOWN") for g in gates)
     required_skip = sum(1 for g in gates if g.get("required") and g.get("verdict") == "SKIP")
+    head = _head_sha()
+    results_sha = str(r.get("commit_sha", ""))
     return {
         "available": True,
         "pass": verdicts.get("PASS", 0),
         "fail": verdicts.get("FAIL", 0),
         "skip": verdicts.get("SKIP", 0),
         "required_skip": required_skip,
+        "commit_matches_head": bool(head) and bool(results_sha) and head == results_sha,
+        "results_sha": results_sha,
+        "head_sha": head,
         "gates": gates,
     }
+
+
+def checks_are_green(reg: dict) -> bool:
+    """A green Axis A needs passing gates AND results bound to this commit."""
+    return bool(reg.get("available") and reg.get("pass", 0) > 0
+                and reg.get("fail", 0) == 0 and reg.get("skip", 0) == 0
+                and reg.get("required_skip", 0) == 0
+                and reg.get("commit_matches_head", False))
 
 
 def human_review_count() -> tuple[int, int]:
@@ -62,8 +87,10 @@ def human_review_count() -> tuple[int, int]:
 
 
 def build() -> str:
-    q = _load(QUEUE) or {"tasks": []}
-    tasks = q.get("tasks", [])
+    q = _load(QUEUE) or {"units": []}
+    # The normative-unit queue generator emits `units`; older rows used
+    # `tasks`. Reading only the legacy key silently reported all zeros.
+    tasks = q.get("units", q.get("tasks", []))
     counts = Counter(t.get("status", "NOT_STARTED") for t in tasks)
     evidence_ledger = _load(REPO / "data" / "verification_evidence.json") or {}
     evidence_by_id = evidence_ledger.get("units", {})
@@ -104,8 +131,7 @@ def build() -> str:
     total = len(tasks)
     all_complete = bool(total) and complete_units == total and blockers == 0 \
         and unhandled == 0 and reviews >= candidates and candidates > 0
-    checks_ok = reg["available"] and reg["fail"] == 0 and reg["skip"] == 0 \
-        and reg["required_skip"] == 0 and reg["pass"] > 0
+    checks_ok = checks_are_green(reg)
     claim = all_complete and checks_ok
 
     lines = [
@@ -123,6 +149,9 @@ def build() -> str:
         f"- FAIL: {reg['fail']}",
         f"- SKIP: {reg['skip']}",
         f"- required gates SKIPped: {reg['required_skip']}",
+        f"- gate results commit: {reg['results_sha'] or '(none)'}",
+        f"- current HEAD commit: {reg['head_sha'] or '(unknown)'}",
+        f"- results bound to this commit: {reg['commit_matches_head']}",
         f"- registered checks all green: {checks_ok}",
         "",
         "## Axis B — all registered obligations complete",
@@ -170,10 +199,21 @@ def build() -> str:
     return "\n".join(lines)
 
 
+def _stable_text(text: str) -> str:
+    """Mask per-commit provenance values before the determinism comparison.
+
+    The SHA lines are evidence, not configuration: their values legitimately
+    change with every commit. Comparing them verbatim made the regeneration
+    gate fail on every commit after the provenance fields were introduced.
+    """
+    pattern = re.compile(r"^(- (?:gate results commit|current HEAD commit): ).*$")
+    return "\n".join(pattern.sub(r"\1(variable)", line) for line in text.splitlines())
+
+
 def main() -> int:
     text = build()
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    if OUT.exists() and OUT.read_text(encoding="utf-8") == text:
+    if OUT.exists() and _stable_text(OUT.read_text(encoding="utf-8")) == _stable_text(text):
         print("completion gate status matches committed state (deterministic)")
         return 0
     OUT.write_text(text, encoding="utf-8")

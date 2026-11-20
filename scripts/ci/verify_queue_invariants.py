@@ -15,6 +15,9 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
+# main() imports normative_core lazily; make that module importable both when
+# run as a script and when this file is loaded via importlib from unit tests.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 QUEUE = REPO / "build" / "task_queue.json"
 EXPECTED = {"NOT_STARTED", "PARTIAL", "PROVED_SCOPE", "FULLY_VERIFIED", "BLOCKED"}
 
@@ -69,9 +72,10 @@ def main() -> int:
             evidence = json.loads(evidence_path.read_text(encoding="utf-8")).get("units", {})
         except (ValueError, OSError):
             evidence = {}
-    axes = set()
-    for record in evidence.values():
-        axes.update(record.keys())
+    # Required axes come from the canonical core, never from the ledger under
+    # test: a partial ledger must not redefine what counts as complete.
+    import normative_core  # noqa: E402
+    axes = set(normative_core.EVIDENCE_AXES)
     fv_units = [u for u in units if u.get("status") == "FULLY_VERIFIED"]
     unbacked = [str(u.get("normative_id", ""))[:24] for u in fv_units
                 if not evidence.get(str(u.get("normative_id", "")), {})
