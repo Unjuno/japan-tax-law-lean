@@ -1260,6 +1260,16 @@ def checks():
            "article", "第六条の二",
            ["法第九条第二項に規定する政令で定める額は、八千八百円とする。"])
 
+    # 災害被害者租税減免等施行令 附則第三条 — DisasterVictimIncomeBracket.lean
+    # Norm unit NORM|8746221ba19978635b4364ecd7d12d09b01c13aea26958c14ab66b4f027ec141
+    # The needle sits in an 附則 (SupplProvision) article; find_article_text sees main only,
+    # so use the file-kind locator. The needle is verbatim-unique in the whole pinned law.
+    # Revision/revision file derived from INVENTORY (not guessed) after a prior fabricated-revision finding.
+    yield ("災害被害者租税減免等施行令 附則第三条（災害時の合計所得金額の見積額が四百五十万円を超え六百万円以下である被災給与所得者）↔ DisasterVictimIncomeBracket.lean (lowerBoundYen 4500000 / upperBoundYen 6000000)",
+           "322CO0000000268",
+           "file", None,
+           ["災害時の合計所得金額の見積額が四百五十万円を超え六百万円以下である被災給与所得者"])
+
     # 在日米軍特例法 art. 11(3) — UsForcesDutyFreePenalty.lean (norm unit)
     yield ("在日米軍特例法 art. 11(3)（免税物品の用途外譲渡違反の罰則: 一年以下の拘禁刑又は五十万円以下の罰金 — 代替刑、併科なし。違反要件・徴収・法人重課・附則は NOT MODELLED）↔ UsForcesDutyFreePenalty.lean",
            "327AC0000000111",
