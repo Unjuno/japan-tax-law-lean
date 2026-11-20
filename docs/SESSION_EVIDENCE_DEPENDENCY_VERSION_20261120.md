@@ -32,10 +32,19 @@ This was prior merged work (PRs #186/#187/#190); I verified it rather than rewri
   `lake build` → **Build completed successfully (524 jobs)**.
 - H/T/D/C/U record: `docs/DEPENDENCY_VERSION_ADVERSARIAL_20261120.md`.
 
+## Second defect found on latest main — missing REQUIRED test file
+The freshly re-fetched main (`d16d4a8`) declares a REQUIRED gate
+`task selector computable ranking tests` whose test file was absent, so the
+full gate suite failed with `SKIP is never PASS`
+(`build/gate_results.json`: 31 pass / 1 fail / 1 skip). Added
+`scripts/tests/test_task_selector.py` (8 tests, all OK). H/T/D/C/U record:
+`docs/CI_REQUIRED_GATE_MISSING_TEST_20261120.md`.
+
 ## Honest status
-- This is a **mechanism correctness fix**. It adds no normative model, no Lean
-  theorem, and no legal conclusion. It does not by itself reduce the verified
-  unit count; it prevents a class of false completion in the selector.
+- Both contributions are **mechanism correctness fixes**. They add no normative
+  model, no Lean theorem, and no legal conclusion. They do not by themselves
+  change the verified-unit count; they prevent false completion and a false
+  green CI.
 - Branch pushed to `origin/fix/dependency-enforcement-version-1-6`.
 - PR creation was attempted but blocked by `GraphQL: API rate limit already
   exceeded for user ID 241447786`. The pushed branch is the resumable artifact.
