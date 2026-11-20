@@ -1,0 +1,71 @@
+# Owned-branch verification state — `owned/verification-loop`
+
+This document records the verification state of THIS branch/worktree only. It
+is deliberately isolated from the shared working tree, where concurrent agents
+switch branches and overwrite generated ledgers. No completion claim is made
+for the whole tax-law corpus.
+
+## Source scope (Directive §2)
+
+- 327 provisional national 「税」 statutes (unchanged `INVENTORY.json`).
+- 382 official e-Gov IDs discovered through reference/delegation relations, all
+  outside those 327 and all with names not containing 「税」; 381 are pinned with
+  enforced revision, SHA-256 and verified snapshot bytes
+  (`data/DISCOVERED_INVENTORY.json`, `docs/DISCOVERED_SCOPE_RESTORE.md`).
+- Historical 新／旧 references, local ordinances, treaties, circulars and case
+  law remain separate layers; no false scope claim is made.
+
+## Evidence ledger (Directive §1.5, §3, §5)
+
+`data/verification_evidence.json` records **47 normative units**, each with 11
+evidence axes (source location, decomposition audit, Lean-independent source
+correspondence, independent spec, implementation, kernel proof, proof scope,
+boundary proof, cross-law proof, tests, adversarial review). The generator
+requires a hash-checked kernel-build attestation and a Lean-independent
+numeric-literal check against the pinned original; a numeric match, a file
+existing or a theorem name alone cannot set an axis.
+
+Example unit: `NORM|167b8cab…` (相続税法 art. 21-5) — independently located in
+the pinned 2026-04-01 snapshot, 六十万円 parsed to 600000 and matched in both
+Spec and implementation, kernel builds of impl/spec/tests succeeded,
+`#print axioms` reported no axioms, and H/T/D/C/U adversarial review recorded
+in `docs/GIFT_21_5_VERIFICATION.md`.
+
+## Reproduction
+
+```
+python scripts/ci/task_queue.py
+python scripts/ci/verify_queue_invariants.py
+python -m unittest discover -s scripts/tests -t .
+```
+
+Measured results on this branch (2026-11-20):
+
+```
+$ python scripts/ci/task_queue.py
+normative-unit queue: 396854 units; NOT_STARTED=396805, PARTIAL=0,
+PROVED_SCOPE=1, FULLY_VERIFIED=46, BLOCKED=2
+state merge: 396853 change(s)
+```
+
+So 46+1 = 47 evidence-backed units left NOT_STARTED on this branch; the
+shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
+concurrent branch switches. This ledger is committed here so the gain is
+durable. `docs/TASK_QUEUE.md` is regenerated with these counts.
+
+Local full `lake build` was attempted but had to be stopped at 15/524 modules
+under severe system load from concurrent agents; it is NOT claimed as a full
+kernel build. The targeted builds that back the recorded evidence did succeed:
+
+```
+lake build JapanTaxLaw.GiftTaxSpec  → Build completed successfully (4 jobs)
+lake build JapanTaxLaw.GiftTaxTests → Build completed successfully (4 jobs)
+lake env lean gift_axioms.lean:
+  giftTax_zero_below_deduction, giftPortionTax_zero, agreeGiftTax,
+  spec_impl_basic_deduction_agree — each "does not depend on any axioms"
+```
+
+## Not claimed
+
+- Whole-tax-law completion, legal correctness, or human legal review.
+- Formalization of any discovered related statute.
