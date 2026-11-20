@@ -65,6 +65,35 @@ source-layer tests pass.
 | C | Competing interpretation: "present in a registry" means "acquired". Rejected: registry fields distinguish `ACQUIRED_*` from `NOT_ACQUIRED`. Another: "HTTP 200 proves content" — rejected after the first candidate pinned a 404 HTML template; the adapter now rejects error markers and small bodies. "0 files in data/raw means no such sources exist" is also rejected: it only describes this repository. |
 | U | No acquisition pipeline from municipal websites, treaty databases, circular publications or case-law repositories has been implemented here; the e-Gov law API path used for L0 does not cover them. Acquisition is therefore recorded as NOT_ACQUIRED, not as a legal conclusion. Human legal review 0. |
 
+## L3 treaty source probe (2026-11-21) — no accessible official original
+
+A follow-up availability probe (certifi TLS, `User-Agent: Mozilla/5.0`) tested
+further official candidate URLs for a real tax-treaty index/text. All failed to
+yield an original; none was pinned (no false acquisition):
+
+```
+https://www.mofa.go.jp/mofaj/gaiko/treaty/index.html      -> HTTP 403 Forbidden
+https://www.mof.go.jp/tax_policy/tax_treaty/index.htm     -> HTTP 404
+https://www.mof.go.jp/tax_policy/tax_treaty/treaty_list.htm-> HTTP 404
+https://www.mof.go.jp/international_policy/convention/
+    tax_treaty/index.htm                                  -> HTTP 404
+https://www.nta.go.jp/taxes/seisan/kokusai/index.htm      -> /error/404.htm
+    (HTTP 200 but 2007-byte "指定されたページを表示できませんでした" template)
+https://www.nta.go.jp/taxes/seisan/kokusai/zeiho_treaty.htm-> /error/404.htm (same template)
+https://www.nta.go.jp/taxes/seisan/kokusai/kokusai.htm     -> /error/404.htm (same template)
+https://www.nta.go.jp/publication/pamph/pdf/zeiho_treaty.pdf-> /error/404.htm (same template)
+```
+
+A MOF tax-reform outline page (`www.mof.go.jp/tax_policy/tax_reform/outline/fy2024/index.htm`,
+21550 bytes) was reachable but is **not** a treaty original, so it was not
+acquired for L3. Root causes recorded: (a) MOFA blocks automated treaty access
+(403); (b) guessed NTA/MOF treaty URLs either 404 or return the NTA 404 HTML
+template with HTTP 200 — exactly the false-acquisition trap already guarded
+against in `acquire_auxiliary_index.py`. Competing hypothesis ("the sources
+are reachable if the right URL is known") is not disproven, but no valid URL
+was established in this probe. L3 therefore remains `NOT_ACQUIRED` /
+`count_acquired=0` / `verification_status=OUT_OF_SCOPE`; no content claimed.
+
 ## Consequence
 
 No completion claim is made for L2–L5. Their denominators remain separate and

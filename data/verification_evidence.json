@@ -93,6 +93,19 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:181/Article#181/Paragraph#1/ParagraphSentence/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim 18-char levy date)",
       "tests": "JapanTaxLaw/MiningTaxLevyDateTests.lean sha256=9de412434d8ea8bf0d7588c1977e93244bf2ecd68e492c2719196172d55ae1be (6 kernel-decided examples)"
     },
+    "NORM|1c103b22b685919f9c3f53da73b614b086b10560aaf307a876b47d609bd63573": {
+      "adversarial_review": "docs/UNIT_TAX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings explicitly rejected",
+      "boundary_proof": "inAmountBand iff 2,000,000<=x<5,000,000; 2,000,000/4,999,999 true, 1,999,999/5,000,000 false",
+      "cross_law_proof": "unit dependencies=0; both enforced revisions resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; two distinct boundary conventions kept separate",
+      "implementation": "JapanTaxLaw/TaxBandBoundaries.lean sha256=56f25c41179a9b1955819e0a59fa80833375a66c96a0c58e4929da2472c17e18",
+      "independent_spec": "JapanTaxLaw/TaxBandBoundariesSpec.lean sha256=960e362fa913f0aff0d6c5cd103a4e396b4829bc3662a5751e2a2b8389217360 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inAmountBand_iff / inPeriodBand_iff + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "two range conventions only: [2,000,000,5,000,000) amount and (20,25] years; amount/year are caller-established Nat; computation, rounding and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_tax_bands.py: both originals found verbatim across their own pinned snapshots, literals present, spec does not import implementation (5/5)",
+      "source_location": "data/raw/347CO0000000151_20251231_507CO0000000426.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:19/Article#19/Paragraph#1/Item#3/TableStruct/Table/TableRow/TableColumn/Sentence#1 8c5521ffb74068dc5b6872a3748b53a6eec38afc3637ece878eb0ca9da74a437 (verbatim 二百万円以上五百万円未満の金額)",
+      "tests": "JapanTaxLaw/TaxBandBoundariesTests.lean sha256=dfc072a2a73c069e361d089230e69fde7354f0010b2729e03ddc936c6f6bdd60 (kernel-decided boundary examples + spec agreement)"
+    },
     "NORM|1d310b3fc3fbdb5179921191135141b643f44a1685bff314ace7ed21aee111ba": {
       "adversarial_review": "docs/UNIT_DOMICILE_PRESUMPTION_ART14.md: H/T/D/C/U; dropped-residence reading rejected by verbatim original",
       "boundary_proof": "presumedHasDomicile_iff general theorem; (true,true) presumes; (false,*) and (*,false) do not",
@@ -105,6 +118,19 @@
       "source_correspondence_audit": "scripts/ci/source_audit_domicile_art14.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; 3 independent literals located",
       "source_location": "data/raw/340CO0000000096_20260522_508CO0000000093.law.json#LawBody[3]/MainProvision/MainProvision[0]/Article:14/Article#14/Paragraph#1/ParagraphSentence/Sentence#1 9facf2e2768d602ccdbbf9891df142d3a3e7ead09033eb0634de00a4c4181392 (verbatim 56-char presumption)",
       "tests": "JapanTaxLaw/DomicilePresumptionArt14Tests.lean sha256=a3e8afd0982230ee4c28746bbefb1463ddd791498338e93b5545a40aaabf0473 (6 kernel-decided examples)"
+    },
+    "NORM|21bdc2f2f48a4f6a8b27e5ac0c46bb64c25a7cd885f43e3c416ee231b18b7e6e": {
+      "adversarial_review": "docs/UNIT_TAX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings explicitly rejected",
+      "boundary_proof": "inPeriodBand iff 20<y<=25; 21/25 true, 19/20/26 false",
+      "cross_law_proof": "unit dependencies=0; both enforced revisions resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; two distinct boundary conventions kept separate",
+      "implementation": "JapanTaxLaw/TaxBandBoundaries.lean sha256=56f25c41179a9b1955819e0a59fa80833375a66c96a0c58e4929da2472c17e18",
+      "independent_spec": "JapanTaxLaw/TaxBandBoundariesSpec.lean sha256=960e362fa913f0aff0d6c5cd103a4e396b4829bc3662a5751e2a2b8389217360 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inAmountBand_iff / inPeriodBand_iff + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "two range conventions only: [2,000,000,5,000,000) amount and (20,25] years; amount/year are caller-established Nat; computation, rounding and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_tax_bands.py: both originals found verbatim across their own pinned snapshots, literals present, spec does not import implementation (5/5)",
+      "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:23/Article#23/Paragraph#1/List/ListSentence/Column#1/Sentence#1 c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7 (verbatim 残存期間が二十年を超え二十五年以下のもの)",
+      "tests": "JapanTaxLaw/TaxBandBoundariesTests.lean sha256=dfc072a2a73c069e361d089230e69fde7354f0010b2729e03ddc936c6f6bdd60 (kernel-decided boundary examples + spec agreement)"
     },
     "NORM|29d04706ea24185c86b2152ccc2a22513fd3733bb63bfaecfc4e260e1283c879": {
       "adversarial_review": "docs/UNIT_DELEGATION_ART312.md: H/T/D/C/U; ministry-ordinance and self-executing readings rejected by verbatim original",
@@ -300,32 +326,6 @@
       "source_correspondence_audit": "scripts/ci/source_audit_period_art23.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 残存期間/十年を超え/十五年以下",
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:23/Article#23/Paragraph#1/List/ListSentence/Column#1/Sentence#1 c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7 (verbatim 16-char period condition)",
       "tests": "JapanTaxLaw/RemainingPeriodBandTests.lean sha256=a8b557c90c89a137d2ac6f86d09dd8d51d8d925d94b226ea732c36e65e44139d (8 kernel-decided examples)"
-    },
-    "NORM|1c103b22b685919f9c3f53da73b614b086b10560aaf307a876b47d609bd63573": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; two distinct boundary conventions kept separate",
-      "source_correspondence_audit": "scripts/ci/source_audit_tax_bands.py: both originals found verbatim across their own pinned snapshots, literals present, spec does not import implementation (5/5)",
-      "independent_spec": "JapanTaxLaw/TaxBandBoundariesSpec.lean sha256=960e362fa913f0aff0d6c5cd103a4e396b4829bc3662a5751e2a2b8389217360 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/TaxBandBoundaries.lean sha256=56f25c41179a9b1955819e0a59fa80833375a66c96a0c58e4929da2472c17e18",
-      "kernel_proof": "Lean 4.35.0 pinned; inAmountBand_iff / inPeriodBand_iff + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "two range conventions only: [2,000,000,5,000,000) amount and (20,25] years; amount/year are caller-established Nat; computation, rounding and legal effect NOT MODELLED",
-      "cross_law_proof": "unit dependencies=0; both enforced revisions resolved from INVENTORY",
-      "tests": "JapanTaxLaw/TaxBandBoundariesTests.lean sha256=dfc072a2a73c069e361d089230e69fde7354f0010b2729e03ddc936c6f6bdd60 (kernel-decided boundary examples + spec agreement)",
-      "adversarial_review": "docs/UNIT_TAX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings explicitly rejected",
-      "source_location": "data/raw/347CO0000000151_20251231_507CO0000000426.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:19/Article#19/Paragraph#1/Item#3/TableStruct/Table/TableRow/TableColumn/Sentence#1 8c5521ffb74068dc5b6872a3748b53a6eec38afc3637ece878eb0ca9da74a437 (verbatim 二百万円以上五百万円未満の金額)",
-      "boundary_proof": "inAmountBand iff 2,000,000<=x<5,000,000; 2,000,000/4,999,999 true, 1,999,999/5,000,000 false"
-    },
-    "NORM|21bdc2f2f48a4f6a8b27e5ac0c46bb64c25a7cd885f43e3c416ee231b18b7e6e": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; two distinct boundary conventions kept separate",
-      "source_correspondence_audit": "scripts/ci/source_audit_tax_bands.py: both originals found verbatim across their own pinned snapshots, literals present, spec does not import implementation (5/5)",
-      "independent_spec": "JapanTaxLaw/TaxBandBoundariesSpec.lean sha256=960e362fa913f0aff0d6c5cd103a4e396b4829bc3662a5751e2a2b8389217360 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/TaxBandBoundaries.lean sha256=56f25c41179a9b1955819e0a59fa80833375a66c96a0c58e4929da2472c17e18",
-      "kernel_proof": "Lean 4.35.0 pinned; inAmountBand_iff / inPeriodBand_iff + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "two range conventions only: [2,000,000,5,000,000) amount and (20,25] years; amount/year are caller-established Nat; computation, rounding and legal effect NOT MODELLED",
-      "cross_law_proof": "unit dependencies=0; both enforced revisions resolved from INVENTORY",
-      "tests": "JapanTaxLaw/TaxBandBoundariesTests.lean sha256=dfc072a2a73c069e361d089230e69fde7354f0010b2729e03ddc936c6f6bdd60 (kernel-decided boundary examples + spec agreement)",
-      "adversarial_review": "docs/UNIT_TAX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings explicitly rejected",
-      "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:23/Article#23/Paragraph#1/List/ListSentence/Column#1/Sentence#1 c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7 (verbatim 残存期間が二十年を超え二十五年以下のもの)",
-      "boundary_proof": "inPeriodBand iff 20<y<=25; 21/25 true, 19/20/26 false"
     }
   }
 }
