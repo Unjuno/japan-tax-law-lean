@@ -97,6 +97,19 @@
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[79]/SupplProvision/SupplProvision[4]/Article:4/Article#4/Paragraph#2/ParagraphSentence/Sentence#1/QuoteStruct/TableStruct/Table/TableRow/TableColumn/Sentence#1 5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim T350 row 2: 年３５０万円を超え年７００万円以下の金額　（（２２））)",
       "tests": "JapanTaxLaw/TransitionalIncomeBracketsTests.lean sha256=883fb1aa5f4111ef90460a6621b2ea62e39860102f6ff53bfe32a3745e1df996 (kernel boundary examples at inclusive/exclusive edges, spec agreement, universal exclusivity/exhaustiveness)"
     },
+    "NORM|0aa386886045574045b31c5949f7be13e14410818cb6b6953be6a3a59924317c": {
+      "adversarial_review": "docs/UNIT_PAYLOAD_CAPACITY_BANDS_2.md: H/T/D/C/U; boundary-convention misreadings rejected; two tables' distinct ids/sources recorded",
+      "boundary_proof": "second-table inBand 3 d; same nine-band partition as first table",
+      "cross_law_proof": "cross_table_inBand proves this table's bands identical to the first art.154 payload table; revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; second art.154 最大積載量 nine-band table",
+      "implementation": "JapanTaxLaw/PayloadCapacityBandsSecondTable.lean sha256=1c9caa4bc65f01be079594952584baa2dc9bd6bcde4e9b8ed0603aa8ea0bfd79 (aliases the kernel-proven PayloadCapacityBands function)",
+      "independent_spec": "JapanTaxLaw/PayloadCapacityBandsSecondTableSpec.lean sha256=310e9701a1a283d8b34d61d11dffc777b9f315748e2316e10ee64fe5f8443c65 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inherited pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement + cross_table_inBand kernel-checked; no sorry/admit",
+      "proof_scope": "nine-band payload partition only: d caller-established Nat in whole tons; exhaustive over all d; globally pairwise exclusive; sub-ton precision, rates and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_payload_bands2.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 4)",
+      "tests": "JapanTaxLaw/PayloadCapacityBandsSecondTableTests.lean sha256=d8a430a900845529c3904c22bea6842f74f5fa256483f008a615dcd7b3db4253 (kernel boundary examples, spec agreement, cross-table identity)"
+    },
     "NORM|0c6a423cc2b576efc946ed84c530f0f5a6119a0970d64cd50f3a77d40b205bca": {
       "adversarial_review": "docs/UNIT_MESH_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive misreading and open-ended-e8 misreading rejected; domain bounds recorded explicitly",
       "boundary_proof": "mesh band (7-band partition over 100<=d<4000, globally pairwise exclusive)",
@@ -451,6 +464,19 @@
       "source_location": "data/raw/359AC0000000072_20260525_506AC0000000052.law.json#LawBody[14]/SupplProvision/SupplProvision[5]/Article:52/Article#52/Paragraph#13/ParagraphSentence/Sentence#1 6079422da9d83bb97d68e5fd824b92563d7a0e183cabdf88fc0d9e0cd241e2cd",
       "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)"
     },
+    "NORM|3b8cd6c24119ac4272cb0eae31b10447eeba9cb91282c8c110c89f579c32ddfd": {
+      "adversarial_review": "docs/UNIT_PAYLOAD_CAPACITY_BANDS_2.md: H/T/D/C/U; boundary-convention misreadings rejected; two tables' distinct ids/sources recorded",
+      "boundary_proof": "second-table inBand 6 d; same nine-band partition as first table",
+      "cross_law_proof": "cross_table_inBand proves this table's bands identical to the first art.154 payload table; revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; second art.154 最大積載量 nine-band table",
+      "implementation": "JapanTaxLaw/PayloadCapacityBandsSecondTable.lean sha256=1c9caa4bc65f01be079594952584baa2dc9bd6bcde4e9b8ed0603aa8ea0bfd79 (aliases the kernel-proven PayloadCapacityBands function)",
+      "independent_spec": "JapanTaxLaw/PayloadCapacityBandsSecondTableSpec.lean sha256=310e9701a1a283d8b34d61d11dffc777b9f315748e2316e10ee64fe5f8443c65 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inherited pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement + cross_table_inBand kernel-checked; no sorry/admit",
+      "proof_scope": "nine-band payload partition only: d caller-established Nat in whole tons; exhaustive over all d; globally pairwise exclusive; sub-ton precision, rates and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_payload_bands2.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 7)",
+      "tests": "JapanTaxLaw/PayloadCapacityBandsSecondTableTests.lean sha256=d8a430a900845529c3904c22bea6842f74f5fa256483f008a615dcd7b3db4253 (kernel boundary examples, spec agreement, cross-table identity)"
+    },
     "NORM|3c95756026cdf9742ef29c169d4699e5c6639351ad45209a67a38dee07fbee5e": {
       "adversarial_review": "docs/UNIT_DOCUMENTATION_PRESUMPTIONS.md: H/T/D/C/U; reversed-condition reading rejected; only branch structure claimed",
       "article_group": "40_7",
@@ -593,6 +619,19 @@
       "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:66_9_2/Article#66_9_2/Paragraph#4/ParagraphSentence/Sentence#2 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
       "tests": "JapanTaxLaw/DocumentationPresumptionsTests.lean sha256=e40c8aea79cd8aa05789155a9bc55b373b217d68b7b8039a9e3f591c69a4eea9 (kernel branch examples, spec agreement, four-group identity)"
     },
+    "NORM|4c22c460383216c7e86ae330e7dda40fff13e4e63b14faff64871a3582b63174": {
+      "adversarial_review": "docs/UNIT_PAYLOAD_CAPACITY_BANDS_2.md: H/T/D/C/U; boundary-convention misreadings rejected; two tables' distinct ids/sources recorded",
+      "boundary_proof": "second-table inBand 7 d; same nine-band partition as first table",
+      "cross_law_proof": "cross_table_inBand proves this table's bands identical to the first art.154 payload table; revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; second art.154 最大積載量 nine-band table",
+      "implementation": "JapanTaxLaw/PayloadCapacityBandsSecondTable.lean sha256=1c9caa4bc65f01be079594952584baa2dc9bd6bcde4e9b8ed0603aa8ea0bfd79 (aliases the kernel-proven PayloadCapacityBands function)",
+      "independent_spec": "JapanTaxLaw/PayloadCapacityBandsSecondTableSpec.lean sha256=310e9701a1a283d8b34d61d11dffc777b9f315748e2316e10ee64fe5f8443c65 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inherited pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement + cross_table_inBand kernel-checked; no sorry/admit",
+      "proof_scope": "nine-band payload partition only: d caller-established Nat in whole tons; exhaustive over all d; globally pairwise exclusive; sub-ton precision, rates and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_payload_bands2.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 8)",
+      "tests": "JapanTaxLaw/PayloadCapacityBandsSecondTableTests.lean sha256=d8a430a900845529c3904c22bea6842f74f5fa256483f008a615dcd7b3db4253 (kernel boundary examples, spec agreement, cross-table identity)"
+    },
     "NORM|4c4a2318ddb86c1c3fe7344ba9507ffc8e2226ab59cb6ab7ac46d2aec51a2f86": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 1000 recorded explicitly",
       "boundary_proof": "inBand 3 d; row 4 applies on its exact interval; global exclusivity, exhaustive for d>=1000",
@@ -632,6 +671,19 @@
       "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[853]/SupplProvision/SupplProvision[20]/Article:20/Article#20/Paragraph#12/ParagraphSentence/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
       "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)"
+    },
+    "NORM|5040f4f9e197a287ee7fb261c445403f441e5b120cfa24bc7f4cd77fe554cb6d": {
+      "adversarial_review": "docs/UNIT_PAYLOAD_CAPACITY_BANDS_2.md: H/T/D/C/U; boundary-convention misreadings rejected; two tables' distinct ids/sources recorded",
+      "boundary_proof": "second-table inBand 0 d; same nine-band partition as first table",
+      "cross_law_proof": "cross_table_inBand proves this table's bands identical to the first art.154 payload table; revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; second art.154 最大積載量 nine-band table",
+      "implementation": "JapanTaxLaw/PayloadCapacityBandsSecondTable.lean sha256=1c9caa4bc65f01be079594952584baa2dc9bd6bcde4e9b8ed0603aa8ea0bfd79 (aliases the kernel-proven PayloadCapacityBands function)",
+      "independent_spec": "JapanTaxLaw/PayloadCapacityBandsSecondTableSpec.lean sha256=310e9701a1a283d8b34d61d11dffc777b9f315748e2316e10ee64fe5f8443c65 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inherited pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement + cross_table_inBand kernel-checked; no sorry/admit",
+      "proof_scope": "nine-band payload partition only: d caller-established Nat in whole tons; exhaustive over all d; globally pairwise exclusive; sub-ton precision, rates and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_payload_bands2.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 1)",
+      "tests": "JapanTaxLaw/PayloadCapacityBandsSecondTableTests.lean sha256=d8a430a900845529c3904c22bea6842f74f5fa256483f008a615dcd7b3db4253 (kernel boundary examples, spec agreement, cross-table identity)"
     },
     "NORM|51740834e2cfd04029c07e6d6d6659c25c84f6e1dba4ef62f0e0bd9f4bda1877": {
       "adversarial_review": "docs/UNIT_DOCUMENTATION_PRESUMPTIONS.md: H/T/D/C/U; reversed-condition reading rejected; only branch structure claimed",
@@ -731,6 +783,19 @@
       "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:40_7/Article#40_7/Paragraph#4/ParagraphSentence/Sentence#2 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
       "tests": "JapanTaxLaw/DocumentationPresumptionsTests.lean sha256=e40c8aea79cd8aa05789155a9bc55b373b217d68b7b8039a9e3f591c69a4eea9 (kernel branch examples, spec agreement, four-group identity)"
     },
+    "NORM|5f332b942d30aa9904079ce42784a6563bed3cc99ee6d4436fc365bd66f0910f": {
+      "adversarial_review": "docs/UNIT_PAYLOAD_CAPACITY_BANDS_2.md: H/T/D/C/U; boundary-convention misreadings rejected; two tables' distinct ids/sources recorded",
+      "boundary_proof": "second-table inBand 4 d; same nine-band partition as first table",
+      "cross_law_proof": "cross_table_inBand proves this table's bands identical to the first art.154 payload table; revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; second art.154 最大積載量 nine-band table",
+      "implementation": "JapanTaxLaw/PayloadCapacityBandsSecondTable.lean sha256=1c9caa4bc65f01be079594952584baa2dc9bd6bcde4e9b8ed0603aa8ea0bfd79 (aliases the kernel-proven PayloadCapacityBands function)",
+      "independent_spec": "JapanTaxLaw/PayloadCapacityBandsSecondTableSpec.lean sha256=310e9701a1a283d8b34d61d11dffc777b9f315748e2316e10ee64fe5f8443c65 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inherited pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement + cross_table_inBand kernel-checked; no sorry/admit",
+      "proof_scope": "nine-band payload partition only: d caller-established Nat in whole tons; exhaustive over all d; globally pairwise exclusive; sub-ton precision, rates and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_payload_bands2.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 5)",
+      "tests": "JapanTaxLaw/PayloadCapacityBandsSecondTableTests.lean sha256=d8a430a900845529c3904c22bea6842f74f5fa256483f008a615dcd7b3db4253 (kernel boundary examples, spec agreement, cross-table identity)"
+    },
     "NORM|5fe2648845ad17599f56d18426c99255dd590f83927021ff8f696c0f79d2d9bc": {
       "adversarial_review": "docs/UNIT_MESH_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive misreading and open-ended-e8 misreading rejected; domain bounds recorded explicitly",
       "boundary_proof": "mesh band (7-band partition over 100<=d<4000, globally pairwise exclusive)",
@@ -772,6 +837,19 @@
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 1: ３，０００以上２５，０００未満)",
       "tests": "JapanTaxLaw/LocalGrantAmountBandsTests.lean sha256=270f27df97f18db8f4932fe4d9a3bc6cf0380794a92c82c189014fdc3a99e7a1 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
+    "NORM|62f4ad17751fefdac7439dfb6c99425bd9aed5676a7333bf9ed1180d97c1728a": {
+      "adversarial_review": "docs/UNIT_PAYLOAD_CAPACITY_BANDS_2.md: H/T/D/C/U; boundary-convention misreadings rejected; two tables' distinct ids/sources recorded",
+      "boundary_proof": "second-table inBand 2 d; same nine-band partition as first table",
+      "cross_law_proof": "cross_table_inBand proves this table's bands identical to the first art.154 payload table; revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; second art.154 最大積載量 nine-band table",
+      "implementation": "JapanTaxLaw/PayloadCapacityBandsSecondTable.lean sha256=1c9caa4bc65f01be079594952584baa2dc9bd6bcde4e9b8ed0603aa8ea0bfd79 (aliases the kernel-proven PayloadCapacityBands function)",
+      "independent_spec": "JapanTaxLaw/PayloadCapacityBandsSecondTableSpec.lean sha256=310e9701a1a283d8b34d61d11dffc777b9f315748e2316e10ee64fe5f8443c65 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inherited pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement + cross_table_inBand kernel-checked; no sorry/admit",
+      "proof_scope": "nine-band payload partition only: d caller-established Nat in whole tons; exhaustive over all d; globally pairwise exclusive; sub-ton precision, rates and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_payload_bands2.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 3)",
+      "tests": "JapanTaxLaw/PayloadCapacityBandsSecondTableTests.lean sha256=d8a430a900845529c3904c22bea6842f74f5fa256483f008a615dcd7b3db4253 (kernel boundary examples, spec agreement, cross-table identity)"
+    },
     "NORM|64b83716c4c799383c697121bca0ad46831d0951b2f1f9d8622f56cbdfe3a10c": {
       "adversarial_review": "docs/UNIT_QUASI_ART13_4.md: H/T/D/C/U; extension to other municipal taxes rejected by verbatim original",
       "boundary_proof": "quasiApplies_iff general theorem; code 1 applies, codes 0/2 do not",
@@ -811,6 +889,19 @@
       "source_correspondence_audit": "scripts/ci/source_audit_payload_bands.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 2)",
       "tests": "JapanTaxLaw/PayloadCapacityBandsTests.lean sha256=f9349bf4d3feab529d0b8e94c08340490836596af89fae66e4d77ea5b7351df6 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
+    "NORM|6cbc1d048de06a8f6ab32c0a1f99482b5d2576669a8a1659176fa69cc7d02d5e": {
+      "adversarial_review": "docs/UNIT_PAYLOAD_CAPACITY_BANDS_2.md: H/T/D/C/U; boundary-convention misreadings rejected; two tables' distinct ids/sources recorded",
+      "boundary_proof": "second-table inBand 8 d; same nine-band partition as first table",
+      "cross_law_proof": "cross_table_inBand proves this table's bands identical to the first art.154 payload table; revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; second art.154 最大積載量 nine-band table",
+      "implementation": "JapanTaxLaw/PayloadCapacityBandsSecondTable.lean sha256=1c9caa4bc65f01be079594952584baa2dc9bd6bcde4e9b8ed0603aa8ea0bfd79 (aliases the kernel-proven PayloadCapacityBands function)",
+      "independent_spec": "JapanTaxLaw/PayloadCapacityBandsSecondTableSpec.lean sha256=310e9701a1a283d8b34d61d11dffc777b9f315748e2316e10ee64fe5f8443c65 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inherited pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement + cross_table_inBand kernel-checked; no sorry/admit",
+      "proof_scope": "nine-band payload partition only: d caller-established Nat in whole tons; exhaustive over all d; globally pairwise exclusive; sub-ton precision, rates and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_payload_bands2.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 9)",
+      "tests": "JapanTaxLaw/PayloadCapacityBandsSecondTableTests.lean sha256=d8a430a900845529c3904c22bea6842f74f5fa256483f008a615dcd7b3db4253 (kernel boundary examples, spec agreement, cross-table identity)"
     },
     "NORM|6db851350ac8ff22221b06d98b24baec978de8db35d0e857c9e4170965d0fc59": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 1000 recorded explicitly",
@@ -1319,6 +1410,19 @@
       "source_correspondence_audit": "scripts/ci/source_audit_progressive_points.py: all 3 formulas found verbatim (3/3 hits, 3/3 checks), spec does not import implementation",
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[5]/SupplProvision/SupplProvision[29]/Article:14_9/Article#14_9/Paragraph#3/List/ListSentence/Sentence#1/ArithFormula c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim formula 2: ２，０００＜ｍ１≦７，０００のとき　（ｍ１－２，０００）×０．０８＋６０)",
       "tests": "JapanTaxLaw/ProgressiveAgriculturalPointsTests.lean sha256=6691e91e1c53258e21f08678c7afe3f89a704c4224638e0b2be8fd0600df20c2 (kernel boundary/continuity/monotonicity examples, spec agreement)"
+    },
+    "NORM|a273e12f1973c475fcb4f17185dd9b25df8e31b1afab8db44fb806586ecb0637": {
+      "adversarial_review": "docs/UNIT_PAYLOAD_CAPACITY_BANDS_2.md: H/T/D/C/U; boundary-convention misreadings rejected; two tables' distinct ids/sources recorded",
+      "boundary_proof": "second-table inBand 5 d; same nine-band partition as first table",
+      "cross_law_proof": "cross_table_inBand proves this table's bands identical to the first art.154 payload table; revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; second art.154 最大積載量 nine-band table",
+      "implementation": "JapanTaxLaw/PayloadCapacityBandsSecondTable.lean sha256=1c9caa4bc65f01be079594952584baa2dc9bd6bcde4e9b8ed0603aa8ea0bfd79 (aliases the kernel-proven PayloadCapacityBands function)",
+      "independent_spec": "JapanTaxLaw/PayloadCapacityBandsSecondTableSpec.lean sha256=310e9701a1a283d8b34d61d11dffc777b9f315748e2316e10ee64fe5f8443c65 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inherited pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement + cross_table_inBand kernel-checked; no sorry/admit",
+      "proof_scope": "nine-band payload partition only: d caller-established Nat in whole tons; exhaustive over all d; globally pairwise exclusive; sub-ton precision, rates and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_payload_bands2.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 6)",
+      "tests": "JapanTaxLaw/PayloadCapacityBandsSecondTableTests.lean sha256=d8a430a900845529c3904c22bea6842f74f5fa256483f008a615dcd7b3db4253 (kernel boundary examples, spec agreement, cross-table identity)"
     },
     "NORM|a67969e166037ea7613758c7b0e322c8f6d3b9a17c43c06e30105e52c139c431": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_INDEX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; C and E thresholds kept separate",
@@ -1883,6 +1987,19 @@
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:39/Article#39/Paragraph#18/ParagraphSentence/Sentence#2 c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7",
       "tests": "JapanTaxLaw/DeemedFilingDatesTests.lean sha256=a623a4b39e3e778b3026316e7e18e45c334b48135d9d102f50d05f7dabc3dd2e (kernel branch/deeming examples, spec agreement, three-pattern identity)"
     },
+    "NORM|fae5288ec20c92a30538a3acf341d771a2739f30324bd44afd6f99d6cbf8b1e0": {
+      "adversarial_review": "docs/UNIT_PAYLOAD_CAPACITY_BANDS_2.md: H/T/D/C/U; boundary-convention misreadings rejected; two tables' distinct ids/sources recorded",
+      "boundary_proof": "second-table inBand 1 d; same nine-band partition as first table",
+      "cross_law_proof": "cross_table_inBand proves this table's bands identical to the first art.154 payload table; revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; second art.154 最大積載量 nine-band table",
+      "implementation": "JapanTaxLaw/PayloadCapacityBandsSecondTable.lean sha256=1c9caa4bc65f01be079594952584baa2dc9bd6bcde4e9b8ed0603aa8ea0bfd79 (aliases the kernel-proven PayloadCapacityBands function)",
+      "independent_spec": "JapanTaxLaw/PayloadCapacityBandsSecondTableSpec.lean sha256=310e9701a1a283d8b34d61d11dffc777b9f315748e2316e10ee64fe5f8443c65 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inherited pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement + cross_table_inBand kernel-checked; no sorry/admit",
+      "proof_scope": "nine-band payload partition only: d caller-established Nat in whole tons; exhaustive over all d; globally pairwise exclusive; sub-ton precision, rates and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_payload_bands2.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 2)",
+      "tests": "JapanTaxLaw/PayloadCapacityBandsSecondTableTests.lean sha256=d8a430a900845529c3904c22bea6842f74f5fa256483f008a615dcd7b3db4253 (kernel boundary examples, spec agreement, cross-table identity)"
+    },
     "NORM|fbaae7be4e7e0918d0af1091dede11f8dc3bdbea10cf82e888b69ed4cf8f0f79": {
       "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
       "boundary_proof": "inBand 2 d; row 3 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d",
@@ -1922,122 +2039,125 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 5)",
       "tests": "JapanTaxLaw/PayloadCapacityBandsTests.lean sha256=f9349bf4d3feab529d0b8e94c08340490836596af89fae66e4d77ea5b7351df6 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
-    "NORM|5040f4f9e197a287ee7fb261c445403f441e5b120cfa24bc7f4cd77fe554cb6d": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; second art.154 最大積載量 nine-band table",
-      "source_correspondence_audit": "scripts/ci/source_audit_payload_bands2.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/PayloadCapacityBandsSecondTableSpec.lean sha256=310e9701a1a283d8b34d61d11dffc777b9f315748e2316e10ee64fe5f8443c65 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/PayloadCapacityBandsSecondTable.lean sha256=1c9caa4bc65f01be079594952584baa2dc9bd6bcde4e9b8ed0603aa8ea0bfd79 (aliases the kernel-proven PayloadCapacityBands function)",
-      "kernel_proof": "Lean 4.35.0 pinned; inherited pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement + cross_table_inBand kernel-checked; no sorry/admit",
-      "proof_scope": "nine-band payload partition only: d caller-established Nat in whole tons; exhaustive over all d; globally pairwise exclusive; sub-ton precision, rates and legal effect NOT MODELLED",
-      "cross_law_proof": "cross_table_inBand proves this table's bands identical to the first art.154 payload table; revision resolved from INVENTORY",
-      "tests": "JapanTaxLaw/PayloadCapacityBandsSecondTableTests.lean sha256=d8a430a900845529c3904c22bea6842f74f5fa256483f008a615dcd7b3db4253 (kernel boundary examples, spec agreement, cross-table identity)",
-      "adversarial_review": "docs/UNIT_PAYLOAD_CAPACITY_BANDS_2.md: H/T/D/C/U; boundary-convention misreadings rejected; two tables' distinct ids/sources recorded",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 1)",
-      "boundary_proof": "second-table inBand 0 d; same nine-band partition as first table"
+    "NORM|8b3f454cc5ed78c251120a8f9fb1403bc6e43441764d1aec4ac3a99887d8d569": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; four premium categories x two articles",
+      "source_correspondence_audit": "scripts/ci/source_audit_insurance_premiums.py: all 8 originals found verbatim (8/8 hits, 4/4 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/InsurancePremiumExceptionsSpec.lean sha256=013eff29dc8ae15c0be47e700d5b6b61eb7287b8296d96e880bb6711b7c1df79 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/InsurancePremiumExceptions.lean sha256=ae588f10bfb5712b1f007ceeb79daf9093c011a115bbd0ac0115425747ba492b",
+      "kernel_proof": "Lean 4.35.0 pinned; four-category application, out_of_range, exclusion_overrides_all, category_decomposition, cross_article_applies + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "four-category exclusion structure only: category (0..3) and exclusion caller-supplied; premium amounts, content of case (3) and deduction computation NOT MODELLED",
+      "cross_law_proof": "cross_article_applies proves art.34 and art.314-2 structures identical; revision resolved from INVENTORY",
+      "tests": "JapanTaxLaw/InsurancePremiumExceptionsTests.lean sha256=e8b22a5553b57ac6e85d16bd83b9c7a6d98d92f7783efa32732a03bd91bfd207 (kernel category/exclusion examples, spec agreement, cross-article identity)",
+      "adversarial_review": "docs/UNIT_INSURANCE_PREMIUM_EXCEPTIONS.md: H/T/D/C/U; ignored-exclusion and interchangeable-category readings rejected",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:34/Article#34/Paragraph#1/Item#5/Subitem1#1/Subitem2#1/Subitem2Sentence/Column#1/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "original_text": "新生命保険料を支払つた場合（（３）に掲げる場合を除く。）",
+      "article_group": "34",
+      "boundary_proof": "premium category applies only when not excluded by case (3); four categories mutually exclusive"
     },
-    "NORM|fae5288ec20c92a30538a3acf341d771a2739f30324bd44afd6f99d6cbf8b1e0": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; second art.154 最大積載量 nine-band table",
-      "source_correspondence_audit": "scripts/ci/source_audit_payload_bands2.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/PayloadCapacityBandsSecondTableSpec.lean sha256=310e9701a1a283d8b34d61d11dffc777b9f315748e2316e10ee64fe5f8443c65 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/PayloadCapacityBandsSecondTable.lean sha256=1c9caa4bc65f01be079594952584baa2dc9bd6bcde4e9b8ed0603aa8ea0bfd79 (aliases the kernel-proven PayloadCapacityBands function)",
-      "kernel_proof": "Lean 4.35.0 pinned; inherited pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement + cross_table_inBand kernel-checked; no sorry/admit",
-      "proof_scope": "nine-band payload partition only: d caller-established Nat in whole tons; exhaustive over all d; globally pairwise exclusive; sub-ton precision, rates and legal effect NOT MODELLED",
-      "cross_law_proof": "cross_table_inBand proves this table's bands identical to the first art.154 payload table; revision resolved from INVENTORY",
-      "tests": "JapanTaxLaw/PayloadCapacityBandsSecondTableTests.lean sha256=d8a430a900845529c3904c22bea6842f74f5fa256483f008a615dcd7b3db4253 (kernel boundary examples, spec agreement, cross-table identity)",
-      "adversarial_review": "docs/UNIT_PAYLOAD_CAPACITY_BANDS_2.md: H/T/D/C/U; boundary-convention misreadings rejected; two tables' distinct ids/sources recorded",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 2)",
-      "boundary_proof": "second-table inBand 1 d; same nine-band partition as first table"
+    "NORM|7da52ff0429e92e2daec4e9da15204ca5c8d9b26ea5f7720a0e748579bbe9c5b": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; four premium categories x two articles",
+      "source_correspondence_audit": "scripts/ci/source_audit_insurance_premiums.py: all 8 originals found verbatim (8/8 hits, 4/4 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/InsurancePremiumExceptionsSpec.lean sha256=013eff29dc8ae15c0be47e700d5b6b61eb7287b8296d96e880bb6711b7c1df79 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/InsurancePremiumExceptions.lean sha256=ae588f10bfb5712b1f007ceeb79daf9093c011a115bbd0ac0115425747ba492b",
+      "kernel_proof": "Lean 4.35.0 pinned; four-category application, out_of_range, exclusion_overrides_all, category_decomposition, cross_article_applies + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "four-category exclusion structure only: category (0..3) and exclusion caller-supplied; premium amounts, content of case (3) and deduction computation NOT MODELLED",
+      "cross_law_proof": "cross_article_applies proves art.34 and art.314-2 structures identical; revision resolved from INVENTORY",
+      "tests": "JapanTaxLaw/InsurancePremiumExceptionsTests.lean sha256=e8b22a5553b57ac6e85d16bd83b9c7a6d98d92f7783efa32732a03bd91bfd207 (kernel category/exclusion examples, spec agreement, cross-article identity)",
+      "adversarial_review": "docs/UNIT_INSURANCE_PREMIUM_EXCEPTIONS.md: H/T/D/C/U; ignored-exclusion and interchangeable-category readings rejected",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:34/Article#34/Paragraph#1/Item#5/Subitem1#1/Subitem2#2/Subitem2Sentence/Column#1/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "original_text": "旧生命保険料を支払つた場合（（３）に掲げる場合を除く。）",
+      "article_group": "34",
+      "boundary_proof": "premium category applies only when not excluded by case (3); four categories mutually exclusive"
     },
-    "NORM|62f4ad17751fefdac7439dfb6c99425bd9aed5676a7333bf9ed1180d97c1728a": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; second art.154 最大積載量 nine-band table",
-      "source_correspondence_audit": "scripts/ci/source_audit_payload_bands2.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/PayloadCapacityBandsSecondTableSpec.lean sha256=310e9701a1a283d8b34d61d11dffc777b9f315748e2316e10ee64fe5f8443c65 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/PayloadCapacityBandsSecondTable.lean sha256=1c9caa4bc65f01be079594952584baa2dc9bd6bcde4e9b8ed0603aa8ea0bfd79 (aliases the kernel-proven PayloadCapacityBands function)",
-      "kernel_proof": "Lean 4.35.0 pinned; inherited pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement + cross_table_inBand kernel-checked; no sorry/admit",
-      "proof_scope": "nine-band payload partition only: d caller-established Nat in whole tons; exhaustive over all d; globally pairwise exclusive; sub-ton precision, rates and legal effect NOT MODELLED",
-      "cross_law_proof": "cross_table_inBand proves this table's bands identical to the first art.154 payload table; revision resolved from INVENTORY",
-      "tests": "JapanTaxLaw/PayloadCapacityBandsSecondTableTests.lean sha256=d8a430a900845529c3904c22bea6842f74f5fa256483f008a615dcd7b3db4253 (kernel boundary examples, spec agreement, cross-table identity)",
-      "adversarial_review": "docs/UNIT_PAYLOAD_CAPACITY_BANDS_2.md: H/T/D/C/U; boundary-convention misreadings rejected; two tables' distinct ids/sources recorded",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 3)",
-      "boundary_proof": "second-table inBand 2 d; same nine-band partition as first table"
+    "NORM|81429a90c8e92b527d0b85467c1584c3cf797a522409bf502c1d69361ac60dc4": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; four premium categories x two articles",
+      "source_correspondence_audit": "scripts/ci/source_audit_insurance_premiums.py: all 8 originals found verbatim (8/8 hits, 4/4 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/InsurancePremiumExceptionsSpec.lean sha256=013eff29dc8ae15c0be47e700d5b6b61eb7287b8296d96e880bb6711b7c1df79 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/InsurancePremiumExceptions.lean sha256=ae588f10bfb5712b1f007ceeb79daf9093c011a115bbd0ac0115425747ba492b",
+      "kernel_proof": "Lean 4.35.0 pinned; four-category application, out_of_range, exclusion_overrides_all, category_decomposition, cross_article_applies + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "four-category exclusion structure only: category (0..3) and exclusion caller-supplied; premium amounts, content of case (3) and deduction computation NOT MODELLED",
+      "cross_law_proof": "cross_article_applies proves art.34 and art.314-2 structures identical; revision resolved from INVENTORY",
+      "tests": "JapanTaxLaw/InsurancePremiumExceptionsTests.lean sha256=e8b22a5553b57ac6e85d16bd83b9c7a6d98d92f7783efa32732a03bd91bfd207 (kernel category/exclusion examples, spec agreement, cross-article identity)",
+      "adversarial_review": "docs/UNIT_INSURANCE_PREMIUM_EXCEPTIONS.md: H/T/D/C/U; ignored-exclusion and interchangeable-category readings rejected",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:34/Article#34/Paragraph#1/Item#5/Subitem1#3/Subitem2#1/Subitem2Sentence/Column#1/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "original_text": "新個人年金保険料を支払つた場合（（３）に掲げる場合を除く。）",
+      "article_group": "34",
+      "boundary_proof": "premium category applies only when not excluded by case (3); four categories mutually exclusive"
     },
-    "NORM|0aa386886045574045b31c5949f7be13e14410818cb6b6953be6a3a59924317c": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; second art.154 最大積載量 nine-band table",
-      "source_correspondence_audit": "scripts/ci/source_audit_payload_bands2.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/PayloadCapacityBandsSecondTableSpec.lean sha256=310e9701a1a283d8b34d61d11dffc777b9f315748e2316e10ee64fe5f8443c65 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/PayloadCapacityBandsSecondTable.lean sha256=1c9caa4bc65f01be079594952584baa2dc9bd6bcde4e9b8ed0603aa8ea0bfd79 (aliases the kernel-proven PayloadCapacityBands function)",
-      "kernel_proof": "Lean 4.35.0 pinned; inherited pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement + cross_table_inBand kernel-checked; no sorry/admit",
-      "proof_scope": "nine-band payload partition only: d caller-established Nat in whole tons; exhaustive over all d; globally pairwise exclusive; sub-ton precision, rates and legal effect NOT MODELLED",
-      "cross_law_proof": "cross_table_inBand proves this table's bands identical to the first art.154 payload table; revision resolved from INVENTORY",
-      "tests": "JapanTaxLaw/PayloadCapacityBandsSecondTableTests.lean sha256=d8a430a900845529c3904c22bea6842f74f5fa256483f008a615dcd7b3db4253 (kernel boundary examples, spec agreement, cross-table identity)",
-      "adversarial_review": "docs/UNIT_PAYLOAD_CAPACITY_BANDS_2.md: H/T/D/C/U; boundary-convention misreadings rejected; two tables' distinct ids/sources recorded",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 4)",
-      "boundary_proof": "second-table inBand 3 d; same nine-band partition as first table"
+    "NORM|8e6b66d0258d3d2cba2be2e4ed21c9ea642014db0204d7350064b576a831f24d": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; four premium categories x two articles",
+      "source_correspondence_audit": "scripts/ci/source_audit_insurance_premiums.py: all 8 originals found verbatim (8/8 hits, 4/4 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/InsurancePremiumExceptionsSpec.lean sha256=013eff29dc8ae15c0be47e700d5b6b61eb7287b8296d96e880bb6711b7c1df79 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/InsurancePremiumExceptions.lean sha256=ae588f10bfb5712b1f007ceeb79daf9093c011a115bbd0ac0115425747ba492b",
+      "kernel_proof": "Lean 4.35.0 pinned; four-category application, out_of_range, exclusion_overrides_all, category_decomposition, cross_article_applies + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "four-category exclusion structure only: category (0..3) and exclusion caller-supplied; premium amounts, content of case (3) and deduction computation NOT MODELLED",
+      "cross_law_proof": "cross_article_applies proves art.34 and art.314-2 structures identical; revision resolved from INVENTORY",
+      "tests": "JapanTaxLaw/InsurancePremiumExceptionsTests.lean sha256=e8b22a5553b57ac6e85d16bd83b9c7a6d98d92f7783efa32732a03bd91bfd207 (kernel category/exclusion examples, spec agreement, cross-article identity)",
+      "adversarial_review": "docs/UNIT_INSURANCE_PREMIUM_EXCEPTIONS.md: H/T/D/C/U; ignored-exclusion and interchangeable-category readings rejected",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:34/Article#34/Paragraph#1/Item#5/Subitem1#3/Subitem2#2/Subitem2Sentence/Column#1/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "original_text": "旧個人年金保険料を支払つた場合（（３）に掲げる場合を除く。）",
+      "article_group": "34",
+      "boundary_proof": "premium category applies only when not excluded by case (3); four categories mutually exclusive"
     },
-    "NORM|5f332b942d30aa9904079ce42784a6563bed3cc99ee6d4436fc365bd66f0910f": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; second art.154 最大積載量 nine-band table",
-      "source_correspondence_audit": "scripts/ci/source_audit_payload_bands2.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/PayloadCapacityBandsSecondTableSpec.lean sha256=310e9701a1a283d8b34d61d11dffc777b9f315748e2316e10ee64fe5f8443c65 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/PayloadCapacityBandsSecondTable.lean sha256=1c9caa4bc65f01be079594952584baa2dc9bd6bcde4e9b8ed0603aa8ea0bfd79 (aliases the kernel-proven PayloadCapacityBands function)",
-      "kernel_proof": "Lean 4.35.0 pinned; inherited pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement + cross_table_inBand kernel-checked; no sorry/admit",
-      "proof_scope": "nine-band payload partition only: d caller-established Nat in whole tons; exhaustive over all d; globally pairwise exclusive; sub-ton precision, rates and legal effect NOT MODELLED",
-      "cross_law_proof": "cross_table_inBand proves this table's bands identical to the first art.154 payload table; revision resolved from INVENTORY",
-      "tests": "JapanTaxLaw/PayloadCapacityBandsSecondTableTests.lean sha256=d8a430a900845529c3904c22bea6842f74f5fa256483f008a615dcd7b3db4253 (kernel boundary examples, spec agreement, cross-table identity)",
-      "adversarial_review": "docs/UNIT_PAYLOAD_CAPACITY_BANDS_2.md: H/T/D/C/U; boundary-convention misreadings rejected; two tables' distinct ids/sources recorded",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 5)",
-      "boundary_proof": "second-table inBand 4 d; same nine-band partition as first table"
+    "NORM|9946d9cdd1f1d7d0a1bf30707c3111d6c5b7be709c8403b1d407b8005e317322": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; four premium categories x two articles",
+      "source_correspondence_audit": "scripts/ci/source_audit_insurance_premiums.py: all 8 originals found verbatim (8/8 hits, 4/4 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/InsurancePremiumExceptionsSpec.lean sha256=013eff29dc8ae15c0be47e700d5b6b61eb7287b8296d96e880bb6711b7c1df79 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/InsurancePremiumExceptions.lean sha256=ae588f10bfb5712b1f007ceeb79daf9093c011a115bbd0ac0115425747ba492b",
+      "kernel_proof": "Lean 4.35.0 pinned; four-category application, out_of_range, exclusion_overrides_all, category_decomposition, cross_article_applies + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "four-category exclusion structure only: category (0..3) and exclusion caller-supplied; premium amounts, content of case (3) and deduction computation NOT MODELLED",
+      "cross_law_proof": "cross_article_applies proves art.34 and art.314-2 structures identical; revision resolved from INVENTORY",
+      "tests": "JapanTaxLaw/InsurancePremiumExceptionsTests.lean sha256=e8b22a5553b57ac6e85d16bd83b9c7a6d98d92f7783efa32732a03bd91bfd207 (kernel category/exclusion examples, spec agreement, cross-article identity)",
+      "adversarial_review": "docs/UNIT_INSURANCE_PREMIUM_EXCEPTIONS.md: H/T/D/C/U; ignored-exclusion and interchangeable-category readings rejected",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:314_2/Article#314_2/Paragraph#1/Item#5/Subitem1#1/Subitem2#1/Subitem2Sentence/Column#1/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "original_text": "新生命保険料を支払つた場合（（３）に掲げる場合を除く。）",
+      "article_group": "314_2",
+      "boundary_proof": "premium category applies only when not excluded by case (3); four categories mutually exclusive"
     },
-    "NORM|a273e12f1973c475fcb4f17185dd9b25df8e31b1afab8db44fb806586ecb0637": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; second art.154 最大積載量 nine-band table",
-      "source_correspondence_audit": "scripts/ci/source_audit_payload_bands2.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/PayloadCapacityBandsSecondTableSpec.lean sha256=310e9701a1a283d8b34d61d11dffc777b9f315748e2316e10ee64fe5f8443c65 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/PayloadCapacityBandsSecondTable.lean sha256=1c9caa4bc65f01be079594952584baa2dc9bd6bcde4e9b8ed0603aa8ea0bfd79 (aliases the kernel-proven PayloadCapacityBands function)",
-      "kernel_proof": "Lean 4.35.0 pinned; inherited pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement + cross_table_inBand kernel-checked; no sorry/admit",
-      "proof_scope": "nine-band payload partition only: d caller-established Nat in whole tons; exhaustive over all d; globally pairwise exclusive; sub-ton precision, rates and legal effect NOT MODELLED",
-      "cross_law_proof": "cross_table_inBand proves this table's bands identical to the first art.154 payload table; revision resolved from INVENTORY",
-      "tests": "JapanTaxLaw/PayloadCapacityBandsSecondTableTests.lean sha256=d8a430a900845529c3904c22bea6842f74f5fa256483f008a615dcd7b3db4253 (kernel boundary examples, spec agreement, cross-table identity)",
-      "adversarial_review": "docs/UNIT_PAYLOAD_CAPACITY_BANDS_2.md: H/T/D/C/U; boundary-convention misreadings rejected; two tables' distinct ids/sources recorded",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 6)",
-      "boundary_proof": "second-table inBand 5 d; same nine-band partition as first table"
+    "NORM|dd4c6c5bc389cf037ab1becab036d9cedbf94bdded6edc3818163bf709bb9b6c": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; four premium categories x two articles",
+      "source_correspondence_audit": "scripts/ci/source_audit_insurance_premiums.py: all 8 originals found verbatim (8/8 hits, 4/4 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/InsurancePremiumExceptionsSpec.lean sha256=013eff29dc8ae15c0be47e700d5b6b61eb7287b8296d96e880bb6711b7c1df79 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/InsurancePremiumExceptions.lean sha256=ae588f10bfb5712b1f007ceeb79daf9093c011a115bbd0ac0115425747ba492b",
+      "kernel_proof": "Lean 4.35.0 pinned; four-category application, out_of_range, exclusion_overrides_all, category_decomposition, cross_article_applies + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "four-category exclusion structure only: category (0..3) and exclusion caller-supplied; premium amounts, content of case (3) and deduction computation NOT MODELLED",
+      "cross_law_proof": "cross_article_applies proves art.34 and art.314-2 structures identical; revision resolved from INVENTORY",
+      "tests": "JapanTaxLaw/InsurancePremiumExceptionsTests.lean sha256=e8b22a5553b57ac6e85d16bd83b9c7a6d98d92f7783efa32732a03bd91bfd207 (kernel category/exclusion examples, spec agreement, cross-article identity)",
+      "adversarial_review": "docs/UNIT_INSURANCE_PREMIUM_EXCEPTIONS.md: H/T/D/C/U; ignored-exclusion and interchangeable-category readings rejected",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:314_2/Article#314_2/Paragraph#1/Item#5/Subitem1#1/Subitem2#2/Subitem2Sentence/Column#1/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "original_text": "旧生命保険料を支払つた場合（（３）に掲げる場合を除く。）",
+      "article_group": "314_2",
+      "boundary_proof": "premium category applies only when not excluded by case (3); four categories mutually exclusive"
     },
-    "NORM|3b8cd6c24119ac4272cb0eae31b10447eeba9cb91282c8c110c89f579c32ddfd": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; second art.154 最大積載量 nine-band table",
-      "source_correspondence_audit": "scripts/ci/source_audit_payload_bands2.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/PayloadCapacityBandsSecondTableSpec.lean sha256=310e9701a1a283d8b34d61d11dffc777b9f315748e2316e10ee64fe5f8443c65 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/PayloadCapacityBandsSecondTable.lean sha256=1c9caa4bc65f01be079594952584baa2dc9bd6bcde4e9b8ed0603aa8ea0bfd79 (aliases the kernel-proven PayloadCapacityBands function)",
-      "kernel_proof": "Lean 4.35.0 pinned; inherited pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement + cross_table_inBand kernel-checked; no sorry/admit",
-      "proof_scope": "nine-band payload partition only: d caller-established Nat in whole tons; exhaustive over all d; globally pairwise exclusive; sub-ton precision, rates and legal effect NOT MODELLED",
-      "cross_law_proof": "cross_table_inBand proves this table's bands identical to the first art.154 payload table; revision resolved from INVENTORY",
-      "tests": "JapanTaxLaw/PayloadCapacityBandsSecondTableTests.lean sha256=d8a430a900845529c3904c22bea6842f74f5fa256483f008a615dcd7b3db4253 (kernel boundary examples, spec agreement, cross-table identity)",
-      "adversarial_review": "docs/UNIT_PAYLOAD_CAPACITY_BANDS_2.md: H/T/D/C/U; boundary-convention misreadings rejected; two tables' distinct ids/sources recorded",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 7)",
-      "boundary_proof": "second-table inBand 6 d; same nine-band partition as first table"
+    "NORM|ade9b9a4ac530b3f290c1d9346cf05eb048e4c41a42758ca6b9dd30ba1213068": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; four premium categories x two articles",
+      "source_correspondence_audit": "scripts/ci/source_audit_insurance_premiums.py: all 8 originals found verbatim (8/8 hits, 4/4 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/InsurancePremiumExceptionsSpec.lean sha256=013eff29dc8ae15c0be47e700d5b6b61eb7287b8296d96e880bb6711b7c1df79 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/InsurancePremiumExceptions.lean sha256=ae588f10bfb5712b1f007ceeb79daf9093c011a115bbd0ac0115425747ba492b",
+      "kernel_proof": "Lean 4.35.0 pinned; four-category application, out_of_range, exclusion_overrides_all, category_decomposition, cross_article_applies + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "four-category exclusion structure only: category (0..3) and exclusion caller-supplied; premium amounts, content of case (3) and deduction computation NOT MODELLED",
+      "cross_law_proof": "cross_article_applies proves art.34 and art.314-2 structures identical; revision resolved from INVENTORY",
+      "tests": "JapanTaxLaw/InsurancePremiumExceptionsTests.lean sha256=e8b22a5553b57ac6e85d16bd83b9c7a6d98d92f7783efa32732a03bd91bfd207 (kernel category/exclusion examples, spec agreement, cross-article identity)",
+      "adversarial_review": "docs/UNIT_INSURANCE_PREMIUM_EXCEPTIONS.md: H/T/D/C/U; ignored-exclusion and interchangeable-category readings rejected",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:314_2/Article#314_2/Paragraph#1/Item#5/Subitem1#3/Subitem2#1/Subitem2Sentence/Column#1/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "original_text": "新個人年金保険料を支払つた場合（（３）に掲げる場合を除く。）",
+      "article_group": "314_2",
+      "boundary_proof": "premium category applies only when not excluded by case (3); four categories mutually exclusive"
     },
-    "NORM|4c22c460383216c7e86ae330e7dda40fff13e4e63b14faff64871a3582b63174": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; second art.154 最大積載量 nine-band table",
-      "source_correspondence_audit": "scripts/ci/source_audit_payload_bands2.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/PayloadCapacityBandsSecondTableSpec.lean sha256=310e9701a1a283d8b34d61d11dffc777b9f315748e2316e10ee64fe5f8443c65 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/PayloadCapacityBandsSecondTable.lean sha256=1c9caa4bc65f01be079594952584baa2dc9bd6bcde4e9b8ed0603aa8ea0bfd79 (aliases the kernel-proven PayloadCapacityBands function)",
-      "kernel_proof": "Lean 4.35.0 pinned; inherited pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement + cross_table_inBand kernel-checked; no sorry/admit",
-      "proof_scope": "nine-band payload partition only: d caller-established Nat in whole tons; exhaustive over all d; globally pairwise exclusive; sub-ton precision, rates and legal effect NOT MODELLED",
-      "cross_law_proof": "cross_table_inBand proves this table's bands identical to the first art.154 payload table; revision resolved from INVENTORY",
-      "tests": "JapanTaxLaw/PayloadCapacityBandsSecondTableTests.lean sha256=d8a430a900845529c3904c22bea6842f74f5fa256483f008a615dcd7b3db4253 (kernel boundary examples, spec agreement, cross-table identity)",
-      "adversarial_review": "docs/UNIT_PAYLOAD_CAPACITY_BANDS_2.md: H/T/D/C/U; boundary-convention misreadings rejected; two tables' distinct ids/sources recorded",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 8)",
-      "boundary_proof": "second-table inBand 7 d; same nine-band partition as first table"
-    },
-    "NORM|6cbc1d048de06a8f6ab32c0a1f99482b5d2576669a8a1659176fa69cc7d02d5e": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; second art.154 最大積載量 nine-band table",
-      "source_correspondence_audit": "scripts/ci/source_audit_payload_bands2.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/PayloadCapacityBandsSecondTableSpec.lean sha256=310e9701a1a283d8b34d61d11dffc777b9f315748e2316e10ee64fe5f8443c65 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/PayloadCapacityBandsSecondTable.lean sha256=1c9caa4bc65f01be079594952584baa2dc9bd6bcde4e9b8ed0603aa8ea0bfd79 (aliases the kernel-proven PayloadCapacityBands function)",
-      "kernel_proof": "Lean 4.35.0 pinned; inherited pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement + cross_table_inBand kernel-checked; no sorry/admit",
-      "proof_scope": "nine-band payload partition only: d caller-established Nat in whole tons; exhaustive over all d; globally pairwise exclusive; sub-ton precision, rates and legal effect NOT MODELLED",
-      "cross_law_proof": "cross_table_inBand proves this table's bands identical to the first art.154 payload table; revision resolved from INVENTORY",
-      "tests": "JapanTaxLaw/PayloadCapacityBandsSecondTableTests.lean sha256=d8a430a900845529c3904c22bea6842f74f5fa256483f008a615dcd7b3db4253 (kernel boundary examples, spec agreement, cross-table identity)",
-      "adversarial_review": "docs/UNIT_PAYLOAD_CAPACITY_BANDS_2.md: H/T/D/C/U; boundary-convention misreadings rejected; two tables' distinct ids/sources recorded",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 9)",
-      "boundary_proof": "second-table inBand 8 d; same nine-band partition as first table"
+    "NORM|109c0429af780b458f5855a9919e870ed6e26fff4bff99923ccdc0c03a584493": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; four premium categories x two articles",
+      "source_correspondence_audit": "scripts/ci/source_audit_insurance_premiums.py: all 8 originals found verbatim (8/8 hits, 4/4 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/InsurancePremiumExceptionsSpec.lean sha256=013eff29dc8ae15c0be47e700d5b6b61eb7287b8296d96e880bb6711b7c1df79 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/InsurancePremiumExceptions.lean sha256=ae588f10bfb5712b1f007ceeb79daf9093c011a115bbd0ac0115425747ba492b",
+      "kernel_proof": "Lean 4.35.0 pinned; four-category application, out_of_range, exclusion_overrides_all, category_decomposition, cross_article_applies + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "four-category exclusion structure only: category (0..3) and exclusion caller-supplied; premium amounts, content of case (3) and deduction computation NOT MODELLED",
+      "cross_law_proof": "cross_article_applies proves art.34 and art.314-2 structures identical; revision resolved from INVENTORY",
+      "tests": "JapanTaxLaw/InsurancePremiumExceptionsTests.lean sha256=e8b22a5553b57ac6e85d16bd83b9c7a6d98d92f7783efa32732a03bd91bfd207 (kernel category/exclusion examples, spec agreement, cross-article identity)",
+      "adversarial_review": "docs/UNIT_INSURANCE_PREMIUM_EXCEPTIONS.md: H/T/D/C/U; ignored-exclusion and interchangeable-category readings rejected",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:314_2/Article#314_2/Paragraph#1/Item#5/Subitem1#3/Subitem2#2/Subitem2Sentence/Column#1/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "original_text": "旧個人年金保険料を支払つた場合（（３）に掲げる場合を除く。）",
+      "article_group": "314_2",
+      "boundary_proof": "premium category applies only when not excluded by case (3); four categories mutually exclusive"
     }
   }
 }

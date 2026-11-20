@@ -629,3 +629,6 @@ import JapanTaxLaw.PayloadCapacityBandsTests
 import JapanTaxLaw.PayloadCapacityBandsSecondTable
 import JapanTaxLaw.PayloadCapacityBandsSecondTableSpec
 import JapanTaxLaw.PayloadCapacityBandsSecondTableTests
+import JapanTaxLaw.InsurancePremiumExceptions
+import JapanTaxLaw.InsurancePremiumExceptionsSpec
+import JapanTaxLaw.InsurancePremiumExceptionsTests
