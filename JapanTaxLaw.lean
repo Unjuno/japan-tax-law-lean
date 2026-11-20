@@ -537,3 +537,9 @@ import JapanTaxLaw.PerCapitaEqualRateTests
 import JapanTaxLaw.LocalTobaccoTaxRate
 import JapanTaxLaw.LocalTobaccoTaxRateSpec
 import JapanTaxLaw.LocalTobaccoTaxRateTests
+import JapanTaxLaw.ForestGrantRounding
+import JapanTaxLaw.ForestGrantRoundingSpec
+import JapanTaxLaw.ForestGrantRoundingTests
+import JapanTaxLaw.MultiDonorDeduction
+import JapanTaxLaw.MultiDonorDeductionSpec
+import JapanTaxLaw.MultiDonorDeductionTests
