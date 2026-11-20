@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 33
+- with >=1 pinned literal check (semantic model): 34
 - with recorded human legal review: 0
 
 ## All laws
@@ -252,7 +252,7 @@ a completion flag.
 | `420CO0000000210` | 電子情報処理組織による税関手続の特例等に関する法律の一部を改正する法律の施行に伴う関係政 | 420CO0000000210_20081001_000000000000000 | CurrentEnforced | YES | ok | 4 | NO (0) | NO |
 | `420M60000040051` | 地方法人特別税等に関する暫定措置法に基づく地方法人特別税の納付手続の特例に関する省令 | 420M60000040051_20210101_502M60000040073 | CurrentEnforced | YES | ok | 7 | NO (0) | NO |
 | `420M60000040053` | 株式会社商工組合中央金庫が受ける設立登記の登録免許税の免税を受けるための手続に関する省令 | 420M60000040053_20081001_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
-| `420AC0000000084` | 地方税等減収補てん臨時交付金に関する法律 | 420AC0000000084_20081022_000000000000000 | CurrentEnforced | YES | ok | 12 | NO (0) | NO |
+| `420AC0000000084` | 地方税等減収補てん臨時交付金に関する法律 | 420AC0000000084_20081022_000000000000000 | CurrentEnforced | YES | ok | 12 | YES (1) | NO |
 | `420M60000008116` | 地方税等減収補てん臨時交付金に関する省令 | 420M60000008116_20081022_000000000000000 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `421M60000040051` | 株式会社日本政策投資銀行が受ける資本金額の増加の登記の登録免許税の免税を受けるための手続 | 421M60000040051_20090703_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `421M60001040001` | 認可事業再編計画に基づく事業会社の設立の登記等に係る登録免許税の課税の特例を受けるための | 421M60001040001_20090715_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 95
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 96

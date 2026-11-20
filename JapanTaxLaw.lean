@@ -512,3 +512,6 @@ import JapanTaxLaw.CustomsStorageFeeTests
 import JapanTaxLaw.TobaccoTaxFixedAmount
 import JapanTaxLaw.TobaccoTaxFixedAmountSpec
 import JapanTaxLaw.TobaccoTaxFixedAmountTests
+import JapanTaxLaw.RoadGrantAllocation
+import JapanTaxLaw.RoadGrantAllocationSpec
+import JapanTaxLaw.RoadGrantAllocationTests

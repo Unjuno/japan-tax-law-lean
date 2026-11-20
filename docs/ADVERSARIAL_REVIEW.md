@@ -3903,3 +3903,145 @@ STAGING の申告ではなく `scripts/ci/transcription_audit.py` の `checks()`
 - **追記完了**: 本セクション `## Batch Z review (2026-11-20)` を `docs/ADVERSARIAL_REVIEW.md` 末尾に追記（coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に整合）。既存セクションはすべて保持。Lean モジュール／Spec／Tests／`data/*` は一切変更せず、commit / push / merge / ブランチ切替は行っていない。解析用一時ファイルはすべて削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・数値／算術の独立抽出と再計算・needle の `.find()` 検証・整数式の反例走査・`#print axioms` 公理監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって人間の法的レビューを完了したものとはみなさない。
+
+## Batch AA review (2026-11-20)
+
+### AA-0. レビュア／対象／独立性
+
+- レビュア: Adversarial Review Agent。形式化担当と独立に **cycle-15** の 1 モジュールを原文照合・反例探索した。
+- 対象: `JapanTaxLaw/TobaccoTaxFixedAmount.lean`（地方税法施行規則 art.16の4の4）。
+- 一次資料: `data/raw/329M50000002023_20261101_508M60000008045.law.json`（law id `329M50000002023`、revision `329M50000002023_20261101_508M60000008045`、pinned・改変禁止）。
+- coordinator の要約／STAGING／doc-comment の数値・算術主張は**一切信じず**、pinned JSON の `law_full_text` を Python で直接再帰 flatten し、数値・算術・needle・境界を再抽出・再計算した（Batch S の art.148「要約依存」失敗の再発回避）。
+- Lean モジュールは読み取り専用。`docs/ADVERSARIAL_REVIEW.md` 以外は変更せず、commit / push / merge / ブランチ切替は行っていない。
+
+### AA-1. 原文からの独立抽出（pinned 直接 parse）
+
+| 項目 | 独立抽出結果 |
+|---|---|
+| `tag=Article, attr.Num=16_4_4` の存在 | **1 件**（MainProvision 配下） |
+| leaf 文字列 | 11 片 |
+| 連結 flat 文字数 | 264（U+3000 = **3**） |
+| 正規化 `re.sub(r"[\s　]+","",…)` 後 | **261 文字、U+3000 = 0** |
+| doc-comment の「261 chars / U+3000 count 0」 | **一致** |
+| 算術 leaf（逐語） | `Ａ×（（Ｃ×２）／Ｂ）` |
+| その codepoints | `U+FF21 U+00D7 U+FF08 U+FF08 U+FF23 U+00D7 U+FF12 U+FF09 U+FF0F U+FF22 U+FF09` |
+| 係数「２」 | 全角 **U+FF12**、算式内に **1 回**出現（`Ｃ×２`） |
+| flat 内のもう 1 個の「２」 | §2 の **ParagraphNum**（条第 2 項の項番号）であり係数ではない |
+| §2 末尾 | 「…その端数金額又はその全額を**切り上げる**。」（切り捨てではない） |
+| 全角数字の出現 | `２`（係数）×1、`２`（項番号）×1 ＝ 計 2 回 |
+
+独立読解:
+- 算式 = `A × ((C × 2) / B)`（C に 2 を掛け、B で割り、A を掛ける）。
+- §2 = 計算額に千円未満の端数があるとき、又は全額が千円未満のときは、その端数／全額を**切り上げ**て千円単位にする。
+
+### AA-2. 最重要チェック（art.148 型失敗の回避）
+
+| チェック | 原文 | Lean | 判定 |
+|---|---|---|---|
+| 算式の反映 | `Ａ×（（Ｃ×２）／Ｂ）` | `fixedAmount a b c = if b = 0 then 0 else roundUpThousand (a * (c * 2) / b)` | **一致**（乗算・除算・係数 2 の構造を保持） |
+| 「２」係数の脱落 | 算式内に C×2 が存在 | `numerator c = c * 2`、`(c * 2)` が分子に明示 | **脱落なし** |
+| 切り上げ方向 | 「切り上げる」 | `roundUpThousand x = if x = 0 then 0 else (x+999)/1000*1000` | **切り上げ（切り捨てではない）** |
+| 境界 1 | — | `roundUpThousand 1 = 1000` | 一致 |
+| 境界 1000 | — | `roundUpThousand 1000 = 1000` | 一致 |
+| 境界 1001 | — | `roundUpThousand 1001 = 2000` | 一致 |
+| ゼロ | — | `roundUpThousand 0 = 0` | 一致（真のゼロ） |
+| 分母 0 | 原文は未定義 | `if b = 0 then 0` | 安全版（BY-DESIGN） |
+
+→ **最重要チェック 4 点（算式構造・C×2・切り上げ方向・境界）で原文との食い違い 0 件（ゼロ）。** art.148 型の演算子誤り（乗算→加算等）・係数脱落・切り上げ→切り捨て誤り・桁違いは再発していない。
+
+### AA-3. needle 健全性（CI 実装を直接検証）
+
+STAGING の申告ではなく `scripts/ci/transcription_audit.py` の `checks()` を import し、`TobaccoTaxFixedAmount.lean` の check（law_id `329M50000002023`、kind `file`）に組み込まれた needle を抽出。pinned 正規化テキスト（CI と同一の `_norm()`）に対して `.find()` / `.count()` を実行。
+
+| 項目 | 結果 |
+|---|---|
+| needle 総数 | **3**（指定どおり） |
+| U+3000 を含む needle | **0 本** |
+| `.find()` | **3/3 FOUND**（MISS 0） |
+| `.count()` | 全 needle **1**（一意） |
+| offset / 長さ | 0 / 90、91 / 52、176 / 84 |
+| pinned 正規化テキスト | 261 文字（flat 264 文字、U+3000 3 個を除去） |
+
+- needle 1 = §1 冒頭〜「算定するものとする」、needle 2 = 算式＋Ａの定義、needle 3 = §2 全体（いずれも末尾句点を除く逐語）。
+- CI ゲート実実行: `python scripts/ci/transcription_audit.py` → **exit code 0、152/152 checks passed**（`TobaccoTaxFixedAmount.lean` も PASS）。
+
+### AA-4. 反例探索
+
+独立参照モデル（pinned 原文の逐語から構成）:
+- `lean(a,b,c) = b=0 ? 0 : roundUpThousand(((a*(c*2))//b))`（Lean と同一の Nat 演算）
+- `exact(a,b,c) = b=0 ? 0 : (2AC=0 ? 0 : ceil(2AC/(b*1000))*1000)`（算式和を厳密有理数として §2 を適用）
+- `literal(a,b,c) = b=0 ? 0 : roundUpThousand(a*((c*2)//b))`（原文の括弧を Nat floor で読んだ場合）
+
+境界（要求どおり）:
+
+| 入力 | 期待 | 実測 | 判定 |
+|---|---|---|---|
+| `roundUpThousand 0` | 0 | 0 | 一致 |
+| `roundUpThousand 1` | 1000 | 1000 | 一致 |
+| `roundUpThousand 999` | 1000 | 1000 | 一致 |
+| `roundUpThousand 1000` | 1000 | 1000 | 一致 |
+| `roundUpThousand 1001` | 2000 | 2000 | 一致 |
+| `numerator 0/1/5/10` | 0/2/10/20 | 0/2/10/20 | 一致（C×2 保持） |
+| `fixedAmount 100000 1000 10` | 2000 | 2000 | 一致（2000000/1000=2000） |
+| `fixedAmount 1000 300 1` | 1000 | 1000 | 一致（2000/300=6.66…→1000） |
+| `fixedAmount 1000 0 10` | 0 | 0 | 一致（分母 0 安全版） |
+
+グリッド走査（A,B,C ∈ [0,30]、B≥1、計 31×30×31 = 28,830 ケース）:
+- `lean` vs `exact`（厳密有理数で §2 を適用）: **538 ケースで値が異なる**。
+- `lean` vs `literal`（括弧内 floor）: 5,762 ケースで異なる（乗算先行の近似）。
+- 差の原因は**演算子の誤りではなく Nat 割算の floor による 1 円未満の切捨て**であり、§2 の「千円未満の端数」適用が floor 後の整数に対して行われることに起因する。
+- 具体例（両読解の差）:
+  - `A=1, B=3, C=1`: 厳密値 = 2/3 円 → §2「全額が千円未満」なら 1000、Lean = **0**。
+  - `A=2001, B=4, C=1`: 厳密値 = 1000.5 円 → §2 なら 2000、Lean = **1000**（floor(4002/4)=1000 が 1000 の倍数のため切り上がらない）。
+- いずれも係数 2・切り上げ方向自体は正しく、差は丸め精度の modeling choice に限定される（AA-6 の BY-DESIGN / UNRESOLVED を参照）。**本レビューは厳密有理数読解を法の正解と確定しない。**
+
+### AA-5. 公理監査
+
+一時 Lean ファイルに 4 つの名前付き宣言を列挙し `#print axioms` を実行（`lake env lean`、exit code **0**、error 0）。
+
+| 宣言 | 公理 |
+|---|---|
+| `roundUpThousand` | does not depend on any axioms |
+| `numerator` | does not depend on any axioms |
+| `fixedAmount` | does not depend on any axioms |
+| `roundUpThousand_pos` | `[propext]` |
+
+| 公理 | 件数 |
+|---|---|
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **1 件**（許容範囲内） |
+
+→ 禁止公理は一切検出されず。監査後、一時ファイルは削除済み。
+
+### AA-6. 分類
+
+#### CONFIRMED（原文との食い違い／演算子誤り・バグ:**0 件＝ゼロ**）
+
+- **ゼロ。** 算式構造の誤り、係数「２」の脱落、切り上げ→切り捨ての反転、桁違い、needle MISS、公理混入、反例矛盾はいずれも検出されなかった。件数を手柄にしない。
+- 上記 AA-4 の 538 ケースの差は、厳密有理数読解を「正解」と確定できないため CONFIRMED とは数えず、BY-DESIGN / UNRESOLVED にすべて記録した（隠蔽していない）。
+
+#### BY-DESIGN（5 件）
+
+- **B-AA1** A（総務大臣が定める額）・B（全国のたばこ消費基礎人口の合計）・C（当該市町村のたばこ消費基礎人口）は caller-established。doc-comment どおり NOT MODELLED。
+- **B-AA2** `Money = Nat`。割算は Nat の floor（乗算先行 `a*(c*2)/b`）。**art.148 型の演算子誤りではない**。厳密有理数・丸め精度を主張せず、Batch S の B4 と同趣旨の bounded 近似。AA-4 の 538 件の差はこの近似に起因する。
+- **B-AA3** 分母 B=0 → 0 の安全版（原文は割算を定義しない）。
+- **B-AA4** 法 485 条の 13 第 1 項の具体的算定・たばこ消費基礎人口の算定方法は NOT MODELLED（doc-comment どおり）。
+- **B-AA5** `roundUpThousand` の `x = 0 → 0` は真のゼロ（A=0 または C=0）に対する処理。正数だが 1 円未満の厳密値が floor で 0 になる場合の扱いは U-AA1 で扱う。
+
+#### UNRESOLVED（2 件）
+
+- **U-AA1** §2「全額が千円未満であるときは、その全額を切り上げる」の適用範囲。正数 1 円未満の厳密値（例 A=1,B=3,C=1 → 2/3 円）を 1000 に切り上げるべきか、また floor 値が 1000 の倍数で端数がある場合（例 A=2001,B=4,C=1 → 1000.5 円）を 2000 にすべきかは解釈問題であり、モデルは 0／1000 を返す。最終判断は人間の法律専門家に委ねる（本レビューは解釈を確定しない）。
+- **U-AA2** 原文の括弧 `Ａ×（（Ｃ×２）／Ｂ）` を整数演算で読む際の演算順序（内側割算を floor してから A を掛ける vs 乗算先行）。厳密有理数では同値だが Nat では非同値（AA-4: 5,762 ケース）。採用順序の妥当性は人間の法律専門家による確認を要する。
+
+### AA-7. 総合判定・最終報告（サマリ）
+
+- pinned 原文から独立抽出した **261 文字**（正規化、U+3000=0）の算術「Ａ×（（Ｃ×２）／Ｂ）」と §2「切り上げる」を、coordinator 要約／STAGING／doc-comment に依存せず再計算して照合。**最重要チェック 4 点（算式構造・係数 2・切り上げ方向・境界 0/1/1000/1001）で食い違い 0 件（ゼロ）。** art.148 型の失敗は再発していない。
+- **CONFIRMED: 0 件（ゼロ）／BY-DESIGN: 5 件／UNRESOLVED: 2 件。** 件数を手柄にしない。発見（原文不一致と確定したもの）は **ゼロ** だが、厳密有理数読解での数値差は BY-DESIGN / UNRESOLVED に実測値付きで記録済み。
+- **needle 健全性**: 3 本、U+3000 **0 本**、pinned 正規化テキスト **3/3 FOUND**（MISS 0、すべて count 1）。CI ゲート 152/152 PASS（exit 0）。
+- **反例探索**: 境界 9 ケースはすべて一致。グリッド 28,830 ケースで Nat floor 近似に起因する差 538 件を検出（演算子誤りではなく BY-DESIGN / UNRESOLVED に分類）。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` = **0 件**、`propext` = **1 件**（許容）。4/4 宣言を走査、exit code 0。監査用一時ファイルは削除済み。
+- **見出し**: `## Batch AA review (2026-11-20)` は coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に **match することを Python で確認済み**（`Batch A1` も match）。本セクションを `docs/ADVERSARIAL_REVIEW.md` 末尾に追記。既存セクションはすべて保持。Lean モジュール／`data/*` は一切変更せず、commit / push / merge / ブランチ切替は行っていない。解析用一時ファイルはすべて削除済み。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・数値／算術の独立抽出と再計算・needle の `.find()` 検証・整数式の反例走査・`#print axioms` 公理監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって人間の法的レビューを完了したものとはみなさない。
