@@ -43,4 +43,8 @@ example : withholdingNet ⟨true, 0, 100_000⟩ = 0 := by decide
 example : withholdingNet ⟨true, 1_000_000, 100_000⟩ = 120_000 := by decide
 example : withholdingNet ⟨false, 1_000_000, 100_000⟩ = 65_000 := by decide
 
+-- boundary (b): small positive input in 1..13 — the 15% withholding floor threshold
+-- (exchange 1..6 floors to 0; exchange 7 is the first whose 15% >= 1: (7+0)*15/100 = 1)
+example : withholdingNet ⟨false, 7, 0⟩ = 1 := by decide
+
 end JapanTaxLaw

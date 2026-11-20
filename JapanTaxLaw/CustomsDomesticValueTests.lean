@@ -27,5 +27,8 @@ example : customsValueArt4_3 1_000_000 d3 500_000 100_000 20_000 false = 900_000
 example : domesticSalesValue 50_000 d3 = 0 := by decide
 example : domesticSalesValue 1_000_000 ⟨0, 0, 0, 0⟩ = 1_000_000 := by decide
 example : computedValue 0 0 0 = 0 := by decide
+-- 境界: 小さい正の入力 (1..13) — 控除合計 1+2+3+4=10, 13-10=3
+example : domesticSalesValue 13 ⟨1, 2, 3, 4⟩ = 3 := by decide
+example : computedValue 5 4 3 = 12 := by decide
 
 end JapanTaxLaw

@@ -570,3 +570,6 @@ import JapanTaxLaw.SavingsDepositInterestTests
 import JapanTaxLaw.PowderSakeQuantity
 import JapanTaxLaw.PowderSakeQuantitySpec
 import JapanTaxLaw.PowderSakeQuantityTests
+import JapanTaxLaw.TobaccoRate
+import JapanTaxLaw.TobaccoRateSpec
+import JapanTaxLaw.TobaccoRateTests
