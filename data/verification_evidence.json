@@ -111,6 +111,21 @@
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[5]/SupplProvision/SupplProvision[46]/Article:19_14_3/Article#19_14_3/Paragraph#5/TableStruct/Table/TableRow/TableColumn/Sentence#44 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98",
       "tests": "JapanTaxLaw/MeshPopulationBandsTests.lean sha256=34f44d96be75df5d4993aa0f539727ba32358dee316837b72cc397aa633f14d5 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness, cross-scope identity)"
     },
+    "NORM|0d6f011e1075f847d72ff6ac0f49db8c3eb2e38ae8807cbe91ef78b3d70849bb": {
+      "adversarial_review": "docs/UNIT_DOCUMENTATION_PRESUMPTIONS.md: H/T/D/C/U; reversed-condition reading rejected; only branch structure claimed",
+      "article_group": "66_6",
+      "boundary_proof": "presumption when documents absent -> not applicable; present -> caller status; four groups identical",
+      "cross_law_proof": "cross_group_* theorems prove art.40-4/40-7/66-6/66-9-2 presumptions extensionally identical; enforced revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 16 documentation-presumption units across 4 article groups",
+      "implementation": "JapanTaxLaw/DocumentationPresumptions.lean sha256=fba066942042d5df248d237f3de588271c1d5198f920a3584966740d6ef1361b",
+      "independent_spec": "JapanTaxLaw/DocumentationPresumptionsSpec.lean sha256=05c204519f0fa22594456641ce61a46df2b20e089e86de8bbdb6eb20f06ae7f4 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; absent/present branches, exhaustive/exclusive, monotone_in_status, four-group identity + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "この場合において、当該書類その他の資料の提示又は提出がないときは、同項（同号又は第六号に係る部分に限る。）の規定の適用については、当該外国関係会社は同項第三号イからハまでに掲げる要件に該当しないものと推定する。",
+      "proof_scope": "conditional-presumption structure only: document submission and status are caller-supplied Bool; enumerated subcategories and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_presumptions.py: all 16 originals found verbatim (16/16 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:66_6/Article#66_6/Paragraph#4/ParagraphSentence/Sentence#2 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/DocumentationPresumptionsTests.lean sha256=e40c8aea79cd8aa05789155a9bc55b373b217d68b7b8039a9e3f591c69a4eea9 (kernel branch examples, spec agreement, four-group identity)"
+    },
     "NORM|15dbfd55148fe076292eefe260fcfbef38379592bdf6b51fa59a0a7f7bc8b6f6": {
       "adversarial_review": "docs/UNIT_FOREST_TAX_ART5.md: H/T/D/C/U; monthly-rate and >= readings rejected by verbatim original",
       "boundary_proof": "rateEqualsStatutory_iff general theorem; 1000 true; 0/999/1001 false",
@@ -150,6 +165,20 @@
       "source_location": "data/raw/362CO0000000335_20260521_506CO0000000150.law.json#LawBody[2]/MainProvision/MainProvision[8]/Article:4/Article#4/Paragraph#1/Item#7/ItemSentence/Column#1/Sentence#1 8b21ff78cd78a30af9f90521756b31c40e33d0fd919481bb90822de542421e18 (verbatim 14-char condition)",
       "tests": "JapanTaxLaw/LimitRate12ConditionTests.lean sha256=c6cde2243565788f6d526a80423cbbb7c4049096ac0c6083c578fbeef7c75a24 (6 kernel-decided examples)"
     },
+    "NORM|18ec913b1eb731128679e98232f287dde0de711a9d9c529ce1448b81d0b20fd9": {
+      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
+      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved",
+      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
+      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
+      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "第四項から第八項までの規定は、前項の規定により市町村たばこ税を課する場合について準用する。",
+      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[853]/SupplProvision/SupplProvision[20]/Article:20/Article#20/Paragraph#10/ParagraphSentence/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)"
+    },
     "NORM|19ad3c0f39ad4ec9480de4e7e90ab21b00a4f7dcf2ff45b75927e9e3c81f691e": {
       "adversarial_review": "docs/UNIT_RATE_BAND_ART19.md: H/T/D/C/U; competing reading of 未満 as 以下 rejected by verbatim original",
       "boundary_proof": "inBand_iff general theorem; kernel-decided boundaries 9,999,999 false, 10,000,000 true, 14,999,999 true, 15,000,000 false (upper exclusive)",
@@ -162,6 +191,20 @@
       "source_correspondence_audit": "scripts/ci/source_audit_rate_band_art19.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; independent literals 千万円以上/千五百万円未満/金額",
       "source_location": "data/raw/347CO0000000151_20251231_507CO0000000426.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:19/Article#19/Paragraph#1/Item#3/TableStruct/Table/TableRow/TableColumn/Sentence#1 8c5521ffb74068dc5b6872a3748b53a6eec38afc3637ece878eb0ca9da74a437 (verbatim 15-char table-cell condition)",
       "tests": "JapanTaxLaw/RateBandArt19Tests.lean sha256=c95632f8616f166e7ae0a85622f130e3a1fcb6cd0089911b715a126e49a74647 (8 kernel-decided examples)"
+    },
+    "NORM|1a654d57d6e5dad2ea500e564977a05be3199b0ae1867eabbd7dc871363006be": {
+      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
+      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved",
+      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
+      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
+      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "第二項から第八項までの規定は、前項の規定によりたばこ税を課する場合について準用する。",
+      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/359AC0000000072_20260525_506AC0000000052.law.json#LawBody[17]/SupplProvision/SupplProvision[7]/Article:51/Article#51/Paragraph#12/ParagraphSentence/Sentence#1 6079422da9d83bb97d68e5fd824b92563d7a0e183cabdf88fc0d9e0cd241e2cd",
+      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)"
     },
     "NORM|1b0899b00c654642e9981f5b9ce1d9a8ce67dbde27f969956cbacee751aca29a": {
       "adversarial_review": "docs/UNIT_LEVY_DATE_ART181.md: H/T/D/C/U; from-4/1 reading rejected by verbatim original",
@@ -242,6 +285,20 @@
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:23/Article#23/Paragraph#1/List/ListSentence/Column#1/Sentence#1 c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7 (verbatim 残存期間が二十年を超え二十五年以下のもの)",
       "tests": "JapanTaxLaw/TaxBandBoundariesTests.lean sha256=dfc072a2a73c069e361d089230e69fde7354f0010b2729e03ddc936c6f6bdd60 (kernel-decided boundary examples + spec agreement)"
     },
+    "NORM|2800a9c20cd0c696aa075db98c68ce128b45c4a7480c777e0d12b57fbc05932a": {
+      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
+      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved",
+      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
+      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
+      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "第四項から第八項までの規定は、前項の規定により道府県たばこ税を課する場合について準用する。",
+      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[853]/SupplProvision/SupplProvision[12]/Article:12/Article#12/Paragraph#12/ParagraphSentence/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)"
+    },
     "NORM|29d04706ea24185c86b2152ccc2a22513fd3733bb63bfaecfc4e260e1283c879": {
       "adversarial_review": "docs/UNIT_DELEGATION_ART312.md: H/T/D/C/U; ministry-ordinance and self-executing readings rejected by verbatim original",
       "boundary_proof": "kernel examples: authority code 1 (政令), not 2 (省令), scopeFixedByThisAct=false",
@@ -267,6 +324,35 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: independent kanji literals ['二十', '十', '百', '百万'] located in 原文; needles scoped",
       "source_location": "data/raw/340AC0000000033_20261001_507AC0000000070.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:205/Article#205/Paragraph#1/Item#1/ItemSentence/Column#2/Sentence#1 sha256=94c4a7ad83726cde60787967ed4e959585ad0af9279d25db9aa02264b3fe606b (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/IncomeArt205WithholdingTests.lean sha256=bf2e55189ec20604c9719e6177573ff3827ac679b47e1b1f8d4770315f815c3e (24 kernel-decided examples)"
+    },
+    "NORM|2f965c8cb3679a1d1406bc60a7bcd9e7d43c7896650ca3dcb6d97e1742e6b846": {
+      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
+      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved",
+      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
+      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
+      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "第二項から第七項までの規定は、前項の規定によりたばこ税を課する場合について準用する。",
+      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/359AC0000000072_20260525_506AC0000000052.law.json#LawBody[14]/SupplProvision/SupplProvision[5]/Article:52/Article#52/Paragraph#9/ParagraphSentence/Sentence#1 6079422da9d83bb97d68e5fd824b92563d7a0e183cabdf88fc0d9e0cd241e2cd",
+      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)"
+    },
+    "NORM|302bd406d7e5475b76b601bf7fe4f219bdc027e414e58721f98597ed9861059d": {
+      "adversarial_review": "docs/UNIT_DOCUMENTATION_PRESUMPTIONS.md: H/T/D/C/U; reversed-condition reading rejected; only branch structure claimed",
+      "article_group": "40_7",
+      "boundary_proof": "presumption when documents absent -> not applicable; present -> caller status; four groups identical",
+      "cross_law_proof": "cross_group_* theorems prove art.40-4/40-7/66-6/66-9-2 presumptions extensionally identical; enforced revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 16 documentation-presumption units across 4 article groups",
+      "implementation": "JapanTaxLaw/DocumentationPresumptions.lean sha256=fba066942042d5df248d237f3de588271c1d5198f920a3584966740d6ef1361b",
+      "independent_spec": "JapanTaxLaw/DocumentationPresumptionsSpec.lean sha256=05c204519f0fa22594456641ce61a46df2b20e089e86de8bbdb6eb20f06ae7f4 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; absent/present branches, exhaustive/exclusive, monotone_in_status, four-group identity + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "この場合において、当該書類その他の資料の提示又は提出がないときは、第二項（第九号又は第十号に係る部分に限る。）の規定の適用については、当該外国関係法人は清算部分対象外国関係法人又は清算外国金融関係法人に該当しないものと推定する。",
+      "proof_scope": "conditional-presumption structure only: document submission and status are caller-supplied Bool; enumerated subcategories and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_presumptions.py: all 16 originals found verbatim (16/16 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:40_7/Article#40_7/Paragraph#5/ParagraphSentence/Sentence#2 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/DocumentationPresumptionsTests.lean sha256=e40c8aea79cd8aa05789155a9bc55b373b217d68b7b8039a9e3f591c69a4eea9 (kernel branch examples, spec agreement, four-group identity)"
     },
     "NORM|323a8fa7c96851f16fb9f50a9ee211aeed5530a96ea2abf20442fa7276ebd006": {
       "adversarial_review": "docs/UNIT_MESH_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive misreading and open-ended-e8 misreading rejected; domain bounds recorded explicitly",
@@ -323,6 +409,50 @@
       "source_location": "data/raw/322CO0000000109_19470627_000000000000000.law.json#LawBody[1]/MainProvision/MainProvision[2]/Article:3/Article#3/Paragraph#1/ParagraphSentence/Sentence sha256=9ff39f03e58b315d04fbb65246dd5a4e64cf8c6a428eae84c53bb49c530816ec (verbatim 87-char unit text located in scoped article)",
       "tests": "JapanTaxLaw/RegistrationJointRequestTests.lean sha256=ab9297839621f6ee4cdd49dd199feef8868c1feaf6a3050158c5be09ae68c579 (16 kernel-decided examples incl. 0/1/2/3 and cause-difference invariants)"
     },
+    "NORM|39e09f508fe439cff862243d229887dd555904f3af59f2ced1cf9c947548057e": {
+      "adversarial_review": "docs/UNIT_DOCUMENTATION_PRESUMPTIONS.md: H/T/D/C/U; reversed-condition reading rejected; only branch structure claimed",
+      "article_group": "40_4",
+      "boundary_proof": "presumption when documents absent -> not applicable; present -> caller status; four groups identical",
+      "cross_law_proof": "cross_group_* theorems prove art.40-4/40-7/66-6/66-9-2 presumptions extensionally identical; enforced revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 16 documentation-presumption units across 4 article groups",
+      "implementation": "JapanTaxLaw/DocumentationPresumptions.lean sha256=fba066942042d5df248d237f3de588271c1d5198f920a3584966740d6ef1361b",
+      "independent_spec": "JapanTaxLaw/DocumentationPresumptionsSpec.lean sha256=05c204519f0fa22594456641ce61a46df2b20e089e86de8bbdb6eb20f06ae7f4 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; absent/present branches, exhaustive/exclusive, monotone_in_status, four-group identity + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "この場合において、当該書類その他の資料の提示又は提出がないときは、同項（同号又は第六号に係る部分に限る。）の規定の適用については、当該外国関係会社は同項第三号イからハまでに掲げる要件に該当しないものと推定する。",
+      "proof_scope": "conditional-presumption structure only: document submission and status are caller-supplied Bool; enumerated subcategories and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_presumptions.py: all 16 originals found verbatim (16/16 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:40_4/Article#40_4/Paragraph#4/ParagraphSentence/Sentence#2 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/DocumentationPresumptionsTests.lean sha256=e40c8aea79cd8aa05789155a9bc55b373b217d68b7b8039a9e3f591c69a4eea9 (kernel branch examples, spec agreement, four-group identity)"
+    },
+    "NORM|3aef20d2df02d9ce4d6ffb17bd2b923f49072ff44e9b86dd3ae8b4334f2f9892": {
+      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
+      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved",
+      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
+      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
+      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "第二項から第七項までの規定は、前項の規定によりたばこ税を課する場合について準用する。",
+      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/359AC0000000072_20260525_506AC0000000052.law.json#LawBody[14]/SupplProvision/SupplProvision[5]/Article:52/Article#52/Paragraph#13/ParagraphSentence/Sentence#1 6079422da9d83bb97d68e5fd824b92563d7a0e183cabdf88fc0d9e0cd241e2cd",
+      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)"
+    },
+    "NORM|3c95756026cdf9742ef29c169d4699e5c6639351ad45209a67a38dee07fbee5e": {
+      "adversarial_review": "docs/UNIT_DOCUMENTATION_PRESUMPTIONS.md: H/T/D/C/U; reversed-condition reading rejected; only branch structure claimed",
+      "article_group": "40_7",
+      "boundary_proof": "presumption when documents absent -> not applicable; present -> caller status; four groups identical",
+      "cross_law_proof": "cross_group_* theorems prove art.40-4/40-7/66-6/66-9-2 presumptions extensionally identical; enforced revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 16 documentation-presumption units across 4 article groups",
+      "implementation": "JapanTaxLaw/DocumentationPresumptions.lean sha256=fba066942042d5df248d237f3de588271c1d5198f920a3584966740d6ef1361b",
+      "independent_spec": "JapanTaxLaw/DocumentationPresumptionsSpec.lean sha256=05c204519f0fa22594456641ce61a46df2b20e089e86de8bbdb6eb20f06ae7f4 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; absent/present branches, exhaustive/exclusive, monotone_in_status, four-group identity + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "この場合において、当該書類その他の資料の提示又は提出がないときは、同項（同号イに係る部分に限る。）の規定の適用については、当該外国関係法人は同号イ（１）から（５）までに該当しないものと推定する。",
+      "proof_scope": "conditional-presumption structure only: document submission and status are caller-supplied Bool; enumerated subcategories and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_presumptions.py: all 16 originals found verbatim (16/16 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:40_7/Article#40_7/Paragraph#3/ParagraphSentence/Sentence#2 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/DocumentationPresumptionsTests.lean sha256=e40c8aea79cd8aa05789155a9bc55b373b217d68b7b8039a9e3f591c69a4eea9 (kernel branch examples, spec agreement, four-group identity)"
+    },
     "NORM|404d8c3d22895074ec7ca2d9c67883413f66bf52e01ceb8c2effd38e3886c1c4": {
       "adversarial_review": "docs/UNIT_TRANSITIONAL_INCOME_BRACKETS.md: H/T/D/C/U; upper-inclusive vs upper-exclusive convention kept distinct from art.11 tables",
       "boundary_proof": "T350.inBand 2 d; exhaustive over all d, globally pairwise exclusive; 以下 inclusive / 超え exclusive",
@@ -363,6 +493,21 @@
       "source_correspondence_audit": "scripts/ci/source_audit_caps_floors.py: month text x6 and cap text x2 found verbatim (5/5 checks), spec does not import implementation",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_21/Article#72_21/Paragraph#10/ParagraphSentence/Sentence#2 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
       "tests": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean sha256=9b3c73e4a46ac43e8212a635c6f22ed720741806c6862edd2ddbcad1aa04f7d1 (kernel boundary examples, spec agreement, bounds/monotonicity/commutation)"
+    },
+    "NORM|44d24c4ed13919df391b04784ea9cba43fc22fac84ce80b9887b9ae2f2ebe8f5": {
+      "adversarial_review": "docs/UNIT_DOCUMENTATION_PRESUMPTIONS.md: H/T/D/C/U; reversed-condition reading rejected; only branch structure claimed",
+      "article_group": "66_6",
+      "boundary_proof": "presumption when documents absent -> not applicable; present -> caller status; four groups identical",
+      "cross_law_proof": "cross_group_* theorems prove art.40-4/40-7/66-6/66-9-2 presumptions extensionally identical; enforced revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 16 documentation-presumption units across 4 article groups",
+      "implementation": "JapanTaxLaw/DocumentationPresumptions.lean sha256=fba066942042d5df248d237f3de588271c1d5198f920a3584966740d6ef1361b",
+      "independent_spec": "JapanTaxLaw/DocumentationPresumptionsSpec.lean sha256=05c204519f0fa22594456641ce61a46df2b20e089e86de8bbdb6eb20f06ae7f4 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; absent/present branches, exhaustive/exclusive, monotone_in_status, four-group identity + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "この場合において、当該書類その他の資料の提示又は提出がないときは、第二項（第十号に係る部分に限る。）の規定の適用については、当該各事業年度は特例清算事業年度に該当しないものと推定する。",
+      "proof_scope": "conditional-presumption structure only: document submission and status are caller-supplied Bool; enumerated subcategories and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_presumptions.py: all 16 originals found verbatim (16/16 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:66_6/Article#66_6/Paragraph#6/ParagraphSentence/Sentence#2 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/DocumentationPresumptionsTests.lean sha256=e40c8aea79cd8aa05789155a9bc55b373b217d68b7b8039a9e3f591c69a4eea9 (kernel branch examples, spec agreement, four-group identity)"
     },
     "NORM|44ed564144dcbfb0666f5bd97f6f4efc7bc472d685f6b97e26092c6995dba5d4": {
       "adversarial_review": "docs/UNIT_DELEGATED_TAXPAYER_CATEGORIES.md: H/T/D/C/U; treating 政令 content as statutory text rejected; 3 vs 4 narrowing preserved",
@@ -420,6 +565,21 @@
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:42/Article#42/Paragraph#11/ParagraphSentence/Sentence#2 c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7",
       "tests": "JapanTaxLaw/DeemedFilingDatesTests.lean sha256=a623a4b39e3e778b3026316e7e18e45c334b48135d9d102f50d05f7dabc3dd2e (kernel branch/deeming examples, spec agreement, three-pattern identity)"
     },
+    "NORM|4b9960fa69b931b6c9c42d899bf5f95fa5dc715306ae516c06f3c1212fae31c3": {
+      "adversarial_review": "docs/UNIT_DOCUMENTATION_PRESUMPTIONS.md: H/T/D/C/U; reversed-condition reading rejected; only branch structure claimed",
+      "article_group": "66_9_2",
+      "boundary_proof": "presumption when documents absent -> not applicable; present -> caller status; four groups identical",
+      "cross_law_proof": "cross_group_* theorems prove art.40-4/40-7/66-6/66-9-2 presumptions extensionally identical; enforced revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 16 documentation-presumption units across 4 article groups",
+      "implementation": "JapanTaxLaw/DocumentationPresumptions.lean sha256=fba066942042d5df248d237f3de588271c1d5198f920a3584966740d6ef1361b",
+      "independent_spec": "JapanTaxLaw/DocumentationPresumptionsSpec.lean sha256=05c204519f0fa22594456641ce61a46df2b20e089e86de8bbdb6eb20f06ae7f4 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; absent/present branches, exhaustive/exclusive, monotone_in_status, four-group identity + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "この場合において、当該書類その他の資料の提示又は提出がないときは、同項（同号又は第七号に係る部分に限る。）の規定の適用については、当該外国関係法人は同項第四号イからハまでに掲げる要件に該当しないものと推定する。",
+      "proof_scope": "conditional-presumption structure only: document submission and status are caller-supplied Bool; enumerated subcategories and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_presumptions.py: all 16 originals found verbatim (16/16 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:66_9_2/Article#66_9_2/Paragraph#4/ParagraphSentence/Sentence#2 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/DocumentationPresumptionsTests.lean sha256=e40c8aea79cd8aa05789155a9bc55b373b217d68b7b8039a9e3f591c69a4eea9 (kernel branch examples, spec agreement, four-group identity)"
+    },
     "NORM|4c4a2318ddb86c1c3fe7344ba9507ffc8e2226ab59cb6ab7ac46d2aec51a2f86": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 1000 recorded explicitly",
       "boundary_proof": "inBand 3 d; row 4 applies on its exact interval; global exclusivity, exhaustive for d>=1000",
@@ -445,6 +605,49 @@
       "source_correspondence_audit": "scripts/ci/source_audit_local_grant_bands.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 4: １００，０００以上４００，０００未満)",
       "tests": "JapanTaxLaw/LocalGrantAmountBandsTests.lean sha256=270f27df97f18db8f4932fe4d9a3bc6cf0380794a92c82c189014fdc3a99e7a1 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
+    "NORM|4e7c68a20639976dc52473ce1e3d4ae5a9e1d15b8376d9f9967d17b94afb4efc": {
+      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
+      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved",
+      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
+      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
+      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "第四項から第八項までの規定は、前項の規定により市町村たばこ税を課する場合について準用する。",
+      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[853]/SupplProvision/SupplProvision[20]/Article:20/Article#20/Paragraph#12/ParagraphSentence/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)"
+    },
+    "NORM|51740834e2cfd04029c07e6d6d6659c25c84f6e1dba4ef62f0e0bd9f4bda1877": {
+      "adversarial_review": "docs/UNIT_DOCUMENTATION_PRESUMPTIONS.md: H/T/D/C/U; reversed-condition reading rejected; only branch structure claimed",
+      "article_group": "40_4",
+      "boundary_proof": "presumption when documents absent -> not applicable; present -> caller status; four groups identical",
+      "cross_law_proof": "cross_group_* theorems prove art.40-4/40-7/66-6/66-9-2 presumptions extensionally identical; enforced revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 16 documentation-presumption units across 4 article groups",
+      "implementation": "JapanTaxLaw/DocumentationPresumptions.lean sha256=fba066942042d5df248d237f3de588271c1d5198f920a3584966740d6ef1361b",
+      "independent_spec": "JapanTaxLaw/DocumentationPresumptionsSpec.lean sha256=05c204519f0fa22594456641ce61a46df2b20e089e86de8bbdb6eb20f06ae7f4 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; absent/present branches, exhaustive/exclusive, monotone_in_status, four-group identity + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "この場合において、当該書類その他の資料の提示又は提出がないときは、第二項（第八号又は第九号に係る部分に限る。）の規定の適用については、当該外国関係会社は清算部分対象外国関係会社又は清算外国金融子会社等に該当しないものと推定する。",
+      "proof_scope": "conditional-presumption structure only: document submission and status are caller-supplied Bool; enumerated subcategories and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_presumptions.py: all 16 originals found verbatim (16/16 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:40_4/Article#40_4/Paragraph#5/ParagraphSentence/Sentence#2 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/DocumentationPresumptionsTests.lean sha256=e40c8aea79cd8aa05789155a9bc55b373b217d68b7b8039a9e3f591c69a4eea9 (kernel branch examples, spec agreement, four-group identity)"
+    },
+    "NORM|520b1979962623e91b507393f19ff4152578637aca32c8ee097e7780a9869e06": {
+      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
+      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved",
+      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
+      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
+      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "第二項から第八項までの規定は、前項の規定によりたばこ税を課する場合について準用する。",
+      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/359AC0000000072_20260525_506AC0000000052.law.json#LawBody[17]/SupplProvision/SupplProvision[7]/Article:51/Article#51/Paragraph#10/ParagraphSentence/Sentence#1 6079422da9d83bb97d68e5fd824b92563d7a0e183cabdf88fc0d9e0cd241e2cd",
+      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)"
     },
     "NORM|5336c555bfcfbde8a24af7cb064a7e8373d3ad4e30ec52c611b0be01eb9686ad": {
       "adversarial_review": "docs/UNIT_DEEMED_FILING_DATES.md: H/T/D/C/U; overriding-an-explicit-date reading rejected; calendar computation explicitly NOT MODELLED",
@@ -500,6 +703,21 @@
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 3: ５０，０００以上１００，０００未満)",
       "tests": "JapanTaxLaw/LocalGrantAmountBandsTests.lean sha256=270f27df97f18db8f4932fe4d9a3bc6cf0380794a92c82c189014fdc3a99e7a1 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
+    "NORM|5e3d0d9149efea62e390eec1f2117f90ba0aec03292a80d2713cfcb72839a8ce": {
+      "adversarial_review": "docs/UNIT_DOCUMENTATION_PRESUMPTIONS.md: H/T/D/C/U; reversed-condition reading rejected; only branch structure claimed",
+      "article_group": "40_7",
+      "boundary_proof": "presumption when documents absent -> not applicable; present -> caller status; four groups identical",
+      "cross_law_proof": "cross_group_* theorems prove art.40-4/40-7/66-6/66-9-2 presumptions extensionally identical; enforced revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 16 documentation-presumption units across 4 article groups",
+      "implementation": "JapanTaxLaw/DocumentationPresumptions.lean sha256=fba066942042d5df248d237f3de588271c1d5198f920a3584966740d6ef1361b",
+      "independent_spec": "JapanTaxLaw/DocumentationPresumptionsSpec.lean sha256=05c204519f0fa22594456641ce61a46df2b20e089e86de8bbdb6eb20f06ae7f4 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; absent/present branches, exhaustive/exclusive, monotone_in_status, four-group identity + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "この場合において、当該書類その他の資料の提示又は提出がないときは、同項（同号又は第七号に係る部分に限る。）の規定の適用については、当該外国関係法人は同項第四号イからハまでに掲げる要件に該当しないものと推定する。",
+      "proof_scope": "conditional-presumption structure only: document submission and status are caller-supplied Bool; enumerated subcategories and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_presumptions.py: all 16 originals found verbatim (16/16 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:40_7/Article#40_7/Paragraph#4/ParagraphSentence/Sentence#2 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/DocumentationPresumptionsTests.lean sha256=e40c8aea79cd8aa05789155a9bc55b373b217d68b7b8039a9e3f591c69a4eea9 (kernel branch examples, spec agreement, four-group identity)"
+    },
     "NORM|5fe2648845ad17599f56d18426c99255dd590f83927021ff8f696c0f79d2d9bc": {
       "adversarial_review": "docs/UNIT_MESH_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive misreading and open-ended-e8 misreading rejected; domain bounds recorded explicitly",
       "boundary_proof": "mesh band (7-band partition over 100<=d<4000, globally pairwise exclusive)",
@@ -554,6 +772,20 @@
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[3]/SupplProvision/SupplProvision[87]/Article:13_4/Article#13_4/Paragraph#3/ParagraphSentence/Sentence#1 5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim 23-char quasi-application)",
       "tests": "JapanTaxLaw/MunicipalTaxQuasiApplyTests.lean sha256=31423b4366568d4ddbc9be2e946f6cab31304d91344c4ab51b74b9e4e5851a42 (6 kernel-decided examples)"
     },
+    "NORM|65d300a98223a221159b270e0f525e7a10669f9a4483c24150c0b4ca21de2511": {
+      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
+      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved",
+      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
+      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
+      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "第二項から第七項までの規定は、前項の規定によりたばこ税を課する場合について準用する。",
+      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/359AC0000000072_20260525_506AC0000000052.law.json#LawBody[14]/SupplProvision/SupplProvision[5]/Article:52/Article#52/Paragraph#11/ParagraphSentence/Sentence#1 6079422da9d83bb97d68e5fd824b92563d7a0e183cabdf88fc0d9e0cd241e2cd",
+      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)"
+    },
     "NORM|6db851350ac8ff22221b06d98b24baec978de8db35d0e857c9e4170965d0fc59": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 1000 recorded explicitly",
       "boundary_proof": "inBand 2 d; row 3 applies on its exact interval; global exclusivity, exhaustive for d>=1000",
@@ -580,6 +812,21 @@
       "source_correspondence_audit": "scripts/ci/source_audit_local_grant_index.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#3/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim C row 3: ２００以上３００未満)",
       "tests": "JapanTaxLaw/LocalGrantIndexBandsTests.lean sha256=8613baa5eb7666035ac9139dc12df71bcbcb21c4f8b5b1c0863c41556318b820 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness for both groups)"
+    },
+    "NORM|6f65a0550a31224066d6dabf5880bbc9cf27052f3421e1f4f8010f09f3cf664d": {
+      "adversarial_review": "docs/UNIT_DOCUMENTATION_PRESUMPTIONS.md: H/T/D/C/U; reversed-condition reading rejected; only branch structure claimed",
+      "article_group": "66_9_2",
+      "boundary_proof": "presumption when documents absent -> not applicable; present -> caller status; four groups identical",
+      "cross_law_proof": "cross_group_* theorems prove art.40-4/40-7/66-6/66-9-2 presumptions extensionally identical; enforced revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 16 documentation-presumption units across 4 article groups",
+      "implementation": "JapanTaxLaw/DocumentationPresumptions.lean sha256=fba066942042d5df248d237f3de588271c1d5198f920a3584966740d6ef1361b",
+      "independent_spec": "JapanTaxLaw/DocumentationPresumptionsSpec.lean sha256=05c204519f0fa22594456641ce61a46df2b20e089e86de8bbdb6eb20f06ae7f4 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; absent/present branches, exhaustive/exclusive, monotone_in_status, four-group identity + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "この場合において、当該書類その他の資料の提示又は提出がないときは、同項（同号イに係る部分に限る。）の規定の適用については、当該外国関係法人は同号イ（１）から（５）までに該当しないものと推定する。",
+      "proof_scope": "conditional-presumption structure only: document submission and status are caller-supplied Bool; enumerated subcategories and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_presumptions.py: all 16 originals found verbatim (16/16 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:66_9_2/Article#66_9_2/Paragraph#3/ParagraphSentence/Sentence#2 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/DocumentationPresumptionsTests.lean sha256=e40c8aea79cd8aa05789155a9bc55b373b217d68b7b8039a9e3f591c69a4eea9 (kernel branch examples, spec agreement, four-group identity)"
     },
     "NORM|7176dc3cb4da9ce0a92f0b4cddd094cfaefb5fa95123009cacdad1501e5cc607": {
       "adversarial_review": "docs/UNIT_FISCAL_SPLIT_ART27_12_5.md: H/T/D/C/U; inclusive/exclusive misreadings rejected; rule interaction verified",
@@ -661,6 +908,21 @@
       "source_correspondence_audit": "scripts/ci/source_audit_population_bands.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#4/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 5: １１０，０００人以上２２０，０００人未満)",
       "tests": "JapanTaxLaw/LocalGrantPopulationBandsTests.lean sha256=0e78d642ff63c5d8ccd09b6c4320e3a445ac1c606679c48054ec81cc1019a93b (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
+    "NORM|7b6094e304779056f75e606b0087fa124fa62cdeeb272779646f42abe6c93395": {
+      "adversarial_review": "docs/UNIT_DOCUMENTATION_PRESUMPTIONS.md: H/T/D/C/U; reversed-condition reading rejected; only branch structure claimed",
+      "article_group": "66_6",
+      "boundary_proof": "presumption when documents absent -> not applicable; present -> caller status; four groups identical",
+      "cross_law_proof": "cross_group_* theorems prove art.40-4/40-7/66-6/66-9-2 presumptions extensionally identical; enforced revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 16 documentation-presumption units across 4 article groups",
+      "implementation": "JapanTaxLaw/DocumentationPresumptions.lean sha256=fba066942042d5df248d237f3de588271c1d5198f920a3584966740d6ef1361b",
+      "independent_spec": "JapanTaxLaw/DocumentationPresumptionsSpec.lean sha256=05c204519f0fa22594456641ce61a46df2b20e089e86de8bbdb6eb20f06ae7f4 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; absent/present branches, exhaustive/exclusive, monotone_in_status, four-group identity + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "この場合において、当該書類その他の資料の提示又は提出がないときは、同項（同号イに係る部分に限る。）の規定の適用については、当該外国関係会社は同号イ（１）から（５）までに該当しないものと推定する。",
+      "proof_scope": "conditional-presumption structure only: document submission and status are caller-supplied Bool; enumerated subcategories and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_presumptions.py: all 16 originals found verbatim (16/16 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:66_6/Article#66_6/Paragraph#3/ParagraphSentence/Sentence#2 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/DocumentationPresumptionsTests.lean sha256=e40c8aea79cd8aa05789155a9bc55b373b217d68b7b8039a9e3f591c69a4eea9 (kernel branch examples, spec agreement, four-group identity)"
     },
     "NORM|7b9430e42aa5a1d64e7dc6ce862a5e029bab1efac685994bafef93d9f6806187": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_INDEX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; C and E thresholds kept separate",
@@ -786,6 +1048,21 @@
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#2/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim B row 2: ９６以上)",
       "tests": "JapanTaxLaw/LocalGrantRemainingBandsTests.lean sha256=56579024af3a28f3186e155b80ded07bed957fceae426517c42936036de186ae (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
+    "NORM|8f17bbb8000d4001b01cae6ebdfa9e7e4b5ead442894d2deb69af77df1db7331": {
+      "adversarial_review": "docs/UNIT_DOCUMENTATION_PRESUMPTIONS.md: H/T/D/C/U; reversed-condition reading rejected; only branch structure claimed",
+      "article_group": "66_6",
+      "boundary_proof": "presumption when documents absent -> not applicable; present -> caller status; four groups identical",
+      "cross_law_proof": "cross_group_* theorems prove art.40-4/40-7/66-6/66-9-2 presumptions extensionally identical; enforced revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 16 documentation-presumption units across 4 article groups",
+      "implementation": "JapanTaxLaw/DocumentationPresumptions.lean sha256=fba066942042d5df248d237f3de588271c1d5198f920a3584966740d6ef1361b",
+      "independent_spec": "JapanTaxLaw/DocumentationPresumptionsSpec.lean sha256=05c204519f0fa22594456641ce61a46df2b20e089e86de8bbdb6eb20f06ae7f4 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; absent/present branches, exhaustive/exclusive, monotone_in_status, four-group identity + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "この場合において、当該書類その他の資料の提示又は提出がないときは、第二項（第八号又は第九号に係る部分に限る。）の規定の適用については、当該外国関係会社は清算部分対象外国関係会社又は清算外国金融子会社等に該当しないものと推定する。",
+      "proof_scope": "conditional-presumption structure only: document submission and status are caller-supplied Bool; enumerated subcategories and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_presumptions.py: all 16 originals found verbatim (16/16 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:66_6/Article#66_6/Paragraph#5/ParagraphSentence/Sentence#2 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/DocumentationPresumptionsTests.lean sha256=e40c8aea79cd8aa05789155a9bc55b373b217d68b7b8039a9e3f591c69a4eea9 (kernel branch examples, spec agreement, four-group identity)"
+    },
     "NORM|91349ec2d835e0fe4fdd63ea17f15c1ce9a98c22d91c36f03bea07410596f64e": {
       "adversarial_review": "docs/UNIT_TAX_ACCOUNTANT_FINE_ART14.md: H/T/D/C/U; garbled-UI misreading (五百万) rejected by independent pinned extraction (十万円)",
       "boundary_proof": "within_ceiling_sufficient / within_ceiling_necessary are general Nat theorems; 0/99999/100000 permitted, 100001 rejected, non-eligible rejected",
@@ -854,6 +1131,21 @@
       "source_correspondence_audit": "scripts/ci/source_audit_mesh_bands.py: all 14 originals found verbatim (14/14 hits, 4/4 checks), spec does not import implementation",
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[5]/SupplProvision/SupplProvision[46]/Article:19_14_3/Article#19_14_3/Paragraph#5/TableStruct/Table/TableRow/TableColumn/Sentence#40 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98",
       "tests": "JapanTaxLaw/MeshPopulationBandsTests.lean sha256=34f44d96be75df5d4993aa0f539727ba32358dee316837b72cc397aa633f14d5 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness, cross-scope identity)"
+    },
+    "NORM|97bb705744280e15ee32ed0b1034c3a51282ac51cee508b6f517c76cacc4244c": {
+      "adversarial_review": "docs/UNIT_DOCUMENTATION_PRESUMPTIONS.md: H/T/D/C/U; reversed-condition reading rejected; only branch structure claimed",
+      "article_group": "66_9_2",
+      "boundary_proof": "presumption when documents absent -> not applicable; present -> caller status; four groups identical",
+      "cross_law_proof": "cross_group_* theorems prove art.40-4/40-7/66-6/66-9-2 presumptions extensionally identical; enforced revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 16 documentation-presumption units across 4 article groups",
+      "implementation": "JapanTaxLaw/DocumentationPresumptions.lean sha256=fba066942042d5df248d237f3de588271c1d5198f920a3584966740d6ef1361b",
+      "independent_spec": "JapanTaxLaw/DocumentationPresumptionsSpec.lean sha256=05c204519f0fa22594456641ce61a46df2b20e089e86de8bbdb6eb20f06ae7f4 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; absent/present branches, exhaustive/exclusive, monotone_in_status, four-group identity + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "この場合において、当該書類その他の資料の提示又は提出がないときは、第二項（第十一号に係る部分に限る。）の規定の適用については、当該各事業年度は特例清算事業年度に該当しないものと推定する。",
+      "proof_scope": "conditional-presumption structure only: document submission and status are caller-supplied Bool; enumerated subcategories and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_presumptions.py: all 16 originals found verbatim (16/16 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:66_9_2/Article#66_9_2/Paragraph#6/ParagraphSentence/Sentence#2 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/DocumentationPresumptionsTests.lean sha256=e40c8aea79cd8aa05789155a9bc55b373b217d68b7b8039a9e3f591c69a4eea9 (kernel branch examples, spec agreement, four-group identity)"
     },
     "NORM|98df7397bd4e0fdcd06d94e7ce98532f6838c93e0263033eef17d960052e3c58": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_INDEX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; C and E thresholds kept separate",
@@ -1005,6 +1297,21 @@
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[5]/SupplProvision/SupplProvision[46]/Article:19_14_3/Article#19_14_3/Paragraph#5/TableStruct/Table/TableRow/TableColumn/Sentence#41 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98",
       "tests": "JapanTaxLaw/MeshPopulationBandsTests.lean sha256=34f44d96be75df5d4993aa0f539727ba32358dee316837b72cc397aa633f14d5 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness, cross-scope identity)"
     },
+    "NORM|aa4f3f14e89453a655123308fabc4e12a2dc360836eecd7bfb35ff829538c7ce": {
+      "adversarial_review": "docs/UNIT_DOCUMENTATION_PRESUMPTIONS.md: H/T/D/C/U; reversed-condition reading rejected; only branch structure claimed",
+      "article_group": "40_4",
+      "boundary_proof": "presumption when documents absent -> not applicable; present -> caller status; four groups identical",
+      "cross_law_proof": "cross_group_* theorems prove art.40-4/40-7/66-6/66-9-2 presumptions extensionally identical; enforced revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 16 documentation-presumption units across 4 article groups",
+      "implementation": "JapanTaxLaw/DocumentationPresumptions.lean sha256=fba066942042d5df248d237f3de588271c1d5198f920a3584966740d6ef1361b",
+      "independent_spec": "JapanTaxLaw/DocumentationPresumptionsSpec.lean sha256=05c204519f0fa22594456641ce61a46df2b20e089e86de8bbdb6eb20f06ae7f4 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; absent/present branches, exhaustive/exclusive, monotone_in_status, four-group identity + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "この場合において、当該書類その他の資料の提示又は提出がないときは、同項（同号イに係る部分に限る。）の規定の適用については、当該外国関係会社は同号イ（１）から（５）までに該当しないものと推定する。",
+      "proof_scope": "conditional-presumption structure only: document submission and status are caller-supplied Bool; enumerated subcategories and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_presumptions.py: all 16 originals found verbatim (16/16 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:40_4/Article#40_4/Paragraph#3/ParagraphSentence/Sentence#2 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/DocumentationPresumptionsTests.lean sha256=e40c8aea79cd8aa05789155a9bc55b373b217d68b7b8039a9e3f591c69a4eea9 (kernel branch examples, spec agreement, four-group identity)"
+    },
     "NORM|ac371ade261bbd9d8681252eb9998c1991cc66b0773a70cd8b45389690aecb6f": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
@@ -1030,6 +1337,21 @@
       "source_correspondence_audit": "scripts/ci/source_audit_population_bands.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#4/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 6: ２２０，０００人以上)",
       "tests": "JapanTaxLaw/LocalGrantPopulationBandsTests.lean sha256=0e78d642ff63c5d8ccd09b6c4320e3a445ac1c606679c48054ec81cc1019a93b (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
+    "NORM|aef0e00c98b54c178cd352418919a8c6e92e44f54a633442a625fe3e21eed570": {
+      "adversarial_review": "docs/UNIT_DOCUMENTATION_PRESUMPTIONS.md: H/T/D/C/U; reversed-condition reading rejected; only branch structure claimed",
+      "article_group": "40_4",
+      "boundary_proof": "presumption when documents absent -> not applicable; present -> caller status; four groups identical",
+      "cross_law_proof": "cross_group_* theorems prove art.40-4/40-7/66-6/66-9-2 presumptions extensionally identical; enforced revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 16 documentation-presumption units across 4 article groups",
+      "implementation": "JapanTaxLaw/DocumentationPresumptions.lean sha256=fba066942042d5df248d237f3de588271c1d5198f920a3584966740d6ef1361b",
+      "independent_spec": "JapanTaxLaw/DocumentationPresumptionsSpec.lean sha256=05c204519f0fa22594456641ce61a46df2b20e089e86de8bbdb6eb20f06ae7f4 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; absent/present branches, exhaustive/exclusive, monotone_in_status, four-group identity + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "この場合において、当該書類その他の資料の提示又は提出がないときは、第二項（第十号に係る部分に限る。）の規定の適用については、当該各事業年度は特例清算事業年度に該当しないものと推定する。",
+      "proof_scope": "conditional-presumption structure only: document submission and status are caller-supplied Bool; enumerated subcategories and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_presumptions.py: all 16 originals found verbatim (16/16 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:40_4/Article#40_4/Paragraph#6/ParagraphSentence/Sentence#2 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/DocumentationPresumptionsTests.lean sha256=e40c8aea79cd8aa05789155a9bc55b373b217d68b7b8039a9e3f591c69a4eea9 (kernel branch examples, spec agreement, four-group identity)"
     },
     "NORM|aefa93fb70c15d0bbd40088acb0767b17fc6b2b16d200c13dea8ce12bae79fbd": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_AMOUNT_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 3000 recorded explicitly",
@@ -1099,6 +1421,21 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_21/Article#72_21/Paragraph#3/ParagraphSentence/Sentence#2 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
       "tests": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean sha256=9b3c73e4a46ac43e8212a635c6f22ed720741806c6862edd2ddbcad1aa04f7d1 (kernel boundary examples, spec agreement, bounds/monotonicity/commutation)"
     },
+    "NORM|bb3befbcb6e6e6fbcac89424390c5b7737c651ab8eccb118baa9df60b239fcbc": {
+      "adversarial_review": "docs/UNIT_DOCUMENTATION_PRESUMPTIONS.md: H/T/D/C/U; reversed-condition reading rejected; only branch structure claimed",
+      "article_group": "40_7",
+      "boundary_proof": "presumption when documents absent -> not applicable; present -> caller status; four groups identical",
+      "cross_law_proof": "cross_group_* theorems prove art.40-4/40-7/66-6/66-9-2 presumptions extensionally identical; enforced revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 16 documentation-presumption units across 4 article groups",
+      "implementation": "JapanTaxLaw/DocumentationPresumptions.lean sha256=fba066942042d5df248d237f3de588271c1d5198f920a3584966740d6ef1361b",
+      "independent_spec": "JapanTaxLaw/DocumentationPresumptionsSpec.lean sha256=05c204519f0fa22594456641ce61a46df2b20e089e86de8bbdb6eb20f06ae7f4 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; absent/present branches, exhaustive/exclusive, monotone_in_status, four-group identity + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "この場合において、当該書類その他の資料の提示又は提出がないときは、第二項（第十一号に係る部分に限る。）の規定の適用については、当該各事業年度は特例清算事業年度に該当しないものと推定する。",
+      "proof_scope": "conditional-presumption structure only: document submission and status are caller-supplied Bool; enumerated subcategories and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_presumptions.py: all 16 originals found verbatim (16/16 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:40_7/Article#40_7/Paragraph#6/ParagraphSentence/Sentence#2 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/DocumentationPresumptionsTests.lean sha256=e40c8aea79cd8aa05789155a9bc55b373b217d68b7b8039a9e3f591c69a4eea9 (kernel branch examples, spec agreement, four-group identity)"
+    },
     "NORM|bcf1ebb66cdf227f0a41af25535426f0e538653da7851df446b504290504c148": {
       "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
       "boundary_proof": "inBand 5 d; row 6 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d",
@@ -1152,6 +1489,20 @@
       "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:24/Article#24/Paragraph#1/Item#1/ItemSentence/Sentence#1 3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342 (verbatim 12-char exception)",
       "tests": "JapanTaxLaw/MergerExceptionArt24Tests.lean sha256=1f21341257f0dd648c5f04a93bd9303344fe56ec8202374cfa6e479a08ef44ee (6 kernel-decided examples)"
     },
+    "NORM|cb2e10c5f515ec0dea44704cc276895880ab45e8900bd236e8c523728630428c": {
+      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
+      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved",
+      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
+      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
+      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "第四項から第八項までの規定は、前項の規定により道府県たばこ税を課する場合について準用する。",
+      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[853]/SupplProvision/SupplProvision[12]/Article:12/Article#12/Paragraph#14/ParagraphSentence/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)"
+    },
     "NORM|ceaa310499e6aeb291c47fe5f84450e17ebf70b5d4e9ae154ce11794a834144e": {
       "adversarial_review": "docs/UNIT_FISCAL_SPLIT_ART27_12_5.md: H/T/D/C/U; inclusive/exclusive misreadings rejected; rule interaction verified",
       "boundary_proof": "isUnderSixMonths iff months<6; 0/5 true, 6 false; exclusive/exhaustive proved",
@@ -1178,6 +1529,20 @@
       "source_correspondence_audit": "scripts/ci/source_audit_caps_floors.py: month text x6 and cap text x2 found verbatim (5/5 checks), spec does not import implementation",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_21/Article#72_21/Paragraph#9/ParagraphSentence/Sentence#2 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
       "tests": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean sha256=9b3c73e4a46ac43e8212a635c6f22ed720741806c6862edd2ddbcad1aa04f7d1 (kernel boundary examples, spec agreement, bounds/monotonicity/commutation)"
+    },
+    "NORM|d21017d58b5a5518e754ee8f322d95df0d5b068b6a61e0e73f8bf230710ea741": {
+      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
+      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved",
+      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
+      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
+      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "第四項から第八項までの規定は、前項の規定により道府県たばこ税を課する場合について準用する。",
+      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[853]/SupplProvision/SupplProvision[12]/Article:12/Article#12/Paragraph#10/ParagraphSentence/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)"
     },
     "NORM|d6279718487d02381f5a6ad2517038e1b29ba40d8e6f55743be7719305a5e7ce": {
       "adversarial_review": "docs/UNIT_MESH_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive misreading and open-ended-e8 misreading rejected; domain bounds recorded explicitly",
@@ -1233,6 +1598,20 @@
       "source_correspondence_audit": "scripts/ci/source_audit_period_art23.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 残存期間/十年を超え/十五年以下",
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:23/Article#23/Paragraph#1/List/ListSentence/Column#1/Sentence#1 c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7 (verbatim 16-char period condition)",
       "tests": "JapanTaxLaw/RemainingPeriodBandTests.lean sha256=a8b557c90c89a137d2ac6f86d09dd8d51d8d925d94b226ea732c36e65e44139d (8 kernel-decided examples)"
+    },
+    "NORM|e1860be7d65030905e4264cd52c952d14d784b6ff538385633d36cf469b94cee": {
+      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
+      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved",
+      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
+      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
+      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "第四項から第八項までの規定は、前項の規定により市町村たばこ税を課する場合について準用する。",
+      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[853]/SupplProvision/SupplProvision[20]/Article:20/Article#20/Paragraph#14/ParagraphSentence/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)"
     },
     "NORM|e664b371aaf8b6dba27d44fbaea280fdf4f5d4a27e4560f860f38ac6b6e15fd8": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_REMAINING_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; A's lower edge and B's unhandled subject recorded explicitly",
@@ -1301,6 +1680,21 @@
       "source_correspondence_audit": "scripts/ci/source_audit_local_grant_bands.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 5: ４００，０００以上９００，０００未満)",
       "tests": "JapanTaxLaw/LocalGrantAmountBandsTests.lean sha256=270f27df97f18db8f4932fe4d9a3bc6cf0380794a92c82c189014fdc3a99e7a1 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
+    "NORM|ebdd91b3f81a7a6b91cebff97aa6abbae14e3e87858f8db269164d277bf81536": {
+      "adversarial_review": "docs/UNIT_DOCUMENTATION_PRESUMPTIONS.md: H/T/D/C/U; reversed-condition reading rejected; only branch structure claimed",
+      "article_group": "66_9_2",
+      "boundary_proof": "presumption when documents absent -> not applicable; present -> caller status; four groups identical",
+      "cross_law_proof": "cross_group_* theorems prove art.40-4/40-7/66-6/66-9-2 presumptions extensionally identical; enforced revision resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 16 documentation-presumption units across 4 article groups",
+      "implementation": "JapanTaxLaw/DocumentationPresumptions.lean sha256=fba066942042d5df248d237f3de588271c1d5198f920a3584966740d6ef1361b",
+      "independent_spec": "JapanTaxLaw/DocumentationPresumptionsSpec.lean sha256=05c204519f0fa22594456641ce61a46df2b20e089e86de8bbdb6eb20f06ae7f4 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; absent/present branches, exhaustive/exclusive, monotone_in_status, four-group identity + spec agreement kernel-checked; no sorry/admit",
+      "original_text": "この場合において、当該書類その他の資料の提示又は提出がないときは、第二項（第九号又は第十号に係る部分に限る。）の規定の適用については、当該外国関係法人は清算部分対象外国関係法人又は清算外国金融関係法人に該当しないものと推定する。",
+      "proof_scope": "conditional-presumption structure only: document submission and status are caller-supplied Bool; enumerated subcategories and legal effects NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_presumptions.py: all 16 originals found verbatim (16/16 hits, 4/4 checks), spec does not import implementation",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:66_9_2/Article#66_9_2/Paragraph#5/ParagraphSentence/Sentence#2 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/DocumentationPresumptionsTests.lean sha256=e40c8aea79cd8aa05789155a9bc55b373b217d68b7b8039a9e3f591c69a4eea9 (kernel branch examples, spec agreement, four-group identity)"
     },
     "NORM|f01303c423d7afa683635dc5773769296bd02a20030c3ae4cd547cdb0b805d41": {
       "adversarial_review": "docs/UNIT_DELEGATED_TAXPAYER_CATEGORIES.md: H/T/D/C/U; treating 政令 content as statutory text rejected; 3 vs 4 narrowing preserved",
@@ -1410,160 +1804,6 @@
       "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 3: （３）　総排気量が一・五リットルを超え、二リットル以下のもの)",
       "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
-    },
-    "NORM|d21017d58b5a5518e754ee8f322d95df0d5b068b6a61e0e73f8bf230710ea741": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
-      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
-      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
-      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
-      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)",
-      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[853]/SupplProvision/SupplProvision[12]/Article:12/Article#12/Paragraph#10/ParagraphSentence/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
-      "original_text": "第四項から第八項までの規定は、前項の規定により道府県たばこ税を課する場合について準用する。",
-      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved"
-    },
-    "NORM|2800a9c20cd0c696aa075db98c68ce128b45c4a7480c777e0d12b57fbc05932a": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
-      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
-      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
-      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
-      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)",
-      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[853]/SupplProvision/SupplProvision[12]/Article:12/Article#12/Paragraph#12/ParagraphSentence/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
-      "original_text": "第四項から第八項までの規定は、前項の規定により道府県たばこ税を課する場合について準用する。",
-      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved"
-    },
-    "NORM|cb2e10c5f515ec0dea44704cc276895880ab45e8900bd236e8c523728630428c": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
-      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
-      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
-      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
-      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)",
-      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[853]/SupplProvision/SupplProvision[12]/Article:12/Article#12/Paragraph#14/ParagraphSentence/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
-      "original_text": "第四項から第八項までの規定は、前項の規定により道府県たばこ税を課する場合について準用する。",
-      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved"
-    },
-    "NORM|18ec913b1eb731128679e98232f287dde0de711a9d9c529ce1448b81d0b20fd9": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
-      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
-      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
-      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
-      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)",
-      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[853]/SupplProvision/SupplProvision[20]/Article:20/Article#20/Paragraph#10/ParagraphSentence/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
-      "original_text": "第四項から第八項までの規定は、前項の規定により市町村たばこ税を課する場合について準用する。",
-      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved"
-    },
-    "NORM|4e7c68a20639976dc52473ce1e3d4ae5a9e1d15b8376d9f9967d17b94afb4efc": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
-      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
-      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
-      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
-      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)",
-      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[853]/SupplProvision/SupplProvision[20]/Article:20/Article#20/Paragraph#12/ParagraphSentence/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
-      "original_text": "第四項から第八項までの規定は、前項の規定により市町村たばこ税を課する場合について準用する。",
-      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved"
-    },
-    "NORM|e1860be7d65030905e4264cd52c952d14d784b6ff538385633d36cf469b94cee": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
-      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
-      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
-      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
-      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)",
-      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[853]/SupplProvision/SupplProvision[20]/Article:20/Article#20/Paragraph#14/ParagraphSentence/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
-      "original_text": "第四項から第八項までの規定は、前項の規定により市町村たばこ税を課する場合について準用する。",
-      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved"
-    },
-    "NORM|2f965c8cb3679a1d1406bc60a7bcd9e7d43c7896650ca3dcb6d97e1742e6b846": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
-      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
-      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
-      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
-      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)",
-      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
-      "source_location": "data/raw/359AC0000000072_20260525_506AC0000000052.law.json#LawBody[14]/SupplProvision/SupplProvision[5]/Article:52/Article#52/Paragraph#9/ParagraphSentence/Sentence#1 6079422da9d83bb97d68e5fd824b92563d7a0e183cabdf88fc0d9e0cd241e2cd",
-      "original_text": "第二項から第七項までの規定は、前項の規定によりたばこ税を課する場合について準用する。",
-      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved"
-    },
-    "NORM|65d300a98223a221159b270e0f525e7a10669f9a4483c24150c0b4ca21de2511": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
-      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
-      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
-      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
-      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)",
-      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
-      "source_location": "data/raw/359AC0000000072_20260525_506AC0000000052.law.json#LawBody[14]/SupplProvision/SupplProvision[5]/Article:52/Article#52/Paragraph#11/ParagraphSentence/Sentence#1 6079422da9d83bb97d68e5fd824b92563d7a0e183cabdf88fc0d9e0cd241e2cd",
-      "original_text": "第二項から第七項までの規定は、前項の規定によりたばこ税を課する場合について準用する。",
-      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved"
-    },
-    "NORM|3aef20d2df02d9ce4d6ffb17bd2b923f49072ff44e9b86dd3ae8b4334f2f9892": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
-      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
-      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
-      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
-      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)",
-      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
-      "source_location": "data/raw/359AC0000000072_20260525_506AC0000000052.law.json#LawBody[14]/SupplProvision/SupplProvision[5]/Article:52/Article#52/Paragraph#13/ParagraphSentence/Sentence#1 6079422da9d83bb97d68e5fd824b92563d7a0e183cabdf88fc0d9e0cd241e2cd",
-      "original_text": "第二項から第七項までの規定は、前項の規定によりたばこ税を課する場合について準用する。",
-      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved"
-    },
-    "NORM|520b1979962623e91b507393f19ff4152578637aca32c8ee097e7780a9869e06": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
-      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
-      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
-      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
-      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)",
-      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
-      "source_location": "data/raw/359AC0000000072_20260525_506AC0000000052.law.json#LawBody[17]/SupplProvision/SupplProvision[7]/Article:51/Article#51/Paragraph#10/ParagraphSentence/Sentence#1 6079422da9d83bb97d68e5fd824b92563d7a0e183cabdf88fc0d9e0cd241e2cd",
-      "original_text": "第二項から第八項までの規定は、前項の規定によりたばこ税を課する場合について準用する。",
-      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved"
-    },
-    "NORM|1a654d57d6e5dad2ea500e564977a05be3199b0ae1867eabbd7dc871363006be": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; 11 tobacco-tax mutatis-mutandis range units across 4 articles",
-      "source_correspondence_audit": "scripts/ci/source_audit_reading_ranges.py: all 11 originals found verbatim (11/11 hits, 4/4 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/TobaccoTaxReadingRangesSpec.lean sha256=f510f8b79502e87fd9e99a4361f542926b6ac5031a861a5c619282859a3810c7 (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/TobaccoTaxReadingRanges.lean sha256=bf0f5f883d6743401c992caefa000954fe43f959ff333207b75aebabbda45742",
-      "kernel_proof": "Lean 4.35.0 pinned; inclusive endpoints/range_mono/pref_eq_city/art52_subset_art51/overlap_pref_art52 + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "incorporated paragraph ranges only (inclusive lo..hi): p caller-established Nat; substantive content of incorporated paragraphs and legal effects NOT MODELLED",
-      "cross_law_proof": "pref_eq_city proves 325AC art.12/art.20 ranges identical; art52_subset_art51 proves cross-article containment; revisions resolved from INVENTORY",
-      "tests": "JapanTaxLaw/TobaccoTaxReadingRangesTests.lean sha256=d6d6eaa9929e00f38fc60fbcdb781745f8e04c435ef94eeddf6c033a5c420476 (kernel boundary examples, spec agreement, containment/overlap proofs)",
-      "adversarial_review": "docs/UNIT_TOBACCO_READING_RANGES.md: H/T/D/C/U; half-open-range reading rejected; only range structure claimed",
-      "source_location": "data/raw/359AC0000000072_20260525_506AC0000000052.law.json#LawBody[17]/SupplProvision/SupplProvision[7]/Article:51/Article#51/Paragraph#12/ParagraphSentence/Sentence#1 6079422da9d83bb97d68e5fd824b92563d7a0e183cabdf88fc0d9e0cd241e2cd",
-      "original_text": "第二項から第八項までの規定は、前項の規定によりたばこ税を課する場合について準用する。",
-      "boundary_proof": "inclusive paragraph range per 原文 (から…まで); endpoints included, containment/overlap proved"
     }
   }
 }

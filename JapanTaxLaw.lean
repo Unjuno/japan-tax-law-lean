@@ -620,3 +620,6 @@ import JapanTaxLaw.DeemedFilingDatesTests
 import JapanTaxLaw.TobaccoTaxReadingRanges
 import JapanTaxLaw.TobaccoTaxReadingRangesSpec
 import JapanTaxLaw.TobaccoTaxReadingRangesTests
+import JapanTaxLaw.DocumentationPresumptions
+import JapanTaxLaw.DocumentationPresumptionsSpec
+import JapanTaxLaw.DocumentationPresumptionsTests
