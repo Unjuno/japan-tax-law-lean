@@ -644,3 +644,6 @@ import JapanTaxLaw.TransitionalDelegationAndPriorPenaltyTests
 import JapanTaxLaw.PerItemEnforcementDates
 import JapanTaxLaw.PerItemEnforcementDatesSpec
 import JapanTaxLaw.PerItemEnforcementDatesTests
+import JapanTaxLaw.DefaultBranches
+import JapanTaxLaw.DefaultBranchesSpec
+import JapanTaxLaw.DefaultBranchesTests
