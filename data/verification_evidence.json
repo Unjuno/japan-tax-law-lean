@@ -33,13 +33,13 @@
       "boundary_proof": "GiftTax.lean giftTax_zero_below_deduction (kernel decided); spec boundary examples at 0/2M/3M/4M/6M/10M/15M/30M yen",
       "cross_law_proof": "queue unit dependencies=[]; independent check in docs/GIFT_21_5_VERIFICATION.md#4 records no cross-law relation for this unit",
       "decomposition_audit": "docs/GIFT_21_5_VERIFICATION.md#1-source-independent-extraction; queue unit text located verbatim in the pinned article",
-      "implementation": "",
-      "independent_spec": "",
+      "implementation": "JapanTaxLaw/GiftBasicDeductionUnit.lean sha256=eab6e1927d90b74d6588dce4b31be0ba696ba57cdbce9d46004025778a54c629 (pinned module, kernel-built)",
+      "independent_spec": "JapanTaxLaw/GiftBasicDeductionUnitSpec.lean sha256=624eee8b7b46b6bbe18cb46425bec8c1a8367af26a66a1c9b7ec9a31c597d0c3 (pinned module, kernel-built)",
       "kernel_proof": "lake build JapanTaxLaw.GiftTaxSpec + lake env lean gift_axioms.lean: agreeGiftTax and spec_impl_basic_deduction_agree depend on no axioms; see docs/GIFT_21_5_VERIFICATION.md#3",
       "proof_scope": "docs/GIFT_21_5_VERIFICATION.md#3 grid-based agreement is a scoped claim, not universal; documented scope limits in GiftTax.lean",
       "source_correspondence_audit": "python scripts/ci/source_correspondence.py (D=PASS, verbatim_located=true, amounts_in_source=[600000]) recorded in docs/GIFT_21_5_VERIFICATION.md#2",
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:21_5/Paragraph#1/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7",
-      "tests": ""
+      "tests": "JapanTaxLaw/GiftBasicDeductionUnitTests.lean sha256=f58d4bb070157255e2329d22d02a95194115b4b76293449de7d814845a78bcc7 (pinned module, kernel-built)"
     },
     "NORM|2bb1ca3263f7e9d5364bf3f9a4f429da2445559f7f9cfbabfaf5db5e5d2a3b31": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch R: independent pinned re-extraction, H/T/D/C/U recorded",
@@ -118,6 +118,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: independent kanji literals ['二百九十万', '十二'] located in 原文; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_49_14/Article#72_49_14/Paragraph#2/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/BusinessOwnerDeductionTests.lean sha256=61b2cc0dc9ba20aeb7d2465e3ecfcc248cb82a687981de2e45d3c349c31be28d (18 kernel-decided examples)"
+    },
+    "NORM|368f77444888dd8e28bda37fa5deb1bae1d03502d1f8c036d2975e32fd768f5e": {
+      "source_location": "data/raw/322CO0000000109_19470627_000000000000000.law.json#LawBody[1]/MainProvision/MainProvision[2]/Article:3/Article#3/Paragraph#1/ParagraphSentence/Sentence sha256=9ff39f03e58b315d04fbb65246dd5a4e64cf8c6a428eae84c53bb49c530816ec (verbatim 87-char unit text located in scoped article)",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; CONDITION+EFFECT unit at Article:3/Paragraph#1/ParagraphSentence/Sentence",
+      "source_correspondence_audit": "scripts/ci/source_audit_registration_art3.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; independent literals 前二条/同一の登記所/二箇以上/登記原因/登記の目的/同一の嘱託書 located in pinned original",
+      "independent_spec": "JapanTaxLaw/RegistrationJointRequestSpec.lean sha256=9788becae6c895df499521a2f1bf7649eee7f8a8cf40a0bbbc547e0c2e0e3198 (defines permitted from original text; no implementation import)",
+      "implementation": "JapanTaxLaw/RegistrationJointRequest.lean sha256=c987e5e79702293f424fb530330103e445fcebf97014c878b55adfb42e6a8908",
+      "kernel_proof": "Lean 4.35.0 pinned; local lake build 533/533 jobs success; check_no_sorry PASS; agreement theorem agrees_with_implementation kernel-checked",
+      "proof_scope": "unit sentence only: priorCase, sameRegistry and 二箇以上 threshold; causesOrPurposeDiffer is not a bar (原文 同一でなくても). 前二条 details, registry jurisdiction, document formalities NOT MODELLED",
+      "boundary_proof": "threshold_sufficient / threshold_necessary are general Nat theorems; kernel-decided boundaries 0/1 rejected, 2/3 permitted, all three condition branches reachable",
+      "cross_law_proof": "unit dependencies=0; enforced revision 322CO0000000109_19470627_000000000000000 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/RegistrationJointRequestTests.lean sha256=ab9297839621f6ee4cdd49dd199feef8868c1feaf6a3050158c5be09ae68c579 (16 kernel-decided examples incl. 0/1/2/3 and cause-difference invariants)",
+      "adversarial_review": "docs/UNIT_REGISTRATION_JOINT_REQUEST_ART3.md: independent re-extraction with H/T/D/C/U; competing readings of 二箇以上 and 同一でなくても dispositioned"
     }
   }
 }

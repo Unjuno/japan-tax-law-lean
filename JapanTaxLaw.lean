@@ -542,3 +542,6 @@ import JapanTaxLaw.UsForcesDutyFreePenaltyTests
 import JapanTaxLaw.GiftBasicDeductionUnit
 import JapanTaxLaw.GiftBasicDeductionUnitSpec
 import JapanTaxLaw.GiftBasicDeductionUnitTests
+import JapanTaxLaw.RegistrationJointRequest
+import JapanTaxLaw.RegistrationJointRequestSpec
+import JapanTaxLaw.RegistrationJointRequestTests
