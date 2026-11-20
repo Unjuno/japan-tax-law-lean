@@ -40,11 +40,13 @@ The file is intentionally empty at baseline: no unit has recorded evidence yet.
 
 ## Large-file checkout (resumption)
 
-`data/verification_evidence.json` is tracked with **Git LFS** (see
-`.gitattributes`). At the current corpus size it exceeds GitHub's 100 MB
-per-file push limit, so the git object is a small pointer and the ~109 MB
-payload lives in LFS storage. Before regenerating the queue or running gates in
-a fresh clone, install git-lfs and materialise the file:
+The growing generated JSON ledgers (`data/verification_evidence.json`,
+`data/EVIDENCE_REFERENCE_AUDIT.json`, `data/EVIDENCE_GENERATION_AUDIT.json` and
+`data/source_correspondence_*.json`) are tracked with **Git LFS** (see
+`.gitattributes`). `verification_evidence.json` and `EVIDENCE_REFERENCE_AUDIT.json`
+alone exceed GitHub's 100 MB per-file push limit, so their git objects are small
+pointers and the payloads live in LFS storage. Before regenerating the queue or
+running gates in a fresh clone, install git-lfs and materialise the files:
 
 ```
 git lfs install
