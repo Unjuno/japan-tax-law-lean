@@ -36,6 +36,16 @@ class HistoricalTests(unittest.TestCase):
         self.assertEqual(hd.PREFIX_RE.match("旧法人税法").group(1), "法人税法")
         self.assertEqual(hd.PREFIX_RE.match("元年旧地方税法").group(1), "地方税法")
         self.assertEqual(hd.PREFIX_RE.match("新租税特別措置法").group(1), "租税特別措置法")
+        self.assertEqual(hd.PREFIX_RE.match("旧効力法人税法").group(1), "法人税法")
+        self.assertEqual(hd.PREFIX_RE.match("旧効力消費税法").group(1), "消費税法")
+
+    def test_unenforced_status_is_read_from_real_inventory_shape(self):
+        inv = {"laws": [{"law_id": "X", "official_title": "防衛特別所得税に関する政令",
+                         "selection_status": "fully_unenforced",
+                         "current_revision_status": "fully_unenforced",
+                         "current_revision": None}]}
+        out = hd.classify([{"count": 1, "name": "新防衛特別所得税に関する政令"}], inv)
+        self.assertEqual(out["names"][0]["class"], "UNENFORCED_LEDGER_LAW")
 
     def test_classification_matches_ledger_laws(self):
         classes = {r["class"] for r in self.data["names"]}

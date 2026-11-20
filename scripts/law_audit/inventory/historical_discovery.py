@@ -29,7 +29,8 @@ DISCOVERY = REPO / "docs" / "RECURSIVE_DISCOVERY.md"
 OUT_JSON = REPO / "data" / "HISTORICAL_DISCOVERY.json"
 OUT_MD = REPO / "docs" / "HISTORICAL_DISCOVERY.md"
 
-PREFIX_RE = re.compile(r"^(?:元年)?(?:新|旧|旧効力)(.+)")
+# Longest prefix first: 旧効力 must win over 旧, otherwise 効力 leaks into the base name.
+PREFIX_RE = re.compile(r"^(?:元年)?(?:旧効力|新|旧)(.+)")
 ROW_RE = re.compile(r"^\|\s*(\d+)\s*\|\s*([^|]+?)\s*\|\s*$")
 
 
@@ -66,8 +67,20 @@ def parse_historical_section(text: str) -> list[dict]:
 
 def classify(rows: list[dict], inventory: dict) -> dict:
     titles = {norm(l.get("official_title", "")): l for l in inventory.get("laws", [])}
+    # INVENTORY.json records fully-unenforced laws at the TOP level
+    # (selection_status / current_revision_status, current_revision=null),
+    # not inside current_revision.status. Read all three representations.
+    def is_unenforced(law: dict) -> bool:
+        rev = law.get("current_revision") or {}
+        if rev.get("status") == "fully_unenforced":
+            return True
+        return (
+            law.get("selection_status") == "fully_unenforced"
+            or law.get("current_revision_status") == "fully_unenforced"
+        )
+
     unenforced = {norm(l.get("official_title", "")) for l in inventory.get("laws", [])
-                  if (l.get("current_revision") or {}).get("status") == "fully_unenforced"}
+                  if is_unenforced(l)}
     counted = {}
     for r in rows:
         name = r["name"]
