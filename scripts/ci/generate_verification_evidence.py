@@ -92,6 +92,16 @@ def load_attestation() -> dict:
     data = json.loads(ATTESTATION.read_text(encoding="utf-8"))
     if data.get("schema") != 1 or data.get("run_conclusion") != "success":
         raise ValueError("attestation schema/conclusion invalid")
+    # Scoped attestations cover modules kernel-built at a DIFFERENT commit than
+    # the main attestation. Validate each independently; a failed/pending scoped
+    # run is ignored, never trusted as evidence.
+    scoped = REPO / "data" / "PROOF_ATTESTATION_SCOPED.json"
+    if scoped.exists():
+        extra = json.loads(scoped.read_text(encoding="utf-8"))
+        if (extra.get("schema") == 1 and extra.get("run_conclusion") == "success"
+                and extra.get("jobs", {}).get("Build Lean project and check axioms", {}).get(
+                    "conclusion") == "success"):
+            data.setdefault("modules", {}).update(extra.get("modules", {}))
     return data
 
 
