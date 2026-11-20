@@ -28,18 +28,31 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_20/Article#72_20/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalAddedValueStandardTests.lean sha256=f8354718e7a135a3681e9d3a0fc99e3e2715ed7c025f299b51e9cddf1c9715d8 (20 kernel-decided examples)"
     },
+    "NORM|13ca7436618900441d6024641c3b92dbf2a9f48c038cee0927fb04970d4b22c6": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
+      "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/LocalTobaccoTaxRate.lean sha256=84d52e3d0eba83991a71d33d33a7eb69ba316ca09df4fef3b214fa8be351aa68",
+      "independent_spec": "JapanTaxLaw/LocalTobaccoTaxRateSpec.lean sha256=f291f36e6e9a6fb904f4fa394b0efe19e9d5d58d720e7adb81f92868f2a10e84 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44684783591: commit 0b6e084f68c35511d586b601692180ceac28a5dc, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "statutory boundary constant 十二 present in 原文 and in both spec and kernel-checked implementation",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: independent kanji literals ['千七十'] located in 原文; needles scoped",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:74_5/Article#74_5/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/LocalTobaccoTaxRateTests.lean sha256=58515eb86e66fcdffd97c7a01a36f88b897c78812156fa531fb5ae25b1b944f5 (11 kernel-decided examples)"
+    },
     "NORM|167b8cabf184adb595d75baba5ffbf319ec3c502be8a820858e8c493b09f57d7": {
       "adversarial_review": "docs/GIFT_21_5_VERIFICATION.md#4-adversarial-review-separate-from-the-implementer H/T/D/C/U recorded",
       "boundary_proof": "GiftTax.lean giftTax_zero_below_deduction (kernel decided); spec boundary examples at 0/2M/3M/4M/6M/10M/15M/30M yen",
       "cross_law_proof": "queue unit dependencies=[]; independent check in docs/GIFT_21_5_VERIFICATION.md#4 records no cross-law relation for this unit",
       "decomposition_audit": "docs/GIFT_21_5_VERIFICATION.md#1-source-independent-extraction; queue unit text located verbatim in the pinned article",
-      "implementation": "",
-      "independent_spec": "",
+      "implementation": "JapanTaxLaw/GiftTax.lean sha256=d6143c80188db2c66ffb397a3b84f38dd53c64e7333862141205a9e0fb9435fd",
+      "independent_spec": "JapanTaxLaw/GiftTaxSpec.lean sha256=453d34aa1fb94ddd81fc9cb27978b695836998c4cbd60cf3c4c7196daf32fb4f",
       "kernel_proof": "lake build JapanTaxLaw.GiftTaxSpec + lake env lean gift_axioms.lean: agreeGiftTax and spec_impl_basic_deduction_agree depend on no axioms; see docs/GIFT_21_5_VERIFICATION.md#3",
       "proof_scope": "docs/GIFT_21_5_VERIFICATION.md#3 grid-based agreement is a scoped claim, not universal; documented scope limits in GiftTax.lean",
       "source_correspondence_audit": "python scripts/ci/source_correspondence.py (D=PASS, verbatim_located=true, amounts_in_source=[600000]) recorded in docs/GIFT_21_5_VERIFICATION.md#2",
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:21_5/Paragraph#1/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7",
-      "tests": ""
+      "tests": "JapanTaxLaw/GiftTaxTests.lean sha256=725c5b29a5cb14f99245c2f37a386cab37151754ca2c5390c61ab849f157a839; lake build JapanTaxLaw.GiftTaxTests succeeded"
     },
     "NORM|27bdf4a116c2cd07db188e100eaaf6afcea16c1ec2c854a57c4f5a28217fc218": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",

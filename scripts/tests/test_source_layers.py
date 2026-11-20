@@ -65,13 +65,13 @@ class LayerTests(unittest.TestCase):
         self.assertEqual(p["human_legal_reviews"], 0)
 
     def test_missing_queue_is_unknown_not_zero(self):
-        original = sl.QUEUE
+        original = sl.QUEUE_DOC
         try:
-            sl.QUEUE = sl.REPO / "build" / "definitely_absent_queue.json"
+            sl.QUEUE_DOC = sl.REPO / "docs" / "definitely_absent_queue.md"
             self.assertEqual(sl.queue_counts(), {})
             self.assertIsNone(sl.build()["verification_pipeline"]["fully_verified_units"])
         finally:
-            sl.QUEUE = original
+            sl.QUEUE_DOC = original
 
 
 if __name__ == "__main__":

@@ -49,8 +49,8 @@ by the '税' keyword in the law name only.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 161 | n/a | n/a |
-| distinct article pins | 48 | n/a | n/a |
+| pinned literal checks | 163 | n/a | n/a |
+| distinct article pins | 49 | n/a | n/a |
 | pinned Lean modules (cross-law) | 0 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
