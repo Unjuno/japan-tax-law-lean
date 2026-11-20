@@ -3,7 +3,7 @@
   "schema": "verification-evidence-v1",
   "units": {
     "NORM|008f8fdeb18548b26d46cf73190a1d665d17705f0b229e0cc10ef7fab5e056da": {
-      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch O: independent pinned re-extraction, H/T/D/C/U recorded",
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
       "cross_law_proof": "unit dependencies=7; enforced revision=325AC0000000211_20261102_508AC0000000062 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
@@ -16,7 +16,7 @@
       "tests": "JapanTaxLaw/LocalGrantRevenueBaseTests.lean sha256=444750e52499a800d4637a435546efe3aeaef76f0bd00453ef2153152525dd32 (31 kernel-decided examples)"
     },
     "NORM|01bc5d0ea84e476f03587df6fefe7b5d0069de50a81e0b28bc26e8be03771418": {
-      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch O: independent pinned re-extraction, H/T/D/C/U recorded",
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
       "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
@@ -42,7 +42,7 @@
       "tests": "JapanTaxLaw/GiftBasicDeductionUnitTests.lean sha256=f58d4bb070157255e2329d22d02a95194115b4b76293449de7d814845a78bcc7 (pinned module, kernel-built)"
     },
     "NORM|2bb1ca3263f7e9d5364bf3f9a4f429da2445559f7f9cfbabfaf5db5e5d2a3b31": {
-      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch R: independent pinned re-extraction, H/T/D/C/U recorded",
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
       "cross_law_proof": "unit dependencies=0; enforced revision=340AC0000000033_20261001_507AC0000000070 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
@@ -55,7 +55,7 @@
       "tests": "JapanTaxLaw/IncomeArt205WithholdingTests.lean sha256=bf2e55189ec20604c9719e6177573ff3827ac679b47e1b1f8d4770315f815c3e (24 kernel-decided examples)"
     },
     "NORM|3620a145620f245bddac3a73257ed1f73e79567f8bf40778f940d81803cc31d8": {
-      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch N: independent pinned re-extraction, H/T/D/C/U recorded",
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
       "cross_law_proof": "unit dependencies=0; enforced revision=340AC0000000033_20261001_507AC0000000070 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
@@ -67,8 +67,21 @@
       "source_location": "data/raw/340AC0000000033_20261001_507AC0000000070.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:203_3/Article#203_3/Paragraph#1/ParagraphSentence/Sentence#1 sha256=94c4a7ad83726cde60787967ed4e959585ad0af9279d25db9aa02264b3fe606b (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/PublicPensionWithholdingTests.lean sha256=43564ec85b5c9b69b0e873d674c273cc07045618e1228b2da45123dc10365f48 (23 kernel-decided examples)"
     },
+    "NORM|368f77444888dd8e28bda37fa5deb1bae1d03502d1f8c036d2975e32fd768f5e": {
+      "adversarial_review": "docs/UNIT_REGISTRATION_JOINT_REQUEST_ART3.md: independent re-extraction with H/T/D/C/U; competing readings of 二箇以上 and 同一でなくても dispositioned",
+      "boundary_proof": "threshold_sufficient / threshold_necessary are general Nat theorems; kernel-decided boundaries 0/1 rejected, 2/3 permitted, all three condition branches reachable",
+      "cross_law_proof": "unit dependencies=0; enforced revision 322CO0000000109_19470627_000000000000000 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; CONDITION+EFFECT unit at Article:3/Paragraph#1/ParagraphSentence/Sentence",
+      "implementation": "JapanTaxLaw/RegistrationJointRequest.lean sha256=c987e5e79702293f424fb530330103e445fcebf97014c878b55adfb42e6a8908",
+      "independent_spec": "JapanTaxLaw/RegistrationJointRequestSpec.lean sha256=9788becae6c895df499521a2f1bf7649eee7f8a8cf40a0bbbc547e0c2e0e3198 (defines permitted from original text; no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; local lake build 533/533 jobs success; check_no_sorry PASS; agreement theorem agrees_with_implementation kernel-checked",
+      "proof_scope": "unit sentence only: priorCase, sameRegistry and 二箇以上 threshold; causesOrPurposeDiffer is not a bar (原文 同一でなくても). 前二条 details, registry jurisdiction, document formalities NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_registration_art3.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; independent literals 前二条/同一の登記所/二箇以上/登記原因/登記の目的/同一の嘱託書 located in pinned original",
+      "source_location": "data/raw/322CO0000000109_19470627_000000000000000.law.json#LawBody[1]/MainProvision/MainProvision[2]/Article:3/Article#3/Paragraph#1/ParagraphSentence/Sentence sha256=9ff39f03e58b315d04fbb65246dd5a4e64cf8c6a428eae84c53bb49c530816ec (verbatim 87-char unit text located in scoped article)",
+      "tests": "JapanTaxLaw/RegistrationJointRequestTests.lean sha256=ab9297839621f6ee4cdd49dd199feef8868c1feaf6a3050158c5be09ae68c579 (16 kernel-decided examples incl. 0/1/2/3 and cause-difference invariants)"
+    },
     "NORM|84f30566e583de635fc2da0096497d579f38dd9935595a55259fd024a6e24c0f": {
-      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch O: independent pinned re-extraction, H/T/D/C/U recorded",
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
       "cross_law_proof": "unit dependencies=4; enforced revision=325AC0000000211_20261102_508AC0000000062 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
@@ -81,7 +94,7 @@
       "tests": "JapanTaxLaw/LocalGrantRevenueBaseTests.lean sha256=444750e52499a800d4637a435546efe3aeaef76f0bd00453ef2153152525dd32 (31 kernel-decided examples)"
     },
     "NORM|a7607acfb60e7e06f14829cc3971438828d4385f88056dbb56552bfc12746785": {
-      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch M: independent pinned re-extraction, H/T/D/C/U recorded",
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
       "cross_law_proof": "unit dependencies=1; enforced revision=325CO0000000245_20261101_508CO0000000083 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
@@ -94,7 +107,7 @@
       "tests": "JapanTaxLaw/LocalTaxMedicalIncomeRatioTests.lean sha256=30261d035d1b61066ae5c34aaef3aab08965b08ab1eedf54b714ffe484fdb3b9 (19 kernel-decided examples)"
     },
     "NORM|ac371ade261bbd9d8681252eb9998c1991cc66b0773a70cd8b45389690aecb6f": {
-      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch O: independent pinned re-extraction, H/T/D/C/U recorded",
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
       "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
@@ -118,19 +131,6 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: independent kanji literals ['二百九十万', '十二'] located in 原文; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_49_14/Article#72_49_14/Paragraph#2/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/BusinessOwnerDeductionTests.lean sha256=61b2cc0dc9ba20aeb7d2465e3ecfcc248cb82a687981de2e45d3c349c31be28d (18 kernel-decided examples)"
-    },
-    "NORM|368f77444888dd8e28bda37fa5deb1bae1d03502d1f8c036d2975e32fd768f5e": {
-      "source_location": "data/raw/322CO0000000109_19470627_000000000000000.law.json#LawBody[1]/MainProvision/MainProvision[2]/Article:3/Article#3/Paragraph#1/ParagraphSentence/Sentence sha256=9ff39f03e58b315d04fbb65246dd5a4e64cf8c6a428eae84c53bb49c530816ec (verbatim 87-char unit text located in scoped article)",
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; CONDITION+EFFECT unit at Article:3/Paragraph#1/ParagraphSentence/Sentence",
-      "source_correspondence_audit": "scripts/ci/source_audit_registration_art3.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; independent literals 前二条/同一の登記所/二箇以上/登記原因/登記の目的/同一の嘱託書 located in pinned original",
-      "independent_spec": "JapanTaxLaw/RegistrationJointRequestSpec.lean sha256=9788becae6c895df499521a2f1bf7649eee7f8a8cf40a0bbbc547e0c2e0e3198 (defines permitted from original text; no implementation import)",
-      "implementation": "JapanTaxLaw/RegistrationJointRequest.lean sha256=c987e5e79702293f424fb530330103e445fcebf97014c878b55adfb42e6a8908",
-      "kernel_proof": "Lean 4.35.0 pinned; local lake build 533/533 jobs success; check_no_sorry PASS; agreement theorem agrees_with_implementation kernel-checked",
-      "proof_scope": "unit sentence only: priorCase, sameRegistry and 二箇以上 threshold; causesOrPurposeDiffer is not a bar (原文 同一でなくても). 前二条 details, registry jurisdiction, document formalities NOT MODELLED",
-      "boundary_proof": "threshold_sufficient / threshold_necessary are general Nat theorems; kernel-decided boundaries 0/1 rejected, 2/3 permitted, all three condition branches reachable",
-      "cross_law_proof": "unit dependencies=0; enforced revision 322CO0000000109_19470627_000000000000000 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/RegistrationJointRequestTests.lean sha256=ab9297839621f6ee4cdd49dd199feef8868c1feaf6a3050158c5be09ae68c579 (16 kernel-decided examples incl. 0/1/2/3 and cause-difference invariants)",
-      "adversarial_review": "docs/UNIT_REGISTRATION_JOINT_REQUEST_ART3.md: independent re-extraction with H/T/D/C/U; competing readings of 二箇以上 and 同一でなくても dispositioned"
     }
   }
 }
