@@ -65,11 +65,36 @@ def build() -> str:
     q = _load(QUEUE) or {"tasks": []}
     tasks = q.get("tasks", [])
     counts = Counter(t.get("status", "NOT_STARTED") for t in tasks)
+    evidence_ledger = _load(REPO / "data" / "verification_evidence.json") or {}
+    evidence_by_id = evidence_ledger.get("units", {})
     axes = Counter()
+    layers = Counter()
     for t in tasks:
-        for axis, value in (t.get("evidence") or {}).items():
-            if value is True:
+        uid = t.get("normative_id") or t.get("unit_id") or t.get("id")
+        ev = t.get("evidence") or evidence_by_id.get(uid, {}) or {}
+        for axis, value in ev.items():
+            # Evidence values are reproducible REFERENCES (non-empty strings),
+            # not booleans. Counting only `value is True` silently emptied the
+            # table even when every unit was evidence-backed.
+            if value is True or (isinstance(value, str) and value.strip()):
                 axes[axis] += 1
+        coverage = t.get("coverage") or {}
+        if t.get("source_file") and t.get("source_sha256"):
+            layers["acquired"] += 1
+        if coverage.get("exact") and coverage.get("unique_ids"):
+            layers["decomposed"] += 1
+        if any(ev.get(k) for k in ("independent_spec", "implementation", "tests")):
+            layers["partially_formalized"] += 1
+        if ev.get("kernel_proof"):
+            layers["kernel_proved"] += 1
+        if ev.get("source_correspondence_audit"):
+            layers["source_audited"] += 1
+        legal = t.get("legal_review", "")
+        if not legal:
+            state = (evidence_by_id.get(uid) or {}).get("legal_review", "")
+            legal = state if isinstance(state, str) else ""
+        if legal and legal != "LEGAL_REVIEW_PENDING":
+            layers["human_reviewed"] += 1
     blockers = sum(1 for t in tasks if t.get("blockers"))
     unhandled = sum(1 for t in tasks if t.get("unhandled_conditions"))
     reviews, candidates = human_review_count()
@@ -111,7 +136,19 @@ def build() -> str:
         f"- units with unhandled conditions: {unhandled}",
         f"- human legal reviews recorded: {reviews}/{candidates} candidates",
         "",
-        "## Evidence axes recorded (separate denominators; units with axis = True)",
+        "## Objective §5 coverage layers (separate denominators, never combined)",
+        "",
+        "| layer | units | denominator |",
+        "|---|---:|---:|",
+        f"| all targets (generated normative units) | {total} | {total} |",
+        f"| acquired (pinned source file + SHA-256) | {layers['acquired']} | {total} |",
+        f"| decomposed (exact reconstruction + unique ids) | {layers['decomposed']} | {total} |",
+        f"| partially formalized (spec / impl / tests evidence) | {layers['partially_formalized']} | {total} |",
+        f"| kernel proved (CI-attested proof evidence) | {layers['kernel_proved']} | {total} |",
+        f"| source-audited (原文 correspondence evidence) | {layers['source_audited']} | {total} |",
+        f"| human reviewed (legal-review axis recorded) | {layers['human_reviewed']} | {total} |",
+        "",
+        "## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)",
         "",
         "| axis | units |",
         "|---|---:|",
