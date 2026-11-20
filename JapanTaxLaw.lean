@@ -614,3 +614,6 @@ import JapanTaxLaw.DeductionCapsAndMonthFloorsTests
 import JapanTaxLaw.MeshPopulationBands
 import JapanTaxLaw.MeshPopulationBandsSpec
 import JapanTaxLaw.MeshPopulationBandsTests
+import JapanTaxLaw.DeemedFilingDates
+import JapanTaxLaw.DeemedFilingDatesSpec
+import JapanTaxLaw.DeemedFilingDatesTests
