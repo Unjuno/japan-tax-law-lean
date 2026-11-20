@@ -186,3 +186,4 @@ never a completion gate or a semantic/legal claim.
 | `143AC0000000054` | 第四条の五 | 4 | 13 | PASS |
 | `325AC0000000226` | 第三十五条 | 2 | 2 | PASS |
 | `325AC0000000226` | (file-level) | 2 | 2 | PASS |
+| `322AC0000000175` | 第二条 | 2 | 12 | PASS |
