@@ -1166,6 +1166,13 @@ def checks():
            "article", "第九条",
            ["揮発油税の税率は、揮発油一キロリットルにつき二万四千三百円とする。"])
 
+    # 関税定率法 art.14 item 17 proviso — CustomsSameContentLimit.lean (≤2 same-content items)
+    # Norm unit NORM|4f809b7fbadedd5606d99bdd90eff711ca1b77bc66fc8a481845a6c117dba46d
+    yield ("関税定率法 art.14 第十七号ただし書（同内容の物品は二本以内）↔ CustomsSameContentLimit.lean (sameContentLimit 2)",
+           "143AC0000000054",
+           "article", "第十四条",
+           ["ただし、内容を同じくするものについては、そのうちの二本以内に限る。"])
+
     # 在日米軍特例法 art. 11(3) — UsForcesDutyFreePenalty.lean (norm unit)
     yield ("在日米軍特例法 art. 11(3)（免税物品の用途外譲渡違反の罰則: 一年以下の拘禁刑又は五十万円以下の罰金 — 代替刑、併科なし。違反要件・徴収・法人重課・附則は NOT MODELLED）↔ UsForcesDutyFreePenalty.lean",
            "327AC0000000111",
