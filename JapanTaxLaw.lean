@@ -551,3 +551,6 @@ import JapanTaxLaw.TaxAccountantFineTests
 import JapanTaxLaw.RateBandArt19
 import JapanTaxLaw.RateBandArt19Spec
 import JapanTaxLaw.RateBandArt19Tests
+import JapanTaxLaw.LimitRate12Condition
+import JapanTaxLaw.LimitRate12ConditionSpec
+import JapanTaxLaw.LimitRate12ConditionTests

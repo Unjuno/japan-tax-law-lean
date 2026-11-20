@@ -41,6 +41,19 @@
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:21_5/Paragraph#1/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7",
       "tests": "JapanTaxLaw/GiftBasicDeductionUnitTests.lean sha256=f58d4bb070157255e2329d22d02a95194115b4b76293449de7d814845a78bcc7 (pinned module, kernel-built)"
     },
+    "NORM|19ad3c0f39ad4ec9480de4e7e90ab21b00a4f7dcf2ff45b75927e9e3c81f691e": {
+      "adversarial_review": "docs/UNIT_RATE_BAND_ART19.md: H/T/D/C/U; competing reading of 未満 as 以下 rejected by verbatim original",
+      "boundary_proof": "inBand_iff general theorem; kernel-decided boundaries 9,999,999 false, 10,000,000 true, 14,999,999 true, 15,000,000 false (upper exclusive)",
+      "cross_law_proof": "unit dependencies=0; enforced revision 347CO0000000151_20251231_507CO0000000426 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; CONDITION unit in appendix table cell",
+      "implementation": "JapanTaxLaw/RateBandArt19.lean sha256=0e5c0ed1312a9fc853de176eb097a76e6a3fea19c25f1d5edac46cbd189570c3",
+      "independent_spec": "JapanTaxLaw/RateBandArt19Spec.lean sha256=48d236099721a248ce60218449a6994a7430e6acff610f852a8a45efc4098a68 (no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation and inBand_iff kernel-checked; no sorry/admit",
+      "proof_scope": "table-cell amount band only: 千万円以上 (>= 10,000,000) and 千五百万円未満 (< 15,000,000), unit 円; rate, other bands and computation NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_rate_band_art19.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; independent literals 千万円以上/千五百万円未満/金額",
+      "source_location": "data/raw/347CO0000000151_20251231_507CO0000000426.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:19/Article#19/Paragraph#1/Item#3/TableStruct/Table/TableRow/TableColumn/Sentence#1 8c5521ffb74068dc5b6872a3748b53a6eec38afc3637ece878eb0ca9da74a437 (verbatim 15-char table-cell condition)",
+      "tests": "JapanTaxLaw/RateBandArt19Tests.lean sha256=c95632f8616f166e7ae0a85622f130e3a1fcb6cd0089911b715a126e49a74647 (8 kernel-decided examples)"
+    },
     "NORM|2bb1ca3263f7e9d5364bf3f9a4f429da2445559f7f9cfbabfaf5db5e5d2a3b31": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
@@ -145,18 +158,18 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_49_14/Article#72_49_14/Paragraph#2/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/BusinessOwnerDeductionTests.lean sha256=61b2cc0dc9ba20aeb7d2465e3ecfcc248cb82a687981de2e45d3c349c31be28d (18 kernel-decided examples)"
     },
-    "NORM|19ad3c0f39ad4ec9480de4e7e90ab21b00a4f7dcf2ff45b75927e9e3c81f691e": {
-      "source_location": "data/raw/347CO0000000151_20251231_507CO0000000426.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:19/Article#19/Paragraph#1/Item#3/TableStruct/Table/TableRow/TableColumn/Sentence#1 8c5521ffb74068dc5b6872a3748b53a6eec38afc3637ece878eb0ca9da74a437 (verbatim 15-char table-cell condition)",
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; CONDITION unit in appendix table cell",
-      "source_correspondence_audit": "scripts/ci/source_audit_rate_band_art19.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; independent literals 千万円以上/千五百万円未満/金額",
-      "independent_spec": "JapanTaxLaw/RateBandArt19Spec.lean sha256=48d236099721a248ce60218449a6994a7430e6acff610f852a8a45efc4098a68 (no implementation import)",
-      "implementation": "JapanTaxLaw/RateBandArt19.lean sha256=0e5c0ed1312a9fc853de176eb097a76e6a3fea19c25f1d5edac46cbd189570c3",
-      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation and inBand_iff kernel-checked; no sorry/admit",
-      "proof_scope": "table-cell amount band only: 千万円以上 (>= 10,000,000) and 千五百万円未満 (< 15,000,000), unit 円; rate, other bands and computation NOT MODELLED",
-      "boundary_proof": "inBand_iff general theorem; kernel-decided boundaries 9,999,999 false, 10,000,000 true, 14,999,999 true, 15,000,000 false (upper exclusive)",
-      "cross_law_proof": "unit dependencies=0; enforced revision 347CO0000000151_20251231_507CO0000000426 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/RateBandArt19Tests.lean sha256=c95632f8616f166e7ae0a85622f130e3a1fcb6cd0089911b715a126e49a74647 (8 kernel-decided examples)",
-      "adversarial_review": "docs/UNIT_RATE_BAND_ART19.md: H/T/D/C/U; competing reading of 未満 as 以下 rejected by verbatim original"
+    "NORM|1719cd386262871d3745390bf5918fbab585aaec2c207e8055753cb669bf0cd9": {
+      "source_location": "data/raw/362CO0000000335_20260521_506CO0000000150.law.json#LawBody[2]/MainProvision/MainProvision[8]/Article:4/Article#4/Paragraph#1/Item#7/ItemSentence/Column#1/Sentence#1 8b21ff78cd78a30af9f90521756b31c40e33d0fd919481bb90822de542421e18 (verbatim 14-char condition)",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; CONDITION unit in table column",
+      "source_correspondence_audit": "scripts/ci/source_audit_limit_rate_art4.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 限度税率/百分の十二/場合",
+      "independent_spec": "JapanTaxLaw/LimitRate12ConditionSpec.lean sha256=1d45d3054170724e7d2dd80f829e622338512d934b916c04e3eed7f4120d9482 (no implementation import)",
+      "implementation": "JapanTaxLaw/LimitRate12Condition.lean sha256=6a2b3b58f239473c3de61f5a6c04a10f42e6069490d0e46377e49fd30f9ddf03",
+      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation and isTwelvePercent_iff kernel-checked; no sorry/admit",
+      "proof_scope": "condition only: limit rate (%) equals 12; rate computation, other bands, procedures NOT MODELLED",
+      "boundary_proof": "isTwelvePercent_iff general theorem; 12 true, 0/11/13 false",
+      "cross_law_proof": "unit dependencies=0; enforced revision 362CO0000000335_20260521_506CO0000000150 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/LimitRate12ConditionTests.lean sha256=c6cde2243565788f6d526a80423cbbb7c4049096ac0c6083c578fbeef7c75a24 (6 kernel-decided examples)",
+      "adversarial_review": "docs/UNIT_LIMIT_RATE_ART4.md: H/T/D/C/U; 0.12 and >= readings rejected by verbatim original"
     }
   }
 }

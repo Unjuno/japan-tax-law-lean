@@ -1,0 +1,23 @@
+{
+  "tool": "scripts/ci/source_audit_limit_rate_art4.py",
+  "normative_id": "NORM|1719cd386262871d3745390bf5918fbab585aaec2c207e8055753cb669bf0cd9",
+  "revision": "362CO0000000335_20260521_506CO0000000150",
+  "source_path": "LawBody[2]/MainProvision/MainProvision[8]/Article:4/Article#4/Paragraph#1/Item#7/ItemSentence/Column#1/Sentence#1",
+  "raw_sha256": "8b21ff78cd78a30af9f90521756b31c40e33d0fd919481bb90822de542421e18",
+  "original_text": "限度税率が百分の十二である場合",
+  "independent_literals": [
+    "限度税率",
+    "百分の十二",
+    "場合"
+  ],
+  "checks": {
+    "verbatim_text_match": true,
+    "all_literals_in_original": true,
+    "spec_does_not_import_implementation": true
+  },
+  "module_sha256": {
+    "JapanTaxLaw/LimitRate12Condition.lean": "6a2b3b58f239473c3de61f5a6c04a10f42e6069490d0e46377e49fd30f9ddf03",
+    "JapanTaxLaw/LimitRate12ConditionSpec.lean": "1d45d3054170724e7d2dd80f829e622338512d934b916c04e3eed7f4120d9482",
+    "JapanTaxLaw/LimitRate12ConditionTests.lean": "c6cde2243565788f6d526a80423cbbb7c4049096ac0c6083c578fbeef7c75a24"
+  }
+}
