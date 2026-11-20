@@ -471,7 +471,7 @@
       ]
     },
     "GiftSpecialDeduction": {
-      "adversarial_review": false,
+      "adversarial_review": true,
       "boundary_examples_found": 3,
       "independent_spec": true,
       "kanji_literals": [
@@ -2254,6 +2254,22 @@
           "十二"
         ]
       },
+      "NORM|c000e0ffdca664ee141f0a7264709ffda547267ff95dd67f36e5901f8343267f": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 7,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "GiftSpecialDeduction",
+        "spec_kanji_in_原文": [
+          "二千五百万"
+        ]
+      },
       "NORM|ccc825e6fac19e0df55bf9c906cc3ad0b69f6f20f9b463cdb9c9f8e689f33ca9": {
         "checks": {
           "cross_law": true,
@@ -2449,6 +2465,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: independent kanji literals ['二百九十万', '十二'] located in 原文; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_49_14/Article#72_49_14/Paragraph#2/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/BusinessOwnerDeductionTests.lean sha256=61b2cc0dc9ba20aeb7d2465e3ecfcc248cb82a687981de2e45d3c349c31be28d (18 kernel-decided examples)"
+    },
+    "NORM|c000e0ffdca664ee141f0a7264709ffda547267ff95dd67f36e5901f8343267f": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 7 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000073_20260401_506AC0000000008 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/GiftSpecialDeduction.lean sha256=336436c45d1e1a47590e5d609475f6f5daf06d7b6ae9903fb3e60b7e83c0ee3e",
+      "independent_spec": "JapanTaxLaw/GiftSpecialDeductionSpec.lean sha256=2533ce1d177ba39f10fb67bb274aba69bc2fc88035cb81319e1b1176790fefc0 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44684783591: commit 0b6e084f68c35511d586b601692180ceac28a5dc, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "statutory constants [25000000] located in 原文 and used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: independent kanji literals ['二千五百万'] located in 原文; needles scoped",
+      "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:21_12/Article#21_12/Paragraph#1/Item#1/ItemSentence/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/GiftSpecialDeductionTests.lean sha256=5fe26ca768c609eb51b194c8d19bc2ec16b964c2af6ffeb971163933dcd154af (7 kernel-decided examples)"
     },
     "NORM|ccc825e6fac19e0df55bf9c906cc3ad0b69f6f20f9b463cdb9c9f8e689f33ca9": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
