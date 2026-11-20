@@ -74,10 +74,29 @@ PASS.
 | scoped needle checks / whole-text-only | 124 / 34 (of 158) |
 | UNRESOLVED units in scoped text | 773 |
 | pinned transcription checks | 158 / 158 PASS |
-| new §1 regression tests | 11 / 11 PASS |
+| new §1 regression tests | 14 / 14 PASS |
 | pre-existing Python tests | 85 / 85 PASS |
+| full Python gate suite | all present gates passed; 0 skipped, 0 failed |
 | Lean build | NOT RUN (no `lean`/`lake` on PATH in this environment) |
 | human legal review | 0 recorded; 3,438 L7 candidates remain pending |
+
+## 3a. Independent review of the branch (PR #191)
+
+The automated Codex reviewer on PR #191 raised three findings, all reproduced
+and fixed with regressions in `scripts/tests/test_directive1.py`:
+
+1. `provision_of()` tested for the literal path component `Main`, but the
+   structural walker emits indexed components such as `Main#2`; every main
+   provision was therefore labelled `Unknown`. Fixed and verified in the
+   regenerated `docs/TASK_QUEUE.md` (all sample units now show `Main`).
+2. `task_selector.py` loaded durable ownership *after* selection and skipped
+   units with no state entry, so consecutive runs could reassign a unit and
+   assignments were lost. Ownership is now loaded before selection and missing
+   state entries are created on assignment.
+3. Dependency readiness compared `resolved_law_id` (a law id) against a set of
+   64-hex normative-unit ids, so no dependency could ever become ready. It now
+   resolves against law ids that have a proved unit.
+
 
 ## 4. Scope of the claim
 
