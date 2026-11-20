@@ -1253,6 +1253,13 @@ def checks():
            "article", "第六条の九の二",
            ["法第十五条の四第一項に規定する政令で定める金額は、二千円とする。"])
 
+    # 税理士法施行令 art.6の2(2) — TaxAccountantRegDelegatedAmount.lean (八千八百円)
+    # Norm unit NORM|5a5e264f44439540b3d5bdd4efa72bc7e2980f2b11cd22c3acb7863e8cb240a7
+    yield ("税理士法施行令 art.6の2(2)（税理士法9条2項の政令で定める額は八千八百円）↔ TaxAccountantRegDelegatedAmount.lean (delegatedAmountYen 8800)",
+           "326CO0000000216",
+           "article", "第六条の二",
+           ["法第九条第二項に規定する政令で定める額は、八千八百円とする。"])
+
     # 在日米軍特例法 art. 11(3) — UsForcesDutyFreePenalty.lean (norm unit)
     yield ("在日米軍特例法 art. 11(3)（免税物品の用途外譲渡違反の罰則: 一年以下の拘禁刑又は五十万円以下の罰金 — 代替刑、併科なし。違反要件・徴収・法人重課・附則は NOT MODELLED）↔ UsForcesDutyFreePenalty.lean",
            "327AC0000000111",
