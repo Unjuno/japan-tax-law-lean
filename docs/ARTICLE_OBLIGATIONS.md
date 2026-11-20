@@ -6,10 +6,10 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 66
-- presence-facts-only complete: 66
+- articles with explicit pin: 70
+- presence-facts-only complete: 70
 - NOT_STARTED: 2
-- PARTIAL: 64
+- PARTIAL: 68
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
 - BLOCKED: 0
@@ -72,6 +72,8 @@ source positions. Human legal review is a separate axis and is pending.
 | `327AC0000000112` | 第十二条 | UsForcesDeemedForeignGoods | YES | YES | NO | PARTIAL |
 | `322AC0000000175` | 第二条 | DisasterVictimIncomeLimit | YES | YES | NO | PARTIAL |
 | `325AC0000000073` | 第一条の二 | InheritanceCivilCodeRelativeRef | YES | YES | NO | PARTIAL |
+| `326AC1000000145` | 第十四条 | TaxSavingsPenaltyCeiling | YES | YES | NO | PARTIAL |
+| `329AC0000000061` | 第二十九条 | BondedAreaKinds | YES | YES | NO | PARTIAL |
 | `327AC0000000111` | 第十一条 | UsForcesDutyFreePenalty | YES | YES | NO | PARTIAL |
 | `143AC0000000054` | 第十条 | CustomsDamageReduction | YES | YES | YES | PARTIAL |
 | `143AC0000000054` | 第四条の七 | CustomsExchangeRate | YES | YES | NO | PARTIAL |
@@ -83,3 +85,5 @@ source positions. Human legal review is a separate axis and is pending.
 | `143AC0000000054` | 第四条の五 | CustomsValueAfterDamage | YES | YES | NO | PARTIAL |
 | `325AC0000000226` | 第三十五条 | LocalIncomeTax | YES | YES | NO | PARTIAL |
 | `322AC0000000175` | 第二条 | DisasterIncomeTaxRelief | YES | YES | YES | PARTIAL |
+| `322CO0000000109` | 第三条 | CombinedRegistrationRequest | YES | YES | NO | PARTIAL |
+| `326AC1000000145` | 第十四条 | TaxSavingsPenaltyCap | YES | YES | NO | PARTIAL |
