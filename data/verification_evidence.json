@@ -1,5 +1,5 @@
 {
-  "note": "Evidence references for individual normative units.",
+  "note": "Evidence references for individual normative units. A reference is a reproducible command/output or committed artifact; it is not itself a proof or legal review.",
   "schema": "verification-evidence-v1",
   "units": {
     "NORM|008f8fdeb18548b26d46cf73190a1d665d17705f0b229e0cc10ef7fab5e056da": {
@@ -79,6 +79,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: independent kanji literals [] located in 原文; needles scoped",
       "source_location": "data/raw/325CO0000000245_20261101_508CO0000000083.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:35_4_6/Article#35_4_6/Paragraph#2/Item#2/ItemSentence/Sentence#1 sha256=9bc03b230fb0ed1039e33a1544cd53772939ee25d6d4648a386400ea269dfb17 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/StandardRateExcessRatioTests.lean sha256=f3c78382e2b7b8966f371aa977af0fabe04d20bdf82324b4413aa7674e540f6a (15 kernel-decided examples)"
+    },
+    "NORM|167b8cabf184adb595d75baba5ffbf319ec3c502be8a820858e8c493b09f57d7": {
+      "adversarial_review": "docs/GIFT_21_5_VERIFICATION.md#4-adversarial-review-separate-from-the-implementer H/T/D/C/U recorded",
+      "boundary_proof": "GiftTax.lean giftTax_zero_below_deduction (kernel decided); spec boundary examples at 0/2M/3M/4M/6M/10M/15M/30M yen",
+      "cross_law_proof": "queue unit dependencies=[]; independent check in docs/GIFT_21_5_VERIFICATION.md#4 records no cross-law relation for this unit",
+      "decomposition_audit": "docs/GIFT_21_5_VERIFICATION.md#1-source-independent-extraction; queue unit text located verbatim in the pinned article",
+      "implementation": "JapanTaxLaw/GiftTax.lean sha256=d6143c80188db2c66ffb397a3b84f38dd53c64e7333862141205a9e0fb9435fd",
+      "independent_spec": "JapanTaxLaw/GiftTaxSpec.lean sha256=453d34aa1fb94ddd81fc9cb27978b695836998c4cbd60cf3c4c7196daf32fb4f",
+      "kernel_proof": "lake build JapanTaxLaw.GiftTaxSpec + lake env lean gift_axioms.lean: agreeGiftTax and spec_impl_basic_deduction_agree depend on no axioms; see docs/GIFT_21_5_VERIFICATION.md#3",
+      "proof_scope": "docs/GIFT_21_5_VERIFICATION.md#3 grid-based agreement is a scoped claim, not universal; documented scope limits in GiftTax.lean",
+      "source_correspondence_audit": "python scripts/ci/source_correspondence.py (D=PASS, verbatim_located=true, amounts_in_source=[600000]) recorded in docs/GIFT_21_5_VERIFICATION.md#2",
+      "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:21_5/Paragraph#1/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7",
+      "tests": "JapanTaxLaw/GiftTaxTests.lean sha256=725c5b29a5cb14f99245c2f37a386cab37151754ca2c5390c61ab849f157a839; lake build JapanTaxLaw.GiftTaxTests succeeded"
     },
     "NORM|16a022c5cca2bada237aa206edbf7fc0eca5daa5a5d03972d935c2e492397ccb": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
