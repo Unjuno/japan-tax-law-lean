@@ -594,3 +594,6 @@ import JapanTaxLaw.PowderSakeQuantityTests
 import JapanTaxLaw.TobaccoRate
 import JapanTaxLaw.TobaccoRateSpec
 import JapanTaxLaw.TobaccoRateTests
+import JapanTaxLaw.CombinedRegistrationRequest
+import JapanTaxLaw.CombinedRegistrationRequestSpec
+import JapanTaxLaw.CombinedRegistrationRequestTests
