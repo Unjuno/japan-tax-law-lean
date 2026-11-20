@@ -28,9 +28,11 @@ theorem specWithin_iff_withinLimits (p : Penalty) :
     specWithin p = withinLimits p := by
   cases p with
   | imprisonment m =>
-      simp [specWithin, withinLimits, specMaxMonths, maxImprisonmentMonths]
+      unfold specWithin withinLimits specMaxMonths maxImprisonmentMonths
+      by_cases h : m ≤ 12 <;> simp [h]
   | fine y =>
-      simp [specWithin, withinLimits, specMaxYen, maxFineYen]
+      unfold specWithin withinLimits specMaxYen maxFineYen
+      by_cases h : y ≤ 500000 <;> simp [h]
 
 example : specWithin (Penalty.imprisonment 12) = true := by decide
 example : specWithin (Penalty.imprisonment 13) = false := by decide
