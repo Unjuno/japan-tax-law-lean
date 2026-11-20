@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 36
+- with >=1 pinned literal check (semantic model): 37
 - with recorded human legal review: 0
 
 ## All laws
@@ -177,7 +177,7 @@ a completion flag.
 | `360CO0000000005` | たばこ税法施行令 | 360CO0000000005_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 51 | NO (0) | NO |
 | `360M50000040001` | たばこ税法施行規則 | 360M50000040001_20240401_506M60000040021 | CurrentEnforced | YES | ok | 12 | NO (0) | NO |
 | `362CO0000000335` | 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律施行令 | 362CO0000000335_20260521_506CO0000000150 | CurrentEnforced | YES | ok | 101 | NO (0) | NO |
-| `363AC0000000107` | 税制改革法 | 363AC0000000107_19881230_000000000000000 | CurrentEnforced | YES | ok | 18 | NO (0) | NO |
+| `363AC0000000107` | 税制改革法 | 363AC0000000107_19881230_000000000000000 | CurrentEnforced | YES | ok | 18 | YES (1) | NO |
 | `363AC0000000108` | 消費税法 | 363AC0000000108_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 524 | YES (4) | NO |
 | `363CO0000000360` | 消費税法施行令 | 363CO0000000360_20261101_507CO0000000125 | CurrentEnforced | YES | ok | 452 | YES (1) | NO |
 | `363M50000040053` | 消費税法施行規則 | 363M50000040053_20261101_507M60000040022 | CurrentEnforced | YES | ok | 172 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 104
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 106

@@ -524,3 +524,6 @@ import JapanTaxLaw.TransitionalTariffRateTests
 import JapanTaxLaw.ProvisionalTariffRate
 import JapanTaxLaw.ProvisionalTariffRateSpec
 import JapanTaxLaw.ProvisionalTariffRateTests
+import JapanTaxLaw.ReformDoubleBasicDeduction
+import JapanTaxLaw.ReformDoubleBasicDeductionSpec
+import JapanTaxLaw.ReformDoubleBasicDeductionTests

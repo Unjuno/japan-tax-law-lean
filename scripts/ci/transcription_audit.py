@@ -1113,6 +1113,12 @@ def checks():
            "file", None,
            ["同表の第二欄の（２）のＢに掲げる物品に係る税率は一リットルにつき一、三〇〇円", "同表の第二欄の（４）のＤに掲げる物品に係る税率は一リットルにつき一三七円として、新暫定法第八条の五の規定を適用する"])
 
+    # ReformDoubleBasicDeduction — cycle-20
+    yield ("ReformDoubleBasicDeduction.lean",
+           "363AC0000000107",
+           "file", None,
+           ["（相続税及び贈与税の負担の軽減及び合理化等）第九条次の措置を講ずることにより相続税の負担の軽減及び合理化を図る", "遺産に係る基礎控除等を二倍に引き上げるとともに、税率区分の幅を拡大するほか、最高税率を引き下げること"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
