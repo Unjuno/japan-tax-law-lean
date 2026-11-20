@@ -136,6 +136,10 @@ import JapanTaxLaw.ResidentialTransferSpecialTax
 import JapanTaxLaw.ResidentialTransferSpecialTaxSpec
 import JapanTaxLaw.ResidentialTransferSpecialTaxTests
 
+import JapanTaxLaw.ExcellentLandTransferSpecialTax
+import JapanTaxLaw.ExcellentLandTransferSpecialTaxSpec
+import JapanTaxLaw.ExcellentLandTransferSpecialTaxTests
+
 import JapanTaxLaw.SpecialGiftRateDomination
 
 import JapanTaxLaw.ListedDividendWithholding
@@ -533,6 +537,12 @@ import JapanTaxLaw.TonnageTaxPenaltyTests
 import JapanTaxLaw.CertFee
 import JapanTaxLaw.CertFeeSpec
 import JapanTaxLaw.CertFeeTests
+import JapanTaxLaw.InternationalTouristTaxRate
+import JapanTaxLaw.InternationalTouristTaxRateSpec
+import JapanTaxLaw.InternationalTouristTaxRateTests
+import JapanTaxLaw.UsForcesDutyFreePenalty
+import JapanTaxLaw.UsForcesDutyFreePenaltySpec
+import JapanTaxLaw.UsForcesDutyFreePenaltyTests
 import JapanTaxLaw.GiftBasicDeductionUnit
 import JapanTaxLaw.GiftBasicDeductionUnitSpec
 import JapanTaxLaw.GiftBasicDeductionUnitTests

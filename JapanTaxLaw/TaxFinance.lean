@@ -129,7 +129,8 @@ theorem beats_irreflexive (x : Priority) : ¬ beats x x := by
 
 theorem beats_transitive {x y z : Priority} : beats x y → beats y z → beats x z := by
   unfold beats
-  omega
+  intro hxy hyz
+  exact Nat.lt_trans hyz hxy
 
 end Priority
 

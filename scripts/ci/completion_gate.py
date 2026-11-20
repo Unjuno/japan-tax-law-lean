@@ -17,6 +17,8 @@ from __future__ import annotations
 
 import csv
 import json
+import re
+import subprocess
 import sys
 from collections import Counter
 from pathlib import Path
@@ -34,22 +36,45 @@ def _load(path: Path):
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
 
 
+def _head_sha() -> str:
+    try:
+        out = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True,
+                             text=True, check=False)
+        return out.stdout.strip() if out.returncode == 0 else ""
+    except (OSError, ValueError):
+        return ""
+
+
 def registered_checks() -> dict:
     r = _load(GATE_RESULTS)
     if not r:
         return {"available": False, "pass": 0, "fail": 0, "skip": 0,
-                "required_skip": 0, "gates": []}
+                "required_skip": 0, "commit_matches_head": False,
+                "results_sha": "", "head_sha": _head_sha(), "gates": []}
     gates = r.get("gates", [])
     verdicts = Counter(g.get("verdict", "UNKNOWN") for g in gates)
     required_skip = sum(1 for g in gates if g.get("required") and g.get("verdict") == "SKIP")
+    head = _head_sha()
+    results_sha = str(r.get("commit_sha", ""))
     return {
         "available": True,
         "pass": verdicts.get("PASS", 0),
         "fail": verdicts.get("FAIL", 0),
         "skip": verdicts.get("SKIP", 0),
         "required_skip": required_skip,
+        "commit_matches_head": bool(head) and bool(results_sha) and head == results_sha,
+        "results_sha": results_sha,
+        "head_sha": head,
         "gates": gates,
     }
+
+
+def checks_are_green(reg: dict) -> bool:
+    """A green Axis A needs passing gates AND results bound to this commit."""
+    return bool(reg.get("available") and reg.get("pass", 0) > 0
+                and reg.get("fail", 0) == 0 and reg.get("skip", 0) == 0
+                and reg.get("required_skip", 0) == 0
+                and reg.get("commit_matches_head", False))
 
 
 def human_review_count() -> tuple[int, int]:
@@ -62,14 +87,41 @@ def human_review_count() -> tuple[int, int]:
 
 
 def build() -> str:
-    q = _load(QUEUE) or {"tasks": []}
-    tasks = q.get("tasks", [])
+    q = _load(QUEUE) or {"units": []}
+    # The normative-unit queue generator emits `units`; older rows used
+    # `tasks`. Reading only the legacy key silently reported all zeros.
+    tasks = q.get("units", q.get("tasks", []))
     counts = Counter(t.get("status", "NOT_STARTED") for t in tasks)
+    evidence_ledger = _load(REPO / "data" / "verification_evidence.json") or {}
+    evidence_by_id = evidence_ledger.get("units", {})
     axes = Counter()
+    layers = Counter()
     for t in tasks:
-        for axis, value in (t.get("evidence") or {}).items():
-            if value is True:
+        uid = t.get("normative_id") or t.get("unit_id") or t.get("id")
+        ev = t.get("evidence") or evidence_by_id.get(uid, {}) or {}
+        for axis, value in ev.items():
+            # Evidence values are reproducible REFERENCES (non-empty strings),
+            # not booleans. Counting only `value is True` silently emptied the
+            # table even when every unit was evidence-backed.
+            if value is True or (isinstance(value, str) and value.strip()):
                 axes[axis] += 1
+        coverage = t.get("coverage") or {}
+        if t.get("source_file") and t.get("source_sha256"):
+            layers["acquired"] += 1
+        if coverage.get("exact") and coverage.get("unique_ids"):
+            layers["decomposed"] += 1
+        if any(ev.get(k) for k in ("independent_spec", "implementation", "tests")):
+            layers["partially_formalized"] += 1
+        if ev.get("kernel_proof"):
+            layers["kernel_proved"] += 1
+        if ev.get("source_correspondence_audit"):
+            layers["source_audited"] += 1
+        legal = t.get("legal_review", "")
+        if not legal:
+            state = (evidence_by_id.get(uid) or {}).get("legal_review", "")
+            legal = state if isinstance(state, str) else ""
+        if legal and legal != "LEGAL_REVIEW_PENDING":
+            layers["human_reviewed"] += 1
     blockers = sum(1 for t in tasks if t.get("blockers"))
     unhandled = sum(1 for t in tasks if t.get("unhandled_conditions"))
     reviews, candidates = human_review_count()
@@ -79,8 +131,7 @@ def build() -> str:
     total = len(tasks)
     all_complete = bool(total) and complete_units == total and blockers == 0 \
         and unhandled == 0 and reviews >= candidates and candidates > 0
-    checks_ok = reg["available"] and reg["fail"] == 0 and reg["skip"] == 0 \
-        and reg["required_skip"] == 0 and reg["pass"] > 0
+    checks_ok = checks_are_green(reg)
     claim = all_complete and checks_ok
 
     lines = [
@@ -98,6 +149,9 @@ def build() -> str:
         f"- FAIL: {reg['fail']}",
         f"- SKIP: {reg['skip']}",
         f"- required gates SKIPped: {reg['required_skip']}",
+        f"- gate results commit: {reg['results_sha'] or '(none)'}",
+        f"- current HEAD commit: {reg['head_sha'] or '(unknown)'}",
+        f"- results bound to this commit: {reg['commit_matches_head']}",
         f"- registered checks all green: {checks_ok}",
         "",
         "## Axis B — all registered obligations complete",
@@ -111,7 +165,19 @@ def build() -> str:
         f"- units with unhandled conditions: {unhandled}",
         f"- human legal reviews recorded: {reviews}/{candidates} candidates",
         "",
-        "## Evidence axes recorded (separate denominators; units with axis = True)",
+        "## Objective §5 coverage layers (separate denominators, never combined)",
+        "",
+        "| layer | units | denominator |",
+        "|---|---:|---:|",
+        f"| all targets (generated normative units) | {total} | {total} |",
+        f"| acquired (pinned source file + SHA-256) | {layers['acquired']} | {total} |",
+        f"| decomposed (exact reconstruction + unique ids) | {layers['decomposed']} | {total} |",
+        f"| partially formalized (spec / impl / tests evidence) | {layers['partially_formalized']} | {total} |",
+        f"| kernel proved (CI-attested proof evidence) | {layers['kernel_proved']} | {total} |",
+        f"| source-audited (原文 correspondence evidence) | {layers['source_audited']} | {total} |",
+        f"| human reviewed (legal-review axis recorded) | {layers['human_reviewed']} | {total} |",
+        "",
+        "## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)",
         "",
         "| axis | units |",
         "|---|---:|",
@@ -133,10 +199,21 @@ def build() -> str:
     return "\n".join(lines)
 
 
+def _stable_text(text: str) -> str:
+    """Mask per-commit provenance values before the determinism comparison.
+
+    The SHA lines are evidence, not configuration: their values legitimately
+    change with every commit. Comparing them verbatim made the regeneration
+    gate fail on every commit after the provenance fields were introduced.
+    """
+    pattern = re.compile(r"^(- (?:gate results commit|current HEAD commit): ).*$")
+    return "\n".join(pattern.sub(r"\1(variable)", line) for line in text.splitlines())
+
+
 def main() -> int:
     text = build()
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    if OUT.exists() and OUT.read_text(encoding="utf-8") == text:
+    if OUT.exists() and _stable_text(OUT.read_text(encoding="utf-8")) == _stable_text(text):
         print("completion gate status matches committed state (deterministic)")
         return 0
     OUT.write_text(text, encoding="utf-8")

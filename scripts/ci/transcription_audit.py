@@ -187,6 +187,14 @@ def checks():
             "課税長期譲渡所得金額から六千万円を控除した金額の百分の十五に相当する金額",
             "所有期間が十年を超えるもののうち居住用財産に該当するものの譲渡"])
 
+    # 租税特別措置法 art. 31の2 — ExcellentLandTransferSpecialTax.lean (excellentLandGainTax)
+    yield ("租税特別措置法 art. 31の2（優良住宅地の造成等のために土地等を譲渡した場合の長期譲渡所得の課税の特例: ¥20,000,000 以下で百分の十／超で ¥2,000,000 + 百分の十五）↔ ExcellentLandTransferSpecialTax.lean (excellentLandGainTax, excellentLandBoundary)",
+           "332AC0000000026",
+           "article", "第三十一条の二",
+           ["課税長期譲渡所得金額が二千万円以下である場合当該課税長期譲渡所得金額の百分の十に相当する金額",
+            "課税長期譲渡所得金額から二千万円を控除した金額の百分の十五に相当する金額",
+            "優良住宅地等のための譲渡に該当するとき"])
+
     # 租税特別措置法 art. 70の2の5 — SpecialGiftRate.lean (specialGiftRateTable)
     yield ("租税特別措置法 art. 70の2の5(1)（直系尊属から贈与を受けた場合の贈与税の税率の特例）↔ SpecialGiftRate.lean (specialGiftRateTable)",
            "332AC0000000026",
@@ -1130,6 +1138,18 @@ def checks():
            "329CO0000000164",
            "file", None,
            ["証明書類一枚ごとに四百円とする。ただし、電子情報処理組織を使用して交付の申請を行う場合にあつては、三百円とする。", "記録媒体一巻ごと又は同項第二号若しくは第三号に掲げる記録媒体一枚ごとに二万三千五百円とする。"])
+
+    # 国際観光旅客税法 art. 15 — InternationalTouristTaxRate.lean (norm unit)
+    yield ("国際観光旅客税法 art. 15（税率: 出国一回につき三千円）↔ InternationalTouristTaxRate.lean",
+           "430AC0000000016",
+           "article", "第十五条",
+           ["本邦からの出国一回につき、三千円とする"])
+
+    # 在日米軍特例法 art. 11(3) — UsForcesDutyFreePenalty.lean (norm unit)
+    yield ("在日米軍特例法 art. 11(3)（免税物品の用途外譲渡違反の罰則: 一年以下の拘禁刑又は五十万円以下の罰金 — 代替刑、併科なし。違反要件・徴収・法人重課・附則は NOT MODELLED）↔ UsForcesDutyFreePenalty.lean",
+           "327AC0000000111",
+           "article", "第十一条",
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
