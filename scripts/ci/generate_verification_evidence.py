@@ -287,6 +287,21 @@ def independent_spec_ok(spec_text: str, impl_text: str) -> bool:
     return True
 
 
+def law_full_text(law_id: str) -> str:
+    """Normalised full text of the pinned snapshot for a law (needle anchoring)."""
+    inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
+    for law in inv.get("laws", []):
+        if law.get("law_id") != law_id:
+            continue
+        sf = (law.get("raw_snapshot") or {}).get("source_file", "")
+        p = REPO / sf if sf else None
+        if not p or not p.exists():
+            return ""
+        doc = json.loads(p.read_text(encoding="utf-8"))
+        return core.norm(core.flat(doc.get("law_full_text")))
+    return ""
+
+
 def scoped_article_text(law_id: str, article: str) -> str:
     inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
     for law in inv.get("laws", []):
@@ -478,7 +493,14 @@ def build() -> dict:
         lits = spec_literals(spec_text)
         kanji = {int_to_kanji(v) for v in lits}
         scoped = scoped_article_text(info["law_id"], info["article"])
-        needles_ok = bool(info["needles"]) and all(core.norm(n) in scoped for n in info["needles"])
+        # A transcription check may cite several articles (e.g. art. 9の22 /
+        # 35の4の5) while only one is modelled. Its needles are then genuine
+        # pinned bytes from more than one article. Require every needle in the
+        # PINNED LAW text, while clause-level correspondence (below) still
+        # requires the unit's exact text in the single scoped article.
+        law_text = law_full_text(info["law_id"])
+        needles_ok = bool(info["needles"]) and all(
+            core.norm(n) in law_text for n in info["needles"])
         n_examples = len(re.findall(r"example\s*:", strip_comments(tests_text)))
         boundary_categories = boundary_evidence_categories(tests_text)
         boundary_examples = len(boundary_categories)

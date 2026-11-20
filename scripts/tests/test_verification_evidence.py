@@ -93,6 +93,17 @@ class ArticleResolutionTests(unittest.TestCase):
             self.assertGreater(len(ve.scoped_article_text(info["law_id"], info["article"])), 50, base)
 
 
+class NeedleScopeTests(unittest.TestCase):
+    def test_multiple_article_checks_anchor_needles_to_pinned_law(self):
+        mods = ve.checks_by_module()
+        for base in ("LocalTaxOrderRate77", "LocalTaxInsuranceEstimate"):
+            info = mods[base]
+            law = ve.law_full_text(info["law_id"])
+            self.assertTrue(law)
+            self.assertTrue(all(n.replace(" ", "").replace("\u3000", "") in law
+                                for n in info["needles"]), base)
+
+
 class AdversarialReviewTests(unittest.TestCase):
     def test_parallel_review_files_recognise_modules(self):
         mods = ["DelinquencyTax", "UnreportedSurcharge", "GiftAddBack",
