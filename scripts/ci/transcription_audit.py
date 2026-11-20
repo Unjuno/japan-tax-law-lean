@@ -1151,6 +1151,12 @@ def checks():
            "article", "第十一条",
            ["一年以下の拘禁刑又は五十万円以下の罰金に処する"])
 
+    # ForestGrantRounding — cycle-23
+    yield ("ForestGrantRounding.lean",
+           "431AC0000000003",
+           "file", None,
+           ["金額に千円未満の端数金額があるときは、その端数金額を控除した金額をもって", "当該譲与時期に譲与すべき森林環境譲与税の額とする。"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
