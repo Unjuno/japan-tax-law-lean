@@ -35,7 +35,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from normative_units import (  # noqa: E402
     DEFAULT_STATE, DONE_STATES, EVIDENCE_KEYS, STATES,
     audit_decomposition, decompose, derive_state, extract_dependencies,
-    _laws_index, load_state, normative_id, readable_ref, sha256_text,
+    _laws_index, current_article_from_path, load_state, normative_id,
+    readable_ref, sha256_text,
 )
 
 REPO = Path(__file__).resolve().parents[2]
@@ -120,7 +121,11 @@ def main() -> int:
                 # Dependencies are a property of this normative unit, not of the
                 # whole article: an exception's delegation must not be inherited
                 # by the neighbouring condition.
-                deps = extract_dependencies(u["text"], laws, index=dep_index)
+                deps = extract_dependencies(
+                    u["text"], laws, index=dep_index,
+                    context={"law_id": lid, "revision_id": rev,
+                             "article": current_article_from_path(path)},
+                )
                 task = {
                     "task_id": tid,
                     "normative_ref": readable_ref(lid, rev, path, u["index"],

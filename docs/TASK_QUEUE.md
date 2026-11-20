@@ -23,7 +23,7 @@ NEVER sufficient for a terminal state; see `scripts/ci/normative_units.py`.
 - UNRESOLVED decomposition units: 0
 - UNRESOLVED blocks (not schedulable; see build/unresolved_blocks.json): 88939
 - units with unresolved source characters: 0
-- units with unresolved dependencies: 77730
+- units with unresolved dependencies: 16792
 
 | completion state | units |
 |---|---:|

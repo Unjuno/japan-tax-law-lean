@@ -59,6 +59,11 @@ def _dependency_status(task, by_key):
         if not dep.get("resolved"):
             reasons.append(f"unresolved dependency: {dep.get('raw')}")
             continue
+        if dep.get("law_id") == task.get("law_id"):
+            # Intra-statute references are coordination dependencies: they can
+            # be formalised in the same work item. Only CROSS-law dependencies
+            # must reach a terminal state before this unit can be claimed.
+            continue
         law_id = dep.get("law_id")
         article = dep.get("article")
         revision = dep.get("law_revision_id")

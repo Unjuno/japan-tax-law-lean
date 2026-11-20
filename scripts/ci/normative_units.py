@@ -353,16 +353,45 @@ def _resolve_title(candidate, by_title):
     return best[1] if best else None
 
 
-def extract_dependencies(text, laws, index=None):
+_SELF_REF = re.compile(r"この法律|この省令|この条例|前条|同条|次条|同項|前項|次項")
+
+
+def current_article_from_path(path):
+    """Extract the article number from a structural path such as 本則/条[42_4]/項[2]."""
+    for component in reversed(path):
+        if component.startswith("条[") and component.endswith("]"):
+            return component[2:-1]
+    return ""
+
+
+def extract_dependencies(text, laws, index=None, context=None):
     """Return structured dependencies. A 15-digit id alone is NOT a dependency:
     it is recorded as `legacy_raw_ids` with `authoritative: false`.
 
     `index` may be a precomputed ``(by_title, by_id)`` pair so callers scanning
     hundreds of thousands of units build the law index only once.
+    `context` is ``{law_id, revision_id, article}`` of the containing unit; it
+    resolves self-references (この法律 / 前条 / 同条 / 次条) instead of falsely
+    reporting them as external unresolved dependencies.
     """
     by_title, by_id = index if index is not None else _laws_index(laws)
+    ctx = context or {}
+    self_pair = (ctx.get("law_id"), ctx.get("revision_id")) if ctx.get("law_id") else None
+    own_article = str(ctx.get("article") or "")
     deps = []
     seen = set()
+
+    def _self_article(raw_article, prefix):
+        """Resolve a self-reference to an article number, or '' for 'this law'."""
+        if raw_article and raw_article.isdigit():
+            return raw_article
+        if "同条" in prefix or "同項" in prefix:
+            return own_article
+        if "前条" in prefix or "前項" in prefix:
+            return str(int(own_article) - 1) if own_article.isdigit() and int(own_article) > 1 else ""
+        if "次条" in prefix or "次項" in prefix:
+            return str(int(own_article) + 1) if own_article.isdigit() else ""
+        return ""
     for m in _ARTICLE.finditer(text or ""):
         article = m.group(1)
         prefix = text[max(0, m.start() - 40):m.start()]
@@ -379,6 +408,17 @@ def extract_dependencies(text, laws, index=None):
             if tail in by_id:
                 resolved = by_id[tail]
                 raw_title = tail
+        basis = "named_law"
+        if not resolved and self_pair:
+            # A bare 第N条 in a statute refers to that statute unless a law
+            # name was found in the local context. Record the basis so this
+            # default is auditable rather than an invisible guess.
+            resolved = self_pair
+            raw_title = "自法（明文の法令名なし）"
+            basis = "self_law_default" if not _SELF_REF.search(prefix) else "self_reference"
+            article = _self_article(article, prefix) or article
+        else:
+            basis = "named_law"
         key = (resolved[0] if resolved else "", article, "REFERENCE")
         if key in seen:
             continue
@@ -390,8 +430,26 @@ def extract_dependencies(text, laws, index=None):
             "law_revision_id": resolved[1] if resolved else None,
             "article": article,
             "resolved": bool(resolved),
+            "resolution_basis": basis,
             "unresolved_reason": None if resolved else "law_title_not_resolved_against_inventory",
         })
+    # Bare relative self-references (前条 / 同条 / 次条) have no 第N条 form and
+    # are otherwise wrongly reported as external unresolved dependencies.
+    if self_pair:
+        for m in re.finditer(r"前条|同条|次条", text or ""):
+            art = _self_article("", m.group(0))
+            if not art or art == own_article:
+                continue
+            key = (self_pair[0], art, "REFERENCE")
+            if key in seen:
+                continue
+            seen.add(key)
+            deps.append({
+                "kind": "REFERENCE", "raw": m.group(0),
+                "law_id": self_pair[0], "law_revision_id": self_pair[1],
+                "article": art, "resolved": True,
+                "resolution_basis": "self_relative_reference", "unresolved_reason": None,
+            })
     for cue, kind in (
         (r"政令で定める|省令で定める|条例で定める", "DELEGATION"),
         (r"準用", "QUASI_APPLICATION"),
@@ -406,7 +464,18 @@ def extract_dependencies(text, laws, index=None):
                 if resolved:
                     raw_title = cand
                     break
-            key = (resolved[0] if resolved else norm(m.group(0)), kind)
+            article_ref = None
+            cue_basis = "named_law"
+            if not resolved and self_pair and ("この法律" in prefix or _SELF_REF.search(prefix)):
+                # A 準用/読替え of "this law"/前条 is a genuine dependency on
+                # another article of the same statute, not an unresolvable one.
+                resolved = self_pair
+                raw_title = "この法律（自法）"
+                article_ref = _self_article("", prefix) or own_article or None
+                cue_basis = "self_reference"
+            if resolved and article_ref == own_article and kind in ("QUASI_APPLICATION", "READING_SUBSTITUTION"):
+                continue  # self-reference to the same article: no dependency
+            key = (resolved[0] if resolved else norm(m.group(0)), kind, article_ref)
             if key in seen:
                 continue
             seen.add(key)
@@ -415,8 +484,9 @@ def extract_dependencies(text, laws, index=None):
                 "raw": f"{raw_title}{m.group(0)}".strip(),
                 "law_id": resolved[0] if resolved else None,
                 "law_revision_id": resolved[1] if resolved else None,
-                "article": None,
+                "article": article_ref,
                 "resolved": bool(resolved),
+                "resolution_basis": cue_basis,
                 "unresolved_reason": None if resolved else "delegation_or_reference_target_not_pinned",
             })
     legacy = sorted(set(_LEGACY_LAW_ID.findall(text or "")))

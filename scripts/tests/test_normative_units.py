@@ -104,6 +104,16 @@ class TestDependencies(unittest.TestCase):
         ))
         self.assertTrue(any(d["kind"] == "DELEGATION" for d in result["dependencies"]))
 
+    def test_self_references_resolve_against_current_law(self):
+        laws = [{"law_id": "L1", "official_title": "所得税法",
+                 "current_revision": {"law_revision_id": "r1"}}]
+        ctx = {"law_id": "L1", "revision_id": "r1", "article": "5"}
+        r = extract_dependencies("前条の規定を準用する。この法律第7条は適用する。",
+                                 laws, context=ctx)
+        resolved = [d for d in r["dependencies"] if d["resolved"]]
+        self.assertTrue(any(d["kind"] == "REFERENCE" and d["article"] == "4" for d in resolved))
+        self.assertTrue(any(d["kind"] == "REFERENCE" and d["article"] == "7" for d in resolved))
+
     def test_bare_15_digit_number_is_not_a_dependency(self):
         result = extract_dependencies("340AC0000000033 を参照する。", [])
         self.assertEqual(result["dependencies"], [])
@@ -189,6 +199,16 @@ class TestSelectorDependencies(unittest.TestCase):
         self.assertEqual(len(reasons), 2)
         self.assertTrue(any("unresolved dependency" in r for r in reasons))
         self.assertTrue(any("not proved" in r for r in reasons))
+
+    def test_intra_statute_dependency_does_not_block(self):
+        import task_selector
+        target = {
+            "law_id": "L1",
+            "dependencies": {"dependencies": [
+                {"resolved": True, "law_id": "L1", "article": "4"},
+            ]},
+        }
+        self.assertEqual(task_selector._dependency_status(target, {}), [])
 
 
 if __name__ == "__main__":
