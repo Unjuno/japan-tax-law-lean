@@ -1,248 +1,200 @@
 #!/usr/bin/env python3
-"""Persistent task queue (Sponsor Directive §3).
+"""Persistent normative-unit task queue (Directive §1, execution task 1).
 
-Generates one machine-readable work unit per pinned legal provision from the
-authoritative inventory. Each unit records:
+One durable work unit per decomposed normative unit - not per article and not
+per numeric needle.  All identifiers, decomposition, dependency analysis and
+status derivation come from the single core `normative_core.py`.
 
-  * law_id / revision / enforcement date / pinned source file
-  * article / paragraph / item / appendix-table-cell paths
-  * normative text fragment (from pinned bytes)
-  * verification obligations (Directive §2 — tracked SEPARATELY)
-  * dependencies (references extracted from the provision)
-  * status with independent axes (Directive §6):
-      source_fixed, structure_identified, norm_decomposed,
-      formalized, proved, boundary_checked, independent_audit,
-      legal_review  (LEGAL_REVIEW_PENDING — never auto-satisfied)
-  * scope: FULL_ARTICLE vs COMPUTABLE_SLICE_ONLY (Directive §2)
+Completion is NEVER inferred from a numeric match, a file's existence or a
+theorem-name string match: the status is derived only from recorded evidence
+in data/verification_evidence.json (which is absent by default, so every unit
+starts NOT_STARTED).  Human legal review is a separate axis.
 
-The Coordinator selects unfinished tasks from this queue and assigns them to
-subagents. Human legal review is NOT a precondition for formalization.
-
-Regenerate with `python scripts/ci/task_queue.py`; deterministic gate.
+Regenerate with `python scripts/ci/task_queue.py`.
 """
 from __future__ import annotations
 
 import hashlib
 import json
-import re
 import sys
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parents[2]
-INVENTORY = REPO / "data" / "INVENTORY.json"
-SWEEP = REPO / "build" / "audit_sweep.json"
-AUDIT = REPO / "scripts" / "ci" / "transcription_audit.py"
-OUT_JSON = REPO / "build" / "task_queue.json"
-OUT_MD = REPO / "docs" / "TASK_QUEUE.md"
+HERE = Path(__file__).resolve().parent
+if str(HERE) not in sys.path:
+    sys.path.insert(0, str(HERE))
 
-OBLIGATIONS = [
-    "source_fixed",
-    "structure_identified",
-    "norm_decomposed",
-    "formalized",
-    "proved",
-    "boundary_checked",
-    "independent_audit",
-    "legal_review",
-]
+import normative_core as core  # noqa: E402
+
+# Tolerate the two status-tuple spellings used by concurrent core revisions.
+STATUSES = getattr(core, "STATUSES", None) or getattr(core, "STATUS_VALUES")
+
+REPO = HERE.parents[1]
+INVENTORY = REPO / "data" / "INVENTORY.json"
+AUDIT = REPO / "scripts" / "ci" / "transcription_audit.py"
+QUEUE_JSON = REPO / "build" / "task_queue.json"
+QUEUE_MD = REPO / "docs" / "TASK_QUEUE.md"
+STATE_PATH = REPO / "data" / "task_state.json"
+EVIDENCE_PATH = REPO / "data" / "verification_evidence.json"
+
+OBLIGATIONS = tuple(core.EVIDENCE_AXES) + ("LEGAL_REVIEW",)
 
 
 def flat(node) -> str:
-    if isinstance(node, str):
-        return node
-    if isinstance(node, dict):
-        return "".join(flat(c) for c in node.get("children", []))
-    return ""
-
-
-def jnum(node) -> str:
-    if isinstance(node, str):
-        return node
-    if isinstance(node, dict):
-        return "".join(jnum(c) for c in node.get("children", []))
-    return ""
+    return core.flat(node)
 
 
 def iter_articles(node, path=()):
-    """Yield (path, article_node) for every Article under MainProvision or SupplProvision."""
+    """Yield (path, article_node) for Main/Supplementary/Appendix articles."""
     if isinstance(node, dict):
-        tag = node.get("tag")
-        if tag == "MainProvision":
-            path = path + ("Main",)
-        elif tag == "SupplProvision":
-            path = path + ("Supplementary",)
-        elif tag == "AppdxTable":
-            path = path + ("AppdxTable",)
-        elif tag == "Article":
-            yield path + (tag,), node
-            # do not descend into nested Article for paths
+        tag = node.get("tag", "")
+        if tag in ("MainProvision", "SupplProvision", "AppdxTable"):
+            pnum = str((node.get("attr") or {}).get("Num", ""))
+            path = path + (tag + (f"#{pnum}" if pnum else ""),)
+        if tag == "Article":
+            anum = str((node.get("attr") or {}).get("Num", ""))
+            yield path + (f"Article:{anum}",), node
             return
-        for c in node.get("children", []):
-            yield from iter_articles(c, path)
+        for child in node.get("children", []) or []:
+            yield from iter_articles(child, path)
     elif isinstance(node, list):
-        for c in node:
-            yield from iter_articles(c, path)
+        for child in node:
+            yield from iter_articles(child, path)
 
 
-def paths_of(node):
-    """Return (article_no, title, [(para_no, [item_no...])], table_rows)."""
-    article_no = ""
-    title = ""
-    paras = []
-    table_rows = 0
-    # Article/Paragraph/Item numbers are carried in attr.Num (Arabic), not in
-    # a separate *Num child in the pinned e-Gov JSON.
-    article_no = norm(str((node.get("attr") or {}).get("Num", "")))
-    for c in node.get("children", []):
-        if not isinstance(c, dict):
+def build_tasks(inv: dict) -> list[dict]:
+    laws = inv.get("laws", [])
+    law_index = core.build_law_index(laws)
+    tasks: list[dict] = []
+    for law in laws:
+        lid = law.get("law_id", "")
+        rev = str((law.get("current_revision") or {}).get("law_revision_id", ""))
+        # INVENTORY.json stores the enforced date as `amendment_enforcement_date`
+        # (some snapshots also carry `enforcement_date`). Leaving it empty
+        # collapses every law's dependency key to (law, article, "") and makes
+        # the selector treat different enforced versions as equivalent.
+        enforcement = str(
+            (law.get("current_revision") or {}).get("enforcement_date")
+            or (law.get("current_revision") or {}).get("amendment_enforcement_date")
+            or ""
+        )
+        sf = (law.get("raw_snapshot") or {}).get("source_file")
+        if not sf or not (REPO / sf).exists():
+            # Absent snapshot is recorded as BLOCKED, never silently skipped.
+            tasks.append({
+                "normative_id": core.make_normative_id(
+                    lid, rev or "HISTORY_UNKNOWN", "SOURCE", lid, "", "", "",
+                    "", "", "", 0, "BLOCKED", lid,
+                ),
+                "law_id": lid,
+                "revision": rev,
+                "status": core.STATUS_BLOCKED,
+                "blocked_reason": "SOURCE_SNAPSHOT_UNAVAILABLE",
+                "blockers": [{"reason": "SOURCE_SNAPSHOT_UNAVAILABLE",
+                              "resolved": False}],
+                "unresolved_conditions": ["SOURCE_SNAPSHOT_UNAVAILABLE"],
+                "dependencies": [],
+            })
             continue
-        if c.get("tag") == "ArticleTitle":
-            title = norm(jnum(c))
-        elif c.get("tag") == "Paragraph":
-            pno = norm(str((c.get("attr") or {}).get("Num", "")))
-            items = []
-            for d in c.get("children", []):
-                if isinstance(d, dict) and d.get("tag") == "Item":
-                    items.append(norm(str((d.get("attr") or {}).get("Num", ""))))
-            paras.append((pno, items))
-        elif c.get("tag") == "TableRow":
-            table_rows += 1
-    return article_no, title, paras, table_rows
-
-
-def norm(t: str) -> str:
-    return re.sub(r"[\s\u3000]+", "", t).strip()
-
-
-def refs_of(text: str) -> list[str]:
-    ids = set(re.findall(r"\d{15}", text))
-    return sorted(ids)
+        raw = (REPO / sf).read_bytes()
+        source_sha = hashlib.sha256(raw).hexdigest()
+        doc = json.loads(raw)
+        root = doc.get("law_full_text")
+        for path, article in iter_articles(root):
+            anum = str((article.get("attr") or {}).get("Num", ""))
+            if not anum:
+                continue
+            record = core.decompose_article(
+                article, lid, rev or f"HISTORY_UNKNOWN:{source_sha}", anum,
+                enforcement, law_index, outer_path=path,
+            )
+            for unit in record["units"]:
+                unit.update({
+                    "unit_id": unit["id"],
+                    "normative_id": unit["id"],
+                    "law_title": law.get("official_title", ""),
+                    "revision": rev,
+                    "source_file": sf,
+                    "source_sha256": source_sha,
+                    # core.decompose_article already provides the precise
+                    # structural path (paragraph/item/subitem/cell); keep it.
+                    "norm_fragment": unit["text"][:240],
+                    "norm_type": unit.get("kind", ""),
+                    "article_title": "",
+                    "coverage": record["coverage"],
+                    "obligations": list(OBLIGATIONS),
+                    "scope": "FULL_ARTICLE" if record["coverage"]["status"] == "COVERED"
+                             and not unit["unhandled_conditions"] else "COMPUTABLE_SLICE_ONLY",
+                    "legal_review": core.LEGAL_REVIEW_PENDING,
+                    "owner": "",
+                    "evidence": {},
+                    "blockers": [],
+                })
+                tasks.append(unit)
+    return tasks
 
 
 def main() -> int:
     inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
-    laws = inv.get("laws", [])
-    sweep = json.loads(SWEEP.read_text(encoding="utf-8")) if SWEEP.exists() else {}
-    sw_status = {lid: v for lid, v in (sweep.get("laws") or {}).items()} if isinstance(sweep.get("laws"), dict) else {}
-
-    # article pins already covered by the audit
-    import importlib.util
-    spec = importlib.util.spec_from_file_location("tq_ta", AUDIT)
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    # Map each law's pinned audit needles to the articles that actually contain
-    # them. This handles both explicit article pins (kanji numerals) and
-    # file-level checks whose needles span one or more articles.
-    pin_needles = {}
-    for name, law_id, kind, art, needles in mod.checks():
-        pin_needles.setdefault(law_id, []).extend(needles)
-
-    tasks = []
-    for law in laws:
-        lid = law["law_id"]
-        rev = (law.get("current_revision") or {}).get("law_revision_id", "")
-        sf = (law.get("raw_snapshot") or {}).get("source_file")
-        if not sf:
-            continue
-        p = REPO / sf
-        if not p.exists():
-            continue
-        doc = json.loads(p.read_text(encoding="utf-8"))
-        full = norm(flat(doc.get("law_full_text")))
-        covered_articles = set()
-        for needle in pin_needles.get(lid, []):
-            n = norm(needle)
-            for apath, anode in iter_articles(doc.get("law_full_text")):
-                an, _, _, _ = paths_of(anode)
-                if an and n in norm(flat(anode)):
-                    covered_articles.add(an)
-        for path, node in iter_articles(doc.get("law_full_text")):
-            anum, title, paras, rows = paths_of(node)
-            if not anum:
-                continue
-            text = norm(flat(node))
-            key = f"{lid}|{rev}|{'/'.join(path)}|{anum}"
-            task_id = hashlib.sha256(key.encode("utf-8")).hexdigest()[:16]
-            covered = anum in covered_articles
-            tasks.append({
-                "task_id": task_id,
-                "law_id": lid,
-                "law_title": law.get("official_title", ""),
-                "revision": rev,
-                "enforcement_date": (law.get("current_revision") or {}).get("enforcement_date", ""),
-                "source_file": sf,
-                "path": "/".join(path),
-                "article": anum,
-                "article_title": title,
-                "paragraphs": [{"no": n, "items": its} for n, its in paras],
-                "table_rows": rows,
-                "norm_fragment": text[:240],
-                "reference_ids": refs_of(text),
-                "obligations": OBLIGATIONS,
-                "status": {
-                    "source_fixed": True,
-                    "structure_identified": True,
-                    "norm_decomposed": False,
-                    "formalized": "COMPLETE_SCOPE" if covered else "NOT_STARTED",
-                    "proved": False,
-                    "boundary_checked": False,
-                    "independent_audit": False,
-                    "legal_review": "LEGAL_REVIEW_PENDING",
-                },
-                "scope": "FULL_ARTICLE",
-                "priority": 1 if covered else 2,
-            })
-
+    state = core.load_state(STATE_PATH)
+    evidence = {}
+    if EVIDENCE_PATH.exists():
+        evidence = json.loads(EVIDENCE_PATH.read_text(encoding="utf-8")).get("units", {})
+    tasks = build_tasks(inv)
+    state, notes = core.merge_state(state, tasks)
+    for task in tasks:
+        uid = task["normative_id"]
+        saved = state["units"].get(uid, {})
+        task["owner"] = saved.get("owner", "")
+        task["blockers"] = saved.get("blockers") or task.get("blockers", [])
+        task["artifacts"] = saved.get("artifacts", {})
+        task["legal_review"] = saved.get("legal_review", core.LEGAL_REVIEW_PENDING)
+        task["unhandled_conditions"] = saved.get("unhandled_conditions") or task.get("unhandled_conditions", [])
+        derived, errors = core.derive_status(task, evidence.get(uid, {}))
+        task["status"] = derived
+        task["status_errors"] = errors
+        task["completion_claim"] = False
+    counts = {s: sum(1 for t in tasks if t["status"] == s) for s in core.STATUS_VALUES}
     payload = {
         "tool": "scripts/ci/task_queue.py",
+        "schema": "normative-unit-queue-v3",
         "inventory_snapshot_date": inv.get("snapshot_date", ""),
-        "laws_total": len(laws),
+        "laws_total": len(inv.get("laws", [])),
         "units_total": len(tasks),
-        "obligations": OBLIGATIONS,
+        "status_counts": counts,
+        "status_values": list(core.STATUS_VALUES),
+        "obligations": list(OBLIGATIONS),
+        "legal_review_axis": "independent; never auto-satisfied",
+        "completion_rule": "status derives only from recorded evidence",
         "tasks": tasks,
     }
-    OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
-    OUT_JSON.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
-
-    not_started = sum(1 for t in tasks if t["status"]["formalized"] == "NOT_STARTED")
+    QUEUE_JSON.parent.mkdir(parents=True, exist_ok=True)
+    QUEUE_JSON.write_text(json.dumps(payload, ensure_ascii=False,
+                                     separators=(",", ":")), encoding="utf-8")
     lines = [
-        "# Persistent task queue (machine-generated)",
+        "# Persistent normative-unit task queue (machine-generated)",
         "",
         "Do not hand-edit. Regenerate with `python scripts/ci/task_queue.py`.",
         "",
-        "Sponsor Directive §3: every pinned legal provision is a durable work unit.",
-        "Human legal review (`LEGAL_REVIEW_PENDING`) is NOT a precondition for",
-        "formalization and is tracked as an independent axis (Directive §6).",
+        "Identifiers bind law id, enforced revision, provision, article,",
+        "paragraph, item, subitem, table cell, ordinal, norm kind and source",
+        "digest (full SHA-256). Status derives only from recorded evidence;",
+        "a needle match, file existence or theorem name is never completion.",
         "",
-        f"- laws in inventory: {len(laws)}",
-        f"- work units generated: {len(tasks)}",
-        f"- units with a pinned literal check: {len(tasks) - not_started}",
-        f"- units NOT_STARTED: {not_started}",
+        f"- snapshot: {inv.get('snapshot_date', '')}",
+        f"- laws: {len(inv.get('laws', []))}",
+        f"- normative units: {len(tasks)}",
         "",
-        "## Status axes (independent — Directive §6)",
-        "",
-        "| axis | values |",
-        "|---|---|",
-        "| source_fixed / structure_identified | True for all pinned units |",
-        "| norm_decomposed | False unless explicitly recorded |",
-        "| formalized | NOT_STARTED / COMPLETE_SCOPE / COMPLETE_FULL |",
-        "| proved / boundary_checked / independent_audit | False until verified |",
-        "| legal_review | LEGAL_REVIEW_PENDING (never auto-satisfied) |",
-        "",
-        "The full machine-readable queue is `build/task_queue.json` (git-ignored,",
-        "regenerated from INVENTORY.json + pinned snapshots). The regeneration gate",
-        "verifies determinism. Coordinator selects unfinished units from the queue.",
-        "",
-        "## Sample NOT_STARTED units (first 20)",
-        "",
-        "| law_id | article | title | paragraphs | refs |",
-        "|---|---|---|---:|---:|",
+        "| status | units |",
+        "|---|---:|",
     ]
-    for t in [x for x in tasks if x["status"]["formalized"] == "NOT_STARTED"][:20]:
-        lines.append(f"| `{t['law_id']}` | {t['article']} | {t['article_title'][:40]} | {len(t['paragraphs'])} | {len(t['reference_ids'])} |")
+    lines += [f"| {s} | {counts[s]} |" for s in core.STATUS_VALUES]
     lines.append("")
-    OUT_MD.write_text("\n".join(lines), encoding="utf-8")
-    print(f"task queue: {len(tasks)} units across {len(laws)} laws; NOT_STARTED={not_started}")
+    QUEUE_MD.write_text("\n".join(lines), encoding="utf-8")
+    if "--persist" in sys.argv:
+        core.save_state(state, STATE_PATH)
+    print(f"normative-unit queue: {len(tasks)} units; "
+          + ", ".join(f"{s}={counts[s]}" for s in core.STATUS_VALUES))
+    print(f"state merge: {len(notes)} change(s)")
     return 0
 
 

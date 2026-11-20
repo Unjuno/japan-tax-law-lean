@@ -1,17 +1,22 @@
-"""Run whichever Python audit gates exist on this branch, honestly.
+"""Run the Python audit gates on this branch, honestly.
 
-Design: every branch in the stacked PR series carries only the tooling of its
-phase. A later-phase gate must not fail an earlier-phase branch, but absence
-of a gate is either expected (phase not reached yet) or a silent hole in the
-inventory. This runner:
+SKIP is never counted as PASS.  Every gate listed in REQUIRED_GATES must be
+present and passing; a missing required gate is a FAILURE, not a silent hole.
+Optional/phase-gated checks that are genuinely absent print SKIP with an
+explicit reason and do not affect the exit status.
 
-  * executes each gate that is present on THIS branch,
-  * prints SKIP with an explicit reason for each gate not present,
-  * exits 0 iff every present gate passes (or none is present).
+This distinction is required by the objective: "registered checks succeeded"
+and "all target obligations are complete" are different claims, and a skipped
+check must never be reported as a passed one.
 """
+import json
 import os
 import subprocess
 import sys
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parents[2]
+GATE_RESULTS = REPO / "build" / "gate_results.json"
 
 GATES = [
     ("structural audit tests", ["python", "-m", "unittest", "scripts.tests.test_structural_audit", "-v"], ["scripts/tests/test_structural_audit.py"]),
@@ -19,6 +24,9 @@ GATES = [
     ("inventory selection tests", ["python", "-m", "unittest", "scripts.tests.test_inventory_selection", "-v"], ["scripts/tests/test_inventory_selection.py"]),
     ("cross-law consistency tests", ["python", "-m", "unittest", "scripts.tests.test_cross_law", "-v"], ["scripts/tests/test_cross_law.py"]),
     ("revision impact tests", ["python", "-m", "unittest", "scripts.tests.test_revision_impact", "-v"], ["scripts/tests/test_revision_impact.py"]),
+    ("normative core (queue/completion) tests", ["python", "-m", "unittest", "scripts.tests.test_normative_core", "-v"], ["scripts/tests/test_normative_core.py"]),
+    ("completion gate adversary tests", ["python", "-m", "unittest", "scripts.tests.test_completion_gate_adversary", "-v"], ["scripts/tests/test_completion_gate_adversary.py"]),
+    ("independent completion-mechanism audit", ["python", "scripts/ci/qa_completion_audit.py"], ["scripts/ci/qa_completion_audit.py"]),
     ("Phase A inventory integrity", ["python", "scripts/law_audit/inventory/validate_inventory.py"], ["scripts/law_audit/inventory/validate_inventory.py"]),
     ("Phase E cross-law pin consistency", ["python", "scripts/law_audit/phase_e/cross_law.py"], ["scripts/law_audit/phase_e/cross_law.py"]),
     ("Phase F revision impact integrity", ["python", "scripts/law_audit/phase_f/revision_impact.py"], ["scripts/law_audit/phase_f/revision_impact.py"]),
@@ -39,20 +47,62 @@ GATES = [
     ("Generate audit report", ["python", "-m", "scripts.law_audit.report"], ["scripts/law_audit/report.py"]),
 ]
 
+# SKIP is never PASS for these.  The queue/completion machinery is the first
+# execution task of the directive and must exist on every branch.
+REQUIRED_GATES = {
+    "normative core (queue/completion) tests",
+    "completion gate adversary tests",
+    "independent completion-mechanism audit",
+    "Persistent task queue regeneration (Sponsor Directive §3)",
+    "Article verification obligations gate (Objective §4)",
+    "Article-scoped fidelity diagnostic (Sponsor Directive §4)",
+    "L1 transcription audit (pinned raw to model literals)",
+}
+
+# All five verification states are distinct and must be represented.  A scoped
+# proof (PROVED_SCOPE) is never an article proof (FULLY_VERIFIED), and a missing
+# check is BLOCKED/NOT_STARTED rather than PASS.
+STATUS_VOCABULARY = ("NOT_STARTED", "PARTIAL", "PROVED_SCOPE", "FULLY_VERIFIED", "BLOCKED")
+
 fails = 0
+ran = 0
+skipped = 0
+records = []
 for name, cmd, paths in GATES:
+    required = name in REQUIRED_GATES
     missing = [p for p in paths if not os.path.exists(p)]
     if missing:
-        print(f"SKIP {name}: missing {missing}")
+        skipped += 1
+        reason = "missing " + ", ".join(missing)
+        records.append({"name": name, "verdict": "SKIP", "required": required,
+                        "reason": reason})
+        if required:
+            print(f"FAIL {name}: REQUIRED gate skipped (missing {missing}); SKIP is never PASS")
+            fails += 1
+        else:
+            print(f"SKIP {name}: missing {missing}")
         continue
     print(f"RUN  {name}: {' '.join(cmd)}")
+    ran += 1
     r = subprocess.run(cmd)
+    verdict = "PASS" if r.returncode == 0 else "FAIL"
+    records.append({"name": name, "verdict": verdict, "required": required,
+                    "reason": "exit 0" if r.returncode == 0 else f"exit {r.returncode}"})
     if r.returncode != 0:
         print(f"FAIL {name}: exit {r.returncode}")
         fails += 1
     else:
         print(f"PASS {name}")
+
+# Machine-readable verdicts for the completion gate. This is the ONLY input to
+# the "registered checks" axis; SKIP stays SKIP and is never merged into PASS.
+GATE_RESULTS.parent.mkdir(parents=True, exist_ok=True)
+GATE_RESULTS.write_text(json.dumps({
+    "tool": "scripts/ci/run_python_gates.py",
+    "gates": records,
+    "summary": {"pass": ran - fails, "fail": fails, "skip": skipped},
+}, ensure_ascii=False, indent=2), encoding="utf-8")
 if fails:
-    print(f"{fails} gate(s) FAILED")
+    print(f"{fails} gate(s) FAILED; {ran} ran, {skipped} skipped (SKIP is never PASS)")
     sys.exit(1)
-print("all present gates passed")
+print(f"all present gates passed ({ran} ran, {skipped} honestly skipped; SKIP is never PASS)")
