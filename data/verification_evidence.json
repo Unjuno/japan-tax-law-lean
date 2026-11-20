@@ -1028,6 +1028,19 @@
       "cross_law_proof": "queue unit dependencies analyzed; this is a standalone deeming sub-rule of 地方税法 art.180(3); no cross-law constant claimed; art.180(1) base explicitly NOT MODELLED",
       "tests": "JapanTaxLaw/LocalTaxAresRoundingTests.lean sha256=dc74a18c07d160bc6f859858914b6e9ef4fa001b435117e789ffb1df673d4792 (6 kernel-decided boundary examples)",
       "adversarial_review": "docs/ADVERSARIAL_LOCAL_TAX_ARES_ROUNDING_180_3.md — independent agent recomputed pin sha256 (3dd29e0…e68d53, 12,181,725 bytes), located needle uniquely in Article 180 / Paragraph 3, refuted the circular-spec hypothesis (if-zero vs structural match), confirmed universal proof over all Nat and all four boundary theorems, and rejected both competing interpretations. NO CONCRETE FINDINGS; no fix required."
+    },
+    "NORM|4034ae765e5c94d4bbd4588b6536d08053f9a82d48e12c78330531a3d78aa234": {
+      "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[18]/Article:8_2/Article#8_2/Paragraph#8/ParagraphSentence/Sentence#1 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c",
+      "decomposition_audit": "build/task_queue.json: kind=EFFECT, decomposed=true, exact span, unhandled_conditions=[], id unique",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS 関税定率法 art.8(2) para.8（前項の調査は第四項の調査終了日までに終了）; 177/177 checks passed; needle with terminal 。 unique in pinned file and in Article 8-2 / Paragraph 8",
+      "independent_spec": "JapanTaxLaw/CustomsInvestigationDeadlineSpec.lean sha256=7d2c3fcba913b91cfa4e279e1bf2135182d583be210168c0f90d0ebedbe69df7 (specWithinInvestigationDeadline endDay refDay = endDay - refDay = 0, deliberately different from ≤)",
+      "implementation": "JapanTaxLaw/CustomsInvestigationDeadline.lean sha256=8dc2474774698e7dea56878f46099c71de9df9c9c3d81eed5d8086881d889348 (withinInvestigationDeadline endDay refDay = endDay ≤ refDay; unit 日 day-index documented)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success; agree_investigation_deadline is Nat.sub_eq_zero_iff_le over all day-index pairs; axiom probe propext/Quot.sound only, no sorryAx/Classical.choice",
+      "proof_scope": "docs/UNIT_CUSTOMS_INVESTIGATION_DEADLINE_8_2_8.md (computable temporal-deadline slice; investigation procedure and substantive anti-dumping rules explicitly NOT MODELLED)",
+      "boundary_proof": "JapanTaxLaw/CustomsInvestigationDeadlineSpec.lean: deadline_at_reference (r≤r), deadline_one_day_late (¬ r+1≤r), deadline_extends_to_later_ref (universal transitivity)",
+      "cross_law_proof": "queue unit dependencies analyzed; this is a temporal-deadline EFFECT of 関税定率法 art.8(2) para.8 referencing para.4 within the same article; no cross-law constant claimed; para.7/para.4 procedure NOT MODELLED",
+      "tests": "JapanTaxLaw/CustomsInvestigationDeadlineTests.lean sha256=e6af4ac156e8f16926f8a75ebb2e2c99b31d70beb5ddc1c6bcd8a51fe0abf7dc (11 kernel-checked boundary examples)",
+      "adversarial_review": "docs/ADVERSARIAL_CUSTOMS_INVESTIGATION_DEADLINE_8_2_8.md — independent agent recomputed pin sha256 (924a01d3…986ae9c, 9,407,678 bytes), located needle uniquely in Article 第八条の二 / Paragraph 8, confirmed 前項=para.7 / 第四項=para.4 via neighbour paragraphs, refuted the circular-spec hypothesis (≤ vs truncated subtraction), confirmed the universal Nat.sub_eq_zero_iff_le proof and all boundary theorems, and rejected the strict-before competing interpretation (「…日までに」 is inclusive). NO CONCRETE FINDINGS; no fix required."
     }
   }
 }

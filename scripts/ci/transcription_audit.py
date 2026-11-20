@@ -1180,6 +1180,13 @@ def checks():
            "article", "第百八十条",
            ["第一項の場合において、百アール未満の端数は、百アールとみなす。"])
 
+    # 関税定率法 art.8(2) para.8 — CustomsInvestigationDeadline.lean (investigation must end by para.4 end day)
+    # Norm unit NORM|4034ae765e5c94d4bbd4588b6536d08053f9a82d48e12c78330531a3d78aa234
+    yield ("関税定率法 art.8(2) para.8（前項の調査は第四項の調査終了日までに終了）↔ CustomsInvestigationDeadline.lean (endDay ≤ refDay)",
+           "143AC0000000054",
+           "article", "第八条の二",
+           ["前項の調査は、第四項の調査が終了する日までに終了するものとする。"])
+
     # 在日米軍特例法 art. 11(3) — UsForcesDutyFreePenalty.lean (norm unit)
     yield ("在日米軍特例法 art. 11(3)（免税物品の用途外譲渡違反の罰則: 一年以下の拘禁刑又は五十万円以下の罰金 — 代替刑、併科なし。違反要件・徴収・法人重課・附則は NOT MODELLED）↔ UsForcesDutyFreePenalty.lean",
            "327AC0000000111",
