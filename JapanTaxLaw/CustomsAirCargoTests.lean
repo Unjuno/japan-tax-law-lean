@@ -22,5 +22,10 @@ example : personalUseValue false 100_000 250_000 = 250_000 := by decide
 -- 境界: 0円
 example : airFreightForValuation true 0 200_000 = 0 := by decide
 example : personalUseValue true 0 250_000 = 0 := by decide
+-- 境界: 小さい正の入力 (1..13) — 代替適用/非適用・個人的使用/非使用
+example : airFreightForValuation true 7 200_000 = 7 := by decide
+example : airFreightForValuation false 13 7 = 7 := by decide
+example : personalUseValue true 5 200_000 = 5 := by decide
+example : personalUseValue false 200_000 11 = 11 := by decide
 
 end JapanTaxLaw

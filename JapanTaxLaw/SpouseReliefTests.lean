@@ -61,4 +61,13 @@ example : spouseRelief ⟨160_000_000, 300_000_000, 400_000_000, 100_000_000, fa
 example : spouseRelief ⟨160_000_001, 300_000_000, 400_000_000, 100_000_001, false⟩
     > 0 := by decide  -- tax is positive once relief > 0
 
+-- ==== 追加の境界: ゼロ入力 / 小さい正の入力 (1..13) / 飽和・単位元境界 ====
+-- spouseRelief ⟨legalShareRaw, spouseAcq, totalAcq, taxBefore, onlyHeir⟩
+-- (a) ゼロ入力: 課税価格の合計 0 → 軽減額 0（分母 0 の下限境界）
+example : spouseRelief ⟨0, 0, 0, 100, false⟩ = 0 := by decide
+-- (b) 小さい正の入力 (1..13): yi=1.6億(下限), relevant=min(1.6億,5)=5, 13*5/13=5
+example : spouseRelief ⟨0, 5, 13, 13, false⟩ = 5 := by decide
+-- (c) 単位元境界: 配偶者のみ → yi=total=13, relevant=13, 7*13/13=7=taxBefore（全額軽減）
+example : spouseRelief ⟨0, 13, 13, 7, true⟩ = 7 := by decide
+
 end JapanTaxLaw

@@ -40,4 +40,8 @@ example : localInhabitantIncomeTaxAmount 24_000_000 0 0 true = 1_920_000 := by d
 example : localInhabitantIncomeTaxAmount 25_000_000 0 0 false = 1_500_000 := by decide
 example : localInhabitantIncomeTaxAmount 25_000_000 0 0 true = 2_000_000 := by decide
 
+-- boundary (b): small positive input in 1..13 — the 8% (designated-city) floor threshold
+-- (base 1..12 floors to 0 at 8%; base 13 is the first value in 1..13 with 13*8/100 = 1)
+example : localInhabitantIncomeTaxAmount 13 0 0 true = 1 := by decide
+
 end JapanTaxLaw

@@ -29,4 +29,8 @@ example : taxWithSurcharge true 2_750_000 = 2_750_000 := by decide
 example : taxWithSurcharge true 4_500 = 4_500 := by decide
 example : taxWithSurcharge false 4_500 = 5_400 := by decide
 
+-- boundary (b): small positive input in 1..13 — the 20% surcharge floor threshold
+-- (surcharge20 n floors to 0 for n=1..4; n=5 is the first input whose 20% >= 1: 5*20/100 = 1)
+example : surcharge20 5 = 1 := by decide
+
 end JapanTaxLaw
