@@ -1137,6 +1137,13 @@ def checks():
            "article", "第十五条",
            ["本邦からの出国一回につき、三千円とする"])
 
+    # 航空機燃料税法 art. 11 — AviationFuelTaxRate.lean (¥26,000 / kL)
+    # Norm unit NORM|99061309435f403e991be4370b1f7f7970c0769f7b3d705d98e00de8673ed91b
+    yield ("航空機燃料税法 art. 11（税率: 一キロリットルにつき二万六千円）↔ AviationFuelTaxRate.lean (ratePerKilolitre 26_000)",
+           "347AC0000000007",
+           "article", "第十一条",
+           ["航空機燃料税の税率は、航空機燃料一キロリットルにつき二万六千円とする。"])
+
     # 在日米軍特例法 art. 11(3) — UsForcesDutyFreePenalty.lean (norm unit)
     yield ("在日米軍特例法 art. 11(3)（免税物品の用途外譲渡違反の罰則: 一年以下の拘禁刑又は五十万円以下の罰金 — 代替刑、併科なし。違反要件・徴収・法人重課・附則は NOT MODELLED）↔ UsForcesDutyFreePenalty.lean",
            "327AC0000000111",

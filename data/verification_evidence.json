@@ -3,7 +3,7 @@
   "schema": "verification-evidence-v1",
   "units": {
     "NORM|008f8fdeb18548b26d46cf73190a1d665d17705f0b229e0cc10ef7fab5e056da": {
-      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch O: independent pinned re-extraction, H/T/D/C/U recorded",
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
       "cross_law_proof": "unit dependencies=7; enforced revision=325AC0000000211_20261102_508AC0000000062 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
@@ -16,7 +16,7 @@
       "tests": "JapanTaxLaw/LocalGrantRevenueBaseTests.lean sha256=444750e52499a800d4637a435546efe3aeaef76f0bd00453ef2153152525dd32 (31 kernel-decided examples)"
     },
     "NORM|01bc5d0ea84e476f03587df6fefe7b5d0069de50a81e0b28bc26e8be03771418": {
-      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch O: independent pinned re-extraction, H/T/D/C/U recorded",
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
       "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
@@ -42,7 +42,7 @@
       "tests": ""
     },
     "NORM|2bb1ca3263f7e9d5364bf3f9a4f429da2445559f7f9cfbabfaf5db5e5d2a3b31": {
-      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch R: independent pinned re-extraction, H/T/D/C/U recorded",
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
       "cross_law_proof": "unit dependencies=0; enforced revision=340AC0000000033_20261001_507AC0000000070 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
@@ -55,7 +55,7 @@
       "tests": "JapanTaxLaw/IncomeArt205WithholdingTests.lean sha256=bf2e55189ec20604c9719e6177573ff3827ac679b47e1b1f8d4770315f815c3e (24 kernel-decided examples)"
     },
     "NORM|3620a145620f245bddac3a73257ed1f73e79567f8bf40778f940d81803cc31d8": {
-      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch N: independent pinned re-extraction, H/T/D/C/U recorded",
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
       "cross_law_proof": "unit dependencies=0; enforced revision=340AC0000000033_20261001_507AC0000000070 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
@@ -68,7 +68,7 @@
       "tests": "JapanTaxLaw/PublicPensionWithholdingTests.lean sha256=43564ec85b5c9b69b0e873d674c273cc07045618e1228b2da45123dc10365f48 (23 kernel-decided examples)"
     },
     "NORM|84f30566e583de635fc2da0096497d579f38dd9935595a55259fd024a6e24c0f": {
-      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch O: independent pinned re-extraction, H/T/D/C/U recorded",
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
       "cross_law_proof": "unit dependencies=4; enforced revision=325AC0000000211_20261102_508AC0000000062 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
@@ -80,8 +80,21 @@
       "source_location": "data/raw/325AC0000000211_20261102_508AC0000000062.law.json#LawBody[1]/MainProvision/MainProvision[15]/Article:14/Article#14/Paragraph#2/ParagraphSentence/Sentence#1 sha256=151df453a55442acb1cdca91f420bc5f7b04b914b85d86b575311ff6e3a7cd95 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalGrantRevenueBaseTests.lean sha256=444750e52499a800d4637a435546efe3aeaef76f0bd00453ef2153152525dd32 (31 kernel-decided examples)"
     },
+    "NORM|99061309435f403e991be4370b1f7f7970c0769f7b3d705d98e00de8673ed91b": {
+      "adversarial_review": "docs/ADVERSARIAL_AVIATION_FUEL_TAX_RATE_11.md — independent agent found fabricated 免税点 provision, missing review artifact and weak needle (no terminal 。); all fixed before this flag was set. Universal induction, pin and axiom claims survived challenge.",
+      "boundary_proof": "JapanTaxLaw/AviationFuelTaxRateSpec.lean: specSum_zero, specSum_pos_of_pos, taxForKilolitres_mono, rate_not_scaled (rejects 260000/2600); boundary examples 0/1/2 kL in Tests module",
+      "cross_law_proof": "queue unit dependencies=[]; revision 347AC0000000007_20250601_504AC0000000068 resolved from INVENTORY; no cross-law relation declared in art.11",
+      "decomposition_audit": "build/task_queue.json: kind=EFFECT, decomposed=true, coverage exact, unhandled_conditions=[], id unique among 396854 units",
+      "implementation": "JapanTaxLaw/AviationFuelTaxRate.lean sha256=02c53c3dcdda13fac9f02be6978e6182c9d2ada80023cad85e392db87e8115f7 (ratePerKilolitre=26_000, taxForKilolitres=k*rate)",
+      "independent_spec": "JapanTaxLaw/AviationFuelTaxRateSpec.lean sha256=61c445dde3d152f7f38db8cb3aed5ee343848ce2dd8ef97a0391cf2ef0957ba7 (specSum recursive addition; different form from implementation)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested: GitHub API rate limit prevents PR/CI): lake build succeeded 533 jobs; agree_aviation_fuel_tax is induction over all Nat; axiom probe propext only, no sorryAx/Classical.choice; check_no_sorry.py clean",
+      "proof_scope": "docs/UNIT_AVIATION_FUEL_TAX_RATE_11.md (computable slice; explicit NOT MODELLED list; scope registered by spec_scope_map.py: 100 modules, 510/1433 units)",
+      "source_correspondence_audit": "python scripts/ci/transcription_audit.py: PASS 航空機燃料税法 art. 11; 162/162 checks passed; needle unique in pinned file and in 第十一条",
+      "source_location": "data/raw/347AC0000000007_20250601_504AC0000000068.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/ParagraphSentence/Sentence#1 sha256=de83a01b558cca9d07af779b71416c9d15d5e62ecabfefcb00eb9e1cd18dbbde (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/AviationFuelTaxRateTests.lean sha256=0cf0c11bd619f67e724ed6e8c8184f6577532d51ff75ea97051726e096d6c3c4 (7 kernel-decided examples, incl. 0/1/2/3/100 kL)"
+    },
     "NORM|a7607acfb60e7e06f14829cc3971438828d4385f88056dbb56552bfc12746785": {
-      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch M: independent pinned re-extraction, H/T/D/C/U recorded",
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
       "cross_law_proof": "unit dependencies=1; enforced revision=325CO0000000245_20261101_508CO0000000083 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
@@ -94,7 +107,7 @@
       "tests": "JapanTaxLaw/LocalTaxMedicalIncomeRatioTests.lean sha256=30261d035d1b61066ae5c34aaef3aab08965b08ab1eedf54b714ffe484fdb3b9 (19 kernel-decided examples)"
     },
     "NORM|ac371ade261bbd9d8681252eb9998c1991cc66b0773a70cd8b45389690aecb6f": {
-      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch O: independent pinned re-extraction, H/T/D/C/U recorded",
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
       "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
