@@ -674,3 +674,6 @@ import JapanTaxLaw.TransitionalHeadingsAndDateExprsTests
 import JapanTaxLaw.KanjiOrdinals
 import JapanTaxLaw.KanjiOrdinalsSpec
 import JapanTaxLaw.KanjiOrdinalsTests
+import JapanTaxLaw.EnumRefsAndOperators
+import JapanTaxLaw.EnumRefsAndOperatorsSpec
+import JapanTaxLaw.EnumRefsAndOperatorsTests
