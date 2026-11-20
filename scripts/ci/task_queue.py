@@ -77,6 +77,9 @@ def iter_articles(node, path=()):
 def build_tasks(inv: dict) -> list[dict]:
     laws = inv.get("laws", [])
     law_index = core.build_law_index(laws)
+    # §1.6: a referenced law's enforced version is the third coordinate of a
+    # complete dependency. Without this, every law_article dep carries "".
+    enforcement_index = core.build_enforcement_index(laws)
     tasks: list[dict] = []
     for law in laws:
         lid = law.get("law_id", "")
@@ -119,6 +122,7 @@ def build_tasks(inv: dict) -> list[dict]:
             record = core.decompose_article(
                 article, lid, rev or f"HISTORY_UNKNOWN:{source_sha}", anum,
                 enforcement, law_index, outer_path=path,
+                enforcement_index=enforcement_index,
             )
             for unit in record["units"]:
                 unit.update({
@@ -166,6 +170,16 @@ def main() -> int:
         task["status"] = derived
         task["status_errors"] = errors
         task["completion_claim"] = False
+        # §1.7: the derived status is durable too, not just the queue projection.
+        # Record a history event when it changes so the audit trail survives a
+        # regeneration and a session restart.
+        saved_status = saved.get("status", core.STATUS_NOT_STARTED)
+        rec = state["units"].setdefault(uid, core.default_state(uid))
+        rec["status"] = derived
+        if saved_status != derived:
+            rec.setdefault("history", []).append({
+                "event": "status_changed", "from": saved_status, "to": derived,
+            })
     counts = {s: sum(1 for t in tasks if t["status"] == s) for s in core.STATUS_VALUES}
     payload = {
         "tool": "scripts/ci/task_queue.py",
@@ -242,7 +256,11 @@ def main() -> int:
     lines += [f"| {s} | {counts[s]} |" for s in core.STATUS_VALUES]
     lines.append("")
     QUEUE_MD.write_text("\n".join(lines), encoding="utf-8")
-    if "--persist" in sys.argv:
+    # §1.7: persist by default so a plain regeneration never silently drops
+    # owner / blockers / status / history / legal review. The compact ledger
+    # stores only non-default records, so this stays small and auditable.
+    # --no-persist is an explicit opt-out for read-only dry runs.
+    if "--no-persist" not in sys.argv:
         core.save_state(state, STATE_PATH)
     print(f"normative-unit queue: {len(tasks)} units; "
           + ", ".join(f"{s}={counts[s]}" for s in core.STATUS_VALUES))
