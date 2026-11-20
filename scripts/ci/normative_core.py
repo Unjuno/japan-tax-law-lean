@@ -477,8 +477,17 @@ def derive_status(unit: dict[str, Any], evidence: dict[str, Any]) -> tuple[str, 
         return STATUS_PARTIAL, ["presence facts incomplete"]
     if not ev["kernel_proof"]:
         return STATUS_PARTIAL, ["no kernel proof"]
-    if not (ev["source_correspondence_audit"] and ev["proof_scope"]
-            and ev["boundary_proof"] and ev["cross_law_proof"] and ev["adversarial_review"]):
+    # Cross-law proof is an obligation only when the unit actually has a
+    # cross-law dependency. Requiring it universally makes isolated provisions
+    # permanently unverifiable for a reason unrelated to the provision.
+    scope_axes = ["source_correspondence_audit", "proof_scope", "boundary_proof",
+                  "adversarial_review"]
+    # Only an explicitly established EMPTY list waives the axis. A caller that
+    # omits the key (e.g. article_obligations.py) supplies no evidence about
+    # dependencies and must not silently downgrade the requirement.
+    if "dependencies" not in unit or unit.get("dependencies"):
+        scope_axes.append("cross_law_proof")
+    if not all(ev[a] for a in scope_axes):
         return STATUS_PROVED_SCOPE, ["scope / boundary / cross-law / audit evidence incomplete"]
     if errors:
         return STATUS_PROVED_SCOPE, errors
