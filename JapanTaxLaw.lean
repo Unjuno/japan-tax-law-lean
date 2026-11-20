@@ -420,6 +420,9 @@ import JapanTaxLaw.LocalGrantRevenueBaseTests
 import JapanTaxLaw.BusinessOwnerDeduction
 import JapanTaxLaw.BusinessOwnerDeductionSpec
 import JapanTaxLaw.BusinessOwnerDeductionTests
+import JapanTaxLaw.DisasterIncomeTaxRelief
+import JapanTaxLaw.DisasterIncomeTaxReliefSpec
+import JapanTaxLaw.DisasterIncomeTaxReliefTests
 import JapanTaxLaw.StandardRateExcessRatio
 import JapanTaxLaw.StandardRateExcessRatioSpec
 import JapanTaxLaw.StandardRateExcessRatioTests

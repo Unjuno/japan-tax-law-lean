@@ -1548,6 +1548,14 @@ def checks():
            "file", None,
            ["個人の均等割の標準税率は、千円とする"])
 
+    # 災害減免法 art. 2 — DisasterIncomeTaxRelief.lean
+    yield ("災害減免法 art. 2（合計所得金額による所得税の軽減・免除の区分: 五百万円以下は全部／七百五十万円以下は十分の五／超過は十分の二・五）↔ DisasterIncomeTaxRelief.lean",
+           "322AC0000000175",
+           "article", "第二条",
+           ["合計所得金額が五百万円以下であるとき", "当該所得税の額の全部",
+            "合計所得金額が七百五十万円以下であるとき", "当該所得税の額の十分の五",
+            "合計所得金額が七百五十万円を超えるとき", "当該所得税の額の十分の二・五"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

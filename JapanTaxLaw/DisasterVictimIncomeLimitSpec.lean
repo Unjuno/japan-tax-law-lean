@@ -9,9 +9,11 @@ Statutory article: art. 2(1) condition 「合計所得金額が七百五十万�
 Normative unit: NORM|ef7f5c0f1105d358392be865c4f7bac9f076278926d6a9faa8be0e5f000d68a2
 
 The implementation states the condition as `totalIncome ≤ incomeLimit`. The spec
-uses a deliberately different formulation: `totalIncome - incomeLimit = 0`
-(truncated Nat subtraction). For Nat, `n ≤ m` iff `n - m = 0`; the kernel proves
-this equivalence for ALL incomes, not a finite sample.
+defines its OWN statutory constant `specIncomeLimit = 7_500_000` (decoded from
+the pinned 原文 七百五十万円) and uses a deliberately different formulation:
+`totalIncome - specIncomeLimit = 0` (truncated Nat subtraction). It does not
+reuse the implementation's `incomeLimit`. For Nat, `n ≤ m` iff `n - m = 0`; the
+kernel proves this equivalence for ALL incomes, not a finite sample.
 
 Boundary theorems are universal over their variables.
 
@@ -23,14 +25,20 @@ namespace JapanTaxLaw.DisasterVictimIncomeLimit
 
 open JapanTaxLaw.TaxFinance
 
-/-- Independent spec: truncated-subtraction formulation (different from ≤). -/
-def specWithinIncomeLimit (totalIncome : Money) : Prop :=
-  totalIncome - incomeLimit = 0
+/-- Independent statutory constant 七百五十万円 (7,500,000 円), decoded from the
+    pinned 原文 and defined HERE — never imported from the implementation. -/
+def specIncomeLimit : Money := 7_500_000
 
-/-- Correspondence for all incomes. Universal, kernel-checked. -/
+/-- Independent spec: truncated-subtraction formulation (different from ≤).
+    Uses only the spec's own statutory constant. -/
+def specWithinIncomeLimit (totalIncome : Money) : Prop :=
+  totalIncome - specIncomeLimit = 0
+
+/-- Correspondence for all incomes. Universal, kernel-checked.
+    (Agreement helper: may reference the implementation definition.) -/
 theorem agree_income_limit (totalIncome : Money) :
     withinIncomeLimit totalIncome ↔ specWithinIncomeLimit totalIncome := by
-  unfold withinIncomeLimit specWithinIncomeLimit
+  unfold withinIncomeLimit specWithinIncomeLimit incomeLimit specIncomeLimit
   exact Nat.sub_eq_zero_iff_le.symm
 
 /-- Boundary: income exactly at the limit satisfies the condition (closed value). -/
