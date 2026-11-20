@@ -225,7 +225,27 @@ def build() -> str:
     return "\n".join(lines)
 
 
+def require_inputs() -> bool:
+    """Refuse a coverage ledger whose intermediate build inputs are missing.
+
+    Without build/audit_sweep.json and build/cross_law.json the generator would
+    silently report 0 articles and 0 pinned modules — a false measurement that
+    can be committed and then fail the CI regeneration gate for the wrong reason.
+    """
+    missing = [p for p in (SWEEP, CROSS) if not p.exists()]
+    if missing:
+        print("FAIL coverage ledger: required generated artifacts missing: "
+              + ", ".join(str(p) for p in missing)
+              + " (regenerate with scripts/ci/sweep_gate.py and "
+                "scripts/law_audit/phase_e/cross_law.py); refusing to emit a "
+                "zero-filled ledger", file=sys.stderr)
+        return False
+    return True
+
+
 def main() -> int:
+    if not require_inputs():
+        return 1
     text = build()
     OUT_TMP.parent.mkdir(parents=True, exist_ok=True)
     OUT_TMP.write_text(text, encoding="utf-8")

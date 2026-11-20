@@ -143,7 +143,23 @@ def render():
     return "\n".join(lines)
 
 
+def require_inputs() -> bool:
+    """Refuse to emit a plausible-but-empty ledger when build inputs are absent.
+
+    A zero-filled L7 ledger is not a measurement: it would make CI drift gates
+    pass/fail for the wrong reason and could be committed as a false baseline.
+    """
+    if not SWEEP.exists():
+        print("FAIL L7 ledger: required build/audit_sweep.json is missing "
+              "(regenerate with scripts/ci/sweep_gate.py); refusing to emit "
+              "a zero-filled ledger", file=sys.stderr)
+        return False
+    return True
+
+
 def main():
+    if not require_inputs():
+        return 1
     out = render()
     OUT_TMP.parent.mkdir(parents=True, exist_ok=True)
     OUT_TMP.write_text(out, encoding="utf-8")
@@ -160,6 +176,8 @@ def main():
 
 if __name__ == "__main__":
     if sys.argv[1:] == ["--write"]:
+        if not require_inputs():
+            sys.exit(1)
         LEDGER.write_text(render(), encoding="utf-8")
         print(f"wrote {LEDGER}")
         sys.exit(0)
