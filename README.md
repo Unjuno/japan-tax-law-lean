@@ -714,6 +714,9 @@ JapanTaxLaw/ForestGrantRoundingTests.lean       # 同上 退行テスト
 JapanTaxLaw/MultiDonorDeduction.lean          # 相続税法施行令 art.5の2（特定贈与者2人以上の控除額）L4 モデル
 JapanTaxLaw/MultiDonorDeductionSpec.lean      # 同上 独立定式
 JapanTaxLaw/MultiDonorDeductionTests.lean     # 同上 退行テスト
+JapanTaxLaw/ExamFee.lean                          # 税理士法施行令 art.6の2（受験手数料）L4 モデル
+JapanTaxLaw/ExamFeeSpec.lean                      # 同上 独立定式
+JapanTaxLaw/ExamFeeTests.lean                     # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト

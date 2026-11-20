@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 43
+- with >=1 pinned literal check (semantic model): 44
 - with recorded human legal review: 0
 
 ## All laws
@@ -33,7 +33,7 @@ a completion flag.
 | `326AC1000000145` | 納税貯蓄組合法 | 326AC1000000145_20211122_503AC0000000046 | CurrentEnforced | YES | ok | 41 | NO (0) | NO |
 | `326CO0000000099` | 納税貯蓄組合法施行令 | 326CO0000000099_20191216_501CO0000000183 | CurrentEnforced | YES | ok | 14 | NO (0) | NO |
 | `326AC1000000237` | 税理士法 | 326AC1000000237_20251001_505AC0000000053 | CurrentEnforced | YES | ok | 372 | NO (0) | NO |
-| `326CO0000000216` | 税理士法施行令 | 326CO0000000216_20240401_505CO0000000146 | CurrentEnforced | YES | ok | 87 | NO (0) | NO |
+| `326CO0000000216` | 税理士法施行令 | 326CO0000000216_20240401_505CO0000000146 | CurrentEnforced | YES | ok | 87 | YES (1) | NO |
 | `326M50000040055` | 税理士法施行規則 | 326M50000040055_20260901_506M60000040025 | CurrentEnforced | YES | ok | 150 | NO (0) | NO |
 | `327CO0000000057` | 鹿児島県大島郡十島村に関する所得税法等の適用及びこれに伴う経過措置に関する政令 | 327CO0000000057_19521001_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `327AC0000000111` | 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日 | 327AC0000000111_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 62 | YES (1) | NO |

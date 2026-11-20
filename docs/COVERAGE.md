@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 43 | 327 | 13.15% |
+| laws with >=1 pinned literal check | 44 | 327 | 13.46% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 166 | n/a | n/a |
+| pinned literal checks | 167 | n/a | n/a |
 | distinct article pins | 49 | 42584 | 0.12% |
-| pinned Lean modules (cross-law) | 455 | n/a | n/a |
+| pinned Lean modules (cross-law) | 456 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 92 |
+| unpinned Lean modules (not counted as verified) | 94 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -111,6 +111,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `325CO0000000071` 相続税法施行令
 - `325CO0000000245` 地方税法施行令
 - `325M50000040017` 相続税法施行規則
+- `326CO0000000216` 税理士法施行令
 - `327AC0000000111` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法律
 - `328CO0000000407` 奄美群島の復帰に伴う国税関係法令の適用の暫定措置等に関する政令
 - `329AC0000000061` 関税法

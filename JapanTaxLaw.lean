@@ -543,3 +543,6 @@ import JapanTaxLaw.ForestGrantRoundingTests
 import JapanTaxLaw.MultiDonorDeduction
 import JapanTaxLaw.MultiDonorDeductionSpec
 import JapanTaxLaw.MultiDonorDeductionTests
+import JapanTaxLaw.ExamFee
+import JapanTaxLaw.ExamFeeSpec
+import JapanTaxLaw.ExamFeeTests
