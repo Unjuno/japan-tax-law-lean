@@ -647,3 +647,6 @@ import JapanTaxLaw.PerItemEnforcementDatesTests
 import JapanTaxLaw.DefaultBranches
 import JapanTaxLaw.DefaultBranchesSpec
 import JapanTaxLaw.DefaultBranchesTests
+import JapanTaxLaw.StatutoryDelegationAndDefinitions
+import JapanTaxLaw.StatutoryDelegationAndDefinitionsSpec
+import JapanTaxLaw.StatutoryDelegationAndDefinitionsTests
