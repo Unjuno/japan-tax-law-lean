@@ -705,6 +705,9 @@ JapanTaxLaw/ReformDoubleBasicDeductionTests.lean # 同上 退行テスト
 JapanTaxLaw/TonnageTaxPenalty.lean             # 特別とん税法 art.10（罰則の数値上限）L4 モデル
 JapanTaxLaw/TonnageTaxPenaltySpec.lean         # 同上 独立定式
 JapanTaxLaw/TonnageTaxPenaltyTests.lean        # 同上 退行テスト
+JapanTaxLaw/CertFee.lean                     # 関税法施行令 art.7（証明書類交付手数料）L4 モデル
+JapanTaxLaw/CertFeeSpec.lean                 # 同上 独立定式
+JapanTaxLaw/CertFeeTests.lean                # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト
