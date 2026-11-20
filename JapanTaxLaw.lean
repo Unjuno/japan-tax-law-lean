@@ -515,3 +515,6 @@ import JapanTaxLaw.TobaccoTaxFixedAmountTests
 import JapanTaxLaw.RoadGrantAllocation
 import JapanTaxLaw.RoadGrantAllocationSpec
 import JapanTaxLaw.RoadGrantAllocationTests
+import JapanTaxLaw.WeightTaxTransfer
+import JapanTaxLaw.WeightTaxTransferSpec
+import JapanTaxLaw.WeightTaxTransferTests
