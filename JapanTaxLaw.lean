@@ -590,3 +590,6 @@ import JapanTaxLaw.VehicleDisplacementBandsTests
 import JapanTaxLaw.LocalGrantAmountBands
 import JapanTaxLaw.LocalGrantAmountBandsSpec
 import JapanTaxLaw.LocalGrantAmountBandsTests
+import JapanTaxLaw.LocalGrantIndexBands
+import JapanTaxLaw.LocalGrantIndexBandsSpec
+import JapanTaxLaw.LocalGrantIndexBandsTests
