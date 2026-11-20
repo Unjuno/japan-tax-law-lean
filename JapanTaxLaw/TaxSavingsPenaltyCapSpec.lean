@@ -28,7 +28,8 @@ def specWithin (amount : Nat) : Bool := amount <= specPenaltyCap
 /-- Kernel-checked agreement of the independent formula with the impl. -/
 theorem agree_penalty_cap (amount : Nat) :
     withinPenaltyCap amount = specWithin amount := by
-  simp [withinPenaltyCap, specWithin, specPenaltyCap, penaltyCap]
+  unfold withinPenaltyCap specWithin penaltyCap specPenaltyCap
+  rfl
 
 /-- Finite Bool agreement grid over the threshold neighbourhood. -/
 def agreePenaltyCap : Bool :=
