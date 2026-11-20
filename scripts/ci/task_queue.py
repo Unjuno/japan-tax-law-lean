@@ -77,6 +77,7 @@ def iter_articles(node, path=()):
 def build_tasks(inv: dict) -> list[dict]:
     laws = inv.get("laws", [])
     law_index = core.build_law_index(laws)
+    law_versions = core.build_law_version_index(laws)
     tasks: list[dict] = []
     for law in laws:
         lid = law.get("law_id", "")
@@ -118,7 +119,7 @@ def build_tasks(inv: dict) -> list[dict]:
                 continue
             record = core.decompose_article(
                 article, lid, rev or f"HISTORY_UNKNOWN:{source_sha}", anum,
-                enforcement, law_index, outer_path=path,
+                enforcement, law_index, outer_path=path, law_versions=law_versions,
             )
             for unit in record["units"]:
                 unit.update({
