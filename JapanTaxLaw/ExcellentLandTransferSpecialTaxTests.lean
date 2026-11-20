@@ -28,4 +28,17 @@ example : excellentLandGainTax ⟨true, true, true, true⟩ 1 ≤
 example : excellentLandGainTax ⟨true, true, true, true⟩ 0 = 0 :=
   excellentLandGainTax_zero ⟨true, true, true, true⟩ (by decide)
 
+-- ==== required boundary coverage (kernel-decided; values recomputed from art. 31の2(1)) ====
+-- (a) zero input: 0 → 10% of 0 = 0
+example : excellentLandGainTax ⟨true, true, true, true⟩ 0 = 0 := by decide
+-- (b) small positive inputs 1..13: floor(gain × 10 / 100)
+--     1, 9 → 0 (below ¥10); 10, 13 → 1
+example : excellentLandGainTax ⟨true, true, true, true⟩ 1 = 0 := by decide
+example : excellentLandGainTax ⟨true, true, true, true⟩ 9 = 0 := by decide
+example : excellentLandGainTax ⟨true, true, true, true⟩ 10 = 1 := by decide
+example : excellentLandGainTax ⟨true, true, true, true⟩ 13 = 1 := by decide
+-- (c) saturation/identity: floor rounding sends sub-¥10 taxable gains to ¥0
+--     (result equals 0 — a genuine saturating floor boundary)
+example : excellentLandGainTax ⟨true, true, true, true⟩ 5 = 0 := by decide
+
 end JapanTaxLaw

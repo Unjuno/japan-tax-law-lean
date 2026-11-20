@@ -31,6 +31,17 @@ class ClauseCorrespondenceTests(unittest.TestCase):
         ok, basis = ve.clause_correspondence(set(), "全く別の条文の文言。", [needle])
         self.assertFalse(ok, "a needle in another clause must not qualify this clause")
 
+    def test_rate_table_requires_two_independent_anchors(self):
+        clause = "第一号 百分の十の税率を課する。"
+        scoped = clause + "第二号 百分の二十の税率を課する。"
+        ok, basis = ve.clause_correspondence({10, 100, 20}, clause, ["百分の十"], scoped)
+        self.assertTrue(ok)
+        self.assertIn("scoped article", basis)
+        # needle in clause but a missing table literal must fail
+        self.assertFalse(ve.clause_correspondence({10, 100, 30}, clause, ["百分の十"], scoped)[0])
+        # all literals present but no needle in this clause must fail
+        self.assertFalse(ve.clause_correspondence({10, 100, 20}, clause, ["別の条"], scoped)[0])
+
     def test_no_needle_and_no_literals_is_not_source_correspondence(self):
         ok, _ = ve.clause_correspondence(set(), "いずれの needle もない文言。", [])
         self.assertFalse(ok)
