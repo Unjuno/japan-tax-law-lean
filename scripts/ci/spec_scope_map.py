@@ -33,9 +33,12 @@ OUT = REPO / "data" / "SPEC_SCOPE_MAP.json"
 
 # "art. 21-7", "Art. 89(1)", "第26条", "art. 4の5"
 ARTICLE_DECL = re.compile(
-    r"\b(?:art\.?|article)\s*([0-9０-９]+(?:[-の][0-9０-９]+)?)"
+    # Japanese statutes branch repeatedly: 72の49の14, 21の3の二, 9の3の2の1.
+    # Truncating at the first branch wrongly rejected units that a spec really
+    # does model (e.g. BusinessOwnerDeduction art. 72の49の14 became 72_49).
+    r"\b(?:art\.?|article)\s*([0-9０-９]+(?:[-の][0-9０-９]+)*)"
     r"|第\s*([0-9０-９一二三四五六七八九十百千〇零]+)\s*条"
-    r"(?:の\s*([0-9０-９一二三四五六七八九十百千〇零]+))?",
+    r"((?:の\s*[0-9０-９一二三四五六七八九十百千〇零]+)*)",
     re.IGNORECASE,
 )
 LAW_ID_DECL = re.compile(r"\b([0-9]{3}[A-Z]{2}[0-9]{10})\b")
@@ -47,9 +50,9 @@ def article_key(label: str) -> str:
     s = str(label).translate(str.maketrans("０１２３４５６７８９", "0123456789"))
     if s.isdigit():
         return s
-    m = re.match(r"^([0-9]+)[-の]([0-9]+)$", s)
-    if m:
-        return f"{int(m.group(1))}_{int(m.group(2))}"
+    parts = re.split(r"[-の]", s)
+    if len(parts) > 1 and all(p.isdigit() for p in parts):
+        return "_".join(str(int(p)) for p in parts)
     return core.article_key(s)
 
 
@@ -63,7 +66,11 @@ def declared_scope(spec_source: str) -> dict:
     header = leading_comment(spec_source)
     articles: set[str] = set()
     for m in ARTICLE_DECL.finditer(header):
-        raw = m.group(1) or (m.group(2) + (("の" + m.group(3)) if m.group(3) else ""))
+        if m.group(1):
+            raw = m.group(1)
+        else:
+            branches = re.findall(r"の\s*([0-9０-９一二三四五六七八九十百千〇零]+)", m.group(3) or "")
+            raw = m.group(2) + "".join("の" + b for b in branches)
         articles.add(article_key(raw))
     rev_ids = REVISION_DECL.findall(header)
     law_ids = set(LAW_ID_DECL.findall(header))
