@@ -61,6 +61,24 @@ class NumeralTests(unittest.TestCase):
         self.assertEqual(ve.article_from_name("相続税法 art. 21-5 ↔ Y.lean"), "21_5")
 
 
+class ArticleResolutionTests(unittest.TestCase):
+    def test_kanji_article_labels_become_egov_num_keys(self):
+        self.assertEqual(ve.normalize_article("第九条の三の二"), "9_3_2")
+        self.assertEqual(ve.normalize_article("第七十条の二の五"), "70_2_5")
+        self.assertEqual(ve.normalize_article("第六十六条"), "66")
+
+    def test_ascii_num_keys_are_preserved(self):
+        self.assertEqual(ve.normalize_article("72_49_14"), "72_49_14")
+        self.assertEqual(ve.normalize_article("21_5"), "21_5")
+
+    def test_kanji_cited_checks_resolve_to_scoped_articles(self):
+        mods = ve.checks_by_module()
+        for base in ("ListedDividendWithholding", "SpecialGiftRate"):
+            info = mods[base]
+            self.assertRegex(info["article"], r"^[0-9_]+$", base)
+            self.assertGreater(len(ve.scoped_article_text(info["law_id"], info["article"])), 50, base)
+
+
 class AdversarialReviewTests(unittest.TestCase):
     def test_parallel_review_files_recognise_modules(self):
         mods = ["DelinquencyTax", "UnreportedSurcharge", "GiftAddBack",

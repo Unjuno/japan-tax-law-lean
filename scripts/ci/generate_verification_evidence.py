@@ -341,12 +341,46 @@ def review_ok(base: str, review_text: str) -> bool:
 
 
 def article_from_name(name: str) -> str:
-    """Derive the e-Gov `Num` key from a human check name when `art` is None."""
-    m = re.search(r"art\.\s*([0-9０-９]+(?:[-の_][0-9０-９]+)*)", name)
+    """Derive the e-Gov `Num` key from a human check name when `art` is None.
+
+    Check names use BOTH ascii (art. 72の49の14) and kanji (第九条の三の二)
+    numerals. The pinned JSON stores `Num` as ascii branch numbers, so kanji
+    segments must be converted, e.g. 第九条の三の二 -> 9_3_2.
+    """
+    m = re.search(r"art\.\s*([^\s（(↔]+)", name)
     if not m:
         return ""
-    return m.group(1).translate(str.maketrans("０１２３４５６７８９", "0123456789")) \
-        .replace("の", "_").replace("-", "_")
+    token = m.group(1).strip("。、")
+    segments = re.split(r"[の_\-]", token)
+    out = []
+    for seg in segments:
+        if not seg:
+            continue
+        seg = seg.translate(str.maketrans("０１２３４５６７８９", "0123456789"))
+        if seg.isdigit():
+            out.append(str(int(seg)))
+        else:
+            try:
+                out.append(str(_kanji_int(seg)))
+            except ValueError:
+                return ""
+    return "_".join(out) if out else ""
+
+
+def normalize_article(art: str) -> str:
+    """Convert a check's article label to the e-Gov `Num` key.
+
+    Checks cite either `72_49_14` (already a Num) or a kanji label such as
+    `第九条の三の二`. The latter must become `9_3_2` before `scoped_article_text`
+    compares against the pinned JSON's numeric `Num` attribute.
+    """
+    if not art:
+        return ""
+    art = art.strip()
+    if re.fullmatch(r"[0-9０-９_]+", art):
+        return art.translate(str.maketrans("０１２３４５６７８９", "0123456789"))
+    body = art.replace("第", "").replace("条", "").replace("　", "")
+    return article_from_name("art. " + body)
 
 
 def checks_by_module():
@@ -361,7 +395,7 @@ def checks_by_module():
         base = m.group(1)
         if base.endswith("Spec") or base.endswith("Tests"):
             continue
-        article = core.article_key(art or article_from_name(name)) if (art or article_from_name(name)) else ""
+        article = normalize_article(art) if art else article_from_name(name)
         if not article:
             continue
         out.setdefault(base, {"law_id": law_id, "article": article, "needles": needles})
