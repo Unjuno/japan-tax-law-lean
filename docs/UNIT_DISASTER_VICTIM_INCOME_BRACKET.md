@@ -3,7 +3,7 @@
 Normative unit id: `NORM|8746221ba19978635b4364ecd7d12d09b01c13aea26958c14ab66b4f027ec141`
 
 Law: 322CO0000000268 (災害被害者租税減免等施行令; verbatim official title
-昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴税猶予等に
+昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に
 関する法律の施行に関する政令）), law number 昭和二十二年政令第二百六十八号,
 law_type CabinetOrder (政令), revision `322CO0000000268_20251201_507CO0000000120`
 (derived from INVENTORY `current_revision.law_revision_id`, matched against the

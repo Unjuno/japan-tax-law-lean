@@ -1270,6 +1270,17 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が四百五十万円を超え六百万円以下である被災給与所得者"])
 
+    # 災害被害者租税減免等施行令 附則第三条(5)第三号 — DisasterVictimRemunerationBracket.lean
+    # Norm unit NORM|8fb64d19e0267aac50775840f08f843558b85e1e81cef3bd11e4d9ce19aece9e
+    # Needle is in a 附則 (SupplProvision) article. Verified: find_article_text(...,"第三条")
+    # returns a DIFFERENT main-provision article (len 106) that does NOT contain the needle;
+    # the needle is verbatim-unique in the whole law, so use the file-kind locator.
+    # Revision from INVENTORY; Lean quote byte-checked against the queue needle.
+    yield ("災害被害者租税減免等施行令 附則第三条(5)第三号（災害時の合計所得金額の見積額が四百万円を超え四百五十万円以下である報酬等の支払を受ける者）↔ DisasterVictimRemunerationBracket.lean (lowerBoundYen 4000000 / upperBoundYen 4500000)",
+           "322CO0000000268",
+           "file", None,
+           ["災害時の合計所得金額の見積額が四百万円を超え四百五十万円以下である報酬等の支払を受ける者"])
+
     # 関税定率法施行令 art.1の2(1)第三号 — CustomsDutiableValueThreshold.lean
     # Norm unit NORM|347d0d0ebd32cab1a2f5054abe7a87ebe56cae34b125a2481f38c63e5cf05723
     # Needle is in MainProvision Article 第一条の二 (attr Num=1_2, Item 3). Adversarial
