@@ -509,3 +509,6 @@ import JapanTaxLaw.RefundRoundingTests
 import JapanTaxLaw.CustomsStorageFee
 import JapanTaxLaw.CustomsStorageFeeSpec
 import JapanTaxLaw.CustomsStorageFeeTests
+import JapanTaxLaw.TobaccoTaxFixedAmount
+import JapanTaxLaw.TobaccoTaxFixedAmountSpec
+import JapanTaxLaw.TobaccoTaxFixedAmountTests

@@ -3795,3 +3795,111 @@ run 後に削除、repo には残していない。
 - 残る UNRESOLVED（U-Y1 入力側の算定／U-Y2 §1/§2 と §4 の適用順序）は、いずれも pinned 原文のみでは解けない法的判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・数値／算術の独立抽出と再計算・needle の直接検証・整数式の反例走査・`#print axioms` 公理監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって人間の法的レビューを完了したものとはみなさない。
+
+
+## Batch Z review (2026-11-20)
+
+対象: `JapanTaxLaw/CustomsStorageFee.lean`（関税法施行令 art.70の3／法 329CO0000000150）と対応 `CustomsStorageFeeSpec.lean` / `CustomsStorageFeeTests.lean`。一次資料: `data/raw/329CO0000000150_20260701_508CO0000000217.law.json` の `Article[Num=70_3]`（pinned、改変せず）。coordinator 要約・STAGING の数値は信じず、pinned JSON を Python で直接 parse して独立抽出した。
+
+### Z-1. pinned 原文の独立抽出と数値照合
+
+- `law_full_text` を CI `transcription_audit.py` の `text()` と同一ロジックで平坦化し、`Article[Num=70_3]` のリーフを連結。独立抽出結果: **240 文字、U+3000 = 0**（doc-comment の「240 chars / U+3000 count 0」と一致）。
+- §2 原文（逐語、強調のみ付与）: 「前項に規定する保管に要した費用の額は、収容貨物の保管の場所が法第八十条の二第三項本文（収容の方法）に規定する場所である場合には、その保管期間**一日**につき、収容貨物の重量**一トン**又は容積**一立方メートルまでごとに百八十円**とする。」
+- 原文から直接抽出した数値・算術要素:
+  - 保管期間「一日につき」→ 日数倍（per-day）。
+  - 重量「一トン」／容積「一立方メートル」→ 1 単位あたり。
+  - 「までごとに」→ 1 トン（1 m³）未満も 1 単位として数える切り上げ。
+  - 金額「百八十円」→ 漢数字を独立変換（`百=100` + `八十=80`）して **180**。
+- Lean 定数との照合:
+
+| 原文 | 独立換算 | Lean 定数／定義 | 判定 |
+|---|---|---|---|
+| 百八十円 | 180 | `unitRate : Money := 180` | 一致（桁違いなし） |
+| 一日につき | 日数倍 | `storageFee = days * …` | 一致 |
+| 一トン／一立方メートルまでごとに | 端数>0 なら +1（ceil） | `chargeableUnits = if frac = 0 then whole else whole + 1` | 一致 |
+| 上記の合成 | 日数 × ceil(トン数) × 180 | `storageFee = days * chargeableUnits … * unitRate` | 一致 |
+
+- `Money = Nat`（`TaxFinance.lean`）で任意精度のため、Nat 乗算の桁あふれリスクなし。
+
+### Z-2. 独立判定（算術の中核）
+
+- `chargeableUnits(whole, frac)` は `frac = 0` なら `whole`、そうでなければ `whole + 1` を返す。`whole` をトン（m³）の整数部、`frac` を 0 超 1 未満の端数と解釈すると、これは `ceil(whole + frac)` に等しく、「一トンまでごとに」の切り上げを正しく実装している（1 トン未満 `whole=0, frac>0` は 1 単位、0 トン `whole=frac=0` は 0 単位）。`frac` を一般の Nat としても `frac ≠ 0 → +1` は「端数あり」判定として機能する。
+- `storageFee = days × chargeableUnits × 180` は原文「一日につき…までごとに百八十円」の乗算構造と一致。乗算順序の違いは可換で金額に影響しない。
+- **180 円の桁違い・切り捨て誤りは検出されず。**
+
+### Z-3. needle 健全性（CI 実装を直接検証）
+
+STAGING の申告ではなく `scripts/ci/transcription_audit.py` の `checks()` を Python で import し、`law_id = 329CO0000000150` の check（kind `file`、check 名 `CustomsStorageFee.lean`）に組み込まれた needle を抽出。pinned 正規化テキスト（`_norm()` = `re.sub(r"[\s　]+", "", …)`、CI と同一条件）に対して `.find()` / `.count()` を実行した。
+
+| 項目 | 結果 |
+|---|---|
+| check 数 | 1（CustomsStorageFee.lean） |
+| needle 総数 | **2**（指定どおり） |
+| U+3000（全角空白）を含む needle | **0 件** |
+| `.find()` | 2/2 FOUND（MISS 0） |
+| `.count()` | 全 needle で **1**（一意） |
+| 正規化テキスト上の offset | 125246 / 125345（長さ 97 / 109 文字） |
+
+- needle 1 は §1 全体、needle 2 は §2 全体（いずれも末尾の句点「。」を除く連続文字列）を逐語保持。
+- CI ゲートを実実行: `python scripts/ci/transcription_audit.py` → **exit code 0、151/151 checks passed**（CustomsStorageFee.lean も PASS）。
+
+### Z-4. 反例探索（境界走査）
+
+独立参照モデル `ref_fee = days × (frac=0 ? whole : whole+1) × 180` に対し、Lean 定義と同じ整数式を全走査で比較。
+
+| パラメータ | 値 |
+|---|---|
+| days | 0 / 1 / 2 / 3 / 10 |
+| whole | 0 / 1 / 2 / 5 / 10 |
+| frac | 0 / >0（端数あり代表） |
+| ケース数 | **50** |
+| 不一致 | **0** |
+
+境界の明示:
+- `days = 0` → 0（日数 0）。
+- `whole = 0, frac > 0` → 1 単位（1 トン未満も 1 トン）→ 例 `storageFee 1 0 1 = 180`。
+- `whole = 0, frac = 0` → 0（トン数 0）。
+- `frac = 0` → 切り上げなし（`storageFee 1 1 0 = 180`）。
+- `frac > 0` → +1（`storageFee 1 1 1 = 360`）。
+- 既存 example/test の数値も独立再計算し一致: `storageFee 3 2 0 = 1080`、`storageFee 0 5 3 = 0`、`storageFee 7 10 5 = 13860`（= 7 × 11 × 180）。
+
+### Z-5. 公理監査
+
+- 一時 Lean ファイルに 3 モジュールの**名前付き宣言 6 件**（impl: `unitRate` / `chargeableUnits` / `storageFee`、Spec: `specUnits` / `specFee` / `agreeCustomsStorageFee`、Tests: 名前付き宣言なし＝全て匿名 `example`）を列挙し `#print axioms` を実行（`lake env lean`、exit code **0**、error 0）。
+
+| 公理 | 件数 |
+|---|---|
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件**（許容範囲内） |
+
+→ 6/6 宣言が `does not depend on any axioms`。禁止公理は一切検出されず。監査後、一時ファイル・一時スクリプトは削除済み。
+
+### Z-6. 分類
+
+#### CONFIRMED（原文との食い違い／バグ:**0 件＝ゼロ**）
+
+- **ゼロ。** 金額不一致・桁違い・切り上げ誤り・needle MISS・公理混入・反例矛盾はいずれも検出されなかった。件数を手柄にしない。
+
+#### BY-DESIGN（3 件）
+
+- **B-Z1** §1 は費用の範囲定義（保管・運搬・公告・通信費）であり、金額算術は §2 の保管費のみ。運搬費・公告費・通信費の具体額は原文に数値がなく NOT MODELLED（doc-comment どおり）。
+- **B-Z2** §3 は art.70の2 第2項（重量により算出した額と容積により算出した額が異なるときは多い額を収容課金とするルール）を保管費に準用する。モデルは重量／容積の選択を caller-established とし、この「多い額採用」ルールを NOT MODELLED としている（doc-comment どおり）。金額式自体は選択された basis に対して成立し矛盾なし。
+- **B-Z3** 入力（保管日数・重量/容積の整数部と端数・収容場所の該当性）は caller-established。Bool を金額式に入れず、入力確定は呼び出し側責任（doc-comment どおり）。
+
+#### UNRESOLVED（2 件）
+
+- **U-Z1** 「一トンまでごとに」の切り上げ解釈（端数>0 なら +1）は標準的読解として原文と整合し、機械的照合も一致した。ただし法的解釈の最終判断は人間の法律専門家に委ねる（本レビューは解釈を確定しない）。
+- **U-Z2** doc-comment は §3 の準用内容を「端数処理の準用内容」と表現するが、pinned 原文上 §3 が準用する art.70の2 第2項は「重量額と容積額の多い額を採用する」ルールであり、端数処理そのものではない。**記述の緩み**であって金額式の誤りではないが、準用範囲の正確な把握は人間の法律専門家による確認を要する。
+
+### Z-7. 総合判定・最終報告（サマリ）
+
+- pinned 原文から独立抽出した 240 文字・3 項の数値／算術（一日あたり・一トン／一立方メートルまでごとに・百八十円=180）を、coordinator 要約／STAGING／doc-comment に依存せず再計算して照合。**桁違い・切り上げ誤りは検出されなかった。**
+- **CONFIRMED: 0 件（ゼロ）／BY-DESIGN: 3 件／UNRESOLVED: 2 件。** 件数を手柄にしない。
+- **needle 健全性**: 2 本、U+3000 **0 本**、pinned 正規化テキスト **2/2 FOUND**（MISS 0、すべて count 1）。CI ゲート 151/151 PASS（exit 0）。
+- **反例探索**: 境界を含む **50 ケースで不一致 0 件**。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` = **0 件**、`propext` も **0 件**。6/6 宣言を走査、exit code 0。監査用一時ファイルは削除済み。
+- **追記完了**: 本セクション `## Batch Z review (2026-11-20)` を `docs/ADVERSARIAL_REVIEW.md` 末尾に追記（coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に整合）。既存セクションはすべて保持。Lean モジュール／Spec／Tests／`data/*` は一切変更せず、commit / push / merge / ブランチ切替は行っていない。解析用一時ファイルはすべて削除済み。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・数値／算術の独立抽出と再計算・needle の `.find()` 検証・整数式の反例走査・`#print axioms` 公理監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって人間の法的レビューを完了したものとはみなさない。
