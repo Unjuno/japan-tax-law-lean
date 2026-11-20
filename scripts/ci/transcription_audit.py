@@ -1151,6 +1151,12 @@ def checks():
            "article", "第十一条",
            ["一年以下の拘禁刑又は五十万円以下の罰金に処する"])
 
+    # MultiDonorDeduction — cycle-24
+    yield ("MultiDonorDeduction.lean",
+           "325CO0000000071",
+           "file", None,
+           ["六十万円に、特定贈与者ごとの贈与税の課税価格が当該課税価格の合計額のうちに占める割合を乗じて計算するものとする", "法第二十一条の十一の二第一項の規定により控除する金額は、特定贈与者の異なるごとに"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
