@@ -28,18 +28,31 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_20/Article#72_20/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalAddedValueStandardTests.lean sha256=f8354718e7a135a3681e9d3a0fc99e3e2715ed7c025f299b51e9cddf1c9715d8 (20 kernel-decided examples)"
     },
+    "NORM|13ca7436618900441d6024641c3b92dbf2a9f48c038cee0927fb04970d4b22c6": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
+      "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/LocalTobaccoTaxRate.lean sha256=84d52e3d0eba83991a71d33d33a7eb69ba316ca09df4fef3b214fa8be351aa68",
+      "independent_spec": "JapanTaxLaw/LocalTobaccoTaxRateSpec.lean sha256=f291f36e6e9a6fb904f4fa394b0efe19e9d5d58d720e7adb81f92868f2a10e84 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44684783591: commit 0b6e084f68c35511d586b601692180ceac28a5dc, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "statutory boundary constant 十二 present in 原文 and in both spec and kernel-checked implementation",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: independent kanji literals ['千七十'] located in 原文; needles scoped",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:74_5/Article#74_5/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/LocalTobaccoTaxRateTests.lean sha256=58515eb86e66fcdffd97c7a01a36f88b897c78812156fa531fb5ae25b1b944f5 (11 kernel-decided examples)"
+    },
     "NORM|167b8cabf184adb595d75baba5ffbf319ec3c502be8a820858e8c493b09f57d7": {
       "adversarial_review": "docs/GIFT_21_5_VERIFICATION.md#4-adversarial-review-separate-from-the-implementer H/T/D/C/U recorded",
       "boundary_proof": "GiftTax.lean giftTax_zero_below_deduction (kernel decided); spec boundary examples at 0/2M/3M/4M/6M/10M/15M/30M yen",
       "cross_law_proof": "queue unit dependencies=[]; independent check in docs/GIFT_21_5_VERIFICATION.md#4 records no cross-law relation for this unit",
       "decomposition_audit": "docs/GIFT_21_5_VERIFICATION.md#1-source-independent-extraction; queue unit text located verbatim in the pinned article",
-      "implementation": "",
-      "independent_spec": "",
+      "implementation": "JapanTaxLaw/GiftTax.lean sha256=d6143c80188db2c66ffb397a3b84f38dd53c64e7333862141205a9e0fb9435fd",
+      "independent_spec": "JapanTaxLaw/GiftTaxSpec.lean sha256=453d34aa1fb94ddd81fc9cb27978b695836998c4cbd60cf3c4c7196daf32fb4f",
       "kernel_proof": "lake build JapanTaxLaw.GiftTaxSpec + lake env lean gift_axioms.lean: agreeGiftTax and spec_impl_basic_deduction_agree depend on no axioms; see docs/GIFT_21_5_VERIFICATION.md#3",
       "proof_scope": "docs/GIFT_21_5_VERIFICATION.md#3 grid-based agreement is a scoped claim, not universal; documented scope limits in GiftTax.lean",
       "source_correspondence_audit": "python scripts/ci/source_correspondence.py (D=PASS, verbatim_located=true, amounts_in_source=[600000]) recorded in docs/GIFT_21_5_VERIFICATION.md#2",
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:21_5/Paragraph#1/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7",
-      "tests": ""
+      "tests": "JapanTaxLaw/GiftTaxTests.lean sha256=725c5b29a5cb14f99245c2f37a386cab37151754ca2c5390c61ab849f157a839; lake build JapanTaxLaw.GiftTaxTests succeeded"
     },
     "NORM|2bb1ca3263f7e9d5364bf3f9a4f429da2445559f7f9cfbabfaf5db5e5d2a3b31": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
@@ -79,6 +92,32 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: independent kanji literals ['七十五', '百'] located in 原文; needles scoped",
       "source_location": "data/raw/325AC0000000211_20261102_508AC0000000062.law.json#LawBody[1]/MainProvision/MainProvision[15]/Article:14/Article#14/Paragraph#2/ParagraphSentence/Sentence#1 sha256=151df453a55442acb1cdca91f420bc5f7b04b914b85d86b575311ff6e3a7cd95 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalGrantRevenueBaseTests.lean sha256=444750e52499a800d4637a435546efe3aeaef76f0bd00453ef2153152525dd32 (31 kernel-decided examples)"
+    },
+    "NORM|89a8b5e3962e7db358a45105bea6669582c82591554b65860296e9fc58cc71cf": {
+      "adversarial_review": "docs/SOURCE_AUDIT_DISASTER_INCOME_20261120.md SRC-DIT-1 H/T/D/C/U",
+      "boundary_proof": "DisasterIncomeThresholdSpec.lean at_threshold / just_above_threshold (5,000,000 / 5,000,001)",
+      "cross_law_proof": "所得税法 art.22 total income is caller-established (resolved dependency recorded in queue)",
+      "decomposition_audit": "build/task_queue.json: exact reconstruction of the unit span; norm_type CONDITION",
+      "implementation": "JapanTaxLaw/DisasterIncomeThreshold.lean inFirstBand (≤ comparison)",
+      "independent_spec": "JapanTaxLaw/DisasterIncomeThresholdSpec.lean specFirstBand (¬ threshold < income)",
+      "kernel_proof": "CI Lean build + axiom audit; agree_disaster_income_threshold universal theorem",
+      "proof_scope": "DisasterIncomeThresholdSpec.lean downward_closed + explicit non-modelled scope in impl docs",
+      "source_correspondence_audit": "docs/SOURCE_AUDIT_DISASTER_INCOME_20261120.md#Reproduction (needle present, unique to art 2)",
+      "source_location": "docs/SOURCE_AUDIT_DISASTER_INCOME_20261120.md#Provenance (art 2(1), pin sha256 verified)",
+      "tests": "JapanTaxLaw/DisasterIncomeThresholdTests.lean boundary examples"
+    },
+    "NORM|9090b882bace49ea0dbb6a5727ff30fdf0fee04c11a037c87261bd947462e9ce": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch AH: independent pinned re-extraction; H/T/D/C/U recorded",
+      "boundary_proof": "JapanTaxLaw/PerCapitaEqualRateTests.lean: 11 kernel-decided examples incl. 0/1/11/12/13",
+      "cross_law_proof": "unit dependencies=0; revision=325AC0000000226_20261101_508AC0000000002 from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/PerCapitaEqualRate.lean sha256=1cdf12021656692a13f4d17e86fcc1a4ffdb60f1d6e001c98a7b3387d6c0c46f",
+      "independent_spec": "JapanTaxLaw/PerCapitaEqualRateSpec.lean sha256=8026c023d155eab37545eb12637c71a6ff3140fb2990e7dfb8d106f7c3839f57 (spec* defs, no implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44707322412 commit 47be17c: Lean job success, 3 blob hashes re-verified",
+      "proof_scope": "千 (=1000) re-extracted from 原文 and present in both impl and independent spec definitions",
+      "source_correspondence_audit": "scripts/ci/generate_per_capita_evidence.py: independent 1000->千 re-extracted from pinned 原文; needle scoped",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:38/Article#38/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit in scoped main art.38)",
+      "tests": "JapanTaxLaw/PerCapitaEqualRateTests.lean sha256=ae64a6d6e3bfb463b149ea4be1fa147ac015cc761beb51ef4064a9e2c740e68f (11 kernel-decided examples)"
     },
     "NORM|99061309435f403e991be4370b1f7f7970c0769f7b3d705d98e00de8673ed91b": {
       "adversarial_review": "docs/ADVERSARIAL_AVIATION_FUEL_TAX_RATE_11.md — independent agent found fabricated 免税点 provision, missing review artifact and weak needle (no terminal 。); all fixed before this flag was set. Universal induction, pin and axiom claims survived challenge.",

@@ -6,7 +6,7 @@ A whole-text numeric match is NOT article-level verification. This is a
 source-fidelity diagnostic (D=PASS means needle in stated article only),
 never a completion gate or a semantic/legal claim.
 
-- checks with article/table-cell scoped needles: 161
+- checks with article/table-cell scoped needles: 170
 - checks with no scoped unit: 0
 
 | law_id | stated article | needle hits | scoped positions | D |
@@ -24,6 +24,7 @@ never a completion gate or a semantic/legal claim.
 | `332AC0000000026` | 第八十七条の二 | 4 | 10 | PASS |
 | `332AC0000000026` | 第九条の三の二 | 3 | 6 | PASS |
 | `332AC0000000026` | 第三十一条の三 | 4 | 8 | PASS |
+| `332AC0000000026` | 第三十一条の二 | 4 | 8 | PASS |
 | `332AC0000000026` | 第七十条の二の五 | 4 | 6 | PASS |
 | `332AC0000000026` | 第九十一条 | 8 | 14 | PASS |
 | `340AC0000000034` | 第六十七条 | 9 | 21 | PASS |
@@ -128,6 +129,12 @@ never a completion gate or a semantic/legal claim.
 | `329CO0000000164` | (file-level) | 3 | 4 | PASS |
 | `430AC0000000016` | 第十五条 | 2 | 2 | PASS |
 | `327AC0000000111` | 第十一条 | 2 | 2 | PASS |
+| `431AC0000000003` | (file-level) | 2 | 4 | PASS |
+| `325CO0000000071` | (file-level) | 2 | 4 | PASS |
+| `326CO0000000216` | (file-level) | 2 | 4 | PASS |
+| `327CO0000000125` | (file-level) | 2 | 4 | PASS |
+| `326AC1000000145` | (file-level) | 2 | 4 | PASS |
+| `337CO0000000097` | (file-level) | 2 | 3 | PASS |
 | `340AC0000000033` | (file-level) | 4 | 16 | PASS |
 | `332CO0000000043` | (file-level) | 4 | 10 | PASS |
 | `337M50000008017` | (file-level) | 2 | 8 | PASS |
@@ -135,6 +142,7 @@ never a completion gate or a semantic/legal claim.
 | `332AC0000000026` | (file-level) | 5 | 10 | PASS |
 | `332CO0000000043` | (file-level) | 4 | 11 | PASS |
 | `325AC0000000226` | (file-level) | 4 | 6 | PASS |
+| `325AC0000000226` | (file-level) | 2 | 2 | PASS |
 | `325CO0000000245` | (file-level) | 8 | 14 | PASS |
 | `325CO0000000245` | (file-level) | 4 | 9 | PASS |
 | `340AC0000000033` | (file-level) | 3 | 15 | PASS |
@@ -172,3 +180,4 @@ never a completion gate or a semantic/legal claim.
 | `143AC0000000054` | 第四条 | 6 | 23 | PASS |
 | `143AC0000000054` | 第四条の五 | 4 | 13 | PASS |
 | `325AC0000000226` | 第三十五条 | 2 | 2 | PASS |
+| `325AC0000000226` | (file-level) | 2 | 2 | PASS |

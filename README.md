@@ -708,6 +708,24 @@ JapanTaxLaw/TonnageTaxPenaltyTests.lean        # 同上 退行テスト
 JapanTaxLaw/CertFee.lean                     # 関税法施行令 art.7（証明書類交付手数料）L4 モデル
 JapanTaxLaw/CertFeeSpec.lean                 # 同上 独立定式
 JapanTaxLaw/CertFeeTests.lean                # 同上 退行テスト
+JapanTaxLaw/ForestGrantRounding.lean            # 森林環境譲与税法 art.31（譲与額の千円未満端数処理）L4 モデル
+JapanTaxLaw/ForestGrantRoundingSpec.lean        # 同上 独立定式
+JapanTaxLaw/ForestGrantRoundingTests.lean       # 同上 退行テスト
+JapanTaxLaw/MultiDonorDeduction.lean          # 相続税法施行令 art.5の2（特定贈与者2人以上の控除額）L4 モデル
+JapanTaxLaw/MultiDonorDeductionSpec.lean      # 同上 独立定式
+JapanTaxLaw/MultiDonorDeductionTests.lean     # 同上 退行テスト
+JapanTaxLaw/ExamFee.lean                          # 税理士法施行令 art.6の2（受験手数料）L4 モデル
+JapanTaxLaw/ExamFeeSpec.lean                      # 同上 独立定式
+JapanTaxLaw/ExamFeeTests.lean                     # 同上 退行テスト
+JapanTaxLaw/DutyFreeTransfer.lean                 # 関税法施行令 art.12（免税物品譲渡の18,000円閾値）L4 モデル
+JapanTaxLaw/DutyFreeTransferSpec.lean             # 同上 独立定式
+JapanTaxLaw/DutyFreeTransferTests.lean            # 同上 退行テスト
+JapanTaxLaw/SavingsDepositInterest.lean            # 納税貯蓄組合法 art.8（十万円閾値の非課税例外）L4 モデル
+JapanTaxLaw/SavingsDepositInterestSpec.lean        # 同上 独立定式
+JapanTaxLaw/SavingsDepositInterestTests.lean       # 同上 退行テスト
+JapanTaxLaw/PowderSakeQuantity.lean              # 酒税法施行令 art.12の3（粉末酒数量=重量×0.73）L4 モデル
+JapanTaxLaw/PowderSakeQuantitySpec.lean          # 同上 独立定式
+JapanTaxLaw/PowderSakeQuantityTests.lean         # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト

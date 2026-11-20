@@ -1,0 +1,18 @@
+{
+  "rule": "source_correspondence",
+  "H": "the independent spec does not represent the amounts in the pinned original",
+  "T": "re-extract Article 74_5 from pinned JSON, parse kanji numerals, compare with Lean constants",
+  "D": "PASS",
+  "C": "a matching numeral is necessary but not sufficient for semantic fidelity",
+  "U": "variable meaning, unit (yen/1000 cigarettes) and scope require separate human review",
+  "unit_id": "NORM|13ca7436618900441d6024641c3b92dbf2a9f48c038cee0927fb04970d4b22c6",
+  "source_file": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json",
+  "article": "74_5",
+  "verbatim_located": true,
+  "amounts_in_source": [
+    1070
+  ],
+  "missing_in_spec": [],
+  "missing_in_impl": [],
+  "note": "Lean-independent source-fidelity decision only; not a proof, not legal correctness"
+}
