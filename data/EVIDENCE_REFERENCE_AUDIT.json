@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 108,
+  "checks": 148,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -340,6 +340,50 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "adversarial_review",
       "detail": "non-batch reference",
+      "reference": "docs/UNIT_TAX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings explicitly rejected",
+      "unit_id": "NORM|1c103b22b685919f9c3f53da73b614b086b10560aaf307a876b47d609bd63573"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/TaxBandBoundaries.lean",
+      "unit_id": "NORM|1c103b22b685919f9c3f53da73b614b086b10560aaf307a876b47d609bd63573"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/TaxBandBoundariesSpec.lean",
+      "unit_id": "NORM|1c103b22b685919f9c3f53da73b614b086b10560aaf307a876b47d609bd63573"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/TaxBandBoundariesTests.lean",
+      "unit_id": "NORM|1c103b22b685919f9c3f53da73b614b086b10560aaf307a876b47d609bd63573"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
       "reference": "docs/UNIT_DOMICILE_PRESUMPTION_ART14.md: H/T/D/C/U; dropped-residence reading rejected by verbatim original",
       "unit_id": "NORM|1d310b3fc3fbdb5179921191135141b643f44a1685bff314ace7ed21aee111ba"
     },
@@ -375,6 +419,50 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/DomicilePresumptionArt14Tests.lean",
       "unit_id": "NORM|1d310b3fc3fbdb5179921191135141b643f44a1685bff314ace7ed21aee111ba"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_TAX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings explicitly rejected",
+      "unit_id": "NORM|21bdc2f2f48a4f6a8b27e5ac0c46bb64c25a7cd885f43e3c416ee231b18b7e6e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/TaxBandBoundaries.lean",
+      "unit_id": "NORM|21bdc2f2f48a4f6a8b27e5ac0c46bb64c25a7cd885f43e3c416ee231b18b7e6e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/TaxBandBoundariesSpec.lean",
+      "unit_id": "NORM|21bdc2f2f48a4f6a8b27e5ac0c46bb64c25a7cd885f43e3c416ee231b18b7e6e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/TaxBandBoundariesTests.lean",
+      "unit_id": "NORM|21bdc2f2f48a4f6a8b27e5ac0c46bb64c25a7cd885f43e3c416ee231b18b7e6e"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -1110,8 +1198,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "adversarial_review",
       "detail": "non-batch reference",
-      "reference": "docs/UNIT_TAX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings explicitly rejected",
-      "unit_id": "NORM|1c103b22b685919f9c3f53da73b614b086b10560aaf307a876b47d609bd63573"
+      "reference": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule in",
+      "unit_id": "NORM|e742f1b17920480cba923e759b5ce05125a72c6883fd8dfca55c17e337e74e7c"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -1121,8 +1209,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "implementation",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/TaxBandBoundaries.lean",
-      "unit_id": "NORM|1c103b22b685919f9c3f53da73b614b086b10560aaf307a876b47d609bd63573"
+      "reference": "JapanTaxLaw/VehicleDisplacementBands.lean",
+      "unit_id": "NORM|e742f1b17920480cba923e759b5ce05125a72c6883fd8dfca55c17e337e74e7c"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -1132,8 +1220,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "independent_spec",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/TaxBandBoundariesSpec.lean",
-      "unit_id": "NORM|1c103b22b685919f9c3f53da73b614b086b10560aaf307a876b47d609bd63573"
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean",
+      "unit_id": "NORM|e742f1b17920480cba923e759b5ce05125a72c6883fd8dfca55c17e337e74e7c"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -1143,8 +1231,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "tests",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/TaxBandBoundariesTests.lean",
-      "unit_id": "NORM|1c103b22b685919f9c3f53da73b614b086b10560aaf307a876b47d609bd63573"
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsTests.lean",
+      "unit_id": "NORM|e742f1b17920480cba923e759b5ce05125a72c6883fd8dfca55c17e337e74e7c"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -1154,8 +1242,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "adversarial_review",
       "detail": "non-batch reference",
-      "reference": "docs/UNIT_TAX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings explicitly rejected",
-      "unit_id": "NORM|21bdc2f2f48a4f6a8b27e5ac0c46bb64c25a7cd885f43e3c416ee231b18b7e6e"
+      "reference": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule in",
+      "unit_id": "NORM|bfbe2363d04af0b59b2f56c55cbbc6202e6f1968586aba05aa536ae92fb7258a"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -1165,8 +1253,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "implementation",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/TaxBandBoundaries.lean",
-      "unit_id": "NORM|21bdc2f2f48a4f6a8b27e5ac0c46bb64c25a7cd885f43e3c416ee231b18b7e6e"
+      "reference": "JapanTaxLaw/VehicleDisplacementBands.lean",
+      "unit_id": "NORM|bfbe2363d04af0b59b2f56c55cbbc6202e6f1968586aba05aa536ae92fb7258a"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -1176,8 +1264,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "independent_spec",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/TaxBandBoundariesSpec.lean",
-      "unit_id": "NORM|21bdc2f2f48a4f6a8b27e5ac0c46bb64c25a7cd885f43e3c416ee231b18b7e6e"
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean",
+      "unit_id": "NORM|bfbe2363d04af0b59b2f56c55cbbc6202e6f1968586aba05aa536ae92fb7258a"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -1187,13 +1275,365 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "tests",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/TaxBandBoundariesTests.lean",
-      "unit_id": "NORM|21bdc2f2f48a4f6a8b27e5ac0c46bb64c25a7cd885f43e3c416ee231b18b7e6e"
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsTests.lean",
+      "unit_id": "NORM|bfbe2363d04af0b59b2f56c55cbbc6202e6f1968586aba05aa536ae92fb7258a"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule in",
+      "unit_id": "NORM|fbaae7be4e7e0918d0af1091dede11f8dc3bdbea10cf82e888b69ed4cf8f0f79"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBands.lean",
+      "unit_id": "NORM|fbaae7be4e7e0918d0af1091dede11f8dc3bdbea10cf82e888b69ed4cf8f0f79"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean",
+      "unit_id": "NORM|fbaae7be4e7e0918d0af1091dede11f8dc3bdbea10cf82e888b69ed4cf8f0f79"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsTests.lean",
+      "unit_id": "NORM|fbaae7be4e7e0918d0af1091dede11f8dc3bdbea10cf82e888b69ed4cf8f0f79"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule in",
+      "unit_id": "NORM|9dd7250fc11cd5b9a259f8af85d0a1cbfe494d64d02fff5d5a191dc9f63b56a7"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBands.lean",
+      "unit_id": "NORM|9dd7250fc11cd5b9a259f8af85d0a1cbfe494d64d02fff5d5a191dc9f63b56a7"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean",
+      "unit_id": "NORM|9dd7250fc11cd5b9a259f8af85d0a1cbfe494d64d02fff5d5a191dc9f63b56a7"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsTests.lean",
+      "unit_id": "NORM|9dd7250fc11cd5b9a259f8af85d0a1cbfe494d64d02fff5d5a191dc9f63b56a7"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule in",
+      "unit_id": "NORM|549b313a5f16d8e459fef4ff0999e863ea6a33a20b88cf755ac2c9e506558ce4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBands.lean",
+      "unit_id": "NORM|549b313a5f16d8e459fef4ff0999e863ea6a33a20b88cf755ac2c9e506558ce4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean",
+      "unit_id": "NORM|549b313a5f16d8e459fef4ff0999e863ea6a33a20b88cf755ac2c9e506558ce4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsTests.lean",
+      "unit_id": "NORM|549b313a5f16d8e459fef4ff0999e863ea6a33a20b88cf755ac2c9e506558ce4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule in",
+      "unit_id": "NORM|bcf1ebb66cdf227f0a41af25535426f0e538653da7851df446b504290504c148"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBands.lean",
+      "unit_id": "NORM|bcf1ebb66cdf227f0a41af25535426f0e538653da7851df446b504290504c148"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean",
+      "unit_id": "NORM|bcf1ebb66cdf227f0a41af25535426f0e538653da7851df446b504290504c148"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsTests.lean",
+      "unit_id": "NORM|bcf1ebb66cdf227f0a41af25535426f0e538653da7851df446b504290504c148"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule in",
+      "unit_id": "NORM|9eef220ed32fe86ee214d8c286fbad24fc6673fe55335374a61f0001e4dfc8fc"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBands.lean",
+      "unit_id": "NORM|9eef220ed32fe86ee214d8c286fbad24fc6673fe55335374a61f0001e4dfc8fc"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean",
+      "unit_id": "NORM|9eef220ed32fe86ee214d8c286fbad24fc6673fe55335374a61f0001e4dfc8fc"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsTests.lean",
+      "unit_id": "NORM|9eef220ed32fe86ee214d8c286fbad24fc6673fe55335374a61f0001e4dfc8fc"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule in",
+      "unit_id": "NORM|1b70bd69ba2ea7e88d5f16d020ca5377221d7811d3bba2254a761a1a9cb17587"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBands.lean",
+      "unit_id": "NORM|1b70bd69ba2ea7e88d5f16d020ca5377221d7811d3bba2254a761a1a9cb17587"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean",
+      "unit_id": "NORM|1b70bd69ba2ea7e88d5f16d020ca5377221d7811d3bba2254a761a1a9cb17587"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsTests.lean",
+      "unit_id": "NORM|1b70bd69ba2ea7e88d5f16d020ca5377221d7811d3bba2254a761a1a9cb17587"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule in",
+      "unit_id": "NORM|8c20a3060c379641f3bc8337526c392661953170bcd00df74ff4b50689b1210a"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBands.lean",
+      "unit_id": "NORM|8c20a3060c379641f3bc8337526c392661953170bcd00df74ff4b50689b1210a"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean",
+      "unit_id": "NORM|8c20a3060c379641f3bc8337526c392661953170bcd00df74ff4b50689b1210a"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsTests.lean",
+      "unit_id": "NORM|8c20a3060c379641f3bc8337526c392661953170bcd00df74ff4b50689b1210a"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule in",
+      "unit_id": "NORM|01d4d7b447399c3a29c8b45e6671e7eaec473d25acd4b773304c174dcdc954aa"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBands.lean",
+      "unit_id": "NORM|01d4d7b447399c3a29c8b45e6671e7eaec473d25acd4b773304c174dcdc954aa"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean",
+      "unit_id": "NORM|01d4d7b447399c3a29c8b45e6671e7eaec473d25acd4b773304c174dcdc954aa"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/VehicleDisplacementBandsTests.lean",
+      "unit_id": "NORM|01d4d7b447399c3a29c8b45e6671e7eaec473d25acd4b773304c174dcdc954aa"
     }
   ],
-  "resolved": 98,
+  "resolved": 138,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 25,
+  "units_checked": 35,
   "unresolved": 10
 }

@@ -1,0 +1,39 @@
+{
+  "tool": "scripts/ci/source_audit_local_grant_bands.py",
+  "normative_ids": [
+    "NORM|61c9a21ea21552abdd5052b338dc3a20942f32ae92a919965a7e95e4811081a6",
+    "NORM|aefa93fb70c15d0bbd40088acb0767b17fc6b2b16d200c13dea8ce12bae79fbd",
+    "NORM|5b0720b95cac99c5d4aef59f0432084a1c0fdc297fca45cee4973a415f401358",
+    "NORM|4e4cbc3712a36cbadd4cc844bc1177446b3df1bb7746006e669ce5224b963864",
+    "NORM|eafb926aa687520d5ca477831b6756d9a842b6e2ab9e8ecd7dcac587ae67e21f",
+    "NORM|7747547b67eec51c21486d1f0d3135aade9f2ecc9d7fbc64ed27a06c87982475"
+  ],
+  "revision": "337M50000008017_20260724_508M60000008092",
+  "raw_sha256": "c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98",
+  "original_texts": [
+    "３，０００以上２５，０００未満",
+    "２５，０００以上５０，０００未満",
+    "５０，０００以上１００，０００未満",
+    "１００，０００以上４００，０００未満",
+    "４００，０００以上９００，０００未満",
+    "９００，０００以上"
+  ],
+  "verbatim_hits": {
+    "３，０００以上２５，０００未満": true,
+    "２５，０００以上５０，０００未満": true,
+    "５０，０００以上１００，０００未満": true,
+    "１００，０００以上４００，０００未満": true,
+    "４００，０００以上９００，０００未満": true,
+    "９００，０００以上": true
+  },
+  "checks": {
+    "all_six_originals_verbatim": true,
+    "six_distinct_sentences": true,
+    "spec_does_not_import_implementation": true
+  },
+  "module_sha256": {
+    "JapanTaxLaw/LocalGrantAmountBands.lean": "9ba252838e65a6769ff538b5d538cee534651dabe56be38e3936b1f7cde3f950",
+    "JapanTaxLaw/LocalGrantAmountBandsSpec.lean": "a2867a81d81e27d0dec3c98a017a926261eef5f6e8d576c4fb2575db007fa457",
+    "JapanTaxLaw/LocalGrantAmountBandsTests.lean": "270f27df97f18db8f4932fe4d9a3bc6cf0380794a92c82c189014fdc3a99e7a1"
+  }
+}

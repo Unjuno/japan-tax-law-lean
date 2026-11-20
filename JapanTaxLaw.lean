@@ -587,3 +587,6 @@ import JapanTaxLaw.TaxBandBoundariesTests
 import JapanTaxLaw.VehicleDisplacementBands
 import JapanTaxLaw.VehicleDisplacementBandsSpec
 import JapanTaxLaw.VehicleDisplacementBandsTests
+import JapanTaxLaw.LocalGrantAmountBands
+import JapanTaxLaw.LocalGrantAmountBandsSpec
+import JapanTaxLaw.LocalGrantAmountBandsTests

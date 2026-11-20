@@ -28,6 +28,19 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_20/Article#72_20/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalAddedValueStandardTests.lean sha256=f8354718e7a135a3681e9d3a0fc99e3e2715ed7c025f299b51e9cddf1c9715d8 (20 kernel-decided examples)"
     },
+    "NORM|01d4d7b447399c3a29c8b45e6671e7eaec473d25acd4b773304c174dcdc954aa": {
+      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
+      "boundary_proof": "inBand 9 d; row 10 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; ten table rows of art.154(1)",
+      "implementation": "JapanTaxLaw/VehicleDisplacementBands.lean sha256=48c2c153e793b8fa4d86ce1a4be9083de6f456e6e43d91bcf8c422bf6b01c9ea",
+      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "ten-row displacement partition only: d is caller-established Nat in decilitres; upper-inclusive 以下 / lower-exclusive 超え; tax rates, measurement rounding, categories and exemptions NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 10: （１０）　総排気量が六リットルを超えるもの)",
+      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
     "NORM|15dbfd55148fe076292eefe260fcfbef38379592bdf6b51fa59a0a7f7bc8b6f6": {
       "adversarial_review": "docs/UNIT_FOREST_TAX_ART5.md: H/T/D/C/U; monthly-rate and >= readings rejected by verbatim original",
       "boundary_proof": "rateEqualsStatutory_iff general theorem; 1000 true; 0/999/1001 false",
@@ -92,6 +105,19 @@
       "source_correspondence_audit": "scripts/ci/source_audit_levy_date_art181.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 鉱区税/賦課期日/四月一日",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:181/Article#181/Paragraph#1/ParagraphSentence/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim 18-char levy date)",
       "tests": "JapanTaxLaw/MiningTaxLevyDateTests.lean sha256=9de412434d8ea8bf0d7588c1977e93244bf2ecd68e492c2719196172d55ae1be (6 kernel-decided examples)"
+    },
+    "NORM|1b70bd69ba2ea7e88d5f16d020ca5377221d7811d3bba2254a761a1a9cb17587": {
+      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
+      "boundary_proof": "inBand 7 d; row 8 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; ten table rows of art.154(1)",
+      "implementation": "JapanTaxLaw/VehicleDisplacementBands.lean sha256=48c2c153e793b8fa4d86ce1a4be9083de6f456e6e43d91bcf8c422bf6b01c9ea",
+      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "ten-row displacement partition only: d is caller-established Nat in decilitres; upper-inclusive 以下 / lower-exclusive 超え; tax rates, measurement rounding, categories and exemptions NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 8: （８）　総排気量が四リットルを超え、四・五リットル以下のもの)",
+      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
     "NORM|1c103b22b685919f9c3f53da73b614b086b10560aaf307a876b47d609bd63573": {
       "adversarial_review": "docs/UNIT_TAX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings explicitly rejected",
@@ -184,6 +210,19 @@
       "source_location": "data/raw/322CO0000000109_19470627_000000000000000.law.json#LawBody[1]/MainProvision/MainProvision[2]/Article:3/Article#3/Paragraph#1/ParagraphSentence/Sentence sha256=9ff39f03e58b315d04fbb65246dd5a4e64cf8c6a428eae84c53bb49c530816ec (verbatim 87-char unit text located in scoped article)",
       "tests": "JapanTaxLaw/RegistrationJointRequestTests.lean sha256=ab9297839621f6ee4cdd49dd199feef8868c1feaf6a3050158c5be09ae68c579 (16 kernel-decided examples incl. 0/1/2/3 and cause-difference invariants)"
     },
+    "NORM|549b313a5f16d8e459fef4ff0999e863ea6a33a20b88cf755ac2c9e506558ce4": {
+      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
+      "boundary_proof": "inBand 4 d; row 5 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; ten table rows of art.154(1)",
+      "implementation": "JapanTaxLaw/VehicleDisplacementBands.lean sha256=48c2c153e793b8fa4d86ce1a4be9083de6f456e6e43d91bcf8c422bf6b01c9ea",
+      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "ten-row displacement partition only: d is caller-established Nat in decilitres; upper-inclusive 以下 / lower-exclusive 超え; tax rates, measurement rounding, categories and exemptions NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 5: （５）　総排気量が二・五リットルを超え、三リットル以下のもの)",
+      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
     "NORM|64b83716c4c799383c697121bca0ad46831d0951b2f1f9d8622f56cbdfe3a10c": {
       "adversarial_review": "docs/UNIT_QUASI_ART13_4.md: H/T/D/C/U; extension to other municipal taxes rejected by verbatim original",
       "boundary_proof": "quasiApplies_iff general theorem; code 1 applies, codes 0/2 do not",
@@ -236,6 +275,19 @@
       "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:66_9_4/Article#66_9_4/Paragraph#5/TableStruct/Table/TableRow/TableColumn/Sentence#1 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee (verbatim 9-char deeming cell)",
       "tests": "JapanTaxLaw/DeemedTaxedAmountTests.lean sha256=bc39821fd04edfe2b38c170df0bfe7a22a5cd415c10449c82687034f53d13f73 (5 kernel-decided examples)"
     },
+    "NORM|8c20a3060c379641f3bc8337526c392661953170bcd00df74ff4b50689b1210a": {
+      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
+      "boundary_proof": "inBand 8 d; row 9 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; ten table rows of art.154(1)",
+      "implementation": "JapanTaxLaw/VehicleDisplacementBands.lean sha256=48c2c153e793b8fa4d86ce1a4be9083de6f456e6e43d91bcf8c422bf6b01c9ea",
+      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "ten-row displacement partition only: d is caller-established Nat in decilitres; upper-inclusive 以下 / lower-exclusive 超え; tax rates, measurement rounding, categories and exemptions NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 9: （９）　総排気量が四・五リットルを超え、六リットル以下のもの)",
+      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
     "NORM|91349ec2d835e0fe4fdd63ea17f15c1ce9a98c22d91c36f03bea07410596f64e": {
       "adversarial_review": "docs/UNIT_TAX_ACCOUNTANT_FINE_ART14.md: H/T/D/C/U; garbled-UI misreading (五百万) rejected by independent pinned extraction (十万円)",
       "boundary_proof": "within_ceiling_sufficient / within_ceiling_necessary are general Nat theorems; 0/99999/100000 permitted, 100001 rejected, non-eligible rejected",
@@ -248,6 +300,32 @@
       "source_correspondence_audit": "scripts/ci/source_audit_tax_accountant_art14.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; independent literals 各号/該当する者/十万円以下/過料/処する",
       "source_location": "data/raw/326AC1000000145_20211122_503AC0000000046.law.json#LawBody[1]/MainProvision/MainProvision[14]/Article:14/Article#14/Paragraph#1/ParagraphSentence/Sentence#1 sha256=fc6c4ca152291c10c1218a62303a879195bfbbe95a056d0e264ee0315bbc4e2b (verbatim 30-char unit text)",
       "tests": "JapanTaxLaw/TaxAccountantFineTests.lean sha256=43a4253d7388238151ba6a8666f65dd4f1c035424f42703768d72fcb6d61d3b1 (9 kernel-decided examples)"
+    },
+    "NORM|9dd7250fc11cd5b9a259f8af85d0a1cbfe494d64d02fff5d5a191dc9f63b56a7": {
+      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
+      "boundary_proof": "inBand 3 d; row 4 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; ten table rows of art.154(1)",
+      "implementation": "JapanTaxLaw/VehicleDisplacementBands.lean sha256=48c2c153e793b8fa4d86ce1a4be9083de6f456e6e43d91bcf8c422bf6b01c9ea",
+      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "ten-row displacement partition only: d is caller-established Nat in decilitres; upper-inclusive 以下 / lower-exclusive 超え; tax rates, measurement rounding, categories and exemptions NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 4: （４）　総排気量が二リットルを超え、二・五リットル以下のもの)",
+      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
+    "NORM|9eef220ed32fe86ee214d8c286fbad24fc6673fe55335374a61f0001e4dfc8fc": {
+      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
+      "boundary_proof": "inBand 6 d; row 7 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; ten table rows of art.154(1)",
+      "implementation": "JapanTaxLaw/VehicleDisplacementBands.lean sha256=48c2c153e793b8fa4d86ce1a4be9083de6f456e6e43d91bcf8c422bf6b01c9ea",
+      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "ten-row displacement partition only: d is caller-established Nat in decilitres; upper-inclusive 以下 / lower-exclusive 超え; tax rates, measurement rounding, categories and exemptions NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 7: （７）　総排気量が三・五リットルを超え、四リットル以下のもの)",
+      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
     "NORM|a7607acfb60e7e06f14829cc3971438828d4385f88056dbb56552bfc12746785": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
@@ -287,6 +365,32 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: independent kanji literals ['二百九十万', '十二'] located in 原文; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_49_14/Article#72_49_14/Paragraph#2/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/BusinessOwnerDeductionTests.lean sha256=61b2cc0dc9ba20aeb7d2465e3ecfcc248cb82a687981de2e45d3c349c31be28d (18 kernel-decided examples)"
+    },
+    "NORM|bcf1ebb66cdf227f0a41af25535426f0e538653da7851df446b504290504c148": {
+      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
+      "boundary_proof": "inBand 5 d; row 6 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; ten table rows of art.154(1)",
+      "implementation": "JapanTaxLaw/VehicleDisplacementBands.lean sha256=48c2c153e793b8fa4d86ce1a4be9083de6f456e6e43d91bcf8c422bf6b01c9ea",
+      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "ten-row displacement partition only: d is caller-established Nat in decilitres; upper-inclusive 以下 / lower-exclusive 超え; tax rates, measurement rounding, categories and exemptions NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 6: （６）　総排気量が三リットルを超え、三・五リットル以下のもの)",
+      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
+    "NORM|bfbe2363d04af0b59b2f56c55cbbc6202e6f1968586aba05aa536ae92fb7258a": {
+      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
+      "boundary_proof": "inBand 1 d; row 2 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; ten table rows of art.154(1)",
+      "implementation": "JapanTaxLaw/VehicleDisplacementBands.lean sha256=48c2c153e793b8fa4d86ce1a4be9083de6f456e6e43d91bcf8c422bf6b01c9ea",
+      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "ten-row displacement partition only: d is caller-established Nat in decilitres; upper-inclusive 以下 / lower-exclusive 超え; tax rates, measurement rounding, categories and exemptions NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 2: （２）　総排気量が一リットルを超え、一・五リットル以下のもの)",
+      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
     "NORM|c95fe5b099a7bac3397cf63b6b2db5bce1e182c2201fe7c7830ca9aeeff4b423": {
       "adversarial_review": "docs/UNIT_MERGER_EXCEPTION_ART24.md: H/T/D/C/U; inclusive reading of the parenthetical exception rejected by verbatim original",
@@ -328,134 +432,108 @@
       "tests": "JapanTaxLaw/RemainingPeriodBandTests.lean sha256=a8b557c90c89a137d2ac6f86d09dd8d51d8d925d94b226ea732c36e65e44139d (8 kernel-decided examples)"
     },
     "NORM|e742f1b17920480cba923e759b5ce05125a72c6883fd8dfca55c17e337e74e7c": {
+      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
+      "boundary_proof": "inBand 0 d; row 1 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; ten table rows of art.154(1)",
-      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
       "implementation": "JapanTaxLaw/VehicleDisplacementBands.lean sha256=48c2c153e793b8fa4d86ce1a4be9083de6f456e6e43d91bcf8c422bf6b01c9ea",
+      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
       "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive + spec agreement kernel-checked; no sorry/admit",
       "proof_scope": "ten-row displacement partition only: d is caller-established Nat in decilitres; upper-inclusive 以下 / lower-exclusive 超え; tax rates, measurement rounding, categories and exemptions NOT MODELLED",
-      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)",
-      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
+      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 1: （１）　総排気量が一リットル以下のもの)",
-      "boundary_proof": "inBand 0 d; row 1 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d"
-    },
-    "NORM|bfbe2363d04af0b59b2f56c55cbbc6202e6f1968586aba05aa536ae92fb7258a": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; ten table rows of art.154(1)",
-      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/VehicleDisplacementBands.lean sha256=48c2c153e793b8fa4d86ce1a4be9083de6f456e6e43d91bcf8c422bf6b01c9ea",
-      "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "ten-row displacement partition only: d is caller-established Nat in decilitres; upper-inclusive 以下 / lower-exclusive 超え; tax rates, measurement rounding, categories and exemptions NOT MODELLED",
-      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)",
-      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 2: （２）　総排気量が一リットルを超え、一・五リットル以下のもの)",
-      "boundary_proof": "inBand 1 d; row 2 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d"
+      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
     "NORM|fbaae7be4e7e0918d0af1091dede11f8dc3bdbea10cf82e888b69ed4cf8f0f79": {
+      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
+      "boundary_proof": "inBand 2 d; row 3 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; ten table rows of art.154(1)",
-      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
       "implementation": "JapanTaxLaw/VehicleDisplacementBands.lean sha256=48c2c153e793b8fa4d86ce1a4be9083de6f456e6e43d91bcf8c422bf6b01c9ea",
+      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
       "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive + spec agreement kernel-checked; no sorry/admit",
       "proof_scope": "ten-row displacement partition only: d is caller-established Nat in decilitres; upper-inclusive 以下 / lower-exclusive 超え; tax rates, measurement rounding, categories and exemptions NOT MODELLED",
-      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)",
-      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
+      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 3: （３）　総排気量が一・五リットルを超え、二リットル以下のもの)",
-      "boundary_proof": "inBand 2 d; row 3 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d"
+      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
-    "NORM|9dd7250fc11cd5b9a259f8af85d0a1cbfe494d64d02fff5d5a191dc9f63b56a7": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; ten table rows of art.154(1)",
-      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/VehicleDisplacementBands.lean sha256=48c2c153e793b8fa4d86ce1a4be9083de6f456e6e43d91bcf8c422bf6b01c9ea",
+    "NORM|61c9a21ea21552abdd5052b338dc3a20942f32ae92a919965a7e95e4811081a6": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; six table rows of art.11(1)",
+      "source_correspondence_audit": "scripts/ci/source_audit_local_grant_bands.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/LocalGrantAmountBandsSpec.lean sha256=a2867a81d81e27d0dec3c98a017a926261eef5f6e8d576c4fb2575db007fa457 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/LocalGrantAmountBands.lean sha256=9ba252838e65a6769ff538b5d538cee534651dabe56be38e3936b1f7cde3f950",
       "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "ten-row displacement partition only: d is caller-established Nat in decilitres; upper-inclusive 以下 / lower-exclusive 超え; tax rates, measurement rounding, categories and exemptions NOT MODELLED",
-      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)",
-      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 4: （４）　総排気量が二リットルを超え、二・五リットル以下のもの)",
-      "boundary_proof": "inBand 3 d; row 4 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d"
+      "proof_scope": "six-row amount partition only: d caller-established Nat in yen; exhaustive for d>=3000, d<3000 explicitly NOT MODELLED; global pairwise exclusivity; rates/effects and underlying computation NOT MODELLED",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/LocalGrantAmountBandsTests.lean sha256=270f27df97f18db8f4932fe4d9a3bc6cf0380794a92c82c189014fdc3a99e7a1 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)",
+      "adversarial_review": "docs/UNIT_LOCAL_GRANT_AMOUNT_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 3000 recorded explicitly",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 1: ３，０００以上２５，０００未満)",
+      "boundary_proof": "inBand 0 d; row 1 applies on its exact interval; global pairwise exclusivity, exhaustive for d>=3000"
     },
-    "NORM|549b313a5f16d8e459fef4ff0999e863ea6a33a20b88cf755ac2c9e506558ce4": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; ten table rows of art.154(1)",
-      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/VehicleDisplacementBands.lean sha256=48c2c153e793b8fa4d86ce1a4be9083de6f456e6e43d91bcf8c422bf6b01c9ea",
+    "NORM|aefa93fb70c15d0bbd40088acb0767b17fc6b2b16d200c13dea8ce12bae79fbd": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; six table rows of art.11(1)",
+      "source_correspondence_audit": "scripts/ci/source_audit_local_grant_bands.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/LocalGrantAmountBandsSpec.lean sha256=a2867a81d81e27d0dec3c98a017a926261eef5f6e8d576c4fb2575db007fa457 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/LocalGrantAmountBands.lean sha256=9ba252838e65a6769ff538b5d538cee534651dabe56be38e3936b1f7cde3f950",
       "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "ten-row displacement partition only: d is caller-established Nat in decilitres; upper-inclusive 以下 / lower-exclusive 超え; tax rates, measurement rounding, categories and exemptions NOT MODELLED",
-      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)",
-      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 5: （５）　総排気量が二・五リットルを超え、三リットル以下のもの)",
-      "boundary_proof": "inBand 4 d; row 5 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d"
+      "proof_scope": "six-row amount partition only: d caller-established Nat in yen; exhaustive for d>=3000, d<3000 explicitly NOT MODELLED; global pairwise exclusivity; rates/effects and underlying computation NOT MODELLED",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/LocalGrantAmountBandsTests.lean sha256=270f27df97f18db8f4932fe4d9a3bc6cf0380794a92c82c189014fdc3a99e7a1 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)",
+      "adversarial_review": "docs/UNIT_LOCAL_GRANT_AMOUNT_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 3000 recorded explicitly",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 2: ２５，０００以上５０，０００未満)",
+      "boundary_proof": "inBand 1 d; row 2 applies on its exact interval; global pairwise exclusivity, exhaustive for d>=3000"
     },
-    "NORM|bcf1ebb66cdf227f0a41af25535426f0e538653da7851df446b504290504c148": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; ten table rows of art.154(1)",
-      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/VehicleDisplacementBands.lean sha256=48c2c153e793b8fa4d86ce1a4be9083de6f456e6e43d91bcf8c422bf6b01c9ea",
+    "NORM|5b0720b95cac99c5d4aef59f0432084a1c0fdc297fca45cee4973a415f401358": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; six table rows of art.11(1)",
+      "source_correspondence_audit": "scripts/ci/source_audit_local_grant_bands.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/LocalGrantAmountBandsSpec.lean sha256=a2867a81d81e27d0dec3c98a017a926261eef5f6e8d576c4fb2575db007fa457 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/LocalGrantAmountBands.lean sha256=9ba252838e65a6769ff538b5d538cee534651dabe56be38e3936b1f7cde3f950",
       "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "ten-row displacement partition only: d is caller-established Nat in decilitres; upper-inclusive 以下 / lower-exclusive 超え; tax rates, measurement rounding, categories and exemptions NOT MODELLED",
-      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)",
-      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 6: （６）　総排気量が三リットルを超え、三・五リットル以下のもの)",
-      "boundary_proof": "inBand 5 d; row 6 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d"
+      "proof_scope": "six-row amount partition only: d caller-established Nat in yen; exhaustive for d>=3000, d<3000 explicitly NOT MODELLED; global pairwise exclusivity; rates/effects and underlying computation NOT MODELLED",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/LocalGrantAmountBandsTests.lean sha256=270f27df97f18db8f4932fe4d9a3bc6cf0380794a92c82c189014fdc3a99e7a1 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)",
+      "adversarial_review": "docs/UNIT_LOCAL_GRANT_AMOUNT_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 3000 recorded explicitly",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 3: ５０，０００以上１００，０００未満)",
+      "boundary_proof": "inBand 2 d; row 3 applies on its exact interval; global pairwise exclusivity, exhaustive for d>=3000"
     },
-    "NORM|9eef220ed32fe86ee214d8c286fbad24fc6673fe55335374a61f0001e4dfc8fc": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; ten table rows of art.154(1)",
-      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/VehicleDisplacementBands.lean sha256=48c2c153e793b8fa4d86ce1a4be9083de6f456e6e43d91bcf8c422bf6b01c9ea",
+    "NORM|4e4cbc3712a36cbadd4cc844bc1177446b3df1bb7746006e669ce5224b963864": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; six table rows of art.11(1)",
+      "source_correspondence_audit": "scripts/ci/source_audit_local_grant_bands.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/LocalGrantAmountBandsSpec.lean sha256=a2867a81d81e27d0dec3c98a017a926261eef5f6e8d576c4fb2575db007fa457 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/LocalGrantAmountBands.lean sha256=9ba252838e65a6769ff538b5d538cee534651dabe56be38e3936b1f7cde3f950",
       "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "ten-row displacement partition only: d is caller-established Nat in decilitres; upper-inclusive 以下 / lower-exclusive 超え; tax rates, measurement rounding, categories and exemptions NOT MODELLED",
-      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)",
-      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 7: （７）　総排気量が三・五リットルを超え、四リットル以下のもの)",
-      "boundary_proof": "inBand 6 d; row 7 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d"
+      "proof_scope": "six-row amount partition only: d caller-established Nat in yen; exhaustive for d>=3000, d<3000 explicitly NOT MODELLED; global pairwise exclusivity; rates/effects and underlying computation NOT MODELLED",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/LocalGrantAmountBandsTests.lean sha256=270f27df97f18db8f4932fe4d9a3bc6cf0380794a92c82c189014fdc3a99e7a1 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)",
+      "adversarial_review": "docs/UNIT_LOCAL_GRANT_AMOUNT_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 3000 recorded explicitly",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 4: １００，０００以上４００，０００未満)",
+      "boundary_proof": "inBand 3 d; row 4 applies on its exact interval; global pairwise exclusivity, exhaustive for d>=3000"
     },
-    "NORM|1b70bd69ba2ea7e88d5f16d020ca5377221d7811d3bba2254a761a1a9cb17587": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; ten table rows of art.154(1)",
-      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/VehicleDisplacementBands.lean sha256=48c2c153e793b8fa4d86ce1a4be9083de6f456e6e43d91bcf8c422bf6b01c9ea",
+    "NORM|eafb926aa687520d5ca477831b6756d9a842b6e2ab9e8ecd7dcac587ae67e21f": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; six table rows of art.11(1)",
+      "source_correspondence_audit": "scripts/ci/source_audit_local_grant_bands.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/LocalGrantAmountBandsSpec.lean sha256=a2867a81d81e27d0dec3c98a017a926261eef5f6e8d576c4fb2575db007fa457 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/LocalGrantAmountBands.lean sha256=9ba252838e65a6769ff538b5d538cee534651dabe56be38e3936b1f7cde3f950",
       "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "ten-row displacement partition only: d is caller-established Nat in decilitres; upper-inclusive 以下 / lower-exclusive 超え; tax rates, measurement rounding, categories and exemptions NOT MODELLED",
-      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)",
-      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 8: （８）　総排気量が四リットルを超え、四・五リットル以下のもの)",
-      "boundary_proof": "inBand 7 d; row 8 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d"
+      "proof_scope": "six-row amount partition only: d caller-established Nat in yen; exhaustive for d>=3000, d<3000 explicitly NOT MODELLED; global pairwise exclusivity; rates/effects and underlying computation NOT MODELLED",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/LocalGrantAmountBandsTests.lean sha256=270f27df97f18db8f4932fe4d9a3bc6cf0380794a92c82c189014fdc3a99e7a1 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)",
+      "adversarial_review": "docs/UNIT_LOCAL_GRANT_AMOUNT_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 3000 recorded explicitly",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 5: ４００，０００以上９００，０００未満)",
+      "boundary_proof": "inBand 4 d; row 5 applies on its exact interval; global pairwise exclusivity, exhaustive for d>=3000"
     },
-    "NORM|8c20a3060c379641f3bc8337526c392661953170bcd00df74ff4b50689b1210a": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; ten table rows of art.154(1)",
-      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/VehicleDisplacementBands.lean sha256=48c2c153e793b8fa4d86ce1a4be9083de6f456e6e43d91bcf8c422bf6b01c9ea",
+    "NORM|7747547b67eec51c21486d1f0d3135aade9f2ecc9d7fbc64ed27a06c87982475": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; six table rows of art.11(1)",
+      "source_correspondence_audit": "scripts/ci/source_audit_local_grant_bands.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/LocalGrantAmountBandsSpec.lean sha256=a2867a81d81e27d0dec3c98a017a926261eef5f6e8d576c4fb2575db007fa457 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/LocalGrantAmountBands.lean sha256=9ba252838e65a6769ff538b5d538cee534651dabe56be38e3936b1f7cde3f950",
       "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "ten-row displacement partition only: d is caller-established Nat in decilitres; upper-inclusive 以下 / lower-exclusive 超え; tax rates, measurement rounding, categories and exemptions NOT MODELLED",
-      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)",
-      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 9: （９）　総排気量が四・五リットルを超え、六リットル以下のもの)",
-      "boundary_proof": "inBand 8 d; row 9 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d"
-    },
-    "NORM|01d4d7b447399c3a29c8b45e6671e7eaec473d25acd4b773304c174dcdc954aa": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; ten table rows of art.154(1)",
-      "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/VehicleDisplacementBandsSpec.lean sha256=90b135ad978e57f3c15b73da21c29ddb881ecfb20747c09295371f57d1d84d8a (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/VehicleDisplacementBands.lean sha256=48c2c153e793b8fa4d86ce1a4be9083de6f456e6e43d91bcf8c422bf6b01c9ea",
-      "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "ten-row displacement partition only: d is caller-established Nat in decilitres; upper-inclusive 以下 / lower-exclusive 超え; tax rates, measurement rounding, categories and exemptions NOT MODELLED",
-      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)",
-      "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 10: （１０）　総排気量が六リットルを超えるもの)",
-      "boundary_proof": "inBand 9 d; row 10 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d"
+      "proof_scope": "six-row amount partition only: d caller-established Nat in yen; exhaustive for d>=3000, d<3000 explicitly NOT MODELLED; global pairwise exclusivity; rates/effects and underlying computation NOT MODELLED",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/LocalGrantAmountBandsTests.lean sha256=270f27df97f18db8f4932fe4d9a3bc6cf0380794a92c82c189014fdc3a99e7a1 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)",
+      "adversarial_review": "docs/UNIT_LOCAL_GRANT_AMOUNT_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 3000 recorded explicitly",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 6: ９００，０００以上)",
+      "boundary_proof": "inBand 5 d; row 6 applies on its exact interval; global pairwise exclusivity, exhaustive for d>=3000"
     }
   }
 }
