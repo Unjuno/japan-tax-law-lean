@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-"""Article-scoped fidelity diagnostic (Sponsor Directive §4).
+"""Article-scoped fidelity diagnostic with exact source positions.
 
-For each transcription_audit check, determine which article(s)/appendix cells
-of the pinned raw snapshot actually contain its needles. A needle that matches
-only an unrelated article is reported as a candidate mis-pin requiring review.
-
-This is a DIAGNOSTIC, not a completion gate: it reports article/paragraph scope
-per check so a whole-text numeric match is never mistaken for article-level
-verification. Deterministic; regenerate with this script.
+A numeric match anywhere in the whole pinned text is NOT article-level
+verification (Directive §1.4).  This diagnostic records, per transcription
+check, the article/paragraph/item/appendix cell that contains each needle and
+its character offsets in the pinned source.  Each finding carries the H/T/D/C/U
+evidence tuple required by Objective §5.  D=PASS means only "needle located in
+the stated article" — never a proof or legal-correctness claim.
 """
 from __future__ import annotations
 
@@ -17,22 +16,15 @@ import re
 import sys
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parents[3]
+# normative_core lives in scripts/ci; this script runs from the repository root
+# as `python scripts/law_audit/phase_e/article_scope.py`, so add that directory.
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "ci"))
+from normative_core import REPO, flat, norm  # noqa: E402
+
 INVENTORY = REPO / "data" / "INVENTORY.json"
 AUDIT = REPO / "scripts" / "ci" / "transcription_audit.py"
 OUT = REPO / "docs" / "ARTICLE_SCOPE.md"
-
-
-def flat(node) -> str:
-    if isinstance(node, str):
-        return node
-    if isinstance(node, dict):
-        return "".join(flat(c) for c in node.get("children", []))
-    return ""
-
-
-def norm(t: str) -> str:
-    return re.sub(r"[\s\u3000]+", "", t)
+OUT_JSON = REPO / "data" / "ARTICLE_SCOPE_POSITIONS.json"
 
 
 def iter_units(node, path=()):
@@ -40,7 +32,7 @@ def iter_units(node, path=()):
         tag = node.get("tag")
         if tag in ("MainProvision", "SupplProvision", "AppdxTable"):
             path = path + (tag,)
-        if tag in ("Article", "AppdxTable", "TableRow"):
+        if tag in ("Article", "AppdxTable", "TableRow", "Paragraph", "Item"):
             yield path + (tag, str((node.get("attr") or {}).get("Num", ""))), node
         for c in node.get("children", []):
             yield from iter_units(c, path)
@@ -49,62 +41,109 @@ def iter_units(node, path=()):
             yield from iter_units(c, path)
 
 
+def offsets(raw: str, needle: str) -> list[int]:
+    """Raw offsets of a whitespace-normalised needle."""
+    target = norm(needle)
+    mapping: dict[int, int] = {}
+    j = 0
+    pending = False
+    for i, ch in enumerate(raw):
+        if ch.isspace() or ch == "\u3000":
+            if not pending:
+                mapping[j] = i
+                pending = True
+            continue
+        pending = False
+        mapping[j] = i
+        j += 1
+    result = []
+    start = 0
+    while True:
+        # find normalised needle inside the normalised raw text
+        k = norm(raw).find(target, start)
+        if k < 0:
+            break
+        if k in mapping:
+            result.append(mapping[k])
+        start = k + 1
+    return result
+
+
 def main() -> int:
     inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
     laws = {l["law_id"]: l for l in inv.get("laws", [])}
-    spec = importlib.util.spec_from_file_location("as_ta", AUDIT)
+    spec = importlib.util.spec_from_file_location("as_audit", AUDIT)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
 
-    docs_cache = {}
-    rows = []
-    scoped = 0
-    whole_only = 0
+    docs, rows = {}, []
+    scoped = whole_only = 0
     for name, law_id, kind, art, needles in mod.checks():
-        rec = laws.get(law_id)
-        sf = (rec or {}).get("raw_snapshot", {}).get("source_file")
-        if law_id not in docs_cache:
+        if law_id not in docs:
+            sf = (laws.get(law_id, {}).get("raw_snapshot") or {}).get("source_file")
             p = REPO / sf if sf else None
-            docs_cache[law_id] = json.loads(p.read_text(encoding="utf-8")) if p and p.exists() else None
-        doc = docs_cache[law_id]
-        if doc is None:
-            continue
-        units = []
-        for upath, unode in iter_units(doc.get("law_full_text")):
-            ut = norm(flat(unode))
-            if not ut:
+            docs[law_id] = json.loads(p.read_text(encoding="utf-8")) if p and p.exists() else {}
+        hits, positions = [], []
+        for upath, unode in iter_units(docs[law_id].get("law_full_text", docs[law_id])):
+            raw = flat(unode)
+            if not norm(raw):
                 continue
-            hits = sum(1 for n in needles if norm(n) in ut)
-            if hits:
-                units.append(("/".join(upath), hits))
-        if units:
+            n = sum(1 for needle in needles if norm(needle) in norm(raw))
+            if n:
+                hits.append({"unit": "/".join(upath), "needles_matched": n})
+                for needle in needles:
+                    offs = offsets(raw, needle)
+                    if offs:
+                        positions.append({"unit": "/".join(upath), "needle": needle, "raw_offsets": offs})
+        stated = bool(art) and any(("Article#" + art) in h["unit"] for h in hits)
+        if hits:
             scoped += 1
-            loc = "; ".join(f"{p}×{h}" for p, h in units[:3])
         else:
             whole_only += 1
-            loc = "(no article/table-cell unit contains all needle text)"
-        rows.append((law_id, art or "(file-level)", len(needles), loc, name.split("↔")[0].strip()[:60]))
+        rows.append({
+            "check": name,
+            "law_id": law_id,
+            "stated_article": art or "(file-level)",
+            "needles": needles,
+            "unit_hits": hits,
+            "positions": positions,
+            "article_scoped": stated,
+            "whole_text_only": not bool(hits),
+            "H": "needle occurs in the stated article of the pinned source",
+            "T": "whitespace-normalised substring search in the pinned JSON",
+            "D": "PASS" if stated else "FAIL",
+            "C": "whole-text numeric coincidence is a competing, weaker interpretation",
+            "U": "fidelity only; no semantic or legal conclusion",
+            "sufficient_for_completion": False,
+        })
 
     lines = [
         "# Article-scoped fidelity diagnostic (machine-generated)",
         "",
         "Do not hand-edit. Regenerate with `scripts/law_audit/phase_e/article_scope.py`.",
         "",
-        "Sponsor Directive §4: a numeric match anywhere in the whole pinned text is",
-        "NOT article-level verification. This report records, per transcription",
-        "check, which article / appendix table cell actually contains the needles.",
-        "It is a DIAGNOSTIC for the independent-audit axis, not a completion gate.",
+        "A whole-text numeric match is NOT article-level verification. This is a",
+        "source-fidelity diagnostic (D=PASS means needle in stated article only),",
+        "never a completion gate or a semantic/legal claim.",
         "",
         f"- checks with article/table-cell scoped needles: {scoped}",
-        f"- checks with no scoped unit (whole-text or cross-article needles): {whole_only}",
+        f"- checks with no scoped unit: {whole_only}",
         "",
-        "| law_id | stated article | needles | containing unit(s) | check |",
-        "|---|---|---:|---|---|",
+        "| law_id | stated article | needle hits | scoped positions | D |",
+        "|---|---|---:|---:|---|",
     ]
-    for lid, art, n, loc, nm in rows:
-        lines.append(f"| `{lid}` | {art} | {n} | {loc} | {nm} |")
+    for r in rows:
+        lines.append(
+            f"| `{r['law_id']}` | {r['stated_article']} | {len(r['unit_hits'])} | "
+            f"{len(r['positions'])} | {r['D']} |"
+        )
     lines.append("")
     OUT.write_text("\n".join(lines), encoding="utf-8")
+    OUT_JSON.write_text(
+        json.dumps({"scoped": scoped, "whole_text_only": whole_only, "checks": rows},
+                   ensure_ascii=False, separators=(",", ":")) + "\n",
+        encoding="utf-8",
+    )
     print(f"article-scope diagnostic: {scoped} scoped / {whole_only} whole-text across {len(rows)} checks")
     return 0
 
