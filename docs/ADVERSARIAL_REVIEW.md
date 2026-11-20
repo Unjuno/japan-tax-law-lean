@@ -4791,6 +4791,28 @@ coordinator 要約・STAGING を経由せず、pinned 原文の文字列から�
 
 ---
 
+## Batch AH review (2026-11-20) — 地方税法 art. 38 個人の均等割の標準税率
+
+- **レビュア役割**: Adversarial Review Agent（FORMALIZE/PROVE から独立）
+- **対象モジュール（読み取り専用・変更していない）**: `JapanTaxLaw/PerCapitaEqualRate.lean`, `PerCapitaEqualRateSpec.lean`, `PerCapitaEqualRateTests.lean`
+- **一次資料（pinned・改変禁止）**: `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`
+  - law_id `325AC0000000226`, revision `325AC0000000226_20261101_508AC0000000002`, 施行日 2026-11-01, SHA-256 `3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53`
+- **抽出方法**: 一次資料の JSON を直接再帰走査し、`MainProvision` 配下の `Article` のうち `attr.Num == "38"` かつ `ArticleTitle == （個人の均等割の税率）` のノードのみを選んだ。STAGING / doc-comment / coordinator 要約は一切信じず、原文テキストから **独立** に **再抽出** した。
+- **再抽出結果**: 「個人の均等割の標準税率は、千円とする。」（正規化 35 文字）。漢字数字 「千」 を自前で Arabic 1,000 に変換。原文に 「千円」 は 1 回のみ。
+- **照合**: Lean 実装 `standardRate = 1_000`、独立仕様 `specRateYen = 1000` と一致。桁違い（100 / 10,000 / 100,000）は混入していない。
+
+### H / T / D / C / U（本バッチの検出候補）
+
+- **H（反証可能仮説）**: H-AH1 「標準税率は千円 (=1,000) である」；H-AH2 「perpiece 相当の算術適用 n×1,000 は本条の範囲内である」。
+- **T（再現検査）**: T-AH1 pinned JSON の当該 Article のみを再抽出し `.find("千円")` = 1 を確認；T-AH2 `python scripts/ci/transcription_audit.py` の新規 needle が scoped で PASS；T-AH3 Lean の boundary examples (0/1/11/12/13) が全て kernel `decide` で通る。
+- **D（合否）**: D-AH1 = PASS（1,000 一致）；D-AH2 = PASS（境界 5 点すべて一致、矛盾 0）。
+- **C（対立解釈）**: C-AH1 「千円は標準税率であり条例で変更され得る」— 本スライスは標準税率のみを扱い、条例変更は NOT MODELLED として明記（対立解釈を否定せず範囲外として保持）。
+- **U（不確かさ）**: U-AH1 均等割の算出単位（「一人につき」の明示は本条になく、他条との関係は pinned 原文のみでは確定不能）— 人間の法律専門家レビューを要する。U-AH2 軽減・免除該当者の扱いは原文に含まれず NOT MODELLED。
+
+**CONFIRMED: 0 件（ゼロ）** ／ **BY-DESIGN: 1 件** ／ **UNRESOLVED: 2 件**。発見ゼロは欠陥不在の証明ではない。
+
+> 本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。法的妥当性の最終判断は専門家に委ね、`LEGAL_REVIEW_PENDING` は変更しない。
+
 ## 地方税法 art. 74の5 — LocalTobaccoTaxRate（独立原文監査）
 
 - 対象モジュール（読み取り専用・形式化担当から独立）:

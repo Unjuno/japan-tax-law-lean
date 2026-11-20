@@ -1420,6 +1420,13 @@ def checks():
            ["百分の四（所得割の納税義務者が地方自治法第二百五十二条の十九第一項の市（第三十七条及び第三十七条の二において「指定都市」という。）の区域内に住所を有する場合には、百分の二）"])
 
 
+    # 地方税法 art. 38 — PerCapitaEqualRate.lean (standard equal-rate 1,000 yen)
+    yield ("地方税法 art. 38（個人の均等割の標準税率・千円）↔ PerCapitaEqualRate.lean (standardRate 1_000)",
+           "325AC0000000226",
+           "file", None,
+           ["個人の均等割の標準税率は、千円とする"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

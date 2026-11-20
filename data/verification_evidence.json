@@ -93,6 +93,19 @@
       "source_location": "data/raw/325AC0000000211_20261102_508AC0000000062.law.json#LawBody[1]/MainProvision/MainProvision[15]/Article:14/Article#14/Paragraph#2/ParagraphSentence/Sentence#1 sha256=151df453a55442acb1cdca91f420bc5f7b04b914b85d86b575311ff6e3a7cd95 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalGrantRevenueBaseTests.lean sha256=444750e52499a800d4637a435546efe3aeaef76f0bd00453ef2153152525dd32 (31 kernel-decided examples)"
     },
+    "NORM|9090b882bace49ea0dbb6a5727ff30fdf0fee04c11a037c87261bd947462e9ce": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch AH: independent pinned re-extraction; H/T/D/C/U recorded",
+      "boundary_proof": "JapanTaxLaw/PerCapitaEqualRateTests.lean: 11 kernel-decided examples incl. 0/1/11/12/13",
+      "cross_law_proof": "unit dependencies=0; revision=325AC0000000226_20261101_508AC0000000002 from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/PerCapitaEqualRate.lean sha256=1cdf12021656692a13f4d17e86fcc1a4ffdb60f1d6e001c98a7b3387d6c0c46f",
+      "independent_spec": "JapanTaxLaw/PerCapitaEqualRateSpec.lean sha256=8026c023d155eab37545eb12637c71a6ff3140fb2990e7dfb8d106f7c3839f57 (spec* defs, no implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44707322412 commit 47be17c: Lean job success, 3 blob hashes re-verified",
+      "proof_scope": "千 (=1000) re-extracted from 原文 and present in both impl and independent spec definitions",
+      "source_correspondence_audit": "scripts/ci/generate_per_capita_evidence.py: independent 1000->千 re-extracted from pinned 原文; needle scoped",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:38/Article#38/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit in scoped main art.38)",
+      "tests": "JapanTaxLaw/PerCapitaEqualRateTests.lean sha256=ae64a6d6e3bfb463b149ea4be1fa147ac015cc761beb51ef4064a9e2c740e68f (11 kernel-decided examples)"
+    },
     "NORM|a7607acfb60e7e06f14829cc3971438828d4385f88056dbb56552bfc12746785": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
