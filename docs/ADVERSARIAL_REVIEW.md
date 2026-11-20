@@ -4652,3 +4652,138 @@ coordinator 要約・STAGING を経由せず、pinned 原文の文字列から�
 - 残る UNRESOLVED（U-AF1 基礎控除額の算定基礎、U-AF2 二倍引き上げの法的効果の範囲）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・算術の独立抽出と再計算・needle の `.find()` 検証・境界値走査・`#print axioms` 公理監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって人間の法的レビューを完了したものとはみなさない。
+## Batch AG review (2026-11-20)
+
+### AG-0. 範囲・独立性の申告
+
+- **対象モジュール（読み取り専用・本レビューで変更していない）**: `JapanTaxLaw/TonnageTaxPenalty.lean`（特別とん税法 art.10「罰則」、law id `332AC0000000038`、revision `332AC0000000038_20250601_504AC0000000068`）。
+- **一次資料（pinned・改変禁止）**: `data/raw/332AC0000000038_20250601_504AC0000000068.law.json`（art.10）。
+- **coordinator の要約・担当 STAGING・Lean doc-comment の「原文逐語」を信じず**、pinned 原文から Python で直接・独立に漢字数字を抽出して照合した。needle は手打ちせず CI 実装 `scripts/ci/transcription_audit.py` の `checks()` から取得した。
+- **書き換えたファイルは `docs/ADVERSARIAL_REVIEW.md` のみ**。既存セクション（Batch A〜AF ほか）はすべて保持。Lean モジュール／`data/*` は一切変更せず、commit / push / merge / ブランチ切替は行っていない。
+
+### AG-1. 独立抽出結果（pinned 原文 → 漢字数字 → Lean 定数）
+
+**抽出方法**: `law_full_text` を CI `transcription_audit.py` の `text()` と同一ロジックで再帰平坦化（pinned ファイル全体の正規化テキスト **5,044 文字**、U+3000 = **0**）。`MainProvision` 配下の `Article[attr.Num="10"]` を直接走査し、art.10 の全 3 項を逐語取得。**flat/normalized 178 文字、U+3000 = 0**（doc-comment 行 10 の「178 chars, U+3000 count 0」申告と一致）。
+
+**独立抽出した art.10 逐語（178 文字、一字一句改変なし）**:
+
+> （罰則）第十条偽りその他不正の行為により、特別とん税を免れ、又は納付すべき特別とん税を納付しなかつた者は、三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する。２前項の犯罪の実行に着手してこれを遂げない者についても、同項の例による。３前二項の場合においては、特別とん税を納付すべき者から、国税徴収の例により、直ちにその特別とん税を徴収する。
+
+| 原文（pinned art.10 第1項） | 独立抽出（自前 kansuji パーサ） | Lean 定数 | 照合 |
+|---|---|---|:---:|
+| 「**三年**以下の拘禁刑」 | `三` = 3 | `def maxImprisonmentYears : Nat := 3`（行 32） | ✅ |
+| 「**五十万**円以下の罰金」 | `五十万` = 50 × 10^4 = 500,000 | `def maxFineYen : Money := 500_000`（行 34） | ✅ |
+
+- 機械比較 `observed == lean` は **True（2/2 一致）**。`Money` は `JapanTaxLaw.TaxFinance` の `abbrev Money := Nat` であり、符号・端数・オーバーフローの懸念なし。
+- **原文は第1項・第2項・第3項の 3 項構成**。第3項（§3 徴収手続:「国税徴収の例により、直ちに…徴収する」）の存在も独立確認した（doc-comment は §1・§2 と並び §3 を NOT MODELLED と明記 → AG-6 B-AG3）。
+
+### AG-2. 最重要チェック（art.148 型の失敗の再発防止）
+
+coordinator 要約・STAGING を経由せず、pinned 原文の文字列から直接上限値を確定した。
+
+| 検証項目 | 独立抽出結果（pinned art.10 正規化テキスト） | Lean | 判定 |
+|---|---|---|---|
+| 「三年以下の拘禁刑」= 3 年以下 | `三年以下` **1 回**、`三` を自前パーサで 3 と変換 | `maxImprisonmentYears = 3` | **正しい** |
+| 「五十万円以下の罰金」= 500,000 円以下 | `五十万円以下` **1 回**、`五十万` = 500,000 と変換 | `maxFineYen = 500_000` | **正しい** |
+| 桁違い: 3 年 → 30 年 | `三十年` **0 回**（原文に存在せず） | 定数 3（`≠ 30`） | **検出されず** |
+| 桁違い: 50 万 → 5 万 | `五万円` **0 回** | 定数 500,000（`∉ {50,000}`） | **検出されず** |
+| 桁違い: 50 万 → 500 万 | `五百万円` **0 回** | 定数 500,000（`∉ {5,000,000}`） | **検出されず** |
+| 犯罪成立要件・未遂範囲・§3 徴収手続の NOT MODELLED 明記 | 原文 §1 / §2 / §3 に対応 | doc-comment 行 22–24 に明記 | **正しい** |
+
+→ **最重要チェック 6 点すべてで食い違い 0 件（ゼロ）。** art.148 で問題になった「要約を信じた誤り（桁違い等）」は再発していない。
+
+### AG-3. needle 健全性（CI 実装の 2 本を直接検証）
+
+`scripts/ci/transcription_audit.py` の `checks()` を Python で import し、`law_id = 332AC0000000038` の `TonnageTaxPenalty.lean` check（kind = `file`）に組み込まれた **2 本**の needle を取得（手打ちせず、STAGING／doc-comment の申告は信じない）。pinned `law_full_text` の正規化テキスト（CI `contains()` / `_norm()` と同一条件 `re.sub(r"[\s　]+", "", …)`）に対して `.find()` / `.count()` を実行した。
+
+| # | needle（全文） | 長さ | U+3000 | FOUND | count | offset（正規化） |
+|---:|---|---:|:---:|:---:|---:|---:|
+| 1 | （罰則）第十条偽りその他不正の行為により、特別とん税を免れ、又は納付すべき特別とん税を納付しなかつた者は、三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する | 87 | 0 | ✅ | 1 | 1371 |
+| 2 | 前項の犯罪の実行に着手してこれを遂げない者についても、同項の例による | 34 | 0 | ✅ | 1 | 1460 |
+
+- **needle 総数 2 本、U+3000 含有 0 本、2/2 FOUND（MISS 0）、すべて count 1（一意）。** needle 文字列の改変・正規化・異体字変換はしていない。
+- 補足: §3（徴収手続）は needle に含まれないが、これは AG-6 B-AG3 のとおり NOT MODELLED として明示されたスコープ外であり、needle 欠落ではない。
+
+### AG-4. 反例探索（境界値・桁違いの独立走査）
+
+`by decide` スモークを信じず、`withinLimits years fine := years ≤ 3 && fine ≤ 500_000` を Python で独立再実装し、境界を走査した。**不一致 0 件（MISMATCH_COUNT = 0）**。
+
+| ケース | 入力 (years, fine) | 独立計算 | 期待値 | 結果 |
+|---|---|---:|---:|---|
+| 境界（双方上限ぴったり） | (3, 500000) | true | true | ✅ |
+| 年数超過 | (4, 500000) | false | false | ✅ |
+| 罰金超過 | (3, 500001) | false | false | ✅ |
+| 双方超過 | (4, 500001) | false | false | ✅ |
+| ゼロ | (0, 0) | true | true | ✅ |
+| 内部点 | (2, 499999) | true | true | ✅ |
+| 年数 Extrem（100万） | (1000000, 0) | false | false | ✅ |
+| 罰金 Extrem（10億） | (0, 1000000000) | false | false | ✅ |
+
+- 8 ケースすべてで独立計算値と期待値が一致。桁違い（30 年・5 万・500 万）を採った誤モデルなら境界 (3, 500000) は true にならないか (4, 500000) が true になるところ、実装はいずれも拒否しており**誤モデルは検出されず**。
+- モジュールの `example` 6 件（`by decide`）は、上限定数 2 件・境界 3 年/50 万円 true・0/0 true・4 年 false・500001 円 false をカバーし、上記独立走査と整合（import 成功、exit code 0）。
+- **反例（不一致）検出数: 0 件。**
+
+### AG-5. 公理監査（`lake env lean` / `#print axioms`）
+
+- 一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\ag_axiom_probe.lean` を作成し、本モジュールの名前付き宣言 **3 件**（`maxImprisonmentYears` / `maxFineYen` / `withinLimits`）すべてに `#print axioms` を実行（`lake env lean`、exit code **0**、エラー 0）。6 つの `example` は名前付き定数として残らないため走査対象外。監査後、一時ファイルは削除済み。
+
+| 宣言 | 結果 |
+|---|---|
+| `JapanTaxLaw.TonnageTaxPenalty.maxImprisonmentYears` | does not depend on any axioms |
+| `JapanTaxLaw.TonnageTaxPenalty.maxFineYen` | does not depend on any axioms |
+| `JapanTaxLaw.TonnageTaxPenalty.withinLimits` | does not depend on any axioms |
+
+| 監査項目 | 結果 |
+|---|---:|
+| 走査宣言数 | 3 |
+| axiom-free（`does not depend on any axioms`） | **3** |
+| `Classical.choice` | **0 件**（不在） |
+| `sorryAx` | **0 件**（不在） |
+| `Quot.sound` | **0 件**（不在） |
+| `propext` | **0 件**（不在・許容範囲内） |
+
+→ **禁止公理（Classical.choice / sorryAx / Quot.sound）は一切検出されず、propext も 0 件。公理監査は合格（3/3 走査、exit code 0）。**
+
+### AG-6. CONFIRMED / BY-DESIGN / UNRESOLVED の分類と件数
+
+| 分類 | 件数 |
+|---:|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **4** |
+| **UNRESOLVED** | **3** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 数値・桁・境界・needle・公理のいずれにも食い違いはなかった。欠陥件数を手柄にしない。
+
+#### CONFIRMED（0 件）
+
+- 数値: 「三年以下」= 3、「五十万円以下」= 500,000 を pinned 原文から独立抽出し、Lean 定数と一致（2/2）。30 年・5 万・500 万の桁違いは原文・実装の双方に存在せず検出されなかった。
+- 境界: (3,500000)=true / (4,500000)=false / (3,500001)=false / (4,500001)=false / (0,0)=true を含む 8 ケースですべて期待値どおり。反例なし。
+- needle: 2 本とも U+3000 なし・FOUND・count 1。原文改変なし。
+- 公理: 禁止公理すべて 0 件、3/3 axiom-free。
+
+#### BY-DESIGN（4 件）
+
+- **B-AG1 上限定数のみを提供する設計**: `maxImprisonmentYears` / `maxFineYen` / `withinLimits` は罰則の数値上限と境界判定のみを与え、個別事案の科刑（刑の選択・量刑）は行わない。doc-comment 行 22–24 に「実際の科刑は司法判断に委ねられ、本モデルは法的レビューを提供しない」と明記。スコープ外の反映漏れではない。
+- **B-AG2 「併科する」の表現**: 原文 §1 の「若しくは…に処し、又はこれを併科する」について、本モデルは `withinLimits` が双方 simultaneously に上限内であることを許す（(3,500000)=true）ことで併科可能性を暗黙に表現する。専用の `concurrent` 述語は持たないが、doc-comment が「『併科可能性』の規定のみを扱う」とスコープを明記しており、設計選択である。
+- **B-AG3 §1・§2 の犯罪成立要件・未遂範囲は NOT MODELLED**: 「偽りその他不正の行為」の具体的認定・§2「実行に着手してこれを遂げない者」の認定は、doc-comment 行 23 で「犯罪の成立要件（不正行為の具体的認定）、未遂の範囲…は NOT MODELLED」と明記済み。needle 2 本で原文を逐語保持している。
+- **B-AG4 §3 の徴収手続は NOT MODELLED**: 原文 §3「前二項の場合においては、特別とん税を納付すべき者から、国税徴収の例により、直ちにその特別とん税を徴収する。」は、doc-comment 行 23 で「§3 の徴収手続は NOT MODELLED」と明記済み。needle には含まれないがスコープ外の明示であり、欠落ではない。
+
+#### UNRESOLVED（3 件）
+
+- **U-AG1 「偽りその他不正の行為」の具体的認定**: 何が「不正の行為」に該当するか、免れ・納付しなかつた者の認定基準は pinned 原文（本条）のみでは確定不能。本モデルは上限値のみを扱うため数値・境界の一致には影響しないが、**人間の法律専門家による確認を要する**。
+- **U-AG2 未遂（§2「実行に着手してこれを遂げない者」）の範囲**: 「実行に着手」の時点・遂げない者への「同項の例による」の具体的適用範囲は pinned 原文のみでは解けない。**人間の法律専門家による確認を要する**。
+- **U-AG3 §3 徴収手続（「国税徴収の例により、直ちに…徴収する」）の具体的内容**: 「国税徴収の例」が指す手続は他法令に委ねられ pinned 原文に含まれない（B-AG4 のとおり NOT MODELLED 明記）。**人間の法律専門家による確認を要する**。
+
+### AG-7. 総合判定・最終報告（サマリ）
+
+- pinned revision `332AC0000000038_20250601_504AC0000000068` の art.10（flat/normalized 178 文字、U+3000 = 0）から独立抽出した「三年以下 = 3」「五十万円以下 = 500,000」は、coordinator 要約・STAGING・doc-comment に依存せず Lean 定数 `maxImprisonmentYears = 3` / `maxFineYen = 500_000` と一致した。
+- **最重要チェック（3 年 / 500,000 円、30 年・5 万・500 万の桁違い回避、犯罪成立要件・未遂範囲・§3 徴収手続の NOT MODELLED 明記）で食い違い 0 件（ゼロ）。** art.148 型の「要約を信じた誤り」は再発していない。
+- **CONFIRMED: 0 件（ゼロ）** ／ **BY-DESIGN: 4 件** ／ **UNRESOLVED: 3 件**。発見ゼロを明示した。
+- **needle 健全性**: CI 実装の 2 本とも U+3000 **0 本**、pinned 正規化テキスト **2/2 FOUND**（MISS 0、すべて count 1）。
+- **反例探索**: 境界 (3,500000)=true / (4,500001)=false / (0,0)=true を含む 8 ケース、桁違い誤モデル識別、Extrem 値の全てで矛盾 0 件。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて **0 件**。3/3 宣言を走査、exit code 0。監査用一時ファイルは削除済み。
+- **見出し**: `## Batch AG review (2026-11-20)` は coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に **match することを Python で確認済み**。本セクションを `docs/ADVERSARIAL_REVIEW.md` 末尾に追記し、既存セクションはすべて保持した。
+- **書き換えファイル**: `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール／`data/*` は一切変更せず、commit / push / merge / ブランチ切替は行っていない。解析用一時ファイルはすべて削除済み。
+- 残る UNRESOLVED（U-AG1 不正行為の認定、U-AG2 未遂の範囲、U-AG3 §3 徴収手続）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・漢字数字の独立抽出と照合・needle の `.find()` 検証・境界値走査・`#print axioms` 公理監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって人間の法的レビューを完了したものとはみなさない。
