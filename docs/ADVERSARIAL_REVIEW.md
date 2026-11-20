@@ -4787,3 +4787,36 @@ coordinator 要約・STAGING を経由せず、pinned 原文の文字列から�
 - 残る UNRESOLVED（U-AG1 不正行為の認定、U-AG2 未遂の範囲、U-AG3 §3 徴収手続）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・漢字数字の独立抽出と照合・needle の `.find()` 検証・境界値走査・`#print axioms` 公理監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって人間の法的レビューを完了したものとはみなさない。
+
+
+---
+
+## Batch AH review (2026-11-20) — DeemedCapitalGainsCost (租税特別措置法 art. 31の4)
+
+### AH-0. 独立性・一次資料
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。担当者の STAGING 記載は信じず、pinned 原文・attestation・Lean blob を別経路で照合した。
+- **対象モジュール（読み取り専用・本レビューで変更なし）**: `JapanTaxLaw/DeemedCapitalGainsCost.lean`, `JapanTaxLaw/DeemedCapitalGainsCostSpec.lean`, `JapanTaxLaw/DeemedCapitalGainsCostTests.lean`。
+- **一次資料（pinned・改変禁止）**: `data/raw/332AC0000000026_20261101_507AC0000000013.law.json`（SHA-256 `E6E6013BBC0608C6B48DEA01D50AC847C3E5D094F0420223171FFE1B5CF8D5EE`）。
+- **方法**: `law_full_text` を独立に平坦化し、`attr.Num == "31_4"` の Article 本文を再抽出（正規化後 447 文字）。needle 「百分の五に相当する金額とする」の `.find()` と、3 モジュールの blob SHA-256 と `data/PROOF_ATTESTATION.json` の突合を行った。
+
+### AH-1. H / T / D / C / U
+
+| 記号 | 内容 |
+|---|---|
+| **H**（反証可能仮説） | 本モデルは art. 31の4(1) の「収入金額の百分の五」と但書（証明された金額が少ない場合はその金額）を正しく表していない可能性がある。 |
+| **T**（再現検査） | pinned JSON から art. 31の4 を独立再抽出し needle を検索。3 モジュールの SHA-256 を attestation と比較。Spec の定数 `5 / 100` と原文「百分の五」を照合。境界値は `by decide` で再計算。 |
+| **D**（合否） | **PASS**（転写・対応の機械的判定）。needle FOUND、3/3 hash 一致、Spec 独立、反例矛盾 0。 |
+| **C**（対立解釈） | 但書の「各号に掲げる金額」には二号（所得税法 38(2) 適用後の金額）があり、本モデルは `provenDocumentedCost` を caller-established とする。別経路の解釈があり得るため法的妥当性は判定しない。 |
+| **U**（不確かさ） | 適用要件の認定、証明手続、art. 31の4(2) の読替えは未モデル化。人間の法律専門家によるレビューを要する。 |
+
+### AH-2. 判定詳細
+
+- needle 「百分の五に相当する金額とする」: pinned 正規化本文に **FOUND**（count 1、U+3000 ゼロ）。
+- 3 モジュール SHA-256: impl `7ef5335c40f7b18c…`, Spec `d074a7cbcc312bbc…`, Tests `faa233e472690e09…` — すべて `PROOF_ATTESTATION.json` と一致。
+- 独立 Spec: `specDeemedCost` は実装定義 `deemedCost` を参照せず、定義部に実装 def 名なし。
+- 境界（`by decide`）: 5% > 証明額 → 5%／証明額 > 5% → 証明額／証明なし → 5%／非適格 → 0／端数 `101*5/100=5`。矛盾 **0 件**。
+- **CONFIRMED: 0 件**（欠陥発見を成功条件としない）。BY-DESIGN: 4 件。UNRESOLVED: 1 件（上記 U）。
+- Lean モジュール・`data/*` は読み取り専用。書き換えたのは本ファイルのみ。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。** 法的妥当性の最終判断は専門家に委ねる。
