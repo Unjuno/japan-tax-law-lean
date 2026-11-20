@@ -1,9 +1,9 @@
 {
-  "commit": "0b6e084f68c35511d586b601692180ceac28a5dc",
+  "commit": "71a2b7c46b37d50126c2e8ac814e338548b927cb",
   "jobs": {
     "Build Lean project and check axioms": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44684783591/job/136116411139",
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44714066256/job/136212824368",
       "required_steps": [
         "Build explicitly",
         "No sorry/admit in adopted proofs",
@@ -14,7 +14,10 @@
     },
     "Semantic audit and mutation injection": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44684783591/job/136116410965"
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44714066256/job/136212824688",
+      "required_steps": [
+        "Python audit gates (present-branch execution, honest skips)"
+      ]
     }
   },
   "modules": {
@@ -350,6 +353,15 @@
     },
     "GiftAddBackTests.lean": {
       "sha256": "54e66358ad26be6275ee00cf9125443a3e16fd660a3071428c8e13e0a7682978"
+    },
+    "GiftAnnualExemption.lean": {
+      "sha256": "6d07cc53efcf324f23a2a9833e5d5fdd16a6916fbae8767bffefb5beded8a68a"
+    },
+    "GiftAnnualExemptionSpec.lean": {
+      "sha256": "bf900a73be7a9bf755d49e3f0d0b7ff100791fd9e27faceb7620496f52475090"
+    },
+    "GiftAnnualExemptionTests.lean": {
+      "sha256": "2ab7a13e8a6b3137f367560499ccd7d99c1c6e9495bed9d2bf018a31cfef798a"
     },
     "GiftSpecialDeduction.lean": {
       "sha256": "336436c45d1e1a47590e5d609475f6f5daf06d7b6ae9903fb3e60b7e83c0ee3e"
@@ -1387,8 +1399,8 @@
       "sha256": "cd02c22ad593ad6e51c24d8a865a99c4d17664ad20780f14004779f2a287495f"
     }
   },
-  "note": "Kernel-build attestation. Hashes are SHA-256 of the committed blob bytes (LF-normalised). CI run is a recorded, independently reproducible build of the exact commit; the generator re-checks every hash before accepting it as evidence.",
+  "note": "Machine-bound from real successful CI run 44714066256 (workflow 'Lean & Audit verification', commit 71a2b7c): job conclusions and SHA-256 of committed module blobs at that commit.",
   "run_conclusion": "success",
   "schema": 1,
-  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44684783591"
+  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44714066256"
 }
