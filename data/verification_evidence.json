@@ -1039,7 +1039,7 @@
       "proof_scope": "docs/UNIT_LOCAL_TAX_ARES_ROUNDING_180_3.md (computable deeming-rounding slice; art.180(1) tax-base computation explicitly NOT MODELLED)",
       "boundary_proof": "JapanTaxLaw/LocalTaxAresRoundingSpec.lean: no_fraction_is_zero (0), smallest_fraction_is_unit (1->100), largest_fraction_is_unit (99->100), deemed_fraction_bounded (universal over Nat)",
       "cross_law_proof": "queue unit dependencies analyzed; this is a standalone deeming sub-rule of 地方税法 art.180(3); no cross-law constant claimed; art.180(1) base explicitly NOT MODELLED",
-      "tests": "JapanTaxLaw/LocalTaxAresRoundingTests.lean sha256=dc74a18c07d160bc6f859858914b6e9ef4fa001b435117e789ffb1df673d4792 (6 kernel-decided boundary examples)",
+      "tests": "JapanTaxLaw/LocalTaxAresRoundingTests.lean sha256=b20dada45d73e5d5d4699dbdd0b4d21922095f22cb14f51549b3826ee4deeea0 (6 kernel-decided boundary examples)",
       "adversarial_review": "docs/ADVERSARIAL_LOCAL_TAX_ARES_ROUNDING_180_3.md — independent agent recomputed pin sha256 (3dd29e0…e68d53, 12,181,725 bytes), located needle uniquely in Article 180 / Paragraph 3, refuted the circular-spec hypothesis (if-zero vs structural match), confirmed universal proof over all Nat and all four boundary theorems, and rejected both competing interpretations. NO CONCRETE FINDINGS; no fix required."
     },
     "NORM|93ea29052ec3f882e3dcaca59016247358364894037f4d822211a4ca621db566": {
@@ -1912,6 +1912,19 @@
       "cross_law_proof": "queue unit dependencies analyzed; this is a single-law income threshold condition in 災害被害者租税減免法 art.2(1); no cross-law constant claimed; the referenced 合計所得金額 definition and relief effects are NOT MODELLED",
       "tests": "JapanTaxLaw/DisasterVictimIncomeLimitTests.lean sha256=e7ff3622c3b9071f5e6d9ef49876525560f47403ef6fdd7e270ea9b575a40711 (kernel-decided boundary examples)",
       "adversarial_review": "docs/ADVERSARIAL_DISASTER_VICTIM_INCOME_LIMIT_2_1.md — independent agent recomputed pin sha256 (c3bb5b0b…3f4e7ef, 86,804 bytes), located needle uniquely in Article 2 / Paragraph 1 / List / Column 1, decoded the three-tier reduction schedule and confirmed 以下 inclusive. NO CONCRETE FINDINGS (F1-F6 all refuted). One interpretive C/U note: the 7.5M clause is a rate-bracket predicate (5/10 row), not the 10M eligibility ceiling — author added a header caveat preventing downstream misuse; rebuild passed. `合計所得金額` as opaque Nat is an honest documented scope boundary."
+    },
+    "NORM|12e21a0a9f20bff1db674861bd44ab88a5ad29f22d750c0042c85775e51414cb": {
+      "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[0]/Article:1_2/Article#1_2/Paragraph#1/Item#1/ItemSentence/Column#2/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7",
+      "decomposition_audit": "build/task_queue.json: kind=REFERENCE, decomposed=true, exact span, unhandled_conditions=[], id unique",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS 相続税法 art.1_2(1)（配偶者及び民法877条に規定する親族をいう）; 181/181 checks passed; verbatim needle unique in pinned file and in Article 1_2 / Paragraph 1 / Item 1 / Column 2",
+      "independent_spec": "JapanTaxLaw/InheritanceCivilCodeRelativeRefSpec.lean sha256=8f8946abd1177c27b1ca2bfc5a8dbb06c3b7d650c6b5ad1e50d7714fe6fec956 (specInDefinedTerm structural pattern match vs implementation equality disjunction; agree_in_defined_term universal over all 3 inhabitants)",
+      "implementation": "JapanTaxLaw/InheritanceCivilCodeRelativeRef.lean sha256=b05daa82dc302f2830ffd6b7b923a7a1d54d52e649eacc8d7751136972090559 (referenceLawNumber=89, referenceArticle=877, PersonKind enum, inDefinedTerm equality disjunction; other is boundary probe)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (593 jobs); agree_in_defined_term universal over all 3 PersonKind inhabitants; all 6 theorems axiom-free; no sorryAx/Classical.choice",
+      "proof_scope": "docs/UNIT_INHERITANCE_CIVIL_CODE_RELATIVE_REF_1_2.md (computable cross-law referential-definition slice; substantive 民法877 content and tax consequences explicitly NOT MODELLED)",
+      "boundary_proof": "JapanTaxLaw/InheritanceCivilCodeRelativeRefSpec.lean: spouse_in_term, civil_relative_in_term, other_not_in_term, reference_law_number=89, reference_article=877, agree_in_defined_term",
+      "cross_law_proof": "this unit IS a cross-law reference: 民法（明治二十九年法律第八十九号）第八百七十七条（扶養義務者）に規定する親族 — reference target identity (law number 89, article 877) recorded and proved; substantive 民法877 content NOT MODELLED",
+      "tests": "JapanTaxLaw/InheritanceCivilCodeRelativeRefTests.lean sha256=1cf165829ee8bc231724c9431ee60d7cab3c923dab57808246ac8c363a58d7cf (kernel-decided boundary examples)",
+      "adversarial_review": "docs/ADVERSARIAL_INHERITANCE_CIVIL_CODE_RELATIVE_REF_1_2.md — independent agent recomputed pin sha256 (c01bb9be…275043a7, 856,326 bytes), located needle uniquely in Article 1_2 / Paragraph 1 / Item 1 / Column 2, confirmed it is a definition clause (扶養義務者) and literally verified the cross-law reference tokens 民法（明治二十九年法律第八十九号）第八百七十七条（扶養義務者） → law 89 / article 877. NO CONCRETE FINDINGS; spec independence (pattern match vs == disjunction) and universal proof over all 3 inhabitants confirmed; C1/C2/U2 are declared scope tradeoffs, not errors. No claim of legal correctness."
     }
   }
 }

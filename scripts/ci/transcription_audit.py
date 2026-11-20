@@ -1208,6 +1208,13 @@ def checks():
            "article", "第二条",
            ["合計所得金額が七百五十万円以下であるとき"])
 
+    # 相続税法 art.1_2(1) item 1 — InheritanceCivilCodeRelativeRef.lean (民法877条の親族を参照)
+    # Norm unit NORM|12e21a0a9f20bff1db674861bd44ab88a5ad29f22d750c0042c85775e51414cb
+    yield ("相続税法 art.1_2(1)（配偶者及び民法877条に規定する親族をいう）↔ InheritanceCivilCodeRelativeRef.lean (cross-law reference to 民法877)",
+           "325AC0000000073",
+           "article", "第一条の二",
+           ["配偶者及び民法（明治二十九年法律第八十九号）第八百七十七条（扶養義務者）に規定する親族をいう。"])
+
     # 在日米軍特例法 art. 11(3) — UsForcesDutyFreePenalty.lean (norm unit)
     yield ("在日米軍特例法 art. 11(3)（免税物品の用途外譲渡違反の罰則: 一年以下の拘禁刑又は五十万円以下の罰金 — 代替刑、併科なし。違反要件・徴収・法人重課・附則は NOT MODELLED）↔ UsForcesDutyFreePenalty.lean",
            "327AC0000000111",
