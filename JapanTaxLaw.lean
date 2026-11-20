@@ -605,3 +605,6 @@ import JapanTaxLaw.LocalGrantRemainingBandsTests
 import JapanTaxLaw.TransitionalIncomeBrackets
 import JapanTaxLaw.TransitionalIncomeBracketsSpec
 import JapanTaxLaw.TransitionalIncomeBracketsTests
+import JapanTaxLaw.ProgressiveAgriculturalPoints
+import JapanTaxLaw.ProgressiveAgriculturalPointsSpec
+import JapanTaxLaw.ProgressiveAgriculturalPointsTests

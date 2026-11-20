@@ -979,6 +979,45 @@
       "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 3: （３）　総排気量が一・五リットルを超え、二リットル以下のもの)",
       "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
+    "NORM|f9c00cec27d0c08d49163cf13bf585efda1fdda2b0b61f0bf22d66adffdc9add": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; three ArithFormula fragments of suppl.art.14-9(3)",
+      "source_correspondence_audit": "scripts/ci/source_audit_progressive_points.py: all 3 formulas found verbatim (3/3 hits, 3/3 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/ProgressiveAgriculturalPointsSpec.lean sha256=0196f8767dd577e97a3f47e151616c183def2269038c88befa4a93789194984d (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/ProgressiveAgriculturalPoints.lean sha256=79401fdac08643b6501da8868b4668dc6bdbf3492edeccff8e26b0b9bc97e68e",
+      "kernel_proof": "Lean 4.35.0 pinned; continuous_at_2000/continuous_at_7000/band_monotone + band exclusivity/exhaustiveness + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "three exact hundredths-valued formula fragments only: d caller-established Nat; 0.03/0.08/0.1 represented as x3/x8/x10 with denominator 100; deriving d, the neighbouring 四捨五入 rounding rule and the rest of art.14-9 NOT MODELLED",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/ProgressiveAgriculturalPointsTests.lean sha256=6691e91e1c53258e21f08678c7afe3f89a704c4224638e0b2be8fd0600df20c2 (kernel boundary/continuity/monotonicity examples, spec agreement)",
+      "adversarial_review": "docs/UNIT_PROGRESSIVE_AGRICULTURAL_POINTS.md: H/T/D/C/U; float-rate and misplaced-rounding readings rejected; only three formula fragments claimed",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[5]/SupplProvision/SupplProvision[29]/Article:14_9/Article#14_9/Paragraph#3/List/ListSentence/Sentence#1/ArithFormula c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim formula 1: ｍ１≦２，０００のとき　ｍ１×０．０３)",
+      "boundary_proof": "hundredths 0: formula at branch 0; continuity at 2000/7000 and within-band monotonicity proved"
+    },
+    "NORM|a1870a9b8f56952699a60883617912f7f9a8185280ee0360323746e7f99a61e6": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; three ArithFormula fragments of suppl.art.14-9(3)",
+      "source_correspondence_audit": "scripts/ci/source_audit_progressive_points.py: all 3 formulas found verbatim (3/3 hits, 3/3 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/ProgressiveAgriculturalPointsSpec.lean sha256=0196f8767dd577e97a3f47e151616c183def2269038c88befa4a93789194984d (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/ProgressiveAgriculturalPoints.lean sha256=79401fdac08643b6501da8868b4668dc6bdbf3492edeccff8e26b0b9bc97e68e",
+      "kernel_proof": "Lean 4.35.0 pinned; continuous_at_2000/continuous_at_7000/band_monotone + band exclusivity/exhaustiveness + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "three exact hundredths-valued formula fragments only: d caller-established Nat; 0.03/0.08/0.1 represented as x3/x8/x10 with denominator 100; deriving d, the neighbouring 四捨五入 rounding rule and the rest of art.14-9 NOT MODELLED",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/ProgressiveAgriculturalPointsTests.lean sha256=6691e91e1c53258e21f08678c7afe3f89a704c4224638e0b2be8fd0600df20c2 (kernel boundary/continuity/monotonicity examples, spec agreement)",
+      "adversarial_review": "docs/UNIT_PROGRESSIVE_AGRICULTURAL_POINTS.md: H/T/D/C/U; float-rate and misplaced-rounding readings rejected; only three formula fragments claimed",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[5]/SupplProvision/SupplProvision[29]/Article:14_9/Article#14_9/Paragraph#3/List/ListSentence/Sentence#1/ArithFormula c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim formula 2: ２，０００＜ｍ１≦７，０００のとき　（ｍ１－２，０００）×０．０８＋６０)",
+      "boundary_proof": "hundredths 1: formula at branch 1; continuity at 2000/7000 and within-band monotonicity proved"
+    },
+    "NORM|f083f7ca3a271061080494d5c75a71be09a0f527f28972cf34ae3aa835878f21": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; three ArithFormula fragments of suppl.art.14-9(3)",
+      "source_correspondence_audit": "scripts/ci/source_audit_progressive_points.py: all 3 formulas found verbatim (3/3 hits, 3/3 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/ProgressiveAgriculturalPointsSpec.lean sha256=0196f8767dd577e97a3f47e151616c183def2269038c88befa4a93789194984d (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/ProgressiveAgriculturalPoints.lean sha256=79401fdac08643b6501da8868b4668dc6bdbf3492edeccff8e26b0b9bc97e68e",
+      "kernel_proof": "Lean 4.35.0 pinned; continuous_at_2000/continuous_at_7000/band_monotone + band exclusivity/exhaustiveness + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "three exact hundredths-valued formula fragments only: d caller-established Nat; 0.03/0.08/0.1 represented as x3/x8/x10 with denominator 100; deriving d, the neighbouring 四捨五入 rounding rule and the rest of art.14-9 NOT MODELLED",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/ProgressiveAgriculturalPointsTests.lean sha256=6691e91e1c53258e21f08678c7afe3f89a704c4224638e0b2be8fd0600df20c2 (kernel boundary/continuity/monotonicity examples, spec agreement)",
+      "adversarial_review": "docs/UNIT_PROGRESSIVE_AGRICULTURAL_POINTS.md: H/T/D/C/U; float-rate and misplaced-rounding readings rejected; only three formula fragments claimed",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[5]/SupplProvision/SupplProvision[29]/Article:14_9/Article#14_9/Paragraph#3/List/ListSentence/Sentence#1/ArithFormula c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim formula 3: ７，０００＜ｍ１のとき　（ｍ１－７，０００）×０．１＋４６０)",
+      "boundary_proof": "hundredths 2: formula at branch 2; continuity at 2000/7000 and within-band monotonicity proved"
     }
   }
 }
