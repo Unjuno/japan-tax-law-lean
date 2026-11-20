@@ -39,6 +39,16 @@ class TestGateProvenance(unittest.TestCase):
         self.assertFalse(cg.checks_are_green(reg(skip=1)))
         self.assertFalse(cg.checks_are_green(reg(required_skip=1)))
 
+    def test_sha_lines_are_masked_for_determinism(self):
+        a = "- gate results commit: abc\n- current HEAD commit: def\n- PASS: 1"
+        b = "- gate results commit: xyz\n- current HEAD commit: uvw\n- PASS: 1"
+        self.assertEqual(cg._stable_text(a), cg._stable_text(b))
+
+    def test_real_changes_are_not_masked(self):
+        a = "- PASS: 1"
+        b = "- PASS: 2"
+        self.assertNotEqual(cg._stable_text(a), cg._stable_text(b))
+
 
 if __name__ == "__main__":
     unittest.main()
