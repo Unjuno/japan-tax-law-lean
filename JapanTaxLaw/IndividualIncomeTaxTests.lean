@@ -60,4 +60,25 @@ example : hundredYenFloor 99 = 0 := by decide
 example : thousandYenFloor (thousandYenFloor 1_234_999) = thousandYenFloor 1_234_999 := by decide
 example : hundredYenFloor (hundredYenFloor 1_234_999) = hundredYenFloor 1_234_999 := by decide
 
+-- ==== appended boundary examples (kernel-decided) ====
+-- (a) zero input (helpers not yet probed at zero in this file):
+example : portionInBand 0 0 1_950_000 = 0 := by decide
+example : (bandRate 5).applyFloor 0 = 0 := by decide
+example : topTaxRate.applyFloor 0 = 0 := by decide
+
+-- (b) small positive input 1..13 (per-product floor → 0 below ¥20):
+example : statutoryTax 1 = 0 := by decide
+example : statutoryTax 13 = 0 := by decide
+example : woodlandTax 13 = 0 := by decide
+example : residentTax 1 1 1 = 0 := by decide
+
+-- (c) saturation / identity at the statutory band thresholds:
+--     portionInBand saturates at the inclusive upper edge; at x = limit the
+--     portion equals the input (identity), above it the portion stays at the
+--     band width (saturation); the applyFloor products stay exact.
+example : portionInBand 1_950_000 0 1_950_000 = 1_950_000 := by decide
+example : portionInBand 50_000_000 0 1_950_000 = 1_950_000 := by decide
+example : (bandRate 5).applyFloor 100 = 5 := by decide
+example : topTaxRate.applyFloor 40_000_000 = 18_000_000 := by decide
+
 end JapanTaxLaw
