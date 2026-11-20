@@ -13,8 +13,8 @@ a needle match, file existence or theorem name is never completion.
 
 | status | units |
 |---|---:|
-| NOT_STARTED | 396785 |
+| NOT_STARTED | 396779 |
 | PARTIAL | 0 |
 | PROVED_SCOPE | 4 |
-| FULLY_VERIFIED | 63 |
+| FULLY_VERIFIED | 69 |
 | BLOCKED | 2 |

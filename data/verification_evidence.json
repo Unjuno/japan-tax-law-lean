@@ -69,6 +69,20 @@
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#2/Subitem2#4/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim E row 3: １１０以上２２０未満)",
       "tests": "JapanTaxLaw/LocalGrantIndexBandsTests.lean sha256=8613baa5eb7666035ac9139dc12df71bcbcb21c4f8b5b1c0863c41556318b820 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness for both groups)"
     },
+    "NORM|0a52a8975d92d2968ed4d24f279f8b5e8e432b8486f46e012d95bd6d5f5186de": {
+      "adversarial_review": "docs/UNIT_TRANSITIONAL_INCOME_BRACKETS.md: H/T/D/C/U; upper-inclusive vs upper-exclusive convention kept distinct from art.11 tables",
+      "boundary_proof": "T350.inBand 1 d; exhaustive over all d, globally pairwise exclusive; 以下 inclusive / 超え exclusive",
+      "cross_law_proof": "unit dependencies=0; enforced revision 329M50000002023_20261101_508M60000008045 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; two three-band income tables in suppl.art.4(2)",
+      "group": "T350",
+      "implementation": "JapanTaxLaw/TransitionalIncomeBrackets.lean sha256=75f0d18370c10839ac6ac266af656553793af3e1306a5636c68484a5552f62f9",
+      "independent_spec": "JapanTaxLaw/TransitionalIncomeBracketsSpec.lean sha256=310ca893c605326bcaf079bed06d9135eb9b1516cc483c48b641f4ca1dfb434f (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; per-table pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "upper-inclusive (以下) / lower-exclusive (超え) three-band partitions over all Nat d; d caller-established annual amount in yen; income computation, rates, transitional conditions and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_income_brackets.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[79]/SupplProvision/SupplProvision[4]/Article:4/Article#4/Paragraph#2/ParagraphSentence/Sentence#1/QuoteStruct/TableStruct/Table/TableRow/TableColumn/Sentence#1 5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim T350 row 2: 年３５０万円を超え年７００万円以下の金額　（（２２））)",
+      "tests": "JapanTaxLaw/TransitionalIncomeBracketsTests.lean sha256=883fb1aa5f4111ef90460a6621b2ea62e39860102f6ff53bfe32a3745e1df996 (kernel boundary examples at inclusive/exclusive edges, spec agreement, universal exclusivity/exhaustiveness)"
+    },
     "NORM|15dbfd55148fe076292eefe260fcfbef38379592bdf6b51fa59a0a7f7bc8b6f6": {
       "adversarial_review": "docs/UNIT_FOREST_TAX_ART5.md: H/T/D/C/U; monthly-rate and >= readings rejected by verbatim original",
       "boundary_proof": "rateEqualsStatutory_iff general theorem; 1000 true; 0/999/1001 false",
@@ -253,6 +267,20 @@
       "source_location": "data/raw/322CO0000000109_19470627_000000000000000.law.json#LawBody[1]/MainProvision/MainProvision[2]/Article:3/Article#3/Paragraph#1/ParagraphSentence/Sentence sha256=9ff39f03e58b315d04fbb65246dd5a4e64cf8c6a428eae84c53bb49c530816ec (verbatim 87-char unit text located in scoped article)",
       "tests": "JapanTaxLaw/RegistrationJointRequestTests.lean sha256=ab9297839621f6ee4cdd49dd199feef8868c1feaf6a3050158c5be09ae68c579 (16 kernel-decided examples incl. 0/1/2/3 and cause-difference invariants)"
     },
+    "NORM|404d8c3d22895074ec7ca2d9c67883413f66bf52e01ceb8c2effd38e3886c1c4": {
+      "adversarial_review": "docs/UNIT_TRANSITIONAL_INCOME_BRACKETS.md: H/T/D/C/U; upper-inclusive vs upper-exclusive convention kept distinct from art.11 tables",
+      "boundary_proof": "T350.inBand 2 d; exhaustive over all d, globally pairwise exclusive; 以下 inclusive / 超え exclusive",
+      "cross_law_proof": "unit dependencies=0; enforced revision 329M50000002023_20261101_508M60000008045 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; two three-band income tables in suppl.art.4(2)",
+      "group": "T350",
+      "implementation": "JapanTaxLaw/TransitionalIncomeBrackets.lean sha256=75f0d18370c10839ac6ac266af656553793af3e1306a5636c68484a5552f62f9",
+      "independent_spec": "JapanTaxLaw/TransitionalIncomeBracketsSpec.lean sha256=310ca893c605326bcaf079bed06d9135eb9b1516cc483c48b641f4ca1dfb434f (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; per-table pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "upper-inclusive (以下) / lower-exclusive (超え) three-band partitions over all Nat d; d caller-established annual amount in yen; income computation, rates, transitional conditions and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_income_brackets.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[79]/SupplProvision/SupplProvision[4]/Article:4/Article#4/Paragraph#2/ParagraphSentence/Sentence#1/QuoteStruct/TableStruct/Table/TableRow/TableColumn/Sentence#1 5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim T350 row 3: 年７００万円を超える金額　（（２３））)",
+      "tests": "JapanTaxLaw/TransitionalIncomeBracketsTests.lean sha256=883fb1aa5f4111ef90460a6621b2ea62e39860102f6ff53bfe32a3745e1df996 (kernel boundary examples at inclusive/exclusive edges, spec agreement, universal exclusivity/exhaustiveness)"
+    },
     "NORM|40c24a253f87a09818d8348d49eb275130f83821b1d6aee71c07498e1db9a10a": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 1000 recorded explicitly",
       "boundary_proof": "inBand 0 d; row 1 applies on its exact interval; global exclusivity, exhaustive for d>=1000",
@@ -318,6 +346,20 @@
       "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 5: （５）　総排気量が二・五リットルを超え、三リットル以下のもの)",
       "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
+    "NORM|599ebad0e1870f85c3661a521559753d3344599e34a2c8c442a04d173eec917d": {
+      "adversarial_review": "docs/UNIT_TRANSITIONAL_INCOME_BRACKETS.md: H/T/D/C/U; upper-inclusive vs upper-exclusive convention kept distinct from art.11 tables",
+      "boundary_proof": "T300.inBand 1 d; exhaustive over all d, globally pairwise exclusive; 以下 inclusive / 超え exclusive",
+      "cross_law_proof": "unit dependencies=0; enforced revision 329M50000002023_20261101_508M60000008045 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; two three-band income tables in suppl.art.4(2)",
+      "group": "T300",
+      "implementation": "JapanTaxLaw/TransitionalIncomeBrackets.lean sha256=75f0d18370c10839ac6ac266af656553793af3e1306a5636c68484a5552f62f9",
+      "independent_spec": "JapanTaxLaw/TransitionalIncomeBracketsSpec.lean sha256=310ca893c605326bcaf079bed06d9135eb9b1516cc483c48b641f4ca1dfb434f (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; per-table pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "upper-inclusive (以下) / lower-exclusive (超え) three-band partitions over all Nat d; d caller-established annual amount in yen; income computation, rates, transitional conditions and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_income_brackets.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[79]/SupplProvision/SupplProvision[4]/Article:4/Article#4/Paragraph#2/ParagraphSentence/Sentence#1/QuoteStruct/TableStruct/Table/TableRow/TableColumn/Sentence#1 5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim T300 row 2: 年３００万円を超え年６００万円以下の金額　（（２２））)",
+      "tests": "JapanTaxLaw/TransitionalIncomeBracketsTests.lean sha256=883fb1aa5f4111ef90460a6621b2ea62e39860102f6ff53bfe32a3745e1df996 (kernel boundary examples at inclusive/exclusive edges, spec agreement, universal exclusivity/exhaustiveness)"
     },
     "NORM|5b0720b95cac99c5d4aef59f0432084a1c0fdc297fca45cee4973a415f401358": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_AMOUNT_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 3000 recorded explicitly",
@@ -467,6 +509,20 @@
       "tests": "JapanTaxLaw/LocalGrantIndexBandsTests.lean sha256=8613baa5eb7666035ac9139dc12df71bcbcb21c4f8b5b1c0863c41556318b820 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness for both groups)",
       "unhandled_conditions_record": "normative_core: bare inequality fragment names no explicit subject; compared quantity is caller-established; queue status PROVED_SCOPE (honest)"
     },
+    "NORM|7eb3d697fa3b3e936f380f948b618fd4fa288ea4d2592d52c41ebdab310795e8": {
+      "adversarial_review": "docs/UNIT_TRANSITIONAL_INCOME_BRACKETS.md: H/T/D/C/U; upper-inclusive vs upper-exclusive convention kept distinct from art.11 tables",
+      "boundary_proof": "T300.inBand 0 d; exhaustive over all d, globally pairwise exclusive; 以下 inclusive / 超え exclusive",
+      "cross_law_proof": "unit dependencies=0; enforced revision 329M50000002023_20261101_508M60000008045 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; two three-band income tables in suppl.art.4(2)",
+      "group": "T300",
+      "implementation": "JapanTaxLaw/TransitionalIncomeBrackets.lean sha256=75f0d18370c10839ac6ac266af656553793af3e1306a5636c68484a5552f62f9",
+      "independent_spec": "JapanTaxLaw/TransitionalIncomeBracketsSpec.lean sha256=310ca893c605326bcaf079bed06d9135eb9b1516cc483c48b641f4ca1dfb434f (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; per-table pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "upper-inclusive (以下) / lower-exclusive (超え) three-band partitions over all Nat d; d caller-established annual amount in yen; income computation, rates, transitional conditions and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_income_brackets.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[79]/SupplProvision/SupplProvision[4]/Article:4/Article#4/Paragraph#2/ParagraphSentence/Sentence#1/QuoteStruct/TableStruct/Table/TableRow/TableColumn/Sentence#1 5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim T300 row 1: 年３００万円以下の金額　（（２１））)",
+      "tests": "JapanTaxLaw/TransitionalIncomeBracketsTests.lean sha256=883fb1aa5f4111ef90460a6621b2ea62e39860102f6ff53bfe32a3745e1df996 (kernel boundary examples at inclusive/exclusive edges, spec agreement, universal exclusivity/exhaustiveness)"
+    },
     "NORM|84f30566e583de635fc2da0096497d579f38dd9935595a55259fd024a6e24c0f": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
@@ -532,6 +588,20 @@
       "source_correspondence_audit": "scripts/ci/source_audit_tax_accountant_art14.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; independent literals 各号/該当する者/十万円以下/過料/処する",
       "source_location": "data/raw/326AC1000000145_20211122_503AC0000000046.law.json#LawBody[1]/MainProvision/MainProvision[14]/Article:14/Article#14/Paragraph#1/ParagraphSentence/Sentence#1 sha256=fc6c4ca152291c10c1218a62303a879195bfbbe95a056d0e264ee0315bbc4e2b (verbatim 30-char unit text)",
       "tests": "JapanTaxLaw/TaxAccountantFineTests.lean sha256=43a4253d7388238151ba6a8666f65dd4f1c035424f42703768d72fcb6d61d3b1 (9 kernel-decided examples)"
+    },
+    "NORM|91b09e78e093f27b4757aadab2674e987a70118492ccce5d752fbcd0ebb7a4ab": {
+      "adversarial_review": "docs/UNIT_TRANSITIONAL_INCOME_BRACKETS.md: H/T/D/C/U; upper-inclusive vs upper-exclusive convention kept distinct from art.11 tables",
+      "boundary_proof": "T300.inBand 2 d; exhaustive over all d, globally pairwise exclusive; 以下 inclusive / 超え exclusive",
+      "cross_law_proof": "unit dependencies=0; enforced revision 329M50000002023_20261101_508M60000008045 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; two three-band income tables in suppl.art.4(2)",
+      "group": "T300",
+      "implementation": "JapanTaxLaw/TransitionalIncomeBrackets.lean sha256=75f0d18370c10839ac6ac266af656553793af3e1306a5636c68484a5552f62f9",
+      "independent_spec": "JapanTaxLaw/TransitionalIncomeBracketsSpec.lean sha256=310ca893c605326bcaf079bed06d9135eb9b1516cc483c48b641f4ca1dfb434f (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; per-table pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "upper-inclusive (以下) / lower-exclusive (超え) three-band partitions over all Nat d; d caller-established annual amount in yen; income computation, rates, transitional conditions and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_income_brackets.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[79]/SupplProvision/SupplProvision[4]/Article:4/Article#4/Paragraph#2/ParagraphSentence/Sentence#1/QuoteStruct/TableStruct/Table/TableRow/TableColumn/Sentence#1 5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim T300 row 3: 年６００万円を超える金額　（（２３））)",
+      "tests": "JapanTaxLaw/TransitionalIncomeBracketsTests.lean sha256=883fb1aa5f4111ef90460a6621b2ea62e39860102f6ff53bfe32a3745e1df996 (kernel boundary examples at inclusive/exclusive edges, spec agreement, universal exclusivity/exhaustiveness)"
     },
     "NORM|92ee405dbebdf0892184d8cb4a5bbb550eec887e147299f1cd7255c7353e27c0": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_REMAINING_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; A's lower edge and B's unhandled subject recorded explicitly",
@@ -747,6 +817,20 @@
       "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 2: （２）　総排気量が一リットルを超え、一・五リットル以下のもの)",
       "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
+    "NORM|c8d9f6f7319a50729e1de85ce41a2c51e37f8a03b6cf39647b6bb44bfe202fb1": {
+      "adversarial_review": "docs/UNIT_TRANSITIONAL_INCOME_BRACKETS.md: H/T/D/C/U; upper-inclusive vs upper-exclusive convention kept distinct from art.11 tables",
+      "boundary_proof": "T350.inBand 0 d; exhaustive over all d, globally pairwise exclusive; 以下 inclusive / 超え exclusive",
+      "cross_law_proof": "unit dependencies=0; enforced revision 329M50000002023_20261101_508M60000008045 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; two three-band income tables in suppl.art.4(2)",
+      "group": "T350",
+      "implementation": "JapanTaxLaw/TransitionalIncomeBrackets.lean sha256=75f0d18370c10839ac6ac266af656553793af3e1306a5636c68484a5552f62f9",
+      "independent_spec": "JapanTaxLaw/TransitionalIncomeBracketsSpec.lean sha256=310ca893c605326bcaf079bed06d9135eb9b1516cc483c48b641f4ca1dfb434f (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; per-table pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "upper-inclusive (以下) / lower-exclusive (超え) three-band partitions over all Nat d; d caller-established annual amount in yen; income computation, rates, transitional conditions and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_income_brackets.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[79]/SupplProvision/SupplProvision[4]/Article:4/Article#4/Paragraph#2/ParagraphSentence/Sentence#1/QuoteStruct/TableStruct/Table/TableRow/TableColumn/Sentence#1 5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim T350 row 1: 年３５０万円以下の金額　（（２１））)",
+      "tests": "JapanTaxLaw/TransitionalIncomeBracketsTests.lean sha256=883fb1aa5f4111ef90460a6621b2ea62e39860102f6ff53bfe32a3745e1df996 (kernel boundary examples at inclusive/exclusive edges, spec agreement, universal exclusivity/exhaustiveness)"
     },
     "NORM|c95fe5b099a7bac3397cf63b6b2db5bce1e182c2201fe7c7830ca9aeeff4b423": {
       "adversarial_review": "docs/UNIT_MERGER_EXCEPTION_ART24.md: H/T/D/C/U; inclusive reading of the parenthetical exception rejected by verbatim original",
