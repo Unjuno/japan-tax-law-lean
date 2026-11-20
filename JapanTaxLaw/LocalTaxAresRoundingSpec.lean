@@ -12,6 +12,11 @@ The implementation uses an `if` on equality with zero. The spec is a structural
 pattern match on Nat (`0 → 0`, successor → 100) — a deliberately different
 formulation. The kernel proves equivalence for ALL Nat, not a finite sample.
 
+The statutory constant 百アール = 100 is restated by this spec's OWN
+`specFractionUnitAres` instead of reusing the implementation's `fractionUnitAres`;
+the value is identical. Only the explicit `agree*` comparison / boundary layer
+below references implementation definitions.
+
 The statutory domain of the remainder is 0 ≤ r < 100; the theorem is stated
 universally because it holds universally, and the legally meaningful subdomain
 is recorded in the boundary theorems.
@@ -23,17 +28,20 @@ namespace JapanTaxLaw.LocalTaxAresRounding
 
 open JapanTaxLaw.TaxFinance
 
+/-- Spec's own statutory constant: 百アール = 100 ares (art. 180(3)). -/
+def specFractionUnitAres : Money := 100
+
 /-- Spec: structural pattern match (zero → 0, any successor → 100). -/
 def specDeemed : Money → Money
   | 0 => 0
-  | _ + 1 => fractionUnitAres
+  | _ + 1 => specFractionUnitAres
 
 /-- Soundness/correspondence for every remainder. Universal, kernel-checked. -/
 theorem agree_ares_rounding (remainder : Money) :
     deemedFraction remainder = specDeemed remainder := by
   cases remainder with
   | zero => rfl
-  | succ n => simp [deemedFraction, specDeemed, fractionUnitAres]
+  | succ n => simp [deemedFraction, specDeemed, fractionUnitAres, specFractionUnitAres]
 
 /-- Boundary: no fraction yields zero. -/
 theorem no_fraction_is_zero : deemedFraction 0 = 0 := rfl
