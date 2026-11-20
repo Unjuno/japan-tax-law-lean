@@ -26,12 +26,12 @@
       "source": "e-Gov 法令一覧（'税' キーワード暂定母集団）"
     },
     {
-      "acquired_count": null,
+      "acquired_count": 217,
       "counted_in_target": true,
       "counted_in_verified": false,
       "declared_count": null,
-      "enumerated_count": null,
-      "enumeration_status": "UNENUMERATED",
+      "enumerated_count": 217,
+      "enumeration_status": "ENUMERATED_PARTIAL",
       "evidence": [
         "data/DISCOVERED_INVENTORY.json",
         "docs/RECURSIVE_DISCOVERY_RESOLVED.md"
@@ -110,5 +110,15 @@
   ],
   "schema": "source-layers/v1",
   "snapshot_date": "2026-11-15",
-  "tool": "scripts/law_audit/inventory/source_layers.py"
+  "tool": "scripts/law_audit/inventory/source_layers.py",
+  "verification_pipeline": {
+    "blocked_units": 2,
+    "fully_verified_units": 46,
+    "human_legal_reviews": 0,
+    "normative_units_total": null,
+    "not_started_units": 396806,
+    "note": "Separate denominators. Unknown means the input is absent on this branch; never zero.",
+    "proved_scope_units": 0,
+    "unacquired_statutes": 0
+  }
 }

@@ -35,6 +35,22 @@ UNENUMERATED = "UNENUMERATED"
 ACQUIRED = "ACQUIRED"
 
 
+def queue_status_counts() -> dict:
+    """Read only the payload head of the streamed queue (no full 240 MB load)."""
+    q = REPO / "build" / "task_queue.json"
+    if not q.exists():
+        return {}
+    with q.open("r", encoding="utf-8") as fh:
+        head = fh.read(16384)
+    m = re.search(r'"status_counts"\s*:\s*\{([^}]*)\}', head)
+    if not m:
+        return {}
+    out = {}
+    for k, v in re.findall(r'"([A-Z_]+)"\s*:\s*(\d+)', m.group(1)):
+        out[k] = int(v)
+    return out
+
+
 def estimate_ordinances() -> int | None:
     """Non-authoritative declared estimate; never promoted to a count."""
     if not BLOCKED.exists():
@@ -146,6 +162,20 @@ def build() -> dict:
             "note": "法的妥当性は人間の独立レビューを要する。未確定のまま保持。",
         },
     ]
+    statuses = queue_status_counts()
+    verified_units = statuses.get("FULLY_VERIFIED")
+    proved_scope_units = statuses.get("PROVED_SCOPE")
+    pipeline = {
+        "normative_units_total": statuses.get("units_total"),
+        "fully_verified_units": verified_units,
+        "proved_scope_units": proved_scope_units,
+        "not_started_units": statuses.get("NOT_STARTED"),
+        "blocked_units": statuses.get("BLOCKED"),
+        "unacquired_statutes": (discovered_total - acquired)
+        if discovered_total is not None and acquired is not None else None,
+        "human_legal_reviews": 0,
+        "note": "Separate denominators. Unknown means the input is absent on this branch; never zero.",
+    }
     resolved = REPO / "data" / "RECURSIVE_DISCOVERY_RESOLVED.json"
     historical = None
     if resolved.exists():
@@ -156,6 +186,7 @@ def build() -> dict:
         "tool": "scripts/law_audit/inventory/source_layers.py",
         "snapshot_date": inv.get("snapshot_date", ""),
         "historical_reference_occurrences": historical,
+        "verification_pipeline": pipeline,
         "all_complete_claimable": False,
         "layers": layers,
         "finding": {
@@ -197,7 +228,16 @@ def render(data: dict) -> str:
             f"{fmt(l['acquired_count'])} | {'yes' if l['counted_in_target'] else 'no'} | "
             f"{'yes' if l['counted_in_verified'] else 'no'} |"
         )
-    lines += ["", "## Finding (H/T/D/C/U)", ""]
+    p = data["verification_pipeline"]
+    lines += ["", "## Obligation counts (separate denominators)", ""]
+
+    def pval(v):
+        return "unknown" if v is None else str(v)
+
+    for key in ("normative_units_total", "fully_verified_units", "proved_scope_units",
+                "not_started_units", "blocked_units", "unacquired_statutes", "human_legal_reviews"):
+        lines.append(f"- {key}: {pval(p[key])}")
+    lines += ["", p["note"], "", "## Finding (H/T/D/C/U)", ""]
     for k in ("H", "T", "D", "C", "U"):
         lines.append(f"- **{k}**: {data['finding'][k]}")
     lines.append("")
