@@ -20,6 +20,7 @@ REPO = Path(__file__).resolve().parents[3]
 INVENTORY = REPO / "data" / "INVENTORY.json"
 OUT = REPO / "docs" / "RECURSIVE_DISCOVERY.md"
 OUT_TMP = REPO / "build" / "recursive_discovery.md"
+OUT_NAMES = REPO / "build" / "discovered_names.json"
 
 # Japanese law names ending in 法/令/規則 that precede an article reference.
 NAME_RE = re.compile(r"([\u4e00-\u9fffA-Za-z0-9]{2,40}?(?:施行令|施行規則|法律|法|令|規則))\s*第[一二三四五六七八九十百〇0-9]+条")
@@ -33,7 +34,7 @@ def flat(node):
     return ""
 
 
-def build() -> str:
+def build(names_out: dict | None = None) -> str:
     inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
     laws = inv.get("laws", [])
     titles = {l.get("official_title", "") for l in laws if l.get("official_title")}
@@ -58,6 +59,8 @@ def build() -> str:
                 continue
             names[name] += 1
 
+    if names_out is not None:
+        names_out.update(dict(names))
     lines = [
         "# Recursive target-law discovery (machine-generated)",
         "",
@@ -126,8 +129,13 @@ def build() -> str:
 
 
 def main() -> int:
-    text = build()
+    names: dict[str, int] = {}
+    text = build(names)
     OUT_TMP.parent.mkdir(parents=True, exist_ok=True)
+    OUT_NAMES.write_text(json.dumps({
+        "source": "pinned raw snapshots (2026-11-15)",
+        "names": names,
+    }, ensure_ascii=False, sort_keys=True), encoding="utf-8")
     OUT_TMP.write_text(text, encoding="utf-8")
     if OUT.exists() and OUT.read_text(encoding="utf-8") == text:
         print("recursive discovery ledger matches committed state (deterministic)")

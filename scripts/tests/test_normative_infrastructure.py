@@ -350,6 +350,21 @@ class TestGateSemantics(unittest.TestCase):
 
 
 class TestRealInventory(unittest.TestCase):
+    def test_non_tax_related_statutes_are_discovered_not_silently_inventoried(self):
+        p = REPO / "build" / "discovered_laws.json"
+        if not p.exists():
+            self.skipTest("discovery ledger not generated yet")
+        d = json.loads(p.read_text(encoding="utf-8"))
+        self.assertGreater(d["resolved_non_tax"], 100)
+        self.assertGreater(d["unresolved"], 0)
+        self.assertGreaterEqual(d["local_ordinance_mentions"], 0)
+        entries = d["entries"]
+        self.assertTrue(any(e["category"] == "NON_TAX_NAME"
+                            and e["resolution"] == "RESOLVED_IN_LAWLIST"
+                            and e["law_id"] for e in entries))
+        inv = json.loads((REPO / "data" / "INVENTORY.json").read_text(encoding="utf-8"))
+        self.assertEqual(len(inv["laws"]), 327)  # discovery never auto-expands inventory
+
     def test_snapshot_is_pinned_and_raw_files_exist(self):
         inv = json.loads((REPO / "data" / "INVENTORY.json").read_text(encoding="utf-8"))
         self.assertEqual(inv.get("snapshot_date"), "2026-11-15")
