@@ -253,6 +253,19 @@
       "source_location": "data/raw/322CO0000000109_19470627_000000000000000.law.json#LawBody[1]/MainProvision/MainProvision[2]/Article:3/Article#3/Paragraph#1/ParagraphSentence/Sentence sha256=9ff39f03e58b315d04fbb65246dd5a4e64cf8c6a428eae84c53bb49c530816ec (verbatim 87-char unit text located in scoped article)",
       "tests": "JapanTaxLaw/RegistrationJointRequestTests.lean sha256=ab9297839621f6ee4cdd49dd199feef8868c1feaf6a3050158c5be09ae68c579 (16 kernel-decided examples incl. 0/1/2/3 and cause-difference invariants)"
     },
+    "NORM|40c24a253f87a09818d8348d49eb275130f83821b1d6aee71c07498e1db9a10a": {
+      "adversarial_review": "docs/UNIT_LOCAL_GRANT_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 1000 recorded explicitly",
+      "boundary_proof": "inBand 0 d; row 1 applies on its exact interval; global exclusivity, exhaustive for d>=1000",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; six rows of art.11(1) daytime-population table",
+      "implementation": "JapanTaxLaw/LocalGrantPopulationBands.lean sha256=8df8ec7f033ad0d245d61fb3ab8665eca522056241d271c6d25a7818f5864d64",
+      "independent_spec": "JapanTaxLaw/LocalGrantPopulationBandsSpec.lean sha256=6b1862bd5db8dfedfb33cff1a7c061aa1be540caca902acae99cc63f8ea6e641 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "six-row population partition only: d caller-established Nat; exhaustive for d>=1000 (d<1000 NOT MODELLED); global pairwise exclusivity; census derivation, formulas and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_population_bands.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#4/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 1: １，０００人以上６，０００人未満)",
+      "tests": "JapanTaxLaw/LocalGrantPopulationBandsTests.lean sha256=0e78d642ff63c5d8ccd09b6c4320e3a445ac1c606679c48054ec81cc1019a93b (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
     "NORM|44ed564144dcbfb0666f5bd97f6f4efc7bc472d685f6b97e26092c6995dba5d4": {
       "adversarial_review": "docs/UNIT_DELEGATED_TAXPAYER_CATEGORIES.md: H/T/D/C/U; treating 政令 content as statutory text rejected; 3 vs 4 narrowing preserved",
       "boundary_proof": "cat3: delegated category （３）　寡婦又はひとり親; narrowing of (3) and cross-law identity proved",
@@ -266,6 +279,19 @@
       "source_correspondence_audit": "scripts/ci/source_audit_delegated_categories.py: both distinct originals found verbatim (2/2 distinct hits, 3/3 checks), spec does not import implementation",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:314_6/Article#314_6/Paragraph#1/Item#1/Subitem1#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim C_art314_6 row 1: （３）　寡婦又はひとり親で政令で定めるものである所得割の納税義務者)",
       "tests": "JapanTaxLaw/DelegatedTaxpayerCategoriesTests.lean sha256=cb2368de2652a6421e139691c97f3fcf97e1c92cdf1215646885a8f1178293e9 (kernel boundary examples, spec agreement, narrowing/cross-law relations)"
+    },
+    "NORM|4c4a2318ddb86c1c3fe7344ba9507ffc8e2226ab59cb6ab7ac46d2aec51a2f86": {
+      "adversarial_review": "docs/UNIT_LOCAL_GRANT_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 1000 recorded explicitly",
+      "boundary_proof": "inBand 3 d; row 4 applies on its exact interval; global exclusivity, exhaustive for d>=1000",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; six rows of art.11(1) daytime-population table",
+      "implementation": "JapanTaxLaw/LocalGrantPopulationBands.lean sha256=8df8ec7f033ad0d245d61fb3ab8665eca522056241d271c6d25a7818f5864d64",
+      "independent_spec": "JapanTaxLaw/LocalGrantPopulationBandsSpec.lean sha256=6b1862bd5db8dfedfb33cff1a7c061aa1be540caca902acae99cc63f8ea6e641 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "six-row population partition only: d caller-established Nat; exhaustive for d>=1000 (d<1000 NOT MODELLED); global pairwise exclusivity; census derivation, formulas and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_population_bands.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#4/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 4: ５５，０００人以上１１０，０００人未満)",
+      "tests": "JapanTaxLaw/LocalGrantPopulationBandsTests.lean sha256=0e78d642ff63c5d8ccd09b6c4320e3a445ac1c606679c48054ec81cc1019a93b (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
     "NORM|4e4cbc3712a36cbadd4cc844bc1177446b3df1bb7746006e669ce5224b963864": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_AMOUNT_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 3000 recorded explicitly",
@@ -346,6 +372,19 @@
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[3]/SupplProvision/SupplProvision[87]/Article:13_4/Article#13_4/Paragraph#3/ParagraphSentence/Sentence#1 5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim 23-char quasi-application)",
       "tests": "JapanTaxLaw/MunicipalTaxQuasiApplyTests.lean sha256=31423b4366568d4ddbc9be2e946f6cab31304d91344c4ab51b74b9e4e5851a42 (6 kernel-decided examples)"
     },
+    "NORM|6db851350ac8ff22221b06d98b24baec978de8db35d0e857c9e4170965d0fc59": {
+      "adversarial_review": "docs/UNIT_LOCAL_GRANT_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 1000 recorded explicitly",
+      "boundary_proof": "inBand 2 d; row 3 applies on its exact interval; global exclusivity, exhaustive for d>=1000",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; six rows of art.11(1) daytime-population table",
+      "implementation": "JapanTaxLaw/LocalGrantPopulationBands.lean sha256=8df8ec7f033ad0d245d61fb3ab8665eca522056241d271c6d25a7818f5864d64",
+      "independent_spec": "JapanTaxLaw/LocalGrantPopulationBandsSpec.lean sha256=6b1862bd5db8dfedfb33cff1a7c061aa1be540caca902acae99cc63f8ea6e641 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "six-row population partition only: d caller-established Nat; exhaustive for d>=1000 (d<1000 NOT MODELLED); global pairwise exclusivity; census derivation, formulas and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_population_bands.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#4/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 3: １１，０００人以上５５，０００人未満)",
+      "tests": "JapanTaxLaw/LocalGrantPopulationBandsTests.lean sha256=0e78d642ff63c5d8ccd09b6c4320e3a445ac1c606679c48054ec81cc1019a93b (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
     "NORM|6dd5ac032c1b20b723f79e1c0bee07eb85c692952637a3696a35892be520ceb7": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_INDEX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; C and E thresholds kept separate",
       "boundary_proof": "C.inBand 2 d; exhaustive over all d, globally pairwise exclusive",
@@ -385,6 +424,19 @@
       "source_correspondence_audit": "scripts/ci/source_audit_local_grant_bands.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 6: ９００，０００以上)",
       "tests": "JapanTaxLaw/LocalGrantAmountBandsTests.lean sha256=270f27df97f18db8f4932fe4d9a3bc6cf0380794a92c82c189014fdc3a99e7a1 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
+    "NORM|7a48513b737f66d469e5b27c580233e06a9fe4a6be4cc12eaa102fe28780969d": {
+      "adversarial_review": "docs/UNIT_LOCAL_GRANT_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 1000 recorded explicitly",
+      "boundary_proof": "inBand 4 d; row 5 applies on its exact interval; global exclusivity, exhaustive for d>=1000",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; six rows of art.11(1) daytime-population table",
+      "implementation": "JapanTaxLaw/LocalGrantPopulationBands.lean sha256=8df8ec7f033ad0d245d61fb3ab8665eca522056241d271c6d25a7818f5864d64",
+      "independent_spec": "JapanTaxLaw/LocalGrantPopulationBandsSpec.lean sha256=6b1862bd5db8dfedfb33cff1a7c061aa1be540caca902acae99cc63f8ea6e641 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "six-row population partition only: d caller-established Nat; exhaustive for d>=1000 (d<1000 NOT MODELLED); global pairwise exclusivity; census derivation, formulas and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_population_bands.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#4/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 5: １１０，０００人以上２２０，０００人未満)",
+      "tests": "JapanTaxLaw/LocalGrantPopulationBandsTests.lean sha256=0e78d642ff63c5d8ccd09b6c4320e3a445ac1c606679c48054ec81cc1019a93b (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
     "NORM|7b9430e42aa5a1d64e7dc6ce862a5e029bab1efac685994bafef93d9f6806187": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_INDEX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; C and E thresholds kept separate",
@@ -561,6 +613,19 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_20/Article#72_20/Paragraph#2/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalAddedValueStandardTests.lean sha256=f8354718e7a135a3681e9d3a0fc99e3e2715ed7c025f299b51e9cddf1c9715d8 (20 kernel-decided examples)"
     },
+    "NORM|ade181c2b3227b14bacd93fe8d657c3e59f51153d877c1c380795cdfe90a9aca": {
+      "adversarial_review": "docs/UNIT_LOCAL_GRANT_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 1000 recorded explicitly",
+      "boundary_proof": "inBand 5 d; row 6 applies on its exact interval; global exclusivity, exhaustive for d>=1000",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; six rows of art.11(1) daytime-population table",
+      "implementation": "JapanTaxLaw/LocalGrantPopulationBands.lean sha256=8df8ec7f033ad0d245d61fb3ab8665eca522056241d271c6d25a7818f5864d64",
+      "independent_spec": "JapanTaxLaw/LocalGrantPopulationBandsSpec.lean sha256=6b1862bd5db8dfedfb33cff1a7c061aa1be540caca902acae99cc63f8ea6e641 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "six-row population partition only: d caller-established Nat; exhaustive for d>=1000 (d<1000 NOT MODELLED); global pairwise exclusivity; census derivation, formulas and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_population_bands.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#4/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 6: ２２０，０００人以上)",
+      "tests": "JapanTaxLaw/LocalGrantPopulationBandsTests.lean sha256=0e78d642ff63c5d8ccd09b6c4320e3a445ac1c606679c48054ec81cc1019a93b (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
     "NORM|aefa93fb70c15d0bbd40088acb0767b17fc6b2b16d200c13dea8ce12bae79fbd": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_AMOUNT_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 3000 recorded explicitly",
       "boundary_proof": "inBand 1 d; row 2 applies on its exact interval; global pairwise exclusivity, exhaustive for d>=3000",
@@ -664,6 +729,19 @@
       "source_correspondence_audit": "scripts/ci/source_audit_vehicle_bands.py: all 10 originals found verbatim (10/10 hits, 3/3 checks), spec does not import implementation",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 1: （１）　総排気量が一リットル以下のもの)",
       "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
+    "NORM|eaedffec9f49781221fb0d76cbc1d5aebd7455d9aa720eb0462663d65ee2ea51": {
+      "adversarial_review": "docs/UNIT_LOCAL_GRANT_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 1000 recorded explicitly",
+      "boundary_proof": "inBand 1 d; row 2 applies on its exact interval; global exclusivity, exhaustive for d>=1000",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; six rows of art.11(1) daytime-population table",
+      "implementation": "JapanTaxLaw/LocalGrantPopulationBands.lean sha256=8df8ec7f033ad0d245d61fb3ab8665eca522056241d271c6d25a7818f5864d64",
+      "independent_spec": "JapanTaxLaw/LocalGrantPopulationBandsSpec.lean sha256=6b1862bd5db8dfedfb33cff1a7c061aa1be540caca902acae99cc63f8ea6e641 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "six-row population partition only: d caller-established Nat; exhaustive for d>=1000 (d<1000 NOT MODELLED); global pairwise exclusivity; census derivation, formulas and legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_population_bands.py: all 6 originals found verbatim (6/6 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#4/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 2: ６，０００人以上１１，０００人未満)",
+      "tests": "JapanTaxLaw/LocalGrantPopulationBandsTests.lean sha256=0e78d642ff63c5d8ccd09b6c4320e3a445ac1c606679c48054ec81cc1019a93b (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
     "NORM|eafb926aa687520d5ca477831b6756d9a842b6e2ab9e8ecd7dcac587ae67e21f": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_AMOUNT_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 3000 recorded explicitly",
