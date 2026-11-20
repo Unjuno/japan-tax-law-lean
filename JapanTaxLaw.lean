@@ -665,3 +665,6 @@ import JapanTaxLaw.ReadingReplacementsTests
 import JapanTaxLaw.ExtendedTemporalAndMonthNorms
 import JapanTaxLaw.ExtendedTemporalAndMonthNormsSpec
 import JapanTaxLaw.ExtendedTemporalAndMonthNormsTests
+import JapanTaxLaw.DualSanctionsAndDelegation
+import JapanTaxLaw.DualSanctionsAndDelegationSpec
+import JapanTaxLaw.DualSanctionsAndDelegationTests
