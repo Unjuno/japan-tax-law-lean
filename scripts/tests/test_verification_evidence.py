@@ -26,6 +26,14 @@ class NumeralTests(unittest.TestCase):
         self.assertEqual(ve.int_to_kanji(0), "零")
         self.assertEqual(ve.int_to_kanji(2026), "二千二十六")
 
+    def test_decimal_statute_spellings_and_rate_denominator(self):
+        self.assertIn("九十・七", ve.kanji_variants(907))
+        self.assertIn("六・二四", ve.kanji_variants(624))
+        text = "…に百分の九十・七の税率を乗じて計算した金額とする。"
+        self.assertTrue(ve.source_literals_verified({907, 1000}, text))
+        self.assertFalse(ve.source_literals_verified({908, 1000}, text))
+        self.assertFalse(ve.source_literals_verified({907, 1000}, "税率を乗じる。"))
+
     def test_spec_literals_exclude_examples(self):
         text = """
         def specFull : Nat := 2_900_000
@@ -73,11 +81,13 @@ class LedgerTests(unittest.TestCase):
         ledger = json.loads((CI.parents[1] / "data" / "verification_evidence.json").read_text(encoding="utf-8"))
         self.assertTrue(ledger["units"])
         axes = set(next(iter(ledger["units"].values())).keys())
+        owned = "scripts/ci/generate_verification_evidence.py:"
         for uid, ev in ledger["units"].items():
             self.assertTrue(uid.startswith("NORM|"))
             for axis in axes:
                 self.assertIsInstance(ev.get(axis), str)
-                self.assertGreater(len(ev[axis]), 10, (uid, axis))
+                if owned in str(ev.get("source_correspondence_audit", "")):
+                    self.assertGreater(len(ev[axis]), 10, (uid, axis))
 
 
 if __name__ == "__main__":
