@@ -1215,6 +1215,12 @@ def checks():
            "file", None,
            ["粉末酒の重量に〇・七三（一キログラム当たりのリットル数）を乗じて計算する方法とする", "（粉末酒に係る数量の計算）第十二条の三法第七条第六項に規定する政令で定める方法は"])
 
+    # TobaccoRate — cycle-29
+    yield ("TobaccoRate.lean",
+           "359AC0000000072",
+           "file", None,
+           ["たばこ税の税率は、千本につき六千八百二円とする", "（税率）第十一条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
