@@ -60,7 +60,11 @@ def strip_comments(text: str) -> str:
 
 
 def int_to_kanji(n: int) -> str:
-    """Statute-style kanji numeral for a non-negative integer (unit 万 included)."""
+    """Statute-style kanji numeral for a non-negative integer.
+
+    Japanese statute amounts are grouped by 万 (10^4) and 億 (10^8), e.g.
+    五十億円 = 5,000,000,000. The groups nest, so 一億二千万 = 120,000,000.
+    """
     if n < 0:
         raise ValueError("negative")
     if n == 0:
@@ -78,10 +82,23 @@ def int_to_kanji(n: int) -> str:
             out += _KANJI[x]
         return out
 
+    def group(x: int) -> str:
+        # render the <10000 part of a 万/億 group (omit a leading 一)
+        return under(x) if x else ""
+
     if n < 10000:
         return under(n)
-    man, rem = divmod(n, 10000)
-    return (int_to_kanji(man) if man >= 10000 else under(man)) + "万" + (under(rem) if rem else "")
+    if n < 10**8:
+        man, rem = divmod(n, 10000)
+        return group(man) + "万" + group(rem)
+    oku, rem = divmod(n, 10**8)
+    head = group(oku) + "億"
+    if not rem:
+        return head
+    if rem < 10000:
+        return head + group(rem)
+    man, r2 = divmod(rem, 10000)
+    return head + group(man) + "万" + group(r2)
 
 
 def kanji_variants(n: int) -> set[str]:
@@ -107,24 +124,30 @@ _KANJI_VALUE["〇"] = 0
 
 
 def _kanji_int(text: str) -> int:
-    total = cur = 0
+    # Parse by 億 / 万 groups so nested forms such as 一億二千万 are correct.
+    total = 0
+    group = 0
+    cur = 0
     for ch in text:
         if ch in _KANJI_VALUE:
             cur = _KANJI_VALUE[ch]
         elif ch in ("十", "百", "千"):
-            total += (cur or 1) * {"十": 10, "百": 100, "千": 1000}[ch]
+            group += (cur or 1) * {"十": 10, "百": 100, "千": 1000}[ch]
             cur = 0
         elif ch == "万":
-            total = (total + cur) * 10000
+            group = (group + cur) * 10000
             cur = 0
+        elif ch == "億":
+            total += (group + cur) * 10**8
+            group = cur = 0
         else:
             raise ValueError("not a statute numeral: " + ch)
-    return total + cur
+    return total + group + cur
 
 
 def parse_statutory_rate(text: str) -> Fraction | None:
     """Parse a 「百分の九十・七」 style rate into an exact rational (907/1000)."""
-    m = re.search(r"百分の([〇零一二三四五六七八九十百千万]+(?:・[〇零一二三四五六七八九]+)?)", text)
+    m = re.search(r"百分の([〇零一二三四五六七八九十百千万億兆]+(?:・[〇零一二三四五六七八九]+)?)", text)
     if not m:
         return None
     token = m.group(1)

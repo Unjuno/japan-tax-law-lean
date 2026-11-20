@@ -26,6 +26,14 @@ class NumeralTests(unittest.TestCase):
         self.assertEqual(ve.int_to_kanji(0), "零")
         self.assertEqual(ve.int_to_kanji(2026), "二千二十六")
 
+    def test_oku_grouped_statute_amounts(self):
+        # Japanese statutes group large amounts by 億 (10^8): 五十億円 = 5e9.
+        self.assertEqual(ve.int_to_kanji(5_000_000_000), "五十億")
+        self.assertEqual(ve.int_to_kanji(120_000_000), "一億二千万")
+        self.assertEqual(ve._kanji_int("五十億"), 5_000_000_000)
+        self.assertEqual(ve._kanji_int("一億二千万"), 120_000_000)
+        self.assertIn("五十億", ve.kanji_variants(5_000_000_000))
+
     def test_decimal_statute_spellings_and_rate_denominator(self):
         self.assertIn("九十・七", ve.kanji_variants(907))
         self.assertIn("六・二四", ve.kanji_variants(624))

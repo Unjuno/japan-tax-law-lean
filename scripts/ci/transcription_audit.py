@@ -1641,6 +1641,13 @@ def checks():
            ["自動車重量税の課税標準は", "〇・五を乗じて得た金額"])
 
 
+    # 国税局課税部等の統括国税調査官等省令 art. 2 — CapitalFiveBillionThreshold.lean
+    yield ("国税局課税部等の統括国税調査官等省令 art. 2（資本金額五十億円以上）↔ CapitalFiveBillionThreshold.lean (capitalFloor 5_000_000_000)",
+           "352M50000040032",
+           "article", "第二条",
+           ["当該法人の資本金額又は出資金額が五十億円以上であること"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

@@ -627,3 +627,6 @@ import JapanTaxLaw.TaxSavingsPenaltyCapTests
 import JapanTaxLaw.StampExchangeFee
 import JapanTaxLaw.StampExchangeFeeSpec
 import JapanTaxLaw.StampExchangeFeeTests
+import JapanTaxLaw.CapitalFiveBillionThreshold
+import JapanTaxLaw.CapitalFiveBillionThresholdSpec
+import JapanTaxLaw.CapitalFiveBillionThresholdTests
