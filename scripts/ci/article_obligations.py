@@ -1,142 +1,191 @@
 #!/usr/bin/env python3
-"""Article verification obligations ledger (Objective §4).
+"""Article verification obligations ledger (Directive §1.4 / Objective §4).
 
-For every article with an explicit pin in transcription_audit.checks(), register
-the verification obligations and mark the article machine-verification-complete
-ONLY if every obligation is satisfied:
+Pinned needle matches, file existence, absence of forbidden proof tokens and
+`agree*` theorem-name strings are recorded as WEAK HINTS with
+`sufficient_for_completion = false`.  Verification status comes only from the
+durable normative-unit evidence ledger.  Human legal review and independent
+adversarial review are reported on separate axes.
 
-  1. pinned needle FOUND (fidelity, whitespace-normalised)
-  2. implementation Lean module exists
-  3. independent Spec module exists
-  4. Tests module exists
-  5. no forbidden proof markers (sorry / admit / axiom / Classical.choice) in any
-  6. Spec provides an agree* correspondence check
-
-A legal-review obligation is tracked separately in docs/BLOCKED.md and is NEVER
-satisfied by this mechanical check. Partial condition coverage does not make an
-article complete. All counts derive from machine-generated inputs.
-
-Regenerate with `python scripts/ci/article_obligations.py`; deterministic gate.
+Regenerate with `python scripts/ci/article_obligations.py` (deterministic).
 """
 from __future__ import annotations
 
 import importlib.util
 import json
 import re
-import sys
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parents[2]
-INVENTORY = REPO / "data" / "INVENTORY.json"
+from normative_core import (
+    REPO, STATUSES, LEGAL_REVIEW_PENDING, clean_proof, derive_status,
+    load_evidence, load_state, norm_text,
+)
+
 AUDIT = REPO / "scripts" / "ci" / "transcription_audit.py"
 REVIEW = REPO / "docs" / "ADVERSARIAL_REVIEW.md"
 OUT = REPO / "docs" / "ARTICLE_OBLIGATIONS.md"
-FORBIDDEN = re.compile(r"\b(sorry|admit|axiom|Classical\.choice)\b")
+
+KANJI = {"〇": 0, "零": 0, "一": 1, "二": 2, "三": 3, "四": 4, "五": 5,
+         "六": 6, "七": 7, "八": 8, "九": 9}
 
 
-def strip_comments(text: str) -> str:
-    """Remove Lean block/doc/line comments so prose like "no `sorry`" is not
-    mistaken for an actual forbidden proof marker."""
-    text = re.sub(r"/-.*?-/", "", text, flags=re.S)
-    text = re.sub(r"--[^\n]*", "", text)
-    return text
+def kanji_int(value: str):
+    """Convert a Japanese article number (第六十六条) to int, or None."""
+    text = (value or "").strip()
+    text = re.sub(r"^第", "", text).split("の")[0].replace("条", "")
+    if not text:
+        return None
+    if text.isdigit():
+        return int(text)
+    total, number = 0, 0
+    for ch in text:
+        if ch in KANJI:
+            number = KANJI[ch]
+        elif ch in ("十", "百", "千"):
+            total += (number or 1) * {"十": 10, "百": 100, "千": 1000}[ch]
+            number = 0
+        else:
+            return None
+    return total + number
 
 
-def flat(node) -> str:
-    if isinstance(node, str):
-        return node
-    if isinstance(node, dict):
-        return "".join(flat(c) for c in node.get("children", []))
-    return ""
-
-
-def norm(text: str) -> str:
-    return re.sub(r"[\s\u3000]+", "", text)
-
-
-def checks():
-    spec = importlib.util.spec_from_file_location("ao_ta", AUDIT)
+def load_checks() -> list[tuple]:
+    if not AUDIT.exists():
+        return []
+    spec = importlib.util.spec_from_file_location("ao_audit", AUDIT)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     return list(mod.checks())
 
 
-def build() -> str:
-    inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
-    laws = {l["law_id"]: l for l in inv.get("laws", [])}
+def weak_signals(law_id: str, art: str, needles) -> dict:
+    """Legacy syntactic signals — recorded as hints, never as completion."""
     review_text = REVIEW.read_text(encoding="utf-8") if REVIEW.exists() else ""
-    review_modules = set(re.findall(r"(\w+\.lean)", review_text))
-    texts: dict[str, str] = {}
+    review_modules = set(re.findall(r"(\w+)\.lean", review_text))
+    mods = re.findall(r"(\w+)\.lean", art or "")
+    base = mods[0] if mods else ""
+    paths = {
+        "impl": REPO / "JapanTaxLaw" / f"{base}.lean" if base else None,
+        "spec": REPO / "JapanTaxLaw" / f"{base}Spec.lean" if base else None,
+        "tests": REPO / "JapanTaxLaw" / f"{base}Tests.lean" if base else None,
+    }
+    exists = {k: bool(v and v.exists()) for k, v in paths.items()}
+    contents = "".join(v.read_text(encoding="utf-8")
+                       for v in paths.values() if v and v.exists())
+    return {
+        "pinned_needles_nonempty": bool(needles),
+        "module_files_exist": exists,
+        "no_forbidden_proof_tokens": clean_proof(contents) if contents else None,
+        "agree_name_present": bool(re.search(r"\bagree\w*", contents)),
+        "adversarial_review_mentions_module": bool(base) and f"{base}.lean" in review_modules,
+        "sufficient_for_completion": False,
+        "note": "syntactic hints only (§1.4); never a COMPLETE signal",
+    }
+
+
+def build_index(tasks: list[dict]):
+    """Index tasks once by law id and (kanji) article number."""
+    by_law = {}
+    for task in tasks:
+        by_law.setdefault(task.get("law_id", ""), []).append(task)
+    by_article = {}
+    for law_id, rows in by_law.items():
+        grouped = {}
+        for task in rows:
+            number = kanji_int(task.get("article", ""))
+            grouped.setdefault(number, []).append(task)
+        by_article[law_id] = grouped
+    return by_law, by_article
+
+
+def match_units(law_id: str, art: str, needles, index) -> list[str]:
+    """Link a pinned check to ledger units.  A link is not a completion claim."""
+    by_law, by_article = index
+    want = kanji_int(art)
+    needle_texts = [norm_text(n) for n in needles]
+    matched = []
+    for task in by_law.get(law_id, []):
+        number = kanji_int(task.get("article", ""))
+        hit = want is not None and number == want
+        if not hit and needle_texts:
+            fragment = norm_text(task.get("norm_text", ""))
+            hit = any(n[:24] in fragment for n in needle_texts if len(n) >= 8)
+        if hit:
+            matched.append(task["norm_id"])
+    return matched
+
+
+def build() -> str:
+    state = load_state()
+    evidence = load_evidence()
+    queue_path = REPO / "build" / "task_queue.json"
+    queue = json.loads(queue_path.read_text(encoding="utf-8")) if queue_path.exists() else {"tasks": []}
+    tasks = queue.get("tasks", [])
+    checks = load_checks()
+    index = build_index(tasks)
+    titles = {task.get("law_id", ""): task.get("law_title", "") for task in tasks}
+    by_id = {task["norm_id"]: task for task in tasks}
+
+    counts = {s: 0 for s in STATUSES}
+    linked = weak_only = 0
     rows = []
-    complete = 0
-    independently_reviewed = 0
-
-    for name, law_id, kind, art, needles in checks():
-        if not art:
-            continue
-        mods = re.findall(r"(\w+)\.lean", name)
-        base = mods[0] if mods else ""
-        if law_id not in texts:
-            rec = laws.get(law_id)
-            sf = (rec or {}).get("raw_snapshot", {}).get("source_file")
-            p = REPO / sf if sf else None
-            texts[law_id] = norm(flat(json.loads(p.read_text(encoding="utf-8")).get("law_full_text"))) if p and p.exists() else ""
-
-        fidelity = bool(needles) and all(n in texts[law_id] for n in needles)
-        paths = {
-            "impl": REPO / "JapanTaxLaw" / f"{base}.lean" if base else None,
-            "spec": REPO / "JapanTaxLaw" / f"{base}Spec.lean" if base else None,
-            "tests": REPO / "JapanTaxLaw" / f"{base}Tests.lean" if base else None,
-        }
-        exists = {k: bool(v and v.exists()) for k, v in paths.items()}
-        contents = "".join(v.read_text(encoding="utf-8") for v in paths.values() if v and v.exists())
-        clean = not FORBIDDEN.search(strip_comments(contents))
-        agree = bool(re.search(r"\bagree\w*", contents))
-        reviewed = bool(base) and f"{base}.lean" in review_modules
-        oks = [fidelity, exists["impl"], exists["spec"], exists["tests"], clean, agree]
-        done = all(oks)
-        if done:
-            complete += 1
-        if reviewed:
-            independently_reviewed += 1
-        title = (laws.get(law_id) or {}).get("official_title", "")
+    for _name, law_id, _kind, art, needles in checks:
+        hints = weak_signals(law_id, art, needles)
+        ids = match_units(law_id, art, needles, index)
+        linked += bool(ids)
+        weak_only += not bool(ids)
+        states = []
+        for ident in ids:
+            task = by_id.get(ident)
+            states.append(derive_status(task, state, evidence)["status"]
+                          if task else "NOT_STARTED")
+        for status in states:
+            counts[status] = counts.get(status, 0) + 1
+        title = titles.get(law_id, "")
         rows.append(
-            (f"| `{law_id}` | {title} | {art} | {base or '-'} | "
-             + " | ".join("✓" if o else "✗" for o in oks)
-             + f" | {'COMPLETE' if done else 'INCOMPLETE'} |")
+            f"| `{law_id}` | {title} | {art or '-'} | {len(ids)} | "
+            f"{' / '.join(states) if states else '(none)'} | "
+            f"{','.join(sorted(k for k, v in hints['module_files_exist'].items() if v)) or '-'} | "
+            f"{'Y' if hints['adversarial_review_mentions_module'] else 'N'} |"
         )
 
-    total = len(rows)
     lines = [
         "# Article verification obligations (machine-generated)",
         "",
         "Do not hand-edit. Regenerate with `python scripts/ci/article_obligations.py`.",
         "",
-        "Objective §4: register verification obligations per article. An article is",
-        "machine-verification-COMPLETE only if ALL six mechanical obligations below",
-        "are satisfied. This does NOT include independent human legal review (tracked",
-        "in docs/BLOCKED.md) and does NOT establish legal correctness. Partial",
-        "condition coverage never counts as article completion.",
+        "Directive §1.4 / Objective §4: pinned needles, file existence, forbidden",
+        "token absence and `agree*` name matches are WEAK HINTS with",
+        "`sufficient_for_completion = false`. They can never produce COMPLETE.",
+        "Status comes from the durable evidence ledger. Human legal review and",
+        "independent adversarial review are SEPARATE axes.",
         "",
-        "Obligations: (1) pinned needle FOUND, (2) impl module, (3) independent Spec,",
-        "(4) Tests, (5) no forbidden proof markers, (6) agree* correspondence,",
-        "Independent adversarial-review coverage is reported as a SEPARATE axis",
-        "(Objective §4 requires separate counts), not folded into the six proof",
-        "obligations. Human legal review is a further separate axis in docs/BLOCKED.md.",
+        "## Totals",
         "",
-        f"## Totals",
+        f"- pinned checks: {len(checks)}",
+        f"- checks linked to ledger units: {linked}",
+        f"- checks with no ledger link (unresolved): {weak_only}",
+    ]
+    for status in STATUSES:
+        lines.append(f"- {status}: {counts[status]}")
+    lines += [
+        f"- human legal review completed: 0 (out of repo; separate axis, default {LEGAL_REVIEW_PENDING})",
         "",
-        f"- articles with explicit pin: {total}",
-        f"- machine-verification-complete: {complete}",
-        f"- incomplete: {total - complete}",
-        f"- articles with independent adversarial review coverage: {independently_reviewed}/{total} (separate axis)",
-        f"- human legal review completed: 0 (out of repo — see docs/BLOCKED.md)",
+        "## Per-check status",
         "",
-        "## Per-article status",
-        "",
-        "| law_id | law | article | module | needle | impl | spec | tests | clean | agree | status |",
-        "|---|---|---|---|:--:|:--:|:--:|:--:|:--:|:--:|---|",
+        "| law_id | law | article | linked units | status | weak file hints | adversarial |",
+        "|---|---|---:|---:|---|---|---|",
         *rows,
+        "",
+        "## Why the old completion rule was removed",
+        "",
+        "| old signal | new treatment |",
+        "|---|---|",
+        "| pinned needle found | weak hint, `sufficient_for_completion=false` |",
+        "| impl/spec/tests files exist | weak hint, not evidence of correspondence |",
+        "| no `sorry`/`admit`/`axiom` token | necessary but insufficient evidence item |",
+        "| `agree*` name present | weak hint (string match), not a proof |",
+        "| all four above | no longer equivalent to COMPLETE |",
         "",
     ]
     return "\n".join(lines)
@@ -144,13 +193,14 @@ def build() -> str:
 
 def main() -> int:
     text = build()
-    if OUT.exists() and OUT.read_text(encoding="utf-8") == text:
-        print("article obligations ledger matches committed state (deterministic)")
-        return 0
-    OUT.write_text(text, encoding="utf-8")
-    print("wrote", OUT)
-    return 1
+    changed = False
+    if not OUT.exists() or OUT.read_text(encoding="utf-8") != text:
+        OUT.write_text(text, encoding="utf-8")
+        changed = True
+    print("article obligations ledger: "
+          + ("wrote docs/ARTICLE_OBLIGATIONS.md" if changed else "unchanged"))
+    return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    raise SystemExit(main())

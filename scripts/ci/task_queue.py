@@ -1,248 +1,298 @@
 #!/usr/bin/env python3
-"""Persistent task queue (Sponsor Directive §3).
+"""Persistent normative-unit task queue (Directive §1).
 
-Generates one machine-readable work unit per pinned legal provision from the
-authoritative inventory. Each unit records:
+One durable work unit per decomposed norm unit, with a full-SHA-256 identity,
+an exact source position, evidence slots and evidence-derived status.  No unit
+is ever completed by a numeric match, a file existence check or a theorem-name
+string match.  Regeneration merges with the git-tracked state file so owner,
+blockers, artifacts and review evidence survive (§1.7).
 
-  * law_id / revision / enforcement date / pinned source file
-  * article / paragraph / item / appendix-table-cell paths
-  * normative text fragment (from pinned bytes)
-  * verification obligations (Directive §2 — tracked SEPARATELY)
-  * dependencies (references extracted from the provision)
-  * status with independent axes (Directive §6):
-      source_fixed, structure_identified, norm_decomposed,
-      formalized, proved, boundary_checked, independent_audit,
-      legal_review  (LEGAL_REVIEW_PENDING — never auto-satisfied)
-  * scope: FULL_ARTICLE vs COMPUTABLE_SLICE_ONLY (Directive §2)
-
-The Coordinator selects unfinished tasks from this queue and assigns them to
-subagents. Human legal review is NOT a precondition for formalization.
-
-Regenerate with `python scripts/ci/task_queue.py`; deterministic gate.
+Regenerate with `python scripts/ci/task_queue.py` (deterministic, exit 0).
+Use `--persist` to write the merged state file (timestamps make it non-deterministic).
 """
 from __future__ import annotations
 
 import hashlib
+import importlib.util
 import json
-import re
 import sys
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parents[2]
-INVENTORY = REPO / "data" / "INVENTORY.json"
-SWEEP = REPO / "build" / "audit_sweep.json"
-AUDIT = REPO / "scripts" / "ci" / "transcription_audit.py"
-OUT_JSON = REPO / "build" / "task_queue.json"
+from normative_core import (
+    INVENTORY, QUEUE_JSON, REPO, STATE_PATH, NOT_STARTED, STALE, STATUSES,
+    ACTIVE_STATUSES, NORM_KINDS, OBLIGATIONS, MECHANICAL_AXES,
+    LEGAL_REVIEW_PENDING, UNRESOLVED_KINDS,
+    assert_unique, audit_coverage, canonical_norm_id, clean_proof,
+    completion_claim, decompose, derive_status, flat, law_title_index,
+    load_evidence, load_state, merge_state, norm_text, parse_dependencies,
+    path_parts, provision_of, save_state, sha256_text, walk_provisions,
+)
+
 OUT_MD = REPO / "docs" / "TASK_QUEUE.md"
-
-OBLIGATIONS = [
-    "source_fixed",
-    "structure_identified",
-    "norm_decomposed",
-    "formalized",
-    "proved",
-    "boundary_checked",
-    "independent_audit",
-    "legal_review",
-]
+AUDIT = REPO / "scripts" / "ci" / "transcription_audit.py"
 
 
-def flat(node) -> str:
-    if isinstance(node, str):
-        return node
-    if isinstance(node, dict):
-        return "".join(flat(c) for c in node.get("children", []))
-    return ""
+def _pin_hints() -> dict:
+    """Advisory only: which law ids have a pinned literal check.
 
-
-def jnum(node) -> str:
-    if isinstance(node, str):
-        return node
-    if isinstance(node, dict):
-        return "".join(jnum(c) for c in node.get("children", []))
-    return ""
-
-
-def iter_articles(node, path=()):
-    """Yield (path, article_node) for every Article under MainProvision or SupplProvision."""
-    if isinstance(node, dict):
-        tag = node.get("tag")
-        if tag == "MainProvision":
-            path = path + ("Main",)
-        elif tag == "SupplProvision":
-            path = path + ("Supplementary",)
-        elif tag == "AppdxTable":
-            path = path + ("AppdxTable",)
-        elif tag == "Article":
-            yield path + (tag,), node
-            # do not descend into nested Article for paths
-            return
-        for c in node.get("children", []):
-            yield from iter_articles(c, path)
-    elif isinstance(node, list):
-        for c in node:
-            yield from iter_articles(c, path)
-
-
-def paths_of(node):
-    """Return (article_no, title, [(para_no, [item_no...])], table_rows)."""
-    article_no = ""
-    title = ""
-    paras = []
-    table_rows = 0
-    # Article/Paragraph/Item numbers are carried in attr.Num (Arabic), not in
-    # a separate *Num child in the pinned e-Gov JSON.
-    article_no = norm(str((node.get("attr") or {}).get("Num", "")))
-    for c in node.get("children", []):
-        if not isinstance(c, dict):
-            continue
-        if c.get("tag") == "ArticleTitle":
-            title = norm(jnum(c))
-        elif c.get("tag") == "Paragraph":
-            pno = norm(str((c.get("attr") or {}).get("Num", "")))
-            items = []
-            for d in c.get("children", []):
-                if isinstance(d, dict) and d.get("tag") == "Item":
-                    items.append(norm(str((d.get("attr") or {}).get("Num", ""))))
-            paras.append((pno, items))
-        elif c.get("tag") == "TableRow":
-            table_rows += 1
-    return article_no, title, paras, table_rows
-
-
-def norm(t: str) -> str:
-    return re.sub(r"[\s\u3000]+", "", t).strip()
-
-
-def refs_of(text: str) -> list[str]:
-    ids = set(re.findall(r"\d{15}", text))
-    return sorted(ids)
-
-
-def main() -> int:
-    inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
-    laws = inv.get("laws", [])
-    sweep = json.loads(SWEEP.read_text(encoding="utf-8")) if SWEEP.exists() else {}
-    sw_status = {lid: v for lid, v in (sweep.get("laws") or {}).items()} if isinstance(sweep.get("laws"), dict) else {}
-
-    # article pins already covered by the audit
-    import importlib.util
-    spec = importlib.util.spec_from_file_location("tq_ta", AUDIT)
+    This NEVER sets a status.  It merely tells the coordinator where a
+    fidelity check already exists (Directive §1.4).
+    """
+    if not AUDIT.exists():
+        return {}
+    spec = importlib.util.spec_from_file_location("tq_audit", AUDIT)
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
-    # Map each law's pinned audit needles to the articles that actually contain
-    # them. This handles both explicit article pins (kanji numerals) and
-    # file-level checks whose needles span one or more articles.
-    pin_needles = {}
-    for name, law_id, kind, art, needles in mod.checks():
-        pin_needles.setdefault(law_id, []).extend(needles)
+    covered = {}
+    for _name, law_id, _kind, art, _needles in mod.checks():
+        covered.setdefault(law_id, []).append(art or "(file-level)")
+    return covered
 
-    tasks = []
+
+def _title_of(node) -> str:
+    for child in node.get("children", []):
+        if isinstance(child, dict) and child.get("tag") == "ArticleTitle":
+            return norm_text(flat(child))
+    return ""
+
+
+def _article_number(node) -> str:
+    return norm_text(str((node.get("attr") or {}).get("Num", "")))
+
+
+def build_units() -> list[dict]:
+    inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
+    laws = inv.get("laws", [])
+    hints = _pin_hints()
+    titles = law_title_index(inv)
+    units = []
+
     for law in laws:
-        lid = law["law_id"]
-        rev = (law.get("current_revision") or {}).get("law_revision_id", "")
-        sf = (law.get("raw_snapshot") or {}).get("source_file")
-        if not sf:
+        law_id = law["law_id"]
+        revision = str((law.get("current_revision") or {}).get("law_revision_id", ""))
+        history = str((law.get("current_revision") or {}).get("amendment_law_id", ""))
+        enforcement = str((law.get("current_revision") or {}).get(
+            "amendment_enforcement_date", ""))
+        source_file = (law.get("raw_snapshot") or {}).get("source_file", "")
+        if not source_file:
             continue
-        p = REPO / sf
-        if not p.exists():
+        path = REPO / source_file
+        if not path.exists():
             continue
-        doc = json.loads(p.read_text(encoding="utf-8"))
-        full = norm(flat(doc.get("law_full_text")))
-        covered_articles = set()
-        for needle in pin_needles.get(lid, []):
-            n = norm(needle)
-            for apath, anode in iter_articles(doc.get("law_full_text")):
-                an, _, _, _ = paths_of(anode)
-                if an and n in norm(flat(anode)):
-                    covered_articles.add(an)
-        for path, node in iter_articles(doc.get("law_full_text")):
-            anum, title, paras, rows = paths_of(node)
-            if not anum:
-                continue
-            text = norm(flat(node))
-            key = f"{lid}|{rev}|{'/'.join(path)}|{anum}"
-            task_id = hashlib.sha256(key.encode("utf-8")).hexdigest()[:16]
-            covered = anum in covered_articles
-            tasks.append({
-                "task_id": task_id,
-                "law_id": lid,
-                "law_title": law.get("official_title", ""),
-                "revision": rev,
-                "enforcement_date": (law.get("current_revision") or {}).get("enforcement_date", ""),
-                "source_file": sf,
-                "path": "/".join(path),
-                "article": anum,
-                "article_title": title,
-                "paragraphs": [{"no": n, "items": its} for n, its in paras],
-                "table_rows": rows,
-                "norm_fragment": text[:240],
-                "reference_ids": refs_of(text),
-                "obligations": OBLIGATIONS,
-                "status": {
-                    "source_fixed": True,
-                    "structure_identified": True,
-                    "norm_decomposed": False,
-                    "formalized": "COMPLETE_SCOPE" if covered else "NOT_STARTED",
-                    "proved": False,
-                    "boundary_checked": False,
-                    "independent_audit": False,
-                    "legal_review": "LEGAL_REVIEW_PENDING",
-                },
-                "scope": "FULL_ARTICLE",
-                "priority": 1 if covered else 2,
-            })
+        raw = path.read_bytes()
+        source_sha = hashlib.sha256(raw).hexdigest()
+        doc = json.loads(raw)
+        root = doc.get("law_full_text", doc)
 
+        for structural_path, node in walk_provisions(root):
+            tag = structural_path[-1].split(":", 1)[0] if structural_path else ""
+            if tag not in ("Article", "TableRow"):
+                continue
+            text = norm_text(flat(node))
+            if not text:
+                continue
+            parts = path_parts(structural_path)
+            provision = provision_of(structural_path)
+            article_title = _title_of(node) if tag == "Article" else ""
+            article_no = parts["article"] or (article_title or "APPENDIX_TABLE")
+            segments = decompose(text)
+            coverage = audit_coverage(text, segments)
+
+            for unit in segments:
+                fragment = unit["text"]
+                fragment_sha = sha256_text(norm_text(fragment))
+                ident = canonical_norm_id(
+                    law_id=law_id, revision_id=revision, history_id=history,
+                    provision=provision, article=parts["article"],
+                    paragraph=parts["paragraph"], item=parts["item"],
+                    subitem=parts["subitem"], table=parts["table"],
+                    cell=parts["cell"] or article_no,
+                    norm_kind=unit["norm_kind"], unit_index=unit["unit_index"],
+                    source_sha256=source_sha, text_digest=fragment_sha,
+                    span_start=unit["start"], span_end=unit["end"],
+                    structural_path="/".join(structural_path),
+                )
+                deps = parse_dependencies(fragment, title_index=titles)
+                unresolved = list(unit["open_conditions"])
+                if unit["norm_kind"] in UNRESOLVED_KINDS:
+                    unresolved.append("AUTO_DECOMPOSITION_UNRESOLVED")
+                if not coverage["reconstruction_ok"]:
+                    unresolved.append("SOURCE_RECONSTRUCTION_FAILED")
+                weak = {
+                    "pin_check_exists": law_id in hints,
+                    "numeric_literal_in_text": bool(__import__("re").search(r"\d", fragment)),
+                    "sufficient_for_completion": False,
+                }
+                units.append({
+                    "norm_id": ident,
+                    "task_id": ident,  # backward-compatible alias
+                    "law_id": law_id,
+                    "law_title": law.get("official_title", ""),
+                    "revision": revision,
+                    "history_id": history,
+                    "enforcement_date": enforcement,
+                    "source_file": source_file,
+                    "source_sha256": source_sha,
+                    "provision_kind": provision,
+                    "structural_path": list(structural_path),
+                    "article": article_no,
+                    "article_title": article_title,
+                    "paragraph": parts["paragraph"],
+                    "item": parts["item"],
+                    "subitem": parts["subitem"],
+                    "table": parts["table"],
+                    "cell": parts["cell"],
+                    "norm_kind": unit["norm_kind"],
+                    "markers": unit["markers"],
+                    "norm_text": fragment[:400],
+                    "norm_digest": fragment_sha,
+                    "source_position": {
+                        "path": "/".join(structural_path),
+                        "char_start": unit["start"],
+                        "char_end": unit["end"],
+                        "exact_position_recorded": True,
+                    },
+                    "decomposition_coverage": coverage,
+                    "dependencies": deps,
+                    "reference_ids": sorted({d["value"] for d in deps
+                                             if d["kind"] == "law_id_15"}),
+                    "unresolved_conditions": unresolved,
+                    "obligations": list(OBLIGATIONS),
+                    "evidence_slots": {axis: None for axis in MECHANICAL_AXES},
+                    "weak_hints": weak,
+                    "legal_review": LEGAL_REVIEW_PENDING,
+                    "scope": "NORM_UNIT",
+                })
+
+    assert_unique([u["norm_id"] for u in units])
+    return units
+
+
+def build() -> dict:
+    units = build_units()
+    state = load_state()
+    evidence = load_evidence()
+    state = merge_state(state, units)
+
+    for unit in units:
+        derived = derive_status(unit, state, evidence)
+        recorded = state["units"][unit["norm_id"]]
+        unit["verification"] = derived
+        unit["status"] = derived["status"]
+        unit["owner_agent"] = recorded["owner_agent"]
+        unit["blockers"] = recorded["blockers"]
+        unit["artifacts"] = recorded["artifacts"]
+        unit["legal_review"] = recorded["legal_review"]
+
+    inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
     payload = {
         "tool": "scripts/ci/task_queue.py",
+        "schema": "normative-unit-queue-v1",
         "inventory_snapshot_date": inv.get("snapshot_date", ""),
-        "laws_total": len(laws),
-        "units_total": len(tasks),
-        "obligations": OBLIGATIONS,
-        "tasks": tasks,
+        "laws_total": len(inv.get("laws", [])),
+        "units_total": len(units),
+        "status_vocabulary": list(STATUSES),
+        "active_statuses": list(ACTIVE_STATUSES),
+        "norm_kinds": list(NORM_KINDS),
+        "obligations": list(OBLIGATIONS),
+        "count_by_status": {s: sum(1 for u in units if u["status"] == s)
+                            for s in STATUSES},
+        "count_by_kind": {k: sum(1 for u in units if u["norm_kind"] == k)
+                          for k in NORM_KINDS},
+        "unresolved_units": sum(1 for u in units if u["unresolved_conditions"]),
+        "coverage_gaps": sum(1 for u in units
+                             if u["decomposition_coverage"]["coverage_gap_count"]),
+        "completion": completion_claim(units, state, evidence),
+        "legal_review_axis": LEGAL_REVIEW_PENDING,
+        "completion_rule": ("status derives only from recorded evidence; numeric "
+                            "matches, file existence and theorem names are weak hints"),
+        "tasks": units,
     }
-    OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
-    OUT_JSON.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    return payload, state
 
-    not_started = sum(1 for t in tasks if t["status"]["formalized"] == "NOT_STARTED")
+
+def render_md(payload: dict) -> str:
+    counts = payload["count_by_status"]
     lines = [
-        "# Persistent task queue (machine-generated)",
+        "# Persistent normative-unit task queue (machine-generated)",
         "",
         "Do not hand-edit. Regenerate with `python scripts/ci/task_queue.py`.",
         "",
-        "Sponsor Directive §3: every pinned legal provision is a durable work unit.",
-        "Human legal review (`LEGAL_REVIEW_PENDING`) is NOT a precondition for",
-        "formalization and is tracked as an independent axis (Directive §6).",
+        "Directive §1: one durable work unit per decomposed norm unit. The",
+        "identity binds law id, revision/history id, 本則/附則/別表, article,",
+        "paragraph, item, subitem, appendix cell, norm kind, unit ordinal, exact",
+        "source span, pinned source digest and text digest with a full SHA-256.",
+        "A numeric match, file existence or theorem-name string is a weak hint",
+        "only and can never produce a verification status.",
         "",
-        f"- laws in inventory: {len(laws)}",
-        f"- work units generated: {len(tasks)}",
-        f"- units with a pinned literal check: {len(tasks) - not_started}",
-        f"- units NOT_STARTED: {not_started}",
+        f"- snapshot: {payload['inventory_snapshot_date']}",
+        f"- laws in inventory: {payload['laws_total']}",
+        f"- norm units generated: {payload['units_total']}",
+        f"- unresolved units: {payload['unresolved_units']}",
+        f"- decomposition coverage gaps: {payload['coverage_gaps']}",
         "",
-        "## Status axes (independent — Directive §6)",
+        "## Verification status (evidence-derived, independent axes)",
         "",
-        "| axis | values |",
-        "|---|---|",
-        "| source_fixed / structure_identified | True for all pinned units |",
-        "| norm_decomposed | False unless explicitly recorded |",
-        "| formalized | NOT_STARTED / COMPLETE_SCOPE / COMPLETE_FULL |",
-        "| proved / boundary_checked / independent_audit | False until verified |",
-        "| legal_review | LEGAL_REVIEW_PENDING (never auto-satisfied) |",
-        "",
-        "The full machine-readable queue is `build/task_queue.json` (git-ignored,",
-        "regenerated from INVENTORY.json + pinned snapshots). The regeneration gate",
-        "verifies determinism. Coordinator selects unfinished units from the queue.",
-        "",
-        "## Sample NOT_STARTED units (first 20)",
-        "",
-        "| law_id | article | title | paragraphs | refs |",
-        "|---|---|---|---:|---:|",
+        "| status | count |",
+        "|---|---:|",
     ]
-    for t in [x for x in tasks if x["status"]["formalized"] == "NOT_STARTED"][:20]:
-        lines.append(f"| `{t['law_id']}` | {t['article']} | {t['article_title'][:40]} | {len(t['paragraphs'])} | {len(t['reference_ids'])} |")
+    for status in STATUSES:
+        lines.append(f"| {status} | {counts[status]} |")
+    lines += [
+        "",
+        "Human legal review is a SEPARATE axis (`LEGAL_REVIEW_PENDING`); it is",
+        "never auto-satisfied and never folded into a verification status.",
+        "",
+        "## Norm-unit kinds",
+        "",
+        "| kind | count |",
+        "|---|---:|",
+    ]
+    for kind in NORM_KINDS:
+        lines.append(f"| {kind} | {payload['count_by_kind'][kind]} |")
+    lines += [
+        "",
+        "## Persistence and completion semantics",
+        "",
+        "Owner, blockers, artifacts, attempts and review evidence are stored in",
+        "the git-tracked `data/task_state.json` and merged on regeneration.",
+        "`FULLY_VERIFIED` requires every mechanical evidence axis in",
+        "`data/verification_evidence.json` and no unresolved condition. A bare",
+        "15-digit id is only one dependency signal, never a complete analysis.",
+        "",
+        "## Sample unfinished units (first 20)",
+        "",
+        "| unit (short) | law_id | kind | article | norm type | unresolved | status |",
+        "|---|---|---|---|---|---:|---|",
+    ]
+    unfinished = [u for u in payload["tasks"] if u["status"] in ACTIVE_STATUSES][:20]
+    for unit in unfinished:
+        lines.append(
+            f"| `{unit['norm_id'][:16]}` | {unit['law_id']} | "
+            f"{unit['provision_kind']} | {unit['article'][:20]} | "
+            f"{unit['norm_kind']} | {len(unit['unresolved_conditions'])} | "
+            f"{unit['status']} |"
+        )
     lines.append("")
-    OUT_MD.write_text("\n".join(lines), encoding="utf-8")
-    print(f"task queue: {len(tasks)} units across {len(laws)} laws; NOT_STARTED={not_started}")
+    return "\n".join(lines)
+
+
+def main() -> int:
+    payload, state = build()
+    QUEUE_JSON.parent.mkdir(parents=True, exist_ok=True)
+    QUEUE_JSON.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")),
+                          encoding="utf-8")
+    text = render_md(payload)
+    changed = False
+    if not OUT_MD.exists() or OUT_MD.read_text(encoding="utf-8") != text:
+        OUT_MD.parent.mkdir(parents=True, exist_ok=True)
+        OUT_MD.write_text(text, encoding="utf-8")
+        changed = True
+    if "--persist" in sys.argv:
+        save_state(state, STATE_PATH)
+    print(f"normative-unit queue: {payload['units_total']} units across "
+          f"{payload['laws_total']} laws; "
+          + ", ".join(f"{k}={v}" for k, v in payload["count_by_status"].items()))
     return 0
 
 

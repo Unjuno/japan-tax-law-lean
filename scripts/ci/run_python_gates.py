@@ -13,7 +13,20 @@ import os
 import subprocess
 import sys
 
+# Objective §5: these gates are mandatory for a completion claim.  A missing
+# mandatory gate is a FAIL, never a PASS and never a silent SKIP.
+REQUIRED_GATES = {
+    "Directive §1 normative-unit regressions",
+    "Persistent task queue regeneration (Directive §1)",
+    "Article verification obligations gate (Objective §4)",
+    "Article-scoped fidelity diagnostic (Sponsor Directive §4)",
+    "L1 transcription audit (pinned raw to model literals)",
+    "structural audit tests",
+    "mutation injection tests",
+}
+
 GATES = [
+    ("Directive §1 normative-unit regressions", ["python", "-m", "unittest", "scripts.tests.test_directive1", "-v"], ["scripts/tests/test_directive1.py"]),
     ("structural audit tests", ["python", "-m", "unittest", "scripts.tests.test_structural_audit", "-v"], ["scripts/tests/test_structural_audit.py"]),
     ("mutation injection tests", ["python", "-m", "unittest", "scripts.tests.test_mutation_injection", "-v"], ["scripts/tests/test_mutation_injection.py"]),
     ("inventory selection tests", ["python", "-m", "unittest", "scripts.tests.test_inventory_selection", "-v"], ["scripts/tests/test_inventory_selection.py"]),
@@ -28,7 +41,7 @@ GATES = [
     ("Per-law status ledger regeneration gate (Objective §1/§6/§7)", ["python", "scripts/ci/law_status_ledger.py"], ["scripts/ci/law_status_ledger.py", "docs/LAW_STATUS.md"]),
     ("Article verification obligations gate (Objective §4)", ["python", "scripts/ci/article_obligations.py"], ["scripts/ci/article_obligations.py", "docs/ARTICLE_OBLIGATIONS.md"]),
     ("Cross-article rate consistency gate (Objective §5)", ["python", "scripts/law_audit/phase_e/rate_consistency.py"], ["scripts/law_audit/phase_e/rate_consistency.py", "docs/RATE_CONSISTENCY.md"]),
-    ("Persistent task queue regeneration (Sponsor Directive §3)", ["python", "scripts/ci/task_queue.py"], ["scripts/ci/task_queue.py", "docs/TASK_QUEUE.md"]),
+    ("Persistent task queue regeneration (Directive §1)", ["python", "scripts/ci/task_queue.py"], ["scripts/ci/task_queue.py", "docs/TASK_QUEUE.md"]),
     ("Article-scoped fidelity diagnostic (Sponsor Directive §4)", ["python", "scripts/law_audit/phase_e/article_scope.py"], ["scripts/law_audit/phase_e/article_scope.py", "docs/ARTICLE_SCOPE.md"]),
     ("BLOCKED ledger regeneration gate (Objective §6 out-of-repo prerequisites)", ["python", "scripts/ci/blocked_ledger.py"], ["scripts/ci/blocked_ledger.py", "docs/BLOCKED.md"]),
     ("Coverage ledger regeneration gate (Objective §4 machine-computed coverage)", ["python", "scripts/ci/coverage_ledger.py"], ["scripts/ci/coverage_ledger.py", "docs/COVERAGE.md"]),
@@ -40,10 +53,16 @@ GATES = [
 ]
 
 fails = 0
+skipped = []
 for name, cmd, paths in GATES:
     missing = [p for p in paths if not os.path.exists(p)]
     if missing:
-        print(f"SKIP {name}: missing {missing}")
+        if name in REQUIRED_GATES:
+            print(f"FAIL {name}: mandatory gate missing {missing}")
+            fails += 1
+        else:
+            print(f"SKIP {name}: missing {missing}")
+            skipped.append(name)
         continue
     print(f"RUN  {name}: {' '.join(cmd)}")
     r = subprocess.run(cmd)
@@ -52,7 +71,10 @@ for name, cmd, paths in GATES:
         fails += 1
     else:
         print(f"PASS {name}")
+if skipped:
+    print(f"{len(skipped)} optional gate(s) SKIPPED (never counted as PASS): "
+          + ", ".join(skipped))
 if fails:
     print(f"{fails} gate(s) FAILED")
     sys.exit(1)
-print("all present gates passed")
+print(f"all present gates passed; {len(skipped)} skipped (reported separately)")
