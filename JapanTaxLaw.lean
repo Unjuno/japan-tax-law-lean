@@ -578,3 +578,6 @@ import JapanTaxLaw.MiningTaxLevyDateTests
 import JapanTaxLaw.RemainingPeriodBand
 import JapanTaxLaw.RemainingPeriodBandSpec
 import JapanTaxLaw.RemainingPeriodBandTests
+import JapanTaxLaw.FiscalPeriodSixMonthSplit
+import JapanTaxLaw.FiscalPeriodSixMonthSplitSpec
+import JapanTaxLaw.FiscalPeriodSixMonthSplitTests

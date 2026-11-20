@@ -1,0 +1,24 @@
+{
+  "tool": "scripts/ci/source_audit_fiscal_split.py",
+  "normative_ids": [
+    "NORM|ceaa310499e6aeb291c47fe5f84450e17ebf70b5d4e9ae154ce11794a834144e",
+    "NORM|7176dc3cb4da9ce0a92f0b4cddd094cfaefb5fa95123009cacdad1501e5cc607"
+  ],
+  "revision": "332CO0000000043_20261101_507CO0000000127",
+  "raw_sha256": "d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d",
+  "original_texts": {
+    "unit_a": "当該前事業年度が六月に満たない場合",
+    "unit_b": "当該前事業年度が六月以上である場合"
+  },
+  "checks": {
+    "unit_a_verbatim": true,
+    "unit_b_verbatim": true,
+    "all_literals_in_original": true,
+    "spec_does_not_import_implementation": true
+  },
+  "module_sha256": {
+    "JapanTaxLaw/FiscalPeriodSixMonthSplit.lean": "1ae4f57faf3ee862ce09518f6fe75a730942c6b0ff9b58cd512958e11b461e6c",
+    "JapanTaxLaw/FiscalPeriodSixMonthSplitSpec.lean": "1038f29697c2a2324540f514026061213ea15cf50b8a6194f9c662b5cf9fab95",
+    "JapanTaxLaw/FiscalPeriodSixMonthSplitTests.lean": "6b33cba63fae1668ae1d962cb310d2235a9b554a2104342cb79e258f5819bee5"
+  }
+}
