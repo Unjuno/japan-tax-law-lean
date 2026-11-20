@@ -261,6 +261,19 @@
       "source_correspondence_audit": "scripts/ci/source_audit_merger_art24.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 合併/適格合併/除く",
       "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:24/Article#24/Paragraph#1/Item#1/ItemSentence/Sentence#1 3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342 (verbatim 12-char exception)",
       "tests": "JapanTaxLaw/MergerExceptionArt24Tests.lean sha256=1f21341257f0dd648c5f04a93bd9303344fe56ec8202374cfa6e479a08ef44ee (6 kernel-decided examples)"
+    },
+    "NORM|debfc248b22ee3e700e03035ae835d23c48ca62532be58e7d0ea1a7cec8ebe88": {
+      "adversarial_review": "docs/UNIT_PERIOD_ART23.md: H/T/D/C/U; inclusive-lower and exclusive-upper readings rejected by verbatim original",
+      "boundary_proof": "inBand_iff general theorem; 9/10 false, 11/14/15 true, 16 false (lower exclusive, upper inclusive)",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000073_20260401_506AC0000000008 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; CONDITION unit in table column",
+      "implementation": "JapanTaxLaw/RemainingPeriodBand.lean sha256=ab448d0559310492e90af6e13907c008c28beb454cd5ab6736df7d776d81d356",
+      "independent_spec": "JapanTaxLaw/RemainingPeriodBandSpec.lean sha256=aeb29e415650f2d778bdf458dbe9d92516d86620b886ee3928f0a2849287cb5d (no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation and inBand_iff kernel-checked; no sorry/admit",
+      "proof_scope": "period band only: 10 < years <= 15; period computation, rounding, other bands and rates NOT MODELLED; years caller-established Nat",
+      "source_correspondence_audit": "scripts/ci/source_audit_period_art23.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 残存期間/十年を超え/十五年以下",
+      "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:23/Article#23/Paragraph#1/List/ListSentence/Column#1/Sentence#1 c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7 (verbatim 16-char period condition)",
+      "tests": "JapanTaxLaw/RemainingPeriodBandTests.lean sha256=a8b557c90c89a137d2ac6f86d09dd8d51d8d925d94b226ea732c36e65e44139d (8 kernel-decided examples)"
     }
   }
 }
