@@ -1187,6 +1187,13 @@ def checks():
            "article", "第八条の二",
            ["前項の調査は、第四項の調査が終了する日までに終了するものとする。"])
 
+    # 関税定率法 art.7(15) — CustomsReadingSubstitution.lean (一年内 → 一年内において速やかに 読替え)
+    # Norm unit NORM|fc34952b4102c0a6697423e84c629c0eea802fb72c83594cac7374694c7ac66f
+    yield ("関税定率法 art.7(15)（第七項本文中「一年以内に」を「一年以内において速やかに」と読み替える）↔ CustomsReadingSubstitution.lean (readingSubstitution)",
+           "143AC0000000054",
+           "article", "第七条",
+           ["この場合において、第七項本文中「一年以内に」とあるのは、「一年以内において速やかに」と読み替えるものとする。"])
+
     # 在日米軍特例法 art. 11(3) — UsForcesDutyFreePenalty.lean (norm unit)
     yield ("在日米軍特例法 art. 11(3)（免税物品の用途外譲渡違反の罰則: 一年以下の拘禁刑又は五十万円以下の罰金 — 代替刑、併科なし。違反要件・徴収・法人重課・附則は NOT MODELLED）↔ UsForcesDutyFreePenalty.lean",
            "327AC0000000111",
