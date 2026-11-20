@@ -4,6 +4,13 @@
 Used when a module is kernel-built at a commit different from the main
 PROOF_ATTESTATION.json. Hashes are SHA-256 of the committed blob with CRLF
 normalisation; an entry can never be fabricated from an uncommitted file.
+
+Usage:
+  python scripts/ci/make_scoped_attestation.py <commit> <run_url> <conclusion> \
+      [base_name=LocalTobaccoTaxRate] [outfile=data/PROOF_ATTESTATION_SCOPED.json]
+
+Multiple scoped files (PROOF_ATTESTATION_SCOPED*.json) are read by
+generate_verification_evidence.py; each stays bound to its own green run.
 """
 from __future__ import annotations
 
@@ -31,7 +38,8 @@ def main() -> int:
     commit = sys.argv[1]
     run_url = sys.argv[2]
     conclusion = sys.argv[3] if len(sys.argv) > 3 else "pending"
-    base = "LocalTobaccoTaxRate"
+    base = sys.argv[4] if len(sys.argv) > 4 else "LocalTobaccoTaxRate"
+    out = Path(sys.argv[5]) if len(sys.argv) > 5 else OUT
     names = [f"{base}.lean", f"{base}Spec.lean", f"{base}Tests.lean"]
     modules = {}
     for n in names:
@@ -60,7 +68,7 @@ def main() -> int:
         },
         "modules": modules,
     }
-    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+    out.write_text(json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
                    encoding="utf-8")
     print(json.dumps(payload, ensure_ascii=False, indent=2))
     return 0

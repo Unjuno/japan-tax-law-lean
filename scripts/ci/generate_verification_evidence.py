@@ -223,8 +223,12 @@ def load_attestation() -> dict:
     # Scoped attestations cover modules kernel-built at a DIFFERENT commit than
     # the main attestation. Validate each independently; a failed/pending scoped
     # run is ignored, never trusted as evidence.
-    scoped = REPO / "data" / "PROOF_ATTESTATION_SCOPED.json"
-    if scoped.exists():
+    # Multiple scoped attestations are allowed: each is bound to its own green
+    # CI run/commit. Validate every one independently and merge only its module
+    # hashes. A failed/pending scoped run is ignored, never trusted as evidence.
+    # Never let one agent's attestation overwrite another's module entry with a
+    # hash from a different run: only add hashes, never replace existing ones.
+    for scoped in sorted((REPO / "data").glob("PROOF_ATTESTATION_SCOPED*.json")):
         extra = json.loads(scoped.read_text(encoding="utf-8"))
         honest_run = (extra.get("run_conclusion") == "success"
                       or (extra.get("scope") == "lean_job_only"
@@ -232,7 +236,9 @@ def load_attestation() -> dict:
         if (extra.get("schema") == 1 and honest_run
                 and extra.get("jobs", {}).get("Build Lean project and check axioms", {}).get(
                     "conclusion") == "success"):
-            data.setdefault("modules", {}).update(extra.get("modules", {}))
+            modules = data.setdefault("modules", {})
+            for name, meta in extra.get("modules", {}).items():
+                modules.setdefault(name, meta)
     return data
 
 

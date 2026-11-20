@@ -1647,6 +1647,12 @@ def checks():
            "article", "第二条",
            ["当該法人の資本金額又は出資金額が五十億円以上であること"])
 
+    # 国税臨時特例法 art. 7(1)(1) — CapitalOneBillionExcess.lean (十億円超, strict)
+    yield ("国税臨時特例法 art. 7(1)(1)（資本金十億円超）↔ CapitalOneBillionExcess.lean (capitalBillionFloor 1_000_000_000, 超える strict)",
+           "502AC0000000025",
+           "article", "第七条",
+           ["資本金の額又は出資金の額が十億円を超える法人"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
