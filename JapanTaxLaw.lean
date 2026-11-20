@@ -653,3 +653,6 @@ import JapanTaxLaw.StatutoryDelegationAndDefinitionsTests
 import JapanTaxLaw.RoundingRules
 import JapanTaxLaw.RoundingRulesSpec
 import JapanTaxLaw.RoundingRulesTests
+import JapanTaxLaw.PenaltyMaxima
+import JapanTaxLaw.PenaltyMaximaSpec
+import JapanTaxLaw.PenaltyMaximaTests
