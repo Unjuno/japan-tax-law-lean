@@ -34,10 +34,13 @@ GATES = [
     ("Reference-relation statistics regeneration (Objective §1)", ["python", "scripts/law_audit/inventory/collect_references.py"], ["scripts/law_audit/inventory/collect_references.py"]),
     ("Recursive discovery ledger regeneration gate (Objective §1)", ["python", "scripts/law_audit/inventory/recursive_discovery.py"], ["scripts/law_audit/inventory/recursive_discovery.py", "docs/RECURSIVE_DISCOVERY.md"]),
     ("Per-law status ledger regeneration gate (Objective §1/§6/§7)", ["python", "scripts/ci/law_status_ledger.py"], ["scripts/ci/law_status_ledger.py", "docs/LAW_STATUS.md"]),
-    ("Article verification obligations gate (Objective §4)", ["python", "scripts/ci/article_obligations.py"], ["scripts/ci/article_obligations.py", "docs/ARTICLE_OBLIGATIONS.md"]),
-    ("Cross-article rate consistency gate (Objective §5)", ["python", "scripts/law_audit/phase_e/rate_consistency.py"], ["scripts/law_audit/phase_e/rate_consistency.py", "docs/RATE_CONSISTENCY.md"]),
+    # The queue must be regenerated before any gate that reads
+    # build/task_queue.json (article_obligations.py reads it). Otherwise a stale
+    # or partially written queue makes a correct obligations gate fail.
     ("Persistent task queue regeneration (Sponsor Directive §3)", ["python", "scripts/ci/task_queue.py"], ["scripts/ci/task_queue.py", "docs/TASK_QUEUE.md"]),
     ("normative queue invariants (unique ids, status vocabulary)", ["python", "scripts/ci/verify_queue_invariants.py"], ["scripts/ci/verify_queue_invariants.py"]),
+    ("Article verification obligations gate (Objective §4)", ["python", "scripts/ci/article_obligations.py"], ["scripts/ci/article_obligations.py", "docs/ARTICLE_OBLIGATIONS.md"]),
+    ("Cross-article rate consistency gate (Objective §5)", ["python", "scripts/law_audit/phase_e/rate_consistency.py"], ["scripts/law_audit/phase_e/rate_consistency.py", "docs/RATE_CONSISTENCY.md"]),
     ("Article-scoped fidelity diagnostic (Sponsor Directive §4)", ["python", "scripts/law_audit/phase_e/article_scope.py"], ["scripts/law_audit/phase_e/article_scope.py", "docs/ARTICLE_SCOPE.md"]),
     ("BLOCKED ledger regeneration gate (Objective §6 out-of-repo prerequisites)", ["python", "scripts/ci/blocked_ledger.py"], ["scripts/ci/blocked_ledger.py", "docs/BLOCKED.md"]),
     ("Coverage ledger regeneration gate (Objective §4 machine-computed coverage)", ["python", "scripts/ci/coverage_ledger.py"], ["scripts/ci/coverage_ledger.py", "docs/COVERAGE.md"]),
