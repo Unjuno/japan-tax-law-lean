@@ -1,7 +1,9 @@
 """Regression tests for Directive §1 queue and completion determination."""
 from __future__ import annotations
 
+import tempfile
 import unittest
+from pathlib import Path
 
 from scripts.ci import normative_core as nc
 
@@ -130,6 +132,26 @@ class StateTests(unittest.TestCase):
         merged, notes = nc.merge_state(state, [unit])
         self.assertEqual(merged["units"][uid]["evidence"]["kernel_proof"], "")
         self.assertTrue(any(n.startswith("source-changed") for n in notes))
+
+    def test_state_persistence_is_compact_and_lossless(self):
+        """Owned units survive a round-trip; default units need not be stored."""
+        owned = self.uid()
+        other = nc.make_normative_id(
+            LAW, REV, "MAIN", "第二条", "", "", "", "", "", "", 0, "EFFECT", "納める。")
+        state = {"schema": "task_state/v1", "units": {
+            owned: dict(nc.default_state(owned), owner="PROVE",
+                        evidence={"kernel_proof": "build/proof"}),
+            other: nc.default_state(other),
+        }}
+        with tempfile.TemporaryDirectory() as td:
+            p = Path(td) / "task_state.json"
+            nc.save_state(state, p)
+            saved = p.read_text(encoding="utf-8")
+            self.assertNotIn(other, saved)  # default record is not persisted
+            reloaded = nc.load_state(p)
+        self.assertEqual(reloaded["units"][owned]["owner"], "PROVE")
+        self.assertEqual(reloaded["units"][owned]["evidence"]["kernel_proof"], "build/proof")
+        self.assertNotIn(other, reloaded["units"])
 
 
 class CompletionTests(unittest.TestCase):
