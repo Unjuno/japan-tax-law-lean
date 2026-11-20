@@ -650,3 +650,6 @@ import JapanTaxLaw.DefaultBranchesTests
 import JapanTaxLaw.StatutoryDelegationAndDefinitions
 import JapanTaxLaw.StatutoryDelegationAndDefinitionsSpec
 import JapanTaxLaw.StatutoryDelegationAndDefinitionsTests
+import JapanTaxLaw.RoundingRules
+import JapanTaxLaw.RoundingRulesSpec
+import JapanTaxLaw.RoundingRulesTests
