@@ -93,6 +93,19 @@
       "source_location": "data/raw/325AC0000000211_20261102_508AC0000000062.law.json#LawBody[1]/MainProvision/MainProvision[15]/Article:14/Article#14/Paragraph#2/ParagraphSentence/Sentence#1 sha256=151df453a55442acb1cdca91f420bc5f7b04b914b85d86b575311ff6e3a7cd95 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalGrantRevenueBaseTests.lean sha256=444750e52499a800d4637a435546efe3aeaef76f0bd00453ef2153152525dd32 (31 kernel-decided examples)"
     },
+    "NORM|91349ec2d835e0fe4fdd63ea17f15c1ce9a98c22d91c36f03bea07410596f64e": {
+      "adversarial_review": "docs/UNIT_TAX_ACCOUNTANT_FINE_ART14.md: H/T/D/C/U; garbled-UI misreading (五百万) rejected by independent pinned extraction (十万円)",
+      "boundary_proof": "within_ceiling_sufficient / within_ceiling_necessary are general Nat theorems; 0/99999/100000 permitted, 100001 rejected, non-eligible rejected",
+      "cross_law_proof": "unit dependencies=0; enforced revision 326AC1000000145_20211122_503AC0000000046 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; EFFECT unit at Article:14/Paragraph#1/ParagraphSentence/Sentence#1",
+      "implementation": "JapanTaxLaw/TaxAccountantFine.lean sha256=d7b6e909cc4f0109166a07875b7c9bf6b24a2da8cad60316b56b3ed0dfe643fe",
+      "independent_spec": "JapanTaxLaw/TaxAccountantFineSpec.lean sha256=dccdd8d76197d0d52dc7ac69312a2f2aee8ef91046a0d9a6cdfe63bf081bd6d7 (no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; lake build 536/536 jobs success; agrees_with_implementation and general ceiling theorems kernel-checked; no sorry/admit",
+      "proof_scope": "main sentence only: 十万円 ceiling for caller-established eligible persons; 各号 categories, procedure, mitigation NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_tax_accountant_art14.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; independent literals 各号/該当する者/十万円以下/過料/処する",
+      "source_location": "data/raw/326AC1000000145_20211122_503AC0000000046.law.json#LawBody[1]/MainProvision/MainProvision[14]/Article:14/Article#14/Paragraph#1/ParagraphSentence/Sentence#1 sha256=fc6c4ca152291c10c1218a62303a879195bfbbe95a056d0e264ee0315bbc4e2b (verbatim 30-char unit text)",
+      "tests": "JapanTaxLaw/TaxAccountantFineTests.lean sha256=43a4253d7388238151ba6a8666f65dd4f1c035424f42703768d72fcb6d61d3b1 (9 kernel-decided examples)"
+    },
     "NORM|a7607acfb60e7e06f14829cc3971438828d4385f88056dbb56552bfc12746785": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
@@ -131,19 +144,6 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: independent kanji literals ['二百九十万', '十二'] located in 原文; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_49_14/Article#72_49_14/Paragraph#2/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/BusinessOwnerDeductionTests.lean sha256=61b2cc0dc9ba20aeb7d2465e3ecfcc248cb82a687981de2e45d3c349c31be28d (18 kernel-decided examples)"
-    },
-    "NORM|91349ec2d835e0fe4fdd63ea17f15c1ce9a98c22d91c36f03bea07410596f64e": {
-      "source_location": "data/raw/326AC1000000145_20211122_503AC0000000046.law.json#LawBody[1]/MainProvision/MainProvision[14]/Article:14/Article#14/Paragraph#1/ParagraphSentence/Sentence#1 sha256=fc6c4ca152291c10c1218a62303a879195bfbbe95a056d0e264ee0315bbc4e2b (verbatim 30-char unit text)",
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; EFFECT unit at Article:14/Paragraph#1/ParagraphSentence/Sentence#1",
-      "source_correspondence_audit": "scripts/ci/source_audit_tax_accountant_art14.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; independent literals 各号/該当する者/十万円以下/過料/処する",
-      "independent_spec": "JapanTaxLaw/TaxAccountantFineSpec.lean sha256=dccdd8d76197d0d52dc7ac69312a2f2aee8ef91046a0d9a6cdfe63bf081bd6d7 (no implementation import)",
-      "implementation": "JapanTaxLaw/TaxAccountantFine.lean sha256=d7b6e909cc4f0109166a07875b7c9bf6b24a2da8cad60316b56b3ed0dfe643fe",
-      "kernel_proof": "Lean 4.35.0 pinned; lake build 536/536 jobs success; agrees_with_implementation and general ceiling theorems kernel-checked; no sorry/admit",
-      "proof_scope": "main sentence only: 十万円 ceiling for caller-established eligible persons; 各号 categories, procedure, mitigation NOT MODELLED",
-      "boundary_proof": "within_ceiling_sufficient / within_ceiling_necessary are general Nat theorems; 0/99999/100000 permitted, 100001 rejected, non-eligible rejected",
-      "cross_law_proof": "unit dependencies=0; enforced revision 326AC1000000145_20211122_503AC0000000046 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/TaxAccountantFineTests.lean sha256=43a4253d7388238151ba6a8666f65dd4f1c035424f42703768d72fcb6d61d3b1 (9 kernel-decided examples)",
-      "adversarial_review": "docs/UNIT_TAX_ACCOUNTANT_FINE_ART14.md: H/T/D/C/U; garbled-UI misreading (五百万) rejected by independent pinned extraction (十万円)"
     }
   }
 }
