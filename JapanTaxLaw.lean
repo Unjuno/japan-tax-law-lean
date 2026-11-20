@@ -546,3 +546,6 @@ import JapanTaxLaw.MultiDonorDeductionTests
 import JapanTaxLaw.ExamFee
 import JapanTaxLaw.ExamFeeSpec
 import JapanTaxLaw.ExamFeeTests
+import JapanTaxLaw.DutyFreeTransfer
+import JapanTaxLaw.DutyFreeTransferSpec
+import JapanTaxLaw.DutyFreeTransferTests

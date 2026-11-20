@@ -717,6 +717,9 @@ JapanTaxLaw/MultiDonorDeductionTests.lean     # 同上 退行テスト
 JapanTaxLaw/ExamFee.lean                          # 税理士法施行令 art.6の2（受験手数料）L4 モデル
 JapanTaxLaw/ExamFeeSpec.lean                      # 同上 独立定式
 JapanTaxLaw/ExamFeeTests.lean                     # 同上 退行テスト
+JapanTaxLaw/DutyFreeTransfer.lean                 # 関税法施行令 art.12（免税物品譲渡の18,000円閾値）L4 モデル
+JapanTaxLaw/DutyFreeTransferSpec.lean             # 同上 独立定式
+JapanTaxLaw/DutyFreeTransferTests.lean            # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト

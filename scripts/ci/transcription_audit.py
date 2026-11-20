@@ -1169,6 +1169,12 @@ def checks():
            "file", None,
            ["受験科目の数が一である場合にあつては四千円、受験科目の数が二以上である場合にあつては四千円と千五百円に一を超える受験科目の数を乗じて得た額との合計額とする", "法第九条第一項に規定する政令で定める額は"])
 
+    # DutyFreeTransfer — cycle-26
+    yield ("DutyFreeTransfer.lean",
+           "327CO0000000125",
+           "file", None,
+           ["その価格が一万八千円に満たないものである場合以外の場合に限り", "当該物品の所在場所を所轄する税関に申告し、当該物品の検査を経て、当該税関の譲渡の許可を受けなければならない"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",

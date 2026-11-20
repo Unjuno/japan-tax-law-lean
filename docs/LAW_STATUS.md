@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 44
+- with >=1 pinned literal check (semantic model): 45
 - with recorded human legal review: 0
 
 ## All laws
@@ -41,7 +41,7 @@ a completion flag.
 | `327AC0000000113` | 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日 | 327AC0000000113_20260401_508AC0000000012 | CurrentEnforced | YES | ok | 16 | NO (0) | NO |
 | `327AC0000000119` | 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日 | 327AC0000000119_20260401_508AC0000000002 | CurrentEnforced | YES | ok | 40 | NO (0) | NO |
 | `327CO0000000124` | 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日 | 327CO0000000124_20220401_502CO0000000207 | CurrentEnforced | YES | ok | 25 | NO (0) | NO |
-| `327CO0000000125` | 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日 | 327CO0000000125_20171008_428CO0000000240 | CurrentEnforced | YES | ok | 33 | NO (0) | NO |
+| `327CO0000000125` | 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日 | 327CO0000000125_20171008_428CO0000000240 | CurrentEnforced | YES | ok | 33 | YES (1) | NO |
 | `328AC0000000006` | 酒税法 | 328AC0000000006_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 287 | NO (0) | NO |
 | `328AC0000000007` | 酒税の保全及び酒類業組合等に関する法律 | 328AC0000000007_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 210 | NO (0) | NO |
 | `328CO0000000028` | 酒税の保全及び酒類業組合等に関する法律施行令 | 328CO0000000028_20220401_504CO0000000151 | CurrentEnforced | YES | ok | 48 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 116
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 119
