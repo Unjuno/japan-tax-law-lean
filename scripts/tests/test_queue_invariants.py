@@ -15,6 +15,12 @@ import unittest
 from pathlib import Path
 
 CI = Path(__file__).resolve().parents[1] / "ci"
+# verify_queue_invariants imports normative_core at call time. Without CI on
+# sys.path this passes only by accident when another test module imported it.
+import sys  # noqa: E402
+
+if str(CI) not in sys.path:
+    sys.path.insert(0, str(CI))
 
 spec = importlib.util.spec_from_file_location("qinv", CI / "verify_queue_invariants.py")
 qinv = importlib.util.module_from_spec(spec)
