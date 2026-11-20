@@ -29,11 +29,17 @@ layer is never folded into the statutory ledger.
 - ACQUIRED_PINNED pages: 3 (2 judgments)
 - verification_status: OUT_OF_SCOPE (pinned only; NOT parsed, formalized, proved, binding or legally reviewed)
 
+## Ordinance acquisition
+
+- index: Doshisha 条例Webアーカイブ (third-party academic aggregator, NOT an official original) (third-party aggregator, NOT an official original)
+- index reported hits: 14611; ACQUIRED_PINNED official pages: 3
+- verification_status: OUT_OF_SCOPE (pinned only; all-municipality coverage NOT claimed)
+
 | layer | label | legal nature | acquisition | scope | count | verification |
 |---|---|---|---|---|---:|---|
 | L0_STATUTE | 法律・政令・省令 | 国家法源（法律・政令・省令） | ACQUIRED_PARTIAL | PROVISIONAL_POPULATION | 327 | PARTIAL |
 | L1_PROVISION | 附則・別表・経過措置 | L0 内の一部を構成する規範 | ACQUIRED_WITHIN_L0 | INCLUDED_IN_L0 | - | PARTIAL |
-| L2_ORDINANCE | 地方税条例 | 自治体条例（地方自治法に基づく法源） | NOT_ACQUIRED | DECLARED_UNSUPPORTED | 1788 | OUT_OF_SCOPE |
+| L2_ORDINANCE | 地方税条例 | 自治体条例（地方自治法に基づく法源） | ACQUIRED_PINNED_ONLY | DECLARED_UNSUPPORTED | 1788 | OUT_OF_SCOPE |
 | L3_TREATY | 租税条約 | 条約（国際法源）— 国内法とは効力発生の機構が異なる | NOT_ACQUIRED | AUXILIARY_LAYER | - | OUT_OF_SCOPE |
 | L4_CIRCULAR | 通達 | 行政通達（法的拘束力は条文ではなく行政内部） | ACQUIRED_PINNED_ONLY | AUXILIARY_LAYER | - | OUT_OF_SCOPE |
 | L5_CASELAW | 裁判例 | 判決・裁定（法源ではなく判断例） | ACQUIRED_PINNED_ONLY | AUXILIARY_LAYER | - | OUT_OF_SCOPE |

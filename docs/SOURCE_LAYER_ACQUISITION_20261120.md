@@ -92,6 +92,22 @@ These HTML pages are auxiliary material only — NOT parsed, formalized, proved,
 binding or legally reviewed. 13/13 source-layer tests pass, including two new
 L5 honesty/hash tests.
 
+## L2 ordinance acquisition (2026-11-21) — first official municipal pins
+
+`scripts/ci/acquire_ordinances.py` queries the Doshisha 条例Webアーカイブ
+cross-municipality **third-party academic index** for `title:市税条例`
+(14,611 reported hits — an index count, NOT an acquisition count), then fetches
+official municipal sites from the index's `original_url` fields. Three real
+市税条例 pages were pinned (勝山市, 藤井寺市, 伊丹市 — 1.4–2.5 MB each), validated
+by presence of 市税条例 and substantial length, with SHA-256 re-verified 3/3.
+A fourth candidate (東金市) returned HTTP 404 and was recorded as FETCH_FAILED,
+not counted as acquired. `data/SOURCE_LAYERS.json` now reports
+`L2_ORDINANCE = ACQUIRED_PINNED_ONLY`, `count_acquired=3`, still
+`verification_status=OUT_OF_SCOPE`, never merged into L0. The index is explicitly
+labelled a third-party aggregator, NOT an official original; all-municipality
+coverage (~1,788) is NOT claimed. 15/15 source-layer tests pass, including two
+new L2 honesty/hash tests.
+
 ## H / T / D / C / U
 
 | id | content |

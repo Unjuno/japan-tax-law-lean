@@ -1,0 +1,59 @@
+{
+  "claim": "local tax ordinance pages pinned only as a separate L2 denominator; not parsed, formalized, proved or legally reviewed; coverage of all municipalities NOT claimed",
+  "count_acquired": 3,
+  "count_index_hits": 14611,
+  "index": {
+    "acquisition_status": "ACQUIRED_PINNED",
+    "raw_bytes": 1575484,
+    "raw_sha256": "f428d872d6c7709d5fb5327c945b2c56d9347cb32f7f5c34988d4af86000632c",
+    "reported_numFound": 14611,
+    "source_type": "third_party_aggregator_index",
+    "url": "https://jorei.slis.doshisha.ac.jp/api/reiki/select?q=title%3A%E5%B8%82%E7%A8%8E%E6%9D%A1%E4%BE%8B&rows=200"
+  },
+  "index_source": "Doshisha 条例Webアーカイブ (third-party academic aggregator, NOT an official original)",
+  "ordinances": [
+    {
+      "acquisition_status": "FETCH_FAILED",
+      "city": "東金市",
+      "note": "HTTP Error 404: Not Found",
+      "prefecture": "千葉県",
+      "url": "http://www.city.togane.chiba.jp/reiki/d1w_reiki/H328901010014/H328901010014_j.html"
+    },
+    {
+      "acquisition_status": "ACQUIRED_PINNED",
+      "city": "勝山市",
+      "prefecture": "福井県",
+      "raw_bytes": 2538864,
+      "raw_file": "data/raw_ordinances/c2607-182061-74715610.html",
+      "raw_sha256": "aa51e89b26cf6961bee31b960d92013903968611426d3fbc53aad32211620026",
+      "record_id": "c2607-182061-74715610",
+      "source_type": "official_municipal_site",
+      "url": "https://www1.g-reiki.net/city.katsuyama/reiki_honbun/i207RG00000245.html"
+    },
+    {
+      "acquisition_status": "ACQUIRED_PINNED",
+      "city": "藤井寺市",
+      "prefecture": "大阪府",
+      "raw_bytes": 1702124,
+      "raw_file": "data/raw_ordinances/c2607-272264-80344029.html",
+      "raw_sha256": "935d99c5bec029f6ca37af9aa1f949f88f6017498fc13fd2a994a1b223ce808d",
+      "record_id": "c2607-272264-80344029",
+      "source_type": "official_municipal_site",
+      "url": "https://en3-jg.d1-law.com/fujiidera/d1w_reiki/H356901010001/H356901010001_j.html"
+    },
+    {
+      "acquisition_status": "ACQUIRED_PINNED",
+      "city": "伊丹市",
+      "prefecture": "兵庫県",
+      "raw_bytes": 1445143,
+      "raw_file": "data/raw_ordinances/c2607-282073-16534807.html",
+      "raw_sha256": "aa29dc74f0ec9f25ea7bce19738b23fbc9a6498c37f58f741fc78b1532b08f1d",
+      "record_id": "c2607-282073-16534807",
+      "source_type": "official_municipal_site",
+      "url": "https://en3-jg.d1-law.com/itami/d1w_reiki/H329901010316/H329901010316_j.html"
+    }
+  ],
+  "query": "title:市税条例",
+  "tool": "scripts/ci/acquire_ordinances.py",
+  "verification_status": "OUT_OF_SCOPE"
+}

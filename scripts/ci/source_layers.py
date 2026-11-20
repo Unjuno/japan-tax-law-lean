@@ -34,6 +34,7 @@ DISCOVERED = REPO / "data" / "DISCOVERED_INVENTORY.json"
 AUX_INDEX = REPO / "data" / "raw_circulars" / "nta_tsutatsu_index.meta.json"
 HIST_PINNED = REPO / "data" / "HISTORICAL_PINNED.json"
 CASE_PINNED = REPO / "data" / "CASELAW_PINNED.json"
+ORDINANCE_PINNED = REPO / "data" / "ORDINANCE_PINNED.json"
 BLOCKED = REPO / "docs" / "BLOCKED.md"
 OUT_JSON = REPO / "data" / "SOURCE_LAYERS.json"
 OUT_MD = REPO / "docs" / "SOURCE_LAYERS.md"
@@ -101,6 +102,9 @@ def build() -> dict:
     case_ledger = json.loads(CASE_PINNED.read_text(encoding="utf-8")) if CASE_PINNED.exists() else None
     l5_acquired = (case_ledger or {}).get("count_acquired", 0)
     l5_status = "ACQUIRED_PINNED_ONLY" if l5_acquired else "NOT_ACQUIRED"
+    ord_ledger = json.loads(ORDINANCE_PINNED.read_text(encoding="utf-8")) if ORDINANCE_PINNED.exists() else None
+    l2_acquired = (ord_ledger or {}).get("count_acquired", 0)
+    l2_status = "ACQUIRED_PINNED_ONLY" if l2_acquired else "NOT_ACQUIRED"
 
     layers = [
         {
@@ -136,14 +140,14 @@ def build() -> dict:
             "label_ja": "地方税条例",
             "legal_nature": "自治体条例（地方自治法に基づく法源）",
             "authority": "各自治体",
-            "acquisition_status": "NOT_ACQUIRED",
+            "acquisition_status": l2_status,
             "scope_status": "DECLARED_UNSUPPORTED",
             "count": ordinances,
-            "count_acquired": 0,
+            "count_acquired": l2_acquired,
             "pinned_snapshot": "",
             "verification_status": "OUT_OF_SCOPE",
             "auxiliary": False,
-            "notes": "自治体単位の収集は未実施。対象を勝手に縮小せず、未取得として明示する。",
+            "notes": "一部の自治体条例を pin 取得のみ（第三者の横断索引経由、公式サイト本文を固定）。parse・形式化・証明・人間レビューは未実施。全自治体網羅は主張しない。L0 に合算しない。",
         },
         {
             "layer_id": "L3_TREATY",
@@ -244,6 +248,7 @@ def build() -> dict:
         "auxiliary_index_acquisition": aux_index,
         "historical_acquisition": hist_ledger,
         "caselaw_acquisition": case_ledger,
+        "ordinance_acquisition": ord_ledger,
         "layers": layers,
     }
 
@@ -308,6 +313,18 @@ def main() -> int:
             f"({len(ca.get('judgments') or [])} judgments)",
             f"- verification_status: {ca.get('verification_status')} "
             "(pinned only; NOT parsed, formalized, proved, binding or legally reviewed)",
+        ]
+    oa = payload["ordinance_acquisition"]
+    if oa is None:
+        lines += ["", "## Ordinance acquisition", "", "- none acquired"]
+    else:
+        lines += [
+            "", "## Ordinance acquisition", "",
+            f"- index: {oa.get('index_source', '')} (third-party aggregator, NOT an official original)",
+            f"- index reported hits: {oa.get('count_index_hits')}; "
+            f"ACQUIRED_PINNED official pages: {oa.get('count_acquired')}",
+            f"- verification_status: {oa.get('verification_status')} "
+            "(pinned only; all-municipality coverage NOT claimed)",
         ]
     lines += [
         "",

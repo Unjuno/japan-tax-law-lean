@@ -54,7 +54,12 @@ class LayerTests(unittest.TestCase):
         by = {l["layer_id"]: l for l in self.reg["layers"]}
         self.assertEqual(by["L2_ORDINANCE"]["scope_status"], "DECLARED_UNSUPPORTED")
         self.assertGreater(by["L2_ORDINANCE"]["count"], 0)
-        self.assertEqual(by["L2_ORDINANCE"]["count_acquired"], 0)
+        # a few official ordinance pages may be pinned, but this never equals the
+        # full municipality count and is never merged into the statutory ledger.
+        l2 = by["L2_ORDINANCE"]
+        self.assertLess(l2["count_acquired"], l2["count"])
+        self.assertEqual(l2["verification_status"], "OUT_OF_SCOPE")
+        self.assertNotEqual(by["L0_STATUTE"]["count"], l2["count"])
         self.assertEqual(by["L6_HISTORICAL"]["scope_status"], "HISTORICAL_LAYER")
         self.assertGreater(by["L6_HISTORICAL"]["count"], 0)
 
@@ -159,6 +164,38 @@ class CaseLawLayerTests(unittest.TestCase):
             self.assertEqual(hashlib.sha256(raw.read_bytes()).hexdigest(), r["raw_sha256"])
         for j in ca.get("judgments") or []:
             self.assertIn("裁判例結果詳細", (sl.REPO / j["raw_file"]).read_bytes().decode("utf-8", errors="replace"))
+
+
+class OrdinanceLayerTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.reg = sl.build()
+
+    def test_ordinance_pins_not_full_coverage_not_verified(self):
+        by = {l["layer_id"]: l for l in self.reg["layers"]}
+        l2 = by["L2_ORDINANCE"]
+        self.assertEqual(l2["scope_status"], "DECLARED_UNSUPPORTED")
+        self.assertEqual(l2["verification_status"], "OUT_OF_SCOPE")
+        self.assertLess(l2["count_acquired"], l2["count"])
+
+    def test_ordinance_acquisition_is_honest_and_hash_verified(self):
+        oa = self.reg.get("ordinance_acquisition")
+        if oa is None:
+            self.skipTest("no ordinance pinned in this checkout")
+        self.assertEqual(oa["verification_status"], "OUT_OF_SCOPE")
+        self.assertIn("third-party", oa["index_source"].lower())
+        self.assertIn("NOT claimed", oa["claim"])
+        acquired = [r for r in oa["ordinances"]
+                    if r.get("acquisition_status") == "ACQUIRED_PINNED"]
+        self.assertEqual(oa["count_acquired"], len(acquired))
+        for r in acquired:
+            self.assertEqual(len(r["raw_sha256"]), 64)
+            self.assertGreater(r["raw_bytes"], 100000)
+            self.assertEqual(r["source_type"], "official_municipal_site")
+            raw = sl.REPO / r["raw_file"]
+            self.assertTrue(raw.exists())
+            self.assertEqual(hashlib.sha256(raw.read_bytes()).hexdigest(), r["raw_sha256"])
+            self.assertIn("市税条例", raw.read_bytes().decode("utf-8", errors="replace"))
 
 
 if __name__ == "__main__":
