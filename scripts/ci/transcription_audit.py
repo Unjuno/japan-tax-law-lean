@@ -1622,6 +1622,13 @@ def checks():
            ["十万円以下の過料に処する"])
 
 
+    # 自動車重量税法 art. 7 — VehicleWeightUnit.lean (0.5-ton unit count)
+    yield ("自動車重量税法 art. 7（〇・五トン単位: 端数は一単位）↔ VehicleWeightUnit.lean (weightUnits)",
+           "346AC0000000089",
+           "article", "第七条",
+           ["自動車重量税の課税標準は", "〇・五を乗じて得た金額"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

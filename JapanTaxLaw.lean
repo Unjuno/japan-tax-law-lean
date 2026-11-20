@@ -423,6 +423,9 @@ import JapanTaxLaw.BusinessOwnerDeductionTests
 import JapanTaxLaw.DisasterIncomeTaxRelief
 import JapanTaxLaw.DisasterIncomeTaxReliefSpec
 import JapanTaxLaw.DisasterIncomeTaxReliefTests
+import JapanTaxLaw.VehicleWeightUnit
+import JapanTaxLaw.VehicleWeightUnitSpec
+import JapanTaxLaw.VehicleWeightUnitTests
 import JapanTaxLaw.StandardRateExcessRatio
 import JapanTaxLaw.StandardRateExcessRatioSpec
 import JapanTaxLaw.StandardRateExcessRatioTests
