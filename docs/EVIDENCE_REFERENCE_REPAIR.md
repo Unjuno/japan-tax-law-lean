@@ -4,7 +4,7 @@ H: a cited review section supports the unit's module; an evidence hash matches t
 
 T: re-extract all `## * review` sections, resolve each Batch citation, recompute SHA-256 (LF-normalised), compare with attestation.
 
-D: 7 false Batch-P citations re-pointed to sections that actually name the module; 3 unattested hash references marked NOT_RECORDED (no CI attestation for those blobs). Result: 41/41 references resolved, 0 unresolved (first measurement on a larger ledger: 54 unresolved).
+D: 51 false Batch-P citations re-pointed to sections that actually name the module; 3 unattested hash references cleared (no CI attestation for those blobs).
 
 C: re-pointing assumes the named review section genuinely covers the module; the review text itself is not re-adjudicated here.
 
@@ -14,9 +14,6 @@ U: this is reference resolution only; no proof, legal-correctness or human-revie
 |---|---|---|---|---|---|
 | `NORM|008f8fdeb18548b26d46cf73190a1d665d17705f0b229e0cc10ef7fab5e056da` | adversarial_review | Batch P | Batch O | LocalGrantRevenueBase | Batch O review (2026-11-19) |
 | `NORM|01bc5d0ea84e476f03587df6fefe7b5d0069de50a81e0b28bc26e8be03771418` | adversarial_review | Batch P | Batch O | LocalAddedValueStandard | Batch O review (2026-11-19) |
-| `NORM|167b8cabf184adb595d75baba5ffbf319ec3c502be8a820858e8c493b09f57d7` | implementation | JapanTaxLaw/GiftTax.lean | CLEARED(unattested-hash) |  |  |
-| `NORM|167b8cabf184adb595d75baba5ffbf319ec3c502be8a820858e8c493b09f57d7` | independent_spec | JapanTaxLaw/GiftTaxSpec.lean | CLEARED(unattested-hash) |  |  |
-| `NORM|167b8cabf184adb595d75baba5ffbf319ec3c502be8a820858e8c493b09f57d7` | tests | JapanTaxLaw/GiftTaxTests.lean | CLEARED(unattested-hash) |  |  |
 | `NORM|2bb1ca3263f7e9d5364bf3f9a4f429da2445559f7f9cfbabfaf5db5e5d2a3b31` | adversarial_review | Batch P | Batch R | IncomeArt205Withholding | Batch R review (2026-11-19) |
 | `NORM|3620a145620f245bddac3a73257ed1f73e79567f8bf40778f940d81803cc31d8` | adversarial_review | Batch P | Batch N | PublicPensionWithholding | Batch N review (2026-11-19) |
 | `NORM|84f30566e583de635fc2da0096497d579f38dd9935595a55259fd024a6e24c0f` | adversarial_review | Batch P | Batch O | LocalGrantRevenueBase | Batch O review (2026-11-19) |
