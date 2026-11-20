@@ -79,7 +79,7 @@ def main() -> int:
             sf = (laws.get(law_id, {}).get("raw_snapshot") or {}).get("source_file")
             p = REPO / sf if sf else None
             docs[law_id] = json.loads(p.read_text(encoding="utf-8")) if p and p.exists() else {}
-        whole = norm(flat(docs[law_id]))
+        whole = norm(flat(docs[law_id].get("law_full_text", docs[law_id])))
         scoped = scoped_article_text(docs[law_id], art) or ""
         needle_ok = bool(needles) and all(norm(n) in whole for n in needles)
         scoped_ok = bool(needles) and all(norm(n) in norm(scoped) for n in needles)

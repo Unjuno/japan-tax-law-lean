@@ -157,3 +157,33 @@ The passing transcription audit checks literal strings only; the Lean build
 proves properties of the formal model only; the 0 verified anomalies is
 different from evidence that no defect exists. Human legal review remains
 pending.
+
+## 7. Post-merge update (measured later in the same session)
+
+- Goal-1 fix PR **#186 was merged** as `2eb3e38`; the QA record was committed
+  as `6ba7e42`. The committed tree therefore contains the corrected queue and
+  completion machinery, including the dependency fix that treats
+  `LAW_ID_HINT` / `unresolved=True` as underdetermined and withholds units of
+  the referenced law (`scripts/ci/normative_core.py`, `dependency_readiness`).
+- Re-verification after merge: `python -m unittest
+  scripts.tests.test_normative_core scripts.tests.test_completion_gate_adversary`
+  → **28 tests OK**; `python scripts/ci/qa_completion_audit.py` → **8/8 PASS**.
+- Full local gate run after merge: **26 ran, 0 SKIP, 2 FAIL**. Both failures
+  were transient and caused by concurrent queue regeneration racing with
+  readers (`article_obligations.py` hit a truncated `build/task_queue.json`;
+  `l7_ledger.py` reported drift). Re-running each gate individually returned
+  exit 0 (`article obligations: NOT_STARTED=2, PARTIAL=50,
+  PROVED_SCOPE=0, FULLY_VERIFIED=0, BLOCKED=0`; `L7 ledger matches committed
+  state`).
+- Generated queue after the fix: **396,854 normative units**,
+  NOT_STARTED=396,852, BLOCKED=2, and **FULLY_VERIFIED=0** — no false
+  completion. Transcription audit rose to **159/159** fidelity checks.
+- Remote CI: run #424 (PR #186) and run #425 (merge on `2eb3e38`) were
+  **In progress** at measurement time; the base commit `2224688` run #420 had
+  failed in the Python audit job while the Lean build passed. No green CI
+  verdict on main has been observed for the Goal-1 change.
+
+Verdict unchanged: the first execution task is implemented and merged, but
+the overall goal is **not met** — no green CI verdict yet, zero fully verified
+normative units of 396,854, zero human legal reviews, 3,438 unreviewed
+candidates, and 157,983 external references unbound to the ledger.
