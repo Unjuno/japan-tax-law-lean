@@ -52,6 +52,7 @@ as covered scope.
 | related statutes resolved to official law ids, NOT in ledger | 382 |
 | reference names aliased to laws already in ledger | 2 |
 | unresolved reference names (uncertainty retained) | 7138 |
+| related statutes ACQUIRED in separate layer (not in ledger) | 1 |
 
 Discovered law ids are NOT added to INVENTORY, NOT acquired, NOT parsed,
 NOT formalised and NOT reviewed. They are a separate discovery denominator
@@ -75,6 +76,7 @@ and must never be merged into the 'laws in ledger' completion rate.
 | unresolved (unenforced) laws | 2 |
 | external references NOT bound to the ledger | 175186 |
 | related statutes discovered but not acquired (Objective §2) | 382 |
+| related statutes acquired but not parsed/modelled/reviewed | 1 |
 
 An unpinned module, an unreviewed candidate, an unbound reference and an
 unenforced law are NOT counted as verified or completed. verified-anomaly = 0

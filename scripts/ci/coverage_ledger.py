@@ -34,6 +34,7 @@ CANDIDATES = REPO / "docs" / "L7_CANDIDATES_UNREVIEWED.csv"
 REFERENCES = REPO / "build" / "reference_stats.json"
 ADVERSARIAL = REPO / "docs" / "ADVERSARIAL_REVIEW.md"
 DISCOVERY = REPO / "data" / "RECURSIVE_DISCOVERY_RESOLVED.json"
+RELATED = REPO / "data" / "RELATED_LAW_LEDGER.json"
 OUT = REPO / "docs" / "COVERAGE.md"
 OUT_TMP = REPO / "build" / "coverage.md"
 AUDIT = REPO / "scripts" / "ci" / "transcription_audit.py"
@@ -59,6 +60,7 @@ def build() -> str:
     refs = _load(REFERENCES) or {}
     ref_totals = refs.get("totals", {})
     discovery = _load(DISCOVERY) or {}
+    related = _load(RELATED) or {}
     checks = audit_checks()
     import re as _re
     review_sessions = 0
@@ -153,6 +155,7 @@ def build() -> str:
         f"| related statutes resolved to official law ids, NOT in ledger | {discovery.get('resolved_new_law_ids', 'n/a')} |",
         f"| reference names aliased to laws already in ledger | {discovery.get('resolved_ledger_aliases', 'n/a')} |",
         f"| unresolved reference names (uncertainty retained) | {discovery.get('unresolved_names', 'n/a')} |",
+        f"| related statutes ACQUIRED in separate layer (not in ledger) | {len(related.get('laws', {}))} |",
         "",
         "Discovered law ids are NOT added to INVENTORY, NOT acquired, NOT parsed,",
         "NOT formalised and NOT reviewed. They are a separate discovery denominator",
@@ -176,6 +179,7 @@ def build() -> str:
         f"| unresolved (unenforced) laws | {len(unresolved)} |",
         f"| external references NOT bound to the ledger | {ref_totals.get('references_external_unverified', 'n/a')} |",
         f"| related statutes discovered but not acquired (Objective §2) | {discovery.get('resolved_new_law_ids', 'n/a')} |",
+        f"| related statutes acquired but not parsed/modelled/reviewed | {len(related.get('laws', {}))} |",
         "",
         "An unpinned module, an unreviewed candidate, an unbound reference and an",
         "unenforced law are NOT counted as verified or completed. verified-anomaly = 0",

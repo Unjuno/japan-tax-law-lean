@@ -35,6 +35,7 @@ GATES = [
     ("Recursive discovery ledger regeneration gate (Objective §1)", ["python", "scripts/law_audit/inventory/recursive_discovery.py"], ["scripts/law_audit/inventory/recursive_discovery.py", "docs/RECURSIVE_DISCOVERY.md"]),
     ("Recursive discovery law-id resolution tests (Objective §2)", ["python", "-m", "unittest", "scripts.tests.test_recursive_discovery_resolve", "-v"], ["scripts/tests/test_recursive_discovery_resolve.py"]),
     ("Recursive discovery law-id resolution gate (Objective §2)", ["python", "scripts/law_audit/inventory/recursive_discovery_resolve.py"], ["scripts/law_audit/inventory/recursive_discovery_resolve.py", "docs/RECURSIVE_DISCOVERY_RESOLVED.md"]),
+    ("Related-law separate-layer acquisition tests (Objective §2)", ["python", "-m", "unittest", "scripts.tests.test_related_law_acquisition", "-v"], ["scripts/tests/test_related_law_acquisition.py", "data/RELATED_LAW_LEDGER.json"]),
     ("Per-law status ledger regeneration gate (Objective §1/§6/§7)", ["python", "scripts/ci/law_status_ledger.py"], ["scripts/ci/law_status_ledger.py", "docs/LAW_STATUS.md"]),
     ("Article verification obligations gate (Objective §4)", ["python", "scripts/ci/article_obligations.py"], ["scripts/ci/article_obligations.py", "docs/ARTICLE_OBLIGATIONS.md"]),
     ("Cross-article rate consistency gate (Objective §5)", ["python", "scripts/law_audit/phase_e/rate_consistency.py"], ["scripts/law_audit/phase_e/rate_consistency.py", "docs/RATE_CONSISTENCY.md"]),

@@ -76,6 +76,27 @@ wrote ... / matches committed state (deterministic)
   repealed laws or typos. They are retained, not silently dropped. Resolving
   them and pinning the 382 candidates remains an open obligation.
 
+## Follow-up: first related statute acquired in a separate layer
+
+`scripts/law_audit/inventory/acquire_related_law.py` pins an official e-Gov
+revision + raw snapshot for a nominated discovered law WITHOUT editing
+`data/INVENTORY.json`. First acquisition (2026-11-15 snapshot):
+
+```
+ACQUIRED 322AC0000000067 地方自治法
+  revision = 322AC0000000067_20261102_508AC0000000062  (current_enforced)
+  raw      = data/related_raw/322AC0000000067_20261102_508AC0000000062.law.json
+  sha256   = C37874F6F340AD23FCCD1AF91EEA5F400F4BCB9E7B0F0B01E7D0E7AAB0D62902
+  bytes    = 2518200
+```
+
+`data/RELATED_LAW_LEDGER.json` records `source_layer=NATIONAL_NON_TAX_RELATED`
+and `verification_status=ACQUIRED_NOT_PARSED_NOT_MODELLED_NOT_REVIEWED`.
+4 unit tests (`scripts.tests.test_related_law_acquisition`) verify revision
+selection, SHA integrity and that the acquired id is NOT in `INVENTORY.json`.
+`docs/COVERAGE.md` reports acquired vs discovered as separate axes and lists
+acquired-but-unparsed statutes under unaddressed obligations.
+
 ## Non-claims
 
 - No law is said to be defective; no legal conclusion is drawn.
