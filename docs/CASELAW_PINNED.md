@@ -8,7 +8,7 @@ binding, or legally reviewed.
 
 - search keyword: 租税
 - reported hits: 2000
-- ACQUIRED_PINNED pages: 3
+- ACQUIRED_PINNED pages: 7
 - verification_status: OUT_OF_SCOPE
 
 | kind | url | bytes | sha256 | status |
@@ -16,3 +16,7 @@ binding, or legally reviewed.
 | index | https://www.courts.go.jp/hanrei/search1/index.html?query1=%E7%A7%9F%E7%A8%8E&query2= | 450567 | 5e4ae6d586203dc6 | ACQUIRED_PINNED |
 | judgment | https://www.courts.go.jp/hanrei/96975/detail8/index.html | 54312 | 6ce38413b2dea8b4 | ACQUIRED_PINNED |
 | judgment | https://www.courts.go.jp/hanrei/96536/detail2/index.html | 55624 | a73fd2246725801a | ACQUIRED_PINNED |
+| judgment | https://www.courts.go.jp/hanrei/96174/detail2/index.html | 54578 | 8f1b20f29614f96f | ACQUIRED_PINNED |
+| judgment | https://www.courts.go.jp/hanrei/96019/detail4/index.html | 52759 | f2fdc42e7b77e884 | ACQUIRED_PINNED |
+| judgment | https://www.courts.go.jp/hanrei/95412/detail2/index.html | 55017 | d5cf48bdfb7339b5 | ACQUIRED_PINNED |
+| judgment | https://www.courts.go.jp/hanrei/95315/detail4/index.html | 52662 | 7adebc32a84baf50 | ACQUIRED_PINNED |

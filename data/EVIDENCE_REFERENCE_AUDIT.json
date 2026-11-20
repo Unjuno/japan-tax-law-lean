@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 344,
+  "checks": 400,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -648,6 +648,50 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "adversarial_review",
       "detail": "non-batch reference",
+      "reference": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-",
+      "unit_id": "NORM|20d49c979fc8fe33d62b4df93ab315db2ba8197e7028c57f89a19ff460cd231d"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean",
+      "unit_id": "NORM|20d49c979fc8fe33d62b4df93ab315db2ba8197e7028c57f89a19ff460cd231d"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean",
+      "unit_id": "NORM|20d49c979fc8fe33d62b4df93ab315db2ba8197e7028c57f89a19ff460cd231d"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean",
+      "unit_id": "NORM|20d49c979fc8fe33d62b4df93ab315db2ba8197e7028c57f89a19ff460cd231d"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
       "reference": "docs/UNIT_TAX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings explicitly rejected",
       "unit_id": "NORM|21bdc2f2f48a4f6a8b27e5ac0c46bb64c25a7cd885f43e3c416ee231b18b7e6e"
     },
@@ -1022,6 +1066,50 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "adversarial_review",
       "detail": "non-batch reference",
+      "reference": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-",
+      "unit_id": "NORM|41f91dd46644996c45e9737d8525079191e51089a85237de2d555f5b9187f4a3"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean",
+      "unit_id": "NORM|41f91dd46644996c45e9737d8525079191e51089a85237de2d555f5b9187f4a3"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean",
+      "unit_id": "NORM|41f91dd46644996c45e9737d8525079191e51089a85237de2d555f5b9187f4a3"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean",
+      "unit_id": "NORM|41f91dd46644996c45e9737d8525079191e51089a85237de2d555f5b9187f4a3"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
       "reference": "docs/UNIT_DELEGATED_TAXPAYER_CATEGORIES.md: H/T/D/C/U; treating 政令 content as statutory text rejected; 3 vs 4 narrowing ",
       "unit_id": "NORM|44ed564144dcbfb0666f5bd97f6f4efc7bc472d685f6b97e26092c6995dba5d4"
     },
@@ -1057,6 +1145,94 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/DelegatedTaxpayerCategoriesTests.lean",
       "unit_id": "NORM|44ed564144dcbfb0666f5bd97f6f4efc7bc472d685f6b97e26092c6995dba5d4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-",
+      "unit_id": "NORM|4766be9dfaf10e556f4ed4cb7d6af089b31b80033ddc1bf9eced7b5ebabf9358"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean",
+      "unit_id": "NORM|4766be9dfaf10e556f4ed4cb7d6af089b31b80033ddc1bf9eced7b5ebabf9358"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean",
+      "unit_id": "NORM|4766be9dfaf10e556f4ed4cb7d6af089b31b80033ddc1bf9eced7b5ebabf9358"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean",
+      "unit_id": "NORM|4766be9dfaf10e556f4ed4cb7d6af089b31b80033ddc1bf9eced7b5ebabf9358"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-",
+      "unit_id": "NORM|48b7651e23d266a10bf4c44c1c812ad3b7278fd45ecc34060a9c835485d2d923"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean",
+      "unit_id": "NORM|48b7651e23d266a10bf4c44c1c812ad3b7278fd45ecc34060a9c835485d2d923"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean",
+      "unit_id": "NORM|48b7651e23d266a10bf4c44c1c812ad3b7278fd45ecc34060a9c835485d2d923"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean",
+      "unit_id": "NORM|48b7651e23d266a10bf4c44c1c812ad3b7278fd45ecc34060a9c835485d2d923"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -2309,6 +2485,50 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "adversarial_review",
       "detail": "non-batch reference",
+      "reference": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-",
+      "unit_id": "NORM|9fecbf01077eb295abda6fb3642b131e924d44a9ab1fc5da66daeab67a03f4f2"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean",
+      "unit_id": "NORM|9fecbf01077eb295abda6fb3642b131e924d44a9ab1fc5da66daeab67a03f4f2"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean",
+      "unit_id": "NORM|9fecbf01077eb295abda6fb3642b131e924d44a9ab1fc5da66daeab67a03f4f2"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean",
+      "unit_id": "NORM|9fecbf01077eb295abda6fb3642b131e924d44a9ab1fc5da66daeab67a03f4f2"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
       "reference": "docs/UNIT_PROGRESSIVE_AGRICULTURAL_POINTS.md: H/T/D/C/U; float-rate and misplaced-rounding readings rejected; only three",
       "unit_id": "NORM|a1870a9b8f56952699a60883617912f7f9a8185280ee0360323746e7f99a61e6"
     },
@@ -2738,6 +2958,50 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "adversarial_review",
       "detail": "non-batch reference",
+      "reference": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-",
+      "unit_id": "NORM|b265abf7c2b4e33c782f4055eb76a1ec9e31315f8414dc18975bf5cfc557f45d"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean",
+      "unit_id": "NORM|b265abf7c2b4e33c782f4055eb76a1ec9e31315f8414dc18975bf5cfc557f45d"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean",
+      "unit_id": "NORM|b265abf7c2b4e33c782f4055eb76a1ec9e31315f8414dc18975bf5cfc557f45d"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean",
+      "unit_id": "NORM|b265abf7c2b4e33c782f4055eb76a1ec9e31315f8414dc18975bf5cfc557f45d"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
       "reference": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule in",
       "unit_id": "NORM|bcf1ebb66cdf227f0a41af25535426f0e538653da7851df446b504290504c148"
     },
@@ -2949,6 +3213,94 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/FiscalPeriodSixMonthSplitTests.lean",
       "unit_id": "NORM|ceaa310499e6aeb291c47fe5f84450e17ebf70b5d4e9ae154ce11794a834144e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-",
+      "unit_id": "NORM|d17de64a90bac7642362d85bb81c102bd8a8283e55d2138816c87358de956de7"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean",
+      "unit_id": "NORM|d17de64a90bac7642362d85bb81c102bd8a8283e55d2138816c87358de956de7"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean",
+      "unit_id": "NORM|d17de64a90bac7642362d85bb81c102bd8a8283e55d2138816c87358de956de7"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean",
+      "unit_id": "NORM|d17de64a90bac7642362d85bb81c102bd8a8283e55d2138816c87358de956de7"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-",
+      "unit_id": "NORM|d919c1cfd701bc31f46bba8157aa17f8c8e7ffeb44373aa3e06766cbb31379af"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean",
+      "unit_id": "NORM|d919c1cfd701bc31f46bba8157aa17f8c8e7ffeb44373aa3e06766cbb31379af"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean",
+      "unit_id": "NORM|d919c1cfd701bc31f46bba8157aa17f8c8e7ffeb44373aa3e06766cbb31379af"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean",
+      "unit_id": "NORM|d919c1cfd701bc31f46bba8157aa17f8c8e7ffeb44373aa3e06766cbb31379af"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3442,8 +3794,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "adversarial_review",
       "detail": "non-batch reference",
-      "reference": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-",
-      "unit_id": "NORM|b265abf7c2b4e33c782f4055eb76a1ec9e31315f8414dc18975bf5cfc557f45d"
+      "reference": "docs/UNIT_MESH_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive misreading and open-ended-e8 misreading rejected; domain ",
+      "unit_id": "NORM|7e5a6afdbba8bc35373cbe3e19ac419c7dc23bfaba861fc5ee3a0ad9ec703714"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3453,8 +3805,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "implementation",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean",
-      "unit_id": "NORM|b265abf7c2b4e33c782f4055eb76a1ec9e31315f8414dc18975bf5cfc557f45d"
+      "reference": "JapanTaxLaw/MeshPopulationBands.lean",
+      "unit_id": "NORM|7e5a6afdbba8bc35373cbe3e19ac419c7dc23bfaba861fc5ee3a0ad9ec703714"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3464,8 +3816,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "independent_spec",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean",
-      "unit_id": "NORM|b265abf7c2b4e33c782f4055eb76a1ec9e31315f8414dc18975bf5cfc557f45d"
+      "reference": "JapanTaxLaw/MeshPopulationBandsSpec.lean",
+      "unit_id": "NORM|7e5a6afdbba8bc35373cbe3e19ac419c7dc23bfaba861fc5ee3a0ad9ec703714"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3475,8 +3827,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "tests",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean",
-      "unit_id": "NORM|b265abf7c2b4e33c782f4055eb76a1ec9e31315f8414dc18975bf5cfc557f45d"
+      "reference": "JapanTaxLaw/MeshPopulationBandsTests.lean",
+      "unit_id": "NORM|7e5a6afdbba8bc35373cbe3e19ac419c7dc23bfaba861fc5ee3a0ad9ec703714"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3486,8 +3838,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "adversarial_review",
       "detail": "non-batch reference",
-      "reference": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-",
-      "unit_id": "NORM|4766be9dfaf10e556f4ed4cb7d6af089b31b80033ddc1bf9eced7b5ebabf9358"
+      "reference": "docs/UNIT_MESH_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive misreading and open-ended-e8 misreading rejected; domain ",
+      "unit_id": "NORM|956ca640714d25fb504321b68c29a35aa8786ca2ba445f55e66ef41cbaa5543f"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3497,8 +3849,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "implementation",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean",
-      "unit_id": "NORM|4766be9dfaf10e556f4ed4cb7d6af089b31b80033ddc1bf9eced7b5ebabf9358"
+      "reference": "JapanTaxLaw/MeshPopulationBands.lean",
+      "unit_id": "NORM|956ca640714d25fb504321b68c29a35aa8786ca2ba445f55e66ef41cbaa5543f"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3508,8 +3860,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "independent_spec",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean",
-      "unit_id": "NORM|4766be9dfaf10e556f4ed4cb7d6af089b31b80033ddc1bf9eced7b5ebabf9358"
+      "reference": "JapanTaxLaw/MeshPopulationBandsSpec.lean",
+      "unit_id": "NORM|956ca640714d25fb504321b68c29a35aa8786ca2ba445f55e66ef41cbaa5543f"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3519,8 +3871,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "tests",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean",
-      "unit_id": "NORM|4766be9dfaf10e556f4ed4cb7d6af089b31b80033ddc1bf9eced7b5ebabf9358"
+      "reference": "JapanTaxLaw/MeshPopulationBandsTests.lean",
+      "unit_id": "NORM|956ca640714d25fb504321b68c29a35aa8786ca2ba445f55e66ef41cbaa5543f"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3530,8 +3882,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "adversarial_review",
       "detail": "non-batch reference",
-      "reference": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-",
-      "unit_id": "NORM|d919c1cfd701bc31f46bba8157aa17f8c8e7ffeb44373aa3e06766cbb31379af"
+      "reference": "docs/UNIT_MESH_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive misreading and open-ended-e8 misreading rejected; domain ",
+      "unit_id": "NORM|a924218cd94ef588c03f083697cd99c71d11bb1a4ac6e47399570fbd1c927653"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3541,8 +3893,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "implementation",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean",
-      "unit_id": "NORM|d919c1cfd701bc31f46bba8157aa17f8c8e7ffeb44373aa3e06766cbb31379af"
+      "reference": "JapanTaxLaw/MeshPopulationBands.lean",
+      "unit_id": "NORM|a924218cd94ef588c03f083697cd99c71d11bb1a4ac6e47399570fbd1c927653"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3552,8 +3904,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "independent_spec",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean",
-      "unit_id": "NORM|d919c1cfd701bc31f46bba8157aa17f8c8e7ffeb44373aa3e06766cbb31379af"
+      "reference": "JapanTaxLaw/MeshPopulationBandsSpec.lean",
+      "unit_id": "NORM|a924218cd94ef588c03f083697cd99c71d11bb1a4ac6e47399570fbd1c927653"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3563,8 +3915,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "tests",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean",
-      "unit_id": "NORM|d919c1cfd701bc31f46bba8157aa17f8c8e7ffeb44373aa3e06766cbb31379af"
+      "reference": "JapanTaxLaw/MeshPopulationBandsTests.lean",
+      "unit_id": "NORM|a924218cd94ef588c03f083697cd99c71d11bb1a4ac6e47399570fbd1c927653"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3574,8 +3926,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "adversarial_review",
       "detail": "non-batch reference",
-      "reference": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-",
-      "unit_id": "NORM|9fecbf01077eb295abda6fb3642b131e924d44a9ab1fc5da66daeab67a03f4f2"
+      "reference": "docs/UNIT_MESH_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive misreading and open-ended-e8 misreading rejected; domain ",
+      "unit_id": "NORM|d6279718487d02381f5a6ad2517038e1b29ba40d8e6f55743be7719305a5e7ce"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3585,8 +3937,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "implementation",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean",
-      "unit_id": "NORM|9fecbf01077eb295abda6fb3642b131e924d44a9ab1fc5da66daeab67a03f4f2"
+      "reference": "JapanTaxLaw/MeshPopulationBands.lean",
+      "unit_id": "NORM|d6279718487d02381f5a6ad2517038e1b29ba40d8e6f55743be7719305a5e7ce"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3596,8 +3948,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "independent_spec",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean",
-      "unit_id": "NORM|9fecbf01077eb295abda6fb3642b131e924d44a9ab1fc5da66daeab67a03f4f2"
+      "reference": "JapanTaxLaw/MeshPopulationBandsSpec.lean",
+      "unit_id": "NORM|d6279718487d02381f5a6ad2517038e1b29ba40d8e6f55743be7719305a5e7ce"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3607,8 +3959,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "tests",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean",
-      "unit_id": "NORM|9fecbf01077eb295abda6fb3642b131e924d44a9ab1fc5da66daeab67a03f4f2"
+      "reference": "JapanTaxLaw/MeshPopulationBandsTests.lean",
+      "unit_id": "NORM|d6279718487d02381f5a6ad2517038e1b29ba40d8e6f55743be7719305a5e7ce"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3618,8 +3970,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "adversarial_review",
       "detail": "non-batch reference",
-      "reference": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-",
-      "unit_id": "NORM|d17de64a90bac7642362d85bb81c102bd8a8283e55d2138816c87358de956de7"
+      "reference": "docs/UNIT_MESH_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive misreading and open-ended-e8 misreading rejected; domain ",
+      "unit_id": "NORM|323a8fa7c96851f16fb9f50a9ee211aeed5530a96ea2abf20442fa7276ebd006"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3629,8 +3981,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "implementation",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean",
-      "unit_id": "NORM|d17de64a90bac7642362d85bb81c102bd8a8283e55d2138816c87358de956de7"
+      "reference": "JapanTaxLaw/MeshPopulationBands.lean",
+      "unit_id": "NORM|323a8fa7c96851f16fb9f50a9ee211aeed5530a96ea2abf20442fa7276ebd006"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3640,8 +3992,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "independent_spec",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean",
-      "unit_id": "NORM|d17de64a90bac7642362d85bb81c102bd8a8283e55d2138816c87358de956de7"
+      "reference": "JapanTaxLaw/MeshPopulationBandsSpec.lean",
+      "unit_id": "NORM|323a8fa7c96851f16fb9f50a9ee211aeed5530a96ea2abf20442fa7276ebd006"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3651,8 +4003,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "tests",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean",
-      "unit_id": "NORM|d17de64a90bac7642362d85bb81c102bd8a8283e55d2138816c87358de956de7"
+      "reference": "JapanTaxLaw/MeshPopulationBandsTests.lean",
+      "unit_id": "NORM|323a8fa7c96851f16fb9f50a9ee211aeed5530a96ea2abf20442fa7276ebd006"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3662,8 +4014,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "adversarial_review",
       "detail": "non-batch reference",
-      "reference": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-",
-      "unit_id": "NORM|41f91dd46644996c45e9737d8525079191e51089a85237de2d555f5b9187f4a3"
+      "reference": "docs/UNIT_MESH_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive misreading and open-ended-e8 misreading rejected; domain ",
+      "unit_id": "NORM|0c6a423cc2b576efc946ed84c530f0f5a6119a0970d64cd50f3a77d40b205bca"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3673,8 +4025,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "implementation",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean",
-      "unit_id": "NORM|41f91dd46644996c45e9737d8525079191e51089a85237de2d555f5b9187f4a3"
+      "reference": "JapanTaxLaw/MeshPopulationBands.lean",
+      "unit_id": "NORM|0c6a423cc2b576efc946ed84c530f0f5a6119a0970d64cd50f3a77d40b205bca"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3684,8 +4036,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "independent_spec",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean",
-      "unit_id": "NORM|41f91dd46644996c45e9737d8525079191e51089a85237de2d555f5b9187f4a3"
+      "reference": "JapanTaxLaw/MeshPopulationBandsSpec.lean",
+      "unit_id": "NORM|0c6a423cc2b576efc946ed84c530f0f5a6119a0970d64cd50f3a77d40b205bca"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3695,8 +4047,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "tests",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean",
-      "unit_id": "NORM|41f91dd46644996c45e9737d8525079191e51089a85237de2d555f5b9187f4a3"
+      "reference": "JapanTaxLaw/MeshPopulationBandsTests.lean",
+      "unit_id": "NORM|0c6a423cc2b576efc946ed84c530f0f5a6119a0970d64cd50f3a77d40b205bca"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3706,8 +4058,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "adversarial_review",
       "detail": "non-batch reference",
-      "reference": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-",
-      "unit_id": "NORM|20d49c979fc8fe33d62b4df93ab315db2ba8197e7028c57f89a19ff460cd231d"
+      "reference": "docs/UNIT_MESH_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive misreading and open-ended-e8 misreading rejected; domain ",
+      "unit_id": "NORM|805fff9bc1f26621eef520d5204f13f3b7d84b55366201345c33b33ed2afe501"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3717,8 +4069,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "implementation",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean",
-      "unit_id": "NORM|20d49c979fc8fe33d62b4df93ab315db2ba8197e7028c57f89a19ff460cd231d"
+      "reference": "JapanTaxLaw/MeshPopulationBands.lean",
+      "unit_id": "NORM|805fff9bc1f26621eef520d5204f13f3b7d84b55366201345c33b33ed2afe501"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3728,8 +4080,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "independent_spec",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean",
-      "unit_id": "NORM|20d49c979fc8fe33d62b4df93ab315db2ba8197e7028c57f89a19ff460cd231d"
+      "reference": "JapanTaxLaw/MeshPopulationBandsSpec.lean",
+      "unit_id": "NORM|805fff9bc1f26621eef520d5204f13f3b7d84b55366201345c33b33ed2afe501"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3739,8 +4091,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "tests",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean",
-      "unit_id": "NORM|20d49c979fc8fe33d62b4df93ab315db2ba8197e7028c57f89a19ff460cd231d"
+      "reference": "JapanTaxLaw/MeshPopulationBandsTests.lean",
+      "unit_id": "NORM|805fff9bc1f26621eef520d5204f13f3b7d84b55366201345c33b33ed2afe501"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3750,8 +4102,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "adversarial_review",
       "detail": "non-batch reference",
-      "reference": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-",
-      "unit_id": "NORM|48b7651e23d266a10bf4c44c1c812ad3b7278fd45ecc34060a9c835485d2d923"
+      "reference": "docs/UNIT_MESH_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive misreading and open-ended-e8 misreading rejected; domain ",
+      "unit_id": "NORM|b15fca97916af90410fa4ebec70baa386a5a39143213411b54f97f07eeb609f3"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3761,8 +4113,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "implementation",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean",
-      "unit_id": "NORM|48b7651e23d266a10bf4c44c1c812ad3b7278fd45ecc34060a9c835485d2d923"
+      "reference": "JapanTaxLaw/MeshPopulationBands.lean",
+      "unit_id": "NORM|b15fca97916af90410fa4ebec70baa386a5a39143213411b54f97f07eeb609f3"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3772,8 +4124,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "independent_spec",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean",
-      "unit_id": "NORM|48b7651e23d266a10bf4c44c1c812ad3b7278fd45ecc34060a9c835485d2d923"
+      "reference": "JapanTaxLaw/MeshPopulationBandsSpec.lean",
+      "unit_id": "NORM|b15fca97916af90410fa4ebec70baa386a5a39143213411b54f97f07eeb609f3"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -3783,13 +4135,277 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "tests",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean",
-      "unit_id": "NORM|48b7651e23d266a10bf4c44c1c812ad3b7278fd45ecc34060a9c835485d2d923"
+      "reference": "JapanTaxLaw/MeshPopulationBandsTests.lean",
+      "unit_id": "NORM|b15fca97916af90410fa4ebec70baa386a5a39143213411b54f97f07eeb609f3"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_MESH_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive misreading and open-ended-e8 misreading rejected; domain ",
+      "unit_id": "NORM|7856bb91e108d90ac61b6fbc958d5e18155e7214295e753c0305e4067e4b198c"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/MeshPopulationBands.lean",
+      "unit_id": "NORM|7856bb91e108d90ac61b6fbc958d5e18155e7214295e753c0305e4067e4b198c"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/MeshPopulationBandsSpec.lean",
+      "unit_id": "NORM|7856bb91e108d90ac61b6fbc958d5e18155e7214295e753c0305e4067e4b198c"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/MeshPopulationBandsTests.lean",
+      "unit_id": "NORM|7856bb91e108d90ac61b6fbc958d5e18155e7214295e753c0305e4067e4b198c"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_MESH_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive misreading and open-ended-e8 misreading rejected; domain ",
+      "unit_id": "NORM|9b8e2f8f14d3729082a54bc00f9d98ab8ceac5970ae06be5f7b307f41d32ab92"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/MeshPopulationBands.lean",
+      "unit_id": "NORM|9b8e2f8f14d3729082a54bc00f9d98ab8ceac5970ae06be5f7b307f41d32ab92"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/MeshPopulationBandsSpec.lean",
+      "unit_id": "NORM|9b8e2f8f14d3729082a54bc00f9d98ab8ceac5970ae06be5f7b307f41d32ab92"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/MeshPopulationBandsTests.lean",
+      "unit_id": "NORM|9b8e2f8f14d3729082a54bc00f9d98ab8ceac5970ae06be5f7b307f41d32ab92"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_MESH_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive misreading and open-ended-e8 misreading rejected; domain ",
+      "unit_id": "NORM|5fe2648845ad17599f56d18426c99255dd590f83927021ff8f696c0f79d2d9bc"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/MeshPopulationBands.lean",
+      "unit_id": "NORM|5fe2648845ad17599f56d18426c99255dd590f83927021ff8f696c0f79d2d9bc"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/MeshPopulationBandsSpec.lean",
+      "unit_id": "NORM|5fe2648845ad17599f56d18426c99255dd590f83927021ff8f696c0f79d2d9bc"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/MeshPopulationBandsTests.lean",
+      "unit_id": "NORM|5fe2648845ad17599f56d18426c99255dd590f83927021ff8f696c0f79d2d9bc"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_MESH_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive misreading and open-ended-e8 misreading rejected; domain ",
+      "unit_id": "NORM|74e14da1870f6247ca0fb1e822f4586c1a3c0f46dad2c1323eb180e8511fef06"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/MeshPopulationBands.lean",
+      "unit_id": "NORM|74e14da1870f6247ca0fb1e822f4586c1a3c0f46dad2c1323eb180e8511fef06"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/MeshPopulationBandsSpec.lean",
+      "unit_id": "NORM|74e14da1870f6247ca0fb1e822f4586c1a3c0f46dad2c1323eb180e8511fef06"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/MeshPopulationBandsTests.lean",
+      "unit_id": "NORM|74e14da1870f6247ca0fb1e822f4586c1a3c0f46dad2c1323eb180e8511fef06"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_MESH_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive misreading and open-ended-e8 misreading rejected; domain ",
+      "unit_id": "NORM|09ee8ec71b4ba36fe480fee1453a422080c0566e10521e022502a0d6b9dae5e4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/MeshPopulationBands.lean",
+      "unit_id": "NORM|09ee8ec71b4ba36fe480fee1453a422080c0566e10521e022502a0d6b9dae5e4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/MeshPopulationBandsSpec.lean",
+      "unit_id": "NORM|09ee8ec71b4ba36fe480fee1453a422080c0566e10521e022502a0d6b9dae5e4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/MeshPopulationBandsTests.lean",
+      "unit_id": "NORM|09ee8ec71b4ba36fe480fee1453a422080c0566e10521e022502a0d6b9dae5e4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_MESH_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive misreading and open-ended-e8 misreading rejected; domain ",
+      "unit_id": "NORM|ea6cf3b89e593a22541c80a280930d88a8bab14f242eb14b8bab08994bb224b4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/MeshPopulationBands.lean",
+      "unit_id": "NORM|ea6cf3b89e593a22541c80a280930d88a8bab14f242eb14b8bab08994bb224b4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/MeshPopulationBandsSpec.lean",
+      "unit_id": "NORM|ea6cf3b89e593a22541c80a280930d88a8bab14f242eb14b8bab08994bb224b4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/MeshPopulationBandsTests.lean",
+      "unit_id": "NORM|ea6cf3b89e593a22541c80a280930d88a8bab14f242eb14b8bab08994bb224b4"
     }
   ],
-  "resolved": 334,
+  "resolved": 390,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 84,
+  "units_checked": 98,
   "unresolved": 10
 }
