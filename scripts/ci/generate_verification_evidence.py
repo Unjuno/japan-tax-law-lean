@@ -323,6 +323,20 @@ def review_ok(base: str, review_text: str) -> bool:
             section = itext[idx: idx + 4000]
             if all(k in section for k in ("独立再抽出", "一次資料", "判定")):
                 return True
+    # Parallel ADVERSARIAL workstreams own one file each under docs/advisory;
+    # each section must still be module-specific with an H/T/D/C/U record.
+    adv_dir = REPO / "docs" / "adversarial"
+    if adv_dir.exists():
+        for p in sorted(adv_dir.glob("*.md")):
+            itext = p.read_text(encoding="utf-8", errors="replace")
+            idx = itext.find("### " + base + ".lean")
+            if idx < 0:
+                continue
+            section = itext[idx: idx + 4000]
+            if (("独立抽出" in section or "独立再抽出" in section)
+                    and ("照合" in section or "判定" in section)
+                    and "H/T/D/C/U" in section.upper().replace("/", "/")):
+                return True
     return independent and decision
 
 
