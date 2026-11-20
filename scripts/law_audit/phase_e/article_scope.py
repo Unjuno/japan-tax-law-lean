@@ -21,6 +21,8 @@ REPO = Path(__file__).resolve().parents[3]
 INVENTORY = REPO / "data" / "INVENTORY.json"
 AUDIT = REPO / "scripts" / "ci" / "transcription_audit.py"
 OUT = REPO / "docs" / "ARTICLE_SCOPE.md"
+sys.path.insert(0, str(REPO / "scripts" / "ci"))
+import norm_decomposer as nd  # noqa: E402
 
 
 def flat(node) -> str:
@@ -60,6 +62,9 @@ def main() -> int:
     rows = []
     scoped = 0
     whole_only = 0
+    coverage_total = 0
+    coverage_ok = 0
+    unresolved_total = 0
     for name, law_id, kind, art, needles in mod.checks():
         rec = laws.get(law_id)
         sf = (rec or {}).get("raw_snapshot", {}).get("source_file")
@@ -80,6 +85,19 @@ def main() -> int:
         if units:
             scoped += 1
             loc = "; ".join(f"{p}×{h}" for p, h in units[:3])
+            # Mechanical decomposition check for the scoped text only. This is
+            # a diagnostic: reconstruction is necessary but never a fidelity
+            # proof, and unresolved fragments stay unresolved.
+            for upath, unode in iter_units(doc.get("law_full_text")):
+                if "/".join(upath) not in {p for p, _ in units[:3]}:
+                    continue
+                text = norm(flat(unode))
+                if not text:
+                    continue
+                cov = nd.audit_coverage(text, nd.decompose(text, "/".join(upath)))
+                coverage_total += 1
+                coverage_ok += 1 if cov["ok"] else 0
+                unresolved_total += cov["unresolved_count"]
         else:
             whole_only += 1
             loc = "(no article/table-cell unit contains all needle text)"
@@ -97,6 +115,11 @@ def main() -> int:
         "",
         f"- checks with article/table-cell scoped needles: {scoped}",
         f"- checks with no scoped unit (whole-text or cross-article needles): {whole_only}",
+        f"- scoped units with exact mechanical reconstruction: {coverage_ok}/{coverage_total}",
+        f"- unresolved normative fragments recorded (not judged): {unresolved_total}",
+        "",
+        "Coverage figures above are mechanical character reconstruction only.",
+        "They are NOT a fidelity proof and NOT a completion gate.",
         "",
         "| law_id | stated article | needles | containing unit(s) | check |",
         "|---|---|---:|---|---|",
