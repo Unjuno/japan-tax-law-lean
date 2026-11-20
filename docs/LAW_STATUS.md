@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 49
+- with >=1 pinned literal check (semantic model): 50
 - with recorded human legal review: 0
 
 ## All laws
@@ -79,7 +79,7 @@ a completion flag.
 | `332CO0000000048` | とん税法施行令 | 332CO0000000048_20201001_502CO0000000128 | CurrentEnforced | YES | ok | 20 | NO (0) | NO |
 | `332CO0000000049` | 特別とん税法施行令 | 332CO0000000049_20201001_502CO0000000128 | CurrentEnforced | YES | ok | 14 | NO (0) | NO |
 | `332M50000040015` | 租税特別措置法施行規則 | 332M50000040015_20261101_507M60000040026 | CurrentEnforced | YES | ok | 1776 | YES (1) | NO |
-| `332AC0000000055` | 揮発油税法 | 332AC0000000055_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 94 | NO (0) | NO |
+| `332AC0000000055` | 揮発油税法 | 332AC0000000055_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 94 | YES (1) | NO |
 | `332CO0000000057` | 揮発油税法施行令 | 332CO0000000057_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 60 | YES (1) | NO |
 | `332AC0000000077` | 特別とん譲与税法 | 332AC0000000077_20010106_411AC0000000160 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `332M50000002021` | 特別とん譲与税法施行規則 | 332M50000002021_20010106_412M50000008044 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
