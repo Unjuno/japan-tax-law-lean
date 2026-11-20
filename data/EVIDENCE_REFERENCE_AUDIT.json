@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 400,
+  "checks": 424,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -4401,11 +4401,275 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/VehicleDisplacementBandsTests.lean",
       "unit_id": "NORM|fbaae7be4e7e0918d0af1091dede11f8dc3bdbea10cf82e888b69ed4cf8f0f79"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_DEEMED_FILING_DATES.md: H/T/D/C/U; overriding-an-explicit-date reading rejected; calendar computation explicit",
+      "unit_id": "NORM|5336c555bfcfbde8a24af7cb064a7e8373d3ad4e30ec52c611b0be01eb9686ad"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "FAIL",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 MISMATCH",
+      "reference": "JapanTaxLaw/DeemedFilingDates.lean",
+      "unit_id": "NORM|5336c555bfcfbde8a24af7cb064a7e8373d3ad4e30ec52c611b0be01eb9686ad"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeemedFilingDatesSpec.lean",
+      "unit_id": "NORM|5336c555bfcfbde8a24af7cb064a7e8373d3ad4e30ec52c611b0be01eb9686ad"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeemedFilingDatesTests.lean",
+      "unit_id": "NORM|5336c555bfcfbde8a24af7cb064a7e8373d3ad4e30ec52c611b0be01eb9686ad"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_DEEMED_FILING_DATES.md: H/T/D/C/U; overriding-an-explicit-date reading rejected; calendar computation explicit",
+      "unit_id": "NORM|f37de1f3c15cf39df742d6eaf35148b3d2bb58b92f4f606bdcaabb3115590327"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "FAIL",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 MISMATCH",
+      "reference": "JapanTaxLaw/DeemedFilingDates.lean",
+      "unit_id": "NORM|f37de1f3c15cf39df742d6eaf35148b3d2bb58b92f4f606bdcaabb3115590327"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeemedFilingDatesSpec.lean",
+      "unit_id": "NORM|f37de1f3c15cf39df742d6eaf35148b3d2bb58b92f4f606bdcaabb3115590327"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeemedFilingDatesTests.lean",
+      "unit_id": "NORM|f37de1f3c15cf39df742d6eaf35148b3d2bb58b92f4f606bdcaabb3115590327"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_DEEMED_FILING_DATES.md: H/T/D/C/U; overriding-an-explicit-date reading rejected; calendar computation explicit",
+      "unit_id": "NORM|fa376921193055127e453614761832e2a0c7e437cc2ba0299ca52f9d5008ae4c"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "FAIL",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 MISMATCH",
+      "reference": "JapanTaxLaw/DeemedFilingDates.lean",
+      "unit_id": "NORM|fa376921193055127e453614761832e2a0c7e437cc2ba0299ca52f9d5008ae4c"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeemedFilingDatesSpec.lean",
+      "unit_id": "NORM|fa376921193055127e453614761832e2a0c7e437cc2ba0299ca52f9d5008ae4c"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeemedFilingDatesTests.lean",
+      "unit_id": "NORM|fa376921193055127e453614761832e2a0c7e437cc2ba0299ca52f9d5008ae4c"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_DEEMED_FILING_DATES.md: H/T/D/C/U; overriding-an-explicit-date reading rejected; calendar computation explicit",
+      "unit_id": "NORM|7e77579468f037fce8235a456ac40ef644c6878729c38a54fafc531a2b66aeb4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "FAIL",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 MISMATCH",
+      "reference": "JapanTaxLaw/DeemedFilingDates.lean",
+      "unit_id": "NORM|7e77579468f037fce8235a456ac40ef644c6878729c38a54fafc531a2b66aeb4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeemedFilingDatesSpec.lean",
+      "unit_id": "NORM|7e77579468f037fce8235a456ac40ef644c6878729c38a54fafc531a2b66aeb4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeemedFilingDatesTests.lean",
+      "unit_id": "NORM|7e77579468f037fce8235a456ac40ef644c6878729c38a54fafc531a2b66aeb4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_DEEMED_FILING_DATES.md: H/T/D/C/U; overriding-an-explicit-date reading rejected; calendar computation explicit",
+      "unit_id": "NORM|4b7f57cfcdd4d1d42457abce16753f0e05006e4835359422545f71bd0edb1e12"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "FAIL",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 MISMATCH",
+      "reference": "JapanTaxLaw/DeemedFilingDates.lean",
+      "unit_id": "NORM|4b7f57cfcdd4d1d42457abce16753f0e05006e4835359422545f71bd0edb1e12"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeemedFilingDatesSpec.lean",
+      "unit_id": "NORM|4b7f57cfcdd4d1d42457abce16753f0e05006e4835359422545f71bd0edb1e12"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeemedFilingDatesTests.lean",
+      "unit_id": "NORM|4b7f57cfcdd4d1d42457abce16753f0e05006e4835359422545f71bd0edb1e12"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/UNIT_DEEMED_FILING_DATES.md: H/T/D/C/U; overriding-an-explicit-date reading rejected; calendar computation explicit",
+      "unit_id": "NORM|f8c24193ee41d2d830dfded131daea4a68f06338bb54722d83c8fd50749cbd42"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "FAIL",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 MISMATCH",
+      "reference": "JapanTaxLaw/DeemedFilingDates.lean",
+      "unit_id": "NORM|f8c24193ee41d2d830dfded131daea4a68f06338bb54722d83c8fd50749cbd42"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeemedFilingDatesSpec.lean",
+      "unit_id": "NORM|f8c24193ee41d2d830dfded131daea4a68f06338bb54722d83c8fd50749cbd42"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeemedFilingDatesTests.lean",
+      "unit_id": "NORM|f8c24193ee41d2d830dfded131daea4a68f06338bb54722d83c8fd50749cbd42"
     }
   ],
-  "resolved": 390,
+  "resolved": 408,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 98,
-  "unresolved": 10
+  "units_checked": 104,
+  "unresolved": 16
 }

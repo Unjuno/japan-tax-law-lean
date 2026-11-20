@@ -617,3 +617,6 @@ import JapanTaxLaw.MeshPopulationBandsTests
 import JapanTaxLaw.DeemedFilingDates
 import JapanTaxLaw.DeemedFilingDatesSpec
 import JapanTaxLaw.DeemedFilingDatesTests
+import JapanTaxLaw.TobaccoTaxReadingRanges
+import JapanTaxLaw.TobaccoTaxReadingRangesSpec
+import JapanTaxLaw.TobaccoTaxReadingRangesTests
