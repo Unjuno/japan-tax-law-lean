@@ -31,7 +31,7 @@ DISCOVERY = REPO / "docs" / "RECURSIVE_DISCOVERY.md"
 BLOCKED = REPO / "docs" / "BLOCKED.md"
 OUT_JSON = REPO / "data" / "SOURCE_LAYERS.json"
 OUT_MD = REPO / "docs" / "SOURCE_LAYERS.md"
-QUEUE = REPO / "build" / "task_queue.json"
+QUEUE_DOC = REPO / "docs" / "TASK_QUEUE.md"
 
 
 def _read(p: Path) -> str:
@@ -44,19 +44,26 @@ def _int(pattern: str, text: str, default: int = 0) -> int:
 
 
 def queue_counts() -> dict:
-    """Read only the payload head of the streamed queue (no 240 MB load).
+    """Read counts from the COMMITTED task-queue document.
 
-    A missing queue is UNKNOWN (None), never zero: the object does not exist
-    on some branches, and that is not the same as 'no normative units'.
+    build/task_queue.json is git-ignored and differs between local runs and CI,
+    so deriving a committed ledger from it made source-layer determinism
+    depend on an uncommitted artifact and caused repeated CI drift. The
+    committed docs/TASK_QUEUE.md is the authoritative, reproducible source.
     """
-    if not QUEUE.exists():
+    text = _read(QUEUE_DOC)
+    if not text:
         return {}
-    with QUEUE.open("r", encoding="utf-8") as fh:
-        head = fh.read(16384)
-    m = re.search(r'"status_counts"\s*:\s*\{([^}]*)\}', head)
-    if not m:
-        return {}
-    return {k: int(v) for k, v in re.findall(r'"([A-Z_]+)"\s*:\s*(\d+)', m.group(1))}
+    out = {}
+    m = re.search(r"normative units:\s*(\d+)", text)
+    if m:
+        out["units_total"] = int(m.group(1))
+    for name, value in re.findall(
+        r"^\|\s*(NOT_STARTED|PARTIAL|PROVED_SCOPE|FULLY_VERIFIED|BLOCKED)\s*\|\s*(\d+)\s*\|",
+        text, re.M,
+    ):
+        out[name] = int(value)
+    return out
 
 
 def build() -> dict:

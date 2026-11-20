@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 import subprocess
 import sys
 from collections import Counter
@@ -86,8 +87,10 @@ def human_review_count() -> tuple[int, int]:
 
 
 def build() -> str:
-    q = _load(QUEUE) or {"tasks": []}
-    tasks = q.get("tasks", [])
+    q = _load(QUEUE) or {"units": []}
+    # The normative-unit queue generator emits `units`; older rows used
+    # `tasks`. Reading only the legacy key silently reported all zeros.
+    tasks = q.get("units", q.get("tasks", []))
     counts = Counter(t.get("status", "NOT_STARTED") for t in tasks)
     evidence_ledger = _load(REPO / "data" / "verification_evidence.json") or {}
     evidence_by_id = evidence_ledger.get("units", {})
@@ -196,10 +199,21 @@ def build() -> str:
     return "\n".join(lines)
 
 
+def _stable_text(text: str) -> str:
+    """Mask per-commit provenance values before the determinism comparison.
+
+    The SHA lines are evidence, not configuration: their values legitimately
+    change with every commit. Comparing them verbatim made the regeneration
+    gate fail on every commit after the provenance fields were introduced.
+    """
+    pattern = re.compile(r"^(- (?:gate results commit|current HEAD commit): ).*$")
+    return "\n".join(pattern.sub(r"\1(variable)", line) for line in text.splitlines())
+
+
 def main() -> int:
     text = build()
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    if OUT.exists() and OUT.read_text(encoding="utf-8") == text:
+    if OUT.exists() and _stable_text(OUT.read_text(encoding="utf-8")) == _stable_text(text):
         print("completion gate status matches committed state (deterministic)")
         return 0
     OUT.write_text(text, encoding="utf-8")

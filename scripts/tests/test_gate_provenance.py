@@ -8,6 +8,8 @@ checks all green". Results are bound to the commit they were produced from.
 from __future__ import annotations
 
 import importlib.util
+import json
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -38,6 +40,35 @@ class TestGateProvenance(unittest.TestCase):
         self.assertFalse(cg.checks_are_green(reg(fail=1)))
         self.assertFalse(cg.checks_are_green(reg(skip=1)))
         self.assertFalse(cg.checks_are_green(reg(required_skip=1)))
+
+    def test_sha_lines_are_masked_for_determinism(self):
+        a = "- gate results commit: abc\n- current HEAD commit: def\n- PASS: 1"
+        b = "- gate results commit: xyz\n- current HEAD commit: uvw\n- PASS: 1"
+        self.assertEqual(cg._stable_text(a), cg._stable_text(b))
+
+    def test_real_changes_are_not_masked(self):
+        a = "- PASS: 1"
+        b = "- PASS: 2"
+        self.assertNotEqual(cg._stable_text(a), cg._stable_text(b))
+
+    def test_build_reads_units_schema(self):
+        """The queue generator emits `units`; old `tasks` reads report zeros."""
+        saved = cg.QUEUE
+        with tempfile.TemporaryDirectory() as td:
+            q = Path(td) / "queue.json"
+            q.write_text(json.dumps({"units": [{
+                "normative_id": "NORM|x", "status": "FULLY_VERIFIED",
+                "source_file": "f", "source_sha256": "s",
+                "coverage": {"exact": True, "unique_ids": True},
+                "evidence": {"kernel_proof": "trace", "tests": "trace"},
+            }]}), encoding="utf-8")
+            cg.QUEUE = q
+            try:
+                text = cg.build()
+            finally:
+                cg.QUEUE = saved
+        self.assertIn("normative units: 1", text)
+        self.assertIn("FULLY_VERIFIED: 1", text)
 
 
 if __name__ == "__main__":

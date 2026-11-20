@@ -15,13 +15,9 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
-# This verifier is executed both as a script and imported by
-# scripts/tests/test_queue_invariants.py. The canonical core lives next to this
-# file, so make it importable in both modes (the test imports us from the repo
-# root, where scripts/ci is otherwise not on sys.path).
-CI_DIR = REPO / "scripts" / "ci"
-if str(CI_DIR) not in sys.path:
-    sys.path.insert(0, str(CI_DIR))
+# main() imports normative_core lazily; make that module importable both when
+# run as a script and when this file is loaded via importlib from unit tests.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 QUEUE = REPO / "build" / "task_queue.json"
 EXPECTED = {"NOT_STARTED", "PARTIAL", "PROVED_SCOPE", "FULLY_VERIFIED", "BLOCKED"}
 
