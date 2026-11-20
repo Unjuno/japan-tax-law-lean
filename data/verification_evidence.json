@@ -222,6 +222,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: independent kanji literals ['二十', '千', '四十', '百', '百四'] located in 原文; needles scoped",
       "source_location": "data/raw/340CO0000000097_20261001_507CO0000000121.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:139_10/Article#139_10/Paragraph#1/ParagraphSentence/Sentence#1 sha256=92bab730d90617c1a1439ba19ba8f79041368febf3840c919103689cfcd90fe6 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/RetainedAmountLocalTaxTests.lean sha256=ed8b3da38d1c0b12d7f8b729bb2a0ce2b00c1f161c451b2eec60c09ca5f021c3 (19 kernel-decided examples)"
+    },
+    "NORM|ecbde7b1d7e9b46b1b4eaf583bfff62501be330e8935b44edc990751cda0d510": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 8 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=337AC0000000066_20261101_507AC0000000013 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/NonpaymentSurcharge.lean sha256=630188d67855f29f2a66a7d256c59175afbb3089d4d06fe9afd1cc0f0e412601",
+      "independent_spec": "JapanTaxLaw/NonpaymentSurchargeSpec.lean sha256=027c300e2990d9b524b84c882dca6037d3af37f57d03f3237e58999ad0df2613 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44684783591: commit 0b6e084f68c35511d586b601692180ceac28a5dc, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "statutory constants [5, 10, 100] located in 原文 and used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: independent kanji literals ['五', '十', '百'] located in 原文; needles scoped",
+      "source_location": "data/raw/337AC0000000066_20261101_507AC0000000013.law.json#LawBody[2]/MainProvision/MainProvision[5]/Article:67/Article#67/Paragraph#2/ParagraphSentence/Sentence#1 sha256=6f8b43e168652d228066cda3389a3bf6823900a9268e6bf97297cb6b25189dee (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/NonpaymentSurchargeTests.lean sha256=facbc5038f209d636982742a6d3f210a6e8043a1ff3c82e5ed1e78bdc42eb617 (8 kernel-decided examples)"
     }
   }
 }

@@ -16,29 +16,29 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 47 | 327 | 14.37% |
+| laws with >=1 pinned literal check | 48 | 327 | 14.68% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
 
 | axis | count |
 |---|---:|
-| laws parse-ok | 325 |
-| laws audit-ok | 325 |
-| articles checked | 42584 |
-| paragraphs checked | 86403 |
-| items checked | 61672 |
-| verified anomalies | 0 |
-| unreviewed candidates | 3438 |
+| laws parse-ok | n/a |
+| laws audit-ok | n/a |
+| articles checked | n/a |
+| paragraphs checked | n/a |
+| items checked | n/a |
+| verified anomalies | n/a |
+| unreviewed candidates | n/a |
 
 ## Reference-relation axes (Objective §1 — recursive discovery)
 
 | axis | count |
 |---|---:|
-| references extracted | 476500 |
-| internal references checked | 63234 |
-| external references NOT bound to the ledger | 175186 |
-| references classified unsupported | 250043 |
+| references extracted | n/a |
+| internal references checked | n/a |
+| external references NOT bound to the ledger | n/a |
+| references classified unsupported | n/a |
 
 external_unverified references are NOT verified and are NOT silently counted
 as covered scope.
@@ -62,19 +62,19 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 170 | n/a | n/a |
-| distinct article pins | 49 | 42584 | 0.12% |
-| pinned Lean modules (cross-law) | 459 | n/a | n/a |
+| pinned literal checks | 171 | n/a | n/a |
+| distinct article pins | 50 | n/a | n/a |
+| pinned Lean modules (cross-law) | 0 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 100 |
+| unpinned Lean modules (not counted as verified) | 0 |
 | L7 candidates awaiting human legal review | 3438 |
-| verified anomalies (requires independent review to establish) | 0 |
+| verified anomalies (requires independent review to establish) | n/a |
 | unresolved (unenforced) laws | 2 |
-| external references NOT bound to the ledger | 175186 |
+| external references NOT bound to the ledger | n/a |
 | related statutes discovered but not acquired (Objective §2) | 380 |
 | related statutes acquired but not parsed/modelled/reviewed | 2 |
 
@@ -145,6 +145,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `342AC0000000023` 印紙税法
 - `342AC0000000035` 登録免許税法
 - `346AC0000000090` 自動車重量譲与税法
+- `347AC0000000007` 航空機燃料税法
 - `347CO0000000161` 沖縄の復帰に伴う地方税法の適用の特別措置等に関する政令
 - `351M50000008035` 特別交付税に関する省令
 - `363AC0000000107` 税制改革法
