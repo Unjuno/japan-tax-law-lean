@@ -13,17 +13,17 @@ obligations being complete. SKIP is never counted as PASS.
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: (none)
-- current HEAD commit: 633068d1cdb9c20e6ef5dd241dae3b01f6df6ab6
+- current HEAD commit: 566e9424b8654008a319023b240f1d56a96f48fd
 - results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all registered obligations complete
 
 - normative units: 396854
-- NOT_STARTED: 396785
+- NOT_STARTED: 396775
 - PARTIAL: 0
 - PROVED_SCOPE: 2
-- FULLY_VERIFIED: 65
+- FULLY_VERIFIED: 75
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180619
@@ -36,26 +36,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 67 | 396854 |
-| kernel proved (CI-attested proof evidence) | 67 | 396854 |
-| source-audited (原文 correspondence evidence) | 67 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 77 | 396854 |
+| kernel proved (CI-attested proof evidence) | 77 | 396854 |
+| source-audited (原文 correspondence evidence) | 77 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 67 |
-| boundary_proof | 67 |
-| cross_law_proof | 67 |
-| decomposition_audit | 67 |
-| implementation | 67 |
-| independent_spec | 67 |
-| kernel_proof | 67 |
-| proof_scope | 67 |
-| source_correspondence_audit | 67 |
-| source_location | 67 |
-| tests | 67 |
+| adversarial_review | 77 |
+| boundary_proof | 77 |
+| cross_law_proof | 77 |
+| decomposition_audit | 77 |
+| implementation | 77 |
+| independent_spec | 77 |
+| kernel_proof | 77 |
+| proof_scope | 77 |
+| source_correspondence_audit | 77 |
+| source_location | 77 |
+| tests | 77 |
 
 ## Verdict
 

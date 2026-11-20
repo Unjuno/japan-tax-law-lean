@@ -6,10 +6,10 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 58
-- presence-facts-only complete: 58
+- articles with explicit pin: 60
+- presence-facts-only complete: 60
 - NOT_STARTED: 2
-- PARTIAL: 56
+- PARTIAL: 58
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
 - BLOCKED: 0
@@ -65,6 +65,8 @@ source positions. Human legal review is a separate axis and is pending.
 | `347AC0000000007` | 第十一条 | AviationFuelTaxRate | YES | YES | NO | PARTIAL |
 | `330AC0000000104` | 第四条 | LocalGasolineTaxRate | YES | YES | NO | PARTIAL |
 | `332AC0000000055` | 第九条 | GasolineTaxRate | YES | YES | NO | PARTIAL |
+| `143AC0000000054` | 第十四条 | CustomsSameContentLimit | YES | YES | NO | PARTIAL |
+| `325AC0000000226` | 第百八十条 | LocalTaxAresRounding | YES | YES | NO | PARTIAL |
 | `327AC0000000111` | 第十一条 | UsForcesDutyFreePenalty | YES | YES | NO | PARTIAL |
 | `143AC0000000054` | 第十条 | CustomsDamageReduction | YES | YES | YES | PARTIAL |
 | `143AC0000000054` | 第四条の七 | CustomsExchangeRate | YES | YES | NO | PARTIAL |
