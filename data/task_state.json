@@ -41,6 +41,44 @@
         "NEEDLE_REUSED_IN_21_11_2: verbatim '課税価格から六十万円を控除する' occurs in both art.21-5 and art.21-11-2; article attribution to 21-5 is correct but text-only identification is not unique (see docs/ADVERSARIAL_FINDING_GIFT_BASIC_21_5.md)"
       ],
       "unit_id": "NORM|167b8cabf184adb595d75baba5ffbf319ec3c502be8a820858e8c493b09f57d7"
+    },
+    "NORM|89a8b5e3962e7db358a45105bea6669582c82591554b65860296e9fc58cc71cf": {
+      "artifacts": {
+        "implementation": "JapanTaxLaw/DisasterIncomeThreshold.lean",
+        "source_audit": "docs/SOURCE_AUDIT_DISASTER_INCOME_20261120.md",
+        "source_pin": "data/raw/322AC0000000175_20220101_503AC0000000011.law.json",
+        "spec": "JapanTaxLaw/DisasterIncomeThresholdSpec.lean",
+        "tests": "JapanTaxLaw/DisasterIncomeThresholdTests.lean"
+      },
+      "blockers": [],
+      "evidence": {
+        "adversarial_review": "docs/SOURCE_AUDIT_DISASTER_INCOME_20261120.md SRC-DIT-1 H/T/D/C/U",
+        "boundary_proof": "DisasterIncomeThresholdSpec.lean at_threshold / just_above_threshold (5,000,000 / 5,000,001)",
+        "cross_law_proof": "所得税法 art.22 total income is caller-established (resolved dependency recorded in queue)",
+        "decomposition_audit": "build/task_queue.json: exact reconstruction of the unit span; norm_type CONDITION",
+        "implementation": "JapanTaxLaw/DisasterIncomeThreshold.lean inFirstBand (≤ comparison)",
+        "independent_spec": "JapanTaxLaw/DisasterIncomeThresholdSpec.lean specFirstBand (¬ threshold < income)",
+        "kernel_proof": "CI Lean build + axiom audit; agree_disaster_income_threshold universal theorem",
+        "proof_scope": "DisasterIncomeThresholdSpec.lean downward_closed + explicit non-modelled scope in impl docs",
+        "source_correspondence_audit": "docs/SOURCE_AUDIT_DISASTER_INCOME_20261120.md#Reproduction (needle present, unique to art 2)",
+        "source_location": "docs/SOURCE_AUDIT_DISASTER_INCOME_20261120.md#Provenance (art 2(1), pin sha256 verified)",
+        "tests": "JapanTaxLaw/DisasterIncomeThresholdTests.lean boundary examples"
+      },
+      "history": [
+        {
+          "date": "2026-11-20",
+          "event": "EVIDENCE_RECORDED",
+          "note": "¥5,000,000 first-band condition; caller-established input capped at PROVED_SCOPE."
+        }
+      ],
+      "last_source_sha256": "c3bb5b0bdffbdefd2ee5f358d90ad9e0922d4c887ecb2b133aa7d613f5f4e7ef",
+      "legal_review": "LEGAL_REVIEW_PENDING",
+      "owner": "FORMALIZE-2",
+      "status": "PROVED_SCOPE",
+      "unhandled_conditions": [
+        "合計所得金額 (所得税法 art.22) is caller-established; not modelled in this slice"
+      ],
+      "unit_id": "NORM|89a8b5e3962e7db358a45105bea6669582c82591554b65860296e9fc58cc71cf"
     }
   }
 }
