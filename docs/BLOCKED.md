@@ -9,9 +9,9 @@ only and do NOT establish completion.
 
 ## Sponsor action 1 — independent human legal review
 
-- L7 candidates: 3438
+- L7 candidates: ?
 - candidates with recorded reviewer: 0
-- candidates still awaiting review: 3438
+- candidates still awaiting review: ?
 
 Required: a qualified Japanese tax lawyer reviews all candidates and records
 `reviewer` / `review_date` per row in docs/L7_CANDIDATES_UNREVIEWED.csv.
@@ -32,10 +32,10 @@ recursive discovery remains incomplete (see docs/RECURSIVE_DISCOVERY.md).
 ## Recorded unresolved items (not completion blockers by themselves)
 
 - unresolved (unenforced) laws in ledger: 2 — {'law_id': '508CO0000000106', 'status': 'fully_unenforced'}, {'law_id': '508M60000040027', 'status': 'fully_unenforced'}
-- independent review sessions: 31
+- independent review sessions: 32
 - review-level UNRESOLVED markers: 138 (require human legal judgement; not implementation defects)
 - historical-version references (Phase F): 795 names / 12977 occurrences — historical revisions not pinned to e-Gov snapshots
-- verified anomalies: 0 (means no independent legal review has established a defect)
+- verified anomalies: ? (means no independent legal review has established a defect)
 
 ## Repo state is saved and resumable
 
