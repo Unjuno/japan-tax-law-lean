@@ -539,3 +539,6 @@ import JapanTaxLaw.InternationalTouristTaxRateTests
 import JapanTaxLaw.UsForcesDutyFreePenalty
 import JapanTaxLaw.UsForcesDutyFreePenaltySpec
 import JapanTaxLaw.UsForcesDutyFreePenaltyTests
+import JapanTaxLaw.GiftBasicDeductionUnit
+import JapanTaxLaw.GiftBasicDeductionUnitSpec
+import JapanTaxLaw.GiftBasicDeductionUnitTests

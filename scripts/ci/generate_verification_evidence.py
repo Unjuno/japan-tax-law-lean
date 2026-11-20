@@ -357,7 +357,7 @@ def main() -> int:
         ledger["units"][uid] = ev
     added = len(set(ledger["units"]) - previous)
     merged = json.dumps(ledger, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
-    if OUT.read_text(encoding="utf-8") != merged:
+    if not OUT.exists() or OUT.read_text(encoding="utf-8") != merged:
         OUT.write_text(merged, encoding="utf-8")
         print("merged", added, "unit(s) into", OUT)
     print("attested units:", len(payload["units"]), "ledger total:", len(ledger["units"]))

@@ -26,7 +26,9 @@ GATES = [
     ("revision impact tests", ["python", "-m", "unittest", "scripts.tests.test_revision_impact", "-v"], ["scripts/tests/test_revision_impact.py"]),
     ("normative core (queue/completion) tests", ["python", "-m", "unittest", "scripts.tests.test_normative_core", "-v"], ["scripts/tests/test_normative_core.py"]),
     ("completion gate adversary tests", ["python", "-m", "unittest", "scripts.tests.test_completion_gate_adversary", "-v"], ["scripts/tests/test_completion_gate_adversary.py"]),
+    ("queue invariant gate regression tests", ["python", "-m", "unittest", "scripts.tests.test_queue_invariants", "-v"], ["scripts/tests/test_queue_invariants.py", "scripts/ci/verify_queue_invariants.py"]),
     ("article-scope D/C decision tests", ["python", "-m", "unittest", "scripts.tests.test_article_scope_decision", "-v"], ["scripts/tests/test_article_scope_decision.py"]),
+    ("historical-discovery classification tests", ["python", "-m", "unittest", "scripts.tests.test_historical_discovery", "-v"], ["scripts/tests/test_historical_discovery.py"]),
     ("independent completion-mechanism audit", ["python", "scripts/ci/qa_completion_audit.py"], ["scripts/ci/qa_completion_audit.py"]),
     ("Phase A inventory integrity", ["python", "scripts/law_audit/inventory/validate_inventory.py"], ["scripts/law_audit/inventory/validate_inventory.py"]),
     ("Phase E cross-law pin consistency", ["python", "scripts/law_audit/phase_e/cross_law.py"], ["scripts/law_audit/phase_e/cross_law.py"]),
@@ -42,6 +44,7 @@ GATES = [
     ("normative queue invariants (unique ids, status vocabulary)", ["python", "scripts/ci/verify_queue_invariants.py"], ["scripts/ci/verify_queue_invariants.py"]),
     ("Article verification obligations gate (Objective §4)", ["python", "scripts/ci/article_obligations.py"], ["scripts/ci/article_obligations.py", "docs/ARTICLE_OBLIGATIONS.md"]),
     ("Cross-article rate consistency gate (Objective §5)", ["python", "scripts/law_audit/phase_e/rate_consistency.py"], ["scripts/law_audit/phase_e/rate_consistency.py", "docs/RATE_CONSISTENCY.md"]),
+
     ("Article-scoped fidelity diagnostic (Sponsor Directive §4)", ["python", "scripts/law_audit/phase_e/article_scope.py"], ["scripts/law_audit/phase_e/article_scope.py", "docs/ARTICLE_SCOPE.md"]),
     ("BLOCKED ledger regeneration gate (Objective §6 out-of-repo prerequisites)", ["python", "scripts/ci/blocked_ledger.py"], ["scripts/ci/blocked_ledger.py", "docs/BLOCKED.md"]),
     ("Coverage ledger regeneration gate (Objective §4 machine-computed coverage)", ["python", "scripts/ci/coverage_ledger.py"], ["scripts/ci/coverage_ledger.py", "docs/COVERAGE.md"]),
@@ -57,6 +60,7 @@ GATES = [
 REQUIRED_GATES = {
     "normative core (queue/completion) tests",
     "completion gate adversary tests",
+    "queue invariant gate regression tests",
     "article-scope D/C decision tests",
     "independent completion-mechanism audit",
     "normative queue invariants (unique ids, status vocabulary)",
