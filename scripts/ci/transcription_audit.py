@@ -1215,6 +1215,16 @@ def checks():
            "article", "第一条の二",
            ["配偶者及び民法（明治二十九年法律第八十九号）第八百七十七条（扶養義務者）に規定する親族をいう。"])
 
+    # 地方交付税法 附則（昭和三八年法律第二三号）第一条 — LocalAllocationTaxEnforcementDate.lean
+    # Provenance corrected after adversarial F1-F3: law id 325AC0000000211 is 地方交付税法,
+    # not 地方譲与税法; the needle is the 1963-amendment 施行期日 clause in an
+    # amendment-history 附則 (file-kind locator needed; find_article_text sees main only).
+    # Norm unit NORM|fb5a0e940fe5c31e14cdc8f7832e98b1b6df531a1fc429e963161c0c838bceaf
+    yield ("地方交付税法 附則（昭和三八年法律第二三号）第一条（公布から九十日以内に政令で定める日から施行）↔ LocalAllocationTaxEnforcementDate.lean (verbatim-unique needle in pinned 地方交付税法 snapshot; law identity/location checked structurally)",
+           "325AC0000000211",
+           "file", None,
+           ["この法律は、公布の日から起算して九十日をこえない範囲内において政令で定める日から施行する。"])
+
     # 在日米軍特例法 art. 11(3) — UsForcesDutyFreePenalty.lean (norm unit)
     yield ("在日米軍特例法 art. 11(3)（免税物品の用途外譲渡違反の罰則: 一年以下の拘禁刑又は五十万円以下の罰金 — 代替刑、併科なし。違反要件・徴収・法人重課・附則は NOT MODELLED）↔ UsForcesDutyFreePenalty.lean",
            "327AC0000000111",
