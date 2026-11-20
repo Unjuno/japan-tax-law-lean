@@ -1,0 +1,56 @@
+{
+  "tool": "scripts/ci/source_audit_remaining_bands.py",
+  "revision": "337M50000008017_20260724_508M60000008092",
+  "raw_sha256": "c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98",
+  "groups": {
+    "A": {
+      "normative_ids": [
+        "NORM|9d68bfc6b6112f642db9ca544e4e971c3db40d72b3fd09dc7187ac5f30826c92",
+        "NORM|da72ca210d0e6be3e98b32389cd440a64eeed5072682dcfa9db198022a4b59fd",
+        "NORM|7879e9d627e595cbb5067a3f3c88543f8efc62bca87daac971aadff0e9ccc05c",
+        "NORM|af0d7db1923ae6a67032c68846a0104fcd25f8eb79768ddde6b115a851b47855",
+        "NORM|92ee405dbebdf0892184d8cb4a5bbb550eec887e147299f1cd7255c7353e27c0"
+      ],
+      "texts": [
+        "２００点以上３５０点未満",
+        "３５０点以上６５０点未満",
+        "６５０点以上９５０点未満",
+        "９５０点以上９９０点未満",
+        "９９０点以上"
+      ],
+      "source_path": "LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#2/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1",
+      "verbatim_hits": {
+        "２００点以上３５０点未満": true,
+        "３５０点以上６５０点未満": true,
+        "６５０点以上９５０点未満": true,
+        "９５０点以上９９０点未満": true,
+        "９９０点以上": true
+      }
+    },
+    "B": {
+      "normative_ids": [
+        "NORM|e664b371aaf8b6dba27d44fbaea280fdf4f5d4a27e4560f860f38ac6b6e15fd8",
+        "NORM|8e1a5487fadf0d8082bf10c5c854d52f16ac026577fb0c7ea282ac9bff1ad76f"
+      ],
+      "texts": [
+        "９６未満",
+        "９６以上"
+      ],
+      "source_path": "LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#2/TableStruct/Table/TableRow/TableColumn/Sentence#1",
+      "verbatim_hits": {
+        "９６未満": true,
+        "９６以上": true
+      }
+    }
+  },
+  "checks": {
+    "all_seven_originals_verbatim": true,
+    "seven_distinct_sentences": true,
+    "spec_does_not_import_implementation": true
+  },
+  "module_sha256": {
+    "JapanTaxLaw/LocalGrantRemainingBands.lean": "ee33f07af7c3f1ec80cca3abcc55c2a4a025c20f34526057a2fda42124548eb2",
+    "JapanTaxLaw/LocalGrantRemainingBandsSpec.lean": "4f5df7c7d123238412073949c8b28cb8d66d87b85f8cf3d3975c34fe07887cf1",
+    "JapanTaxLaw/LocalGrantRemainingBandsTests.lean": "56579024af3a28f3186e155b80ded07bed957fceae426517c42936036de186ae"
+  }
+}

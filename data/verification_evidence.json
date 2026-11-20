@@ -425,6 +425,20 @@
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 6: ９００，０００以上)",
       "tests": "JapanTaxLaw/LocalGrantAmountBandsTests.lean sha256=270f27df97f18db8f4932fe4d9a3bc6cf0380794a92c82c189014fdc3a99e7a1 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
+    "NORM|7879e9d627e595cbb5067a3f3c88543f8efc62bca87daac971aadff0e9ccc05c": {
+      "adversarial_review": "docs/UNIT_LOCAL_GRANT_REMAINING_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; A's lower edge and B's unhandled subject recorded explicitly",
+      "boundary_proof": "A.inBand 2 d; global pairwise exclusivity; exhaustive for d>=200",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; art.11 A (5 rows) and B (2 rows) tables",
+      "group": "A",
+      "implementation": "JapanTaxLaw/LocalGrantRemainingBands.lean sha256=ee33f07af7c3f1ec80cca3abcc55c2a4a025c20f34526057a2fda42124548eb2",
+      "independent_spec": "JapanTaxLaw/LocalGrantRemainingBandsSpec.lean sha256=4f5df7c7d123238412073949c8b28cb8d66d87b85f8cf3d3975c34fe07887cf1 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; per-group pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "index partitions only: d caller-established Nat; A exhaustive for d>=200 (d<200 NOT MODELLED), B exhaustive for all d; global pairwise exclusivity; computations/formulas/legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_remaining_bands.py: all 7 originals found verbatim (7/7 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#2/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim A row 3: ６５０点以上９５０点未満)",
+      "tests": "JapanTaxLaw/LocalGrantRemainingBandsTests.lean sha256=56579024af3a28f3186e155b80ded07bed957fceae426517c42936036de186ae (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
     "NORM|7a48513b737f66d469e5b27c580233e06a9fe4a6be4cc12eaa102fe28780969d": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_POPULATION_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; domain lower edge 1000 recorded explicitly",
       "boundary_proof": "inBand 4 d; row 5 applies on its exact interval; global exclusivity, exhaustive for d>=1000",
@@ -492,6 +506,20 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 9: （９）　総排気量が四・五リットルを超え、六リットル以下のもの)",
       "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
+    "NORM|8e1a5487fadf0d8082bf10c5c854d52f16ac026577fb0c7ea282ac9bff1ad76f": {
+      "adversarial_review": "docs/UNIT_LOCAL_GRANT_REMAINING_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; A's lower edge and B's unhandled subject recorded explicitly",
+      "boundary_proof": "B.inBand 1 d; global pairwise exclusivity; exhaustive for all d",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; art.11 A (5 rows) and B (2 rows) tables",
+      "group": "B",
+      "implementation": "JapanTaxLaw/LocalGrantRemainingBands.lean sha256=ee33f07af7c3f1ec80cca3abcc55c2a4a025c20f34526057a2fda42124548eb2",
+      "independent_spec": "JapanTaxLaw/LocalGrantRemainingBandsSpec.lean sha256=4f5df7c7d123238412073949c8b28cb8d66d87b85f8cf3d3975c34fe07887cf1 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; per-group pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "index partitions only: d caller-established Nat; A exhaustive for d>=200 (d<200 NOT MODELLED), B exhaustive for all d; global pairwise exclusivity; computations/formulas/legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_remaining_bands.py: all 7 originals found verbatim (7/7 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#2/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim B row 2: ９６以上)",
+      "tests": "JapanTaxLaw/LocalGrantRemainingBandsTests.lean sha256=56579024af3a28f3186e155b80ded07bed957fceae426517c42936036de186ae (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
     "NORM|91349ec2d835e0fe4fdd63ea17f15c1ce9a98c22d91c36f03bea07410596f64e": {
       "adversarial_review": "docs/UNIT_TAX_ACCOUNTANT_FINE_ART14.md: H/T/D/C/U; garbled-UI misreading (五百万) rejected by independent pinned extraction (十万円)",
       "boundary_proof": "within_ceiling_sufficient / within_ceiling_necessary are general Nat theorems; 0/99999/100000 permitted, 100001 rejected, non-eligible rejected",
@@ -504,6 +532,20 @@
       "source_correspondence_audit": "scripts/ci/source_audit_tax_accountant_art14.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; independent literals 各号/該当する者/十万円以下/過料/処する",
       "source_location": "data/raw/326AC1000000145_20211122_503AC0000000046.law.json#LawBody[1]/MainProvision/MainProvision[14]/Article:14/Article#14/Paragraph#1/ParagraphSentence/Sentence#1 sha256=fc6c4ca152291c10c1218a62303a879195bfbbe95a056d0e264ee0315bbc4e2b (verbatim 30-char unit text)",
       "tests": "JapanTaxLaw/TaxAccountantFineTests.lean sha256=43a4253d7388238151ba6a8666f65dd4f1c035424f42703768d72fcb6d61d3b1 (9 kernel-decided examples)"
+    },
+    "NORM|92ee405dbebdf0892184d8cb4a5bbb550eec887e147299f1cd7255c7353e27c0": {
+      "adversarial_review": "docs/UNIT_LOCAL_GRANT_REMAINING_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; A's lower edge and B's unhandled subject recorded explicitly",
+      "boundary_proof": "A.inBand 4 d; global pairwise exclusivity; exhaustive for d>=200",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; art.11 A (5 rows) and B (2 rows) tables",
+      "group": "A",
+      "implementation": "JapanTaxLaw/LocalGrantRemainingBands.lean sha256=ee33f07af7c3f1ec80cca3abcc55c2a4a025c20f34526057a2fda42124548eb2",
+      "independent_spec": "JapanTaxLaw/LocalGrantRemainingBandsSpec.lean sha256=4f5df7c7d123238412073949c8b28cb8d66d87b85f8cf3d3975c34fe07887cf1 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; per-group pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "index partitions only: d caller-established Nat; A exhaustive for d>=200 (d<200 NOT MODELLED), B exhaustive for all d; global pairwise exclusivity; computations/formulas/legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_remaining_bands.py: all 7 originals found verbatim (7/7 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#2/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim A row 5: ９９０点以上)",
+      "tests": "JapanTaxLaw/LocalGrantRemainingBandsTests.lean sha256=56579024af3a28f3186e155b80ded07bed957fceae426517c42936036de186ae (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
     "NORM|92f0b0ef5f0186cf6bdeeaf48b13d122012b13e9f64d248957610f659d43cd8d": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_INDEX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; C and E thresholds kept separate",
@@ -532,6 +574,20 @@
       "source_correspondence_audit": "scripts/ci/source_audit_local_grant_index.py: all 9 originals found verbatim (9/9 hits, 3/3 checks), spec does not import implementation",
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#2/Subitem2#4/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim E row 2: １０以上１１０未満)",
       "tests": "JapanTaxLaw/LocalGrantIndexBandsTests.lean sha256=8613baa5eb7666035ac9139dc12df71bcbcb21c4f8b5b1c0863c41556318b820 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness for both groups)"
+    },
+    "NORM|9d68bfc6b6112f642db9ca544e4e971c3db40d72b3fd09dc7187ac5f30826c92": {
+      "adversarial_review": "docs/UNIT_LOCAL_GRANT_REMAINING_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; A's lower edge and B's unhandled subject recorded explicitly",
+      "boundary_proof": "A.inBand 0 d; global pairwise exclusivity; exhaustive for d>=200",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; art.11 A (5 rows) and B (2 rows) tables",
+      "group": "A",
+      "implementation": "JapanTaxLaw/LocalGrantRemainingBands.lean sha256=ee33f07af7c3f1ec80cca3abcc55c2a4a025c20f34526057a2fda42124548eb2",
+      "independent_spec": "JapanTaxLaw/LocalGrantRemainingBandsSpec.lean sha256=4f5df7c7d123238412073949c8b28cb8d66d87b85f8cf3d3975c34fe07887cf1 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; per-group pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "index partitions only: d caller-established Nat; A exhaustive for d>=200 (d<200 NOT MODELLED), B exhaustive for all d; global pairwise exclusivity; computations/formulas/legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_remaining_bands.py: all 7 originals found verbatim (7/7 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#2/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim A row 1: ２００点以上３５０点未満)",
+      "tests": "JapanTaxLaw/LocalGrantRemainingBandsTests.lean sha256=56579024af3a28f3186e155b80ded07bed957fceae426517c42936036de186ae (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
     "NORM|9dd7250fc11cd5b9a259f8af85d0a1cbfe494d64d02fff5d5a191dc9f63b56a7": {
       "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
@@ -639,6 +695,20 @@
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim row 2: ２５，０００以上５０，０００未満)",
       "tests": "JapanTaxLaw/LocalGrantAmountBandsTests.lean sha256=270f27df97f18db8f4932fe4d9a3bc6cf0380794a92c82c189014fdc3a99e7a1 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
+    "NORM|af0d7db1923ae6a67032c68846a0104fcd25f8eb79768ddde6b115a851b47855": {
+      "adversarial_review": "docs/UNIT_LOCAL_GRANT_REMAINING_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; A's lower edge and B's unhandled subject recorded explicitly",
+      "boundary_proof": "A.inBand 3 d; global pairwise exclusivity; exhaustive for d>=200",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; art.11 A (5 rows) and B (2 rows) tables",
+      "group": "A",
+      "implementation": "JapanTaxLaw/LocalGrantRemainingBands.lean sha256=ee33f07af7c3f1ec80cca3abcc55c2a4a025c20f34526057a2fda42124548eb2",
+      "independent_spec": "JapanTaxLaw/LocalGrantRemainingBandsSpec.lean sha256=4f5df7c7d123238412073949c8b28cb8d66d87b85f8cf3d3975c34fe07887cf1 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; per-group pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "index partitions only: d caller-established Nat; A exhaustive for d>=200 (d<200 NOT MODELLED), B exhaustive for all d; global pairwise exclusivity; computations/formulas/legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_remaining_bands.py: all 7 originals found verbatim (7/7 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#2/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim A row 4: ９５０点以上９９０点未満)",
+      "tests": "JapanTaxLaw/LocalGrantRemainingBandsTests.lean sha256=56579024af3a28f3186e155b80ded07bed957fceae426517c42936036de186ae (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
     "NORM|b1205ae8e34e33e5eb033f777a1d300a8ed02d6ab4559197f05f4f1865d23df2": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
@@ -704,6 +774,20 @@
       "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:27_12_5/Article#27_12_5/Paragraph#8/Item#2/Subitem1#1/Subitem1Sentence/Column#1/Sentence#1 d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d (verbatim 15-char under-6 condition)",
       "tests": "JapanTaxLaw/FiscalPeriodSixMonthSplitTests.lean sha256=6b33cba63fae1668ae1d962cb310d2235a9b554a2104342cb79e258f5819bee5 (10 kernel-decided examples incl. exclusivity/exhaustiveness)"
     },
+    "NORM|da72ca210d0e6be3e98b32389cd440a64eeed5072682dcfa9db198022a4b59fd": {
+      "adversarial_review": "docs/UNIT_LOCAL_GRANT_REMAINING_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; A's lower edge and B's unhandled subject recorded explicitly",
+      "boundary_proof": "A.inBand 1 d; global pairwise exclusivity; exhaustive for d>=200",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; art.11 A (5 rows) and B (2 rows) tables",
+      "group": "A",
+      "implementation": "JapanTaxLaw/LocalGrantRemainingBands.lean sha256=ee33f07af7c3f1ec80cca3abcc55c2a4a025c20f34526057a2fda42124548eb2",
+      "independent_spec": "JapanTaxLaw/LocalGrantRemainingBandsSpec.lean sha256=4f5df7c7d123238412073949c8b28cb8d66d87b85f8cf3d3975c34fe07887cf1 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; per-group pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "index partitions only: d caller-established Nat; A exhaustive for d>=200 (d<200 NOT MODELLED), B exhaustive for all d; global pairwise exclusivity; computations/formulas/legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_remaining_bands.py: all 7 originals found verbatim (7/7 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#2/Subitem2#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim A row 2: ３５０点以上６５０点未満)",
+      "tests": "JapanTaxLaw/LocalGrantRemainingBandsTests.lean sha256=56579024af3a28f3186e155b80ded07bed957fceae426517c42936036de186ae (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
+    },
     "NORM|debfc248b22ee3e700e03035ae835d23c48ca62532be58e7d0ea1a7cec8ebe88": {
       "adversarial_review": "docs/UNIT_PERIOD_ART23.md: H/T/D/C/U; inclusive-lower and exclusive-upper readings rejected by verbatim original",
       "boundary_proof": "inBand_iff general theorem; 9/10 false, 11/14/15 true, 16 false (lower exclusive, upper inclusive)",
@@ -716,6 +800,21 @@
       "source_correspondence_audit": "scripts/ci/source_audit_period_art23.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 残存期間/十年を超え/十五年以下",
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:23/Article#23/Paragraph#1/List/ListSentence/Column#1/Sentence#1 c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7 (verbatim 16-char period condition)",
       "tests": "JapanTaxLaw/RemainingPeriodBandTests.lean sha256=a8b557c90c89a137d2ac6f86d09dd8d51d8d925d94b226ea732c36e65e44139d (8 kernel-decided examples)"
+    },
+    "NORM|e664b371aaf8b6dba27d44fbaea280fdf4f5d4a27e4560f860f38ac6b6e15fd8": {
+      "adversarial_review": "docs/UNIT_LOCAL_GRANT_REMAINING_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; A's lower edge and B's unhandled subject recorded explicitly",
+      "boundary_proof": "B.inBand 0 d; global pairwise exclusivity; exhaustive for all d",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; art.11 A (5 rows) and B (2 rows) tables",
+      "group": "B",
+      "implementation": "JapanTaxLaw/LocalGrantRemainingBands.lean sha256=ee33f07af7c3f1ec80cca3abcc55c2a4a025c20f34526057a2fda42124548eb2",
+      "independent_spec": "JapanTaxLaw/LocalGrantRemainingBandsSpec.lean sha256=4f5df7c7d123238412073949c8b28cb8d66d87b85f8cf3d3975c34fe07887cf1 (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; per-group pickVal_inBand/unique_band/pairwise_exclusive/exhaustive + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "index partitions only: d caller-established Nat; A exhaustive for d>=200 (d<200 NOT MODELLED), B exhaustive for all d; global pairwise exclusivity; computations/formulas/legal effect NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_remaining_bands.py: all 7 originals found verbatim (7/7 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#2/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim B row 1: ９６未満)",
+      "tests": "JapanTaxLaw/LocalGrantRemainingBandsTests.lean sha256=56579024af3a28f3186e155b80ded07bed957fceae426517c42936036de186ae (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)",
+      "unhandled_conditions_record": "normative_core: bare inequality '９６未満' names no explicit subject; queue status PROVED_SCOPE (honest)"
     },
     "NORM|e742f1b17920480cba923e759b5ce05125a72c6883fd8dfca55c17e337e74e7c": {
       "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
