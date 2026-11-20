@@ -60,6 +60,7 @@ GATES = [
     ("Coverage ledger regeneration gate (Objective §4 machine-computed coverage)", ["python", "scripts/ci/coverage_ledger.py"], ["scripts/ci/coverage_ledger.py", "docs/COVERAGE.md"]),
     ("L7 ledger regeneration gate", ["python", "scripts/ci/l7_ledger.py"], ["scripts/ci/l7_ledger.py", "docs/L7_LEDGER.md"]),
     ("L7 per-candidate review-state regeneration gate", ["python", "scripts/ci/l7_candidates.py"], ["scripts/ci/l7_candidates.py", "docs/L7_CANDIDATES_UNREVIEWED.csv"]),
+    ("L7 per-candidate H/T/D/C/U tests (Objective §5)", ["python", "-m", "unittest", "scripts.tests.test_l7_htcu", "-v"], ["scripts/tests/test_l7_htcu.py"]),
     ("Candidate H/T/D/C/U ledger gate (Sponsor Directive §5)", ["python", "scripts/ci/candidate_htdcu.py"], ["scripts/ci/candidate_htdcu.py", "docs/CANDIDATE_HTDCU.md"]),
     ("L1 transcription audit (pinned raw to model literals)", ["python", "scripts/ci/transcription_audit.py"], ["scripts/ci/transcription_audit.py"]),
     ("Run audit and verify hashes", ["python", "-m", "scripts.law_audit.audit", "--out", "build"], ["scripts/law_audit/audit.py"]),

@@ -89,7 +89,58 @@ def load_overlay() -> tuple[dict[str, dict], list[str]]:
 HEADER = [
     "rule_id", "severity", "law_id", "official_title", "path", "line",
     "message", "evidence", "review_status", "reviewer", "review_date",
+    # Objective §5: every detection candidate carries H/T/D/C/U.
+    "hypothesis", "reproduction_test", "decision", "competing_interpretation",
+    "uncertainty",
 ]
+
+
+def htcu(record: dict, review: dict | None = None) -> list[str]:
+    """Structured, location-bound H/T/D/C/U for one candidate.
+
+    These are *records of the review protocol*, not machine findings of a
+    defect. When a human-review overlay is applied, D and U are recomputed so
+    they never contradict the authoritative review state.
+    """
+    rule = record["rule_id"]
+    lid = record["law_id"]
+    loc = record["location"]
+    line = record["line"]
+    # The full-inventory sweep (l7_candidates itself, using the same family
+    # wiring as collect_rows) reproduces every row; scripts.law_audit.audit
+    # covers only the income-tax pair and must NOT be cited here.
+    repro = (
+        f"T:python scripts/ci/l7_candidates.py (full-inventory sweep, same family "
+        f"wiring); rule {rule} at {loc} line {line}"
+    )
+    if review is None:
+        decision = "D:unreviewed candidate; NOT a verified anomaly; no legal conclusion"
+        uncertainty = (
+            f"U:pinned snapshot {lid} {loc} line {line}; "
+            f"reviewer/review_date not recorded"
+        )
+    else:
+        status = (review.get("review_status") or "").strip()
+        reviewer = (review.get("reviewer") or "").strip()
+        date = (review.get("review_date") or "").strip()
+        citation = (review.get("source_citation") or "").strip()
+        decision = (
+            f"D:human-reviewed status={status} by {reviewer} on {date}; "
+            f"authoritative review state, not a machine finding"
+        )
+        uncertainty = (
+            f"U:pinned snapshot {lid} {loc} line {line}; "
+            f"reviewer={reviewer}; review_date={date}; source_citation={citation}"
+        )
+    return [
+        f"H:{rule} at {lid} {loc}:{line} may indicate a source/structure defect; "
+        f"falsifiable by independent re-extraction from the pinned bytes",
+        repro,
+        decision,
+        "C:legitimate bracket/quote/reference usage in the original statute can "
+        "match this pattern; the pattern alone is not an error",
+        uncertainty,
+    ]
 
 
 def norm(text: str) -> str:
@@ -173,7 +224,10 @@ def collect_rows():
                 f.rule_id, f.severity, lid, norm(title), norm(f.location), f.line,
                 norm(f.message), norm(getattr(f, "evidence", "")),
                 "unreviewed", "", "",
-            ])
+            ] + htcu({
+                "rule_id": f.rule_id, "law_id": lid,
+                "location": norm(f.location), "line": f.line,
+            }))
     return rows, law_failures
 
 
@@ -195,6 +249,11 @@ def render():
             r[8] = rec["review_status"].strip()
             r[9] = rec["reviewer"].strip()
             r[10] = rec["review_date"].strip()
+            # Recompute D and U so protocol records never contradict an
+            # applied human review.
+            r[11:16] = htcu({
+                "rule_id": r[0], "law_id": r[2], "location": r[4], "line": r[5],
+            }, rec)
             applied += 1
         w.writerow(r)
     if overlay and applied != len(overlay):
