@@ -37,7 +37,9 @@ The freshly re-fetched main (`d16d4a8`) declares a REQUIRED gate
 `task selector computable ranking tests` whose test file was absent, so the
 full gate suite failed with `SKIP is never PASS`
 (`build/gate_results.json`: 31 pass / 1 fail / 1 skip). Added
-`scripts/tests/test_task_selector.py` (8 tests, all OK). H/T/D/C/U record:
+`scripts/tests/test_task_selector.py`; an independent agent added the same file
+on main, and the rebase conflict was resolved by merging both test sets
+(**11 tests, all OK**). H/T/D/C/U record:
 `docs/CI_REQUIRED_GATE_MISSING_TEST_20261120.md`.
 
 ## Honest status
@@ -45,9 +47,12 @@ full gate suite failed with `SKIP is never PASS`
   model, no Lean theorem, and no legal conclusion. They do not by themselves
   change the verified-unit count; they prevent false completion and a false
   green CI.
-- Branch pushed to `origin/fix/dependency-enforcement-version-1-6`.
-- PR creation was attempted but blocked by `GraphQL: API rate limit already
-  exceeded for user ID 241447786`. The pushed branch is the resumable artifact.
+- Branch: `fix/dependency-enforcement-version-1-6`; **PR #219** opened against
+  main (`https://github.com/Unjuno/japan-tax-law-lean/pull/219`), state OPEN.
+  CI jobs (`Build Lean project and check axioms`, `Semantic audit and mutation
+  injection`) were pending at last observation.
+- PR creation was initially blocked by GitHub GraphQL rate limiting; it was
+  retried successfully after the limit cleared.
 - Human legal review remains 0 / independent axis (never auto-satisfied).
 - Local tax ordinances per municipality, treaties/circulars/case law as a
   separate source layer: out of scope of this change.
