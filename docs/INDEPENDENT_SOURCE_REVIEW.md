@@ -49,3 +49,43 @@ a separate rule and is outside this slice.
 Human legal review of the statutory interpretation remains pending.
 
 Reviewed independently of the implementer; no legal conclusion is drawn.
+
+### NonpaymentSurcharge.lean
+
+- Module: `JapanTaxLaw/NonpaymentSurcharge.lean` (+ `Spec`, `Tests`)
+- Law: 国税通則法 (law id 337AC0000000066), revision
+  `337AC0000000066_20261101_507AC0000000013`, art. 67(1)(2)
+- 一次資料: `data/raw/337AC0000000066_20261101_507AC0000000013.law.json`,
+  article `Num=67`.
+
+**独立再抽出 (independent re-extraction).** 1項: 「…告知に係る税額又はその法定
+納期限後に当該告知を受けることなく納付された税額に百分の十の割合を乗じて計算
+した金額に相当する不納付加算税を徴収する」。2項: 「…当該国税についての調査が
+あつたことにより…告知があるべきことを予知してされたものでないときは…当該納付
+された税額に百分の五の割合を乗じて計算した金額とする」。
+
+**照合 (comparison).** `specNonpaymentSurchargeBasic tax = tax * 10 / 100`
+corresponds to 百分の十; `specNonpaymentSurchargeReduced tax = tax * 5 / 100`
+corresponds to 百分の五. `reduced : Bool` selects 2項 only when the payer did
+not foresee the assessment; the caller establishes that fact, as documented.
+The implementation uses `TaxRate.applyFloor` while the spec uses an integer
+expression — an independent formulation, not an alias.
+
+**H (falsifiable).** If the two rates were swapped, the kernel-decided examples
+`100_000 → 10_000` and `100_000 → 5_000` would fail.
+
+**T (reproduction).** Re-extract article 67 from the pinned JSON; run
+`lake build JapanTaxLaw.NonpaymentSurchargeSpec` and its Tests module.
+
+**D (判定).** PASS for the modelled rate-selection slice of 1項/2項. This is
+not a claim about the whole article.
+
+**C (competing interpretation).** 「予知してされたものでない」 is a
+caller-established legal judgement; the model does not decide it. That is a
+documented scope boundary, not a rate error.
+
+**U (uncertainty).** 1項但し書 (正当な理由 → この限りでない) and 3項 (政令で定める
+場合 + 法定納期限から一月 → 適用しない) are NOT MODELLED; the corresponding
+conditions are outside this slice. Human legal review remains pending.
+
+Reviewed independently of the implementer; no legal conclusion is drawn.

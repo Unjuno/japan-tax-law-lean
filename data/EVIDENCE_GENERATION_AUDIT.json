@@ -1,6 +1,21 @@
 {
   "attestation_commit": "0b6e084f68c35511d586b601692180ceac28a5dc",
   "module_detail": {
+    "AviationFuelTaxRate": {
+      "adversarial_review": false,
+      "boundary_examples_found": 3,
+      "independent_spec": false,
+      "kanji_literals": [
+        "二万六千"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 7,
+      "needles_scoped": true,
+      "scoped_article_chars": 43,
+      "spec_literals": [
+        26000
+      ]
+    },
     "BusinessOwnerDeduction": {
       "adversarial_review": true,
       "boundary_examples_found": 5,
@@ -1417,7 +1432,7 @@
       ]
     },
     "NonpaymentSurcharge": {
-      "adversarial_review": false,
+      "adversarial_review": true,
       "boundary_examples_found": 4,
       "independent_spec": true,
       "kanji_literals": [
