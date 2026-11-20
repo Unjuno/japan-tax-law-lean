@@ -1,0 +1,21 @@
+{
+  "tool": "scripts/ci/source_correspondence.py",
+  "unit_id": "NORM|1db69bb3bef2d77f92573dc1ea87c88c11703d6916e8958a068fe79368cd8c19",
+  "law_id": "327AC0000000111",
+  "revision": "327AC0000000111_20250601_504AC0000000068",
+  "article": "11",
+  "source_file": "data/raw/327AC0000000111_20250601_504AC0000000068.law.json",
+  "verbatim": "第一項の規定に違反した者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。",
+  "spec": "JapanTaxLaw/UsForcesDutyFreePenaltySpec.lean",
+  "impl": "JapanTaxLaw/UsForcesDutyFreePenalty.lean",
+  "H": "the independent spec does not represent the penalty amount in the pinned original",
+  "T": "re-extract Article 11 from pinned JSON; parse kanji numerals; compare with Lean constants",
+  "D": "PASS",
+  "C": "a matching numeral is necessary but not sufficient for semantic fidelity; 一年以下 to 12-month mapping remains a legal question",
+  "U": "variable meaning, unit (yen/month) and scope (alternative penalties, not concurrent) require separate human review",
+  "verbatim_located": true,
+  "amounts_in_source": [500000],
+  "missing_in_spec": [],
+  "missing_in_impl": [],
+  "note": "Lean-independent source-fidelity decision only; not a proof and not legal correctness"
+}

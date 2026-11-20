@@ -69,6 +69,52 @@ def offsets(raw: str, needle: str) -> list[int]:
     return result
 
 
+def article_title_to_num(doc: dict) -> dict[str, str]:
+    """Map ArticleTitle text (漢数字 e.g. 第二十一条の五) to the e-Gov Num (21_5).
+
+    The scope ledger stores structural paths with the e-Gov Num, while
+    transcription_audit pins use the kanji ArticleTitle. Comparing them
+    directly makes every D decision false (160/160 FAIL) even when the needle
+    is correctly scoped. This mapping is the independent bridge.
+    """
+    out: dict[str, str] = {}
+
+    def walk(n):
+        if isinstance(n, dict):
+            if n.get("tag") == "Article":
+                num = str((n.get("attr") or {}).get("Num", ""))
+                for c in n.get("children", []):
+                    if isinstance(c, dict) and c.get("tag") == "ArticleTitle":
+                        out[norm(flat(c))] = num
+            for c in n.get("children", []):
+                walk(c)
+        elif isinstance(n, list):
+            for c in n:
+                walk(c)
+
+    walk(doc.get("law_full_text", doc))
+    return out
+
+
+def scope_decision(art: str | None, num_map: dict[str, str], hits: list[dict]) -> tuple[bool, list[str]]:
+    """Pure D/C decision for one check.
+
+    Returns (article_scoped, competing_locations). Kanji ArticleTitle pins are
+    resolved through `num_map` to the e-Gov Num used in structural paths.
+    """
+    if art:
+        targets = {num for title, num in num_map.items() if title == norm(art)}
+        stated = any(any(f"Article/{n}" in h["unit"] for n in targets) for h in hits)
+        competing = [
+            h["unit"] for h in hits
+            if not any(f"Article/{n}" in h["unit"] for n in targets)
+        ]
+    else:
+        stated = bool(hits)
+        competing = []
+    return stated, competing
+
+
 def main() -> int:
     inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
     laws = {l["law_id"]: l for l in inv.get("laws", [])}
@@ -76,13 +122,14 @@ def main() -> int:
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
 
-    docs, rows = {}, []
+    docs, num_maps, rows = {}, {}, []
     scoped = whole_only = 0
     for name, law_id, kind, art, needles in mod.checks():
         if law_id not in docs:
             sf = (laws.get(law_id, {}).get("raw_snapshot") or {}).get("source_file")
             p = REPO / sf if sf else None
             docs[law_id] = json.loads(p.read_text(encoding="utf-8")) if p and p.exists() else {}
+            num_maps[law_id] = article_title_to_num(docs[law_id])
         hits, positions = [], []
         for upath, unode in iter_units(docs[law_id].get("law_full_text", docs[law_id])):
             raw = flat(unode)
@@ -95,7 +142,7 @@ def main() -> int:
                     offs = offsets(raw, needle)
                     if offs:
                         positions.append({"unit": "/".join(upath), "needle": needle, "raw_offsets": offs})
-        stated = bool(art) and any(("Article#" + art) in h["unit"] for h in hits)
+        stated, competing = scope_decision(art, num_maps.get(law_id, {}), hits)
         if hits:
             scoped += 1
         else:
@@ -109,10 +156,12 @@ def main() -> int:
             "positions": positions,
             "article_scoped": stated,
             "whole_text_only": not bool(hits),
+            "competing_locations": competing,
             "H": "needle occurs in the stated article of the pinned source",
             "T": "whitespace-normalised substring search in the pinned JSON",
             "D": "PASS" if stated else "FAIL",
-            "C": "whole-text numeric coincidence is a competing, weaker interpretation",
+            "C": ("needle reused in: " + ", ".join(competing)) if art
+                 else "whole-text numeric coincidence is a competing, weaker interpretation",
             "U": "fidelity only; no semantic or legal conclusion",
             "sufficient_for_completion": False,
         })

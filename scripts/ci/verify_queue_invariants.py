@@ -27,6 +27,7 @@ def check(name, cond, detail=""):
 
 
 def main() -> int:
+    results.clear()  # allow repeated in-process runs (tests / CI retries)
     q = json.loads(QUEUE.read_text(encoding="utf-8"))
     tasks = q.get("tasks", [])
     units = []
@@ -57,9 +58,29 @@ def main() -> int:
     statuses = {u.get("status") for u in units}
     check("only declared statuses used", statuses <= EXPECTED, str(sorted(statuses)))
     counts = q.get("status_counts", {})
-    check("no FULLY_VERIFIED without evidence",
-          counts.get("FULLY_VERIFIED", 0) == 0,
-          f"FULLY_VERIFIED={counts.get('FULLY_VERIFIED')}")
+    # Accept FULLY_VERIFIED only when every evidence axis is backed in the
+    # committed ledger. The old rule (FULLY_VERIFIED must be zero) punished
+    # successful verification; accepting FV without evidence rewards a false
+    # completion claim. Check backing, not absence.
+    evidence_path = REPO / "data" / "verification_evidence.json"
+    evidence = {}
+    if evidence_path.exists():
+        try:
+            evidence = json.loads(evidence_path.read_text(encoding="utf-8")).get("units", {})
+        except (ValueError, OSError):
+            evidence = {}
+    # Required axes come from the canonical core, never from the ledger under
+    # test: a partial ledger must not redefine what counts as complete.
+    import normative_core  # noqa: E402
+    axes = set(normative_core.EVIDENCE_AXES)
+    fv_units = [u for u in units if u.get("status") == "FULLY_VERIFIED"]
+    unbacked = [str(u.get("normative_id", ""))[:24] for u in fv_units
+                if not evidence.get(str(u.get("normative_id", "")), {})
+                or any(not str(evidence[str(u.get("normative_id", ""))].get(a, "")).strip()
+                       for a in axes)]
+    check("every FULLY_VERIFIED is evidence-backed",
+          (not fv_units) or (bool(axes) and not unbacked),
+          f"FULLY_VERIFIED={len(fv_units)} axes={len(axes)} unbacked={len(unbacked)}")
 
     sample = units[0]
     required = ("normative_id", "law_id", "article", "source_path", "kind",
