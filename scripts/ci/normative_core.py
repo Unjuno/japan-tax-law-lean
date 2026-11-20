@@ -158,7 +158,9 @@ def provision_of(path) -> str:
         return "Supplementary"
     if any(p.startswith(("AppdxTable", "Appdx")) for p in parts):
         return "AppdxTable"
-    if "Main" in parts:
+    # walk_provisions() appends a deterministic sibling locator (e.g. "Main#2"),
+    # so an exact `in` test silently classifies every main provision as Unknown.
+    if any(p.split("#", 1)[0] == "Main" for p in parts):
         return "Main"
     return "Unknown"
 
@@ -400,12 +402,17 @@ def parse_dependencies(text: str, inv: dict | None = None,
     return deps
 
 
-def dependency_readiness(deps: list[dict], completed_ids: set[str]) -> dict:
-    """Resolve dependencies; unresolvable ones are reported, never assumed."""
+def dependency_readiness(deps: list[dict], completed_law_ids: set[str]) -> dict:
+    """Resolve dependencies against *law ids*, not normative-unit ids.
+
+    `resolved_law_id` is a law identifier (e.g. 143AC0000000054); comparing it
+    against a set of 64-hex normative-unit ids can never succeed and would make
+    every dependency permanently unresolved.
+    """
     ready, unresolved = [], []
     for dep in deps or []:
         rid = dep.get("resolved_law_id", "")
-        if rid and rid in completed_ids:
+        if rid and rid in completed_law_ids:
             ready.append(dep)
         elif dep.get("kind") == "law_id_15" and rid:
             unresolved.append({"dependency": dep, "reason": "dependency_not_proved"})

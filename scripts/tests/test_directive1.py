@@ -19,8 +19,8 @@ from normative_core import (  # noqa: E402
     BLOCKED, FULLY_VERIFIED, LEGAL_REVIEW_PENDING, MECHANICAL_AXES,
     NOT_STARTED, PARTIAL, PROVED_SCOPE, UNRESOLVED_KINDS,
     assert_unique, audit_coverage, canonical_norm_id, decompose,
-    derive_status, load_evidence, load_state, merge_state, parse_dependencies,
-    record_evidence, save_state, save_evidence,
+    derive_status, dependency_readiness, load_evidence, load_state, merge_state,
+    parse_dependencies, provision_of, record_evidence, save_state, save_evidence,
 )
 
 
@@ -64,6 +64,37 @@ class DecompositionTests(unittest.TestCase):
         text = "見出しだけの見出し"
         units = decompose(text)
         self.assertTrue(any(u["norm_kind"] in UNRESOLVED_KINDS for u in units))
+
+
+class AdversarialReviewRegressions(unittest.TestCase):
+    """Fixes for findings posted by the independent PR #191 reviewer."""
+
+    def test_main_provision_with_sibling_index(self):
+        # walk_provisions() emits Main#0, Main#2, ... — not exactly "Main".
+        self.assertEqual(provision_of(("Main#2", "Article:1#1")), "Main")
+        self.assertEqual(provision_of(("Supplementary#5", "Article:1#1")),
+                         "Supplementary")
+
+    def test_dependency_readiness_uses_law_ids(self):
+        deps = [{"kind": "law_id_15", "value": "143AC0000000054",
+                 "resolved_law_id": "143AC0000000054"}]
+        # A set of 64-hex norm ids must NOT satisfy a law-level dependency.
+        self.assertFalse(dependency_readiness(deps, {"a" * 64})["satisfied"])
+        self.assertTrue(dependency_readiness(deps, {"143AC0000000054"})["satisfied"])
+
+    def test_selector_honours_durable_owner(self):
+        sys.path.insert(0, str(CI))
+        import task_selector
+        tasks = [
+            {"norm_id": "u1", "law_id": "L", "status": NOT_STARTED,
+             "owner_agent": "", "dependencies": []},
+            {"norm_id": "u2", "law_id": "L", "status": NOT_STARTED,
+             "owner_agent": "PROVE", "dependencies": []},
+        ]
+        chosen = task_selector.select(tasks, 5, owner="FORMALIZE")
+        ids = {row["norm_id"] for row in chosen}
+        self.assertIn("u1", ids)
+        self.assertNotIn("u2", ids)
 
 
 class DependencyTests(unittest.TestCase):

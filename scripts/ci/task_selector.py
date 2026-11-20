@@ -20,8 +20,8 @@ import sys
 from pathlib import Path
 
 from normative_core import (
-    ACTIVE_STATUSES, BLOCKED, QUEUE_JSON, STATE_PATH, load_state, now,
-    dependency_readiness, save_state,
+    ACTIVE_STATUSES, BLOCKED, QUEUE_JSON, STATE_PATH, default_unit_state,
+    dependency_readiness, load_state, now, save_state,
 )
 
 
@@ -34,7 +34,9 @@ def computable(unit: dict) -> int:
 def select(tasks: list[dict], n: int = 12, *, owner: str | None = None,
            reassign: bool = False, include_blocked: bool = False) -> list[dict]:
     """Return the highest-priority selectable units with dependency reports."""
-    completed = {t["norm_id"] for t in tasks
+    # Dependencies are law-level references: resolve against law ids that have
+    # at least one proved unit, never against 64-hex normative-unit ids.
+    completed = {t.get("law_id", "") for t in tasks
                  if t.get("status") in ("PROVED_SCOPE", "FULLY_VERIFIED")}
     candidates = []
     for task in tasks:
@@ -85,15 +87,20 @@ def main() -> int:
 
     queue = json.loads(QUEUE_JSON.read_text(encoding="utf-8")) if QUEUE_JSON.exists() else {"tasks": []}
     tasks = queue.get("tasks", [])
+    # Durable ownership is the authority. The regenerated queue is only a view;
+    # reading ownership from it lets consecutive runs reassign the same unit.
+    state = load_state(STATE_PATH)
+    for task in tasks:
+        stored = state["units"].get(task["norm_id"])
+        if stored is not None and stored.get("owner_agent"):
+            task["owner_agent"] = stored["owner_agent"]
+
     selected = select(tasks, n, owner=owner, reassign=reassign,
                       include_blocked=include_blocked)
 
     if owner:
-        state = load_state(STATE_PATH)
         for row in selected:
-            entry = state["units"].get(row["norm_id"])
-            if entry is None:
-                continue
+            entry = state["units"].setdefault(row["norm_id"], default_unit_state())
             entry["owner_agent"] = owner
             entry["updated_at"] = now()
         save_state(state, STATE_PATH)

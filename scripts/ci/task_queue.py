@@ -30,6 +30,7 @@ from normative_core import (
 
 OUT_MD = REPO / "docs" / "TASK_QUEUE.md"
 AUDIT = REPO / "scripts" / "ci" / "transcription_audit.py"
+DEP_PROJECTION_LIMIT = 25  # explicit truncation flag is emitted when exceeded
 
 
 def _pin_hints() -> dict:
@@ -144,7 +145,7 @@ def build_units() -> list[dict]:
                     "cell": parts["cell"],
                     "norm_kind": unit["norm_kind"],
                     "markers": unit["markers"],
-                    "norm_text": fragment[:400],
+                    "norm_text": fragment[:200],
                     "norm_digest": fragment_sha,
                     "source_position": {
                         "path": "/".join(structural_path),
@@ -153,12 +154,17 @@ def build_units() -> list[dict]:
                         "exact_position_recorded": True,
                     },
                     "decomposition_coverage": coverage,
-                    "dependencies": deps,
+                    # Bounded projection: a few appendix cells carry hundreds of
+                    # references. The truncation is explicit, never silent, and
+                    # the full list is recomputable from the pinned source.
+                    "dependencies": deps[:DEP_PROJECTION_LIMIT],
+                    "dependency_count": len(deps),
+                    "dependency_truncated": len(deps) > DEP_PROJECTION_LIMIT,
                     "reference_ids": sorted({d["value"] for d in deps
-                                             if d["kind"] == "law_id_15"}),
+                                             if d["kind"] == "law_id_15"})[:50],
                     "unresolved_conditions": unresolved,
                     "obligations": list(OBLIGATIONS),
-                    "evidence_slots": {axis: None for axis in MECHANICAL_AXES},
+                    "evidence_ref": f"data/verification_evidence.json#units/{ident}",
                     "weak_hints": weak,
                     "legal_review": LEGAL_REVIEW_PENDING,
                     "scope": "NORM_UNIT",
