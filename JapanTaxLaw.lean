@@ -659,3 +659,6 @@ import JapanTaxLaw.PenaltyMaximaTests
 import JapanTaxLaw.CaseBasedLookup
 import JapanTaxLaw.CaseBasedLookupSpec
 import JapanTaxLaw.CaseBasedLookupTests
+import JapanTaxLaw.ReadingReplacements
+import JapanTaxLaw.ReadingReplacementsSpec
+import JapanTaxLaw.ReadingReplacementsTests
