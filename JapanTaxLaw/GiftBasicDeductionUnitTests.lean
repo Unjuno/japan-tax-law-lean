@@ -10,6 +10,8 @@ and regression examples that exercise the implementation directly.
 
 namespace JapanTaxLaw.GiftBasicDeductionUnit
 
+open JapanTaxLaw.TaxFinance
+
 example : basicDeduction = 600_000 := by decide
 
 example : taxableBaseAfterDeduction 0 = 0 := by decide

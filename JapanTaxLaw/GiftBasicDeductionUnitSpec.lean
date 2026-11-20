@@ -14,6 +14,8 @@ Variable contract: `taxableBase : Money` = 課税価格, unit yen, domain Nat.
 
 namespace JapanTaxLaw.GiftBasicDeductionUnit
 
+open JapanTaxLaw.TaxFinance
+
 /-- 控除額 = min(課税価格, 600,000円). -/
 def specDeducted (taxableBase : Money) : Money :=
   min taxableBase basicDeduction

@@ -24,6 +24,8 @@ and exact source span (see the persistent norm-unit queue).
 
 namespace JapanTaxLaw.GiftBasicDeductionUnit
 
+open JapanTaxLaw.TaxFinance
+
 /-- 六十万円. Unit: yen (Money = Nat); domain: non-negative integers. -/
 def basicDeduction : Money := 600_000
 
