@@ -632,3 +632,6 @@ import JapanTaxLaw.PayloadCapacityBandsSecondTableTests
 import JapanTaxLaw.InsurancePremiumExceptions
 import JapanTaxLaw.InsurancePremiumExceptionsSpec
 import JapanTaxLaw.InsurancePremiumExceptionsTests
+import JapanTaxLaw.PopulationDensityBands
+import JapanTaxLaw.PopulationDensityBandsSpec
+import JapanTaxLaw.PopulationDensityBandsTests
