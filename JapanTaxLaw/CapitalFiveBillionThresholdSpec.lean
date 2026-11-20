@@ -36,9 +36,9 @@ theorem agreeCapitalFloor (amount : Nat) :
     atLeastCapitalFloor amount = specAtLeast amount := by
   unfold atLeastCapitalFloor capitalFloor specAtLeast specCapitalFloor
   by_cases h : 5_000_000_000 <= amount
-  · have hnot : ¬ amount < 5_000_000_000 := not_lt_of_ge h
+  · have hnot : ¬ amount < 5_000_000_000 := by omega
     simp [h, hnot]
-  · have hlt : amount < 5_000_000_000 := lt_of_not_ge h
+  · have hlt : amount < 5_000_000_000 := by omega
     simp [h, hlt]
 
 /-- Finite spec-local grid (Bool scaffolding); the universal theorem is the proof. -/
