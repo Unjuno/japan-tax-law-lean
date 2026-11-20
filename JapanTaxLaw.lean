@@ -545,3 +545,6 @@ import JapanTaxLaw.GiftBasicDeductionUnitTests
 import JapanTaxLaw.RegistrationJointRequest
 import JapanTaxLaw.RegistrationJointRequestSpec
 import JapanTaxLaw.RegistrationJointRequestTests
+import JapanTaxLaw.TaxAccountantFine
+import JapanTaxLaw.TaxAccountantFineSpec
+import JapanTaxLaw.TaxAccountantFineTests
