@@ -4045,3 +4045,120 @@ STAGING の申告ではなく `scripts/ci/transcription_audit.py` の `checks()`
 - **見出し**: `## Batch AA review (2026-11-20)` は coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に **match することを Python で確認済み**（`Batch A1` も match）。本セクションを `docs/ADVERSARIAL_REVIEW.md` 末尾に追記。既存セクションはすべて保持。Lean モジュール／`data/*` は一切変更せず、commit / push / merge / ブランチ切替は行っていない。解析用一時ファイルはすべて削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・数値／算術の独立抽出と再計算・needle の `.find()` 検証・整数式の反例走査・`#print axioms` 公理監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって人間の法的レビューを完了したものとはみなさない。
+
+---
+
+## Batch AB review (2026-11-20)
+
+- **レビュア役割**: Adversarial Review Agent。形式化担当と独立に **cycle-16** の 1 モジュールを原文照合・反例探索した。coordinator の要約・`docs/STAGING_ROADGRANT.md`・doc-comment の数値／算術主張は**一切信じず**、pinned 原文 JSON から Python で直接再抽出・再計算して照合した（Batch S の art.148「要約依存」失敗の再発回避）。
+- **対象モジュール（読み取り専用・本レビューで変更していない）**: `JapanTaxLaw/RoadGrantAllocation.lean`（地方税等減収補てん臨時交付金政令 art.5）。`RoadGrantAllocationSpec.lean` / `RoadGrantAllocationTests.lean` も読み取りのみ。
+- **一次資料（pinned・改変禁止）**: `data/raw/420AC0000000084_20081022_000000000000000.law.json`（law id `420AC0000000084`、revision `420AC0000000084_20081022_000000000000000`）。`Article Num=5` は `law_full_text.children[1].children[1].children[4]` に存在。
+- **抽出方法**: `Article` 配下の leaf-text を Document order で連結し、`re.sub(r"[\s\u3000]+", "", …)` で正規化。漢数字は自前の kansuji パーサ（億／万／千／百／十）で Arabic に変換し、算術は Python で再計算。needle は STAGING の 2 本を候補として扱い、pinned 正規化テキストへ `.find()` を実行。さらに pinned テキストから独立に構築した needle でも追検証した。
+
+### AB-1. 独立抽出結果（pinned 原文からの直接 parse）
+
+| 項目 | 独立抽出（pinned leaf テキストを直接走査） | Lean 側の定数／式 |
+|---|---|---|
+| art.5 本文 | **281 chars**、U+3000 **0**。ArticleCaption「（地方道路譲与税減収補てん臨時交付金）」＋ArticleTitle「第五条」＋§1〜§3。doc-comment の「flat/normalized leaf text 281 chars, U+3000 count 0」と一致 | doc-comment と一致 |
+| §2 文言 | 「２地方道路譲与税減収補てん臨時交付金の総額は、**四十五億九千五百万円**とする。」 | `totalGrant : Money := 4_595_000_000` |
+| §2 金額 | kansuji パーサの独立計算: 四十五億 = 45×10^8 = 4,500,000,000、九千五百万 = 9,500×10^4 = 95,000,000、合計 **4,595,000,000**。`== 4595000000` は True、`== 459500000` は False、`== 45950000000` は False | `4_595_000_000` と一致（桁違いなし） |
+| §3 文言 | 「３各都道府県及び各市町村に対して交付すべき…額は、前項に規定する…**総額を**、平成二十年六月に各都道府県及び各市町村に対して譲与した地方道路譲与税の額に**よりあん分した額**とする。」 | `allocation e t := if t = 0 then 0 else totalGrant * e / t` |
+| §3 算術 | 「総額を」1 回、「地方道路譲与税の額によりあん分した額」1 回、「あん分」1 回。「**加え**」「**加算**」「**割り**」「**乗じ**」は **0 回**。art.148 型の加算混入なし。按分は total × basis / totalBasis の方向 | 乗算先行の `totalGrant * entityBasis / totalBasis` と一致（逆数誤りなし） |
+
+> 注: 独立抽出値は **4,595,000,000**（4.595×10^9）である。桁違い候補 459,500,000（4.595×10^8）および 45,950,000,000（4.595×10^10）はともに原文と一致しないことを明示的に確認した。
+
+### AB-2. 最重要チェック 3 点の独立判定（art.148 型失敗の回避）
+
+| # | チェック項目 | 独立判定 | 根拠 |
+|---|---|---|---|
+| 1 | §2「四十五億九千五百万円」= 4,595,000,000 が `totalGrant` に反映されているか（桁違いなし） | **一致（発見ゼロ）** | pinned §2 から自前 kansuji パーサで直接算出した値は 4,595,000,000。459,500,000 / 45,950,000,000 いずれとも不一致であることを機械確認。`#eval totalGrant` = `4595000000`。 |
+| 2 | §3 の按分が `totalGrant × entityBasis / totalBasis`（逆数誤りなし・分母 0 安全版）か | **一致（発見ゼロ）** | 原文は「総額を…額によりあん分した額」で、加算語は本文に皆無。Lean は `if totalBasis = 0 then 0 else totalGrant * entityBasis / totalBasis`。逆数形 `totalGrant * totalBasis / entityBasis` とは格子点上で明確に異なる（例 e=1,t=10: 正 459,500,000 / 逆 45,950,000,000）。分母 0 は `if` で 0 を返す全関数。 |
+| 3 | 定理 `allocation_le_total` に caller-established の前提 `entityBasis ≤ totalBasis` が明示されているか | **一致（発見ゼロ）** | `#check` の出力は `allocation_le_total (entityBasis totalBasis : Money) (h : entityBasis ≤ totalBasis) : allocation entityBasis totalBasis ≤ totalGrant`。前提が第 3 引数として明示的に存在。証明は `Nat.mul_le_mul_left` ＋ `Nat.div_le_of_le_mul` で、前提が無い場合は成り立たない（例 e=20,t=10 は総額超過）。 |
+
+→ **3 点すべて原文に忠実であり、数値・算術・前提の原文との食い違いは 0 件（ゼロ）。** art.148 型の「要約を信じた誤り」は再発していない。
+
+### AB-3. needle 健全性
+
+| needle | 出典 | U+3000 | 長さ | pinned 正規化テキスト |
+|---|---|---|---|---|
+| #1 | STAGING_ROADGRANT.md（ArticleCaption＋Title＋§1） | **0 本** | 123 | **FOUND**（offset 0、出現回数 1） |
+| #2 | STAGING_ROADGRANT.md（§3） | **0 本** | 118 | **FOUND**（offset 162、出現回数 1） |
+
+- STAGING の **2 本すべて**について U+3000 = 0、pinned 正規化テキストへ **2/2 FOUND**（MISS 0、各出現回数 1）。
+- 追検証として pinned から独立構築した 3 needle（Caption+Title+§1 / §3（`３` を含む）/ §2 全文）もすべて U+3000 = 0、3/3 FOUND（offset 0 / 161 / 124、各出現回数 1）。needle の文字化け・改変・重複はなし。
+
+### AB-4. 反例探索結果
+
+| 攻撃対象 | 独立計算（Python） | Lean `#eval` | 結果 |
+|---|---|---|---|
+| 既存 smoke（e=1,t=10） | 459,500,000 | 459500000 | 一致 |
+| 既存 smoke（e=3,t=10） | 1,378,500,000 | 1378500000 | 一致 |
+| 既存 smoke（e=10,t=10／総額一致） | 4,595,000,000 | 4595000000 | 一致 |
+| 分母 0（e=5,t=0／e=0,t=0） | 0 / 0 | 0 / 0 | 一致（安全版） |
+| 基準額 0（e=0,t=10） | 0 | 0 | 一致 |
+| e=7,t=7（総額一致） | 4,595,000,000 | — | 一致 |
+| 割り切れない場合（e=7,t=13） | 2,474,230,769（厳密 2,474,230,769.23 の floor） | 2474230769 | 一致 |
+| 按分方向の逆転 | e=1,t=10 で逆数形なら 45,950,000,000（10 倍過大）。格子 441 点中 380 点で正式と差 | — | 逆数誤りなし |
+| art.148 型の加算混入 | e=1,t=10 で `total + e/t` なら 4,595,000,000。正式 459,500,000 と差 | — | 加算混入なし |
+| 前提違反（e=20,t=10） | 9,190,000,000 ＞ 総額。ただし `h : e ≤ t` を満たさず定理は適用外 | — | 反例にならない |
+| 前提充足時の上限（e≤t） | 0〜200 の格子 40,401 点＋大値（4,595,000,000 近傍・2^32）で `allocation ≤ totalGrant` 違反 **0 件** | — | 定理と整合 |
+| 単調性・分割和 | 基準額増加で単調（t=1..30 で全確認）。1+3+6 / 10 の分割和は total と完全一致 | — | 矛盾なし |
+
+**反例探索で検出された原文・Lean 間の矛盾: 0 件（ゼロ）。**
+
+### AB-5. 公理監査結果
+
+- 一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\batchAB_axiom_probe.lean` を作成し、名前付き宣言 **3 宣言**（`totalGrant` / `allocation` / `allocation_le_total`）すべてに `#print axioms` を実行（`lake env lean`、exit code **0**）。監査後、一時ファイルは削除済み。
+- 別途 `#check` / `#eval` 用の一時ファイルでも exit code 0 を確認し、定理シグネチャ（明示前提）と全計算値を照合済み。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 3 |
+| `totalGrant` / `allocation` | `"does not depend on any axioms"` |
+| `allocation_le_total` | `[propext]`（許容範囲） |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **1 件**（`allocation_le_total`、許容） |
+
+→ **禁止公理（Classical.choice / sorryAx / Quot.sound）は一切検出されず。許容された propext のみ。公理監査は合格。**
+
+### AB-6. CONFIRMED / BY-DESIGN / UNRESOLVED の件数と一覧
+
+| 分類 | 件数 |
+|---|---|
+| **CONFIRMED（実際の食い違い・欠陥）** | **0（ゼロ）** |
+| **BY-DESIGN** | **5** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 欠陥件数を手柄にしない。
+
+#### CONFIRMED（0 件）
+
+- 金額（4,595,000,000 の桁違い）、按分方向（逆数誤り）、分母 0 安全版、定理の明示前提、needle MISS、算術不一致、禁止公理混入、反例矛盾はいずれも検出されなかった。**発見はゼロである。**
+
+#### BY-DESIGN（5 件）
+
+- **B-AB1 基準額は caller-established**: 各都道府県・各市町村の地方道路譲与税額（entityBasis / totalBasis）の算定・確定は doc-comment のとおり入力側の責任。本モデルは与えられた基準額への按分計算のみ。
+- **B-AB2 `Money = Nat`・按分は乗算先行の floor**: `totalGrant * entityBasis / totalBasis`。原文は「あん分した額」のみで端数規定・厳密有理数を指定しないため、Nat の切り捨ては bounded 近似であり厳密有理数・丸め精度は主張しない。**art.148 型の演算子誤りではない**。
+- **B-AB3 分母 0 → 0 の全関数化**: 原文は totalBasis = 0 の場合を規定しない。モデルは安全版を採用し、割り算の未定義を回避（反例探索で (5,0)→0 を確認）。
+- **B-AB4 定理前提は caller-established として明示**: `h : entityBasis ≤ totalBasis` を引数に明示し、前提無しでの総額上限主張を行わない。前提違反例（e=20,t=10）は定理の適用外として扱う。
+- **B-AB5 スコープ外の非モデル化**: 按分の端数処理の詳細・交付手続・他 2 種の交付金（地方税等減収補てん臨時交付金政令の他条）は NOT MODELLED と doc-comment に明記。反映漏れではない。
+
+#### UNRESOLVED（2 件）
+
+- **U-AB1 端数処理（floor）の法的正当性**: 原文 §3 は「あん分した額」とし端数規定を持たない。モデルは Nat の floor（乗算先行）を採用するが、政令が実際に切り捨てを意図するかは pinned 原文のみでは決定不能。**人間の法律専門家による確認を要する**（他バッチ U-1 と同趣旨）。
+- **U-AB2 分母 0（基準額合計 0）時の法的取扱い**: 原文は totalBasis = 0 のケースに沈黙する。安全版 0 は modelling choice として透明だが、法的に 0 交付が正しいか（そもそも当該ケースが想定されないか）は原文のみでは解けない。人間の法律専門家の確認を要する。金額・算術の一致（発見ゼロ）には影響しない。
+
+### AB-7. 総合判定・最終報告（サマリ）
+
+- pinned revision `420AC0000000084_20081022_000000000000000` の art.5 から独立抽出した **281 文字**（正規化、U+3000 = 0）の数値・算術を、coordinator 要約／STAGING／doc-comment に依存せず再計算して照合。**最重要チェック 3 点（桁違い・按分方向・分母 0 安全版・定理の明示前提）で食い違い 0 件（ゼロ）**。art.148 型の「要約を信じた誤り」は再発していない。
+- **CONFIRMED: 0 件（ゼロ）** ／ **BY-DESIGN: 5 件** ／ **UNRESOLVED: 2 件**。発見ゼロを明示した。
+- **needle 健全性**: 2 本（STAGING）とも U+3000 **0 本**、pinned 正規化テキスト **2/2 FOUND**（MISS 0、各出現回数 1）。独立構築 3 needle も 3/3 FOUND。
+- **反例探索**: 分母 0・基準額 0・総額一致・割り切れない場合・按分逆転・加算混入・前提違反・単調性・分割和の全境界で矛盾 0 件。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` = **0 件**、`propext` = **1 件**（許容）。3/3 宣言を走査、exit code 0。監査用一時ファイルは削除済み。
+- **見出し**: `## Batch AB review (2026-11-20)` は coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に **match することを Python で確認済み**。本セクションを `docs/ADVERSARIAL_REVIEW.md` 末尾に追記し、既存セクションはすべて保持した。
+- **書き換えファイル**: `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール／`data/*` は一切変更せず、commit / push / merge / ブランチ切替は行っていない（作業ツリーには他エージェントによる未追跡ファイルが存在するが、本レビューでは触れていない）。解析用一時ファイルはすべて削除済み。
+- 残る UNRESOLVED（U-AB1 端数処理の法的正当性、U-AB2 分母 0 時の取扱い）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・数値／算術の独立抽出と再計算・needle の `.find()` 検証・整数式の反例走査・`#print axioms` 公理監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって人間の法的レビューを完了したものとはみなさない。
