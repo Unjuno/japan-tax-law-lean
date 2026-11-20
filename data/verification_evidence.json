@@ -444,6 +444,19 @@
       "source_location": "data/raw/340AC0000000033_20261001_507AC0000000070.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:203_3/Article#203_3/Paragraph#1/ParagraphSentence/Sentence#1 sha256=94c4a7ad83726cde60787967ed4e959585ad0af9279d25db9aa02264b3fe606b (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/PublicPensionWithholdingTests.lean sha256=43564ec85b5c9b69b0e873d674c273cc07045618e1228b2da45123dc10365f48 (23 kernel-decided examples)"
     },
+    "NORM|368f77444888dd8e28bda37fa5deb1bae1d03502d1f8c036d2975e32fd768f5e": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=322CO0000000109_19470627_000000000000000 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/CombinedRegistrationRequest.lean sha256=381c47ef291ddb346031a272ab10588e9497202596a8183beb849d7e0bb21af4",
+      "independent_spec": "JapanTaxLaw/CombinedRegistrationRequestSpec.lean sha256=bb87a0144a4d2c953f75587644517edbc304a9f9134e704b6a480cb51aee943a (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44684783591: commit 595ee4c656ac38122d3a99e28f694a6455e01b41, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/322CO0000000109_19470627_000000000000000.law.json#LawBody[1]/MainProvision/MainProvision[2]/Article:3/Article#3/Paragraph#1/ParagraphSentence/Sentence sha256=9ff39f03e58b315d04fbb65246dd5a4e64cf8c6a428eae84c53bb49c530816ec (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/CombinedRegistrationRequestTests.lean sha256=1fa7b73ba8b4bf3e3a8cbad8a06924775c2c29ccd3cfab536a3f645edf6e4456 (11 kernel-decided examples)"
+    },
     "NORM|383ddcad7c9db10fea00f18c1229a8309ce4310660cbdcd9079e607610971c88": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 15 kernel-decided examples covering boundary inputs",
@@ -1952,6 +1965,19 @@
       "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[7]/Article:4_3/Article#4_3/Paragraph#1/ParagraphSentence/Sentence#1 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/CustomsDomesticValueTests.lean sha256=d5d276fe32fae7ed048d990d24f0077380368540994bb4500cd184b3ad4ff0b6 (10 kernel-decided examples)"
     },
+    "NORM|fb5a0e940fe5c31e14cdc8f7832e98b1b6df531a1fc429e963161c0c838bceaf": {
+      "source_location": "data/raw/325AC0000000211_20261102_508AC0000000062.law.json#amendment-history 附則[AmendLawNum='昭和三八年三月二二日法律第二三号']/Article:第一条(施行期日)/Paragraph[Num=1]/Sentence#1 sha256=151df453a55442acb1cdca91f420bc5f7b04b914b85d86b575311ff6e3a7cd95",
+      "decomposition_audit": "build/task_queue.json: kind=DELEGATION, decomposed=true, exact span, unhandled_conditions=[], id unique",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS verbatim-unique needle in pinned 地方交付税法 snapshot; 182/182 checks passed; file-kind locator (needle in amendment-history 附則, absent from main provision); law identity from INVENTORY official_title=地方交付税法; provision location verified structurally (adversarial F1-F3 corrected)",
+      "independent_spec": "JapanTaxLaw/LocalAllocationTaxEnforcementDateSpec.lean sha256=eb00fcf2d709d856e950f98d02c501816ebfe69b9b8c348d60b3d5b20b927e26 (specWithinEnforcementRange closed-interval endpoint form vs implementation subtraction form; agree_enforcement_range universal over all day pairs)",
+      "implementation": "JapanTaxLaw/LocalAllocationTaxEnforcementDate.lean sha256=3dbe8d6c2a265dd33b41b1372db533a2c3f88371924d9c11e5f574915def2bb7 (maxDelayDays=90, withinEnforcementRange = p≤e ∧ e-p≤90; inclusive こえない; law 地方交付税法; 1963-amendment 附則 provenance)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (596 jobs); agree_enforcement_range universal over all day pairs; all 5 theorems axiom-clean (propext/Quot.sound only); no sorryAx/Classical.choice",
+      "proof_scope": "docs/UNIT_LOCAL_ALLOCATION_TAX_ENFORCEMENT_DATE.md (computable enforcement-date temporal-bound + delegation slice of the 1963 amendment act; actual cabinet-order date and substantive local-allocation-tax rules explicitly NOT MODELLED)",
+      "boundary_proof": "JapanTaxLaw/LocalAllocationTaxEnforcementDateSpec.lean: at_promulgation, at_max_delay (day 90 inclusive), beyond_max_delay (day 91), before_promulgation, agree_enforcement_range",
+      "cross_law_proof": "queue unit dependencies analyzed; this unit references 政令 (cabinet order) for the enforcement date but the delegated content is NOT MODELLED; no cross-law constant claimed",
+      "tests": "JapanTaxLaw/LocalAllocationTaxEnforcementDateTests.lean sha256=05194766e0216d4ead0602ee532df4b3487bba42bf859383c46457d120bc6b2c (kernel-decided boundary examples)",
+      "adversarial_review": "docs/ADVERSARIAL_LOCAL_ALLOCATION_TAX_ENFORCEMENT_DATE.md — independent agent found CONCRETE F1-F3 provenance errors: law id 325AC0000000211 is 地方交付税法 not 地方譲与税法 (author confirmed via INVENTORY official_title + zero 地方譲与 entries); needle is a 1963-amendment (昭和三八年法律第二三号) 附則 enforcement-date clause not a main 附則 art.1; file-kind check attested false source correspondence. ALL FIXED: module renamed LocalGrant->LocalAllocationTax, law name/number/source path corrected in all headers, audit check label made honest. Arithmetic/spec/universal proof/boundaries/axioms had NO FINDINGS. No claim of legal correctness."
+    },
     "NORM|fc06604d532ebcf35a0559c8a90481ef78313232a4805dded28e5b1179155b2d": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 15 kernel-decided examples covering boundary inputs",
@@ -2029,19 +2055,6 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle in clause + all spec numerals in scoped article: ['その金額が二百万円を超える場合には、二百万円']; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"100000\": [], \"10000000\": [], \"110000\": [], \"130000\": [], \"150000\": [], \"2\": [\"二\"], \"2000000\": [\"二百万\"], \"220000\": [], \"24000000\": [], \"24500000\": [], \"25000000\": [], \"260000\": [], \"290000\": [], \"300000\": [], \"330000\": [], \"380000\": [], \"4\": [], \"430000\": [], \"5\": [], \"530000\": [], \"9000000\": [], \"9500000\": []}; statutory rate = none; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:34/Article#34/Paragraph#1/Item#2/ItemSentence/Column#2/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalIncomeTaxTests.lean sha256=017a1f256a089f692a0f6f7c5971879339d07ba26a588ff0ae0a6c3d01450104 (55 kernel-decided examples)"
-    },
-    "NORM|fb5a0e940fe5c31e14cdc8f7832e98b1b6df531a1fc429e963161c0c838bceaf": {
-      "source_location": "data/raw/325AC0000000211_20261102_508AC0000000062.law.json#amendment-history 附則[AmendLawNum='昭和三八年三月二二日法律第二三号']/Article:第一条(施行期日)/Paragraph[Num=1]/Sentence#1 sha256=151df453a55442acb1cdca91f420bc5f7b04b914b85d86b575311ff6e3a7cd95",
-      "decomposition_audit": "build/task_queue.json: kind=DELEGATION, decomposed=true, exact span, unhandled_conditions=[], id unique",
-      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS verbatim-unique needle in pinned 地方交付税法 snapshot; 182/182 checks passed; file-kind locator (needle in amendment-history 附則, absent from main provision); law identity from INVENTORY official_title=地方交付税法; provision location verified structurally (adversarial F1-F3 corrected)",
-      "independent_spec": "JapanTaxLaw/LocalAllocationTaxEnforcementDateSpec.lean sha256=eb00fcf2d709d856e950f98d02c501816ebfe69b9b8c348d60b3d5b20b927e26 (specWithinEnforcementRange closed-interval endpoint form vs implementation subtraction form; agree_enforcement_range universal over all day pairs)",
-      "implementation": "JapanTaxLaw/LocalAllocationTaxEnforcementDate.lean sha256=3dbe8d6c2a265dd33b41b1372db533a2c3f88371924d9c11e5f574915def2bb7 (maxDelayDays=90, withinEnforcementRange = p≤e ∧ e-p≤90; inclusive こえない; law 地方交付税法; 1963-amendment 附則 provenance)",
-      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (596 jobs); agree_enforcement_range universal over all day pairs; all 5 theorems axiom-clean (propext/Quot.sound only); no sorryAx/Classical.choice",
-      "proof_scope": "docs/UNIT_LOCAL_ALLOCATION_TAX_ENFORCEMENT_DATE.md (computable enforcement-date temporal-bound + delegation slice of the 1963 amendment act; actual cabinet-order date and substantive local-allocation-tax rules explicitly NOT MODELLED)",
-      "boundary_proof": "JapanTaxLaw/LocalAllocationTaxEnforcementDateSpec.lean: at_promulgation, at_max_delay (day 90 inclusive), beyond_max_delay (day 91), before_promulgation, agree_enforcement_range",
-      "cross_law_proof": "queue unit dependencies analyzed; this unit references 政令 (cabinet order) for the enforcement date but the delegated content is NOT MODELLED; no cross-law constant claimed",
-      "tests": "JapanTaxLaw/LocalAllocationTaxEnforcementDateTests.lean sha256=05194766e0216d4ead0602ee532df4b3487bba42bf859383c46457d120bc6b2c (kernel-decided boundary examples)",
-      "adversarial_review": "docs/ADVERSARIAL_LOCAL_ALLOCATION_TAX_ENFORCEMENT_DATE.md — independent agent found CONCRETE F1-F3 provenance errors: law id 325AC0000000211 is 地方交付税法 not 地方譲与税法 (author confirmed via INVENTORY official_title + zero 地方譲与 entries); needle is a 1963-amendment (昭和三八年法律第二三号) 附則 enforcement-date clause not a main 附則 art.1; file-kind check attested false source correspondence. ALL FIXED: module renamed LocalGrant->LocalAllocationTax, law name/number/source path corrected in all headers, audit check label made honest. Arithmetic/spec/universal proof/boundaries/axioms had NO FINDINGS. No claim of legal correctness."
     },
     "NORM|91349ec2d835e0fe4fdd63ea17f15c1ce9a98c22d91c36f03bea07410596f64e": {
       "source_location": "data/raw/326AC1000000145_20211122_503AC0000000046.law.json#LawBody[1]/MainProvision/MainProvision[14]/Article:14/Article#14/Paragraph#1/ParagraphSentence/Sentence#1 sha256=fc6c4ca152291c10c1218a62303a879195bfbbe95a056d0e264ee0315bbc4e2b",
