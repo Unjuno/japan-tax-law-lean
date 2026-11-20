@@ -70,7 +70,7 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 73 |
+| unpinned Lean modules (not counted as verified) | 76 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
