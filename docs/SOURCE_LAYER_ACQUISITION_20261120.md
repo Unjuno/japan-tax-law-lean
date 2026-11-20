@@ -108,6 +108,20 @@ labelled a third-party aggregator, NOT an official original; all-municipality
 coverage (~1,788) is NOT claimed. 15/15 source-layer tests pass, including two
 new L2 honesty/hash tests.
 
+## L3 treaty — further negative evidence (2026-11-21)
+
+Two additional routes were checked and yield no treaty original:
+- e-Gov `https://laws.e-gov.go.jp/treaty` is a 696-byte JS SPA shell; the
+  bundled JS exposes law APIs (`/api/2/law_revisions/...`, `/api/2/law_data/...`)
+  but **no treaty endpoint** (`/api/2/treaties`, `/treaty_list`, `/treaties/search`
+  all HTTP 404).
+- The pinned e-Gov law list (`lawlists_1.xml`) contains only domestic acts
+  *implementing* treaties (e.g. 租税条約等の実施に伴う所得税法…の特例等に関する法律),
+  not the treaty texts themselves.
+
+Combined with MOFA 403 and JETRO 403, L3 remains `NOT_ACQUIRED` with no original
+pinned. This is recorded as an access/discovery limitation, not a legal conclusion.
+
 ## H / T / D / C / U
 
 | id | content |
