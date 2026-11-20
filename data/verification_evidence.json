@@ -2094,6 +2094,19 @@
       "cross_law_proof": "queue unit dependencies analyzed; this ordinance amount is referenced from 相続税法 art.59(1) proviso; the substantive statute proviso is NOT MODELLED; no cross-law constant claimed",
       "tests": "JapanTaxLaw/InheritanceRegPrescribedAmountTests.lean sha256=f82f97949ac99535cbd63c88f602444cc9764112bda56d10bc9b1d30116284f8 (kernel-decided boundary examples)",
       "adversarial_review": "__ADVERSARIAL__"
+    },
+    "NORM|8f218ac0c48735c83d9984a2be0ad3731220bc855d1425dd950952af69cf7476": {
+      "source_location": "data/raw/325CO0000000245_20261101_508CO0000000083.law.json#LawBody[3]/MainProvision/MainProvision[0]/Article:6_9_2/Article#6_9_2/Paragraph#1/ParagraphSentence/Sentence#1 sha256=9bc03b230fb0ed1039e33a1544cd53772939ee25d6d4648a386400ea269dfb17",
+      "decomposition_audit": "build/task_queue.json: kind=DELEGATION, decomposed=true, exact span, unhandled_conditions=[], id unique",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS 地方税法施行令 art.6の9の2(1)（地方税法15条の4(1)の政令で定める額は二千円）; 189/189 checks passed; verbatim needle unique in pinned file and in Article 第六条の九の二 (attr Num=6_9_2); law identity from INVENTORY official_title=地方税法施行令, law_type=CabinetOrder (article locator corrected after adversarial F-1)",
+      "independent_spec": "JapanTaxLaw/LocalTaxOrderArt15_4AmountSpec.lean sha256=06bdd151e34610a2ab835bdba60f6db7e4cf186b11f6f36eb397fe8718c434a1 (specIsDelegatedAmount = degenerate interval [2000,2000], distinct from equality; agree_delegated_amount universal over all amounts)",
+      "implementation": "JapanTaxLaw/LocalTaxOrderArt15_4Amount.lean sha256=412f8a9eca0c080a6e83d7bbb68703c5ae0d51549100cf9565a8e16485678401 (delegatedAmountYen=2_000=二千円; isDelegatedAmount = a = delegatedAmountYen; CabinetOrder; article label corrected to art.6の9の2)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (617 jobs); agree_delegated_amount universal over all amounts; all 5 theorems axiom-free; no sorryAx/Classical.choice",
+      "proof_scope": "docs/UNIT_LOCAL_TAX_ORDER_ART15_4_AMOUNT.md (computable delegated-amount slice; substantive 地方税法 art.15-4(1) and applicability conditions explicitly NOT MODELLED)",
+      "boundary_proof": "JapanTaxLaw/LocalTaxOrderArt15_4AmountSpec.lean: at_delegated (¥2,000), below_delegated (¥1,999), above_delegated (¥2,001), amount_is_two_thousand, agree_delegated_amount",
+      "cross_law_proof": "queue unit dependencies analyzed; this Cabinet Order amount is referenced from 地方税法 art.15-4(1); the substantive statute is NOT MODELLED; no cross-law constant claimed",
+      "tests": "JapanTaxLaw/LocalTaxOrderArt15_4AmountTests.lean sha256=1cc38d80feeb893925c5c5e731dc1d0971b8aa82b0263a004b1bedd482644c95 (kernel-decided boundary checks)",
+      "adversarial_review": "docs/ADVERSARIAL_LOCAL_TAX_ORDER_ART15_4_AMOUNT.md — independent agent recomputed pin sha256 (9bc03b23…dfb17), located needle uniquely in Article 第六条の九の二 (Num=6_9_2), confirmed CabinetOrder identity 地方税法施行令, verified spec independence/universal proof/boundaries. CONCRETE FINDING F-1: false article label art.6の2 -> art.6の9の2 (author confirmed the law's real 第六条の二 is a different article with 0 needle occurrences); ALL SIX locations fixed and rebuilt. F-2 dangling doc reference fixed. No soundness break. No claim of legal correctness."
     }
   }
 }
