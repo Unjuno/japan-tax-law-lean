@@ -212,9 +212,7 @@ def review_ok(base: str, review_text: str) -> bool:
     idx = review_text.find("### " + base + ".lean")
     if idx < 0:
         idx = review_text.find(base + ".lean")
-    if idx < 0:
-        return False
-    section = review_text[idx: idx + 4000]
+    section = review_text[idx: idx + 4000] if idx >= 0 else ""
     independent = ("独立抽出" in section or "独立再抽出" in section or
                    ("独立" in section and "一次資料" in section))
     decision = ("照合" in section or "FOUND" in section or "判定" in section)
@@ -250,7 +248,7 @@ def checks_by_module():
         base = m.group(1)
         if base.endswith("Spec") or base.endswith("Tests"):
             continue
-        article = art or article_from_name(name)
+        article = core.article_key(art or article_from_name(name)) if (art or article_from_name(name)) else ""
         if not article:
             continue
         out.setdefault(base, {"law_id": law_id, "article": article, "needles": needles})

@@ -5,9 +5,9 @@ Do not hand-edit. Regenerate with `scripts/ci/audit_evidence_references.py`.
 A document name in an evidence string is not proof that the document
 supports the unit. This audit resolves each reference against the artifact.
 
-- units checked: 12
-- references resolved: 42/55
-- references UNRESOLVED: 13
+- units checked: 13
+- references resolved: 46/60
+- references UNRESOLVED: 14
 - all-complete claimable from references: False
 
 | unit | axis | D | detail |
@@ -18,6 +18,7 @@ supports the unit. This audit resolves each reference against the artifact.
 | `NORM|167b8cabf184adb` | implementation | FAIL | sha256 MISMATCH |
 | `NORM|167b8cabf184adb` | independent_spec | FAIL | sha256 MISMATCH |
 | `NORM|167b8cabf184adb` | tests | FAIL | sha256 MISMATCH |
+| `NORM|27bdf4a116c2cd0` | adversarial_review | FAIL | module=DeemedCapitalGainsCost section_chars=12778 |
 | `NORM|2bb1ca3263f7e9d` | adversarial_review | FAIL | module=IncomeArt205Withholding section_chars=12778 |
 | `NORM|3620a145620f245` | adversarial_review | FAIL | module=PublicPensionWithholding section_chars=12778 |
 | `NORM|84f30566e583de6` | adversarial_review | FAIL | module=LocalGrantRevenueBase section_chars=12778 |

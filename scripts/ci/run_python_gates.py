@@ -44,6 +44,7 @@ GATES = [
     ("Related-law separate-layer acquisition tests (Objective §2)", ["python", "-m", "unittest", "scripts.tests.test_related_law_acquisition", "-v"], ["scripts/tests/test_related_law_acquisition.py", "data/RELATED_LAW_LEDGER.json"]),
     ("Per-law status ledger regeneration gate (Objective §1/§6/§7)", ["python", "scripts/ci/law_status_ledger.py"], ["scripts/ci/law_status_ledger.py", "docs/LAW_STATUS.md"]),
     ("spec-scope mapping regression tests", ["python", "-m", "unittest", "scripts.tests.test_spec_scope_map", "-v"], ["scripts/tests/test_spec_scope_map.py"]),
+    ("evidence scope/attestation fixes tests", ["python", "-m", "unittest", "scripts.tests.test_evidence_scope_fixes", "-v"], ["scripts/tests/test_evidence_scope_fixes.py"]),
     ("Explicit spec-scope mapping (Directive §1.5)", ["python", "scripts/ci/spec_scope_map.py"], ["scripts/ci/spec_scope_map.py", "data/SPEC_SCOPE_MAP.json"]),
     ("Verification evidence regeneration (Directive §1 evidences FULLY_VERIFIED)", ["python", "scripts/ci/generate_verification_evidence.py"], ["scripts/ci/generate_verification_evidence.py", "data/PROOF_ATTESTATION.json", "data/verification_evidence.json", "data/SPEC_SCOPE_MAP.json"]),
     # The queue must be regenerated BEFORE any gate that reads build/task_queue.json

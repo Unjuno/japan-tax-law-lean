@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 55,
+  "checks": 60,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -210,6 +210,61 @@
       "detail": "sha256 MISMATCH",
       "reference": "JapanTaxLaw/GiftTaxTests.lean",
       "unit_id": "NORM|167b8cabf184adb595d75baba5ffbf319ec3c502be8a820858e8c493b09f57d7"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "FAIL",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "module=DeemedCapitalGainsCost section_chars=12778",
+      "reference": "Batch P",
+      "unit_id": "NORM|27bdf4a116c2cd07db188e100eaaf6afcea16c1ec2c854a57c4f5a28217fc218"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeemedCapitalGainsCost.lean",
+      "unit_id": "NORM|27bdf4a116c2cd07db188e100eaaf6afcea16c1ec2c854a57c4f5a28217fc218"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeemedCapitalGainsCostSpec.lean",
+      "unit_id": "NORM|27bdf4a116c2cd07db188e100eaaf6afcea16c1ec2c854a57c4f5a28217fc218"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeemedCapitalGainsCostTests.lean",
+      "unit_id": "NORM|27bdf4a116c2cd07db188e100eaaf6afcea16c1ec2c854a57c4f5a28217fc218"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "kernel_proof",
+      "detail": "run=44684783591 attested_run=44684783591 conclusion=success",
+      "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44684783591: commit 0b6e084f68c35511d586b601692180ceac28a5dc, ",
+      "unit_id": "NORM|27bdf4a116c2cd07db188e100eaaf6afcea16c1ec2c854a57c4f5a28217fc218"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -608,9 +663,9 @@
       "unit_id": "NORM|b1205ae8e34e33e5eb033f777a1d300a8ed02d6ab4559197f05f4f1865d23df2"
     }
   ],
-  "resolved": 42,
+  "resolved": 46,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 12,
-  "unresolved": 13
+  "units_checked": 13,
+  "unresolved": 14
 }
