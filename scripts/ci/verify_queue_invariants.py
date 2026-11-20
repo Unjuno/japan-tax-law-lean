@@ -15,6 +15,11 @@ import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
+# The verifier is also imported in-process by tests (test_queue_invariants.py);
+# in that case Python does not add scripts/ci to sys.path automatically.
+_CI_DIR = str(Path(__file__).resolve().parent)
+if _CI_DIR not in sys.path:
+    sys.path.insert(0, _CI_DIR)
 QUEUE = REPO / "build" / "task_queue.json"
 EXPECTED = {"NOT_STARTED", "PARTIAL", "PROVED_SCOPE", "FULLY_VERIFIED", "BLOCKED"}
 
