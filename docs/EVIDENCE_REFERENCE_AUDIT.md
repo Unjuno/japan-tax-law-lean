@@ -5,12 +5,17 @@ Do not hand-edit. Regenerate with `scripts/ci/audit_evidence_references.py`.
 A document name in an evidence string is not proof that the document
 supports the unit. This audit resolves each reference against the artifact.
 
-- units checked: 10
-- references resolved: 44/46
-- references UNRESOLVED: 2
+- units checked: 9
+- references resolved: 34/41
+- references UNRESOLVED: 7
 - all-complete claimable from references: False
 
 | unit | axis | D | detail |
 |---|---|---|---|
-| `NORM|9090b882bace49e` | adversarial_review | FAIL | module=PerCapitaEqualRate section_chars=0 |
-| `NORM|9090b882bace49e` | kernel_proof | FAIL | run=44707322412 attested_run=44684783591 conclusion=success |
+| `NORM|008f8fdeb18548b` | adversarial_review | FAIL | module=LocalGrantRevenueBase section_chars=12778 |
+| `NORM|01bc5d0ea84e476` | adversarial_review | FAIL | module=LocalAddedValueStandard section_chars=12778 |
+| `NORM|2bb1ca3263f7e9d` | adversarial_review | FAIL | module=IncomeArt205Withholding section_chars=12778 |
+| `NORM|3620a145620f245` | adversarial_review | FAIL | module=PublicPensionWithholding section_chars=12778 |
+| `NORM|84f30566e583de6` | adversarial_review | FAIL | module=LocalGrantRevenueBase section_chars=12778 |
+| `NORM|a7607acfb60e7e0` | adversarial_review | FAIL | module=LocalTaxMedicalIncomeRatio section_chars=12778 |
+| `NORM|ac371ade261bbd9` | adversarial_review | FAIL | module=LocalAddedValueStandard section_chars=12778 |

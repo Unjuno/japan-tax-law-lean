@@ -5460,6 +5460,32 @@
         "reason": "EXPLICIT_SCOPE_MATCH"
       }
     ],
+    "LocalTobaccoTaxRate": [
+      {
+        "article": "74_5",
+        "in_scope": false,
+        "kind": "UNRESOLVED",
+        "law_id": "325AC0000000226",
+        "normative_id": "NORM|2956af0d1eb7bcbb845919f6b092baabd27ac0dec1dfcd43ea5ea10f9fc5ef4d",
+        "reason": "UNIT_HAS_UNRESOLVED_CONDITIONS"
+      },
+      {
+        "article": "74_5",
+        "in_scope": true,
+        "kind": "STRUCTURE",
+        "law_id": "325AC0000000226",
+        "normative_id": "NORM|1a1da4f56d359a47cb3d138efc407b8e1357917efd10a6b184e57d16250f7e0d",
+        "reason": "EXPLICIT_SCOPE_MATCH"
+      },
+      {
+        "article": "74_5",
+        "in_scope": true,
+        "kind": "EFFECT",
+        "law_id": "325AC0000000226",
+        "normative_id": "NORM|13ca7436618900441d6024641c3b92dbf2a9f48c038cee0927fb04970d4b22c6",
+        "reason": "EXPLICIT_SCOPE_MATCH"
+      }
+    ],
     "LowAlcoholDutySpecialRate": [],
     "NonpaymentSurcharge": [],
     "PerCapitaEqualRate": [
@@ -12922,6 +12948,15 @@
         "325CO0000000245_20261101_508CO0000000083"
       ],
       "spec_file": "JapanTaxLaw/LocalTaxVehicleSnowRateSpec.lean"
+    },
+    "LocalTobaccoTaxRate": {
+      "articles": [
+        "74_5"
+      ],
+      "header_chars": 423,
+      "law_ids": [],
+      "revisions": [],
+      "spec_file": "JapanTaxLaw/LocalTobaccoTaxRateSpec.lean"
     },
     "LowAlcoholDutySpecialRate": {
       "articles": [

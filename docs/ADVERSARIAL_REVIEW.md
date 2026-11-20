@@ -4812,3 +4812,20 @@ coordinator 要約・STAGING を経由せず、pinned 原文の文字列から�
 **CONFIRMED: 0 件（ゼロ）** ／ **BY-DESIGN: 1 件** ／ **UNRESOLVED: 2 件**。発見ゼロは欠陥不在の証明ではない。
 
 > 本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。法的妥当性の最終判断は専門家に委ね、`LEGAL_REVIEW_PENDING` は変更しない。
+
+## 地方税法 art. 74の5 — LocalTobaccoTaxRate（独立原文監査）
+
+- 対象モジュール（読み取り専用・形式化担当から独立）:
+  `JapanTaxLaw/LocalTobaccoTaxRate.lean`, `LocalTobaccoTaxRateSpec.lean`,
+  `LocalTobaccoTaxRateTests.lean`
+- 一次資料（pinned・改変禁止）:
+  `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`
+  law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`
+- 独立再抽出: 形式化担当の STAGING を信じず、上記 JSON の Article `Num=74_5` を
+  再帰走査して逐語「たばこ税の税率は、千本につき千七十円とする。」を取得。
+  漢数字「千七十」を自前で 1,070 に変換し、実装 `ratePerThousand` と
+  独立仕様 `specRateYen` の両方と照合（D=PASS）。
+- 対立解釈（C）: 「千七十円」を 1,700 円／170,000 円と読む誤りを境界例で拒否。
+  単位は円/千本であり、課税標準・按分・附則は本スライスの射程外。
+- 不確かさ（U）: 数値一致は原文忠实性を示すのみで、法的正確性・人間レビューを
+  含意しない。LEGAL_REVIEW_PENDING は別軸で維持。

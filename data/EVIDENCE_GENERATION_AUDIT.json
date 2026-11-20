@@ -1376,6 +1376,21 @@
         1000
       ]
     },
+    "LocalTobaccoTaxRate": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "千七十"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 11,
+      "needles_scoped": true,
+      "scoped_article_chars": 38,
+      "spec_literals": [
+        1070
+      ]
+    },
     "LowAlcoholDutySpecialRate": {
       "adversarial_review": false,
       "boundary_examples_found": 5,
@@ -1418,21 +1433,6 @@
         5,
         10,
         100
-      ]
-    },
-    "PerCapitaEqualRate": {
-      "adversarial_review": true,
-      "boundary_examples_found": 5,
-      "independent_spec": true,
-      "kanji_literals": [
-        "千"
-      ],
-      "kernel_attested": false,
-      "kernel_decided_examples": 11,
-      "needles_scoped": true,
-      "scoped_article_chars": 35,
-      "spec_literals": [
-        1000
       ]
     },
     "PhaseECorpRates": {
@@ -2055,6 +2055,22 @@
           "百"
         ]
       },
+      "NORM|13ca7436618900441d6024641c3b92dbf2a9f48c038cee0927fb04970d4b22c6": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 11,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "LocalTobaccoTaxRate",
+        "spec_kanji_in_原文": [
+          "千七十"
+        ]
+      },
       "NORM|2bb1ca3263f7e9d5364bf3f9a4f429da2445559f7f9cfbabfaf5db5e5d2a3b31": {
         "checks": {
           "cross_law": true,
@@ -2193,6 +2209,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: independent kanji literals ['七', '七十', '十', '百'] located in 原文; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_20/Article#72_20/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalAddedValueStandardTests.lean sha256=f8354718e7a135a3681e9d3a0fc99e3e2715ed7c025f299b51e9cddf1c9715d8 (20 kernel-decided examples)"
+    },
+    "NORM|13ca7436618900441d6024641c3b92dbf2a9f48c038cee0927fb04970d4b22c6": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
+      "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/LocalTobaccoTaxRate.lean sha256=84d52e3d0eba83991a71d33d33a7eb69ba316ca09df4fef3b214fa8be351aa68",
+      "independent_spec": "JapanTaxLaw/LocalTobaccoTaxRateSpec.lean sha256=f291f36e6e9a6fb904f4fa394b0efe19e9d5d58d720e7adb81f92868f2a10e84 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44684783591: commit 0b6e084f68c35511d586b601692180ceac28a5dc, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "statutory boundary constant 十二 present in 原文 and in both spec and kernel-checked implementation",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: independent kanji literals ['千七十'] located in 原文; needles scoped",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:74_5/Article#74_5/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/LocalTobaccoTaxRateTests.lean sha256=58515eb86e66fcdffd97c7a01a36f88b897c78812156fa531fb5ae25b1b944f5 (11 kernel-decided examples)"
     },
     "NORM|2bb1ca3263f7e9d5364bf3f9a4f429da2445559f7f9cfbabfaf5db5e5d2a3b31": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",

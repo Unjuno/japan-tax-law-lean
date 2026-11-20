@@ -549,3 +549,6 @@ import JapanTaxLaw.GiftBasicDeductionUnitTests
 import JapanTaxLaw.PerCapitaEqualRate
 import JapanTaxLaw.PerCapitaEqualRateSpec
 import JapanTaxLaw.PerCapitaEqualRateTests
+import JapanTaxLaw.LocalTobaccoTaxRate
+import JapanTaxLaw.LocalTobaccoTaxRateSpec
+import JapanTaxLaw.LocalTobaccoTaxRateTests

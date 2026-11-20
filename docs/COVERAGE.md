@@ -49,15 +49,15 @@ by the '税' keyword in the law name only.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 163 | n/a | n/a |
+| pinned literal checks | 164 | n/a | n/a |
 | distinct article pins | 49 | 42584 | 0.12% |
-| pinned Lean modules (cross-law) | 452 | n/a | n/a |
+| pinned Lean modules (cross-law) | 453 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 83 |
+| unpinned Lean modules (not counted as verified) | 85 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
