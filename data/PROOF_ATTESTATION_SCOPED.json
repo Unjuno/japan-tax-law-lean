@@ -1,19 +1,111 @@
 {
-  "commit": "c571e1deb4d4adfb417232ece8a08d8bd2fba6e2",
+  "commit": "c6f438b1b51fffa44955e8878a21ae05d1afea80",
   "jobs": {
     "Build Lean project and check axioms": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44705467102",
-      "required_steps": [
-        "Build explicitly",
-        "No sorry/admit in adopted proofs",
-        "Axioms of key theorems",
-        "Reproducibility check 1 (clean build)",
-        "Reproducibility check 2 (clean build)"
-      ]
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44767616201/job/136396363152"
     }
   },
   "modules": {
+    "CorporateGroupLossOffset.lean": {
+      "sha256": "f0c45dd766268558885d68e1a1f9e02ecf37f65ad43184e6eff9ab738019adea"
+    },
+    "CorporateGroupLossOffsetSpec.lean": {
+      "sha256": "8be59f49cac68f9e005263bc3da9da63548d242302cb188f76c0a766df3e344e"
+    },
+    "CorporateGroupLossOffsetTests.lean": {
+      "sha256": "4615f0e37782a67c413ac49bf07753e4b31344e569d37242662caced7a805bc5"
+    },
+    "CorporateLossCarryforward.lean": {
+      "sha256": "01c367d1dc7a1f54bb1452e3b3e1caab2f6ebfafe7ba118939c2f3e9f484addc"
+    },
+    "CorporateLossCarryforwardSpec.lean": {
+      "sha256": "7dfa52fd802af3f0da66b698a6d7359a0bfbe596f8ac55f1d3c539ab5f6e3dcd"
+    },
+    "CorporateLossCarryforwardTests.lean": {
+      "sha256": "35e4512b360ff80dcb7d8d7880dd1c36db589491c24820ae9357f73c7ef11c16"
+    },
+    "CustomsDamageReduction.lean": {
+      "sha256": "1c72eec5d7dc40d319d73334f861386b2ee9724b0e3d8346b3231ed2ecf43c52"
+    },
+    "CustomsDamageReductionSpec.lean": {
+      "sha256": "b7c3cdbe6a729368b27169832e3e508e3b0f75831a4173e2ae8cb048680a3d6c"
+    },
+    "CustomsDamageReductionTests.lean": {
+      "sha256": "38650226b07cada67dac2f879e1b23dfef2c99a51ddbe19c953190064405a1d3"
+    },
+    "DeemedCapitalGainsCost.lean": {
+      "sha256": "7ef5335c40f7b18c9944345af995ed2a3d3768dd0af47ddca0240022c0c797a4"
+    },
+    "DeemedCapitalGainsCostSpec.lean": {
+      "sha256": "d074a7cbcc312bbc837f8d3b801813e506af8c7e03aa94f0d3436e89ff96196a"
+    },
+    "DeemedCapitalGainsCostTests.lean": {
+      "sha256": "724d30118f93cee7e7dc0936b89820b983c1faf443579011ee2350078f0da29c"
+    },
+    "DelinquencyTax.lean": {
+      "sha256": "43d4650f718ce026d046faf57452075cd54e4fd7dfe96d39a3214cbff25ec540"
+    },
+    "DelinquencyTaxSpec.lean": {
+      "sha256": "ff5e83251104829d559d62559ad3da0213aa153767e31283b97c502f4132f558"
+    },
+    "DelinquencyTaxTests.lean": {
+      "sha256": "31045a2008db6f407345133169e63691b5eaa0e724f1c84b1d94cd923c1bd75d"
+    },
+    "DisasterLossDeduction.lean": {
+      "sha256": "bcce2944a3a9d5c4d28b1dacf8814cf825454dc2c227ae7c0b4ca8cd0dad438f"
+    },
+    "DisasterLossDeductionSpec.lean": {
+      "sha256": "acda330a945f2e293267d063130c58ba7a5c5ae423ecc6c3dcdde46cab910639"
+    },
+    "DisasterLossDeductionTests.lean": {
+      "sha256": "e511a7e737550a89ea8f99042840bc8e714c43fcd63420484973fca9db2bdcab"
+    },
+    "GiftAddBack.lean": {
+      "sha256": "8286bcdb5f1b3126e6f8c3bff98d21ec0137d4755f324d68a87c36f284050170"
+    },
+    "GiftAddBackSpec.lean": {
+      "sha256": "fb723eab7b67085e4ab5109521ed61afbe3f97927c5bcb359cbe9e5f577eadc5"
+    },
+    "GiftAddBackTests.lean": {
+      "sha256": "c337a24562527f277ec7260f2017dede1b0d289f46f13895bdb666edcf86c75e"
+    },
+    "GiftSpecialDeduction.lean": {
+      "sha256": "336436c45d1e1a47590e5d609475f6f5daf06d7b6ae9903fb3e60b7e83c0ee3e"
+    },
+    "GiftSpecialDeductionSpec.lean": {
+      "sha256": "2533ce1d177ba39f10fb67bb274aba69bc2fc88035cb81319e1b1176790fefc0"
+    },
+    "GiftSpecialDeductionTests.lean": {
+      "sha256": "7249166417dff42306d0fb2e3ae152c57d8c89b8a1b99f179143f56039700277"
+    },
+    "LocalGrantRevenueBase.lean": {
+      "sha256": "d6aafc8bff6c20b7d6d3670df4e19b6ffee18699b4696b919d8aead6bfb24592"
+    },
+    "LocalGrantRevenueBaseSpec.lean": {
+      "sha256": "2374dee4e0923dc53ee17e85d440e01bae5163563ca0303190ecbd2632c46af3"
+    },
+    "LocalGrantRevenueBaseTests.lean": {
+      "sha256": "5270437befb39206d29647d657dd64c0c4fbe51f8951a9ebee87ea6f4ce757a6"
+    },
+    "LocalIncomeTax.lean": {
+      "sha256": "46a430f6d16d72344d073ba4adb39f31469f78c117789f1e1c7710d479822825"
+    },
+    "LocalIncomeTaxSpec.lean": {
+      "sha256": "4a2ca971d62434b6e9af4cf45a4465249af9c27344deda438e2ba3905adf80c8"
+    },
+    "LocalIncomeTaxTests.lean": {
+      "sha256": "017a1f256a089f692a0f6f7c5971879339d07ba26a588ff0ae0a6c3d01450104"
+    },
+    "LocalTaxMedicalIncomeRatio.lean": {
+      "sha256": "a4de45a8083708a91a8e36ab95ea20c6bfe0c9820096980708c39e1d88ce7cfe"
+    },
+    "LocalTaxMedicalIncomeRatioSpec.lean": {
+      "sha256": "923bf12af24c0e51ff724ad34649e361822468aa427f371f773e5a55ffaa829e"
+    },
+    "LocalTaxMedicalIncomeRatioTests.lean": {
+      "sha256": "3ed7a171675d859d7a9928418c3f243e6e0cee16bab128ff06fa508a8a5115ed"
+    },
     "LocalTobaccoTaxRate.lean": {
       "sha256": "84d52e3d0eba83991a71d33d33a7eb69ba316ca09df4fef3b214fa8be351aa68"
     },
@@ -21,12 +113,76 @@
       "sha256": "f291f36e6e9a6fb904f4fa394b0efe19e9d5d58d720e7adb81f92868f2a10e84"
     },
     "LocalTobaccoTaxRateTests.lean": {
-      "sha256": "58515eb86e66fcdffd97c7a01a36f88b897c78812156fa531fb5ae25b1b944f5"
+      "sha256": "7f59db15c15342a35739c43eae7fe56b8a262d597d1d294521c50d941ef64e26"
+    },
+    "LowAlcoholDutySpecialRate.lean": {
+      "sha256": "1ce5f56d3de5b090f32d229cee5d64d03d4de9485072dac190294aa58ebcdb06"
+    },
+    "LowAlcoholDutySpecialRateSpec.lean": {
+      "sha256": "2b169247dd54105c7c8629a4465d68ace340be4a101d9e4d27de064bf68dfd92"
+    },
+    "LowAlcoholDutySpecialRateTests.lean": {
+      "sha256": "fe02445c29b7b7e95362eea20d348fc4e710ce531e6f94f893adb614ce4722ae"
+    },
+    "ResidentialTransferSpecialTax.lean": {
+      "sha256": "3fef964238e6ed237fa3575ab2e16212a7fbf09ca4771fcaf196422fa5f042cd"
+    },
+    "ResidentialTransferSpecialTaxSpec.lean": {
+      "sha256": "6f7b3224d1f6cc1f22f8ae05faa190ff13659b6646d89d1684cfee9d085a277b"
+    },
+    "ResidentialTransferSpecialTaxTests.lean": {
+      "sha256": "b7c1ccb248f7027fbdb22d2140880fa9eeb80d4b8d1c1d71f88b97b42c9ea29b"
+    },
+    "SocialInsuranceMutualAidDeduction.lean": {
+      "sha256": "eacf1499588ebc96f28ca4fe5f98a237f74a0b0b0e2de32415a558dfc7c2dbe3"
+    },
+    "SocialInsuranceMutualAidDeductionSpec.lean": {
+      "sha256": "af5db98ce3c6543bc17e1e534f5dc588268bcad0aab0340157ec53515b87c803"
+    },
+    "SocialInsuranceMutualAidDeductionTests.lean": {
+      "sha256": "7e727b6b04e187cf9b7bd9bef966e0b3f3df78c2a9027def5c7f9e04c2e35de8"
+    },
+    "SpecialGiftRate.lean": {
+      "sha256": "a7920af31e2a22537c85fe7b10b48f0dda7e5fd528aac9a1f5d3a56e40e474d1"
+    },
+    "SpecialGiftRateSpec.lean": {
+      "sha256": "2c44e6142c8b1beea392ac1b5d91e27f8fa5b191e8ef403d5e88740b13755642"
+    },
+    "SpecialGiftRateTests.lean": {
+      "sha256": "40d44b80154589694e757afc5fd491a2eaeab66509e72a2e84bfc0bf773aa098"
+    },
+    "SpousalGiftDeduction.lean": {
+      "sha256": "57591c826bb383010ae53e5eb1a1bac2f2750414645cd7a9a522cc5a5223a9e9"
+    },
+    "SpousalGiftDeductionSpec.lean": {
+      "sha256": "acc403d8ff3afebdbbd4ed491fba04dbfd2507b167e5ab0866d33082926e75b9"
+    },
+    "SpousalGiftDeductionTests.lean": {
+      "sha256": "3ec0b4282e37722e30623c6a82120599d76aeacc8777767806154333aa67f492"
+    },
+    "StampDutySpecial91.lean": {
+      "sha256": "c6d2cdc6bfc295cede975cc3600137a83e540de9e1df80a962857c7541b0344d"
+    },
+    "StampDutySpecial91Spec.lean": {
+      "sha256": "6d4cf92d3e286b023ee50317357d009e0cec32d36d6c8051bace96c9065ae778"
+    },
+    "StampDutySpecial91Tests.lean": {
+      "sha256": "720479c634688db00bd810d3a3a1ee8216870915b9e681591461ea63c973c481"
+    },
+    "TaxCollectionNextBid.lean": {
+      "sha256": "c7f3fde0775a4581bd56696275666c8c159b88aac1b6af63820acaaf37dfa3d4"
+    },
+    "TaxCollectionNextBidSpec.lean": {
+      "sha256": "f2da5d0384be8dbed57f3c731b067d257cbbf2d1082f36ea9751c859f7440e7a"
+    },
+    "TaxCollectionNextBidTests.lean": {
+      "sha256": "041ccec8a184d7d28d79f7b908d50103f616e850131c65b0a55025634a92c5c7"
     }
   },
-  "note": "Scoped attestation: this module was kernel-built at a different commit than the main attestation. scope=full_run means the whole CI run succeeded; scope=lean_job_only would cover ONLY the Lean job.",
+  "note": "Scoped attestation: module hashes recomputed from git blobs at a commit whose Lean build+axiom job succeeded in GitHub Actions.",
   "run_conclusion": "success",
   "schema": 1,
-  "scope": "full_run",
-  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44705467102"
+  "scope": "lean_job_only",
+  "tool": "scripts/ci/make_scoped_attestation.py",
+  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44767616201"
 }
