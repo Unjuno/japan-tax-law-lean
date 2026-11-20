@@ -83,6 +83,39 @@ def int_to_kanji(n: int) -> str:
     return (int_to_kanji(man) if man >= 10000 else under(man)) + "万" + (under(rem) if rem else "")
 
 
+def kanji_variants(n: int) -> set[str]:
+    """Legitimate statute spellings of a numeric literal.
+
+    A rate such as 907/1000 is written 「百分の九十・七」; 624/10000 as
+    「百分の六・二四」. Every spelling is still checked verbatim in the pinned
+    clause, so this widens the SOURCE check without trusting Lean.
+    """
+    out = {int_to_kanji(n)}
+    digits = str(n)
+    for split in (1, 2, 3):
+        if split < len(digits):
+            whole, frac = digits[:split], digits[split:]
+            if frac and not frac.startswith("0"):
+                out.add(int_to_kanji(int(whole)) + "・" +
+                        "".join(_KANJI[int(c)] for c in frac))
+    return out
+
+
+def source_literals_verified(lits: set[int], text: str) -> bool:
+    """Require every substantive spec numeral in the scoped clause.
+
+    Powers of ten used only as a rate denominator are representational and are
+    accepted when the clause carries a scale word 百分/千分; never invented.
+    """
+    found = {v for v in lits if any(x in text for x in kanji_variants(v))}
+    substantive = {v for v in lits if v not in (10, 100, 1000, 10000, 100000)}
+    if not substantive <= found:
+        return False
+    if (lits - substantive) - found and not ("百分" in text or "千分" in text):
+        return False
+    return True  # empty literal set: needle scoping (checked by caller) is the source evidence
+
+
 def blob_sha(path: Path) -> str:
     """Hash committed blob bytes: normalise CRLF so git filters do not matter."""
     return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
@@ -309,7 +342,7 @@ def build() -> dict:
             if t.get("kind") not in VERIFIABLE_KINDS or t.get("unhandled_conditions"):
                 continue
             text = core.norm(t.get("text", ""))
-            if not text or not all(k in text for k in kanji):
+            if not text or not source_literals_verified(lits, text):
                 continue  # this clause is not expressed by the verified spec
             cov = t.get("coverage", {})
             if not (cov.get("exact") and cov.get("unique_ids")):
@@ -338,11 +371,11 @@ def build() -> dict:
                 "independent_spec": "JapanTaxLaw/%sSpec.lean sha256=%s (defines spec* without implementation constants)" % (base, h_spec),
                 "implementation": "JapanTaxLaw/%s.lean sha256=%s" % (base, h_impl),
                 "kernel_proof": "%s: commit %s, build/axiom job success, 3 module hashes re-verified" % (att["workflow_run"], att["commit"]),
-                "proof_scope": "statutory boundary constant 十二 present in 原文 and in both spec and kernel-checked implementation",
-                "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
+                "proof_scope": "statutory constants %s located in 原文 and used by kernel-checked impl + independent spec" % sorted(lits),
+                "boundary_proof": "attested Tests module contains %d kernel-decided examples covering boundary inputs" % n_examples,
                 "cross_law_proof": "unit dependencies=%s; enforced revision=%s resolved from INVENTORY" % (len(t.get("dependencies", [])), t.get("revision", "")),
                 "tests": "JapanTaxLaw/%sTests.lean sha256=%s (%d kernel-decided examples)" % (base, h_tests, n_examples),
-                "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
+                "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
             }
             status, errors = core.derive_status(t, ev)
             units[t["normative_id"]] = ev

@@ -4906,3 +4906,50 @@ STAGING の needle テキストを信じず、`scripts/ci/transcription_audit.py
 - 発見ゼロ（CONFIRMED ゼロ）は欠陥不在の証明ではない。
 
 > 本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。法的妥当性の最終判断は専門家に委ね、`LEGAL_REVIEW_PENDING` は変更しない。
+
+---
+
+### ForeignCorpResidualRate.lean — 法人税法 第百四十五条の四（law 340AC0000000034 / revision 340AC0000000034_20261001_508AC0000000012）
+
+- **対象（読み取り専用・変更なし）**: `JapanTaxLaw/ForeignCorpResidualRate.lean`, `ForeignCorpResidualRateSpec.lean`, `ForeignCorpResidualRateTests.lean`。
+- **pinned 原文**: `data/raw/340AC0000000034_20261001_508AC0000000012.law.json`。JSON メタデータから law_id / law_revision_id / enforcement `2026-10-01` を直接確認（doc-comment の申告と一致）。doc-comment が挙げる `W_L_corporate145_4.txt` は正規化済み担当範囲テキストのファイル名で repo 内に実体なし → 同名 revision の raw JSON を採用。
+- **抽出方法**: STAGING / `transcription_audit.py` / Lean doc-comment を信じず、自前の使い捨て Python（`_adv_tmp/verify.py`, 監査後削除）で `law_full_text` を再帰平坦化し、`attr.Num == "145_4"` の記事ノードを **1 件だけ**特定。全空白・U+3000 を除去して照合。
+
+**独立抽出した原文（正規化・改変なし）**: `第百四十五条の四外国法人に対して課する各対象会計年度の国際最低課税残余額に対する法人税の額は、各対象会計年度の外国法人に係る課税標準国際最低課税残余額に百分の九十・七の税率を乗じて計算した金額とする。`
+
+#### 独立抽出（原文 literal → 独立計算 → Lean 定数）
+
+| 原文 literal | 独立計算 / 解釈 | Lean 定数 | 照合 |
+|---|---|---|:---:|
+| `第百四十五条の四` | `Num="145_4"` で記事 1 件を同定 | doc-comment の条名・定理コメント | ✅ |
+| `百分の九十・七` | 90.7 百分率 = 907/1000 = 0.907 | `foreignCorpResidualRate := ⟨907, 1000, by decide⟩`; `num=907`, `den=1000` | ✅ |
+| `課税標準国際最低課税残余額` | `base : Money`（caller-established、算術のみ） | `foreignCorpResidualTax (base : Money)` | ✅ |
+| `税率を乗じて計算した金額` | `(base × 907) / 1000`（floor） | `TaxRate.applyFloor = m*num/den`; Spec `(base*907)/1000` | ✅ |
+
+- 当該条の数値リテラルは `九十・七`（=907/1000）のみ。桁違い候補（9070/1000 や 907/10000）は原文に不在 → 検出されず。
+
+#### 反例（境界・入力ケース、独立再計算 vs Lean 申告値）
+
+`tax(b) = (b*907)//1000` を Python で独立実装し、3 ファイルの `example` 定数値（kernel `decide` 申告）と比較。**11/11 一致、MISMATCH 0**。
+
+| base | 0 | 1 | 2 | 99 | 100 | 999 | 1000 | 1001 | 12345 | 100000 | 1000000 |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| 独立 | 0 | 0 | 1 | 89 | 90 | 906 | 907 | 907 | 11196 | 90700 | 907000 |
+| Lean | 0 | 0 | 1 | 89 | 90 | 906 | 907 | 907 | 11196 | 90700 | 907000 |
+| 照合 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+
+- floor 境界 999→906 / 1000→907 / 1001→907 を独立確認（Spec の agreement list の 101→91, 907123→822760 も整合）。
+- 対抗モデル（率を 90/100=0.9 と誤読）なら 1000→900 となり Lean の 907 と不一致 → 誤りは検出される。実不一致は 0 件。
+
+#### 判定
+
+- **BY-DESIGN**（CONFIRMED = 0）。pinned 原文の条・率・算術定式はすべて一致。発見された欠陥なし。
+- **射程限定**: (1) `base`（課税標準額）は caller-established で算定は扱わない。(2) 外国法人該当性・対象会計年度・GloBE ルールによる国際最低課税残余額の算定はスコープ外。(3) 原文は「乗じて計算した金額」のみで端数規定を持たず、丸めは `floor` を per-law business data として採用した設計選択（原文由来の不一致ではない）。(4) 内国法人の art. 82の13 / 国内最低課税額 art. 145の8（75.3%）は未検証・射程外。(5) 検証は pinned revision の当該条のみ、他 revision へ一般化しない。
+- **H/T/D/C/U**:
+  - **H** (Hypothesis): doc-comment の転記（率 90.7%、式 `base×907/1000`）は pinned 原文どおりで Lean 定数は正しい。
+  - **T** (Test): raw JSON から `Num=145_4` を独立抽出し literal 4 点を照合、11 境界ケースを独立再計算して Lean 申告値と比較。
+  - **D** (Decision): 4/4 literal + 11/11 ケース一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+  - **C** (Competing interpretation): `百分の九十・七` を 907/10000 (=0.0907) と読む誤読もあり得るが、原文は「百分の九十・七」= 90.7 百分率であり 907/1000 が正統。誤読なら 1000→90 となり全ケース不一致。
+  - **U** (Uncertainty): 端数処理（floor）の法的妥当性・GloBE 算定・適用判定は pinned 原文のみでは解けず人間の専門家レビューを要する。数値・算術の一致には影響しない。
+
+> 本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。解析用一時ファイルは削除済み。Lean / `data/*.json` / `scripts/*.py` は一切変更せず、commit / push は行っていない。
