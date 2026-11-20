@@ -185,17 +185,30 @@
       "tests": "JapanTaxLaw/BusinessOwnerDeductionTests.lean sha256=61b2cc0dc9ba20aeb7d2465e3ecfcc248cb82a687981de2e45d3c349c31be28d (18 kernel-decided examples)"
     },
     "NORM|c95fe5b099a7bac3397cf63b6b2db5bce1e182c2201fe7c7830ca9aeeff4b423": {
-      "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:24/Article#24/Paragraph#1/Item#1/ItemSentence/Sentence#1 3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342 (verbatim 12-char exception)",
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; EXCEPTION unit at Article:24/Paragraph#1/Item#1/Sentence#1",
-      "source_correspondence_audit": "scripts/ci/source_audit_merger_art24.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 合併/適格合併/除く",
-      "independent_spec": "JapanTaxLaw/MergerExceptionArt24Spec.lean sha256=959f6d4e5ce0474b9778027cdf85213390ab5d4ce94bf00c990c91e6b1961c9b (no implementation import)",
-      "implementation": "JapanTaxLaw/MergerExceptionArt24.lean sha256=f1bf4c59c22deaf8adea5e758f0fd4f40bf868fe97ea613003559913670898d3",
-      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation and isCoveredMerger_iff kernel-checked; no sorry/admit",
-      "proof_scope": "exception scope only: merger AND NOT qualified merger; qualified-merger requirements, procedures and effects NOT MODELLED; both predicates caller-established",
+      "adversarial_review": "docs/UNIT_MERGER_EXCEPTION_ART24.md: H/T/D/C/U; inclusive reading of the parenthetical exception rejected by verbatim original",
       "boundary_proof": "isCoveredMerger_iff general theorem; (true,false) covered; (true,true) and (false,*) excluded",
       "cross_law_proof": "unit dependencies=0; enforced revision 340AC0000000034_20261001_508AC0000000012 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/MergerExceptionArt24Tests.lean sha256=1f21341257f0dd648c5f04a93bd9303344fe56ec8202374cfa6e479a08ef44ee (6 kernel-decided examples)",
-      "adversarial_review": "docs/UNIT_MERGER_EXCEPTION_ART24.md: H/T/D/C/U; inclusive reading of the parenthetical exception rejected by verbatim original"
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; EXCEPTION unit at Article:24/Paragraph#1/Item#1/Sentence#1",
+      "implementation": "JapanTaxLaw/MergerExceptionArt24.lean sha256=f1bf4c59c22deaf8adea5e758f0fd4f40bf868fe97ea613003559913670898d3",
+      "independent_spec": "JapanTaxLaw/MergerExceptionArt24Spec.lean sha256=959f6d4e5ce0474b9778027cdf85213390ab5d4ce94bf00c990c91e6b1961c9b (no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation and isCoveredMerger_iff kernel-checked; no sorry/admit",
+      "proof_scope": "exception scope only: merger AND NOT qualified merger; qualified-merger requirements, procedures and effects NOT MODELLED; both predicates caller-established",
+      "source_correspondence_audit": "scripts/ci/source_audit_merger_art24.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 合併/適格合併/除く",
+      "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:24/Article#24/Paragraph#1/Item#1/ItemSentence/Sentence#1 3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342 (verbatim 12-char exception)",
+      "tests": "JapanTaxLaw/MergerExceptionArt24Tests.lean sha256=1f21341257f0dd648c5f04a93bd9303344fe56ec8202374cfa6e479a08ef44ee (6 kernel-decided examples)"
+    },
+    "NORM|87699445d5c1be70655ac88a59210fe09dcd5575c3f875be2dc166d9f13ce29e": {
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:66_9_4/Article#66_9_4/Paragraph#5/TableStruct/Table/TableRow/TableColumn/Sentence#1 e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee (verbatim 9-char deeming cell)",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; DEEMING unit in appendix table cell",
+      "source_correspondence_audit": "scripts/ci/source_audit_deemed_tax_art24.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 課税済/金額/みなす",
+      "independent_spec": "JapanTaxLaw/DeemedTaxedAmountSpec.lean sha256=1b61c156e9f3b50e581aa647a9b4dcb8f495f6b8f38c7a9576a8db6919d94a17 (separate structure, no implementation import)",
+      "implementation": "JapanTaxLaw/DeemedTaxedAmount.lean sha256=9378418eb837169b696c874ad22f50feef5639a04e23bdcdd6ec5777a0f9f2eb",
+      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation, value_preserved, flag_set, idempotent kernel-checked; no sorry/admit",
+      "proof_scope": "deeming only: sets taxable status true while preserving amount; computation base, rate, priority among deeming rules NOT MODELLED",
+      "boundary_proof": "value_preserved/flag_set/idempotent general theorems; examples at 0/1000 yen and both initial flags",
+      "cross_law_proof": "unit dependencies=0; enforced revision 332AC0000000026_20261101_507AC0000000013 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/DeemedTaxedAmountTests.lean sha256=bc39821fd04edfe2b38c170df0bfe7a22a5cd415c10449c82687034f53d13f73 (5 kernel-decided examples)",
+      "adversarial_review": "docs/UNIT_DEEMED_TAX_ART24.md: H/T/D/C/U; amount-changing reading rejected by verbatim original"
     }
   }
 }

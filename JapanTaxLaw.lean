@@ -560,3 +560,6 @@ import JapanTaxLaw.ForestEnvironmentTaxRateTests
 import JapanTaxLaw.MergerExceptionArt24
 import JapanTaxLaw.MergerExceptionArt24Spec
 import JapanTaxLaw.MergerExceptionArt24Tests
+import JapanTaxLaw.DeemedTaxedAmount
+import JapanTaxLaw.DeemedTaxedAmountSpec
+import JapanTaxLaw.DeemedTaxedAmountTests
