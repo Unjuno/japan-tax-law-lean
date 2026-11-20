@@ -39,6 +39,7 @@ GATES = [
     ("Article verification obligations gate (Objective §4)", ["python", "scripts/ci/article_obligations.py"], ["scripts/ci/article_obligations.py", "docs/ARTICLE_OBLIGATIONS.md"]),
     ("Article-scoped normative-unit diagnostic (Sponsor Directive §4)", ["python", "scripts/law_audit/phase_e/article_scope.py"], ["scripts/law_audit/phase_e/article_scope.py", "docs/ARTICLE_SCOPE.md"]),
     ("Completion reporting gate (Sponsor Directive §5)", ["python", "scripts/ci/completion_gate.py"], ["scripts/ci/completion_gate.py"]),
+    ("Candidate H/T/D/C/U ledger gate (Sponsor Directive §5)", ["python", "scripts/ci/candidate_htdcu.py"], ["scripts/ci/candidate_htdcu.py", "docs/CANDIDATE_HTDCU.md"]),
     ("BLOCKED ledger regeneration gate (Objective §6 out-of-repo prerequisites)", ["python", "scripts/ci/blocked_ledger.py"], ["scripts/ci/blocked_ledger.py", "docs/BLOCKED.md"]),
     ("Coverage ledger regeneration gate (Objective §4 machine-computed coverage)", ["python", "scripts/ci/coverage_ledger.py"], ["scripts/ci/coverage_ledger.py", "docs/COVERAGE.md"]),
     ("L7 ledger regeneration gate", ["python", "scripts/ci/l7_ledger.py"], ["scripts/ci/l7_ledger.py", "docs/L7_LEDGER.md"]),
