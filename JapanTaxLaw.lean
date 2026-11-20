@@ -680,3 +680,6 @@ import JapanTaxLaw.EnumRefsAndOperatorsTests
 import JapanTaxLaw.BareLabelFragments
 import JapanTaxLaw.BareLabelFragmentsSpec
 import JapanTaxLaw.BareLabelFragmentsTests
+import JapanTaxLaw.ProvisionalNormsAndLabels
+import JapanTaxLaw.ProvisionalNormsAndLabelsSpec
+import JapanTaxLaw.ProvisionalNormsAndLabelsTests
