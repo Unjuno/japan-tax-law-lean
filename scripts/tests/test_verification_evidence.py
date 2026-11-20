@@ -61,6 +61,23 @@ class NumeralTests(unittest.TestCase):
         self.assertEqual(ve.article_from_name("相続税法 art. 21-5 ↔ Y.lean"), "21_5")
 
 
+class AdversarialReviewTests(unittest.TestCase):
+    def test_parallel_review_files_recognise_modules(self):
+        mods = ["DelinquencyTax", "UnreportedSurcharge", "GiftAddBack",
+                "GiftSpecialDeduction", "GroupLossRatio", "CorporateGroupLossOffset",
+                "CorporateLossCarryforward", "DisasterLossDeduction",
+                "InheritanceSuccessiveDeduction", "SpousalGiftDeduction",
+                "ConsumptionTaxImportBase", "LocalCorporationTaxRate", "LocalIncomeTax",
+                "LocalInsuranceDeduction", "SocialInsuranceMutualAidDeduction",
+                "LowAlcoholDutySpecialRate", "ResidentialTransferSpecialTax",
+                "SpecialMeasuresCasinoRatio", "SpouseSpecialDeduction", "StampDutySpecial91"]
+        for m in mods:
+            self.assertTrue(ve.review_ok(m, ""), m + " must be recognised from docs/adversarial/")
+
+    def test_unrelated_module_is_not_recognised(self):
+        self.assertFalse(ve.review_ok("NoSuchModuleEver", ""))
+
+
 class AttestationTests(unittest.TestCase):
     def test_missing_module_hash_is_rejected(self):
         att = {
