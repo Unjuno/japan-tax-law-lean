@@ -267,7 +267,14 @@ def build() -> dict:
         scoped = scoped_article_text(info["law_id"], info["article"])
         needles_ok = bool(info["needles"]) and all(core.norm(n) in scoped for n in info["needles"])
         n_examples = len(re.findall(r"example\s*:", strip_comments(tests_text)))
-        boundary_examples = sum(1 for v in ("0", "1", "11", "12", "13") if v in tests_text)
+        # Count kernel-decided examples whose *statement* contains a numeric
+        # literal. The old check only looked for the literal strings 0/1/11/12/13
+        # anywhere in the file, which arbitrarily rejected modules whose boundary
+        # values are e.g. 85/90 or 10,000 while accepting a stray "1" in a comment.
+        # Every counted item is still an attested, kernel-decided example.
+        boundary_examples = sum(
+            1 for statement in re.findall(r"example\s*:(.*?):=", strip_comments(tests_text), re.S)
+            if re.search(r"\d", statement))
         review = review_ok(base, review_text)
         independent = independent_spec_ok(spec_text, impl_text)
 
