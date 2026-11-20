@@ -677,3 +677,6 @@ import JapanTaxLaw.KanjiOrdinalsTests
 import JapanTaxLaw.EnumRefsAndOperators
 import JapanTaxLaw.EnumRefsAndOperatorsSpec
 import JapanTaxLaw.EnumRefsAndOperatorsTests
+import JapanTaxLaw.BareLabelFragments
+import JapanTaxLaw.BareLabelFragmentsSpec
+import JapanTaxLaw.BareLabelFragmentsTests
