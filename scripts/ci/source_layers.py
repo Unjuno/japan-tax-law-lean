@@ -31,6 +31,7 @@ DISCOVERY = REPO / "docs" / "RECURSIVE_DISCOVERY.md"
 BLOCKED = REPO / "docs" / "BLOCKED.md"
 OUT_JSON = REPO / "data" / "SOURCE_LAYERS.json"
 OUT_MD = REPO / "docs" / "SOURCE_LAYERS.md"
+QUEUE = REPO / "build" / "task_queue.json"
 
 
 def _read(p: Path) -> str:
@@ -40,6 +41,22 @@ def _read(p: Path) -> str:
 def _int(pattern: str, text: str, default: int = 0) -> int:
     m = re.search(pattern, text)
     return int(m.group(1)) if m else default
+
+
+def queue_counts() -> dict:
+    """Read only the payload head of the streamed queue (no 240 MB load).
+
+    A missing queue is UNKNOWN (None), never zero: the object does not exist
+    on some branches, and that is not the same as 'no normative units'.
+    """
+    if not QUEUE.exists():
+        return {}
+    with QUEUE.open("r", encoding="utf-8") as fh:
+        head = fh.read(16384)
+    m = re.search(r'"status_counts"\s*:\s*\{([^}]*)\}', head)
+    if not m:
+        return {}
+    return {k: int(v) for k, v in re.findall(r'"([A-Z_]+)"\s*:\s*(\d+)', m.group(1))}
 
 
 def build() -> dict:
@@ -165,10 +182,21 @@ def build() -> dict:
             "notes": "附則・経過措置の新旧参照。施行版を別途固定するまで未検証。",
         },
     ]
+    q = queue_counts()
+    pipeline = {
+        "normative_units_total": q.get("units_total"),
+        "fully_verified_units": q.get("FULLY_VERIFIED"),
+        "proved_scope_units": q.get("PROVED_SCOPE"),
+        "not_started_units": q.get("NOT_STARTED"),
+        "blocked_units": q.get("BLOCKED"),
+        "human_legal_reviews": reviewers,
+        "note": "Separate denominators; unknown (None) means the input is absent, never zero.",
+    }
     return {
         "tool": "scripts/ci/source_layers.py",
         "schema": 1,
         "inventory_snapshot": snapshot,
+        "verification_pipeline": pipeline,
         "discovery": {
             "distinct_unmatched_reference_names": unmatched,
             "tax_name_candidates_outside_ledger": tax_candidates,
@@ -212,7 +240,15 @@ def main() -> int:
             l["layer_id"], l["label_ja"], l["legal_nature"], l["acquisition_status"],
             l["scope_status"], l["count"] if l["count"] is not None else "-",
             l["verification_status"]))
+    p = payload["verification_pipeline"]
+    lines += ["", "## Obligation counts (separate denominators)", ""]
+    for key in ("normative_units_total", "fully_verified_units", "proved_scope_units",
+                "not_started_units", "blocked_units", "human_legal_reviews"):
+        value = p[key]
+        lines.append(f"- {key}: {value if value is not None else 'unknown'}")
     lines += [
+        "",
+        p["note"],
         "",
         "No layer other than L0 has acquired content in this repository. No",
         "completion claim is made for any layer.",
