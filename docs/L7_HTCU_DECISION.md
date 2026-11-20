@@ -49,6 +49,21 @@ wrote docs/COVERAGE.md / matches committed state (deterministic)
 
 All 3,438 candidates now carry all five axes; 0 human reviews recorded.
 
+## Corrections after independent Codex review of PR #203
+
+1. **Coverage regenerated with real audit inputs** — the first committed
+   `docs/COVERAGE.md` was generated before the sweep/cross-law/reference
+   artifacts existed, so structural axes showed `n/a`. Re-ran `cross_law.py`,
+   `sweep_gate.py` and `collect_references.py` before regenerating; the ledger
+   now reports 325 parse-ok / 42,584 articles / 447 pinned modules.
+2. **Reproduction record corrected** — `scripts.law_audit.audit` only audits the
+   income-tax act/order pair and cannot reproduce candidates from 191 laws.
+   `T:` now points to the full-inventory `python scripts/ci/l7_candidates.py`
+   sweep with the same family wiring as `collect_rows()`.
+3. **Review overlays propagate** — when a valid human review is applied,
+   `render()` recomputes D and U so they never say "unreviewed" for a
+   `confirmed-anomaly` row. Tests cover both reviewed and unreviewed records.
+
 ## H / T / D / C / U for this change
 
 - **H**: if the candidate ledger already satisfied §5, no row would lack an

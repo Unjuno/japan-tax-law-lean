@@ -39,6 +39,27 @@ class HtcuTests(unittest.TestCase):
             self.assertIn(row["law_id"], row["uncertainty"])
             self.assertIn(row["line"], row["uncertainty"])
 
+    def test_review_overlay_is_reflected_in_d_and_u(self):
+        rec = {"rule_id": "R", "law_id": "L", "location": "P", "line": "7"}
+        plain = L7.htcu(rec)
+        self.assertIn("unreviewed", plain[2])
+        self.assertIn("not recorded", plain[4])
+        reviewed = L7.htcu(rec, {
+            "review_status": "confirmed-anomaly", "reviewer": "Dr X",
+            "review_date": "2026-11-20", "source_citation": "e-Gov p.3",
+        })
+        self.assertNotIn("unreviewed", reviewed[2])
+        self.assertIn("confirmed-anomaly", reviewed[2])
+        self.assertIn("Dr X", reviewed[2])
+        self.assertIn("2026-11-20", reviewed[4])
+        self.assertIn("e-Gov p.3", reviewed[4])
+
+    def test_reproduction_uses_full_inventory_sweep(self):
+        with CSV.open(encoding="utf-8", newline="") as f:
+            row = next(csv.DictReader(f))
+        self.assertIn("l7_candidates.py", row["reproduction_test"])
+        self.assertNotIn("scripts.law_audit.audit", row["reproduction_test"])
+
     def test_candidate_key_still_stable(self):
         row = ["R", "candidate", "L", "T", "P", "7", "M", "E", "unreviewed", "", ""]
         key = L7.candidate_key(row)
