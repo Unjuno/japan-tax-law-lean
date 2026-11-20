@@ -588,3 +588,6 @@ import JapanTaxLaw.PowderSakeQuantityTests
 import JapanTaxLaw.TobaccoRate
 import JapanTaxLaw.TobaccoRateSpec
 import JapanTaxLaw.TobaccoRateTests
+import JapanTaxLaw.StampExchangeFee
+import JapanTaxLaw.StampExchangeFeeSpec
+import JapanTaxLaw.StampExchangeFeeTests

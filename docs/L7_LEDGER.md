@@ -21,21 +21,29 @@
 
 | 指標 | 値 |
 |---|---|
-| 条文数 | 0 |
-| 項数 | 0 |
-| 号数 | 0 |
-| references_extracted（参照イベント件数） | 0 |
-| references_internal_checked | 0 |
-| references_external_unverified | 0 |
-| references_unsupported | 0 |
-| candidate（未確定） | **0** |
+| 条文数 | 42,584 |
+| 項数 | 86,403 |
+| 号数 | 61,672 |
+| references_extracted（参照イベント件数） | 476,500 |
+| references_internal_checked | 100,944 |
+| references_external_unverified | 157,983 |
+| references_unsupported | 250,043 |
+| candidate（未確定） | **3,438** |
 | verified-anomaly | **0** |
 
 ## 3. 候補の内訳（by rule）
 
 | ルール | 件数 |
 |---|---|
-| (no build/audit_sweep.json present) | — |
+| PAREN.UNBALANCED | 1536 |
+| REF.ITEM.MISSING | 829 |
+| REF.ARTICLE.MISSING | 587 |
+| REF.PARA.MISSING | 339 |
+| REF.SUPP.MISSING | 99 |
+| REF.ARTICLE.DELETED | 39 |
+| STRUCT.GAP.ARTICLE | 5 |
+| REF.RELATIVE.MISSING | 3 |
+| TOC.BODY.MISSING | 1 |
 
 完全な候補ごとの一覧とレビュー状態は [`L7_CANDIDATES_UNREVIEWED.csv`](L7_CANDIDATES_UNREVIEWED.csv) に機械生成で掲載（`scripts/ci/l7_candidates.py`、CI で再生成照合。行は全件 `review_status=unreviewed`）。
 
@@ -51,7 +59,7 @@
 ## 5. クロスロー・ピン整合（L1↔L3）
 
 ```text
-cross_law: scanned 589 Lean files; 478 pinned modules consistent, 0 failed; 111 unpinned (not counted as verified); unresolved unenforced laws: 508CO0000000106, 508M60000040027
+cross_law: scanned 595 Lean files; 481 pinned modules consistent, 0 failed; 114 unpinned (not counted as verified); unresolved unenforced laws: 508CO0000000106, 508M60000040027
 ```
 
 ## 6. 検証境界（誠実な宣言）
