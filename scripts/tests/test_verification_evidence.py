@@ -49,6 +49,20 @@ class NumeralTests(unittest.TestCase):
         """
         self.assertEqual(ve.spec_literals(text), {2_900_000, 12})
 
+    def test_independent_spec_accepts_both_naming_conventions(self):
+        impl = "def full : Nat := 2_900_000\n"
+        prefix = "def specFull : Nat := 2_900_000\n"
+        suffix = "def fullSpec : Nat := 2_900_000\n"
+        self.assertTrue(ve.independent_spec_ok(prefix, impl))
+        self.assertTrue(ve.independent_spec_ok(suffix, impl))
+
+    def test_agreement_helpers_may_reference_implementation(self):
+        impl = "def full : Nat := 2_900_000\n"
+        spec = ("def specFull : Nat := 2_900_000\n"
+                "def agreeX : Bool := specFull == full\n"
+                "example : specFull == full := by decide\n")
+        self.assertTrue(ve.independent_spec_ok(spec, impl))
+
     def test_independent_spec_rejects_circular_definition(self):
         impl = "def full : Nat := 2_900_000\n"
         good = "def specFull : Nat := 2_900_000\ndef agreeX := specFull == full\n"
