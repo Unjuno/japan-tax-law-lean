@@ -91,6 +91,8 @@ def build() -> dict:
     disc_acquired = discovered.get("laws_acquired_total") or 0
     disc_snapshot = discovered.get("snapshot_date", "")
     aux_index = json.loads(AUX_INDEX.read_text(encoding="utf-8")) if AUX_INDEX.exists() else None
+    l4_acquired = (aux_index or {}).get("documents_acquired_count", 0)
+    l4_status = "ACQUIRED_PINNED_ONLY" if l4_acquired else "NOT_ACQUIRED"
 
     layers = [
         {
@@ -154,10 +156,10 @@ def build() -> dict:
             "label_ja": "通達",
             "legal_nature": "行政通達（法的拘束力は条文ではなく行政内部）",
             "authority": "国税庁 / 総務省",
-            "acquisition_status": "NOT_ACQUIRED",
+            "acquisition_status": l4_status,
             "scope_status": "AUXILIARY_LAYER",
             "count": None,
-            "count_acquired": 0,
+            "count_acquired": l4_acquired,
             "pinned_snapshot": "",
             "verification_status": "OUT_OF_SCOPE",
             "auxiliary": True,

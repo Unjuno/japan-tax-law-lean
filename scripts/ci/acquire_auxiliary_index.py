@@ -23,6 +23,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
 SOURCE = "https://www.nta.go.jp/law/tsutatsu/menu.htm"
 ERROR_MARKER = "指定されたページを表示できませんでした"
+LEAF_SOURCE = "https://www.nta.go.jp/law/tsutatsu/kihon/shotoku/01/01.htm"
 RAW_DIR = REPO / "data" / "raw_circulars"
 OUT = RAW_DIR / "nta_tsutatsu_index.meta.json"
 LAYER = "L4_CIRCULAR"
@@ -54,10 +55,27 @@ def main() -> int:
     raw_path.write_bytes(body)
     # Count links as a coarse index-size measurement (not an acquisition count).
     hrefs = re.findall(r'href="([^"]+)"', text, flags=re.IGNORECASE)
+    # Pin one actual circular provision page as a separate acquired document.
+    lreq = urllib.request.Request(LEAF_SOURCE, headers={"User-Agent": "japan-tax-law-lean/1.0 (circular pinning)"})
+    with urllib.request.urlopen(lreq, timeout=30, context=tls_context()) as lresp:
+        lbody = lresp.read()
+    ltext = lbody.decode("shift_jis", errors="replace")
+    if ERROR_MARKER in ltext or len(lbody) < 5000:
+        raise RuntimeError("refusing to pin a non-content circular page")
+    lname = "nta_shotoku_01_01.html"
+    (RAW_DIR / lname).write_bytes(lbody)
+    ltitle = re.search(r"<title>(.*?)</title>", ltext, re.S)
+    acquired_documents = [{
+        "url": LEAF_SOURCE,
+        "raw_file": "data/raw_circulars/" + lname,
+        "raw_sha256": hashlib.sha256(lbody).hexdigest(),
+        "raw_bytes": len(lbody),
+        "title": ltitle.group(1).strip() if ltitle else "",
+    }]
     meta = {
         "tool": "scripts/ci/acquire_auxiliary_index.py",
         "layer_id": LAYER,
-        "claim": "index page pinned only; underlying circular texts NOT acquired",
+        "claim": "index page + one circular provision page pinned; layer NOT fully acquired",
         "source_url": SOURCE,
         "final_url": final_url,
         "fetched_date": date.today().isoformat(),
@@ -66,6 +84,8 @@ def main() -> int:
         "raw_bytes": len(body),
         "index_href_count": len(hrefs),
         "content_acquired": False,
+        "acquired_documents": acquired_documents,
+        "documents_acquired_count": len(acquired_documents),
         "error_page_rejected": True,
         "retracted_source": "https://www.nta.go.jp/law/tsutatsu/kobetsu/index.htm "
                             "(returned an HTML 404 template with HTTP 200; not acquired)",

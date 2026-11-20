@@ -1,7 +1,17 @@
 {
   "auxiliary_index_acquisition": {
-    "claim": "index page pinned only; underlying circular texts NOT acquired",
+    "acquired_documents": [
+      {
+        "raw_bytes": 6682,
+        "raw_file": "data/raw_circulars/nta_shotoku_01_01.html",
+        "raw_sha256": "6d7d6ba43294e00afd3b42b9202138232b93cfa521a4af171dfbf7e2e946a0bd",
+        "title": "〔居住者、非永住者及び非居住者（第3、4、5号関係）〕｜国税庁",
+        "url": "https://www.nta.go.jp/law/tsutatsu/kihon/shotoku/01/01.htm"
+      }
+    ],
+    "claim": "index page + one circular provision page pinned; layer NOT fully acquired",
     "content_acquired": false,
+    "documents_acquired_count": 1,
     "error_page_rejected": true,
     "fetched_date": "2026-11-21",
     "final_url": "https://www.nta.go.jp/law/tsutatsu/menu.htm",
@@ -83,11 +93,11 @@
       "verification_status": "OUT_OF_SCOPE"
     },
     {
-      "acquisition_status": "NOT_ACQUIRED",
+      "acquisition_status": "ACQUIRED_PINNED_ONLY",
       "authority": "国税庁 / 総務省",
       "auxiliary": true,
       "count": null,
-      "count_acquired": 0,
+      "count_acquired": 1,
       "label_ja": "通達",
       "layer_id": "L4_CIRCULAR",
       "legal_nature": "行政通達（法的拘束力は条文ではなく行政内部）",
