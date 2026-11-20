@@ -46,7 +46,13 @@ def normalize_task(t: dict) -> dict:
 
 
 def computable(t: dict) -> int:
-    frag = t.get("norm_fragment", "") or t.get("verbatim", "")
+    """Score arithmetic content across every text field the queue may use.
+
+    v3 normative units carry ``text``; older queue rows used ``norm_fragment``
+    or ``verbatim``. Reading only the legacy fields made every v3 unit score
+    zero, so the Coordinator never preferred a computable provision.
+    """
+    frag = " ".join(str(t.get(f) or "") for f in ("text", "norm_fragment", "verbatim"))
     return sum(1 for k in COMPUTE_MARKERS if k in frag)
 
 
