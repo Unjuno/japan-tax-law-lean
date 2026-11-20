@@ -1175,6 +1175,12 @@ def checks():
            "file", None,
            ["その価格が一万八千円に満たないものである場合以外の場合に限り", "当該物品の所在場所を所轄する税関に申告し、当該物品の検査を経て、当該税関の譲渡の許可を受けなければならない"])
 
+    # SavingsDepositInterest — cycle-27
+    yield ("SavingsDepositInterest.lean",
+           "326AC1000000145",
+           "file", None,
+           ["引き出された部分の金額が政令で定める期間内において十万円をこえる場合", "納税貯蓄組合預金の利子については、所得税を課さない"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",

@@ -549,3 +549,6 @@ import JapanTaxLaw.ExamFeeTests
 import JapanTaxLaw.DutyFreeTransfer
 import JapanTaxLaw.DutyFreeTransferSpec
 import JapanTaxLaw.DutyFreeTransferTests
+import JapanTaxLaw.SavingsDepositInterest
+import JapanTaxLaw.SavingsDepositInterestSpec
+import JapanTaxLaw.SavingsDepositInterestTests
