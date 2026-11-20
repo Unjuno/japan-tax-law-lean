@@ -539,3 +539,9 @@ import JapanTaxLaw.GiftBasicDeductionUnitTests
 import JapanTaxLaw.InternationalTouristTaxRate
 import JapanTaxLaw.InternationalTouristTaxRateSpec
 import JapanTaxLaw.InternationalTouristTaxRateTests
+import JapanTaxLaw.LocalGasolineRate
+import JapanTaxLaw.LocalGasolineRateSpec
+import JapanTaxLaw.LocalGasolineRateTests
+import JapanTaxLaw.GasolineTaxRate
+import JapanTaxLaw.GasolineTaxRateSpec
+import JapanTaxLaw.GasolineTaxRateTests

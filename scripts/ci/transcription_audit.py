@@ -1137,6 +1137,18 @@ def checks():
            "article", "第十五条",
            ["本邦からの出国一回につき、三千円とする"])
 
+    # 地方揮発油税法 art. 4 — LocalGasolineRate.lean (norm unit)
+    yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineRate.lean",
+           "330AC0000000104",
+           "article", "第四条",
+           ["揮発油一キロリットルにつき四千四百円とする"])
+
+    # 揮発油税法 art. 9 — GasolineTaxRate.lean (norm unit)
+    yield ("揮発油税法 art. 9（税率: 一キロリットルにつき二万四千三百円）↔ GasolineTaxRate.lean",
+           "332AC0000000055",
+           "article", "第九条",
+           ["揮発油一キロリットルにつき二万四千三百円とする"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",

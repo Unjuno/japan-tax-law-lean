@@ -3,18 +3,118 @@
   "schema": "verification-evidence-v1",
   "units": {
     "NORM|4cd756c89d1d4861be56ba03c83c189d8981f13a9d09cd010124885ebe50d245": {
-      "source_location": {"evidence_ref": "build/task_queue.json", "date": "2026-11-20", "detail": "exact source_path + SHA-256 in pinned queue; 国際観光旅客税法 art.15(1)"},
-      "decomposition_audit": {"evidence_ref": "build/task_queue.json", "date": "2026-11-20", "detail": "coverage.status=COVERED, original_length=36, reconstructed_length=36, unresolved=0"},
-      "source_correspondence_audit": {"evidence_ref": "data/source_correspondence_20261120.json", "date": "2026-11-20", "detail": "independent needle + kansuji check against pinned raw text"},
-      "independent_spec": {"evidence_ref": "JapanTaxLaw/InternationalTouristTaxRateSpec.lean", "date": "2026-11-20", "detail": "independent bare-Nat restatement from 原文「三千円」"},
-      "implementation": {"evidence_ref": "JapanTaxLaw/InternationalTouristTaxRate.lean", "date": "2026-11-20", "detail": "departureTaxRate : Money := 3_000; theorem departureTaxRate_value"},
-      "tests": {"evidence_ref": "JapanTaxLaw/InternationalTouristTaxRateTests.lean", "date": "2026-11-20", "detail": "kernel-decided smoke checks incl. 桁違い 300 / 30,000"},
+      "source_location": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "exact source_path + SHA-256 in pinned queue; 国際観光旅客税法 art.15(1)"
+      },
+      "decomposition_audit": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "coverage.status=COVERED, original_length=36, reconstructed_length=36, unresolved=0"
+      },
+      "source_correspondence_audit": {
+        "evidence_ref": "data/source_correspondence_20261120.json",
+        "date": "2026-11-20",
+        "detail": "independent needle + kansuji check against pinned raw text"
+      },
+      "independent_spec": {
+        "evidence_ref": "JapanTaxLaw/InternationalTouristTaxRateSpec.lean",
+        "date": "2026-11-20",
+        "detail": "independent bare-Nat restatement from 原文「三千円」"
+      },
+      "implementation": {
+        "evidence_ref": "JapanTaxLaw/InternationalTouristTaxRate.lean",
+        "date": "2026-11-20",
+        "detail": "departureTaxRate : Money := 3_000; theorem departureTaxRate_value"
+      },
+      "tests": {
+        "evidence_ref": "JapanTaxLaw/InternationalTouristTaxRateTests.lean",
+        "date": "2026-11-20",
+        "detail": "kernel-decided smoke checks incl. 桁違い 300 / 30,000"
+      },
       "kernel_proof": "",
       "proof_scope": "",
       "boundary_proof": "",
       "cross_law_proof": "",
       "adversarial_review": "",
       "notes": "kernel_proof deliberately unrecorded: local lake unavailable; CI must verify the Lean build first. Human legal review remains pending."
+    },
+    "NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8": {
+      "source_location": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "330AC0000000104 第四条: exact source_path + SHA-256"
+      },
+      "decomposition_audit": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "coverage.status=COVERED, unresolved=0"
+      },
+      "source_correspondence_audit": {
+        "evidence_ref": "data/source_correspondence_330AC0000000104.json",
+        "date": "2026-11-20",
+        "detail": "independent needle + kansuji check: 四千四百 = 4,400"
+      },
+      "independent_spec": {
+        "evidence_ref": "JapanTaxLaw/LocalGasolineRateSpec.lean",
+        "date": "2026-11-20",
+        "detail": "independent bare-Nat restatement = 4_400"
+      },
+      "implementation": {
+        "evidence_ref": "JapanTaxLaw/LocalGasolineRate.lean",
+        "date": "2026-11-20",
+        "detail": "LocalGasolineRate rate : Money := 4_400"
+      },
+      "tests": {
+        "evidence_ref": "JapanTaxLaw/LocalGasolineRateTests.lean",
+        "date": "2026-11-20",
+        "detail": "kernel-decided boundary and digit-scale checks"
+      },
+      "kernel_proof": "",
+      "proof_scope": "",
+      "boundary_proof": "",
+      "cross_law_proof": "",
+      "adversarial_review": "",
+      "notes": "kernel_proof deliberately unrecorded; CI must verify Lean build. Human legal review pending."
+    },
+    "NORM|8bf684764da81b921477924a5e17db0d25d2ddfae535431c99302894578f927c": {
+      "source_location": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "332AC0000000055 第九条: exact source_path + SHA-256"
+      },
+      "decomposition_audit": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "coverage.status=COVERED, unresolved=0"
+      },
+      "source_correspondence_audit": {
+        "evidence_ref": "data/source_correspondence_332AC0000000055.json",
+        "date": "2026-11-20",
+        "detail": "independent needle + kansuji check: 二万四千三百 = 24,300"
+      },
+      "independent_spec": {
+        "evidence_ref": "JapanTaxLaw/GasolineTaxRateSpec.lean",
+        "date": "2026-11-20",
+        "detail": "independent bare-Nat restatement = 24_300"
+      },
+      "implementation": {
+        "evidence_ref": "JapanTaxLaw/GasolineTaxRate.lean",
+        "date": "2026-11-20",
+        "detail": "GasolineTaxRate rate : Money := 24_300"
+      },
+      "tests": {
+        "evidence_ref": "JapanTaxLaw/GasolineTaxRateTests.lean",
+        "date": "2026-11-20",
+        "detail": "kernel-decided boundary and digit-scale checks"
+      },
+      "kernel_proof": "",
+      "proof_scope": "",
+      "boundary_proof": "",
+      "cross_law_proof": "",
+      "adversarial_review": "",
+      "notes": "kernel_proof deliberately unrecorded; CI must verify Lean build. Human legal review pending."
     }
   }
 }
