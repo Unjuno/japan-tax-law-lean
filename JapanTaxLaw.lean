@@ -537,3 +537,6 @@ import JapanTaxLaw.PerCapitaEqualRateTests
 import JapanTaxLaw.LocalTobaccoTaxRate
 import JapanTaxLaw.LocalTobaccoTaxRateSpec
 import JapanTaxLaw.LocalTobaccoTaxRateTests
+import JapanTaxLaw.AncillaryTaxBaseRoundingUnit
+import JapanTaxLaw.AncillaryTaxBaseRoundingUnitSpec
+import JapanTaxLaw.AncillaryTaxBaseRoundingUnitTests
