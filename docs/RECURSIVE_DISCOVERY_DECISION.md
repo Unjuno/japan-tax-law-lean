@@ -43,10 +43,22 @@ revisions remain a separate layer.
 full_law_list_entries:        9001
 ledger laws:                   327
 unmatched reference names:    7524
-resolved NEW official law ids: 382     (all names without 「税」)
-ledger aliases:                  2
-unresolved names:             7138
+resolved NEW official law ids: 380     (all names without 「税」)
+ledger aliases:                  0
+unresolved names:             7144
 ```
+
+Corrected after independent Codex review of PR #196 (three findings):
+1. **Prefix matching removed** — a shared long prefix can map an Act to its
+   ministerial ordinance (沖縄振興開発特別措置法 → 404M50000008008) or an
+   enforcement order to its Act (企業合理化促進法施行令 → the Act). Such
+   references now stay `unresolved`; only exact name, era-stripped short
+   title and law-number matches are accepted.
+2. **Occurrence grouping** — multiple reference names resolving to one law id
+   are grouped with all names retained and occurrences summed, instead of a
+   later name silently overwriting an earlier one.
+3. **Gate checks both artifacts** — the regeneration gate now compares the
+   JSON ledger as well as the Markdown; a tampered/missing JSON fails.
 
 Highest-frequency new candidates: 金融商品取引法 (319), 会社法 (238),
 福島復興再生特別措置法 (138), 都市計画法 (137), 農地法 (135), 保険業法 (135),
@@ -67,14 +79,14 @@ wrote ... / matches committed state (deterministic)
   keyword ledger, zero non-tax statutes would be resolved to official ids.
 - **T (test)**: `python scripts/law_audit/inventory/recursive_discovery_resolve.py`
   and inspect `data/RECURSIVE_DISCOVERY_RESOLVED.json`.
-- **D (decision)**: 382 non-tax statutes resolved to official ids; H is refuted.
+- **D (decision)**: 380 non-tax statutes resolved to official ids; H is refuted.
   This is discovery only, not scope closure.
 - **C (competing interpretation)**: one could treat every name match as a new
   in-scope target and add it to the ledger. Rejected: addition requires an
   official revision + SHA-256 pin; otherwise the count would be unverifiable.
-- **U (uncertainty)**: 7,138 names remain unresolved; some are abbreviations,
+- **U (uncertainty)**: 7,144 names remain unresolved; some are abbreviations,
   repealed laws or typos. They are retained, not silently dropped. Resolving
-  them and pinning the 382 candidates remains an open obligation.
+  them and pinning the 380 candidates remains an open obligation.
 
 ## Follow-up: first related statute acquired in a separate layer
 

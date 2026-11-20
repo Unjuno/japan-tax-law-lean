@@ -49,7 +49,15 @@ class IndexTests(unittest.TestCase):
             self.assertEqual(len(got), 3)
             self.assertEqual(got[0]["law_id"], "325AC0000000226")
 
-    def test_exact_short_and_prefix_resolution(self):
+    def test_prefix_only_name_stays_unresolved(self):
+        exact, short, by_no = RDR.build_index(self.ENTRIES)
+        self.assertEqual(
+            RDR.resolve_name("地方税法施行令", exact, short, by_no),
+            (None, "unresolved"),
+            "a shared prefix must not assign a different statute's law id",
+        )
+
+    def test_exact_short_and_law_number_resolution(self):
         exact, short, by_no = RDR.build_index(self.ENTRIES)
         self.assertEqual(RDR.resolve_name("地方税法", exact, short, by_no),
                          ("325AC0000000226", "exact_law_name"))
@@ -79,6 +87,27 @@ class LawListCoverageTests(unittest.TestCase):
             lid, method = RDR.resolve_name(name, exact, short, by_no)
             self.assertTrue(lid, name)
             self.assertEqual(method, "exact_law_name")
+
+    def test_json_groups_all_reference_names(self):
+        import json
+        doc = json.loads(RDR.OUT_JSON.read_text(encoding="utf-8"))
+        for group in doc["new_law_candidates"]:
+            self.assertTrue(group["reference_names"])
+            self.assertEqual(group["total_occurrences"],
+                             sum(n["occurrences"] for n in group["reference_names"]))
+        by_lid = {}
+        for group in doc["new_law_candidates"]:
+            by_lid.setdefault(group["law_id"], []).extend(n["name"] for n in group["reference_names"])
+        self.assertTrue(all(len(v) >= 1 for v in by_lid.values()))
+        self.assertGreater(len(doc["unresolved"]), 0)
+
+    def test_gate_compares_json_artifact(self):
+        src = RDR.MODULE.read_text(encoding="utf-8") if hasattr(RDR, "MODULE") else ""
+        if not src:
+            import inspect
+            src = inspect.getsource(RDR)
+        self.assertIn("json_same", src)
+        self.assertIn("OUT_JSON.read_text", src)
 
 
 if __name__ == "__main__":

@@ -93,11 +93,9 @@ def resolve_name(ref: str, exact: dict[str, str], short: dict[str, str], by_no: 
         return short[s], "short_law_name"
     if s in by_no:
         return by_no[s], "law_number"
-    # Conservative prefix match, only for long distinctive names.
-    if len(s) >= 8:
-        hits = [k for k in short if (k.startswith(s) or s.startswith(k)) and len(k) >= 8]
-        if len(hits) == 1:
-            return short[hits[0]], "unique_prefix"
+    # A shared prefix is NOT evidence of identity: it can map an Act name to
+    # its ministerial ordinance (or vice versa). Such references stay
+    # unresolved unless an explicit alias/identifying token is recorded.
     return None, "unresolved"
 
 
@@ -146,6 +144,7 @@ def build():
     inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
     led_ids = {str(l["law_id"]) for l in inv.get("laws", [])}
 
+    id_to_title = {e["law_id"]: e["law_name"] for e in entries}
     resolved_new: dict[str, dict] = {}
     alias: dict[str, dict] = {}
     unresolved: list[dict] = []
@@ -158,9 +157,23 @@ def build():
         elif lid in led_ids:
             alias[norm(name)] = row
         else:
-            resolved_new[lid] = row
+            # Group every reference name under its law id; never overwrite an
+            # earlier name/occurrence count with a later one.
+            group = resolved_new.setdefault(lid, {
+                "law_id": lid,
+                "official_title": id_to_title.get(lid, ""),
+                "total_occurrences": 0,
+                "contains_tax_keyword": False,
+                "reference_names": [],
+            })
+            group["total_occurrences"] += count
+            group["contains_tax_keyword"] = group["contains_tax_keyword"] or ("税" in name)
+            group["reference_names"].append({"name": name, "occurrences": count, "method": method})
 
-    new_sorted = sorted(resolved_new.values(), key=lambda r: (-r["occurrences"], str(r["law_id"])))
+    for group in resolved_new.values():
+        group["reference_names"].sort(key=lambda r: (-r["occurrences"], r["name"]))
+    new_sorted = sorted(resolved_new.values(),
+                        key=lambda r: (-r["total_occurrences"], str(r["law_id"])))
     alias_sorted = sorted(alias.values(), key=lambda r: (-r["occurrences"], r["name"]))
     unresolved_sorted = sorted(unresolved, key=lambda r: (-r["occurrences"], r["name"]))
 
@@ -178,8 +191,7 @@ def build():
         "unresolved": unresolved_sorted,
         "claim": "discovery only; not acquired, not parsed, not modelled, not reviewed",
     }
-    OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
-    OUT_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True), encoding="utf-8")
+    json_text = json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True)
 
     lines = [
         "# Recursive discovery — resolution to official law IDs (machine-generated)",
@@ -205,12 +217,17 @@ def build():
         "",
         "## New law-id candidates (not in ledger)",
         "",
-        "| law_id | name | occurrences | contains 税 | method |",
-        "|---|---|---:|:--:|---|",
+        "Reference names are grouped under their law id; occurrences are summed",
+        "across all names. Exact / short-title / law-number matches only — a",
+        "shared prefix is never treated as identity.",
+        "",
+        "| law_id | official title | occurrences | names | contains 税 |",
+        "|---|---|---:|---:|:--:|",
     ]
     for r in new_sorted:
-        lines.append(f"| `{r['law_id']}` | {r['name']} | {r['occurrences']} | "
-                     f"{'YES' if r['contains_tax_keyword'] else 'NO'} | {r['method']} |")
+        lines.append(f"| `{r['law_id']}` | {r['official_title']} | {r['total_occurrences']} | "
+                     f"{len(r['reference_names'])} | "
+                     f"{'YES' if r['contains_tax_keyword'] else 'NO'} |")
     lines += [
         "",
         "## Ledger name aliases (already acquired under another title)",
@@ -230,16 +247,20 @@ def build():
     for r in unresolved_sorted[:100]:
         lines.append(f"| {r['name']} | {r['occurrences']} |")
     lines.append("")
-    return "\n".join(lines)
+    return json_text, "\n".join(lines)
 
 
 def main() -> int:
-    text = build()
-    if OUT_MD.exists() and OUT_MD.read_text(encoding="utf-8") == text:
+    json_text, md_text = build()
+    OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
+    json_same = OUT_JSON.exists() and OUT_JSON.read_text(encoding="utf-8") == json_text
+    md_same = OUT_MD.exists() and OUT_MD.read_text(encoding="utf-8") == md_text
+    if json_same and md_same:
         print("recursive discovery resolution matches committed state (deterministic)")
         return 0
-    OUT_MD.write_text(text, encoding="utf-8")
-    print("wrote", OUT_MD)
+    OUT_JSON.write_text(json_text, encoding="utf-8")
+    OUT_MD.write_text(md_text, encoding="utf-8")
+    print("wrote", OUT_JSON, "and", OUT_MD)
     return 1
 
 

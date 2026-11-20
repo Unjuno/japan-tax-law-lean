@@ -49,9 +49,9 @@ as covered scope.
 |---|---:|
 | official national law-list entries | 9001 |
 | unmatched reference names from pinned snapshots | 7524 |
-| related statutes resolved to official law ids, NOT in ledger | 382 |
-| reference names aliased to laws already in ledger | 2 |
-| unresolved reference names (uncertainty retained) | 7138 |
+| related statutes resolved to official law ids, NOT in ledger | 380 |
+| reference names aliased to laws already in ledger | 0 |
+| unresolved reference names (uncertainty retained) | 7144 |
 | related statutes ACQUIRED in separate layer (not in ledger) | 1 |
 
 Discovered law ids are NOT added to INVENTORY, NOT acquired, NOT parsed,
@@ -75,7 +75,7 @@ and must never be merged into the 'laws in ledger' completion rate.
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
 | external references NOT bound to the ledger | 175186 |
-| related statutes discovered but not acquired (Objective §2) | 382 |
+| related statutes discovered but not acquired (Objective §2) | 380 |
 | related statutes acquired but not parsed/modelled/reviewed | 1 |
 
 An unpinned module, an unreviewed candidate, an unbound reference and an
