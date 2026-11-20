@@ -33,10 +33,15 @@ INVENTORY = REPO / "data" / "INVENTORY.json"
 AUDIT = REPO / "scripts" / "ci" / "transcription_audit.py"
 QUEUE_JSON = REPO / "build" / "task_queue.json"
 QUEUE_MD = REPO / "docs" / "TASK_QUEUE.md"
+INDEX_JSON = REPO / "data" / "QUEUE_INDEX.json"
 STATE_PATH = REPO / "data" / "task_state.json"
 EVIDENCE_PATH = REPO / "data" / "verification_evidence.json"
 
 OBLIGATIONS = tuple(core.EVIDENCE_AXES) + ("LEGAL_REVIEW",)
+
+
+def article_key(value) -> str:
+    return core.article_key(value)
 
 
 def flat(node) -> str:
@@ -172,11 +177,38 @@ def main() -> int:
         "obligations": list(OBLIGATIONS),
         "legal_review_axis": "independent; never auto-satisfied",
         "completion_rule": "status derives only from recorded evidence",
-        "tasks": tasks,
     }
     QUEUE_JSON.parent.mkdir(parents=True, exist_ok=True)
-    QUEUE_JSON.write_text(json.dumps(payload, ensure_ascii=False,
-                                     separators=(",", ":")), encoding="utf-8")
+    # Compact per-article index: consumers such as article_obligations.py only
+    # need one representative unit and its coverage per (law, article). Reading
+    # the ~700 MB task array for that caused MemoryError under CI pressure.
+    index: dict[str, dict] = {}
+    # Stream the task array. Building one ~700 MB string via json.dumps() on
+    # top of ~400k task dicts caused MemoryError under CI memory pressure.
+    # json.dump() writes each encoded task incrementally to the file handle.
+    with QUEUE_JSON.open("w", encoding="utf-8") as fh:
+        head = json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+        fh.write(head[:-1] + ",\"tasks\":[")
+        for i, task in enumerate(tasks):
+            if i:
+                fh.write(",")
+            json.dump(task, fh, ensure_ascii=False, separators=(",", ":"))
+            key = f"{task.get('law_id', '')}|{article_key(task.get('article', ''))}"
+            entry = index.setdefault(key, {
+                "law_id": task.get("law_id", ""),
+                "article": task.get("article", ""),
+                "unit_count": 0,
+                "unit_id": task.get("id", task.get("normative_id", "")),
+                "coverage": task.get("coverage", {}).get("status", "PARTIAL"),
+            })
+            entry["unit_count"] += 1
+        fh.write("]}")
+    INDEX_JSON.parent.mkdir(parents=True, exist_ok=True)
+    INDEX_JSON.write_text(json.dumps({
+        "tool": "scripts/ci/task_queue.py",
+        "units_total": len(tasks),
+        "articles": sorted(index.values(), key=lambda r: (r["law_id"], r["article"])),
+    }, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     lines = [
         "# Persistent normative-unit task queue (machine-generated)",
         "",

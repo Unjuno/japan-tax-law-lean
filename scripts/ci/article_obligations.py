@@ -25,7 +25,7 @@ from normative_core import (
 INVENTORY = REPO / "data" / "INVENTORY.json"
 AUDIT = REPO / "scripts" / "ci" / "transcription_audit.py"
 REVIEW = REPO / "docs" / "ADVERSARIAL_REVIEW.md"
-QUEUE = REPO / "build" / "task_queue.json"
+QUEUE_INDEX = REPO / "data" / "QUEUE_INDEX.json"
 STATE = REPO / "data" / "task_state.json"
 OUT = REPO / "docs" / "ARTICLE_OBLIGATIONS.md"
 OUT_JSON = REPO / "data" / "NORMATIVE_OBLIGATIONS.json"
@@ -64,8 +64,10 @@ def main() -> int:
     laws = {l["law_id"]: l for l in inv.get("laws", [])}
     review = REVIEW.read_text(encoding="utf-8") if REVIEW.exists() else ""
     state = json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else {"units": {}}
-    queue = json.loads(QUEUE.read_text(encoding="utf-8")) if QUEUE.exists() else {"tasks": []}
-    by_article = {(t.get("law_id"), t.get("article")): t for t in queue.get("tasks", [])}
+    # Read the compact per-article index, not the full ~700 MB task array.
+    index = json.loads(QUEUE_INDEX.read_text(encoding="utf-8")) if QUEUE_INDEX.exists() else {"articles": []}
+    by_article = {(r.get("law_id"), article_key(r.get("article", ""))): r
+                  for r in index.get("articles", [])}
 
     docs: dict[str, dict] = {}
     rows, counts = [], {s: 0 for s in STATUS_VALUES}
@@ -101,15 +103,16 @@ def main() -> int:
             (t for k, t in by_article.items() if k[0] == law_id and article_key(k[1]) == article_key(art)),
             {},
         )
-        uid = unit.get("id", "")
+        uid = unit.get("unit_id", "")
         rec = state.get("units", {}).get(uid, {})
         evidence = dict(rec.get("evidence", {}))
+        covered = unit.get("coverage") == "COVERED"
         evidence.setdefault("source_location", scoped_ok)
-        evidence.setdefault("decomposition_audit", unit.get("coverage", {}).get("status") == "COVERED")
+        evidence.setdefault("decomposition_audit", covered)
         evidence.setdefault("independent_spec", exists["spec"])
         evidence.setdefault("implementation", exists["impl"])
         evidence.setdefault("tests", exists["tests"])
-        evidence.setdefault("source_correspondence_audit", scoped_ok and unit.get("coverage", {}).get("status") == "COVERED")
+        evidence.setdefault("source_correspondence_audit", scoped_ok and covered)
         status, errors = derive_status(
             {
                 "blockers": rec.get("blockers", []),
