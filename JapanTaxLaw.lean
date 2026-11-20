@@ -552,3 +552,6 @@ import JapanTaxLaw.DutyFreeTransferTests
 import JapanTaxLaw.SavingsDepositInterest
 import JapanTaxLaw.SavingsDepositInterestSpec
 import JapanTaxLaw.SavingsDepositInterestTests
+import JapanTaxLaw.PowderSakeQuantity
+import JapanTaxLaw.PowderSakeQuantitySpec
+import JapanTaxLaw.PowderSakeQuantityTests

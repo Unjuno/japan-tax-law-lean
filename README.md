@@ -723,6 +723,9 @@ JapanTaxLaw/DutyFreeTransferTests.lean            # 同上 退行テスト
 JapanTaxLaw/SavingsDepositInterest.lean            # 納税貯蓄組合法 art.8（十万円閾値の非課税例外）L4 モデル
 JapanTaxLaw/SavingsDepositInterestSpec.lean        # 同上 独立定式
 JapanTaxLaw/SavingsDepositInterestTests.lean       # 同上 退行テスト
+JapanTaxLaw/PowderSakeQuantity.lean              # 酒税法施行令 art.12の3（粉末酒数量=重量×0.73）L4 モデル
+JapanTaxLaw/PowderSakeQuantitySpec.lean          # 同上 独立定式
+JapanTaxLaw/PowderSakeQuantityTests.lean         # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト

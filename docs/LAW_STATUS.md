@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 46
+- with >=1 pinned literal check (semantic model): 47
 - with recorded human legal review: 0
 
 ## All laws
@@ -92,7 +92,7 @@ a completion flag.
 | `335CO0000000069` | 関税暫定措置法施行令 | 335CO0000000069_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 287 | NO (0) | NO |
 | `336CO0000000153` | 関税割当制度に関する政令 | 336CO0000000153_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 127 | NO (0) | NO |
 | `336M50000400035` | 重油及び粗油等の関税割当制度に関する省令 | 336M50000400035_20201228_502M60000400092 | CurrentEnforced | YES | ok | 16 | NO (0) | NO |
-| `337CO0000000097` | 酒税法施行令 | 337CO0000000097_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 165 | NO (0) | NO |
+| `337CO0000000097` | 酒税法施行令 | 337CO0000000097_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 165 | YES (1) | NO |
 | `337M50000040026` | 酒税法施行規則 | 337M50000040026_20250401_507M60000040034 | CurrentEnforced | YES | ok | 75 | NO (0) | NO |
 | `337AC0000000066` | 国税通則法 | 337AC0000000066_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 433 | YES (7) | NO |
 | `337CO0000000135` | 国税通則法施行令 | 337CO0000000135_20260401_507CO0000000126 | CurrentEnforced | YES | ok | 193 | NO (0) | NO |
