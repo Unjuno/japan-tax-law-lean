@@ -130,5 +130,36 @@ class HistoricalLayerTests(unittest.TestCase):
             self.assertTrue(payload.get("law_full_text"))
 
 
+class CaseLawLayerTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.reg = sl.build()
+
+    def test_caselaw_pinned_only_not_binding_or_verified(self):
+        by = {l["layer_id"]: l for l in self.reg["layers"]}
+        l5 = by["L5_CASELAW"]
+        self.assertEqual(l5["scope_status"], "AUXILIARY_LAYER")
+        self.assertEqual(l5["verification_status"], "OUT_OF_SCOPE")
+        self.assertIn(l5["acquisition_status"], ("NOT_ACQUIRED", "ACQUIRED_PINNED_ONLY"))
+
+    def test_caselaw_acquisition_is_honest_and_hash_verified(self):
+        ca = self.reg.get("caselaw_acquisition")
+        if ca is None:
+            self.skipTest("no case-law page pinned in this checkout")
+        self.assertEqual(ca["verification_status"], "OUT_OF_SCOPE")
+        self.assertIn("not parsed", ca["claim"])
+        rows = ([ca["index"]] if ca.get("index") else []) + list(ca.get("judgments") or [])
+        acquired = [r for r in rows if r.get("acquisition_status") == "ACQUIRED_PINNED"]
+        self.assertEqual(ca["count_acquired"], len(acquired))
+        for r in acquired:
+            self.assertEqual(len(r["raw_sha256"]), 64)
+            self.assertGreater(r["raw_bytes"], 20000)
+            raw = sl.REPO / r["raw_file"]
+            self.assertTrue(raw.exists())
+            self.assertEqual(hashlib.sha256(raw.read_bytes()).hexdigest(), r["raw_sha256"])
+        for j in ca.get("judgments") or []:
+            self.assertIn("裁判例結果詳細", (sl.REPO / j["raw_file"]).read_bytes().decode("utf-8", errors="replace"))
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

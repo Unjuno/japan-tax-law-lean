@@ -78,6 +78,20 @@ tests pass, including hash re-verification and status-honesty checks. The
 remaining ~779 discovered historical names stay unacquired; no parse,
 formalization, proof or human review is claimed for the pinned snapshots.
 
+## L5 case-law acquisition (2026-11-21) — first real pins
+
+`scripts/ci/acquire_caselaw.py` queries the Supreme Court public case-law search
+(`courts.go.jp`, keyword 租税, 2000 reported hits) and pins the result page plus
+the first two real judgment detail pages (case ids 96975 and 96536). Each page
+was validated as genuine content (title 裁判例結果詳細 + 事件番号 + 裁判年月日),
+and SHA-256 re-verified against disk (3/3). Dynamic-page re-fetches are handled by
+reusing already-validated on-disk bytes rather than overwriting the pin.
+`data/SOURCE_LAYERS.json` now reports `L5_CASELAW = ACQUIRED_PINNED_ONLY`,
+`count_acquired=3`, `verification_status=OUT_OF_SCOPE`, never merged into L0.
+These HTML pages are auxiliary material only — NOT parsed, formalized, proved,
+binding or legally reviewed. 13/13 source-layer tests pass, including two new
+L5 honesty/hash tests.
+
 ## H / T / D / C / U
 
 | id | content |

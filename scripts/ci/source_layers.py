@@ -33,6 +33,7 @@ DISCOVERY = REPO / "docs" / "RECURSIVE_DISCOVERY.md"
 DISCOVERED = REPO / "data" / "DISCOVERED_INVENTORY.json"
 AUX_INDEX = REPO / "data" / "raw_circulars" / "nta_tsutatsu_index.meta.json"
 HIST_PINNED = REPO / "data" / "HISTORICAL_PINNED.json"
+CASE_PINNED = REPO / "data" / "CASELAW_PINNED.json"
 BLOCKED = REPO / "docs" / "BLOCKED.md"
 OUT_JSON = REPO / "data" / "SOURCE_LAYERS.json"
 OUT_MD = REPO / "docs" / "SOURCE_LAYERS.md"
@@ -97,6 +98,9 @@ def build() -> dict:
     hist_ledger = json.loads(HIST_PINNED.read_text(encoding="utf-8")) if HIST_PINNED.exists() else None
     l6_acquired = (hist_ledger or {}).get("count_acquired", 0)
     l6_status = "ACQUIRED_PINNED_ONLY" if l6_acquired else "NOT_PINNED"
+    case_ledger = json.loads(CASE_PINNED.read_text(encoding="utf-8")) if CASE_PINNED.exists() else None
+    l5_acquired = (case_ledger or {}).get("count_acquired", 0)
+    l5_status = "ACQUIRED_PINNED_ONLY" if l5_acquired else "NOT_ACQUIRED"
 
     layers = [
         {
@@ -174,14 +178,14 @@ def build() -> dict:
             "label_ja": "裁判例",
             "legal_nature": "判決・裁定（法源ではなく判断例）",
             "authority": "裁判所",
-            "acquisition_status": "NOT_ACQUIRED",
+            "acquisition_status": l5_status,
             "scope_status": "AUXILIARY_LAYER",
             "count": None,
-            "count_acquired": 0,
+            "count_acquired": l5_acquired,
             "pinned_snapshot": "",
             "verification_status": "OUT_OF_SCOPE",
             "auxiliary": True,
-            "notes": "反例・対立解釈の資料として別層に置き、規範そのものとは混ぜない。",
+            "notes": "裁判例HTMLを pin 取得のみ（反例・対立解釈の補助資料）。parse・形式化・証明・法的拘束力・人間レビューは主張しない。L0 に合算しない。",
         },
         {
             "layer_id": "L6_HISTORICAL",
@@ -239,6 +243,7 @@ def build() -> dict:
         "layer_separation_rule": "auxiliary layers are never merged into L0; counts are separate denominators",
         "auxiliary_index_acquisition": aux_index,
         "historical_acquisition": hist_ledger,
+        "caselaw_acquisition": case_ledger,
         "layers": layers,
     }
 
@@ -290,6 +295,19 @@ def main() -> int:
             f"ACQUIRED_PINNED: {ha.get('count_acquired')}",
             f"- verification_status: {ha.get('verification_status')} "
             "(pinned only; NOT parsed, formalized, proved or legally reviewed)",
+        ]
+    ca = payload["caselaw_acquisition"]
+    if ca is None:
+        lines += ["", "## Case-law acquisition", "", "- none acquired"]
+    else:
+        lines += [
+            "", "## Case-law acquisition", "",
+            f"- keyword: {ca.get('search_keyword')}; reported hits: "
+            f"{(ca.get('index') or {}).get('reported_hit_count', 'unknown')}",
+            f"- ACQUIRED_PINNED pages: {ca.get('count_acquired')} "
+            f"({len(ca.get('judgments') or [])} judgments)",
+            f"- verification_status: {ca.get('verification_status')} "
+            "(pinned only; NOT parsed, formalized, proved, binding or legally reviewed)",
         ]
     lines += [
         "",
