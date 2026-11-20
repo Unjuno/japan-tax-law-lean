@@ -531,6 +531,9 @@ import JapanTaxLaw.LocalGasolineTaxRateTests
 import JapanTaxLaw.GasolineTaxRate
 import JapanTaxLaw.GasolineTaxRateSpec
 import JapanTaxLaw.GasolineTaxRateTests
+import JapanTaxLaw.CustomsSameContentLimit
+import JapanTaxLaw.CustomsSameContentLimitSpec
+import JapanTaxLaw.CustomsSameContentLimitTests
 import JapanTaxLaw.UsForcesDutyFreePenalty
 import JapanTaxLaw.UsForcesDutyFreePenaltySpec
 import JapanTaxLaw.UsForcesDutyFreePenaltyTests
