@@ -55,4 +55,7 @@ example :
     deemedCost ⟨true, true, 25_000_000, 4_000_000, true⟩ =
     4_000_000 := by decide
 
+-- 但書の分岐境界: pct5 = 100×5/100 = 5 < 証明額 12 → 証明額を採用
+example : deemedCost ⟨true, true, 100, 12, true⟩ = 12 := by decide
+
 end JapanTaxLaw

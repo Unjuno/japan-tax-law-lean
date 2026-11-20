@@ -29,4 +29,8 @@ example : lowAlcoholDutyEligible LowAlcoholCategory.distilled 13 = false := by d
 example : lowAlcoholDutyEligible LowAlcoholCategory.liqueur 11 = true := by decide
 example : lowAlcoholDutyEligible LowAlcoholCategory.liqueur 12 = false := by decide
 
+-- saturating 境界: 適格範囲外（蒸留酒 13°: 13<11 も 13<13 も偽）の特別税率は none。
+-- none を既定値 0 に落とすと税額 0（結果 0 の saturation、入力 13 は 1..13 の小さい正の入力）
+example : (lowAlcoholDutyPerKiloLitre LowAlcoholCategory.distilled 13).getD 0 = 0 := by decide
+
 end JapanTaxLaw

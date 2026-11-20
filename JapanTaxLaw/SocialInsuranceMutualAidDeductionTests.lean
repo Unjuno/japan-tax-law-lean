@@ -30,4 +30,7 @@ example : smallEnterpriseMutualAidDeduction ⟨999_999_999, 999_999_999, 999_999
 -- イのみ大きい場合
 example : smallEnterpriseMutualAidDeduction ⟨250_000, 0, 0⟩ = 250_000 := by decide
 
+-- 小さい正の入力（1..13）の境界: identity 定義 socialInsuranceDeduction x = x より 10 → 10
+example : socialInsuranceDeduction 10 = 10 := by decide
+
 end JapanTaxLaw

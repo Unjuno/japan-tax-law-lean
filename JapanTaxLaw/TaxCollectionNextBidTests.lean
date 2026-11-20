@@ -19,4 +19,7 @@ example : nextBidEligible 1_000_000 2_000_000 200_000 1_700_000 = false := by de
 example : nextBidEligible 1_000_000 2_000_000 200_000 2_000_000 = false := by decide
 example : nextBidEligible 0 0 0 0 = false := by decide
 
+-- 小額正入力: 見積13, 最高20, 保証金5 → max(13, 20 - 5) = 15（2つの下限候補の境界）
+example : nextBidFloor 13 20 5 = 15 := by decide
+
 end JapanTaxLaw

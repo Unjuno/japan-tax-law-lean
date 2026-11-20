@@ -70,4 +70,9 @@ def sJ : SpousalGiftFacts := ⟨true, 12_000_000, 8_000_000, false, true, 50_000
 example : spousalDeductionBasis sJ = 20_000_000 := by decide
 example : spousalDeduction sJ = 20_000_000 := by decide
 
+-- Example K — zero-input boundary: 居住用不動産 0 + 充てられた金銭 0 → 基礎合計額 0
+example : spousalDeductionBasis ⟨true, 0, 0, false, true, 100⟩ = 0 := by decide
+-- Example L — small-positive-input boundary: 7 + 6 = 13 (二千万円未満 → 控除額 = 基礎額、恒等)
+example : spousalDeduction ⟨true, 7, 6, false, true, 100⟩ = 13 := by decide
+
 end JapanTaxLaw

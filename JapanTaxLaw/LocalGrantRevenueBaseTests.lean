@@ -69,4 +69,8 @@ example : interestSplitNetRevenue 1000 100 == netRevenue 1000 100 := by decide
 example : dividendSplitNetRevenue 1000 100 == netRevenue 1000 100 := by decide
 example : stockTransferIncomeSplitNetRevenue 1000 100 == netRevenue 1000 100 := by decide
 
+-- 追加の境界: 小さい正の入力 (1..13) — netRevenue est grant = est − (grant*75/100)_floor
+example : netRevenue 13 4 = 10 := by decide  -- 4*75/100 = 3, 13-3 = 10
+example : netRevenue 4 13 = 0 := by decide   -- 13*75/100 = 9 > 4 → 0（saturating）
+
 end JapanTaxLaw.LocalGrantRevenueBase

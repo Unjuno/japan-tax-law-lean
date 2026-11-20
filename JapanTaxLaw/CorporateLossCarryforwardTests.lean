@@ -43,4 +43,7 @@ example : carveOutApplies ⟨false, true, false, 0, 0, 0⟩ = true := by decide
 example : carveOutApplies ⟨false, false, true, 0, 0, 0⟩ = true := by decide
 example : carveOutApplies ⟨false, false, false, 0, 0, 0⟩ = false := by decide
 
+-- art. 57(1) ただし書: 小さい所得 3 の 50% は 3×50/100 = 1 (floor)、欠損 2 との min → 1
+example : lossCarryforwardDeduction ⟨false, false, false, 3, 2, 0⟩ = 1 := by decide
+
 end JapanTaxLaw

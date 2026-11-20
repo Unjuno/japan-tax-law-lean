@@ -91,4 +91,8 @@ example : localPrefecturalIncomeTaxAmount 3_000_000 2_000_000 1_000_000 true = 1
 example : localPrefecturalIncomeTaxAmount 9_999_999 0 0 false = 399_999 := by decide
 example : localPrefecturalIncomeTaxAmount 0 0 0 false = 0 := by decide
 
+-- 追加の境界: 小さい正の入力 (1..13) — 控除帯の下限と 4% 標準税率の切り捨て
+example : basicDeduction 7 = 430_000 := by decide
+example : localPrefecturalIncomeTaxAmount 13 0 0 false = 0 := by decide  -- 13*4/100 = 0
+
 end JapanTaxLaw
