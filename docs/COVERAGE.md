@@ -51,7 +51,7 @@ as covered scope.
 | unmatched reference names from pinned snapshots | 7524 |
 | related statutes resolved to official law ids, NOT in ledger | 380 |
 | reference names aliased to laws already in ledger | 0 |
-| unresolved reference names (uncertainty retained) | 7144 |
+| unresolved reference names (uncertainty retained) | 7053 |
 | related statutes ACQUIRED in separate layer (not in ledger) | 2 |
 
 Discovered law ids are NOT added to INVENTORY, NOT acquired, NOT parsed,

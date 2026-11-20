@@ -42,6 +42,19 @@ GENERIC = {
     "この法律", "本法", "同法", "当該法律", "他の法律", "関係法律",
     "この政令", "同政令", "当該政令", "この省令", "同省令",
 }
+# 附則・経過措置の「新／旧＋法令名」は、別の未取得法令ではなく、
+# 既知の法令の歴史的施行版への参照である。未解決として扱わず、
+# 版ピン留めが必要な別層として記録する（Objective §2）。
+HISTORICAL_PREFIX = ("改正前", "改正後", "新", "旧", "舊")
+
+
+def historical_base(name: str) -> str:
+    """Strip a historical-version prefix; return '' when none applies."""
+    s = norm(name)
+    for p in HISTORICAL_PREFIX:
+        if s.startswith(p) and len(s) > len(p):
+            return s[len(p):]
+    return ""
 
 
 def norm(s: str) -> str:
@@ -93,9 +106,9 @@ def resolve_name(ref: str, exact: dict[str, str], short: dict[str, str], by_no: 
         return short[s], "short_law_name"
     if s in by_no:
         return by_no[s], "law_number"
-    # A shared prefix is NOT evidence of identity: it can map an Act name to
-    # its ministerial ordinance (or vice versa). Such references stay
-    # unresolved unless an explicit alias/identifying token is recorded.
+    # A shared prefix is NOT identity evidence: it can map an Act to its
+    # ministerial ordinance (or an enforcement order to its Act). Such names
+    # stay unresolved unless an explicit alias/identifying token is recorded.
     return None, "unresolved"
 
 
@@ -143,22 +156,42 @@ def build():
     exact, short, by_no = build_index(entries)
     inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
     led_ids = {str(l["law_id"]) for l in inv.get("laws", [])}
-
     id_to_title = {e["law_id"]: e["law_name"] for e in entries}
+
     resolved_new: dict[str, dict] = {}
+    new_name_rows: list[dict] = []
     alias: dict[str, dict] = {}
+    historical: dict[str, dict] = {}
     unresolved: list[dict] = []
     for name, count in names.items():
         lid, method = resolve_name(name, exact, short, by_no)
         row = {"name": name, "occurrences": count, "law_id": lid, "method": method,
                "contains_tax_keyword": "税" in name}
         if lid is None:
-            unresolved.append(row)
+            base = historical_base(name)
+            base_id, base_method = (resolve_name(base, exact, short, by_no)
+                                    if base else (None, "unresolved"))
+            if base_id:
+                historical[norm(name)] = {
+                    "name": name,
+                    "occurrences": count,
+                    "base_law_id": base_id,
+                    "base_name": base,
+                    "base_resolution": base_method,
+                    "historical_revision_pinned": False,
+                    "requires_revision_pin": True,
+                    "contains_tax_keyword": "税" in name,
+                    "method": "historical_version_of_base",
+                }
+            else:
+                unresolved.append(row)
         elif lid in led_ids:
-            alias[norm(name)] = row
+            # Key by the raw discovered name: normalising collapses distinct
+            # references (e.g. spacing variants) and undercounts the ledger.
+            alias[name] = row
         else:
-            # Group every reference name under its law id; never overwrite an
-            # earlier name/occurrence count with a later one.
+            # Group all reference names under one law id; never let a later
+            # name silently overwrite an earlier name/occurrence count.
             group = resolved_new.setdefault(lid, {
                 "law_id": lid,
                 "official_title": id_to_title.get(lid, ""),
@@ -169,9 +202,13 @@ def build():
             group["total_occurrences"] += count
             group["contains_tax_keyword"] = group["contains_tax_keyword"] or ("税" in name)
             group["reference_names"].append({"name": name, "occurrences": count, "method": method})
+            new_name_rows.append(row)
 
     for group in resolved_new.values():
         group["reference_names"].sort(key=lambda r: (-r["occurrences"], r["name"]))
+    historical_sorted = sorted(historical.values(),
+                               key=lambda r: (-r["occurrences"], r["name"]))
+
     new_sorted = sorted(resolved_new.values(),
                         key=lambda r: (-r["total_occurrences"], str(r["law_id"])))
     alias_sorted = sorted(alias.values(), key=lambda r: (-r["occurrences"], r["name"]))
@@ -184,10 +221,14 @@ def build():
         "ledger_laws": len(inv.get("laws", [])),
         "unmatched_reference_names": len(names),
         "resolved_new_law_ids": len(new_sorted),
+        "resolved_new_names": len(new_name_rows),
         "resolved_ledger_aliases": len(alias_sorted),
+        "historical_version_refs": len(historical_sorted),
+        "historical_version_occurrences": sum(r["occurrences"] for r in historical_sorted),
         "unresolved_names": len(unresolved_sorted),
         "new_law_candidates": new_sorted,
         "ledger_name_aliases": alias_sorted,
+        "historical_version_references": historical_sorted,
         "unresolved": unresolved_sorted,
         "claim": "discovery only; not acquired, not parsed, not modelled, not reviewed",
     }
@@ -213,13 +254,30 @@ def build():
         f"- unmatched reference names scanned: {len(names)}",
         f"- resolved to NEW official law ids: {len(new_sorted)}",
         f"- resolved as aliases of laws already in ledger: {len(alias_sorted)}",
+        f"- historical-version references (base law resolved, revision NOT pinned): "
+        f"{len(historical_sorted)} names / "
+        f"{sum(r['occurrences'] for r in historical_sorted)} occurrences",
         f"- unresolved names: {len(unresolved_sorted)}",
+        "",
+        "「新／旧＋法令名」は附則・経過措置における既知法令の歴史的施行版への参照であり、",
+        "別の未取得法令ではない。ベース法令IDは解決済みだが、対応する施行版のスナップショットは",
+        "固定されていない（`historical_revision_pinned=false`）。未取得・取得不能とも区別する。",
+        "",
+        "## Historical-version references (base resolved, revision not pinned)",
+        "",
+        "| name | occurrences | base law_id | base name | revision pinned |",
+        "|---|---:|---|---|:--:|",
+    ]
+    for r in historical_sorted[:80]:
+        lines.append(f"| {r['name']} | {r['occurrences']} | `{r['base_law_id']}` | "
+                     f"{r['base_name']} | NO |")
+    lines += [
         "",
         "## New law-id candidates (not in ledger)",
         "",
-        "Reference names are grouped under their law id; occurrences are summed",
-        "across all names. Exact / short-title / law-number matches only — a",
-        "shared prefix is never treated as identity.",
+        "Reference names are grouped under one law id and occurrences are summed.",
+        "Exact / short-title / law-number matches only; a shared prefix is never",
+        "treated as identity (it can map an Act to its ministerial ordinance).",
         "",
         "| law_id | official title | occurrences | names | contains 税 |",
         "|---|---|---:|---:|:--:|",
