@@ -80,6 +80,19 @@
       "source_location": "data/raw/347CO0000000151_20251231_507CO0000000426.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:19/Article#19/Paragraph#1/Item#3/TableStruct/Table/TableRow/TableColumn/Sentence#1 8c5521ffb74068dc5b6872a3748b53a6eec38afc3637ece878eb0ca9da74a437 (verbatim 15-char table-cell condition)",
       "tests": "JapanTaxLaw/RateBandArt19Tests.lean sha256=c95632f8616f166e7ae0a85622f130e3a1fcb6cd0089911b715a126e49a74647 (8 kernel-decided examples)"
     },
+    "NORM|1d310b3fc3fbdb5179921191135141b643f44a1685bff314ace7ed21aee111ba": {
+      "adversarial_review": "docs/UNIT_DOMICILE_PRESUMPTION_ART14.md: H/T/D/C/U; dropped-residence reading rejected by verbatim original",
+      "boundary_proof": "presumedHasDomicile_iff general theorem; (true,true) presumes; (false,*) and (*,false) do not",
+      "cross_law_proof": "unit dependencies=0; enforced revision 340CO0000000096_20260522_508CO0000000093 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; PRESUMPTION unit at Article:14/Paragraph#1/Sentence#1",
+      "implementation": "JapanTaxLaw/DomicilePresumptionArt14.lean sha256=c1a2b381b380ed2d95bcfed1676695ae09bd228539edd8a49b0cdcf0eea0a7e8",
+      "independent_spec": "JapanTaxLaw/DomicilePresumptionArt14Spec.lean sha256=04fa548d69776b66a5e98aa4ce075d6b9abab3fd309d730dba4260c95eab93c8 (no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation and presumedHasDomicile_iff kernel-checked; no sorry/admit",
+      "proof_scope": "presumption conditions only: moved-to-Japan AND listed-case; listed item contents, rebuttal procedure and duration NOT MODELLED; both predicates caller-established",
+      "source_correspondence_audit": "scripts/ci/source_audit_domicile_art14.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; 3 independent literals located",
+      "source_location": "data/raw/340CO0000000096_20260522_508CO0000000093.law.json#LawBody[3]/MainProvision/MainProvision[0]/Article:14/Article#14/Paragraph#1/ParagraphSentence/Sentence#1 9facf2e2768d602ccdbbf9891df142d3a3e7ead09033eb0634de00a4c4181392 (verbatim 56-char presumption)",
+      "tests": "JapanTaxLaw/DomicilePresumptionArt14Tests.lean sha256=a3e8afd0982230ee4c28746bbefb1463ddd791498338e93b5545a40aaabf0473 (6 kernel-decided examples)"
+    },
     "NORM|2bb1ca3263f7e9d5364bf3f9a4f429da2445559f7f9cfbabfaf5db5e5d2a3b31": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
@@ -210,18 +223,18 @@
       "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:24/Article#24/Paragraph#1/Item#1/ItemSentence/Sentence#1 3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342 (verbatim 12-char exception)",
       "tests": "JapanTaxLaw/MergerExceptionArt24Tests.lean sha256=1f21341257f0dd648c5f04a93bd9303344fe56ec8202374cfa6e479a08ef44ee (6 kernel-decided examples)"
     },
-    "NORM|1d310b3fc3fbdb5179921191135141b643f44a1685bff314ace7ed21aee111ba": {
-      "source_location": "data/raw/340CO0000000096_20260522_508CO0000000093.law.json#LawBody[3]/MainProvision/MainProvision[0]/Article:14/Article#14/Paragraph#1/ParagraphSentence/Sentence#1 9facf2e2768d602ccdbbf9891df142d3a3e7ead09033eb0634de00a4c4181392 (verbatim 56-char presumption)",
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; PRESUMPTION unit at Article:14/Paragraph#1/Sentence#1",
-      "source_correspondence_audit": "scripts/ci/source_audit_domicile_art14.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; 3 independent literals located",
-      "independent_spec": "JapanTaxLaw/DomicilePresumptionArt14Spec.lean sha256=04fa548d69776b66a5e98aa4ce075d6b9abab3fd309d730dba4260c95eab93c8 (no implementation import)",
-      "implementation": "JapanTaxLaw/DomicilePresumptionArt14.lean sha256=c1a2b381b380ed2d95bcfed1676695ae09bd228539edd8a49b0cdcf0eea0a7e8",
-      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation and presumedHasDomicile_iff kernel-checked; no sorry/admit",
-      "proof_scope": "presumption conditions only: moved-to-Japan AND listed-case; listed item contents, rebuttal procedure and duration NOT MODELLED; both predicates caller-established",
-      "boundary_proof": "presumedHasDomicile_iff general theorem; (true,true) presumes; (false,*) and (*,false) do not",
-      "cross_law_proof": "unit dependencies=0; enforced revision 340CO0000000096_20260522_508CO0000000093 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/DomicilePresumptionArt14Tests.lean sha256=a3e8afd0982230ee4c28746bbefb1463ddd791498338e93b5545a40aaabf0473 (6 kernel-decided examples)",
-      "adversarial_review": "docs/UNIT_DOMICILE_PRESUMPTION_ART14.md: H/T/D/C/U; dropped-residence reading rejected by verbatim original"
+    "NORM|64b83716c4c799383c697121bca0ad46831d0951b2f1f9d8622f56cbdfe3a10c": {
+      "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[3]/SupplProvision/SupplProvision[87]/Article:13_4/Article#13_4/Paragraph#3/ParagraphSentence/Sentence#1 5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim 23-char quasi-application)",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; READING/quasi-application unit in supplementary provision",
+      "source_correspondence_audit": "scripts/ci/source_audit_quasi_art13_4.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 第一項の規定/個人の市町村民税/準用する",
+      "independent_spec": "JapanTaxLaw/MunicipalTaxQuasiApplySpec.lean sha256=b72795420a94aee09874b29a340681d1d49081129c968bd50508ad45835482d5 (no implementation import)",
+      "implementation": "JapanTaxLaw/MunicipalTaxQuasiApply.lean sha256=6dda14a14ddb5abf7b1d717b44371b6a1bac9246bf94c624ec1dbc8c14b20ef9",
+      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation and quasiApplies_iff kernel-checked; no sorry/admit",
+      "proof_scope": "quasi-application target only: individual municipal inhabitant tax; paragraph-1 content, reading substitutions and other taxes NOT MODELLED; category code caller-established",
+      "boundary_proof": "quasiApplies_iff general theorem; code 1 applies, codes 0/2 do not",
+      "cross_law_proof": "unit dependencies=0 in the generated queue; enforced revision 329M50000002023_20261101_508M60000008045 resolved from INVENTORY (the referenced paragraph 1 is outside this unit)",
+      "tests": "JapanTaxLaw/MunicipalTaxQuasiApplyTests.lean sha256=31423b4366568d4ddbc9be2e946f6cab31304d91344c4ab51b74b9e4e5851a42 (6 kernel-decided examples)",
+      "adversarial_review": "docs/UNIT_QUASI_ART13_4.md: H/T/D/C/U; extension to other municipal taxes rejected by verbatim original"
     }
   }
 }

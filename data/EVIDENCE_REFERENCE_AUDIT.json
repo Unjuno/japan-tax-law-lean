@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 72,
+  "checks": 76,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -505,6 +505,50 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "adversarial_review",
       "detail": "non-batch reference",
+      "reference": "docs/UNIT_DEEMED_TAX_ART24.md: H/T/D/C/U; amount-changing reading rejected by verbatim original",
+      "unit_id": "NORM|87699445d5c1be70655ac88a59210fe09dcd5575c3f875be2dc166d9f13ce29e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeemedTaxedAmount.lean",
+      "unit_id": "NORM|87699445d5c1be70655ac88a59210fe09dcd5575c3f875be2dc166d9f13ce29e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeemedTaxedAmountSpec.lean",
+      "unit_id": "NORM|87699445d5c1be70655ac88a59210fe09dcd5575c3f875be2dc166d9f13ce29e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DeemedTaxedAmountTests.lean",
+      "unit_id": "NORM|87699445d5c1be70655ac88a59210fe09dcd5575c3f875be2dc166d9f13ce29e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
       "reference": "docs/UNIT_TAX_ACCOUNTANT_FINE_ART14.md: H/T/D/C/U; garbled-UI misreading (五百万) rejected by independent pinned extraction",
       "unit_id": "NORM|91349ec2d835e0fe4fdd63ea17f15c1ce9a98c22d91c36f03bea07410596f64e"
     },
@@ -758,8 +802,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "adversarial_review",
       "detail": "non-batch reference",
-      "reference": "docs/UNIT_DEEMED_TAX_ART24.md: H/T/D/C/U; amount-changing reading rejected by verbatim original",
-      "unit_id": "NORM|87699445d5c1be70655ac88a59210fe09dcd5575c3f875be2dc166d9f13ce29e"
+      "reference": "docs/UNIT_DOMICILE_PRESUMPTION_ART14.md: H/T/D/C/U; dropped-residence reading rejected by verbatim original",
+      "unit_id": "NORM|1d310b3fc3fbdb5179921191135141b643f44a1685bff314ace7ed21aee111ba"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -769,8 +813,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "implementation",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeemedTaxedAmount.lean",
-      "unit_id": "NORM|87699445d5c1be70655ac88a59210fe09dcd5575c3f875be2dc166d9f13ce29e"
+      "reference": "JapanTaxLaw/DomicilePresumptionArt14.lean",
+      "unit_id": "NORM|1d310b3fc3fbdb5179921191135141b643f44a1685bff314ace7ed21aee111ba"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -780,8 +824,8 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "independent_spec",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeemedTaxedAmountSpec.lean",
-      "unit_id": "NORM|87699445d5c1be70655ac88a59210fe09dcd5575c3f875be2dc166d9f13ce29e"
+      "reference": "JapanTaxLaw/DomicilePresumptionArt14Spec.lean",
+      "unit_id": "NORM|1d310b3fc3fbdb5179921191135141b643f44a1685bff314ace7ed21aee111ba"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -791,13 +835,13 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "tests",
       "detail": "sha256 match",
-      "reference": "JapanTaxLaw/DeemedTaxedAmountTests.lean",
-      "unit_id": "NORM|87699445d5c1be70655ac88a59210fe09dcd5575c3f875be2dc166d9f13ce29e"
+      "reference": "JapanTaxLaw/DomicilePresumptionArt14Tests.lean",
+      "unit_id": "NORM|1d310b3fc3fbdb5179921191135141b643f44a1685bff314ace7ed21aee111ba"
     }
   ],
-  "resolved": 62,
+  "resolved": 66,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 16,
+  "units_checked": 17,
   "unresolved": 10
 }

@@ -566,3 +566,6 @@ import JapanTaxLaw.DeemedTaxedAmountTests
 import JapanTaxLaw.DomicilePresumptionArt14
 import JapanTaxLaw.DomicilePresumptionArt14Spec
 import JapanTaxLaw.DomicilePresumptionArt14Tests
+import JapanTaxLaw.MunicipalTaxQuasiApply
+import JapanTaxLaw.MunicipalTaxQuasiApplySpec
+import JapanTaxLaw.MunicipalTaxQuasiApplyTests
