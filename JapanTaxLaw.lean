@@ -686,3 +686,6 @@ import JapanTaxLaw.ProvisionalNormsAndLabelsTests
 import JapanTaxLaw.TemporalApplicationRules
 import JapanTaxLaw.TemporalApplicationRulesSpec
 import JapanTaxLaw.TemporalApplicationRulesTests
+import JapanTaxLaw.DelegationRefsAndWaivers
+import JapanTaxLaw.DelegationRefsAndWaiversSpec
+import JapanTaxLaw.DelegationRefsAndWaiversTests
