@@ -25,18 +25,29 @@ class LayerTests(unittest.TestCase):
     def setUpClass(cls):
         cls.reg = sl.build()
 
-    def test_seven_distinct_layers(self):
+    def test_eight_distinct_layers(self):
         ids = [l["layer_id"] for l in self.reg["layers"]]
-        self.assertEqual(len(ids), 7)
-        self.assertEqual(len(set(ids)), 7)
+        self.assertEqual(len(ids), 8)
+        self.assertEqual(len(set(ids)), 8)
 
-    def test_auxiliary_layers_are_flagged_and_not_acquired(self):
+    def test_auxiliary_layers_are_flagged_and_not_verified(self):
         for l in self.reg["layers"]:
             if l["auxiliary"]:
-                self.assertEqual(l["acquisition_status"], "NOT_ACQUIRED")
+                self.assertIn(l["acquisition_status"],
+                              ("NOT_ACQUIRED", "ACQUIRED_PINNED_ONLY"))
                 self.assertEqual(l["verification_status"], "OUT_OF_SCOPE")
         aux = {l["layer_id"] for l in self.reg["layers"] if l["auxiliary"]}
-        self.assertEqual(aux, {"L3_TREATY", "L4_CIRCULAR", "L5_CASELAW"})
+        self.assertEqual(aux, {"L3_TREATY", "L4_CIRCULAR", "L5_CASELAW",
+                               "L7_DISCOVERED_SCOPE"})
+
+    def test_discovered_scope_is_registered_but_not_merged(self):
+        by = {l["layer_id"]: l for l in self.reg["layers"]}
+        l7 = by["L7_DISCOVERED_SCOPE"]
+        self.assertEqual(l7["scope_status"], "DISCOVERED_CANDIDATE_LAYER")
+        self.assertGreater(l7["count"], 0)
+        self.assertGreater(l7["count_acquired"], 0)
+        self.assertEqual(l7["verification_status"], "OUT_OF_SCOPE")
+        self.assertNotEqual(by["L0_STATUTE"]["count"], l7["count"])
 
     def test_ordinances_and_history_are_not_merged_into_statutes(self):
         by = {l["layer_id"]: l for l in self.reg["layers"]}

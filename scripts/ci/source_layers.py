@@ -16,6 +16,8 @@ Layers:
   L5_CASELAW      裁判例 — auxiliary legal source, not modelled
   L6_HISTORICAL   歴史的施行版 (旧法/新法 references) — not pinned
 
+   L7_DISCOVERED_SCOPE: recursively discovered laws outside L0 (pinned only).
+
 Regenerate with `python scripts/ci/source_layers.py`; deterministic gate.
 """
 from __future__ import annotations
@@ -28,6 +30,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
 INVENTORY = REPO / "data" / "INVENTORY.json"
 DISCOVERY = REPO / "docs" / "RECURSIVE_DISCOVERY.md"
+DISCOVERED = REPO / "data" / "DISCOVERED_INVENTORY.json"
 BLOCKED = REPO / "docs" / "BLOCKED.md"
 OUT_JSON = REPO / "data" / "SOURCE_LAYERS.json"
 OUT_MD = REPO / "docs" / "SOURCE_LAYERS.md"
@@ -81,6 +84,11 @@ def build() -> dict:
     m_ord = re.search(r"地方税条例 \(~([\d,]+) municipal ordinances\)", blocked)
     ordinances = int(m_ord.group(1).replace(",", "")) if m_ord else 0
     reviewers = _int(r"candidates with recorded reviewer: (\d+)", blocked)
+
+    discovered = json.loads(DISCOVERED.read_text(encoding="utf-8")) if DISCOVERED.exists() else {}
+    disc_total = discovered.get("laws_total_discovered")
+    disc_acquired = discovered.get("laws_acquired_total") or 0
+    disc_snapshot = discovered.get("snapshot_date", "")
 
     layers = [
         {
@@ -181,6 +189,20 @@ def build() -> dict:
             "auxiliary": False,
             "notes": "附則・経過措置の新旧参照。施行版を別途固定するまで未検証。",
         },
+        {
+            "layer_id": "L7_DISCOVERED_SCOPE",
+            "label_ja": "再帰的探索で発見された関連法令",
+            "legal_nature": "L0 外の参照・準用・委任から発見された国家法源（法令名に 税 を含まないものを含む）",
+            "authority": "e-Gov 法令API（再帰的探索）",
+            "acquisition_status": "ACQUIRED_PINNED_ONLY" if disc_acquired else "NOT_ACQUIRED",
+            "scope_status": "DISCOVERED_CANDIDATE_LAYER",
+            "count": disc_total,
+            "count_acquired": disc_acquired,
+            "pinned_snapshot": disc_snapshot,
+            "verification_status": "OUT_OF_SCOPE",
+            "auxiliary": True,
+            "notes": "INVENTORY には含まれない。pin 取得のみで parse・形式化・証明・人間レビューは未実施。L0 に合算しない。",
+        },
     ]
     q = queue_counts()
     pipeline = {
@@ -202,6 +224,8 @@ def build() -> dict:
             "tax_name_candidates_outside_ledger": tax_candidates,
             "historical_names": hist_names,
             "historical_occurrences": hist_occ,
+            "discovered_law_candidates": disc_total,
+            "discovered_laws_pinned": disc_acquired,
             "human_reviewers_recorded": reviewers,
         },
         "layer_separation_rule": "auxiliary layers are never merged into L0; counts are separate denominators",
@@ -231,6 +255,7 @@ def main() -> int:
         f"- distinct unmatched reference names: {payload['discovery']['distinct_unmatched_reference_names']}",
         f"- tax-name candidates outside ledger: {payload['discovery']['tax_name_candidates_outside_ledger']}",
         f"- historical names / occurrences: {payload['discovery']['historical_names']} / {payload['discovery']['historical_occurrences']}",
+        f"- discovered law candidates / pinned: {payload['discovery']['discovered_law_candidates']} / {payload['discovery']['discovered_laws_pinned']}",
         "",
         "| layer | label | legal nature | acquisition | scope | count | verification |",
         "|---|---|---|---|---|---:|---|",

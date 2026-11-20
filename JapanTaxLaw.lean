@@ -557,3 +557,6 @@ import JapanTaxLaw.LimitRate12ConditionTests
 import JapanTaxLaw.ForestEnvironmentTaxRate
 import JapanTaxLaw.ForestEnvironmentTaxRateSpec
 import JapanTaxLaw.ForestEnvironmentTaxRateTests
+import JapanTaxLaw.MergerExceptionArt24
+import JapanTaxLaw.MergerExceptionArt24Spec
+import JapanTaxLaw.MergerExceptionArt24Tests

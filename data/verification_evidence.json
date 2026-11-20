@@ -28,6 +28,19 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_20/Article#72_20/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalAddedValueStandardTests.lean sha256=f8354718e7a135a3681e9d3a0fc99e3e2715ed7c025f299b51e9cddf1c9715d8 (20 kernel-decided examples)"
     },
+    "NORM|15dbfd55148fe076292eefe260fcfbef38379592bdf6b51fa59a0a7f7bc8b6f6": {
+      "adversarial_review": "docs/UNIT_FOREST_TAX_ART5.md: H/T/D/C/U; monthly-rate and >= readings rejected by verbatim original",
+      "boundary_proof": "rateEqualsStatutory_iff general theorem; 1000 true; 0/999/1001 false",
+      "cross_law_proof": "unit dependencies=0; enforced revision 431AC0000000003_20260401_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; EFFECT unit at Article:5/Paragraph#1/Sentence#1",
+      "implementation": "JapanTaxLaw/ForestEnvironmentTaxRate.lean sha256=b8d1d151783893a3207e1a6d279bea743cefeaa4a38cabc85a17e5e37247bfd6",
+      "independent_spec": "JapanTaxLaw/ForestEnvironmentTaxRateSpec.lean sha256=bdb0eddcd70c33c6ddc087da177cf4a88cbca3b01d9e7d4572919cb2326dea59 (no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation and rateEqualsStatutory_iff kernel-checked; no sorry/admit",
+      "proof_scope": "tax rate constant only: 1,000 yen; taxpayer, base, collection, transitional provisions NOT MODELLED; period caller-established",
+      "source_correspondence_audit": "scripts/ci/source_audit_forest_tax_art5.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 森林環境税/税率/千円",
+      "source_location": "data/raw/431AC0000000003_20260401_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:5/Article#5/Paragraph#1/ParagraphSentence/Sentence#1 b854d3c0e79d4141f03d053f2bedce95934c26f32a8508324a742dc384edfcf4 (verbatim 13-char effect)",
+      "tests": "JapanTaxLaw/ForestEnvironmentTaxRateTests.lean sha256=0099a8a1ef2610cc0a1ee0274115693222a8110382ea087401e34a3935c447a1 (7 kernel-decided examples)"
+    },
     "NORM|167b8cabf184adb595d75baba5ffbf319ec3c502be8a820858e8c493b09f57d7": {
       "adversarial_review": "docs/GIFT_21_5_VERIFICATION.md#4-adversarial-review-separate-from-the-implementer H/T/D/C/U recorded",
       "boundary_proof": "GiftTax.lean giftTax_zero_below_deduction (kernel decided); spec boundary examples at 0/2M/3M/4M/6M/10M/15M/30M yen",
@@ -171,18 +184,18 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_49_14/Article#72_49_14/Paragraph#2/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/BusinessOwnerDeductionTests.lean sha256=61b2cc0dc9ba20aeb7d2465e3ecfcc248cb82a687981de2e45d3c349c31be28d (18 kernel-decided examples)"
     },
-    "NORM|15dbfd55148fe076292eefe260fcfbef38379592bdf6b51fa59a0a7f7bc8b6f6": {
-      "source_location": "data/raw/431AC0000000003_20260401_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:5/Article#5/Paragraph#1/ParagraphSentence/Sentence#1 b854d3c0e79d4141f03d053f2bedce95934c26f32a8508324a742dc384edfcf4 (verbatim 13-char effect)",
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; EFFECT unit at Article:5/Paragraph#1/Sentence#1",
-      "source_correspondence_audit": "scripts/ci/source_audit_forest_tax_art5.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 森林環境税/税率/千円",
-      "independent_spec": "JapanTaxLaw/ForestEnvironmentTaxRateSpec.lean sha256=bdb0eddcd70c33c6ddc087da177cf4a88cbca3b01d9e7d4572919cb2326dea59 (no implementation import)",
-      "implementation": "JapanTaxLaw/ForestEnvironmentTaxRate.lean sha256=b8d1d151783893a3207e1a6d279bea743cefeaa4a38cabc85a17e5e37247bfd6",
-      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation and rateEqualsStatutory_iff kernel-checked; no sorry/admit",
-      "proof_scope": "tax rate constant only: 1,000 yen; taxpayer, base, collection, transitional provisions NOT MODELLED; period caller-established",
-      "boundary_proof": "rateEqualsStatutory_iff general theorem; 1000 true; 0/999/1001 false",
-      "cross_law_proof": "unit dependencies=0; enforced revision 431AC0000000003_20260401_508AC0000000002 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/ForestEnvironmentTaxRateTests.lean sha256=0099a8a1ef2610cc0a1ee0274115693222a8110382ea087401e34a3935c447a1 (7 kernel-decided examples)",
-      "adversarial_review": "docs/UNIT_FOREST_TAX_ART5.md: H/T/D/C/U; monthly-rate and >= readings rejected by verbatim original"
+    "NORM|c95fe5b099a7bac3397cf63b6b2db5bce1e182c2201fe7c7830ca9aeeff4b423": {
+      "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:24/Article#24/Paragraph#1/Item#1/ItemSentence/Sentence#1 3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342 (verbatim 12-char exception)",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; EXCEPTION unit at Article:24/Paragraph#1/Item#1/Sentence#1",
+      "source_correspondence_audit": "scripts/ci/source_audit_merger_art24.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 合併/適格合併/除く",
+      "independent_spec": "JapanTaxLaw/MergerExceptionArt24Spec.lean sha256=959f6d4e5ce0474b9778027cdf85213390ab5d4ce94bf00c990c91e6b1961c9b (no implementation import)",
+      "implementation": "JapanTaxLaw/MergerExceptionArt24.lean sha256=f1bf4c59c22deaf8adea5e758f0fd4f40bf868fe97ea613003559913670898d3",
+      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation and isCoveredMerger_iff kernel-checked; no sorry/admit",
+      "proof_scope": "exception scope only: merger AND NOT qualified merger; qualified-merger requirements, procedures and effects NOT MODELLED; both predicates caller-established",
+      "boundary_proof": "isCoveredMerger_iff general theorem; (true,false) covered; (true,true) and (false,*) excluded",
+      "cross_law_proof": "unit dependencies=0; enforced revision 340AC0000000034_20261001_508AC0000000012 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/MergerExceptionArt24Tests.lean sha256=1f21341257f0dd648c5f04a93bd9303344fe56ec8202374cfa6e479a08ef44ee (6 kernel-decided examples)",
+      "adversarial_review": "docs/UNIT_MERGER_EXCEPTION_ART24.md: H/T/D/C/U; inclusive reading of the parenthetical exception rejected by verbatim original"
     }
   }
 }

@@ -10,6 +10,7 @@ layer is never folded into the statutory ledger.
 - distinct unmatched reference names: 7526
 - tax-name candidates outside ledger: 2873
 - historical names / occurrences: 795 / 12977
+- discovered law candidates / pinned: 382 / 381
 
 | layer | label | legal nature | acquisition | scope | count | verification |
 |---|---|---|---|---|---:|---|
@@ -20,13 +21,14 @@ layer is never folded into the statutory ledger.
 | L4_CIRCULAR | 通達 | 行政通達（法的拘束力は条文ではなく行政内部） | NOT_ACQUIRED | AUXILIARY_LAYER | - | OUT_OF_SCOPE |
 | L5_CASELAW | 裁判例 | 判決・裁定（法源ではなく判断例） | NOT_ACQUIRED | AUXILIARY_LAYER | - | OUT_OF_SCOPE |
 | L6_HISTORICAL | 歴史的施行版 | 旧法・新法（同一法令の別施行版） | NOT_PINNED | HISTORICAL_LAYER | 795 | OUT_OF_SCOPE |
+| L7_DISCOVERED_SCOPE | 再帰的探索で発見された関連法令 | L0 外の参照・準用・委任から発見された国家法源（法令名に 税 を含まないものを含む） | ACQUIRED_PINNED_ONLY | DISCOVERED_CANDIDATE_LAYER | 382 | OUT_OF_SCOPE |
 
 ## Obligation counts (separate denominators)
 
 - normative_units_total: unknown
-- fully_verified_units: 12
+- fully_verified_units: 14
 - proved_scope_units: 1
-- not_started_units: 396839
+- not_started_units: 396837
 - blocked_units: 2
 - human_legal_reviews: 0
 

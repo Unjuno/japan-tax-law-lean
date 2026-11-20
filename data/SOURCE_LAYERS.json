@@ -1,5 +1,7 @@
 {
   "discovery": {
+    "discovered_law_candidates": 382,
+    "discovered_laws_pinned": 381,
     "distinct_unmatched_reference_names": 7526,
     "historical_names": 795,
     "historical_occurrences": 12977,
@@ -106,16 +108,30 @@
       "pinned_snapshot": "",
       "scope_status": "HISTORICAL_LAYER",
       "verification_status": "OUT_OF_SCOPE"
+    },
+    {
+      "acquisition_status": "ACQUIRED_PINNED_ONLY",
+      "authority": "e-Gov 法令API（再帰的探索）",
+      "auxiliary": true,
+      "count": 382,
+      "count_acquired": 381,
+      "label_ja": "再帰的探索で発見された関連法令",
+      "layer_id": "L7_DISCOVERED_SCOPE",
+      "legal_nature": "L0 外の参照・準用・委任から発見された国家法源（法令名に 税 を含まないものを含む）",
+      "notes": "INVENTORY には含まれない。pin 取得のみで parse・形式化・証明・人間レビューは未実施。L0 に合算しない。",
+      "pinned_snapshot": "2026-11-15",
+      "scope_status": "DISCOVERED_CANDIDATE_LAYER",
+      "verification_status": "OUT_OF_SCOPE"
     }
   ],
   "schema": 1,
   "tool": "scripts/ci/source_layers.py",
   "verification_pipeline": {
     "blocked_units": 2,
-    "fully_verified_units": 12,
+    "fully_verified_units": 14,
     "human_legal_reviews": 0,
     "normative_units_total": null,
-    "not_started_units": 396839,
+    "not_started_units": 396837,
     "note": "Separate denominators; unknown (None) means the input is absent, never zero.",
     "proved_scope_units": 1
   }
