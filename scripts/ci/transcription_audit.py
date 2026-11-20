@@ -1159,6 +1159,13 @@ def checks():
            "article", "第四条",
            ["地方揮発油税の税率は、揮発油一キロリットルにつき四千四百円とする。"])
 
+    # 揮発油税法 art. 9 — GasolineTaxRate.lean (¥24,300 / kL)
+    # Norm unit NORM|8bf684764da81b921477924a5e17db0d25d2ddfae535431c99302894578f927c
+    yield ("揮発油税法 art. 9（税率: 一キロリットルにつき二万四千三百円）↔ GasolineTaxRate.lean (ratePerKilolitre 24_300)",
+           "332AC0000000055",
+           "article", "第九条",
+           ["揮発油税の税率は、揮発油一キロリットルにつき二万四千三百円とする。"])
+
     # 在日米軍特例法 art. 11(3) — UsForcesDutyFreePenalty.lean (norm unit)
     yield ("在日米軍特例法 art. 11(3)（免税物品の用途外譲渡違反の罰則: 一年以下の拘禁刑又は五十万円以下の罰金 — 代替刑、併科なし。違反要件・徴収・法人重課・附則は NOT MODELLED）↔ UsForcesDutyFreePenalty.lean",
            "327AC0000000111",

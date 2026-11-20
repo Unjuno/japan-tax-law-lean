@@ -496,6 +496,19 @@
       "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:25_16/Article#25_16/Paragraph#1/ParagraphSentence/Sentence#1 sha256=d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/InheritedPropertyTransferGainTests.lean sha256=4b99c0d14afdc2f65b45d5618a1a54d49c781acf56b6556a3703dfb7997464da (19 kernel-decided examples)"
     },
+    "NORM|8bf684764da81b921477924a5e17db0d25d2ddfae535431c99302894578f927c": {
+      "adversarial_review": "docs/ADVERSARIAL_GASOLINE_TAX_RATE_9.md — independent agent found a mis-caption (二十四万円 vs 243,000=二十四万三千円) and a rate-sum/liability overclaim risk; both fixed. Scope captions dumped verbatim and tightened; needle uniqueness and pin hash reproduced. Spec, induction and no-sorry claims survived challenge.",
+      "boundary_proof": "JapanTaxLaw/GasolineTaxRateSpec.lean: specSum_zero, specSum_pos_of_pos, taxForKilolitres_mono, rate_not_scaled; boundary examples 0/1/2 kL",
+      "cross_law_proof": "combined_gasoline_rate relates 24_300 (art.9) + 4_400 (地方揮発油税法 art.4, NORM|7eb549f9…) = 28_700; both constants pinned in their own verified modules",
+      "decomposition_audit": "build/task_queue.json: kind=EFFECT, decomposed=true, coverage exact, unhandled_conditions=[], id unique",
+      "implementation": "JapanTaxLaw/GasolineTaxRate.lean sha256=50ae28d126d6e9828dfcf5634e611045c9309a0df6e9681dc2eb7454f21baca3 (ratePerKilolitre=24_300, taxForKilolitres=k*rate)",
+      "independent_spec": "JapanTaxLaw/GasolineTaxRateSpec.lean sha256=cd567f291382e7f48c5e050a898ab0a3095170d2ec0397b97a6639ae6e143cd3 (specSum recursive addition; different form from implementation)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): lake build 569 jobs success; agree_gasoline_tax induction over all Nat; axiom probe propext only, no sorryAx/Classical.choice",
+      "proof_scope": "docs/UNIT_GASOLINE_TAX_RATE_9.md (computable slice; exact article captions in NOT MODELLED list)",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS 揮発油税法 art. 9; 173/173 checks passed; needle with terminal 。 unique in pinned file and in 第九条",
+      "source_location": "data/raw/332AC0000000055_20260525_506AC0000000052.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:9/Article#9/Paragraph#1/ParagraphSentence/Sentence#1 sha256=e5e7d4286963a6424652cc86c75341a6c64d972e4e3e7ef22670ddcf2801de9a",
+      "tests": "JapanTaxLaw/GasolineTaxRateTests.lean sha256=e74e741d1ec922ab50808fc0c9d74abaa6ad4b4ae7f5347c4a9fb3037a55273e (7 kernel-decided examples)"
+    },
     "NORM|8ddab9b4b822bdb32e8feda93cdcd4eaa31c2a5b86031df957456de8aa69d271": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 19 kernel-decided examples covering boundary inputs",
