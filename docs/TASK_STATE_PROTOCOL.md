@@ -37,3 +37,20 @@ A unit record has the shape produced by `normative_core.default_state(uid)`:
    two agents never edit the same artifact in parallel.
 
 The file is intentionally empty at baseline: no unit has recorded evidence yet.
+
+## Large-file checkout (resumption)
+
+`data/verification_evidence.json` is tracked with **Git LFS** (see
+`.gitattributes`). At the current corpus size it exceeds GitHub's 100 MB
+per-file push limit, so the git object is a small pointer and the ~109 MB
+payload lives in LFS storage. Before regenerating the queue or running gates in
+a fresh clone, install git-lfs and materialise the file:
+
+```
+git lfs install
+git lfs pull
+```
+
+Without this, `task_queue.py` would read the pointer text instead of JSON and
+derive every unit as `NOT_STARTED`. A missing LFS object is an environment
+problem, never evidence that verification regressed.
