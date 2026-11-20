@@ -23,22 +23,22 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 
 | axis | count |
 |---|---:|
-| laws parse-ok | n/a |
-| laws audit-ok | n/a |
-| articles checked | n/a |
-| paragraphs checked | n/a |
-| items checked | n/a |
-| verified anomalies | n/a |
-| unreviewed candidates | n/a |
+| laws parse-ok | 323 |
+| laws audit-ok | 323 |
+| articles checked | 40995 |
+| paragraphs checked | 83130 |
+| items checked | 58239 |
+| verified anomalies | 0 |
+| unreviewed candidates | 3264 |
 
 ## Reference-relation axes (Objective §1 — recursive discovery)
 
 | axis | count |
 |---|---:|
-| references extracted | n/a |
-| internal references checked | n/a |
-| external references NOT bound to the ledger | n/a |
-| references classified unsupported | n/a |
+| references extracted | 476500 |
+| internal references checked | 63234 |
+| external references NOT bound to the ledger | 175186 |
+| references classified unsupported | 250043 |
 
 external_unverified references are NOT verified and are NOT silently counted
 as covered scope. Recursive discovery of target laws from reference and
@@ -50,7 +50,7 @@ by the '税' keyword in the law name only.
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
 | pinned literal checks | 160 | n/a | n/a |
-| distinct article pins | 46 | n/a | n/a |
+| distinct article pins | 46 | 40995 | 0.11% |
 | pinned Lean modules (cross-law) | 448 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
@@ -59,9 +59,9 @@ by the '税' keyword in the law name only.
 |---|---:|
 | unpinned Lean modules (not counted as verified) | 78 |
 | L7 candidates awaiting human legal review | 3438 |
-| verified anomalies (requires independent review to establish) | n/a |
+| verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
-| external references NOT bound to the ledger | n/a |
+| external references NOT bound to the ledger | 175186 |
 
 An unpinned module, an unreviewed candidate, an unbound reference and an
 unenforced law are NOT counted as verified or completed. verified-anomaly = 0
