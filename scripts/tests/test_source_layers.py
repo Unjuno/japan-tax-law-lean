@@ -56,6 +56,23 @@ class LayerTests(unittest.TestCase):
         committed = json.loads((sl.REPO / "data" / "SOURCE_LAYERS.json").read_text(encoding="utf-8"))
         self.assertEqual(committed, self.reg)
 
+    def test_verification_pipeline_separate_denominators(self):
+        p = self.reg["verification_pipeline"]
+        for key in ("normative_units_total", "fully_verified_units", "proved_scope_units",
+                    "not_started_units", "blocked_units", "human_legal_reviews"):
+            self.assertIn(key, p)
+            self.assertTrue(p[key] is None or isinstance(p[key], int))
+        self.assertEqual(p["human_legal_reviews"], 0)
+
+    def test_missing_queue_is_unknown_not_zero(self):
+        original = sl.QUEUE
+        try:
+            sl.QUEUE = sl.REPO / "build" / "definitely_absent_queue.json"
+            self.assertEqual(sl.queue_counts(), {})
+            self.assertIsNone(sl.build()["verification_pipeline"]["fully_verified_units"])
+        finally:
+            sl.QUEUE = original
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
