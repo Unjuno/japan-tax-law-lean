@@ -1571,6 +1571,13 @@ def checks():
            ["同一の登記所の管轄内に在る二箇以上の不動産につき登記を嘱託するには"])
 
 
+    # 納税貯蓄組合法 art. 14 — TaxSavingsPenaltyCap.lean
+    yield ("納税貯蓄組合法 art. 14（過料の上限・十万円以下）↔ TaxSavingsPenaltyCap.lean (penaltyCap 100_000)",
+           "326AC1000000145",
+           "article", "第十四条",
+           ["十万円以下の過料に処する"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
