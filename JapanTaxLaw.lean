@@ -136,6 +136,10 @@ import JapanTaxLaw.ResidentialTransferSpecialTax
 import JapanTaxLaw.ResidentialTransferSpecialTaxSpec
 import JapanTaxLaw.ResidentialTransferSpecialTaxTests
 
+import JapanTaxLaw.ExcellentLandTransferSpecialTax
+import JapanTaxLaw.ExcellentLandTransferSpecialTaxSpec
+import JapanTaxLaw.ExcellentLandTransferSpecialTaxTests
+
 import JapanTaxLaw.SpecialGiftRateDomination
 
 import JapanTaxLaw.ListedDividendWithholding

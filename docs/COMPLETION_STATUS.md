@@ -8,12 +8,12 @@ obligations being complete. SKIP is never counted as PASS.
 ## Axis A — registered checks (last recorded gate run)
 
 - results file available: True
-- PASS: 29
-- FAIL: 5
+- PASS: 36
+- FAIL: 2
 - SKIP: 0
 - required gates SKIPped: 0
-- gate results commit: e52c725f4dd6b0181149266035d575bad202be95
-- current HEAD commit: e52c725f4dd6b0181149266035d575bad202be95
+- gate results commit: 7cd0b8001f46f45e246d51ac99d0f960a1c57053
+- current HEAD commit: 7cd0b8001f46f45e246d51ac99d0f960a1c57053
 - results bound to this commit: True
 - registered checks all green: False
 
@@ -21,8 +21,8 @@ obligations being complete. SKIP is never counted as PASS.
 
 - normative units: 396854
 - NOT_STARTED: 396843
-- PARTIAL: 0
-- PROVED_SCOPE: 1
+- PARTIAL: 1
+- PROVED_SCOPE: 0
 - FULLY_VERIFIED: 8
 - BLOCKED: 2
 - units with an open blocker: 2
