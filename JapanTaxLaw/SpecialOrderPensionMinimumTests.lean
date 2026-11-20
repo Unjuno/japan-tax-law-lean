@@ -49,4 +49,16 @@ example : minimumDeduction false false = 1_180_000 := by decide
 example : minimumDeduction true false = 1_680_000 := by decide
 example : minimumDeduction true true = 900_000 := by decide
 
+-- ==== 追加の必須境界 (a) 零入力 / (b) 小さい正の入力 (1..13) / (c) saturation ====
+-- 本モジュールは 2 つの Bool で 3 つの Money 定数を選ぶだけ（金額算術は持たない）。
+-- 最低控除額は控除の下限（floor）なので、控除後課税額 = max(0, 年金 − 最低控除額) は
+-- saturating Nat 減算になる。法定の最低控除額 168 万円を閾値にした境界を確認する。
+-- (a) 零入力: 年金 0 円 → 0 - 168万 = 0（saturating）
+example : 0 - specialMinimumDeduction = 0 := by decide
+-- (b) 小さい正の入力 (1..13): 年金 13 円も最低控除 168 万円に吸収され 0
+example : 13 - specialMinimumDeduction = 0 := by decide
+-- (c) 閾値境界の saturation: 最低控除額 168 万円を 1 円超える年金でも控除後は 0
+--     （CustomsSmallConsignment の threshold - (threshold+1) = 0 と同型）
+example : specialMinimumDeduction - 1_680_001 = 0 := by decide
+
 end JapanTaxLaw.SpecialOrderPensionMinimum
