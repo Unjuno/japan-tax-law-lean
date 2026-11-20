@@ -93,6 +93,19 @@
       "source_location": "data/raw/340CO0000000096_20260522_508CO0000000093.law.json#LawBody[3]/MainProvision/MainProvision[0]/Article:14/Article#14/Paragraph#1/ParagraphSentence/Sentence#1 9facf2e2768d602ccdbbf9891df142d3a3e7ead09033eb0634de00a4c4181392 (verbatim 56-char presumption)",
       "tests": "JapanTaxLaw/DomicilePresumptionArt14Tests.lean sha256=a3e8afd0982230ee4c28746bbefb1463ddd791498338e93b5545a40aaabf0473 (6 kernel-decided examples)"
     },
+    "NORM|29d04706ea24185c86b2152ccc2a22513fd3733bb63bfaecfc4e260e1283c879": {
+      "adversarial_review": "docs/UNIT_DELEGATION_ART312.md: H/T/D/C/U; ministry-ordinance and self-executing readings rejected by verbatim original",
+      "boundary_proof": "kernel examples: authority code 1 (政令), not 2 (省令), scopeFixedByThisAct=false",
+      "cross_law_proof": "unit dependencies=0 in the generated queue; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY (the delegated Cabinet Order is outside this unit)",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; DELEGATION unit at Article:312/Paragraph#8/Sentence#1",
+      "implementation": "JapanTaxLaw/ProfitBusinessDelegation.lean sha256=f2c745c606138f0cd8421a2d0c2a861d7c1f30f7c4e02c8d51a5f90f6ce2d5c8",
+      "independent_spec": "JapanTaxLaw/ProfitBusinessDelegationSpec.lean sha256=3b246cfb517c6ca1b8b7d16865e6c695b8a332d671df91255f494a9032dbbf87 (separate spec constants, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation, delegates_to_cabinet_order, not_to_ministry_ordinance, delegation_not_self_executing kernel-checked; no sorry/admit",
+      "proof_scope": "delegation relation only: authority = Cabinet Order, scope not fixed by this act; cabinet-order content, amendment procedure and limits NOT MODELLED; authority codes caller-established",
+      "source_correspondence_audit": "scripts/ci/source_audit_delegation_art312.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 収益事業の範囲/政令で定める",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:312/Article#312/Paragraph#8/ParagraphSentence/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim 20-char delegation)",
+      "tests": "JapanTaxLaw/ProfitBusinessDelegationTests.lean sha256=4d6422ec82632d9db7e462680841f9bd1d07f16694a68368e416a58c2aad60f7 (4 kernel-decided examples)"
+    },
     "NORM|2bb1ca3263f7e9d5364bf3f9a4f429da2445559f7f9cfbabfaf5db5e5d2a3b31": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
@@ -131,6 +144,19 @@
       "source_correspondence_audit": "scripts/ci/source_audit_registration_art3.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; independent literals 前二条/同一の登記所/二箇以上/登記原因/登記の目的/同一の嘱託書 located in pinned original",
       "source_location": "data/raw/322CO0000000109_19470627_000000000000000.law.json#LawBody[1]/MainProvision/MainProvision[2]/Article:3/Article#3/Paragraph#1/ParagraphSentence/Sentence sha256=9ff39f03e58b315d04fbb65246dd5a4e64cf8c6a428eae84c53bb49c530816ec (verbatim 87-char unit text located in scoped article)",
       "tests": "JapanTaxLaw/RegistrationJointRequestTests.lean sha256=ab9297839621f6ee4cdd49dd199feef8868c1feaf6a3050158c5be09ae68c579 (16 kernel-decided examples incl. 0/1/2/3 and cause-difference invariants)"
+    },
+    "NORM|64b83716c4c799383c697121bca0ad46831d0951b2f1f9d8622f56cbdfe3a10c": {
+      "adversarial_review": "docs/UNIT_QUASI_ART13_4.md: H/T/D/C/U; extension to other municipal taxes rejected by verbatim original",
+      "boundary_proof": "quasiApplies_iff general theorem; code 1 applies, codes 0/2 do not",
+      "cross_law_proof": "unit dependencies=0 in the generated queue; enforced revision 329M50000002023_20261101_508M60000008045 resolved from INVENTORY (the referenced paragraph 1 is outside this unit)",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; READING/quasi-application unit in supplementary provision",
+      "implementation": "JapanTaxLaw/MunicipalTaxQuasiApply.lean sha256=6dda14a14ddb5abf7b1d717b44371b6a1bac9246bf94c624ec1dbc8c14b20ef9",
+      "independent_spec": "JapanTaxLaw/MunicipalTaxQuasiApplySpec.lean sha256=b72795420a94aee09874b29a340681d1d49081129c968bd50508ad45835482d5 (no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation and quasiApplies_iff kernel-checked; no sorry/admit",
+      "proof_scope": "quasi-application target only: individual municipal inhabitant tax; paragraph-1 content, reading substitutions and other taxes NOT MODELLED; category code caller-established",
+      "source_correspondence_audit": "scripts/ci/source_audit_quasi_art13_4.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 第一項の規定/個人の市町村民税/準用する",
+      "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[3]/SupplProvision/SupplProvision[87]/Article:13_4/Article#13_4/Paragraph#3/ParagraphSentence/Sentence#1 5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim 23-char quasi-application)",
+      "tests": "JapanTaxLaw/MunicipalTaxQuasiApplyTests.lean sha256=31423b4366568d4ddbc9be2e946f6cab31304d91344c4ab51b74b9e4e5851a42 (6 kernel-decided examples)"
     },
     "NORM|84f30566e583de635fc2da0096497d579f38dd9935595a55259fd024a6e24c0f": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
@@ -222,19 +248,6 @@
       "source_correspondence_audit": "scripts/ci/source_audit_merger_art24.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 合併/適格合併/除く",
       "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:24/Article#24/Paragraph#1/Item#1/ItemSentence/Sentence#1 3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342 (verbatim 12-char exception)",
       "tests": "JapanTaxLaw/MergerExceptionArt24Tests.lean sha256=1f21341257f0dd648c5f04a93bd9303344fe56ec8202374cfa6e479a08ef44ee (6 kernel-decided examples)"
-    },
-    "NORM|64b83716c4c799383c697121bca0ad46831d0951b2f1f9d8622f56cbdfe3a10c": {
-      "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[3]/SupplProvision/SupplProvision[87]/Article:13_4/Article#13_4/Paragraph#3/ParagraphSentence/Sentence#1 5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim 23-char quasi-application)",
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique id, coverage=COVERED; READING/quasi-application unit in supplementary provision",
-      "source_correspondence_audit": "scripts/ci/source_audit_quasi_art13_4.py: verbatim_text_match=true, all_literals_in_original=true, spec_does_not_import_implementation=true; literals 第一項の規定/個人の市町村民税/準用する",
-      "independent_spec": "JapanTaxLaw/MunicipalTaxQuasiApplySpec.lean sha256=b72795420a94aee09874b29a340681d1d49081129c968bd50508ad45835482d5 (no implementation import)",
-      "implementation": "JapanTaxLaw/MunicipalTaxQuasiApply.lean sha256=6dda14a14ddb5abf7b1d717b44371b6a1bac9246bf94c624ec1dbc8c14b20ef9",
-      "kernel_proof": "Lean 4.35.0 pinned; lake build success; agrees_with_implementation and quasiApplies_iff kernel-checked; no sorry/admit",
-      "proof_scope": "quasi-application target only: individual municipal inhabitant tax; paragraph-1 content, reading substitutions and other taxes NOT MODELLED; category code caller-established",
-      "boundary_proof": "quasiApplies_iff general theorem; code 1 applies, codes 0/2 do not",
-      "cross_law_proof": "unit dependencies=0 in the generated queue; enforced revision 329M50000002023_20261101_508M60000008045 resolved from INVENTORY (the referenced paragraph 1 is outside this unit)",
-      "tests": "JapanTaxLaw/MunicipalTaxQuasiApplyTests.lean sha256=31423b4366568d4ddbc9be2e946f6cab31304d91344c4ab51b74b9e4e5851a42 (6 kernel-decided examples)",
-      "adversarial_review": "docs/UNIT_QUASI_ART13_4.md: H/T/D/C/U; extension to other municipal taxes rejected by verbatim original"
     }
   }
 }

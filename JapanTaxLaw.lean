@@ -569,3 +569,6 @@ import JapanTaxLaw.DomicilePresumptionArt14Tests
 import JapanTaxLaw.MunicipalTaxQuasiApply
 import JapanTaxLaw.MunicipalTaxQuasiApplySpec
 import JapanTaxLaw.MunicipalTaxQuasiApplyTests
+import JapanTaxLaw.ProfitBusinessDelegation
+import JapanTaxLaw.ProfitBusinessDelegationSpec
+import JapanTaxLaw.ProfitBusinessDelegationTests

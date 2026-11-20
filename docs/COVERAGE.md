@@ -57,7 +57,7 @@ by the '税' keyword in the law name only.
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 104 |
+| unpinned Lean modules (not counted as verified) | 107 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
