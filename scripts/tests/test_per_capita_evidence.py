@@ -44,6 +44,21 @@ class EvidenceTests(unittest.TestCase):
     def test_missing_attestation_yields_no_evidence(self):
         self.assertIsNone(gen.build())
 
+    def test_malformed_attestation_fails_closed(self):
+        gen.ATTEST.write_text('{"schema": 1, "run_concl', encoding="utf-8")
+        self.assertIsNone(gen.verify_attestation())
+        self.assertIsNone(gen.build())
+
+    def test_exact_statutory_value_extraction(self):
+        extracted = gen.statutory_amount("個人の均等割の標準税率は、千円とする。")
+        self.assertEqual(extracted, (1000, "千"))
+        # A substring search would accept 10000; exact parsing must not.
+        self.assertEqual(gen.defined_amount("def specRateYen : Nat := 10000", "specRateYen"), 10000)
+        self.assertEqual(gen.defined_amount("def standardRate : Money := 1_000", "standardRate"), 1000)
+        self.assertNotEqual(
+            gen.defined_amount("def specRateYen : Nat := 10000", "specRateYen"),
+            extracted[0])
+
     def test_failed_run_yields_no_evidence(self):
         gen.ATTEST.write_text(json.dumps(attestation(conclusion="failure")), encoding="utf-8")
         self.assertIsNone(gen.build())

@@ -87,20 +87,49 @@ def scoped_text(inv: dict) -> str:
 
 
 def verify_attestation() -> dict | None:
-    if not ATTEST.exists():
-        return None
-    att = json.loads(ATTEST.read_text(encoding="utf-8"))
-    if att.get("schema") != 1 or att.get("run_conclusion") != "success":
-        return None
-    job = (att.get("jobs") or {}).get("Build Lean project and check axioms", {})
-    if job.get("conclusion") != "success":
-        return None
-    mods = att.get("modules", {})
-    for name in (BASE + ".lean", BASE + "Spec.lean", BASE + "Tests.lean"):
-        p = REPO / "JapanTaxLaw" / name
-        if not p.exists() or blob_sha(p) != mods.get(name, {}).get("sha256"):
+    """Fail closed: any parse/structure/hash problem is invalid attestation."""
+    try:
+        if not ATTEST.exists():
             return None
-    return att
+        att = json.loads(ATTEST.read_text(encoding="utf-8"))
+        if not isinstance(att, dict):
+            return None
+        if att.get("schema") != 1 or att.get("run_conclusion") != "success":
+            return None
+        job = (att.get("jobs") or {}).get("Build Lean project and check axioms", {})
+        if job.get("conclusion") != "success":
+            return None
+        mods = att.get("modules", {})
+        if not isinstance(mods, dict):
+            return None
+        for name in (BASE + ".lean", BASE + "Spec.lean", BASE + "Tests.lean"):
+            p = REPO / "JapanTaxLaw" / name
+            if not p.exists() or blob_sha(p) != mods.get(name, {}).get("sha256"):
+                return None
+        return att
+    except (OSError, ValueError, TypeError, AttributeError):
+        return None
+
+
+def statutory_amount(scoped: str) -> tuple[int, str] | None:
+    """Re-extract 「千円」 from the scoped 原文 as (Arabic, original kanji)."""
+    m = re.search(r"([零〇一二三四五六七八九十百千万]+)円", scoped)
+    if not m:
+        return None
+    try:
+        return core.kanji_to_int(m.group(1)), m.group(1)
+    except (ValueError, TypeError):
+        return None
+
+
+def defined_amount(text: str, def_name: str) -> int | None:
+    """Parse the exact numeric literal of a definition, not a substring."""
+    m = re.search(r"^\s*def\s+" + re.escape(def_name) +
+                  r"\s*(?::[^=]+)?=\s*(\d[\d_]*)",
+                  strip_comments(text), re.M)
+    if not m:
+        return None
+    return int(m.group(1).replace("_", ""))
 
 
 def build() -> dict | None:
@@ -140,8 +169,19 @@ def build() -> dict | None:
         return None
     if any(re.search(r"\b" + re.escape(d) + r"\b", spec_body) for d in impl_defs if d):
         return None
-    # Independent literal re-extraction: 1000 -> 千 in the scoped 原文 and in the unit.
-    if "千" not in scoped or "千" not in text or "1000" not in spec_body and "1_000" not in spec_body:
+    # Independent literal re-extraction: the statutory amount is parsed from
+    # the scoped 原文 (千円 -> 1000) and compared EXACTLY with the numeric
+    # literals of both the independent spec and the kernel-checked impl.
+    extracted = statutory_amount(scoped)
+    if extracted is None:
+        return None
+    amount, kanji = extracted
+    impl_amount = defined_amount(impl.read_text(encoding="utf-8"), "standardRate")
+    spec_amount = defined_amount(spec.read_text(encoding="utf-8"), "specRateYen")
+    if impl_amount != amount or spec_amount != amount:
+        return None
+    # The unit text must carry the same statutory kanji amount.
+    if kanji not in text:
         return None
     n_examples = len(re.findall(r"example\s*:", strip_comments(tests.read_text(encoding="utf-8"))))
     if n_examples < 5:
