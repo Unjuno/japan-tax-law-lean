@@ -88,6 +88,18 @@ def main() -> int:
           (not fv_units) or (bool(axes) and not unbacked),
           f"FULLY_VERIFIED={len(fv_units)} axes={len(axes)} unbacked={len(unbacked)}")
 
+    # Non-empty strings are necessary but not sufficient. Re-derive the status
+    # from the evidence ledger using the canonical rule so a stale/hand-edited
+    # queue cannot claim FULLY_VERIFIED (audit finding: self-declaration only).
+    rederive_mismatch = []
+    for u in fv_units:
+        derived, _ = normative_core.derive_status(u, evidence.get(str(u.get("normative_id", "")), {}))
+        if derived != "FULLY_VERIFIED":
+            rederive_mismatch.append(str(u.get("normative_id", ""))[:24])
+    check("FULLY_VERIFIED re-derives from evidence",
+          not rederive_mismatch,
+          f"mismatches={len(rederive_mismatch)}")
+
     sample = units[0]
     required = ("normative_id", "law_id", "article", "source_path", "kind",
                 "text", "dependencies", "obligations", "owner", "blockers",

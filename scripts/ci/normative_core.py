@@ -296,6 +296,7 @@ def decompose_article(
     enforcement_date: str,
     law_index: dict[str, str],
     outer_path: tuple = (),
+    enforcement_index: dict[str, str] | None = None,
 ) -> dict[str, Any]:
     units: list[dict[str, Any]] = []
     # The article node alone cannot tell Main from Supplementary/Appendix.
@@ -338,7 +339,7 @@ def decompose_article(
             unit["row"], unit["cell"], unit["ordinal"], unit["kind"], unit["text"],
             provision_no=unit["provision_no"], source_path=unit["source_path"],
         )
-        unit["dependencies"] = parse_dependencies(unit["text"], law_index)
+        unit["dependencies"] = parse_dependencies(unit["text"], law_index, enforcement_index)
         units.append(unit)
     audit = audit_coverage(flat(node), units)
     return {"article": article_no, "units": units, "coverage": audit}
@@ -354,24 +355,57 @@ def build_law_index(laws: list[dict[str, Any]]) -> dict[str, str]:
     return idx
 
 
-def parse_dependencies(text: str, law_index: dict[str, str]) -> list[dict[str, Any]]:
+def build_enforcement_index(laws: list[dict[str, Any]]) -> dict[str, str]:
+    """law_id -> enforced revision/date, for dependency resolution (§1.6).
+
+    A reference to another law is only a complete dependency once it names the
+    law, the article and the enforced version.  A bare name or 15-digit id stays
+    underdetermined; this index supplies the third coordinate when available.
+    """
+    idx: dict[str, str] = {}
+    for law in laws:
+        lid = str(law.get("law_id", ""))
+        rev = law.get("current_revision") or {}
+        enforced = str(
+            rev.get("enforcement_date")
+            or rev.get("amendment_enforcement_date")
+            or rev.get("law_revision_id", "")
+            or ""
+        )
+        if lid and enforced:
+            idx[lid] = enforced
+    return idx
+
+
+def parse_dependencies(
+    text: str,
+    law_index: dict[str, str],
+    enforcement_index: dict[str, str] | None = None,
+) -> list[dict[str, Any]]:
     """Structured deps: law name + article + enforcement version.
 
     Bare 15-character identifiers are reported with resolution
     ``unresolved_underdetermined`` and are never satisfied dependencies.
+    ``enforcement_index`` (law_id -> enforced revision/date) supplies the third
+    coordinate of §1.6; when a referenced law's version is unknown the
+    dependency stays explicitly insufficient rather than being silently treated
+    as version-agnostic.
     """
+    enforcement_index = enforcement_index or {}
     deps: list[dict[str, Any]] = []
     names = sorted((k for k in law_index if not LAW_ID_RE.fullmatch(k)), key=len, reverse=True)
     for m in ARTICLE_RE.finditer(text or ""):
         article = m.group(0)
         window = text[max(0, m.start() - 120): m.end() + 40]
         name = next((n for n in names if n in window), "")
+        lid = law_index.get(name, "")
+        version = enforcement_index.get(lid, "")
         deps.append({
             "type": "law_article",
             "law_name": name,
-            "law_id": law_index.get(name, ""),
+            "law_id": lid,
             "article": article,
-            "enforcement_version": "",
+            "enforcement_version": version,
             "resolution": "resolved_by_name" if name else "unresolved_underdetermined",
             "sufficient": bool(name),
         })
@@ -441,22 +475,47 @@ def save_state(state: dict[str, Any], path: Path = STATE_PATH) -> None:
     tmp.replace(path)
 
 
+def _unit_source_digest(u: dict[str, Any]) -> str:
+    """Normalize the source fingerprint emitted by build_tasks (§1.7).
+
+    Generators have used both ``source_digest`` and ``source_sha256``; both are
+    the SHA-256 of the pinned snapshot.  Without this normalization a source
+    change is invisible and a stale FULLY_VERIFIED survives (audit finding 1).
+    """
+    return str(u.get("source_sha256") or u.get("source_digest") or "")
+
+
 def merge_state(state: dict[str, Any], units: list[dict[str, Any]]) -> tuple[dict[str, Any], list[str]]:
-    """Register new units; preserve owner/blockers/artifacts of existing ones."""
+    """Register new units; preserve owner/blockers/artifacts/evidence (§1.7).
+
+    When a pinned source changes, derived status/evidence are reset but the
+    agent's manual fields (owner, blockers, artifacts, legal review) survive.
+    The current digest is backfilled into the state record so the NEXT
+    regeneration can detect a change; ``source_digest`` is not a template key,
+    so default records still stay out of the compact persisted ledger.
+    """
     notes: list[str] = []
     for u in units:
         uid = u.get("id") or u.get("unit_id") or u.get("normative_id")
         if not uid:
             notes.append("unit without id skipped")
             continue
-        if uid not in state["units"]:
-            state["units"][uid] = default_state(uid)
+        digest = _unit_source_digest(u)
+        rec = state["units"].get(uid)
+        if rec is None:
+            rec = default_state(uid)
+            state["units"][uid] = rec
             notes.append(f"new:{uid}")
-        elif (u.get("source_digest") and state["units"][uid].get("source_digest")
-              and state["units"][uid]["source_digest"] != u["source_digest"]):
-            state["units"][uid]["status"] = STATUS_NOT_STARTED
-            state["units"][uid]["evidence"] = {k: "" for k in EVIDENCE_AXES}
+        old = str(rec.get("source_digest", ""))
+        if digest and old and digest != old:
+            rec["status"] = STATUS_NOT_STARTED
+            rec["evidence"] = {k: "" for k in EVIDENCE_AXES}
+            rec.setdefault("history", []).append({
+                "event": "source_changed", "from": old, "to": digest,
+            })
             notes.append(f"source-changed:{uid}")
+        if digest and digest != old:
+            rec["source_digest"] = digest
     return state, notes
 
 
@@ -526,7 +585,11 @@ def dependency_readiness(units: list[dict[str, Any]]) -> dict[str, bool]:
             if not d.get("sufficient"):
                 ok = False
                 continue
-            key = (did, d.get("article", ""), u.get("enforcement_date", ""))
+            # §1.6: match on the REFERENCED law's enforced version when known,
+            # not the consumer's. Fall back to the consumer date only when the
+            # dependency parser could not resolve a version for the target.
+            version = d.get("enforcement_version") or u.get("enforcement_date", "")
+            key = (did, d.get("article", ""), version)
             if key not in verified:
                 ok = False
         out[u.get("id", "")] = ok

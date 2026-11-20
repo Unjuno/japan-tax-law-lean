@@ -99,6 +99,18 @@ class DependencyTests(unittest.TestCase):
         self.assertIn("resolved_by_name", kinds)
         self.assertTrue(any(d["type"] == "enforcement_version" for d in deps))
 
+    def test_enforcement_index_supplies_third_coordinate(self):
+        # §1.6: a law_article dep must carry the referenced law's enforced
+        # version, not an empty string (audit finding 3).
+        laws = [{"law_id": "340AC0000000034",
+                 "current_revision": {"law_revision_id": "340AC0000000034_20250601_X"}}]
+        idx = nc.build_enforcement_index(laws)
+        self.assertEqual(idx["340AC0000000034"], "340AC0000000034_20250601_X")
+        deps = nc.parse_dependencies("法人税法第九条の規定", self.INDEX, idx)
+        dep = next(d for d in deps if d["type"] == "law_article" and d["law_id"] == "340AC0000000034")
+        self.assertEqual(dep["enforcement_version"], "340AC0000000034_20250601_X")
+        self.assertTrue(dep["sufficient"])
+
 
 class StateTests(unittest.TestCase):
     def make_unit(self):
