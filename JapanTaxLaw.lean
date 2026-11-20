@@ -527,3 +527,6 @@ import JapanTaxLaw.ProvisionalTariffRateTests
 import JapanTaxLaw.ReformDoubleBasicDeduction
 import JapanTaxLaw.ReformDoubleBasicDeductionSpec
 import JapanTaxLaw.ReformDoubleBasicDeductionTests
+import JapanTaxLaw.TonnageTaxPenalty
+import JapanTaxLaw.TonnageTaxPenaltySpec
+import JapanTaxLaw.TonnageTaxPenaltyTests
