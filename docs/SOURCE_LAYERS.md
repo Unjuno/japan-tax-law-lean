@@ -12,6 +12,12 @@ layer is never folded into the statutory ledger.
 - historical names / occurrences: 795 / 12977
 - discovered law candidates / pinned: 382 / 381
 
+## Auxiliary index acquisition (index page only, not underlying sources)
+
+- L4_CIRCULAR: https://www.nta.go.jp/law/tsutatsu/menu.htm
+  pinned data/raw_circulars/nta_tsutatsu_menu.html sha256=efc91e471dd46fa3146bacf6dce32bbef0ed1f31dc3053ecfaef93593bafd55a bytes=18563 hrefs=91
+  content_acquired=False (underlying circular texts NOT acquired)
+
 | layer | label | legal nature | acquisition | scope | count | verification |
 |---|---|---|---|---|---:|---|
 | L0_STATUTE | 法律・政令・省令 | 国家法源（法律・政令・省令） | ACQUIRED_PARTIAL | PROVISIONAL_POPULATION | 327 | PARTIAL |
@@ -26,13 +32,13 @@ layer is never folded into the statutory ledger.
 ## Obligation counts (separate denominators)
 
 - normative_units_total: unknown
-- fully_verified_units: 18
+- fully_verified_units: 19
 - proved_scope_units: 1
-- not_started_units: 396833
+- not_started_units: 396832
 - blocked_units: 2
 - human_legal_reviews: 0
 
 Separate denominators; unknown (None) means the input is absent, never zero.
 
-No layer other than L0 has acquired content in this repository. No
-completion claim is made for any layer.
+No layer other than L0 has acquired source texts in this repository;
+the pinned L4 item is an index page only. No completion claim is made.

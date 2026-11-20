@@ -63,6 +63,18 @@ class LayerTests(unittest.TestCase):
         self.assertEqual(l0["scope_status"], "PROVISIONAL_POPULATION")
         self.assertNotEqual(l0["verification_status"], "FULLY_VERIFIED")
 
+    def test_auxiliary_index_is_pinned_but_not_content(self):
+        ai = self.reg.get("auxiliary_index_acquisition")
+        if ai is None:
+            self.skipTest("no auxiliary index acquired in this checkout")
+        self.assertEqual(ai["layer_id"], "L4_CIRCULAR")
+        self.assertEqual(ai["content_acquired"], False)
+        self.assertEqual(ai["error_page_rejected"], True)
+        self.assertEqual(len(ai["raw_sha256"]), 64)
+        self.assertGreater(ai["raw_bytes"], 5000)
+        raw = sl.REPO / ai["raw_file"]
+        self.assertTrue(raw.exists())
+
     def test_ledger_is_deterministic(self):
         committed = json.loads((sl.REPO / "data" / "SOURCE_LAYERS.json").read_text(encoding="utf-8"))
         self.assertEqual(committed, self.reg)

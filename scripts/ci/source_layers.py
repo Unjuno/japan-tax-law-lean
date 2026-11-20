@@ -31,6 +31,7 @@ REPO = Path(__file__).resolve().parents[2]
 INVENTORY = REPO / "data" / "INVENTORY.json"
 DISCOVERY = REPO / "docs" / "RECURSIVE_DISCOVERY.md"
 DISCOVERED = REPO / "data" / "DISCOVERED_INVENTORY.json"
+AUX_INDEX = REPO / "data" / "raw_circulars" / "nta_tsutatsu_index.meta.json"
 BLOCKED = REPO / "docs" / "BLOCKED.md"
 OUT_JSON = REPO / "data" / "SOURCE_LAYERS.json"
 OUT_MD = REPO / "docs" / "SOURCE_LAYERS.md"
@@ -89,6 +90,7 @@ def build() -> dict:
     disc_total = discovered.get("laws_total_discovered")
     disc_acquired = discovered.get("laws_acquired_total") or 0
     disc_snapshot = discovered.get("snapshot_date", "")
+    aux_index = json.loads(AUX_INDEX.read_text(encoding="utf-8")) if AUX_INDEX.exists() else None
 
     layers = [
         {
@@ -229,6 +231,7 @@ def build() -> dict:
             "human_reviewers_recorded": reviewers,
         },
         "layer_separation_rule": "auxiliary layers are never merged into L0; counts are separate denominators",
+        "auxiliary_index_acquisition": aux_index,
         "layers": layers,
     }
 
@@ -257,6 +260,21 @@ def main() -> int:
         f"- historical names / occurrences: {payload['discovery']['historical_names']} / {payload['discovery']['historical_occurrences']}",
         f"- discovered law candidates / pinned: {payload['discovery']['discovered_law_candidates']} / {payload['discovery']['discovered_laws_pinned']}",
         "",
+        "## Auxiliary index acquisition (index page only, not underlying sources)",
+        "",
+    ]
+    ai = payload["auxiliary_index_acquisition"]
+    if ai is None:
+        lines.append("- none acquired")
+    else:
+        lines += [
+            f"- {ai['layer_id']}: {ai['source_url']}",
+            f"  pinned {ai['raw_file']} sha256={ai['raw_sha256']} "
+            f"bytes={ai['raw_bytes']} hrefs={ai['index_href_count']}",
+            f"  content_acquired={ai['content_acquired']} (underlying circular texts NOT acquired)",
+        ]
+    lines += [
+        "",
         "| layer | label | legal nature | acquisition | scope | count | verification |",
         "|---|---|---|---|---|---:|---|",
     ]
@@ -275,8 +293,8 @@ def main() -> int:
         "",
         p["note"],
         "",
-        "No layer other than L0 has acquired content in this repository. No",
-        "completion claim is made for any layer.",
+        "No layer other than L0 has acquired source texts in this repository;",
+        "the pinned L4 item is an index page only. No completion claim is made.",
         "",
     ]
     OUT_MD.parent.mkdir(parents=True, exist_ok=True)
