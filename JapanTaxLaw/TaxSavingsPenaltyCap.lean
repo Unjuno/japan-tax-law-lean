@@ -40,7 +40,7 @@ theorem withinPenaltyCap_of_le {amount : Money} (h : amount <= penaltyCap) :
 
 /-- The inclusive boundary: 十万円 itself is within the cap. -/
 theorem withinPenaltyCap_at_cap : withinPenaltyCap penaltyCap = true :=
-  withinPenaltyCap_of_le le_rfl
+  withinPenaltyCap_of_le (Nat.le_refl penaltyCap)
 
 /-- Zero is within the cap. -/
 theorem withinPenaltyCap_zero : withinPenaltyCap 0 = true :=
