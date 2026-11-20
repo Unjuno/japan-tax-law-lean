@@ -23,13 +23,13 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 
 | axis | count |
 |---|---:|
-| laws parse-ok | n/a |
-| laws audit-ok | n/a |
-| articles checked | n/a |
-| paragraphs checked | n/a |
-| items checked | n/a |
-| verified anomalies | n/a |
-| unreviewed candidates | n/a |
+| laws parse-ok | 325 |
+| laws audit-ok | 325 |
+| articles checked | 42584 |
+| paragraphs checked | 86403 |
+| items checked | 61672 |
+| verified anomalies | 0 |
+| unreviewed candidates | 3438 |
 
 ## Reference-relation axes (Objective §1 — recursive discovery)
 
@@ -50,7 +50,7 @@ by the '税' keyword in the law name only.
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
 | pinned literal checks | 160 | n/a | n/a |
-| distinct article pins | 46 | n/a | n/a |
+| distinct article pins | 46 | 42584 | 0.11% |
 | pinned Lean modules (cross-law) | 448 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
@@ -59,7 +59,7 @@ by the '税' keyword in the law name only.
 |---|---:|
 | unpinned Lean modules (not counted as verified) | 78 |
 | L7 candidates awaiting human legal review | 3438 |
-| verified anomalies (requires independent review to establish) | n/a |
+| verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
 | external references NOT bound to the ledger | n/a |
 
