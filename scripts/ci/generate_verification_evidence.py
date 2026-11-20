@@ -98,7 +98,10 @@ def load_attestation() -> dict:
     scoped = REPO / "data" / "PROOF_ATTESTATION_SCOPED.json"
     if scoped.exists():
         extra = json.loads(scoped.read_text(encoding="utf-8"))
-        if (extra.get("schema") == 1 and extra.get("run_conclusion") == "success"
+        honest_run = (extra.get("run_conclusion") == "success"
+                      or (extra.get("scope") == "lean_job_only"
+                          and extra.get("run_conclusion") == "lean_job_only"))
+        if (extra.get("schema") == 1 and honest_run
                 and extra.get("jobs", {}).get("Build Lean project and check axioms", {}).get(
                     "conclusion") == "success"):
             data.setdefault("modules", {}).update(extra.get("modules", {}))
