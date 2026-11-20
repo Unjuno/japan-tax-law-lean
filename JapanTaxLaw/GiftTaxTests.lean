@@ -34,4 +34,13 @@ example : giftTax 1_000_000 = giftPortionTax 400_000 := by decide
 -- composite example, taxable residual
 example : giftTax 3_000_000 = giftPortionTax 2_400_000 := by decide
 
+-- ==== 追加の必須境界 (b) 小さい正の入力 (1..13) ====
+-- ((a) 零入力 giftPortionTax 0 / giftTax 0 と (c) 結果 0 の飽和 giftTax 600_000 = 0 は
+--   上示例で既にカバー。)
+-- 10 円: 最初の帯 10% → 10 * 10 / 100 = 1 円。後続の帯は min 差が 0、
+--        頂点帯も 10 - 30_000_000 = 0 に saturation して合計 1
+example : giftPortionTax 10 = 1 := by decide
+-- 13 円: 基礎控除 60 万円以下 → 控除後課税価格 0 → 税額 0
+example : giftTax 13 = 0 := by decide
+
 end JapanTaxLaw

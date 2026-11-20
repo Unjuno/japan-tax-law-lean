@@ -327,6 +327,19 @@
       "source_location": "data/raw/340AC0000000033_20261001_507AC0000000070.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:203_3/Article#203_3/Paragraph#1/ParagraphSentence/Sentence#1 sha256=94c4a7ad83726cde60787967ed4e959585ad0af9279d25db9aa02264b3fe606b (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/PublicPensionWithholdingTests.lean sha256=43564ec85b5c9b69b0e873d674c273cc07045618e1228b2da45123dc10365f48 (23 kernel-decided examples)"
     },
+    "NORM|383ddcad7c9db10fea00f18c1229a8309ce4310660cbdcd9079e607610971c88": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 15 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=403AC0000000069_20250601_504AC0000000068 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/LandValueTaxRate.lean sha256=c77ded58146adf89a397358b46a7ffdb301c549a8063977f1e2d67b8fda6ba73",
+      "independent_spec": "JapanTaxLaw/LandValueTaxRateSpec.lean sha256=b9684349382ca82e69ba8f250341821ba2468d4c980e5da9b94863d708e1f324 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44684783591: commit 0b6e084f68c35511d586b601692180ceac28a5dc, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio; constants [3, 1000] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio; verbatim spellings found in scoped 原文 = {\"1000\": [\"千\"], \"3\": [\"三\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/403AC0000000069_20250601_504AC0000000068.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:22/Article#22/Paragraph#1/ParagraphSentence/Sentence#1 sha256=0fe4bb9c6d07ff6e648db1d5bdb49af134af1b1f7563ea641ea8f87d4f72cbe2 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/LandValueTaxRateTests.lean sha256=b76d44b2a4b23378d674dad4c4c2db521c926f3ad5405e92b6bee3df9119aa9c (15 kernel-decided examples)"
+    },
     "NORM|3c0ac5b522d94a46daf976f441c3dbe41d0982fd8e31bfb61b7787bd44a8a973": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 15 kernel-decided examples covering boundary inputs",
@@ -782,6 +795,19 @@
       "source_location": "data/raw/340AC0000000033_20261001_507AC0000000070.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:74/Article#74/Paragraph#2/ParagraphSentence/Sentence#1 sha256=94c4a7ad83726cde60787967ed4e959585ad0af9279d25db9aa02264b3fe606b (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/IncomeSocialInsuranceDeductionTests.lean sha256=118f0cb1d31252368d6b9d359740dff178ea185612247da74309dcf52ef06111 (12 kernel-decided examples)"
     },
+    "NORM|926a979408404763d53009242e359b92c26e5b2abb2ebada6c8ca095f50419db": {
+      "adversarial_review": "docs/ADVERSARIAL_LOCAL_TAX_ARES_ROUNDING_180_3.md — independent agent recomputed pin sha256 (3dd29e0…e68d53, 12,181,725 bytes), located needle uniquely in Article 180 / Paragraph 3, refuted the circular-spec hypothesis (if-zero vs structural match), confirmed universal proof over all Nat and all four boundary theorems, and rejected both competing interpretations. NO CONCRETE FINDINGS; no fix required.",
+      "boundary_proof": "JapanTaxLaw/LocalTaxAresRoundingSpec.lean: no_fraction_is_zero (0), smallest_fraction_is_unit (1->100), largest_fraction_is_unit (99->100), deemed_fraction_bounded (universal over Nat)",
+      "cross_law_proof": "queue unit dependencies analyzed; this is a standalone deeming sub-rule of 地方税法 art.180(3); no cross-law constant claimed; art.180(1) base explicitly NOT MODELLED",
+      "decomposition_audit": "build/task_queue.json: kind=DEEMING, decomposed=true, exact span, unhandled_conditions=[], id unique",
+      "implementation": "JapanTaxLaw/LocalTaxAresRounding.lean sha256=5a02642479fa726e15435f7dbd88689d1852f102eb3484480565743088e6d7f0 (fractionUnitAres=100, deemedFraction r = if r=0 then 0 else 100; unit アール documented)",
+      "independent_spec": "JapanTaxLaw/LocalTaxAresRoundingSpec.lean sha256=49393cd26fe4931a9a08eaa1642443986221ee335c1aad358460a97b01712e00 (specDeemed structural pattern match 0->0, succ->100; different form from if-on-zero)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): lake build 575 jobs success; agree_ares_rounding is case analysis over all Nat; axiom probe propext for equivalence/boundedness, boundary theorems axiom-free, no sorryAx/Classical.choice",
+      "proof_scope": "docs/UNIT_LOCAL_TAX_ARES_ROUNDING_180_3.md (computable deeming-rounding slice; art.180(1) tax-base computation explicitly NOT MODELLED)",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS 地方税法 art.180(3)（百アール未満の端数は百アールとみなす）; 175/175 checks passed; needle with terminal 。 unique in pinned file and in Article 第百八十条 / Paragraph 3",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:180/Article#180/Paragraph#3/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "tests": "JapanTaxLaw/LocalTaxAresRoundingTests.lean sha256=dc74a18c07d160bc6f859858914b6e9ef4fa001b435117e789ffb1df673d4792 (6 kernel-decided boundary examples)"
+    },
     "NORM|965b5efa19607b9c163cc9596af4607123f22576628688f60430262587fe67d2": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",
@@ -898,6 +924,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"], \"100\": [\"百\"], \"7\": [\"七\"], \"70\": [\"七十\"]}; statutory rate = 7/10; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_20/Article#72_20/Paragraph#2/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalAddedValueStandardTests.lean sha256=f8354718e7a135a3681e9d3a0fc99e3e2715ed7c025f299b51e9cddf1c9715d8 (20 kernel-decided examples)"
+    },
+    "NORM|ad39171fed4c1d790dfb9ecba3920b96263a99b188e05d55d73505d9ec073763": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 14 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=5; enforced revision=329AC0000000061_20260601_508AC0000000005 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/CustomsProcedureRates.lean sha256=00c3bbe913f2c0cc3147ced87ea2d81ebaf4ed0e8f14a6f8c4650b71b866c1e2",
+      "independent_spec": "JapanTaxLaw/CustomsProcedureRatesSpec.lean sha256=c7d1b377905e02ed1ccc1cfc0aa2913288ccbfd1329bc41f0cf3878af2ce5e2e (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44684783591: commit 0b6e084f68c35511d586b601692180ceac28a5dc, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=pinned needle(s) in clause: ['充て又は徴収する関税の額は、当該貨物又は物件の公', '公売又は売却の費用その他関税に先だつて徴収される']; constants [] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['充て又は徴収する関税の額は、当該貨物又は物件の公', '公売又は売却の費用その他関税に先だつて徴収される']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/329AC0000000061_20260601_508AC0000000005.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:14_5/Article#14_5/Paragraph#1/ParagraphSentence/Sentence#1 sha256=1701272a2e4eaf434b6d953026c340efa4e15b2ca952fc941eeeb676d32204ea (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/CustomsProcedureRatesTests.lean sha256=5ae29b86b0c55c2063fd157dcfaf12947987563b482931fdd5a791aed5e6d370 (14 kernel-decided examples)"
     },
     "NORM|ae27f408f24d476abee11de86e28caf3630a7c78ed1f84753cc39b5a5bb8e95c": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -1275,32 +1314,6 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['所得合計額が零である場合には、零', '非特定欠損金配賦額']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
       "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:64_7/Article#64_7/Paragraph#1/Item#2/Subitem1#3/Subitem1Sentence/Sentence#1 sha256=3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/GroupLossRatioTests.lean sha256=d06c96119fb0701cf4a906904a69a9c395d0b5fd156423d19707db47cf100dab (10 kernel-decided examples)"
-    },
-    "NORM|926a979408404763d53009242e359b92c26e5b2abb2ebada6c8ca095f50419db": {
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:180/Article#180/Paragraph#3/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
-      "decomposition_audit": "build/task_queue.json: kind=DEEMING, decomposed=true, exact span, unhandled_conditions=[], id unique",
-      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS 地方税法 art.180(3)（百アール未満の端数は百アールとみなす）; 175/175 checks passed; needle with terminal 。 unique in pinned file and in Article 第百八十条 / Paragraph 3",
-      "independent_spec": "JapanTaxLaw/LocalTaxAresRoundingSpec.lean sha256=49393cd26fe4931a9a08eaa1642443986221ee335c1aad358460a97b01712e00 (specDeemed structural pattern match 0->0, succ->100; different form from if-on-zero)",
-      "implementation": "JapanTaxLaw/LocalTaxAresRounding.lean sha256=5a02642479fa726e15435f7dbd88689d1852f102eb3484480565743088e6d7f0 (fractionUnitAres=100, deemedFraction r = if r=0 then 0 else 100; unit アール documented)",
-      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): lake build 575 jobs success; agree_ares_rounding is case analysis over all Nat; axiom probe propext for equivalence/boundedness, boundary theorems axiom-free, no sorryAx/Classical.choice",
-      "proof_scope": "docs/UNIT_LOCAL_TAX_ARES_ROUNDING_180_3.md (computable deeming-rounding slice; art.180(1) tax-base computation explicitly NOT MODELLED)",
-      "boundary_proof": "JapanTaxLaw/LocalTaxAresRoundingSpec.lean: no_fraction_is_zero (0), smallest_fraction_is_unit (1->100), largest_fraction_is_unit (99->100), deemed_fraction_bounded (universal over Nat)",
-      "cross_law_proof": "queue unit dependencies analyzed; this is a standalone deeming sub-rule of 地方税法 art.180(3); no cross-law constant claimed; art.180(1) base explicitly NOT MODELLED",
-      "tests": "JapanTaxLaw/LocalTaxAresRoundingTests.lean sha256=dc74a18c07d160bc6f859858914b6e9ef4fa001b435117e789ffb1df673d4792 (6 kernel-decided boundary examples)",
-      "adversarial_review": "docs/ADVERSARIAL_LOCAL_TAX_ARES_ROUNDING_180_3.md — independent agent recomputed pin sha256 (3dd29e0…e68d53, 12,181,725 bytes), located needle uniquely in Article 180 / Paragraph 3, refuted the circular-spec hypothesis (if-zero vs structural match), confirmed universal proof over all Nat and all four boundary theorems, and rejected both competing interpretations. NO CONCRETE FINDINGS; no fix required."
-    },
-    "NORM|4034ae765e5c94d4bbd4588b6536d08053f9a82d48e12c78330531a3d78aa234": {
-      "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[18]/Article:8_2/Article#8_2/Paragraph#8/ParagraphSentence/Sentence#1 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c",
-      "decomposition_audit": "build/task_queue.json: kind=EFFECT, decomposed=true, exact span, unhandled_conditions=[], id unique",
-      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS 関税定率法 art.8(2) para.8（前項の調査は第四項の調査終了日までに終了）; 177/177 checks passed; needle with terminal 。 unique in pinned file and in Article 8-2 / Paragraph 8",
-      "independent_spec": "JapanTaxLaw/CustomsInvestigationDeadlineSpec.lean sha256=7d2c3fcba913b91cfa4e279e1bf2135182d583be210168c0f90d0ebedbe69df7 (specWithinInvestigationDeadline endDay refDay = endDay - refDay = 0, deliberately different from ≤)",
-      "implementation": "JapanTaxLaw/CustomsInvestigationDeadline.lean sha256=8dc2474774698e7dea56878f46099c71de9df9c9c3d81eed5d8086881d889348 (withinInvestigationDeadline endDay refDay = endDay ≤ refDay; unit 日 day-index documented)",
-      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success; agree_investigation_deadline is Nat.sub_eq_zero_iff_le over all day-index pairs; axiom probe propext/Quot.sound only, no sorryAx/Classical.choice",
-      "proof_scope": "docs/UNIT_CUSTOMS_INVESTIGATION_DEADLINE_8_2_8.md (computable temporal-deadline slice; investigation procedure and substantive anti-dumping rules explicitly NOT MODELLED)",
-      "boundary_proof": "JapanTaxLaw/CustomsInvestigationDeadlineSpec.lean: deadline_at_reference (r≤r), deadline_one_day_late (¬ r+1≤r), deadline_extends_to_later_ref (universal transitivity)",
-      "cross_law_proof": "queue unit dependencies analyzed; this is a temporal-deadline EFFECT of 関税定率法 art.8(2) para.8 referencing para.4 within the same article; no cross-law constant claimed; para.7/para.4 procedure NOT MODELLED",
-      "tests": "JapanTaxLaw/CustomsInvestigationDeadlineTests.lean sha256=e6af4ac156e8f16926f8a75ebb2e2c99b31d70beb5ddc1c6bcd8a51fe0abf7dc (11 kernel-checked boundary examples)",
-      "adversarial_review": "docs/ADVERSARIAL_CUSTOMS_INVESTIGATION_DEADLINE_8_2_8.md — independent agent recomputed pin sha256 (924a01d3…986ae9c, 9,407,678 bytes), located needle uniquely in Article 第八条の二 / Paragraph 8, confirmed 前項=para.7 / 第四項=para.4 via neighbour paragraphs, refuted the circular-spec hypothesis (≤ vs truncated subtraction), confirmed the universal Nat.sub_eq_zero_iff_le proof and all boundary theorems, and rejected the strict-before competing interpretation (「…日までに」 is inclusive). NO CONCRETE FINDINGS; no fix required."
     }
   }
 }
