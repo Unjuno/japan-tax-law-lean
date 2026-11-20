@@ -730,6 +730,19 @@
       "source_location": "data/raw/325CO0000000245_20261101_508CO0000000083.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:26/Article#26/Paragraph#1/Item#2/ItemSentence/Sentence#1 sha256=9bc03b230fb0ed1039e33a1544cd53772939ee25d6d4648a386400ea269dfb17 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/IntermediateSurchargeRefundTests.lean sha256=30d462745dedf42e01e3b0f535aa3d15372afb8fc0438cc9f8ae54ab02b7b8c0 (18 kernel-decided examples)"
     },
+    "NORM|9e261291735bf9c85ed10b49d93d05e9dedfe9dc41133fe3a6b94559edd0b301": {
+      "adversarial_review": "docs/UNIT_ANCILLARY_BASE_118_3.md H/T/D/C/U; docs/SOURCE_AUDIT_ANCILLARY_BASE_118_3.md SRC-ATC-1 D=CONFIRMED (transcription fidelity only, not legal correctness)",
+      "boundary_proof": "JapanTaxLaw/AncillaryTaxBaseRoundingUnitTests.lean sha256=b364a00fd541e4c40de01dc65e7c3962b8f0724c4a233e8f8a2e0590470b8ecc: 0 / 9999 / 10000 / 10001 / 19999 / 20000 kernel-decided; specBase_eq_zero_of_lt universal for tax < 10000",
+      "cross_law_proof": "JapanTaxLaw/AncillaryTaxBaseRoundingUnitSpec.lean: cross_law_refund_base proves agreement with RefundRounding.baseForAddition (art.120(4)) for all inputs; distinct_from_art118_1 proves the rule differs from art.118(1) at 15000 yen",
+      "decomposition_audit": "normative_core queue coverage for this unit: original_length=345, reconstructed_length=345, exact=true, unique_ids=true, status=COVERED",
+      "implementation": "JapanTaxLaw/AncillaryTaxBaseRoundingUnit.lean sha256=2cdca2934d5a31e48633c894f10c9d1a892897666845a18a4450dc6dfb0360d5 (roundingUnit=10000, baseAmount)",
+      "independent_spec": "JapanTaxLaw/AncillaryTaxBaseRoundingUnitSpec.lean sha256=7005fdcf04c687e11b71859730ca8fde15666284b96197762cf926a2122afd28 (specBase = tax - tax % 10000, an independent formulation from the implementation)",
+      "kernel_proof": "local Lean 4.35.0 lake build: 527/527 jobs succeeded; agree_ancillary_base_rounding is universal over Nat; axiom probe shows only propext; JapanTaxLaw/AncillaryTaxBaseRoundingUnitSpec.lean sha256=7005fdcf04c687e11b71859730ca8fde15666284b96197762cf926a2122afd28",
+      "proof_scope": "docs/UNIT_ANCILLARY_BASE_118_3.md: computable slice only; 附帯税 kinds/rate, base determination, art.118(1)/(2), art.119(2)-(4), art.120(1)-(3) explicitly NOT MODELLED",
+      "source_correspondence_audit": "python scripts/ci/source_audit_ancillary_base_1183.py: D=CONFIRMED (pin ok, needle in art.118(3) only, 一万円 parsed as 10000, art.118(1) excludes 附帯税); docs/SOURCE_AUDIT_ANCILLARY_BASE_118_3.md",
+      "source_location": "data/raw/337AC0000000066_20261101_507AC0000000013.law.json#LawBody[2]/MainProvision/MainProvision[10]/Article:118/Article#118/Paragraph#3/ParagraphSentence/Sentence#1 sha256=6f8b43e168652d228066cda3389a3bf6823900a9268e6bf97297cb6b25189dee (verbatim unit text located in scoped art.118(3))",
+      "tests": "JapanTaxLaw/AncillaryTaxBaseRoundingUnitTests.lean sha256=b364a00fd541e4c40de01dc65e7c3962b8f0724c4a233e8f8a2e0590470b8ecc (kernel-decided boundary examples)"
+    },
     "NORM|9ec788caf4f1b239ab353eb4824e1337c38ff2eb255453287d2544e37a4956ff": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
