@@ -29,6 +29,7 @@ import importlib.util
 import json
 import re
 import sys
+from fractions import Fraction
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -101,12 +102,61 @@ def kanji_variants(n: int) -> set[str]:
     return out
 
 
-def source_literals_verified(lits: set[int], text: str) -> bool:
-    """Require every substantive spec numeral in the scoped clause.
+_KANJI_VALUE = {ch: i for i, ch in enumerate(_KANJI)}
+_KANJI_VALUE["〇"] = 0
 
-    Powers of ten used only as a rate denominator are representational and are
-    accepted when the clause carries a scale word 百分/千分; never invented.
+
+def _kanji_int(text: str) -> int:
+    total = cur = 0
+    for ch in text:
+        if ch in _KANJI_VALUE:
+            cur = _KANJI_VALUE[ch]
+        elif ch in ("十", "百", "千"):
+            total += (cur or 1) * {"十": 10, "百": 100, "千": 1000}[ch]
+            cur = 0
+        elif ch == "万":
+            total = (total + cur) * 10000
+            cur = 0
+        else:
+            raise ValueError("not a statute numeral: " + ch)
+    return total + cur
+
+
+def parse_statutory_rate(text: str) -> Fraction | None:
+    """Parse a 「百分の九十・七」 style rate into an exact rational (907/1000)."""
+    m = re.search(r"百分の([〇零一二三四五六七八九十百千万]+(?:・[〇零一二三四五六七八九]+)?)", text)
+    if not m:
+        return None
+    token = m.group(1)
+    if "・" in token:
+        whole, frac = token.split("・", 1)
+        decimal = sum(_KANJI_VALUE[c] * 10 ** (len(frac) - 1 - i)
+                      for i, c in enumerate(frac))
+        val = Fraction(_kanji_int(whole)) + Fraction(decimal, 10 ** len(frac))
+    else:
+        val = Fraction(_kanji_int(token))
+    return val / 100
+
+
+def matched_spellings(lits: set[int], text: str) -> dict[str, list[str]]:
+    """Record the spelling actually found for each literal (never claim more)."""
+    return {str(v): sorted(x for x in kanji_variants(v) if x in text) for v in sorted(lits)}
+
+
+def source_literals_verified(lits: set[int], text: str) -> bool:
+    """Verify numerals against the pinned clause, including the RATE RATIO.
+
+    A rate written 「百分の九十・七」 equals 907/1000. The spec's numerator and
+    denominator must form exactly that rational: 907/100 (tenfold error) or
+    907/10000 must NOT pass. Non-rate literals need a verbatim spelling.
     """
+    rate = parse_statutory_rate(text)
+    if rate is not None:
+        pairs = {(a, b) for a in lits for b in lits if b and Fraction(a, b) == rate}
+        if not pairs:
+            return False
+        used = {v for pair in pairs for v in pair}
+        return all(any(x in text for x in kanji_variants(v)) for v in (lits - used))
     found = {v for v in lits if any(x in text for x in kanji_variants(v))}
     substantive = {v for v in lits if v not in (10, 100, 1000, 10000, 100000)}
     if not substantive <= found:
@@ -367,7 +417,10 @@ def build() -> dict:
                     t.get("source_file", ""), t.get("source_path", ""), t.get("source_sha256", "")),
                 "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
                 "source_correspondence_audit": (
-                    "scripts/ci/generate_verification_evidence.py: independent kanji literals %s located in 原文; needles scoped" % sorted(kanji)),
+                    "scripts/ci/generate_verification_evidence.py: verbatim spellings found in scoped 原文 = %s; "
+                    "statutory rate = %s; needles scoped" % (
+                        json.dumps(matched_spellings(lits, text), ensure_ascii=False, sort_keys=True),
+                        str(parse_statutory_rate(text)) if parse_statutory_rate(text) is not None else "none")),
                 "independent_spec": "JapanTaxLaw/%sSpec.lean sha256=%s (defines spec* without implementation constants)" % (base, h_spec),
                 "implementation": "JapanTaxLaw/%s.lean sha256=%s" % (base, h_impl),
                 "kernel_proof": "%s: commit %s, build/axiom job success, 3 module hashes re-verified" % (att["workflow_run"], att["commit"]),
