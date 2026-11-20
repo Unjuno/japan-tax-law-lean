@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 48
+- with >=1 pinned literal check (semantic model): 49
 - with recorded human legal review: 0
 
 ## All laws
@@ -66,7 +66,7 @@ a completion flag.
 | `329M50000002053` | 日本国における国際連合の軍隊の地位に関する協定の実施に伴う地方税法の臨時特例に関する法律 | 329M50000002053_19600623_335M50000002035 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
 | `330AC0000000037` | 輸入品に対する内国消費税の徴収等に関する法律 | 330AC0000000037_20260401_508AC0000000012 | CurrentEnforced | YES | ok | 163 | NO (0) | NO |
 | `330CO0000000100` | 輸入品に対する内国消費税の徴収等に関する法律施行令 | 330CO0000000100_20250401_506CO0000000372 | CurrentEnforced | YES | ok | 132 | NO (0) | NO |
-| `330AC0000000104` | 地方揮発油税法 | 330AC0000000104_20260401_508AC0000000012 | CurrentEnforced | YES | ok | 74 | NO (0) | NO |
+| `330AC0000000104` | 地方揮発油税法 | 330AC0000000104_20260401_508AC0000000012 | CurrentEnforced | YES | ok | 74 | YES (1) | NO |
 | `330CO0000000151` | 地方揮発油税法施行令 | 330CO0000000151_20241001_506CO0000000148 | CurrentEnforced | YES | ok | 14 | NO (0) | NO |
 | `330AC0000000113` | 地方揮発油譲与税法 | 330AC0000000113_20190401_431AC0000000002 | CurrentEnforced | YES | ok | 52 | YES (1) | NO |
 | `330CO0000000237` | 関税定率法第五条の規定による便益関税の適用に関する政令 | 330CO0000000237_20250401_507CO0000000141 | CurrentEnforced | YES | ok | 81 | NO (0) | NO |
