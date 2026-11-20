@@ -36,7 +36,7 @@ theorem just_above_threshold : inFirstBand 5_000_001 = false := by decide
 theorem downward_closed (a b : Money) (hab : a ≤ b) (hb : inFirstBand b = true) :
     inFirstBand a = true := by
   have hb_le : b ≤ threshold := by simpa [inFirstBand] using hb
-  exact Nat.le_trans hb_le hab
+  exact Nat.le_trans hab hb_le
 
 /-- 有限の確認は補助; 上の普遍定理が証明である. -/
 def agreeDisasterIncomeThreshold : Bool :=
