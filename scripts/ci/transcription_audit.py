@@ -1270,6 +1270,18 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が四百五十万円を超え六百万円以下である被災給与所得者"])
 
+    # 関税定率法施行令 art.1の2(1)第三号 — CustomsDutiableValueThreshold.lean
+    # Norm unit NORM|347d0d0ebd32cab1a2f5054abe7a87ebe56cae34b125a2481f38c63e5cf05723
+    # Needle is in MainProvision Article 第一条の二 (attr Num=1_2, Item 3). Adversarial
+    # review confirmed find_article_text returns that article (len 770) containing the
+    # needle; the earlier "needle absent / nested wrapper" rationale was false — the
+    # real cause of the initial failure was a mistyped 个 (U+4E2A) instead of 個 (U+500B)
+    # in the literal, now corrected. Use the precise article locator. Revision from INVENTORY.
+    yield ("関税定率法施行令 art.1の2(1)第三号（課税価格が十万円を超えるもの）↔ CustomsDutiableValueThreshold.lean (thresholdYen 100000, 超え strict)",
+           "329CO0000000155",
+           "article", "第一条の二",
+           ["前二号に掲げるもののほか、一個又は一組の課税価格が十万円を超えるもの"])
+
     # 在日米軍特例法 art. 11(3) — UsForcesDutyFreePenalty.lean (norm unit)
     yield ("在日米軍特例法 art. 11(3)（免税物品の用途外譲渡違反の罰則: 一年以下の拘禁刑又は五十万円以下の罰金 — 代替刑、併科なし。違反要件・徴収・法人重課・附則は NOT MODELLED）↔ UsForcesDutyFreePenalty.lean",
            "327AC0000000111",
