@@ -662,3 +662,6 @@ import JapanTaxLaw.CaseBasedLookupTests
 import JapanTaxLaw.ReadingReplacements
 import JapanTaxLaw.ReadingReplacementsSpec
 import JapanTaxLaw.ReadingReplacementsTests
+import JapanTaxLaw.ExtendedTemporalAndMonthNorms
+import JapanTaxLaw.ExtendedTemporalAndMonthNormsSpec
+import JapanTaxLaw.ExtendedTemporalAndMonthNormsTests
