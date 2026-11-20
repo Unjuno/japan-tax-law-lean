@@ -6,8 +6,8 @@ A document name in an evidence string is not proof that the document
 supports the unit. This audit resolves each reference against the artifact.
 
 - units checked: 147
-- references resolved: 722/725
-- references UNRESOLVED: 3
+- references resolved: 721/725
+- references UNRESOLVED: 4
 - all-complete claimable from references: False
 
 | unit | axis | D | detail |
@@ -15,3 +15,4 @@ supports the unit. This audit resolves each reference against the artifact.
 | `NORM|167b8cabf184adb` | implementation | FAIL | sha256 MISMATCH |
 | `NORM|167b8cabf184adb` | independent_spec | FAIL | sha256 MISMATCH |
 | `NORM|167b8cabf184adb` | tests | FAIL | sha256 MISMATCH |
+| `NORM|fc34952b4102c0a` | tests | FAIL | sha256 MISMATCH |

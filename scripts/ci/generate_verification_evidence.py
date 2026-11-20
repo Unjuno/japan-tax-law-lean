@@ -255,8 +255,9 @@ def impl_defs(impl_text: str) -> set[str]:
     return set(re.findall(r"^\s*def\s+([A-Za-z]\w*)", strip_comments(impl_text), re.M))
 
 
-# Both naming conventions appear in the repo: `specFoo` and `fooSpec`.
-def_spec_re = re.compile(r"^\s*def\s+(?:spec\w+|\w+Spec)\b", re.M)
+# Independent formulas appear as `specFoo`, `fooSpec`, `closedTax` or
+# `fooTax`. Agreement/grid helpers are excluded by independent_spec_ok.
+def_spec_re = re.compile(r"^\s*def\s+(?:spec\w+|\w+Spec|closed\w+|\w+Tax)\b", re.M)
 
 
 def independent_spec_ok(spec_text: str, impl_text: str) -> bool:
