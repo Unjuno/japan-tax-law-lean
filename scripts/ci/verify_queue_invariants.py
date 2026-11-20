@@ -9,6 +9,7 @@ Usage: python scripts/ci/verify_queue_invariants.py
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -99,6 +100,31 @@ def main() -> int:
     check("FULLY_VERIFIED re-derives from evidence",
           not rederive_mismatch,
           f"mismatches={len(rederive_mismatch)}")
+
+    # §1 req 4/5: completion must not rest on stale evidence references. A
+    # later commit may edit a Lean file without updating the ledger sha256;
+    # without this gate the unit stays FULLY_VERIFIED on a broken proof link.
+    # Re-resolve each implementation/spec/tests sha256 against current files.
+    broken_refs = []
+    hash_ref = re.compile(r"(JapanTaxLaw/[\w.]+\.lean)\s+sha256=([0-9a-f]{64})")
+    for u in fv_units:
+        uid = str(u.get("normative_id", ""))
+        axes_u = evidence.get(uid, {})
+        for axis in ("implementation", "independent_spec", "tests"):
+            for m in hash_ref.finditer(str(axes_u.get(axis, ""))):
+                rel, claimed = m.group(1), m.group(2)
+                fp = REPO / rel
+                if not fp.exists():
+                    broken_refs.append(f"{uid[:12]}:{axis}:missing:{rel}")
+                    continue
+                actual = hashlib.sha256(
+                    fp.read_bytes().replace(b"\r\n", b"\n")
+                ).hexdigest()
+                if actual != claimed:
+                    broken_refs.append(f"{uid[:12]}:{axis}:mismatch:{rel}")
+    check("FULLY_VERIFIED evidence refs resolve to current files",
+          not broken_refs,
+          f"broken={len(broken_refs)}")
 
     sample = units[0]
     required = ("normative_id", "law_id", "article", "source_path", "kind",

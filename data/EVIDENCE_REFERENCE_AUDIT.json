@@ -7704,12 +7704,12 @@
     },
     {
       "C": "a generic/template string may describe a different unit",
-      "D": "FAIL",
+      "D": "PASS",
       "H": "the cited reference does not actually support this axis",
       "T": "resolve the reference against the named artifact",
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "tests",
-      "detail": "sha256 MISMATCH",
+      "detail": "sha256 match",
       "reference": "JapanTaxLaw/CustomsReadingSubstitutionTests.lean",
       "unit_id": "NORM|fc34952b4102c0a6697423e84c629c0eea802fb72c83594cac7374694c7ac66f"
     },
@@ -7978,9 +7978,9 @@
       "unit_id": "NORM|ef7f5c0f1105d358392be865c4f7bac9f076278926d6a9faa8be0e5f000d68a2"
     }
   ],
-  "resolved": 721,
+  "resolved": 722,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
   "units_checked": 147,
-  "unresolved": 4
+  "unresolved": 3
 }

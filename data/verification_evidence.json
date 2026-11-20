@@ -1845,7 +1845,7 @@
       "proof_scope": "docs/UNIT_CUSTOMS_READING_SUBSTITUTION_7_15.md (computable 読み替え substitution slice; triggering condition, substantive art.7 rules and 6-month extension proviso explicitly NOT MODELLED)",
       "boundary_proof": "JapanTaxLaw/CustomsReadingSubstitutionSpec.lean: reading_preserves_deadline, reading_adds_promptness, reading_idempotent, reading_text_preserves_length (universal over List), reading_text_preserves_deadline (induction)",
       "cross_law_proof": "queue unit dependencies analyzed; this is a textual 読み替え within 関税定率法 art.7 (相殺関税/countervailing-duty regime); no cross-law constant claimed; triggering case and substantive art.7 rules NOT MODELLED",
-      "tests": "JapanTaxLaw/CustomsReadingSubstitutionTests.lean sha256=2d7063b793338b22607ccab299e84fad42fee24b88bdff79fee059818a27ff26 (kernel-decided boundary examples)",
+      "tests": "JapanTaxLaw/CustomsReadingSubstitutionTests.lean sha256=2f7d3276e4dce5ce0b1d7a375f3e58be166a68cdf7732fda450436e8ccda0328 (kernel-decided boundary examples)",
       "adversarial_review": "docs/ADVERSARIAL_CUSTOMS_READING_SUBSTITUTION_7_15.md — independent agent recomputed pin sha256 (924a01d3…986ae9c), located needle uniquely in Article 7 / Paragraph 15, confirmed 第七項本文 target and separate 6-month proviso. CONCRETE FINDING: specReading was a degenerate constant oracle (both branches identical) — FIXED by changing else branch to p, rebuild passed; regime mislabel (anti-dumping vs 相殺関税) confirmed prompt-only, repo clean; scope caveat added that outerDeadlineMonths=12 is main-text-only. No soundness break. No claim of legal correctness."
     },
     "NORM|fc7d661117603694c16c0f33009ac6e98c30f3525f9e76215335306472110cad": {
