@@ -66,4 +66,17 @@ example : corporateTax .publicInterestOrCoop ⟨0, true, false, false, false, fa
 example : corporateTax .publicInterestOrCoop ⟨1, false, false, true, false, false, false⟩
     5_000_000 = 950_000 := by decide
 
+-- ==== 追加の必須境界 (a) 零入力 / (b) 小さい正の入力 (1..13) / (c) saturation ====
+-- (a) 零入力: 課税所得 0 → 税額 0（結果 0 = 入力 0、saturation も兼ねる）。
+example : corporateTax .ordinary ⟨100_000_000, false, false, false, false, false, false⟩ 0 = 0 := by decide
+-- (b) 小さい正の入力 (1..13): 全額が年八百万円の軽減枠に入る → floor(income × 19/100)。
+--     floor(1×19/100)=0, floor(6×19/100)=1, floor(13×19/100)=2。
+example : corporateTax .ordinary ⟨100_000_000, false, false, false, false, false, false⟩ 1 = 0 := by decide
+example : corporateTax .ordinary ⟨100_000_000, false, false, false, false, false, false⟩ 6 = 1 := by decide
+example : corporateTax .ordinary ⟨100_000_000, false, false, false, false, false, false⟩ 13 = 2 := by decide
+-- (c) saturation/identity: 法定閾値 8_000_000 円（年八百万円）で軽減枠が saturation。
+--     閾値ちょうどは結果 = 入力（恒等）、閾値超は 8_000_000 に張り付く。
+example : smeReducedPortion ⟨100_000_000, false, false, false, false, false, false⟩ 8_000_000 = 8_000_000 := by decide
+example : smeReducedPortion ⟨100_000_000, false, false, false, false, false, false⟩ 10_000_000 = 8_000_000 := by decide
+
 end JapanTaxLaw
