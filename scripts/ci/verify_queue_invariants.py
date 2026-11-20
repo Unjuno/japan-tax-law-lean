@@ -57,9 +57,31 @@ def main() -> int:
     statuses = {u.get("status") for u in units}
     check("only declared statuses used", statuses <= EXPECTED, str(sorted(statuses)))
     counts = q.get("status_counts", {})
-    check("no FULLY_VERIFIED without evidence",
-          counts.get("FULLY_VERIFIED", 0) == 0,
-          f"FULLY_VERIFIED={counts.get('FULLY_VERIFIED')}")
+    # A bare status string is not completion.  Every FULLY_VERIFIED unit must
+    # be backed by an evidence record whose own artifact references cover all
+    # independent obligation axes.  Zero evidence => zero FULLY_VERIFIED; but
+    # genuine, evidence-backed completions must not be forced back to zero
+    # merely because an older gate hard-coded that number (§5: reduce unverified
+    # obligations, never disguise a real reduction as a failure).
+    ev_path = REPO / "data" / "verification_evidence.json"
+    ev = json.loads(ev_path.read_text(encoding="utf-8")) if ev_path.exists() else {}
+    ev_units = ev.get("units", {})
+    axes = ("source_location", "decomposition_audit", "source_correspondence_audit",
+            "independent_spec", "implementation", "kernel_proof", "proof_scope",
+            "boundary_proof", "cross_law_proof", "tests", "adversarial_review")
+    verified = [u for u in units if u.get("status") == "FULLY_VERIFIED"]
+
+    def backed(unit):
+        rec = ev_units.get(str(unit.get("normative_id", "")), {})
+        if rec.get("derived_status") == "FULLY_VERIFIED":
+            return True
+        return bool(rec) and all(rec.get(axis) for axis in axes)
+
+    unbacked = [u for u in verified if not backed(u)]
+    check("every FULLY_VERIFIED is evidence-backed",
+          not unbacked and counts.get("FULLY_VERIFIED", 0) == len(verified),
+          f"FULLY_VERIFIED={counts.get('FULLY_VERIFIED')} "
+          f"backed={len(verified) - len(unbacked)}/{len(verified)}")
 
     sample = units[0]
     required = ("normative_id", "law_id", "article", "source_path", "kind",

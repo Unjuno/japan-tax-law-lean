@@ -16,7 +16,9 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import sys
+import time
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -185,24 +187,41 @@ def main() -> int:
     index: dict[str, dict] = {}
     # Stream the task array. Building one ~700 MB string via json.dumps() on
     # top of ~400k task dicts caused MemoryError under CI memory pressure.
-    # json.dump() writes each encoded task incrementally to the file handle.
-    with QUEUE_JSON.open("w", encoding="utf-8") as fh:
-        head = json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
-        fh.write(head[:-1] + ",\"tasks\":[")
-        for i, task in enumerate(tasks):
-            if i:
-                fh.write(",")
-            json.dump(task, fh, ensure_ascii=False, separators=(",", ":"))
-            key = f"{task.get('law_id', '')}|{article_key(task.get('article', ''))}"
-            entry = index.setdefault(key, {
-                "law_id": task.get("law_id", ""),
-                "article": task.get("article", ""),
-                "unit_count": 0,
-                "unit_id": task.get("id", task.get("normative_id", "")),
-                "coverage": task.get("coverage", {}).get("status", "PARTIAL"),
-            })
-            entry["unit_count"] += 1
-        fh.write("]}")
+    # json.dump() writes each encoded task incrementally to a temp file, which
+    # is then atomically renamed: a concurrent reader must never observe a
+    # partially written (and therefore unparsable) ~800 MB queue.
+    tmp = QUEUE_JSON.with_name(QUEUE_JSON.name + f".tmp.{os.getpid()}")
+    try:
+        with tmp.open("w", encoding="utf-8") as fh:
+            head = json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+            fh.write(head[:-1] + ",\"tasks\":[")
+            for i, task in enumerate(tasks):
+                if i:
+                    fh.write(",")
+                json.dump(task, fh, ensure_ascii=False, separators=(",", ":"))
+                key = f"{task.get('law_id', '')}|{article_key(task.get('article', ''))}"
+                entry = index.setdefault(key, {
+                    "law_id": task.get("law_id", ""),
+                    "article": task.get("article", ""),
+                    "unit_count": 0,
+                    "unit_id": task.get("id", task.get("normative_id", "")),
+                    "coverage": task.get("coverage", {}).get("status", "PARTIAL"),
+                })
+                entry["unit_count"] += 1
+            fh.write("]}")
+            fh.flush()
+            os.fsync(fh.fileno())
+        for attempt in range(5):
+            try:
+                os.replace(tmp, QUEUE_JSON)
+                break
+            except PermissionError:
+                if attempt == 4:
+                    raise
+                time.sleep(0.5 * (attempt + 1))
+    finally:
+        if tmp.exists():
+            tmp.unlink()
     INDEX_JSON.parent.mkdir(parents=True, exist_ok=True)
     INDEX_JSON.write_text(json.dumps({
         "tool": "scripts/ci/task_queue.py",
