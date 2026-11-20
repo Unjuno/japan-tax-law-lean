@@ -1557,6 +1557,13 @@ def checks():
             "合計所得金額が七百五十万円を超えるとき", "当該所得税の額の十分の二・五"])
 
 
+    # 昭和二十二年政令第百九号 art. 3 — CombinedRegistrationRequest.lean
+    yield ("昭和二十二年政令第百九号 art. 3（同一登記所・二箇以上の不動産の嘱託書併合）↔ CombinedRegistrationRequest.lean",
+           "322CO0000000109",
+           "article", "第三条",
+           ["同一の登記所の管轄内に在る二箇以上の不動産につき登記を嘱託するには"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
