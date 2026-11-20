@@ -4787,3 +4787,132 @@ coordinator 要約・STAGING を経由せず、pinned 原文の文字列から�
 - 残る UNRESOLVED（U-AG1 不正行為の認定、U-AG2 未遂の範囲、U-AG3 §3 徴収手続）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・漢字数字の独立抽出と照合・needle の `.find()` 検証・境界値走査・`#print axioms` 公理監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって人間の法的レビューを完了したものとはみなさない。
+## Batch AH review (2026-11-20)
+
+- **レビュー日**: 2026-11-20
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。Coordinator の要約・STAGING（`STAGING_CERTFEE.md`）・doc-comment の数値申告は一切信じず、pinned 原文から直接・独立に数値を抽出して照合した。
+- **対象モジュール（読み取り専用・一切変更していない）**: `JapanTaxLaw/CertFee.lean`（関税法施行令 art.7 / 税関関係手数料令、law 329CO0000000164、cycle-22）
+- **一次資料（pinned・改変禁止）**: `data/raw/329CO0000000164_20250401_507CO0000000141.law.json`（Revision `329CO0000000164_20250401_507CO0000000141`、Art.7）。
+- **抽出方法**: `law_full_text` を CI `transcription_audit.py` の `text()` と同一ロジックで平坦化し、`MainProvision` 配下の `Article`（`attr.Num = 7`）を直接走査。flat/normalized 本文 **313 文字**、U+3000 **0 個**（モジュール doc-comment の申告と一致）。漢数字（四百・三百・二万三千五百）は自前の桁・単位パーサーで Arabic に変換して照合。needle は CI 実装 `checks()` を Python で import して文字列を取得（手打ちしない）。
+
+### AH-1. 独立抽出結果（pinned 原文 → 漢数字算術 → Lean 定数）
+
+pinned Art.7 本文から金額句を正規表現で直接抽出し、漢数字を独立変換した。3 値とも Lean 定数と一致（**3/3**）。
+
+| 区分 | 原文表現（Art.7 逐語） | 漢数字 → 算術 | 独立抽出値 | Lean 定数 | 照合 |
+|---|---|---|---:|---:|:---:|
+| §1 紙 | `証明書類一枚ごとに四百円` | 四百 = 4×100 | **400** | `paperCertificateFeeYen = 400` | ✅ |
+| §1 電子 | `電子情報処理組織を使用して…三百円` | 三百 = 3×100 | **300** | `electronicCertificateFeeYen = 300` | ✅ |
+| §2 記録媒体 | `記録媒体一枚ごとに二万三千五百円` | 二万(20000)+三千(3000)+五百(500) | **23,500** | `statisticsMediumFeeYen = 23_500` | ✅ |
+
+- **桁違いガード（art.148 失敗の再発防止）**: 「二万三千五百」を日本語数字パーサーで分解すると 20000 + 3000 + 500 = **23,500**。誤りの 2,350（二万を二百と誤読）でも 235,000（五百を五千と誤読）でもない。pinned 原文の文字列 `二万三千五百円` は Art.7 に **1 回**存在し、定数 23_500 と一致。
+- 区分関数・合計関数も原文逐語と整合: `certificateFeeYen(e) = if e then 300 else 400`（§1 ただし書）、`totalCertificateFeeYen(e,n) = n * certificateFeeYen e`。
+
+### AH-2. 最重要チェック独立判定（coordinator 要約を信じない）
+
+| # | チェック項目 | 独立判定 | 結果 |
+|---|---|---|:---:|
+| 1 | 「証明書類一枚ごとに四百円」→ `paperCertificateFeeYen=400` | pinned 四百 → 400、定数 400 | ✅ |
+| 2 | 「電子情報処理組織…三百円」→ `electronicCertificateFeeYen=300` | pinned 三百 → 300、定数 300 | ✅ |
+| 3 | 「二万三千五百円」→ `statisticsMediumFeeYen=23_500`（桁違い注意） | 20000+3000+500=23500、定数 23_500 | ✅ |
+| 4 | `certificateFeeYen(false)=400` / `true=300` | def 本体 `if electronic then 300 else 400` と一致 | ✅ |
+| 5 | `totalCertificateFeeYen(e,n)=n×一枚額` | def 本体 `n * certificateFeeYen e` と一致 | ✅ |
+| 6 | 区分ごと集計手続・申請認定・財務大臣集計行為の NOT MODELLED 明記 | doc-comment 行 25–26 に明記、needle 2 で原文保持 | ✅ |
+
+→ **最重要チェック 6 点すべてで食い違い 0 件（ゼロ）。** art.148 型の「要約を信じた誤り（桁違い・金額誤記）」は再発していない。
+
+### AH-3. needle 健全性（CI 実装の 2 本を直接検証）
+
+`scripts/ci/transcription_audit.py` の `checks()` を import し、`law_id = 329CO0000000164` の `CertFee.lean` check（kind = `file`）に組み込まれた **2 本**の needle を取得（STAGING／doc-comment の申告は信じない）。pinned `law_full_text` の正規化テキスト（CI `contains()` / `_norm()` と同一条件 `re.sub(r"[\s　]+", "", …)`）に対して `.find()` / `.count()` を実行した。
+
+| # | needle（全文） | 長さ | U+3000 | FOUND | count | offset（正規化） |
+|---:|---|---:|:---:|:---:|---:|---:|
+| 1 | 証明書類一枚ごとに四百円とする。ただし、電子情報処理組織を使用して交付の申請を行う場合にあつては、三百円とする。 | 56 | 0 | ✅ | 1 | 4486 |
+| 2 | 記録媒体一巻ごと又は同項第二号若しくは第三号に掲げる記録媒体一枚ごとに二万三千五百円とする。 | 46 | 0 | ✅ | 1 | 4687 |
+
+- **needle 総数 2 本、U+3000 含有 0 本、2/2 FOUND（MISS 0）、すべて count 1（一意）。** needle 文字列の改変・正規化・異体字変換はしていない。
+- Art.7 §2 の「区分ごと…財務大臣が集計した統計につき」の文言は needle 2 に一部含まれるが、集計手続そのものは AH-6 B-AH1 のとおり NOT MODELLED として明示されたスコープ外であり、needle 欠落ではない。
+
+### AH-4. 反例探索（0/1/3/10 枚・紙/電子差・23,500 境界）
+
+`by decide` スモークを信じず、`certificateFeeYen(e) = if e then 300 else 400` / `totalCertificateFeeYen(e,n) = n * certificateFeeYen(e)` を Python で独立再実装し走査した。**不一致 0 件（MISMATCH_COUNT = 0）**。
+
+| ケース | 入力 (electronic, n) | 独立計算 | 期待値 | 結果 |
+|---|---|---:|---:|:---:|
+| 紙 0 枚 | (false, 0) | 0 | 0 | ✅ |
+| 紙 1 枚 | (false, 1) | 400 | 400 | ✅ |
+| 紙 3 枚 | (false, 3) | 1200 | 1200 | ✅ |
+| 紙 10 枚 | (false, 10) | 4000 | 4000 | ✅ |
+| 電子 0 枚 | (true, 0) | 0 | 0 | ✅ |
+| 電子 1 枚 | (true, 1) | 300 | 300 | ✅ |
+| 電子 3 枚 | (true, 3) | 900 | 900 | ✅ |
+| 電子 10 枚 | (true, 10) | 3000 | 3000 | ✅ |
+
+- 紙/電子の差（n=1）: 400 − 300 = **100 円**。§1 ただし書の「三百円」を「四百円」と誤モデルなら差は 0 になるが、実装は正しく差を反映。
+- 23,500 円境界: 定数は 23,500 であり、桁違いの 2,350 / 235,000 のいずれでもない（独立判定 `!=23500` は false、`!=2350` / `!=235000` は true）。
+- モジュールの `example` 7 件（`by decide`）は 400/300/23,500・`certificateFeeYen` 両枝・`totalCertificateFeeYen` の 3 枚両方をカバーし、独立走査と整合（import 成功、exit code 0）。
+- **反例（不一致）検出数: 0 件。**
+
+### AH-5. 公理監査（`lake env lean` / `#print axioms`）
+
+- 一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\ah_axiom_probe.lean` を作成し、`import JapanTaxLaw.CertFee` のうえ本モジュールの名前付き宣言 **5 件**（`paperCertificateFeeYen` / `electronicCertificateFeeYen` / `statisticsMediumFeeYen` / `certificateFeeYen` / `totalCertificateFeeYen`）と、7 つの `example`（`by decide`）を同名の定理として再現した **7 件**、計 **12 件**に `#print axioms` を実行（`lake env lean`、exit code **0**、エラー 0）。`example` は名前付き定数として残らないため、証明法の公理混入を調べる目的的再現定理で代替走査した。監査後、一時ファイルは削除済み。
+
+| 宣言 | 結果 |
+|---|---|
+| `paperCertificateFeeYen` / `electronicCertificateFeeYen` / `statisticsMediumFeeYen` / `certificateFeeYen` / `totalCertificateFeeYen`（5 件） | すべて `does not depend on any axioms` |
+| 再現定理 7 件（`by decide`） | すべて `does not depend on any axioms` |
+
+| 監査項目 | 結果 |
+|---|---:|
+| 走査宣言数 | 12 |
+| axiom-free（`does not depend on any axioms`） | **12** |
+| `Classical.choice` | **0 件**（不在） |
+| `sorryAx` | **0 件**（不在） |
+| `Quot.sound` | **0 件**（不在） |
+| `propext` | **0 件**（不在・許容範囲内） |
+
+→ **禁止公理（Classical.choice / sorryAx / Quot.sound）は一切検出されず、propext も 0 件。公理監査は合格（12/12 走査、exit code 0）。**
+
+### AH-6. CONFIRMED / BY-DESIGN / UNRESOLVED の分類と件数
+
+| 分類 | 件数 |
+|---:|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **4** |
+| **UNRESOLVED** | **3** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 数値・桁・区分・needle・公理・反例のいずれにも食い違いはなかった。欠陥件数を手柄にしない。
+
+#### CONFIRMED（0 件）
+
+- 数値: 「四百円」= 400、「三百円」= 300、「二万三千五百円」= 23,500 を pinned 原文から独立抽出し、Lean 定数と一致（3/3）。二万・三千・五百の桁違いは原文・実装の双方に存在せず検出されなかった。
+- 関数: `certificateFeeYen(false)=400` / `true=300`、`totalCertificateFeeYen(e,n)=n×一枚額` が def 本体・独立計算・`example` の三方で整合。
+- needle: 2 本とも U+3000 なし・FOUND・count 1。原文改変なし。
+- 公理: 禁止公理すべて 0 件、12/12 axiom-free。
+
+#### BY-DESIGN（4 件）
+
+- **B-AH1 数値・区分のみの bounded スライス**: §1 の証明書類手数料（紙 400 / 電子 300）と §2 の統計記録媒体手数料（23,500）の数値・区分のみを扱う。§2 の「区分ごと（輸出/輸入の別、記録媒体の種類別）」の集計手続、申請の具体認定、財務大臣の集計行為は doc-comment 行 25–26 で **NOT MODELLED** と明記済み。needle 2 本で原文を逐語保持しており、スコープ外の反映漏れではない。
+- **B-AH2 合計は単純乗算**: `totalCertificateFeeYen(e,n)=n×一枚額`。原文に端数処理・例外・上限の規定が存在せず、追加ロジックを入れていないのは原文に忠実な設計選択。
+- **B-AH3 記録媒体の巻/枚を単一定数で表現**: 原文は「記録媒体一巻ごと又は…一枚ごとに二万三千五百円」で双方同額のため、`statisticsMediumFeeYen` 単一定数で巻/枚を区別しない。数値上の手数料は同一であり不一致を生まない。
+- **B-AH4 `example` によるスモーク**: 名付き定理ではなく 7 件の `example`（`by decide`）で検証する設計。公理監査では同値の再現定理で走査し、証明法に公理混入がないことを確認済み。
+
+#### UNRESOLVED（3 件）
+
+- **U-AH1 「区分ごと（輸出/輸入の別、記録媒体の種類別）」の集計手続の具体的内容**: pinned 原文（art.7 §2）には区分の定義・集計方法の詳細がなく他法令（関税法施行令第九十条の二）に委ねられる。数値・境界の一致には影響しないが、**人間の法律専門家による確認を要する**。
+- **U-AH2 電子情報処理組織を使用した交付の申請の具体的認定基準**: 「電子情報処理組織を使用して交付の申請を行う場合」の認定詳細は pinned 原文に含まれない。紙/電子の金額差（100 円）の一致には影響しないが、**人間の法律専門家による確認を要する**。
+- **U-AH3 財務大臣が集計した統計の具体的内容・集計行為**: art.7 §2「財務大臣が集計した統計につき」の集計行為は B-AH1 のとおり NOT MODELLED 明記。具体内容は pinned 原文のみでは解けない。**人間の法律専門家による確認を要する**。
+
+### AH-7. 総合判定・最終報告（サマリ）
+
+- pinned revision `329CO0000000164_20250401_507CO0000000141` の art.7（flat/normalized **313 文字**、U+3000 = 0）から独立抽出した「四百 = 400」「三百 = 300」「二万三千五百 = 23,500」は、coordinator 要約・STAGING・doc-comment に依存せず Lean 定数 `paperCertificateFeeYen=400` / `electronicCertificateFeeYen=300` / `statisticsMediumFeeYen=23_500` と一致した（3/3）。
+- **最重要チェック（400 / 300 / 23,500、二万・三千・五百の桁違い回避、`certificateFeeYen`・`totalCertificateFeeYen` の整合、NOT MODELLED 明記）で食い違い 0 件（ゼロ）。** art.148 型の「要約を信じた誤り」は再発していない。
+- **CONFIRMED: 0 件（ゼロ）** ／ **BY-DESIGN: 4 件** ／ **UNRESOLVED: 3 件**。発見ゼロを明示した。
+- **needle 健全性**: CI 実装の 2 本とも U+3000 **0 本**、pinned 正規化テキスト **2/2 FOUND**（MISS 0、すべて count 1）。
+- **反例探索**: 0/1/3/10 枚の紙・電子 8 ケース、紙/電子差 100 円、23,500 円の桁違い境界（2,350 / 235,000 の否定）の全てで矛盾 0 件。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて **0 件**。12/12 宣言を走査、exit code 0。監査用一時ファイルは削除済み。
+- **見出し**: `## Batch AH review (2026-11-20)` は coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法)[^\n]*review` に **match することを Python で確認済み**。本セクションを `docs/ADVERSARIAL_REVIEW.md` 末尾に追記し、既存セクションはすべて保持した。
+- **書き換えファイル**: `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール／`data/*` は一切変更せず、commit / push / merge / ブランチ切替は行っていない。解析用一時ファイルはすべて削除済み。
+- 残る UNRESOLVED（U-AH1 集計手続、U-AH2 電子申請の認定、U-AH3 財務大臣の集計行為）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・漢字数字の独立算術変換と定数照合・needle の `.find()` 検証・反例走査・`#print axioms` 公理監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって人間の法的レビューを完了したものとはみなさない。
