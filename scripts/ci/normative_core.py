@@ -420,9 +420,24 @@ def load_state(path: Path = STATE_PATH) -> dict[str, Any]:
 
 
 def save_state(state: dict[str, Any], path: Path = STATE_PATH) -> None:
+    """Persist only non-default unit records (durable but committable).
+
+    The full queue has ~400k generated units; writing all of them produced a
+    331 MB ledger that cannot be committed or independently reviewed.
+    ``merge_state`` reconstructs default records on the next regeneration, so
+    owner / blockers / artifacts / evidence / review trail still survive
+    (Directive §1 item 7) while the ledger stays small enough to audit.
+    """
+    template = default_state("")
+    kept = {}
+    for uid, rec in state.get("units", {}).items():
+        if any(rec.get(k) != v for k, v in template.items() if k != "unit_id"):
+            kept[uid] = rec
+    compact = {"schema": state.get("schema", "task_state/v1"), "units": kept}
     path.parent.mkdir(parents=True, exist_ok=True)
     tmp = path.with_suffix(".json.tmp")
-    tmp.write_text(json.dumps(state, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    tmp.write_text(json.dumps(compact, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+                   encoding="utf-8")
     tmp.replace(path)
 
 
