@@ -63,7 +63,7 @@ were made: an initial depth run (4 revisions of one law) and a breadth run
 (`--limit 12 --per-law 1`). Current state:
 
 ```
-46 ACQUIRED_PINNED revisions across 4 distinct laws:
+146 ACQUIRED_PINNED revisions across 10 distinct laws (3 FETCH_FAILED recorded):
   143AC0000000054 (関税定率法)
   322AC0000000175 (災害被害者租税減免)
   322CO0000000268 (災害被害者租税減免政令)
@@ -71,24 +71,24 @@ were made: an initial depth run (4 revisions of one law) and a breadth run
 ```
 Each response was validated as real law-data JSON (`law_full_text` present, so
 HTML 404 templates are rejected) and its SHA-256 re-verified against the on-disk
-bytes under `data/raw_historical/` (46/46 verified). `data/HISTORICAL_PINNED.json`
+bytes under `data/raw_historical/` (146/146 verified). `data/HISTORICAL_PINNED.json`
 and `docs/HISTORICAL_PINNED.md` record the result. `data/SOURCE_LAYERS.json` now
-reports `L6_HISTORICAL = ACQUIRED_PINNED_ONLY`, `count_acquired=46`, still
+reports `L6_HISTORICAL = ACQUIRED_PINNED_ONLY`, `count_acquired=146`, still
 `verification_status=OUT_OF_SCOPE` and NOT merged into L0. 15/15 source-layer
 tests pass, including hash re-verification and status-honesty checks. The
-remaining ~749 discovered historical names stay unacquired; no parse,
+remaining ~649 discovered historical names stay unacquired; no parse,
 formalization, proof or human review is claimed for the pinned snapshots.
 
 ## L5 case-law acquisition (2026-11-21) — first real pins
 
 `scripts/ci/acquire_caselaw.py` queries the Supreme Court public case-law search
 (`courts.go.jp`, keyword 租税, 2000 reported hits) and pins the result page plus
-six real judgment detail pages (case ids 96975, 96536, 96174, 96019, 95412,
-95315). Each page was validated as genuine content (title 裁判例結果詳細 +
-事件番号 + 裁判年月日), and SHA-256 re-verified against disk (7/7). Dynamic-page
+fifteen real judgment detail pages (case ids 96975, 96536, 96174, 96019,
+95412, 95315, 95346, 96937, 96930, 95686, 95758, 94302, 95364, 95323, 95309). Each page was validated as genuine content (title 裁判例結果詳細 +
+事件番号 + 裁判年月日), and SHA-256 re-verified against disk (16/16). Dynamic-page
 re-fetches are handled by reusing already-validated on-disk bytes rather than
 overwriting the pin. `data/SOURCE_LAYERS.json` now reports
-`L5_CASELAW = ACQUIRED_PINNED_ONLY`, `count_acquired=7`,
+`L5_CASELAW = ACQUIRED_PINNED_ONLY`, `count_acquired=16`,
 `verification_status=OUT_OF_SCOPE`, never merged into L0.
 These HTML pages are auxiliary material only — NOT parsed, formalized, proved,
 binding or legally reviewed. 15/15 source-layer tests pass, including two new
@@ -99,12 +99,12 @@ L5 honesty/hash tests.
 `scripts/ci/acquire_ordinances.py` queries the Doshisha 条例Webアーカイブ
 cross-municipality **third-party academic index** for `title:市税条例`
 (14,611 reported hits — an index count, NOT an acquisition count), then fetches
-official municipal sites from the index's `original_url` fields. Nine real
+official municipal sites from the index's `original_url` fields. Eleven real
 市税条例 pages were pinned (勝山市, 藤井寺市, 伊丹市, 旭市, 燕市, 萩市, 光市, 関市,
-呉市 — 1.2–2.5 MB each), validated by presence of 市税条例 and substantial length,
-with SHA-256 re-verified 9/9. One candidate (東金市) returned HTTP 404 and was
+呉市, 小樽市, 留萌市 — 0.9–2.5 MB each), validated by presence of 市税条例 and substantial length,
+with SHA-256 re-verified 11/11. One candidate (東金市) returned HTTP 404 and was
 recorded as FETCH_FAILED, not counted as acquired. `data/SOURCE_LAYERS.json` now reports
-`L2_ORDINANCE = ACQUIRED_PINNED_ONLY`, `count_acquired=9`, still
+`L2_ORDINANCE = ACQUIRED_PINNED_ONLY`, `count_acquired=11`, still
 `verification_status=OUT_OF_SCOPE`, never merged into L0. The index is explicitly
 labelled a third-party aggregator, NOT an official original; all-municipality
 coverage (~1,788) is NOT claimed. 15/15 source-layer tests pass, including two

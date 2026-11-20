@@ -8,7 +8,7 @@ ordinance pages come from official municipal sites. Pinned only — NOT parsed,
 formalized, proved or legally reviewed. No all-municipality coverage claimed.
 
 - query: title:市税条例; index reported hits: 14611
-- ACQUIRED_PINNED official ordinance pages: 9
+- ACQUIRED_PINNED official ordinance pages: 11
 - verification_status: OUT_OF_SCOPE
 
 | prefecture | city | bytes | sha256 | status |
@@ -23,3 +23,5 @@ formalized, proved or legally reviewed. No all-municipality coverage claimed.
 | 山口県 | 光市 | 1525988 | af28ce0b0f72e87f | ACQUIRED_PINNED |
 | 岐阜県 | 関市 | 1362735 | 69bca27b5de118b1 | ACQUIRED_PINNED |
 | 広島県 | 呉市 | 1221826 | 367212cf4dfdc2a3 | ACQUIRED_PINNED |
+| 北海道 | 小樽市 | 2097849 | 263a296ea01d5f59 | ACQUIRED_PINNED |
+| 北海道 | 留萌市 | 894234 | 522f7e547a7cd49b | ACQUIRED_PINNED |

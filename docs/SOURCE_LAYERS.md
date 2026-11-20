@@ -20,19 +20,19 @@ layer is never folded into the statutory ledger.
 
 ## Historical revision acquisition
 
-- revisions recorded: 46; ACQUIRED_PINNED: 46
+- revisions recorded: 149; ACQUIRED_PINNED: 146
 - verification_status: OUT_OF_SCOPE (pinned only; NOT parsed, formalized, proved or legally reviewed)
 
 ## Case-law acquisition
 
 - keyword: 租税; reported hits: 2000
-- ACQUIRED_PINNED pages: 7 (6 judgments)
+- ACQUIRED_PINNED pages: 16 (15 judgments)
 - verification_status: OUT_OF_SCOPE (pinned only; NOT parsed, formalized, proved, binding or legally reviewed)
 
 ## Ordinance acquisition
 
 - index: Doshisha 条例Webアーカイブ (third-party academic aggregator, NOT an official original) (third-party aggregator, NOT an official original)
-- index reported hits: 14611; ACQUIRED_PINNED official pages: 9
+- index reported hits: 14611; ACQUIRED_PINNED official pages: 11
 - verification_status: OUT_OF_SCOPE (pinned only; all-municipality coverage NOT claimed)
 
 | layer | label | legal nature | acquisition | scope | count | verification |
@@ -49,9 +49,9 @@ layer is never folded into the statutory ledger.
 ## Obligation counts (separate denominators)
 
 - normative_units_total: unknown
-- fully_verified_units: 6097
+- fully_verified_units: 6532
 - proved_scope_units: 4
-- not_started_units: 390751
+- not_started_units: 390316
 - blocked_units: 2
 - human_legal_reviews: 0
 
