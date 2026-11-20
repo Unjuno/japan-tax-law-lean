@@ -1,111 +1,118 @@
 #!/usr/bin/env python3
-"""Article-scoped fidelity diagnostic (Sponsor Directive §4).
+"""Norm-unit scoped fidelity diagnostic (Objective §1.2/§1.3/§5).
 
-For each transcription_audit check, determine which article(s)/appendix cells
-of the pinned raw snapshot actually contain its needles. A needle that matches
-only an unrelated article is reported as a candidate mis-pin requiring review.
+Replaces the article-level diagnostic that only reported whether a needle
+occurred somewhere in an article.  It now reports, per pinned check:
 
-This is a DIAGNOSTIC, not a completion gate: it reports article/paragraph scope
-per check so a whole-text numeric match is never mistaken for article-level
-verification. Deterministic; regenerate with this script.
+  * which norm units contain each needle, with exact character offsets;
+  * the independent decomposition-coverage audit result;
+  * UNRESOLVED norm units (text that automatic decomposition could not classify);
+  * separate counts for scoped, whole-text-only and unresolved units.
+
+This is a DIAGNOSTIC, not a completion gate.  A whole-text numeric match is
+never reported as article-level verification.  Deterministic.
 """
 from __future__ import annotations
 
-import importlib.util
 import json
-import re
 import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[3]
 INVENTORY = REPO / "data" / "INVENTORY.json"
-AUDIT = REPO / "scripts" / "ci" / "transcription_audit.py"
 OUT = REPO / "docs" / "ARTICLE_SCOPE.md"
 
-
-def flat(node) -> str:
-    if isinstance(node, str):
-        return node
-    if isinstance(node, dict):
-        return "".join(flat(c) for c in node.get("children", []))
-    return ""
+sys.path.insert(0, str(REPO / "scripts" / "ci"))
+from norm_identity import UNRESOLVED, norm  # noqa: E402
+import task_queue  # noqa: E402
 
 
-def norm(t: str) -> str:
-    return re.sub(r"[\s\u3000]+", "", t)
-
-
-def iter_units(node, path=()):
-    if isinstance(node, dict):
-        tag = node.get("tag")
-        if tag in ("MainProvision", "SupplProvision", "AppdxTable"):
-            path = path + (tag,)
-        if tag in ("Article", "AppdxTable", "TableRow"):
-            yield path + (tag, str((node.get("attr") or {}).get("Num", ""))), node
-        for c in node.get("children", []):
-            yield from iter_units(c, path)
-    elif isinstance(node, list):
-        for c in node:
-            yield from iter_units(c, path)
+def audit_checks():
+    spec = None
+    import importlib.util
+    audit = REPO / "scripts" / "ci" / "transcription_audit.py"
+    spec = importlib.util.spec_from_file_location("as_ta", audit)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return list(mod.checks())
 
 
 def main() -> int:
-    inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
-    laws = {l["law_id"]: l for l in inv.get("laws", [])}
-    spec = importlib.util.spec_from_file_location("as_ta", AUDIT)
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
+    checks = audit_checks()
+    law_ids = sorted({law_id for _, law_id, _, _, _ in checks})
+    generated, _reports, _inv = task_queue.generate_units(only_laws=set(law_ids))
+    by_law = {}
+    for u in generated:
+        by_law.setdefault(u["law_id"], []).append(u)
 
-    docs_cache = {}
+    # Count unresolved units once per law, not once per check (a law can have
+    # many pinned checks, which would otherwise multiply the same units).
+    law_unresolved = {
+        lid: sum(1 for u in units if u["kind"] == UNRESOLVED)
+        for lid, units in by_law.items()
+    }
     rows = []
-    scoped = 0
-    whole_only = 0
-    for name, law_id, kind, art, needles in mod.checks():
-        rec = laws.get(law_id)
-        sf = (rec or {}).get("raw_snapshot", {}).get("source_file")
-        if law_id not in docs_cache:
-            p = REPO / sf if sf else None
-            docs_cache[law_id] = json.loads(p.read_text(encoding="utf-8")) if p and p.exists() else None
-        doc = docs_cache[law_id]
-        if doc is None:
-            continue
-        units = []
-        for upath, unode in iter_units(doc.get("law_full_text")):
-            ut = norm(flat(unode))
-            if not ut:
-                continue
-            hits = sum(1 for n in needles if norm(n) in ut)
+    scoped = whole_only = coverage_fail_total = 0
+    for name, law_id, kind, art, needles in checks:
+        units = by_law.get(law_id, [])
+        n_needles = len(needles)
+        scoped_units = []
+        for u in units:
+            hits = sum(1 for n in needles if n and norm(n) in u["text"])
             if hits:
-                units.append(("/".join(upath), hits))
-        if units:
+                scoped_units.append(
+                    (u["norm_id"], u["kind"], u["char_start"], u["char_end"], hits)
+                )
+        if scoped_units:
             scoped += 1
-            loc = "; ".join(f"{p}×{h}" for p, h in units[:3])
         else:
             whole_only += 1
-            loc = "(no article/table-cell unit contains all needle text)"
-        rows.append((law_id, art or "(file-level)", len(needles), loc, name.split("↔")[0].strip()[:60]))
+        unresolved_count = law_unresolved.get(law_id, 0)
+        cov_fail = sum(1 for u in units if not (u.get("coverage_evidence") or {}).get("covered"))
+        coverage_fail_total += cov_fail
+        loc = "; ".join(
+            "%s[%s]@%d-%d×%d" % (nid[:10], k, a, b, h)
+            for nid, k, a, b, h in scoped_units[:4]
+        ) or "(no norm unit contains the needle text)"
+        rows.append((
+            law_id, art or "(file-level)", n_needles, len(units), loc,
+            unresolved_count, cov_fail, name.split("↔")[0].strip()[:60],
+        ))
 
     lines = [
-        "# Article-scoped fidelity diagnostic (machine-generated)",
+        "# Norm-unit scoped fidelity diagnostic (machine-generated)",
         "",
-        "Do not hand-edit. Regenerate with `scripts/law_audit/phase_e/article_scope.py`.",
+        "Do not hand-edit. Regenerate with "
+        "`python scripts/law_audit/phase_e/article_scope.py`.",
         "",
-        "Sponsor Directive §4: a numeric match anywhere in the whole pinned text is",
-        "NOT article-level verification. This report records, per transcription",
-        "check, which article / appendix table cell actually contains the needles.",
-        "It is a DIAGNOSTIC for the independent-audit axis, not a completion gate.",
+        "Objective §1: a numeric match anywhere in the whole pinned text is NOT",
+        "article-level or norm-level verification. This report records, per",
+        "transcription check, which norm unit (with exact offsets) contains the",
+        "needle, whether the decomposition covers the original, and which text",
+        "remains UNRESOLVED.",
         "",
-        f"- checks with article/table-cell scoped needles: {scoped}",
-        f"- checks with no scoped unit (whole-text or cross-article needles): {whole_only}",
+        "- checks with norm-unit-scoped needles: %d" % scoped,
+        "- checks with no scoped unit (whole-text/cross-unit needles): %d" % whole_only,
+        "- UNRESOLVED norm units across checked laws (counted once per law): %d"
+        % sum(law_unresolved.values()),
+        "- units failing independent coverage audit: %d" % coverage_fail_total,
         "",
-        "| law_id | stated article | needles | containing unit(s) | check |",
-        "|---|---|---:|---|---|",
+        "| law_id | stated article | needles | units | containing norm units "
+        "| unresolved | coverage_fail | check |",
+        "|---|---|---:|---:|---|---:|---:|---|",
     ]
-    for lid, art, n, loc, nm in rows:
-        lines.append(f"| `{lid}` | {art} | {n} | {loc} | {nm} |")
+    for lid, art, n, nu, loc, unres, cf, nm in rows:
+        lines.append("| `%s` | %s | %d | %d | %s | %d | %d | %s |" % (
+            lid, art, n, nu, loc, unres, cf, nm,
+        ))
     lines.append("")
     OUT.write_text("\n".join(lines), encoding="utf-8")
-    print(f"article-scope diagnostic: {scoped} scoped / {whole_only} whole-text across {len(rows)} checks")
+    print(
+        "article-scope diagnostic: %d scoped / %d whole-text across %d checks; "
+        "unresolved=%d; coverage_fail=%d"
+        % (scoped, whole_only, len(rows), sum(law_unresolved.values()),
+           coverage_fail_total)
+    )
     return 0
 
 
