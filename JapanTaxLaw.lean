@@ -608,3 +608,6 @@ import JapanTaxLaw.TransitionalIncomeBracketsTests
 import JapanTaxLaw.ProgressiveAgriculturalPoints
 import JapanTaxLaw.ProgressiveAgriculturalPointsSpec
 import JapanTaxLaw.ProgressiveAgriculturalPointsTests
+import JapanTaxLaw.DeductionCapsAndMonthFloors
+import JapanTaxLaw.DeductionCapsAndMonthFloorsSpec
+import JapanTaxLaw.DeductionCapsAndMonthFloorsTests

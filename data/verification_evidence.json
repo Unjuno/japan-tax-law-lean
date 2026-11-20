@@ -685,6 +685,19 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 7: （７）　総排気量が三・五リットルを超え、四リットル以下のもの)",
       "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
+    "NORM|a1870a9b8f56952699a60883617912f7f9a8185280ee0360323746e7f99a61e6": {
+      "adversarial_review": "docs/UNIT_PROGRESSIVE_AGRICULTURAL_POINTS.md: H/T/D/C/U; float-rate and misplaced-rounding readings rejected; only three formula fragments claimed",
+      "boundary_proof": "hundredths 1: formula at branch 1; continuity at 2000/7000 and within-band monotonicity proved",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; three ArithFormula fragments of suppl.art.14-9(3)",
+      "implementation": "JapanTaxLaw/ProgressiveAgriculturalPoints.lean sha256=79401fdac08643b6501da8868b4668dc6bdbf3492edeccff8e26b0b9bc97e68e",
+      "independent_spec": "JapanTaxLaw/ProgressiveAgriculturalPointsSpec.lean sha256=0196f8767dd577e97a3f47e151616c183def2269038c88befa4a93789194984d (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; continuous_at_2000/continuous_at_7000/band_monotone + band exclusivity/exhaustiveness + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "three exact hundredths-valued formula fragments only: d caller-established Nat; 0.03/0.08/0.1 represented as x3/x8/x10 with denominator 100; deriving d, the neighbouring 四捨五入 rounding rule and the rest of art.14-9 NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_progressive_points.py: all 3 formulas found verbatim (3/3 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[5]/SupplProvision/SupplProvision[29]/Article:14_9/Article#14_9/Paragraph#3/List/ListSentence/Sentence#1/ArithFormula c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim formula 2: ２，０００＜ｍ１≦７，０００のとき　（ｍ１－２，０００）×０．０８＋６０)",
+      "tests": "JapanTaxLaw/ProgressiveAgriculturalPointsTests.lean sha256=6691e91e1c53258e21f08678c7afe3f89a704c4224638e0b2be8fd0600df20c2 (kernel boundary/continuity/monotonicity examples, spec agreement)"
+    },
     "NORM|a67969e166037ea7613758c7b0e322c8f6d3b9a17c43c06e30105e52c139c431": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_INDEX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; C and E thresholds kept separate",
       "boundary_proof": "C.inBand 1 d; exhaustive over all d, globally pairwise exclusive",
@@ -953,6 +966,19 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:314_6/Article#314_6/Paragraph#1/Item#1/Subitem1#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim C_art314_6 row 2: （４）　ひとり親で政令で定めるものである所得割の納税義務者)",
       "tests": "JapanTaxLaw/DelegatedTaxpayerCategoriesTests.lean sha256=cb2368de2652a6421e139691c97f3fcf97e1c92cdf1215646885a8f1178293e9 (kernel boundary examples, spec agreement, narrowing/cross-law relations)"
     },
+    "NORM|f083f7ca3a271061080494d5c75a71be09a0f527f28972cf34ae3aa835878f21": {
+      "adversarial_review": "docs/UNIT_PROGRESSIVE_AGRICULTURAL_POINTS.md: H/T/D/C/U; float-rate and misplaced-rounding readings rejected; only three formula fragments claimed",
+      "boundary_proof": "hundredths 2: formula at branch 2; continuity at 2000/7000 and within-band monotonicity proved",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; three ArithFormula fragments of suppl.art.14-9(3)",
+      "implementation": "JapanTaxLaw/ProgressiveAgriculturalPoints.lean sha256=79401fdac08643b6501da8868b4668dc6bdbf3492edeccff8e26b0b9bc97e68e",
+      "independent_spec": "JapanTaxLaw/ProgressiveAgriculturalPointsSpec.lean sha256=0196f8767dd577e97a3f47e151616c183def2269038c88befa4a93789194984d (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; continuous_at_2000/continuous_at_7000/band_monotone + band exclusivity/exhaustiveness + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "three exact hundredths-valued formula fragments only: d caller-established Nat; 0.03/0.08/0.1 represented as x3/x8/x10 with denominator 100; deriving d, the neighbouring 四捨五入 rounding rule and the rest of art.14-9 NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_progressive_points.py: all 3 formulas found verbatim (3/3 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[5]/SupplProvision/SupplProvision[29]/Article:14_9/Article#14_9/Paragraph#3/List/ListSentence/Sentence#1/ArithFormula c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim formula 3: ７，０００＜ｍ１のとき　（ｍ１－７，０００）×０．１＋４６０)",
+      "tests": "JapanTaxLaw/ProgressiveAgriculturalPointsTests.lean sha256=6691e91e1c53258e21f08678c7afe3f89a704c4224638e0b2be8fd0600df20c2 (kernel boundary/continuity/monotonicity examples, spec agreement)"
+    },
     "NORM|f48107230da364c2d029b9ed33ec3632c38e713e1625feccdcb38d3b7748bbf7": {
       "adversarial_review": "docs/UNIT_LOCAL_GRANT_INDEX_BANDS.md: H/T/D/C/U; upper-exclusive vs upper-inclusive misreadings rejected; C and E thresholds kept separate",
       "boundary_proof": "C.inBand 3 d; exhaustive over all d, globally pairwise exclusive",
@@ -967,6 +993,19 @@
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/Item#1/Subitem1#1/Subitem2#3/TableStruct/Table/TableRow/TableColumn/Sentence#1 c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim C row 4: ３００以上)",
       "tests": "JapanTaxLaw/LocalGrantIndexBandsTests.lean sha256=8613baa5eb7666035ac9139dc12df71bcbcb21c4f8b5b1c0863c41556318b820 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness for both groups)"
     },
+    "NORM|f9c00cec27d0c08d49163cf13bf585efda1fdda2b0b61f0bf22d66adffdc9add": {
+      "adversarial_review": "docs/UNIT_PROGRESSIVE_AGRICULTURAL_POINTS.md: H/T/D/C/U; float-rate and misplaced-rounding readings rejected; only three formula fragments claimed",
+      "boundary_proof": "hundredths 0: formula at branch 0; continuity at 2000/7000 and within-band monotonicity proved",
+      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; three ArithFormula fragments of suppl.art.14-9(3)",
+      "implementation": "JapanTaxLaw/ProgressiveAgriculturalPoints.lean sha256=79401fdac08643b6501da8868b4668dc6bdbf3492edeccff8e26b0b9bc97e68e",
+      "independent_spec": "JapanTaxLaw/ProgressiveAgriculturalPointsSpec.lean sha256=0196f8767dd577e97a3f47e151616c183def2269038c88befa4a93789194984d (separate spec, no implementation import)",
+      "kernel_proof": "Lean 4.35.0 pinned; continuous_at_2000/continuous_at_7000/band_monotone + band exclusivity/exhaustiveness + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "three exact hundredths-valued formula fragments only: d caller-established Nat; 0.03/0.08/0.1 represented as x3/x8/x10 with denominator 100; deriving d, the neighbouring 四捨五入 rounding rule and the rest of art.14-9 NOT MODELLED",
+      "source_correspondence_audit": "scripts/ci/source_audit_progressive_points.py: all 3 formulas found verbatim (3/3 hits, 3/3 checks), spec does not import implementation",
+      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[5]/SupplProvision/SupplProvision[29]/Article:14_9/Article#14_9/Paragraph#3/List/ListSentence/Sentence#1/ArithFormula c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim formula 1: ｍ１≦２，０００のとき　ｍ１×０．０３)",
+      "tests": "JapanTaxLaw/ProgressiveAgriculturalPointsTests.lean sha256=6691e91e1c53258e21f08678c7afe3f89a704c4224638e0b2be8fd0600df20c2 (kernel boundary/continuity/monotonicity examples, spec agreement)"
+    },
     "NORM|fbaae7be4e7e0918d0af1091dede11f8dc3bdbea10cf82e888b69ed4cf8f0f79": {
       "adversarial_review": "docs/UNIT_VEHICLE_DISPLACEMENT_BANDS.md: H/T/D/C/U; inclusive/exclusive misreadings and float-rounding rejected; rule interaction verified over all d",
       "boundary_proof": "inBand 2 d; row 3 applies on its exact interval; pairwise exclusive and jointly exhaustive over all d",
@@ -980,44 +1019,117 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:154/Article#154/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim row 3: （３）　総排気量が一・五リットルを超え、二リットル以下のもの)",
       "tests": "JapanTaxLaw/VehicleDisplacementBandsTests.lean sha256=815022dda3294b4e54f21e2a1eefbb8cee4a1121aeebaab8e76ccf235ebee4f4 (kernel boundary examples, spec agreement, universal exclusivity/exhaustiveness)"
     },
-    "NORM|f9c00cec27d0c08d49163cf13bf585efda1fdda2b0b61f0bf22d66adffdc9add": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; three ArithFormula fragments of suppl.art.14-9(3)",
-      "source_correspondence_audit": "scripts/ci/source_audit_progressive_points.py: all 3 formulas found verbatim (3/3 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/ProgressiveAgriculturalPointsSpec.lean sha256=0196f8767dd577e97a3f47e151616c183def2269038c88befa4a93789194984d (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/ProgressiveAgriculturalPoints.lean sha256=79401fdac08643b6501da8868b4668dc6bdbf3492edeccff8e26b0b9bc97e68e",
-      "kernel_proof": "Lean 4.35.0 pinned; continuous_at_2000/continuous_at_7000/band_monotone + band exclusivity/exhaustiveness + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "three exact hundredths-valued formula fragments only: d caller-established Nat; 0.03/0.08/0.1 represented as x3/x8/x10 with denominator 100; deriving d, the neighbouring 四捨五入 rounding rule and the rest of art.14-9 NOT MODELLED",
-      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/ProgressiveAgriculturalPointsTests.lean sha256=6691e91e1c53258e21f08678c7afe3f89a704c4224638e0b2be8fd0600df20c2 (kernel boundary/continuity/monotonicity examples, spec agreement)",
-      "adversarial_review": "docs/UNIT_PROGRESSIVE_AGRICULTURAL_POINTS.md: H/T/D/C/U; float-rate and misplaced-rounding readings rejected; only three formula fragments claimed",
-      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[5]/SupplProvision/SupplProvision[29]/Article:14_9/Article#14_9/Paragraph#3/List/ListSentence/Sentence#1/ArithFormula c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim formula 1: ｍ１≦２，０００のとき　ｍ１×０．０３)",
-      "boundary_proof": "hundredths 0: formula at branch 0; continuity at 2000/7000 and within-band monotonicity proved"
+    "NORM|b265abf7c2b4e33c782f4055eb76a1ec9e31315f8414dc18975bf5cfc557f45d": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; art.72_21 month floors (6) and art.37-2/314-7 deduction caps (2)",
+      "source_correspondence_audit": "scripts/ci/source_audit_caps_floors.py: month text x6 and cap text x2 found verbatim (5/5 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean sha256=e70694de1dd89a48028149a53b0799a1cd8e8e39bfe1826ef85dd0f32439b494 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean sha256=3ff4dc99ac9712a18510a876ecd7242cd82f8980d41a685810ebf64992a675b5",
+      "kernel_proof": "Lean 4.35.0 pinned; bounds/monotonicity/idempotence/cap_and_floor_commute + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "two saturating maps only (month lower bound 1, deduction upper bound liability): m/deduction/liability caller-established Nat; calendar computation, fractional truncation and surrounding tax computations NOT MODELLED",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean sha256=9b3c73e4a46ac43e8212a635c6f22ed720741806c6862edd2ddbcad1aa04f7d1 (kernel boundary examples, spec agreement, bounds/monotonicity/commutation)",
+      "adversarial_review": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-map interaction verified",
+      "group": "months",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_21/Article#72_21/Paragraph#3/ParagraphSentence/Sentence#2 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "boundary_proof": "months rule: この場合における月数は、暦に従い計算し、一月に満たないときは; lower bound >=1"
     },
-    "NORM|a1870a9b8f56952699a60883617912f7f9a8185280ee0360323746e7f99a61e6": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; three ArithFormula fragments of suppl.art.14-9(3)",
-      "source_correspondence_audit": "scripts/ci/source_audit_progressive_points.py: all 3 formulas found verbatim (3/3 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/ProgressiveAgriculturalPointsSpec.lean sha256=0196f8767dd577e97a3f47e151616c183def2269038c88befa4a93789194984d (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/ProgressiveAgriculturalPoints.lean sha256=79401fdac08643b6501da8868b4668dc6bdbf3492edeccff8e26b0b9bc97e68e",
-      "kernel_proof": "Lean 4.35.0 pinned; continuous_at_2000/continuous_at_7000/band_monotone + band exclusivity/exhaustiveness + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "three exact hundredths-valued formula fragments only: d caller-established Nat; 0.03/0.08/0.1 represented as x3/x8/x10 with denominator 100; deriving d, the neighbouring 四捨五入 rounding rule and the rest of art.14-9 NOT MODELLED",
-      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/ProgressiveAgriculturalPointsTests.lean sha256=6691e91e1c53258e21f08678c7afe3f89a704c4224638e0b2be8fd0600df20c2 (kernel boundary/continuity/monotonicity examples, spec agreement)",
-      "adversarial_review": "docs/UNIT_PROGRESSIVE_AGRICULTURAL_POINTS.md: H/T/D/C/U; float-rate and misplaced-rounding readings rejected; only three formula fragments claimed",
-      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[5]/SupplProvision/SupplProvision[29]/Article:14_9/Article#14_9/Paragraph#3/List/ListSentence/Sentence#1/ArithFormula c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim formula 2: ２，０００＜ｍ１≦７，０００のとき　（ｍ１－２，０００）×０．０８＋６０)",
-      "boundary_proof": "hundredths 1: formula at branch 1; continuity at 2000/7000 and within-band monotonicity proved"
+    "NORM|4766be9dfaf10e556f4ed4cb7d6af089b31b80033ddc1bf9eced7b5ebabf9358": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; art.72_21 month floors (6) and art.37-2/314-7 deduction caps (2)",
+      "source_correspondence_audit": "scripts/ci/source_audit_caps_floors.py: month text x6 and cap text x2 found verbatim (5/5 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean sha256=e70694de1dd89a48028149a53b0799a1cd8e8e39bfe1826ef85dd0f32439b494 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean sha256=3ff4dc99ac9712a18510a876ecd7242cd82f8980d41a685810ebf64992a675b5",
+      "kernel_proof": "Lean 4.35.0 pinned; bounds/monotonicity/idempotence/cap_and_floor_commute + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "two saturating maps only (month lower bound 1, deduction upper bound liability): m/deduction/liability caller-established Nat; calendar computation, fractional truncation and surrounding tax computations NOT MODELLED",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean sha256=9b3c73e4a46ac43e8212a635c6f22ed720741806c6862edd2ddbcad1aa04f7d1 (kernel boundary examples, spec agreement, bounds/monotonicity/commutation)",
+      "adversarial_review": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-map interaction verified",
+      "group": "months",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_21/Article#72_21/Paragraph#4/ParagraphSentence/Sentence#2 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "boundary_proof": "months rule: この場合における月数は、暦に従い計算し、一月に満たないときは; lower bound >=1"
     },
-    "NORM|f083f7ca3a271061080494d5c75a71be09a0f527f28972cf34ae3aa835878f21": {
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; three ArithFormula fragments of suppl.art.14-9(3)",
-      "source_correspondence_audit": "scripts/ci/source_audit_progressive_points.py: all 3 formulas found verbatim (3/3 hits, 3/3 checks), spec does not import implementation",
-      "independent_spec": "JapanTaxLaw/ProgressiveAgriculturalPointsSpec.lean sha256=0196f8767dd577e97a3f47e151616c183def2269038c88befa4a93789194984d (separate spec, no implementation import)",
-      "implementation": "JapanTaxLaw/ProgressiveAgriculturalPoints.lean sha256=79401fdac08643b6501da8868b4668dc6bdbf3492edeccff8e26b0b9bc97e68e",
-      "kernel_proof": "Lean 4.35.0 pinned; continuous_at_2000/continuous_at_7000/band_monotone + band exclusivity/exhaustiveness + spec agreement kernel-checked; no sorry/admit",
-      "proof_scope": "three exact hundredths-valued formula fragments only: d caller-established Nat; 0.03/0.08/0.1 represented as x3/x8/x10 with denominator 100; deriving d, the neighbouring 四捨五入 rounding rule and the rest of art.14-9 NOT MODELLED",
-      "cross_law_proof": "unit dependencies=0; enforced revision 337M50000008017_20260724_508M60000008092 resolved from INVENTORY",
-      "tests": "JapanTaxLaw/ProgressiveAgriculturalPointsTests.lean sha256=6691e91e1c53258e21f08678c7afe3f89a704c4224638e0b2be8fd0600df20c2 (kernel boundary/continuity/monotonicity examples, spec agreement)",
-      "adversarial_review": "docs/UNIT_PROGRESSIVE_AGRICULTURAL_POINTS.md: H/T/D/C/U; float-rate and misplaced-rounding readings rejected; only three formula fragments claimed",
-      "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[5]/SupplProvision/SupplProvision[29]/Article:14_9/Article#14_9/Paragraph#3/List/ListSentence/Sentence#1/ArithFormula c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98 (verbatim formula 3: ７，０００＜ｍ１のとき　（ｍ１－７，０００）×０．１＋４６０)",
-      "boundary_proof": "hundredths 2: formula at branch 2; continuity at 2000/7000 and within-band monotonicity proved"
+    "NORM|d919c1cfd701bc31f46bba8157aa17f8c8e7ffeb44373aa3e06766cbb31379af": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; art.72_21 month floors (6) and art.37-2/314-7 deduction caps (2)",
+      "source_correspondence_audit": "scripts/ci/source_audit_caps_floors.py: month text x6 and cap text x2 found verbatim (5/5 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean sha256=e70694de1dd89a48028149a53b0799a1cd8e8e39bfe1826ef85dd0f32439b494 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean sha256=3ff4dc99ac9712a18510a876ecd7242cd82f8980d41a685810ebf64992a675b5",
+      "kernel_proof": "Lean 4.35.0 pinned; bounds/monotonicity/idempotence/cap_and_floor_commute + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "two saturating maps only (month lower bound 1, deduction upper bound liability): m/deduction/liability caller-established Nat; calendar computation, fractional truncation and surrounding tax computations NOT MODELLED",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean sha256=9b3c73e4a46ac43e8212a635c6f22ed720741806c6862edd2ddbcad1aa04f7d1 (kernel boundary examples, spec agreement, bounds/monotonicity/commutation)",
+      "adversarial_review": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-map interaction verified",
+      "group": "months",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_21/Article#72_21/Paragraph#5/ParagraphSentence/Sentence#2 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "boundary_proof": "months rule: この場合における月数は、暦に従い計算し、一月に満たないときは; lower bound >=1"
+    },
+    "NORM|9fecbf01077eb295abda6fb3642b131e924d44a9ab1fc5da66daeab67a03f4f2": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; art.72_21 month floors (6) and art.37-2/314-7 deduction caps (2)",
+      "source_correspondence_audit": "scripts/ci/source_audit_caps_floors.py: month text x6 and cap text x2 found verbatim (5/5 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean sha256=e70694de1dd89a48028149a53b0799a1cd8e8e39bfe1826ef85dd0f32439b494 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean sha256=3ff4dc99ac9712a18510a876ecd7242cd82f8980d41a685810ebf64992a675b5",
+      "kernel_proof": "Lean 4.35.0 pinned; bounds/monotonicity/idempotence/cap_and_floor_commute + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "two saturating maps only (month lower bound 1, deduction upper bound liability): m/deduction/liability caller-established Nat; calendar computation, fractional truncation and surrounding tax computations NOT MODELLED",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean sha256=9b3c73e4a46ac43e8212a635c6f22ed720741806c6862edd2ddbcad1aa04f7d1 (kernel boundary examples, spec agreement, bounds/monotonicity/commutation)",
+      "adversarial_review": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-map interaction verified",
+      "group": "months",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_21/Article#72_21/Paragraph#8/ParagraphSentence/Sentence#2 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "boundary_proof": "months rule: この場合における月数は、暦に従い計算し、一月に満たないときは; lower bound >=1"
+    },
+    "NORM|d17de64a90bac7642362d85bb81c102bd8a8283e55d2138816c87358de956de7": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; art.72_21 month floors (6) and art.37-2/314-7 deduction caps (2)",
+      "source_correspondence_audit": "scripts/ci/source_audit_caps_floors.py: month text x6 and cap text x2 found verbatim (5/5 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean sha256=e70694de1dd89a48028149a53b0799a1cd8e8e39bfe1826ef85dd0f32439b494 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean sha256=3ff4dc99ac9712a18510a876ecd7242cd82f8980d41a685810ebf64992a675b5",
+      "kernel_proof": "Lean 4.35.0 pinned; bounds/monotonicity/idempotence/cap_and_floor_commute + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "two saturating maps only (month lower bound 1, deduction upper bound liability): m/deduction/liability caller-established Nat; calendar computation, fractional truncation and surrounding tax computations NOT MODELLED",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean sha256=9b3c73e4a46ac43e8212a635c6f22ed720741806c6862edd2ddbcad1aa04f7d1 (kernel boundary examples, spec agreement, bounds/monotonicity/commutation)",
+      "adversarial_review": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-map interaction verified",
+      "group": "months",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_21/Article#72_21/Paragraph#9/ParagraphSentence/Sentence#2 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "boundary_proof": "months rule: この場合における月数は、暦に従い計算し、一月に満たないときは; lower bound >=1"
+    },
+    "NORM|41f91dd46644996c45e9737d8525079191e51089a85237de2d555f5b9187f4a3": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; art.72_21 month floors (6) and art.37-2/314-7 deduction caps (2)",
+      "source_correspondence_audit": "scripts/ci/source_audit_caps_floors.py: month text x6 and cap text x2 found verbatim (5/5 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean sha256=e70694de1dd89a48028149a53b0799a1cd8e8e39bfe1826ef85dd0f32439b494 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean sha256=3ff4dc99ac9712a18510a876ecd7242cd82f8980d41a685810ebf64992a675b5",
+      "kernel_proof": "Lean 4.35.0 pinned; bounds/monotonicity/idempotence/cap_and_floor_commute + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "two saturating maps only (month lower bound 1, deduction upper bound liability): m/deduction/liability caller-established Nat; calendar computation, fractional truncation and surrounding tax computations NOT MODELLED",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean sha256=9b3c73e4a46ac43e8212a635c6f22ed720741806c6862edd2ddbcad1aa04f7d1 (kernel boundary examples, spec agreement, bounds/monotonicity/commutation)",
+      "adversarial_review": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-map interaction verified",
+      "group": "months",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_21/Article#72_21/Paragraph#10/ParagraphSentence/Sentence#2 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "boundary_proof": "months rule: この場合における月数は、暦に従い計算し、一月に満たないときは; lower bound >=1"
+    },
+    "NORM|20d49c979fc8fe33d62b4df93ab315db2ba8197e7028c57f89a19ff460cd231d": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; art.72_21 month floors (6) and art.37-2/314-7 deduction caps (2)",
+      "source_correspondence_audit": "scripts/ci/source_audit_caps_floors.py: month text x6 and cap text x2 found verbatim (5/5 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean sha256=e70694de1dd89a48028149a53b0799a1cd8e8e39bfe1826ef85dd0f32439b494 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean sha256=3ff4dc99ac9712a18510a876ecd7242cd82f8980d41a685810ebf64992a675b5",
+      "kernel_proof": "Lean 4.35.0 pinned; bounds/monotonicity/idempotence/cap_and_floor_commute + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "two saturating maps only (month lower bound 1, deduction upper bound liability): m/deduction/liability caller-established Nat; calendar computation, fractional truncation and surrounding tax computations NOT MODELLED",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean sha256=9b3c73e4a46ac43e8212a635c6f22ed720741806c6862edd2ddbcad1aa04f7d1 (kernel boundary examples, spec agreement, bounds/monotonicity/commutation)",
+      "adversarial_review": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-map interaction verified",
+      "group": "caps",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:37_2/Article#37_2/Paragraph#1/ParagraphSentence/Sentence#2 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "boundary_proof": "caps rule: この場合において、当該控除額が当該所得割の額を超えるときは、; upper bound <= liability"
+    },
+    "NORM|48b7651e23d266a10bf4c44c1c812ad3b7278fd45ecc34060a9c835485d2d923": {
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED; art.72_21 month floors (6) and art.37-2/314-7 deduction caps (2)",
+      "source_correspondence_audit": "scripts/ci/source_audit_caps_floors.py: month text x6 and cap text x2 found verbatim (5/5 checks), spec does not import implementation",
+      "independent_spec": "JapanTaxLaw/DeductionCapsAndMonthFloorsSpec.lean sha256=e70694de1dd89a48028149a53b0799a1cd8e8e39bfe1826ef85dd0f32439b494 (separate spec, no implementation import)",
+      "implementation": "JapanTaxLaw/DeductionCapsAndMonthFloors.lean sha256=3ff4dc99ac9712a18510a876ecd7242cd82f8980d41a685810ebf64992a675b5",
+      "kernel_proof": "Lean 4.35.0 pinned; bounds/monotonicity/idempotence/cap_and_floor_commute + spec agreement kernel-checked; no sorry/admit",
+      "proof_scope": "two saturating maps only (month lower bound 1, deduction upper bound liability): m/deduction/liability caller-established Nat; calendar computation, fractional truncation and surrounding tax computations NOT MODELLED",
+      "cross_law_proof": "unit dependencies=0; enforced revision 325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "tests": "JapanTaxLaw/DeductionCapsAndMonthFloorsTests.lean sha256=9b3c73e4a46ac43e8212a635c6f22ed720741806c6862edd2ddbcad1aa04f7d1 (kernel boundary examples, spec agreement, bounds/monotonicity/commutation)",
+      "adversarial_review": "docs/UNIT_DEDUCTION_CAPS_AND_MONTH_FLOORS.md: H/T/D/C/U; misreadings of 一月未満 and unconditional cap rejected; saturating-map interaction verified",
+      "group": "caps",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:314_7/Article#314_7/Paragraph#1/ParagraphSentence/Sentence#2 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "boundary_proof": "caps rule: この場合において、当該控除額が当該所得割の額を超えるときは、; upper bound <= liability"
     }
   }
 }
