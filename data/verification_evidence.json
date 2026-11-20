@@ -1,0 +1,300 @@
+{
+  "tool": "independent-verification-agent",
+  "schema": "verification-evidence-v1",
+  "units": {
+    "NORM|4cd756c89d1d4861be56ba03c83c189d8981f13a9d09cd010124885ebe50d245": {
+      "source_location": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "exact source_path + SHA-256 in pinned queue; 国際観光旅客税法 art.15(1)"
+      },
+      "decomposition_audit": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "coverage.status=COVERED, original_length=36, reconstructed_length=36, unresolved=0"
+      },
+      "source_correspondence_audit": {
+        "evidence_ref": "data/source_correspondence_20261120.json",
+        "date": "2026-11-20",
+        "detail": "independent needle + kansuji check against pinned raw text"
+      },
+      "independent_spec": {
+        "evidence_ref": "JapanTaxLaw/InternationalTouristTaxRateSpec.lean",
+        "date": "2026-11-20",
+        "detail": "independent bare-Nat restatement from 原文「三千円」"
+      },
+      "implementation": {
+        "evidence_ref": "JapanTaxLaw/InternationalTouristTaxRate.lean",
+        "date": "2026-11-20",
+        "detail": "departureTaxRate : Money := 3_000; theorem departureTaxRate_value"
+      },
+      "tests": {
+        "evidence_ref": "JapanTaxLaw/InternationalTouristTaxRateTests.lean",
+        "date": "2026-11-20",
+        "detail": "kernel-decided smoke checks incl. 桁違い 300 / 30,000"
+      },
+      "kernel_proof": {
+        "evidence_ref": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44691880404",
+        "date": "2026-11-20",
+        "detail": "GitHub Actions job \"Build Lean project and check axioms\" PASS (3m35s) on commit d88be50; imports of all 7 new modules compiled by lake build; no sorry/admit/Classical.choice (CI axiom gate)"
+      },
+      "proof_scope": "",
+      "boundary_proof": "",
+      "cross_law_proof": "",
+      "adversarial_review": "",
+      "notes": "kernel_proof deliberately unrecorded: local lake unavailable; CI must verify the Lean build first. Human legal review remains pending."
+    },
+    "NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8": {
+      "source_location": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "330AC0000000104 第四条: exact source_path + SHA-256"
+      },
+      "decomposition_audit": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "coverage.status=COVERED, unresolved=0"
+      },
+      "source_correspondence_audit": {
+        "evidence_ref": "data/source_correspondence_330AC0000000104.json",
+        "date": "2026-11-20",
+        "detail": "independent needle + kansuji check: 四千四百 = 4,400"
+      },
+      "independent_spec": {
+        "evidence_ref": "JapanTaxLaw/LocalGasolineRateSpec.lean",
+        "date": "2026-11-20",
+        "detail": "independent bare-Nat restatement = 4_400"
+      },
+      "implementation": {
+        "evidence_ref": "JapanTaxLaw/LocalGasolineRate.lean",
+        "date": "2026-11-20",
+        "detail": "LocalGasolineRate rate : Money := 4_400"
+      },
+      "tests": {
+        "evidence_ref": "JapanTaxLaw/LocalGasolineRateTests.lean",
+        "date": "2026-11-20",
+        "detail": "kernel-decided boundary and digit-scale checks"
+      },
+      "kernel_proof": {
+        "evidence_ref": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44691880404",
+        "date": "2026-11-20",
+        "detail": "GitHub Actions job \"Build Lean project and check axioms\" PASS (3m35s) on commit d88be50; imports of all 7 new modules compiled by lake build; no sorry/admit/Classical.choice (CI axiom gate)"
+      },
+      "proof_scope": "",
+      "boundary_proof": "",
+      "cross_law_proof": "",
+      "adversarial_review": "",
+      "notes": "kernel_proof deliberately unrecorded; CI must verify Lean build. Human legal review pending."
+    },
+    "NORM|8bf684764da81b921477924a5e17db0d25d2ddfae535431c99302894578f927c": {
+      "source_location": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "332AC0000000055 第九条: exact source_path + SHA-256"
+      },
+      "decomposition_audit": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "coverage.status=COVERED, unresolved=0"
+      },
+      "source_correspondence_audit": {
+        "evidence_ref": "data/source_correspondence_332AC0000000055.json",
+        "date": "2026-11-20",
+        "detail": "independent needle + kansuji check: 二万四千三百 = 24,300"
+      },
+      "independent_spec": {
+        "evidence_ref": "JapanTaxLaw/GasolineTaxRateSpec.lean",
+        "date": "2026-11-20",
+        "detail": "independent bare-Nat restatement = 24_300"
+      },
+      "implementation": {
+        "evidence_ref": "JapanTaxLaw/GasolineTaxRate.lean",
+        "date": "2026-11-20",
+        "detail": "GasolineTaxRate rate : Money := 24_300"
+      },
+      "tests": {
+        "evidence_ref": "JapanTaxLaw/GasolineTaxRateTests.lean",
+        "date": "2026-11-20",
+        "detail": "kernel-decided boundary and digit-scale checks"
+      },
+      "kernel_proof": {
+        "evidence_ref": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44691880404",
+        "date": "2026-11-20",
+        "detail": "GitHub Actions job \"Build Lean project and check axioms\" PASS (3m35s) on commit d88be50; imports of all 7 new modules compiled by lake build; no sorry/admit/Classical.choice (CI axiom gate)"
+      },
+      "proof_scope": "",
+      "boundary_proof": "",
+      "cross_law_proof": "",
+      "adversarial_review": "",
+      "notes": "kernel_proof deliberately unrecorded; CI must verify Lean build. Human legal review pending."
+    },
+    "NORM|9090b882bace49ea0dbb6a5727ff30fdf0fee04c11a037c87261bd947462e9ce": {
+      "source_location": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "325AC0000000226 第三十八条: exact source_path + SHA-256"
+      },
+      "decomposition_audit": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "coverage.status=COVERED, unresolved=0"
+      },
+      "source_correspondence_audit": {
+        "evidence_ref": "data/source_correspondence_325AC0000000226_PrefecturalPerCapitaRate.json",
+        "date": "2026-11-20",
+        "detail": "independent needle + kansuji: 千円 = 1000"
+      },
+      "independent_spec": {
+        "evidence_ref": "JapanTaxLaw/PrefecturalPerCapitaRateSpec.lean",
+        "date": "2026-11-20",
+        "detail": "bare-Nat restatement = 1000"
+      },
+      "implementation": {
+        "evidence_ref": "JapanTaxLaw/PrefecturalPerCapitaRate.lean",
+        "date": "2026-11-20",
+        "detail": "prefecturalPerCapitaRate : Money := 1000"
+      },
+      "tests": {
+        "evidence_ref": "JapanTaxLaw/PrefecturalPerCapitaRateTests.lean",
+        "date": "2026-11-20",
+        "detail": "kernel-decided boundary checks"
+      },
+      "kernel_proof": {
+        "evidence_ref": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44691880404",
+        "date": "2026-11-20",
+        "detail": "GitHub Actions job \"Build Lean project and check axioms\" PASS (3m35s) on commit d88be50; imports of all 7 new modules compiled by lake build; no sorry/admit/Classical.choice (CI axiom gate)"
+      },
+      "proof_scope": "",
+      "boundary_proof": "",
+      "cross_law_proof": "",
+      "adversarial_review": "",
+      "notes": "kernel_proof unrecorded pending CI Lean build; human legal review pending"
+    },
+    "NORM|6c043582d2da5058b6951c3490ea577d84a5afd9b21669f9a8c4c5d579a77f5e": {
+      "source_location": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "325AC0000000226 第三百十条: exact source_path + SHA-256"
+      },
+      "decomposition_audit": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "coverage.status=COVERED, unresolved=0"
+      },
+      "source_correspondence_audit": {
+        "evidence_ref": "data/source_correspondence_325AC0000000226_MunicipalPerCapitaRate.json",
+        "date": "2026-11-20",
+        "detail": "independent needle + kansuji: 三千円 = 3000"
+      },
+      "independent_spec": {
+        "evidence_ref": "JapanTaxLaw/MunicipalPerCapitaRateSpec.lean",
+        "date": "2026-11-20",
+        "detail": "bare-Nat restatement = 3000"
+      },
+      "implementation": {
+        "evidence_ref": "JapanTaxLaw/MunicipalPerCapitaRate.lean",
+        "date": "2026-11-20",
+        "detail": "municipalPerCapitaRate : Money := 3000"
+      },
+      "tests": {
+        "evidence_ref": "JapanTaxLaw/MunicipalPerCapitaRateTests.lean",
+        "date": "2026-11-20",
+        "detail": "kernel-decided boundary checks"
+      },
+      "kernel_proof": {
+        "evidence_ref": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44691880404",
+        "date": "2026-11-20",
+        "detail": "GitHub Actions job \"Build Lean project and check axioms\" PASS (3m35s) on commit d88be50; imports of all 7 new modules compiled by lake build; no sorry/admit/Classical.choice (CI axiom gate)"
+      },
+      "proof_scope": "",
+      "boundary_proof": "",
+      "cross_law_proof": "",
+      "adversarial_review": "",
+      "notes": "kernel_proof unrecorded pending CI Lean build; human legal review pending"
+    },
+    "NORM|f345a99128087aed87634e8963422db557c8f7daa6b17adec119fe0aceb3cdfa": {
+      "source_location": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "325AC0000000226 第七十六条: exact source_path + SHA-256"
+      },
+      "decomposition_audit": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "coverage.status=COVERED, unresolved=0"
+      },
+      "source_correspondence_audit": {
+        "evidence_ref": "data/source_correspondence_325AC0000000226_GolfCourseUseRate.json",
+        "date": "2026-11-20",
+        "detail": "independent needle + kansuji: 八百円 = 800"
+      },
+      "independent_spec": {
+        "evidence_ref": "JapanTaxLaw/GolfCourseUseRateSpec.lean",
+        "date": "2026-11-20",
+        "detail": "bare-Nat restatement = 800"
+      },
+      "implementation": {
+        "evidence_ref": "JapanTaxLaw/GolfCourseUseRate.lean",
+        "date": "2026-11-20",
+        "detail": "golfCourseUseRate : Money := 800"
+      },
+      "tests": {
+        "evidence_ref": "JapanTaxLaw/GolfCourseUseRateTests.lean",
+        "date": "2026-11-20",
+        "detail": "kernel-decided boundary checks"
+      },
+      "kernel_proof": {
+        "evidence_ref": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44691880404",
+        "date": "2026-11-20",
+        "detail": "GitHub Actions job \"Build Lean project and check axioms\" PASS (3m35s) on commit d88be50; imports of all 7 new modules compiled by lake build; no sorry/admit/Classical.choice (CI axiom gate)"
+      },
+      "proof_scope": "",
+      "boundary_proof": "",
+      "cross_law_proof": "",
+      "adversarial_review": "",
+      "notes": "kernel_proof unrecorded pending CI Lean build; human legal review pending"
+    },
+    "NORM|1f1e4ed103a791c1b9d4b42f6e04fe784e392a84286e09d3396eba710c8773e2": {
+      "source_location": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "325AC0000000226 第百四十四条の十: exact source_path + SHA-256"
+      },
+      "decomposition_audit": {
+        "evidence_ref": "build/task_queue.json",
+        "date": "2026-11-20",
+        "detail": "coverage.status=COVERED, unresolved=0"
+      },
+      "source_correspondence_audit": {
+        "evidence_ref": "data/source_correspondence_325AC0000000226_LightOilTaxRate.json",
+        "date": "2026-11-20",
+        "detail": "independent needle + kansuji: 一万五千円 = 15000"
+      },
+      "independent_spec": {
+        "evidence_ref": "JapanTaxLaw/LightOilTaxRateSpec.lean",
+        "date": "2026-11-20",
+        "detail": "bare-Nat restatement = 15000"
+      },
+      "implementation": {
+        "evidence_ref": "JapanTaxLaw/LightOilTaxRate.lean",
+        "date": "2026-11-20",
+        "detail": "lightOilTaxRate : Money := 15000"
+      },
+      "tests": {
+        "evidence_ref": "JapanTaxLaw/LightOilTaxRateTests.lean",
+        "date": "2026-11-20",
+        "detail": "kernel-decided boundary checks"
+      },
+      "kernel_proof": {
+        "evidence_ref": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44691880404",
+        "date": "2026-11-20",
+        "detail": "GitHub Actions job \"Build Lean project and check axioms\" PASS (3m35s) on commit d88be50; imports of all 7 new modules compiled by lake build; no sorry/admit/Classical.choice (CI axiom gate)"
+      },
+      "proof_scope": "",
+      "boundary_proof": "",
+      "cross_law_proof": "",
+      "adversarial_review": "",
+      "notes": "kernel_proof unrecorded pending CI Lean build; human legal review pending"
+    }
+  }
+}
