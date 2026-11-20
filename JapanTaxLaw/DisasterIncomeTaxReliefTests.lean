@@ -15,6 +15,9 @@ example : reliefFraction 5_000_001 = (5, 10) := by decide
 example : reliefFraction 7_500_000 = (5, 10) := by decide
 example : reliefFraction 7_500_001 = (5, 20) := by decide
 example : reliefFraction 10_000_000 = (5, 20) := by decide
+example : reliefFraction 11 = (10, 10) := by decide
+example : reliefFraction 1_200_000 = (10, 10) := by decide
+example : reliefFraction 13_000_000 = (5, 20) := by decide
 
 example : specReliefFraction 5_000_000 = (10, 10) := by decide
 example : specReliefFraction 5_000_001 = (5, 10) := by decide
