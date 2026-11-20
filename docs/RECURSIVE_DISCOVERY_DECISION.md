@@ -102,6 +102,15 @@ ACQUIRED 322AC0000000067 地方自治法
   bytes    = 2518200
 ```
 
+A second acquisition (会社法, 238 occurrences):
+
+```
+ACQUIRED 417AC0000000086 会社法
+  revision = 417AC0000000086_20260812_508AC0000000064
+  sha256   = EF9E2BDA8E93F978FD2DE0A14500195C5AEA4A5D837C9A46D60ED382212055D3
+  bytes    = 3034237
+```
+
 `data/RELATED_LAW_LEDGER.json` records `source_layer=NATIONAL_NON_TAX_RELATED`
 and `verification_status=ACQUIRED_NOT_PARSED_NOT_MODELLED_NOT_REVIEWED`.
 4 unit tests (`scripts.tests.test_related_law_acquisition`) verify revision
