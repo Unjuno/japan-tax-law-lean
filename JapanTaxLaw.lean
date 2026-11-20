@@ -536,3 +536,6 @@ import JapanTaxLaw.CertFeeTests
 import JapanTaxLaw.GiftBasicDeductionUnit
 import JapanTaxLaw.GiftBasicDeductionUnitSpec
 import JapanTaxLaw.GiftBasicDeductionUnitTests
+import JapanTaxLaw.DisasterIncomeThreshold
+import JapanTaxLaw.DisasterIncomeThresholdSpec
+import JapanTaxLaw.DisasterIncomeThresholdTests

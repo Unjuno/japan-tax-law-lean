@@ -600,6 +600,19 @@
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[48]/SupplProvision/SupplProvision[4]/Article:24/Article#24/Paragraph#1/ParagraphSentence/Sentence#2 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/InheritanceAnnuityMinMaxTests.lean sha256=0f60d94f383ee999f49f4233b0a010675cf66a81e75c8edb29658190b1bd28b6 (18 kernel-decided examples)"
     },
+    "NORM|89a8b5e3962e7db358a45105bea6669582c82591554b65860296e9fc58cc71cf": {
+      "adversarial_review": "docs/SOURCE_AUDIT_DISASTER_INCOME_20261120.md SRC-DIT-1 H/T/D/C/U",
+      "boundary_proof": "DisasterIncomeThresholdSpec.lean at_threshold / just_above_threshold (5,000,000 / 5,000,001)",
+      "cross_law_proof": "所得税法 art.22 total income is caller-established (resolved dependency recorded in queue)",
+      "decomposition_audit": "build/task_queue.json: exact reconstruction of the unit span; norm_type CONDITION",
+      "implementation": "JapanTaxLaw/DisasterIncomeThreshold.lean inFirstBand (≤ comparison)",
+      "independent_spec": "JapanTaxLaw/DisasterIncomeThresholdSpec.lean specFirstBand (¬ threshold < income)",
+      "kernel_proof": "CI Lean build + axiom audit; agree_disaster_income_threshold universal theorem",
+      "proof_scope": "DisasterIncomeThresholdSpec.lean downward_closed + explicit non-modelled scope in impl docs",
+      "source_correspondence_audit": "docs/SOURCE_AUDIT_DISASTER_INCOME_20261120.md#Reproduction (needle present, unique to art 2)",
+      "source_location": "docs/SOURCE_AUDIT_DISASTER_INCOME_20261120.md#Provenance (art 2(1), pin sha256 verified)",
+      "tests": "JapanTaxLaw/DisasterIncomeThresholdTests.lean boundary examples"
+    },
     "NORM|8bbe27f0f7ed5f3c5026d01427f391440f306d0ab95bb540ee9ee1bfc82baf16": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
