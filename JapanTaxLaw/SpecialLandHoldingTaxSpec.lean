@@ -8,14 +8,21 @@ Source (pinned):
   Revision: 325AC0000000226_20261101_508AC0000000002
 
 Independent restatement of art. 596 with literal Nat operations, deliberately
-NOT reusing `TaxRate.applyFloor`:
+NOT reusing `TaxRate.applyFloor` or ANY implementation definition (in
+particular the implementation deduction-rate constants
+`fixedAssetDeductionRate` / `realEstateDeductionRate`). The statutory deduction
+rates are transcribed locally from the article text itself:
 
   tax       = (base * taxRate.num) / taxRate.den
   deduction = min tax ((deductionBase * deductionRate.num) / deductionRate.den)
   result    = tax − deduction
 
-The `agree*` checks below cross-check the implementation against this separately
-written formula over a finite sample. This is a finite cross-check only; no
+  art. 596 一号 「百分の一・四」 = 1.4% = specFixedAssetDeductionRate = 14/1000
+  art. 596 二号/三号 「百分の四」 = 4%   = specRealEstateDeductionRate = 4/100
+
+The `agree*` / `*CheckGrid` checks below cross-check the implementation against
+this separately written formula over a finite sample, so they deliberately DO
+reference the implementation constants. This is a finite cross-check only; no
 universal equivalence theorem is claimed.
 -/
 
@@ -24,6 +31,14 @@ namespace JapanTaxLaw.SpecialLandHoldingTax
 
 open JapanTaxLaw.TaxFinance
 
+/-- Independent transcription of art. 596 一号 「百分の一・四」 = 1.4% = 14/1000.
+    Not the implementation constant `fixedAssetDeductionRate`. -/
+def specFixedAssetDeductionRate : TaxRate := ⟨14, 1000, by decide⟩
+
+/-- Independent transcription of art. 596 二号/三号 「百分の四」 = 4% = 4/100.
+    Not the implementation constant `realEstateDeductionRate`. -/
+def specRealEstateDeductionRate : TaxRate := ⟨4, 100, by decide⟩
+
 /-- 独立定式: art. 596 の共通構造を `applyFloor` を使わず Nat 演算で書き直す。 -/
 def specLandHoldingTax (taxRate : TaxRate) (base : Money)
     (deductionRate : TaxRate) (deductionBase : Money) : Money :=
@@ -31,24 +46,28 @@ def specLandHoldingTax (taxRate : TaxRate) (base : Money)
   let deduction := min tax (deductionBase * deductionRate.num / deductionRate.den)
   tax - deduction
 
-/-- 独立定式 (一号): 控除率 14/1000 を固定。 -/
+/-- 独立定式 (一号): 控除率 14/1000 をローカル定数で固定。 -/
 def specLandHoldingTaxI (taxRate : TaxRate) (taxableBase fixedAssetBase : Money) : Money :=
-  specLandHoldingTax taxRate taxableBase fixedAssetDeductionRate fixedAssetBase
+  specLandHoldingTax taxRate taxableBase specFixedAssetDeductionRate fixedAssetBase
 
-/-- 独立定式 (二号): 控除率 4/100 を固定。 -/
+/-- 独立定式 (二号): 控除率 4/100 をローカル定数で固定。 -/
 def specLandHoldingTaxII (taxRate : TaxRate) (taxableBase realEstateBase : Money) : Money :=
-  specLandHoldingTax taxRate taxableBase realEstateDeductionRate realEstateBase
+  specLandHoldingTax taxRate taxableBase specRealEstateDeductionRate realEstateBase
 
 /-- 独立定式 (三号): 二号と同じ控除率 4/100。 -/
 def specLandHoldingTaxIII (taxRate : TaxRate) (taxableBase realEstateBase : Money) : Money :=
-  specLandHoldingTax taxRate taxableBase realEstateDeductionRate realEstateBase
+  specLandHoldingTax taxRate taxableBase specRealEstateDeductionRate realEstateBase
 
 -- ==== positivity / smoke (kernel-decided boundary points) ====
 
-example : specLandHoldingTax ⟨14, 1000, by decide⟩ 1000 fixedAssetDeductionRate 0 = 14 := by decide
-example : specLandHoldingTax ⟨4, 100, by decide⟩ 1000 realEstateDeductionRate 0 = 40 := by decide
-example : specLandHoldingTax ⟨14, 1000, by decide⟩ 10 fixedAssetDeductionRate 10_000 = 0 := by decide
-example : specLandHoldingTax ⟨1, 100, by decide⟩ 0 fixedAssetDeductionRate 500 = 0 := by decide
+-- ローカル定数の転記確認: 14/1000（10 倍過大な 14/100 ではない）、4/100。
+example : specFixedAssetDeductionRate.numDen = (14, 1000) := by rfl
+example : specRealEstateDeductionRate.numDen = (4, 100) := by rfl
+
+example : specLandHoldingTax ⟨14, 1000, by decide⟩ 1000 specFixedAssetDeductionRate 0 = 14 := by decide
+example : specLandHoldingTax ⟨4, 100, by decide⟩ 1000 specRealEstateDeductionRate 0 = 40 := by decide
+example : specLandHoldingTax ⟨14, 1000, by decide⟩ 10 specFixedAssetDeductionRate 10_000 = 0 := by decide
+example : specLandHoldingTax ⟨1, 100, by decide⟩ 0 specFixedAssetDeductionRate 500 = 0 := by decide
 
 set_option maxRecDepth 2048
 

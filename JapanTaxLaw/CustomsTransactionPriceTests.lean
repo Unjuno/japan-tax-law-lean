@@ -25,4 +25,16 @@ example : transactionPrice 500_000 ⟨0, 0, 0, 0, 0, 0, 0, 0, 0, 0⟩ = 500_000 
 -- 境界: 現実支払0
 example : transactionPrice 0 testAdditions = 146_000 := by decide
 
+-- ==== appended boundary examples (kernel-decided) ====
+-- (a) zero input: all-zero additions sum to 0; zero paid + zero additions is 0
+example : additionsTotal ⟨0, 0, 0, 0, 0, 0, 0, 0, 0, 0⟩ = 0 := by decide
+example : transactionPrice 0 ⟨0, 0, 0, 0, 0, 0, 0, 0, 0, 0⟩ = 0 := by decide
+
+-- (b) small positive input 1..13 (exact left-associated Nat sums)
+example : additionsTotal ⟨1, 2, 3, 4, 5, 6, 7, 8, 9, 10⟩ = 55 := by decide
+example : transactionPrice 13 ⟨1, 0, 0, 0, 0, 0, 0, 0, 0, 0⟩ = 14 := by decide
+
+-- (c) saturation / identity: with zero additions the price equals the paid input
+example : transactionPrice 13 ⟨0, 0, 0, 0, 0, 0, 0, 0, 0, 0⟩ = 13 := by decide
+
 end JapanTaxLaw

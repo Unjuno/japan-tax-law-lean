@@ -23,7 +23,11 @@ Each band is floored separately, exactly as the implementation does
 
 The 留保控除額 (art. 67(5)) is restated here as the maximum of the same three
 statutory candidates, but with the 第64条の5 adjustment spelled out inline
-rather than through the implementation's helper names.
+rather than through the implementation's helper names. Likewise the art. 67(6)
+month-proration is restated by this spec's OWN `specProrated` (statutory 十二 =
+12 months per year), rather than reusing the implementation's `prorated`; the
+values and the division-before-multiplication order are identical. Only the
+explicit `agree*` comparison layer at the end imports implementation names.
 
 Scope boundaries are identical to the implementation (see CorporateSurtax.lean):
 被支配会社/特定同族会社の判定・清算中の除外・第64条の5の金額そのもの・第4項の期末配当等による
@@ -34,12 +38,19 @@ namespace JapanTaxLaw
 
 open JapanTaxLaw.TaxFinance
 
+/-- Spec: art. 67(6) month-proration, restated independently. 十二 = 12 months
+    per year; division (floor) precedes multiplication, exactly as the statute
+    reads 「十二で除し、これに当該事業年度の月数を乗じて」. `12 ≤ months` means a
+    full year, so the annual amount applies unchanged. -/
+def specProrated (base : Money) (months : Nat) : Money :=
+  if 12 ≤ months then base else base / 12 * months
+
 /-- Spec: 留保控除額 — max of the three statutory candidates (art. 67(5)). -/
 def specRetentionDeduction (f : CloselyHeldFacts) : Money :=
   max
     (max
       ((f.incomeAmount + f.lossOffset - f.profitAddback) * 40 / 100)
-      (prorated 20_000_000 f.months))
+      (specProrated 20_000_000 f.months))
     (if f.retainedEarningsExCurrent < f.capital * 25 / 100
      then f.capital * 25 / 100 - f.retainedEarningsExCurrent else 0)
 
@@ -50,8 +61,8 @@ def specRetainedAmount (f : CloselyHeldFacts) : Money :=
 /-- Spec: the surtax by direct case analysis on the excess (art. 67(1) 一〜三号). -/
 def specSpecialSurtax (f : CloselyHeldFacts) : Money :=
   if !f.isSpecifiedCloselyHeld then 0 else
-  let t1 := prorated 30_000_000 f.months
-  let t2 := prorated 100_000_000 f.months
+  let t1 := specProrated 30_000_000 f.months
+  let t2 := specProrated 100_000_000 f.months
   let excess := specRetainedAmount f - specRetentionDeduction f
   if excess ≤ t1 then excess * 10 / 100
   else if excess ≤ t2 then t1 * 10 / 100 + (excess - t1) * 15 / 100

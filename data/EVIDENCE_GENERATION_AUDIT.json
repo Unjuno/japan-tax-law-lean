@@ -135,7 +135,7 @@
     "CorporateSurtax": {
       "adversarial_review": false,
       "boundary_examples_found": 2,
-      "independent_spec": false,
+      "independent_spec": true,
       "kanji_literals": [
         "一万万",
         "三千万",
@@ -143,16 +143,18 @@
         "二十五",
         "二千万",
         "十",
+        "十二",
         "十五",
         "四十",
         "百"
       ],
-      "kernel_attested": true,
+      "kernel_attested": false,
       "kernel_decided_examples": 23,
       "needles_scoped": true,
       "scoped_article_chars": 3305,
       "spec_literals": [
         10,
+        12,
         15,
         20,
         25,
@@ -166,7 +168,7 @@
     "CorporateTaxRate": {
       "adversarial_review": true,
       "boundary_examples_found": 0,
-      "independent_spec": false,
+      "independent_spec": true,
       "kanji_literals": [
         "二百三十二",
         "八百万",
@@ -174,7 +176,7 @@
         "千",
         "百"
       ],
-      "kernel_attested": true,
+      "kernel_attested": false,
       "kernel_decided_examples": 13,
       "needles_scoped": true,
       "scoped_article_chars": 2369,
@@ -319,11 +321,11 @@
     },
     "CustomsTransactionPrice": {
       "adversarial_review": true,
-      "boundary_examples_found": 2,
+      "boundary_examples_found": 3,
       "independent_spec": true,
       "kanji_literals": [],
-      "kernel_attested": true,
-      "kernel_decided_examples": 4,
+      "kernel_attested": false,
+      "kernel_decided_examples": 9,
       "needles_scoped": true,
       "scoped_article_chars": 2219,
       "spec_literals": []
@@ -1143,16 +1145,18 @@
     "LocalTaxAresRounding": {
       "adversarial_review": false,
       "boundary_examples_found": 1,
-      "independent_spec": false,
+      "independent_spec": true,
       "kanji_literals": [
-        "九十九"
+        "九十九",
+        "百"
       ],
-      "kernel_attested": true,
+      "kernel_attested": false,
       "kernel_decided_examples": 6,
       "needles_scoped": true,
       "scoped_article_chars": 236,
       "spec_literals": [
-        99
+        99,
+        100
       ]
     },
     "LocalTaxInsuranceEstimate": {
@@ -1553,13 +1557,23 @@
     "SpecialLandHoldingTax": {
       "adversarial_review": true,
       "boundary_examples_found": 3,
-      "independent_spec": false,
-      "kanji_literals": [],
-      "kernel_attested": true,
+      "independent_spec": true,
+      "kanji_literals": [
+        "十四",
+        "千",
+        "四",
+        "百"
+      ],
+      "kernel_attested": false,
       "kernel_decided_examples": 20,
       "needles_scoped": true,
       "scoped_article_chars": 480,
-      "spec_literals": []
+      "spec_literals": [
+        4,
+        14,
+        100,
+        1000
+      ]
     },
     "SpecialMeasuresCasinoRatio": {
       "adversarial_review": true,
@@ -1868,12 +1882,12 @@
       ]
     },
     "UsForcesDeemedForeignGoods": {
-      "adversarial_review": false,
-      "boundary_examples_found": 0,
+      "adversarial_review": true,
+      "boundary_examples_found": 3,
       "independent_spec": true,
       "kanji_literals": [],
-      "kernel_attested": true,
-      "kernel_decided_examples": 12,
+      "kernel_attested": false,
+      "kernel_decided_examples": 19,
       "needles_scoped": true,
       "scoped_article_chars": 1415,
       "spec_literals": []
