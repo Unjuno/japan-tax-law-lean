@@ -375,9 +375,14 @@ def review_ok(base: str, review_text: str) -> bool:
             if idx < 0:
                 continue
             section = itext[idx: idx + 4000]
+            # H/T/D/C/U may be one tuple or five individually labelled fields
+            # (H（…）, T（…）, ...). Both are explicit records.
+            tuple_form = "H/T/D/C/U" in section.upper()
+            labelled = all(re.search(r"\b" + c + r"\s*[（(]", section)
+                           for c in ("H", "T", "D", "C", "U"))
             if (("独立抽出" in section or "独立再抽出" in section)
                     and ("照合" in section or "判定" in section)
-                    and "H/T/D/C/U" in section.upper().replace("/", "/")):
+                    and (tuple_form or labelled)):
                 return True
     return independent and decision
 
