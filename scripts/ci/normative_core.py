@@ -482,7 +482,10 @@ def derive_status(unit: dict[str, Any], evidence: dict[str, Any]) -> tuple[str, 
     # permanently unverifiable for a reason unrelated to the provision.
     scope_axes = ["source_correspondence_audit", "proof_scope", "boundary_proof",
                   "adversarial_review"]
-    if unit.get("dependencies"):
+    # Only an explicitly established EMPTY list waives the axis. A caller that
+    # omits the key (e.g. article_obligations.py) supplies no evidence about
+    # dependencies and must not silently downgrade the requirement.
+    if "dependencies" not in unit or unit.get("dependencies"):
         scope_axes.append("cross_law_proof")
     if not all(ev[a] for a in scope_axes):
         return STATUS_PROVED_SCOPE, ["scope / boundary / cross-law / audit evidence incomplete"]
