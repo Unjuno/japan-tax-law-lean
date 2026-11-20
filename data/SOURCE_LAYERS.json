@@ -1,0 +1,113 @@
+{
+  "discovery": {
+    "distinct_unmatched_reference_names": 7526,
+    "historical_names": 795,
+    "historical_occurrences": 12977,
+    "human_reviewers_recorded": 0,
+    "tax_name_candidates_outside_ledger": 2873
+  },
+  "inventory_snapshot": "2026-11-15",
+  "layer_separation_rule": "auxiliary layers are never merged into L0; counts are separate denominators",
+  "layers": [
+    {
+      "acquisition_status": "ACQUIRED_PARTIAL",
+      "authority": "e-Gov 法令API",
+      "auxiliary": false,
+      "count": 327,
+      "count_acquired": 325,
+      "label_ja": "法律・政令・省令",
+      "layer_id": "L0_STATUTE",
+      "legal_nature": "国家法源（法律・政令・省令）",
+      "notes": "327件は暫定母集団。全日本税法を意味しない。未取得2件は BLOCKED として記録。",
+      "pinned_snapshot": "2026-11-15",
+      "scope_status": "PROVISIONAL_POPULATION",
+      "verification_status": "PARTIAL"
+    },
+    {
+      "acquisition_status": "ACQUIRED_WITHIN_L0",
+      "authority": "L0 の pin 済み bytes",
+      "auxiliary": false,
+      "count": null,
+      "count_acquired": 325,
+      "label_ja": "附則・別表・経過措置",
+      "layer_id": "L1_PROVISION",
+      "legal_nature": "L0 内の一部を構成する規範",
+      "notes": "別表セル・附則IDは規範識別子に含める。L0 から分離して数えない。",
+      "pinned_snapshot": "2026-11-15",
+      "scope_status": "INCLUDED_IN_L0",
+      "verification_status": "PARTIAL"
+    },
+    {
+      "acquisition_status": "NOT_ACQUIRED",
+      "authority": "各自治体",
+      "auxiliary": false,
+      "count": 1788,
+      "count_acquired": 0,
+      "label_ja": "地方税条例",
+      "layer_id": "L2_ORDINANCE",
+      "legal_nature": "自治体条例（地方自治法に基づく法源）",
+      "notes": "自治体単位の収集は未実施。対象を勝手に縮小せず、未取得として明示する。",
+      "pinned_snapshot": "",
+      "scope_status": "DECLARED_UNSUPPORTED",
+      "verification_status": "OUT_OF_SCOPE"
+    },
+    {
+      "acquisition_status": "NOT_ACQUIRED",
+      "authority": "外務省 / 条約締結",
+      "auxiliary": true,
+      "count": null,
+      "count_acquired": 0,
+      "label_ja": "租税条約",
+      "layer_id": "L3_TREATY",
+      "legal_nature": "条約（国際法源）— 国内法とは効力発生の機構が異なる",
+      "notes": "法源上の性質が異なるため L0 に混ぜない。別層として管理する。",
+      "pinned_snapshot": "",
+      "scope_status": "AUXILIARY_LAYER",
+      "verification_status": "OUT_OF_SCOPE"
+    },
+    {
+      "acquisition_status": "NOT_ACQUIRED",
+      "authority": "国税庁 / 総務省",
+      "auxiliary": true,
+      "count": null,
+      "count_acquired": 0,
+      "label_ja": "通達",
+      "layer_id": "L4_CIRCULAR",
+      "legal_nature": "行政通達（法的拘束力は条文ではなく行政内部）",
+      "notes": "原文対応監査の対象外。解釈資料として別層に置く。",
+      "pinned_snapshot": "",
+      "scope_status": "AUXILIARY_LAYER",
+      "verification_status": "OUT_OF_SCOPE"
+    },
+    {
+      "acquisition_status": "NOT_ACQUIRED",
+      "authority": "裁判所",
+      "auxiliary": true,
+      "count": null,
+      "count_acquired": 0,
+      "label_ja": "裁判例",
+      "layer_id": "L5_CASELAW",
+      "legal_nature": "判決・裁定（法源ではなく判断例）",
+      "notes": "反例・対立解釈の資料として別層に置き、規範そのものとは混ぜない。",
+      "pinned_snapshot": "",
+      "scope_status": "AUXILIARY_LAYER",
+      "verification_status": "OUT_OF_SCOPE"
+    },
+    {
+      "acquisition_status": "NOT_PINNED",
+      "authority": "e-Gov 歴史情報",
+      "auxiliary": false,
+      "count": 795,
+      "count_acquired": 0,
+      "label_ja": "歴史的施行版",
+      "layer_id": "L6_HISTORICAL",
+      "legal_nature": "旧法・新法（同一法令の別施行版）",
+      "notes": "附則・経過措置の新旧参照。施行版を別途固定するまで未検証。",
+      "pinned_snapshot": "",
+      "scope_status": "HISTORICAL_LAYER",
+      "verification_status": "OUT_OF_SCOPE"
+    }
+  ],
+  "schema": 1,
+  "tool": "scripts/ci/source_layers.py"
+}
