@@ -26,6 +26,7 @@ GATES = [
     ("revision impact tests", ["python", "-m", "unittest", "scripts.tests.test_revision_impact", "-v"], ["scripts/tests/test_revision_impact.py"]),
     ("normative core (queue/completion) tests", ["python", "-m", "unittest", "scripts.tests.test_normative_core", "-v"], ["scripts/tests/test_normative_core.py"]),
     ("completion gate adversary tests", ["python", "-m", "unittest", "scripts.tests.test_completion_gate_adversary", "-v"], ["scripts/tests/test_completion_gate_adversary.py"]),
+    ("completion gate adversarial (full §1 rule set)", ["python", "scripts/ci/completion_gate_adversarial.py"], ["scripts/ci/completion_gate_adversarial.py", "docs/COMPLETION_GATE_ADVERSARIAL.md"]),
     ("task selector computable ranking tests", ["python", "-m", "unittest", "scripts.tests.test_task_selector", "-v"], ["scripts/tests/test_task_selector.py", "scripts/ci/task_selector.py"]),
     ("gate result provenance tests", ["python", "-m", "unittest", "scripts.tests.test_gate_provenance", "-v"], ["scripts/tests/test_gate_provenance.py", "scripts/ci/completion_gate.py"]),
     ("queue invariant gate regression tests", ["python", "-m", "unittest", "scripts.tests.test_queue_invariants", "-v"], ["scripts/tests/test_queue_invariants.py", "scripts/ci/verify_queue_invariants.py"]),
@@ -76,6 +77,7 @@ GATES = [
 REQUIRED_GATES = {
     "normative core (queue/completion) tests",
     "completion gate adversary tests",
+    "completion gate adversarial (full §1 rule set)",
     "task selector computable ranking tests",
     "gate result provenance tests",
     "queue invariant gate regression tests",
