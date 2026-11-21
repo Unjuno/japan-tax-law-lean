@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # LocalTaxArt734AmountTier1.lean - NORM|41efee8e... (dual amount 120k/140k yen CONDITION, law 325AC0000000226)
+    # Needle is in MainProvision Article 734 (Paragraph 3, table cell, Sentence 1);
+    # find_article_text(...,"第七百三十四条") returns that article (len 2046) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("local tax art.734 dual amount 120k/140k yen - LocalTaxArt734AmountTier1.lean",
+           "325AC0000000226",
+           "article", "第七百三十四条",
+           ["\u5341\u4e8c\u4e07\u5186\uff08\u4e8b\u52d9\u6240\u7b49\u304c\u7279\u5225\u533a\u306e\u533a\u57df\u5916\u306b\u3082\u6240\u5728\u3059\u308b\u5834\u5408\u4ee5\u5916\u306e\u5834\u5408\u306b\u306f\u3001\u5341\u56db\u4e07\u5186\uff09"])
+
     # InheritanceGiftTaxRateBracket4M6M.lean - NORM|246a67a4... (gift-tax rate bracket 4M-6M CONDITION, law 325AC0000000073)
     # Needle is in MainProvision Article 第二十一条の七 (Paragraph 1, table upper-column cell);
     # find_article_text(...,"第二十一条の七") returns that article (len 253) with needle -
