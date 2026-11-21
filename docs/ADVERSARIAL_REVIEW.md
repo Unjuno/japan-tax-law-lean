@@ -4977,9 +4977,8 @@ STAGING の needle テキストを信じず、`scripts/ci/transcription_audit.py
 - **C**: 「端数」の扱いは原文上「一単位として数える」と読むのが自然だが、行政実務の weighing 丸め規則は別途政令・通達に委任され、本モデルは射程外。
 - **U**: 車両区分・税率・有効期間・臨時検査の〇・五乗じは caller-established で未形式化。
 - **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
-## Batch AJ review (2026-11-21)
 
-対象: cycle-26/27/28/29/30/31 の 6 モデル（`DutyFreeTransfer` / `SavingsDepositInterest` / `PowderSakeQuantity` / `TobaccoRate` / `StampExchangeFee` / `RemittanceReportLimit`）。coordinator 要約・STAGING を信じず、`data/raw/*.law.json` の pinned 原文から Python で直接・独立に漢数字を算数へ変換して抽出し、Lean 定数・needle・境界・公理を照合した。CI `checks()` の needle 実文字列は `scripts/ci/transcription_audit.py` から直接読み出し、自前正規化した pinned 原文に対して検証した（STAGING の记载は未使用）。
+### CourseHoursThreshold.lean — 法人税法施行規則 art. 7の2（六十時間以上）
 
 > 本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない（法的解釈・行政実務の妥当性は判定しない）。
 
@@ -6324,3 +6323,10 @@ doc-comment の `Scope / NOT MODELLED` を原文 art.4 と突き合わせ、以�
 - 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。一時ファイル（検証 Python 3 本・出力 1 本・axioms Lean 1 本・本セクション 1 本）は削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・恒等関数攻撃・境界値 kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+- **pin**: law_id `340M50000040012` / revision `…_20261001_505M60000040013`; needle 1/1 FOUND in the scoped article (第七条の二), transcription audit 194/194.
+- **H**: 「六十時間以上」は年間授業時間数の下限 60 時間を意味し、独立仕様 `¬ hours < 60` は原文どおりである。
+- **T**: pinned 第七条の二 から needle を独立再抽出し、h=0/59/60/61 の判定を独立計算して Lean 申告値と比較。
+- **D**: 1/1 literal + 4/4 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 他の条項（六百八十時間、八百時間等）及び適用区分の認定は本スライスの射程外（caller-established）。
+- **U**: 端数・年度の定義・専修学校区分は pinned 原文のみでは解けず人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。

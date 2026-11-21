@@ -459,19 +459,37 @@ def normalize_article(art: str) -> str:
     return article_from_name("art. " + body)
 
 
-def boundary_evidence_categories(tests_text: str) -> set[str]:
+def boundary_evidence_categories(tests_text: str, literals=None) -> set[str]:
     """Detect GENUINE boundary coverage in kernel-decided examples.
 
     The old check counted the substrings 0/1/11/12/13 anywhere in the file,
     which rewarded incidental digits in large amounts and missed real boundary
     cases. Categories below are derived from example inputs/results:
-      zero        - an example exercises a zero input;
-      small_input - an example exercises a small positive input (1..13);
-      saturation  - an example where the result equals an input or is zero,
-                    i.e. a floor / saturating-subtraction / identity boundary.
+      zero            - an example exercises a zero input;
+      small_input     - an example exercises a small positive input (1..13);
+      saturation      - an example where the result equals an input or is zero,
+                        i.e. a floor / saturating-subtraction / identity boundary;
+      threshold_below - an example exercises L-1 for a statutory literal L;
+      threshold_at    - an example exercises exactly the statutory literal L;
+      threshold_above - an example exercises L+1 for a statutory literal L.
+
+    `literals` are the numeric literals transcribed from the independent spec
+    (the statutory thresholds). The three threshold categories recognise the
+    genuine just-below / at / just-above boundary of ANY statutory threshold,
+    not just the small 1..13 range; without them a Bool-valued threshold such
+    as 法人税法施行規則 art. 7 (六十時間 = 60 hours) could never register real
+    boundary coverage even though its tests decide 59/60/61 in the kernel.
+    They are only awarded for inputs immediately adjacent to an actual spec
+    literal, so incidental large digits still do not count.
     """
     body = strip_comments(tests_text)
     cats: set[str] = set()
+    lit_set: set[int] = set()
+    for x in (literals or []):
+        try:
+            lit_set.add(int(x))
+        except (TypeError, ValueError):
+            continue
     for match in re.finditer(r"example\s*:\s*(.+?)\s*:=\s*by\s+(?:decide|rfl)", body):
         expr = match.group(1)
         if "=" not in expr:
@@ -487,6 +505,13 @@ def boundary_evidence_categories(tests_text: str) -> set[str]:
             value = int(result.group(0).replace("_", ""))
             if value == 0 or value in inputs:
                 cats.add("saturation")
+        for L in lit_set:
+            if L - 1 in inputs:
+                cats.add("threshold_below")
+            if L in inputs:
+                cats.add("threshold_at")
+            if L + 1 in inputs:
+                cats.add("threshold_above")
     return cats
 
 
@@ -542,7 +567,7 @@ def build() -> dict:
         needles_ok = bool(info["needles"]) and all(
             core.norm(n) in law_text for n in info["needles"])
         n_examples = len(re.findall(r"example\s*:", strip_comments(tests_text)))
-        boundary_categories = boundary_evidence_categories(tests_text)
+        boundary_categories = boundary_evidence_categories(tests_text, lits)
         boundary_examples = len(boundary_categories)
         review = review_ok(base, review_text)
         independent = independent_spec_ok(spec_text, impl_text)

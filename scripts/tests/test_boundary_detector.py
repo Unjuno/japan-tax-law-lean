@@ -40,6 +40,35 @@ class BoundaryDetectorTests(unittest.TestCase):
         text = "example : f 0 = 0 := by\n  omega\n"
         self.assertEqual(ve.boundary_evidence_categories(text), set())
 
+    def test_statutory_threshold_boundary_is_recognised(self):
+        # A Bool-valued 60-hour threshold (法人税法施行規則 art. 7): the kernel
+        # decides 59 (below), 60 (at) and 61 (above) the statutory literal.
+        text = """
+        example : meetsAnnualHours 0 = false := by decide
+        example : meetsAnnualHours 59 = false := by decide
+        example : meetsAnnualHours 60 = true := by decide
+        example : meetsAnnualHours 61 = true := by decide
+        """
+        cats = ve.boundary_evidence_categories(text, [60])
+        self.assertEqual(
+            cats,
+            {"zero", "threshold_below", "threshold_at", "threshold_above"},
+        )
+
+    def test_threshold_categories_require_adjacent_to_a_spec_literal(self):
+        text = """
+        example : f 9 = false := by decide
+        example : f 10 = true := by decide
+        example : f 11 = true := by decide
+        """
+        # Without a matching literal, 9/10/11 are not statutory boundaries.
+        self.assertNotIn("threshold_at", ve.boundary_evidence_categories(text, [60]))
+        # With literal 10 they are genuine boundaries.
+        self.assertEqual(
+            ve.boundary_evidence_categories(text, [10]),
+            {"small_input", "threshold_below", "threshold_at", "threshold_above"},
+        )
+
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
