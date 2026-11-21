@@ -849,3 +849,6 @@ import JapanTaxLaw.PassengerCapacityTests
 import JapanTaxLaw.TaxAccountantFineCap300k
 import JapanTaxLaw.TaxAccountantFineCap300kSpec
 import JapanTaxLaw.TaxAccountantFineCap300kTests
+import JapanTaxLaw.PenaltyCap50k
+import JapanTaxLaw.PenaltyCap50kSpec
+import JapanTaxLaw.PenaltyCap50kTests
