@@ -791,3 +791,6 @@ import JapanTaxLaw.AmendmentEnforcementNormsTests
 import JapanTaxLaw.DeonticModalityNorms
 import JapanTaxLaw.DeonticModalityNormsSpec
 import JapanTaxLaw.DeonticModalityNormsTests
+import JapanTaxLaw.TaxFreeAndBondNorms
+import JapanTaxLaw.TaxFreeAndBondNormsSpec
+import JapanTaxLaw.TaxFreeAndBondNormsTests
