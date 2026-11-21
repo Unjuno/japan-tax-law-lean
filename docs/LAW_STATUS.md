@@ -32,7 +32,7 @@ a completion flag.
 | `325CO0000000245` | 地方税法施行令 | 325CO0000000245_20261101_508CO0000000083 | CurrentEnforced | YES | ok | 2274 | YES (12) | NO |
 | `326AC1000000145` | 納税貯蓄組合法 | 326AC1000000145_20211122_503AC0000000046 | CurrentEnforced | YES | ok | 41 | YES (3) | NO |
 | `326CO0000000099` | 納税貯蓄組合法施行令 | 326CO0000000099_20191216_501CO0000000183 | CurrentEnforced | YES | ok | 14 | NO (0) | NO |
-| `326AC1000000237` | 税理士法 | 326AC1000000237_20251001_505AC0000000053 | CurrentEnforced | YES | ok | 372 | YES (2) | NO |
+| `326AC1000000237` | 税理士法 | 326AC1000000237_20251001_505AC0000000053 | CurrentEnforced | YES | ok | 372 | YES (3) | NO |
 | `326CO0000000216` | 税理士法施行令 | 326CO0000000216_20240401_505CO0000000146 | CurrentEnforced | YES | ok | 87 | YES (2) | NO |
 | `326M50000040055` | 税理士法施行規則 | 326M50000040055_20260901_506M60000040025 | CurrentEnforced | YES | ok | 150 | YES (1) | NO |
 | `327CO0000000057` | 鹿児島県大島郡十島村に関する所得税法等の適用及びこれに伴う経過措置に関する政令 | 327CO0000000057_19521001_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 149
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 153
