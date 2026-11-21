@@ -44,7 +44,7 @@ example : isQualifyingCategory "一般" = specCategory "一般" := by decide
 example : eligible "障害者" 1_350_000 = specEligible "障害者" 1_350_000 := by decide
 example : eligible "障害者" 1_350_001 = specEligible "障害者" 1_350_001 := by decide
 example : eligible "一般" 0 = specEligible "一般" 0 := by decide
-example : agreeCeiling := by rfl
+example : incomeCeiling = specCeiling := agreeCeiling
 example (c : String) : isQualifyingCategory c = specCategory c := by
   exact agreeCategory c
 example (c : String) (income : Nat) : eligible c income = specEligible c income := by
