@@ -771,6 +771,9 @@ JapanTaxLaw/GasolineTaxCombinationTests.lean     # 同上 退行テスト
 JapanTaxLaw/PowderCoefficientRounding.lean        # 粉末酒換算係数の端数計算（規則 art.7の8）L4 モデル
 JapanTaxLaw/PowderCoefficientRoundingSpec.lean    # 同上 独立定式
 JapanTaxLaw/PowderCoefficientRoundingTests.lean   # 同上 退行テスト
+JapanTaxLaw/ContainerSpec.lean                    # 大型コンテナ寸法閾値（関税法施行令 art.78）L4 モデル
+JapanTaxLaw/ContainerSpecSpec.lean                # 同上 独立定式
+JapanTaxLaw/ContainerSpecTests.lean               # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト

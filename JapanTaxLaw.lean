@@ -810,3 +810,6 @@ import JapanTaxLaw.PetroleumGasFineRangeTests
 import JapanTaxLaw.PowderCoefficientRounding
 import JapanTaxLaw.PowderCoefficientRoundingSpec
 import JapanTaxLaw.PowderCoefficientRoundingTests
+import JapanTaxLaw.ContainerSpec
+import JapanTaxLaw.ContainerSpecSpec
+import JapanTaxLaw.ContainerSpecTests
