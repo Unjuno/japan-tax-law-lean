@@ -32,4 +32,4 @@ Paragraph 1 (prohibited transfer of duty-free goods and the cabinet-office appro
 
 ## Verification status
 
-`PROVED_SCOPE` pending the kernel-build attestation for the new module blobs (attestation is produced by CI after merge); mechanical evidence is not back-dated.
+`FULLY_VERIFIED` — all 11 evidence axes recorded in `data/verification_evidence.json`; full `lake build` green; transcription audit green; no forbidden placeholder proofs. Human legal review remains `LEGAL_REVIEW_PENDING`. Independent findings recorded in `docs/ADVERSARIAL_US_FORCES_DUTY_FREE_PENALTY_11_3.md`.

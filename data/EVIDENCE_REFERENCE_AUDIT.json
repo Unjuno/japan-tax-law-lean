@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 958,
+  "checks": 962,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -10539,11 +10539,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/NationalTaxCommonDelegatedAmountTests.lean",
       "unit_id": "NORM|81fcecfaad1e405b864c4c594c99d6f9861e6155e9f59de04aa96a9ffd9b62f9"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_US_FORCES_DUTY_FREE_PENALTY_11_3.md — independent agent: NO FINDINGS against the canonical implementati",
+      "unit_id": "NORM|1db69bb3bef2d77f92573dc1ea87c88c11703d6916e8958a068fe79368cd8c19"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/UsForcesDutyFreePenalty.lean",
+      "unit_id": "NORM|1db69bb3bef2d77f92573dc1ea87c88c11703d6916e8958a068fe79368cd8c19"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/UsForcesDutyFreePenaltySpec.lean",
+      "unit_id": "NORM|1db69bb3bef2d77f92573dc1ea87c88c11703d6916e8958a068fe79368cd8c19"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/UsForcesDutyFreePenaltyTests.lean",
+      "unit_id": "NORM|1db69bb3bef2d77f92573dc1ea87c88c11703d6916e8958a068fe79368cd8c19"
     }
   ],
-  "resolved": 954,
+  "resolved": 958,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 200,
+  "units_checked": 201,
   "unresolved": 4
 }
