@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # PublicSaleGuaranteeDeposit.lean - NORM|7e9db392... (public sale guarantee deposit 500k yen DELEGATION, law 334CO0000000329)
+    # Needle is in MainProvision Article 42_5 (Paragraph 1, Sentence 1);
+    # find_article_text(...,"第四十二条の五") returns that article (len 74) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("public sale guarantee deposit 500k yen - PublicSaleGuaranteeDeposit.lean",
+           "334CO0000000329",
+           "article", "第四十二条の五",
+           ["\u6cd5\u7b2c\u767e\u6761\u7b2c\u4e00\u9805\uff08\u516c\u58f2\u4fdd\u8a3c\u91d1\uff09\u306b\u898f\u5b9a\u3059\u308b\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u91d1\u984d\u306f\u3001\u4e94\u5341\u4e07\u5186\u3068\u3059\u308b\u3002"])
+
     # CustomsBondedFacilityLicenseFeeItem3.lean - NORM|2b2b4b2f... (税関関係手数料令 第二条(1)3 保税蔵置場許可手数料 16400/16200円 CONDITION)
     # Needle is in MainProvision Article 第二条 (Paragraph 1, Item 3, Column 2);
     # find_article_text(...,"第二条") returns that article (len 2048) with needle -
