@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 1044,
+  "checks": 1048,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -11485,11 +11485,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/OldAgePensionAnnualAmountCeilingTests.lean",
       "unit_id": "NORM|ce36009183d70cb6fbd8f7c665ef5c61f4a650f71c3d0715a220c72f780eb0ce"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_CUSTOMS_TAX_RETENTION_TIER1.md — independent agent: 2 concrete findings (F1 false law name in spec head",
+      "unit_id": "NORM|bc51dc849add02245a14da178b3e8f3c6bbe070e2bd6da1783e7593c20b8c4cb"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTaxRetentionPeriodTier1.lean",
+      "unit_id": "NORM|bc51dc849add02245a14da178b3e8f3c6bbe070e2bd6da1783e7593c20b8c4cb"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTaxRetentionPeriodTier1Spec.lean",
+      "unit_id": "NORM|bc51dc849add02245a14da178b3e8f3c6bbe070e2bd6da1783e7593c20b8c4cb"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTaxRetentionPeriodTier1Tests.lean",
+      "unit_id": "NORM|bc51dc849add02245a14da178b3e8f3c6bbe070e2bd6da1783e7593c20b8c4cb"
     }
   ],
-  "resolved": 1040,
+  "resolved": 1044,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 220,
+  "units_checked": 221,
   "unresolved": 4
 }
