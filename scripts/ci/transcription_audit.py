@@ -1302,6 +1302,15 @@ def checks():
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
     # 相続税法 第十六条の表(1) — InheritanceTaxRateBracket30_50.lean
+    # InheritanceTaxRateBracket200_300.lean - NORM|c3d2149... (相続税法 第十六条の表(1) CONDITION)
+    # Needle is in MainProvision Article 第十六条 table cell;
+    # find_article_text(...,"第十六条") returns that article (len 437) with the needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("相続税法 第十六条の表(1) bracket 200M-300M - InheritanceTaxRateBracket200_300.lean",
+           "325AC0000000073",
+           "article", "第十六条",
+           ["\u4e8c\u5104\u5186\u3092\u8d85\u3048\u4e09\u5104\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+
     # InheritanceTaxRateBracket100_200.lean - NORM|ef39cde9... (相続税法 第十六条の表(1) CONDITION)
     # Needle is in MainProvision Article 第十六条 table cell;
     # find_article_text(...,"第十六条") returns that article (len 437) with the needle -
