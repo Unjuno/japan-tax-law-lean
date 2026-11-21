@@ -2442,6 +2442,18 @@ def checks():
            "article", "第十一条の八",
            ["引き続き六月以上の期間継続して雇用されることが予定されている者"])
 
+    # 国税徴収法 art. 115 — CollectionPeriodCap30.lean (30-day cap on payment period)
+    yield ("国税徴収法 art. 115（買受代金の納付の期限の上限・三十日）↔ CollectionPeriodCap30.lean (maxPeriodDays 30)",
+           "334AC0000000147",
+           "article", "第百十五条",
+           ["ただし、その期間は、三十日を超えることができない。"])
+
+    # 地方税法 art. 349の3の二 — ResidentialLandArea200.lean (200 m² residential land)
+    yield ("地方税法 art. 349の3の二（住宅用地の面積 二百平方メートル以下）↔ ResidentialLandArea200.lean (areaThresholdSqm 200)",
+           "325AC0000000226",
+           "article", "第三百四十九条の三の二",
+           ["住宅用地でその面積が二百平方メートル以下であるもの"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

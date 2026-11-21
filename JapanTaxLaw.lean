@@ -426,6 +426,12 @@ import JapanTaxLaw.DisasterIncomeTaxReliefTests
 import JapanTaxLaw.CourseHoursThreshold
 import JapanTaxLaw.CourseHoursThresholdSpec
 import JapanTaxLaw.CourseHoursThresholdTests
+import JapanTaxLaw.CollectionPeriodCap30
+import JapanTaxLaw.CollectionPeriodCap30Spec
+import JapanTaxLaw.CollectionPeriodCap30Tests
+import JapanTaxLaw.ResidentialLandArea200
+import JapanTaxLaw.ResidentialLandArea200Spec
+import JapanTaxLaw.ResidentialLandArea200Tests
 import JapanTaxLaw.VehicleWeightUnit
 import JapanTaxLaw.VehicleWeightUnitSpec
 import JapanTaxLaw.VehicleWeightUnitTests
