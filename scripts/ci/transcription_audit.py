@@ -2130,6 +2130,13 @@ def checks():
            ["石油ガス税に相当する金額の三倍が五十万円を超える場合"])
 
 
+    # 地価税法施行令 art. 9 — ResidentialAreaRatioInterval.lean
+    yield ("地価税法施行令 art. 9（居住面積割合が百分の二十五超百分の五十以下）↔ ResidentialAreaRatioInterval.lean (25% < r <= 50%)",
+           "403CO0000000174",
+           "article", "第九条",
+           ["居住面積割合が百分の二十五を超え百分の五十以下である場合"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
