@@ -783,3 +783,6 @@ import JapanTaxLaw.GasolineTaxCombinationTests
 import JapanTaxLaw.ClampedSubtraction
 import JapanTaxLaw.ClampedSubtractionSpec
 import JapanTaxLaw.ClampedSubtractionTests
+import JapanTaxLaw.PetroleumGasFineRange
+import JapanTaxLaw.PetroleumGasFineRangeSpec
+import JapanTaxLaw.PetroleumGasFineRangeTests
