@@ -678,3 +678,6 @@ import JapanTaxLaw.SCFVPenaltyCeilingTests
 import JapanTaxLaw.ThousandYenTruncation
 import JapanTaxLaw.ThousandYenTruncationSpec
 import JapanTaxLaw.ThousandYenTruncationTests
+import JapanTaxLaw.MortgageRegistrationCapital
+import JapanTaxLaw.MortgageRegistrationCapitalSpec
+import JapanTaxLaw.MortgageRegistrationCapitalTests

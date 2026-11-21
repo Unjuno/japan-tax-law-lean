@@ -741,6 +741,9 @@ JapanTaxLaw/OkinawaExamPassTests.lean              # 同上 退行テスト
 JapanTaxLaw/TravelerExemptionLimit.lean           # 関税法施行令 art.40（携帯品関税免除上限20万円）L4 モデル
 JapanTaxLaw/TravelerExemptionLimitSpec.lean       # 同上 独立定式
 JapanTaxLaw/TravelerExemptionLimitTests.lean      # 同上 退行テスト
+JapanTaxLaw/MortgageRegistrationCapital.lean          # 登録免許税法施行令 art.26（資本金5億円閾値）L4 モデル
+JapanTaxLaw/MortgageRegistrationCapitalSpec.lean      # 同上 独立定式
+JapanTaxLaw/MortgageRegistrationCapitalTests.lean     # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト

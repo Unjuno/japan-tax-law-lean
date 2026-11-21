@@ -5067,3 +5067,108 @@ STAGING の needle テキストを信じず、`scripts/ci/transcription_audit.py
 - **CONFIRMED（ドキュメント表記のみ・非意味的）= 1 件**: 5 モデル（SavingsDepositInterest / PowderSakeQuantity / TobaccoRate / StampExchangeFee / RemittanceReportLimit）の header `Raw snapshot:` が `data/raw/data/raw/…` と二重になっており、実在する正規パスは `data/raw/…`（DutyFreeTransfer は正しい単一パス）。law_id・revision・文字数・needle・定数はすべて正しく、計算・証明・pin 完全性への影響なし。修正は Lean モジュール側のため本レビューでは変更せず報告のみ。
 
 > 本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。解析用一時ファイルはすべて削除済み。Lean モジュール / `data/*.json` / `scripts/*.py` は読み取り専用で一切変更せず、commit / push / merge / ブランチ切替は行っていない。
+## Batch AK review (2026-11-21) — 関税法施行令 art.40 / TravelerExemptionLimit.lean（cycle-33 独立照合）
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。coordinator 要約・STAGING は信じず、pinned `data/raw/*.law.json` から直接・独立に抽出して照合した。
+- **対象（読み取り専用・変更していない）**: `JapanTaxLaw/TravelerExemptionLimit.lean`、`TravelerExemptionLimitSpec.lean`、`TravelerExemptionLimitTests.lean`。**Lean モジュール / `data/*` / `scripts/*` は一切変更せず**、commit / push / merge / ブランチ切替も行っていない。
+- **一次資料（pinned・改変禁止）**: `data/raw/335CO0000000069_20260401_508CO0000000085.law.json`（law_id `335CO0000000069` / revision `335CO0000000069_20260401_508CO0000000085`、施行 2026-04-01）。
+- **needle 出所**: `scripts/ci/transcription_audit.py` の `checks()` cycle-33 エントリから実文字列 2 本を直接読み出し、CI と同一の正規化 `re.sub(r"[\s　]+", "", s)` を**自前で正規化した pinned 原文**に適用して部分文字列包含を判定した。
+- **本レビューは機械的独立照合（原文 parse・漢数字算術化・needle 検証・境界グリッド・公理監査）であり、人間の法律専門家によるレビューではない。** 法的解釈・行政実務の妥当性は判定しない。
+
+### AK-1. pin 完全性と原文独立抽出（漢数字 → 算数）
+
+`data/INVENTORY.json` の `raw_snapshot.source_sha256` と実ファイルを再計算し一致を確認（計算値 `b64be40dba650308d9f0ae478e89539b412c4f0a4fac981b6c770d3f1e1f121a`、INVENTORY 値は同一 hex の大文字表記のみ。pin は改変されていない）。
+
+- `MainProvision` 配下の `Article` は 70 件、`attr.Num = "40"` は **1 件のみ**。その flat text は **64 文字**、U+3000 は **0 件**（モジュール doc-comment の申告値 64 / 0 と一致）:
+
+  `（特定旅客の携帯品に係る関税の免除が適用される金額の上限）第四十条法第十四条第一項に規定する政令で定める金額は、二十万円とする。`
+
+- 自作漢数字パーサをセルフテスト（二十万→200000、二万→20000、二百万→2000000、二十→20、十万→100000、一万八千→18000、六千八百二→6802、全件期待値どおり）した上で、原文スライト `金額は、([漢数字]+)円とする` から数値を抽出 → リテラル **`二十万`** → **200,000**。
+- **桁違いチェック**: 原文は `二十万`（2×10×10,000）であり `二万`=20,000 でも `二百万`=2,000,000 でもない。Lean 定数 `limitYen : Money := 200_000`（`Money = Nat`）と**一致**。
+
+| 項目 | 独立抽出 | Lean 定数 | 照合 |
+|---|---:|---:|:---:|
+| 金額リテラル | `二十万` | `200_000` | ✅ |
+| 十の桁 | 二十 = 20 | 20 | ✅ |
+| 万の乗数 | ×10,000 | ×10,000 | ✅ |
+| 2万/200万 との誤認 | なし（20,000 / 2,000,000 を明示的に除外） | — | ✅ |
+
+### AK-2. needle 健全性（CI `checks()` 実文字列 2 本）
+
+正規化は CI と同一 `re.sub(r"[\s　]+", "", s)` を needle と pinned 原文の双方へ適用。file locator（`kind = "file"`, `law_id = 335CO0000000069`）に従い正規化全文（長さ 54,956+ 以降）で包含判定した。
+
+| # | CI needle（実文字列） | U+3000 | FOUND | 正規化全文 offset | slice |
+|---|---|---:|:---:|---:|---|
+| 1 | `特定旅客の携帯品に係る関税の免除が適用される金額の上限）第四十条` | 0 | ✅ | 53,956 | [53,956, 53,988) |
+| 2 | `法第十四条第一項に規定する政令で定める金額は、二十万円とする` | 0 | ✅ | 53,988 | [53,988, 54,018) |
+
+- **2/2 FOUND、U+3000 含有 0 件。** 2 本の slice は隣接するが重複せず、**互いに異なる条文位置**を指す。
+- Article 40 の正規化 flat text（64 文字）内での offset は needle 1 = **1**（見出し `(特定旅客…上限)` ＋ `第四十条` の見出し側）、needle 2 = **33**（本文）。ツリー上の位置も needle 1 は `Article[Num=40]` の見出し部分、needle 2 はその配下の `Paragraph[Num=1] / ParagraphSentence / Sentence[Num=1]` の本文であり、**条文位置スライスが異なることを独立確認**した（needle 2 のみが金額リテラル `二十万` を含む）。
+- 補足: `ArticleTitle` の `attr` は `第四十条`、見出し文言は `ArticleTitle` ではなく直後の `Paragraph` 前の見出しノードに格納されている。needle 1 はその見出しを、needle 2 は本文を夫々正しく指す。
+
+### AK-3. 反例探索（境界値＋グリッド）
+
+| 入力 a | `isAtOrBelowLimit a` | 期待 | 照合 |
+|---:|:---:|:---:|:---:|
+| 0 | true | true | ✅ |
+| 1 | true | true | ✅ |
+| 199,998 | true | true | ✅ |
+| **199,999** | **true** | true | ✅ |
+| **200,000** | **true** | true（境界含む） | ✅ |
+| **200,001** | **false** | false | ✅ |
+| 200,002 | false | false | ✅ |
+| 1,000,000 | false | false | ✅ |
+
+- 自前 Python シミュレーション `a <= 200000` を **a = 199,900〜200,100 の全 201 点**で走査 → 不一致 **0 件**。
+- 一時 Lean ファイルで `#eval isAtOrBelowLimit 0 / 199_999 / 200_000 / 200_001` → `true / true / true / false`、`#eval limitYen` → `200000`。モジュール内の 5 本の `by decide` example と、一時ファイルで再構成した 11 本の境界 `by decide` 定理（下記 AK-4）すべてがカーネル還元で成立。
+- **反例検出数: ゼロ。**
+
+### AK-4. 公理監査
+
+- 一時 Lean ファイル `batchAK_axiom_probe.lean`（外部 temp ディレクトリ、プロジェクト外）で対象モジュールを import し、2 つの named def（`limitYen` / `isAtOrBelowLimit`）＋再構成した 11 本の境界定理（上限一致、20,000/2,000,000 との不一致、0/1/199,998/199,999/200,000/200,001/200,002/1,000,000）＝**13 宣言**へ `#print axioms` を実行（`lake env lean`、exit code **0**）。
+- 結果: **13/13 が `"does not depend on any axioms"`**。`Classical.choice` / `sorryAx` / `Quot.sound` / `propext` 依存は **いずれも 0 件**。
+- 対象 3 ファイルの静的スキャン: `sorry` / `admit` / `axiom` / `classical` / `by_contra` / `Quot.sound` / `propext` / `choice` / `noncomputable` / `unsafe` の一致 **0 件**。全証明は `by decide` のカーネル還元証明。
+- 監査後、一時 Lean ファイルおよび一時解析スクリプトは**すべて削除済み**。作業ツリーには他エージェントによる既存の無関係な変更があるが、本レビューでは一切触れていない。
+
+### AK-5. 分類・件数
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED（意味的: 数値・needle・境界・公理）** | **0（ゼロ）** |
+| CONFIRMED（ドキュメント表記のみ・非意味的） | 2 |
+| BY-DESIGN | 3 |
+| UNRESOLVED | 1 |
+
+> **意味的な発見はゼロ（CONFIRMED = 0）を明示する。** 下記 D-1/D-2 はモデル値・証明・pin 完全性に影響しない表記上の問題であり、過去バッチの慣例に従い「ドキュメント表記のみ・非意味的」として分離した。両者を混同しないこと。
+
+#### CONFIRMED（意味的）— 0 件
+
+- 金額: `二十万 = 200,000` を pinned 原文から独立抽出し、桁違い（20,000 / 2,000,000）を明示的に除外して Lean 定数と一致。
+- needle: 2/2 FOUND、U+3000 = 0、異なる条文位置スライス（見出し／本文）。
+- 境界: 199,999→true / 200,000→true / 200,001→false、201 点グリッド不一致 0。
+- 公理: 禁止公理 0、13/13 axiom-free、`by decide` カーネル証明。
+
+#### CONFIRMED（ドキュメント表記のみ・非意味的）— 2 件
+
+- **D-1 Raw snapshot パスの二重化**: `TravelerExemptionLimit.lean` の header `Raw snapshot: data/raw/data/raw/335CO0000000069_...law.json` は実在パス `data/raw/335CO0000000069_...law.json` の二重表記。Batch AJ で指摘された同種の表記誤り。law_id / revision / 文字数 / needle / 定数 / pin 完全性はすべて正しく、計算・証明への影響なし。修正は Lean モジュール側のため本レビューでは変更せず報告のみ。
+- **D-2 法令名の略記**: pinned JSON の `law_title` は **`関税暫定措置法施行令`**（昭和三十五年政令第六十九号）だが、3 ファイル（`TravelerExemptionLimit.lean` / `Spec` / `Tests`）の header は **`関税法施行令`** と表記（タスク側の呼称も同略記）。対象を一意に定める law_id / revision / 条文スライスは一致しており、金額・比較・証明への影響なし。正式名称との表記差のみ。
+
+#### BY-DESIGN — 3 件
+
+- **B-1 スコープの明示**: 「特定旅客」の認定、携帯品の範囲、免除の適用手続は `Scope / NOT MODELLED` として明記。金額定数と境界判定のみの bounded L4 モデル。
+- **B-2 親法他要件の非対象**: 法14条1項の他の要件は NOT MODELLED と明記。caller-established の範囲。
+- **B-3 金額の Nat 表現**: `Money = Nat`（非負整数・円単位）。円未満端数や外貨換算は原文に記載がなく、モデル化対象外としてDesign上有効。
+
+#### UNRESOLVED — 1 件
+
+- **U-1 境界包含（`<=`）の法的根拠**: 本 pinned スライス（施行令 art.40）は金額を `二十万円とする` と定めるのみで、`以下` / `こえない` 等の比較文言を含まない。`isAtOrBelowLimit` の `<=`（200,000 を含む）は親法（関税暫定措置法14条1項）の文言に由来する解釈であり、**本 pinned 原文のみからは独立導出できない**。タスク指定どおりの境界込みとして機械照合は完了しているが、その法的正当性の最終判断は**人間の法律専門家を要する**。数値・算術の一致（意味的 CONFIRMED = 0）には影響しない。
+
+### AK-6. 総合判定・最終報告
+
+- pinned revision `335CO0000000069_20260401_508CO0000000085` の art.40 から独立抽出した `二十万 = 200,000` は Lean 定数 `limitYen = 200_000` と一致。**桁違いはゼロ**。needle 2/2 FOUND（U+3000 ゼロ、異なる条文位置スライス）、境界グリッド不一致 0、公理依存 0。
+- **CONFIRMED（意味的）= 0（ゼロ）／CONFIRMED（ドキュメント表記のみ・非意味的）= 2／BY-DESIGN = 3／UNRESOLVED = 1。**
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` とも **0 件**、13/13 axiom-free、全証明が `by decide` のカーネル還元。監査用一時 Lean ファイルは削除済み。
+- 既存レビュー履歴（Batch G〜AJ ほか全 34 件）は**すべて保持**し、本セクションを末尾に追記したのみ。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` の 1 ファイルだけ。
+- 残る U-1 は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューを称するものではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
