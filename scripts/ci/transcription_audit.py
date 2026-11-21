@@ -2402,6 +2402,13 @@ def checks():
            ["千五百万人を超え七千五百万人以下の人数"])
 
 
+    # 区域面積規制 art. 3 — AreaThreshold2Ha.lean
+    yield ("区域面積規制 art. 3（当該区域の面積が二ヘクタール以上）↔ AreaThreshold2Ha.lean (2 ha)",
+           "348AC0000000102",
+           "article", "第三条",
+           ["当該区域の面積が二ヘクタール以上であること"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
