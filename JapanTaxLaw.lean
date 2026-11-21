@@ -695,3 +695,6 @@ import JapanTaxLaw.DefinitionsAndOffencesTests
 import JapanTaxLaw.LegalStructuralMarkers
 import JapanTaxLaw.LegalStructuralMarkersSpec
 import JapanTaxLaw.LegalStructuralMarkersTests
+import JapanTaxLaw.TransitionalHeadingsAndRefs
+import JapanTaxLaw.TransitionalHeadingsAndRefsSpec
+import JapanTaxLaw.TransitionalHeadingsAndRefsTests
