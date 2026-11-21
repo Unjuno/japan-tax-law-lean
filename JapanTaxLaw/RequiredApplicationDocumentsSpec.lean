@@ -64,13 +64,13 @@ theorem agree_allDocumentsAttached (d : JapanTaxLaw.RequiredApplicationDocuments
               toSpecDocument, specSatisfies, specAllRequired, List.all]
 
 example : specAllRequired
-    { articles := true, registryCertificate := true, balanceSheet := true,
-      incomeStatement := true, businessReport := true, equivalentAccepted := false } = true := by
+    ({ articles := true, registryCertificate := true, balanceSheet := true,
+      incomeStatement := true, businessReport := true, equivalentAccepted := false }) = true := by
   decide
 
 example : specSatisfies
-    { articles := false, registryCertificate := false, balanceSheet := false,
-      incomeStatement := false, businessReport := false, equivalentAccepted := true } = true := by
+    ({ articles := false, registryCertificate := false, balanceSheet := false,
+      incomeStatement := false, businessReport := false, equivalentAccepted := true }) = true := by
   decide
 
 end JapanTaxLaw.RequiredApplicationDocumentsSpec
