@@ -10,6 +10,10 @@ source positions. Human legal review is a separate axis and is pending.
 - presence-facts-only complete: 120
 - NOT_STARTED: 6
 - PARTIAL: 114
+- articles with explicit pin: 139
+- presence-facts-only complete: 139
+- NOT_STARTED: 6
+- PARTIAL: 133
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
 - BLOCKED: 0
@@ -129,6 +133,30 @@ source positions. Human legal review is a separate axis and is pending.
 | `326AC1000000145` | 第十四条 | TaxSavingsPenaltyCap | YES | YES | NO | PARTIAL |
 | `346AC0000000089` | 第七条 | VehicleWeightUnit | YES | YES | YES | PARTIAL |
 | `340M50000040012` | 第七条の二 | CourseHoursThreshold | YES | YES | YES | PARTIAL |
+| `352M50000040032` | 第二条 | CapitalFiveBillionThreshold | YES | YES | NO | PARTIAL |
+| `502AC0000000025` | 第七条 | CapitalOneBillionExcess | YES | YES | NO | PARTIAL |
+| `353AC0000000025` | 第二十三条 | PetroleumCoalFineRange | YES | YES | NO | PARTIAL |
+| `328AC0000000007` | 第八十条 | TwoThirdsMembershipThreshold | YES | YES | NO | PARTIAL |
+| `339CO0000000182` | 第二条 | AccessoryPriceFloor | YES | YES | NO | PARTIAL |
+| `327AC0000000111` | 第十一条 | SCFVPenaltyCeiling | YES | YES | NO | PARTIAL |
+| `341M50000008002` | 第五条 | ThousandYenTruncation | YES | YES | NO | PARTIAL |
+| `347CO0000000151` | 第十九条 | OkinawaArt19Bracket8M10M | YES | YES | NO | PARTIAL |
+| `332AC0000000037` | 第十二条 | TonTaxPunishment | YES | YES | NO | PARTIAL |
+| `346M50000040066` | 第六条 | RequiredApplicationDocuments | YES | YES | NO | PARTIAL |
+| `340M50000040011` | 第八十七条 | IncomeRegPaymentCeiling1M | YES | YES | NO | PARTIAL |
+| `342M50000040037` | 第十二条 | ClampedSubtraction | YES | YES | NO | PARTIAL |
+| `340AC0000000156` | 第二十七条 | PetroleumGasFineRange | YES | YES | NO | PARTIAL |
+| `423AC0000000029` | 第三十八条の二 | QuakeReconstructionExpenseFloor1M | YES | YES | NO | PARTIAL |
+| `403CO0000000174` | 第九条 | ResidentialAreaRatioInterval | YES | YES | NO | PARTIAL |
+| `414CO0000000262` | 第一条 | PolyesterStapleFiberSpecs | YES | YES | NO | PARTIAL |
+| `326AC1000000237` | 第六十四条 | TaxAccountantPenaltyCap | YES | YES | NO | PARTIAL |
+| `329AC0000000149` | 第二条 | DependentAgeSupport | YES | YES | NO | PARTIAL |
+| `363AC0000000107` | 第十条 | ConsumptionTaxRateThreePercent | YES | YES | NO | PARTIAL |
+| `326AC1000000237` | 第六十二条 | TaxAccountantFineCap300k | YES | YES | NO | PARTIAL |
+| `346AC0000000065` | 第十八条 | PenaltyCap50k | YES | YES | NO | PARTIAL |
+| `508CO0000000254` | 第一条 | NickelContentThreshold | YES | YES | NO | PARTIAL |
+| `412CO0000000277` | 第七条 | QuorumOneThird | YES | YES | NO | PARTIAL |
+| `418M60000008099` | 第三条 | ReadingSubstitutionMunicipal | YES | YES | NO | PARTIAL |
 | `326CO0000000099` | 第三条 | SixMonthPeriodDeeming | YES | YES | NO | PARTIAL |
 | `404AC0000000015` | 第十条 | CorporateSpecialTaxRate2_5 | YES | YES | NO | PARTIAL |
 | `329AC0000000112` | 第五条 | DisasterReliefPenalty | YES | YES | NO | PARTIAL |

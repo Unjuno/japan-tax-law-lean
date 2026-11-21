@@ -27,6 +27,9 @@ layer is never folded into the statutory ledger.
 - fully_verified_units: 232
 - proved_scope_units: 2
 - not_started_units: 396618
+- fully_verified_units: 244
+- proved_scope_units: 2
+- not_started_units: 396606
 - blocked_units: 2
 - human_legal_reviews: 0
 

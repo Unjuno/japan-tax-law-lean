@@ -41,7 +41,7 @@ def specWithin (after before : Nat) : Bool :=
     Pure rewrite: no by_cases, no omega, no Classical.choice. -/
 theorem agreeWithin (after before : Nat) :
     withinLengthLimit after before = specWithin after before := by
-  unfold withinLengthLimit specWithin multiplierNumer multiplierDenom specNum specDen
+  unfold withinLengthLimit specWithin specNum specDen
   rw [Nat.mul_comm 100 after, Nat.mul_comm 115 before]
 
 -- Spec-local, kernel-decided spot checks (scaffolding, not the statutory formula).

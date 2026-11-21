@@ -2167,6 +2167,166 @@ def checks():
            "340M50000040012",
            "article", "第七条の二",
            ["六十時間以上"])
+    # 国税局課税部等の統括国税調査官等省令 art. 2 — CapitalFiveBillionThreshold.lean
+    yield ("国税局課税部等の統括国税調査官等省令 art. 2（資本金額五十億円以上）↔ CapitalFiveBillionThreshold.lean (capitalFloor 5_000_000_000)",
+           "352M50000040032",
+           "article", "第二条",
+           ["当該法人の資本金額又は出資金額が五十億円以上であること"])
+
+    # 国税臨時特例法 art. 7(1)(1) — CapitalOneBillionExcess.lean (十億円超, strict)
+    yield ("国税臨時特例法 art. 7(1)(1)（資本金十億円超）↔ CapitalOneBillionExcess.lean (capitalBillionFloor 1_000_000_000, 超える strict)",
+           "502AC0000000025",
+           "article", "第七条",
+           ["資本金の額又は出資金の額が十億円を超える法人"])
+
+
+    # 石油石炭税法 art. 23 — PetroleumCoalFineRange.lean
+    yield ("石油石炭税法 art. 23（罰金の範囲・三倍が五十万円超）↔ PetroleumCoalFineRange.lean (fineFloor 500_000, multiplier 3)",
+           "353AC0000000025",
+           "article", "第二十三条",
+           ["石油石炭税に相当する金額の三倍が五十万円を超える場合"])
+
+
+    # 酒税の保全及び酒類業組合等に関する法律 art. 80 — TwoThirdsMembershipThreshold.lean
+    yield ("酒税の保全及び酒類業組合等に関する法律 art. 80（会員総数が資格者数の三分の二以上）↔ TwoThirdsMembershipThreshold.lean (2/3)",
+           "328AC0000000007",
+           "article", "第八十条",
+           ["会員の総数が前三項の規定により会員たる資格を有する連合会及び酒類業組合の三分の二以上でなければ"])
+
+
+    # 関税法特例施行令 art. 2 — AccessoryPriceFloor.lean
+    yield ("自家用自動車の一時輸入通関条約特例施行令 art. 2（車両附属品の価格一万円以上）↔ AccessoryPriceFloor.lean (10_000)",
+           "339CO0000000182",
+           "article", "第二条",
+           ["車両の附属品であつて価格が一万円以上のもの"])
+
+
+    # 所得税法等の臨時特例に関する法律 art. 11 — SCFVPenaltyCeiling.lean
+    yield ("所得税法等の臨時特例に関する法律 art. 11（一年以下の拘禁刑・五十万円以下の罰金）↔ SCFVPenaltyCeiling.lean (1 year, 500000 yen)",
+           "327AC0000000111",
+           "article", "第十一条",
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する"])
+
+
+    # 石油ガス譲与税法施行規則 art. 5 — ThousandYenTruncation.lean
+    yield ("石油ガス譲与税法施行規則 art. 5（千円未満の端数を控除）↔ ThousandYenTruncation.lean (roundingUnit 1000)",
+           "341M50000008002",
+           "article", "第五条",
+           ["千円未満の端数金額があるときは、その端数金額を控除した金額をもつて"])
+
+
+    # 沖縄特例政令 art.19(1)(3) — OkinawaArt19Bracket8M10M.lean (八百万円以上千万円未満)
+    yield ("沖縄特例政令 art.19(1)(3)（八百万円以上千万円未満）↔ OkinawaArt19Bracket8M10M.lean (8M-10M bracket, 以上 inclusive / 未満 exclusive)",
+           "347CO0000000151",
+           "article", "第十九条",
+           ["八百万円以上千万円未満の金額"])
+
+    # とん税法 art. 12 — TonTaxPunishment.lean
+    yield ("とん税法 art. 12（三年以下の拘禁刑・五十万円以下の罰金・併科）↔ TonTaxPunishment.lean (3 years, 500000 yen, concurrent)",
+           "332AC0000000037",
+           "article", "第十二条",
+           ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する"])
+
+
+    # 自動車重量税法施行規則 art. 6 — RequiredApplicationDocuments.lean
+    yield ("自動車重量税法施行規則 art. 6（定款等の添付・準ずるもの）↔ RequiredApplicationDocuments.lean (structural)",
+           "346M50000040066",
+           "article", "第六条",
+           ["定款、登記事項証明書並びに最終の貸借対照表、損益計算書及び事業報告"])
+
+
+    # 所得税法施行規則 art.87(3)(2) — IncomeRegPaymentCeiling1M.lean (満期返戻金等 百万円以下)
+    yield ("所得税法施行規則 art.87(3)(2)（満期返戻金等の支払金額百万円以下）↔ IncomeRegPaymentCeiling1M.lean (ceiling 1_000_000, 以下 inclusive)",
+           "340M50000040011",
+           "article", "第八十七条",
+           ["同一人に対するその年中の満期返戻金等の支払金額が百万円以下である場合"])
+    # 登録免許税法施行規則 art. 12 — ClampedSubtraction.lean
+    yield ("登録免許税法施行規則 art. 12（イからロを控除し零を下回れば零）↔ ClampedSubtraction.lean (saturating subtraction)",
+           "342M50000040037",
+           "article", "第十二条",
+           ["イに掲げる額からロに掲げる額を控除した額（当該控除した額が零を下回る場合にあつては、零）"])
+
+
+    # 石油ガス税法 art. 27 — PetroleumGasFineRange.lean
+    yield ("石油ガス税法 art. 27（罰金範囲・三倍が五十万円超）↔ PetroleumGasFineRange.lean (fineFloor 500_000, multiplier 3)",
+           "340AC0000000156",
+           "article", "第二十七条",
+           ["石油ガス税に相当する金額の三倍が五十万円を超える場合"])
+
+
+    # 東日本大震災特例法 art.38-2(2)(4)イ — QuakeReconstructionExpenseFloor1M.lean (工事費用百万円以上)
+    yield ("東日本大震災特例法 art.38-2(2)(4)イ（工事費用百万円以上）↔ QuakeReconstructionExpenseFloor1M.lean (floor 1_000_000, 以上 inclusive)",
+           "423AC0000000029",
+           "article", "第三十八条の二",
+           ["当該工事に要した費用の額が百万円以上であること。"])
+    # 地価税法施行令 art. 9 — ResidentialAreaRatioInterval.lean
+    yield ("地価税法施行令 art. 9（居住面積割合が百分の二十五超百分の五十以下）↔ ResidentialAreaRatioInterval.lean (25% < r <= 50%)",
+           "403CO0000000174",
+           "article", "第九条",
+           ["居住面積割合が百分の二十五を超え百分の五十以下である場合"])
+
+
+    # ポリエステル短繊維不当廉売関税政令 art. 1 — PolyesterStapleFiberSpecs.lean
+    yield ("ポリエステル短繊維政令 art. 1（3.88<繊度<22.23 dtex, 25<=長さ<=80 mm）↔ PolyesterStapleFiberSpecs.lean (388/2223, 25/80)",
+           "414CO0000000262",
+           "article", "第一条",
+           ["三・八八デシテックスを超え二十二・二三デシテックス未満のもので、かつ、長さが二十五ミリメートル以上八十ミリメートル以下"])
+
+
+    # 税理士法 art. 64 — TaxAccountantPenaltyCap.lean
+    yield ("税理士法 art. 64（百万円以下の過料）↔ TaxAccountantPenaltyCap.lean (1_000_000)",
+           "326AC1000000237",
+           "article", "第六十四条",
+           ["次の各号のいずれかに該当する者は、百万円以下の過料に処する"])
+
+
+    # 国連軍地位協定臨時特例法 art. 2 — DependentAgeSupport.lean
+    yield ("国連軍地位協定臨時特例法 art. 2（二十一歳未満の子・生計費十分の五以上負担）↔ DependentAgeSupport.lean (21, 5/10)",
+           "329AC0000000149",
+           "article", "第二条",
+           ["二十一歳未満の子並びに父母及び二十一歳以上の子のうちその生計費の十分の五以上"])
+
+
+    # 税制改革法 art. 10 — ConsumptionTaxRateThreePercent.lean
+    yield ("税制改革法 art. 10（消費税の税率百分の三）↔ ConsumptionTaxRateThreePercent.lean (3/100)",
+           "363AC0000000107",
+           "article", "第十条",
+           ["その税率は、百分の三とする"])
+
+
+    # 税理士法 art. 62 — TaxAccountantFineCap300k.lean
+    yield ("税理士法 art. 62（三十万円以下の罰金）↔ TaxAccountantFineCap300k.lean (300_000)",
+           "326AC1000000237",
+           "article", "第六十二条",
+           ["三十万円以下の罰金に処する"])
+
+
+    # ＴＩＲ条約特例法 art. 18 — PenaltyCap50k.lean
+    yield ("ＴＩＲ条約実施特例法 art. 18（五万円以下の罰金）↔ PenaltyCap50k.lean (50_000)",
+           "346AC0000000065",
+           "article", "第十八条",
+           ["五万円以下の罰金に処する"])
+
+
+    # 溶融亜鉛めっき鋼帯等暫定不当廉売関税政令 art. 1 — NickelContentThreshold.lean
+    yield ("溶融亜鉛めっき鋼帯等暫定関税政令 art. 1（ニッケル含有量が全重量の十パーセント超）↔ NickelContentThreshold.lean (10%)",
+           "508CO0000000254",
+           "article", "第一条",
+           ["ニッケルの含有量が全重量の十パーセントを超えるもの"])
+
+
+    # 関税等不服審査会令 art. 7 — QuorumOneThird.lean
+    yield ("関税等不服審査会令 art. 7（委員の三分の一以上の出席で会議・議決）↔ QuorumOneThird.lean (1/3)",
+           "412CO0000000277",
+           "article", "第七条",
+           ["委員の三分の一以上が出席しなければ、会議を開き、議決することができない"])
+
+
+    # 公共サービス実施民間事業者省令 art. 3 — ReadingSubstitutionMunicipal.lean
+    yield ("公共サービス実施民間事業者省令 art. 3（市又は区若しくは総合区→区又は総合区 読替え）↔ ReadingSubstitutionMunicipal.lean (structural)",
+           "418M60000008099",
+           "article", "第三条",
+           ["市又は区若しくは総合区」とあるのは、「区又は総合区」と読み替えるものとする"])
 
 
     # 納税貯蓄組合法施行令 art. 3 — SixMonthPeriodDeeming.lean
@@ -2223,6 +2383,13 @@ def checks():
            "342CO0000000146",
            "article", "第二十一条",
            ["最大船長（製造又は修繕をすることができる船舶の長さの最大値をいう。以下この号において同じ。）が、拡張許可前の当該設備における最大船長の一・一五倍を超えることとならない"])
+
+
+    # 航空機燃料譲与税法施行規則 art. 4 — PopulationInterval15M75M.lean
+    yield ("航空機燃料譲与税法施行規則 art. 4（千五百万人超七千五百万人以下の人数）↔ PopulationInterval15M75M.lean (15M<p<=75M)",
+           "347M50000008026",
+           "article", "第四条",
+           ["千五百万人を超え七千五百万人以下の人数"])
 
 
 def main() -> int:

@@ -7,6 +7,7 @@ source-fidelity diagnostic (D=PASS means needle in stated article only),
 never a completion gate or a semantic/legal claim.
 
 - checks with article/table-cell scoped needles: 268
+- checks with article/table-cell scoped needles: 286
 - checks with no scoped unit: 0
 
 | law_id | stated article | needle hits | scoped positions | D |
@@ -279,3 +280,32 @@ never a completion gate or a semantic/legal claim.
 | `342CO0000000108` | 第十条 | 2 | 2 | PASS |
 | `326CO0000000216` | 第九条 | 2 | 2 | PASS |
 | `342CO0000000146` | 第二十一条 | 3 | 3 | PASS |
+| `502AC0000000025` | 第七条 | 3 | 3 | PASS |
+| `353AC0000000025` | 第二十三条 | 2 | 2 | PASS |
+| `328AC0000000007` | 第八十条 | 2 | 2 | PASS |
+| `339CO0000000182` | 第二条 | 3 | 3 | PASS |
+| `327AC0000000111` | 第十一条 | 2 | 2 | PASS |
+| `341M50000008002` | 第五条 | 2 | 2 | PASS |
+| `347CO0000000151` | 第十九条 | 4 | 4 | PASS |
+| `332AC0000000037` | 第十二条 | 2 | 2 | PASS |
+| `346M50000040066` | 第六条 | 2 | 2 | PASS |
+| `340M50000040011` | 第八十七条 | 3 | 3 | PASS |
+| `342M50000040037` | 第十二条 | 3 | 3 | PASS |
+| `340AC0000000156` | 第二十七条 | 2 | 2 | PASS |
+| `423AC0000000029` | 第三十八条の二 | 3 | 3 | PASS |
+| `403CO0000000174` | 第九条 | 3 | 3 | PASS |
+| `414CO0000000262` | 第一条 | 3 | 3 | PASS |
+| `326AC1000000237` | 第六十四条 | 2 | 2 | PASS |
+| `329AC0000000149` | 第二条 | 3 | 3 | PASS |
+| `363AC0000000107` | 第十条 | 2 | 2 | PASS |
+| `326AC1000000237` | 第六十二条 | 2 | 2 | PASS |
+| `346AC0000000065` | 第十八条 | 2 | 2 | PASS |
+| `508CO0000000254` | 第一条 | 3 | 3 | PASS |
+| `412CO0000000277` | 第七条 | 2 | 2 | PASS |
+| `418M60000008099` | 第三条 | 2 | 2 | PASS |
+| `326CO0000000099` | 第三条 | 2 | 2 | PASS |
+| `404AC0000000015` | 第十条 | 2 | 2 | PASS |
+| `329AC0000000112` | 第五条 | 2 | 2 | PASS |
+| `352M50000040032` | 第二条 | 4 | 4 | PASS |
+| `329CO0000000155` | 第十三条の六 | 3 | 3 | PASS |
+| `342CO0000000108` | 第十条 | 2 | 2 | PASS |

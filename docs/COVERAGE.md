@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 88 | 327 | 26.91% |
+| laws with >=1 pinned literal check | 102 | 327 | 31.19% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 268 | n/a | n/a |
-| distinct article pins | 102 | 42584 | 0.24% |
-| pinned Lean modules (cross-law) | 669 | n/a | n/a |
+| pinned literal checks | 291 | n/a | n/a |
+| distinct article pins | 123 | 42584 | 0.29% |
+| pinned Lean modules (cross-law) | 670 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 253 |
+| unpinned Lean modules (not counted as verified) | 252 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 46 |
+| adversarial review sessions recorded | 47 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -128,9 +128,11 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `327AC0000000112` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う関税法等の臨時特例に関する法律
 - `327CO0000000125` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う関税法等の臨時特例に関する法律施行令
 - `328AC0000000006` 酒税法
+- `328AC0000000007` 酒税の保全及び酒類業組合等に関する法律
 - `328CO0000000407` 奄美群島の復帰に伴う国税関係法令の適用の暫定措置等に関する政令
 - `329AC0000000061` 関税法
 - `329AC0000000112` 日本国とアメリカ合衆国との間の相互防衛援助協定の実施に伴う関税法等の臨時特例に関する法律
+- `329AC0000000149` 日本国における国際連合の軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法律
 - `329CO0000000150` 関税法施行令
 - `329CO0000000155` 関税定率法施行令
 - `329CO0000000164` 税関関係手数料令
@@ -154,22 +156,28 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `337M50000008017` 普通交付税に関する省令
 - `337M50000040026` 酒税法施行規則
 - `337M50000040028` 国税通則法施行規則
+- `339CO0000000182` 自家用自動車の一時輸入に関する通関条約の実施に伴う関税法等の特例に関する法律施行令
 - `340AC0000000033` 所得税法
 - `340AC0000000034` 法人税法
+- `340AC0000000156` 石油ガス税法
 - `340AC0000000157` 石油ガス譲与税法
 - `340CO0000000096` 所得税法施行令
 - `340CO0000000097` 法人税法施行令
-- `340M50000040012` 法人税法施行規則
+- `340M50000040011` 所得税法施行規則
 - `341M50000008002` 石油ガス譲与税法施行規則
 - `342AC0000000023` 印紙税法
 - `342AC0000000035` 登録免許税法
 - `342CO0000000108` 印紙税法施行令
 - `342CO0000000146` 登録免許税法施行令
+- `342M50000040037` 登録免許税法施行規則
 - `344M50000040016` 関税定率法施行規則
+- `346AC0000000065` コンテナーに関する通関条約及び国際道路運送手帳による担保の下で行なう貨物の国際運送に関する通関条約（ＴＩＲ条約）の実施に伴う関税法等の特例に関する法律
 - `346AC0000000089` 自動車重量税法
 - `346AC0000000090` 自動車重量譲与税法
 - `346CO0000000275` 自動車重量税法施行令
+- `346M50000040066` 自動車重量税法施行規則
 - `347AC0000000007` 航空機燃料税法
+- `347CO0000000151` 沖縄の復帰に伴う国税関係法令の適用の特別措置等に関する政令
 - `347CO0000000161` 沖縄の復帰に伴う地方税法の適用の特別措置等に関する政令
 - `347M50000040044` 沖繩の復帰に伴う国税関係以外の大蔵省関係法令の適用の特別措置等に関する省令
 - `349AC0000000079` 電源開発促進税法
@@ -184,10 +192,14 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `403CO0000000174` 地価税法施行令
 - `404AC0000000015` 法人特別税法
 - `409CO0000000363` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行令
+- `412CO0000000277` 関税等不服審査会令
+- `414CO0000000262` ポリエステル短繊維に対して課する不当廉売関税に関する政令
 - `415M60000008069` 収入印紙及び自動車重量税印紙の売りさばきに関する省令
 - `417M60000200012` 経済連携協定に基づく農林水産省の所掌事務に係る物資の関税割当制度に関する省令
+- `418M60000008099` 納税証明書、住民票等の写し等又は印鑑登録証明書の交付の請求の受付及び引渡しの業務の公共サービス実施民間事業者における実施に関する省令
 - `420AC0000000084` 地方税等減収補てん臨時交付金に関する法律
 - `420M60000008116` 地方税等減収補てん臨時交付金に関する省令
+- `423AC0000000029` 東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律
 - `426AC0000000011` 地方法人税法
 - `426CO0000000415` トルエンジイソシアナートに対して課する不当廉売関税に関する政令
 - `428CO0000000196` 水酸化カリウムに対して課する不当廉売関税に関する政令
@@ -196,4 +208,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `431AC0000000003` 森林環境税及び森林環境譲与税に関する法律
 - `431AC0000000004` 特別法人事業税及び特別法人事業譲与税に関する法律
 - `431M60000008040` 森林環境税及び森林環境譲与税に関する法律施行規則
+- `502AC0000000025` 新型コロナウイルス感染症等の影響に対応するための国税関係法律の臨時特例に関する法律
 - `503CO0000000065` 炭酸二カリウムに対して課する不当廉売関税に関する政令
+- `508CO0000000254` 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令
