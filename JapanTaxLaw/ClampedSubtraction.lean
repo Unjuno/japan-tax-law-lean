@@ -65,8 +65,8 @@ theorem clampedSubtract_zero_r (i : Nat) : clampedSubtract i 0 = i := by
   omega
 
 /-- イに関する単調性: イを増やせば控除後の額は増える（または不変）。 -/
-theorem clampedSubtract_mono_i (r : Nat) : Monotone (fun i => clampedSubtract i r) := by
-  intro a b hab
+theorem clampedSubtract_mono_i (r a b : Nat) (hab : a <= b) :
+    clampedSubtract a r <= clampedSubtract b r := by
   unfold clampedSubtract
   omega
 
