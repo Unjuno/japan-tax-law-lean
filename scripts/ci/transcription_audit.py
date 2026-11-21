@@ -1312,6 +1312,15 @@ def checks():
            ["三千万円を超え五千万円以下の金額"])
 
     # 関税定率法施行令 art.1の2(1)第三号 — CustomsDutiableValueThreshold.lean
+    # InheritanceTaxDelinquencyException.lean - NORM|6c279214... (相続税法 第三十八条(4) EXCEPTION)
+    # Needle is in MainProvision Article 第三十八条 (Paragraph 4, Sentence 2);
+    # find_article_text(...,"第三十八条") returns that article (len 1052) containing the
+    # needle - use the precise article locator. Needle literal derived from queue via \u escapes.
+    yield ("相続税法 第三十八条(4) exception - InheritanceTaxDelinquencyException.lean",
+           "325AC0000000073",
+           "article", "第三十八条",
+           ["\u305f\u3060\u3057\u3001\u305d\u306e\u5ef6\u7d0d\u7a0e\u984d\u304c\u767e\u4e07\u5186\u4ee5\u4e0b\u3067\u3001\u304b\u3064\u3001\u305d\u306e\u5ef6\u7d0d\u671f\u9593\u304c\u4e09\u5e74\u4ee5\u4e0b\u3067\u3042\u308b\u5834\u5408\u306f\u3001\u3053\u306e\u9650\u308a\u3067\u306a\u3044\u3002"])
+
     # Norm unit NORM|347d0d0ebd32cab1a2f5054abe7a87ebe56cae34b125a2481f38c63e5cf05723
     # Needle is in MainProvision Article 第一条の二 (attr Num=1_2, Item 3). Adversarial
     # review confirmed find_article_text returns that article (len 770) containing the
