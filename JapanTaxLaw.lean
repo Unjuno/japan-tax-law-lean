@@ -780,3 +780,6 @@ import JapanTaxLaw.RequiredApplicationDocumentsTests
 import JapanTaxLaw.GasolineTaxCombination
 import JapanTaxLaw.GasolineTaxCombinationSpec
 import JapanTaxLaw.GasolineTaxCombinationTests
+import JapanTaxLaw.IncomeRegPaymentCeiling1M
+import JapanTaxLaw.IncomeRegPaymentCeiling1MSpec
+import JapanTaxLaw.IncomeRegPaymentCeiling1MTests
