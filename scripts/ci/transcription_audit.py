@@ -2209,6 +2209,13 @@ def checks():
            ["その税率は、百分の三とする"])
 
 
+    # 税理士法 art. 62 — TaxAccountantFineCap300k.lean
+    yield ("税理士法 art. 62（三十万円以下の罰金）↔ TaxAccountantFineCap300k.lean (300_000)",
+           "326AC1000000237",
+           "article", "第六十二条",
+           ["三十万円以下の罰金に処する"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
