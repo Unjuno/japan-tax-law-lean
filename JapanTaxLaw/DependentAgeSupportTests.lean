@@ -41,10 +41,13 @@ example : isDependentAdultChild 21 500 0 = false := by decide
 example : isDependentAdultChild 0 0 0 = false := by decide
 
 -- (g) small positive inputs: exact cross-multiplication at 5/10.
-example : supportRatioMet 1 2 = false := by decide
+-- 1/2 is exactly 5/10, so the INCLUSIVE >= test passes (true).
+example : supportRatioMet 1 2 = true := by decide
 example : supportRatioMet 1 1 = true := by decide
-example : isDependentAdultChild 21 1 2 = false := by decide
+example : isDependentAdultChild 21 1 2 = true := by decide
 example : isDependentAdultChild 21 1 1 = true := by decide
+-- 1/3 < 5/10, so the test fails (false).
+example : supportRatioMet 1 3 = false := by decide
 
 -- (h) Nat identity / saturation boundaries at the statutory numerals.
 example : 21 - 21 = 0 := by decide
