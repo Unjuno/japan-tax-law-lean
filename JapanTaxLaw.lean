@@ -740,3 +740,6 @@ import JapanTaxLaw.TransitionalApplicationStructureTests
 import JapanTaxLaw.AuthorityResidenceAndBonds
 import JapanTaxLaw.AuthorityResidenceAndBondsSpec
 import JapanTaxLaw.AuthorityResidenceAndBondsTests
+import JapanTaxLaw.ComputationalNormOperators
+import JapanTaxLaw.ComputationalNormOperatorsSpec
+import JapanTaxLaw.ComputationalNormOperatorsTests
