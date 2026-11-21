@@ -1301,6 +1301,14 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # CustomsTaxRetentionPeriodTier1.lean - NORM|bc51dc84... (tax <= 100k yen -> 2 month retention CONDITION, law 328AC0000000006)
+    # 附則 unit: find_article_text sees MainProvision only (returns art.8 without needle),
+    # so use the file-kind transcription locator. Needle literal from queue via \u escapes.
+    yield ("tax <= 100k yen -> 2 month retention - CustomsTaxRetentionPeriodTier1.lean",
+           "328AC0000000006",
+           "file", None,
+           ["\u305d\u306e\u7a0e\u984d\u304c\u5341\u4e07\u5186\u4ee5\u4e0b\u306e\u3068\u304d\u3002\u3000\u4e8c\u6708"])
+
     # OldAgePensionAnnualAmountCeiling.lean - NORM|ce360091... (old-age pension annual < 180k yen CONDITION, law 325CO0000000245)
     # 附則 unit: find_article_text sees MainProvision only (returns art.3 without needle),
     # so use the file-kind transcription locator. Needle literal from queue via \u escapes.
