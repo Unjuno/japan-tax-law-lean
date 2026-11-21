@@ -834,3 +834,6 @@ import JapanTaxLaw.TaxAccountantPenaltyCapTests
 import JapanTaxLaw.LandValuePerSquareMeter
 import JapanTaxLaw.LandValuePerSquareMeterSpec
 import JapanTaxLaw.LandValuePerSquareMeterTests
+import JapanTaxLaw.DependentAgeSupport
+import JapanTaxLaw.DependentAgeSupportSpec
+import JapanTaxLaw.DependentAgeSupportTests
