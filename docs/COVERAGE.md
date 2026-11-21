@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 71 | 327 | 21.71% |
+| laws with >=1 pinned literal check | 74 | 327 | 22.63% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 225 | n/a | n/a |
-| distinct article pins | 79 | 42584 | 0.19% |
-| pinned Lean modules (cross-law) | 556 | n/a | n/a |
+| pinned literal checks | 229 | n/a | n/a |
+| distinct article pins | 81 | 42584 | 0.19% |
+| pinned Lean modules (cross-law) | 563 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 168 |
+| unpinned Lean modules (not counted as verified) | 173 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -120,10 +120,12 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `325CO0000000245` 地方税法施行令
 - `325M50000040017` 相続税法施行規則
 - `326AC1000000145` 納税貯蓄組合法
+- `326AC1000000237` 税理士法
 - `326CO0000000216` 税理士法施行令
 - `327AC0000000111` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法律
 - `327AC0000000112` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う関税法等の臨時特例に関する法律
 - `327CO0000000125` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う関税法等の臨時特例に関する法律施行令
+- `328AC0000000006` 酒税法
 - `328AC0000000007` 酒税の保全及び酒類業組合等に関する法律
 - `328CO0000000407` 奄美群島の復帰に伴う国税関係法令の適用の暫定措置等に関する政令
 - `329AC0000000061` 関税法
@@ -175,6 +177,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `409CO0000000363` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行令
 - `415M60000008069` 収入印紙及び自動車重量税印紙の売りさばきに関する省令
 - `420AC0000000084` 地方税等減収補てん臨時交付金に関する法律
+- `420M60000008116` 地方税等減収補てん臨時交付金に関する省令
 - `426AC0000000011` 地方法人税法
 - `430AC0000000016` 国際観光旅客税法
 - `431AC0000000003` 森林環境税及び森林環境譲与税に関する法律

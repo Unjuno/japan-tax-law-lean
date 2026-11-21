@@ -729,3 +729,6 @@ import JapanTaxLaw.OilCoalTaxRateTests
 import JapanTaxLaw.RawMaterialRatio
 import JapanTaxLaw.RawMaterialRatioSpec
 import JapanTaxLaw.RawMaterialRatioTests
+import JapanTaxLaw.LocalTaxShortfallRounding
+import JapanTaxLaw.LocalTaxShortfallRoundingSpec
+import JapanTaxLaw.LocalTaxShortfallRoundingTests
