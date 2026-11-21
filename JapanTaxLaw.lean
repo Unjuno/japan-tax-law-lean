@@ -963,3 +963,6 @@ import JapanTaxLaw.ConsumptionTaxSpecialDateTests
 import JapanTaxLaw.RegistrationTaxTruncation30k
 import JapanTaxLaw.RegistrationTaxTruncation30kSpec
 import JapanTaxLaw.RegistrationTaxTruncation30kTests
+import JapanTaxLaw.AccountingSubjectsCount
+import JapanTaxLaw.AccountingSubjectsCountSpec
+import JapanTaxLaw.AccountingSubjectsCountTests
