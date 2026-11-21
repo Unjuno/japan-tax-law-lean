@@ -1,3 +1,5 @@
+import JapanTaxLaw.TaxFinance
+
 /-
 # PetroleumGasFineRange — 石油ガス税法 art.27（罰金の範囲）bounded Nat/Bool モデル
 
@@ -30,8 +32,6 @@ No `sorry`, `admit`, `axiom` or `Classical.choice`.
 -/
 
 namespace JapanTaxLaw.PetroleumGasFineRange
-
-open JapanTaxLaw.TaxFinance
 
 /-- 三倍: 罰金の上限 = 3 * tax。 -/
 def fineUpper (tax : Nat) : Nat := 3 * tax
