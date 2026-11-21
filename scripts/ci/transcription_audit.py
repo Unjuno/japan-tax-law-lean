@@ -2409,6 +2409,13 @@ def checks():
            ["当該区域の面積が二ヘクタール以上であること"])
 
 
+    # 航空機燃料譲与税法施行規則 art. 4 (para2) — WeightInterval5M25M.lean
+    yield ("航空機燃料譲与税法施行規則 art. 4（五百万トン超二千五百万トン以下の重量）↔ WeightInterval5M25M.lean (5M<w<=25M)",
+           "347M50000008026",
+           "article", "第四条",
+           ["五百万トンを超え二千五百万トン以下の重量"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

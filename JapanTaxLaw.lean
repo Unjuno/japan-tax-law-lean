@@ -930,3 +930,6 @@ import JapanTaxLaw.TaxJudgeCountTests
 import JapanTaxLaw.AreaThreshold2Ha
 import JapanTaxLaw.AreaThreshold2HaSpec
 import JapanTaxLaw.AreaThreshold2HaTests
+import JapanTaxLaw.WeightInterval5M25M
+import JapanTaxLaw.WeightInterval5M25MSpec
+import JapanTaxLaw.WeightInterval5M25MTests
