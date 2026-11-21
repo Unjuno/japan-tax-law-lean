@@ -1301,6 +1301,14 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # InheritanceTaxArt56And57Ref.lean - NORM|9444b08b... (article-title cross-reference STRUCTURE, law 325AC0000000073)
+    # Needle is an ArticleTitle heading; find_article_text sees main-provision text only
+    # (verified: len 0, no needle) - use the file-kind locator. Verbatim-unique in whole law.
+    yield ("inheritance tax art.56 and 57 title cross-reference - InheritanceTaxArt56And57Ref.lean",
+           "325AC0000000073",
+           "file", None,
+           ["\u7b2c\u4e94\u5341\u516d\u6761\u53ca\u3073\u7b2c\u4e94\u5341\u4e03\u6761"])
+
     # CustomsTariffArt1EnforcementDate.lean - NORM|21111ed8... (enforcement date REFERENCE, law 143AC0000000054)
     # Needle sits in an 附則 (SupplProvision) article; find_article_text sees main only
     # (verified: find_article_text(...,'第一条') returns len 62 WITHOUT the needle) -
