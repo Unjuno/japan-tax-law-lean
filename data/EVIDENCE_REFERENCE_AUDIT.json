@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 855,
+  "checks": 859,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -9406,11 +9406,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/LocalTaxIncomeBracket4_8Tests.lean",
       "unit_id": "NORM|5fabf587efefedb1bf83283e26ba09486268120cb013adc7cf04d058d359c414"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_LOCAL_TAX_ART21_PENALTY.md — independent agent verified sha256 (3dd29e00…68d53), needle byte-fidelity (",
+      "unit_id": "NORM|c44267260dc35641899361b7ab7e63e06f22ace473bef4c3a81b22a33b50fd14"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt21Penalty.lean",
+      "unit_id": "NORM|c44267260dc35641899361b7ab7e63e06f22ace473bef4c3a81b22a33b50fd14"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt21PenaltySpec.lean",
+      "unit_id": "NORM|c44267260dc35641899361b7ab7e63e06f22ace473bef4c3a81b22a33b50fd14"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt21PenaltyTests.lean",
+      "unit_id": "NORM|c44267260dc35641899361b7ab7e63e06f22ace473bef4c3a81b22a33b50fd14"
     }
   ],
-  "resolved": 851,
+  "resolved": 855,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 177,
+  "units_checked": 178,
   "unresolved": 4
 }
