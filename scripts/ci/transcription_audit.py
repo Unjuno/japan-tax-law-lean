@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # CustomsTariffArt8PresumedDumpingCap.lean - NORM|5cdae380... (presumed dumping duty cap PRESUMPTION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第八条 (Paragraph 9, Item#1, ItemSentence);
+    # find_article_text(...,"第八条") returns that article (len 6919) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.8 presumed dumping duty cap - CustomsTariffArt8PresumedDumpingCap.lean",
+           "143AC0000000054",
+           "article", "第八条",
+           ["\u5f53\u8a72\u8ca8\u7269\u306e\u6b63\u5e38\u4fa1\u683c\u3068\u63a8\u5b9a\u3055\u308c\u308b\u4fa1\u683c\u3068\u4e0d\u5f53\u5ec9\u58f2\u4fa1\u683c\u3068\u63a8\u5b9a\u3055\u308c\u308b\u4fa1\u683c\u3068\u306e\u5dee\u984d\u306b\u76f8\u5f53\u3059\u308b\u984d\u3068\u540c\u984d\u4ee5\u4e0b\u306e\u66ab\u5b9a\u7684\u306a\u95a2\u7a0e\u3092\u8ab2\u3059\u308b\u3053\u3068\u3002"])
+
     # CustomsTariffArt21Deeming.lean - NORM|1171722dae... (region deemed foreign DEEMING, law 143AC0000000054)
     # Needle is in MainProvision Article 第二十一条 (Paragraph 1, ParagraphSentence);
     # find_article_text(...,"第二十一条") returns that article (len 53) with needle -
@@ -1857,6 +1866,12 @@ def checks():
            "file", None,
            ["間は八千トンとする", "関税割当数量）第五条"])
 
+    # TaxJudgeCount — cycle-54
+    yield ("TaxJudgeCount.lean",
+           "345M50000040017",
+           "file", None,
+           ["一国税審判官百八十人", "二国税副審判官八十九人"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2390,6 +2405,13 @@ def checks():
            "347M50000008026",
            "article", "第四条",
            ["千五百万人を超え七千五百万人以下の人数"])
+
+
+    # 区域面積規制 art. 3 — AreaThreshold2Ha.lean
+    yield ("区域面積規制 art. 3（当該区域の面積が二ヘクタール以上）↔ AreaThreshold2Ha.lean (2 ha)",
+           "348AC0000000102",
+           "article", "第三条",
+           ["当該区域の面積が二ヘクタール以上であること"])
 
 
 def main() -> int:

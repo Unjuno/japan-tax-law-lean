@@ -705,6 +705,9 @@ import JapanTaxLaw.CustomsTariffArt3TaxBaseTests
 import JapanTaxLaw.CustomsTariffArt21Deeming
 import JapanTaxLaw.CustomsTariffArt21DeemingSpec
 import JapanTaxLaw.CustomsTariffArt21DeemingTests
+import JapanTaxLaw.CustomsTariffArt8PresumedDumpingCap
+import JapanTaxLaw.CustomsTariffArt8PresumedDumpingCapSpec
+import JapanTaxLaw.CustomsTariffArt8PresumedDumpingCapTests
 import JapanTaxLaw.InheritanceTaxDelinquencyException
 import JapanTaxLaw.InheritanceTaxDelinquencyExceptionSpec
 import JapanTaxLaw.InheritanceTaxDelinquencyExceptionTests
@@ -924,3 +927,9 @@ import JapanTaxLaw.MaxLengthMultiplier115Tests
 import JapanTaxLaw.PopulationInterval15M75M
 import JapanTaxLaw.PopulationInterval15M75MSpec
 import JapanTaxLaw.PopulationInterval15M75MTests
+import JapanTaxLaw.TaxJudgeCount
+import JapanTaxLaw.TaxJudgeCountSpec
+import JapanTaxLaw.TaxJudgeCountTests
+import JapanTaxLaw.AreaThreshold2Ha
+import JapanTaxLaw.AreaThreshold2HaSpec
+import JapanTaxLaw.AreaThreshold2HaTests

@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 293 | n/a | n/a |
+| pinned literal checks | 294 | n/a | n/a |
 | distinct article pins | 125 | 42584 | 0.29% |
-| pinned Lean modules (cross-law) | 672 | n/a | n/a |
+| pinned Lean modules (cross-law) | 674 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 256 |
+| unpinned Lean modules (not counted as verified) | 257 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 46 |
+| adversarial review sessions recorded | 48 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -164,7 +164,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `340CO0000000096` 所得税法施行令
 - `340CO0000000097` 法人税法施行令
 - `340M50000040011` 所得税法施行規則
-- `340M50000040012` 法人税法施行規則
 - `341M50000008002` 石油ガス譲与税法施行規則
 - `342AC0000000023` 印紙税法
 - `342AC0000000035` 登録免許税法
@@ -172,6 +171,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `342CO0000000146` 登録免許税法施行令
 - `342M50000040037` 登録免許税法施行規則
 - `344M50000040016` 関税定率法施行規則
+- `345M50000040017` 国税不服審判所組織規則
 - `346AC0000000065` コンテナーに関する通関条約及び国際道路運送手帳による担保の下で行なう貨物の国際運送に関する通関条約（ＴＩＲ条約）の実施に伴う関税法等の特例に関する法律
 - `346AC0000000089` 自動車重量税法
 - `346AC0000000090` 自動車重量譲与税法
