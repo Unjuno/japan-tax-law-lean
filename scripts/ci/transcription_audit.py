@@ -2008,6 +2008,12 @@ def checks():
            ["千円未満の端数金額があるときは、その端数金額を控除した金額をもつて"])
 
 
+    # 沖縄特例政令 art.19(1)(3) — OkinawaArt19Bracket8M10M.lean (八百万円以上千万円未満)
+    yield ("沖縄特例政令 art.19(1)(3)（八百万円以上千万円未満）↔ OkinawaArt19Bracket8M10M.lean (8M-10M bracket, 以上 inclusive / 未満 exclusive)",
+           "347CO0000000151",
+           "article", "第十九条",
+           ["八百万円以上千万円未満の金額"])
+
     # とん税法 art. 12 — TonTaxPunishment.lean
     yield ("とん税法 art. 12（三年以下の拘禁刑・五十万円以下の罰金・併科）↔ TonTaxPunishment.lean (3 years, 500000 yen, concurrent)",
            "332AC0000000037",

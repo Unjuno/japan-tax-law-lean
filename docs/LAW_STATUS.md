@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 80
+- with >=1 pinned literal check (semantic model): 81
 - with recorded human legal review: 0
 
 ## All laws
@@ -151,7 +151,7 @@ a completion flag.
 | `347AC0000000013` | 航空機燃料譲与税法 | 347AC0000000013_20240401_506AC0000000004 | CurrentEnforced | YES | ok | 49 | NO (0) | NO |
 | `347M50000040023` | 酒類用粗留アルコール等の関税割当制度に関する省令 | 347M50000040023_20010106_412M50000040069 | CurrentEnforced | YES | ok | 9 | NO (0) | NO |
 | `347CO0000000150` | 沖縄の復帰に伴う国税関係以外の大蔵省関係法令の適用の特別措置等に関する政令 | 347CO0000000150_20251231_507CO0000000426 | CurrentEnforced | YES | ok | 88 | NO (0) | NO |
-| `347CO0000000151` | 沖縄の復帰に伴う国税関係法令の適用の特別措置等に関する政令 | 347CO0000000151_20251231_507CO0000000426 | CurrentEnforced | YES | ok | 322 | NO (0) | NO |
+| `347CO0000000151` | 沖縄の復帰に伴う国税関係法令の適用の特別措置等に関する政令 | 347CO0000000151_20251231_507CO0000000426 | CurrentEnforced | YES | ok | 322 | YES (1) | NO |
 | `347CO0000000160` | 沖縄の復帰に伴う地方税関係以外の自治省関係法令の適用の特別措置等に関する政令 | 347CO0000000160_19750430_350CO0000000141 | CurrentEnforced | YES | ok | 31 | NO (0) | NO |
 | `347CO0000000161` | 沖縄の復帰に伴う地方税法の適用の特別措置等に関する政令 | 347CO0000000161_20010106_412CO0000000304 | CurrentEnforced | YES | ok | 32 | YES (1) | NO |
 | `347CO0000000167` | 航空機燃料譲与税法施行令 | 347CO0000000167_20140312_426CO0000000059 | CurrentEnforced | YES | ok | 48 | NO (0) | NO |

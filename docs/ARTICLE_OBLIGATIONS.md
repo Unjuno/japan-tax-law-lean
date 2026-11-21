@@ -6,10 +6,10 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 80
-- presence-facts-only complete: 80
-- NOT_STARTED: 3
-- PARTIAL: 77
+- articles with explicit pin: 106
+- presence-facts-only complete: 106
+- NOT_STARTED: 6
+- PARTIAL: 100
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
 - BLOCKED: 0
@@ -17,26 +17,26 @@ source positions. Human legal review is a separate axis and is pending.
 
 | law_id | article | module | presence | scoped | review | authoritative status |
 |---|---|---|---|---|---|---|
-| `340AC0000000034` | 第六十六条 | CorporateTaxRate | YES | YES | NO | PARTIAL |
-| `325AC0000000073` | 第二十一条の七 | GiftTax | YES | YES | NO | PARTIAL |
-| `325AC0000000073` | 第二十一条の五 | GiftTax | YES | YES | NO | PARTIAL |
-| `340AC0000000033` | 第八十九条 | IndividualIncomeTax | YES | YES | NO | PARTIAL |
+| `340AC0000000034` | 第六十六条 | CorporateTaxRate | YES | YES | YES | PARTIAL |
+| `325AC0000000073` | 第二十一条の七 | GiftTax | YES | YES | YES | PARTIAL |
+| `325AC0000000073` | 第二十一条の五 | GiftTax | YES | YES | YES | PARTIAL |
+| `340AC0000000033` | 第八十九条 | IndividualIncomeTax | YES | YES | YES | PARTIAL |
 | `332AC0000000026` | 第三十一条の四 | DeemedCapitalGainsCost | YES | YES | NO | PARTIAL |
-| `332AC0000000026` | 第六十七条の二 | PhaseECorpRates | YES | YES | NO | PARTIAL |
-| `332AC0000000026` | 第六十八条 | PhaseECorpRates | YES | YES | NO | PARTIAL |
+| `332AC0000000026` | 第六十七条の二 | PhaseECorpRates | YES | YES | YES | PARTIAL |
+| `332AC0000000026` | 第六十八条 | PhaseECorpRates | YES | YES | YES | PARTIAL |
 | `325AC0000000073` | 第十九条の二 | SpouseRelief | YES | YES | NO | PARTIAL |
 | `332AC0000000026` | 第八十七条の二 | LowAlcoholDutySpecialRate | YES | YES | NO | PARTIAL |
 | `332AC0000000026` | 第九条の三の二 | ListedDividendWithholding | YES | NO | NO | NOT_STARTED |
 | `332AC0000000026` | 第三十一条の三 | ResidentialTransferSpecialTax | YES | YES | NO | PARTIAL |
 | `332AC0000000026` | 第三十一条の二 | ExcellentLandTransferSpecialTax | YES | YES | NO | PARTIAL |
-| `332AC0000000026` | 第七十条の二の五 | SpecialGiftRate | YES | NO | NO | NOT_STARTED |
+| `332AC0000000026` | 第七十条の二の五 | SpecialGiftRate | YES | NO | YES | NOT_STARTED |
 | `332AC0000000026` | 第九十一条 | StampDutySpecial91 | YES | YES | NO | PARTIAL |
 | `340AC0000000034` | 第六十七条 | CorporateSurtax | YES | YES | NO | PARTIAL |
 | `325AC0000000073` | 第十八条 | InheritanceSurcharge | YES | YES | NO | PARTIAL |
-| `337AC0000000066` | 第百十八条 | TaxRounding | YES | YES | NO | PARTIAL |
-| `337AC0000000066` | 第百十九条 | TaxRounding | YES | YES | NO | PARTIAL |
-| `325AC0000000073` | 第十五条 | InheritanceTax | YES | YES | NO | PARTIAL |
-| `325AC0000000073` | 第十六条 | InheritanceTax | YES | YES | NO | PARTIAL |
+| `337AC0000000066` | 第百十八条 | TaxRounding | YES | YES | YES | PARTIAL |
+| `337AC0000000066` | 第百十九条 | TaxRounding | YES | YES | YES | PARTIAL |
+| `325AC0000000073` | 第十五条 | InheritanceTax | YES | YES | YES | PARTIAL |
+| `325AC0000000073` | 第十六条 | InheritanceTax | YES | YES | YES | PARTIAL |
 | `325AC0000000073` | 第十九条 | GiftAddBack | YES | YES | NO | PARTIAL |
 | `325AC0000000073` | 第二十条 | InheritanceSuccessiveDeduction | YES | YES | NO | PARTIAL |
 | `325AC0000000073` | 第二十一条の六 | SpousalGiftDeduction | YES | YES | NO | PARTIAL |
@@ -50,10 +50,10 @@ source positions. Human legal review is a separate axis and is pending.
 | `325AC0000000226` | 第三十四条 | SocialInsuranceMutualAidDeduction | YES | YES | NO | PARTIAL |
 | `325AC0000000226` | 第三十四条 | DisasterLossDeduction | YES | YES | NO | PARTIAL |
 | `325AC0000000226` | 第三十四条 | LocalInsuranceDeduction | YES | YES | NO | PARTIAL |
-| `363AC0000000108` | 第二十九条 | ConsumptionTaxRate | YES | YES | NO | PARTIAL |
-| `363AC0000000108` | 第二十八条 | ConsumptionTaxableBase | YES | YES | NO | PARTIAL |
+| `363AC0000000108` | 第二十九条 | ConsumptionTaxRate | YES | YES | YES | PARTIAL |
+| `363AC0000000108` | 第二十八条 | ConsumptionTaxableBase | YES | YES | YES | PARTIAL |
 | `363AC0000000108` | 第二十八条 | ConsumptionTaxImportBase | YES | YES | NO | PARTIAL |
-| `363AC0000000108` | 第三十条 | ConsumptionTaxInputCredit | YES | YES | NO | PARTIAL |
+| `363AC0000000108` | 第三十条 | ConsumptionTaxInputCredit | YES | YES | YES | PARTIAL |
 | `337AC0000000066` | 第六十七条 | NonpaymentSurcharge | YES | YES | NO | PARTIAL |
 | `337AC0000000066` | 第六十六条 | UnreportedSurcharge | YES | YES | NO | PARTIAL |
 | `337AC0000000066` | 第六十条 | DelinquencyTax | YES | YES | NO | PARTIAL |
@@ -77,23 +77,49 @@ source positions. Human legal review is a separate axis and is pending.
 | `325M50000040017` | 第三十条 | InheritanceRegPrescribedAmount | YES | YES | NO | PARTIAL |
 | `325CO0000000245` | 第六条の九の二 | LocalTaxOrderArt15_4Amount | YES | NO | NO | NOT_STARTED |
 | `326CO0000000216` | 第六条の二 | TaxAccountantRegDelegatedAmount | YES | YES | NO | PARTIAL |
+| `337M50000008017` | 第十条 | LocalAllocationTaxRounding | YES | YES | NO | PARTIAL |
+| `332M50000040015` | 第十九条の十の五 | DonationAggregateStrictLimit | YES | NO | NO | NOT_STARTED |
+| `326M50000040055` | 第二十二条の四 | TaxAccountantBalanceSheetUnits | YES | YES | NO | PARTIAL |
+| `337M50000040028` | 第一条の三 | NationalTaxCommonDelegatedAmount | YES | YES | NO | PARTIAL |
+| `335AC0000000036` | 第十六条 | CustomsTemporaryMeasurePenalty | YES | YES | NO | PARTIAL |
+| `335CO0000000069` | 第二十七条 | CustomsTemporaryMeasureDutyFreeThreshold | YES | YES | NO | PARTIAL |
+| `334CO0000000329` | 第四十二条の五 | PublicSaleGuaranteeDeposit | YES | YES | NO | PARTIAL |
+| `329CO0000000164` | 第二条 | CustomsBondedFacilityLicenseFeeItem3 | YES | YES | NO | PARTIAL |
+| `326AC1000000237` | 第六十一条 | TaxAccountantFineLimit | YES | YES | NO | PARTIAL |
+| `329M50000002023` | 第二条の三の五 | LocalTaxSpecifiedRelativeIncomeCeiling | YES | NO | NO | NOT_STARTED |
+| `325AC0000000073` | 第二十一条の七 | InheritanceGiftTaxRateBracket2M3M | YES | YES | NO | PARTIAL |
+| `325AC0000000226` | 第七十六条 | GolfCourseUseTaxStandardRate | YES | YES | NO | PARTIAL |
+| `325AC0000000226` | 第二十三条 | LocalTaxDeductionSpouse | YES | YES | NO | PARTIAL |
+| `325AC0000000226` | 第二十一条 | LocalTaxArt21Penalty | YES | YES | NO | PARTIAL |
+| `325AC0000000226` | 第七十二条の二十四の七 | LocalTaxIncomeBracket4_8 | YES | NO | NO | NOT_STARTED |
+| `325AC0000000073` | 第十六条 | InheritanceTaxRateBracket300_600 | YES | YES | NO | PARTIAL |
+| `325AC0000000073` | 第十六条 | InheritanceTaxRateBracket200_300 | YES | YES | NO | PARTIAL |
+| `325AC0000000073` | 第十六条 | InheritanceTaxRateBracket100_200 | YES | YES | NO | PARTIAL |
 | `325AC0000000073` | 第十六条 | InheritanceTaxRateBracket30_50 | YES | YES | NO | PARTIAL |
 | `325AC0000000073` | 第三十八条 | InheritanceTaxDelinquencyException | YES | YES | NO | PARTIAL |
+| `325M50000040017` | 第三十条 | InheritanceRegSurrenderValueCondition | YES | YES | NO | PARTIAL |
 | `329CO0000000155` | 第一条の二 | CustomsDutiableValueThreshold | YES | YES | NO | PARTIAL |
 | `327AC0000000111` | 第十一条 | UsForcesDutyFreePenalty | YES | YES | NO | PARTIAL |
-| `143AC0000000054` | 第十条 | CustomsDamageReduction | YES | YES | NO | PARTIAL |
+| `143AC0000000054` | 第十条 | CustomsDamageReduction | YES | YES | YES | PARTIAL |
 | `143AC0000000054` | 第四条の七 | CustomsExchangeRate | YES | YES | NO | PARTIAL |
 | `143AC0000000054` | 第三条の三 | CustomsSmallConsignment | YES | YES | NO | PARTIAL |
 | `143AC0000000054` | 第四条の六 | CustomsAirCargo | YES | YES | NO | PARTIAL |
 | `143AC0000000054` | 第四条の三 | CustomsDomesticValue | YES | YES | NO | PARTIAL |
 | `143AC0000000054` | 第四条の二 | CustomsSimilarGoods | YES | YES | NO | PARTIAL |
-| `143AC0000000054` | 第四条 | CustomsTransactionPrice | YES | YES | NO | PARTIAL |
+| `143AC0000000054` | 第四条 | CustomsTransactionPrice | YES | YES | YES | PARTIAL |
 | `143AC0000000054` | 第四条の五 | CustomsValueAfterDamage | YES | YES | NO | PARTIAL |
 | `325AC0000000226` | 第三十五条 | LocalIncomeTax | YES | YES | NO | PARTIAL |
-| `322AC0000000175` | 第二条 | DisasterIncomeTaxRelief | YES | YES | NO | PARTIAL |
+| `322AC0000000175` | 第二条 | DisasterIncomeTaxRelief | YES | YES | YES | PARTIAL |
 | `322CO0000000109` | 第三条 | CombinedRegistrationRequest | YES | YES | NO | PARTIAL |
 | `326AC1000000145` | 第十四条 | TaxSavingsPenaltyCap | YES | YES | NO | PARTIAL |
-| `346AC0000000089` | 第七条 | VehicleWeightUnit | YES | YES | NO | PARTIAL |
+| `346AC0000000089` | 第七条 | VehicleWeightUnit | YES | YES | YES | PARTIAL |
 | `352M50000040032` | 第二条 | CapitalFiveBillionThreshold | YES | YES | NO | PARTIAL |
 | `502AC0000000025` | 第七条 | CapitalOneBillionExcess | YES | YES | NO | PARTIAL |
 | `353AC0000000025` | 第二十三条 | PetroleumCoalFineRange | YES | YES | NO | PARTIAL |
+| `328AC0000000007` | 第八十条 | TwoThirdsMembershipThreshold | YES | YES | NO | PARTIAL |
+| `339CO0000000182` | 第二条 | AccessoryPriceFloor | YES | YES | NO | PARTIAL |
+| `327AC0000000111` | 第十一条 | SCFVPenaltyCeiling | YES | YES | NO | PARTIAL |
+| `341M50000008002` | 第五条 | ThousandYenTruncation | YES | YES | NO | PARTIAL |
+| `347CO0000000151` | 第十九条 | OkinawaArt19Bracket8M10M | YES | YES | NO | PARTIAL |
+| `332AC0000000037` | 第十二条 | TonTaxPunishment | YES | YES | NO | PARTIAL |
+| `346M50000040066` | 第六条 | RequiredApplicationDocuments | YES | YES | NO | PARTIAL |
