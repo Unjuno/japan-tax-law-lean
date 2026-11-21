@@ -669,3 +669,6 @@ import JapanTaxLaw.TwoThirdsMembershipThresholdTests
 import JapanTaxLaw.AccessoryPriceFloor
 import JapanTaxLaw.AccessoryPriceFloorSpec
 import JapanTaxLaw.AccessoryPriceFloorTests
+import JapanTaxLaw.TravelerExemptionLimit
+import JapanTaxLaw.TravelerExemptionLimitSpec
+import JapanTaxLaw.TravelerExemptionLimitTests
