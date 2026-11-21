@@ -2380,6 +2380,13 @@ def checks():
            ["最大船長（製造又は修繕をすることができる船舶の長さの最大値をいう。以下この号において同じ。）が、拡張許可前の当該設備における最大船長の一・一五倍を超えることとならない"])
 
 
+    # 航空機燃料譲与税法施行規則 art. 4 — PopulationInterval15M75M.lean
+    yield ("航空機燃料譲与税法施行規則 art. 4（千五百万人超七千五百万人以下の人数）↔ PopulationInterval15M75M.lean (15M<p<=75M)",
+           "347M50000008026",
+           "article", "第四条",
+           ["千五百万人を超え七千五百万人以下の人数"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

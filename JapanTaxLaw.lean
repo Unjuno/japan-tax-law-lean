@@ -918,3 +918,6 @@ import JapanTaxLaw.TariffQuotaAmountTests
 import JapanTaxLaw.MaxLengthMultiplier115
 import JapanTaxLaw.MaxLengthMultiplier115Spec
 import JapanTaxLaw.MaxLengthMultiplier115Tests
+import JapanTaxLaw.PopulationInterval15M75M
+import JapanTaxLaw.PopulationInterval15M75MSpec
+import JapanTaxLaw.PopulationInterval15M75MTests
