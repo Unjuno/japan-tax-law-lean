@@ -879,3 +879,6 @@ import JapanTaxLaw.CorporateSpecialTaxRate2_5Tests
 import JapanTaxLaw.AntiDumpingRate308
 import JapanTaxLaw.AntiDumpingRate308Spec
 import JapanTaxLaw.AntiDumpingRate308Tests
+import JapanTaxLaw.DisasterReliefPenalty
+import JapanTaxLaw.DisasterReliefPenaltySpec
+import JapanTaxLaw.DisasterReliefPenaltyTests

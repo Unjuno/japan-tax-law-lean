@@ -2285,6 +2285,13 @@ def checks():
            ["課税標準法人税額に百分の二・五の税率を乗じて計算した金額とする"])
 
 
+    # 災害被害者租税減免法 art. 5 — DisasterReliefPenalty.lean
+    yield ("災害被害者租税減免法 art. 5（一年以下の拘禁刑・五十万円以下の罰金）↔ DisasterReliefPenalty.lean (1 year, 500000 yen)",
+           "329AC0000000112",
+           "article", "第五条",
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
