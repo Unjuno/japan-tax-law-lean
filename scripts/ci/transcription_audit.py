@@ -1735,6 +1735,13 @@ def checks():
            ["石油石炭税に相当する金額の三倍が五十万円を超える場合"])
 
 
+    # 酒税の保全及び酒類業組合等に関する法律 art. 80 — TwoThirdsMembershipThreshold.lean
+    yield ("酒税の保全及び酒類業組合等に関する法律 art. 80（会員総数が資格者数の三分の二以上）↔ TwoThirdsMembershipThreshold.lean (2/3)",
+           "328AC0000000007",
+           "article", "第八十条",
+           ["会員の総数が前三項の規定により会員たる資格を有する連合会及び酒類業組合の三分の二以上でなければ"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
