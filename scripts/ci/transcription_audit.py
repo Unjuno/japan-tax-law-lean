@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # InheritanceGiftTaxRateBracket2M3M.lean - NORM|a1c39d39... (相続税法 第二十一条の七 贈与税の税率 上欄 2M-3M CONDITION)
+    # Needle is in MainProvision Article 第二十一条の七 (Paragraph 1, table upper-column cell);
+    # find_article_text(...,"第二十一条の七") returns that article (len 253) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("相続税法 第二十一条の七 gift-tax rate bracket 2M-3M - InheritanceGiftTaxRateBracket2M3M.lean",
+           "325AC0000000073",
+           "article", "第二十一条の七",
+           ["\u4e8c\u767e\u4e07\u5186\u3092\u8d85\u3048\u4e09\u767e\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+
     # GolfCourseUseTaxStandardRate.lean - NORM|f345a991... (地方税法 第七十六条(1) 標準税率 800円 EFFECT)
     # Needle is in MainProvision Article 第七十六条 (Paragraph 1, Sentence 1);
     # find_article_text(...,"第七十六条") returns that article (len 173) with needle -
