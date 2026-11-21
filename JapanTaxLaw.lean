@@ -663,3 +663,6 @@ import JapanTaxLaw.OkinawaExamPassTests
 import JapanTaxLaw.TwoThirdsMembershipThreshold
 import JapanTaxLaw.TwoThirdsMembershipThresholdSpec
 import JapanTaxLaw.TwoThirdsMembershipThresholdTests
+import JapanTaxLaw.AccessoryPriceFloor
+import JapanTaxLaw.AccessoryPriceFloorSpec
+import JapanTaxLaw.AccessoryPriceFloorTests
