@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # LightOilDeliveryTaxRate.lean - NORM|1f1e4ed1... (light oil delivery tax rate 15000 yen/kilolitre EFFECT, law 325AC0000000226)
+    # Needle is in MainProvision Article 144_10 (Paragraph 1, Sentence 1);
+    # find_article_text(...,"第百四十四条の十") returns that article (len 48) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("light oil delivery tax rate 15000 yen per kilolitre - LightOilDeliveryTaxRate.lean",
+           "325AC0000000226",
+           "article", "第百四十四条の十",
+           ["\u8efd\u6cb9\u5f15\u53d6\u7a0e\u306e\u7a0e\u7387\u306f\u3001\u4e00\u30ad\u30ed\u30ea\u30c3\u30c8\u30eb\u306b\u3064\u304d\u3001\u4e00\u4e07\u4e94\u5343\u5186\u3068\u3059\u308b\u3002"])
+
     # LocalTaxArt144_33FineTier2.lean - NORM|64559fa7... (fine <= 200M yen CONDITION, law 325AC0000000226)
     # Needle is in MainProvision Article 144_33 (Paragraph 6, Item 2, Column 2, Sentence 1);
     # find_article_text(...,"第百四十四条の三十三") returns that article (len 928) with needle -
