@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # LocalTaxSpecifiedRelativeIncomeCeiling.lean - NORM|82fb8eb5... (地方税法施行規則 第二条の三の五(3)2 特定親族 850k CONDITION)
+    # Needle is in MainProvision Article 第二条の三の五 (Paragraph 3, Item 2, Column 2);
+    # find_article_text(...,"第二条の三の五") returns that article (len 852) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("地方税法施行規則 第二条の三の五(3)2 specified-relative income ceiling 850k - LocalTaxSpecifiedRelativeIncomeCeiling.lean",
+           "329M50000002023",
+           "article", "第二条の三の五",
+           ["\u9000\u8077\u624b\u5f53\u7b49\u306b\u4fc2\u308b\u6240\u5f97\u3092\u6709\u3059\u308b\u8005\u3067\u3042\u3064\u3066\u3001\u5408\u8a08\u6240\u5f97\u91d1\u984d\u304c\u516b\u5341\u4e94\u4e07\u5186\u4ee5\u4e0b\u3067\u3042\u308b\u7279\u5b9a\u89aa\u65cf\u306e\u6c0f\u540d"])
+
     # InheritanceGiftTaxRateBracket2M3M.lean - NORM|a1c39d39... (相続税法 第二十一条の七 贈与税の税率 上欄 2M-3M CONDITION)
     # Needle is in MainProvision Article 第二十一条の七 (Paragraph 1, table upper-column cell);
     # find_article_text(...,"第二十一条の七") returns that article (len 253) with needle -
