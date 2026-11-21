@@ -749,3 +749,6 @@ import JapanTaxLaw.RateSumProrationTests
 import JapanTaxLaw.VersionedApplicationNorms
 import JapanTaxLaw.VersionedApplicationNormsSpec
 import JapanTaxLaw.VersionedApplicationNormsTests
+import JapanTaxLaw.DeemingAndProvisoNorms
+import JapanTaxLaw.DeemingAndProvisoNormsSpec
+import JapanTaxLaw.DeemingAndProvisoNormsTests
