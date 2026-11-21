@@ -792,3 +792,6 @@ import JapanTaxLaw.ClampedSubtractionTests
 import JapanTaxLaw.PetroleumGasFineRange
 import JapanTaxLaw.PetroleumGasFineRangeSpec
 import JapanTaxLaw.PetroleumGasFineRangeTests
+import JapanTaxLaw.PowderCoefficientRounding
+import JapanTaxLaw.PowderCoefficientRoundingSpec
+import JapanTaxLaw.PowderCoefficientRoundingTests

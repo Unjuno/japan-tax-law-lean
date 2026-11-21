@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 81 | 327 | 24.77% |
+| laws with >=1 pinned literal check | 84 | 327 | 25.69% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 242 | n/a | n/a |
-| distinct article pins | 91 | 42584 | 0.21% |
-| pinned Lean modules (cross-law) | 585 | n/a | n/a |
+| pinned literal checks | 250 | n/a | n/a |
+| distinct article pins | 96 | 42584 | 0.23% |
+| pinned Lean modules (cross-law) | 598 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 190 |
+| unpinned Lean modules (not counted as verified) | 201 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -151,10 +151,12 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `337AC0000000066` 国税通則法
 - `337CO0000000097` 酒税法施行令
 - `337M50000008017` 普通交付税に関する省令
+- `337M50000040026` 酒税法施行規則
 - `337M50000040028` 国税通則法施行規則
 - `339CO0000000182` 自家用自動車の一時輸入に関する通関条約の実施に伴う関税法等の特例に関する法律施行令
 - `340AC0000000033` 所得税法
 - `340AC0000000034` 法人税法
+- `340AC0000000156` 石油ガス税法
 - `340AC0000000157` 石油ガス譲与税法
 - `340CO0000000096` 所得税法施行令
 - `340CO0000000097` 法人税法施行令
@@ -162,6 +164,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `342AC0000000023` 印紙税法
 - `342AC0000000035` 登録免許税法
 - `342CO0000000146` 登録免許税法施行令
+- `342M50000040037` 登録免許税法施行規則
 - `344M50000040016` 関税定率法施行規則
 - `346AC0000000089` 自動車重量税法
 - `346AC0000000090` 自動車重量譲与税法
