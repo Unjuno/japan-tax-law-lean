@@ -960,3 +960,6 @@ import JapanTaxLaw.CrossSection15mmTests
 import JapanTaxLaw.ConsumptionTaxSpecialDate
 import JapanTaxLaw.ConsumptionTaxSpecialDateSpec
 import JapanTaxLaw.ConsumptionTaxSpecialDateTests
+import JapanTaxLaw.RegistrationTaxTruncation30k
+import JapanTaxLaw.RegistrationTaxTruncation30kSpec
+import JapanTaxLaw.RegistrationTaxTruncation30kTests

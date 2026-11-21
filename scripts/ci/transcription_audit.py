@@ -2481,6 +2481,13 @@ def checks():
            ["横断面の最大寸法が一・五ミリメートルを超えるもの"])
 
 
+    # 登録免許税法施行令 art. 29 — RegistrationTaxTruncation30k.lean
+    yield ("登録免許税法施行令 art. 29（登録免許税額の三万円未満の端数）↔ RegistrationTaxTruncation30k.lean (30_000)",
+           "342CO0000000146",
+           "article", "第二十九条",
+           ["登記等につき課されるべき登録免許税の額の三万円未満の端数の部分の登録免許税を納付する場合"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
