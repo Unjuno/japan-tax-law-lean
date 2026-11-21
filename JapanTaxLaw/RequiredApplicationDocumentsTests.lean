@@ -53,8 +53,7 @@ example : allDocumentsAttached ({ emptyDocs with equivalentAccepted := true }) =
 example : allDocumentsAttached emptyDocs = false := by decide
 
 -- (e) monotonicity: adding documents to a complete set keeps it complete.
-example : completeDocuments ({ allPresent with articles := true, registryCertificate := true,
-    balanceSheet := true, incomeStatement := true, businessReport := true }) = true :=
+example : completeDocuments ({ allPresent with articles := true, registryCertificate := true, balanceSheet := true, incomeStatement := true, businessReport := true }) = true :=
   complete_monotone allPresent (by decide)
 
 -- (f) completeness requires all five (universal iff, applied to concrete sets).
