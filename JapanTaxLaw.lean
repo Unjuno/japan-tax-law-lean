@@ -704,3 +704,6 @@ import JapanTaxLaw.ArticleRefsAndOrdinalPairsTests
 import JapanTaxLaw.TableLabelsAndTerms
 import JapanTaxLaw.TableLabelsAndTermsSpec
 import JapanTaxLaw.TableLabelsAndTermsTests
+import JapanTaxLaw.ProvisionsAndThresholds
+import JapanTaxLaw.ProvisionsAndThresholdsSpec
+import JapanTaxLaw.ProvisionsAndThresholdsTests
