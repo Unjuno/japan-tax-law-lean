@@ -2330,6 +2330,13 @@ def checks():
            ["輸入する物品の額の総額が二十万円を超えない範囲内"])
 
 
+    # 印紙税法施行令 art. 10 — JointSignatureHeirThreshold.lean
+    yield ("印紙税法施行令 art. 10（相続人が二人以上の場合は連署）↔ JointSignatureHeirThreshold.lean (2 heirs)",
+           "342CO0000000108",
+           "article", "第十条",
+           ["相続人が二人以上ある場合には、前項の申告書は、各相続人が連署して提出するものとする"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
