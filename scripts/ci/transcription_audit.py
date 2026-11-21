@@ -1301,6 +1301,41 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # InheritanceTaxArt56And57Ref.lean - NORM|9444b08b... (article-title cross-reference STRUCTURE, law 325AC0000000073)
+    # Needle is an ArticleTitle heading; find_article_text sees main-provision text only
+    # (verified: len 0, no needle) - use the file-kind locator. Verbatim-unique in whole law.
+    yield ("inheritance tax art.56 and 57 title cross-reference - InheritanceTaxArt56And57Ref.lean",
+           "325AC0000000073",
+           "file", None,
+           ["\u7b2c\u4e94\u5341\u516d\u6761\u53ca\u3073\u7b2c\u4e94\u5341\u4e03\u6761"])
+
+    # CustomsTariffArt1EnforcementDate.lean - NORM|21111ed8... (enforcement date REFERENCE, law 143AC0000000054)
+    # Needle sits in an 附則 (SupplProvision) article; find_article_text sees main only
+    # (verified: find_article_text(...,'第一条') returns len 62 WITHOUT the needle) -
+    # use the file-kind locator. Needle verbatim-unique in whole law; literal via \u escapes.
+    yield ("customs tariff 附則 art.1 enforcement date - CustomsTariffArt1EnforcementDate.lean",
+           "143AC0000000054",
+           "file", None,
+           ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u662d\u548c\u56db\u5341\u4e8c\u5e74\u516d\u6708\u4e00\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
+
+    # CustomsTariffArt14SamplesOrLowPriceException.lean - NORM|5730c268... (samples/low-price exception EXCEPTION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十四条 (Paragraph 1, Item#6, ItemSentence);
+    # find_article_text(...,"第十四条") returns that article (len 1655) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.14 samples or low-price exception - CustomsTariffArt14SamplesOrLowPriceException.lean",
+           "143AC0000000054",
+           "article", "第十四条",
+           ["\u305f\u3060\u3057\u3001\u898b\u672c\u7528\u306b\u306e\u307f\u9069\u3059\u308b\u3068\u8a8d\u3081\u3089\u308c\u308b\u3082\u306e\u53c8\u306f\u8457\u3057\u304f\u4fa1\u984d\u306e\u4f4e\u3044\u3082\u306e\u3068\u3057\u3066\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e\u306b\u9650\u308b\u3002"])
+
+    # CustomsTariffArt4_9Delegation.lean - NORM|183467aae... (delegation to cabinet order DELEGATION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第四条の九 (Paragraph 1, ParagraphSentence);
+    # find_article_text(...,"第四条の九") returns that article (len 61) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.4_9 delegation to cabinet order - CustomsTariffArt4_9Delegation.lean",
+           "143AC0000000054",
+           "article", "第四条の九",
+           ["\u7b2c\u56db\u6761\u304b\u3089\u524d\u6761\u307e\u3067\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u8f38\u5165\u8ca8\u7269\u306e\u8ab2\u7a0e\u4fa1\u683c\u306e\u8a08\u7b97\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
+
     # CustomsTariffArt8ReadingSubstitution.lean - NORM|4faefcb5... (reading substitution READING, law 143AC0000000054)
     # Needle is in MainProvision Article 第八条 (Paragraph 14, ParagraphSentence);
     # find_article_text(...,"第八条") returns that article (len 6919) with needle -
@@ -1887,6 +1922,18 @@ def checks():
            "file", None,
            ["国税審査官百七十四人以内を置く", "国税審査官）第三条"])
 
+    # ConsumptionTaxSpecialDate — cycle-56
+    yield ("ConsumptionTaxSpecialDate.lean",
+           "502CO0000000160",
+           "file", None,
+           ["政令で定める日は、令和三年一月三十一日とする", "消費税の特例に係る政令で定める日"])
+
+    # PeriodEndDayException — cycle-57
+    yield ("PeriodEndDayException.lean",
+           "329CO0000000051",
+           "file", None,
+           ["政令で定める日は、土曜日とする", "期間の末日の特例）第二十一条の二"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2453,6 +2500,41 @@ def checks():
            "325AC0000000226",
            "article", "第三百四十九条の三の二",
            ["住宅用地でその面積が二百平方メートル以下であるもの"])
+
+
+    # 輸徵法 art. 23 — RefundFineRange1M.lean
+    yield ("輸入品内国消費税徴収法 art. 23（罰金範囲・三倍が百万円超）↔ RefundFineRange1M.lean (fineFloor 1_000_000, multiplier 3)",
+           "330AC0000000037",
+           "article", "第二十三条",
+           ["前項の犯罪に係る還付金相当額の三倍が百万円を超えるときは、情状により、同項の罰金は、百万円を超え当該相当額の三倍以下とすることができる"])
+
+
+    # 不当廉売関税政令 art. 1 — CrossSection15mm.lean
+    yield ("不当廉売関税政令 art. 1（横断面の最大寸法一・五ミリメートル超）↔ CrossSection15mm.lean (1.5mm, 15 tenths)",
+           "504CO0000000372",
+           "article", "第一条",
+           ["横断面の最大寸法が一・五ミリメートルを超えるもの"])
+
+
+    # 登録免許税法施行令 art. 29 — RegistrationTaxTruncation30k.lean
+    yield ("登録免許税法施行令 art. 29（登録免許税額の三万円未満の端数）↔ RegistrationTaxTruncation30k.lean (30_000)",
+           "342CO0000000146",
+           "article", "第二十九条",
+           ["登記等につき課されるべき登録免許税の額の三万円未満の端数の部分の登録免許税を納付する場合"])
+
+
+    # 税理士法 art. 6 — AccountingSubjectsCount.lean
+    yield ("税理士法 art. 6（会計学に属する科目・二科目）↔ AccountingSubjectsCount.lean (2 subjects)",
+           "326AC1000000237",
+           "article", "第六条",
+           ["会計学のうち簿記論及び財務諸表論の二科目"])
+
+
+    # 森林環境税法 art. 4 — ForestTaxEligibilityException.lean
+    yield ("森林環境税法 art. 4（非課税対象者の所得制限・百三十五万円）↔ ForestTaxEligibilityException.lean (1_350_000 ceiling)",
+           "431AC0000000003",
+           "article", "第四条",
+           ["障害者、未成年者、寡婦又はひとり親（これらの者の当該年度の初日の属する年の前年（次号において「前年」という。）の合計所得金額が百三十五万円を超える場合を除く。）"])
 
 
 def main() -> int:

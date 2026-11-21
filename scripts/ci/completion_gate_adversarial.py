@@ -213,6 +213,7 @@ def main():
         "findings": findings,
         "verdict": "FAIL" if fails else "PASS",
     }
+    OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(payload, ensure_ascii=False, sort_keys=True, indent=2), encoding="utf-8")
     lines = ["# Adversarial audit of the completion gate", "",
              "repo: `%s`" % REPO, "",

@@ -804,6 +804,12 @@ JapanTaxLaw/TaxJudgeCountTests.lean               # 同上 退行テスト
 JapanTaxLaw/TaxExaminerCount.lean                # 国税審査官定数 174人以内（政令 art.3）L4 モデル
 JapanTaxLaw/TaxExaminerCountSpec.lean            # 同上 独立定式
 JapanTaxLaw/TaxExaminerCountTests.lean           # 同上 退行テスト
+JapanTaxLaw/ConsumptionTaxSpecialDate.lean        # 消費税特例の日 令和3年1月31日（政令 art.7）L4 モデル
+JapanTaxLaw/ConsumptionTaxSpecialDateSpec.lean    # 同上 独立定式
+JapanTaxLaw/ConsumptionTaxSpecialDateTests.lean   # 同上 退行テスト
+JapanTaxLaw/PeriodEndDayException.lean            # 期間末日の特例 土曜日（政令 art.21の2）L4 モデル
+JapanTaxLaw/PeriodEndDayExceptionSpec.lean        # 同上 独立定式
+JapanTaxLaw/PeriodEndDayExceptionTests.lean       # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト
