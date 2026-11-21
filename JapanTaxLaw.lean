@@ -767,3 +767,6 @@ import JapanTaxLaw.CapDeductionRefundNormsTests
 import JapanTaxLaw.RecordAndInterestNorms
 import JapanTaxLaw.RecordAndInterestNormsSpec
 import JapanTaxLaw.RecordAndInterestNormsTests
+import JapanTaxLaw.OfficialPowersAndLimits
+import JapanTaxLaw.OfficialPowersAndLimitsSpec
+import JapanTaxLaw.OfficialPowersAndLimitsTests
