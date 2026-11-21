@@ -6,10 +6,10 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 110
-- presence-facts-only complete: 110
+- articles with explicit pin: 115
+- presence-facts-only complete: 115
 - NOT_STARTED: 6
-- PARTIAL: 104
+- PARTIAL: 109
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
 - BLOCKED: 0
@@ -77,6 +77,9 @@ source positions. Human legal review is a separate axis and is pending.
 | `325M50000040017` | 第三十条 | InheritanceRegPrescribedAmount | YES | YES | NO | PARTIAL |
 | `325CO0000000245` | 第六条の九の二 | LocalTaxOrderArt15_4Amount | YES | NO | NO | NOT_STARTED |
 | `326CO0000000216` | 第六条の二 | TaxAccountantRegDelegatedAmount | YES | YES | NO | PARTIAL |
+| `325AC0000000226` | 第八百三条 | LocalTaxArt803AdministrativeFine | YES | YES | NO | PARTIAL |
+| `325AC0000000226` | 第百四十四条の三十三 | LocalTaxArt144_33FineTier3 | YES | YES | NO | PARTIAL |
+| `325AC0000000226` | 第百四十四条の十 | LightOilDeliveryTaxRate | YES | YES | NO | PARTIAL |
 | `325AC0000000226` | 第百四十四条の三十三 | LocalTaxArt144_33FineTier2 | YES | YES | NO | PARTIAL |
 | `325AC0000000226` | 第百四十四条の三十三 | LocalTaxArt144_33FineTier1 | YES | YES | NO | PARTIAL |
 | `325AC0000000226` | 第五十二条 | LocalTaxCapitalOverFiveBillion | YES | YES | NO | PARTIAL |
@@ -127,3 +130,5 @@ source positions. Human legal review is a separate axis and is pending.
 | `332AC0000000037` | 第十二条 | TonTaxPunishment | YES | YES | NO | PARTIAL |
 | `346M50000040066` | 第六条 | RequiredApplicationDocuments | YES | YES | NO | PARTIAL |
 | `340M50000040011` | 第八十七条 | IncomeRegPaymentCeiling1M | YES | YES | NO | PARTIAL |
+| `342M50000040037` | 第十二条 | ClampedSubtraction | YES | YES | NO | PARTIAL |
+| `340AC0000000156` | 第二十七条 | PetroleumGasFineRange | YES | YES | NO | PARTIAL |
