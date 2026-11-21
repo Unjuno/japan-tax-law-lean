@@ -1301,12 +1301,21 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
-    # 相続税法 第十六条 別表第一(1) — InheritanceTaxRateBracket30_50.lean
+    # 相続税法 第十六条の表(1) — InheritanceTaxRateBracket30_50.lean
+    # InheritanceTaxRateBracket100_200.lean - NORM|ef39cde9... (相続税法 第十六条の表(1) CONDITION)
+    # Needle is in MainProvision Article 第十六条 table cell;
+    # find_article_text(...,"第十六条") returns that article (len 437) with the needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("相続税法 第十六条の表(1) bracket 100M-200M - InheritanceTaxRateBracket100_200.lean",
+           "325AC0000000073",
+           "article", "第十六条",
+           ["\u4e00\u5104\u5186\u3092\u8d85\u3048\u4e8c\u5104\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+
     # Norm unit NORM|2f9abe1626f614eaab2879239d801935a2a1b8cdbc5dde1de4f9c5925696a72b
     # Needle is a MainProvision Article 第十六条 table cell; find_article_text(...,"第十六条")
     # returns that article (len 437) containing the needle — use the precise article locator.
     # Revision from INVENTORY; Lean quote byte-checked against queue needle.
-    yield ("相続税法 第十六条 別表第一(1)（三千万円を超え五千万円以下の金額）↔ InheritanceTaxRateBracket30_50.lean (lowerBoundYen 30000000 / upperBoundYen 50000000)",
+    yield ("相続税法 第十六条の表(1)（三千万円を超え五千万円以下の金額）↔ InheritanceTaxRateBracket30_50.lean (lowerBoundYen 30000000 / upperBoundYen 50000000)",
            "325AC0000000073",
            "article", "第十六条",
            ["三千万円を超え五千万円以下の金額"])

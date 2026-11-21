@@ -1,4 +1,4 @@
-# Unit review — 相続税法 第十六条 別表第一(1)（三千万円超五千万円以下）
+# Unit review — 相続税法 第十六条の表(1)（三千万円超五千万円以下）
 
 Normative unit id: `NORM|2f9abe1626f614eaab2879239d801935a2a1b8cdbc5dde1de4f9c5925696a72b`
 
@@ -21,7 +21,7 @@ Byte fidelity: the Lean 原文 quote and the audit needle were each compared byt
 | field | value |
 |---|---|
 | H (refutable hypothesis) | This table cell defines a taxable-value bracket: > ¥30,000,000 and ≤ ¥50,000,000. |
-| T (reproduction) | `python scripts/ci/transcription_audit.py` article-kind check 「相続税法 第十六条 別表第一(1)…↔ InheritanceTaxRateBracket30_50.lean」 pinned to law 325AC0000000073. Full audit: 201/201 checks passed. |
+| T (reproduction) | `python scripts/ci/transcription_audit.py` article-kind check 「相続税法 第十六条の表(1)…↔ InheritanceTaxRateBracket30_50.lean」 pinned to law 325AC0000000073. Full audit: 201/201 checks passed. |
 | D (decision) | PASS — audit reports `201/201 checks passed`. |
 | C (competing interpretation) | The needle is one bracket cell of a tax rate table; this slice models the interval predicate only. The rate for this bracket, other brackets, base computation, deductions, the rest of 別表第一, and other paragraphs are out of scope. |
 | U (uncertainty) | Transcription fidelity only, not legal correctness. Human legal review remains `LEGAL_REVIEW_PENDING`. |
