@@ -6,10 +6,10 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 115
-- presence-facts-only complete: 115
-- NOT_STARTED: 6
-- PARTIAL: 109
+- articles with explicit pin: 75
+- presence-facts-only complete: 75
+- NOT_STARTED: 3
+- PARTIAL: 72
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
 - BLOCKED: 0
@@ -77,34 +77,6 @@ source positions. Human legal review is a separate axis and is pending.
 | `325M50000040017` | 第三十条 | InheritanceRegPrescribedAmount | YES | YES | NO | PARTIAL |
 | `325CO0000000245` | 第六条の九の二 | LocalTaxOrderArt15_4Amount | YES | NO | NO | NOT_STARTED |
 | `326CO0000000216` | 第六条の二 | TaxAccountantRegDelegatedAmount | YES | YES | NO | PARTIAL |
-| `325AC0000000226` | 第八百三条 | LocalTaxArt803AdministrativeFine | YES | YES | NO | PARTIAL |
-| `325AC0000000226` | 第百四十四条の三十三 | LocalTaxArt144_33FineTier3 | YES | YES | NO | PARTIAL |
-| `325AC0000000226` | 第百四十四条の十 | LightOilDeliveryTaxRate | YES | YES | NO | PARTIAL |
-| `325AC0000000226` | 第百四十四条の三十三 | LocalTaxArt144_33FineTier2 | YES | YES | NO | PARTIAL |
-| `325AC0000000226` | 第百四十四条の三十三 | LocalTaxArt144_33FineTier1 | YES | YES | NO | PARTIAL |
-| `325AC0000000226` | 第五十二条 | LocalTaxCapitalOverFiveBillion | YES | YES | NO | PARTIAL |
-| `337M50000008017` | 第十条 | LocalAllocationTaxRounding | YES | YES | NO | PARTIAL |
-| `332M50000040015` | 第十九条の十の五 | DonationAggregateStrictLimit | YES | NO | NO | NOT_STARTED |
-| `326M50000040055` | 第二十二条の四 | TaxAccountantBalanceSheetUnits | YES | YES | NO | PARTIAL |
-| `337M50000040028` | 第一条の三 | NationalTaxCommonDelegatedAmount | YES | YES | NO | PARTIAL |
-| `335AC0000000036` | 第十六条 | CustomsTemporaryMeasurePenalty | YES | YES | NO | PARTIAL |
-| `335CO0000000069` | 第二十七条 | CustomsTemporaryMeasureDutyFreeThreshold | YES | YES | NO | PARTIAL |
-| `334CO0000000329` | 第四十二条の五 | PublicSaleGuaranteeDeposit | YES | YES | NO | PARTIAL |
-| `329CO0000000164` | 第二条 | CustomsBondedFacilityLicenseFeeItem3 | YES | YES | NO | PARTIAL |
-| `326AC1000000237` | 第六十一条 | TaxAccountantFineLimit | YES | YES | NO | PARTIAL |
-| `329M50000002023` | 第二条の三の五 | LocalTaxSpecifiedRelativeIncomeCeiling | YES | NO | NO | NOT_STARTED |
-| `325AC0000000073` | 第二十一条の七 | InheritanceGiftTaxRateBracket2M3M | YES | YES | NO | PARTIAL |
-| `325AC0000000226` | 第七十六条 | GolfCourseUseTaxStandardRate | YES | YES | NO | PARTIAL |
-| `325AC0000000226` | 第二十三条 | LocalTaxDeductionSpouse | YES | YES | NO | PARTIAL |
-| `325AC0000000226` | 第二十一条 | LocalTaxArt21Penalty | YES | YES | NO | PARTIAL |
-| `325AC0000000226` | 第七十二条の二十四の七 | LocalTaxIncomeBracket4_8 | YES | NO | NO | NOT_STARTED |
-| `325AC0000000073` | 第十六条 | InheritanceTaxRateBracket300_600 | YES | YES | NO | PARTIAL |
-| `325AC0000000073` | 第十六条 | InheritanceTaxRateBracket200_300 | YES | YES | NO | PARTIAL |
-| `325AC0000000073` | 第十六条 | InheritanceTaxRateBracket100_200 | YES | YES | NO | PARTIAL |
-| `325AC0000000073` | 第十六条 | InheritanceTaxRateBracket30_50 | YES | YES | NO | PARTIAL |
-| `325AC0000000073` | 第三十八条 | InheritanceTaxDelinquencyException | YES | YES | NO | PARTIAL |
-| `325M50000040017` | 第三十条 | InheritanceRegSurrenderValueCondition | YES | YES | NO | PARTIAL |
-| `329CO0000000155` | 第一条の二 | CustomsDutiableValueThreshold | YES | YES | NO | PARTIAL |
 | `327AC0000000111` | 第十一条 | UsForcesDutyFreePenalty | YES | YES | NO | PARTIAL |
 | `143AC0000000054` | 第十条 | CustomsDamageReduction | YES | YES | YES | PARTIAL |
 | `143AC0000000054` | 第四条の七 | CustomsExchangeRate | YES | YES | NO | PARTIAL |
@@ -119,16 +91,4 @@ source positions. Human legal review is a separate axis and is pending.
 | `322CO0000000109` | 第三条 | CombinedRegistrationRequest | YES | YES | NO | PARTIAL |
 | `326AC1000000145` | 第十四条 | TaxSavingsPenaltyCap | YES | YES | NO | PARTIAL |
 | `346AC0000000089` | 第七条 | VehicleWeightUnit | YES | YES | YES | PARTIAL |
-| `352M50000040032` | 第二条 | CapitalFiveBillionThreshold | YES | YES | NO | PARTIAL |
-| `502AC0000000025` | 第七条 | CapitalOneBillionExcess | YES | YES | NO | PARTIAL |
-| `353AC0000000025` | 第二十三条 | PetroleumCoalFineRange | YES | YES | NO | PARTIAL |
-| `328AC0000000007` | 第八十条 | TwoThirdsMembershipThreshold | YES | YES | NO | PARTIAL |
-| `339CO0000000182` | 第二条 | AccessoryPriceFloor | YES | YES | NO | PARTIAL |
-| `327AC0000000111` | 第十一条 | SCFVPenaltyCeiling | YES | YES | NO | PARTIAL |
-| `341M50000008002` | 第五条 | ThousandYenTruncation | YES | YES | NO | PARTIAL |
-| `347CO0000000151` | 第十九条 | OkinawaArt19Bracket8M10M | YES | YES | NO | PARTIAL |
-| `332AC0000000037` | 第十二条 | TonTaxPunishment | YES | YES | NO | PARTIAL |
-| `346M50000040066` | 第六条 | RequiredApplicationDocuments | YES | YES | NO | PARTIAL |
-| `340M50000040011` | 第八十七条 | IncomeRegPaymentCeiling1M | YES | YES | NO | PARTIAL |
-| `342M50000040037` | 第十二条 | ClampedSubtraction | YES | YES | NO | PARTIAL |
-| `340AC0000000156` | 第二十七条 | PetroleumGasFineRange | YES | YES | NO | PARTIAL |
+| `340M50000040012` | 第七条の二 | CourseHoursThreshold | YES | YES | YES | PARTIAL |

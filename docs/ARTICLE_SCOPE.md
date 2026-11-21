@@ -6,7 +6,7 @@ A whole-text numeric match is NOT article-level verification. This is a
 source-fidelity diagnostic (D=PASS means needle in stated article only),
 never a completion gate or a semantic/legal claim.
 
-- checks with article/table-cell scoped needles: 252
+- checks with article/table-cell scoped needles: 194
 - checks with no scoped unit: 0
 
 | law_id | stated article | needle hits | scoped positions | D |
@@ -145,39 +145,6 @@ never a completion gate or a semantic/legal claim.
 | `325CO0000000245` | 第六条の九の二 | 2 | 2 | PASS |
 | `326CO0000000216` | 第六条の二 | 2 | 2 | PASS |
 | `322CO0000000268` | (file-level) | 3 | 3 | PASS |
-| `322CO0000000268` | (file-level) | 3 | 3 | PASS |
-| `322CO0000000268` | (file-level) | 3 | 3 | PASS |
-| `322CO0000000268` | (file-level) | 3 | 3 | PASS |
-| `325AC0000000226` | 第八百三条 | 2 | 2 | PASS |
-| `325AC0000000226` | 第百四十四条の三十三 | 3 | 3 | PASS |
-| `325AC0000000226` | 第百四十四条の十 | 2 | 2 | PASS |
-| `325AC0000000226` | 第百四十四条の三十三 | 3 | 3 | PASS |
-| `325AC0000000226` | 第百四十四条の三十三 | 3 | 3 | PASS |
-| `325AC0000000226` | 第五十二条 | 3 | 3 | PASS |
-| `337M50000008017` | 第十条 | 2 | 2 | PASS |
-| `332M50000040015` | 第十九条の十の五 | 3 | 3 | PASS |
-| `326M50000040055` | 第二十二条の四 | 2 | 2 | PASS |
-| `337M50000040028` | 第一条の三 | 2 | 2 | PASS |
-| `335AC0000000036` | 第十六条 | 2 | 2 | PASS |
-| `335CO0000000069` | 第二十七条 | 3 | 3 | PASS |
-| `334CO0000000329` | 第四十二条の五 | 2 | 2 | PASS |
-| `329CO0000000164` | 第二条 | 3 | 3 | PASS |
-| `326AC1000000237` | 第六十一条 | 2 | 2 | PASS |
-| `328AC0000000006` | (file-level) | 2 | 2 | PASS |
-| `329M50000002023` | 第二条の三の五 | 3 | 3 | PASS |
-| `325AC0000000073` | 第二十一条の七 | 3 | 3 | PASS |
-| `325AC0000000226` | 第七十六条 | 2 | 2 | PASS |
-| `325AC0000000226` | 第二十三条 | 3 | 3 | PASS |
-| `325AC0000000226` | 第二十一条 | 2 | 2 | PASS |
-| `325AC0000000226` | 第七十二条の二十四の七 | 4 | 4 | PASS |
-| `322CO0000000268` | (file-level) | 3 | 3 | PASS |
-| `325AC0000000073` | 第十六条 | 3 | 3 | PASS |
-| `325AC0000000073` | 第十六条 | 3 | 3 | PASS |
-| `325AC0000000073` | 第十六条 | 3 | 3 | PASS |
-| `325AC0000000073` | 第十六条 | 3 | 3 | PASS |
-| `325AC0000000073` | 第三十八条 | 2 | 2 | PASS |
-| `325M50000040017` | 第三十条 | 3 | 3 | PASS |
-| `329CO0000000155` | 第一条の二 | 3 | 3 | PASS |
 | `327AC0000000111` | 第十一条 | 2 | 2 | PASS |
 | `431AC0000000003` | (file-level) | 2 | 4 | PASS |
 | `325CO0000000071` | (file-level) | 2 | 4 | PASS |
@@ -187,19 +154,6 @@ never a completion gate or a semantic/legal claim.
 | `337CO0000000097` | (file-level) | 2 | 3 | PASS |
 | `359AC0000000072` | (file-level) | 2 | 3 | PASS |
 | `415M60000008069` | (file-level) | 2 | 4 | PASS |
-| `409CO0000000363` | (file-level) | 2 | 3 | PASS |
-| `347M50000040044` | (file-level) | 2 | 4 | PASS |
-| `335CO0000000069` | (file-level) | 2 | 3 | PASS |
-| `342CO0000000146` | (file-level) | 2 | 3 | PASS |
-| `340AC0000000157` | (file-level) | 12 | 14 | PASS |
-| `431AC0000000004` | (file-level) | 2 | 3 | PASS |
-| `353AC0000000025` | (file-level) | 5 | 9 | PASS |
-| `344M50000040016` | (file-level) | 2 | 3 | PASS |
-| `420M60000008116` | (file-level) | 2 | 4 | PASS |
-| `428CO0000000196` | (file-level) | 2 | 4 | PASS |
-| `429CO0000000234` | (file-level) | 2 | 4 | PASS |
-| `330CO0000000100` | (file-level) | 2 | 4 | PASS |
-| `337M50000040026` | (file-level) | 2 | 4 | PASS |
 | `340AC0000000033` | (file-level) | 4 | 16 | PASS |
 | `332CO0000000043` | (file-level) | 4 | 10 | PASS |
 | `337M50000008017` | (file-level) | 2 | 8 | PASS |
@@ -250,16 +204,4 @@ never a completion gate or a semantic/legal claim.
 | `322CO0000000109` | 第三条 | 2 | 2 | PASS |
 | `326AC1000000145` | 第十四条 | 2 | 2 | PASS |
 | `346AC0000000089` | 第七条 | 2 | 4 | PASS |
-| `352M50000040032` | 第二条 | 4 | 4 | PASS |
-| `502AC0000000025` | 第七条 | 3 | 3 | PASS |
-| `353AC0000000025` | 第二十三条 | 2 | 2 | PASS |
-| `328AC0000000007` | 第八十条 | 2 | 2 | PASS |
-| `339CO0000000182` | 第二条 | 3 | 3 | PASS |
-| `327AC0000000111` | 第十一条 | 2 | 2 | PASS |
-| `341M50000008002` | 第五条 | 2 | 2 | PASS |
-| `347CO0000000151` | 第十九条 | 4 | 4 | PASS |
-| `332AC0000000037` | 第十二条 | 2 | 2 | PASS |
-| `346M50000040066` | 第六条 | 2 | 2 | PASS |
-| `340M50000040011` | 第八十七条 | 3 | 3 | PASS |
-| `342M50000040037` | 第十二条 | 3 | 3 | PASS |
-| `340AC0000000156` | 第二十七条 | 2 | 2 | PASS |
+| `340M50000040012` | 第七条の二 | 3 | 3 | PASS |
