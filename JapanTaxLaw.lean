@@ -728,3 +728,6 @@ import JapanTaxLaw.ShortLabelsAndTermsTests
 import JapanTaxLaw.BareTermsAndRates
 import JapanTaxLaw.BareTermsAndRatesSpec
 import JapanTaxLaw.BareTermsAndRatesTests
+import JapanTaxLaw.MiscStructuralTerms
+import JapanTaxLaw.MiscStructuralTermsSpec
+import JapanTaxLaw.MiscStructuralTermsTests
