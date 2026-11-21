@@ -780,3 +780,6 @@ import JapanTaxLaw.RequiredApplicationDocumentsTests
 import JapanTaxLaw.GasolineTaxCombination
 import JapanTaxLaw.GasolineTaxCombinationSpec
 import JapanTaxLaw.GasolineTaxCombinationTests
+import JapanTaxLaw.ClampedSubtraction
+import JapanTaxLaw.ClampedSubtractionSpec
+import JapanTaxLaw.ClampedSubtractionTests
