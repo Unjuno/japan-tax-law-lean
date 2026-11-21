@@ -909,3 +909,6 @@ import JapanTaxLaw.JointSignatureHeirThresholdTests
 import JapanTaxLaw.TwoStageVotingThreshold
 import JapanTaxLaw.TwoStageVotingThresholdSpec
 import JapanTaxLaw.TwoStageVotingThresholdTests
+import JapanTaxLaw.TariffQuotaAmount
+import JapanTaxLaw.TariffQuotaAmountSpec
+import JapanTaxLaw.TariffQuotaAmountTests

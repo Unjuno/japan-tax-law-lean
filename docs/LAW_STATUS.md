@@ -11,14 +11,14 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 99
+- with >=1 pinned literal check (semantic model): 101
 - with recorded human legal review: 0
 
 ## All laws
 
 | law_id | title | revision | enforcement | raw | parse | articles | pinned checks | human review |
 |---|---|---|---|---|---|---:|---|---|
-| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (13) | NO |
+| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (15) | NO |
 | `322CO0000000109` | 昭和二十二年政令第百九号（財産税法等による物納に因る不動産登記の特例に関する政令） | 322CO0000000109_19470627_000000000000000 | CurrentEnforced | YES | ok | 4 | YES (1) | NO |
 | `322AC0000000175` | 昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律） | 322AC0000000175_20220101_503AC0000000011 | CurrentEnforced | YES | ok | 78 | YES (2) | NO |
 | `322CO0000000268` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施 | 322CO0000000268_20251201_507CO0000000120 | CurrentEnforced | YES | ok | 113 | YES (5) | NO |
@@ -33,7 +33,7 @@ a completion flag.
 | `326AC1000000145` | 納税貯蓄組合法 | 326AC1000000145_20211122_503AC0000000046 | CurrentEnforced | YES | ok | 41 | YES (3) | NO |
 | `326CO0000000099` | 納税貯蓄組合法施行令 | 326CO0000000099_20191216_501CO0000000183 | CurrentEnforced | YES | ok | 14 | YES (1) | NO |
 | `326AC1000000237` | 税理士法 | 326AC1000000237_20251001_505AC0000000053 | CurrentEnforced | YES | ok | 372 | YES (3) | NO |
-| `326CO0000000216` | 税理士法施行令 | 326CO0000000216_20240401_505CO0000000146 | CurrentEnforced | YES | ok | 87 | YES (2) | NO |
+| `326CO0000000216` | 税理士法施行令 | 326CO0000000216_20240401_505CO0000000146 | CurrentEnforced | YES | ok | 87 | YES (3) | NO |
 | `326M50000040055` | 税理士法施行規則 | 326M50000040055_20260901_506M60000040025 | CurrentEnforced | YES | ok | 150 | YES (1) | NO |
 | `327CO0000000057` | 鹿児島県大島郡十島村に関する所得税法等の適用及びこれに伴う経過措置に関する政令 | 327CO0000000057_19521001_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `327AC0000000111` | 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日 | 327AC0000000111_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 62 | YES (2) | NO |
@@ -123,7 +123,7 @@ a completion flag.
 | `341M50000040019` | とん税の納付書の様式を定める省令 | 341M50000040019_19660331_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `341M50000040055` | 関税法施行規則 | 341M50000040055_20260601_508M60000040016 | CurrentEnforced | YES | ok | 184 | NO (0) | NO |
 | `342AC0000000023` | 印紙税法 | 342AC0000000023_20261001_507AC0000000070 | CurrentEnforced | YES | ok | 403 | YES (3) | NO |
-| `342CO0000000108` | 印紙税法施行令 | 342CO0000000108_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 105 | NO (0) | NO |
+| `342CO0000000108` | 印紙税法施行令 | 342CO0000000108_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 105 | YES (1) | NO |
 | `342M50000040019` | 印紙税法施行規則 | 342M50000040019_20010106_412M50000040069 | CurrentEnforced | YES | ok | 26 | NO (0) | NO |
 | `342AC0000000035` | 登録免許税法 | 342AC0000000035_20261101_508AC0000000021 | CurrentEnforced | YES | ok | 716 | YES (32) | NO |
 | `342CO0000000146` | 登録免許税法施行令 | 342CO0000000146_20261001_507CO0000000124 | CurrentEnforced | YES | ok | 142 | YES (1) | NO |
@@ -237,7 +237,7 @@ a completion flag.
 | `415M60000040071` | 国税関係法令に係る情報通信技術を活用した行政の推進等に関する省令 | 415M60000040071_20260924_506M60000040031 | CurrentEnforced | YES | ok | 70 | NO (0) | NO |
 | `416M60000040025` | 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律に基づく租税条約 | 416M60000040025_20250401_507M60000040034 | CurrentEnforced | YES | ok | 20 | NO (0) | NO |
 | `417CO0000000035` | 経済連携協定に基づく関税割当制度に関する政令 | 417CO0000000035_20220401_504CO0000000135 | CurrentEnforced | YES | ok | 29 | NO (0) | NO |
-| `417M60000200012` | 経済連携協定に基づく農林水産省の所掌事務に係る物資の関税割当制度に関する省令 | 417M60000200012_20260401_507M60000200056 | CurrentEnforced | YES | ok | 21 | NO (0) | NO |
+| `417M60000200012` | 経済連携協定に基づく農林水産省の所掌事務に係る物資の関税割当制度に関する省令 | 417M60000200012_20260401_507M60000200056 | CurrentEnforced | YES | ok | 21 | YES (1) | NO |
 | `417M60000400008` | 経済連携協定に基づく経済産業省の所掌事務に係る物資の関税割当制度に関する省令 | 417M60000400008_20220523_504M60000400049 | CurrentEnforced | YES | ok | 15 | NO (0) | NO |
 | `417CO0000000289` | 玉軸受等に対して課する報復関税に関する政令 | 417CO0000000289_20130901_425CO0000000238 | CurrentEnforced | YES | ok | 17 | NO (0) | NO |
 | `417M60000040063` | 玉軸受等に対して課する報復関税に関する政令に規定する原産地の意義に関する省令 | 417M60000040063_20130901_425M60000040050 | CurrentEnforced | YES | ok | 7 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 162
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 165
