@@ -2046,6 +2046,13 @@ def checks():
            ["定款、登記事項証明書並びに最終の貸借対照表、損益計算書及び事業報告"])
 
 
+    # 登録免許税法施行規則 art. 12 — ClampedSubtraction.lean
+    yield ("登録免許税法施行規則 art. 12（イからロを控除し零を下回れば零）↔ ClampedSubtraction.lean (saturating subtraction)",
+           "342M50000040037",
+           "article", "第十二条",
+           ["イに掲げる額からロに掲げる額を控除した額（当該控除した額が零を下回る場合にあつては、零）"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
