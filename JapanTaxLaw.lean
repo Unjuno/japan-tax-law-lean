@@ -885,3 +885,6 @@ import JapanTaxLaw.AntiDumpingRate308Tests
 import JapanTaxLaw.DisasterReliefPenalty
 import JapanTaxLaw.DisasterReliefPenaltySpec
 import JapanTaxLaw.DisasterReliefPenaltyTests
+import JapanTaxLaw.AviationFuelTaxAmountFloor
+import JapanTaxLaw.AviationFuelTaxAmountFloorSpec
+import JapanTaxLaw.AviationFuelTaxAmountFloorTests

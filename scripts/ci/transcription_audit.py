@@ -2301,6 +2301,13 @@ def checks():
            ["一年以下の拘禁刑又は五十万円以下の罰金に処する"])
 
 
+    # 国税局課税部等所掌事務範囲省令 art. 2 — AviationFuelTaxAmountFloor.lean
+    yield ("国税局課税部等所掌事務範囲省令 art. 2（航空機燃料税額五千万円以上）↔ AviationFuelTaxAmountFloor.lean (50_000_000)",
+           "352M50000040032",
+           "article", "第二条",
+           ["一年中に航空機に積み込まれた航空機燃料に係る航空機燃料税の額に相当する金額が五千万円以上であること"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
