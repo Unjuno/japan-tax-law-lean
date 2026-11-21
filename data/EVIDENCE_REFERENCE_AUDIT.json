@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 1060,
+  "checks": 1064,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -11661,11 +11661,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/LocalTaxArt734AmountTier1Tests.lean",
       "unit_id": "NORM|41efee8e91f1bcde685ed332b7b7d8e7b2d82fa083062d8f7d0a45e5503c57c7"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_INHERITANCE_GIFT_BRACKET_10M_15M.md — independent agent: NO CONCRETE FINDINGS, all 7 checks pass. Verif",
+      "unit_id": "NORM|ea52192b370dfc9fb140a8fd3bce79fc75c7f620238385eeaff1a960ed9db653"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/InheritanceGiftTaxRateBracket10M15M.lean",
+      "unit_id": "NORM|ea52192b370dfc9fb140a8fd3bce79fc75c7f620238385eeaff1a960ed9db653"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/InheritanceGiftTaxRateBracket10M15MSpec.lean",
+      "unit_id": "NORM|ea52192b370dfc9fb140a8fd3bce79fc75c7f620238385eeaff1a960ed9db653"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/InheritanceGiftTaxRateBracket10M15MTests.lean",
+      "unit_id": "NORM|ea52192b370dfc9fb140a8fd3bce79fc75c7f620238385eeaff1a960ed9db653"
     }
   ],
-  "resolved": 1056,
+  "resolved": 1060,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 224,
+  "units_checked": 225,
   "unresolved": 4
 }
