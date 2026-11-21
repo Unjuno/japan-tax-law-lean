@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # CustomsTariffArt21Deeming.lean - NORM|1171722dae... (region deemed foreign DEEMING, law 143AC0000000054)
+    # Needle is in MainProvision Article 第二十一条 (Paragraph 1, ParagraphSentence);
+    # find_article_text(...,"第二十一条") returns that article (len 53) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.21 region deemed foreign - CustomsTariffArt21Deeming.lean",
+           "143AC0000000054",
+           "article", "第二十一条",
+           ["\u3053\u306e\u6cd5\u5f8b\u306e\u9069\u7528\u306b\u3064\u3044\u3066\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u672c\u90a6\u306e\u5730\u57df\u306f\u3001\u5f53\u5206\u306e\u9593\u3001\u5916\u56fd\u3068\u307f\u306a\u3059\u3002"])
+
     # CustomsTariffArt3TaxBase.lean - NORM|88116e54... (tax-base price-or-quantity EFFECT, law 143AC0000000054)
     # Needle is in MainProvision Article 第三条 (Paragraph 1, ParagraphSentence);
     # find_article_text(...,"第三条") returns that article (len 56) with needle -
