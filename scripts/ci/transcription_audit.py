@@ -2488,6 +2488,13 @@ def checks():
            ["登記等につき課されるべき登録免許税の額の三万円未満の端数の部分の登録免許税を納付する場合"])
 
 
+    # 税理士法 art. 6 — AccountingSubjectsCount.lean
+    yield ("税理士法 art. 6（会計学に属する科目・二科目）↔ AccountingSubjectsCount.lean (2 subjects)",
+           "326AC1000000237",
+           "article", "第六条",
+           ["会計学のうち簿記論及び財務諸表論の二科目"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
