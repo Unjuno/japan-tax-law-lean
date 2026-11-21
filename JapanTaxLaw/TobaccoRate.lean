@@ -6,7 +6,7 @@ import JapanTaxLaw.TaxFinance
 Sources (pinned):
   Law id: 359AC0000000072
   Revision: 359AC0000000072_20260525_506AC0000000052
-  Raw snapshot: data/raw/data/raw/359AC0000000072_20260525_506AC0000000052.law.json
+  Raw snapshot: data/raw/359AC0000000072_20260525_506AC0000000052.law.json
   Article Num 11, flat/normalized leaf text 151 chars, U+3000 count 0.
 
 原文逐語（税率スライス）:

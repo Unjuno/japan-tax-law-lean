@@ -22,7 +22,7 @@ refuted. The unit is faithful and sound.
 | INVENTORY `current_revision.law_revision_id` | `322CO0000000268_20251201_507CO0000000120` | ✅ |
 | INVENTORY `source_file` / `source_sha256` | `data/raw/…0120.law.json` / `F6FE1C…A21C` | ✅ (case-insensitive) |
 | Raw `revision_info.law_revision_id` | `322CO0000000268_20251201_507CO0000000120` | ✅ |
-| Raw `law_title` / `law_type` / `abbrev` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴税猶予等に関する法律の施行に関する政令） / `CabinetOrder` / 災害減免法の施行に関する政令 | ✅ (Cabinet Order = 政令, not 法律) |
+| Raw `law_title` / `law_type` / `abbrev` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施行に関する政令） / `CabinetOrder` / 災害減免法の施行に関する政令 | ✅ (Cabinet Order = 政令, not 法律) |
 | Needle count in whole law | **1** (verbatim-unique) | ✅ |
 | Structural chain of needle | `Law > LawBody[32] > SupplProvision > Article(Num=3, ArticleTitle=第三条) > Paragraph(Num=5) > Item(Num=2) > ItemSentence > Column(Num=1) > Sentence(Num=1)` | ✅ |
 | 附則 attachment | `in_suppl=True`; queue `provision=SUPPLEMENTARY` | ✅ |

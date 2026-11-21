@@ -732,6 +732,12 @@ JapanTaxLaw/TobaccoRateTests.lean                # 同上 退行テスト
 JapanTaxLaw/StampExchangeFee.lean                 # 印紙税法施行規則 art.9（交換手数料）L4 モデル
 JapanTaxLaw/StampExchangeFeeSpec.lean             # 同上 独立定式
 JapanTaxLaw/StampExchangeFeeTests.lean            # 同上 退行テスト
+JapanTaxLaw/RemittanceReportLimit.lean            # 国外送金等調書 上限額 100万円 L4 モデル
+JapanTaxLaw/RemittanceReportLimitSpec.lean        # 同上 独立定式
+JapanTaxLaw/RemittanceReportLimitTests.lean       # 同上 退行テスト
+JapanTaxLaw/OkinawaExamPass.lean                   # 沖縄特例試験 合格基準 60%/40% L4 モデル
+JapanTaxLaw/OkinawaExamPassSpec.lean               # 同上 独立定式
+JapanTaxLaw/OkinawaExamPassTests.lean              # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト

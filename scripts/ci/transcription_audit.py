@@ -1270,7 +1270,57 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が四百五十万円を超え六百万円以下である被災給与所得者"])
 
+    # 災害被害者租税減免等施行令 附則第三条(5)第三号 — DisasterVictimRemunerationBracket.lean
+    # Norm unit NORM|8fb64d19e0267aac50775840f08f843558b85e1e81cef3bd11e4d9ce19aece9e
+    # Needle is in a 附則 (SupplProvision) article. Verified: find_article_text(...,"第三条")
+    # returns a DIFFERENT main-provision article (len 106) that does NOT contain the needle;
+    # the needle is verbatim-unique in the whole law, so use the file-kind locator.
+    # Revision from INVENTORY; Lean quote byte-checked against the queue needle.
+    yield ("災害被害者租税減免等施行令 附則第三条(5)第三号（災害時の合計所得金額の見積額が四百万円を超え四百五十万円以下である報酬等の支払を受ける者）↔ DisasterVictimRemunerationBracket.lean (lowerBoundYen 4000000 / upperBoundYen 4500000)",
+           "322CO0000000268",
+           "file", None,
+           ["災害時の合計所得金額の見積額が四百万円を超え四百五十万円以下である報酬等の支払を受ける者"])
+
+    # 災害被害者租税減免等施行令 附則第三条(5)第四号 — DisasterVictimRemunerationUpperBracket.lean
+    # Norm unit NORM|15ab667908d0c90131769e67aca475da403c9dd4f7b020c2bb2a96865ca48ffb
+    # Needle is in a 附則 article; find_article_text(...,"第三条") returns a different
+    # 106-char main-provision article without the needle, needle is verbatim-unique —
+    # use the file-kind locator. Revision from INVENTORY; Lean quote byte-checked.
+    yield ("災害被害者租税減免等施行令 附則第三条(5)第四号（災害時の合計所得金額の見積額が四百五十万円を超え六百万円以下である報酬等の支払を受ける者）↔ DisasterVictimRemunerationUpperBracket.lean (lowerBoundYen 4500000 / upperBoundYen 6000000)",
+           "322CO0000000268",
+           "file", None,
+           ["災害時の合計所得金額の見積額が四百五十万円を超え六百万円以下である報酬等の支払を受ける者"])
+
+    # 災害被害者租税減免等施行令 附則第三条(5)第一号 — DisasterGrantIncomeBracket.lean
+    # Norm unit NORM|c954475ca9c88c0944dd316e84af4945d6863fea5ec0b180ecf1813c71ca92db
+    # Needle is in a 附則 article; find_article_text(...,"第三条") returns a different
+    # 106-char main-provision article without the needle, needle verbatim-unique —
+    # use the file-kind locator. Revision from INVENTORY; Lean quote byte-checked.
+    yield ("災害被害者租税減免等施行令 附則第三条(5)第一号（災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等）↔ DisasterGrantIncomeBracket.lean (lowerBoundYen 6000000 / upperBoundYen 7500000)",
+           "322CO0000000268",
+           "file", None,
+           ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
+
+    # 相続税法 第十六条 別表第一(1) — InheritanceTaxRateBracket30_50.lean
+    # Norm unit NORM|2f9abe1626f614eaab2879239d801935a2a1b8cdbc5dde1de4f9c5925696a72b
+    # Needle is a MainProvision Article 第十六条 table cell; find_article_text(...,"第十六条")
+    # returns that article (len 437) containing the needle — use the precise article locator.
+    # Revision from INVENTORY; Lean quote byte-checked against queue needle.
+    yield ("相続税法 第十六条 別表第一(1)（三千万円を超え五千万円以下の金額）↔ InheritanceTaxRateBracket30_50.lean (lowerBoundYen 30000000 / upperBoundYen 50000000)",
+           "325AC0000000073",
+           "article", "第十六条",
+           ["三千万円を超え五千万円以下の金額"])
+
     # 関税定率法施行令 art.1の2(1)第三号 — CustomsDutiableValueThreshold.lean
+    # InheritanceTaxDelinquencyException.lean - NORM|6c279214... (相続税法 第三十八条(4) EXCEPTION)
+    # Needle is in MainProvision Article 第三十八条 (Paragraph 4, Sentence 2);
+    # find_article_text(...,"第三十八条") returns that article (len 1052) containing the
+    # needle - use the precise article locator. Needle literal derived from queue via \u escapes.
+    yield ("相続税法 第三十八条(4) exception - InheritanceTaxDelinquencyException.lean",
+           "325AC0000000073",
+           "article", "第三十八条",
+           ["\u305f\u3060\u3057\u3001\u305d\u306e\u5ef6\u7d0d\u7a0e\u984d\u304c\u767e\u4e07\u5186\u4ee5\u4e0b\u3067\u3001\u304b\u3064\u3001\u305d\u306e\u5ef6\u7d0d\u671f\u9593\u304c\u4e09\u5e74\u4ee5\u4e0b\u3067\u3042\u308b\u5834\u5408\u306f\u3001\u3053\u306e\u9650\u308a\u3067\u306a\u3044\u3002"])
+
     # Norm unit NORM|347d0d0ebd32cab1a2f5054abe7a87ebe56cae34b125a2481f38c63e5cf05723
     # Needle is in MainProvision Article 第一条の二 (attr Num=1_2, Item 3). Adversarial
     # review confirmed find_article_text returns that article (len 770) containing the
@@ -1335,6 +1385,18 @@ def checks():
            "415M60000008069",
            "file", None,
            ["印紙の交換手数料の額は、交換の請求に係るもの一枚につき五円とする", "その額に一円未満の端数があるときは、その端数を切り捨てた額）とする"])
+
+    # RemittanceReportLimit — cycle-31
+    yield ("RemittanceReportLimit.lean",
+           "409CO0000000363",
+           "file", None,
+           ["国外送金等調書の提出を要しない国外送金等の上限額）第八条法第四条第一項に規定する政令で定める金額は、百万円とする", "外国通貨で表示された金額で行われる場合における前項の規定の適用に係る外国通貨の本邦通貨への換算は、財務省令で定める外国為替相場を用いて行う"])
+
+    # OkinawaExamPass — cycle-32
+    yield ("OkinawaExamPass.lean",
+           "347M50000040044",
+           "file", None,
+           ["沖繩特例試験の合格基準は、各試験科目の満点の合計数（次条において「総点数」という。）の百分の六十とする", "一科目につき、その満点の百分の四十に満たないものがある者は、不合格とすることができる"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -1652,6 +1714,13 @@ def checks():
            "502AC0000000025",
            "article", "第七条",
            ["資本金の額又は出資金の額が十億円を超える法人"])
+
+
+    # 石油石炭税法 art. 23 — PetroleumCoalFineRange.lean
+    yield ("石油石炭税法 art. 23（罰金の範囲・三倍が五十万円超）↔ PetroleumCoalFineRange.lean (fineFloor 500_000, multiplier 3)",
+           "353AC0000000025",
+           "article", "第二十三条",
+           ["石油石炭税に相当する金額の三倍が五十万円を超える場合"])
 
 
 def main() -> int:

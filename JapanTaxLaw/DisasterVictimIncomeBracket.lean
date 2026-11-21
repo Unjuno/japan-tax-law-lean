@@ -6,7 +6,7 @@ import JapanTaxLaw.TaxFinance
 Pinned source:
   Law id: 322CO0000000268
   Official title: 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、
-    徴税猶予等に関する法律の施行に関する政令） — 災害被害者租税減免等施行令
+    徴収猶予等に関する法律の施行に関する政令） — 災害被害者租税減免等施行令
   Law number: 昭和二十二年政令第二百六十八号
   Law type: CabinetOrder (政令)
   Revision: 322CO0000000268_20251201_507CO0000000120
