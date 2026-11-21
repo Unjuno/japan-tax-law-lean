@@ -660,3 +660,6 @@ import JapanTaxLaw.PetroleumCoalFineRangeTests
 import JapanTaxLaw.OkinawaExamPass
 import JapanTaxLaw.OkinawaExamPassSpec
 import JapanTaxLaw.OkinawaExamPassTests
+import JapanTaxLaw.TwoThirdsMembershipThreshold
+import JapanTaxLaw.TwoThirdsMembershipThresholdSpec
+import JapanTaxLaw.TwoThirdsMembershipThresholdTests
