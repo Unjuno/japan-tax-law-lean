@@ -764,3 +764,6 @@ import JapanTaxLaw.ProceduralDeonticNormsTests
 import JapanTaxLaw.CapDeductionRefundNorms
 import JapanTaxLaw.CapDeductionRefundNormsSpec
 import JapanTaxLaw.CapDeductionRefundNormsTests
+import JapanTaxLaw.RecordAndInterestNorms
+import JapanTaxLaw.RecordAndInterestNormsSpec
+import JapanTaxLaw.RecordAndInterestNormsTests
