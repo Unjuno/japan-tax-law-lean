@@ -2368,6 +2368,13 @@ def checks():
            ["会員の二分の一以上の者が出席し、その出席者の過半数で決するものとし、可否同数のときは、議長の決するところによる"])
 
 
+    # 船舶設備規制 art. 21 — MaxLengthMultiplier115.lean
+    yield ("船舶設備規制 art. 21（拡張後最大船長が拡張前の一・一五倍を超えない）↔ MaxLengthMultiplier115.lean (115/100)",
+           "342CO0000000146",
+           "article", "第二十一条",
+           ["最大船長（製造又は修繕をすることができる船舶の長さの最大値をいう。以下この号において同じ。）が、拡張許可前の当該設備における最大船長の一・一五倍を超えることとならない"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
