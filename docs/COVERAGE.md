@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 84 | 327 | 25.69% |
+| laws with >=1 pinned literal check | 88 | 327 | 26.91% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 258 | n/a | n/a |
-| distinct article pins | 94 | 42584 | 0.22% |
-| pinned Lean modules (cross-law) | 651 | n/a | n/a |
+| pinned literal checks | 268 | n/a | n/a |
+| distinct article pins | 102 | 42584 | 0.24% |
+| pinned Lean modules (cross-law) | 669 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 241 |
+| unpinned Lean modules (not counted as verified) | 253 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 44 |
+| adversarial review sessions recorded | 46 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -163,6 +163,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `341M50000008002` 石油ガス譲与税法施行規則
 - `342AC0000000023` 印紙税法
 - `342AC0000000035` 登録免許税法
+- `342CO0000000108` 印紙税法施行令
 - `342CO0000000146` 登録免許税法施行令
 - `344M50000040016` 関税定率法施行規則
 - `346AC0000000089` 自動車重量税法
@@ -173,6 +174,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `347M50000040044` 沖繩の復帰に伴う国税関係以外の大蔵省関係法令の適用の特別措置等に関する省令
 - `349AC0000000079` 電源開発促進税法
 - `351M50000008035` 特別交付税に関する省令
+- `352M50000040032` 国税局課税部等の統括国税調査官等の所掌に属する事務の範囲を定める省令
 - `353AC0000000025` 石油石炭税法
 - `359AC0000000072` たばこ税法
 - `363AC0000000107` 税制改革法
@@ -183,9 +185,11 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `404AC0000000015` 法人特別税法
 - `409CO0000000363` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行令
 - `415M60000008069` 収入印紙及び自動車重量税印紙の売りさばきに関する省令
+- `417M60000200012` 経済連携協定に基づく農林水産省の所掌事務に係る物資の関税割当制度に関する省令
 - `420AC0000000084` 地方税等減収補てん臨時交付金に関する法律
 - `420M60000008116` 地方税等減収補てん臨時交付金に関する省令
 - `426AC0000000011` 地方法人税法
+- `426CO0000000415` トルエンジイソシアナートに対して課する不当廉売関税に関する政令
 - `428CO0000000196` 水酸化カリウムに対して課する不当廉売関税に関する政令
 - `429CO0000000234` 高重合度ポリエチレンテレフタレートに対して課する不当廉売関税に関する政令
 - `430AC0000000016` 国際観光旅客税法

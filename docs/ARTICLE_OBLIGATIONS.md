@@ -6,10 +6,10 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 112
-- presence-facts-only complete: 112
+- articles with explicit pin: 120
+- presence-facts-only complete: 120
 - NOT_STARTED: 6
-- PARTIAL: 106
+- PARTIAL: 114
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
 - BLOCKED: 0
@@ -77,6 +77,9 @@ source positions. Human legal review is a separate axis and is pending.
 | `325M50000040017` | 第三十条 | InheritanceRegPrescribedAmount | YES | YES | NO | PARTIAL |
 | `325CO0000000245` | 第六条の九の二 | LocalTaxOrderArt15_4Amount | YES | NO | NO | NOT_STARTED |
 | `326CO0000000216` | 第六条の二 | TaxAccountantRegDelegatedAmount | YES | YES | NO | PARTIAL |
+| `143AC0000000054` | 第二十一条 | CustomsTariffArt21Deeming | YES | YES | NO | PARTIAL |
+| `143AC0000000054` | 第三条 | CustomsTariffArt3TaxBase | YES | YES | NO | PARTIAL |
+| `325AC0000000226` | 第百五十四条 | LocalTaxArt154FreightTonSurcharge | YES | YES | NO | PARTIAL |
 | `325AC0000000073` | 第二十一条の七 | InheritanceGiftTaxRateBracket10M15M | YES | YES | NO | PARTIAL |
 | `325AC0000000226` | 第七百三十四条 | LocalTaxArt734AmountTier1 | YES | YES | NO | PARTIAL |
 | `325AC0000000073` | 第二十一条の七 | InheritanceGiftTaxRateBracket4M6M | YES | YES | NO | PARTIAL |
@@ -129,3 +132,8 @@ source positions. Human legal review is a separate axis and is pending.
 | `326CO0000000099` | 第三条 | SixMonthPeriodDeeming | YES | YES | NO | PARTIAL |
 | `404AC0000000015` | 第十条 | CorporateSpecialTaxRate2_5 | YES | YES | NO | PARTIAL |
 | `329AC0000000112` | 第五条 | DisasterReliefPenalty | YES | YES | NO | PARTIAL |
+| `352M50000040032` | 第二条 | AviationFuelTaxAmountFloor | YES | YES | NO | PARTIAL |
+| `329CO0000000155` | 第十三条の六 | ImportValueCap200k | YES | YES | NO | PARTIAL |
+| `342CO0000000108` | 第十条 | JointSignatureHeirThreshold | YES | YES | NO | PARTIAL |
+| `326CO0000000216` | 第九条 | TwoStageVotingThreshold | YES | YES | NO | PARTIAL |
+| `342CO0000000146` | 第二十一条 | MaxLengthMultiplier115 | YES | YES | NO | PARTIAL |

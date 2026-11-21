@@ -1301,6 +1301,33 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # CustomsTariffArt21Deeming.lean - NORM|1171722dae... (region deemed foreign DEEMING, law 143AC0000000054)
+    # Needle is in MainProvision Article 第二十一条 (Paragraph 1, ParagraphSentence);
+    # find_article_text(...,"第二十一条") returns that article (len 53) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.21 region deemed foreign - CustomsTariffArt21Deeming.lean",
+           "143AC0000000054",
+           "article", "第二十一条",
+           ["\u3053\u306e\u6cd5\u5f8b\u306e\u9069\u7528\u306b\u3064\u3044\u3066\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u672c\u90a6\u306e\u5730\u57df\u306f\u3001\u5f53\u5206\u306e\u9593\u3001\u5916\u56fd\u3068\u307f\u306a\u3059\u3002"])
+
+    # CustomsTariffArt3TaxBase.lean - NORM|88116e54... (tax-base price-or-quantity EFFECT, law 143AC0000000054)
+    # Needle is in MainProvision Article 第三条 (Paragraph 1, ParagraphSentence);
+    # find_article_text(...,"第三条") returns that article (len 56) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.3 tax base price-or-quantity - CustomsTariffArt3TaxBase.lean",
+           "143AC0000000054",
+           "article", "第三条",
+           ["\u95a2\u7a0e\u306f\u3001\u8f38\u5165\u8ca8\u7269\u306e\u4fa1\u683c\u53c8\u306f\u6570\u91cf\u3092\u8ab2\u7a0e\u6a19\u6e96\u3068\u3057\u3066\u8ab2\u3059\u308b\u3082\u306e\u3068\u3057\u3001\u305d\u306e\u7a0e\u7387\u306f\u3001\u5225\u8868\u306b\u3088\u308b\u3002"])
+
+    # LocalTaxArt154FreightTonSurcharge.lean - NORM|cdd69708e... (freight surcharge formula CONDITION, law 325AC0000000226)
+    # Needle is in MainProvision Article 第百五十四条 (Paragraph 1, table cell);
+    # find_article_text(...,"第百五十四条") returns that article (len 3565) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("local tax art.154 freight ton surcharge - LocalTaxArt154FreightTonSurcharge.lean",
+           "325AC0000000226",
+           "article", "第百五十四条",
+           ["\u56db\u4e07\u4e94\u767e\u5186\u306b\u6700\u5927\u7a4d\u8f09\u91cf\u304c\u516b\u30c8\u30f3\u3092\u8d85\u3048\u308b\u90e8\u5206\u4e00\u30c8\u30f3\u307e\u3067\u3054\u3068\u306b\u516d\u5343\u4e09\u767e\u5186\u3092\u52a0\u7b97\u3057\u305f\u984d"])
+
     # InheritanceGiftTaxRateBracket10M15M.lean - NORM|ea52192b... (gift-tax rate bracket 10M-15M CONDITION, law 325AC0000000073)
     # Needle is in MainProvision Article 第二十一条の七 (Paragraph 1, table upper-column cell);
     # find_article_text(...,"第二十一条の七") returns that article (len 253) with needle -
@@ -1818,6 +1845,18 @@ def checks():
            "file", None,
            ["三十・八パーセント", "不当廉売関税の税率は"])
 
+    # AntiDumpingRate694 — cycle-52
+    yield ("AntiDumpingRate694.lean",
+           "426CO0000000415",
+           "file", None,
+           ["六十九・四パーセント", "不当廉売関税の税率は"])
+
+    # TariffQuotaAmount — cycle-53
+    yield ("TariffQuotaAmount.lean",
+           "417M60000200012",
+           "file", None,
+           ["間は八千トンとする", "関税割当数量）第五条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2149,6 +2188,41 @@ def checks():
            "329AC0000000112",
            "article", "第五条",
            ["一年以下の拘禁刑又は五十万円以下の罰金に処する"])
+
+
+    # 国税局課税部等所掌事務範囲省令 art. 2 — AviationFuelTaxAmountFloor.lean
+    yield ("国税局課税部等所掌事務範囲省令 art. 2（航空機燃料税額五千万円以上）↔ AviationFuelTaxAmountFloor.lean (50_000_000)",
+           "352M50000040032",
+           "article", "第二条",
+           ["一年中に航空機に積み込まれた航空機燃料に係る航空機燃料税の額に相当する金額が五千万円以上であること"])
+
+
+    # 関税定率法施行令 art. 13_6 — ImportValueCap200k.lean
+    yield ("関税定率法施行令 art. 13の6（輸入物品の額の総額二十万円を超えない）↔ ImportValueCap200k.lean (200_000)",
+           "329CO0000000155",
+           "article", "第十三条の六",
+           ["輸入する物品の額の総額が二十万円を超えない範囲内"])
+
+
+    # 印紙税法施行令 art. 10 — JointSignatureHeirThreshold.lean
+    yield ("印紙税法施行令 art. 10（相続人が二人以上の場合は連署）↔ JointSignatureHeirThreshold.lean (2 heirs)",
+           "342CO0000000108",
+           "article", "第十条",
+           ["相続人が二人以上ある場合には、前項の申告書は、各相続人が連署して提出するものとする"])
+
+
+    # 税理士法施行令 art. 9 — TwoStageVotingThreshold.lean
+    yield ("税理士法施行令 art. 9（会員の二分の一以上出席・出席者の過半数で決する）↔ TwoStageVotingThreshold.lean (1/2 quorum, >1/2 majority)",
+           "326CO0000000216",
+           "article", "第九条",
+           ["会員の二分の一以上の者が出席し、その出席者の過半数で決するものとし、可否同数のときは、議長の決するところによる"])
+
+
+    # 船舶設備規制 art. 21 — MaxLengthMultiplier115.lean
+    yield ("船舶設備規制 art. 21（拡張後最大船長が拡張前の一・一五倍を超えない）↔ MaxLengthMultiplier115.lean (115/100)",
+           "342CO0000000146",
+           "article", "第二十一条",
+           ["最大船長（製造又は修繕をすることができる船舶の長さの最大値をいう。以下この号において同じ。）が、拡張許可前の当該設備における最大船長の一・一五倍を超えることとならない"])
 
 
 def main() -> int:
