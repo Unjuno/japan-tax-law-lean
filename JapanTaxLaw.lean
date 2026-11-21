@@ -756,3 +756,6 @@ import JapanTaxLaw.AntiDumpingRateTests
 import JapanTaxLaw.AntiDumpingRate53
 import JapanTaxLaw.AntiDumpingRate53Spec
 import JapanTaxLaw.AntiDumpingRate53Tests
+import JapanTaxLaw.TonTaxPunishment
+import JapanTaxLaw.TonTaxPunishmentSpec
+import JapanTaxLaw.TonTaxPunishmentTests
