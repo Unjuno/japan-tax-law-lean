@@ -698,3 +698,6 @@ import JapanTaxLaw.LegalStructuralMarkersTests
 import JapanTaxLaw.TransitionalHeadingsAndRefs
 import JapanTaxLaw.TransitionalHeadingsAndRefsSpec
 import JapanTaxLaw.TransitionalHeadingsAndRefsTests
+import JapanTaxLaw.ArticleRefsAndOrdinalPairs
+import JapanTaxLaw.ArticleRefsAndOrdinalPairsSpec
+import JapanTaxLaw.ArticleRefsAndOrdinalPairsTests
