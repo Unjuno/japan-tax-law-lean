@@ -852,3 +852,6 @@ import JapanTaxLaw.TaxAccountantFineCap300kTests
 import JapanTaxLaw.PenaltyCap50k
 import JapanTaxLaw.PenaltyCap50kSpec
 import JapanTaxLaw.PenaltyCap50kTests
+import JapanTaxLaw.PowerDevelopmentTaxRate
+import JapanTaxLaw.PowerDevelopmentTaxRateSpec
+import JapanTaxLaw.PowerDevelopmentTaxRateTests

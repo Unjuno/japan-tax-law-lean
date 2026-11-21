@@ -783,6 +783,9 @@ JapanTaxLaw/LandValuePerSquareMeterTests.lean     # 同上 退行テスト
 JapanTaxLaw/PassengerCapacity.lean                  # 乗用自動車の範囲（乗車定員10人以下）L4 モデル
 JapanTaxLaw/PassengerCapacitySpec.lean              # 同上 独立定式
 JapanTaxLaw/PassengerCapacityTests.lean             # 同上 退行テスト
+JapanTaxLaw/PowerDevelopmentTaxRate.lean          # 電源開発促進税 税率 375円/千kWh L4 モデル
+JapanTaxLaw/PowerDevelopmentTaxRateSpec.lean      # 同上 独立定式
+JapanTaxLaw/PowerDevelopmentTaxRateTests.lean     # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト

@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 89 | 327 | 27.22% |
+| laws with >=1 pinned literal check | 91 | 327 | 27.83% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 268 | n/a | n/a |
-| distinct article pins | 107 | 42584 | 0.25% |
-| pinned Lean modules (cross-law) | 629 | n/a | n/a |
+| pinned literal checks | 270 | n/a | n/a |
+| distinct article pins | 108 | 42584 | 0.25% |
+| pinned Lean modules (cross-law) | 632 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 224 |
+| unpinned Lean modules (not counted as verified) | 227 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -168,6 +168,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `342CO0000000146` 登録免許税法施行令
 - `342M50000040037` 登録免許税法施行規則
 - `344M50000040016` 関税定率法施行規則
+- `346AC0000000065` コンテナーに関する通関条約及び国際道路運送手帳による担保の下で行なう貨物の国際運送に関する通関条約（ＴＩＲ条約）の実施に伴う関税法等の特例に関する法律
 - `346AC0000000089` 自動車重量税法
 - `346AC0000000090` 自動車重量譲与税法
 - `346CO0000000275` 自動車重量税法施行令
@@ -176,6 +177,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `347CO0000000151` 沖縄の復帰に伴う国税関係法令の適用の特別措置等に関する政令
 - `347CO0000000161` 沖縄の復帰に伴う地方税法の適用の特別措置等に関する政令
 - `347M50000040044` 沖繩の復帰に伴う国税関係以外の大蔵省関係法令の適用の特別措置等に関する省令
+- `349AC0000000079` 電源開発促進税法
 - `351M50000008035` 特別交付税に関する省令
 - `352M50000040032` 国税局課税部等の統括国税調査官等の所掌に属する事務の範囲を定める省令
 - `353AC0000000025` 石油石炭税法
