@@ -1,11 +1,11 @@
 import JapanTaxLaw.InheritanceTaxRateBracket30_50
 
 /-!
-# InheritanceTaxRateBracket30_50Spec — independent spec for 相続税法 第十六条 別表第一(1)
+# InheritanceTaxRateBracket30_50Spec — independent spec for 相続税法 第十六条の表(1)
 
 Law id: 325AC0000000073 (相続税法, Act)
 Revision: 325AC0000000073_20260401_506AC0000000008
-Article: 第十六条(1) 別表第一 — 三千万円超五千万円以下の金額
+Article: 第十六条(1)の表 — 三千万円超五千万円以下の金額
 Normative unit: NORM|2f9abe1626f614eaab2879239d801935a2a1b8cdbc5dde1de4f9c5925696a72b
 
 The implementation uses `lowerBoundYen < x ∧ x ≤ upperBoundYen`. The independent
@@ -17,7 +17,7 @@ Boundary theorems: 30,000,000 fails (超え = strict); 30,000,001 and 50,000,000
 qualify; 50,000,001 fails (以下 = inclusive upper).
 
 Not modelled: the rate for this bracket, other brackets, base computation,
-deductions, the rest of 別表第一, and other paragraphs.
+deductions, the rest of 第十六条の表, and other paragraphs.
 -/
 
 namespace JapanTaxLaw.InheritanceTaxRateBracket30_50

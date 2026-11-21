@@ -1301,12 +1301,30 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
-    # 相続税法 第十六条 別表第一(1) — InheritanceTaxRateBracket30_50.lean
+    # 相続税法 第十六条の表(1) — InheritanceTaxRateBracket30_50.lean
+    # InheritanceTaxRateBracket200_300.lean - NORM|c3d2149... (相続税法 第十六条の表(1) CONDITION)
+    # Needle is in MainProvision Article 第十六条 table cell;
+    # find_article_text(...,"第十六条") returns that article (len 437) with the needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("相続税法 第十六条の表(1) bracket 200M-300M - InheritanceTaxRateBracket200_300.lean",
+           "325AC0000000073",
+           "article", "第十六条",
+           ["\u4e8c\u5104\u5186\u3092\u8d85\u3048\u4e09\u5104\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+
+    # InheritanceTaxRateBracket100_200.lean - NORM|ef39cde9... (相続税法 第十六条の表(1) CONDITION)
+    # Needle is in MainProvision Article 第十六条 table cell;
+    # find_article_text(...,"第十六条") returns that article (len 437) with the needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("相続税法 第十六条の表(1) bracket 100M-200M - InheritanceTaxRateBracket100_200.lean",
+           "325AC0000000073",
+           "article", "第十六条",
+           ["\u4e00\u5104\u5186\u3092\u8d85\u3048\u4e8c\u5104\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+
     # Norm unit NORM|2f9abe1626f614eaab2879239d801935a2a1b8cdbc5dde1de4f9c5925696a72b
     # Needle is a MainProvision Article 第十六条 table cell; find_article_text(...,"第十六条")
     # returns that article (len 437) containing the needle — use the precise article locator.
     # Revision from INVENTORY; Lean quote byte-checked against queue needle.
-    yield ("相続税法 第十六条 別表第一(1)（三千万円を超え五千万円以下の金額）↔ InheritanceTaxRateBracket30_50.lean (lowerBoundYen 30000000 / upperBoundYen 50000000)",
+    yield ("相続税法 第十六条の表(1)（三千万円を超え五千万円以下の金額）↔ InheritanceTaxRateBracket30_50.lean (lowerBoundYen 30000000 / upperBoundYen 50000000)",
            "325AC0000000073",
            "article", "第十六条",
            ["三千万円を超え五千万円以下の金額"])
@@ -1320,6 +1338,15 @@ def checks():
            "325AC0000000073",
            "article", "第三十八条",
            ["\u305f\u3060\u3057\u3001\u305d\u306e\u5ef6\u7d0d\u7a0e\u984d\u304c\u767e\u4e07\u5186\u4ee5\u4e0b\u3067\u3001\u304b\u3064\u3001\u305d\u306e\u5ef6\u7d0d\u671f\u9593\u304c\u4e09\u5e74\u4ee5\u4e0b\u3067\u3042\u308b\u5834\u5408\u306f\u3001\u3053\u306e\u9650\u308a\u3067\u306a\u3044\u3002"])
+
+    # InheritanceRegSurrenderValueCondition.lean - NORM|3daed703... (相続税法施行規則 第三十条(6)1 CONDITION)
+    # Needle is in MainProvision Article 第三十条 (Paragraph 6, Item 1);
+    # find_article_text(...,"第三十条") returns that article (len 6705) containing the
+    # needle - use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("相続税法施行規則 第三十条(6)第一号 condition - InheritanceRegSurrenderValueCondition.lean",
+           "325M50000040017",
+           "article", "第三十条",
+           ["\u89e3\u7d04\u8fd4\u623b\u91d1\u76f8\u5f53\u984d\u304c\u767e\u4e07\u5186\u4ee5\u4e0b\u3067\u3042\u308b\u751f\u547d\u4fdd\u967a\u5951\u7d04\u53c8\u306f\u640d\u5bb3\u4fdd\u967a\u5951\u7d04"])
 
     # Norm unit NORM|347d0d0ebd32cab1a2f5054abe7a87ebe56cae34b125a2481f38c63e5cf05723
     # Needle is in MainProvision Article 第一条の二 (attr Num=1_2, Item 3). Adversarial
@@ -1721,6 +1748,20 @@ def checks():
            "353AC0000000025",
            "article", "第二十三条",
            ["石油石炭税に相当する金額の三倍が五十万円を超える場合"])
+
+
+    # 酒税の保全及び酒類業組合等に関する法律 art. 80 — TwoThirdsMembershipThreshold.lean
+    yield ("酒税の保全及び酒類業組合等に関する法律 art. 80（会員総数が資格者数の三分の二以上）↔ TwoThirdsMembershipThreshold.lean (2/3)",
+           "328AC0000000007",
+           "article", "第八十条",
+           ["会員の総数が前三項の規定により会員たる資格を有する連合会及び酒類業組合の三分の二以上でなければ"])
+
+
+    # 関税法特例施行令 art. 2 — AccessoryPriceFloor.lean
+    yield ("自家用自動車の一時輸入通関条約特例施行令 art. 2（車両附属品の価格一万円以上）↔ AccessoryPriceFloor.lean (10_000)",
+           "339CO0000000182",
+           "article", "第二条",
+           ["車両の附属品であつて価格が一万円以上のもの"])
 
 
 def main() -> int:

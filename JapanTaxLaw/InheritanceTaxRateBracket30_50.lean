@@ -1,7 +1,7 @@
 import JapanTaxLaw.TaxFinance
 
 /-!
-# InheritanceTaxRateBracket30_50 — 相続税法 第十六条 別表第一(1)の税率区分（三千万円超五千万円以下）
+# InheritanceTaxRateBracket30_50 — 相続税法 第十六条の表(1)の税率区分（三千万円超五千万円以下）
 
 Pinned source:
   Law id: 325AC0000000073
@@ -14,7 +14,7 @@ Pinned source:
   Normative unit id: NORM|2f9abe1626f614eaab2879239d801935a2a1b8cdbc5dde1de4f9c5925696a72b
   Source path: LawBody[3]/MainProvision/MainProvision[1]/Article:16/Article#16/
                Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1
-  Statutory article: 第十六条(1) 別表第一の税率区分（三千万円超五千万円以下の金額）
+  Statutory article: 第十六条(1)の表の税率区分（三千万円超五千万円以下の金額）
 
 原文逐語（pinned, 一字一句改変なし）:
   「三千万円を超え五千万円以下の金額」
@@ -27,7 +27,7 @@ Variable contract:
 
 Scope: only this taxable-value bracket of the inheritance-tax rate table. The
 rate itself, the other brackets, the base computation, deductions, the rest of
-別表第一, and other paragraphs are NOT MODELLED.
+第十六条の表, and other paragraphs are NOT MODELLED.
 
 No `sorry`, `admit`, `axiom` or `Classical.choice`.
 -/
