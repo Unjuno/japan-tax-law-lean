@@ -770,3 +770,6 @@ import JapanTaxLaw.RecordAndInterestNormsTests
 import JapanTaxLaw.OfficialPowersAndLimits
 import JapanTaxLaw.OfficialPowersAndLimitsSpec
 import JapanTaxLaw.OfficialPowersAndLimitsTests
+import JapanTaxLaw.ExclusionAndExtensionNorms
+import JapanTaxLaw.ExclusionAndExtensionNormsSpec
+import JapanTaxLaw.ExclusionAndExtensionNormsTests
