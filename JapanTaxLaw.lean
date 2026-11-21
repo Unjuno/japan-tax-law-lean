@@ -773,3 +773,6 @@ import JapanTaxLaw.OfficialPowersAndLimitsTests
 import JapanTaxLaw.ExclusionAndExtensionNorms
 import JapanTaxLaw.ExclusionAndExtensionNormsSpec
 import JapanTaxLaw.ExclusionAndExtensionNormsTests
+import JapanTaxLaw.PriorLawNorms
+import JapanTaxLaw.PriorLawNormsSpec
+import JapanTaxLaw.PriorLawNormsTests
