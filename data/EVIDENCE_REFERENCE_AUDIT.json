@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 1064,
+  "checks": 1068,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -11705,11 +11705,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/InheritanceGiftTaxRateBracket10M15MTests.lean",
       "unit_id": "NORM|ea52192b370dfc9fb140a8fd3bce79fc75c7f620238385eeaff1a960ed9db653"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_LOCAL_TAX_ART154_FREIGHT_TON_SURCHARGE.md — independent agent: NO FINDINGS, all 9 checks pass. Verified",
+      "unit_id": "NORM|cdd69708e364f7ffe3fc19e940a20601214602b741a034108754d57b296a45d0"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt154FreightTonSurcharge.lean",
+      "unit_id": "NORM|cdd69708e364f7ffe3fc19e940a20601214602b741a034108754d57b296a45d0"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt154FreightTonSurchargeSpec.lean",
+      "unit_id": "NORM|cdd69708e364f7ffe3fc19e940a20601214602b741a034108754d57b296a45d0"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt154FreightTonSurchargeTests.lean",
+      "unit_id": "NORM|cdd69708e364f7ffe3fc19e940a20601214602b741a034108754d57b296a45d0"
     }
   ],
-  "resolved": 1060,
+  "resolved": 1064,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 225,
+  "units_checked": 226,
   "unresolved": 4
 }
