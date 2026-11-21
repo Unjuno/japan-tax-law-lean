@@ -722,3 +722,6 @@ import JapanTaxLaw.PriorPenaltyAndDelegation2Tests
 import JapanTaxLaw.ArticleSubItems
 import JapanTaxLaw.ArticleSubItemsSpec
 import JapanTaxLaw.ArticleSubItemsTests
+import JapanTaxLaw.ShortLabelsAndTerms
+import JapanTaxLaw.ShortLabelsAndTermsSpec
+import JapanTaxLaw.ShortLabelsAndTermsTests
