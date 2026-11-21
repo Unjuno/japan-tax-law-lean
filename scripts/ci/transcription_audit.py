@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # LocalTaxEnforcementDelegatedAmount3000.lean - NORM|92588e30... (delegated amount 3000 yen, law 325CO0000000245)
+    # Needle is in MainProvision Article 8_3 (Paragraph 1, Sentence 1);
+    # find_article_text(...,"第八条の三") returns that article (len 66) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("delegated amount 3000 yen - LocalTaxEnforcementDelegatedAmount3000.lean",
+           "325CO0000000245",
+           "article", "第八条の三",
+           ["\u6cd5\u7b2c\u56db\u5341\u4e03\u6761\u7b2c\u4e00\u9805\u7b2c\u4e00\u53f7\u306b\u898f\u5b9a\u3059\u308b\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u91d1\u984d\u306f\u3001\u4e09\u5343\u5186\u3068\u3059\u308b\u3002"])
+
     # LocalTaxArt803AdministrativeFine.lean - NORM|7b8ad3cf... (administrative fine <= 100k yen CONDITION, law 325AC0000000226)
     # Needle is in MainProvision Article 803 (Paragraph 1, Sentence 1);
     # find_article_text(...,"第八百三条") returns that article (len 39) with needle -
