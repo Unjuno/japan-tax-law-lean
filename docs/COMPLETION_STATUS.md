@@ -13,9 +13,9 @@ obligations being complete. SKIP is never counted as PASS.
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: d0e3fb4447c53d36fbbe65d0740518691bdb8f91
-- current HEAD commit: d0e3fb4447c53d36fbbe65d0740518691bdb8f91
-- results bound to this commit: True
-- registered checks all green: True
+- current HEAD commit: ab5e89ab90af0bea23b51b5972449c159135a8bb
+- results bound to this commit: False
+- registered checks all green: False
 
 ## Axis B — all registered obligations complete
 
