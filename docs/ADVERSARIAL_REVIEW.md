@@ -5399,3 +5399,107 @@ STAGING の needle テキストを信じず、`scripts/ci/transcription_audit.py
 - 残る U-1 / U-2 は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合であり、人間の法律専門家によるレビューを称するものではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
+
+---
+
+## Batch AN review (2026-11-21) — RawMaterialRatio / LocalTaxShortfallRounding（cycle-38/39 独立原文照合）
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。coordinator 要約・STAGING は信じず、pinned `data/raw/*.law.json` を直接・独立に再 parse し、`law_full_text` の string leaf を平坦化して原文を抽出した。
+- **対象（読み取り専用・変更していない）**: `JapanTaxLaw/RawMaterialRatio.lean` / `...Spec.lean` / `...Tests.lean`（cycle-38）、`JapanTaxLaw/LocalTaxShortfallRounding.lean` / `...Spec.lean` / `...Tests.lean`（cycle-39）。**Lean モジュール / `data/*` / `scripts/*` は一切変更せず**、commit / push / merge / ブランチ切替も行っていない。書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ（末尾追記）。
+- **一次資料（pinned・改変禁止）**:
+  - RawMaterialRatio: `data/raw/344M50000040016_20260401_508M60000040016.law.json`（law_id `344M50000040016` / revision `344M50000040016_20260401_508M60000040016`）。INVENTORY `raw_snapshot.source_file` 一致、SHA-256 `5825565D…5E75854F` 一致、size `113717` 一致。
+  - LocalTaxShortfallRounding: **実ファイル名は `data/raw/420M60000008116_20081022_000000000000000.law.json`**（task 本文の一般名を実ファイルで確認）。law_id `420M60000008116` / revision `420M60000008116_20081022_000000000000000`。INVENTORY `source_file` 一致、SHA-256 `ED13259B…16ACA` 一致、size `16365` 一致。
+- **needle 出所**: `scripts/ci/transcription_audit.py::checks()` の cycle-38/39 エントリ（line 1556-1566）から実文字列を直接読み出し、CI と同一の正規化 `re.sub(r"[\s　]+","",s)` を**自前で平坦化した pinned 原文**に適用して包含判定した（`kind = "file"`, `art = None`）。
+- **本レビューは機械的独立照合（pinned 原文 parse・定数照合・needle 検証・境界グリッド・公理監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。
+
+### AN-1. pin 完全性と原文独立抽出（桁違い・帯の誤りの直接確認）
+
+自前スクリプトで `Article` ノードを再帰走査し、対象条文の string leaf を連結（flat/normalized）。モジュール doc-comment の申告と独立に照合した。
+
+| モデル | 条文 | flat 長 | U+3000 | 原文逐語（独立抽出） |
+|---|---|---:|---:|---|
+| RawMaterialRatio | `Article Num="1_2"`（第一条の二、見出し「（貨物の価額に占める原料又は材料の価額の割合）」） | 116 | 0 | `（貨物の価額に占める原料又は材料の価額の割合）第一条の二法第八条の二第一項第一号及び第三号ロ（不当廉売関税の課税の回避のために第三国から輸入される貨物等に対して課する関税）に規定する財務省令で定める割合は、おおむね百分の六十とする。` |
+| LocalTaxShortfallRounding | `Article Num="5"`（第五条、見出し「（端数計算）」） | 133 | 0 | `（端数計算）第五条地方税等減収補てん臨時交付金の額を算定する場合においては、特別な定めがある場合のほか、その算定の過程及び算定した額に五百円未満の端数があるときはその端数金額を切り捨て、五百円以上千円未満の端数があるときはその端数金額を千円として計算するものとする。` |
+
+- **Model 1（60%）**: 原文リテラル `百分の六十` をファイル全体で 1 件検出。独立換算 `六十 = 60`、`百分の = /100` → **60/100**。Lean `thresholdYen(v) = v * 60 / 100`、Spec `specThreshold(v) = v * 60 / 100` と一致。**桁違い（6 / 600）・分母誤り（/10, /1000）なし。**
+- **Model 2（二帯端数）**: 原文は `五百円未満`（< 500 円）→ `切り捨て`、`五百円以上千円未満`（500 円以上 1000 円未満）→ `千円として計算`。端数を `r = amount % 1000`（0〜999 円）とし、`r < 500` で切捨て、その他で `+1000` する Lean `roundToThousand` と一致。**帯の誤り（500/1000 を 50/100、5000/10000 とする誤読）なし。境界の `五百円以上`（≥500）が `r < 500` の else 側に正しく入っている。**
+- **単位確認**: `TaxFinance.Money := Nat`（yen）。原文の閾値が円単位であることとモデル整数表現が整合（千円単位の値を `amount` に入れる 1000 倍誤りは不存在）。
+- **pin 完全性**: 2 件とも INVENTORY の `source_file` / `source_sha256` / `size_bytes` と実ファイルが一致（改変なし）。
+
+### AN-2. needle 健全性（CI `checks()` 実文字列を自前正規化原文で検証）
+
+| モデル | # | CI needle（実文字列） | 長 | U+3000 | FOUND | 正規化原文 offset |
+|---|---|---|---:|---:|:---:|---:|
+| RawMaterialRatio | 1 | `貨物の価額に占める原料又は材料の価額の割合）第一条の二` | 27 | 0 | ✅ | 1 |
+| RawMaterialRatio | 2 | `に規定する財務省令で定める割合は、おおむね百分の六十とする` | 29 | 0 | ✅ | 86 |
+| LocalTaxShortfallRounding | 1 | `五百円未満の端数があるときはその端数金額を切り捨て` | 25 | 0 | ✅ | 67 |
+| LocalTaxShortfallRounding | 2 | `五百円以上千円未満の端数があるときはその端数金額を千円として計算する` | 34 | 0 | ✅ | 93 |
+
+- **4/4 FOUND、needle 内の U+3000 含有 0 件、各原文の U+3000 も 0 件。** 2 本目の needle が Model 1 では「おおむね百分の六十」を、Model 2 では「五百円以上千円未満…千円として計算する」を直接含み、率・帯の意味的核心を抑えている。offset は正規化 flat 文字列（116 / 133 文字）上の 0-based 位置。
+
+### AN-3. 反例探索（指定境界・60% グリッド）
+
+独立 Python 再計算を Lean `example`（`by decide`）と照合。
+
+| 攻撃対象 | 独立計算 | Lean example | 反例 |
+|---|---|---|:---:|
+| `thresholdYen 0` | 0 | 0 | 0 |
+| 60% of 100 | 60 | 60 | 0 |
+| 60% of 1000 | 600 | 600 | 0 |
+| 60% of 10000 | 6000 | 6000 | 0 |
+| `roundToThousand 499`（r=499<500） | 0 | 0 | 0 |
+| `roundToThousand 500`（r=500≥500, 境界） | 1000 | 1000 | 0 |
+| `roundToThousand 999`（r=999, 带上限） | 1000 | 1000 | 0 |
+| `roundToThousand 1000`（r=0, 桁繰上がり） | 1000 | 1000 | 0 |
+| `roundToThousand 1499`（r=499） | 1000 | 1000 | 0 |
+| `roundToThousand 1500`（r=500, 境界） | 2000 | 2000 | 0 |
+
+- Spec の独立定式（`specThreshold` / `specRound`）との `agree… = true`（`by decide`）も確認。**反例検出数: ゼロ（0）。** 境界 499→0 / 500→1000 の切替え、1000→1000 の連続性、1499→1000 / 1500→2000 の再切替えはいずれも原文の二帯规定どおり。
+
+### AN-4. 公理監査
+
+- 一時 Lean ファイル（外部 temp ディレクトリ、プロジェクト外）で 6 ファイルを import し、6 個の named def（`thresholdYen` / `specThreshold` / `agreeRawMaterialRatio` / `roundToThousand` / `specRound` / `agreeLocalTaxShortfallRounding`）へ `#print axioms` を実行（`lake env lean`、exit code **0**）。
+- 結果: **6/6 が `"does not depend on any axioms"`**。`Classical.choice` / `sorryAx` / `Quot.sound` / `propext` 依存は**いずれも 0 件**。
+- 6 ファイルの静的スキャンで `sorry` / `admit` / `axiom` / `classical` / `by_contra` / `Quot.sound` / `propext` / `choice` / `noncomputable` / `unsafe` の一致 **0 件**。
+- 監査後、一時ファイル（`.py` / `.txt` / `.lean`）は**すべて削除済み**。
+
+### AN-5. 分類・件数
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED（数値・needle・境界・公理の意味的発見）** | **0（ゼロ）** |
+| BY-DESIGN | 4 |
+| UNRESOLVED | 2 |
+
+> **意味的な発見はゼロ（CONFIRMED = 0）を明示する。** 桁違い・帯の誤り・needle 不整合・境界反例・禁止公理はすべて検出されなかった。
+
+#### CONFIRMED — 0 件
+
+- 率: `百分の六十` → 60/100、Lean `v*60/100` と一致（桁違い・分母誤りなし）。
+- 端数: `五百円未満` → 切捨て、`五百円以上千円未満` → 千円繰上、Lean の二帯（`r<500` / else `+1000`）と一致（帯・境界の誤りなし）。
+- needle: 4/4 FOUND、U+3000 = 0。
+- 境界: 指定 10 点すべてで独立計算と Lean が一致、反例 0。
+- 公理: 禁止公理 0、6/6 axiom-free、`by decide` カーネル還元。
+
+#### BY-DESIGN — 4 件
+
+- **B-1 Model 1 の「おおむね」未形式化は明示済みスライス境界**: `RawMaterialRatio.lean` の `Scope / NOT MODELLED` に「『おおむね』は近似を表すため、本スライスは 60/100 の算術閾値のみを扱い、許容幅（法的解釈）は NOT MODELLED」と明記。**「おおむね」の許容幅が未形式化であることを独立確認した。** 実装は 60% の算術閾値のみ。
+- **B-2 Model 1 のその他スコープ外**: 法 8 条の 2 第 1 項の区分、第三国輸入の認定は NOT MODELLED と明記。
+- **B-3 Model 2 のスコープ外**: 「特別な定めがある場合」の別规定、交付金そのものの算定方法（算定基礎）は NOT MODELLED と明記。本スライスは端数処理（千円単位への二帯丸め）のみ。
+- **B-4 整数 Money 表現**: `Money := Nat`（円）。60% は整数除算 `v*60/100`（floor）、端数は `% 1000` の二帯。原文に小数・通貨単位換算の定めはなく、整数スライスとして設計上妥当。
+
+#### UNRESOLVED — 2 件
+
+- **U-1 「おおむね」の許容幅の法的意味**: pinned 原文は `おおむね百分の六十` と定めるのみで、許容される幅（例: 60% ±α の α、あるいは行政認定の告訴方針）を数値化しない。B-1 のとおり未形式化は明示済みだが、**その法的許容幅を pinned 原文のみから独立導出することは不能**で、**人間の法律専門家を要する**。60% 算術閾値の一致（意味的 CONFIRMED = 0）には影響しない。
+- **U-2 Model 2 の「特別な定めがある場合」の適用範囲**: 原文は `特別な定めがある場合のほか` と留保するが、当該別规定を列挙しない。その留保が本スライスの二帯端数に影響するか、また「算定の過程」に生じる端数と「算定した額」の端数の両方を同一二帯で処理する実務上の詳細は、pinned 原文のみでは決定不能で**人間の法律専門家を要する**。二帯定数と境界グリッドの一致（意味的 CONFIRMED = 0）には影響しない。
+
+### AN-6. 総合判定・最終報告
+
+- pinned 原文（art.1の2 の `おおむね百分の六十` = 60/100、art.5 の `五百円未満` 切捨て／`五百円以上千円未満` 千円繰上）を独立抽出し、Lean 実装と照合。**桁違い・帯の誤りゼロ**。needle 4/4 FOUND（U+3000 ゼロ）、指定境界 10 点反例ゼロ、公理依存ゼロ。
+- **CONFIRMED: 0 件（ゼロ）／BY-DESIGN: 4 件／UNRESOLVED: 2 件。発見ゼロを明示する。**
+- **「おおむね」の許容幅は未形式化であることを確認**（B-1: doc-comment に明示、U-1: 法的意味は人間の法律専門家を要する）。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` とも **0 件**、6/6 axiom-free、exit code 0。監査用一時ファイルは削除済み。
+- 既存レビュー履歴（Batch G〜AM ほか全 37 件）は**すべて保持**し、本セクションを末尾に追記したのみ。追記後レビュー件数は **38 件**（coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review`: 37 → 38）。
+- 残る U-1 / U-2 は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューを称するものではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。

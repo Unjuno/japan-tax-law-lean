@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 74
+- with >=1 pinned literal check (semantic model): 75
 - with recorded human legal review: 0
 
 ## All laws
@@ -87,9 +87,9 @@ a completion flag.
 | `333CO0000000117` | 地方交付税法施行令 | 333CO0000000117_20010106_412CO0000000304 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `333CO0000000337` | 産業投資特別会計の貸付の財源に充てるための外貨債の発行に関する法律に基く外貨債の利子の非 | 333CO0000000337_20171001_429CO0000000106 | CurrentEnforced | YES | ok | 11 | NO (0) | NO |
 | `334AC0000000147` | 国税徴収法 | 334AC0000000147_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 371 | YES (1) | NO |
-| `334CO0000000329` | 国税徴収法施行令 | 334CO0000000329_20260525_507CO0000000244 | CurrentEnforced | YES | ok | 116 | YES (1) | NO |
-| `335AC0000000036` | 関税暫定措置法 | 335AC0000000036_20260401_508AC0000000005 | CurrentEnforced | YES | ok | 262 | YES (1) | NO |
-| `335CO0000000069` | 関税暫定措置法施行令 | 335CO0000000069_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 287 | YES (1) | NO |
+| `334CO0000000329` | 国税徴収法施行令 | 334CO0000000329_20260525_507CO0000000244 | CurrentEnforced | YES | ok | 116 | YES (2) | NO |
+| `335AC0000000036` | 関税暫定措置法 | 335AC0000000036_20260401_508AC0000000005 | CurrentEnforced | YES | ok | 262 | YES (2) | NO |
+| `335CO0000000069` | 関税暫定措置法施行令 | 335CO0000000069_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 287 | YES (2) | NO |
 | `336CO0000000153` | 関税割当制度に関する政令 | 336CO0000000153_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 127 | NO (0) | NO |
 | `336M50000400035` | 重油及び粗油等の関税割当制度に関する省令 | 336M50000400035_20201228_502M60000400092 | CurrentEnforced | YES | ok | 16 | NO (0) | NO |
 | `337CO0000000097` | 酒税法施行令 | 337CO0000000097_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 165 | YES (1) | NO |
@@ -290,7 +290,7 @@ a completion flag.
 | `427CO0000000156` | たばこ税法の一部改正に伴う経過措置に関する政令 | 427CO0000000156_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 11 | NO (0) | NO |
 | `427CO0000000397` | バター等に対して課する輸入数量が輸入基準数量を超えた場合の特別緊急関税に関する規定の平成 | 427CO0000000397_20151201_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `428M60000440001` | 承継法人が分割により承継した兼業者たる法人の権利の登記等の登録免許税の免税を受けるための | 428M60000440001_20160401_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
-| `428CO0000000196` | 水酸化カリウムに対して課する不当廉売関税に関する政令 | 428CO0000000196_20210814_503CO0000000231 | CurrentEnforced | YES | ok | 8 | NO (0) | NO |
+| `428CO0000000196` | 水酸化カリウムに対して課する不当廉売関税に関する政令 | 428CO0000000196_20210814_503CO0000000231 | CurrentEnforced | YES | ok | 8 | YES (1) | NO |
 | `428M60000048005` | 外国居住者等の所得に対する相互主義による所得税等の非課税等に関する法律施行規則 | 428M60000048005_20260101_506M60000048004 | CurrentEnforced | YES | ok | 48 | NO (0) | NO |
 | `429CO0000000010` | 経済連携協定に基づく報復関税に関する政令 | 429CO0000000010_20181230_000000000000000 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
 | `429M60000008030` | 都及び特別区の標準税収入額の算定方法に関する省令 | 429M60000008030_20260401_508M60000008048 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 134
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 136

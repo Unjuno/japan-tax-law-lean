@@ -1592,6 +1592,12 @@ def checks():
            "file", None,
            ["五百円未満の端数があるときはその端数金額を切り捨て", "五百円以上千円未満の端数があるときはその端数金額を千円として計算する"])
 
+    # AntiDumpingRate — cycle-40
+    yield ("AntiDumpingRate.lean",
+           "428CO0000000196",
+           "file", None,
+           ["大韓民国を原産地とするものにあっては四十九・五パーセント", "中国を原産地とするものにあっては七十三・七パーセント"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",

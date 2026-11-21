@@ -741,3 +741,6 @@ import JapanTaxLaw.RawMaterialRatioTests
 import JapanTaxLaw.LocalTaxShortfallRounding
 import JapanTaxLaw.LocalTaxShortfallRoundingSpec
 import JapanTaxLaw.LocalTaxShortfallRoundingTests
+import JapanTaxLaw.AntiDumpingRate
+import JapanTaxLaw.AntiDumpingRateSpec
+import JapanTaxLaw.AntiDumpingRateTests

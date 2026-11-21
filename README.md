@@ -759,6 +759,9 @@ JapanTaxLaw/RawMaterialRatioTests.lean               # 同上 退行テスト
 JapanTaxLaw/LocalTaxShortfallRounding.lean          # 地方税等減収補てん交付金 art.5（500円二帯端数）L4 モデル
 JapanTaxLaw/LocalTaxShortfallRoundingSpec.lean      # 同上 独立定式
 JapanTaxLaw/LocalTaxShortfallRoundingTests.lean     # 同上 退行テスト
+JapanTaxLaw/AntiDumpingRate.lean                    # 不当廉売関税率（韓49.5%/中73.7%）L4 モデル
+JapanTaxLaw/AntiDumpingRateSpec.lean                # 同上 独立定式
+JapanTaxLaw/AntiDumpingRateTests.lean               # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト
