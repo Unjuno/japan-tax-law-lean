@@ -1,7 +1,7 @@
 import JapanTaxLaw.TaxFinance
 
 /-!
-# SpecialCorporationGrantTax — 地方税法 art.29（特別法人事業譲与税）bounded L4 モデル
+# SpecialCorporationGrantTax — 特別法人事業税及び特別法人事業譲与税に関する法律 art.29（特別法人事業譲与税）bounded L4 モデル
 
 Sources (pinned):
   Law id: 431AC0000000004

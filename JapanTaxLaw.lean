@@ -717,3 +717,6 @@ import JapanTaxLaw.SpecialCorporationGrantTaxTests
 import JapanTaxLaw.OilCoalTaxRate
 import JapanTaxLaw.OilCoalTaxRateSpec
 import JapanTaxLaw.OilCoalTaxRateTests
+import JapanTaxLaw.RawMaterialRatio
+import JapanTaxLaw.RawMaterialRatioSpec
+import JapanTaxLaw.RawMaterialRatioTests

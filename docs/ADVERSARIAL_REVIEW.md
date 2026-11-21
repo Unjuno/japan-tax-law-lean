@@ -5283,3 +5283,119 @@ STAGING の needle テキストを信じず、`scripts/ci/transcription_audit.py
 - 残る U-1 / U-2 は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合であり、人間の法律専門家によるレビューを称するものではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
+
+## Batch AM review (2026-11-21) — SpecialCorporationGrantTax / OilCoalTaxRate（cycle-36/37 独立原文照合）
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。coordinator 要約・STAGING は信じず、pinned `data/raw/*.law.json` を直接・独立に再 parse し、漢数字を自前の算術パーサで変換して照合した。
+- **対象（読み取り専用・変更していない）**: `JapanTaxLaw/SpecialCorporationGrantTax.lean` / `...Spec.lean` / `...Tests.lean`（cycle-36）、`JapanTaxLaw/OilCoalTaxRate.lean` / `...Spec.lean` / `...Tests.lean`（cycle-37）。**Lean モジュール / `data/*` / `scripts/*` は一切変更せず**、commit / push / merge / ブランチ切替も行っていない。
+- **一次資料（pinned・改変禁止）**:
+  - SpecialCorporationGrantTax: `data/raw/431AC0000000004_20260401_508AC0000000002.law.json`（law_id `431AC0000000004` / revision `431AC0000000004_20260401_508AC0000000002`、施行 2026-04-01）
+  - OilCoalTaxRate: `data/raw/353AC0000000025_20260525_506AC0000000052.law.json`（law_id `353AC0000000025` / revision `353AC0000000025_20260525_506AC0000000052`、施行 2026-05-25）
+- **needle 出所**: `scripts/ci/transcription_audit.py` の `checks()` cycle-36/37 エントリから実文字列を直接読み出し、CI と同一の正規化 `re.sub(r"[\s　]+","",s)` を**自前で平坦化・正規化した pinned 原文**に適用して部分文字列包含を判定した（`kind = "file"`, `load_law_text` と同一の `law_full_text` 平坦化全文）。
+- **本レビューは機械的独立照合（原文 parse・漢数字算術化・needle 検証・境界グリッド・公理監査）であり、人間の法律専門家によるレビューではない。** 法的解釈・行政実務の妥当性は判定しない。
+
+### AM-1. pin 完全性と原文独立抽出（漢数字 → 算数）
+
+自前スクリプトで `data/INVENTORY.json` の `raw_snapshot` と実ファイルの SHA-256 / サイズを再計算し、2 件とも一致（改変なし）:
+
+| モデル | law_id / revision | 計算 SHA-256 = INVENTORY | bytes |
+|---|---|---|---|
+| SpecialCorporationGrantTax | 431AC0000000004 / …_20260401_508AC0000000002 | `E8FE17721DBF1D8C3CDC3A8B71A5E2F49499C6E43A045EFE77C1615986AFAD74` 一致 | 143,326 一致 |
+| OilCoalTaxRate | 353AC0000000025 / …_20260525_506AC0000000052 | `B72F9FC1FDE5B54CDB4862074330E7F2BE99858780717F589E4932D1D115B625` 一致 | 206,133 一致 |
+
+自作漢数字パーサをセルフテスト（五→5、二十→20、七百→700、千八十→1080、二千四十→2040、一万八千→18000、五億→500000000、六千八百二→6802 の 8 件、全件期待値どおり）した上で抽出した。
+
+- **art.29 flat text**（65 文字 / U+3000 = 0、原文そのまま、モジュール doc-comment の申告 65/0 と一致）:
+  `（特別法人事業譲与税）第二十九条特別法人事業譲与税は、特別法人事業税の収入額に相当する額とし、都道府県に対して譲与するものとする。`
+- **art.9 flat text**（99 文字 / U+3000 = 0、原文そのまま、モジュール doc-comment の申告 99/0 と一致）:
+  `（税率）第九条石油石炭税の税率は、次の各号に掲げる区分に応じ、当該各号に定める金額とする。一原油及び石油製品一キロリットルにつき二千四十円二ガス状炭化水素一トンにつき千八十円三石炭一トンにつき七百円`
+- `Article` は MainProvision 内に Model1 = 36 件、Model2 = 28 件。対象条文はそれぞれ `ArticleTitle` = `第二十九条` / `第九条` の 1 件のみ。
+
+| モデル | 原文リテラル | 独立抽出（漢数字算術化） | Lean 定数 | 桁違い除外チェック | 照合 |
+|---|---|---:|---|---|:---:|
+| SpecialCorporationGrantTax | `収入額に相当する額` | 対応関係スライスより **同一額（恒等）** | `grantYen revenue := revenue`（Spec も `specGrant r := r`） | 定数関数・係数倍数・切捨てを明示的に除外 | ✅ |
+| OilCoalTaxRate / 一 | `一キロリットルにつき二千四十円` | 二千=2000 + 四十=40 → **2,040** | `crudeOilRatePerKL : Money := 2_040` | 240（二百四十）/ 20,040 を除外 | ✅ |
+| OilCoalTaxRate / 二 | `一トンにつき千八十円` | 千=1000 + 八十=80 → **1,080** | `gaseousHCRatePerTon : Money := 1_080` | 180（百八十）/ 10,080 を除外 | ✅ |
+| OilCoalTaxRate / 三 | `一トンにつき七百円` | 七=7 × 百=100 → **700** | `coalRatePerTon : Money := 700` | 70（七十）/ 7,000（七千）を除外 | ✅ |
+
+**桁違いチェック結果: 不一致ゼロ。** 二千四十 = 2,040、千八十 = 1,080、七百 = 700 を pinned 原文から直接抽出し、各誤読候補を明示的に除外して Lean 定数と一致。「収入額に相当する額」は定数関数ではなく恒等対応であり、`grantYen(r) = r` は原文逐語に忠実。
+
+### AM-2. needle 健全性（CI `checks()` 実文字列を自前正規化原文で検証）
+
+正規化は CI と同一 `re.sub(r"[\s　]+","",s)` を needle と自前平坦化した pinned flat 全文の双方へ適用。file locator に従い `load_law_text` と同一の平坦化全文で包含判定した。
+
+| モデル | # | CI needle（実文字列） | U+3000 | FOUND | 正規化全文 offset | needle 長 |
+|---|---|---|---:|:---:|---:|---:|
+| SpecialCorpGrant | 1 | `特別法人事業譲与税）第二十九条` | 0 | ✅ | 10,957 | 15 |
+| SpecialCorpGrant | 2 | `特別法人事業譲与税は、特別法人事業税の収入額に相当する額とし、都道府県に対して譲与するものとする` | 0 | ✅ | 10,972 | 48 |
+| OilCoalRate | 1 | `原油及び石油製品一キロリットルにつき二千四十円` | 0 | ✅ | 2,670 | 23 |
+| OilCoalRate | 2 | `ガス状炭化水素一トンにつき千八十円` | 0 | ✅ | 2,694 | 17 |
+| OilCoalRate | 3 | `石炭一トンにつき七百円` | 0 | ✅ | 2,712 | 11 |
+
+- **5/5 FOUND、U+3000 含有 0 件。** 各モデルの needle は互いに異なる条文位置スライスを指す（SpecialCorp: offset 10,957 の見出し側と 10,972 の本文側で重複なし。OilCoal: 2,670 / 2,694 / 2,712 の 3 区分スライス）。3 本目までが金額リテラルを含む。
+
+### AM-3. 反例探索（境界値・数量グリッド 0..10）
+
+| 攻撃対象 | 結果 | 反例 |
+|---|---|---:|
+| Model1 `grantYen(r) = r`、r = 0..10（11 点） | 全点で `grantYen(r) = r` | 0 |
+| Model1 `agreeSpecialCorporationGrantTax = true`（[0,1,2,999,1_000_000,10_000_000]） | `by decide` で検証、一致 | 0 |
+| Model2 原油 2040×q、q = 0..10（11 点） | 0/2040/4080/…/20400、全点一致 | 0 |
+| Model2 ガス 1080×q、q = 0..10（11 点） | 0/1080/2160/…/10800、全点一致 | 0 |
+| Model2 石炭 700×q、q = 0..10（11 点） | 0/700/1400/…/7000、全点一致 | 0 |
+| Model2 線形性 `rate×(a+b)=rate×a+rate×b`（a,b ∈ 0..10） | 3 税率すべてで真 | 0 |
+| Model2 単調性・`tax(0)=0` | 3 税率すべてで真 | 0 |
+
+- 独立 Python 再計算と、一時 Lean ファイルで `by decide` による境界定理再構成（下記 AM-4）の双方で一致。**反例検出数: ゼロ。**
+
+### AM-4. 公理監査
+
+- 一時 Lean ファイル `batchAM_axioms.lean`（外部 temp ディレクトリ、プロジェクト外）で 6 ファイル（2 モデル＋Spec＋Tests）を import し、10 個の named def（`grantYen` / `specGrant` / `agreeSpecialCorporationGrantTax` / `crudeOilRatePerKL` / `gaseousHCRatePerTon` / `coalRatePerTon` / `crudeOilTax` / `gaseousHCTax` / `coalTax` / `agreeOilCoalTaxRate`）へ `#print axioms` を実行（`lake env lean`、exit code **0**）。
+- 結果: **10/10 が `"does not depend on any axioms"`**。`Classical.choice` / `sorryAx` / `Quot.sound` / `propext` 依存は**いずれも 0 件**。
+- 別途 12 本の境界定理を `by decide` で再構成し、コンパイル成功（カーネル還元証明）。
+- 6 ファイルの静的スキャンで `sorry` / `admit` / `axiom` / `classical` / `by_contra` / `Quot.sound` / `propext` / `choice` / `noncomputable` / `unsafe` の一致 **0 件**。
+- 監査後、一時 Lean ファイルおよび一時解析スクリプト（`.py` / `.out` / `.lean`）は**すべて削除済み**。
+
+### AM-5. 分類・件数
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED（意味的: 数値・needle・境界・公理）** | **0（ゼロ）** |
+| CONFIRMED（ドキュメント表記のみ・非意味的） | 1 |
+| BY-DESIGN | 4 |
+| UNRESOLVED | 2 |
+
+> **意味的な発見はゼロ（CONFIRMED = 0）を明示する。** 数値・needle・境界・公理の機械照合はすべて合格。下記 D-1 は表記上の問題であり、過去バッチの慣例に従い分離した。
+
+#### CONFIRMED（意味的）— 0 件
+
+- 金額: 二千四十 = 2,040、千八十 = 1,080、七百 = 700、「収入額に相当する額」= 恒等を pinned 原文から独立抽出し、各誤読候補を除外して Lean 定数と一致。
+- needle: 5/5 FOUND、U+3000 = 0、異なる条文位置スライス。
+- 境界: 数量 0..10 の 11 点×3 税率＋Model1 11 点、計 44 点のグリッド不一致 0、線形性・単調性・tax(0)=0 すべて真。
+- 公理: 禁止公理 0、10/10 axiom-free、`by decide` カーネル証明。
+
+#### CONFIRMED（ドキュメント表記のみ・非意味的）— 1 件
+
+- **D-1 Model1 の法令名ラベル「地方税法 art.29」の誤付与**: `SpecialCorporationGrantTax.lean` の header は「地方税法 art.29（特別法人事業譲与税）」と記載するが、pinned law_id `431AC0000000004` の実法令名は `特別法人事業税及び特別法人事業譲与税に関する法律`（INVENTORY `official_title` および原文 `revision_info.law_title` / `LawTitle` とも一致）であり、対象はその `第二十九条`。すなわち「地方税法」は誤表記（正しくは同特別法 art.29）。law_id / revision / 条文逐語 / 文字数 / needle / 定数 / pin 完全性 / 恒等計算はすべて正しく、計算・証明への影響なし。※ 修正は Lean モジュール側のため本レビューでは変更せず報告のみ。
+
+#### BY-DESIGN — 4 件
+
+- **B-1 Model1 スコープ明示**: 特別法人事業税の収入額の算定、都道府県への配分・譲与手続は `Scope / NOT MODELLED` と明記。「譲与額 = 収入額」の対応関係のみを扱う bounded L4 モデル。
+- **B-2 Model2 スコープ明示**: 各区分の物的定義（原油/石油製品/ガス状炭化水素/石炭）、課税標準、申告・納付手続は NOT MODELLED と明記。3 税率定数と `tax = rate × quantity` のみを扱う。
+- **B-3 数量の整数表現と単位差**: 原油は kL、ガス・石炭は t で単位が異なり、モデルは 3 つの独立関数（`crudeOilTax` / `gaseousHCTax` / `coalTax`）で表現。端数数量・単位換算は原文に記載がなく、モデル化対象外として Design 上有効（Money = Nat 表現を含む）。
+- **B-4 税率定数のみの抽出**: art.9 は「税率は次の各号に掲げる区分に応じ当該各号に定める金額とする」と定め、モデルは 3 金額定数のみを抽出。区分の認定ロジックは含めない（B-2 と補完関係）。
+
+#### UNRESOLVED — 2 件
+
+- **U-1 Model1「相当する額」の法的意味**: pinned 原文は `収入額に相当する額` と定めるのみで、調整・丸め・時点差の有無を明示しない。`grantYen(r) = r`（恒等）はタスク指定どおりの機械照合は完了しているが、「相当する」が厳密同一額を意味するかは pinned 原文のみからは独立導出できない。**人間の法律専門家を要する**（AL U-1 と同趣旨）。数値・算術の一致（意味的 CONFIRMED = 0）には影響しない。
+- **U-2 Model2 の税率適用・端数と適用時期**: 原文は 3 区分の金額を定めるのみで、端数数量の取扱い・税率の適用期間（施行日 2026-05-25 と課税期間の対応）等を本スライスでは決定していない。モデルは整数数量・定税率を仮定するが、法的確定は**人間の法律専門家を要する**。税率定数と整数グリッドの一致（意味的 CONFIRMED = 0）には影響しない。
+
+### AM-6. 総合判定・最終報告
+
+- pinned art.29 の「収入額に相当する額」= 恒等、art.9 の `二千四十 = 2,040` / `千八十 = 1,080` / `七百 = 700` は Lean 定数と一致。**桁違いゼロ**。needle 5/5 FOUND（U+3000 ゼロ、異なる条文位置スライス）、数量 0..10 グリッド不一致 0、公理依存 0。
+- **CONFIRMED（意味的）= 0（ゼロ）／CONFIRMED（ドキュメント表記のみ・非意味的）= 1／BY-DESIGN = 4／UNRESOLVED = 2。**
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` とも **0 件**、10/10 axiom-free、exit code 0、全証明が `by decide` のカーネル還元。監査用一時ファイルは削除済み。
+- 既存レビュー履歴（Batch G〜AL ほか全件）は**すべて保持**し、本セクションを末尾に追記したのみ。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` の 1 ファイルだけ。追記後レビュー件数は **37 件**（`^## .*review` 見出し: 36 → 37）。
+- 残る U-1 / U-2 は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューを称するものではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
