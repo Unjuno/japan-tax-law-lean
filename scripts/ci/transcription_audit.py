@@ -2236,6 +2236,13 @@ def checks():
            ["ニッケルの含有量が全重量の十パーセントを超えるもの"])
 
 
+    # 関税等不服審査会令 art. 7 — QuorumOneThird.lean
+    yield ("関税等不服審査会令 art. 7（委員の三分の一以上の出席で会議・議決）↔ QuorumOneThird.lean (1/3)",
+           "412CO0000000277",
+           "article", "第七条",
+           ["委員の三分の一以上が出席しなければ、会議を開き、議決することができない"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

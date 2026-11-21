@@ -858,3 +858,6 @@ import JapanTaxLaw.PowerDevelopmentTaxRateTests
 import JapanTaxLaw.NickelContentThreshold
 import JapanTaxLaw.NickelContentThresholdSpec
 import JapanTaxLaw.NickelContentThresholdTests
+import JapanTaxLaw.QuorumOneThird
+import JapanTaxLaw.QuorumOneThirdSpec
+import JapanTaxLaw.QuorumOneThirdTests
