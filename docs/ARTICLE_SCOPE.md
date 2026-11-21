@@ -6,7 +6,7 @@ A whole-text numeric match is NOT article-level verification. This is a
 source-fidelity diagnostic (D=PASS means needle in stated article only),
 never a completion gate or a semantic/legal claim.
 
-- checks with article/table-cell scoped needles: 193
+- checks with article/table-cell scoped needles: 202
 - checks with no scoped unit: 0
 
 | law_id | stated article | needle hits | scoped positions | D |
@@ -145,6 +145,11 @@ never a completion gate or a semantic/legal claim.
 | `325CO0000000245` | 第六条の九の二 | 2 | 2 | PASS |
 | `326CO0000000216` | 第六条の二 | 2 | 2 | PASS |
 | `322CO0000000268` | (file-level) | 3 | 3 | PASS |
+| `322CO0000000268` | (file-level) | 3 | 3 | PASS |
+| `322CO0000000268` | (file-level) | 3 | 3 | PASS |
+| `322CO0000000268` | (file-level) | 3 | 3 | PASS |
+| `325AC0000000073` | 第十六条 | 3 | 3 | PASS |
+| `329CO0000000155` | 第一条の二 | 3 | 3 | PASS |
 | `327AC0000000111` | 第十一条 | 2 | 2 | PASS |
 | `431AC0000000003` | (file-level) | 2 | 4 | PASS |
 | `325CO0000000071` | (file-level) | 2 | 4 | PASS |
@@ -154,6 +159,8 @@ never a completion gate or a semantic/legal claim.
 | `337CO0000000097` | (file-level) | 2 | 3 | PASS |
 | `359AC0000000072` | (file-level) | 2 | 3 | PASS |
 | `415M60000008069` | (file-level) | 2 | 4 | PASS |
+| `409CO0000000363` | (file-level) | 2 | 3 | PASS |
+| `347M50000040044` | (file-level) | 2 | 4 | PASS |
 | `340AC0000000033` | (file-level) | 4 | 16 | PASS |
 | `332CO0000000043` | (file-level) | 4 | 10 | PASS |
 | `337M50000008017` | (file-level) | 2 | 8 | PASS |
@@ -204,3 +211,5 @@ never a completion gate or a semantic/legal claim.
 | `322CO0000000109` | 第三条 | 2 | 2 | PASS |
 | `326AC1000000145` | 第十四条 | 2 | 2 | PASS |
 | `346AC0000000089` | 第七条 | 2 | 4 | PASS |
+| `352M50000040032` | 第二条 | 4 | 4 | PASS |
+| `353AC0000000025` | 第二十三条 | 2 | 2 | PASS |
