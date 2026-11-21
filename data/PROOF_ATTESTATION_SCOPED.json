@@ -1,9 +1,9 @@
 {
-  "commit": "d0b6e4cca2b24a8d501b0dcdc0b8ab3ccbd60a91",
+  "commit": "fc3db014d5ab88842161fd90f0476dc115bd11d3",
   "jobs": {
     "Build Lean project and check axioms": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44937113519/job/136946061036"
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44938959966/job/136951717317"
     }
   },
   "modules": {
@@ -27,6 +27,15 @@
     },
     "AntiDumpingRate.lean": {
       "sha256": "95c440220c47f2c43f4a88388050648b85b0d12bedca659bdf9f32cc4d60798f"
+    },
+    "AntiDumpingRate308.lean": {
+      "sha256": "13088ab0a48c6a8a1bdf1c7863c083a15374ec6b8a7cc7d8985c149bca1e4fba"
+    },
+    "AntiDumpingRate308Spec.lean": {
+      "sha256": "6ec03687dbd1d95024bc8686a6a7b0771317909e2c53660804f55703bd5b7fca"
+    },
+    "AntiDumpingRate308Tests.lean": {
+      "sha256": "b2132a22e8e893c4f823d9fe93a62a03c9344ad4ea4d8a2c2b129158c68a518b"
     },
     "AntiDumpingRate53.lean": {
       "sha256": "fa7175e2e6aa31bc134d4f3993a9a51cf0d47edaf8b51475f284afd6aed1fd17"
@@ -493,6 +502,15 @@
     "DisasterLossDeductionTests.lean": {
       "sha256": "e511a7e737550a89ea8f99042840bc8e714c43fcd63420484973fca9db2bdcab"
     },
+    "DisasterReliefPenalty.lean": {
+      "sha256": "67ff8b43a24640a5dff645639722de40fe74f540456631a095903c00656a627a"
+    },
+    "DisasterReliefPenaltySpec.lean": {
+      "sha256": "e0bc22152a0e5ce20c0252ad90d69578f79bd2a041eb1d0828bcdd92721b4d5f"
+    },
+    "DisasterReliefPenaltyTests.lean": {
+      "sha256": "5e2947e9f3bba0ef7bd585898ad60b1aa0ef941a8686a664351afc4bc8487c6b"
+    },
     "DisasterVictimIncomeBracket.lean": {
       "sha256": "2f607243f20b5b8f50316b5c563755d0efff9a0694974c7fdcb5c346f6016d0b"
     },
@@ -843,6 +861,15 @@
     },
     "InheritanceCivilCodeRelativeRefTests.lean": {
       "sha256": "1cf165829ee8bc231724c9431ee60d7cab3c923dab57808246ac8c363a58d7cf"
+    },
+    "InheritanceGiftTaxRateBracket10M15M.lean": {
+      "sha256": "6446d238897512f683f847bd7dbc0231b91ea4b46d2715fc5d9654071d2ec446"
+    },
+    "InheritanceGiftTaxRateBracket10M15MSpec.lean": {
+      "sha256": "db68b4cad6698c1ac5f2f910f8bc7ef5ec7bc4ee2aee9ecb65740723ef520f60"
+    },
+    "InheritanceGiftTaxRateBracket10M15MTests.lean": {
+      "sha256": "fe038536d3307fcfdf13b4e2e8076fe237077212faa452a77aff14419b3b0f59"
     },
     "InheritanceGiftTaxRateBracket2M3M.lean": {
       "sha256": "a98ecece5a2e075761e74f9816e00d8accf2e95dc513d043eefb3d0330a5b10b"
@@ -2434,5 +2461,5 @@
   "schema": 1,
   "scope": "lean_job_only",
   "tool": "scripts/ci/make_scoped_attestation.py",
-  "workflow_run": "https://api.github.com/repos/Unjuno/japan-tax-law-lean/actions/runs/44937113519"
+  "workflow_run": "https://api.github.com/repos/Unjuno/japan-tax-law-lean/actions/runs/44938959966"
 }
