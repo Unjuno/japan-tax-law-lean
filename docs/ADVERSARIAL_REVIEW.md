@@ -6809,3 +6809,127 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 - 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない（既存の他エージェントによる無関係な変更は触れていない）。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・自前漢字数字パーサ・needle 自前正規化検証・端点値 kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+## Batch AZ review (2026-11-22) — 国税審判官等の定数政令 art.3 / TaxExaminerCount.lean（cycle-55 独立原文照合）
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から完全に独立）。coordinator 要約・STAGING・CI 監査結果は信じず、pinned 原文 JSON を直接再 parse し、漢字数字を自前の桁位置パーサで Arabic 変換し、needle は CI と同一の正規化を自前適用して検証した。
+- **対象（読み取り専用・変更していない）**: `JapanTaxLaw/TaxExaminerCount.lean`、`JapanTaxLaw/TaxExaminerCountSpec.lean`、`JapanTaxLaw/TaxExaminerCountTests.lean`。Lean モジュール / `data/*` / `scripts/*` は一切変更せず、commit / push / merge / ブランチ切替も行っていない。書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ（末尾追記）。※ 監査実行のため一時ファイルをプロジェクト外 temp に置き `lake env lean` を実行した（exit code 0）。
+- **一次資料（pinned・改変禁止）**: law_id `345M50000040017` / revision `345M50000040017_20260710_508M60000040048`（政令「国税不服審判所組織規則」、改正法 `508M60000040048`、施行 **2026-07-10**）。実ファイル `data/raw/345M50000040017_20260710_508M60000040048.law.json`、size **44,771 bytes**、SHA-256 **`6B4D77C1F3A0D232FE64D6A171E0B30DCAAC7EDDE25C0D910227F559C2A4B221`**。`data/INVENTORY.json` の `current_revision.law_revision_id` / `raw_snapshot.source_sha256` / `size_bytes` も同一 pinned を指すことを独立確認。
+- **needle 出所**: `scripts/ci/transcription_audit.py::checks()` の cycle-55 エントリ（line 1884-1888、`kind="file"`、law_id `345M50000040017`）から実文字列2本を直接読み出し、CI と同一の正規化 `re.sub(r"[\s\u3000]+", "", s)` を**自前で平坦化した pinned 原文**に適用して包含判定した。
+- **本レビューは機械的独立照合であり、人間の法律専門家によるレビューを称するものではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。
+
+### AZ-1. pin 完全性と原文独立抽出（桁違いの直接除外）
+
+自前スクリプトで `law_full_text` の `Article` ノードを再帰走査し、`Num="3"` の 1 ノードを特定（原文の条番号は 1〜8、art.3 は一意）して text-child のみを連結した（タグ名・属性値は除外）。原文逐語（独立抽出、全 65 文字、U+3000 = 0）:
+
+`（国税審査官）第三条国税不服審判所に、国税審査官百七十四人以内を置く。２国税審査官は、国税審判官の命を受けて、その事務を整理する。`
+
+| 項目 | 独立抽出結果 | モジュール doc-comment 申告 | 照合 |
+|---|---|---|:---:|
+| law_id / revision | `345M50000040017` / `345M50000040017_20260710_508M60000040048` | 同一 | OK |
+| Article 3 flat 長 | **65 文字** | 65 chars | OK |
+| U+3000 数（Article 3 flat） | **0** | 0 | OK |
+
+- 課題提示の原文「国税不服審判所に、国税審査官百七十四人以内を置く。」は、上記 flat の第1段落に**完全一致**する（差は caption「（国税審査官）」と条名「第三条」の接頭のみ）。flat 中の全角 `２`（U+FF12）は第2段落の段落番号であり定数 174 とは無関係。doc-comment が原文逐語中表示する改行／空白は可読性のための表示であり pinned バイト列の一部ではない（pinned flat は空白・U+3000 を一切含まない 65 文字）。
+
+**定数の独立換算と桁違いの明示除外**:
+
+| 原文リテラル | 出現 | 自前桁位置パーサ変換 | Lean 定数 | 除外した誤読 |
+|---|---:|---|---|---|
+| `百七十四` | 1 | 百 = 100 + (七 = 7 × 十 = 10) + 四 = 4 → **174** | `maxExaminers = 174`（`specCap` も 174） | **十七 = 17（下1桁ずらし）**／**十七・四 = 17.4（小数ずらし）**／**千七百四十 = 1,740（上1桁ずらし）**を明示除外 |
+
+- 自前パーサの独立結果: `百七十四 → 174`、`十七 → 17`、`千七百四十 → 1740`、`百八十 → 180`、`八十九 → 89`、`八百九十 → 890`。pinned Article 3 に `"十七"` / `"百七十七"` / `"千七百四十"` / `"十七・四"` / `"一七四"` / `"174"` は**いずれも 0 回**（`"十七"` は `百七十四` の部分列にも存在しない）であり、桁違い候補は原文リテラルとして存在しない（除外の根拠）。小数表記 17.4 は漢字数字列では表現されず、原文に対応リテラルが存在しない。
+- `maxExaminers = 174` は独立抽出値と一致。桁違い（17 / 17.4 / 1,740）はすべて棄却。
+- **art.2 とは異なる条文であることを独立確認**: pinned Article 2（62 文字）は `一国税審判官百八十人二国税副審判官八十九人` を含み、`百八十 → 180` / `八十九 → 89`（Batch AY の対象）。同 flat に `百七十四` は **0 回**。したがって本モデル art.3 の 174 は art.2 の 180 / 89 と混同すべきではない（両者は同一政令の別条）。
+
+### AZ-2. needle 健全性（CI `checks()` 実文字列2本を自前正規化原文で検証）
+
+| # | CI needle（実文字列, line 1888） | 長 | U+3000 | 正規化前後 | 65 文字 flat 内 offset | count | FOUND |
+|---|---|---:|---:|:---:|---:|---:|:---:|
+| N1 | `国税審査官百七十四人以内を置く` | 15 | 0 | 同一（冪等） | 19 | 1 | **FOUND** |
+| N2 | `国税審査官）第三条` | 9 | 0 | 同一（冪等） | 1 | 1 | **FOUND** |
+
+- **2/2 FOUND**。needle 内の U+3000 含有 **0 件**、CI 正規化前後で同一（冪等）。Article 3 flat 自体の U+3000 も **0**、正規化による変化なし（65 → 65 文字）。
+- N2 の `）` は全角右括弧 U+FF09、flat の段落番号 `２` は全角数字 U+FF12 であり、いずれも U+3000（全角スペース）ではない。N1 は「国税審査官 + 百七十四人以内を置く」、N2 は「国税審査官 + ）第三条」を直接抑え、同一条文内の異なる位置（offset 19 と 1、非重複）を指す。片方が欠落・改変されれば即座に 1/2 に落ちる構成であり、needle 健全性は合格。
+
+### AZ-3. 反例探索
+
+一時 Lean ファイル（外部 temp ディレクトリ、プロジェクト外）で 3 モジュールを import し、公称値・桁違い棄却・境界を `by decide`（カーネル還元）で直接検証（`lake env lean`、exit code **0**、エラー 0 件）。走査した 12 命題のうち主要項目:
+
+| 検証命題 | 結果 | 反例 |
+|---|:---:|:---:|
+| `maxExaminers = 174` | true | なし |
+| `isWithinCap 0 = true` | true | なし |
+| `isWithinCap 173 = true` | true | なし |
+| `isWithinCap 174 = true` | true | なし |
+| `isWithinCap 175 = false` | true | なし |
+| `specCap 174 = true` / `specCap 175 = false` | true | なし |
+| `agreeTaxExaminerCount = true` | true | なし |
+| `maxExaminers ≠ 17` / `≠ 1740` / `≠ 17400` | true | なし（下桁・上桁ずらしを棄却） |
+| `isWithinCap 173 = true ∧ isWithinCap 174 = true ∧ isWithinCap 175 = false` | true | なし（境界の包含を確認） |
+
+- 「以内」は `<=`（境界 174 含む）として実装され、173/174 が true、175 が false。独立 spec `specCap`（`n <= 174`）との一致も `agreeTaxExaminerCount = true` としてカーネル還元で確認。
+- **反例検出数: ゼロ（0）。** 定数 174、境界包含、および全桁違い棄却はすべて成立。
+
+### AZ-4. 公理監査
+
+一時 Lean ファイル（外部 temp）で以下の **4 named def** に `#print axioms` を実行（`lake env lean`、exit code **0**）:
+
+- `JapanTaxLaw.TaxExaminerCount.maxExaminers`
+- `JapanTaxLaw.TaxExaminerCount.isWithinCap`
+- `JapanTaxLaw.TaxExaminerCount.specCap`
+- `JapanTaxLaw.TaxExaminerCount.agreeTaxExaminerCount`
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 4 |
+| `does not depend on any axioms` | **4/4** |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+
+- さらに 3 モジュールの静的スキャンで `sorry` / `admit` / `axiom` / `classical` / `by_contra` / `Quot.sound` / `propext` / `choice` / `noncomputable` / `unsafe` の一致 **0 件**（3 モジュールとも）。
+- → **禁止公理（choice / sorryAx）および Quot.sound / propext への依存はいずれも 0 件。公理監査は合格。**
+
+### AZ-5. 未形式化範囲の確認
+
+doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以下を独立確認した。
+
+- **実際の任命数・欠員の未形式化**: doc-comment に「実際の任命数、欠員、定数の改正手続は NOT MODELLED」と明記。pinned 第3条第1段落は「国税不服審判所に、国税審査官百七十四人以内を置く。」と**定員上限**のみを定め、実任命数や欠員数は本条文（および本スライス）に含まれない。→ 未形式化を確認（BY-DESIGN B-3 / UNRESOLVED U-1）。
+- **職務内容の未形式化**: pinned 第3条第2段落は「国税審査官は、国税審判官の命を受けて、その事務を整理する。」と職務を定めるが、モデルは定員上限の数値定数のみを提供し職務内容は NOT MODELLED（doc-comment 明記）。→ 未形式化を確認（BY-DESIGN B-3 / UNRESOLVED U-2）。
+- **定数改正手続の未形式化**: doc-comment に明記。pinned 第3条には改正の発議・公布・施行等の手続は記載されず、本スライスは法定定員の数値定数のみを扱う。→ 未形式化を確認（BY-DESIGN B-3 / UNRESOLVED U-2）。
+- 同一政令の第1条（支部）、第2条（審判官 180 / 副審判官 89）、第4条以降は pinned 原文に存在するが本スライスの対象外であり、定数 174 の照合に影響しない。
+- 本モデルは法的レビューを提供しない旨も明記されている。
+
+### AZ-6. 分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED（原文矛盾・恒等関数化・桁違い・needle 不良・反例・公理汚染）** | **0（ゼロ）** |
+| BY-DESIGN | 5 |
+| UNRESOLVED | 2 |
+
+> **発見された問題はゼロ（CONFIRMED = 0）である。** 原文矛盾、桁違い（17 / 17.4 / 1,740）、needle 不良、反例、公理依存はいずれも検出されなかった。件数を手柄にしない。
+
+#### BY-DESIGN — 5 件
+
+- **B-1 定数リテラルの原文忠実な定数化**: `百七十四 → 174` を自前桁位置パーサで抽出し、`maxExaminers = 174`（および独立 spec 174）と一致。十七（17）・十七・四（17.4）・千七百四十（1,740）の桁違いを明示除外した設計。
+- **B-2 CI needle の正規化**: U+3000 除去は転記監査の仕様であり、モデル値・原文忠実性に影響しない（needle 内 U+3000 = 0、Article 3 flat も 0）。2/2 FOUND。
+- **B-3 bounded L4 スライス**: 定員上限の数値定数とその照合のみを提供し、実際の任命数・欠員・職務内容・定数の改正手続は NOT MODELLED（doc-comment 明記、AZ-5 で独立確認）。
+- **B-4 doc-comment の pin 申告が pinned と完全一致**: law_id / revision / flat 65 文字 / U+3000 = 0 / 原文逐語がいずれも独立抽出と一致。原文逐語中の改行・空白は表示上の可読性のためのもので、pinned flat は空白なし（pinned バイト列との不一致ではない）。
+- **B-5 自然数定数としての保持**: 定数は `Nat` で 174 として保持され、小数表記（17.4 等）は原文に存在しない。桁位置パーサの整数結果と型・値の双方で整合。「以内」を `<=`（境界含む）とする実装も端点走査で確認。
+
+#### UNRESOLVED — 2 件
+
+- **U-1 実際の任命数・欠員の法的取扱い**: 未形式化自体は B-3 のとおり明示済みだが、政令第3条のみでは実際の任命数・欠員を確定できない。**人間の法律専門家による確認を要する**。定数 174 の一致（CONFIRMED = 0）には影響しない。
+- **U-2 職務内容・定数改正手続の法的取扱い**: 第3条第2段落の職務記述はモデル化されず、改正手続も NOT MODELLED である。pinned 原文のみでは職務の法的効果や改正の発議・公布・施行の有効性判定を確定できない。**人間の法律専門家を要する**。数値リテラルの一致（CONFIRMED = 0）には影響しない。
+
+### AZ-7. 結論・履歴保全
+
+- pinned 第3条の「国税審査官 百七十四人以内 = 174 人」を独立抽出し、Lean 実装と照合。**桁違いゼロ**（17 / 17.4 / 1,740 を明示除外、該当リテラル pinned 内 0 回）。needle 2/2 FOUND（needle 内 U+3000 = 0、Article 3 flat も 0）、反例 0 件、公理依存 0 件（4/4 axiom-free、exit code 0）。art.2（180 / 89）とは異なる条文であることを独立確認。
+- 実際の任命数・欠員・職務内容・定数改正手続の未形式化を確認（B-3、法的取扱いは U-1 / U-2 として人間の法律専門家に委ねる）。
+- 既存レビュー履歴 **49 件**（Batch G〜AY 含む）は**すべて保持**。本セクションのみを末尾に連結した。追記後レビュー件数は coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` で **50 件**（49 → 50、要求の 50 以上を満たす）。
+- 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない（既存の他エージェントによる無関係な変更は触れていない）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・自前漢字数字パーサ・needle 自前正規化検証・端点値 kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。

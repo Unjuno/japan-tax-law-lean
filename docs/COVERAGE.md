@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 107 | 327 | 32.72% |
+| laws with >=1 pinned literal check | 110 | 327 | 33.64% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 300 | n/a | n/a |
-| distinct article pins | 128 | 42584 | 0.30% |
-| pinned Lean modules (cross-law) | 683 | n/a | n/a |
+| pinned literal checks | 305 | n/a | n/a |
+| distinct article pins | 131 | 42584 | 0.31% |
+| pinned Lean modules (cross-law) | 691 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 266 |
+| unpinned Lean modules (not counted as verified) | 273 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 49 |
+| adversarial review sessions recorded | 50 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -138,6 +138,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `329CO0000000155` 関税定率法施行令
 - `329CO0000000164` 税関関係手数料令
 - `329M50000002023` 地方税法施行規則
+- `330AC0000000037` 輸入品に対する内国消費税の徴収等に関する法律
 - `330AC0000000104` 地方揮発油税法
 - `330AC0000000113` 地方揮発油譲与税法
 - `330CO0000000100` 輸入品に対する内国消費税の徴収等に関する法律施行令
@@ -214,5 +215,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `431AC0000000004` 特別法人事業税及び特別法人事業譲与税に関する法律
 - `431M60000008040` 森林環境税及び森林環境譲与税に関する法律施行規則
 - `502AC0000000025` 新型コロナウイルス感染症等の影響に対応するための国税関係法律の臨時特例に関する法律
+- `502CO0000000160` 新型コロナウイルス感染症等の影響に対応するための国税関係法律の臨時特例に関する法律施行令
 - `503CO0000000065` 炭酸二カリウムに対して課する不当廉売関税に関する政令
+- `504CO0000000372` 溶融亜鉛めっき鉄線に対して課する不当廉売関税に関する政令
 - `508CO0000000254` 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令

@@ -957,3 +957,6 @@ import JapanTaxLaw.RefundFineRange1MTests
 import JapanTaxLaw.CrossSection15mm
 import JapanTaxLaw.CrossSection15mmSpec
 import JapanTaxLaw.CrossSection15mmTests
+import JapanTaxLaw.ConsumptionTaxSpecialDate
+import JapanTaxLaw.ConsumptionTaxSpecialDateSpec
+import JapanTaxLaw.ConsumptionTaxSpecialDateTests
