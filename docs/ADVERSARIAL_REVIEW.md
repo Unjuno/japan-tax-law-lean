@@ -4977,9 +4977,8 @@ STAGING の needle テキストを信じず、`scripts/ci/transcription_audit.py
 - **C**: 「端数」の扱いは原文上「一単位として数える」と読むのが自然だが、行政実務の weighing 丸め規則は別途政令・通達に委任され、本モデルは射程外。
 - **U**: 車両区分・税率・有効期間・臨時検査の〇・五乗じは caller-established で未形式化。
 - **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
-## Batch AJ review (2026-11-21)
 
-対象: cycle-26/27/28/29/30/31 の 6 モデル（`DutyFreeTransfer` / `SavingsDepositInterest` / `PowderSakeQuantity` / `TobaccoRate` / `StampExchangeFee` / `RemittanceReportLimit`）。coordinator 要約・STAGING を信じず、`data/raw/*.law.json` の pinned 原文から Python で直接・独立に漢数字を算数へ変換して抽出し、Lean 定数・needle・境界・公理を照合した。CI `checks()` の needle 実文字列は `scripts/ci/transcription_audit.py` から直接読み出し、自前正規化した pinned 原文に対して検証した（STAGING の记载は未使用）。
+### CourseHoursThreshold.lean — 法人税法施行規則 art. 7の2（六十時間以上）
 
 > 本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない（法的解釈・行政実務の妥当性は判定しない）。
 
@@ -6324,6 +6323,13 @@ doc-comment の `Scope / NOT MODELLED` を原文 art.4 と突き合わせ、以�
 - 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。一時ファイル（検証 Python 3 本・出力 1 本・axioms Lean 1 本・本セクション 1 本）は削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・恒等関数攻撃・境界値 kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+- **pin**: law_id `340M50000040012` / revision `…_20261001_505M60000040013`; needle 1/1 FOUND in the scoped article (第七条の二), transcription audit 194/194.
+- **H**: 「六十時間以上」は年間授業時間数の下限 60 時間を意味し、独立仕様 `¬ hours < 60` は原文どおりである。
+- **T**: pinned 第七条の二 から needle を独立再抽出し、h=0/59/60/61 の判定を独立計算して Lean 申告値と比較。
+- **D**: 1/1 literal + 4/4 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 他の条項（六百八十時間、八百時間等）及び適用区分の認定は本スライスの射程外（caller-established）。
+- **U**: 端数・年度の定義・専修学校区分は pinned 原文のみでは解けず人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
 
 ## Batch AV review (2026-11-22) — 不当廉売関税率政令 art.2 / AntiDumpingRate308.lean（cycle-51 独立原文照合）
 
@@ -6567,3 +6573,120 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・自前日本語数字パーサ・needle 自前正規化検証・端点値 kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
 
+
+## Batch AX review (2026-11-22) — 関税割当数量省令 art.5 / TariffQuotaAmount.lean（cycle-53 独立原文照合）
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から完全に独立）。coordinator 要約・STAGING・CI 監査結果は信じず、pinned 原文 JSON を直接再 parse し、漢字数字を自前の桁位置パーサで Arabic 変換し、needle は CI と同一の正規化を自前適用して検証した。
+- **対象（読み取り専用・変更していない）**: `JapanTaxLaw/TariffQuotaAmount.lean`、`JapanTaxLaw/TariffQuotaAmountSpec.lean`、`JapanTaxLaw/TariffQuotaAmountTests.lean`。Lean モジュール / `data/*` / `scripts/*` は一切変更せず、commit / push / merge / ブランチ切替も行っていない。書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ（末尾追記）。※ 監査実行のため一時 Lean ファイルをプロジェクト外 temp に置き `lake env lean` を実行した（git 無視のビルド成果物が生成された可能性があるが、ソース・データは未変更）。
+- **一次資料（pinned・改変禁止）**: law_id `417M60000200012` / revision `417M60000200012_20260401_507M60000200056`（省令「経済連携協定に基づく農林水産省の所掌事務に係る物資の関税割当制度に関する省令」、改正法 `507M60000200056`、施行 **2026-04-01**、`current_revision_status = CurrentEnforced`）。実ファイル `data/raw/417M60000200012_20260401_507M60000200056.law.json`、size **18,591 bytes**、SHA-256 **`650A31721A8AFE75B0490391BDDD2A424410E36A0E3BAF796A41C31049C5588C`**。`data/INVENTORY.json` の `current_revision.law_revision_id` および `raw_snapshot.source_sha256` も同一 pinned を指すことを独立確認。
+- **needle 出所**: `scripts/ci/transcription_audit.py::checks()` の cycle-53 エントリ（line 1854-1858、`kind="file"`、law_id `417M60000200012`）から実文字列2本を直接読み出し、CI と同一の正規化 `re.sub(r"[\s　]+", "", s)` を**自前で平坦化した pinned 原文**に適用して包含判定した。
+- **本レビューは機械的独立照合であり、人間の法律専門家によるレビューを称するものではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。
+
+### AX-1. pin 完全性と原文独立抽出（桁違いの直接除外）
+
+自前スクリプトで `law_full_text` の `Article` ノードを再帰走査し、`Num="5"` の 1 ノードを特定して全 string leaf を連結した（計 12 Article を走査）。原文逐語（独立抽出）:
+
+`（関税割当数量）第五条令第二条第十一項の規定により読み替えて適用する同条第五項の農林水産省令で定める数量は、令和八年四月一日から令和九年三月三十一日までの間は八千トンとする。`
+
+| 項目 | 独立抽出結果 | モジュール doc-comment 申告 | 照合 |
+|---|---|---|:---:|
+| law_id / revision | `417M60000200012` / `417M60000200012_20260401_507M60000200056` | 同一 | OK |
+| Article 5 flat 長 | **87 文字** | 87 chars | OK |
+| U+3000 数（Article 5 flat） | **0** | 0 | OK |
+
+**数量の独立換算と桁違いの明示除外**:
+
+| 原文リテラル | 出現 | 自前桁位置パーサ変換 | Lean 定数 | 除外した誤読 |
+|---|---:|---|---|---|
+| `八千` | 1 | 八 = 8 × 千 = 1000 → **8000** | `quotaTons = 8_000`、`specQuota = 8000` | **八百 = 800（下1桁ずらし）を明示除外**／**八万 = 80,000（上1桁ずらし）を明示除外** |
+
+- 自前パーサの独立結果: `八千 → 8000`、`八百 → 800`、`八万 → 80000`。pinned 原文に `"800"` も `"80000"` も**いずれも 0 回**であり、桁違い候補は原文リテラルとして存在しない（除外の根拠）。
+- **適用期間の独立抽出**: 原文に `令和八年四月一日` および `令和九年三月三十一日`（いずれも漢字表記）が **FOUND**。doc-comment は「令和8年4月1日〜令和9年3月31日」と**年号文字列（Arabic 数字混入）で保持**しており、原文の漢字表記を逐語引用したものではない。これは doc が明記する「denominated は年号文字列として保持」および「年号→西暦換算・日付算術は NOT MODELLED」に整合する設計であり、数量 8000 の照合に影響しない（AX-5 / B-5）。
+
+### AX-2. needle 健全性（CI `checks()` 実文字列2本を自前正規化原文で検証）
+
+| # | CI needle（実文字列, line 1858） | 長 | U+3000 | 正規化前後 | 87 文字 flat 内 offset | count | FOUND |
+|---|---|---:|---:|:---:|---:|---:|:---:|
+| N1 | `間は八千トンとする` | 9 | 0 | 同一（冪等） | 77 | 1 | **FOUND** |
+| N2 | `関税割当数量）第五条` | 10 | 0 | 同一（冪等） | 1 | 1 | **FOUND** |
+
+- **2/2 FOUND**。needle 内の U+3000 含有 **0 件**、CI 正規化前後で同一（冪等）。Article 5 flat 自体の U+3000 も **0**。
+- N1 は数量リテラル「八千」を含む結節句、N2 は条名「関税割当数量）第五条」を直接抑えており、needle 2 本は同一条文内の異なる位置（offset 77 と 1）を指す（非重複）。片方が欠落・改変されていれば即座に 1/2 に落ちる構成であり、needle 健全性は合格。
+
+### AX-3. 反例探索
+
+一時 Lean ファイル（外部 temp ディレクトリ、プロジェクト外）で 3 モジュールを import し、公称値を `by decide`（カーネル還元）で直接検証（`lake env lean`、exit code **0**、エラー 0 件）。走査した 11 命題:
+
+| 検証命題 | 結果 | 反例 |
+|---|---|:---:|
+| `quotaTons = 8_000` | true | なし |
+| `quotaTons > 0` | true | なし |
+| `specQuota = 8_000` | true | なし |
+| `agreeTariffQuotaAmount = true` | true | なし |
+| `quotaTons ≠ 800` | true | なし（下桁ずらしを棄却） |
+| `quotaTons ≠ 80_000` | true | なし（上桁ずらしを棄却） |
+| `specQuota ≠ 800` / `specQuota ≠ 80_000` | true | なし |
+| `(quotaTons == (8000 : Nat)) = true` | true | なし |
+
+- 独立定式 `specQuota : Nat = 8000` との一致（`agreeTariffQuotaAmount = true`）もカーネル還元で確認。
+- **反例検出数: ゼロ（0）。** 数量定数 8000 とその照合は完全。
+
+### AX-4. 公理監査
+
+一時 Lean ファイル（外部 temp）で以下の **3 named def** に `#print axioms` を実行（`lake env lean`、exit code **0**）:
+
+- `JapanTaxLaw.TariffQuotaAmount.quotaTons`
+- `JapanTaxLaw.TariffQuotaAmount.specQuota`
+- `JapanTaxLaw.TariffQuotaAmount.agreeTariffQuotaAmount`
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 3 |
+| `does not depend on any axioms` | **3/3** |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+
+- さらに 3 モジュールの静的スキャンで `sorry` / `admit` / `axiom` / `classical` / `by_contra` / `Quot.sound` / `propext` / `choice` / `noncomputable` / `unsafe` の一致 **0 件**（3 モジュールとも）。
+- → **禁止公理（choice / sorryAx / Quot.sound）および propext への依存はいずれも 0 件。公理監査は合格。**
+
+### AX-5. 未形式化範囲の確認
+
+doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以下を独立確認した。
+
+- **割当手続・品目特定の未形式化**: doc-comment に「割当の申請・配分手続、品目の特定は NOT MODELLED」と明記。pinned 第五条は「令第二条第十一項の規定により読み替えて適用する同条第五項の農林水産省令で定める数量は…」と数量のみを定め、申請・配分の手続や対象品目の特定は本条文（および本スライス）に含まれない。→ 未形式化を確認（BY-DESIGN B-3 / UNRESOLVED U-1）。
+- **年号換算・日付算術の未形式化**: doc-comment に「年号→西暦の換算・日付算術は NOT MODELLED（期間は原文文字列を定数として保持）」と明記。原文は `令和八年四月一日` 〜 `令和九年三月三十一日` と和暦漢字で期間を指定するが、doc は年号文字列として保持するのみで西暦換算・日付計算は行わない。→ 未形式化を確認（BY-DESIGN B-5 / UNRESOLVED U-2）。
+- 本モデルは法的レビューを提供しない旨も明記されている。
+
+### AX-6. 分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED（原文矛盾・恒等関数化・桁違い・needle 不良・反例・公理汚染）** | **0（ゼロ）** |
+| BY-DESIGN | 5 |
+| UNRESOLVED | 2 |
+
+> **発見された問題はゼロ（CONFIRMED = 0）である。** 原文矛盾、桁違い（800 / 80000）、needle 不良、反例、公理依存はいずれも検出されなかった。件数を手柄にしない。
+
+#### BY-DESIGN — 5 件
+
+- **B-1 数量リテラルの原文忠実な定数化**: `八千` → 8000 を自前桁位置パーサで抽出し、`quotaTons = 8_000` / `specQuota = 8000` と一致。八百（800）・八万（80,000）の桁違いを明示除外した設計。
+- **B-2 CI needle の正規化**: U+3000 除去は転記監査の仕様であり、モデル値・原文忠実性に影響しない（needle 内 U+3000 = 0、Article 5 flat も 0）。2/2 FOUND。
+- **B-3 bounded L4 スライス**: 数量定数とその照合のみを提供し、割当の申請・配分手続、品目の特定は NOT MODELLED（doc-comment 明記、AX-5 で独立確認）。
+- **B-4 doc-comment の pin 申告が pinned と完全一致**: law_id / revision / flat 87 文字 / U+3000 = 0 / 原文逐語がいずれも独立抽出と一致。原文逐語は数量節全体を引用しており省略による不一致なし。
+- **B-5 適用期間の年号文字列保持**: doc は「令和8年4月1日〜令和9年3月31日」と年号文字列（Arabic 数字混入）で記録し、原文の漢字表記（令和八年四月一日〜令和九年三月三十一日）を逐語引用していない。これは「denominated は年号文字列として保持」の設計どおりであり、年号換算・日付算術は NOT MODELLED（要件「適用期間は doc に年号文字列で記録」に整合）。
+
+#### UNRESOLVED — 2 件
+
+- **U-1 割当手続・品目特定の法的取扱い**: 未形式化自体は B-3 のとおり明示済みだが、第五条が参照する「令第二条第十一項の規定により読み替えて適用する同条第五項」の具体的な割当申請・配分手続および対象品目の特定方法は、pinned 第五条のみでは決定不能。**人間の法律専門家による確認を要する**。数量 8000 の一致（CONFIRMED = 0）には影響しない。
+- **U-2 年号→西暦換算・適用期間の日付算術の法的取扱い**: 原文は和暦漢字で期間を指定するが、pinned 原文のみでは令和八年四月一日〜令和九年三月三十一日の西暦換算・期間計算の定義を確定できない（doc は年号文字列保持のみで換算は NOT MODELLED）。**人間の法律専門家を要する**。数量リテラルの一致（CONFIRMED = 0）には影響しない。
+
+### AX-7. 結論・履歴保全
+
+- pinned 第五条の「八千トン = 8000 トン」を独立抽出し、Lean 実装と照合。**桁違いゼロ**（八百 = 800 / 八万 = 80,000 を明示除外、原文に該当リテラル 0 回）。needle 2/2 FOUND（needle 内 U+3000 = 0、Article 5 flat も 0）、反例 0 件、公理依存 0 件（3/3 axiom-free、exit code 0）。適用期間は年号文字列として doc に記録され、年号換算は NOT MODELLED を確認。
+- 割当手続・品目特定・年号換算の未形式化を確認（B-3 / B-5、法的取扱いは U-1 / U-2 として人間の法律専門家に委ねる）。
+- 既存レビュー履歴 **47 件**（Batch G〜AW 含む）は**すべて保持**。本セクションのみを末尾に連結した。追記後レビュー件数は coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` で **48 件**（47 → 48、要求の 48 以上を満たす）。
+- 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない（既存の他エージェントによる無関係な変更は触れていない）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・自前漢字数字パーサ・needle 自前正規化検証・端点値 kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。

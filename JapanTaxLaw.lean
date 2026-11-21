@@ -423,6 +423,9 @@ import JapanTaxLaw.BusinessOwnerDeductionTests
 import JapanTaxLaw.DisasterIncomeTaxRelief
 import JapanTaxLaw.DisasterIncomeTaxReliefSpec
 import JapanTaxLaw.DisasterIncomeTaxReliefTests
+import JapanTaxLaw.CourseHoursThreshold
+import JapanTaxLaw.CourseHoursThresholdSpec
+import JapanTaxLaw.CourseHoursThresholdTests
 import JapanTaxLaw.VehicleWeightUnit
 import JapanTaxLaw.VehicleWeightUnitSpec
 import JapanTaxLaw.VehicleWeightUnitTests
@@ -927,3 +930,12 @@ import JapanTaxLaw.MaxLengthMultiplier115Tests
 import JapanTaxLaw.PopulationInterval15M75M
 import JapanTaxLaw.PopulationInterval15M75MSpec
 import JapanTaxLaw.PopulationInterval15M75MTests
+import JapanTaxLaw.TaxJudgeCount
+import JapanTaxLaw.TaxJudgeCountSpec
+import JapanTaxLaw.TaxJudgeCountTests
+import JapanTaxLaw.AreaThreshold2Ha
+import JapanTaxLaw.AreaThreshold2HaSpec
+import JapanTaxLaw.AreaThreshold2HaTests
+import JapanTaxLaw.WeightInterval5M25M
+import JapanTaxLaw.WeightInterval5M25MSpec
+import JapanTaxLaw.WeightInterval5M25MTests

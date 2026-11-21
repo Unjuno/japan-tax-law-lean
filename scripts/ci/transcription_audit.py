@@ -1875,6 +1875,12 @@ def checks():
            "file", None,
            ["間は八千トンとする", "関税割当数量）第五条"])
 
+    # TaxJudgeCount — cycle-54
+    yield ("TaxJudgeCount.lean",
+           "345M50000040017",
+           "file", None,
+           ["一国税審判官百八十人", "二国税副審判官八十九人"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2180,6 +2186,11 @@ def checks():
            ["自動車重量税の課税標準は", "〇・五を乗じて得た金額"])
 
 
+    # 法人税法施行規則 art. 7 ロ(2) — CourseHoursThreshold.lean (60 hours)
+    yield ("法人税法施行規則 art. 7（六十時間以上の授業時間数）↔ CourseHoursThreshold.lean (annualHoursThreshold 60)",
+           "340M50000040012",
+           "article", "第七条の二",
+           ["六十時間以上"])
     # 国税局課税部等の統括国税調査官等省令 art. 2 — CapitalFiveBillionThreshold.lean
     yield ("国税局課税部等の統括国税調査官等省令 art. 2（資本金額五十億円以上）↔ CapitalFiveBillionThreshold.lean (capitalFloor 5_000_000_000)",
            "352M50000040032",
@@ -2403,6 +2414,20 @@ def checks():
            "347M50000008026",
            "article", "第四条",
            ["千五百万人を超え七千五百万人以下の人数"])
+
+
+    # 区域面積規制 art. 3 — AreaThreshold2Ha.lean
+    yield ("区域面積規制 art. 3（当該区域の面積が二ヘクタール以上）↔ AreaThreshold2Ha.lean (2 ha)",
+           "348AC0000000102",
+           "article", "第三条",
+           ["当該区域の面積が二ヘクタール以上であること"])
+
+
+    # 航空機燃料譲与税法施行規則 art. 4 (para2) — WeightInterval5M25M.lean
+    yield ("航空機燃料譲与税法施行規則 art. 4（五百万トン超二千五百万トン以下の重量）↔ WeightInterval5M25M.lean (5M<w<=25M)",
+           "347M50000008026",
+           "article", "第四条",
+           ["五百万トンを超え二千五百万トン以下の重量"])
 
 
 def main() -> int:
