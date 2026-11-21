@@ -861,3 +861,6 @@ import JapanTaxLaw.NickelContentThresholdTests
 import JapanTaxLaw.QuorumOneThird
 import JapanTaxLaw.QuorumOneThirdSpec
 import JapanTaxLaw.QuorumOneThirdTests
+import JapanTaxLaw.ForestAreaRounding
+import JapanTaxLaw.ForestAreaRoundingSpec
+import JapanTaxLaw.ForestAreaRoundingTests

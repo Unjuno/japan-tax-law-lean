@@ -1788,6 +1788,12 @@ def checks():
            "file", None,
            ["販売電気千キロワット時につき、三百七十五円とする", "電源開発促進税の税率は"])
 
+    # ForestAreaRounding — cycle-50
+    yield ("ForestAreaRounding.lean",
+           "431M60000008040",
+           "file", None,
+           ["一ヘクタール未満の端数があるときは、その端数を四捨五入する", "端数計算）第四条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
