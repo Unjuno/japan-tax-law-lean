@@ -1301,6 +1301,33 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # LocalTaxArt803AdministrativeFine.lean - NORM|7b8ad3cf... (administrative fine <= 100k yen CONDITION, law 325AC0000000226)
+    # Needle is in MainProvision Article 803 (Paragraph 1, Sentence 1);
+    # find_article_text(...,"第八百三条") returns that article (len 39) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("administrative fine 100k yen - LocalTaxArt803AdministrativeFine.lean",
+           "325AC0000000226",
+           "article", "第八百三条",
+           ["\u7b2c\u4e03\u767e\u516d\u5341\u4e03\u6761\u7b2c\u4e8c\u9805\u306e\u898f\u5b9a\u306b\u9055\u53cd\u3057\u305f\u8005\u306f\u3001\u5341\u4e07\u5186\u4ee5\u4e0b\u306e\u904e\u6599\u306b\u51e6\u3059\u308b\u3002"])
+
+    # LocalTaxArt144_33FineTier3.lean - NORM|09597408... (fine <= 100M yen CONDITION, law 325AC0000000226)
+    # Needle is in MainProvision Article 144_33 (Paragraph 6, Item 3, Column 2, Sentence 1);
+    # find_article_text(...,"第百四十四条の三十三") returns that article (len 928) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("fine ceiling 100M yen - LocalTaxArt144_33FineTier3.lean",
+           "325AC0000000226",
+           "article", "第百四十四条の三十三",
+           ["\u4e00\u5104\u5186\u4ee5\u4e0b\u306e\u7f70\u91d1\u5211"])
+
+    # LightOilDeliveryTaxRate.lean - NORM|1f1e4ed1... (light oil delivery tax rate 15000 yen/kilolitre EFFECT, law 325AC0000000226)
+    # Needle is in MainProvision Article 144_10 (Paragraph 1, Sentence 1);
+    # find_article_text(...,"第百四十四条の十") returns that article (len 48) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("light oil delivery tax rate 15000 yen per kilolitre - LightOilDeliveryTaxRate.lean",
+           "325AC0000000226",
+           "article", "第百四十四条の十",
+           ["\u8efd\u6cb9\u5f15\u53d6\u7a0e\u306e\u7a0e\u7387\u306f\u3001\u4e00\u30ad\u30ed\u30ea\u30c3\u30c8\u30eb\u306b\u3064\u304d\u3001\u4e00\u4e07\u4e94\u5343\u5186\u3068\u3059\u308b\u3002"])
+
     # LocalTaxArt144_33FineTier2.lean - NORM|64559fa7... (fine <= 200M yen CONDITION, law 325AC0000000226)
     # Needle is in MainProvision Article 144_33 (Paragraph 6, Item 2, Column 2, Sentence 1);
     # find_article_text(...,"第百四十四条の三十三") returns that article (len 928) with needle -
@@ -1672,6 +1699,12 @@ def checks():
            "330CO0000000100",
            "file", None,
            ["揮発油税及び地方揮発油税を一の税目とみなし", "これらの税の税率又は税額をそれぞれ合算した額を内国消費税の税率又は税額とみなして"])
+
+    # PowderCoefficientRounding — cycle-43
+    yield ("PowderCoefficientRounding.lean",
+           "337M50000040026",
+           "file", None,
+           ["小数点以下第三位未満の端数", "小数点以下第二位未満の端数を切り捨てて行う"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -2046,12 +2079,23 @@ def checks():
            ["定款、登記事項証明書並びに最終の貸借対照表、損益計算書及び事業報告"])
 
 
-
     # 所得税法施行規則 art.87(3)(2) — IncomeRegPaymentCeiling1M.lean (満期返戻金等 百万円以下)
     yield ("所得税法施行規則 art.87(3)(2)（満期返戻金等の支払金額百万円以下）↔ IncomeRegPaymentCeiling1M.lean (ceiling 1_000_000, 以下 inclusive)",
            "340M50000040011",
            "article", "第八十七条",
            ["同一人に対するその年中の満期返戻金等の支払金額が百万円以下である場合"])
+    # 登録免許税法施行規則 art. 12 — ClampedSubtraction.lean
+    yield ("登録免許税法施行規則 art. 12（イからロを控除し零を下回れば零）↔ ClampedSubtraction.lean (saturating subtraction)",
+           "342M50000040037",
+           "article", "第十二条",
+           ["イに掲げる額からロに掲げる額を控除した額（当該控除した額が零を下回る場合にあつては、零）"])
+
+
+    # 石油ガス税法 art. 27 — PetroleumGasFineRange.lean
+    yield ("石油ガス税法 art. 27（罰金範囲・三倍が五十万円超）↔ PetroleumGasFineRange.lean (fineFloor 500_000, multiplier 3)",
+           "340AC0000000156",
+           "article", "第二十七条",
+           ["石油ガス税に相当する金額の三倍が五十万円を超える場合"])
 
 
 def main() -> int:
