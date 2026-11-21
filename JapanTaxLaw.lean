@@ -692,3 +692,6 @@ import JapanTaxLaw.DelegationRefsAndWaiversTests
 import JapanTaxLaw.DefinitionsAndOffences
 import JapanTaxLaw.DefinitionsAndOffencesSpec
 import JapanTaxLaw.DefinitionsAndOffencesTests
+import JapanTaxLaw.LegalStructuralMarkers
+import JapanTaxLaw.LegalStructuralMarkersSpec
+import JapanTaxLaw.LegalStructuralMarkersTests
