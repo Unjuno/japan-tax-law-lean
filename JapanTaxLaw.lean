@@ -768,3 +768,6 @@ import JapanTaxLaw.TonTaxPunishmentTests
 import JapanTaxLaw.RequiredApplicationDocuments
 import JapanTaxLaw.RequiredApplicationDocumentsSpec
 import JapanTaxLaw.RequiredApplicationDocumentsTests
+import JapanTaxLaw.GasolineTaxCombination
+import JapanTaxLaw.GasolineTaxCombinationSpec
+import JapanTaxLaw.GasolineTaxCombinationTests
