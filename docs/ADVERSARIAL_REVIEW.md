@@ -4977,8 +4977,9 @@ STAGING の needle テキストを信じず、`scripts/ci/transcription_audit.py
 - **C**: 「端数」の扱いは原文上「一単位として数える」と読むのが自然だが、行政実務の weighing 丸め規則は別途政令・通達に委任され、本モデルは射程外。
 - **U**: 車両区分・税率・有効期間・臨時検査の〇・五乗じは caller-established で未形式化。
 - **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+## Batch AJ review (2026-11-21)
 
-### CourseHoursThreshold.lean — 法人税法施行規則 art. 7の2（六十時間以上）
+対象: cycle-26/27/28/29/30/31 の 6 モデル（`DutyFreeTransfer` / `SavingsDepositInterest` / `PowderSakeQuantity` / `TobaccoRate` / `StampExchangeFee` / `RemittanceReportLimit`）。coordinator 要約・STAGING を信じず、`data/raw/*.law.json` の pinned 原文から Python で直接・独立に漢数字を算数へ変換して抽出し、Lean 定数・needle・境界・公理を照合した。CI `checks()` の needle 実文字列は `scripts/ci/transcription_audit.py` から直接読み出し、自前正規化した pinned 原文に対して検証した（STAGING の记载は未使用）。
 
 > 本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない（法的解釈・行政実務の妥当性は判定しない）。
 
@@ -6323,13 +6324,6 @@ doc-comment の `Scope / NOT MODELLED` を原文 art.4 と突き合わせ、以�
 - 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。一時ファイル（検証 Python 3 本・出力 1 本・axioms Lean 1 本・本セクション 1 本）は削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・恒等関数攻撃・境界値 kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-- **pin**: law_id `340M50000040012` / revision `…_20261001_505M60000040013`; needle 1/1 FOUND in the scoped article (第七条の二), transcription audit 194/194.
-- **H**: 「六十時間以上」は年間授業時間数の下限 60 時間を意味し、独立仕様 `¬ hours < 60` は原文どおりである。
-- **T**: pinned 第七条の二 から needle を独立再抽出し、h=0/59/60/61 の判定を独立計算して Lean 申告値と比較。
-- **D**: 1/1 literal + 4/4 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
-- **C**: 他の条項（六百八十時間、八百時間等）及び適用区分の認定は本スライスの射程外（caller-established）。
-- **U**: 端数・年度の定義・専修学校区分は pinned 原文のみでは解けず人間の法律専門家レビューを要する。
-- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
 
 ## Batch AV review (2026-11-22) — 不当廉売関税率政令 art.2 / AntiDumpingRate308.lean（cycle-51 独立原文照合）
 
@@ -6687,6 +6681,131 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 - pinned 第五条の「八千トン = 8000 トン」を独立抽出し、Lean 実装と照合。**桁違いゼロ**（八百 = 800 / 八万 = 80,000 を明示除外、原文に該当リテラル 0 回）。needle 2/2 FOUND（needle 内 U+3000 = 0、Article 5 flat も 0）、反例 0 件、公理依存 0 件（3/3 axiom-free、exit code 0）。適用期間は年号文字列として doc に記録され、年号換算は NOT MODELLED を確認。
 - 割当手続・品目特定・年号換算の未形式化を確認（B-3 / B-5、法的取扱いは U-1 / U-2 として人間の法律専門家に委ねる）。
 - 既存レビュー履歴 **47 件**（Batch G〜AW 含む）は**すべて保持**。本セクションのみを末尾に連結した。追記後レビュー件数は coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` で **48 件**（47 → 48、要求の 48 以上を満たす）。
+- 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない（既存の他エージェントによる無関係な変更は触れていない）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・自前漢字数字パーサ・needle 自前正規化検証・端点値 kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+## Batch AY review (2026-11-22) — 国税審判官等の定数政令 art.2 / TaxJudgeCount.lean（cycle-54 独立原文照合）
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から完全に独立）。coordinator 要約・STAGING・CI 監査結果は信じず、pinned 原文 JSON を直接再 parse し、漢字数字を自前の桁位置パーサで Arabic 変換し、needle は CI と同一の正規化を自前適用して検証した。
+- **対象（読み取り専用・変更していない）**: `JapanTaxLaw/TaxJudgeCount.lean`、`JapanTaxLaw/TaxJudgeCountSpec.lean`、`JapanTaxLaw/TaxJudgeCountTests.lean`。Lean モジュール / `data/*` / `scripts/*` は一切変更せず、commit / push / merge / ブランチ切替も行っていない。書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ（末尾追記）。※ 監査実行のため一時ファイルをプロジェクト外 temp に置き `lake env lean` を実行した（git 無視のビルド成果物が生成された可能性があるが、ソース・データは未変更）。
+- **一次資料（pinned・改変禁止）**: law_id `345M50000040017` / revision `345M50000040017_20260710_508M60000040048`（政令「国税不服審判所組織規則」、改正法 `508M60000040048`、施行 **2026-07-10**、`current_revision_status = CurrentEnforced`）。実ファイル `data/raw/345M50000040017_20260710_508M60000040048.law.json`、size **44,771 bytes**、SHA-256 **`6B4D77C1F3A0D232FE64D6A171E0B30DCAAC7EDDE25C0D910227F559C2A4B221`**。`data/INVENTORY.json` の `current_revision.law_revision_id` および `raw_snapshot.source_sha256` も同一 pinned を指すことを独立確認。
+- **needle 出所**: `scripts/ci/transcription_audit.py::checks()` の cycle-54 エントリ（line 1869-1873、`kind="file"`、law_id `345M50000040017`）から実文字列2本を直接読み出し、CI と同一の正規化 `re.sub(r"[\s　]+", "", s)` を**自前で平坦化した pinned 原文**に適用して包含判定した。
+- **本レビューは機械的独立照合であり、人間の法律専門家によるレビューを称するものではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。
+
+### AY-1. pin 完全性と原文独立抽出（桁違いの直接除外）
+
+自前スクリプトで `law_full_text` の `Article` ノードを再帰走査し、`Num="2"` の 1 ノードを特定して text-child のみを連結した（タグ名・属性値は除外）。原文逐語（独立抽出、全 62 文字）:
+
+`（国税審判官等の定数）第二条国税審判官及び国税副審判官の定数は、次のとおりとする。一国税審判官百八十人二国税副審判官八十九人`
+
+| 項目 | 独立抽出結果 | モジュール doc-comment 申告 | 照合 |
+|---|---|---|:---:|
+| law_id / revision | `345M50000040017` / `345M50000040017_20260710_508M60000040048` | 同一 | OK |
+| Article 2 flat 長 | **62 文字** | 62 chars | OK |
+| U+3000 数（Article 2 flat） | **0** | 0 | OK |
+
+- 課題提示の原文「国税審判官及び国税副審判官の定数は、次のとおりとする。一国税審判官百八十人二国税副審判官八十九人」は、上記 flat の後半に**完全一致**する（差は caption「（国税審判官等の定数）」と条名「第二条」の接頭のみ）。doc-comment が原文逐語中表示する改行／「人 二」間の空白は**可読性のための表示であり pinned バイト列の一部ではない**。pinned flat は空白・U+3000 を一切含まない 62 文字である（AY-2 の needle 検証は pinned 原文に対して実施）。
+
+**定数の独立換算と桁違いの明示除外**:
+
+| 原文リテラル | 出現 | 自前桁位置パーサ変換 | Lean 定数 | 除外した誤読 |
+|---|---:|---|---|---|
+| `百八十` | 1 | 百 = 100 + 八 = 8 × 十 = 10 → **180** | `judgeCount = 180`、`specJudge = 180` | **十八 = 18（下1桁ずらし）を明示除外**／**千八百 = 1,800（上1桁ずらし）を明示除外** |
+| `八十九` | 1 | 八 = 8 × 十 = 10 + 九 = 9 → **89** | `deputyJudgeCount = 89`、`specDeputy = 89` | **8.9（小数ずらし）を明示除外**／**八百九十 = 890（上1桁ずらし）を明示除外** |
+
+- 自前パーサの独立結果: `百八十 → 180`、`十八 → 18`、`千八百 → 1800`、`八十九 → 89`、`八百九十 → 890`。pinned Article 2 に `"十八"` / `"千八百"` / `"八百九十"` / `"八・九"` / `"一八〇"` は**いずれも 0 回**であり、桁違い候補は原文リテラルとして存在しない（除外の根拠）。小数表記 `8.9` は漢字数字列では表現されず、原文に対応リテラルが存在しない。
+- `judgeCount = 180` / `deputyJudgeCount = 89` はともに独立抽出値と一致。桁違い（18 / 1,800 / 8.9 / 890）はすべて棄却。
+
+### AY-2. needle 健全性（CI `checks()` 実文字列2本を自前正規化原文で検証）
+
+| # | CI needle（実文字列, line 1873） | 長 | U+3000 | 正規化前後 | 62 文字 flat 内 offset | count | FOUND |
+|---|---|---:|---:|:---:|---:|---:|:---:|
+| N1 | `一国税審判官百八十人` | 10 | 0 | 同一（冪等） | 41 | 1 | **FOUND** |
+| N2 | `二国税副審判官八十九人` | 11 | 0 | 同一（冪等） | 51 | 1 | **FOUND** |
+
+- **2/2 FOUND**。needle 内の U+3000 含有 **0 件**、CI 正規化前後で同一（冪等）。Article 2 flat 自体の U+3000 も **0**。
+- N1 は「一 + 国税審判官 + 百八十人」、N2 は「二 + 国税副審判官 + 八十九人」を直接抑え、同一条文内の異なる位置（offset 41 と 51、非重複）を指す。片方が欠落・改変されれば即座に 1/2 に落ちる構成であり、needle 健全性は合格。
+
+### AY-3. 反例探索
+
+一時 Lean ファイル（外部 temp ディレクトリ、プロジェクト外）で 3 モジュールを import し、公称値・桁違い棄却を `by decide`（カーネル還元）で直接検証（`lake env lean`、exit code **0**、エラー 0 件）。走査した 14 命題のうち主要項目:
+
+| 検証命題 | 結果 | 反例 |
+|---|---|:---:|
+| `judgeCount = 180` | true | なし |
+| `deputyJudgeCount = 89` | true | なし |
+| `judgeCount > deputyJudgeCount` | true | なし |
+| `specJudge = 180` / `specDeputy = 89` | true | なし |
+| `agreeTaxJudgeCount = true` | true | なし |
+| `judgeCount ≠ 18` / `judgeCount ≠ 1800` | true | なし（下桁・上桁ずらしを棄却） |
+| `deputyJudgeCount ≠ 8` / `≠ 9` / `≠ 890` | true | なし（桁分割・小数・上桁ずらしを棄却） |
+| `judgeCount ≠ deputyJudgeCount`、否 `judgeCount < deputyJudgeCount` | true | なし（順序逆転なし） |
+| `judgeCount + deputyJudgeCount = 269` | true | なし |
+
+- 独立定式 `specJudge = 180` / `specDeputy = 89` との一致（`agreeTaxJudgeCount = true`）もカーネル還元で確認。
+- **反例検出数: ゼロ（0）。** 定数 180 / 89、大小関係、および全桁違い棄却はすべて成立。
+
+### AY-4. 公理監査
+
+一時 Lean ファイル（外部 temp）で以下の **5 named def** に `#print axioms` を実行（`lake env lean`、exit code **0**）:
+
+- `JapanTaxLaw.TaxJudgeCount.judgeCount`
+- `JapanTaxLaw.TaxJudgeCount.deputyJudgeCount`
+- `JapanTaxLaw.TaxJudgeCount.specJudge`
+- `JapanTaxLaw.TaxJudgeCount.specDeputy`
+- `JapanTaxLaw.TaxJudgeCount.agreeTaxJudgeCount`
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 5 |
+| `does not depend on any axioms` | **5/5** |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+
+- さらに 3 モジュールの静的スキャンで `sorry` / `admit` / `axiom` / `classical` / `by_contra` / `Quot.sound` / `propext` / `choice` / `noncomputable` / `unsafe` の一致 **0 件**（3 モジュールとも）。
+- 参考（スコープ外の横断確認）: 全 tracked Lean 2,927 定理に対する CI 同一 probe は exit code **0** で、`sorryAx` **0 件** / `Classical.choice` **0 件**（CI ゲート条件を満たす）。ただし他モジュールの既存 698 宣言が `propext` および／または `Quot.sound` に依存する（いずれも Lean 標準論理公理で当該モデルとは無関係）。**本レビュー対象の TaxJudgeCount 宣言はそのような依存を 1 件も持たない。**
+- → **禁止公理（choice / sorryAx）および Quot.sound / propext への依存はいずれも 0 件。公理監査は合格。**
+
+### AY-5. 未形式化範囲の確認
+
+doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以下を独立確認した。
+
+- **実際の任命数・欠員の未形式化**: doc-comment に「実際の任命数、欠員、定数の改正手続は NOT MODELLED」と明記。pinned 第2条は「国税審判官百八十人」「国税副審判官八十九人」と**定員定数**のみを定め、実任命数や欠員数は本条文（および本スライス）に含まれない。→ 未形式化を確認（BY-DESIGN B-3 / UNRESOLVED U-1）。
+- **定数改正手続の未形式化**: 同じく doc-comment に明記。pinned 第2条には改正の発議・閣議・公布・施行等の手続は記載されず、本スライスは法定定員の数値定数のみを扱う。→ 未形式化を確認（BY-DESIGN B-3 / UNRESOLVED U-2）。
+- 同一政令の第3条以降（職務・長・給与等）は pinned 原文に存在するが、本スライスの対象外であり、定数 180 / 89 の照合に影響しない。
+- 本モデルは法的レビューを提供しない旨も明記されている。
+
+### AY-6. 分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED（原文矛盾・恒等関数化・桁違い・needle 不良・反例・公理汚染）** | **0（ゼロ）** |
+| BY-DESIGN | 5 |
+| UNRESOLVED | 2 |
+
+> **発見された問題はゼロ（CONFIRMED = 0）である。** 原文矛盾、桁違い（18 / 1,800 / 8.9 / 890）、needle 不良、反例、公理依存はいずれも検出されなかった。件数を手柄にしない。
+
+#### BY-DESIGN — 5 件
+
+- **B-1 定数リテラルの原文忠実な定数化**: `百八十 → 180` / `八十九 → 89` を自前桁位置パーサで抽出し、`judgeCount = 180` / `deputyJudgeCount = 89`（および独立 spec 180 / 89）と一致。十八（18）・千八百（1,800）・8.9・八百九十（890）の桁違いを明示除外した設計。
+- **B-2 CI needle の正規化**: U+3000 除去は転記監査の仕様であり、モデル値・原文忠実性に影響しない（needle 内 U+3000 = 0、Article 2 flat も 0）。2/2 FOUND。
+- **B-3 bounded L4 スライス**: 法定定員の数値定数とその照合のみを提供し、実際の任命数・欠員・定数の改正手続は NOT MODELLED（doc-comment 明記、AY-5 で独立確認）。
+- **B-4 doc-comment の pin 申告が pinned と完全一致**: law_id / revision / flat 62 文字 / U+3000 = 0 / 原文逐語がいずれも独立抽出と一致。原文逐語中の改行・空白は表示上の可読性のためのもので、pinned flat は空白なし（pinned バイト列との不一致ではない）。
+- **B-5 自然数定数としての保持**: 定数は `Nat` で 180 / 89 として保持され、小数表記（8.9 等）は原文に存在しない。桁位置パーサの整数結果と型・値の双方で整合する。
+
+#### UNRESOLVED — 2 件
+
+- **U-1 実際の任命数・欠員の法的取扱い**: 未形式化自体は B-3 のとおり明示済みだが、政令第2条のみでは実際の任命数・欠員を確定できない。**人間の法律専門家による確認を要する**。定数 180 / 89 の一致（CONFIRMED = 0）には影響しない。
+- **U-2 定数改正手続の法的取扱い**: 改正手続は NOT MODELLED であり、pinned 原文のみでは改正の発議・公布・施行の有効性判定を確定できない。**人間の法律専門家を要する**。数値リテラルの一致（CONFIRMED = 0）には影響しない。
+
+### AY-7. 結論・履歴保全
+
+- pinned 第2条の「国税審判官 百八十人 = 180 人」「国税副審判官 八十九人 = 89 人」を独立抽出し、Lean 実装と照合。**桁違いゼロ**（18 / 1,800 / 8.9 / 890 を明示除外、該当リテラル pinned 内 0 回）。needle 2/2 FOUND（needle 内 U+3000 = 0、Article 2 flat も 0）、反例 0 件、公理依存 0 件（5/5 axiom-free、exit code 0）。
+- 実任命数・欠員・定数改正手続の未形式化を確認（B-3、法的取扱いは U-1 / U-2 として人間の法律専門家に委ねる）。
+- 既存レビュー履歴 **48 件**（Batch G〜AX 含む）は**すべて保持**。本セクションのみを末尾に連結した。追記後レビュー件数は coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` で **49 件**（48 → 49、要求の 49 以上を満たす）。
 - 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない（既存の他エージェントによる無関係な変更は触れていない）。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・自前漢字数字パーサ・needle 自前正規化検証・端点値 kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。

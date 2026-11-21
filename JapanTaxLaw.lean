@@ -942,3 +942,6 @@ import JapanTaxLaw.WeightInterval5M25MTests
 import JapanTaxLaw.EmploymentDuration6Months
 import JapanTaxLaw.EmploymentDuration6MonthsSpec
 import JapanTaxLaw.EmploymentDuration6MonthsTests
+import JapanTaxLaw.TaxExaminerCount
+import JapanTaxLaw.TaxExaminerCountSpec
+import JapanTaxLaw.TaxExaminerCountTests

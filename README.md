@@ -801,6 +801,9 @@ JapanTaxLaw/TariffQuotaAmountTests.lean         # 同上 退行テスト
 JapanTaxLaw/TaxJudgeCount.lean                    # 国税審判官等の定数 180/89（政令 art.2）L4 モデル
 JapanTaxLaw/TaxJudgeCountSpec.lean                # 同上 独立定式
 JapanTaxLaw/TaxJudgeCountTests.lean               # 同上 退行テスト
+JapanTaxLaw/TaxExaminerCount.lean                # 国税審査官定数 174人以内（政令 art.3）L4 モデル
+JapanTaxLaw/TaxExaminerCountSpec.lean            # 同上 独立定式
+JapanTaxLaw/TaxExaminerCountTests.lean           # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト

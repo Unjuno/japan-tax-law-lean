@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 106 | 327 | 32.42% |
+| laws with >=1 pinned literal check | 107 | 327 | 32.72% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 296 | n/a | n/a |
-| distinct article pins | 127 | 42584 | 0.30% |
-| pinned Lean modules (cross-law) | 677 | n/a | n/a |
+| pinned literal checks | 300 | n/a | n/a |
+| distinct article pins | 128 | 42584 | 0.30% |
+| pinned Lean modules (cross-law) | 683 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 260 |
+| unpinned Lean modules (not counted as verified) | 266 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 47 |
+| adversarial review sessions recorded | 49 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -130,6 +130,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `328AC0000000006` 酒税法
 - `328AC0000000007` 酒税の保全及び酒類業組合等に関する法律
 - `328CO0000000407` 奄美群島の復帰に伴う国税関係法令の適用の暫定措置等に関する政令
+- `328M50000040011` 酒税の保全及び酒類業組合等に関する法律施行規則
 - `329AC0000000061` 関税法
 - `329AC0000000112` 日本国とアメリカ合衆国との間の相互防衛援助協定の実施に伴う関税法等の臨時特例に関する法律
 - `329AC0000000149` 日本国における国際連合の軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法律
