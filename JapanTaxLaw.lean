@@ -867,3 +867,6 @@ import JapanTaxLaw.ForestAreaRoundingTests
 import JapanTaxLaw.ReadingSubstitutionMunicipal
 import JapanTaxLaw.ReadingSubstitutionMunicipalSpec
 import JapanTaxLaw.ReadingSubstitutionMunicipalTests
+import JapanTaxLaw.SixMonthPeriodDeeming
+import JapanTaxLaw.SixMonthPeriodDeemingSpec
+import JapanTaxLaw.SixMonthPeriodDeemingTests

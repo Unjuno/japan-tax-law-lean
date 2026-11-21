@@ -2256,6 +2256,13 @@ def checks():
            ["市又は区若しくは総合区」とあるのは、「区又は総合区」と読み替えるものとする"])
 
 
+    # 納税貯蓄組合法施行令 art. 3 — SixMonthPeriodDeeming.lean
+    yield ("納税貯蓄組合法施行令 art. 3（六月超の期間を六月ごとに区分し各を一期間とみなす）↔ SixMonthPeriodDeeming.lean (6-month ceiling segmentation)",
+           "326CO0000000099",
+           "article", "第三条",
+           ["六月をこえる場合においては、同項の規定の適用については、当該利子計算期間又は事業年度開始の日から六月ごとに区分した期間"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
