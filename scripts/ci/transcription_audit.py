@@ -1984,6 +1984,13 @@ def checks():
            ["千円未満の端数金額があるときは、その端数金額を控除した金額をもつて"])
 
 
+    # とん税法 art. 12 — TonTaxPunishment.lean
+    yield ("とん税法 art. 12（三年以下の拘禁刑・五十万円以下の罰金・併科）↔ TonTaxPunishment.lean (3 years, 500000 yen, concurrent)",
+           "332AC0000000037",
+           "article", "第十二条",
+           ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
