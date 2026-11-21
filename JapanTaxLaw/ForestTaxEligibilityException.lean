@@ -46,7 +46,7 @@ def isQualifyingCategory (c : String) : Bool :=
   c == "障害者" || c == "未成年者" || c == "寡婦" || c == "ひとり親"
 
 /-- 非課税対象者の適格性: 四区分のいずれか かつ 前年合計所得金額が百三十五万円以下. -/
-def eligible (c : String, income : Nat) : Bool :=
+def eligible (c : String) (income : Nat) : Bool :=
   isQualifyingCategory c && decide (income <= incomeCeiling)
 
 theorem incomeCeiling_value : incomeCeiling = 1_350_000 := by

@@ -40,7 +40,7 @@ def specCategory (c : String) : Bool :=
   c == "障害者" || c == "未成年者" || c == "寡婦" || c == "ひとり親"
 
 /-- Independent eligibility: one of the four categories AND income <= specCeiling. -/
-def specEligible (c : String, income : Nat) : Bool :=
+def specEligible (c : String) (income : Nat) : Bool :=
   specCategory c && decide (income <= specCeiling)
 
 /-- Universal, kernel-checked ceiling bridge. Pure axiom-free `unfold ... ; rfl`. -/
