@@ -24,7 +24,7 @@ def load_generator(repo: pathlib.Path):
 
 
 class MultiScopedAttestationTests(unittest.TestCase):
-    def test_all_scoped_files_are_merged_without_overwrite(self):
+    def test_all_scoped_files_are_merged_deterministically(self):
         with tempfile.TemporaryDirectory() as td:
             root = pathlib.Path(td)
             data = root / "data"
