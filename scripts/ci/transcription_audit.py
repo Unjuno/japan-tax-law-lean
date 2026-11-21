@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # CustomsBondedFacilityLicenseFeeItem3.lean - NORM|2b2b4b2f... (税関関係手数料令 第二条(1)3 保税蔵置場許可手数料 16400/16200円 CONDITION)
+    # Needle is in MainProvision Article 第二条 (Paragraph 1, Item 3, Column 2);
+    # find_article_text(...,"第二条") returns that article (len 2048) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("税関関係手数料令 第二条(1)3 bonded facility license fee 16400/16200円 - CustomsBondedFacilityLicenseFeeItem3.lean",
+           "329CO0000000164",
+           "article", "第二条",
+           ["\u4e00\u4e07\u516d\u5343\u56db\u767e\u5186\uff08\u5f53\u8a72\u8a31\u53ef\u3092\u53d7\u3051\u308b\u8005\u304c\u6307\u5b9a\u8005\u3067\u3042\u308b\u5834\u5408\u306b\u3042\u3064\u3066\u306f\u3001\u4e00\u4e07\u516d\u5343\u4e8c\u767e\u5186\uff09"])
+
     # TaxAccountantFineLimit.lean - NORM|b184122a... (税理士法 第六十一条(1) 罰金 100万円 CONDITION)
     # Needle is in MainProvision Article 第六十一条 (Paragraph 1, Sentence 1);
     # find_article_text(...,"第六十一条") returns that article (len 109) with needle -
