@@ -785,3 +785,6 @@ import JapanTaxLaw.DefinitionAndTaxBaseNormsTests
 import JapanTaxLaw.AmountThresholdNorms
 import JapanTaxLaw.AmountThresholdNormsSpec
 import JapanTaxLaw.AmountThresholdNormsTests
+import JapanTaxLaw.AmendmentEnforcementNorms
+import JapanTaxLaw.AmendmentEnforcementNormsSpec
+import JapanTaxLaw.AmendmentEnforcementNormsTests
