@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # GolfCourseUseTaxStandardRate.lean - NORM|f345a991... (地方税法 第七十六条(1) 標準税率 800円 EFFECT)
+    # Needle is in MainProvision Article 第七十六条 (Paragraph 1, Sentence 1);
+    # find_article_text(...,"第七十六条") returns that article (len 173) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("地方税法 第七十六条(1) golf course use tax standard rate 800円 - GolfCourseUseTaxStandardRate.lean",
+           "325AC0000000226",
+           "article", "第七十六条",
+           ["\u30b4\u30eb\u30d5\u5834\u5229\u7528\u7a0e\u306e\u6a19\u6e96\u7a0e\u7387\u306f\u3001\u4e00\u4eba\u4e00\u65e5\u306b\u3064\u304d\u516b\u767e\u5186\u3068\u3059\u308b\u3002"])
+
     # LocalTaxDeductionSpouse.lean - NORM|1c803e2d... (地方税法 第二十三条(1)8 控除対象配偶者 CONDITION)
     # Needle is in MainProvision Article 第二十三条 (Paragraph 1, Item 8);
     # find_article_text(...,"第二十三条") returns that article (len 8258) with needle -
