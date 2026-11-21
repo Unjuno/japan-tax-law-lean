@@ -187,7 +187,7 @@
         "三",
         "百"
       ],
-      "kernel_attested": false,
+      "kernel_attested": true,
       "kernel_decided_examples": 20,
       "needles_scoped": true,
       "scoped_article_chars": 295,
@@ -1087,7 +1087,7 @@
         "四百万",
         "四百万一"
       ],
-      "kernel_attested": false,
+      "kernel_attested": true,
       "kernel_decided_examples": 6,
       "needles_scoped": true,
       "scoped_article_chars": 253,
@@ -2698,6 +2698,21 @@
         10
       ]
     },
+    "TaxAccountantFineCap300k": {
+      "adversarial_review": true,
+      "boundary_examples_found": 3,
+      "independent_spec": true,
+      "kanji_literals": [
+        "三十万"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 18,
+      "needles_scoped": true,
+      "scoped_article_chars": 324,
+      "spec_literals": [
+        300000
+      ]
+    },
     "TaxAccountantFineLimit": {
       "adversarial_review": false,
       "boundary_examples_found": 0,
@@ -4250,6 +4265,23 @@
         "spec_kanji_in_原文": [
           "十四",
           "四",
+          "百"
+        ]
+      },
+      "NORM|7d5cf908de939b41c1196730f37d4751e165303fbdba16a70ef6e6e82401973d": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 20,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "ConsumptionTaxRateThreePercent",
+        "spec_kanji_in_原文": [
+          "三",
           "百"
         ]
       },
@@ -6867,6 +6899,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle in clause + all spec numerals in scoped article: ['当該不動産取得税の課税標準となるべき価格として政', 'に百分の四を乗じて得た額の合計額を控除した額']; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"1000\": [], \"14\": [\"十四\"], \"4\": [\"四\"]}; statutory rate = 1/25; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:596/Article#596/Paragraph#1/Item#2/ItemSentence/Column#2/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/SpecialLandHoldingTaxTests.lean sha256=4293d37967867cf147be7bcb34192d559d5384d86751dee28e3097ad9a6d89c1 (20 kernel-decided examples)"
+    },
+    "NORM|7d5cf908de939b41c1196730f37d4751e165303fbdba16a70ef6e6e82401973d": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 20 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=363AC0000000107_19881230_000000000000000 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/ConsumptionTaxRateThreePercent.lean sha256=3080df409a691fb46ecd3ee193a51d48a93cf99980749cbb716a7f7b565fad83",
+      "independent_spec": "JapanTaxLaw/ConsumptionTaxRateThreePercentSpec.lean sha256=cc4960adc0482424b166724acffe230443b3d91bbfcdd7bc0ba13c47725ed82f (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44684783591: commit f8848430abc0bf09c9c29906948d817dfe911bc6, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [3, 100] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"3\": [\"三\"]}; statutory rate = 3/100; needles scoped",
+      "source_location": "data/raw/363AC0000000107_19881230_000000000000000.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:10/Article#10/Paragraph#2/ParagraphSentence/Sentence#1 sha256=65abd2145fc6c71615ba5752d906f16e4efd54b47381675bff9e50f274c6a9df (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/ConsumptionTaxRateThreePercentTests.lean sha256=de8a4316ee7c59994e98a91ff4b3af373b4e3b6987e55f8974e3734929fd9fdc (20 kernel-decided examples)"
     },
     "NORM|7dc9bf834a9f8839ba374c54ff5f4d75414cd7561302ae752615c7da86fa47e1": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",

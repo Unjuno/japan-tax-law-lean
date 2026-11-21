@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 1089,
+  "checks": 1094,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -5666,6 +5666,61 @@
       "detail": "run=44684783591 attested_run=44684783591 conclusion=success",
       "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44684783591: commit f8848430abc0bf09c9c29906948d817dfe911bc6, ",
       "unit_id": "NORM|7d214f5309f1b5abaa9c4754ca927e26f029cbc18aaa0f418804bfda67772d5f"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "unit_id": "NORM|7d5cf908de939b41c1196730f37d4751e165303fbdba16a70ef6e6e82401973d"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/ConsumptionTaxRateThreePercent.lean",
+      "unit_id": "NORM|7d5cf908de939b41c1196730f37d4751e165303fbdba16a70ef6e6e82401973d"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/ConsumptionTaxRateThreePercentSpec.lean",
+      "unit_id": "NORM|7d5cf908de939b41c1196730f37d4751e165303fbdba16a70ef6e6e82401973d"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/ConsumptionTaxRateThreePercentTests.lean",
+      "unit_id": "NORM|7d5cf908de939b41c1196730f37d4751e165303fbdba16a70ef6e6e82401973d"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "kernel_proof",
+      "detail": "run=44684783591 attested_run=44684783591 conclusion=success",
+      "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44684783591: commit f8848430abc0bf09c9c29906948d817dfe911bc6, ",
+      "unit_id": "NORM|7d5cf908de939b41c1196730f37d4751e165303fbdba16a70ef6e6e82401973d"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -11982,9 +12037,9 @@
       "unit_id": "NORM|fff89ad304c83b401e45afc8fa865f356060ed7292f4a5afd6848aa8d0a0431e"
     }
   ],
-  "resolved": 1085,
+  "resolved": 1090,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 227,
+  "units_checked": 228,
   "unresolved": 4
 }
