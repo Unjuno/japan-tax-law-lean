@@ -936,3 +936,6 @@ import JapanTaxLaw.AreaThreshold2HaTests
 import JapanTaxLaw.WeightInterval5M25M
 import JapanTaxLaw.WeightInterval5M25MSpec
 import JapanTaxLaw.WeightInterval5M25MTests
+import JapanTaxLaw.EmploymentDuration6Months
+import JapanTaxLaw.EmploymentDuration6MonthsSpec
+import JapanTaxLaw.EmploymentDuration6MonthsTests
