@@ -1,9 +1,9 @@
 {
-  "commit": "a7fff51e486e82ef65ab226a7d0985b39ec895fd",
+  "commit": "e0f21d1161435b3fb1f38f7d880891b29e1009d9",
   "jobs": {
     "Build Lean project and check axioms": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44903669132/job/136844635306"
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44905319907/job/136849533325"
     }
   },
   "modules": {
@@ -961,6 +961,15 @@
     "LightOilBaseTaxTests.lean": {
       "sha256": "db5b31f0ef96172e3b238cbdb17dd148a72957be3e6e04c9edf2911b21c45c62"
     },
+    "LightOilDeliveryTaxRate.lean": {
+      "sha256": "6b6b83ec6ae1f03ab04e7ba472bf0f3d956f4911bcccdbb5fd16d14bcc8f784b"
+    },
+    "LightOilDeliveryTaxRateSpec.lean": {
+      "sha256": "614091d07a5df8c3812776cebb0467577458328418fe4ffe9f55efa84997e001"
+    },
+    "LightOilDeliveryTaxRateTests.lean": {
+      "sha256": "bc3af414adc3b2ea56e872c8738aa9b047a749daab96b2a10e1c90a703de1596"
+    },
     "LiquorTaxSakeAlcoholBracket15_16.lean": {
       "sha256": "80acebe523d7c04e3b5e530f24e568681112de4ed2d6f93cbaef75c3d3e4491b"
     },
@@ -1329,6 +1338,15 @@
     },
     "PetroleumCoalFineRangeTests.lean": {
       "sha256": "e7b4a17b128fe38d7843ce1bb66bf8ea7a693eaf3a414185a45930701426cf87"
+    },
+    "PetroleumGasFineRange.lean": {
+      "sha256": "b7fbba252ea4d2ae049db2446dd7e17f5a504462b6125f75fabd2ba79651992d"
+    },
+    "PetroleumGasFineRangeSpec.lean": {
+      "sha256": "c2a18ebf6357af065532f57eb44c5cd6d58c27371ad46bf1f6eabdee3b2b905d"
+    },
+    "PetroleumGasFineRangeTests.lean": {
+      "sha256": "5944355a5270eebacfc27fcad88c2ec57268f9abcb88fcedbb99797292c11a79"
     },
     "PhaseECorpRates.lean": {
       "sha256": "5eb90360ff4d2aff6ab986716d0e736a3561c0d2832130e42e2174e0443abc46"
@@ -2164,5 +2182,5 @@
   "schema": 1,
   "scope": "lean_job_only",
   "tool": "scripts/ci/make_scoped_attestation.py",
-  "workflow_run": "https://api.github.com/repos/Unjuno/japan-tax-law-lean/actions/runs/44903669132"
+  "workflow_run": "https://api.github.com/repos/Unjuno/japan-tax-law-lean/actions/runs/44905319907"
 }
