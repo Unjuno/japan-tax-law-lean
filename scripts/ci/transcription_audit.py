@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # TaxAccountantFineLimit.lean - NORM|b184122a... (税理士法 第六十一条(1) 罰金 100万円 CONDITION)
+    # Needle is in MainProvision Article 第六十一条 (Paragraph 1, Sentence 1);
+    # find_article_text(...,"第六十一条") returns that article (len 109) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("税理士法 第六十一条(1) fine ceiling 100万円 - TaxAccountantFineLimit.lean",
+           "326AC1000000237",
+           "article", "第六十一条",
+           ["\u6b21\u306e\u5404\u53f7\u306e\u3044\u305a\u308c\u304b\u306b\u8a72\u5f53\u3059\u308b\u5834\u5408\u306b\u306f\u3001\u305d\u306e\u9055\u53cd\u884c\u70ba\u3092\u3057\u305f\u8005\u306f\u3001\u767e\u4e07\u5186\u4ee5\u4e0b\u306e\u7f70\u91d1\u306b\u51e6\u3059\u308b\u3002"])
+
     # LiquorTaxSakeAlcoholBracket15_16.lean - NORM|20df6a44... (酒税法 附則第三十八条(1) 清酒 15-16度 570600円 CONDITION)
     # 附則 unit: find_article_text sees MainProvision only (returns None for 第三十八条),
     # so use the file-kind transcription locator. Needle is verbatim-unique in whole law.
