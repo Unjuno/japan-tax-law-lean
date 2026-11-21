@@ -927,3 +927,6 @@ import JapanTaxLaw.PopulationInterval15M75MTests
 import JapanTaxLaw.TaxJudgeCount
 import JapanTaxLaw.TaxJudgeCountSpec
 import JapanTaxLaw.TaxJudgeCountTests
+import JapanTaxLaw.AreaThreshold2Ha
+import JapanTaxLaw.AreaThreshold2HaSpec
+import JapanTaxLaw.AreaThreshold2HaTests
