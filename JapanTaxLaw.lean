@@ -743,3 +743,6 @@ import JapanTaxLaw.AuthorityResidenceAndBondsTests
 import JapanTaxLaw.ComputationalNormOperators
 import JapanTaxLaw.ComputationalNormOperatorsSpec
 import JapanTaxLaw.ComputationalNormOperatorsTests
+import JapanTaxLaw.RateSumProration
+import JapanTaxLaw.RateSumProrationSpec
+import JapanTaxLaw.RateSumProrationTests
