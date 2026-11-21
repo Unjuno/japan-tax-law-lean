@@ -79,6 +79,6 @@ theorem segmentCount_pos_of_pos {months : Nat} (hpos : months > 0) :
     never split into fewer segments. -/
 theorem segmentCount_mono {a b : Nat} (h : a <= b) : segmentCount a <= segmentCount b := by
   rw [segmentCount_eq_div a, segmentCount_eq_div b]
-  exact Nat.div_le_div_right h
+  exact Nat.div_le_div_right (by omega)
 
 end JapanTaxLaw.SixMonthPeriodDeeming
