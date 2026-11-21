@@ -1301,6 +1301,24 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # InheritanceGiftTaxRateBracket10M15M.lean - NORM|ea52192b... (gift-tax rate bracket 10M-15M CONDITION, law 325AC0000000073)
+    # Needle is in MainProvision Article 第二十一条の七 (Paragraph 1, table upper-column cell);
+    # find_article_text(...,"第二十一条の七") returns that article (len 253) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("gift-tax rate bracket 10M-15M - InheritanceGiftTaxRateBracket10M15M.lean",
+           "325AC0000000073",
+           "article", "第二十一条の七",
+           ["\u5343\u4e07\u5186\u3092\u8d85\u3048\u5343\u4e94\u767e\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+
+    # LocalTaxArt734AmountTier1.lean - NORM|41efee8e... (dual amount 120k/140k yen CONDITION, law 325AC0000000226)
+    # Needle is in MainProvision Article 734 (Paragraph 3, table cell, Sentence 1);
+    # find_article_text(...,"第七百三十四条") returns that article (len 2046) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("local tax art.734 dual amount 120k/140k yen - LocalTaxArt734AmountTier1.lean",
+           "325AC0000000226",
+           "article", "第七百三十四条",
+           ["\u5341\u4e8c\u4e07\u5186\uff08\u4e8b\u52d9\u6240\u7b49\u304c\u7279\u5225\u533a\u306e\u533a\u57df\u5916\u306b\u3082\u6240\u5728\u3059\u308b\u5834\u5408\u4ee5\u5916\u306e\u5834\u5408\u306b\u306f\u3001\u5341\u56db\u4e07\u5186\uff09"])
+
     # InheritanceGiftTaxRateBracket4M6M.lean - NORM|246a67a4... (gift-tax rate bracket 4M-6M CONDITION, law 325AC0000000073)
     # Needle is in MainProvision Article 第二十一条の七 (Paragraph 1, table upper-column cell);
     # find_article_text(...,"第二十一条の七") returns that article (len 253) with needle -
@@ -1794,6 +1812,12 @@ def checks():
            "file", None,
            ["一ヘクタール未満の端数があるときは、その端数を四捨五入する", "端数計算）第四条"])
 
+    # AntiDumpingRate308 — cycle-51
+    yield ("AntiDumpingRate308.lean",
+           "503CO0000000065",
+           "file", None,
+           ["三十・八パーセント", "不当廉売関税の税率は"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2266,6 +2290,13 @@ def checks():
            "326CO0000000099",
            "article", "第三条",
            ["六月をこえる場合においては、同項の規定の適用については、当該利子計算期間又は事業年度開始の日から六月ごとに区分した期間"])
+
+
+    # 法人特別税法 art. 10 — CorporateSpecialTaxRate2_5.lean
+    yield ("法人特別税法 art. 10（法人特別税の税率百分の二・五）↔ CorporateSpecialTaxRate2_5.lean (25/1000)",
+           "404AC0000000015",
+           "article", "第十条",
+           ["課税標準法人税額に百分の二・五の税率を乗じて計算した金額とする"])
 
 
 def main() -> int:
