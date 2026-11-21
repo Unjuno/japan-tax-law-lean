@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 60
+- with >=1 pinned literal check (semantic model): 61
 - with recorded human legal review: 0
 
 ## All laws
@@ -171,7 +171,7 @@ a completion flag.
 | `351M50000008035` | 特別交付税に関する省令 | 351M50000008035_20260316_508M60000008025 | CurrentEnforced | YES | ok | 146 | YES (1) | NO |
 | `352AC0000000035` | 昭和五十一年分所得税の特別減税の実施のための財政処理の特別措置に関する法律 | 352AC0000000035_19770504_000000000000000 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
 | `352M50000040032` | 国税局課税部等の統括国税調査官等の所掌に属する事務の範囲を定める省令 | 352M50000040032_20220710_504M60000040044 | CurrentEnforced | YES | ok | 36 | YES (1) | NO |
-| `353AC0000000025` | 石油石炭税法 | 353AC0000000025_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 90 | NO (0) | NO |
+| `353AC0000000025` | 石油石炭税法 | 353AC0000000025_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 90 | YES (1) | NO |
 | `353CO0000000132` | 石油石炭税法施行令 | 353CO0000000132_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 47 | NO (0) | NO |
 | `359AC0000000072` | たばこ税法 | 359AC0000000072_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 114 | YES (1) | NO |
 | `360CO0000000005` | たばこ税法施行令 | 360CO0000000005_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 51 | NO (0) | NO |
