@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # CustomsTemporaryMeasureDutyFreeThreshold.lean - NORM|47db57ba... (duty-free price ceiling 200k yen EXCEPTION, law 335CO0000000069)
+    # Needle is in MainProvision Article 第二十七条 (Paragraph 1, Item 2, Sentence 1);
+    # find_article_text(...,"第二十七条") returns that article (len 780) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("duty-free price ceiling 200k yen - CustomsTemporaryMeasureDutyFreeThreshold.lean",
+           "335CO0000000069",
+           "article", "第二十七条",
+           ["\u8ab2\u7a0e\u4fa1\u683c\u306e\u7dcf\u984d\u304c\u4e8c\u5341\u4e07\u5186\u4ee5\u4e0b\u306e\u7269\u54c1\uff08\u524d\u53f7\u306b\u63b2\u3052\u308b\u7269\u54c1\u306b\u8a72\u5f53\u3059\u308b\u3082\u306e\u3092\u9664\u304f\u3002\uff09"])
+
     # PublicSaleGuaranteeDeposit.lean - NORM|7e9db392... (public sale guarantee deposit 500k yen DELEGATION, law 334CO0000000329)
     # Needle is in MainProvision Article 42_5 (Paragraph 1, Sentence 1);
     # find_article_text(...,"第四十二条の五") returns that article (len 74) with needle -
