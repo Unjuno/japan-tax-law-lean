@@ -713,3 +713,6 @@ import JapanTaxLaw.NumericFragmentsTests
 import JapanTaxLaw.ArticleNumberLabels
 import JapanTaxLaw.ArticleNumberLabelsSpec
 import JapanTaxLaw.ArticleNumberLabelsTests
+import JapanTaxLaw.EraDateClauses
+import JapanTaxLaw.EraDateClausesSpec
+import JapanTaxLaw.EraDateClausesTests

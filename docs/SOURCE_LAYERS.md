@@ -50,8 +50,8 @@ layer is never folded into the statutory ledger.
 
 - normative_units_total: unknown
 - fully_verified_units: 60415
-- proved_scope_units: 98377
-- not_started_units: 238060
+- proved_scope_units: 125715
+- not_started_units: 210722
 - blocked_units: 2
 - human_legal_reviews: 0
 
