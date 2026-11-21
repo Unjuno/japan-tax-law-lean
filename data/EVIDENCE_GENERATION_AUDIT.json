@@ -851,6 +851,21 @@
         25000001
       ]
     },
+    "IncomeRegPaymentCeiling1M": {
+      "adversarial_review": true,
+      "boundary_examples_found": 3,
+      "independent_spec": true,
+      "kanji_literals": [
+        "百万"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 11,
+      "needles_scoped": true,
+      "scoped_article_chars": 2134,
+      "spec_literals": [
+        1000000
+      ]
+    },
     "IncomeSocialInsuranceDeduction": {
       "adversarial_review": true,
       "boundary_examples_found": 3,
@@ -3519,6 +3534,22 @@
           "二"
         ]
       },
+      "NORM|527ed759ab3fbc4580c09c7b5631fa02674c97e617ae168ed0d0e85a313df13a": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 11,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "IncomeRegPaymentCeiling1M",
+        "spec_kanji_in_原文": [
+          "百万"
+        ]
+      },
       "NORM|5450a6985a190f11b9b98df4fb7433db0ea52ff699f92bdc90c7e83c3638baa7": {
         "checks": {
           "cross_law": true,
@@ -6039,6 +6070,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"3\": [\"三\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[25]/Article:14/Article#14/Paragraph#1/Item#10/ItemSentence/Sentence#2 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/CustomsSameContentLimitTests.lean sha256=6497196cd6964c6d18d1762c338c7b2d598085e605659fc650ad3bd4f3a986a4 (9 kernel-decided examples)"
+    },
+    "NORM|527ed759ab3fbc4580c09c7b5631fa02674c97e617ae168ed0d0e85a313df13a": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=340M50000040011_20261001_507M60000040018 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/IncomeRegPaymentCeiling1M.lean sha256=8356095b25134f227205cafe9e1e6a1bac6b4c9ef2dae02b1096d55a49c00d7f",
+      "independent_spec": "JapanTaxLaw/IncomeRegPaymentCeiling1MSpec.lean sha256=e0e64062a1df28caed3e4d87fa0b594cf345eb039a486e4d2b224ccf48d3a5c7 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44684783591: commit f8848430abc0bf09c9c29906948d817dfe911bc6, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [1000000] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"1000000\": [\"百万\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/340M50000040011_20261001_507M60000040018.law.json#LawBody[3]/MainProvision/MainProvision[4]/Article:87/Article#87/Paragraph#3/Item#2/ItemSentence/Sentence#1 sha256=8721699516ac82025eea0430429b197da1e58afe195debe1fb441dfea14eacf5 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/IncomeRegPaymentCeiling1MTests.lean sha256=7127b9ab828c602f72953286576fe8877564f81d4c5bbd2fff9e17fa158d2372 (11 kernel-decided examples)"
     },
     "NORM|5450a6985a190f11b9b98df4fb7433db0ea52ff699f92bdc90c7e83c3638baa7": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
