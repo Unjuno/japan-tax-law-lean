@@ -813,3 +813,6 @@ import JapanTaxLaw.PowderCoefficientRoundingTests
 import JapanTaxLaw.ContainerSpec
 import JapanTaxLaw.ContainerSpecSpec
 import JapanTaxLaw.ContainerSpecTests
+import JapanTaxLaw.QuakeReconstructionExpenseFloor1M
+import JapanTaxLaw.QuakeReconstructionExpenseFloor1MSpec
+import JapanTaxLaw.QuakeReconstructionExpenseFloor1MTests

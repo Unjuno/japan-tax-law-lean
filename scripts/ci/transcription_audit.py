@@ -2130,6 +2130,14 @@ def checks():
            ["石油ガス税に相当する金額の三倍が五十万円を超える場合"])
 
 
+
+    # 東日本大震災特例法 art.38-2(2)(4)イ — QuakeReconstructionExpenseFloor1M.lean (工事費用百万円以上)
+    yield ("東日本大震災特例法 art.38-2(2)(4)イ（工事費用百万円以上）↔ QuakeReconstructionExpenseFloor1M.lean (floor 1_000_000, 以上 inclusive)",
+           "423AC0000000029",
+           "article", "第三十八条の二",
+           ["当該工事に要した費用の額が百万円以上であること。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
