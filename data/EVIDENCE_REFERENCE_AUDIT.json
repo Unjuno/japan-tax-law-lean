@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 819,
+  "checks": 823,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -9010,11 +9010,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/DisasterVictimRemunerationUpperBracketTests.lean",
       "unit_id": "NORM|15ab667908d0c90131769e67aca475da403c9dd4f7b020c2bb2a96865ca48ffb"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_DISASTER_GRANT_INCOME_BRACKET.md — independent agent re-derived sha256 (f6fe1c93…a21c, 191,809 B), real",
+      "unit_id": "NORM|c954475ca9c88c0944dd316e84af4945d6863fea5ec0b180ecf1813c71ca92db"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DisasterGrantIncomeBracket.lean",
+      "unit_id": "NORM|c954475ca9c88c0944dd316e84af4945d6863fea5ec0b180ecf1813c71ca92db"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DisasterGrantIncomeBracketSpec.lean",
+      "unit_id": "NORM|c954475ca9c88c0944dd316e84af4945d6863fea5ec0b180ecf1813c71ca92db"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DisasterGrantIncomeBracketTests.lean",
+      "unit_id": "NORM|c954475ca9c88c0944dd316e84af4945d6863fea5ec0b180ecf1813c71ca92db"
     }
   ],
-  "resolved": 815,
+  "resolved": 819,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 168,
+  "units_checked": 169,
   "unresolved": 4
 }
