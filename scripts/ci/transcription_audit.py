@@ -2062,6 +2062,13 @@ def checks():
            ["イに掲げる額からロに掲げる額を控除した額（当該控除した額が零を下回る場合にあつては、零）"])
 
 
+    # 石油ガス税法 art. 27 — PetroleumGasFineRange.lean
+    yield ("石油ガス税法 art. 27（罰金範囲・三倍が五十万円超）↔ PetroleumGasFineRange.lean (fineFloor 500_000, multiplier 3)",
+           "340AC0000000156",
+           "article", "第二十七条",
+           ["石油ガス税に相当する金額の三倍が五十万円を超える場合"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
