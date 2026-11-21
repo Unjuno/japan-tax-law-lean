@@ -716,3 +716,6 @@ import JapanTaxLaw.ArticleNumberLabelsTests
 import JapanTaxLaw.EraDateClauses
 import JapanTaxLaw.EraDateClausesSpec
 import JapanTaxLaw.EraDateClausesTests
+import JapanTaxLaw.PriorPenaltyAndDelegation2
+import JapanTaxLaw.PriorPenaltyAndDelegation2Spec
+import JapanTaxLaw.PriorPenaltyAndDelegation2Tests
