@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # IncomeTaxRevenueBracket1900k.lean - NORM|29b80207... (revenue <= 1.9M yen REFERENCE bracket, law 340AC0000000033)
+    # Needle is in MainProvision Article 第二十八条 (Paragraph 3, Item 1, Column 1, Sentence 1);
+    # find_article_text(...,"第二十八条") returns that article (len 593) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("income tax revenue bracket <= 1.9M yen - IncomeTaxRevenueBracket1900k.lean",
+           "340AC0000000033",
+           "article", "第二十八条",
+           ["\u524d\u9805\u306b\u898f\u5b9a\u3059\u308b\u53ce\u5165\u91d1\u984d\u304c\u767e\u4e5d\u5341\u4e07\u5186\u4ee5\u4e0b\u3067\u3042\u308b\u5834\u5408"])
+
     # CustomsTaxRetentionPeriodTier1.lean - NORM|bc51dc84... (tax <= 100k yen -> 2 month retention CONDITION, law 328AC0000000006)
     # 附則 unit: find_article_text sees MainProvision only (returns art.8 without needle),
     # so use the file-kind transcription locator. Needle literal from queue via \u escapes.
