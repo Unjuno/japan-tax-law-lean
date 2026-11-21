@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 930,
+  "checks": 934,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -10231,11 +10231,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/LocalTaxSpecifiedRelativeIncomeCeilingTests.lean",
       "unit_id": "NORM|82fb8eb5c1e96b8c4ba285efcd8506848b999781b461e977bb759c1932819c31"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_LIQUOR_TAX_SAKE_BRACKET_15_16.md — independent agent: THREE CONCRETE FINDINGS, all reproduced and FIXED",
+      "unit_id": "NORM|20df6a4420603ab9709d60a910136e38180bd27752be45e45997a943ffa1f7c2"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LiquorTaxSakeAlcoholBracket15_16.lean",
+      "unit_id": "NORM|20df6a4420603ab9709d60a910136e38180bd27752be45e45997a943ffa1f7c2"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LiquorTaxSakeAlcoholBracket15_16Spec.lean",
+      "unit_id": "NORM|20df6a4420603ab9709d60a910136e38180bd27752be45e45997a943ffa1f7c2"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LiquorTaxSakeAlcoholBracket15_16Tests.lean",
+      "unit_id": "NORM|20df6a4420603ab9709d60a910136e38180bd27752be45e45997a943ffa1f7c2"
     }
   ],
-  "resolved": 926,
+  "resolved": 930,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 193,
+  "units_checked": 194,
   "unresolved": 4
 }

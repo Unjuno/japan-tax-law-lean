@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # LiquorTaxSakeAlcoholBracket15_16.lean - NORM|20df6a44... (酒税法 附則第三十八条(1) 清酒 15-16度 570600円 CONDITION)
+    # 附則 unit: find_article_text sees MainProvision only (returns None for 第三十八条),
+    # so use the file-kind transcription locator. Needle is verbatim-unique in whole law.
+    # Needle literal from queue via \u escapes.
+    yield ("酒税法 附則第三十八条(1) sake alcohol bracket 15-16deg 570600円 - LiquorTaxSakeAlcoholBracket15_16.lean",
+           "328AC0000000006",
+           "file", None,
+           ["\u30a2\u30eb\u30b3\u30fc\u30eb\u5206\u304c\u5341\u4e94\u5ea6\u4ee5\u4e0a\u5341\u516d\u5ea6\u672a\u6e80\u306e\u3082\u306e\u3000\u4e94\u5341\u4e03\u4e07\u516d\u767e\u5186"])
+
     # LocalTaxSpecifiedRelativeIncomeCeiling.lean - NORM|82fb8eb5... (地方税法施行規則 第二条の三の五(3)2 特定親族 850k CONDITION)
     # Needle is in MainProvision Article 第二条の三の五 (Paragraph 3, Item 2, Column 2);
     # find_article_text(...,"第二条の三の五") returns that article (len 852) with needle -
