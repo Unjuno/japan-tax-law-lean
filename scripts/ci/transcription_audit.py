@@ -1302,6 +1302,15 @@ def checks():
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
     # 相続税法 第十六条の表(1) — InheritanceTaxRateBracket30_50.lean
+    # DisasterGrantUpperBracket.lean - NORM|288a1bc7... (災害被害者租税減免等施行令 附則第三条(5)2 CONDITION)
+    # Needle is in a 附則 article; find_article_text(...,"第三条") returns a different
+    # 106-char main-provision article without the needle, needle verbatim-unique -
+    # use the file-kind locator. Needle literal from queue via \u escapes.
+    yield ("災害被害者租税減免等施行令 附則第三条(5)第二号 bracket 7.5M-10M - DisasterGrantUpperBracket.lean",
+           "322CO0000000268",
+           "file", None,
+           ["\u707d\u5bb3\u6642\u306e\u5408\u8a08\u6240\u5f97\u91d1\u984d\u306e\u898b\u7a4d\u984d\u304c\u4e03\u767e\u4e94\u5341\u4e07\u5186\u3092\u8d85\u3048\u5343\u4e07\u5186\u4ee5\u4e0b\u3067\u3042\u308b\u88ab\u707d\u7d66\u4e0e\u6240\u5f97\u8005\u7b49"])
+
     # InheritanceTaxRateBracket300_600.lean - NORM|ec5f9bde... (相続税法 第十六条の表(1) CONDITION)
     # Needle is in MainProvision Article 第十六条 table cell;
     # find_article_text(...,"第十六条") returns that article (len 437) with the needle -
