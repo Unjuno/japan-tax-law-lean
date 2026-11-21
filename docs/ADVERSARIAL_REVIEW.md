@@ -6085,3 +6085,110 @@ pinned art.4 の text-leaf 連結（生・正規化とも 55 文字、U+3000 = 0
 - 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / Spec / Tests / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。一時ファイル（検証 Python 3 本・出力 1 本・axioms Lean 1 本）は削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・漢数字の独立抽出・needle `.find()` 検証・境界値の kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
+## Batch AT review (2026-11-22)
+
+- **レビュー日**: 2026-11-22
+- **レビュア**: Adversarial Review Agent（形式化担当と独立、cycle-49 の 1 モデル）。担当 STAGING / doc-comment / テストの申告は**根拠にせず**、pinned 原文 JSON から自前で再抽出・再計算して照合した。
+- **対象（読み取り専用・変更せず）**: `JapanTaxLaw/PowerDevelopmentTaxRate.lean`
+- **pinned 一次資料（読み取り専用）**: `data/raw/349AC0000000079_20250601_504AC0000000068.law.json`（law_id `349AC0000000079` / revision `349AC0000000079_20250601_504AC0000000068`、電源開発促進税法）。`data/INVENTORY.json` の `raw_snapshot.source_file` が同パスを指すことも独立確認。
+- **CI needle 出所**: `scripts/ci/transcription_audit.py:1785-1789`（`checks()` の cycle-49 エントリ、`kind="file"` / `art=None`、needle 2 本）。
+- **手法**: `law_full_text` を CI `text()` と同一ロジックで自前再帰平坦化し、自前正規化 `re.sub(r"[\s\u3000]+", "", s)` を適用。`MainProvision` 配下で `attr.Num == "6"` の `Article` を 1 件同定し、text-leaf のみを連結して逐語取得。日本語数字は自前パーサ（百/十/一 の位取り）で Arabic 変換し、境界・桁違い除外は自前判定した。税額の 4 点は `lake env lean` 上で `by decide`（kernel reduction）実行。`#print axioms` は同 v4.35.0。
+
+### AT-1. 独立原文抽出・照合（「三百七十五円」= 375 / 単位「千キロワット時」）
+
+pinned art.6 の text-leaf 連結（生・正規化とも 44 文字、U+3000 = 0 個）は次のとおり。
+
+> （税率）第六条電源開発促進税の税率は、販売電気千キロワット時につき、三百七十五円とする。
+
+自前抽出（`につき、` と `円とする` の間を捕獲し自前パーサで変換）:
+
+| 原文の語句 | 捕獲した漢数字 | 独立変換値 | Lean 実装 | 照合 |
+|---|---|---:|---|---|
+| 「販売電気**千キロワット時**につき」 | （単位トークン） | 千キロワット時 = 1,000 kWh/区分 | `ratePerThousandKWh : Money := 375` の区分名 | ✅ 一致 |
+| 「**三百七十五円**とする」 | `三百七十五` | **375** | `ratePerThousandKWh = 375` | ✅ 一致 |
+| 税額の算定形 | 375 円 × 千キロワット時数 | `375 * thousandKWh` | `taxYen (thousandKWh) = ratePerThousandKWh * thousandKWh` | ✅ 一致 |
+
+桁違いの明示除外:
+
+- **37.5 円（小数点ずらし）**: 原文当該位置は漢数字「三百七十五」であり「三十七・五」は存在せず、自前変換値 375 ≠ 37.5（`EXCLUDE_37_5 = true`）。→ **37.5 を明示除外**。
+- **3,750 円（10 倍）**: 当該位置に「三千七百五十」は存在せず、変換値 375 ≠ 3,750（`EXCLUDE_3750 = true`）。→ **3,750 を明示除外**。
+- 抽出値は **375 のみ**（`EXACT_375 = true`）。原文フレーズ「販売電気千キロワット時につき、三百七十五円とする」は art.6 正規化テキストに **1 回**、自前正規化全文（9,436 文字）にも **1 回**出現（count = 1、一意）。
+- 単位「千キロワット時」は原文に逐語存在し、`ratePerThousandKWh` / `taxYen` の引数 `thousandKWh`（千キロワット時数）と対応。kWh 単位の取り違え（例: 1 kWh あたり 375 円）は原文「千キロワット時につき」と矛盾するため除外。
+
+→ 原文から独立に導かれる税率は **375 円/千キロワット時**、税額は **375 × 千キロワット時数**であり、実装と完全一致。**原文との不一致は認められない（CONFIRMED = 0）**。
+
+### AT-2. needle 健全性（CI `checks()` 実文字列 2 本を自前正規化原文で検証）
+
+`checks()` の当該エントリに埋め込まれた 2 本を手打ちせず import で取得し、自前で平坦化・正規化した pinned 原文（自前正規化全文 9,436 文字、生 9,464 文字・生の U+3000 = 28 個を正規化で除去）に対して `.find()` / `.count()` を実行した。art.6 正規化テキスト（44 文字）に対しても併せて照合した。
+
+| # | CI needle（実文字列） | needle 内 U+3000 | 自前正規化全文 | 全文 count | art.6 正規化 | art.6 count | 判定 |
+|---|---|---:|---|---:|---|---:|---|
+| 1 | `販売電気千キロワット時につき、三百七十五円とする` | 0 | FOUND | 1 | FOUND | 1 | OK |
+| 2 | `電源開発促進税の税率は` | 0 | FOUND | 2 | FOUND | 1 | OK |
+
+- U+3000: needle 2 本とも **0 個**。自前正規化原文も 0 個（生 28 個は正規化で除去）。
+- **needle 健全性: 2/2 FOUND（MISS 0）**。needle 2 は全文で count = 2（校正表記の重複）だが art.6 内では count = 1 で一意。needle 1 は全文・art.6 いずれも count = 1。転記乖離・needle 腐敗は検出されず。
+
+### AT-3. 反例探索
+
+`taxYen k = ratePerThousandKWh * k = 375 * k`（`ratePerThousandKWh = 375`）。指定の 4 点を独立に構成し `lake env lean` 上で `by decide`（kernel reduction）実行した。
+
+| 反例 | 期待値 | 独立判定 | Lean 実行結果 | 判定 |
+|---|---:|---|---:|---|
+| `taxYen 0` | 0 | 375 × 0 = 0 | 0 | PASS |
+| `taxYen 1` | 375 | 375 × 1 = 375 | 375 | PASS |
+| `taxYen 2` | 750 | 375 × 2 = 750 | 750 | PASS |
+| `taxYen 100` | 37,500 | 375 × 100 = 37,500 | 37,500 | PASS |
+| `ratePerThousandKWh` | 375 | 原文 375 と一致 | 375 | PASS |
+
+反例による実装の反証は失敗（実装は反例に耐えた）。**反例件数: 0（ゼロ）**。なお販売電気の範囲・課税標準の確定は AT-5 の U-1 / U-2 で保留する。
+
+### AT-4. 公理監査
+
+一時 Lean ファイル（`C:\Users\junny\AppData\Local\Temp\opencode\at_axioms.lean`）を作成し、2 つの名前付き宣言および自己構成の反例定理 5 件（計 **7 件**）に `#print axioms` を実行（`lake env lean`、toolchain `leanprover/lean4:v4.35.0`、exit code **0**）。
+
+| 宣言 | `#print axioms` 結果 |
+|---|---|
+| `JapanTaxLaw.PowerDevelopmentTaxRate.ratePerThousandKWh` | does not depend on any axioms |
+| `JapanTaxLaw.PowerDevelopmentTaxRate.taxYen` | does not depend on any axioms |
+| `at_ce0` / `at_ce1` / `at_ce2` / `at_ce100` / `at_rate` | いずれも does not depend on any axioms |
+
+`Classical.choice` / `sorryAx` / `Quot.sound` / `propext` への依存 **0 件**、7/7 axiom-free。監査用一時ファイルは削除済み。
+
+### AT-5. 未形式化範囲の確認
+
+- doc-comment は「販売電気の定義、課税標準、申告・納付手続は NOT MODELLED」「本スライスは税率定数のみを扱う」と明記。→ **販売電気の定義・課税標準の未形式化を確認**（BY-DESIGN B-3 / B-4）。
+- 本モデルは法的レビューを提供しない旨も doc-comment に明記。
+- 「販売電気」の定義・範囲、課税標準の算定、art.5（課税標準）との適用関係は本 pinned art.6 の文言だけでは確定できない（UNRESOLVED U-1 / U-2）。
+
+### AT-6. 分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED（原文矛盾・桁違い・needle 不良・反例・公理汚染）** | **0（ゼロ）** |
+| BY-DESIGN | 4 |
+| UNRESOLVED | 2 |
+
+> **発見された問題はゼロ（CONFIRMED = 0）である。** 原文矛盾、桁違い、needle 不良、反例、公理依存はいずれも検出されなかった。件数を手柄にしない。
+
+#### BY-DESIGN — 4 件
+
+- **B-1** 「三百七十五円 / 千キロワット時」を `Money`（Nat）の定数 `ratePerThousandKWh = 375` として定式し、桁違い（37.5 / 3,750）を明示除外した原文忠実な定数化。
+- **B-2** CI needle の正規化（U+3000 除去）は転記監査の仕様であり、モデル値・原文忠実性に影響しない（全文生 28 個の U+3000 は正規化で除去）。
+- **B-3** 税率定数と `taxYen = 375 × 千キロワット時数` のみの bounded L4 スライス。販売電気の定義・課税標準・申告納付手続は対象外（doc-comment 明記）。
+- **B-4** `taxYen 0 = 0` も全関数として受理するが、千キロワット時数は負を概念外とする防御的正当化（原文は販売電力量を想定）。
+
+#### UNRESOLVED — 2 件
+
+- **U-1** 「販売電気」の定義・範囲は、pinned art.6 の文言のみからは決定不能。**人間の法律専門家による確認が必要**。数値一致（CONFIRMED = 0）には影響しない。
+- **U-2** 課税標準の算定および申告・納付手続、art.5 との適用関係は本スライスの射程外。pinned 原文のみでは決定不能で、**人間の法律専門家による確認が必要**。機械的照合の結論には影響しない。
+
+### AT-7. 結論・履歴保全
+
+- pinned 原文（art.6 の「販売電気千キロワット時につき、三百七十五円とする」）から「三百七十五」= 375 と単位「千キロワット時」を独立抽出し、桁違い（37.5 / 3,750）を明示除外のうえ実装と照合。**発見ゼロ（CONFIRMED = 0）**。
+- needle 2/2 FOUND（U+3000 = 0、needle 1 は全文/art.6 とも count 1、needle 2 は全文 count 2・art.6 count 1）。反例 0 件。公理依存 0 件（7/7 axiom-free、exit code 0）。
+- 販売電気の定義・課税標準の未形式化を確認（B-3 / B-4、法的取扱いは U-1 / U-2 として人間の法律専門家に委ねる）。
+- 既存レビュー履歴 43 件（Batch G〜AS 含む）は**すべて保持**。本セクションのみを末尾に連結した。追記後レビュー件数: **`^## .*review` で 44 件**（要求の 44 以上を満たす）。coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|Article-pinned)[^\n]*review` ベースでは **43 件**（差 1 件は既存の `国税徴収法 104の2 review` が当該 regex に一致しないためで、当該見出しは変更していない）。
+- 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。一時ファイル（検証 Python 3 本・出力 2 本・axioms Lean 1 本・本セクション 1 本）は削除済み。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・漢数字の独立抽出・needle `.find()` 検証・税額の kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。

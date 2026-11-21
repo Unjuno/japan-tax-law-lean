@@ -1788,6 +1788,12 @@ def checks():
            "file", None,
            ["販売電気千キロワット時につき、三百七十五円とする", "電源開発促進税の税率は"])
 
+    # ForestAreaRounding — cycle-50
+    yield ("ForestAreaRounding.lean",
+           "431M60000008040",
+           "file", None,
+           ["一ヘクタール未満の端数があるときは、その端数を四捨五入する", "端数計算）第四条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2246,6 +2252,13 @@ def checks():
            "412CO0000000277",
            "article", "第七条",
            ["委員の三分の一以上が出席しなければ、会議を開き、議決することができない"])
+
+
+    # 公共サービス実施民間事業者省令 art. 3 — ReadingSubstitutionMunicipal.lean
+    yield ("公共サービス実施民間事業者省令 art. 3（市又は区若しくは総合区→区又は総合区 読替え）↔ ReadingSubstitutionMunicipal.lean (structural)",
+           "418M60000008099",
+           "article", "第三条",
+           ["市又は区若しくは総合区」とあるのは、「区又は総合区」と読み替えるものとする"])
 
 
 def main() -> int:
