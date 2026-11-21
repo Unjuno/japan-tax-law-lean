@@ -864,3 +864,6 @@ import JapanTaxLaw.QuorumOneThirdTests
 import JapanTaxLaw.ForestAreaRounding
 import JapanTaxLaw.ForestAreaRoundingSpec
 import JapanTaxLaw.ForestAreaRoundingTests
+import JapanTaxLaw.ReadingSubstitutionMunicipal
+import JapanTaxLaw.ReadingSubstitutionMunicipalSpec
+import JapanTaxLaw.ReadingSubstitutionMunicipalTests
