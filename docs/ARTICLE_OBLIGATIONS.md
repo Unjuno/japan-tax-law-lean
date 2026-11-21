@@ -6,14 +6,10 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 120
-- presence-facts-only complete: 120
+- articles with explicit pin: 145
+- presence-facts-only complete: 145
 - NOT_STARTED: 6
-- PARTIAL: 114
-- articles with explicit pin: 139
-- presence-facts-only complete: 139
-- NOT_STARTED: 6
-- PARTIAL: 133
+- PARTIAL: 139
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
 - BLOCKED: 0
@@ -165,3 +161,4 @@ source positions. Human legal review is a separate axis and is pending.
 | `342CO0000000108` | 第十条 | JointSignatureHeirThreshold | YES | YES | NO | PARTIAL |
 | `326CO0000000216` | 第九条 | TwoStageVotingThreshold | YES | YES | NO | PARTIAL |
 | `342CO0000000146` | 第二十一条 | MaxLengthMultiplier115 | YES | YES | NO | PARTIAL |
+| `347M50000008026` | 第四条 | PopulationInterval15M75M | YES | YES | NO | PARTIAL |

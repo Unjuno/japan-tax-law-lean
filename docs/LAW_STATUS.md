@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 102
+- with >=1 pinned literal check (semantic model): 104
 - with recorded human legal review: 0
 
 ## All laws
@@ -112,7 +112,7 @@ a completion flag.
 | `340CO0000000096` | 所得税法施行令 | 340CO0000000096_20260522_508CO0000000093 | CurrentEnforced | YES | ok | 1365 | YES (1) | NO |
 | `340CO0000000097` | 法人税法施行令 | 340CO0000000097_20261001_507CO0000000121 | CurrentEnforced | YES | ok | 1541 | YES (4) | NO |
 | `340M50000040011` | 所得税法施行規則 | 340M50000040011_20261001_507M60000040018 | CurrentEnforced | YES | ok | 886 | YES (1) | NO |
-| `340M50000040012` | 法人税法施行規則 | 340M50000040012_20261001_505M60000040013 | CurrentEnforced | YES | ok | 874 | NO (0) | NO |
+| `340M50000040012` | 法人税法施行規則 | 340M50000040012_20261001_505M60000040013 | CurrentEnforced | YES | ok | 874 | YES (1) | NO |
 | `340M50010000013` | とうもろこし等の関税割当制度に関する省令 | 340M50010000013_20220401_504M60000200005 | CurrentEnforced | YES | ok | 12 | NO (0) | NO |
 | `340M50000040049` | 国税質問検査章規則 | 340M50000040049_20260101_506M60000040048 | CurrentEnforced | YES | ok | 56 | NO (0) | NO |
 | `340AC0000000156` | 石油ガス税法 | 340AC0000000156_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 76 | YES (1) | NO |
@@ -159,7 +159,7 @@ a completion flag.
 | `347M50000040044` | 沖繩の復帰に伴う国税関係以外の大蔵省関係法令の適用の特別措置等に関する省令 | 347M50000040044_19740711_349M50000040044 | CurrentEnforced | YES | ok | 22 | YES (1) | NO |
 | `347M50000008013` | 沖縄の復帰に伴う地方税法等の適用の特別措置等に関する省令 | 347M50000008013_20010106_412M50000008044 | CurrentEnforced | YES | ok | 23 | NO (0) | NO |
 | `347M50010000033` | 沖縄県の区域における製造用原料品の減免税割当制度に関する省令 | 347M50010000033_19950401_407M50000200026 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
-| `347M50000008026` | 航空機燃料譲与税法施行規則 | 347M50000008026_20250905_507M60000008091 | CurrentEnforced | YES | ok | 94 | NO (0) | NO |
+| `347M50000008026` | 航空機燃料譲与税法施行規則 | 347M50000008026_20250905_507M60000008091 | CurrentEnforced | YES | ok | 94 | YES (1) | NO |
 | `348AC0000000070` | 物品の一時輸入のための通関手帳に関する通関条約（ＡＴＡ条約）の実施に伴う関税法等の特例に | 348AC0000000070_20060301_417AC0000000022 | CurrentEnforced | YES | ok | 13 | NO (0) | NO |
 | `348AC0000000102` | 特定市街化区域農地の固定資産税の課税の適正化に伴う宅地化促進臨時措置法 | 348AC0000000102_20010106_411AC0000000160 | CurrentEnforced | YES | ok | 30 | NO (0) | NO |
 | `348CO0000000281` | 特定市街化区域農地の固定資産税の課税の適正化に伴う宅地化促進臨時措置法施行令 | 348CO0000000281_20011001_413CO0000000313 | CurrentEnforced | YES | ok | 75 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 165
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 166
