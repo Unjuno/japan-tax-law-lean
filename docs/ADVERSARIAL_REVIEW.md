@@ -6933,3 +6933,131 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 - 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない（既存の他エージェントによる無関係な変更は触れていない）。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・自前漢字数字パーサ・needle 自前正規化検証・端点値 kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+## Batch BA review (2026-11-22)
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から完全に独立）。coordinator 要約・STAGING・CI 監査結果は信じず、pinned 原文 JSON を直接再 parse し、元号換算を自前で行い、needle は CI と同一の正規化を自前適用して検証した。
+- **対象（読み取り専用・変更していない）**: `JapanTaxLaw/ConsumptionTaxSpecialDate.lean`、`JapanTaxLaw/ConsumptionTaxSpecialDateSpec.lean`、`JapanTaxLaw/ConsumptionTaxSpecialDateTests.lean`。Lean モジュール / `data/*` / `scripts/*` は一切変更せず、commit / push / merge / ブランチ切替も行っていない。書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ（末尾追記）。※ 監査実行のため一時ファイルをプロジェクト外 temp に置き `lake env lean` を実行した（exit code 0）、実行後に一時ファイルは削除した。
+- **一次資料（pinned・改変禁止）**: law_id `502CO0000000160` / revision `502CO0000000160_20260401_508CO0000000104`（政令「新型コロナウイルス感染症等の影響に対応するための国税関係法律の臨時特例に関する法律施行令」、改正法 `508CO0000000104`、施行 **2026-04-01**）。実ファイル `data/raw/502CO0000000160_20260401_508CO0000000104.law.json`、size **94,464 bytes**、SHA-256 **`ce638183530ab1eea2490db17f76959636bb0443d9fe42f2c931d0d11aff1bc0`**。`data/INVENTORY.json` の `current_revision.law_revision_id` / `raw_snapshot.source_sha256`（大文字表記 `CE6381...BC0`）/ `size_bytes = 94464` も同一 pinned を指すことを独立確認。
+- **needle 出所**: `scripts/ci/transcription_audit.py::checks()` の cycle-56 エントリ（line 1908-1912、`kind="file"`、law_id `502CO0000000160`）から実文字列2本を直接読み出し、CI と同一の正規化 `re.sub(r"[\s\u3000]+", "", s)` を**自前で平坦化した pinned 原文**に適用して包含判定した。
+- **本レビューは機械的独立照合であり、人間の法律専門家によるレビューを称するものではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。
+
+### BA-1. pin 完全性と原文独立抽出（元号換算・桁違いの直接除外）
+
+自前スクリプトで `law_full_text` の `Article` ノードを再帰走査し、`Num="7"` の 1 ノードを特定して text-child のみを連結した（タグ名・属性値は除外）。原文逐語（独立抽出、正規化後 56 文字、U+3000 = 0）:
+
+`（消費税の特例に係る政令で定める日）第七条法第十条第一項に規定する政令で定める日は、令和三年一月三十一日とする。`
+
+| 項目 | 独立抽出結果 | モジュール doc-comment 申告 | 照合 |
+|---|---|---|:---:|
+| law_id / revision | `502CO0000000160` / `502CO0000000160_20260401_508CO0000000104` | 同一 | OK |
+| Article 7 flat 長 | **56 文字** | 56 chars | OK |
+| U+3000 数（Article 7 flat） | **0** | 0 | OK |
+| 原文逐語 | 上記のとおり | 「法第十条第一項に規定する政令で定める日は、令和三年一月三十一日とする。」 | OK（caption「（消費税の特例に係る政令で定める日）」と条名「第七条」の接頭のみ差） |
+
+- 課題提示の原文「法第十条第一項に規定する政令で定める日は、令和三年一月三十一日とする。」は、上記 flat の本文部分に**完全一致**する。doc-comment が原文逐語中表示する改行／空白は可読性のための表示であり、pinned バイト列の一部ではない（pinned flat は空白・U+3000 を一切含まない 56 文字）。
+- 自前正規表現 `令和[一二三四五六七八九十百]+年[一二三四五六七八九十]+月[一二三四五六七八九十]+日` による独立抽出結果は **令和三年一月三十一日**（1 件）。リテラル `令和三年一月三十一日` も pinned Article 7 に 1 回存在する。
+
+**元号換算と元年=2019 の根拠、および桁違いの明示除外**:
+
+| 原文リテラル | 出現 | 自前換算 | Lean 定数 | 除外した誤読 |
+|---|---:|---|---|---|
+| `令和三年` | 1 | 2019 + 3 − 1 = **2021** | `westernYear = 2021` | **令和三十年 → 2048（上1桁ずらし）**／**2031（西暦下桁取り違え）**／**2019（元年そのもの）** を明示除外 |
+
+- 元年 = 2019 の根拠: 令和は 2019-05-01 改元（令和元年 = 2019）。pinned データ自体もこれに整合する — `law_full_text.attr` が `Era="Reiwa"` / `Year="02"` で公布日 `2020-04-30`（令和二年 = 2020 → 令和元年 = 2019）、同 law の revisions では `令和七年 = 2025` / `令和八年 = 2026` であり、`西暦 = 2019 + 元号年 − 1` の式と一致する。
+- 桁違い候補の pinned 内出現: `令和三十年` **0 回**、`令和30年` **0 回**。原文は `令和三年`（3）であり 30 ではない。`令和30年` と誤読した場合の換算値は 2019 + 30 − 1 = **2048** で、原文にも実装にも存在しない。また西暦を **2031** と取り違える可能性も、実装値 2021 と一致しないため棄却（`westernYear ≠ 2031` をカーネル還元で確認、BA-3）。
+- `westernYear = 2021` / `month = 1` / `day = 31` は独立抽出値（2021-01-31）と一致。桁違い（2048 / 2031 / 2019、月 2、日 30）はすべて棄却。
+
+### BA-2. needle 健全性（CI `checks()` 実文字列2本を自前正規化原文で検証）
+
+| # | CI needle（実文字列, line 1912） | 長 | U+3000 | 正規化前後 | Article 7 flat 内 offset | count | raw | 正規化 | FOUND |
+|---|---|---:|---:|:---:|---:|---:|:---:|:---:|:---:|
+| N1 | `政令で定める日は、令和三年一月三十一日とする` | 22 | 0 | 同一（冪等） | 33 | 1 | FOUND | FOUND | **FOUND** |
+| N2 | `消費税の特例に係る政令で定める日` | 16 | 0 | 同一（冪等） | 1 | 1 | FOUND | FOUND | **FOUND** |
+
+- **2/2 FOUND**。needle 内の U+3000 含有 **0 件**、CI 正規化前後で同一（冪等）。Article 7 flat 自体の U+3000 も **0**、正規化による変化なし（56 → 56 文字）。（pinned ファイル全体には U+3000 が 9 個存在するが、これらは目次ラベル等であり Article 7 leaf には含まれない。）
+- N1 は本文の日付文を、N2 は条見出し「（消費税の特例に係る政令で定める日）」を直接抑える。両者は同一 Article 7 内の異なる位置（offset 33 と 1、非重複、各 count = 1）を指し、片方が欠落・改変されれば即座に 1/2 に落ちる構成であり、needle 健全性は合格。
+- FINDING: なし。
+
+### BA-3. 反例探索
+
+一時 Lean ファイル（外部 temp ディレクトリ、プロジェクト外）で 3 モジュールを import し、公称値・桁違い棄却を `by decide`（カーネル還元）で直接検証（`lake env lean`、exit code **0**、エラー 0 件）。走査した 13 命題のうち主要項目:
+
+| 検証命題 | 結果 | 反例 |
+|---|:---:|:---:|
+| `westernYear = 2021` | true | なし |
+| `westernYear = 2019 + 3 - 1` | true | なし |
+| `month = 1` / `day = 31` | true | なし |
+| `specYear = 2021` / `specMonth = 1` / `specDay = 31` | true | なし |
+| `agreeConsumptionTaxSpecialDate = true` | true | なし |
+| `westernYear ≠ 2031` | true | なし（西暦下桁取り違えを棄却） |
+| `westernYear ≠ 2048` | true | なし（`令和30年` 誤読を棄却） |
+| `westernYear ≠ 2019` | true | なし（元年そのものを棄却） |
+| `month ≠ 2` / `day ≠ 30` | true | なし（月日の取り違えを棄却） |
+
+- **反例検出数: ゼロ（0）。** 定数 2021 / 1 / 31、独立 spec との一致、および全桁違い棄却はすべて成立。
+
+### BA-4. 公理監査
+
+一時 Lean ファイル（外部 temp）で以下の **7 named def** に `#print axioms` を実行（`lake env lean`、exit code **0**）:
+
+- `JapanTaxLaw.ConsumptionTaxSpecialDate.westernYear`
+- `JapanTaxLaw.ConsumptionTaxSpecialDate.month`
+- `JapanTaxLaw.ConsumptionTaxSpecialDate.day`
+- `JapanTaxLaw.ConsumptionTaxSpecialDate.specYear`
+- `JapanTaxLaw.ConsumptionTaxSpecialDate.specMonth`
+- `JapanTaxLaw.ConsumptionTaxSpecialDate.specDay`
+- `JapanTaxLaw.ConsumptionTaxSpecialDate.agreeConsumptionTaxSpecialDate`
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 7 |
+| `does not depend on any axioms` | **7/7** |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+
+- さらに 3 モジュールの静的スキャンで `sorry` / `admit` / `axiom` / `classical` / `by_contra` / `Quot.sound` / `propext` / `choice` / `noncomputable` / `unsafe` の一致 **0 件**（3 モジュールとも）。
+- → **禁止公理（choice / sorryAx）および Quot.sound / propext への依存はいずれも 0 件。公理監査は合格。**
+
+### BA-5. 未形式化範囲の確認
+
+doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以下を独立確認した。
+
+- **法第十条第一項の特例の内容・適用条件の未形式化**: doc-comment に「法10条1項の特例の内容・適用条件は NOT MODELLED」と明記。pinned 第7条は「法第十条第一項に規定する政令で定める日は、令和三年一月三十一日とする。」と**日付のみ**を定め、特例の内容・適用条件は本条文（および本スライス）に含まれない。→ 未形式化を確認（BY-DESIGN B-3 / UNRESOLVED U-1）。
+- **日付の曜日判定・期間算術の未形式化**: doc-comment に「日付の曜日判定・期間算術は NOT MODELLED」と明記。pinned 第7条の flat に曜日・期間を示すリテラルは存在せず、モデルも `westernYear` / `month` / `day` の数値定数のみを提供する。→ 未形式化を確認（BY-DESIGN B-3 / UNRESOLVED U-2）。
+- 同一政令の他条（第1条〜第6条、第8条以降）は pinned 原文に存在するが本スライスの対象外であり、日付定数 2021-01-31 の照合に影響しない。
+- 本モデルは法的レビューを提供しない旨も明記されている。
+
+### BA-6. 分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED（原文矛盾・元号換算誤り・桁違い・needle 不良・反例・公理汚染）** | **0（ゼロ）** |
+| BY-DESIGN | 5 |
+| UNRESOLVED | 2 |
+
+> **発見された問題はゼロ（CONFIRMED = 0）である。** 原文矛盾、元号換算誤り、桁違い（令和30年/2048、2031、2019）、needle 不良、反例、公理依存はいずれも検出されなかった。件数を手柄にしない。
+
+#### BY-DESIGN — 5 件
+
+- **B-1 元号換算の原文忠実な定数化**: `令和三年 → 2019 + 3 − 1 = 2021` を自前換算で抽出し、`westernYear = 2021`（`specYear` も 2021）と一致。元年=2019 は pinned メタデータ（Era/Year=02、公布 2020-04-30、revisions の令和七年=2025/令和八年=2026）にも整合。令和30年（2048）・2031・2019 の桁違いを明示除外した設計。
+- **B-2 CI needle の正規化**: U+3000 除去は転記監査の仕様であり、モデル値・原文忠実性に影響しない（needle 内 U+3000 = 0、Article 7 flat も 0）。2/2 FOUND。
+- **B-3 bounded L4 スライス**: 日付定数のみを提供し、法10条1項の特例内容・適用条件、曜日判定、期間算術は NOT MODELLED（doc-comment 明記、BA-5 で独立確認）。
+- **B-4 doc-comment の pin 申告が pinned と完全一致**: law_id / revision / flat 56 文字 / U+3000 = 0 / 原文逐語がいずれも独立抽出と一致。原文逐語中の改行・空白は表示上の可読性のためのもので、pinned flat は空白なし（pinned バイト列との不一致ではない）。
+- **B-5 自然数定数としての保持**: 日付は `Nat` で 2021 / 1 / 31 として保持され、`by decide` のカーネル還元で公称値・独立 spec 一致・桁違い棄却を検証。法律上的日付型・カレンダー型ではなく整数定数に留める設計。
+
+#### UNRESOLVED — 2 件
+
+- **U-1 法第十条第一項の特例の内容・適用条件の法的取扱い**: 未形式化自体は B-3 のとおり明示済みだが、pinned 第7条は日付のみを定め、特例の内容・適用条件を確定できない。**人間の法律専門家による確認を要する**。日付リテラルの一致（CONFIRMED = 0）には影響しない。
+- **U-2 曜日判定・期間算術の法的取扱い**: pinned 原文に曜日・期間のリテラルは存在せず、モデルも提供しない。pinned 原文のみでは当該日付の曜日や期間計算の法的効果を確定できない。**人間の法律専門家を要する**。数値リテラルの一致（CONFIRMED = 0）には影響しない。
+
+### BA-7. 結論・履歴保全
+
+- pinned 第7条の「令和三年一月三十一日 = 西暦 2021-01-31」を独立抽出し、元号換算（元年=2019 は pinned メタデータにも整合）を自前で行って Lean 実装と照合。**桁違いゼロ**（令和30年/2048、2031、2019、月 2、日 30 を明示除外、該当リテラル pinned 内 0 回）。needle 2/2 FOUND（needle 内 U+3000 = 0、Article 7 flat も 0）、反例 0 件、公理依存 0 件（7/7 axiom-free、exit code 0）。
+- 法10条1項の特例内容・適用条件、曜日判定・期間算術の未形式化を確認（B-3、法的取扱いは U-1 / U-2 として人間の法律専門家に委ねる）。
+- 既存レビュー履歴 **50 件**（Batch G〜AZ 含む）は**すべて保持**。本セクションのみを末尾に連結した。追記後レビュー件数は coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` で **51 件**（50 → 51、要求の 51 以上を満たす）。
+- 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない（既存の他エージェントによる無関係な変更は触れていない）。一時ファイルはすべて削除した。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・自前元号換算・needle 自前正規化検証・端点値 kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。

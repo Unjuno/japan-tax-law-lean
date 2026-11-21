@@ -972,3 +972,6 @@ import JapanTaxLaw.AccountingSubjectsCountTests
 import JapanTaxLaw.ForestTaxEligibilityException
 import JapanTaxLaw.ForestTaxEligibilityExceptionSpec
 import JapanTaxLaw.ForestTaxEligibilityExceptionTests
+import JapanTaxLaw.PeriodEndDayException
+import JapanTaxLaw.PeriodEndDayExceptionSpec
+import JapanTaxLaw.PeriodEndDayExceptionTests

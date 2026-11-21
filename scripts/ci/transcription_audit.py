@@ -1920,6 +1920,12 @@ def checks():
            "file", None,
            ["政令で定める日は、令和三年一月三十一日とする", "消費税の特例に係る政令で定める日"])
 
+    # PeriodEndDayException — cycle-57
+    yield ("PeriodEndDayException.lean",
+           "329CO0000000051",
+           "file", None,
+           ["政令で定める日は、土曜日とする", "期間の末日の特例）第二十一条の二"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
