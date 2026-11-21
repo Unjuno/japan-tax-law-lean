@@ -752,3 +752,6 @@ import JapanTaxLaw.VersionedApplicationNormsTests
 import JapanTaxLaw.DeemingAndProvisoNorms
 import JapanTaxLaw.DeemingAndProvisoNormsSpec
 import JapanTaxLaw.DeemingAndProvisoNormsTests
+import JapanTaxLaw.AnalogyAndReplacementNorms
+import JapanTaxLaw.AnalogyAndReplacementNormsSpec
+import JapanTaxLaw.AnalogyAndReplacementNormsTests
