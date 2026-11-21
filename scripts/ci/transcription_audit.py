@@ -1301,6 +1301,14 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # CustomsTaxRetentionPeriodTier1.lean - NORM|bc51dc84... (tax <= 100k yen -> 2 month retention CONDITION, law 328AC0000000006)
+    # 附則 unit: find_article_text sees MainProvision only (returns art.8 without needle),
+    # so use the file-kind transcription locator. Needle literal from queue via \u escapes.
+    yield ("tax <= 100k yen -> 2 month retention - CustomsTaxRetentionPeriodTier1.lean",
+           "328AC0000000006",
+           "file", None,
+           ["\u305d\u306e\u7a0e\u984d\u304c\u5341\u4e07\u5186\u4ee5\u4e0b\u306e\u3068\u304d\u3002\u3000\u4e8c\u6708"])
+
     # OldAgePensionAnnualAmountCeiling.lean - NORM|ce360091... (old-age pension annual < 180k yen CONDITION, law 325CO0000000245)
     # 附則 unit: find_article_text sees MainProvision only (returns art.3 without needle),
     # so use the file-kind transcription locator. Needle literal from queue via \u escapes.
@@ -1738,6 +1746,12 @@ def checks():
            "file", None,
            ["幅及び高さが二・四メートル以上で長さが二・九メートル以上", "大型のコンテナの規格の指定）第七十八条"])
 
+    # RoadWidthThreshold — cycle-45
+    yield ("RoadWidthThreshold.lean",
+           "341M50000008002",
+           "file", None,
+           ["路面幅員が二・五メートル未満である道路", "法第二条第一項の総務省令で定める道路"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2130,12 +2144,30 @@ def checks():
            ["石油ガス税に相当する金額の三倍が五十万円を超える場合"])
 
 
-
     # 東日本大震災特例法 art.38-2(2)(4)イ — QuakeReconstructionExpenseFloor1M.lean (工事費用百万円以上)
     yield ("東日本大震災特例法 art.38-2(2)(4)イ（工事費用百万円以上）↔ QuakeReconstructionExpenseFloor1M.lean (floor 1_000_000, 以上 inclusive)",
            "423AC0000000029",
            "article", "第三十八条の二",
            ["当該工事に要した費用の額が百万円以上であること。"])
+    # 地価税法施行令 art. 9 — ResidentialAreaRatioInterval.lean
+    yield ("地価税法施行令 art. 9（居住面積割合が百分の二十五超百分の五十以下）↔ ResidentialAreaRatioInterval.lean (25% < r <= 50%)",
+           "403CO0000000174",
+           "article", "第九条",
+           ["居住面積割合が百分の二十五を超え百分の五十以下である場合"])
+
+
+    # ポリエステル短繊維不当廉売関税政令 art. 1 — PolyesterStapleFiberSpecs.lean
+    yield ("ポリエステル短繊維政令 art. 1（3.88<繊度<22.23 dtex, 25<=長さ<=80 mm）↔ PolyesterStapleFiberSpecs.lean (388/2223, 25/80)",
+           "414CO0000000262",
+           "article", "第一条",
+           ["三・八八デシテックスを超え二十二・二三デシテックス未満のもので、かつ、長さが二十五ミリメートル以上八十ミリメートル以下"])
+
+
+    # 税理士法 art. 64 — TaxAccountantPenaltyCap.lean
+    yield ("税理士法 art. 64（百万円以下の過料）↔ TaxAccountantPenaltyCap.lean (1_000_000)",
+           "326AC1000000237",
+           "article", "第六十四条",
+           ["次の各号のいずれかに該当する者は、百万円以下の過料に処する"])
 
 
 def main() -> int:
