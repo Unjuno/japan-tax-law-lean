@@ -55,7 +55,8 @@ class MultiScopedAttestationTests(unittest.TestCase):
 
             mod = load_generator(root)
             merged = mod.load_attestation()
-            self.assertEqual(merged["modules"]["Alpha.lean"]["sha256"], "main-alpha")
+            # A valid scoped run refreshes a stale main-attestation hash.
+            self.assertEqual(merged["modules"]["Alpha.lean"]["sha256"], "scoped-alpha")
             self.assertEqual(merged["modules"]["Beta.lean"]["sha256"], "scoped-beta")
             self.assertEqual(merged["modules"]["Gamma.lean"]["sha256"], "scoped-gamma")
 
