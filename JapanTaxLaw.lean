@@ -758,3 +758,6 @@ import JapanTaxLaw.AnalogyAndReplacementNormsTests
 import JapanTaxLaw.ThresholdComparisonNorms
 import JapanTaxLaw.ThresholdComparisonNormsSpec
 import JapanTaxLaw.ThresholdComparisonNormsTests
+import JapanTaxLaw.ProceduralDeonticNorms
+import JapanTaxLaw.ProceduralDeonticNormsSpec
+import JapanTaxLaw.ProceduralDeonticNormsTests
