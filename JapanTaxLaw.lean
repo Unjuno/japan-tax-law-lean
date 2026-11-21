@@ -731,3 +731,6 @@ import JapanTaxLaw.BareTermsAndRatesTests
 import JapanTaxLaw.MiscStructuralTerms
 import JapanTaxLaw.MiscStructuralTermsSpec
 import JapanTaxLaw.MiscStructuralTermsTests
+import JapanTaxLaw.BareFieldsAndPeriods
+import JapanTaxLaw.BareFieldsAndPeriodsSpec
+import JapanTaxLaw.BareFieldsAndPeriodsTests
