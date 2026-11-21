@@ -734,3 +734,6 @@ import JapanTaxLaw.MiscStructuralTermsTests
 import JapanTaxLaw.BareFieldsAndPeriods
 import JapanTaxLaw.BareFieldsAndPeriodsSpec
 import JapanTaxLaw.BareFieldsAndPeriodsTests
+import JapanTaxLaw.TransitionalApplicationStructure
+import JapanTaxLaw.TransitionalApplicationStructureSpec
+import JapanTaxLaw.TransitionalApplicationStructureTests
