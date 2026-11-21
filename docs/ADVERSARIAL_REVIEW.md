@@ -6324,3 +6324,121 @@ doc-comment の `Scope / NOT MODELLED` を原文 art.4 と突き合わせ、以�
 - 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。一時ファイル（検証 Python 3 本・出力 1 本・axioms Lean 1 本・本セクション 1 本）は削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・恒等関数攻撃・境界値 kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+## Batch AV review (2026-11-22) — 不当廉売関税率政令 art.2 / AntiDumpingRate308.lean（cycle-51 独立原文照合）
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から完全に独立）。coordinator 要約・STAGING・CI 監査結果は信じず、pinned 原文 JSON を直接再 parse し、日本語数字を自前パーサで Arabic 変換し、needle は自前正規化原文で検証した。
+- **対象（読み取り専用・変更していない）**: `JapanTaxLaw/AntiDumpingRate308.lean`、`AntiDumpingRate308Spec.lean`、`AntiDumpingRate308Tests.lean`。Lean モジュール / `data/*` / `scripts/*` は一切変更せず、commit / push / merge / ブランチ切替も行っていない。書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ（末尾追記）。※ 監査実行のため `.lake/build` にビルド成果物（git 無視）が生成されたが、ソース・データは未変更。
+- **一次資料（pinned・改変禁止）**: law_id `503CO0000000065` / revision `503CO0000000065_20260709_508CO0000000223`（改正法 `508CO0000000223`、施行 2026-07-09、`current_revision_status = CurrentEnforced`）。実ファイル `data/raw/503CO0000000065_20260709_508CO0000000223.law.json`、size **10,664 bytes**、SHA-256 **`1545BE35FE52B629C7336B1F4A55D01BBA8FD544332315B89812DB75424C3320`**。`INVENTORY.json` の `raw_snapshot.source_file` も同一 pinned を指すことを独立確認。
+- **needle 出所**: `scripts/ci/transcription_audit.py::checks()` の cycle-51 エントリ（line 1806-1810、`kind="file"`）から実文字列2本を直接読み出し、CI と同一の正規化 `re.sub(r"[\s　]+", "", s)` を**自前で平坦化した pinned 原文**に適用して包含判定した。
+- **本レビューは機械的独立照合であり、人間の法律専門家によるレビューを称するものではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。
+
+### AV-1. pin 完全性と原文独立抽出（桁違いの直接除外）
+
+自前スクリプトで `law_full_text` の `Article` ノードを再帰走査し、`ArticleTitle == "第二条"` の string leaf を平坦化して抽出した（`MainProvision` 配下の `Article Num="2"` は 1 ノードのみ）。
+
+ | 項目 | 独立抽出結果 | モジュール doc-comment 申告 | 照合 |
+ |---|---|---|:---:|
+ | law_id / revision | `503CO0000000065` / `503CO0000000065_20260709_508CO0000000223` | 同一 | OK |
+ | 原文逐語（leaf） | 46 文字 | （引用は末尾一致） | OK |
+ | Article 2 flat 長 | **53** | 53 chars | OK |
+ | U+3000 数（Article 2） | **0** | 0 | OK |
+
+原文逐語（独立抽出・leaf）:
+
+`特定貨物又は暫定不当廉売関税賦課貨物に課する不当廉売関税の税率は、三十・八パーセントとする。`
+
+→ モジュール doc-comment の引用「…不当廉売関税の税率は、三十・八パーセントとする。」は、先頭の主体句を `…` で略したものであり、**率リテラル部分は一字違わず一致**（AV-5 で主体句の取扱いを記録）。
+
+**率の独立換算と桁違いの明示除外**:
+
+| 原文リテラル | 出現数 | 自前パーサ変換 | 千分率 | Lean 定数 | 除外した誤読 |
+|---|---:|---|---|---|---|
+| `三十・八パーセント` | 1 | 三十 = 30, 八 = 8 → **30.8%** | 30.8 × 10 = **308/1000** | `ratePerMille = 308` | **3.08%（= 308/10000）を明示除外**／**308%（= 308000/1000）を明示除外** |
+
+- 桁違い候補の原文リテラル `三・〇八パーセント`（3.08%）および `三百八パーセント`（308%）は pinned 原文に**いずれも存在しない**ことを確認。
+- `dutyYen(value) = value * ratePerMille / 1000 = value * 308 / 1000`（Nat 整数除算・切捨て）は、千分率 308/1000 をそのまま適用する定式であり、率の表現と整合。**恒等関数化（`ratePerMille = 1000` 等）でもない。**
+
+### AV-2. needle 健全性（CI `checks()` 実文字列2本を自前正規化原文で検証）
+
+ | # | CI needle（実文字列） | 長 | U+3000 | count | 正規化前後 | leaf offset | FOUND |
+ |---|---|---:|---:|---:|:---:|---:|:---:|
+ | N1 | `三十・八パーセント` | 9 | 0 | 1 | 同一（冪等） | 33 | **FOUND** |
+ | N2 | `不当廉売関税の税率は` | 10 | 0 | 1 | 同一（冪等） | 22 | **FOUND** |
+
+- **2/2 FOUND**。needle 内の U+3000 含有 **0 件**、正規化前後で同一。Article 2 leaf 自体の U+3000 も **0**。
+- CI の `kind="file"` に倣い、pinned 原文全体を平坦化・正規化した haystack でも **2/2 FOUND**。原文全体の生 U+3000 は 3 個だが、CI 正規化 `[\s　]+` 除去により needle 照合には影響しない。
+- N1 は率リテラルそのもの、N2 は「不当廉売関税の税率は」という税率節の導入部を直接抑えており、needle 2 本は同一条文内の異なる位置を指す（非重複）。
+
+### AV-3. 反例探索
+
+一時 Lean ファイル（外部 temp ディレクトリ、プロジェクト外）で `JapanTaxLaw.AntiDumpingRate308` / `AntiDumpingRate308Spec` を import し、公称値を `by decide`（カーネル還元）で直接検証（`lake env lean`、exit code **0**）。
+
+| 公称反例候補 | 独立計算 | Lean 結果 (`by decide`) | 反例 |
+|---|---:|---:|:---:|
+| `dutyYen 0` | 0 | 0 | なし |
+| `dutyYen 1000` | 308 | 308 | なし |
+| `dutyYen 2000` | 616 | 616 | なし |
+| `dutyYen 10000` | 3080 | 3080 | なし |
+
+- 補助的に独立参照式 `specDuty(v) = v * 308 / 1000` との一致（`agreeAntiDumpingRate308 = true`）も `by decide` で確認。
+- 恒等関数攻撃（例: `dutyYen 1000 = 1000` となるはず、という予想）は `308 ≠ 1000` として棄却され、率定数 308 が実際に適用されていることを確認。
+- **反例検出数: ゼロ（0）。** 率・定数・計算式の一致は完全。
+
+### AV-4. 公理監査
+
+一時 Lean ファイル（外部 temp）で以下の **8 宣言**に `#print axioms` を実行（`lake env lean`、exit code **0**）:
+
+- モデル側 named def 4 件: `JapanTaxLaw.AntiDumpingRate308.ratePerMille` / `dutyYen` / `specDuty` / `agreeAntiDumpingRate308`
+- 自前構成の端点定理 4 件: `av_duty_0` / `av_duty_1000` / `av_duty_2000` / `av_duty_10000`
+
+ | 監査項目 | 結果 |
+ |---|---|
+ | 走査宣言数 | 8 |
+ | `does not depend on any axioms` | **8/8** |
+ | `Classical.choice` | **0 件** |
+ | `sorryAx` | **0 件** |
+ | `Quot.sound` | **0 件** |
+ | `propext` | **0 件** |
+
+- さらに `AntiDumpingRate308.lean` の静的スキャンで `sorry` / `admit` / `axiom` / `classical` / `by_contra` / `Quot.sound` / `propext` / `choice` / `noncomputable` / `unsafe` の一致 **0 件**。
+- → **禁止公理（choice / sorryAx / Quot.sound）および propext への依存はいずれも 0 件。公理監査は合格。**
+
+### AV-5. 未形式化範囲の確認
+
+doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以下を独立確認した。
+
+- **特定貨物認定・課税価格算定・原産地判定の未形式化**: doc-comment に「特定貨物の認定、課税価格の算定、原産地判定は NOT MODELLED。本スライスは税率定数のみを扱う。」と明記。pinned 第一条は「第一号に掲げる貨物であって、第二号に掲げる国を原産地とするもののうち、第三号に掲げる期間内に輸入されるもの（以下「特定貨物」という。）には、関税定率法第八条第一項の規定により、不当廉売関税を課する。」と対象を外部法令 reference で定義しており、当該認定ロジックは本スライスに含まれない。→ 未形式化を確認（BY-DESIGN B-3 / UNRESOLVED U-2）。
+- **主体句の省略について**: doc-comment の原文引用は先頭に `…` を付け、主体「特定貨物又は暫定不当廉売関税賦課貨物に課する」を略している。pinned 第二条の主体は「特定貨物**又は暫定不当廉売関税賦課貨物**」の両方であり、税率 30.8% は両者に共通のリテラルである。したがって率定数 308/1000 自体に影響はないが、**両主体の区分・認定も本スライスでは未形式化**であることを記録する（U-2）。
+- 本モデルは法的レビューを提供しない旨も明記されている。
+
+### AV-6. 分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED（原文矛盾・恒等関数化・桁違い・needle 不良・反例・公理汚染）** | **0（ゼロ）** |
+| BY-DESIGN | 4 |
+| UNRESOLVED | 2 |
+
+> **発見された問題はゼロ（CONFIRMED = 0）である。** 原文矛盾、恒等関数化、桁違い、needle 不良、反例、公理依存はいずれも検出されなかった。件数を手柄にしない。
+
+#### BY-DESIGN — 4 件
+
+- **B-1 率リテラルの原文忠実な定数化**: `三十・八` → 30.8% → 308/1000 を自前パーサで抽出し、`ratePerMille = 308` および `dutyYen = value * 308 / 1000` と一致。3.08%（308/10000）・308%（308000/1000）の桁違いを明示除外した設計。
+- **B-2 CI needle の正規化**: U+3000 除去は転記監査の仕様であり、モデル値・原文忠実性に影響しない（needle 内 U+3000 = 0、Article 2 leaf も 0、原文全体の生 3 個は正規化で除去）。2/2 FOUND。
+- **B-3 bounded L4 スライス**: 税率定数と `dutyYen` のみを提供し、特定貨物認定・課税価格算定・原産地判定・暫定不当廉売関税賦課貨物の区分は NOT MODELLED（doc-comment 明記、AV-5 で独立確認）。
+- **B-4 doc-comment の pin 申告が pinned と完全一致**: law_id / revision / flat 53 文字 / U+3000 = 0 / 原文逐語がいずれも独立抽出と一致。先頭の `…` は主体句の省略であり率リテラルの不一致ではない。
+
+#### UNRESOLVED — 2 件
+
+- **U-1 端数処理（floor）の法的正当性**: pinned 第二条は税率 30.8% のみを定め、課税価格が 1000 で割り切れない場合の端数（例: 1 円 × 308/1000 → 0 円）の取扱いを明示しない。`dutyYen` の Nat 切捨てはモデル上の選択として透明だが、**不当廉売関税の端数処理が本当に切捨てであるかは pinned 原文からは決定不能**。**人間の法律専門家による確認を要する**。率・定数の一致（CONFIRMED = 0）には影響しない。
+- **U-2 適用対象の認定・課税価格算定の法的取扱い**: 未形式化自体は B-3 のとおり明示済みだが、第一条が参照する関税定率法第八条第一項による特定貨物の認定手続、第二条の「特定貨物又は暫定不当廉売関税賦課貨物」の区分、および課税価格の算定方法は、pinned 原文のみでは決定不能。**人間の法律専門家を要する**。率リテラルと価格グリッドの一致（CONFIRMED = 0）には影響しない。
+
+### AV-7. 結論・履歴保全
+
+- pinned 第二条の「三十・八パーセント = 308/1000」を独立抽出し、Lean 実装と照合。**桁違いゼロ**（3.08% / 3080/1000 を明示除外）。needle 2/2 FOUND（needle 内 U+3000 = 0、Article 2 leaf も 0）、反例 0 件、公理依存 0 件（8/8 axiom-free、exit code 0）。
+- 特定貨物認定・課税価格算定・原産地判定の未形式化を確認（B-3、法的取扱いは U-1 / U-2 として人間の法律専門家に委ねる）。
+- 既存レビュー履歴 **45 件**（Batch G〜AU 含む）は**すべて保持**。本セクションのみを末尾に連結した。追記後レビュー件数は coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` で **46 件**（45 → 46、要求の 46 以上を満たす）。
+- 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・自前日本語数字パーサ・needle 自前正規化検証・端点値 kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。

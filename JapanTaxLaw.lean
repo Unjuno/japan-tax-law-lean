@@ -894,3 +894,6 @@ import JapanTaxLaw.AviationFuelTaxAmountFloorTests
 import JapanTaxLaw.ImportValueCap200k
 import JapanTaxLaw.ImportValueCap200kSpec
 import JapanTaxLaw.ImportValueCap200kTests
+import JapanTaxLaw.AntiDumpingRate694
+import JapanTaxLaw.AntiDumpingRate694Spec
+import JapanTaxLaw.AntiDumpingRate694Tests
