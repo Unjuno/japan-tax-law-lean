@@ -2088,6 +2088,11 @@ def checks():
            ["定款、登記事項証明書並びに最終の貸借対照表、損益計算書及び事業報告"])
 
 
+    # 所得税法施行規則 art.87(3)(2) — IncomeRegPaymentCeiling1M.lean (満期返戻金等 百万円以下)
+    yield ("所得税法施行規則 art.87(3)(2)（満期返戻金等の支払金額百万円以下）↔ IncomeRegPaymentCeiling1M.lean (ceiling 1_000_000, 以下 inclusive)",
+           "340M50000040011",
+           "article", "第八十七条",
+           ["同一人に対するその年中の満期返戻金等の支払金額が百万円以下である場合"])
     # 登録免許税法施行規則 art. 12 — ClampedSubtraction.lean
     yield ("登録免許税法施行規則 art. 12（イからロを控除し零を下回れば零）↔ ClampedSubtraction.lean (saturating subtraction)",
            "342M50000040037",
