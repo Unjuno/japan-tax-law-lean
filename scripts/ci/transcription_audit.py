@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # CustomsTariffArt1EnforcementDate.lean - NORM|21111ed8... (enforcement date REFERENCE, law 143AC0000000054)
+    # Needle sits in an 附則 (SupplProvision) article; find_article_text sees main only
+    # (verified: find_article_text(...,'第一条') returns len 62 WITHOUT the needle) -
+    # use the file-kind locator. Needle verbatim-unique in whole law; literal via \u escapes.
+    yield ("customs tariff 附則 art.1 enforcement date - CustomsTariffArt1EnforcementDate.lean",
+           "143AC0000000054",
+           "file", None,
+           ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u662d\u548c\u56db\u5341\u4e8c\u5e74\u516d\u6708\u4e00\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
+
     # CustomsTariffArt14SamplesOrLowPriceException.lean - NORM|5730c268... (samples/low-price exception EXCEPTION, law 143AC0000000054)
     # Needle is in MainProvision Article 第十四条 (Paragraph 1, Item#6, ItemSentence);
     # find_article_text(...,"第十四条") returns that article (len 1655) with needle -
