@@ -924,3 +924,6 @@ import JapanTaxLaw.MaxLengthMultiplier115Tests
 import JapanTaxLaw.PopulationInterval15M75M
 import JapanTaxLaw.PopulationInterval15M75MSpec
 import JapanTaxLaw.PopulationInterval15M75MTests
+import JapanTaxLaw.TaxJudgeCount
+import JapanTaxLaw.TaxJudgeCountSpec
+import JapanTaxLaw.TaxJudgeCountTests
