@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 75
+- with >=1 pinned literal check (semantic model): 77
 - with recorded human legal review: 0
 
 ## All laws
@@ -96,7 +96,7 @@ a completion flag.
 | `337M50000040026` | 酒税法施行規則 | 337M50000040026_20250401_507M60000040034 | CurrentEnforced | YES | ok | 75 | NO (0) | NO |
 | `337AC0000000066` | 国税通則法 | 337AC0000000066_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 433 | YES (7) | NO |
 | `337CO0000000135` | 国税通則法施行令 | 337CO0000000135_20260401_507CO0000000126 | CurrentEnforced | YES | ok | 193 | NO (0) | NO |
-| `337M50000040028` | 国税通則法施行規則 | 337M50000040028_20261101_507M60000040025 | CurrentEnforced | YES | ok | 95 | NO (0) | NO |
+| `337M50000040028` | 国税通則法施行規則 | 337M50000040028_20261101_507M60000040025 | CurrentEnforced | YES | ok | 95 | YES (1) | NO |
 | `337M50000040030` | 揮発油税法施行規則 | 337M50000040030_20191216_501M60000040036 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `337M50000040031` | 国税徴収法施行規則 | 337M50000040031_20260521_506M60000040023 | CurrentEnforced | YES | ok | 32 | NO (0) | NO |
 | `337AC0000000144` | 外国居住者等の所得に対する相互主義による所得税等の非課税等に関する法律 | 337AC0000000144_20260401_508AC0000000002 | CurrentEnforced | YES | ok | 113 | NO (0) | NO |
@@ -295,7 +295,7 @@ a completion flag.
 | `429CO0000000010` | 経済連携協定に基づく報復関税に関する政令 | 429CO0000000010_20181230_000000000000000 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
 | `429M60000008030` | 都及び特別区の標準税収入額の算定方法に関する省令 | 429M60000008030_20260401_508M60000008048 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `429M60000040031` | 貿易保険法に規定する法人税に係る課税の特例に関する省令 | 429M60000040031_20260731_508M60000040053 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
-| `429CO0000000234` | 高重合度ポリエチレンテレフタレートに対して課する不当廉売関税に関する政令 | 429CO0000000234_20230204_505CO0000000028 | CurrentEnforced | YES | ok | 8 | NO (0) | NO |
+| `429CO0000000234` | 高重合度ポリエチレンテレフタレートに対して課する不当廉売関税に関する政令 | 429CO0000000234_20230204_505CO0000000028 | CurrentEnforced | YES | ok | 8 | YES (1) | NO |
 | `429CO0000000324` | 炭素鋼製突合せ溶接式継手に対して課する不当廉売関税に関する政令 | 429CO0000000324_20180331_430CO0000000121 | CurrentEnforced | YES | ok | 7 | NO (0) | NO |
 | `430AC0000000016` | 国際観光旅客税法 | 430AC0000000016_20260701_508AC0000000012 | CurrentEnforced | YES | ok | 41 | YES (1) | NO |
 | `430CO0000000161` | 国際観光旅客税法施行令 | 430CO0000000161_20190107_000000000000000 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 136
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 137

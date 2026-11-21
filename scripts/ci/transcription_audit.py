@@ -1607,6 +1607,12 @@ def checks():
            "file", None,
            ["大韓民国を原産地とするものにあっては四十九・五パーセント", "中国を原産地とするものにあっては七十三・七パーセント"])
 
+    # AntiDumpingRate53 — cycle-41
+    yield ("AntiDumpingRate53.lean",
+           "429CO0000000234",
+           "file", None,
+           ["特定貨物又は暫定不当廉売関税賦課貨物に課する不当廉売関税の税率は", "五十三・〇パーセント（別表の上欄に掲げる生産者により生産された特定貨物にあっては、それぞれ同表の下欄に定める税率）とする"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
