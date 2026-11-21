@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 99
+- with >=1 pinned literal check (semantic model): 101
 - with recorded human legal review: 0
 
 ## All laws
@@ -123,7 +123,7 @@ a completion flag.
 | `341M50000040019` | とん税の納付書の様式を定める省令 | 341M50000040019_19660331_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `341M50000040055` | 関税法施行規則 | 341M50000040055_20260601_508M60000040016 | CurrentEnforced | YES | ok | 184 | NO (0) | NO |
 | `342AC0000000023` | 印紙税法 | 342AC0000000023_20261001_507AC0000000070 | CurrentEnforced | YES | ok | 403 | YES (3) | NO |
-| `342CO0000000108` | 印紙税法施行令 | 342CO0000000108_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 105 | NO (0) | NO |
+| `342CO0000000108` | 印紙税法施行令 | 342CO0000000108_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 105 | YES (1) | NO |
 | `342M50000040019` | 印紙税法施行規則 | 342M50000040019_20010106_412M50000040069 | CurrentEnforced | YES | ok | 26 | NO (0) | NO |
 | `342AC0000000035` | 登録免許税法 | 342AC0000000035_20261101_508AC0000000021 | CurrentEnforced | YES | ok | 716 | YES (32) | NO |
 | `342CO0000000146` | 登録免許税法施行令 | 342CO0000000146_20261001_507CO0000000124 | CurrentEnforced | YES | ok | 142 | YES (1) | NO |
