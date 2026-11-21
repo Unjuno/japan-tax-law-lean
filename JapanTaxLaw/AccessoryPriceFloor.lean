@@ -1,6 +1,6 @@
 import JapanTaxLaw.TaxFinance
 
-/--!
+/-
 # AccessoryPriceFloor — 自家用自動車の一時輸入に関する通関条約の実施に伴う関税法等の特例に関する法律施行令 第二条
 
 Pinned source:
