@@ -755,3 +755,6 @@ import JapanTaxLaw.DeemingAndProvisoNormsTests
 import JapanTaxLaw.AnalogyAndReplacementNorms
 import JapanTaxLaw.AnalogyAndReplacementNormsSpec
 import JapanTaxLaw.AnalogyAndReplacementNormsTests
+import JapanTaxLaw.ThresholdComparisonNorms
+import JapanTaxLaw.ThresholdComparisonNormsSpec
+import JapanTaxLaw.ThresholdComparisonNormsTests
