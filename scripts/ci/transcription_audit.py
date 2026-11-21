@@ -1302,6 +1302,15 @@ def checks():
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
     # 相続税法 第十六条の表(1) — InheritanceTaxRateBracket30_50.lean
+    # LocalTaxIncomeBracket4_8.lean - NORM|5fabf587... (地方税法 第七十二条の二十四の七(1)3 CONDITION)
+    # Needle is in MainProvision Article 第七十二条の二十四の七 table cell;
+    # find_article_text(...,"第七十二条の二十四の七") returns that article (len 2821) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("地方税法 第七十二条の二十四の七(1)第三号 bracket 4M-8M - LocalTaxIncomeBracket4_8.lean",
+           "325AC0000000226",
+           "article", "第七十二条の二十四の七",
+           ["\u5404\u4e8b\u696d\u5e74\u5ea6\u306e\u6240\u5f97\u306e\u3046\u3061\u5e74\u56db\u767e\u4e07\u5186\u3092\u8d85\u3048\u5e74\u516b\u767e\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+
     # DisasterGrantUpperBracket.lean - NORM|288a1bc7... (災害被害者租税減免等施行令 附則第三条(5)2 CONDITION)
     # Needle is in a 附則 article; find_article_text(...,"第三条") returns a different
     # 106-char main-provision article without the needle, needle verbatim-unique -
