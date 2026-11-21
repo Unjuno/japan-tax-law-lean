@@ -2177,6 +2177,11 @@ def checks():
            ["自動車重量税の課税標準は", "〇・五を乗じて得た金額"])
 
 
+    # 法人税法施行規則 art. 7 ロ(2) — CourseHoursThreshold.lean (60 hours)
+    yield ("法人税法施行規則 art. 7（六十時間以上の授業時間数）↔ CourseHoursThreshold.lean (annualHoursThreshold 60)",
+           "340M50000040012",
+           "article", "第七条の二",
+           ["六十時間以上"])
     # 国税局課税部等の統括国税調査官等省令 art. 2 — CapitalFiveBillionThreshold.lean
     yield ("国税局課税部等の統括国税調査官等省令 art. 2（資本金額五十億円以上）↔ CapitalFiveBillionThreshold.lean (capitalFloor 5_000_000_000)",
            "352M50000040032",

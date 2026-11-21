@@ -423,6 +423,9 @@ import JapanTaxLaw.BusinessOwnerDeductionTests
 import JapanTaxLaw.DisasterIncomeTaxRelief
 import JapanTaxLaw.DisasterIncomeTaxReliefSpec
 import JapanTaxLaw.DisasterIncomeTaxReliefTests
+import JapanTaxLaw.CourseHoursThreshold
+import JapanTaxLaw.CourseHoursThresholdSpec
+import JapanTaxLaw.CourseHoursThresholdTests
 import JapanTaxLaw.VehicleWeightUnit
 import JapanTaxLaw.VehicleWeightUnitSpec
 import JapanTaxLaw.VehicleWeightUnitTests
