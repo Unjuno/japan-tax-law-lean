@@ -2158,6 +2158,13 @@ def checks():
            ["三・八八デシテックスを超え二十二・二三デシテックス未満のもので、かつ、長さが二十五ミリメートル以上八十ミリメートル以下"])
 
 
+    # 税理士法 art. 64 — TaxAccountantPenaltyCap.lean
+    yield ("税理士法 art. 64（百万円以下の過料）↔ TaxAccountantPenaltyCap.lean (1_000_000)",
+           "326AC1000000237",
+           "article", "第六十四条",
+           ["次の各号のいずれかに該当する者は、百万円以下の過料に処する"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
