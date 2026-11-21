@@ -761,3 +761,6 @@ import JapanTaxLaw.ThresholdComparisonNormsTests
 import JapanTaxLaw.ProceduralDeonticNorms
 import JapanTaxLaw.ProceduralDeonticNormsSpec
 import JapanTaxLaw.ProceduralDeonticNormsTests
+import JapanTaxLaw.CapDeductionRefundNorms
+import JapanTaxLaw.CapDeductionRefundNormsSpec
+import JapanTaxLaw.CapDeductionRefundNormsTests
