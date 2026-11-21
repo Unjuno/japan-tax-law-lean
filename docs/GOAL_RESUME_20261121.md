@@ -15,16 +15,16 @@ remains far from met.
 
 ```
 build/task_queue.json: 396,854 normative units
-  NOT_STARTED=396,696   PARTIAL=0   PROVED_SCOPE=2
-  FULLY_VERIFIED=154    BLOCKED=2
-data/verification_evidence.json: 156 units; all 156 derive FULLY_VERIFIED
+  NOT_STARTED=396,575   PARTIAL=0   PROVED_SCOPE=2
+  FULLY_VERIFIED=275    BLOCKED=2
+data/verification_evidence.json: 277 units; all 277 derive FULLY_VERIFIED
 evidence generator: ZERO substantive blockers — every produced unit passes
   kernel-attestation, independent spec, source correspondence, boundary and
   adversarial-review gates; only units with a full Lean model appear here.
 ```
-Unverified obligations fell from 396,852 (session start) to 396,696.
-The generator can now produce no further units from the existing models; the
-remaining 396,696 units need NEW Lean models, specs, tests and reviews created
+The session baseline was FULLY_VERIFIED=154; the latest measured value is 275.
+The generator cannot produce further units from the existing models; the
+remaining ~396,578 units need NEW Lean models, specs, tests and reviews created
 at a scale far beyond a single session.
 
 ## What is established
@@ -41,7 +41,8 @@ at a scale far beyond a single session.
 - Durable per-unit state/evidence ledgers; H/T/D/C/U findings; separate,
   never-auto-satisfied human legal-review axis.
 - `run_python_gates.py` prints SKIP separately; required SKIP is a FAIL.
-- Independent completion audit (`qa_completion_audit.py`) reported 8/8.
+- Independent completion audit (`qa_completion_audit.py`) reported 8/8 and
+  `verify_queue_invariants.py` reported 14/14 (unbacked=0, mismatches=0).
 
 ### §2 target scope (partially done)
 - Separate 7-layer source registry: L0 statutes (provisional), L1 appendix /
@@ -59,22 +60,28 @@ at a scale far beyond a single session.
   rationals (`百分の九十・七` = 907/1000), multi-rate tables (two independent
   anchors), structural specs (pinned needles), genuine boundary categories
   (zero / small input / saturation).
-- 18 independent adversarial reviews with H/T/D/C/U; all BY-DESIGN, CONFIRMED=0.
-- A Lean build failure (Prop-valued `by decide`) was caught by CI and fixed.
+- 60 independent adversarial review files with H/T/D/C/U; all BY-DESIGN,
+  CONFIRMED=0. Review is separate from Lean proof and never auto-satisfied.
+- Two genuine Lean kernel/syntax errors in a contributed model were caught by
+  CI and fixed without relaxing any gate (multi-arg binder commas; a proof term
+  used as an expected type). CI is the enforcement point for these errors.
 - No `sorry`, `admit` or unexplained axioms introduced by this work.
+
+### Gate coverage (§5)
+- The stronger `completion_gate_adversarial.py` (5 extra §1 rules: id components,
+  state persistence, ledger-no-bare-COMPLETE, unbacked FULLY_VERIFIED, scope
+  candidates) was previously dead code referenced only in docs. It is now
+  registered as a REQUIRED gate in `run_python_gates.py` (PR #434). CI confirmed
+  it PASSes with 0 MUST failures.
 
 ## What is NOT established — no completion claim
 
-- 396,706 of 396,854 units remain `NOT_STARTED`; the whole-target criterion of
+- ~396,575 of 396,854 units remain `NOT_STARTED`; the whole-target criterion of
   §5 (every norm decomposed, formalized, proved and source-audited) is unmet.
 - 175,186 external references unbound; 7,526 unmatched law names and 2,873
   tax-name candidates outside the ledger; 3,438 L7 candidates with **0** human
   reviewers; 795 historical names / 12,977 occurrences unpinned.
 - Ordinances, treaties, circulars and case law are declared but unacquired.
-- Duplicate gate modules (`completion_gate_adversary.py` and
-  `completion_gate_adversarial.py`) serve different contracts (pure testable
-  library vs repo-aware durable-audit CLI) and still need a single canonical
-  declaration; they are NOT evidence of parallel edits to one artifact.
 - Main CI intermittently fails on stale derived ledgers (L7, LAW_STATUS,
   COVERAGE) after concurrent merges; regenerate them before judging a run.
 
@@ -84,13 +91,14 @@ at a scale far beyond a single session.
 2. Select dependency-ready units: `python scripts/ci/task_selector.py 12`.
 3. For each unit: add independent spec + boundary tests first; run an
    ADVERSARIAL agent with a **separate output file** under `docs/adversarial/`.
-4. Open a PR; after the Lean job succeeds, create a scoped attestation bound to
-   THAT commit/run with hashes recomputed from git blobs (never the working
-   tree), then `python scripts/ci/generate_verification_evidence.py` and
+4. Open a PR; **wait for the Lean job on the PR to be green** before merging;
+   then create a scoped attestation bound to THAT merge commit/run with hashes
+   recomputed from git blobs (never the working tree), then
+   `python scripts/ci/generate_verification_evidence.py` and
    `python scripts/ci/task_queue.py`; verify `FULLY_VERIFIED` rises and
    `NOT_STARTED` falls.
 5. In parallel: non-税 recursive discovery, acquire/pin the declared source
-   layers, and consolidate the two gate variants into one canonical module.
+   layers, and bind the remaining unbound references and historical revisions.
 6. Regenerate L7 / LAW_STATUS / COVERAGE ledgers before evaluating CI.
 
 Human legal review remains a separate pending axis; do not self-certify it.
