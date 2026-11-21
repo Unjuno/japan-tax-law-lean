@@ -813,3 +813,6 @@ import JapanTaxLaw.PowderCoefficientRoundingTests
 import JapanTaxLaw.ContainerSpec
 import JapanTaxLaw.ContainerSpecSpec
 import JapanTaxLaw.ContainerSpecTests
+import JapanTaxLaw.ResidentialAreaRatioInterval
+import JapanTaxLaw.ResidentialAreaRatioIntervalSpec
+import JapanTaxLaw.ResidentialAreaRatioIntervalTests
