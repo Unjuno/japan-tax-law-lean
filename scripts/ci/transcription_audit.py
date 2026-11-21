@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # CustomsTariffArt3TaxBase.lean - NORM|88116e54... (tax-base price-or-quantity EFFECT, law 143AC0000000054)
+    # Needle is in MainProvision Article 第三条 (Paragraph 1, ParagraphSentence);
+    # find_article_text(...,"第三条") returns that article (len 56) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.3 tax base price-or-quantity - CustomsTariffArt3TaxBase.lean",
+           "143AC0000000054",
+           "article", "第三条",
+           ["\u95a2\u7a0e\u306f\u3001\u8f38\u5165\u8ca8\u7269\u306e\u4fa1\u683c\u53c8\u306f\u6570\u91cf\u3092\u8ab2\u7a0e\u6a19\u6e96\u3068\u3057\u3066\u8ab2\u3059\u308b\u3082\u306e\u3068\u3057\u3001\u305d\u306e\u7a0e\u7387\u306f\u3001\u5225\u8868\u306b\u3088\u308b\u3002"])
+
     # LocalTaxArt154FreightTonSurcharge.lean - NORM|cdd69708e... (freight surcharge formula CONDITION, law 325AC0000000226)
     # Needle is in MainProvision Article 第百五十四条 (Paragraph 1, table cell);
     # find_article_text(...,"第百五十四条") returns that article (len 3565) with needle -
@@ -2340,6 +2349,13 @@ def checks():
            "342CO0000000108",
            "article", "第十条",
            ["相続人が二人以上ある場合には、前項の申告書は、各相続人が連署して提出するものとする"])
+
+
+    # 税理士法施行令 art. 9 — TwoStageVotingThreshold.lean
+    yield ("税理士法施行令 art. 9（会員の二分の一以上出席・出席者の過半数で決する）↔ TwoStageVotingThreshold.lean (1/2 quorum, >1/2 majority)",
+           "326CO0000000216",
+           "article", "第九条",
+           ["会員の二分の一以上の者が出席し、その出席者の過半数で決するものとし、可否同数のときは、議長の決するところによる"])
 
 
 def main() -> int:
