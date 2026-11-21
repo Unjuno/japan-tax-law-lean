@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # LocalTaxPerCapitaStandardRate.lean - NORM|6c043582... (per capita flat tax standard rate 3000 yen EFFECT, law 325AC0000000226)
+    # Needle is in MainProvision Article 第三百十条 (Paragraph 1, Sentence 1);
+    # find_article_text(...,"第三百十条") returns that article (len 36) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("per capita flat tax standard rate 3000 yen - LocalTaxPerCapitaStandardRate.lean",
+           "325AC0000000226",
+           "article", "第三百十条",
+           ["\u500b\u4eba\u306e\u5747\u7b49\u5272\u306e\u6a19\u6e96\u7a0e\u7387\u306f\u3001\u4e09\u5343\u5186\u3068\u3059\u308b\u3002"])
+
     # LocalTaxEnforcementDelegatedAmount3000.lean - NORM|92588e30... (delegated amount 3000 yen, law 325CO0000000245)
     # Needle is in MainProvision Article 8_3 (Paragraph 1, Sentence 1);
     # find_article_text(...,"第八条の三") returns that article (len 66) with needle -
