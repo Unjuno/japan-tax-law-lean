@@ -705,3 +705,6 @@ import JapanTaxLaw.OilGasGrantTaxTests
 import JapanTaxLaw.SpecialCorporationGrantTax
 import JapanTaxLaw.SpecialCorporationGrantTaxSpec
 import JapanTaxLaw.SpecialCorporationGrantTaxTests
+import JapanTaxLaw.OilCoalTaxRate
+import JapanTaxLaw.OilCoalTaxRateSpec
+import JapanTaxLaw.OilCoalTaxRateTests
