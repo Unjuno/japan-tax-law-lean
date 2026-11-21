@@ -2272,6 +2272,13 @@ def checks():
            ["六月をこえる場合においては、同項の規定の適用については、当該利子計算期間又は事業年度開始の日から六月ごとに区分した期間"])
 
 
+    # 法人特別税法 art. 10 — CorporateSpecialTaxRate2_5.lean
+    yield ("法人特別税法 art. 10（法人特別税の税率百分の二・五）↔ CorporateSpecialTaxRate2_5.lean (25/1000)",
+           "404AC0000000015",
+           "article", "第十条",
+           ["課税標準法人税額に百分の二・五の税率を乗じて計算した金額とする"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

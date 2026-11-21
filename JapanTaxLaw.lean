@@ -873,3 +873,6 @@ import JapanTaxLaw.ReadingSubstitutionMunicipalTests
 import JapanTaxLaw.SixMonthPeriodDeeming
 import JapanTaxLaw.SixMonthPeriodDeemingSpec
 import JapanTaxLaw.SixMonthPeriodDeemingTests
+import JapanTaxLaw.CorporateSpecialTaxRate2_5
+import JapanTaxLaw.CorporateSpecialTaxRate2_5Spec
+import JapanTaxLaw.CorporateSpecialTaxRate2_5Tests
