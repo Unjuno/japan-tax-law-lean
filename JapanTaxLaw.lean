@@ -788,3 +788,6 @@ import JapanTaxLaw.AmountThresholdNormsTests
 import JapanTaxLaw.AmendmentEnforcementNorms
 import JapanTaxLaw.AmendmentEnforcementNormsSpec
 import JapanTaxLaw.AmendmentEnforcementNormsTests
+import JapanTaxLaw.DeonticModalityNorms
+import JapanTaxLaw.DeonticModalityNormsSpec
+import JapanTaxLaw.DeonticModalityNormsTests
