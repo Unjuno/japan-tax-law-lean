@@ -2180,6 +2180,13 @@ def checks():
            ["次の各号のいずれかに該当する者は、百万円以下の過料に処する"])
 
 
+    # 国連軍地位協定臨時特例法 art. 2 — DependentAgeSupport.lean
+    yield ("国連軍地位協定臨時特例法 art. 2（二十一歳未満の子・生計費十分の五以上負担）↔ DependentAgeSupport.lean (21, 5/10)",
+           "329AC0000000149",
+           "article", "第二条",
+           ["二十一歳未満の子並びに父母及び二十一歳以上の子のうちその生計費の十分の五以上"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
