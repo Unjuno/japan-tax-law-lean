@@ -1,7 +1,7 @@
 import JapanTaxLaw.AccessoryPriceFloor
 import JapanTaxLaw.AccessoryPriceFloorSpec
 
-/-!
+/-
 # AccessoryPriceFloorTests — kernel-decided checks for 施行令 第二条 (価格一万円以上)
 
 Every check is a closed Nat/Bool expression discharged by `by decide`/`by rfl`,
