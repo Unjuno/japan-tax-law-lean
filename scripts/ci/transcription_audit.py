@@ -2229,6 +2229,13 @@ def checks():
            ["五万円以下の罰金に処する"])
 
 
+    # 溶融亜鉛めっき鋼帯等暫定不当廉売関税政令 art. 1 — NickelContentThreshold.lean
+    yield ("溶融亜鉛めっき鋼帯等暫定関税政令 art. 1（ニッケル含有量が全重量の十パーセント超）↔ NickelContentThreshold.lean (10%)",
+           "508CO0000000254",
+           "article", "第一条",
+           ["ニッケルの含有量が全重量の十パーセントを超えるもの"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
