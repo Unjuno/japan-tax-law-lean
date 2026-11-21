@@ -840,6 +840,9 @@ import JapanTaxLaw.PowderCoefficientRoundingTests
 import JapanTaxLaw.ContainerSpec
 import JapanTaxLaw.ContainerSpecSpec
 import JapanTaxLaw.ContainerSpecTests
+import JapanTaxLaw.QuakeReconstructionExpenseFloor1M
+import JapanTaxLaw.QuakeReconstructionExpenseFloor1MSpec
+import JapanTaxLaw.QuakeReconstructionExpenseFloor1MTests
 import JapanTaxLaw.ResidentialAreaRatioInterval
 import JapanTaxLaw.ResidentialAreaRatioIntervalSpec
 import JapanTaxLaw.ResidentialAreaRatioIntervalTests
@@ -912,3 +915,12 @@ import JapanTaxLaw.JointSignatureHeirThresholdTests
 import JapanTaxLaw.TwoStageVotingThreshold
 import JapanTaxLaw.TwoStageVotingThresholdSpec
 import JapanTaxLaw.TwoStageVotingThresholdTests
+import JapanTaxLaw.TariffQuotaAmount
+import JapanTaxLaw.TariffQuotaAmountSpec
+import JapanTaxLaw.TariffQuotaAmountTests
+import JapanTaxLaw.MaxLengthMultiplier115
+import JapanTaxLaw.MaxLengthMultiplier115Spec
+import JapanTaxLaw.MaxLengthMultiplier115Tests
+import JapanTaxLaw.PopulationInterval15M75M
+import JapanTaxLaw.PopulationInterval15M75MSpec
+import JapanTaxLaw.PopulationInterval15M75MTests

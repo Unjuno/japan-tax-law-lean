@@ -1860,6 +1860,12 @@ def checks():
            "file", None,
            ["六十九・四パーセント", "不当廉売関税の税率は"])
 
+    # TariffQuotaAmount — cycle-53
+    yield ("TariffQuotaAmount.lean",
+           "417M60000200012",
+           "file", None,
+           ["間は八千トンとする", "関税割当数量）第五条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2252,6 +2258,11 @@ def checks():
            ["石油ガス税に相当する金額の三倍が五十万円を超える場合"])
 
 
+    # 東日本大震災特例法 art.38-2(2)(4)イ — QuakeReconstructionExpenseFloor1M.lean (工事費用百万円以上)
+    yield ("東日本大震災特例法 art.38-2(2)(4)イ（工事費用百万円以上）↔ QuakeReconstructionExpenseFloor1M.lean (floor 1_000_000, 以上 inclusive)",
+           "423AC0000000029",
+           "article", "第三十八条の二",
+           ["当該工事に要した費用の額が百万円以上であること。"])
     # 地価税法施行令 art. 9 — ResidentialAreaRatioInterval.lean
     yield ("地価税法施行令 art. 9（居住面積割合が百分の二十五超百分の五十以下）↔ ResidentialAreaRatioInterval.lean (25% < r <= 50%)",
            "403CO0000000174",
@@ -2369,6 +2380,20 @@ def checks():
            "326CO0000000216",
            "article", "第九条",
            ["会員の二分の一以上の者が出席し、その出席者の過半数で決するものとし、可否同数のときは、議長の決するところによる"])
+
+
+    # 船舶設備規制 art. 21 — MaxLengthMultiplier115.lean
+    yield ("船舶設備規制 art. 21（拡張後最大船長が拡張前の一・一五倍を超えない）↔ MaxLengthMultiplier115.lean (115/100)",
+           "342CO0000000146",
+           "article", "第二十一条",
+           ["最大船長（製造又は修繕をすることができる船舶の長さの最大値をいう。以下この号において同じ。）が、拡張許可前の当該設備における最大船長の一・一五倍を超えることとならない"])
+
+
+    # 航空機燃料譲与税法施行規則 art. 4 — PopulationInterval15M75M.lean
+    yield ("航空機燃料譲与税法施行規則 art. 4（千五百万人超七千五百万人以下の人数）↔ PopulationInterval15M75M.lean (15M<p<=75M)",
+           "347M50000008026",
+           "article", "第四条",
+           ["千五百万人を超え七千五百万人以下の人数"])
 
 
 def main() -> int:
