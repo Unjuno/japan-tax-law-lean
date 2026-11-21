@@ -777,6 +777,9 @@ JapanTaxLaw/ContainerSpecTests.lean               # 同上 退行テスト
 JapanTaxLaw/RoadWidthThreshold.lean                # 石油ガス譲与税施行規則 art.1（幅員2.5m未満）L4 モデル
 JapanTaxLaw/RoadWidthThresholdSpec.lean            # 同上 独立定式
 JapanTaxLaw/RoadWidthThresholdTests.lean           # 同上 退行テスト
+JapanTaxLaw/LandValuePerSquareMeter.lean          # 更地価額÷面積（政令 art.8）L4 モデル
+JapanTaxLaw/LandValuePerSquareMeterSpec.lean      # 同上 独立定式
+JapanTaxLaw/LandValuePerSquareMeterTests.lean     # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト

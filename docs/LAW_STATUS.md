@@ -11,7 +11,11 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
+<<<<<<< HEAD
 - with >=1 pinned literal check (semantic model): 88
+=======
+- with >=1 pinned literal check (semantic model): 87
+>>>>>>> origin/main
 - with recorded human legal review: 0
 
 ## All laws
@@ -106,7 +110,7 @@ a completion flag.
 | `338CO0000000275` | 明治三十二年発行の英貨公債を償還する等のため発行する外貨公債に関する特別措置法に基づく外 | 338CO0000000275_20171001_429CO0000000106 | CurrentEnforced | YES | ok | 8 | NO (0) | NO |
 | `339AC0000000101` | 自家用自動車の一時輸入に関する通関条約の実施に伴う関税法等の特例に関する法律 | 339AC0000000101_20010106_411AC0000000160 | CurrentEnforced | YES | ok | 21 | NO (0) | NO |
 | `339CO0000000182` | 自家用自動車の一時輸入に関する通関条約の実施に伴う関税法等の特例に関する法律施行令 | 339CO0000000182_20030401_415CO0000000142 | CurrentEnforced | YES | ok | 16 | YES (1) | NO |
-| `340AC0000000033` | 所得税法 | 340AC0000000033_20261001_507AC0000000070 | CurrentEnforced | YES | ok | 1323 | YES (9) | NO |
+| `340AC0000000033` | 所得税法 | 340AC0000000033_20261001_507AC0000000070 | CurrentEnforced | YES | ok | 1323 | YES (10) | NO |
 | `340AC0000000034` | 法人税法 | 340AC0000000034_20261001_508AC0000000012 | CurrentEnforced | YES | ok | 1183 | YES (8) | NO |
 | `340CO0000000084` | 国際復興開発銀行等からの外資の受入に関する特別措置に関する法律に基づく債券の利子の非課税 | 340CO0000000084_20171001_429CO0000000106 | CurrentEnforced | YES | ok | 8 | NO (0) | NO |
 | `340CO0000000096` | 所得税法施行令 | 340CO0000000096_20260522_508CO0000000093 | CurrentEnforced | YES | ok | 1365 | YES (1) | NO |
@@ -186,7 +190,7 @@ a completion flag.
 | `403M50000040006` | 法人臨時特別税に関する省令 | 403M50000040006_20030106_414M60000040072 | CurrentEnforced | YES | ok | 9 | NO (0) | NO |
 | `403M50000040007` | 石油臨時特別税に関する省令 | 403M50000040007_20010106_412M50000040069 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
 | `403AC0000000069` | 地価税法 | 403AC0000000069_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 268 | YES (2) | NO |
-| `403CO0000000174` | 地価税法施行令 | 403CO0000000174_20250722_507CO0000000249 | CurrentEnforced | YES | ok | 62 | YES (1) | NO |
+| `403CO0000000174` | 地価税法施行令 | 403CO0000000174_20250722_507CO0000000249 | CurrentEnforced | YES | ok | 62 | YES (2) | NO |
 | `403M50000040031` | 地価税法施行規則 | 403M50000040031_20260401_508M60000040010 | CurrentEnforced | YES | ok | 53 | NO (0) | NO |
 | `403M50000040054` | 電子情報処理組織を使用して処理する場合における国税等の徴収関係事務等の取扱いの特例に関す | 403M50000040054_20260924_508M60000040059 | CurrentEnforced | YES | ok | 88 | NO (0) | NO |
 | `404AC0000000015` | 法人特別税法 | 404AC0000000015_20010401_413AC0000000006 | CurrentEnforced | YES | ok | 33 | YES (1) | NO |
@@ -346,4 +350,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 143
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 146

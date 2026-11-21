@@ -1301,6 +1301,24 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # InheritanceGiftTaxRateBracket4M6M.lean - NORM|246a67a4... (gift-tax rate bracket 4M-6M CONDITION, law 325AC0000000073)
+    # Needle is in MainProvision Article 第二十一条の七 (Paragraph 1, table upper-column cell);
+    # find_article_text(...,"第二十一条の七") returns that article (len 253) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("gift-tax rate bracket 4M-6M - InheritanceGiftTaxRateBracket4M6M.lean",
+           "325AC0000000073",
+           "article", "第二十一条の七",
+           ["\u56db\u767e\u4e07\u5186\u3092\u8d85\u3048\u516d\u767e\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+
+    # IncomeTaxRevenueBracket1900k.lean - NORM|29b80207... (revenue <= 1.9M yen REFERENCE bracket, law 340AC0000000033)
+    # Needle is in MainProvision Article 第二十八条 (Paragraph 3, Item 1, Column 1, Sentence 1);
+    # find_article_text(...,"第二十八条") returns that article (len 593) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("income tax revenue bracket <= 1.9M yen - IncomeTaxRevenueBracket1900k.lean",
+           "340AC0000000033",
+           "article", "第二十八条",
+           ["\u524d\u9805\u306b\u898f\u5b9a\u3059\u308b\u53ce\u5165\u91d1\u984d\u304c\u767e\u4e5d\u5341\u4e07\u5186\u4ee5\u4e0b\u3067\u3042\u308b\u5834\u5408"])
+
     # CustomsTaxRetentionPeriodTier1.lean - NORM|bc51dc84... (tax <= 100k yen -> 2 month retention CONDITION, law 328AC0000000006)
     # 附則 unit: find_article_text sees MainProvision only (returns art.8 without needle),
     # so use the file-kind transcription locator. Needle literal from queue via \u escapes.
@@ -1752,6 +1770,12 @@ def checks():
            "file", None,
            ["路面幅員が二・五メートル未満である道路", "法第二条第一項の総務省令で定める道路"])
 
+    # LandValuePerSquareMeter — cycle-46
+    yield ("LandValuePerSquareMeter.lean",
+           "403CO0000000174",
+           "file", None,
+           ["一平方メートル当たりの更地の価額）第八条", "当該土地等に係る更地の価額を当該土地等の面積で除して計算した一平方メートル当たりの価額とする"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2168,6 +2192,20 @@ def checks():
            "326AC1000000237",
            "article", "第六十四条",
            ["次の各号のいずれかに該当する者は、百万円以下の過料に処する"])
+
+
+    # 国連軍地位協定臨時特例法 art. 2 — DependentAgeSupport.lean
+    yield ("国連軍地位協定臨時特例法 art. 2（二十一歳未満の子・生計費十分の五以上負担）↔ DependentAgeSupport.lean (21, 5/10)",
+           "329AC0000000149",
+           "article", "第二条",
+           ["二十一歳未満の子並びに父母及び二十一歳以上の子のうちその生計費の十分の五以上"])
+
+
+    # 税制改革法 art. 10 — ConsumptionTaxRateThreePercent.lean
+    yield ("税制改革法 art. 10（消費税の税率百分の三）↔ ConsumptionTaxRateThreePercent.lean (3/100)",
+           "363AC0000000107",
+           "article", "第十条",
+           ["その税率は、百分の三とする"])
 
 
 def main() -> int:
