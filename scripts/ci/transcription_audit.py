@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # CustomsTariffArt8ReadingSubstitution.lean - NORM|4faefcb5... (reading substitution READING, law 143AC0000000054)
+    # Needle is in MainProvision Article 第八条 (Paragraph 14, ParagraphSentence);
+    # find_article_text(...,"第八条") returns that article (len 6919) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.8 reading substitution - CustomsTariffArt8ReadingSubstitution.lean",
+           "143AC0000000054",
+           "article", "第八条",
+           ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u3001\u7b2c\u516d\u9805\u672c\u6587\u4e2d\u300c\u4e00\u5e74\u4ee5\u5185\u306b\u300d\u3068\u3042\u308b\u306e\u306f\u3001\u300c\u4e00\u5e74\u4ee5\u5185\u306b\u304a\u3044\u3066\u901f\u3084\u304b\u306b\u300d\u3068\u8aad\u307f\u66ff\u3048\u308b\u3082\u306e\u3068\u3059\u308b\u3002"])
+
     # CustomsTariffArt8PresumedDumpingCap.lean - NORM|5cdae380... (presumed dumping duty cap PRESUMPTION, law 143AC0000000054)
     # Needle is in MainProvision Article 第八条 (Paragraph 9, Item#1, ItemSentence);
     # find_article_text(...,"第八条") returns that article (len 6919) with needle -
