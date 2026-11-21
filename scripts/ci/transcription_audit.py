@@ -1771,6 +1771,13 @@ def checks():
            ["一年以下の拘禁刑又は五十万円以下の罰金に処する"])
 
 
+    # 石油ガス譲与税法施行規則 art. 5 — ThousandYenTruncation.lean
+    yield ("石油ガス譲与税法施行規則 art. 5（千円未満の端数を控除）↔ ThousandYenTruncation.lean (roundingUnit 1000)",
+           "341M50000008002",
+           "article", "第五条",
+           ["千円未満の端数金額があるときは、その端数金額を控除した金額をもつて"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
