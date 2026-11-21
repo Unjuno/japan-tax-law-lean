@@ -1742,6 +1742,13 @@ def checks():
            ["会員の総数が前三項の規定により会員たる資格を有する連合会及び酒類業組合の三分の二以上でなければ"])
 
 
+    # 関税法特例施行令 art. 2 — AccessoryPriceFloor.lean
+    yield ("自家用自動車の一時輸入通関条約特例施行令 art. 2（車両附属品の価格一万円以上）↔ AccessoryPriceFloor.lean (10_000)",
+           "339CO0000000182",
+           "article", "第二条",
+           ["車両の附属品であつて価格が一万円以上のもの"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
