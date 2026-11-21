@@ -2504,6 +2504,13 @@ def checks():
            ["会計学のうち簿記論及び財務諸表論の二科目"])
 
 
+    # 森林環境税法 art. 4 — ForestTaxEligibilityException.lean
+    yield ("森林環境税法 art. 4（非課税対象者の所得制限・百三十五万円）↔ ForestTaxEligibilityException.lean (1_350_000 ceiling)",
+           "431AC0000000003",
+           "article", "第四条",
+           ["障害者、未成年者、寡婦又はひとり親（これらの者の当該年度の初日の属する年の前年（次号において「前年」という。）の合計所得金額が百三十五万円を超える場合を除く。）"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

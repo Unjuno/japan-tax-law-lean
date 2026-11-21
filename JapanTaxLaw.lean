@@ -969,3 +969,6 @@ import JapanTaxLaw.RegistrationTaxTruncation30kTests
 import JapanTaxLaw.AccountingSubjectsCount
 import JapanTaxLaw.AccountingSubjectsCountSpec
 import JapanTaxLaw.AccountingSubjectsCountTests
+import JapanTaxLaw.ForestTaxEligibilityException
+import JapanTaxLaw.ForestTaxEligibilityExceptionSpec
+import JapanTaxLaw.ForestTaxEligibilityExceptionTests
