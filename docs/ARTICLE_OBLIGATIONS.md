@@ -6,10 +6,10 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 85
-- presence-facts-only complete: 85
+- articles with explicit pin: 88
+- presence-facts-only complete: 88
 - NOT_STARTED: 3
-- PARTIAL: 82
+- PARTIAL: 85
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
 - BLOCKED: 0
@@ -77,6 +77,7 @@ source positions. Human legal review is a separate axis and is pending.
 | `325M50000040017` | 第三十条 | InheritanceRegPrescribedAmount | YES | YES | NO | PARTIAL |
 | `325CO0000000245` | 第六条の九の二 | LocalTaxOrderArt15_4Amount | YES | NO | NO | NOT_STARTED |
 | `326CO0000000216` | 第六条の二 | TaxAccountantRegDelegatedAmount | YES | YES | NO | PARTIAL |
+| `325AC0000000073` | 第十六条 | InheritanceTaxRateBracket300_600 | YES | YES | NO | PARTIAL |
 | `325AC0000000073` | 第十六条 | InheritanceTaxRateBracket200_300 | YES | YES | NO | PARTIAL |
 | `325AC0000000073` | 第十六条 | InheritanceTaxRateBracket100_200 | YES | YES | NO | PARTIAL |
 | `325AC0000000073` | 第十六条 | InheritanceTaxRateBracket30_50 | YES | YES | NO | PARTIAL |
@@ -102,3 +103,5 @@ source positions. Human legal review is a separate axis and is pending.
 | `353AC0000000025` | 第二十三条 | PetroleumCoalFineRange | YES | YES | NO | PARTIAL |
 | `328AC0000000007` | 第八十条 | TwoThirdsMembershipThreshold | YES | YES | NO | PARTIAL |
 | `339CO0000000182` | 第二条 | AccessoryPriceFloor | YES | YES | NO | PARTIAL |
+| `327AC0000000111` | 第十一条 | SCFVPenaltyCeiling | YES | YES | NO | PARTIAL |
+| `341M50000008002` | 第五条 | ThousandYenTruncation | YES | YES | NO | PARTIAL |
