@@ -1301,6 +1301,24 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # LocalAllocationTaxRounding.lean - NORM|fe7a9ceb... (4880yen*L sub-1000 rounding half-up CONDITION, law 337M50000008017)
+    # Needle is in MainProvision Article 第十条 (Paragraph 18, ArithFormula, Sentence 1);
+    # find_article_text(...,"第十条") returns that article (len 11846) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("sub-1000 rounding half-up of 4880yen*L - LocalAllocationTaxRounding.lean",
+           "337M50000008017",
+           "article", "第十条",
+           ["\uff14\uff0c\uff18\uff18\uff10\u5186\u00d7\uff21\u306b\u5343\u5186\u672a\u6e80\u306e\u7aef\u6570\u304c\u3042\u308b\u3068\u304d\u306f\u3001\u305d\u306e\u7aef\u6570\u3092\u56db\u6368\u4e94\u5165\u3059\u308b\u3002"])
+
+    # DonationAggregateStrictLimit.lean - NORM|f9d7893b... (donation aggregate < 1000 yen strict CONDITION, law 332M50000040015)
+    # Needle is in MainProvision Article 19_10_5 (Paragraph 8, Item 2, Sentence 1);
+    # find_article_text(...,"第十九条の十の五") returns that article (len 4558) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("donation aggregate strict limit < 1000 yen - DonationAggregateStrictLimit.lean",
+           "332M50000040015",
+           "article", "第十九条の十の五",
+           ["\u5b9f\u7e3e\u5224\u5b9a\u671f\u9593\u306b\u304a\u3051\u308b\u540c\u4e00\u306e\u8005\u304b\u3089\u53d7\u3051\u5165\u308c\u305f\u5bc4\u9644\u91d1\u306e\u984d\u306e\u5408\u8a08\u984d\u304c\u5343\u5186\u306b\u6e80\u305f\u306a\u3044\u5834\u5408\u306e\u5f53\u8a72\u5408\u8a08\u984d"])
+
     # TaxAccountantBalanceSheetUnits.lean - NORM|70d9948f... (balance-sheet presentation units 1/1000/1000000 yen EFFECT, law 326M50000040055)
     # Needle is in MainProvision Article 第二十二条の四 (Paragraph 2, Sentence 1);
     # find_article_text(...,"第二十二条の四") returns that article (len 711) with needle -
@@ -1621,6 +1639,12 @@ def checks():
            "429CO0000000234",
            "file", None,
            ["特定貨物又は暫定不当廉売関税賦課貨物に課する不当廉売関税の税率は", "五十三・〇パーセント（別表の上欄に掲げる生産者により生産された特定貨物にあっては、それぞれ同表の下欄に定める税率）とする"])
+
+    # GasolineTaxCombination — cycle-42
+    yield ("GasolineTaxCombination.lean",
+           "330CO0000000100",
+           "file", None,
+           ["揮発油税及び地方揮発油税を一の税目とみなし", "これらの税の税率又は税額をそれぞれ合算した額を内国消費税の税率又は税額とみなして"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -1975,12 +1999,24 @@ def checks():
            ["千円未満の端数金額があるときは、その端数金額を控除した金額をもつて"])
 
 
-
     # 沖縄特例政令 art.19(1)(3) — OkinawaArt19Bracket8M10M.lean (八百万円以上千万円未満)
     yield ("沖縄特例政令 art.19(1)(3)（八百万円以上千万円未満）↔ OkinawaArt19Bracket8M10M.lean (8M-10M bracket, 以上 inclusive / 未満 exclusive)",
            "347CO0000000151",
            "article", "第十九条",
            ["八百万円以上千万円未満の金額"])
+
+    # とん税法 art. 12 — TonTaxPunishment.lean
+    yield ("とん税法 art. 12（三年以下の拘禁刑・五十万円以下の罰金・併科）↔ TonTaxPunishment.lean (3 years, 500000 yen, concurrent)",
+           "332AC0000000037",
+           "article", "第十二条",
+           ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する"])
+
+
+    # 自動車重量税法施行規則 art. 6 — RequiredApplicationDocuments.lean
+    yield ("自動車重量税法施行規則 art. 6（定款等の添付・準ずるもの）↔ RequiredApplicationDocuments.lean (structural)",
+           "346M50000040066",
+           "article", "第六条",
+           ["定款、登記事項証明書並びに最終の貸借対照表、損益計算書及び事業報告"])
 
 
 def main() -> int:
