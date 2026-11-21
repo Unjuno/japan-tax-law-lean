@@ -903,3 +903,6 @@ import JapanTaxLaw.AntiDumpingRate694Tests
 import JapanTaxLaw.JointSignatureHeirThreshold
 import JapanTaxLaw.JointSignatureHeirThresholdSpec
 import JapanTaxLaw.JointSignatureHeirThresholdTests
+import JapanTaxLaw.TwoStageVotingThreshold
+import JapanTaxLaw.TwoStageVotingThresholdSpec
+import JapanTaxLaw.TwoStageVotingThresholdTests

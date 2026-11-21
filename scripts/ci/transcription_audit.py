@@ -2346,6 +2346,13 @@ def checks():
            ["相続人が二人以上ある場合には、前項の申告書は、各相続人が連署して提出するものとする"])
 
 
+    # 税理士法施行令 art. 9 — TwoStageVotingThreshold.lean
+    yield ("税理士法施行令 art. 9（会員の二分の一以上出席・出席者の過半数で決する）↔ TwoStageVotingThreshold.lean (1/2 quorum, >1/2 majority)",
+           "326CO0000000216",
+           "article", "第九条",
+           ["会員の二分の一以上の者が出席し、その出席者の過半数で決するものとし、可否同数のときは、議長の決するところによる"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
