@@ -6,10 +6,10 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 118
-- presence-facts-only complete: 118
+- articles with explicit pin: 121
+- presence-facts-only complete: 121
 - NOT_STARTED: 6
-- PARTIAL: 112
+- PARTIAL: 115
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
 - BLOCKED: 0
@@ -135,3 +135,6 @@ source positions. Human legal review is a separate axis and is pending.
 | `342M50000040037` | 第十二条 | ClampedSubtraction | YES | YES | NO | PARTIAL |
 | `340AC0000000156` | 第二十七条 | PetroleumGasFineRange | YES | YES | NO | PARTIAL |
 | `423AC0000000029` | 第三十八条の二 | QuakeReconstructionExpenseFloor1M | YES | YES | NO | PARTIAL |
+| `403CO0000000174` | 第九条 | ResidentialAreaRatioInterval | YES | YES | NO | PARTIAL |
+| `414CO0000000262` | 第一条 | PolyesterStapleFiberSpecs | YES | YES | NO | PARTIAL |
+| `326AC1000000237` | 第六十四条 | TaxAccountantPenaltyCap | YES | YES | NO | PARTIAL |
