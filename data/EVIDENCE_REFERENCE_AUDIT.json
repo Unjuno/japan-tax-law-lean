@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 970,
+  "checks": 974,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -10671,11 +10671,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/DonationAggregateStrictLimitTests.lean",
       "unit_id": "NORM|f9d7893b78c08532ce572d0c5aae7b2d0e7d7c8519ae58683652401a1808c3a7"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_LOCAL_ALLOCATION_TAX_ROUNDING.md — independent agent: NO FINDINGS against the repository files; all che",
+      "unit_id": "NORM|fe7a9ceb0231c6a7b59824ffad4d0f3cbeb1793f4f5d17fb8adea3a931e499aa"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalAllocationTaxRounding.lean",
+      "unit_id": "NORM|fe7a9ceb0231c6a7b59824ffad4d0f3cbeb1793f4f5d17fb8adea3a931e499aa"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalAllocationTaxRoundingSpec.lean",
+      "unit_id": "NORM|fe7a9ceb0231c6a7b59824ffad4d0f3cbeb1793f4f5d17fb8adea3a931e499aa"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalAllocationTaxRoundingTests.lean",
+      "unit_id": "NORM|fe7a9ceb0231c6a7b59824ffad4d0f3cbeb1793f4f5d17fb8adea3a931e499aa"
     }
   ],
-  "resolved": 966,
+  "resolved": 970,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 203,
+  "units_checked": 204,
   "unresolved": 4
 }
