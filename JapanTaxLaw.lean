@@ -779,3 +779,6 @@ import JapanTaxLaw.PriorLawNormsTests
 import JapanTaxLaw.ElapsedDateNorms
 import JapanTaxLaw.ElapsedDateNormsSpec
 import JapanTaxLaw.ElapsedDateNormsTests
+import JapanTaxLaw.DefinitionAndTaxBaseNorms
+import JapanTaxLaw.DefinitionAndTaxBaseNormsSpec
+import JapanTaxLaw.DefinitionAndTaxBaseNormsTests
