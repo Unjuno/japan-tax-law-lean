@@ -825,3 +825,6 @@ import JapanTaxLaw.RoadWidthThresholdTests
 import JapanTaxLaw.PolyesterStapleFiberSpecs
 import JapanTaxLaw.PolyesterStapleFiberSpecsSpec
 import JapanTaxLaw.PolyesterStapleFiberSpecsTests
+import JapanTaxLaw.TaxAccountantPenaltyCap
+import JapanTaxLaw.TaxAccountantPenaltyCapSpec
+import JapanTaxLaw.TaxAccountantPenaltyCapTests
