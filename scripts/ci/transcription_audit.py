@@ -2143,6 +2143,13 @@ def checks():
            ["居住面積割合が百分の二十五を超え百分の五十以下である場合"])
 
 
+    # ポリエステル短繊維不当廉売関税政令 art. 1 — PolyesterStapleFiberSpecs.lean
+    yield ("ポリエステル短繊維政令 art. 1（3.88<繊度<22.23 dtex, 25<=長さ<=80 mm）↔ PolyesterStapleFiberSpecs.lean (388/2223, 25/80)",
+           "414CO0000000262",
+           "article", "第一条",
+           ["三・八八デシテックスを超え二十二・二三デシテックス未満のもので、かつ、長さが二十五ミリメートル以上八十ミリメートル以下"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

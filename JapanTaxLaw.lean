@@ -819,3 +819,6 @@ import JapanTaxLaw.ResidentialAreaRatioIntervalTests
 import JapanTaxLaw.RoadWidthThreshold
 import JapanTaxLaw.RoadWidthThresholdSpec
 import JapanTaxLaw.RoadWidthThresholdTests
+import JapanTaxLaw.PolyesterStapleFiberSpecs
+import JapanTaxLaw.PolyesterStapleFiberSpecsSpec
+import JapanTaxLaw.PolyesterStapleFiberSpecsTests
