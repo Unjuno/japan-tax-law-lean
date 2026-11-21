@@ -2249,6 +2249,13 @@ def checks():
            ["委員の三分の一以上が出席しなければ、会議を開き、議決することができない"])
 
 
+    # 公共サービス実施民間事業者省令 art. 3 — ReadingSubstitutionMunicipal.lean
+    yield ("公共サービス実施民間事業者省令 art. 3（市又は区若しくは総合区→区又は総合区 読替え）↔ ReadingSubstitutionMunicipal.lean (structural)",
+           "418M60000008099",
+           "article", "第三条",
+           ["市又は区若しくは総合区」とあるのは、「区又は総合区」と読み替えるものとする"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
