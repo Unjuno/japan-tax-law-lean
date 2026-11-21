@@ -1464,6 +1464,12 @@ def checks():
            "file", None,
            ["抵当権等の設定等の登記等が課税される普通法人の資本金等の額）第二十六条", "法別表第三の一の四の項及び一の五の項に規定する政令で定める金額は、五億円とする"])
 
+    # OilGasGrantTax — cycle-35
+    yield ("OilGasGrantTax.lean",
+           "340AC0000000157",
+           "file", None,
+           ["石油ガス譲与税は、石油ガス税法", "石油ガス税の収入額の二分の一に相当する額"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
