@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # LocalAllocationTaxRounding.lean - NORM|fe7a9ceb... (4880yen*L sub-1000 rounding half-up CONDITION, law 337M50000008017)
+    # Needle is in MainProvision Article 第十条 (Paragraph 18, ArithFormula, Sentence 1);
+    # find_article_text(...,"第十条") returns that article (len 11846) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("sub-1000 rounding half-up of 4880yen*L - LocalAllocationTaxRounding.lean",
+           "337M50000008017",
+           "article", "第十条",
+           ["\uff14\uff0c\uff18\uff18\uff10\u5186\u00d7\uff21\u306b\u5343\u5186\u672a\u6e80\u306e\u7aef\u6570\u304c\u3042\u308b\u3068\u304d\u306f\u3001\u305d\u306e\u7aef\u6570\u3092\u56db\u6368\u4e94\u5165\u3059\u308b\u3002"])
+
     # DonationAggregateStrictLimit.lean - NORM|f9d7893b... (donation aggregate < 1000 yen strict CONDITION, law 332M50000040015)
     # Needle is in MainProvision Article 19_10_5 (Paragraph 8, Item 2, Sentence 1);
     # find_article_text(...,"第十九条の十の五") returns that article (len 4558) with needle -
