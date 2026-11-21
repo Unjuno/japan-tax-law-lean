@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # LocalTaxDeductionSpouse.lean - NORM|1c803e2d... (地方税法 第二十三条(1)8 控除対象配偶者 CONDITION)
+    # Needle is in MainProvision Article 第二十三条 (Paragraph 1, Item 8);
+    # find_article_text(...,"第二十三条") returns that article (len 8258) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("地方税法 第二十三条(1)第八号 (控除対象配偶者, taxpayer income ceiling 10M) - LocalTaxDeductionSpouse.lean",
+           "325AC0000000226",
+           "article", "第二十三条",
+           ["\u540c\u4e00\u751f\u8a08\u914d\u5076\u8005\u306e\u3046\u3061\u3001\u524d\u5e74\u306e\u5408\u8a08\u6240\u5f97\u91d1\u984d\u304c\u5343\u4e07\u5186\u4ee5\u4e0b\u3067\u3042\u308b\u9053\u5e9c\u770c\u6c11\u7a0e\u306e\u7d0d\u7a0e\u7fa9\u52d9\u8005\u306e\u914d\u5076\u8005\u3092\u3044\u3046\u3002"])
+
     # LocalTaxArt21Penalty.lean - NORM|c4426726... (地方税法 第二十一条(1) 罰則 CONDITION)
     # Needle is in MainProvision Article 第二十一条 (Paragraph 1, Sentence 1);
     # find_article_text(...,"第二十一条") returns that article (len 251) with needle -

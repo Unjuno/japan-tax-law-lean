@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 859,
+  "checks": 863,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -9450,11 +9450,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/LocalTaxArt21PenaltyTests.lean",
       "unit_id": "NORM|c44267260dc35641899361b7ab7e63e06f22ace473bef4c3a81b22a33b50fd14"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_LOCAL_TAX_DEDUCTION_SPOUSE.md — independent agent verified sha256 (3dd29e00…68d53), needle byte-fidelit",
+      "unit_id": "NORM|1c803e2d190195eb3ae5d4c1ebd12bfb79992ddc99b46827d139146b79c178fc"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxDeductionSpouse.lean",
+      "unit_id": "NORM|1c803e2d190195eb3ae5d4c1ebd12bfb79992ddc99b46827d139146b79c178fc"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxDeductionSpouseSpec.lean",
+      "unit_id": "NORM|1c803e2d190195eb3ae5d4c1ebd12bfb79992ddc99b46827d139146b79c178fc"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxDeductionSpouseTests.lean",
+      "unit_id": "NORM|1c803e2d190195eb3ae5d4c1ebd12bfb79992ddc99b46827d139146b79c178fc"
     }
   ],
-  "resolved": 855,
+  "resolved": 859,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 178,
+  "units_checked": 179,
   "unresolved": 4
 }
