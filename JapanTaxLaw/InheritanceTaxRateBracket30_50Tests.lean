@@ -1,7 +1,7 @@
 import JapanTaxLaw.InheritanceTaxRateBracket30_50Spec
 
 /-!
-# InheritanceTaxRateBracket30_50Tests — kernel-checked checks for 相続税法 第十六条 別表第一(1)
+# InheritanceTaxRateBracket30_50Tests — kernel-checked checks for 相続税法 第十六条の表(1)
 
 All checks are `rfl` / `by decide` / theorem application, kernel-checked.
 -/
