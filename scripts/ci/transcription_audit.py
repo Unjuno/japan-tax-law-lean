@@ -1782,6 +1782,12 @@ def checks():
            "file", None,
            ["乗車定員十人以下の自動車", "乗用自動車の範囲）第四条"])
 
+    # PowerDevelopmentTaxRate — cycle-49
+    yield ("PowerDevelopmentTaxRate.lean",
+           "349AC0000000079",
+           "file", None,
+           ["販売電気千キロワット時につき、三百七十五円とする", "電源開発促進税の税率は"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2226,6 +2232,20 @@ def checks():
            "346AC0000000065",
            "article", "第十八条",
            ["五万円以下の罰金に処する"])
+
+
+    # 溶融亜鉛めっき鋼帯等暫定不当廉売関税政令 art. 1 — NickelContentThreshold.lean
+    yield ("溶融亜鉛めっき鋼帯等暫定関税政令 art. 1（ニッケル含有量が全重量の十パーセント超）↔ NickelContentThreshold.lean (10%)",
+           "508CO0000000254",
+           "article", "第一条",
+           ["ニッケルの含有量が全重量の十パーセントを超えるもの"])
+
+
+    # 関税等不服審査会令 art. 7 — QuorumOneThird.lean
+    yield ("関税等不服審査会令 art. 7（委員の三分の一以上の出席で会議・議決）↔ QuorumOneThird.lean (1/3)",
+           "412CO0000000277",
+           "article", "第七条",
+           ["委員の三分の一以上が出席しなければ、会議を開き、議決することができない"])
 
 
 def main() -> int:
