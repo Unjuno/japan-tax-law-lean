@@ -1301,6 +1301,14 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # OldAgePensionAnnualAmountCeiling.lean - NORM|ce360091... (old-age pension annual < 180k yen CONDITION, law 325CO0000000245)
+    # 附則 unit: find_article_text sees MainProvision only (returns art.3 without needle),
+    # so use the file-kind transcription locator. Needle literal from queue via \u escapes.
+    yield ("old-age pension annual amount < 180k yen - OldAgePensionAnnualAmountCeiling.lean",
+           "325CO0000000245",
+           "file", None,
+           ["\u5f53\u8a72\u4e16\u5e2f\u4e3b\u306e\u8001\u9f62\u7b49\u5e74\u91d1\u7d66\u4ed8\u306e\u5e74\u984d\u304c\u5341\u516b\u4e07\u5186\u672a\u6e80\u3067\u3042\u308b\u5834\u5408"])
+
     # LocalTaxPerCapitaStandardRate.lean - NORM|6c043582... (per capita flat tax standard rate 3000 yen EFFECT, law 325AC0000000226)
     # Needle is in MainProvision Article 第三百十条 (Paragraph 1, Sentence 1);
     # find_article_text(...,"第三百十条") returns that article (len 36) with needle -

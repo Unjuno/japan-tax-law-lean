@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 1040,
+  "checks": 1044,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -11441,11 +11441,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/LocalTaxPerCapitaStandardRateTests.lean",
       "unit_id": "NORM|6c043582d2da5058b6951c3490ea577d84a5afd9b21669f9a8c4c5d579a77f5e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_OLD_AGE_PENSION_ANNUAL_CEILING.md — independent agent: NO FINDINGS, all 7 checks pass. Verified sha256 ",
+      "unit_id": "NORM|ce36009183d70cb6fbd8f7c665ef5c61f4a650f71c3d0715a220c72f780eb0ce"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/OldAgePensionAnnualAmountCeiling.lean",
+      "unit_id": "NORM|ce36009183d70cb6fbd8f7c665ef5c61f4a650f71c3d0715a220c72f780eb0ce"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/OldAgePensionAnnualAmountCeilingSpec.lean",
+      "unit_id": "NORM|ce36009183d70cb6fbd8f7c665ef5c61f4a650f71c3d0715a220c72f780eb0ce"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/OldAgePensionAnnualAmountCeilingTests.lean",
+      "unit_id": "NORM|ce36009183d70cb6fbd8f7c665ef5c61f4a650f71c3d0715a220c72f780eb0ce"
     }
   ],
-  "resolved": 1036,
+  "resolved": 1040,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 219,
+  "units_checked": 220,
   "unresolved": 4
 }
