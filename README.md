@@ -792,6 +792,9 @@ JapanTaxLaw/ForestAreaRoundingTests.lean         # 同上 退行テスト
 JapanTaxLaw/AntiDumpingRate308.lean               # 不当廉売関税率 30.8%（政令 art.2）L4 モデル
 JapanTaxLaw/AntiDumpingRate308Spec.lean           # 同上 独立定式
 JapanTaxLaw/AntiDumpingRate308Tests.lean          # 同上 退行テスト
+JapanTaxLaw/AntiDumpingRate694.lean               # 不当廉売関税率 69.4%（政令 art.2）L4 モデル
+JapanTaxLaw/AntiDumpingRate694Spec.lean           # 同上 独立定式
+JapanTaxLaw/AntiDumpingRate694Tests.lean          # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト
