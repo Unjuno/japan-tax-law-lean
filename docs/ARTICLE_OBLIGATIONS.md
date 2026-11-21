@@ -6,10 +6,10 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 121
-- presence-facts-only complete: 121
+- articles with explicit pin: 125
+- presence-facts-only complete: 125
 - NOT_STARTED: 6
-- PARTIAL: 115
+- PARTIAL: 119
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
 - BLOCKED: 0
@@ -77,6 +77,8 @@ source positions. Human legal review is a separate axis and is pending.
 | `325M50000040017` | 第三十条 | InheritanceRegPrescribedAmount | YES | YES | NO | PARTIAL |
 | `325CO0000000245` | 第六条の九の二 | LocalTaxOrderArt15_4Amount | YES | NO | NO | NOT_STARTED |
 | `326CO0000000216` | 第六条の二 | TaxAccountantRegDelegatedAmount | YES | YES | NO | PARTIAL |
+| `325AC0000000073` | 第二十一条の七 | InheritanceGiftTaxRateBracket4M6M | YES | YES | NO | PARTIAL |
+| `340AC0000000033` | 第二十八条 | IncomeTaxRevenueBracket1900k | YES | YES | NO | PARTIAL |
 | `325AC0000000226` | 第三百十条 | LocalTaxPerCapitaStandardRate | YES | YES | NO | PARTIAL |
 | `325CO0000000245` | 第八条の三 | LocalTaxEnforcementDelegatedAmount3000 | YES | YES | NO | PARTIAL |
 | `325AC0000000226` | 第八百三条 | LocalTaxArt803AdministrativeFine | YES | YES | NO | PARTIAL |
@@ -138,3 +140,5 @@ source positions. Human legal review is a separate axis and is pending.
 | `403CO0000000174` | 第九条 | ResidentialAreaRatioInterval | YES | YES | NO | PARTIAL |
 | `414CO0000000262` | 第一条 | PolyesterStapleFiberSpecs | YES | YES | NO | PARTIAL |
 | `326AC1000000237` | 第六十四条 | TaxAccountantPenaltyCap | YES | YES | NO | PARTIAL |
+| `329AC0000000149` | 第二条 | DependentAgeSupport | YES | YES | NO | PARTIAL |
+| `363AC0000000107` | 第十条 | ConsumptionTaxRateThreePercent | YES | YES | NO | PARTIAL |
