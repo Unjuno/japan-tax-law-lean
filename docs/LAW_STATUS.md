@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 94
+- with >=1 pinned literal check (semantic model): 96
 - with recorded human legal review: 0
 
 ## All laws
@@ -242,7 +242,7 @@ a completion flag.
 | `417CO0000000289` | 玉軸受等に対して課する報復関税に関する政令 | 417CO0000000289_20130901_425CO0000000238 | CurrentEnforced | YES | ok | 17 | NO (0) | NO |
 | `417M60000040063` | 玉軸受等に対して課する報復関税に関する政令に規定する原産地の意義に関する省令 | 417M60000040063_20130901_425M60000040050 | CurrentEnforced | YES | ok | 7 | NO (0) | NO |
 | `418M60000400006` | 関税法第六十九条の四第一項の規定による経済産業大臣に対する意見の求めに係る申請手続等に関 | 418M60000400006_20201228_502M60000400092 | CurrentEnforced | YES | ok | 19 | NO (0) | NO |
-| `418M60000008099` | 納税証明書、住民票等の写し等又は印鑑登録証明書の交付の請求の受付及び引渡しの業務の公共サ | 418M60000008099_20240401_505M60000008106 | CurrentEnforced | YES | ok | 8 | NO (0) | NO |
+| `418M60000008099` | 納税証明書、住民票等の写し等又は印鑑登録証明書の交付の請求の受付及び引渡しの業務の公共サ | 418M60000008099_20240401_505M60000008106 | CurrentEnforced | YES | ok | 8 | YES (1) | NO |
 | `419M60000040051` | 輸入品に対する内国消費税の徴収等に関する法律施行規則 | 419M60000040051_20231001_505M60000040038 | CurrentEnforced | YES | ok | 12 | NO (0) | NO |
 | `419M60000040054` | 郵政民営化に関する法人税及び相続税に係る課税の特例に関する省令 | 419M60000040054_20121001_424M60000040059 | CurrentEnforced | YES | ok | 4 | NO (0) | NO |
 | `420CO0000000164` | 所得税法等の一部を改正する法律附則第百十九条の二の規定による経過措置を定める政令 | 420CO0000000164_20090401_421CO0000000107 | CurrentEnforced | YES | ok | 19 | NO (0) | NO |
