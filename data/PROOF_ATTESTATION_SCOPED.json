@@ -1,12 +1,21 @@
 {
-  "commit": "a8fec626b94c9c9cf5b7b9c90fe73355ab203f92",
+  "commit": "42645f8b9b09958af713e6936cd332c49f3f8259",
   "jobs": {
     "Build Lean project and check axioms": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44848451144/job/136673851676"
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44851439771/job/136683476251"
     }
   },
   "modules": {
+    "AccessoryPriceFloor.lean": {
+      "sha256": "40c94ddd6d5d8b58970b1b0debcbf45514da2b69d3f0416f9bcd66c02931c1d0"
+    },
+    "AccessoryPriceFloorSpec.lean": {
+      "sha256": "0a816e474df32b385c412c97b7fbe01afb3ccae9cff16785a06037311ab1f958"
+    },
+    "AccessoryPriceFloorTests.lean": {
+      "sha256": "b7de16c3c3c1e15f535b79f5e11c51075c76d74a66db489f6be6693fa2cbbe24"
+    },
     "AmamiCurrencyConversion.lean": {
       "sha256": "a63315e3ceb9b811a5a9779464c18174340cdac6cbe4ad663d3036fec7f227b8"
     },
@@ -739,14 +748,32 @@
     "InheritanceTaxDelinquencyExceptionTests.lean": {
       "sha256": "060785262a50cbe44ab4897f5776cbccf3a8f579153f6161978eea53f6e9df1c"
     },
+    "InheritanceTaxRateBracket100_200.lean": {
+      "sha256": "d021dc15fdf9724ebd22d3275a3b6c1137ddf9b0b64fac4d0edf2ef013c634fb"
+    },
+    "InheritanceTaxRateBracket100_200Spec.lean": {
+      "sha256": "06b15427e2d2513c8da9baf50e96a15d945d577d32a62a2e38a0cceef365dfa7"
+    },
+    "InheritanceTaxRateBracket100_200Tests.lean": {
+      "sha256": "7cc000381bdd639ae125e45097ab0f4eb63f3461a3d3f9a021e3ee6b259efc76"
+    },
+    "InheritanceTaxRateBracket200_300.lean": {
+      "sha256": "3be7453f92dac4714a38fa83d21f7cd2b1d7aec87529671ee6e845f36b2ec60f"
+    },
+    "InheritanceTaxRateBracket200_300Spec.lean": {
+      "sha256": "ade7dea8a0cdbd046a9de4fe13e340e6a73315f7561dd35ad5d1beaba27aedb7"
+    },
+    "InheritanceTaxRateBracket200_300Tests.lean": {
+      "sha256": "4cd119abf23087221d65d347840769f5bb0d7e3f145f73355c664a9f8c677eb4"
+    },
     "InheritanceTaxRateBracket30_50.lean": {
-      "sha256": "36f41077476a628ee9c66929d46adb035ff3ee433c0f141ab9ccfbf1eea89243"
+      "sha256": "0c8c8ec2aa9647696edabe045587b97c7317a54e98e8124b05154293be7dcf74"
     },
     "InheritanceTaxRateBracket30_50Spec.lean": {
-      "sha256": "3b172436b4807b869b6c649865410fe91be62a3696046a3a38453739d2c1ccdd"
+      "sha256": "9257ffea87626d6c593fad655af2cebbb2ab48e60f9ef48fab8dfaeef00555ac"
     },
     "InheritanceTaxRateBracket30_50Tests.lean": {
-      "sha256": "2e8e3a1fd3e6bbd85c4d9930f57bffe794c57cbd14409caefaf89d14dfe09235"
+      "sha256": "c391e517a71b7520b196b70f32f9227b39003d889018ce3d23262244e9661808"
     },
     "InheritanceTaxSpec.lean": {
       "sha256": "fde754bc0e8c3870ddacc6922f6f14388e39ee956026b4edc4b934bf0a1e6f55"
@@ -1735,6 +1762,15 @@
     "TrustPensionReserveTests.lean": {
       "sha256": "55406612eb7b83a68ef59b14080f86e0e2aba994a4645a79133019a345ca282d"
     },
+    "TwoThirdsMembershipThreshold.lean": {
+      "sha256": "30a9fcbf35d42c409a9c0be8d1743581100f087e35f2ca2333ab6b6d9f8059dd"
+    },
+    "TwoThirdsMembershipThresholdSpec.lean": {
+      "sha256": "1690e7fb1fed31a291e9ae4a0e90ad177029c995ae44557602d7a7f647edda88"
+    },
+    "TwoThirdsMembershipThresholdTests.lean": {
+      "sha256": "b6b3ce5325942e7a6a522de0f25d436554b41bf2adf2f6796081473bda742163"
+    },
     "UnreportedSurcharge.lean": {
       "sha256": "9b469100ee2ce253a8afaa0090f6d336684ecbbb0f97bd553d9dbd6f4b306493"
     },
@@ -1786,5 +1822,5 @@
   "schema": 1,
   "scope": "lean_job_only",
   "tool": "scripts/ci/make_scoped_attestation.py",
-  "workflow_run": "https://api.github.com/repos/Unjuno/japan-tax-law-lean/actions/runs/44848451144"
+  "workflow_run": "https://api.github.com/repos/Unjuno/japan-tax-law-lean/actions/runs/44851439771"
 }
