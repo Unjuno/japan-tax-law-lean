@@ -675,3 +675,6 @@ import JapanTaxLaw.TravelerExemptionLimitTests
 import JapanTaxLaw.SCFVPenaltyCeiling
 import JapanTaxLaw.SCFVPenaltyCeilingSpec
 import JapanTaxLaw.SCFVPenaltyCeilingTests
+import JapanTaxLaw.ThousandYenTruncation
+import JapanTaxLaw.ThousandYenTruncationSpec
+import JapanTaxLaw.ThousandYenTruncationTests
