@@ -888,3 +888,6 @@ import JapanTaxLaw.DisasterReliefPenaltyTests
 import JapanTaxLaw.AviationFuelTaxAmountFloor
 import JapanTaxLaw.AviationFuelTaxAmountFloorSpec
 import JapanTaxLaw.AviationFuelTaxAmountFloorTests
+import JapanTaxLaw.ImportValueCap200k
+import JapanTaxLaw.ImportValueCap200kSpec
+import JapanTaxLaw.ImportValueCap200kTests
