@@ -855,3 +855,6 @@ import JapanTaxLaw.PenaltyCap50kTests
 import JapanTaxLaw.PowerDevelopmentTaxRate
 import JapanTaxLaw.PowerDevelopmentTaxRateSpec
 import JapanTaxLaw.PowerDevelopmentTaxRateTests
+import JapanTaxLaw.NickelContentThreshold
+import JapanTaxLaw.NickelContentThresholdSpec
+import JapanTaxLaw.NickelContentThresholdTests
