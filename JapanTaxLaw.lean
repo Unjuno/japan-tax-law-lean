@@ -690,3 +690,6 @@ import JapanTaxLaw.ThousandYenTruncationTests
 import JapanTaxLaw.MortgageRegistrationCapital
 import JapanTaxLaw.MortgageRegistrationCapitalSpec
 import JapanTaxLaw.MortgageRegistrationCapitalTests
+import JapanTaxLaw.OilGasGrantTax
+import JapanTaxLaw.OilGasGrantTaxSpec
+import JapanTaxLaw.OilGasGrantTaxTests
