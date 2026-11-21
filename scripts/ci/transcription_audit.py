@@ -2459,6 +2459,13 @@ def checks():
            ["前項の犯罪に係る還付金相当額の三倍が百万円を超えるときは、情状により、同項の罰金は、百万円を超え当該相当額の三倍以下とすることができる"])
 
 
+    # 不当廉売関税政令 art. 1 — CrossSection15mm.lean
+    yield ("不当廉売関税政令 art. 1（横断面の最大寸法一・五ミリメートル超）↔ CrossSection15mm.lean (1.5mm, 15 tenths)",
+           "504CO0000000372",
+           "article", "第一条",
+           ["横断面の最大寸法が一・五ミリメートルを超えるもの"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

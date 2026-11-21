@@ -951,3 +951,6 @@ import JapanTaxLaw.TaxExaminerCountTests
 import JapanTaxLaw.RefundFineRange1M
 import JapanTaxLaw.RefundFineRange1MSpec
 import JapanTaxLaw.RefundFineRange1MTests
+import JapanTaxLaw.CrossSection15mm
+import JapanTaxLaw.CrossSection15mmSpec
+import JapanTaxLaw.CrossSection15mmTests
