@@ -222,9 +222,11 @@ def load_attestation() -> dict:
         raise ValueError("attestation schema/conclusion invalid")
     # Scoped attestations cover modules kernel-built at a DIFFERENT commit than
     # the main attestation. Validate each independently; a failed/pending scoped
-    # run is ignored, never trusted as evidence.
-    scoped = REPO / "data" / "PROOF_ATTESTATION_SCOPED.json"
-    if scoped.exists():
+    # run is ignored, never trusted as evidence. Multiple scoped files are
+    # allowed, each bound to its own green run; a valid scoped run refreshes a
+    # stale main-attestation hash (that is its purpose). Sorted name order makes
+    # the merge deterministic regardless of filesystem ordering.
+    for scoped in sorted((REPO / "data").glob("PROOF_ATTESTATION_SCOPED*.json")):
         extra = json.loads(scoped.read_text(encoding="utf-8"))
         honest_run = (extra.get("run_conclusion") == "success"
                       or (extra.get("scope") == "lean_job_only"
