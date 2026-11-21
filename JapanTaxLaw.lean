@@ -710,3 +710,6 @@ import JapanTaxLaw.ProvisionsAndThresholdsTests
 import JapanTaxLaw.NumericFragments
 import JapanTaxLaw.NumericFragmentsSpec
 import JapanTaxLaw.NumericFragmentsTests
+import JapanTaxLaw.ArticleNumberLabels
+import JapanTaxLaw.ArticleNumberLabelsSpec
+import JapanTaxLaw.ArticleNumberLabelsTests
