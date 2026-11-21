@@ -840,3 +840,6 @@ import JapanTaxLaw.LandValuePerSquareMeterTests
 import JapanTaxLaw.DependentAgeSupport
 import JapanTaxLaw.DependentAgeSupportSpec
 import JapanTaxLaw.DependentAgeSupportTests
+import JapanTaxLaw.ConsumptionTaxRateThreePercent
+import JapanTaxLaw.ConsumptionTaxRateThreePercentSpec
+import JapanTaxLaw.ConsumptionTaxRateThreePercentTests

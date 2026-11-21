@@ -2196,6 +2196,13 @@ def checks():
            ["二十一歳未満の子並びに父母及び二十一歳以上の子のうちその生計費の十分の五以上"])
 
 
+    # 税制改革法 art. 10 — ConsumptionTaxRateThreePercent.lean
+    yield ("税制改革法 art. 10（消費税の税率百分の三）↔ ConsumptionTaxRateThreePercent.lean (3/100)",
+           "363AC0000000107",
+           "article", "第十条",
+           ["その税率は、百分の三とする"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
