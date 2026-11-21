@@ -831,3 +831,6 @@ import JapanTaxLaw.PolyesterStapleFiberSpecsTests
 import JapanTaxLaw.TaxAccountantPenaltyCap
 import JapanTaxLaw.TaxAccountantPenaltyCapSpec
 import JapanTaxLaw.TaxAccountantPenaltyCapTests
+import JapanTaxLaw.LandValuePerSquareMeter
+import JapanTaxLaw.LandValuePerSquareMeterSpec
+import JapanTaxLaw.LandValuePerSquareMeterTests

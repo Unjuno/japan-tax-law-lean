@@ -1761,6 +1761,12 @@ def checks():
            "file", None,
            ["路面幅員が二・五メートル未満である道路", "法第二条第一項の総務省令で定める道路"])
 
+    # LandValuePerSquareMeter — cycle-46
+    yield ("LandValuePerSquareMeter.lean",
+           "403CO0000000174",
+           "file", None,
+           ["一平方メートル当たりの更地の価額）第八条", "当該土地等に係る更地の価額を当該土地等の面積で除して計算した一平方メートル当たりの価額とする"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
