@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 1002,
+  "checks": 1006,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -11023,11 +11023,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/LocalTaxArt144_33FineTier1Tests.lean",
       "unit_id": "NORM|042d10f4f42521d77cc2888f4ef79647deb304ffc5dbcb5e0f0a2440c4d35ce1"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_LOCAL_TAX_ART144_33_FINE_TIER2.md — independent agent: NO FINDINGS, all critical checks pass. Verified ",
+      "unit_id": "NORM|64559fa702dfa55d1f28f910d47073c08c936b71fda9e0ef6b3d5695e66e741b"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt144_33FineTier2.lean",
+      "unit_id": "NORM|64559fa702dfa55d1f28f910d47073c08c936b71fda9e0ef6b3d5695e66e741b"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt144_33FineTier2Spec.lean",
+      "unit_id": "NORM|64559fa702dfa55d1f28f910d47073c08c936b71fda9e0ef6b3d5695e66e741b"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt144_33FineTier2Tests.lean",
+      "unit_id": "NORM|64559fa702dfa55d1f28f910d47073c08c936b71fda9e0ef6b3d5695e66e741b"
     }
   ],
-  "resolved": 998,
+  "resolved": 1002,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 210,
+  "units_checked": 211,
   "unresolved": 4
 }
