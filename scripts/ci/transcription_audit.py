@@ -2308,6 +2308,13 @@ def checks():
            ["一年中に航空機に積み込まれた航空機燃料に係る航空機燃料税の額に相当する金額が五千万円以上であること"])
 
 
+    # 関税定率法施行令 art. 13_6 — ImportValueCap200k.lean
+    yield ("関税定率法施行令 art. 13の6（輸入物品の額の総額二十万円を超えない）↔ ImportValueCap200k.lean (200_000)",
+           "329CO0000000155",
+           "article", "第十三条の六",
+           ["輸入する物品の額の総額が二十万円を超えない範囲内"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
