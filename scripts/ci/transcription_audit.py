@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # CustomsTemporaryMeasurePenalty.lean - NORM|73d5c75e... (penalty imprisonment <=12mo OR fine <=2M yen, law 335AC0000000036)
+    # Needle is in MainProvision Article 第十六条 (Paragraph 1, Sentence 1);
+    # find_article_text(...,"第十六条") returns that article (len 160) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("penalty imprisonment 12mo OR fine 2M yen - CustomsTemporaryMeasurePenalty.lean",
+           "335AC0000000036",
+           "article", "第十六条",
+           ["\u6b21\u306e\u5404\u53f7\u306e\u3044\u305a\u308c\u304b\u306b\u8a72\u5f53\u3059\u308b\u8005\u306f\u3001\u4e00\u5e74\u4ee5\u4e0b\u306e\u62d8\u7981\u5211\u53c8\u306f\u4e8c\u767e\u4e07\u5186\u4ee5\u4e0b\u306e\u7f70\u91d1\u306b\u51e6\u3059\u308b\u3002"])
+
     # CustomsTemporaryMeasureDutyFreeThreshold.lean - NORM|47db57ba... (duty-free price ceiling 200k yen EXCEPTION, law 335CO0000000069)
     # Needle is in MainProvision Article 第二十七条 (Paragraph 1, Item 2, Sentence 1);
     # find_article_text(...,"第二十七条") returns that article (len 780) with needle -
