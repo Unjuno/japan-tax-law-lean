@@ -32,19 +32,16 @@ def specNum : Nat := 3
 def specDen : Nat := 100
 
 /-- Independent exact relation, operands reversed vs the impl:
-    `base * specNum == tax * specDen` (vs impl `tax * rateDen == base * rateNum`). -/
+    `specDen * tax == specNum * base` (vs impl `tax * rateDen == base * rateNum`). -/
 def specTaxEquals (base tax : Nat) : Bool :=
-  decide (base * specNum == tax * specDen)
+  decide (specDen * tax == specNum * base)
 
-/-- Universal bridge: omega proves the two operand orderings equivalent for
-    every base/tax, so no implementation identifier leaks into the formulas. -/
+/-- Universal bridge: commutativity of Nat multiplication is the only bridge;
+    no classical choice / quotient, no implementation identifier in the formula. -/
 theorem agreeTaxEquals (base tax : Nat) :
     taxEquals base tax = specTaxEquals base tax := by
   unfold taxEquals specTaxEquals rateNumerator rateDenominator specNum specDen
-  by_cases h : tax * 100 = base * 3
-  · simp [h]
-  · have h' : ¬ base * 3 = tax * 100 := by omega
-    simp [h, h']
+  rw [Nat.mul_comm 100 tax, Nat.mul_comm 3 base]
 
 -- Spec-local, kernel-decided spot checks (scaffolding, not the statutory formula).
 example : specNum = 3 := by decide
