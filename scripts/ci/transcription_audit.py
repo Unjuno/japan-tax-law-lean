@@ -2421,6 +2421,13 @@ def checks():
            ["五百万トンを超え二千五百万トン以下の重量"])
 
 
+    # 酒税法施行規則 art. 11_8 — EmploymentDuration6Months.lean
+    yield ("酒税法施行規則 art. 11の8（六月以上の継続雇用期間）↔ EmploymentDuration6Months.lean (6 months)",
+           "328M50000040011",
+           "article", "第十一条の八",
+           ["引き続き六月以上の期間継続して雇用されることが予定されている者"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
