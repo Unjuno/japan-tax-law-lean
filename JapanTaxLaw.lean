@@ -876,3 +876,6 @@ import JapanTaxLaw.SixMonthPeriodDeemingTests
 import JapanTaxLaw.CorporateSpecialTaxRate2_5
 import JapanTaxLaw.CorporateSpecialTaxRate2_5Spec
 import JapanTaxLaw.CorporateSpecialTaxRate2_5Tests
+import JapanTaxLaw.AntiDumpingRate308
+import JapanTaxLaw.AntiDumpingRate308Spec
+import JapanTaxLaw.AntiDumpingRate308Tests
