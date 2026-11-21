@@ -1302,6 +1302,15 @@ def checks():
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
     # 相続税法 第十六条の表(1) — InheritanceTaxRateBracket30_50.lean
+    # InheritanceTaxRateBracket300_600.lean - NORM|ec5f9bde... (相続税法 第十六条の表(1) CONDITION)
+    # Needle is in MainProvision Article 第十六条 table cell;
+    # find_article_text(...,"第十六条") returns that article (len 437) with the needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("相続税法 第十六条の表(1) bracket 300M-600M - InheritanceTaxRateBracket300_600.lean",
+           "325AC0000000073",
+           "article", "第十六条",
+           ["\u4e09\u5104\u5186\u3092\u8d85\u3048\u516d\u5104\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+
     # InheritanceTaxRateBracket200_300.lean - NORM|c3d2149... (相続税法 第十六条の表(1) CONDITION)
     # Needle is in MainProvision Article 第十六条 table cell;
     # find_article_text(...,"第十六条") returns that article (len 437) with the needle -
@@ -1424,6 +1433,18 @@ def checks():
            "347M50000040044",
            "file", None,
            ["沖繩特例試験の合格基準は、各試験科目の満点の合計数（次条において「総点数」という。）の百分の六十とする", "一科目につき、その満点の百分の四十に満たないものがある者は、不合格とすることができる"])
+
+    # TravelerExemptionLimit — cycle-33
+    yield ("TravelerExemptionLimit.lean",
+           "335CO0000000069",
+           "file", None,
+           ["特定旅客の携帯品に係る関税の免除が適用される金額の上限）第四十条", "法第十四条第一項に規定する政令で定める金額は、二十万円とする"])
+
+    # MortgageRegistrationCapital — cycle-34
+    yield ("MortgageRegistrationCapital.lean",
+           "342CO0000000146",
+           "file", None,
+           ["抵当権等の設定等の登記等が課税される普通法人の資本金等の額）第二十六条", "法別表第三の一の四の項及び一の五の項に規定する政令で定める金額は、五億円とする"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -1762,6 +1783,20 @@ def checks():
            "339CO0000000182",
            "article", "第二条",
            ["車両の附属品であつて価格が一万円以上のもの"])
+
+
+    # 所得税法等の臨時特例に関する法律 art. 11 — SCFVPenaltyCeiling.lean
+    yield ("所得税法等の臨時特例に関する法律 art. 11（一年以下の拘禁刑・五十万円以下の罰金）↔ SCFVPenaltyCeiling.lean (1 year, 500000 yen)",
+           "327AC0000000111",
+           "article", "第十一条",
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する"])
+
+
+    # 石油ガス譲与税法施行規則 art. 5 — ThousandYenTruncation.lean
+    yield ("石油ガス譲与税法施行規則 art. 5（千円未満の端数を控除）↔ ThousandYenTruncation.lean (roundingUnit 1000)",
+           "341M50000008002",
+           "article", "第五条",
+           ["千円未満の端数金額があるときは、その端数金額を控除した金額をもつて"])
 
 
 def main() -> int:
