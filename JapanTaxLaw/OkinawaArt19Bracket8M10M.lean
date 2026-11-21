@@ -11,7 +11,7 @@ Pinned source:
   Revision: 347CO0000000151_20251231_507CO0000000426
   Raw snapshot: data/raw/347CO0000000151_20251231_507CO0000000426.law.json
   sha256: 8c5521ffb74068dc5b6872a3748b53a6eec38afc3637ece878eb0ca9da74a437
-  Statutory article: 第十九条 (art. 19), 第一項 (1), 第三号 (3), 第六表cell
+  Statutory article: 第十九条 (art. 19), 第一項 (1), 第三号 (3), table cell
   Source path: LawBody[3]/MainProvision/MainProvision[1]/Article:19/Article#19/
                Paragraph#1/Item#3/TableStruct/Table/TableRow/TableColumn/Sentence#1
   Normative unit id: NORM|efdfff78b60a7d77191816bd395051878b7e92f4d65e99da141fd9208a1cc6f8

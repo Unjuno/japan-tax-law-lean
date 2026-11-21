@@ -45,9 +45,9 @@ theorem agree_bracket (amount : Nat) :
       have h2 : ¬ 10_000_000 <= amount := by omega
       simp [hlo, hhi, h1, h2]
     · have h1 : ¬ amount < 8_000_000 := by omega
-      have h2 : ¬ 10_000_000 <= amount := by omega
+      have h2 : 10_000_000 <= amount := by omega
       simp [hlo, hhi, h1, h2]
-  · have h1 : ¬ amount < 8_000_000 := by omega
+  · have h1 : amount < 8_000_000 := by omega
     simp [hlo, h1]
 
 /-- Finite spec-local grid (Bool scaffolding); the universal theorem is the proof. -/
