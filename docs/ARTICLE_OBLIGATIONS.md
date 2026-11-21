@@ -6,10 +6,10 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 90
-- presence-facts-only complete: 90
-- NOT_STARTED: 4
-- PARTIAL: 86
+- articles with explicit pin: 102
+- presence-facts-only complete: 102
+- NOT_STARTED: 5
+- PARTIAL: 97
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
 - BLOCKED: 0
@@ -77,6 +77,17 @@ source positions. Human legal review is a separate axis and is pending.
 | `325M50000040017` | 第三十条 | InheritanceRegPrescribedAmount | YES | YES | NO | PARTIAL |
 | `325CO0000000245` | 第六条の九の二 | LocalTaxOrderArt15_4Amount | YES | NO | NO | NOT_STARTED |
 | `326CO0000000216` | 第六条の二 | TaxAccountantRegDelegatedAmount | YES | YES | NO | PARTIAL |
+| `326M50000040055` | 第二十二条の四 | TaxAccountantBalanceSheetUnits | YES | YES | NO | PARTIAL |
+| `337M50000040028` | 第一条の三 | NationalTaxCommonDelegatedAmount | YES | YES | NO | PARTIAL |
+| `335AC0000000036` | 第十六条 | CustomsTemporaryMeasurePenalty | YES | YES | NO | PARTIAL |
+| `335CO0000000069` | 第二十七条 | CustomsTemporaryMeasureDutyFreeThreshold | YES | YES | NO | PARTIAL |
+| `334CO0000000329` | 第四十二条の五 | PublicSaleGuaranteeDeposit | YES | YES | NO | PARTIAL |
+| `329CO0000000164` | 第二条 | CustomsBondedFacilityLicenseFeeItem3 | YES | YES | NO | PARTIAL |
+| `326AC1000000237` | 第六十一条 | TaxAccountantFineLimit | YES | YES | NO | PARTIAL |
+| `329M50000002023` | 第二条の三の五 | LocalTaxSpecifiedRelativeIncomeCeiling | YES | NO | NO | NOT_STARTED |
+| `325AC0000000073` | 第二十一条の七 | InheritanceGiftTaxRateBracket2M3M | YES | YES | NO | PARTIAL |
+| `325AC0000000226` | 第七十六条 | GolfCourseUseTaxStandardRate | YES | YES | NO | PARTIAL |
+| `325AC0000000226` | 第二十三条 | LocalTaxDeductionSpouse | YES | YES | NO | PARTIAL |
 | `325AC0000000226` | 第二十一条 | LocalTaxArt21Penalty | YES | YES | NO | PARTIAL |
 | `325AC0000000226` | 第七十二条の二十四の七 | LocalTaxIncomeBracket4_8 | YES | NO | NO | NOT_STARTED |
 | `325AC0000000073` | 第十六条 | InheritanceTaxRateBracket300_600 | YES | YES | NO | PARTIAL |
@@ -107,3 +118,4 @@ source positions. Human legal review is a separate axis and is pending.
 | `339CO0000000182` | 第二条 | AccessoryPriceFloor | YES | YES | NO | PARTIAL |
 | `327AC0000000111` | 第十一条 | SCFVPenaltyCeiling | YES | YES | NO | PARTIAL |
 | `341M50000008002` | 第五条 | ThousandYenTruncation | YES | YES | NO | PARTIAL |
+| `347CO0000000151` | 第十九条 | OkinawaArt19Bracket8M10M | YES | YES | NO | PARTIAL |
