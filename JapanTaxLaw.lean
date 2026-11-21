@@ -707,3 +707,6 @@ import JapanTaxLaw.TableLabelsAndTermsTests
 import JapanTaxLaw.ProvisionsAndThresholds
 import JapanTaxLaw.ProvisionsAndThresholdsSpec
 import JapanTaxLaw.ProvisionsAndThresholdsTests
+import JapanTaxLaw.NumericFragments
+import JapanTaxLaw.NumericFragmentsSpec
+import JapanTaxLaw.NumericFragmentsTests
