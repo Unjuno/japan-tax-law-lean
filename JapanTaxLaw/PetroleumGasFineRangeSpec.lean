@@ -1,4 +1,4 @@
-import JapanTaxLaw.TaxFinance
+import JapanTaxLaw.PetroleumGasFineRange
 
 /-
 # PetroleumGasFineRange spec — 石油ガス税法 art.27 の独立整数定式
