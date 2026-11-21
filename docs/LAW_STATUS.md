@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 68
+- with >=1 pinned literal check (semantic model): 69
 - with recorded human legal review: 0
 
 ## All laws
@@ -28,7 +28,7 @@ a completion flag.
 | `325M50000040021` | 税務官署における収入官吏及び出納員並びに歳入歳出外現金出納官吏の備えるべき現金領収証書に | 325M50000040021_20260924_508M60000040059 | CurrentEnforced | YES | ok | 15 | NO (0) | NO |
 | `325M50000040022` | 相続税の物納財産収納後の手続等に関する省令 | 325M50000040022_20210401_503M60000040030 | CurrentEnforced | YES | ok | 24 | NO (0) | NO |
 | `325AC0000000211` | 地方交付税法 | 325AC0000000211_20261102_508AC0000000062 | CurrentEnforced | YES | ok | 499 | YES (2) | NO |
-| `325AC0000000226` | 地方税法 | 325AC0000000226_20261101_508AC0000000002 | CurrentEnforced | YES | ok | 4259 | YES (15) | NO |
+| `325AC0000000226` | 地方税法 | 325AC0000000226_20261101_508AC0000000002 | CurrentEnforced | YES | ok | 4259 | YES (16) | NO |
 | `325CO0000000245` | 地方税法施行令 | 325CO0000000245_20261101_508CO0000000083 | CurrentEnforced | YES | ok | 2274 | YES (10) | NO |
 | `326AC1000000145` | 納税貯蓄組合法 | 326AC1000000145_20211122_503AC0000000046 | CurrentEnforced | YES | ok | 41 | YES (3) | NO |
 | `326CO0000000099` | 納税貯蓄組合法施行令 | 326CO0000000099_20191216_501CO0000000183 | CurrentEnforced | YES | ok | 14 | NO (0) | NO |
@@ -304,7 +304,7 @@ a completion flag.
 | `431AC0000000001` | 平成三十年度分として交付すべき地方交付税の総額の特例に関する法律 | 431AC0000000001_20190214_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `431M60000008007` | 平成三十年度分の地方交付税の交付時期及び交付額の特例に関する省令 | 431M60000008007_20190214_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `431AC0000000003` | 森林環境税及び森林環境譲与税に関する法律 | 431AC0000000003_20260401_508AC0000000002 | CurrentEnforced | YES | ok | 67 | YES (1) | NO |
-| `431AC0000000004` | 特別法人事業税及び特別法人事業譲与税に関する法律 | 431AC0000000004_20260401_508AC0000000002 | CurrentEnforced | YES | ok | 66 | NO (0) | NO |
+| `431AC0000000004` | 特別法人事業税及び特別法人事業譲与税に関する法律 | 431AC0000000004_20260401_508AC0000000002 | CurrentEnforced | YES | ok | 66 | YES (1) | NO |
 | `431CO0000000089` | 特別法人事業税及び特別法人事業譲与税に関する法律施行令 | 431CO0000000089_20240401_506CO0000000012 | CurrentEnforced | YES | ok | 19 | NO (0) | NO |
 | `431M60000008040` | 森林環境税及び森林環境譲与税に関する法律施行規則 | 431M60000008040_20261021_508M60000008119 | CurrentEnforced | YES | ok | 21 | NO (0) | NO |
 | `431M60000008041` | 特別法人事業税及び特別法人事業譲与税に関する法律施行規則 | 431M60000008041_20261021_508M60000008119 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 128
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 131

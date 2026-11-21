@@ -1478,6 +1478,12 @@ def checks():
            "file", None,
            ["石油ガス譲与税は、石油ガス税法", "石油ガス税の収入額の二分の一に相当する額"])
 
+    # SpecialCorporationGrantTax — cycle-36
+    yield ("SpecialCorporationGrantTax.lean",
+           "431AC0000000004",
+           "file", None,
+           ["特別法人事業譲与税）第二十九条", "特別法人事業譲与税は、特別法人事業税の収入額に相当する額とし、都道府県に対して譲与するものとする"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",

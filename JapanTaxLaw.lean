@@ -696,3 +696,6 @@ import JapanTaxLaw.MortgageRegistrationCapitalTests
 import JapanTaxLaw.OilGasGrantTax
 import JapanTaxLaw.OilGasGrantTaxSpec
 import JapanTaxLaw.OilGasGrantTaxTests
+import JapanTaxLaw.SpecialCorporationGrantTax
+import JapanTaxLaw.SpecialCorporationGrantTaxSpec
+import JapanTaxLaw.SpecialCorporationGrantTaxTests
