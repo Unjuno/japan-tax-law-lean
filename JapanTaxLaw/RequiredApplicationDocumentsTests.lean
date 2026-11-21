@@ -39,22 +39,22 @@ example : completeDocuments allPresent = true := by decide
 example : allDocumentsAttached allPresent = true := by decide
 
 -- (b) each single-missing case: completeness fails.
-example : completeDocuments { allPresent with articles := false } = false := by decide
-example : completeDocuments { allPresent with registryCertificate := false } = false := by decide
-example : completeDocuments { allPresent with balanceSheet := false } = false := by decide
-example : completeDocuments { allPresent with incomeStatement := false } = false := by decide
-example : completeDocuments { allPresent with businessReport := false } = false := by decide
+example : completeDocuments ({ allPresent with articles := false }) = false := by decide
+example : completeDocuments ({ allPresent with registryCertificate := false }) = false := by decide
+example : completeDocuments ({ allPresent with balanceSheet := false }) = false := by decide
+example : completeDocuments ({ allPresent with incomeStatement := false }) = false := by decide
+example : completeDocuments ({ allPresent with businessReport := false }) = false := by decide
 
 -- (c) equivalent documents accepted even when all standard documents are absent.
 example : allDocumentsAttached equivalentOnly = true := by decide
-example : allDocumentsAttached { emptyDocs with equivalentAccepted := true } = true := by decide
+example : allDocumentsAttached ({ emptyDocs with equivalentAccepted := true }) = true := by decide
 
 -- (d) empty set: no documents and no equivalent set -> duty not satisfied.
 example : allDocumentsAttached emptyDocs = false := by decide
 
 -- (e) monotonicity: adding documents to a complete set keeps it complete.
-example : completeDocuments { allPresent with articles := true, registryCertificate := true,
-    balanceSheet := true, incomeStatement := true, businessReport := true } = true :=
+example : completeDocuments ({ allPresent with articles := true, registryCertificate := true,
+    balanceSheet := true, incomeStatement := true, businessReport := true }) = true :=
   complete_monotone allPresent (by decide)
 
 -- (f) completeness requires all five (universal iff, applied to concrete sets).

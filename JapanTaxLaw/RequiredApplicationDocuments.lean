@@ -64,64 +64,64 @@ def allDocumentsAttached (d : Documents) : Bool :=
 
 /-- 五書類すべてが添付済みなら complete（全て present）。 -/
 theorem all_present_complete :
-    completeDocuments { articles := true, registryCertificate := true,
+    completeDocuments ({ articles := true, registryCertificate := true,
       balanceSheet := true, incomeStatement := true, businessReport := true,
-      equivalentAccepted := false } = true := by
+      equivalentAccepted := false }) = true := by
   decide
 
 /-- 定款のみ未添付なら complete ではない。 -/
 theorem missing_articles_incomplete :
-    completeDocuments { articles := false, registryCertificate := true,
+    completeDocuments ({ articles := false, registryCertificate := true,
       balanceSheet := true, incomeStatement := true, businessReport := true,
-      equivalentAccepted := false } = false := by
+      equivalentAccepted := false }) = false := by
   decide
 
 /-- 登記事項証明書のみ未添付なら complete ではない。 -/
 theorem missing_registry_incomplete :
-    completeDocuments { articles := true, registryCertificate := false,
+    completeDocuments ({ articles := true, registryCertificate := false,
       balanceSheet := true, incomeStatement := true, businessReport := true,
-      equivalentAccepted := false } = false := by
+      equivalentAccepted := false }) = false := by
   decide
 
 /-- 最終の貸借対照表のみ未添付なら complete ではない。 -/
 theorem missing_balance_sheet_incomplete :
-    completeDocuments { articles := true, registryCertificate := true,
+    completeDocuments ({ articles := true, registryCertificate := true,
       balanceSheet := false, incomeStatement := true, businessReport := true,
-      equivalentAccepted := false } = false := by
+      equivalentAccepted := false }) = false := by
   decide
 
 /-- 損益計算書のみ未添付なら complete ではない。 -/
 theorem missing_income_statement_incomplete :
-    completeDocuments { articles := true, registryCertificate := true,
+    completeDocuments ({ articles := true, registryCertificate := true,
       balanceSheet := true, incomeStatement := false, businessReport := true,
-      equivalentAccepted := false } = false := by
+      equivalentAccepted := false }) = false := by
   decide
 
 /-- 事業報告のみ未添付なら complete ではない。 -/
 theorem missing_business_report_incomplete :
-    completeDocuments { articles := true, registryCertificate := true,
+    completeDocuments ({ articles := true, registryCertificate := true,
       balanceSheet := true, incomeStatement := true, businessReport := false,
-      equivalentAccepted := false } = false := by
+      equivalentAccepted := false }) = false := by
   decide
 
 /-- 標準書類が全て未添付でも、準ずるものが添付されれば要件を満たす。 -/
 theorem equivalent_satisfies :
-    allDocumentsAttached { articles := false, registryCertificate := false,
+    allDocumentsAttached ({ articles := false, registryCertificate := false,
       balanceSheet := false, incomeStatement := false, businessReport := false,
-      equivalentAccepted := true } = true := by
+      equivalentAccepted := true }) = true := by
   decide
 
 /-- 何も添付しなければ（空集合）要件を満たさない。 -/
 theorem empty_not_attached :
-    allDocumentsAttached { articles := false, registryCertificate := false,
+    allDocumentsAttached ({ articles := false, registryCertificate := false,
       balanceSheet := false, incomeStatement := false, businessReport := false,
-      equivalentAccepted := false } = false := by
+      equivalentAccepted := false }) = false := by
   decide
 
 /-- 単調性: complete な集合に書類を追加（各標準フラグを true に）しても complete は保たれる。 -/
 theorem complete_monotone (d : Documents) (h : completeDocuments d = true) :
-    completeDocuments { d with articles := true, registryCertificate := true,
-      balanceSheet := true, incomeStatement := true, businessReport := true } = true := by
+    completeDocuments ({ d with articles := true, registryCertificate := true,
+      balanceSheet := true, incomeStatement := true, businessReport := true }) = true := by
   cases d with
   | mk a r b i br e =>
       cases a <;> cases r <;> cases b <;> cases i <;> cases br <;> cases e <;> decide
