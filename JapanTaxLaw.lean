@@ -816,3 +816,6 @@ import JapanTaxLaw.ContainerSpecTests
 import JapanTaxLaw.ResidentialAreaRatioInterval
 import JapanTaxLaw.ResidentialAreaRatioIntervalSpec
 import JapanTaxLaw.ResidentialAreaRatioIntervalTests
+import JapanTaxLaw.RoadWidthThreshold
+import JapanTaxLaw.RoadWidthThresholdSpec
+import JapanTaxLaw.RoadWidthThresholdTests

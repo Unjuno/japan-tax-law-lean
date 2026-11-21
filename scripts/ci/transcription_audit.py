@@ -1738,6 +1738,12 @@ def checks():
            "file", None,
            ["幅及び高さが二・四メートル以上で長さが二・九メートル以上", "大型のコンテナの規格の指定）第七十八条"])
 
+    # RoadWidthThreshold — cycle-45
+    yield ("RoadWidthThreshold.lean",
+           "341M50000008002",
+           "file", None,
+           ["路面幅員が二・五メートル未満である道路", "法第二条第一項の総務省令で定める道路"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
