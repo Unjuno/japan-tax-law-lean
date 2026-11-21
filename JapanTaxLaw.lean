@@ -701,3 +701,6 @@ import JapanTaxLaw.TransitionalHeadingsAndRefsTests
 import JapanTaxLaw.ArticleRefsAndOrdinalPairs
 import JapanTaxLaw.ArticleRefsAndOrdinalPairsSpec
 import JapanTaxLaw.ArticleRefsAndOrdinalPairsTests
+import JapanTaxLaw.TableLabelsAndTerms
+import JapanTaxLaw.TableLabelsAndTermsSpec
+import JapanTaxLaw.TableLabelsAndTermsTests
