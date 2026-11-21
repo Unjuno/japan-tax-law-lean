@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # CustomsTariffArt14SamplesOrLowPriceException.lean - NORM|5730c268... (samples/low-price exception EXCEPTION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十四条 (Paragraph 1, Item#6, ItemSentence);
+    # find_article_text(...,"第十四条") returns that article (len 1655) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.14 samples or low-price exception - CustomsTariffArt14SamplesOrLowPriceException.lean",
+           "143AC0000000054",
+           "article", "第十四条",
+           ["\u305f\u3060\u3057\u3001\u898b\u672c\u7528\u306b\u306e\u307f\u9069\u3059\u308b\u3068\u8a8d\u3081\u3089\u308c\u308b\u3082\u306e\u53c8\u306f\u8457\u3057\u304f\u4fa1\u984d\u306e\u4f4e\u3044\u3082\u306e\u3068\u3057\u3066\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e\u306b\u9650\u308b\u3002"])
+
     # CustomsTariffArt4_9Delegation.lean - NORM|183467aae... (delegation to cabinet order DELEGATION, law 143AC0000000054)
     # Needle is in MainProvision Article 第四条の九 (Paragraph 1, ParagraphSentence);
     # find_article_text(...,"第四条の九") returns that article (len 61) with needle -
