@@ -1,9 +1,9 @@
 {
-  "commit": "7171e4125cbe772d7fe9d31baf672d1c8a8df054",
+  "commit": "03b97a8b0dfb83802b10f62e5f9096bf2943ff33",
   "jobs": {
     "Build Lean project and check axioms": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44918303398/job/136888577609"
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44920547735/job/136895411143"
     }
   },
   "modules": {
@@ -366,6 +366,15 @@
     },
     "CustomsStorageFeeTests.lean": {
       "sha256": "a551e7e295d6dd76ae0320d58dafdd852257fb8b09568a64b507825775bc82f4"
+    },
+    "CustomsTaxRetentionPeriodTier1.lean": {
+      "sha256": "8bb553201ce011f3a1dbdb779f60e23b945c738a8ac31342db014047eeae8808"
+    },
+    "CustomsTaxRetentionPeriodTier1Spec.lean": {
+      "sha256": "f526db9aff6e08361635acef04d73e07ac15ad09d9426914625b505640f222a4"
+    },
+    "CustomsTaxRetentionPeriodTier1Tests.lean": {
+      "sha256": "4c9ef08790af8b196015f566c8888babcc2ca8f61a66b38311a22556d2a0544a"
     },
     "CustomsTemporaryMeasureDutyFreeThreshold.lean": {
       "sha256": "c45a8863b397304bce396ce5cd7b7b6715d684301473f514c9e91b21ae23076c"
@@ -2086,6 +2095,15 @@
     "TaxAccountantFineLimitTests.lean": {
       "sha256": "35efc60cb41d5336b970a900194d1ac22b004560d0f7108bd13969f5a8f91757"
     },
+    "TaxAccountantPenaltyCap.lean": {
+      "sha256": "2308f67cd949525de36b84a033c8abc79384f9fa2ecba7310d7e528f4a335cd6"
+    },
+    "TaxAccountantPenaltyCapSpec.lean": {
+      "sha256": "50dfee87464a91382f4cff573933c2092a5c16fda00a662346fc8dfb2bfcb578"
+    },
+    "TaxAccountantPenaltyCapTests.lean": {
+      "sha256": "ae5aa7d1275bca05bea604493a52b083aca41a37cdabe58526e114d4ec237660"
+    },
     "TaxAccountantRegDelegatedAmount.lean": {
       "sha256": "192faa118147f0fc7cd7456b8bff8f28f2cdd0bc4a3e433ba2d89141df399345"
     },
@@ -2272,5 +2290,5 @@
   "schema": 1,
   "scope": "lean_job_only",
   "tool": "scripts/ci/make_scoped_attestation.py",
-  "workflow_run": "https://api.github.com/repos/Unjuno/japan-tax-law-lean/actions/runs/44918303398"
+  "workflow_run": "https://api.github.com/repos/Unjuno/japan-tax-law-lean/actions/runs/44920547735"
 }
