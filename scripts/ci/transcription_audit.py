@@ -1991,6 +1991,13 @@ def checks():
            ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する"])
 
 
+    # 自動車重量税法施行規則 art. 6 — RequiredApplicationDocuments.lean
+    yield ("自動車重量税法施行規則 art. 6（定款等の添付・準ずるもの）↔ RequiredApplicationDocuments.lean (structural)",
+           "346M50000040066",
+           "article", "第六条",
+           ["定款、登記事項証明書並びに最終の貸借対照表、損益計算書及び事業報告"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
