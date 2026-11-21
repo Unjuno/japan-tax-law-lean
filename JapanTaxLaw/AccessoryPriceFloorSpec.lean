@@ -1,6 +1,6 @@
 import JapanTaxLaw.AccessoryPriceFloor
 
-/--!
+/-!
 # AccessoryPriceFloorSpec — independent spec for 施行令 第二条 (価格一万円以上)
 
 Pinned source:
