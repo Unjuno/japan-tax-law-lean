@@ -648,3 +648,6 @@ import JapanTaxLaw.RemittanceReportLimitTests
 import JapanTaxLaw.PetroleumCoalFineRange
 import JapanTaxLaw.PetroleumCoalFineRangeSpec
 import JapanTaxLaw.PetroleumCoalFineRangeTests
+import JapanTaxLaw.OkinawaExamPass
+import JapanTaxLaw.OkinawaExamPassSpec
+import JapanTaxLaw.OkinawaExamPassTests

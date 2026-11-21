@@ -6,7 +6,7 @@ import JapanTaxLaw.TaxFinance
 Sources (pinned):
   Law id: 409CO0000000363
   Revision: 409CO0000000363_20250501_507CO0000000128
-  Raw snapshot: data/raw/data/raw/409CO0000000363_20250501_507CO0000000128.law.json
+  Raw snapshot: data/raw/409CO0000000363_20250501_507CO0000000128.law.json
   Article Num 8, flat/normalized leaf text 140 chars, U+3000 count 0.
 
 原文逐語:
