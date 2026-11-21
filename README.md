@@ -765,6 +765,9 @@ JapanTaxLaw/AntiDumpingRateTests.lean               # 同上 退行テスト
 JapanTaxLaw/AntiDumpingRate53.lean                  # 不当廉売関税率 53.0% L4 モデル
 JapanTaxLaw/AntiDumpingRate53Spec.lean              # 同上 独立定式
 JapanTaxLaw/AntiDumpingRate53Tests.lean             # 同上 退行テスト
+JapanTaxLaw/GasolineTaxCombination.lean          # 揮発油税+地方揮発油税 合算（政令 art.32）L4 モデル
+JapanTaxLaw/GasolineTaxCombinationSpec.lean      # 同上 独立定式
+JapanTaxLaw/GasolineTaxCombinationTests.lean     # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト

@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 77 | 327 | 23.55% |
+| laws with >=1 pinned literal check | 80 | 327 | 24.46% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 235 | n/a | n/a |
-| distinct article pins | 85 | 42584 | 0.20% |
-| pinned Lean modules (cross-law) | 573 | n/a | n/a |
+| pinned literal checks | 241 | n/a | n/a |
+| distinct article pins | 90 | 42584 | 0.21% |
+| pinned Lean modules (cross-law) | 583 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 181 |
+| unpinned Lean modules (not counted as verified) | 189 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -122,6 +122,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `326AC1000000145` 納税貯蓄組合法
 - `326AC1000000237` 税理士法
 - `326CO0000000216` 税理士法施行令
+- `326M50000040055` 税理士法施行規則
 - `327AC0000000111` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法律
 - `327AC0000000112` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う関税法等の臨時特例に関する法律
 - `327CO0000000125` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う関税法等の臨時特例に関する法律施行令
@@ -135,6 +136,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `329M50000002023` 地方税法施行規則
 - `330AC0000000104` 地方揮発油税法
 - `330AC0000000113` 地方揮発油譲与税法
+- `330CO0000000100` 輸入品に対する内国消費税の徴収等に関する法律施行令
 - `332AC0000000026` 租税特別措置法
 - `332AC0000000037` とん税法
 - `332AC0000000038` 特別とん税法
@@ -163,6 +165,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `344M50000040016` 関税定率法施行規則
 - `346AC0000000089` 自動車重量税法
 - `346AC0000000090` 自動車重量譲与税法
+- `346M50000040066` 自動車重量税法施行規則
 - `347AC0000000007` 航空機燃料税法
 - `347CO0000000161` 沖縄の復帰に伴う地方税法の適用の特別措置等に関する政令
 - `347M50000040044` 沖繩の復帰に伴う国税関係以外の大蔵省関係法令の適用の特別措置等に関する省令
