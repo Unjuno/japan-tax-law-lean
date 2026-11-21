@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 1014,
+  "checks": 1017,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -11155,11 +11155,44 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/LocalTaxArt144_33FineTier3Tests.lean",
       "unit_id": "NORM|0959740800d3f276a35a9b6893c69379d386135b93a0cda6a4a877fa425ae308"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_LOCAL_TAX_ART803_ADMINISTRATIVE_FINE.md — independent agent: 1 concrete finding (F1) reproduced & fixed",
+      "unit_id": "NORM|7b8ad3cf00fe6bc2ee7c9a071318722612356de6b823cf0fbaecdb1cab531ea3"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt803AdministrativeFine.lean",
+      "unit_id": "NORM|7b8ad3cf00fe6bc2ee7c9a071318722612356de6b823cf0fbaecdb1cab531ea3"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt803AdministrativeFineTests.lean",
+      "unit_id": "NORM|7b8ad3cf00fe6bc2ee7c9a071318722612356de6b823cf0fbaecdb1cab531ea3"
     }
   ],
-  "resolved": 1010,
+  "resolved": 1013,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 213,
+  "units_checked": 214,
   "unresolved": 4
 }
