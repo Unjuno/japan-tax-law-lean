@@ -846,3 +846,6 @@ import JapanTaxLaw.ConsumptionTaxRateThreePercentTests
 import JapanTaxLaw.PassengerCapacity
 import JapanTaxLaw.PassengerCapacitySpec
 import JapanTaxLaw.PassengerCapacityTests
+import JapanTaxLaw.TaxAccountantFineCap300k
+import JapanTaxLaw.TaxAccountantFineCap300kSpec
+import JapanTaxLaw.TaxAccountantFineCap300kTests
