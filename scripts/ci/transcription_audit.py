@@ -2443,6 +2443,13 @@ def checks():
            ["引き続き六月以上の期間継続して雇用されることが予定されている者"])
 
 
+    # 輸徵法 art. 23 — RefundFineRange1M.lean
+    yield ("輸入品内国消費税徴収法 art. 23（罰金範囲・三倍が百万円超）↔ RefundFineRange1M.lean (fineFloor 1_000_000, multiplier 3)",
+           "330AC0000000037",
+           "article", "第二十三条",
+           ["前項の犯罪に係る還付金相当額の三倍が百万円を超えるときは、情状により、同項の罰金は、百万円を超え当該相当額の三倍以下とすることができる"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

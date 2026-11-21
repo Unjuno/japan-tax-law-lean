@@ -945,3 +945,6 @@ import JapanTaxLaw.EmploymentDuration6MonthsTests
 import JapanTaxLaw.TaxExaminerCount
 import JapanTaxLaw.TaxExaminerCountSpec
 import JapanTaxLaw.TaxExaminerCountTests
+import JapanTaxLaw.RefundFineRange1M
+import JapanTaxLaw.RefundFineRange1MSpec
+import JapanTaxLaw.RefundFineRange1MTests
