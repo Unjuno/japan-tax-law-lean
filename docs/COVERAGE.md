@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 101 | 327 | 30.89% |
+| laws with >=1 pinned literal check | 102 | 327 | 31.19% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 289 | n/a | n/a |
-| distinct article pins | 122 | 42584 | 0.29% |
-| pinned Lean modules (cross-law) | 667 | n/a | n/a |
+| pinned literal checks | 291 | n/a | n/a |
+| distinct article pins | 123 | 42584 | 0.29% |
+| pinned Lean modules (cross-law) | 670 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 249 |
+| unpinned Lean modules (not counted as verified) | 252 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 46 |
+| adversarial review sessions recorded | 47 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -195,6 +195,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `412CO0000000277` 関税等不服審査会令
 - `414CO0000000262` ポリエステル短繊維に対して課する不当廉売関税に関する政令
 - `415M60000008069` 収入印紙及び自動車重量税印紙の売りさばきに関する省令
+- `417M60000200012` 経済連携協定に基づく農林水産省の所掌事務に係る物資の関税割当制度に関する省令
 - `418M60000008099` 納税証明書、住民票等の写し等又は印鑑登録証明書の交付の請求の受付及び引渡しの業務の公共サービス実施民間事業者における実施に関する省令
 - `420AC0000000084` 地方税等減収補てん臨時交付金に関する法律
 - `420M60000008116` 地方税等減収補てん臨時交付金に関する省令

@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 101
+- with >=1 pinned literal check (semantic model): 102
 - with recorded human legal review: 0
 
 ## All laws
@@ -126,7 +126,7 @@ a completion flag.
 | `342CO0000000108` | 印紙税法施行令 | 342CO0000000108_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 105 | YES (1) | NO |
 | `342M50000040019` | 印紙税法施行規則 | 342M50000040019_20010106_412M50000040069 | CurrentEnforced | YES | ok | 26 | NO (0) | NO |
 | `342AC0000000035` | 登録免許税法 | 342AC0000000035_20261101_508AC0000000021 | CurrentEnforced | YES | ok | 716 | YES (32) | NO |
-| `342CO0000000146` | 登録免許税法施行令 | 342CO0000000146_20261001_507CO0000000124 | CurrentEnforced | YES | ok | 142 | YES (1) | NO |
+| `342CO0000000146` | 登録免許税法施行令 | 342CO0000000146_20261001_507CO0000000124 | CurrentEnforced | YES | ok | 142 | YES (2) | NO |
 | `342M50000040037` | 登録免許税法施行規則 | 342M50000040037_20260401_508M60000040008 | CurrentEnforced | YES | ok | 125 | YES (1) | NO |
 | `344M50000040016` | 関税定率法施行規則 | 344M50000040016_20260401_508M60000040016 | CurrentEnforced | YES | ok | 84 | YES (1) | NO |
 | `344CO0000000088` | 地方揮発油譲与税法施行令 | 344CO0000000088_20090401_421CO0000000100 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
