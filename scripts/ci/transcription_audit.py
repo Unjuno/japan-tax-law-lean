@@ -2221,6 +2221,13 @@ def checks():
            ["三十万円以下の罰金に処する"])
 
 
+    # ＴＩＲ条約特例法 art. 18 — PenaltyCap50k.lean
+    yield ("ＴＩＲ条約実施特例法 art. 18（五万円以下の罰金）↔ PenaltyCap50k.lean (50_000)",
+           "346AC0000000065",
+           "article", "第十八条",
+           ["五万円以下の罰金に処する"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

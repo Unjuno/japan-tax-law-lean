@@ -5977,3 +5977,111 @@ raw JSON の `law_full_text` を走査し `Num: "8"` の `Article` を 1 件同�
 - 一時ファイル（Windows temp 配下の probe / verify Python 3 本・axioms Lean 1 本・本スクリプト）は削除済み。
 
 > **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。** 法的妥当性・適用関係の最終判断は人間に委ねる。本レビューをもって法的レビューが完了したとみなしてはならない。一時ファイルは削除済み。
+## Batch AS review (2026-11-22)
+
+- **レビュー日**: 2026-11-22
+- **レビュア**: Adversarial Review Agent（形式化担当と独立、cycle-47 の 1 モデル）。担当 STAGING / doc-comment / テストの申告は**根拠にせず**、pinned 原文 JSON から自前で再抽出・再計算して照合した。
+- **対象（読み取り専用・変更せず）**: `JapanTaxLaw/PassengerCapacity.lean` / `JapanTaxLaw/PassengerCapacitySpec.lean` / `JapanTaxLaw/PassengerCapacityTests.lean`
+- **pinned 一次資料（読み取り専用）**: `data/raw/346CO0000000275_20230101_504CO0000000195.law.json`（law_id `346CO0000000275` / revision `346CO0000000275_20230101_504CO0000000195`、自動車重量税法施行令）。`data/INVENTORY.json` の `raw_snapshot.source_file` も同パスを指すことを確認。
+- **CI needle 出所**: `scripts/ci/transcription_audit.py:1779-1783`（`checks()` の cycle-47 エントリ、`kind="file"` / `art=None`、needle 2 本）。
+- **手法**: `law_full_text` を CI `text()` と同一ロジックで再帰平坦化し、自前正規化 `re.sub(r"[\s\u3000]+", "", s)` を適用。`MainProvision` 配下で `attr.Num == "4"` の `Article` を 1 件同定し、text-leaf のみを連結して逐語取得。日本語数字は自前パーサで Arabic 変換し、境界は Python / Lean `by decide` で再計算。`#print axioms` は `lake env lean`（v4.35.0）。
+
+### AS-1. 独立原文抽出・照合（「十人以下」= 10 の直接抽出）
+
+pinned art.4 の text-leaf 連結（生・正規化とも 55 文字、U+3000 = 0 個）は次のとおり。
+
+> （乗用自動車の範囲）第四条法第七条第二項第一号に規定する政令で定める自動車は、乗車定員十人以下の自動車とする。
+
+自前抽出（`十人以下` 直前の漢数字を捕獲し自前パーサで変換）:
+
+| 原文の語句 | 捕獲した漢数字 | 独立変換値 | Lean 実装 | 照合 |
+|---|---|---:|---|---|
+| 「乗車定員**十人以下**の自動車」 | `十` | **10** | `maxPassengers : Nat := 10` | ✅ 一致 |
+| 「十人以下」= 境界を含む | `十` | `<= 10`（10 を含む） | `isPassengerCar c = c <= maxPassengers` | ✅ 一致 |
+
+桁違いの明示除外:
+
+- `一`（= 1 人）: 原文の当該位置の文字は「十」であり「一」ではない。自前変換値 1 とは一致しない（`EXCLUDE_ONE = true`）。→ **1 人閾値を明示除外**。
+- `百`（= 100 人）: 当該位置に「百」は存在せず、変換値 100 とも一致しない（`EXCLUDE_HUNDRED = true`）。→ **100 人閾値を明示除外**。
+- 抽出値は **10 のみ**（`EXACT_TEN = true`）。原文文字列「乗車定員十人以下の自動車」は art.4 正規化テキストに **1 回**出現（count = 1）。
+
+→ 原文から独立に導かれる定員閾値は 10 人・境界 inclusively（`<= 10`）であり、実装と完全一致。**原文との不一致は認められない（CONFIRMED = 0）**。
+
+### AS-2. needle 健全性（CI `checks()` 実文字列 2 本を自前正規化原文で検証）
+
+`checks()` の当該エントリに埋め込まれた 2 本を手打ちせず import で取得し、自前で平坦化・正規化した pinned 原文（全文 5,187 文字、生 5,196 文字・生の U+3000 = 9 個を正規化で除去）に対して `.find()` / `.count()` を実行した。art.4 正規化テキスト（55 文字）に対しても併せて照合した。
+
+| # | CI needle（実文字列） | needle 内 U+3000 | 自前正規化全文 | 全文 count | art.4 正規化 | 判定 |
+|---|---|---:|---|---:|---|---|
+| 1 | `乗車定員十人以下の自動車` | 0 | FOUND | 1 | FOUND | OK |
+| 2 | `乗用自動車の範囲）第四条` | 0 | FOUND | 1 | FOUND | OK |
+
+- U+3000: needle 2 本とも **0 個**。正規化原文も 0 個。
+- **needle 健全性: 2/2 FOUND（MISS 0、いずれも count = 1 で一意）**。転記乖離・needle 腐敗は検出されず。
+
+### AS-3. 反例探索
+
+`isPassengerCar` は `capacity <= maxPassengers`（`maxPassengers = 10`）で、境界 10 を含む。指定の 3 点を独立に構成し `lake env lean` 上で `by decide`（kernel reduction）実行した。
+
+| 反例 | 期待値 | 独立判定 | Lean 実行結果 | 判定 |
+|---|---:|---|---:|---|
+| `isPassengerCar 9` | true | 9 <= 10 → true | true | PASS |
+| `isPassengerCar 10`（境界） | true | 10 <= 10 → true | true | PASS |
+| `isPassengerCar 11` | false | 11 <= 10 → false | false | PASS |
+| `isPassengerCar 0` | true | 0 <= 10 → true | true | PASS（Smoke） |
+| `isPassengerCar 100` | false | 100 <= 10 → false | false | PASS（桁違い側のガード） |
+| `agreePassengerCapacity` | true | [0,1,9,10,11,100] で impl ≡ spec | true | PASS |
+
+反例による実装の反証は失敗（実装は反例に耐えた）。**反例件数: 0（ゼロ）**。なお「定員 10 人以下」という数値判定だけで法的な該当性が決まるかは AS-6 の U-1 / U-2 で保留する。
+
+### AS-4. 公理監査
+
+一時 Lean ファイル（`C:\Users\junny\AppData\Local\Temp\opencode\as_axioms.lean`）を作成し、3 モジュールの名前付き宣言および自己構成の境界定理計 **8 件**に `#print axioms` を実行（`lake env lean`、toolchain `leanprover/lean4:v4.35.0`、exit code **0**）。
+
+| 宣言 | `#print axioms` 結果 |
+|---|---|
+| `JapanTaxLaw.PassengerCapacity.maxPassengers` | does not depend on any axioms |
+| `JapanTaxLaw.PassengerCapacity.isPassengerCar` | does not depend on any axioms |
+| `JapanTaxLaw.PassengerCapacity.specPassenger` | does not depend on any axioms |
+| `JapanTaxLaw.PassengerCapacity.agreePassengerCapacity` | does not depend on any axioms |
+| `as_ce9` / `as_ce10` / `as_ce11` / `as_agree` | いずれも does not depend on any axioms |
+
+`Classical.choice` / `sorryAx` / `Quot.sound` / `propext` への依存 **0 件**、8/8 axiom-free。監査用一時ファイルは削除済み。
+
+### AS-5. 未形式化範囲の確認
+
+- doc-comment は「法7条2項1号の他の要件、自動車の用途・構造の認定は NOT MODELLED」「本スライスは乗車定員 10 人以下の数値判定のみを扱う」と明記。→ **用途・構造認定の未形式化を確認**（BY-DESIGN B-3 / B-4）。
+- 本モデルは法的レビューを提供しない旨も doc-comment に明記。
+- 車両の実際の定員如何・認定方法・法7条2項1号側の要件との適用関係は本 pinned art.4 の文言だけでは確定できない（UNRESOLVED U-1 / U-2）。
+
+### AS-6. 分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED（原文矛盾・桁違い・needle 不良・反例・公理汚染）** | **0（ゼロ）** |
+| BY-DESIGN | 4 |
+| UNRESOLVED | 2 |
+
+> **発見された問題はゼロ（CONFIRMED = 0）である。** 原文矛盾、needle 不良、反例、公理依存はいずれも検出されなかった。件数を手柄にしない。
+
+#### BY-DESIGN — 4 件
+
+- **B-1** 「十人以下」の境界 10 を含む `<=`（`maxPassengers = 10`）は原文どおりの Nat 定式。0 人も全関数として受理するが、原文は人数で負は概念外（防御的正当化）。
+- **B-2** CI needle の正規化（U+3000 除去）は転記監査の仕様であり、モデル値・原文忠実性に影響しない。
+- **B-3** 乗車定員 10 人以下の数値判定のみの bounded L4 スライス。課税標準・税額・適用関係は対象外（doc-comment 明記）。
+- **B-4** 法7条2項1号の他の要件・自動車の用途／構造の認定は caller-established / NOT MODELLED（doc-comment 明記）。
+
+#### UNRESOLVED — 2 件
+
+- **U-1** 「自動車の用途・構造の認定」および「乗用自動車」の法的定義・認定方法は、pinned art.4 の文言のみからは決定不能。**人間の法律専門家による確認が必要**。数値一致（CONFIRMED = 0）には影響しない。
+- **U-2** 法第七条第二項第一号の他の要件との適用関係（「政令で定める自動車」の範囲全体）は本スライスの射程外。pinned 原文のみでは決定不能で、**人間の法律専門家による確認が必要**。機械的照合の結論には影響しない。
+
+### AS-7. 結論・履歴保全
+
+- pinned 原文（art.4 の「乗車定員十人以下の自動車」）から「十人以下」= 10 を独立抽出し、桁違い（1 人 / 100 人）を明示除外のうえ実装と照合。**発見ゼロ（CONFIRMED = 0）**。
+- needle 2/2 FOUND（U+3000 = 0、count 各 1）。反例 0 件。公理依存 0 件（8/8 axiom-free、exit code 0）。
+- 用途・構造認定の未形式化を確認（B-3 / B-4、法的取扱いは U-1 / U-2 として人間の法律専門家に委ねる）。
+- 既存レビュー履歴 42 件（Batch G〜AR 含む）は**すべて保持**。本セクションのみを末尾に連結した。追記後レビュー件数: **`^## .*review` で 43 件**（要求の 43 以上を満たす）。coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|Article-pinned)[^\n]*review` ベースでは **42 件**（差 1 件は既存の `国税徴収法 104の2 review` が当該 regex に一致しないためで、当該見出しは変更していない）。
+- 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / Spec / Tests / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。一時ファイル（検証 Python 3 本・出力 1 本・axioms Lean 1 本）は削除済み。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・漢数字の独立抽出・needle `.find()` 検証・境界値の kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
