@@ -1776,6 +1776,12 @@ def checks():
            "file", None,
            ["一平方メートル当たりの更地の価額）第八条", "当該土地等に係る更地の価額を当該土地等の面積で除して計算した一平方メートル当たりの価額とする"])
 
+    # PassengerCapacity — cycle-47
+    yield ("PassengerCapacity.lean",
+           "346CO0000000275",
+           "file", None,
+           ["乗車定員十人以下の自動車", "乗用自動車の範囲）第四条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2206,6 +2212,13 @@ def checks():
            "363AC0000000107",
            "article", "第十条",
            ["その税率は、百分の三とする"])
+
+
+    # 税理士法 art. 62 — TaxAccountantFineCap300k.lean
+    yield ("税理士法 art. 62（三十万円以下の罰金）↔ TaxAccountantFineCap300k.lean (300_000)",
+           "326AC1000000237",
+           "article", "第六十二条",
+           ["三十万円以下の罰金に処する"])
 
 
 def main() -> int:

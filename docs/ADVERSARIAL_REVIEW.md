@@ -5866,3 +5866,114 @@ STAGING の needle テキストを信じず、`scripts/ci/transcription_audit.py
 
 > **本レビューは機械的独立照合であり、人間の法律専門家によるレビューを称するものではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
 
+
+## Batch AR review (2026-11-22)
+
+- **レビュー日**: 2026-11-22
+- **レビュア**: Adversarial Review Agent（形式化担当と独立、cycle-46 の 1 モデル）
+- **対象（読み取り専用・変更せず）**: `JapanTaxLaw/LandValuePerSquareMeter.lean` / `JapanTaxLaw/LandValuePerSquareMeterSpec.lean` / `JapanTaxLaw/LandValuePerSquareMeterTests.lean`
+- **pinned 一次資料（読み取り専用）**: `data/raw/403CO0000000174_20250722_507CO0000000249.law.json`（law_id `403CO0000000174` / revision `403CO0000000174_20250722_507CO0000000249`、地価税法施行令）
+- **CI needle 出所**: `scripts/ci/transcription_audit.py:1764-1768`（`checks()` の cycle-46 エントリ）
+- **手法**: 形式化担当の doc-comment / Spec / テストを根拠にせず、pinned raw JSON の `Article`（`attr.Num == "8"`）ノードから text-leaf のみを独立抽出し、自前正規化原文に対して照合した。
+
+### AR-1. 独立原文抽出・照合（pinned 原文からの除算の直接抽出）
+
+raw JSON の `law_full_text` を走査し `Num: "8"` の `Article` を 1 件同定。文字リーフ 3 個のみを連結（タグ名・属性値は混入させない）した正規化原文は 100 字、U+3000 = 0 個。
+
+> （一平方メートル当たりの更地の価額）第八条法第六条第六項に規定する政令で定めるところにより計算した金額は、当該土地等に係る更地の価額を当該土地等の面積で除して計算した一平方メートル当たりの価額とする。
+
+独立抽出（原文の語句のみを根拠とする）:
+
+| 原文の語句 | 抽出された意味 | 対応する実装 |
+|---|---|---|
+| 「更地の価額を」 | 被除数（分子）= 更地の価額 | `bareLandValue` |
+| 「面積で除して」 | 演算子 = 除算、除数 = 面積 | `/ area` |
+| 「計算した一平方メートル当たりの価額とする」 | 結果 = 一平方メートル当たりの価額 | `valuePerSqm` の戻り値 |
+
+したがって原文から直接導かれる定式は `valuePerSqm(bareLandValue, area) = bareLandValue / area` であり、実装の除算枝 `bareLandValue / area` と一致。**原文との不一致は認められない（CONFIRMED = 0）**。
+
+実装の `if area = 0 then 0 else ...` の `area = 0` 枝は原文に存在しない防御的センチネルである。doc-comment も「面積ゼロの土地は存在しない」と明記しており、原文との矛盾ではなく **BY-DESIGN (B-1)** と分類する。
+
+### AR-2. needle 健全性（CI 実文字列 2 本の独立検証）
+
+`checks()` の当該エントリに埋め込まれた 2 本を、上記の自前正規化原文（pinned art.8 の text-leaf 連結、U+3000 除去）に対して照合した。CI の `_norm` は `re.sub(r"[\s　]+", "", s)` であり、自前正規化とは独立に同一結論となる。
+
+| # | CI needle（実文字列） | needle 内 U+3000 | 自前正規化原文 | CI `_norm` 適用後（全法文） | 判定 |
+|---|---|---:|---|---|---|
+| 1 | `一平方メートル当たりの更地の価額）第八条` | 0 | FOUND | 1 hit | OK |
+| 2 | `当該土地等に係る更地の価額を当該土地等の面積で除して計算した一平方メートル当たりの価額とする` | 0 | FOUND | 1 hit | OK |
+
+- U+3000: needle 2 本とも 0 個、正規化原文も 0 個。
+- **needle 健全性: 2/2 FOUND**。転記乖離・needle 腐敗は検出されず。
+
+### AR-3. 反例探索
+
+`Money` は `JapanTaxLaw/TaxFinance.lean:29` の `abbrev Money := Nat` であり、`/` は自然数除算（切捨て）。独立に構成した反例を `lake env lean` 上で `by decide` 実行した。
+
+| 反例 | 期待値 | 実行結果 | 判定 |
+|---|---:|---:|---|
+| `valuePerSqm 1000 10` | 100 | 100 | PASS |
+| `valuePerSqm 1000 3` | 333 | 333 | PASS |
+| `valuePerSqm 9999 7` | 1428 | 1428 | PASS（9999/7 = 1428.57… の切捨て） |
+| `valuePerSqm 1000 0` | 0 | 0 | PASS（BY-DESIGN センチネル） |
+| `valuePerSqm 7 2` | 3 | 3 | PASS |
+| `valuePerSqm 1 2` | 0 | 0 | PASS |
+| `specPerSqm 9999 7` | 1428 | 1428 | PASS |
+| `agreeLandValuePerSquareMeter` | true | true | PASS（独立定式と一致） |
+
+反例による実装の反証は失敗（すなわち実装は反例に耐えた）。**反例件数: 0（ゼロ）**。なお「端数を切捨てるのが法的に正しいか」は pinned art.8 の文言のみからは決定できず UNRESOLVED (U-1)。
+
+### AR-4. 公理監査
+
+一時 Lean ファイルを作成し `lake env lean`（toolchain `leanprover/lean4:v4.35.0`）で実行。exit code 0。
+
+| 宣言 | `#print axioms` 結果 |
+|---|---|
+| `valuePerSqm` | does not depend on any axioms |
+| `specPerSqm` | does not depend on any axioms |
+| `agreeLandValuePerSquareMeter` | does not depend on any axioms |
+| `ar_ce1`（1000/10） | does not depend on any axioms |
+| `ar_ce3`（9999/7） | does not depend on any axioms |
+| `ar_ce4`（area=0） | does not depend on any axioms |
+| `ar_agree` | does not depend on any axioms |
+
+`Classical.choice` / `sorryAx` / `Quot.sound` / `propext` への依存 **0 件**。7/7 axiom-free。一時 Lean ファイルは削除済み。
+
+### AR-5. 未形式化範囲の確認
+
+- 「更地の価額」の算定方法（原文が参照する法第六条第六項の「政令で定めるところにより計算した金額」）は NOT MODELLED。pinned art.8 は算出済みの更地価額を入力として受け取る定式のみを規定する。→ BY-DESIGN (B-3) / 法的妥当性は UNRESOLVED (U-2)。
+- 面積の単位・測定方法および端数処理の法的取扱いは NOT MODELLED（doc-comment にも明記）。→ BY-DESIGN (B-4) / 法的妥当性は UNRESOLVED (U-1)。
+- 本スライスは除算 1 操作の bounded L4 モデルであり、課税標準・評価額算出・適用関係は対象外。→ BY-DESIGN (B-5)。
+
+### AR-6. 分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED（原文矛盾・誤転記・needle 不良・反例・公理汚染）** | **0（ゼロ）** |
+| BY-DESIGN | 5 |
+| UNRESOLVED | 2 |
+
+> **発見された問題はゼロ（CONFIRMED = 0）である。** 原文矛盾、needle 不良、反例、公理依存はいずれも検出されなかった。
+
+#### BY-DESIGN — 5 件
+
+- **B-1** `area = 0 → 0` は原文にない防御的センチネル（面積ゼロの土地は存在しない旨を doc-comment が明記）。
+- **B-2** 自然数除算（切捨て）を採用。原文は「除して計算した」のみで端数方式を指定しない。
+- **B-3** 更地価額の算定方法（法6条6項）を caller-established として外部化。
+- **B-4** 面積の単位・測定を外部化。
+- **B-5** 単一除算操作の bounded L4 スライス（評価・課税標準の算定は対象外）。
+
+#### UNRESOLVED — 2 件
+
+- **U-1** 端数処理（切捨て / 四捨五入 / 切り上げ）の法的取扱いは pinned art.8 の文言からは決定不可。**人間の法律専門家による確認が必要**。機械的照合の結論（CONFIRMED = 0）には影響しない。
+- **U-2** 更地価額の算定方法（法6条6項）および面積測定の法的定義は本 pinned 条文の範囲外。**人間の法律専門家による確認が必要**。機械的照合の結論には影響しない。
+
+### AR-7. 結論・履歴保全
+
+- pinned 原文（art.8 の「…更地の価額を当該土地等の面積で除して計算した…」）から除算を独立抽出し、実装と一致。**発見ゼロ（CONFIRMED = 0）**。
+- needle 2/2 FOUND（U+3000 = 0）。反例 0 件。公理依存 0 件（7/7 axiom-free、exit code 0）。
+- 既存レビュー履歴 41 件（Batch G〜AQ および `国税徴収法 104の2` セクションを含む）は**すべて保持**。本セクションのみを末尾に連結した。
+- 追記後レビュー件数: **`^## .*review` ベースで 42 件**（= 41 + 1、要求の 42 以上を満たす）。coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|独自検証@|Article-pinned)[^\n]*review` ベースでは **41 件**（= 40 + 1、AR を含む）。差 1 件は既存の `国税徴収法 104の2 review` 見出しが ledger regex に一致しないためであり、当該見出しは変更していない。
+- 一時ファイル（Windows temp 配下の probe / verify Python 3 本・axioms Lean 1 本・本スクリプト）は削除済み。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。** 法的妥当性・適用関係の最終判断は人間に委ねる。本レビューをもって法的レビューが完了したとみなしてはならない。一時ファイルは削除済み。
