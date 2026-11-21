@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 91
+- with >=1 pinned literal check (semantic model): 94
 - with recorded human legal review: 0
 
 ## All laws
@@ -222,7 +222,7 @@ a completion flag.
 | `410M50000040122` | たばこ特別税に関する省令 | 410M50000040122_20150401_427M60000040039 | CurrentEnforced | YES | ok | 13 | NO (0) | NO |
 | `411M50000008014` | 奄美群島振興開発特別措置法第三十八条の地方税の課税免除又は不均一課税に伴う措置が適用され | 411M50000008014_20240401_506M60000008035 | CurrentEnforced | YES | ok | 32 | NO (0) | NO |
 | `412CO0000000276` | 関税・外国為替等審議会令 | 412CO0000000276_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 27 | NO (0) | NO |
-| `412CO0000000277` | 関税等不服審査会令 | 412CO0000000277_20160401_428CO0000000168 | CurrentEnforced | YES | ok | 13 | NO (0) | NO |
+| `412CO0000000277` | 関税等不服審査会令 | 412CO0000000277_20160401_428CO0000000168 | CurrentEnforced | YES | ok | 13 | YES (1) | NO |
 | `412CO0000000278` | 国税審議会令 | 412CO0000000278_20260401_507CO0000000412 | CurrentEnforced | YES | ok | 22 | NO (0) | NO |
 | `412M50000040058` | 保険契約者保護機構等が取得した不動産に関する権利等の移転登記に係る登録免許税の免税を受け | 412M50000040058_20010106_412M50000040069 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `413M60000008054` | 原子力発電施設等立地地域の振興に関する特別措置法第十条の地方税の不均一課税に伴う措置が適 | 413M60000008054_20250401_507M60000008028 | CurrentEnforced | YES | ok | 17 | NO (0) | NO |
@@ -344,6 +344,6 @@ a completion flag.
 | `508CO0000000224` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令 | 508CO0000000224_20261031_508CO0000000340 | CurrentEnforced | YES | ok | 7 | NO (0) | NO |
 | `508M60000040049` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000040049_20261031_508M60000040064 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
-| `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
+| `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
 review modules seen in docs/ADVERSARIAL_REVIEW.md: 153
