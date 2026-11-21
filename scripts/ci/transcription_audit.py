@@ -1764,6 +1764,13 @@ def checks():
            ["車両の附属品であつて価格が一万円以上のもの"])
 
 
+    # 所得税法等の臨時特例に関する法律 art. 11 — SCFVPenaltyCeiling.lean
+    yield ("所得税法等の臨時特例に関する法律 art. 11（一年以下の拘禁刑・五十万円以下の罰金）↔ SCFVPenaltyCeiling.lean (1 year, 500000 yen)",
+           "327AC0000000111",
+           "article", "第十一条",
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
