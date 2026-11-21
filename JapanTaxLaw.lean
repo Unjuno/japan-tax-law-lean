@@ -843,3 +843,6 @@ import JapanTaxLaw.DependentAgeSupportTests
 import JapanTaxLaw.ConsumptionTaxRateThreePercent
 import JapanTaxLaw.ConsumptionTaxRateThreePercentSpec
 import JapanTaxLaw.ConsumptionTaxRateThreePercentTests
+import JapanTaxLaw.PassengerCapacity
+import JapanTaxLaw.PassengerCapacitySpec
+import JapanTaxLaw.PassengerCapacityTests
