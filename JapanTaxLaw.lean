@@ -606,6 +606,9 @@ import JapanTaxLaw.DisasterGrantUpperBracketTests
 import JapanTaxLaw.LocalTaxIncomeBracket4_8
 import JapanTaxLaw.LocalTaxIncomeBracket4_8Spec
 import JapanTaxLaw.LocalTaxIncomeBracket4_8Tests
+import JapanTaxLaw.LocalTaxArt21Penalty
+import JapanTaxLaw.LocalTaxArt21PenaltySpec
+import JapanTaxLaw.LocalTaxArt21PenaltyTests
 import JapanTaxLaw.InheritanceTaxDelinquencyException
 import JapanTaxLaw.InheritanceTaxDelinquencyExceptionSpec
 import JapanTaxLaw.InheritanceTaxDelinquencyExceptionTests
@@ -696,3 +699,6 @@ import JapanTaxLaw.MortgageRegistrationCapitalTests
 import JapanTaxLaw.OilGasGrantTax
 import JapanTaxLaw.OilGasGrantTaxSpec
 import JapanTaxLaw.OilGasGrantTaxTests
+import JapanTaxLaw.SpecialCorporationGrantTax
+import JapanTaxLaw.SpecialCorporationGrantTaxSpec
+import JapanTaxLaw.SpecialCorporationGrantTaxTests

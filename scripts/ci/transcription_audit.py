@@ -1301,7 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
-    # 相続税法 第十六条の表(1) — InheritanceTaxRateBracket30_50.lean
+    # LocalTaxArt21Penalty.lean - NORM|c4426726... (地方税法 第二十一条(1) 罰則 CONDITION)
+    # Needle is in MainProvision Article 第二十一条 (Paragraph 1, Sentence 1);
+    # find_article_text(...,"第二十一条") returns that article (len 251) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("地方税法 第二十一条(1) penalty (三年以下の拘禁刑又は二十万円以下の罰金) - LocalTaxArt21Penalty.lean",
+           "325AC0000000226",
+           "article", "第二十一条",
+           ["\u52d5\u3057\u305f\u8005\u306f\u3001\u4e09\u5e74\u4ee5\u4e0b\u306e\u62d8\u7981\u5211\u53c8\u306f\u4e8c\u5341\u4e07\u5186\u4ee5\u4e0b\u306e\u7f70\u91d1\u306b\u51e6\u3059\u308b\u3002"])
+
     # LocalTaxIncomeBracket4_8.lean - NORM|5fabf587... (地方税法 第七十二条の二十四の七(1)3 CONDITION)
     # Needle is in MainProvision Article 第七十二条の二十四の七 table cell;
     # find_article_text(...,"第七十二条の二十四の七") returns that article (len 2821) with needle -
@@ -1469,6 +1477,12 @@ def checks():
            "340AC0000000157",
            "file", None,
            ["石油ガス譲与税は、石油ガス税法", "石油ガス税の収入額の二分の一に相当する額"])
+
+    # SpecialCorporationGrantTax — cycle-36
+    yield ("SpecialCorporationGrantTax.lean",
+           "431AC0000000004",
+           "file", None,
+           ["特別法人事業譲与税）第二十九条", "特別法人事業譲与税は、特別法人事業税の収入額に相当する額とし、都道府県に対して譲与するものとする"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",

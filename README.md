@@ -747,6 +747,9 @@ JapanTaxLaw/MortgageRegistrationCapitalTests.lean     # 同上 退行テスト
 JapanTaxLaw/OilGasGrantTax.lean                    # 石油ガス譲与税法 art.1（収入額の1/2）L4 モデル
 JapanTaxLaw/OilGasGrantTaxSpec.lean                # 同上 独立定式
 JapanTaxLaw/OilGasGrantTaxTests.lean               # 同上 退行テスト
+JapanTaxLaw/SpecialCorporationGrantTax.lean        # 地方税法 art.29（特別法人事業譲与税=収入額）L4 モデル
+JapanTaxLaw/SpecialCorporationGrantTaxSpec.lean    # 同上 独立定式
+JapanTaxLaw/SpecialCorporationGrantTaxTests.lean   # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト

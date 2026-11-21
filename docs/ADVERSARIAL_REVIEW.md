@@ -5172,3 +5172,114 @@ STAGING の needle テキストを信じず、`scripts/ci/transcription_audit.py
 - 残る U-1 は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合であり、人間の法律専門家によるレビューを称するものではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
+
+
+## Batch AL review (2026-11-21) — 登録免許税法施行令 art.26 / 石油ガス譲与税法 art.1（cycle-34/35 独立照合）
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。coordinator 要約・STAGING は信じず、pinned `data/raw/*.law.json` から直接・独立に漢数字を算数化して照合した。
+- **対象（読み取り専用・変更していない）**: `JapanTaxLaw/MortgageRegistrationCapital.lean` / `...Spec.lean` / `...Tests.lean`（cycle-34）、`JapanTaxLaw/OilGasGrantTax.lean` / `...Spec.lean` / `...Tests.lean`（cycle-35）。**Lean モジュール / `data/*` / `scripts/*` は一切変更せず**、commit / push / merge / ブランチ切替も行っていない。
+- **一次資料（pinned・改変禁止）**:
+  - 登録免許税法施行令 art.26: `data/raw/342CO0000000146_20261001_507CO0000000124.law.json`（law_id `342CO0000000146` / revision `342CO0000000146_20261001_507CO0000000124`、施行 2026-10-01）
+  - 石油ガス譲与税法 art.1: `data/raw/340AC0000000157_20090401_421AC0000000009.law.json`（law_id `340AC0000000157` / revision `340AC0000000157_20090401_421AC0000000009`、施行 2009-04-01。実ファイル名を確認済み）
+- **needle 出所**: `scripts/ci/transcription_audit.py` の `checks()` cycle-34/35 エントリから実文字列を直接読み出し、CI と同一の正規化 `re.sub(r"[\s　]+", "", s)` を**自前で正規化した pinned 原文**に適用して部分文字列包含を判定した（`kind = "file"`, `load_law_text` と同一の平坦化全文）。
+- **本レビューは機械的独立照合（原文 parse・漢数字算術化・needle 検証・境界グリッド・公理監査）であり、人間の法律専門家によるレビューではない。** 法的解釈・行政実務の妥当性は判定しない。
+
+### AL-1. pin 完全性と原文独立抽出（漢数字 → 算数）
+
+`data/INVENTORY.json` の `raw_snapshot.source_sha256` と実ファイルを再計算し、2 件とも一致（改変なし）:
+
+| モデル | law_id / revision | 計算 SHA-256 = INVENTORY | bytes |
+|---|---|---|---|
+| MortgageRegistrationCapital | 342CO0000000146 / …_20261001_507CO0000000124 | `0FC3F9CA…9AA2B` 一致 | 178,197 一致 |
+| OilGasGrantTax | 340AC0000000157 / …_20090401_421AC0000000009 | `3F8C479B…AF058` 一致 | 39,399 一致 |
+
+- 自作漢数字パーサをセルフテスト（五→5、五億→500000000、二十→20、十万→100000、一万八千→18000、六千八百二→6802 他 11 件、全件期待値どおり）した上で抽出した。
+- **art.26 flat text**（76 文字 / U+3000 = 0、原文そのまま）:
+  `（抵当権等の設定等の登記等が課税される普通法人の資本金等の額）第二十六条法別表第三の一の四の項及び一の五の項に規定する政令で定める金額は、五億円とする。`
+- **art.1 flat text**（136 文字 / U+3000 = 0、原文そのまま）:
+  `（石油ガス譲与税）第一条石油ガス譲与税は、石油ガス税法（昭和四十年法律第百五十六号）の規定による石油ガス税の収入額の二分の一に相当する額とし、都道府県及び道路法（昭和二十七年法律第百八十号）第七条第三項に規定する指定市（以下「指定市」という。）に対して譲与するものとする。`
+- `Article` の `attr.Num` は両法とも対象 1 件のみ（art.26 = 1 件、art.1 = 1 件）。flat 文字数・U+3000 数はモジュール doc-comment の申告（76/0、136/0）と一致。
+
+| モデル | 原文リテラル | 独立抽出 | Lean 定数 | 桁違いチェック | 照合 |
+|---|---|---:|---|---|:---:|
+| MortgageRegistrationCapital | `金額は、五億円とする` | 五 = 5 × 億 = 10^8 → **500,000,000** | `capitalThresholdYen : Money := 500_000_000` | 五千万(50,000,000) / 五十億(5,000,000,000) を明示的に除外 | ✅ |
+| OilGasGrantTax | `収入額の二分の一に相当する額` | 分母リテラル `二`=2、分子 `一`=1 → **1/2** | `grantYen(revenue) = revenue / 2` | `三`/`四` ではなく `二` を直接確認 | ✅ |
+
+**桁違いチェック結果: 不一致ゼロ。** 五億 = 500,000,000（5 千万でも 50 億でもない）、二分の一 = 1/2 を pinned 原文から直接確認。
+
+### AL-2. needle 健全性（CI `checks()` 実文字列を自前正規化原文で検証）
+
+正規化は CI と同一 `re.sub(r"[\s　]+", "", s)` を needle と pinned flat 全文の双方へ適用。file locator に従い `load_law_text` と同一の平坦化全文で包含判定。
+
+| モデル | # | CI needle（実文字列） | U+3000 | FOUND | 正規化全文 offset | 記事内 offset |
+|---|---|---|---:|:---:|---:|---:|
+| Mortgage | 1 | `抵当権等の設定等の登記等が課税される普通法人の資本金等の額）第二十六条` | 0 | ✅ | 13,292 | 1 |
+| Mortgage | 2 | `法別表第三の一の四の項及び一の五の項に規定する政令で定める金額は、五億円とする` | 0 | ✅ | 13,327 | 36 |
+| OilGas | 1 | `石油ガス譲与税は、石油ガス税法` | 0 | ✅ | 33 | 12 |
+| OilGas | 2 | `石油ガス税の収入額の二分の一に相当する額` | 0 | ✅ | 69 | 48 |
+
+- **4/4 FOUND、U+3000 含有 0 件。** 各モデルの 2 本は隣接するが重複せず、**互いに異なる条文位置スライス**を指す（Mortgage: 見出し `）第二十六条` 側と本文 `五億円とする` 側、OilGas: 前文 `石油ガス税法` と後文 `二分の一に相当する額`）。needle 2 のみが金額リテラルを含む。
+
+### AL-3. 反例探索（境界値＋奇数偶数＋グリッド）
+
+| 攻撃対象 | 結果 | 反例 |
+|---|---|---:|
+| Mortgage 境界 499,999,999 / 500,000,000 / 500,000,001 | true / true / false（境界含む `<=`） | 0 |
+| Mortgage グリッド c = 499,999,900〜500,000,100（201 点） | `c <= 500000000` と全点一致 | 0 |
+| OilGas 偶数 0 / 2 / 100 / 1,000,000 | 0 / 1 / 50 / 500,000（1/2 と一致） | 0 |
+| OilGas 奇数 1 / 3 / 99 / 101 | 0 / 1 / 49 / 50（Nat 除算の切捨て、有理数 1/2 の floor と一致） | 0 |
+| OilGas グリッド r = 0〜200 | `r // 2` と `floor(r/2)` が全点一致 | 0 |
+
+- 一時 Lean ファイルで境界定理を `by decide` で再構成（下記 AL-4）し、モジュール内の example と一致を確認。**反例検出数: ゼロ。**
+
+### AL-4. 公理監査
+
+- 一時 Lean ファイル `batchAL_axiom_probe.lean`（外部 temp ディレクトリ、プロジェクト外）で 6 ファイル（2 モデル＋Spec＋Tests）を import し、8 個の named def（`capitalThresholdYen` / `isAtOrBelowThreshold` / `specThreshold` / `specBelow` / `agreeMortgageRegistrationCapital` / `grantYen` / `specGrant` / `agreeOilGasGrantTax`）＋再構成した 12 本の境界定理（計 **20 宣言**）へ `#print axioms` を実行（`lake env lean`、exit code **0**）。
+- 結果: **20/20 が `"does not depend on any axioms"`**。`Classical.choice` / `sorryAx` / `Quot.sound` / `propext` 依存は**いずれも 0 件**。
+- 6 ファイルの静的スキャンで `sorry` / `admit` / `axiom` / `classical` / `by_contra` / `Quot.sound` / `propext` / `choice` / `noncomputable` / `unsafe` の一致 **0 件**。全証明は `by decide` のカーネル還元証明。
+- 監査後、一時 Lean ファイルおよび一時解析スクリプト（`.py` / `.txt`）は**すべて削除済み**。
+
+### AL-5. 分類・件数
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED（意味的: 数値・needle・境界・公理）** | **0（ゼロ）** |
+| CONFIRMED（ドキュメント表記のみ・非意味的） | 2 |
+| BY-DESIGN | 4 |
+| UNRESOLVED | 2 |
+
+> **意味的な発見はゼロ（CONFIRMED = 0）を明示する。** 数値・needle・境界・公理の機械照合はすべて合格。下記 D-1/D-2 は表記上の問題であり、過去バッチの慣例に従い分離した。
+
+#### CONFIRMED（意味的）— 0 件
+
+- 金額: 五億 = 500,000,000、二分の一 = 1/2 を pinned 原文から独立抽出し、桁違いを明示的に除外して Lean 定数と一致。
+- needle: 4/4 FOUND、U+3000 = 0、異なる条文位置スライス。
+- 境界: 499,999,999→true / 500,000,000→true / 500,000,001→false、201 点グリッド不一致 0、奇数偶数グリッド不一致 0。
+- 公理: 禁止公理 0、20/20 axiom-free、`by decide` カーネル証明。
+
+#### CONFIRMED（ドキュメント表記のみ・非意味的）— 2 件
+
+- **D-1 MortgageRegistrationCapital の Raw snapshot パス二重化**: `MortgageRegistrationCapital.lean` の header `Raw snapshot: data/raw/data/raw/342CO0000000146_...law.json` は実在パス `data/raw/342CO0000000146_...law.json` の二重表記。Batch AJ/AK で指摘された同種。law_id / revision / 文字数 / needle / 定数 / pin 完全性はすべて正しく、計算・証明への影響なし。
+- **D-2 OilGasGrantTax の Raw snapshot パス二重化**: `OilGasGrantTax.lean` header も同様に `data/raw/data/raw/340AC0000000157_...law.json`（正規は `data/raw/340AC0000000157_...law.json`）。影響なし。※ 修正は Lean モジュール側のため本レビューでは変更せず報告のみ。
+
+#### BY-DESIGN — 4 件
+
+- **B-1 Mortgage スコープ明示**: 「普通法人」「抵当権等の設定等の登記」の認定、別表の項の適用、資本金等の額の算定手続は `Scope / NOT MODELLED` と明記。金額定数と境界判定のみの bounded L4 モデル。
+- **B-2 OilGas スコープ明示**: 指定市の認定、譲与の手続、石油ガス税法の収入額算定は NOT MODELLED と明記。
+- **B-3 `Money = Nat` 表現**: 円未満端数・外貨換算は原文に記載がなく、モデル化対象外として Design 上有効（両モデル共通）。
+- **B-4 OilGas 奇数収入の端数処理は未形式化（タスク指定どおり確認）**: `grantYen(revenue) = revenue / 2` は自然数除算（切捨て）。doc-comment は「収入額が奇数の場合の端数処理は本条文に明示なし → 未形式化、人間レビュー保留。実装は自然数除算（切捨て）を仮定するが法的確定ではない」と明記。Spec/Tests も `1→0 / 3→1 / 101→50` の切捨てを確認。**転記漏れではなく明示されたスコープ境界**。
+
+#### UNRESOLVED — 2 件
+
+- **U-1 Mortgage の `<=`（境界包含）の法的根拠**: pinned art.26 は金額を `五億円とする` と定めるのみで、`以下` / `こえない` 等の比較文言を含まない。`isAtOrBelowThreshold` の `<=`（500,000,000 を含む）はタスク指定どおりの機械照合は完了しているが、その法的正当性は本 pinned 原文のみからは独立導出できない。**人間の法律専門家を要する**（AK U-1 と同趣旨）。数値・算術の一致（意味的 CONFIRMED = 0）には影響しない。
+- **U-2 OilGas 奇数収入の端数処理の法的決定**: 原文 `二分の一` には丸め規定がなく、切捨て（floor）が正しいかは pinned 原文のみでは決定不能。モデルは B-4 のとおり未形式化として明記しているが、法的確定は**人間の法律専門家を要する**。偶数・有理数一致（意味的 CONFIRMED = 0）には影響しない。
+
+### AL-6. 総合判定・最終報告
+
+- pinned art.26 の `五億 = 500,000,000` と art.1 の `二分の一 = 1/2` は Lean 定数と一致。**桁違いゼロ**。needle 4/4 FOUND（U+3000 ゼロ、異なる条文位置スライス）、境界・奇数偶数グリッド不一致 0、公理依存 0。
+- **CONFIRMED（意味的）= 0（ゼロ）／CONFIRMED（ドキュメント表記のみ・非意味的）= 2／BY-DESIGN = 4／UNRESOLVED = 2。**
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` とも **0 件**、20/20 axiom-free、全証明が `by decide` のカーネル還元。監査用一時ファイルは削除済み。
+- 既存レビュー履歴（Batch G〜AK ほか全 35 件）は**すべて保持**し、本セクションを末尾に追記したのみ。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` の 1 ファイルだけ。追記後レビュー件数は **36 件**。
+- 残る U-1 / U-2 は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューを称するものではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
