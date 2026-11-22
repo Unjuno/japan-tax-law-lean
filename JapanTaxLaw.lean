@@ -753,9 +753,6 @@ import JapanTaxLaw.CustomsTariffArt7PrevParagraphReadingTests
 import JapanTaxLaw.CustomsTariffArt7ExtensionPara17
 import JapanTaxLaw.CustomsTariffArt7ExtensionPara17Spec
 import JapanTaxLaw.CustomsTariffArt7ExtensionPara17Tests
-import JapanTaxLaw.CustomsTariffArt8PrevReading6to8
-import JapanTaxLaw.CustomsTariffArt8PrevReading6to8Spec
-import JapanTaxLaw.CustomsTariffArt8PrevReading6to8Tests
 import JapanTaxLaw.CustomsTariffArt8InvestigationDeadline
 import JapanTaxLaw.CustomsTariffArt8InvestigationDeadlineSpec
 import JapanTaxLaw.CustomsTariffArt8InvestigationDeadlineTests
@@ -1092,6 +1089,18 @@ import JapanTaxLaw.AdultAgeThresholdTests
 import JapanTaxLaw.AircraftScope
 import JapanTaxLaw.AircraftScopeSpec
 import JapanTaxLaw.AircraftScopeTests
+import JapanTaxLaw.CustomsSmallConsignmentCap
+import JapanTaxLaw.CustomsSmallConsignmentCapSpec
+import JapanTaxLaw.CustomsSmallConsignmentCapTests
+import JapanTaxLaw.TaxErasureExtension30
+import JapanTaxLaw.TaxErasureExtension30Spec
+import JapanTaxLaw.TaxErasureExtension30Tests
+import JapanTaxLaw.TaxErasureTotal60
+import JapanTaxLaw.TaxErasureTotal60Spec
+import JapanTaxLaw.TaxErasureTotal60Tests
+import JapanTaxLaw.GolfRateCeiling1200
+import JapanTaxLaw.GolfRateCeiling1200Spec
+import JapanTaxLaw.GolfRateCeiling1200Tests
 import JapanTaxLaw.AntennaPowerCeiling
 import JapanTaxLaw.AntennaPowerCeilingSpec
 import JapanTaxLaw.AntennaPowerCeilingTests
@@ -1113,3 +1122,6 @@ import JapanTaxLaw.PermitValidity7DaysTests
 import JapanTaxLaw.PublicityMatter
 import JapanTaxLaw.PublicityMatterSpec
 import JapanTaxLaw.PublicityMatterTests
+import JapanTaxLaw.RegistrationTaxFloor1k
+import JapanTaxLaw.RegistrationTaxFloor1kSpec
+import JapanTaxLaw.RegistrationTaxFloor1kTests
