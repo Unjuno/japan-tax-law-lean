@@ -2696,6 +2696,13 @@ def checks():
            ["石油ガス税の税率は、課税石油ガス一キログラムにつき、十七円五十銭とする。"])
 
 
+    # 地方法人税法 art. 24_3 — LocalCorpRate93_907.lean
+    yield ("地方法人税法 art. 24の3（税率九百七分の九十三）↔ LocalCorpRate93_907.lean (93/907)",
+           "426AC0000000011",
+           "article", "第二十四条の三",
+           ["国際最低課税額等に係る特定基準法人税額に対する地方法人税の額は、各課税対象会計年度の課税標準国際最低課税法人税額に九百七分の九十三の税率を乗じて計算した金額とする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
