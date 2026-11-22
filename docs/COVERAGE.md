@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 137 | 327 | 41.90% |
+| laws with >=1 pinned literal check | 135 | 327 | 41.28% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 417 | n/a | n/a |
+| pinned literal checks | 410 | n/a | n/a |
 | distinct article pins | 161 | 42584 | 0.38% |
-| pinned Lean modules (cross-law) | 841 | n/a | n/a |
+| pinned Lean modules (cross-law) | 843 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 444 |
+| unpinned Lean modules (not counted as verified) | 445 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 71 |
+| adversarial review sessions recorded | 72 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -126,7 +126,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `326M50000040055` 税理士法施行規則
 - `327AC0000000111` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法律
 - `327AC0000000112` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う関税法等の臨時特例に関する法律
-- `327AC0000000119` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う地方税法の臨時特例に関する法律
 - `327CO0000000125` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う関税法等の臨時特例に関する法律施行令
 - `328AC0000000006` 酒税法
 - `328AC0000000007` 酒税の保全及び酒類業組合等に関する法律
@@ -147,7 +146,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `330AC0000000104` 地方揮発油税法
 - `330AC0000000113` 地方揮発油譲与税法
 - `330CO0000000100` 輸入品に対する内国消費税の徴収等に関する法律施行令
-- `331M50000002007` 地方揮発油譲与税法施行規則
 - `332AC0000000026` 租税特別措置法
 - `332AC0000000037` とん税法
 - `332AC0000000038` 特別とん税法
@@ -229,7 +227,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `420M60000008116` 地方税等減収補てん臨時交付金に関する省令
 - `422M60000040052` 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての所得税及び法人税の臨時特例に関する法律施行規則
 - `423AC0000000029` 東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律
-- `425CO0000000025` 税制調査会令
 - `426AC0000000011` 地方法人税法
 - `426CO0000000415` トルエンジイソシアナートに対して課する不当廉売関税に関する政令
 - `428CO0000000196` 水酸化カリウムに対して課する不当廉売関税に関する政令
@@ -245,4 +242,5 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `504CO0000000300` 森林環境税及び森林環境譲与税に関する法律施行令
 - `504CO0000000372` 溶融亜鉛めっき鉄線に対して課する不当廉売関税に関する政令
 - `507CO0000000095` 黒鉛電極に対して課する不当廉売関税に関する政令
+- `508CO0000000224` ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令
 - `508CO0000000254` 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令

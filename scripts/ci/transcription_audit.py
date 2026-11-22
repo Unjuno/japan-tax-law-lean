@@ -1391,6 +1391,24 @@ def checks():
            "143AC0000000054",
            "article", "\u7b2c\u5341\u4e94\u6761",
            ["\u5100\u5f0f\u53c8\u306f\u793c\u62dd\u306e\u7528\u306b\u76f4\u63a5\u4f9b\u3059\u308b\u305f\u3081\u5b97\u6559\u56e3\u4f53\u306b\u5bc4\u8d08\u3055\u308c\u305f\u7269\u54c1\u3067\u8ca1\u52d9\u7701\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
+    # CustomsTariffArt18PrevPara5Reading.lean - NORM|7c7c7201... (prev-art.para5 準用 READING, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十八条 (Paragraph 3, Sentence 2) -
+    # verbatim injected from the queue via \u escapes; 前条第五項 = preceding
+    # article paragraph 5. find_article_text(...,'第十八条') len 432 with needle.
+    yield ("customs tariff art.18 prev-art.para5 reading - CustomsTariffArt18PrevPara5Reading.lean",
+           "143AC0000000054",
+           "article", "\u7b2c\u5341\u516b\u6761",
+           ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u524d\u6761\u7b2c\u4e94\u9805\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
+    # CustomsTariffArt13Para7ProvisoException.lean - NORM|13bac8bc... (art.13(7) proviso 準用 EXCEPTION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十七条 (Paragraph 5, Sentence 1) -
+    # verbatim injected from the queue via \u escapes; source is 第十三条第七項
+    # ただし書. find_article_text(...,'第十七条') len 1032 with needle.
+    yield ("customs tariff art.13(7) proviso exception - CustomsTariffArt13Para7ProvisoException.lean",
+           "143AC0000000054",
+           "article", "\u7b2c\u5341\u4e03\u6761",
+           ["\u7b2c\u5341\u4e09\u6761\u7b2c\u4e03\u9805\u305f\u3060\u3057\u66f8\u306e\u898f\u5b9a\u306f\u3001\u524d\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u95a2\u7a0e\u3092\u5fb4\u53ce\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
+
 
     # CustomsTariffArt14DisabledPersonEquipmentDelegation.lean - NORM|c8d2540f... (disabled-person equipment DELEGATION, law 143AC0000000054)
     # Needle is in MainProvision Article 第十四条 (Paragraph 1, Item 16);
@@ -2213,6 +2231,12 @@ def checks():
            "407AC0000000011",
            "file", None,
            ["千万円以下である場合当該合計額の二パーセントに相当する金額", "千万円を超え二千万円以下である場合"])
+
+    # NickelContent — cycle-78
+    yield ("NickelContent.lean",
+           "508CO0000000224",
+           "file", None,
+           ["ニッケルの含有量が全重量の〇・六パーセントを超えるもの", "課税物件）第一条"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
