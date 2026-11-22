@@ -1364,15 +1364,6 @@ def checks():
            "article", "第七条",
            ["\u524d\u9805\u306e\u8abf\u67fb\u306f\u3001\u7b2c\u4e8c\u5341\u4e5d\u9805\u306e\u898f\u5b9a\u306b\u3088\u308b\u8acb\u6c42\u304c\u3042\u3064\u305f\u65e5\u304b\u3089\u4e00\u5e74\u4ee5\u5185\u306b\u7d42\u4e86\u3059\u308b\u3082\u306e\u3068\u3059\u308b\u3002"])
 
-    # CustomsTariffArt17Delegation.lean - NORM|35c971a0... (para1 processing-goods DELEGATION, law 143AC0000000054)
-    # Needle is in MainProvision Article 第十七条 (Paragraph 1, Item 1);
-    # find_article_text(...,"第十七条") returns that article (len 1032) with needle -
-    # use the precise article locator. Needle literal from queue via \u escapes.
-    yield ("customs tariff art.17 delegation - CustomsTariffArt17Delegation.lean",
-           "143AC0000000054",
-           "article", "第十七条",
-           ["\u52a0\u5de5\u3055\u308c\u308b\u8ca8\u7269\u53c8\u306f\u52a0\u5de5\u6750\u6599\u3068\u306a\u308b\u8ca8\u7269\u3067\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
-
     # CustomsTariffArt14UnconditionalExemption.lean - NORM|f6d35daf... (para1 unconditional-exemption DELEGATION, law 143AC0000000054)
     # Needle is in MainProvision Article 第十四条 (Paragraph 1, ParagraphSentence);
     # find_article_text(...,"第十四条") returns that article (len 1655) with needle -
@@ -3029,6 +3020,31 @@ def checks():
            "504CO0000000300",
            "file", None,
            ["第二条第九項第一号に規定する第一号法定受託事務とする", "事務の区分）第十条"])
+
+
+    # 権利行使価額 年間合計 千二百万円以下 — OptionExercise12M.lean
+    yield ("租税特別措置法 art. 29_2（権利行使価額 年間合計 千二百万円以下）↔ OptionExercise12M.lean (exerciseCapYen 12000000)",
+           "332AC0000000026",
+           "file", None,
+           ["当該新株予約権の行使に係る権利行使価額の年間の合計額が、千二百万円を超えないこと。"])
+
+    # 選択特例対象宅地等 面積合計 四百平方メートル以下 — SpecialLand400.lean
+    yield ("租税特別措置法 art. 69_4（選択特例対象宅地等 面積合計 四百平方メートル以下）↔ SpecialLand400.lean (specialLandCap400 400)",
+           "332AC0000000026",
+           "file", None,
+           ["当該選択特例対象宅地等の面積の合計が四百平方メートル以下であること。"])
+
+    # 計算面積合計 二百平方メートル以下 — SpecialLand200.lean
+    yield ("租税特別措置法 art. 69_4（計算面積合計 二百平方メートル以下）↔ SpecialLand200.lean (specialLandCap200 200)",
+           "332AC0000000026",
+           "file", None,
+           ["次のイ、ロ及びハの規定により計算した面積の合計が二百平方メートル以下であること。"])
+
+    # 常時使用従業員 三百人超 — Employee300.lean
+    yield ("租税特別措置法 art. 87（常時使用従業員 三百人超）↔ Employee300.lean (employeeFloor300 300)",
+           "332AC0000000026",
+           "file", None,
+           ["その年度の前年度の末日において常時使用する従業員の数が三百人を超える個人"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
