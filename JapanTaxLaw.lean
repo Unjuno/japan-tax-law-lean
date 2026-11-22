@@ -821,3 +821,6 @@ import JapanTaxLaw.LimitationAndInterestNormsTests
 import JapanTaxLaw.TaxCreditNorms
 import JapanTaxLaw.TaxCreditNormsSpec
 import JapanTaxLaw.TaxCreditNormsTests
+import JapanTaxLaw.TotalAmountNorms
+import JapanTaxLaw.TotalAmountNormsSpec
+import JapanTaxLaw.TotalAmountNormsTests
