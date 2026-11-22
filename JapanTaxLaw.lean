@@ -1136,3 +1136,6 @@ import JapanTaxLaw.TaxRoundingTests
 import JapanTaxLaw.TrustedAffairsClassification
 import JapanTaxLaw.TrustedAffairsClassificationSpec
 import JapanTaxLaw.TrustedAffairsClassificationTests
+import JapanTaxLaw.FiscalPeriodLength
+import JapanTaxLaw.FiscalPeriodLengthSpec
+import JapanTaxLaw.FiscalPeriodLengthTests

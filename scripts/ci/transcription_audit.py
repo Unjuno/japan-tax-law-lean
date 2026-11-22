@@ -2063,6 +2063,12 @@ def checks():
            "file", None,
            ["発動機を有する滑空機とする", "航空機の範囲）第二条"])
 
+    # FiscalPeriodLength — cycle-71
+    yield ("FiscalPeriodLength.lean",
+           "405M50000008001",
+           "file", None,
+           ["課税免除又は不均一課税をした最初の年度から五箇年度とする", "期間に係る年度）第四条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",

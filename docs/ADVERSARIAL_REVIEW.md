@@ -8275,3 +8275,98 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 - Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。commit / push / merge / ブランチ切替なし。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・市町村区分抽出・needle 実文字列照合・反例評価・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューが完了したとみなしてはならない。一時ファイルは削除済み。
+
+
+## Batch BO review (2026-11-22) — 関税定率法施行令 art.2 / CarnetImportGoods.lean（cycle-70 独立原文照合）
+
+- **対象**: `JapanTaxLaw/CarnetImportGoods.lean`（通関手帳輸入物品 第1号・第4号除外、政令 art.2、cycle-70）。補助 `JapanTaxLaw/CarnetImportGoodsSpec.lean` / `JapanTaxLaw/CarnetImportGoodsTests.lean` も照合に使用（読み取りのみ）。pinned 原文は `data/raw/348CO0000000317_20010106_412CO0000000307.law.json`（law_id `348CO0000000317` / revision `348CO0000000317_20010106_412CO0000000307`）。
+- **レビュア**: Adversarial Review Agent（形式化担当から独立）。SKILL / STAGING / doc-comment の記述は**信頼せず**、pinned 原文（生 JSON バイト）・CI 実文字列・反例・`#print axioms` を各々独立に再検証した。
+- **原文（pinned・再現）**: `tag="Article"` かつ `attr.Num="2"` のノードは **1 個のみ**。caption + title + 本文を文書順に連結した自前正規化原文は **110 文字 / U+3000 = 0**（doc-comment の「flat/normalized leaf text 110 chars, U+3000 count 0」と一致）。当該条文の自前正規化原文は `（通関手帳による輸入をすることができる物品の指定）第二条法第三条第一項に規定する関税定率法（明治四十三年法律第五十四号）第十七条第一項各号の物品のうち政令で定める物品は、同項第一号及び第四号に掲げる物品以外の物品とする。` である。なお pinned JSON の `law_title` は「物品の一時輸入のための通関手帳に関する通関条約（ＡＴＡ条約）の実施に伴う関税法等の特例に関する法律施行令」であり、依頼文の「関税定率法施行令」は表記ゆれ（B-5 参照）。
+- **needle 出所**: `scripts/ci/transcription_audit.py::checks()` の cycle-70 エントリ（`name="CarnetImportGoods.lean"` / `law_id="348CO0000000317"` / `kind="file"` / `title=None`）から実文字列 2 本を直接取得（STAGING 記載は不使用）。
+- **作業制約の順守**: commit / push / merge / ブランチ切替は一切行わない。Lean モジュール・`data/*`・`scripts/*` は読み取り専用。変更したのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ（末尾に本セクションを追記）。read-then-write で既存履歴を保持。
+
+### BO-1. pinned 原文からの独立抽出（除外指定 = 第1号・第4号、対象 = 第2号・第3号）
+
+- `law_full_text` を再帰走査し `tag="Article"` かつ `attr.Num="2"` を探索 → **1 個のみ**。leaf は 3 つ:
+  - leaf[0]（caption）= `（通関手帳による輸入をすることができる物品の指定）`
+  - leaf[1]（title）= `第二条`
+  - leaf[2]（本文）= `法第三条第一項に規定する関税定率法（明治四十三年法律第五十四号）第十七条第一項各号の物品のうち政令で定める物品は、同項第一号及び第四号に掲げる物品以外の物品とする。`
+- 自前正規化（leaf 連結・空白/U+3000 除去）: **110 文字 / U+3000 = 0**。
+- 除外列挙の独立抽出: `政令で定める物品は、` と `とする。` の間を切り出し → `同項第一号及び第四号に掲げる物品以外の物品`。当該節から `第([一二三四…]+)号` を抽出 → **`第一号` と `第四号` のみ**（`第二号` / `第三号` は当該節に出現しない）。
+- 判定: **除外 = {第1号, 第4号}**、モデルが列挙する各号 {1,2,3,4} の其中で除外の補集合 = **{2, 3} = 第2号・第3号が対象**。原文の「第一号及び第四号に掲げる物品以外の物品とする」と一致。
+- 実装との照合: `itemOne=1`（除外）/ `itemTwo=2` / `itemThree=3` / `itemFour=4`（除外）/ `isCarnetGood(no) = (no != itemOne && no != itemFour)`。除外 2 件・対象 2 件の対応は **EXTRACT_MATCH = True（完全一致）**。取り違え・追加除外・欠落はいずれも 0 件。
+
+### BO-2. needle 健全性（CI `checks()` の実文字列 2 本を自前正規化原文で照合）
+
+| needle（CI 実文字列） | U+3000 | Art.2 自前正規化原文（110 文字） | 全文 |
+|---|---:|---|---|
+| `同項第一号及び第四号に掲げる物品以外の物品とする` | 0 | **FOUND** | FOUND |
+| `物品の指定）第二条` | 0 | **FOUND**（caption+title を跨ぐ） | FOUND |
+
+- CI スクリプトは実行せず、実文字列 2 本だけを取得して自前正規化原文（U+3000 = 0）で独立照合した（自前正規化は `str.replace('\u3000','')` + `split()` 連結、CI の `re.sub(r"[\s　]+","",s)` とは独立実装）。needle 自身の U+3000 = 0、改行・余分な空白なし。**判定: 2/2 FOUND、needle U+3000 = 0**。
+
+### BO-3. 反例探索（kernel 計算 `by decide` / `#eval`）
+
+| 入力 no | 意味 | 期待 | 独立計算 (no!=1 && no!=4) | Lean (`#eval`) | 判定 |
+|---:|---|---|---|---|---|
+| 1 | 第1号（除外） | false | false | `isCarnetGood 1 = false` | 一致 |
+| 2 | 第2号（対象） | true | true | `isCarnetGood 2 = true` | 一致 |
+| 3 | 第3号（対象） | true | true | `isCarnetGood 3 = true` | 一致 |
+| 4 | 第4号（除外） | false | false | `isCarnetGood 4 = false` | 一致 |
+| 5 | 各号範囲外（便宜入力） | true（述語として） | true | `isCarnetGood 5 = true` | 一致（BY-DESIGN、下記） |
+
+- `lake env lean` で `#eval` を実行（exit code 0）し `false / true / true / false / true` を確認。Spec の `specGood 1/2/3/4` と `agreeCarnetImportGoods=true`（5 を含む [1,2,3,4,5] で全一致）も kernel 確認。**発見 0**。
+- **BY-DESIGN 注記**: No.5 は `isCarnetGood= true` だが、原文の指定対象は「関税定率法第十七条第一項各号の物品」すなわち各号（第1号〜第4号）の範囲内のみであり、No.5 は法定の各号に対応しない。`isCarnetGood` は「除外でない」ことを判定する開いた述語として実装されており、範囲外の Nat にも true を返す。これは便宜値の受け入れであり、原文が第5号を対象とすることを意味しない（B-3 / U-1 参照）。
+
+### BO-4. 公理監査（`#print axioms`）
+
+- `lake env lean` で実装モジュールの `itemOne` / `itemTwo` / `itemThree` / `itemFour` / `isCarnetGood`、Spec の `specGood` / `agreeCarnetImportGoods`、ならびに本レビューで反例を固定した名前付き定理 5 本（`BOAudit.adv_1`〜`adv_5`）に `#print axioms` を実行（**exit code 0**）。すべて `"does not depend on any axioms"`。
+
+| 監査項目 | 結果 |
+|---|---|
+| 監査宣言数 | 12（すべて axiom-free） |
+| `Classical.choice` | **0 件**（不在） |
+| `sorryAx` | **0 件**（不在） |
+| `Quot.sound` | **0 件**（不在） |
+| `propext` | **0 件**（不在） |
+
+- 補足: `scripts/ci/generate_axiom_probe.py` は `THM_PATTERN` / `LEMMA_PATTERN` により `theorem` / `lemma` 宣言のみを走査するため、`def` と匿名 `example` のみから成る本モジュールは CI 公理ゲートの走査対象外である。モデル自体の誤りではなく CI ゲート設計上の限界であり、本レビューが独自プローブで def 自体と名前付き定理を直接監査して代替した（B-6）。監査用一時 Lean ファイルは実行後に削除。
+
+### BO-5. 分類（CONFIRMED / BY-DESIGN / UNRESOLVED）
+
+| 分類 | 件数 |
+|---:|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **6** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 形式化の誤りは検出されなかった。
+
+**CONFIRMED（0 件）**: 除外指定（第1号・第4号）と対象（第2号・第3号）の対応、定数値、判定関数の真偽、needle 2/2、反例 5/5、公理監査 — いずれも pinned 原文と整合し、食い違い・不正なし。第2号・第3号の誤除外 0 件、第1号・第4号の誤対象化 0 件。
+
+**BY-DESIGN（6 件）**:
+
+- **B-1 除外列挙のみの bounded L4 モデル**: doc-comment のとおり本モデルは art.2 の「同項第一号及び第四号に掲げる物品以外の物品とする。」の除外指定のみを形式化する。関税定率法17条1項各号の物品の具体内容、通関手帳の種類・輸入手続は NOT MODELLED（U-1 / U-2 参照）。
+- **B-2 号の Nat 列挙は便宜的エンコーディング**: `itemOne=1` / `itemTwo=2` / `itemThree=3` / `itemFour=4` は原文の漢数字（`第一号`〜`第四号`）をモデル表現の Nat に写したものであり、原文に現れる算用数字ではない。順序対応は BO-1 のとおり一致。
+- **B-3 `isCarnetGood(no)=(no!=1 && no!=4)` は除外 membership の決定手続き**: `!=` という形は原文に無いが、与えられた号が除外（第1号・第4号）でないかを判定する補助関数であり、実体的な法的判断ではない。範囲外の Nat（例: 5）にも true を返すが、これは原文の各号範囲外を「対象」と意味するものではない（BO-3 注記）。
+- **B-4 doc-comment の「原文逐語」は改行整形＋括弧内省略の要約**: モジュールの引用は `関税定率法第十七条第一項各号の物品…` と途中改行され、pinned 原文が持つ `（明治四十三年法律第五十四号）` および先行する `法第三条第一項に規定する` を省略している。自前正規化原文では当該括弧等が存在するが、needle 2 本はいずれもその箇所を跨がないため 2/2 FOUND は維持され、照合・計算には影響しない。
+- **B-5 法令名の表記ゆれ**: 依頼文の「関税定率法施行令」に対し pinned JSON の `law_title` は「物品の一時輸入のための通関手帳に関する通関条約（ＡＴＡ条約）の実施に伴う関税法等の特例に関する法律施行令」。law_id `348CO0000000317` / revision `348CO0000000317_20010106_412CO0000000307` による pin は一致しており、対象特定と形式化には影響しない。
+- **B-6 CI 公理プローブの走査対象外**: `def` と匿名 `example` のみから成る本モジュールは CI 公理ゲートで監査されない。モデル自体の誤りではなく CI ゲート設計上の限界であり、本レビューが独自に監査して代替した（BO-4 参照）。
+
+**UNRESOLVED（2 件）**:
+
+- **U-1 関税定率法第十七条第一項各号の物品の具体内容**: pinned 原文（art.2 の 1 文）は `関税定率法…第十七条第一項各号の物品のうち政令で定める物品` と参照するのみで、各号の物品の具体内容は関税定率法側（pinned 原文の外）にある。pinned 原文のみでは確定不能。**人間の法律専門家レビューを要する**。
+- **U-2 通関手帳の種類・輸入手続**: pinned 原文は対象物品の指定（除外）のみを規定し、通関手帳（ATA 条約）の種類・一時輸入の手続は本法本来の規定群（pinned 原文の外）にある。pinned 原文のみでは確定不能。本モデルは NOT MODELLED を明記しており、どこまで形式化すべきかは pinned 原文のみでは決定不能。**人間の法律専門家レビューを要する**。
+
+### BO-6. 最終報告・結論
+
+- pinned revision `348CO0000000317_20010106_412CO0000000307` の art.2 から独立抽出した除外指定は **第1号・第4号のみ**、対象は **第2号・第3号**。`itemOne=1` / `itemTwo=2` / `itemThree=3` / `itemFour=4` / `isCarnetGood(no)=(no!=1 && no!=4)` と完全一致し、**CONFIRMED = 0（発見ゼロ）**。形式的誤り 0 件、反例 0 件。
+- **CONFIRMED: 0 件 / BY-DESIGN: 6 件 / UNRESOLVED: 2 件**。
+- **needle 健全性: 2/2 FOUND、needle U+3000 = 0**（CI `checks()` cycle-70 実文字列を自前正規化原文で照合）。
+- **反例: 1→false / 2→true / 3→true / 4→false / 5→true、発見 0**（`#eval` / `by decide`、No.5 は BY-DESIGN）。
+- **公理監査**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて **0 件**（12 宣言すべて axiom-free、exit code 0）。
+- **各号の物品内容・通関手続の未形式化を確認**（B-1 / U-1 / U-2、doc-comment 明記）。
+- **追記後レビュー件数: 65 件**（既存 64 件＝coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` に一致する見出しをすべて保持 + 本 BO 1 件）。既存セクションは一切改変していない。
+- Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。commit / push / merge / ブランチ切替なし。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・除外指定抽出・needle 実文字列照合・反例評価・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューが完了したとみなしてはならない。
