@@ -150,6 +150,29 @@ def main() -> int:
           any(u.get("legal_review") for u in units[:100]) or "legal_review_axis" in q,
           str(q.get("legal_review_axis"))[:80])
 
+    # §5 integrity: source-correspondence evidence is driven by the transcription
+    # audit registry. A reconciliation that rewrites transcription_audit.py from a
+    # stale base can silently drop checks, erasing evidence for previously verified
+    # units (observed: 18 checks dropped -> 8 FULLY_VERIFIED units lost). The
+    # persisted registry makes every such drop a REQUIRED-gate failure, never a
+    # silent regression. Registered modules must all still carry a check.
+    registry_path = REPO / "data" / "TRANSCRIPTION_CHECK_REGISTRY.json"
+    if registry_path.exists():
+        import importlib.util
+        registry = json.loads(registry_path.read_text(encoding="utf-8")).get("modules", [])
+        audit_path = REPO / "scripts" / "ci" / "transcription_audit.py"
+        spec = importlib.util.spec_from_file_location("ve_audit_inv", audit_path)
+        amod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(amod)
+        checked = set()
+        for name, *_rest in amod.checks():
+            mm = re.search(r"(\w+)\.lean", name)
+            if mm:
+                checked.add(mm.group(1))
+        lost = [m for m in registry if m not in checked]
+        check("registered transcription checks retained",
+              not lost, f"registered={len(registry)} lost={len(lost)} {sorted(lost)[:8]}")
+
     bad = [n for n, ok, _ in results if not ok]
     print(f"\n{len(results) - len(bad)}/{len(results)} invariants passed")
     return 1 if bad else 0
