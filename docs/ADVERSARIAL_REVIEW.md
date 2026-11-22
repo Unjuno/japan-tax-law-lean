@@ -8477,3 +8477,109 @@ CI の実文字列は `scripts/ci/transcription_audit.py` の `checks()` cycle-7
 - Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。commit / push / merge / ブランチ切替は行っていない。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+
+---
+
+## Batch BQ review (2026-11-22) — 情報通信技術活用法施行令 art.7の2 / ElectronicSystemDesignation.lean（cycle-72 独立原文照合）
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。担当者の STAGING／doc-comment／CI `checks()` を**信じず**、pinned raw JSON を自前の再帰 walker で直接走査して得た機械的照合をもって判定した。commit / push / merge / ブランチ切替は行っていない。
+- **対象モジュール（読み取り専用・変更なし）**: `JapanTaxLaw/ElectronicSystemDesignation.lean`（本体のみ。import 先 `JapanTaxLaw/TaxFinance` も読み取りのみ）。
+- **一次資料（pinned・改変禁止）**: `data/raw/415M60000040007_20251012_507M60000040035.law.json`
+  - law_id `415M60000040007` / revision `415M60000040007_20251012_507M60000040035`（CurrentEnforced、改正法律 `507M60000040035`、施行 2025-10-12）。
+  - 対象: `law_full_text` の `MainProvision` 直下 `Article` のうち `attr.Num = "7_2"` のみ。
+- **独立抽出方法**: `scripts/ci/transcription_audit.py` の正規化・記事抽出ロジックを一切呼ばず、JSON の `children` のみを辿る自前 walker で leaf 文字列を連結。`re.sub(r"[\s\u3000]+", "", …)` の自前正規化器で U+3000 除去・needle 照合を行った。
+
+### BQ-1. 独立抽出：指定組織は「輸出入等関連情報処理組織」のみ（列挙 1 つ）
+
+`Article` ノード総数 **25**（Num: 1, 2, 3, 3_2〜3_5, 4, 5, 5_2, 5_3, 6, 6_2, 6_3, 7, **7_2**, 7_3, 7_4, 8）。うち `Num = "7_2"` は **1 件のみ**。その leaf 構造は以下の 3 つ:
+
+| leaf | tag | 原文文字列 |
+|---|---|---|
+| 0 | ArticleCaption | `（処分通知等に係る電子情報処理組織）` |
+| 1 | ArticleTitle | `第七条の二` |
+| 2 | Sentence (Num=1) | `情報通信技術活用法第七条第一項に規定する主務省令で定める電子情報処理組織は、輸出入等関連情報処理組織とする。` |
+
+- 連結生文字列 = **77 文字**、正規化後も **77 文字**。**U+3000 = 0**（doc-comment の「flat/normalized leaf text 77 chars, U+3000 count 0」を裏取り）。
+- **指定組織の独立抽出**: 正規化原文に対し `電子情報処理組織は、(.+?)とする` を適用 → **`['輸出入等関連情報処理組織']`**（唯一）。語「輸出入等関連情報処理組織」の art.7_2 内出現回数は **1**。`次の各号` は art.7_2 に **0 回** → **列挙が 1 つのみであることを確認**。
+- **混同源の明示的除外**: 同じ法令の **art.3_3**（`Num = "3_3"`、申請等に係る電子情報処理組織）は「主務省令で定める電子情報処理組織は、次の各号に掲げるものとする。一 輸出入等関連情報処理組織 二 税関の使用に係る電子計算機と…を電気通信回線で接続した電子情報処理組織」と **2 項目**を列挙する。しかしこれは**本レビュー対象の art.7_2 ではない**。art.7_2 のモデルに対する反映漏れではない（下記 B-4）。
+- **照合結果**: 原文の指定組織「輸出入等関連情報処理組織」= 1 個 ↔ Lean `importExportSystem = 0` / `isDesignatedSystem(s) = (s == importExportSystem)`。**不一致なし**。
+
+### BQ-2. needle 健全性（CI `checks()` の実文字列 2 本）
+
+CI の実文字列は `scripts/ci/transcription_audit.py` の `checks()` cycle-72 エントリ（行 2109–2112、locator は `"file"`）から**直接転記**したものを使用（STAGING 経由ではない）:
+
+| # | CI `checks()` 実文字列 | 長さ | U+3000 含有 | 自前正規化 art.7_2 で FOUND | 自前正規化・法令全文で FOUND |
+|---|---|---:|---:|---|---|
+| 1 | `主務省令で定める電子情報処理組織は、輸出入等関連情報処理組織とする` | 33 | 0 | ✅ | ✅ |
+| 2 | `処分通知等に係る電子情報処理組織）第七条の二` | 22 | 0 | ✅ | ✅ |
+
+- **needle 結果: 2/2 FOUND、needle 内 U+3000 = 0（合格）。**
+- **方法論上の注意（格闘の記録）**: needle 2 は ArticleCaption 末尾 `…組織）` と ArticleTitle `第七条の二` をまたぐ。当初 `dict.values()` を辿る粗い集約器を用いたところ、`attr` の文字列値（Num 等）が leaf 間に混入し needle 2 が MISS となったが、これは集約器の欠陥である。`children` のみを辿る自前 walker に修正し、CI の `"file"` flatten と同じ document-order 連結を行った結果、art.7_2 スコープ・法令全文の双方で **2/2 FOUND** を確認した。needle は転写忠実性の検査のみに用いられ、モデルの法的正しさを保証するものではない（下記 B-3）。
+
+### BQ-3. 反例探索（境界値）
+
+一時 Lean ファイルから `lake env lean`（**exit code 0**）で `#eval` を実行し、さらに `example … := by decide`／名前付き `theorem adv_* := by decide` で kernel 確認した:
+
+| system | 意味 | `isDesignatedSystem` | 期待 | 判定 |
+|---:|---|---|---|---|
+| 0 | 輸出入等関連情報処理組織（`importExportSystem`） | `true` | `true` | 一致 |
+| 1 | その他（`otherSystem`） | `false` | `false` | 一致 |
+| 2 | 列挙外（未定義の値） | `false` | `false` | 一致 |
+
+- `#eval importExportSystem` = **0**、`#eval otherSystem` = **1**。
+- 所属モジュールの `example` 2 本（0=true / 1=false）に加え、本レビューで追加した `adv_isDesignated_0/1/2` の 3 本もすべて `by decide` で通った。
+- **反例探索で検出された原文・Lean 間の矛盾: 0 件（ゼロ）。** 指定組織の誤採択（1 を true にする）、列挙外値（2）の誤採択、番号の 1-origin 化（1 を指定組織にする）はいずれも発生していない。
+
+### BQ-4. 公理監査（`#print axioms`）
+
+- 一時 Lean ファイルを承認済み一時ディレクトリに作成し、3 つの既存 `def`（`importExportSystem` / `otherSystem` / `isDesignatedSystem`）と本レビューで追加した 3 つの名前付き定理（`adv_isDesignated_0/1/2`）計 **6 宣言**について `#print axioms` を実行（`lake env lean`、**exit code 0**）。監査後、一時ファイル・一時スクリプトは**削除済み**。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 6（すべて `does not depend on any axioms`） |
+| `Classical.choice` / `choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+
+- 補足: `scripts/ci/generate_axiom_probe.py` は `theorem` / `lemma` 宣言のみを走査するため、本モジュールのように `def` と `example` のみの場合は CI 公理プローブの直接対象外となる。これは設計上の範囲であり、本レビューでは既存 `def` も直接 `#print axioms` に掛けて確認した（Batch BO / BP と同趣旨）。
+- **禁止公理（choice / sorryAx / Quot.sound / propext）はいずれも 0 件。公理監査は合格。**
+
+### BQ-5. 分類（CONFIRMED / BY-DESIGN / UNRESOLVED）
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **5** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 欠陥件数を手柄にしない。
+
+**CONFIRMED（0 件）**: 原文「輸出入等関連情報処理組織」= 1 個と `importExportSystem = 0` / `isDesignatedSystem(s) = (s == 0)` の一致、needle 2/2 FOUND（U+3000 = 0）、境界 3 点（0/1/2）すべて、公理監査 6 宣言すべてが合格。誤訳・列挙漏れ・番号誤り・禁止公理のいずれも検出されなかった。
+
+**BY-DESIGN（5 件）**:
+
+- **B-1 bounded L4 モデル（指定組織 1 個のみ）**: 本モデルは art.7_2 の「指定される電子情報処理組織は 1 つ、それは輸出入等関連情報処理組織である」という事実のみを形式化する。**情報通信技術活用法 7 条 1 項の定義・主務省令の全体は NOT MODELLED** と doc-comment に明記。法的判断を提供しない設計であり、反映漏れではない。
+- **B-2 Nat 列挙はモデル内部符号化**: `importExportSystem = 0` / `otherSystem = 1` は原文に現れない内部表現である。原文は組織を Nat 番号で列挙しておらず、0/1 の割当てはモデル側の取決め。指定組織が 1 つであるという原文事実（BQ-1）とは独立で、`isDesignatedSystem` の振る舞い（BQ-3）に矛盾を生まない。
+- **B-3 needle 2 の caption/title 横断**: `処分通知等に係る電子情報処理組織）第七条の二` は ArticleCaption 末尾と ArticleTitle をまたぐ。CI locator は `"file"`（法令全文 flatten）なので document-order 連結で連続し 2/2 FOUND を維持（BQ-2）。needle は転写忠実性の検査のみに用いられ、指定判定の正しさは `#eval` / `by decide`（BQ-3）が担保する。
+- **B-4 art.3_3 の 2 項目列挙は本対象外**: 同じ法令の art.3_3 は「輸出入等関連情報処理組織」と「税関の使用に係る電子計算機と…を接続した電子情報処理組織」の 2 つを指定するが、これは**申請等に係る電子情報処理組織**を定める別条であり、本モデルの対象は art.7_2（**処分通知等に係る電子情報処理組織**）のみ。art.7_2 の列挙は 1 つ（BQ-1）で、モデルはそれに忠実。art.3_3 を本モデルに反映しないのはスコープ判断であり、反映漏れではない。
+- **B-5 CI 公理プローブの走査対象外**: `def` / `example` のみのモジュール構成上、CI の定理走査には掛からない。設計上の範囲であり、本レビューが直接監査して補完済み（BQ-4）。
+
+**UNRESOLVED（2 件）**:
+
+- **U-1 情報通信技術活用法 7 条 1 項の定義・主務省令の全体の未形式化**: art.7_2 は「情報通信技術活用法第七条第一項に規定する主務省令で定める電子情報処理組織」と他法（pinned 原文外）を参照するのみで、当該「主務省令で定める電子情報処理組織」の定義・範囲は本 pinned 原文に存在しない。本モデルも doc-comment で NOT MODELLED と明記。**pinned 原文のみでは決定不能であり、人間の法律専門家による確認を要する。**
+- **U-2 「輸出入等関連情報処理組織」の技術的範囲・運用の未形式化**: 原文は art.7_2 で組織名を指定するのみであり、当該組織の技術的範囲（対象となる情報処理組織の構成・接続形態・運用）は pinned 原文に定義がない。本モデルは組織を Nat の 0 として扱うだけで、この範囲判定を行わない。**pinned 原文のみでは決定不能であり、人間の法律専門家による確認を要する。**
+
+### BQ-6. 最終報告・結論
+
+- pinned revision `415M60000040007_20251012_507M60000040035` の art.7_2 から独立抽出した指定組織は **「輸出入等関連情報処理組織」1 個**のみであり、77 文字 / U+3000 = 0 を確認。`importExportSystem = 0` / `otherSystem = 1` / `isDesignatedSystem(s) = (s == 0)` と完全一致。**CONFIRMED = 0（ゼロ）**。
+- **CONFIRMED: 0 件 / BY-DESIGN: 5 件 / UNRESOLVED: 2 件。**
+- **needle 健全性: CI `checks()` 実文字列 2 本、自前正規化で 2/2 FOUND、needle 内 U+3000 = 0。**
+- **反例: `isDesignatedSystem(0)=true` / `(1)=false` / `(2)=false`（`#eval` + `by decide`、反例 0）。**
+- **公理: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件（6 宣言すべて axiom-free、exit code 0）。一時ファイルは削除済み。**
+- **7 条 1 項の定義・技術的範囲の未形式化を確認**（B-1 / U-1 / U-2、いずれも doc-comment に明記）。
+- 追記後レビュー件数: **67 件**（既存 66 件 ＋ 本 BQ 1 件。coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` に `## Batch BQ review …` が整合）。既存セクションはすべて保持。
+- Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。commit / push / merge / ブランチ切替は行っていない。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・指定組織抽出・needle 健全性・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。

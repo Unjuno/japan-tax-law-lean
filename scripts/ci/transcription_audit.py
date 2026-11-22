@@ -2123,11 +2123,11 @@ def checks():
            "file", None,
            ["課税免除又は不均一課税をした最初の年度から五箇年度とする", "期間に係る年度）第四条"])
 
-    # ElectronicSystemDesignation — cycle-72
-    yield ("ElectronicSystemDesignation.lean",
-           "415M60000040007",
+    # ClosureFilingDeadline — cycle-73
+    yield ("ClosureFilingDeadline.lean",
+           "346M50000040057",
            "file", None,
-           ["主務省令で定める電子情報処理組織は、輸出入等関連情報処理組織とする", "処分通知等に係る電子情報処理組織）第七条の二"])
+           ["業務を廃止しようとする日の一月以前に", "業務を廃止する際の届出）第三条"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -2881,6 +2881,30 @@ def checks():
            "325CO0000000245",
            "file", None,
            ["前号イからヘまでに掲げる工事に要した費用の額の合計額が百万円を超えること。"])
+
+    # 十八歳以下の人口 — PopulationAge18.lean
+    yield ("地方交付税法 art. 12（十八歳以下の人口）↔ PopulationAge18.lean (ageCeiling 18)",
+           "325AC0000000211",
+           "file", None,
+           ["最近の国勢調査の結果による当該地方団体の十八歳以下の人口"])
+
+    # 六十五歳以上の人口 — PopulationAge65.lean
+    yield ("地方交付税法 art. 12（六十五歳以上の人口）↔ PopulationAge65.lean (ageFloor65 65)",
+           "325AC0000000211",
+           "file", None,
+           ["最近の国勢調査の結果による当該地方団体の六十五歳以上の人口"])
+
+    # 二百五十六階調以上 — Gradation256.lean
+    yield ("税理士法施行規則 art. 27（二百五十六階調以上）↔ Gradation256.lean (gradationFloor 256)",
+           "326M50000040055",
+           "file", None,
+           ["赤色、緑色及び青色の階調がそれぞれ二百五十六階調以上であること。"])
+
+    # アルコール分 四十五度以下 — AlcoholDegree45.lean
+    yield ("酒税法 art. 3（アルコール分 四十五度以下）↔ AlcoholDegree45.lean (degreeCeiling 45)",
+           "328AC0000000006",
+           "file", None,
+           ["次に掲げる酒類（これらに水を加えたものを含み、前号イからニまでに掲げるものに該当するものを除く。）でアルコール分が四十五度以下のものをいう。"])
 
 
 def main() -> int:

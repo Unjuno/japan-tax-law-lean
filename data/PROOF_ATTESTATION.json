@@ -1,9 +1,9 @@
 {
-  "commit": "26f91eef5b5b687200a22d19d04358332c3ed7a6",
+  "commit": "f2c9ef7123303a8a8b1b1f8ecc8ddfdd8b815cad",
   "jobs": {
     "Build Lean project and check axioms": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45005906099/job/137157324759",
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45012672769/job/137178228433",
       "required_steps": [
         "Build explicitly",
         "No sorry/admit in adopted proofs",
@@ -14,7 +14,7 @@
     },
     "Semantic audit and mutation injection": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45005906099/job/137157324463"
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45012672769/job/137178228606"
     }
   },
   "modules": {
@@ -53,6 +53,15 @@
     },
     "AircraftScopeTests.lean": {
       "sha256": "b4b4fbd2eadbafaaf5cf07df1f9446d8db45e11218c245a99191c0feb7591cd1"
+    },
+    "AlcoholDegree45.lean": {
+      "sha256": "2500bdcfa62cd548f648d155d30cb3a9859eb3f7a2b703035b50214539f69c86"
+    },
+    "AlcoholDegree45Spec.lean": {
+      "sha256": "af7af87180fe2a9bf2233317e257509ce44cbe98a32fc54ec7305eefb5c26aa4"
+    },
+    "AlcoholDegree45Tests.lean": {
+      "sha256": "631d9b150605308848748437d4515c449033c87dec1e921a844719b7a52aac91"
     },
     "AmamiCurrencyConversion.lean": {
       "sha256": "a63315e3ceb9b811a5a9779464c18174340cdac6cbe4ad663d3036fec7f227b8"
@@ -954,6 +963,15 @@
     "FineCap200kTests.lean": {
       "sha256": "6039208a259eab836c3fcbc5bd4652bfe5ecc2a63a496727be0252f70f7f0daf"
     },
+    "FiscalPeriodLength.lean": {
+      "sha256": "0fe1a74467cb7fb2816009a45a087c92fb03c545ab89fb91519ddce9d41a53c1"
+    },
+    "FiscalPeriodLengthSpec.lean": {
+      "sha256": "3e086c53efd3d9ce064e22f778ce6e5f8013e9b63964888d85ec716acab64601"
+    },
+    "FiscalPeriodLengthTests.lean": {
+      "sha256": "d4cd9515bf5da4609aa4e3ab10b8910bf1360203016c093b6c7a21e7760a4c14"
+    },
     "FiscalYearMonthProration.lean": {
       "sha256": "954a3401b761e2e695e60717498906226030e3080fcbe16467605a4ccad904d6"
     },
@@ -1088,6 +1106,15 @@
     },
     "GolfRateCeiling1200Tests.lean": {
       "sha256": "ce5f36d2de8ff23e5ff02a8bddcdea57c80efc1ac78f9d6a65d04bb609cf10c8"
+    },
+    "Gradation256.lean": {
+      "sha256": "863598f31bed62abbe9f5d97f488ac1aed66a0ca5594d94dfeece062f3556eeb"
+    },
+    "Gradation256Spec.lean": {
+      "sha256": "e62f119d42a97555116163c8d84c7881ab30852bcd370b174e9c97167550cdce"
+    },
+    "Gradation256Tests.lean": {
+      "sha256": "ba23cd56245f83fa10dcaf987ba2c3f32b26018ba0dee5c822d3194f3b71404c"
     },
     "GroupLossRatio.lean": {
       "sha256": "ec4db207fab55632a234b26d07f39a058a655507510bf5606ed99cc1cdb8f34c"
@@ -2060,6 +2087,24 @@
     },
     "PolyesterStapleFiberSpecsTests.lean": {
       "sha256": "8b26f8326855cf09160e81c5f9e6c362b577cc044f29ccda553ee607dbf90892"
+    },
+    "PopulationAge18.lean": {
+      "sha256": "9af4657c286e36b216374f3e1423e60efe948af3b99fa6572dbbf4975674bf14"
+    },
+    "PopulationAge18Spec.lean": {
+      "sha256": "7eb3d1982d72d1b09c2ba17dc93612cfd2d114f49027644a79d732d10d6bee32"
+    },
+    "PopulationAge18Tests.lean": {
+      "sha256": "919e37d19a9a9f1a61c1e0b24e0008f0ebb53dcea0f1b48435c02d9d48caaf07"
+    },
+    "PopulationAge65.lean": {
+      "sha256": "a6a558b19cf51b80aee6c79a0c9fa0ed3c1e1c88161a3021d9876e689d3a1be5"
+    },
+    "PopulationAge65Spec.lean": {
+      "sha256": "9725bd85101d1e4d3a37b19331d625ca47e864bad5a926be84c5630be80d3c97"
+    },
+    "PopulationAge65Tests.lean": {
+      "sha256": "d17cd722305a114d1a1976638c546b9b0df326b61c7754f843e0f895c7363817"
     },
     "PopulationInterval15M75M.lean": {
       "sha256": "08fdb8fbda867f92cb4a74f0b5c127a8ef733aa89cb736cdea5a78f00ea0aa08"
@@ -3127,5 +3172,5 @@
   "note": "Kernel-build attestation. Hashes are SHA-256 of the committed blob bytes (LF-normalised). CI run is a recorded, independently reproducible build of the exact commit; the generator re-checks every hash before accepting it as evidence.",
   "run_conclusion": "success",
   "schema": 1,
-  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45005906099"
+  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45012672769"
 }
