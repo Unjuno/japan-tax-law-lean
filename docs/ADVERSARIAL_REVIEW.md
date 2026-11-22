@@ -8687,3 +8687,108 @@ CI の実文字列は `scripts/ci/transcription_audit.py` の `checks()` cycle-7
 - Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。commit / push / merge / ブランチ切替は行っていない。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・期限抽出・needle 健全性・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+## Batch BS review (2026-11-22)
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。担当者の STAGING／doc-comment／CI `checks()` の申告を**信じず**、pinned raw JSON を自前の再帰 walker で直接走査した機械的独立照合。commit / push / merge / ブランチ切替は行っていない。
+- **対象モジュール（読み取り専用・変更なし）**: `JapanTaxLaw/TreatyDeduction.lean`（本体）、`JapanTaxLaw/TreatyDeductionSpec.lean`、`JapanTaxLaw/TreatyDeductionTests.lean`（いずれも読み取りのみ。import 先 `JapanTaxLaw/TaxFinance` も読み取りのみ）。
+- **一次資料（pinned・改変禁止）**: `data/raw/329AC0000000194_20010106_411AC0000000160.law.json`
+  - law_id `329AC0000000194` / revision `329AC0000000194_20010106_411AC0000000160`（昭和二十九年法律第百九十四号、改正施行 2001-01-06。「…相続税法の特例等に関する法律」）。
+  - 対象: `law_full_text` の `Article` のうち `attr.Num = "2"`（第二条）**1 件のみ**。
+- **独立抽出方法**: `scripts/ci/transcription_audit.py` のロジックを呼ばず、自前の再帰 walker で leaf 文字列を document-order に連結。`re.sub(r"[\s\u3000]+", "", …)` の自前正規化器で U+3000 除去・needle 照合。needle は CI `checks()` cycle-74 エントリの実文字列を実装ファイルから直接読み出して使用（STAGING 経由なし）。Lean は一時ファイルを承認済み一時ディレクトリに作成し `lake env lean`（**exit code 0**）で実行、監査後に削除済み。
+
+### BS-1. 独立抽出：原文の計算構造（pinned art.2）
+
+自前 walker が検出した `Article` は **7 件**（本則 4 条＋附則 3 条）。`Num = "2"` は **1 件のみ**。その leaf 構造は以下の 3 つ:
+
+| leaf | tag | 原文文字列 |
+|---|---|---|
+| 0 | ArticleCaption | `（控除の特例）` |
+| 1 | ArticleTitle | `第二条` |
+| 2 | ParagraphSentence/Sentence | `日米相続税条約第四条の規定による特定の控除は、これに相当する相続税法の規定による控除の額に同条に規定する割合を乗じて得た額に相当する額により行なうものとする。` |
+
+- 連結生文字列 = **89 文字**、自前正規化後も **89 文字**。**U+3000 = 0**（doc-comment の「flat/normalized leaf text 89 chars, U+3000 count 0」を裏取り）。条文本文（leaf 2）は **79 文字**で、doc-comment の「原文逐語」と完全一致。
+- **計算構造の独立抽出**: 文は「[相当する相続税法の規定による控除の額] に [同条に規定する割合] を乗じて得た額 に相当する額」という 2 項構造。すなわち `控除額 = 相当国内控除額 × 条約第四条の割合`。実装 `treatyDeduction = internalDeduction * ratioNum / ratioDen` はこの構造の算術化であり、**乗算の対象・順序（国内控除額に割合を乗じる）は一致**。
+- **割合数値の不在を確認**: 正規化原文（89 文字）に対し `百分` / `千分` / `万分` / `零点` / `数字` / Arabic 数字 `0`–`9` は **すべて 0 回**。`割合` は 1 回現れるが数値を伴わない（`同条に規定する割合` のみ）。漢数字も `二`（第二条・第四条）と `四`（第四条）のみで、これらは条番号・条約名の一部であり割合値ではない。→ **本条に割合の数値は存在せず、`ratioNum` / `ratioDen` のパラメータ化は正当**。割合の定義は「同条」＝条約第四条に委ねられ、pinned 原文（実施法）には条約本文も割合値も含まれない（下記 U-1）。
+
+### BS-2. needle 健全性（CI `checks()` 実文字列 2 本）
+
+`scripts/ci/transcription_audit.py:2132-2136` の cycle-74 エントリ（`kind = "file"`、`art = None`）に埋め込まれた実文字列 2 本を、自前で平坦化・正規化した pinned 原文に対して照合した（手打ちせず、STAGING の申告も信じていない）:
+
+| # | CI `checks()` 実文字列 | 長さ | U+3000 | 自前正規化 art.2 で FOUND | 自前正規化・法令全文で FOUND |
+|---|---|---:|---:|---|---|
+| 1 | `これに相当する相続税法の規定による控除の額に同条に規定する割合を乗じて得た額` | 38 | 0 | ✅（count 1） | ✅ |
+| 2 | `控除の特例）第二条` | 9 | 0 | ✅（count 1） | ✅ |
+
+- **needle 結果: 2/2 FOUND、needle 内 U+3000 = 0（合格）。**
+- needle 1 は計算構造の中核（国内控除額 × 割合）をそのまま押さえている。needle 2 は ArticleCaption 末尾 `（控除の特例）` と ArticleTitle `第二条` をまたぐ。locator は `"file"`（法令全文 flatten）なので document-order 連結で連続し、art.2 スコープ・法令全文の双方で FOUND。
+- 補足: 法令全文の生文字列には U+3000 が **7 箇所**存在するが、art.2 内および 2 本の needle 内には **0**。自前正規化は `[\s\u3000]+` を除去するため照合は U+3000 の有無に左右されない。needle は転写忠実性の検査のみに用いられ、モデルの法的正しさを保証するものではない（下記 B-6 / U-1〜U-3）。
+
+### BS-3. 反例探索
+
+一時 Lean ファイルから `lake env lean`（**exit code 0**）で `#eval` を実行し、さらに `example … := by decide`／名前付き `theorem adv_* := by decide` で kernel 確認した:
+
+| (internalDeduction, ratioNum, ratioDen) | 期待 | `#eval` | `by decide` | 判定 |
+|---|---:|---:|---|---|
+| (1000, 1, 2) | 500 | 500 | ✅ | 一致 |
+| (1000, 3, 4) | 750 | 750 | ✅ | 一致 |
+| (1000, 1, 0) | 0 | 0 | ✅ | 一致 |
+| (500, 2, 3) | 333 | 333 | ✅ | 一致 |
+
+- 1/2・3/4 は「国内控除額 × 割合」の通常需要例。den=0 は原文に定義のない防御的総関数化（B-3）。(500,2,3)=333 は `1000/3 = 333`（Nat 切捨て）で、Spec の独立定式 `specDeduction` と一致（`agreeTreatyDeduction = true` も `by decide` で確認）。
+- **反例探索で検出された原文・Lean 間の矛盾: 0 件（ゼロ）。**
+- 未形式化の攻撃対象（条約側の実際の割合値・相当国内控除の特定・端数処理の法的規則）は本モデルに存在しないため反例探索の対象外（下記 U-1〜U-3）。
+
+### BS-4. 公理監査（`#print axioms`）
+
+- 一時 Lean ファイルを承認済み一時ディレクトリに作成し、`treatyDeduction` / `specDeduction` / `agreeTreatyDeduction` の 3 `def` と本レビューで追加した 5 つの名前付き定理（`adv_treaty_1000_1_2` / `adv_treaty_1000_3_4` / `adv_treaty_1000_1_0` / `adv_treaty_500_2_3` / `adv_spec_agree`）計 **8 宣言**について `#print axioms` を実行（`lake env lean`、**exit code 0**）。監査後、一時ファイル・一時スクリプトは**削除済み**。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 8（すべて `does not depend on any axioms`） |
+| `Classical.choice` / `choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+
+- 補足: `scripts/ci/generate_axiom_probe.py` は `theorem` / `lemma` 宣言のみを走査するため、`def` / `example` のみのモジュールは CI 公理プローブの直接対象外となる。本レビューでは既存 `def` も直接 `#print axioms` に掛けて確認した（Batch BO/BP/BQ/BR と同趣旨）。
+- **禁止公理（choice / sorryAx / Quot.sound / propext）はいずれも 0 件。公理監査は合格。**
+
+### BS-5. 分類（CONFIRMED / BY-DESIGN / UNRESOLVED）
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **6** |
+| **UNRESOLVED** | **3** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 欠陥件数を手柄にしない。
+
+**CONFIRMED（0 件）**: 原文 art.2 の構造「相当する相続税法の規定による控除の額 × 同条に規定する割合」↔ `internalDeduction * ratioNum / ratioDen` の一致、needle 2/2 FOUND（U+3000 = 0）、反例 4 点、公理監査 8 宣言すべてが合格。誤訳・桁違い・needle 不一致・禁止公理のいずれも検出されなかった。
+
+**BY-DESIGN（6 件）**:
+
+- **B-1 bounded L4 モデル（算術関係のみ）**: 本モデルは art.2 の「相当国内控除額 × 条約第四条の割合」という算術関係のみを形式化する。控除の適用可否・申告手続・相続税法上の控除の種類等は NOT MODELLED と doc-comment に明記。法的判断を提供しない設計であり、反映漏れではない。
+- **B-2 割合のパラメータ化は正当**: BS-1 のとおり本条に割合の数値は無く、数値は「同条」＝条約第四条（別レイヤー／backlog）に規定される。したがって `ratioNum` / `ratioDen` をパラメータとする設計は原文に忠実であり、数値をハードコードしない判断は妥当（BY-DESIGN）。未形式化の実数値は U-1 で保留。
+- **B-3 `den = 0 → 0` の総関数化**: 原文は割合を「同条に規定する割合」としており分母 0 の扱いを定めない。実装は `if ratioDen = 0 then 0` と防御的に総関数化し、Spec も同一（`agreeTreatyDeduction = true`）。Spec/Tests に明示済みで、原文と矛盾する振る舞いではない。
+- **B-4 入力は caller-established**: `internalDeduction`（相当国内控除額）・`ratioNum` / `ratioDen`（条約割合）は呼び出し側が与える値であり、本 `def` は与えられた値への乗算・除算のみを行う。「相当する相続税法の規定」の特定や控除額の算定は行わない（U-2）。
+- **B-5 Nat 除算による端数近似**: doc-comment に「割合の端数処理は自然数除算（切捨て）で近似」と明記。(500,2,3)=333 はこの近似の帰結で Spec と一致。原文に端数規則が無いため、`floor` を採用したモデル選択は透明だが法的正当性は pinned 原文のみでは決定不能（U-3）。
+- **B-6 needle の caption/title 横断と CI 公理プローブの走査対象外**: needle 2 は caption 末尾と title をまたぐが、locator `"file"` の document-order 連結で 2/2 FOUND（BS-2）。また `generate_axiom_probe.py` は定理宣言のみを走査するため `def` / `example` のみの本モジュールは直接対象外だが、本レビューが直接 `#print axioms` で補完済み（BS-4）。いずれも運用上の境界であり欠陥ではない。
+
+**UNRESOLVED（3 件）**:
+
+- **U-1 条約第四条の実際の割合数値の未形式化（cross-law relation・§5）**: 原文は「同条に規定する割合」と条約第四条を参照するのみで、割合の数値は本 pinned 原文（実施法）に存在しない（BS-1 で独立確認）。条約本文は別レイヤーで本 JSON に含まれず、モデルも NOT MODELLED と明記。**割合の実数値は pinned 原文のみでは決定不能であり、人間の法律専門家による確認を要する。**
+- **U-2 「相当する相続税法の規定」の特定・控除額算定の未形式化（cross-law relation・§5）**: 原文は「これに相当する相続税法の規定による控除の額」と別法（相続税法）を参照するが、どの規定が相当するか・その控除額をどう算定するかの定義は本 pinned 原文にない。モデルは `internalDeduction` を caller-established の入力として受け取るのみで、この法令間対応関係は NOT MODELLED。**相当国内控除の特定は pinned 原文のみでは決定不能であり、人間の法律専門家による確認を要する。**
+- **U-3 端数処理（floor）の法的正当性**: 原文は乗算のみを述べ、端数処理を定めない。モデルは Nat 除算（切捨て）で近似し doc-comment に明記するが（B-5）、相続税法上の端数処理が切捨てであるかは pinned 原文のみでは決定不能。**人間の法律専門家による確認を要する**（過去バッチ G/I と同趣旨）。
+
+### BS-6. 最終報告・結論
+
+- pinned revision `329AC0000000194_20010106_411AC0000000160` の art.2 から独立抽出した構造は「相当国内控除額 × 条約第四条の割合」**1 箇所**のみ。89 文字 / U+3000 = 0、割合数値の不在を確認。`treatyDeduction` の算術構造と一致。**CONFIRMED = 0（ゼロ）**。
+- **CONFIRMED: 0 件 / BY-DESIGN: 6 件 / UNRESOLVED: 3 件。**
+- **needle 健全性: CI `checks()` 実文字列 2 本、自前正規化で 2/2 FOUND、needle 内 U+3000 = 0。**
+- **反例: `treatyDeduction(1000,1,2)=500` / `(1000,3,4)=750` / `(1000,1,0)=0` / `(500,2,3)=333`（`#eval` + `by decide`、矛盾 0）。**
+- **公理: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件（8 宣言すべて axiom-free、exit code 0）。一時ファイルは削除済み。**
+- **条約本文の割合数値・相当国内控除の特定の未形式化を確認**（U-1 / U-2、cross-law relation §5。いずれも doc-comment に明記）。
+- 追記後レビュー件数: **69 件**（既存 68 件 ＋ 本 BS 1 件。coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` に `## Batch BS review (2026-11-22)` が整合）。既存セクション（Batch AH〜BR 含む 68 件）はすべて保持。
+- Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。commit / push / merge / ブランチ切替は行っていない。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・計算構造抽出・needle 健全性・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
