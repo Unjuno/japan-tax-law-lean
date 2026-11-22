@@ -8583,3 +8583,107 @@ CI の実文字列は `scripts/ci/transcription_audit.py` の `checks()` cycle-7
 - Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。commit / push / merge / ブランチ切替は行っていない。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・指定組織抽出・needle 健全性・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+## Batch BR review (2026-11-22) — 税理士法人に関する省令 art.3 / ClosureFilingDeadline.lean（cycle-73 独立原文照合）
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。担当者の STAGING／doc-comment／CI `checks()` を**信じず**、pinned raw JSON を自前の再帰 walker で直接走査して得た機械的照合をもって判定した。commit / push / merge / ブランチ切替は行っていない。
+- **対象モジュール（読み取り専用・変更なし）**: `JapanTaxLaw/ClosureFilingDeadline.lean`（本体のみ。import 先 `JapanTaxLaw/TaxFinance` も読み取りのみ）。
+- **一次資料（pinned・改変禁止）**: `data/raw/346M50000040057_20120401_424M60000040035.law.json`
+  - law_id `346M50000040057` / revision `346M50000040057_20120401_424M60000040035`（昭和四十六年大蔵省令第五十七号、改正施行 2012-04-01）。
+  - 対象: `law_full_text` の `Article` のうち `attr.Num = "3"` のみ。
+- **独立抽出方法**: `scripts/ci/transcription_audit.py` のロジックを一切呼ばず、`children` のみを辿る自前 walker で leaf 文字列を document-order に連結。`re.sub(r"[\s\u3000]+", "", …)` の自前正規化器で U+3000 除去・needle 照合を行った。lean 側は一時ファイルを承認済み一時ディレクトリに作成し `lake env lean`（**exit code 0**）で実行、監査後に削除済み。
+
+### BR-1. 独立抽出：期限「一月以前」
+
+自前 walker が検出した `Article` は **4 件**（Num: 1, 2, 3, 4）。うち `Num = "3"` は **1 件のみ**。その leaf 構造は以下の 3 つ:
+
+| leaf | tag | 原文文字列 |
+|---|---|---|
+| 0 | ArticleCaption | `（業務を廃止する際の届出）` |
+| 1 | ArticleTitle | `第三条` |
+| 2 | Paragraph/ParagraphSentence/Sentence | `法第十条第七項の規定による届出は、業務を廃止しようとする日の一月以前に、業務の廃止の年月日及び理由を記載した書面でしなければならない。` |
+
+- 連結生文字列 = **83 文字**、正規化後も **83 文字**。**U+3000 = 0**（doc-comment の「flat/normalized leaf text 83 chars, U+3000 count 0」を裏取り）。
+- **期限の独立抽出**: 正規化原文に `一月以前` は **1 回**のみ出現。抽出された期限句は `業務を廃止しようとする日の一月以前`（`…以前` パターンで機械抽出）。すなわち期限 = 「廃止日の**一月以前**（廃止日の 1 か月前まで）」。
+- **照合結果**: 原文の期限「一月以前」↔ Lean `noticeDays = 30` / `meetsDeadline(daysBefore) = daysBefore >= 30`。**期限の方向・界限（1 か月前まで）は一致**。30 日は「一月」の簡易表現であり、暦月の日数差（28/29/30/31 日）は NOT MODELLED（下記 B-2 / U-1）。原文逐語「一月以前」と実装 30 日の対応は doc-comment に明示済み。
+
+### BR-2. needle 健全性（CI `checks()` の実文字列 2 本）
+
+CI の実文字列は `scripts/ci/transcription_audit.py` の `checks()` cycle-73 エントリ（行 2072–2076、locator は `"file"`＝法令全文 flatten）から**直接転記**したものを使用（STAGING 経由ではない）:
+
+| # | CI `checks()` 実文字列 | 長さ | U+3000 含有 | 自前正規化 art.3 で FOUND | 自前正規化・法令全文で FOUND |
+|---|---|---:|---:|---|---|
+| 1 | `業務を廃止しようとする日の一月以前に` | 18 | 0 | ✅ | ✅ |
+| 2 | `業務を廃止する際の届出）第三条` | 15 | 0 | ✅ | ✅ |
+
+- **needle 結果: 2/2 FOUND、needle 内 U+3000 = 0（合格）。**
+- needle 2 は ArticleCaption 末尾 `…届出）` と ArticleTitle `第三条` をまたぐ。自前 walker の document-order 連結で連続し、art.3 スコープ・法令全文の双方で FOUND（Batch BQ と同型）。
+- 補足: 法令全文の生文字列には U+3000 が **6 箇所**存在するが、art.3 内および 2 本の needle 内には **0**。自前正規化は `[\s\u3000]+` を除去するため、needle 照合は U+3000 の有無に左右されない。needle は転写忠実性の検査のみに用いられ、期限モデルの法的正しさを保証するものではない（下記 B-4）。
+
+### BR-3. 反例探索（境界値）
+
+一時 Lean ファイルから `lake env lean`（**exit code 0**）で `#eval` を実行し、さらに `example … := by decide`／名前付き `theorem adv_* := by decide` で kernel 確認した:
+
+| daysBefore | 意味 | `meetsDeadline` | 期待 | 判定 |
+|---:|---|---|---|---|
+| 29 | 期限（30 日）を 1 日下回る | `false` | `false` | 一致 |
+| 30 | 期限ちょうど（境界） | `true` | `true` | 一致 |
+| 31 | 期限を 1 日上回る | `true` | `true` | 一致 |
+
+- `#eval noticeDays` = **30**、`#eval meetsDeadline 29` = **false**、`#eval meetsDeadline 30` = **true**、`#eval meetsDeadline 31` = **true**。
+- 所属モジュールの `example` 4 本（noticeDays=30 / 29=false / 30=true / 31=true）に加え、本レビューで追加した `adv_meets_29/30/31` の 3 本もすべて `by decide` で通った。
+- **反例探索で検出された原文・Lean 間の矛盾: 0 件（ゼロ）。** 境界の 1 日手前を true にする誤り、ちょうど 30 日を false にする誤り、上限を誤る誤りはいずれも発生していない。
+- 未形式化の攻撃対象（書面記載事項・暦月計算）は本モデルに存在しないため、反例探索の対象外（下記 U-1 / U-2）。
+
+### BR-4. 公理監査（`#print axioms`）
+
+- 一時 Lean ファイルを承認済み一時ディレクトリに作成し、2 つの既存 `def`（`noticeDays` / `meetsDeadline`）と本レビューで追加した 3 つの名前付き定理（`adv_meets_29/30/31`）計 **5 宣言**について `#print axioms` を実行（`lake env lean`、**exit code 0**）。監査後、一時ファイル・一時スクリプトは**削除済み**。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 5（すべて `does not depend on any axioms`） |
+| `Classical.choice` / `choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+
+- 補足: `scripts/ci/generate_axiom_probe.py` は `theorem` / `lemma` 宣言のみを走査するため、本モジュールのように `def` と `example` のみの場合は CI 公理プローブの直接対象外となる。これは設計上の範囲であり、本レビューでは既存 `def` も直接 `#print axioms` に掛けて確認した（Batch BO / BP / BQ と同趣旨）。
+- **禁止公理（choice / sorryAx / Quot.sound / propext）はいずれも 0 件。公理監査は合格。**
+
+### BR-5. 分類（CONFIRMED / BY-DESIGN / UNRESOLVED）
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **5** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 欠陥件数を手柄にしない。
+
+**CONFIRMED（0 件）**: 原文「一月以前」= 期限 1 か月前と `noticeDays = 30` / `meetsDeadline(daysBefore) = daysBefore >= 30` の一致、needle 2/2 FOUND（U+3000 = 0）、境界 3 点（29/30/31）すべて、公理監査 5 宣言すべてが合格。誤訳・期限の取り違え・needle 不一致・禁止公理のいずれも検出されなかった。
+
+**BY-DESIGN（5 件）**:
+
+- **B-1 bounded L4 モデル（期限のみ）**: 本モデルは art.3 の「届出は廃止日の一月以前にしなければならない」という期限事実のみを形式化する。**書面記載事項（業務の廃止の年月日及び理由）・法第十条第七項の届出の詳細は NOT MODELLED** と doc-comment に明記。法的判断を提供しない設計であり、反映漏れではない（下記 U-2）。
+- **B-2 30 日近似 = 「一月」の簡易表現**: `noticeDays = 30` は原文「一月」を 30 日で近似した簡易表現であると doc-comment に明記。**暦月の日数差（28/29/30/31 日の差）は NOT MODELLED**。原文の「一月」を厳密な暦月として扱わない設計判断であり、モデル値の誤りではない（下記 U-1）。
+- **B-3 期限判定は Bool・入力は caller-established**: `meetsDeadline(daysBefore)` は残り日数 `daysBefore`（Nat）を入力として `>= 30` を返すのみ。「書面でしなければならない」という形式要件や、日付から残り日数を算出する処理は行わない。`daysBefore` は呼び出し側で与えられる値であり、内部符号化である。境界の振る舞い（BR-3）に矛盾を生まない。
+- **B-4 needle 2 の caption/title 横断**: `業務を廃止する際の届出）第三条` は ArticleCaption 末尾と ArticleTitle をまたぐ。CI locator は `"file"`（法令全文 flatten）なので document-order 連結で連続し 2/2 FOUND を維持（BR-2）。needle は転写忠実性の検査のみに用いられ、期限判定の正しさは `#eval` / `by decide`（BR-3）が担保する。
+- **B-5 CI 公理プローブの走査対象外**: `def` / `example` のみのモジュール構成上、CI の定理走査には掛からない。設計上の範囲であり、本レビューが直接監査して補完済み（BR-4）。
+
+**UNRESOLVED（2 件）**:
+
+- **U-1 暦月「一月」の厳密な日数計算の未形式化**: 原文の期限は「一月以前」という**暦月**表現である。廃止日によって 1 か月前の日数は 28/29/30/31 日と異なり（例: 3 月 31 日の 1 か月前は 2 月 28/29 日）、30 日近似とは一致しない場合がある。本モデルは 30 日で近似し doc-comment に NOT MODELLED と明記するが、**「一月」を法的に何日と解すべきか（期間計算の一般則等、pinned 原文外の取扱い）は本 pinned 原文のみでは決定不能**。人間の法律専門家による確認を要する。
+- **U-2 書面記載事項・法第十条第七項届出の詳細の未形式化**: 原文は「業務の廃止の年月日及び理由を記載した書面でしなければならない」と記載事項・書面形式を定め、さらに「法第十条第七項の規定による届出」を参照する。これら記載事項の具体的内容・届出の詳細手続は本 pinned 原文に定義がなく、本モデルも NOT MODELLED と明記。**pinned 原文のみでは決定不能であり、人間の法律専門家による確認を要する。**
+
+### BR-6. 最終報告・結論
+
+- pinned revision `346M50000040057_20120401_424M60000040035` の art.3 から独立抽出した期限は **「一月以前」（廃止日の 1 か月前まで）1 箇所**のみであり、83 文字 / U+3000 = 0 を確認。`noticeDays = 30` / `meetsDeadline(daysBefore) = daysBefore >= 30` と一致（30 日は BY-DESIGN の簡易表現）。**CONFIRMED = 0（ゼロ）**。
+- **CONFIRMED: 0 件 / BY-DESIGN: 5 件 / UNRESOLVED: 2 件。**
+- **needle 健全性: CI `checks()` 実文字列 2 本、自前正規化で 2/2 FOUND、needle 内 U+3000 = 0。**
+- **反例: `meetsDeadline(29)=false` / `(30)=true` / `(31)=true`（`#eval` + `by decide`、反例 0）。**
+- **公理: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件（5 宣言すべて axiom-free、exit code 0）。一時ファイルは削除済み。**
+- **書面記載事項・暦月計算の未形式化を確認**（B-1 / B-2 / U-1 / U-2、いずれも doc-comment に明記）。
+- 追記後レビュー件数: **68 件**（既存 67 件 ＋ 本 BR 1 件。coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` に `## Batch BR review …` が整合）。既存セクションはすべて保持。
+- Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。commit / push / merge / ブランチ切替は行っていない。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・期限抽出・needle 健全性・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。

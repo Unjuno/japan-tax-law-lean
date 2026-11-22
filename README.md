@@ -858,6 +858,9 @@ JapanTaxLaw/ElectronicSystemDesignationTests.lean # 同上 退行テスト
 JapanTaxLaw/ClosureFilingDeadline.lean          # 廃止届出期限 1月前（省令 art.3）L4 モデル
 JapanTaxLaw/ClosureFilingDeadlineSpec.lean      # 同上 独立定式
 JapanTaxLaw/ClosureFilingDeadlineTests.lean     # 同上 退行テスト
+JapanTaxLaw/TreatyDeduction.lean                # 日米相続税条約控除 国内控除×割合（法律 art.2）L4 モデル
+JapanTaxLaw/TreatyDeductionSpec.lean            # 同上 独立定式
+JapanTaxLaw/TreatyDeductionTests.lean           # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト
