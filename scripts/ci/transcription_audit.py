@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # CustomsTariffArt8InvestigationDeadline.lean - NORM|8e7f2e77... (investigation deadline REFERENCE, law 143AC0000000054)
+    # Needle is in MainProvision Article 第八条 (Paragraph 34, ParagraphSentence);
+    # find_article_text(...,"第八条") returns that article (len 6919) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.8 investigation deadline - CustomsTariffArt8InvestigationDeadline.lean",
+           "143AC0000000054",
+           "article", "第八条",
+           ["\u524d\u9805\u306e\u8abf\u67fb\u306f\u3001\u7b2c\u4e09\u5341\u4e8c\u9805\u306e\u898f\u5b9a\u306b\u3088\u308b\u8acb\u6c42\u304c\u3042\u3064\u305f\u65e5\u304b\u3089\u4e00\u5e74\u4ee5\u5185\u306b\u7d42\u4e86\u3059\u308b\u3082\u306e\u3068\u3059\u308b\u3002"])
+
     # CustomsTariffArt7ExtensionPara17.lean - NORM|28020c69... (para-17 extension CONDITION, law 143AC0000000054)
     # Needle is in MainProvision Article 第七条 (Paragraph 27, Item 1, Column 1, Sentence);
     # find_article_text(...,"第七条") returns that article (len 5989) with needle -
@@ -2745,6 +2754,13 @@ def checks():
            "404AC0000000015",
            "article", "第九条",
            ["課税事業年度が一年に満たない法人に対する前項の規定の適用については、同項中「年四百万円」とあるのは、「四百万円を十二で除し、これに当該課税事業年度の月数を乗じて計算した金額」とする。"])
+
+
+    # otorinc ordinance art. 7 — AdultAgeThreshold.lean
+    yield ("成年者年齢政令 art. 7（成年者は年齢二十歳以上の人口）↔ AdultAgeThreshold.lean (20 inclusive)",
+           "347M50000008013",
+           "article", "第七条",
+           ["前二項の成年者数は、官報で公示された最近の国勢調査の結果による年齢二十歳以上の人口をいう。"])
 
 
 def main() -> int:
