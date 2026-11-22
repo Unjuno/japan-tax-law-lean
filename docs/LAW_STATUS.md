@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 117
+- with >=1 pinned literal check (semantic model): 118
 - with recorded human legal review: 0
 
 ## All laws
@@ -100,7 +100,7 @@ a completion flag.
 | `337M50000040030` | 揮発油税法施行規則 | 337M50000040030_20191216_501M60000040036 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `337M50000040031` | 国税徴収法施行規則 | 337M50000040031_20260521_506M60000040023 | CurrentEnforced | YES | ok | 32 | NO (0) | NO |
 | `337AC0000000144` | 外国居住者等の所得に対する相互主義による所得税等の非課税等に関する法律 | 337AC0000000144_20260401_508AC0000000002 | CurrentEnforced | YES | ok | 113 | NO (0) | NO |
-| `337CO0000000227` | 外国居住者等の所得に対する相互主義による所得税等の非課税等に関する法律施行令 | 337CO0000000227_20260401_508CO0000000083 | CurrentEnforced | YES | ok | 122 | NO (0) | NO |
+| `337CO0000000227` | 外国居住者等の所得に対する相互主義による所得税等の非課税等に関する法律施行令 | 337CO0000000227_20260401_508CO0000000083 | CurrentEnforced | YES | ok | 122 | YES (1) | NO |
 | `337M50000008017` | 普通交付税に関する省令 | 337M50000008017_20260724_508M60000008092 | CurrentEnforced | YES | ok | 244 | YES (2) | NO |
 | `338CO0000000122` | 外貨公債の発行に関する法律に基づく外貨債の利子の非課税等に関する規定の適用を受けない者の | 338CO0000000122_20171001_429CO0000000106 | CurrentEnforced | YES | ok | 9 | NO (0) | NO |
 | `338CO0000000275` | 明治三十二年発行の英貨公債を償還する等のため発行する外貨公債に関する特別措置法に基づく外 | 338CO0000000275_20171001_429CO0000000106 | CurrentEnforced | YES | ok | 8 | NO (0) | NO |
@@ -115,7 +115,7 @@ a completion flag.
 | `340M50000040012` | 法人税法施行規則 | 340M50000040012_20261001_505M60000040013 | CurrentEnforced | YES | ok | 874 | YES (1) | NO |
 | `340M50010000013` | とうもろこし等の関税割当制度に関する省令 | 340M50010000013_20220401_504M60000200005 | CurrentEnforced | YES | ok | 12 | NO (0) | NO |
 | `340M50000040049` | 国税質問検査章規則 | 340M50000040049_20260101_506M60000040048 | CurrentEnforced | YES | ok | 56 | NO (0) | NO |
-| `340AC0000000156` | 石油ガス税法 | 340AC0000000156_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 76 | YES (1) | NO |
+| `340AC0000000156` | 石油ガス税法 | 340AC0000000156_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 76 | YES (2) | NO |
 | `340AC0000000157` | 石油ガス譲与税法 | 340AC0000000157_20090401_421AC0000000009 | CurrentEnforced | YES | ok | 29 | YES (1) | NO |
 | `341CO0000000005` | 石油ガス税法施行令 | 341CO0000000005_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 42 | YES (1) | NO |
 | `341M50000040004` | 石油ガス税法施行規則 | 341M50000040004_20250401_507M60000040023 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 192
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 190

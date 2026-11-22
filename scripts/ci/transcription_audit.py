@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # CustomsTariffArt7PrevParagraphReading.lean - NORM|f8c7e9bb... (prev-paragraph 準用 READING, law 143AC0000000054)
+    # Needle is in MainProvision Article 第七条 (Paragraph 25, ParagraphSentence);
+    # find_article_text(...,"第七条") returns that article (len 5989) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.7 prev paragraph reading - CustomsTariffArt7PrevParagraphReading.lean",
+           "143AC0000000054",
+           "article", "第七条",
+           ["\u7b2c\u516b\u9805\u3001\u7b2c\u4e5d\u9805\u53ca\u3073\u7b2c\u4e8c\u5341\u9805\u306e\u898f\u5b9a\u306f\u3001\u524d\u9805\u306e\u8abf\u67fb\u304c\u958b\u59cb\u3055\u308c\u305f\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
     # CustomsTariffArt7ReadingApplication.lean - NORM|bfcac1c4... (mutatis-mutandis 準用 READING, law 143AC0000000054)
     # Needle is in MainProvision Article 第七条 (Paragraph 21, ParagraphSentence);
     # find_article_text(...,"第七条") returns that article (len 5989) with needle -
@@ -2012,6 +2021,12 @@ def checks():
            "file", None,
            ["政令で定める用途は、原料用又は熱源用とする", "特定用途免税の範囲）第七条"])
 
+    # ForeignDesignation — cycle-62
+    yield ("ForeignDesignation.lean",
+           "337CO0000000227",
+           "file", None,
+           ["政令で指定する外国は、台湾とする", "外国の指定）第二条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2681,6 +2696,20 @@ def checks():
            "346CO0000000257",
            "article", "第十七条",
            ["当該承認一件ごとに十二万七百円（電子申請の場合にあつては、十一万千八百円）"])
+
+
+    # 石油ガス税法 art. 10 — PetroleumGasSenRate.lean
+    yield ("石油ガス税法 art. 10（税率一キログラムにつき十七円五十銭）↔ PetroleumGasSenRate.lean (17 yen, 50 sen)",
+           "340AC0000000156",
+           "article", "第十条",
+           ["石油ガス税の税率は、課税石油ガス一キログラムにつき、十七円五十銭とする。"])
+
+
+    # 地方法人税法 art. 24_3 — LocalCorpRate93_907.lean
+    yield ("地方法人税法 art. 24の3（税率九百七分の九十三）↔ LocalCorpRate93_907.lean (93/907)",
+           "426AC0000000011",
+           "article", "第二十四条の三",
+           ["国際最低課税額等に係る特定基準法人税額に対する地方法人税の額は、各課税対象会計年度の課税標準国際最低課税法人税額に九百七分の九十三の税率を乗じて計算した金額とする。"])
 
 
 def main() -> int:

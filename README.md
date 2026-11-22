@@ -822,6 +822,9 @@ JapanTaxLaw/AntiDumpingRate372Tests.lean          # 同上 退行テスト
 JapanTaxLaw/SpecialUseExemption.lean            # 特定用途免税の範囲 原料用/熱源用（政令 art.7）L4 モデル
 JapanTaxLaw/SpecialUseExemptionSpec.lean        # 同上 独立定式
 JapanTaxLaw/SpecialUseExemptionTests.lean       # 同上 退行テスト
+JapanTaxLaw/ForeignDesignation.lean            # 指定外国 台湾（政令 art.2）L4 モデル
+JapanTaxLaw/ForeignDesignationSpec.lean        # 同上 独立定式
+JapanTaxLaw/ForeignDesignationTests.lean       # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト

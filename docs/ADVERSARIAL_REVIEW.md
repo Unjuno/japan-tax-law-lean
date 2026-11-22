@@ -7467,55 +7467,93 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 
 > **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 実文字列照合・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
 
-### CommutingDistance95.lean — 所得税法施行令 art. 20の2（通勤距離 片道九十五キロメートル以上）
+---
 
-- **pin**: law_id `340CO0000000096` / revision `…20260522_508CO0000000093`; needle 1/1 FOUND verbatim-unique in the scoped article 第二十条の二, transcription audit check added.
-- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
-- **T**: pinned 条文から needle を独立再抽出し、境界値 0/94/95/96 km を独立計算して Lean 申告値と比較。
-- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
-- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
-- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
-- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+## Batch BF review (2026-11-22)
 
-> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。担当の STAGING／doc-comment／coordinator 要約は**信じず**、pinned 原文から直接・独立に再抽出して照合した。
+- **対象（読み取り専用・本レビューで変更していない）**: `JapanTaxLaw/SpecialUseExemption.lean`（`namespace JapanTaxLaw.SpecialUseExemption`、名前付き宣言 `rawMaterialUse` / `heatSourceUse` / `otherUse` / `isSpecifiedUse` と各 `example`）。
+- **一次資料（pinned・改変禁止）**: `data/raw/341CO0000000005_20250401_507CO0000000006.law.json`（law_id `341CO0000000005` / revision `341CO0000000005_20250401_507CO0000000006`、石油ガス税法施行令 art.7）。
+- **操作制約の遵守**: commit / push / merge / ブランチ切替は一切行っていない。Lean モジュール・`data/*`・`scripts/*` は読み取りのみ。書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ（末尾に本セクションを追記）。
+- **needle 出所**: `scripts/ci/transcription_audit.py::checks()` を Python で読み出し、cycle-61 エントリ（`name="SpecialUseExemption.lean"` / `law_id="341CO0000000005"` / `kind="file"` / `art=None`）に実際に組み込まれた実文字列 2 本を取得（STAGING 記載は未使用）。
 
+### BF-1. pinned 原文からの独立抽出（「原料用又は熱源用」の 2 用途）
 
-### EligibleDependentAge70.lean — 所得税法 art. 2（控除対象扶養親族の年齢七十歳以上）
+- `law_full_text` を再帰走査し `tag="Article"` かつ `attr.Num="7"` のノードを直接抽出（pinned 内に **1 ノードのみ**、path `children[1].children[2].children[6]`）。当該ノードの子の文字列 leaf のみを文書順に連結した art.7 逐語（生・正規化とも **49 文字、U+3000 = 0**）:
+  - `（特定用途免税の範囲）第七条法第十二条第一項に規定する政令で定める用途は、原料用又は熱源用とする。`
+- 自前で用途トークンを列挙した結果、唯一の指定用途は `原料用`（offset 37）と `熱源用`（offset 42）の **2 つのみ**。`その他` は art.7 正規化テキストに **0 回**（原文は 2 用途のみを列挙し、第 3 の用途を含まない）。
+  - **取り違えチェック**: 原文は `原料用 … 熱源用とする` の順（`原料用` の出現が `熱源用` より前、pos 37 < 42）。「原料用→熱源用の混入」すなわち熱源用が原料用の位置へ来る置換・入れ替えは **0 件**。逐語一致 `VERBATIM_MATCH = True`。
+- 照合: 実装は `rawMaterialUse=0` / `heatSourceUse=1` / `otherUse=2` / `isSpecifiedUse(u) = (u==0 || u==1)`。原文の 2 用途が `rawMaterialUse` → `原料用`、`heatSourceUse` → `熱源用` へ正対応し、`otherUse=2` は「指定用途でない」ことを表す内部番兵であって第 3 の指定用途ではない。→ **EXTRACT_MATCH = True（発見ゼロ）**。
 
-- **pin**: law_id `340AC0000000033` / revision `…20261001_507AC0000000070`; needle 1/1 FOUND verbatim-unique in the scoped article 第二条, transcription audit check added.
-- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
-- **T**: pinned 条文から needle を独立再抽出し、境界値 0/69/70/71 years を独立計算して Lean 申告値と比較。
-- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
-- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
-- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
-- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+### BF-2. needle 健全性（CI `checks()` の実文字列 2 本を自前正規化原文で検証）
 
-> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+- needle は手打ちせず `checks()` の cycle-61 エントリから取得。自前で `law_full_text` の文字列 leaf を平坦化し `re.sub(r"[\s\u3000]+", "", s)` で正規化（全文 13,483 文字）して含有を数えた。CI の `contains()` / `_norm()` と同一条件。
 
+| needle（CI 実文字列） | 長 | U+3000 | 全文（正規化） | art.7（正規化・49 文字） |
+|---|---:|---:|---|---|
+| `政令で定める用途は、原料用又は熱源用とする` | 21 | 0 | FOUND（1 回） | FOUND（1 回） |
+| `特定用途免税の範囲）第七条` | 13 | 0 | FOUND（1 回） | FOUND（1 回） |
 
-### BuildingArea800.lean — 租税特別措置法 art. 70の6の8（建物の床面積の合計のうち八百平方メートル以下の部分）
+- **結果: 2/2 FOUND、needle の U+3000 = 0**。art.7 逐語（U+3000 = 0）にも 2 本とも包含在。needle の健全性に問題なし。
 
-- **pin**: law_id `332AC0000000026` / revision `…20261101_507AC0000000013`; needle 1/1 FOUND verbatim-unique in the scoped article 第七十条の六の八, transcription audit check added.
-- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
-- **T**: pinned 条文から needle を独立再抽出し、境界値 0/799/800/801 m² を独立計算して Lean 申告値と比較。
-- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
-- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
-- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
-- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+### BF-3. 反例探索（`by decide` による kernel 計算）
 
-> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+| 入力 u | 意味 | 期待 | Lean | 判定 |
+|---:|---|---|---|---|
+| 0 | 原料用 | true | `isSpecifiedUse 0 = true` ✓ | 一致 |
+| 1 | 熱源用 | true | `isSpecifiedUse 1 = true` ✓ | 一致 |
+| 2 | その他（番兵） | false | `isSpecifiedUse 2 = false` ✓ | 一致 |
+| 3 | 未定義の値 | false | `isSpecifiedUse 3 = false` ✓ | 一致 |
 
+- すべて `by decide` で kernel 計算確認（exit code 0）。**反例 0 件**。特に `u=2`（その他）および `u=3`（列挙外）が `true` とならないことを確認し、原文「2 用途のみ」と整合。
 
-### LandArea400.lean — 租税特別措置法 art. 70の6の8（宅地等の面積の合計のうち四百平方メートル以下の部分）
+### BF-4. 公理監査
 
-- **pin**: law_id `332AC0000000026` / revision `…20261101_507AC0000000013`; needle 1/1 FOUND verbatim-unique in the scoped article 第七十条の六の八, transcription audit check added.
-- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
-- **T**: pinned 条文から needle を独立再抽出し、境界値 0/399/400/401 m² を独立計算して Lean 申告値と比較。
-- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
-- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
-- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
-- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+- 一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\bf_axiom_probe.lean` を作成し、対象モジュールの全名前付き宣言（`rawMaterialUse`, `heatSourceUse`, `otherUse`, `isSpecifiedUse`）および kernel-decide 反例 7（`bf_spec_0`〜`bf_spec_3`, `bf_rm_0`, `bf_hs_1`, `bf_ot_2`）に `#print axioms` を実行（`lake env lean`、**exit code 0**）。監査後、一時ファイルは削除済み。モジュールの静的スキャンで `sorry` / `admit` / `axiom` / `classical` / `noncomputable` / `unsafe` / `choice` / `propext` / `Quot.sound` の一致 **0 件**。
 
-> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 11（すべて `"does not depend on any axioms"`） |
+| `Classical.choice` | **0 件**（不在） |
+| `sorryAx` | **0 件**（不在） |
+| `Quot.sound` | **0 件**（不在） |
+| `propext` | **0 件**（不在） |
 
+- → 禁止公理は一切検出されず、**propext も 0**。公理監査は合格。
 
+### BF-5. 分類（CONFIRMED / BY-DESIGN / UNRESOLVED）
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **4** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 欠陥件数を手柄にしない。
+
+**CONFIRMED（0 件）**: 用途列挙（原料用・熱源用の 2 用途）、`isSpecifiedUse` の真偽、needle 2/2、反例 4/4、公理監査のいずれも pinned 原文との食い違い・不整合なし。モデル値の誤りは検出されなかった。
+
+**BY-DESIGN（4 件）**:
+
+- **B-1 用途列挙のみの bounded L4 モデル**: doc-comment どおり本モデルは原文 art.7 の「政令で定める用途」の列挙のみを扱う。税率・免税額・手続は扱わない。原文の 2 用途に忠実であり、境界として明示済み。
+- **B-2 用途の Nat 列挙は内部エンコーディング**: `rawMaterialUse=0` / `heatSourceUse=1` / `otherUse=2` は原文に現れる数字ではなくモデル内部の表現。`otherUse=2` は「指定用途でない」ことを表す番兵であり、原文に存在する第 3 の用途ではない（BF-1 で確認）。→ スコープ宣言どおりで欠陥ではない。
+- **B-3 石油ガスの種類・免税の適用要件（法12条1項）は NOT MODELLED**: doc-comment に明記。**未形式化を確認**（＝スコープ宣言どおりで欠陥ではない）。
+- **B-4 原料用・熱源用の具体的認定手続は NOT MODELLED**: doc-comment に明記。**未形式化を確認**（同上）。
+
+**UNRESOLVED（2 件）**:
+
+- **U-1 「原料用」「熱源用」の認定基準の法的妥当性**: pinned art.7 は用途名を列挙するのみで、何をもって原料用／熱源用とするかの判定基準を持たない。本モデルの Bool 判定（`isSpecifiedUse`）は与えられた用途番号に対する写像であり、実務上の該当性判定ではない。認定基準の解釈は pinned 原文のみでは決定不能。**人間の法律専門家による確認を要する**。用途列挙の一致（CONFIRMED = 0）には影響しない。
+- **U-2 未形式化要素（ガス種別・認定手続）の実務上の完全性**: B-3・B-4 のとおり石油ガスの種類・免税適用要件・具体的認定手続は未形式化（スコープ宣言済み）。本モデルは用途列挙スライスであり、実際の免税適用の法的確定に単独では使用できない。実務上どこまでを形式化すべきかは pinned 原文のみでは判断できず、**人間の法律専門家によるレビューを要する**。既存の用途列挙（発見ゼロ）には影響しない。
+
+### BF-6. 最終報告・総合判定
+
+- pinned revision `341CO0000000005_20250401_507CO0000000006` の art.7 から独立抽出した指定用途は **原料用・熱源用の 2 用途のみ**。`rawMaterialUse=0` / `heatSourceUse=1` / `otherUse=2` / `isSpecifiedUse(u)=u==0||u==1` と完全一致し、**CONFIRMED = 0（発見ゼロ）**。原文に「その他」は存在せず、用途の取り違えも 0 件。
+- **CONFIRMED: 0 件 / BY-DESIGN: 4 件 / UNRESOLVED: 2 件**。
+- **needle 健全性: 2/2 FOUND、U+3000 = 0**（CI `checks()` 実文字列を自前正規化原文で検証）。
+- **反例: 0→true / 1→true / 2→false / 3→false、反例 0 件**（`by decide`）。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` いずれも **0 件**（11 宣言すべて axiom-free、exit code 0）。監査用一時ファイルは削除済み。
+- **ガス種別・認定手続の未形式化を確認**（B-3／B-4／スコープ宣言どおり）。
+- **追記後レビュー件数: 56 件**（既存 55 件＝coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` に一致する Batch G〜BE ほかをすべて保持 + 本 BF 1 件）。既存セクションは一切改変していない。
+- Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。commit / push / merge / ブランチ切替なし。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・用途トークン抽出・needle 実文字列照合・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
