@@ -2069,6 +2069,12 @@ def checks():
            "file", None,
            ["課税免除又は不均一課税をした最初の年度から五箇年度とする", "期間に係る年度）第四条"])
 
+    # ClosureFilingDeadline — cycle-73
+    yield ("ClosureFilingDeadline.lean",
+           "346M50000040057",
+           "file", None,
+           ["業務を廃止しようとする日の一月以前に", "業務を廃止する際の届出）第三条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
