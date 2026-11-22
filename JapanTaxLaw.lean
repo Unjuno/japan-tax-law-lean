@@ -827,3 +827,6 @@ import JapanTaxLaw.TotalAmountNormsTests
 import JapanTaxLaw.EquivalentAmountNorms
 import JapanTaxLaw.EquivalentAmountNormsSpec
 import JapanTaxLaw.EquivalentAmountNormsTests
+import JapanTaxLaw.AggregationNorms
+import JapanTaxLaw.AggregationNormsSpec
+import JapanTaxLaw.AggregationNormsTests
