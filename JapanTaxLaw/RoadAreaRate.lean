@@ -1,7 +1,7 @@
 import JapanTaxLaw.TaxFinance
 
 /-!
-# RoadAreaRate — 道路の面積の補正率（道路法施行令 art.3 §3）bounded L4 モデル
+# RoadAreaRate — 道路の面積の補正率（地方揮発油譲与税法施行規則 art.3 §3）bounded L4 モデル
 
 Sources (pinned):
   Law id: 331M50000002007
@@ -9,7 +9,7 @@ Sources (pinned):
   Raw snapshot: data/raw/331M50000002007_20230401_505M60000008036.law.json
   Article Num 3 (§3 table), flat/normalized leaf text 1858 chars, U+3000 count 0.
 
-原文逐語（§3 表）:
+表の内容（§3、平坦化）:
   「道路の面積は、次表の上欄に掲げる道路の種別に応じ、それぞれ下欄に掲げる率を
    乗じて補正するものとする。
     指定区間内の一般国道 〇・八 / 指定区間外の一般国道 一・〇 /

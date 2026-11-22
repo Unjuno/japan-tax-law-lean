@@ -1619,3 +1619,6 @@ import JapanTaxLaw.Members500kTests
 import JapanTaxLaw.WirePitch165nm
 import JapanTaxLaw.WirePitch165nmSpec
 import JapanTaxLaw.WirePitch165nmTests
+import JapanTaxLaw.HousingLoanCredit
+import JapanTaxLaw.HousingLoanCreditSpec
+import JapanTaxLaw.HousingLoanCreditTests

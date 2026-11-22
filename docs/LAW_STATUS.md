@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 133
+- with >=1 pinned literal check (semantic model): 134
 - with recorded human legal review: 0
 
 ## All laws
@@ -200,7 +200,7 @@ a completion flag.
 | `406CO0000000416` | 不当廉売関税等に関する政令 | 406CO0000000416_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 39 | NO (0) | NO |
 | `406CO0000000417` | 緊急関税等に関する政令 | 406CO0000000417_20090401_421CO0000000110 | CurrentEnforced | YES | ok | 18 | NO (0) | NO |
 | `406CO0000000418` | 報復関税等に関する政令 | 406CO0000000418_20010106_412CO0000000307 | CurrentEnforced | YES | ok | 4 | NO (0) | NO |
-| `407AC0000000011` | 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律 | 407AC0000000011_20200401_502AC0000000008 | CurrentEnforced | YES | ok | 128 | NO (0) | NO |
+| `407AC0000000011` | 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律 | 407AC0000000011_20200401_502AC0000000008 | CurrentEnforced | YES | ok | 128 | YES (1) | NO |
 | `407CO0000000029` | 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行令 | 407CO0000000029_20110101_422CO0000000058 | CurrentEnforced | YES | ok | 95 | YES (1) | NO |
 | `407M50000200013` | 牛及び豚のうち純粋種の繁殖用のもの並びに無税を適用する馬の証明書の発給に関する省令 | 407M50000200013_20201221_502M60000200083 | CurrentEnforced | YES | ok | 15 | NO (0) | NO |
 | `407M50000040012` | 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行規則 | 407M50000040012_20090401_421M60000040020 | CurrentEnforced | YES | ok | 45 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 224
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 228
