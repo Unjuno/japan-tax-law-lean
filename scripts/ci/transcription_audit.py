@@ -2791,6 +2791,13 @@ def checks():
            ["法別表第一第五十四号（二）に規定する政令で定める登録は、基本送信機の規模が空中線電力五百ワット以下の無線局の登録とする。"])
 
 
+    # 租税特別措置法施行令 art. 1_8 — OwnershipPercent5.lean
+    yield ("租税特別措置法施行令 art. 1の8（社外株式五パーセント以上所有）↔ OwnershipPercent5.lean (5% inclusive)",
+           "329CO0000000155",
+           "article", "第一条の八",
+           ["いずれか一方の者が他方の者の事業に係る議決権を伴う社外株式の総数の五パーセント以上の社外株式を直接又は間接に所有し、管理し、又は所持している場合"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

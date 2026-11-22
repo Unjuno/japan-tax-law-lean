@@ -1089,3 +1089,6 @@ import JapanTaxLaw.AntennaPowerCeilingTests
 import JapanTaxLaw.NoticeCopyDocument
 import JapanTaxLaw.NoticeCopyDocumentSpec
 import JapanTaxLaw.NoticeCopyDocumentTests
+import JapanTaxLaw.OwnershipPercent5
+import JapanTaxLaw.OwnershipPercent5Spec
+import JapanTaxLaw.OwnershipPercent5Tests
