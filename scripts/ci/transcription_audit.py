@@ -1310,15 +1310,6 @@ def checks():
            "article", "第八条",
            ["\u524d\u9805\u306e\u8abf\u67fb\u306f\u3001\u7b2c\u4e09\u5341\u4e8c\u9805\u306e\u898f\u5b9a\u306b\u3088\u308b\u8acb\u6c42\u304c\u3042\u3064\u305f\u65e5\u304b\u3089\u4e00\u5e74\u4ee5\u5185\u306b\u7d42\u4e86\u3059\u308b\u3082\u306e\u3068\u3059\u308b\u3002"])
 
-    # CustomsTariffArt8ExtensionPara20.lean - NORM|49816f02... (para20 extension CONDITION, law 143AC0000000054)
-    # Needle is in MainProvision Article 第八条 (Paragraph 30, Item 1, Column 1);
-    # find_article_text(...,"第八条") returns that article (len 6919) with needle -
-    # use the precise article locator. Needle literal from queue via \u escapes.
-    yield ("customs tariff art.8 extension para20 - CustomsTariffArt8ExtensionPara20.lean",
-           "143AC0000000054",
-           "article", "第八条",
-           ["\u7b2c\u4e8c\u5341\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u5ef6\u9577\u3059\u308b\u5834\u5408"])
-
     # CustomsTariffArt7ExtensionPara17.lean - NORM|28020c69... (para-17 extension CONDITION, law 143AC0000000054)
     # Needle is in MainProvision Article 第七条 (Paragraph 27, Item 1, Column 1, Sentence);
     # find_article_text(...,"第七条") returns that article (len 5989) with needle -
@@ -1372,33 +1363,6 @@ def checks():
            "143AC0000000054",
            "article", "第七条",
            ["\u524d\u9805\u306e\u8abf\u67fb\u306f\u3001\u7b2c\u4e8c\u5341\u4e5d\u9805\u306e\u898f\u5b9a\u306b\u3088\u308b\u8acb\u6c42\u304c\u3042\u3064\u305f\u65e5\u304b\u3089\u4e00\u5e74\u4ee5\u5185\u306b\u7d42\u4e86\u3059\u308b\u3082\u306e\u3068\u3059\u308b\u3002"])
-
-    # CustomsTariffArt9Delegation.lean - NORM|0487f141... (para15 residual DELEGATION, law 143AC0000000054)
-    # Needle is in MainProvision Article 第九条 (Paragraph 15, ParagraphSentence);
-    # find_article_text(...,"第九条") returns that article (len 4135) with needle -
-    # use the precise article locator. Needle literal from queue via \u escapes.
-    yield ("customs tariff art.9 delegation - CustomsTariffArt9Delegation.lean",
-           "143AC0000000054",
-           "article", "第九条",
-           ["\u524d\u5404\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u3053\u308c\u3089\u306e\u898f\u5b9a\u306e\u9069\u7528\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
-
-    # CustomsTariffArt8_2Delegation.lean - NORM|a47e5aa1... (para17 residual DELEGATION, law 143AC0000000054)
-    # Needle is in MainProvision Article 第八条の二 (Paragraph 17, ParagraphSentence);
-    # find_article_text(...,"第八条の二") returns that article (len 4324) with needle -
-    # use the precise article locator. Needle literal from queue via \u escapes.
-    yield ("customs tariff art.8-2 delegation - CustomsTariffArt8_2Delegation.lean",
-           "143AC0000000054",
-           "article", "第八条の二",
-           ["\u524d\u5404\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u7b2c\u4e00\u9805\u306e\u898f\u5b9a\u306b\u3088\u308b\u95a2\u7a0e\u306e\u9069\u7528\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
-
-    # CustomsTariffArt8AntiDumpingDelegation.lean - NORM|0187b7b5... (anti-dumping residual DELEGATION, law 143AC0000000054)
-    # Needle is in MainProvision Article 第八条 (Paragraph 37, ParagraphSentence);
-    # find_article_text(...,"第八条") returns that article (len 6919) with needle -
-    # use the precise article locator. Needle literal from queue via \u escapes.
-    yield ("customs tariff art.8 anti-dumping delegation - CustomsTariffArt8AntiDumpingDelegation.lean",
-           "143AC0000000054",
-           "article", "第八条",
-           ["\u524d\u5404\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u4e0d\u5f53\u5ec9\u58f2\u95a2\u7a0e\u306e\u9069\u7528\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
 
     # CustomsTariffArt7CountervailingDelegation.lean - NORM|e0b944b3... (countervailing duty delegation DELEGATION, law 143AC0000000054)
     # Needle is in MainProvision Article 第七条 (Paragraph 33, ParagraphSentence);
@@ -2098,18 +2062,6 @@ def checks():
            "347CO0000000057",
            "file", None,
            ["発動機を有する滑空機とする", "航空機の範囲）第二条"])
-
-    # InspectionCity — cycle-69
-    yield ("InspectionCity.lean",
-           "333CO0000000117",
-           "file", None,
-           ["第二百五十二条の十九第一項の指定都市及び総務大臣が指定する市とする", "検査を行う市町村）第三条"])
-
-    # CarnetImportGoods — cycle-70
-    yield ("CarnetImportGoods.lean",
-           "348CO0000000317",
-           "file", None,
-           ["同項第一号及び第四号に掲げる物品以外の物品とする", "物品の指定）第二条"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -2840,19 +2792,29 @@ def checks():
            "file", None,
            ["千二百円を超える税率で課することができない。"])
 
+    # 生活費・教育費の支払 三十八万円以上 — LivingSupport380k.lean
+    yield ("地方税法 art. 34（生活費・教育費の支払 三十八万円以上）↔ LivingSupport380k.lean (supportFloorYen 380000)",
+           "325AC0000000226",
+           "file", None,
+           ["その道府県民税の納税義務者から前年において生活費又は教育費に充てるための支払を三十八万円以上受けている者"])
 
-    # 登録免許税法 art. 19 — RegistrationTaxFloor1k.lean
-    yield ("登録免許税法 art. 19（計算額が千円に満たない場合は千円）↔ RegistrationTaxFloor1k.lean (1000 floor)",
-           "342AC0000000035",
-           "article", "第十九条",
-           ["別表第一に掲げる登記又は登録につき同表に掲げる税率を適用して計算した金額が千円に満たない場合には、当該登記又は登録に係る登録免許税の額は、千円とする。"])
+    # 給与の金額の総額 三十万円以下 — SalaryTotal300k.lean
+    yield ("地方税法 art. 317_6（給与の金額の総額 三十万円以下）↔ SalaryTotal300k.lean (salaryTotalCapYen 300000)",
+           "325AC0000000226",
+           "file", None,
+           ["ただし、その給与の支払を受けなくなつた日の属する年に当該給与の支払をする者から支払を受けた給与の金額の総額が三十万円以下である者については、この限りでない。"])
 
+    # 過料 二十万円以下 — FineCap200k.lean
+    yield ("地方税法 art. 802（過料 二十万円以下）↔ FineCap200k.lean (fineCapYen 200000)",
+           "325AC0000000226",
+           "file", None,
+           ["次の各号のいずれかに該当するときは、その違反行為をした機構の役員は、二十万円以下の過料に処する。"])
 
-    # 酒税法施行規則 art. 12_2 — ProductionVolume6KL.lean
-    yield ("酒税法施行規則 art. 12の2（製造見込数量六キロリットル以上）↔ ProductionVolume6KL.lean (6 kL inclusive)",
-           "337CO0000000097",
-           "article", "第十二条の二",
-           ["一の製造場において原料用アルコール及びスピリッツを製造しようとする場合で、製造免許を受けた後一年間におけるその製造見込数量の合計が六キロリットル以上であるとき。"])
+    # 工事費用の合計額 百万円超 — ConstructionCost1M.lean
+    yield ("地方税法施行令 art. 9（工事費用の合計額 百万円超）↔ ConstructionCost1M.lean (costThresholdYen 1000000)",
+           "325CO0000000245",
+           "file", None,
+           ["前号イからヘまでに掲げる工事に要した費用の額の合計額が百万円を超えること。"])
 
 
 def main() -> int:
