@@ -1399,6 +1399,15 @@ def checks():
            "143AC0000000054",
            "article", "\u7b2c\u5341\u516b\u6761",
            ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u524d\u6761\u7b2c\u4e94\u9805\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
+    # CustomsTariffArt13Para7ProvisoException.lean - NORM|13bac8bc... (art.13(7) proviso 準用 EXCEPTION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十七条 (Paragraph 5, Sentence 1) -
+    # verbatim injected from the queue via \u escapes; source is 第十三条第七項
+    # ただし書. find_article_text(...,'第十七条') len 1032 with needle.
+    yield ("customs tariff art.13(7) proviso exception - CustomsTariffArt13Para7ProvisoException.lean",
+           "143AC0000000054",
+           "article", "\u7b2c\u5341\u4e03\u6761",
+           ["\u7b2c\u5341\u4e09\u6761\u7b2c\u4e03\u9805\u305f\u3060\u3057\u66f8\u306e\u898f\u5b9a\u306f\u3001\u524d\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u95a2\u7a0e\u3092\u5fb4\u53ce\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
 
 
     # CustomsTariffArt14DisabledPersonEquipmentDelegation.lean - NORM|c8d2540f... (disabled-person equipment DELEGATION, law 143AC0000000054)
