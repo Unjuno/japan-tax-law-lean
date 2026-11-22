@@ -1077,3 +1077,6 @@ import JapanTaxLaw.FilingRouteTests
 import JapanTaxLaw.AdultAgeThreshold
 import JapanTaxLaw.AdultAgeThresholdSpec
 import JapanTaxLaw.AdultAgeThresholdTests
+import JapanTaxLaw.AircraftScope
+import JapanTaxLaw.AircraftScopeSpec
+import JapanTaxLaw.AircraftScopeTests

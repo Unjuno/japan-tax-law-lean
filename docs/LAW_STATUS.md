@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 121
+- with >=1 pinned literal check (semantic model): 122
 - with recorded human legal review: 0
 
 ## All laws
@@ -147,7 +147,7 @@ a completion flag.
 | `346CO0000000275` | 自動車重量税法施行令 | 346CO0000000275_20230101_504CO0000000195 | CurrentEnforced | YES | ok | 24 | YES (1) | NO |
 | `346M50000040066` | 自動車重量税法施行規則 | 346M50000040066_20230101_504M60000040020 | CurrentEnforced | YES | ok | 27 | YES (1) | NO |
 | `347AC0000000007` | 航空機燃料税法 | 347AC0000000007_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 43 | YES (1) | NO |
-| `347CO0000000057` | 航空機燃料税法施行令 | 347CO0000000057_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 19 | NO (0) | NO |
+| `347CO0000000057` | 航空機燃料税法施行令 | 347CO0000000057_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 19 | YES (1) | NO |
 | `347AC0000000013` | 航空機燃料譲与税法 | 347AC0000000013_20240401_506AC0000000004 | CurrentEnforced | YES | ok | 49 | NO (0) | NO |
 | `347M50000040023` | 酒類用粗留アルコール等の関税割当制度に関する省令 | 347M50000040023_20010106_412M50000040069 | CurrentEnforced | YES | ok | 9 | NO (0) | NO |
 | `347CO0000000150` | 沖縄の復帰に伴う国税関係以外の大蔵省関係法令の適用の特別措置等に関する政令 | 347CO0000000150_20251231_507CO0000000426 | CurrentEnforced | YES | ok | 88 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 194
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 196

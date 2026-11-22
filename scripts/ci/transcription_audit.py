@@ -2057,6 +2057,12 @@ def checks():
            "file", None,
            ["所轄税務署長、所轄国税局長又は国税庁長官を経由してするものとする", "届出）第九条"])
 
+    # AircraftScope — cycle-65
+    yield ("AircraftScope.lean",
+           "347CO0000000057",
+           "file", None,
+           ["発動機を有する滑空機とする", "航空機の範囲）第二条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
