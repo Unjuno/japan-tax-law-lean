@@ -9189,3 +9189,102 @@ CI `checks()` の cycle-78 エントリ（`scripts/ci/transcription_audit.py` �
 - Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。commit / push / merge / ブランチ切替は行っていない。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・桁違い／率／境界の数値抽出・needle 健全性・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+## Batch BX review (2026-11-23) — 震災復興特別交付税省令 art.2 §1 / NonUniformRateCap.lean（cycle-79 独立原文照合）
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。担当者の STAGING／doc-comment の主張を信じず、pinned の JSON バイトから自前で再抽出した結果をもって判定した。
+- **対象モジュール（読み取り専用・本レビューで変更していない）**: `JapanTaxLaw/NonUniformRateCap.lean`（`rateCapPerThousand` / `cappedRate`）。
+- **一次資料（pinned・改変禁止）**: `data/raw/505M60000008043_20240426_506M60000008046.law.json`
+  - law_id `505M60000008043` / revision `505M60000008043_20240426_506M60000008046` / law_type `MinisterialOrdinance` / 令和五年総務省令第四十三号。
+  - `revision_info.law_title` = `地方団体に対して交付すべき令和五年度分の震災復興特別交付税の額の算定方法、決定時期及び決定額並びに交付時期及び交付額等の特例に関する省令`。施行日 2024-04-26。
+  - 対象: `law_full_text.children[1].children[1]`（Article Num=2）> Paragraph Num=1（§1）> Item Num=66。当該 Article §1 の葉テキスト連結は **raw 29,573 文字 / U+3000 = 62**、自前正規化（`[\s\u3000]+` 除去）後 **29,511 文字 / U+3000 = 0**（モジュール header の主張と一致）。
+- **独立抽出方法**: JSON を Python で自前 parse し、`children` 再帰走査で葉文字列を平坦化。全角数字 `０-９` と全角ドット `．` を自前変換して `fractions.Fraction` で有理数比較。needle は CI `scripts/ci/transcription_audit.py` の cycle-79 `checks()` 実文字列を、自前正規化した当該原文に対して検証。Lean は `lake env lean` で `#print axioms` / `#eval` / `by decide` を実行。
+
+### BX-1. pinned 原文からの独立抽出と照合（桁違いの明示除外）
+
+| 項目 | 独立抽出結果 | Lean 実装 | 照合 |
+|---|---|---|---|
+| 原文葉（C 変数） | `Ｃ　当該道県がＢに係る不均一課税に際して適用する税率。ただし、当該率が０．０５を超えるときは、０．０５とする。`（Art.2 §1 / Item 66 / Subitem1(Num=1)=イ（道県）配下、葉 55 文字・U+3000 を 1 個含む。前後の U+3000 は正規化で除去） | doc-comment 行 13–14 の逐語と完全一致 | ✅ |
+| 文字コード | `０`=U+FF10 / `．`=U+FF0E（全角ピリオド）/ `５`=U+FF15。`．` は U+30FB（中黒）でも U+3000 でもない | needle も全角 `０．０５` を使用 | ✅ |
+| 「０．０５」の自前パース | 全角→半角変換後 `Fraction(1,20) = 0.05` = **千分率 50/1000** | `rateCapPerThousand = 50` → `Fraction(50,1000) = 1/20` | ✅ 有理数一致 |
+| 「超える」 | 原文は「〜を**超える**」、当該葉に「以上」「満たない」は存在しない ⇒ **厳密不等式**（50 ちょうどは丸めない） | `if r > 50 then 50 else r` | ✅ |
+
+**桁違いの明示除外**: `０．０５ = 1/20 = 0.05 = 50/1000` であり、**`０．５ = 1/2 = 0.5 = 500/1000` でも `５．０ = 5 = 5.0 = 5000/1000` でもない**。自前パース値を `Fraction` で比較し、50/1000 とは一致、500/1000 ・ 5000/1000 とは不一致であることを機械確認した。したがって「小数点を落とした 0.5／5.0 読み」はいずれも除外できる。**上限値自体の食い違いは 0 件（ゼロ）**。
+
+### BX-2. needle 健全性
+
+CI `checks()` の cycle-79 エントリ（`scripts/ci/transcription_audit.py` 行 2251–2255、`kind = "file"`）の実文字列 2 本を、自前正規化した当該原文（Art.2 §1、29,511 文字、原文中の U+3000 は 62 個存在するが正規化で除去）に対して検証した。
+
+| needle（CI 実文字列） | needle 内 U+3000 | 自前正規化原文 | 判定 |
+|---|---:|---|---|
+| `当該率が０．０５を超えるときは、０．０５とする` | 0 | FOUND | ✅ |
+| `不均一課税に際して適用する税率` | 0 | FOUND | ✅ |
+
+- **2 / 2 FOUND、needle 内 U+3000 = 0**。needle の `．` は全角 U+FF0E であって U+3000 ではない。1 本目は上限 0.05 を直接固定する逐語アンカーとして機能する。
+
+### BX-3. 反例探索
+
+`rateCapPerThousand : Nat`、`cappedRate : Nat → Nat`。上限適用は「超過時のみ」で、境界値 50 はそのまま返る。
+
+| 攻撃対象 `#eval` | 期待 | 実測 | 判定 |
+|---|---|---|---|
+| `cappedRate 30` | 30 | 30 | 矛盾なし |
+| `cappedRate 50`（上限ちょうど） | 50 | 50 | 矛盾なし（丸めなしを確認） |
+| `cappedRate 80`（上限超過） | 50 | 50 | 矛盾なし（上限適用を確認） |
+| 補助: `cappedRate 0 / 49 / 51 / 1000` | 0 / 49 / 50 / 50 | 0 / 49 / 50 / 50 | 矛盾なし |
+| `rateCapPerThousand` | 50 | 50 | 矛盾なし |
+
+- 3 本の指定例は `#eval` と `by decide` の両方で再確認（exit code 0）。`cappedRate r = min r 50` の単調・saturating 挙動を確認。**反例探索で検出された原文・Lean 間の矛盾: 0 件（ゼロ）**。
+
+### BX-4. 公理監査
+
+- 一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\bx_axiom_probe.lean` を作成し、2 `def`（`rateCapPerThousand` / `cappedRate`）に対して `#print axioms` を実行（`lake env lean`、exit code **0**）。監査後、一時ファイルは削除済み。
+
+| 監査項目 | 結果 |
+|---|---|
+| `Classical.choice` | **0 件**（不在） |
+| `sorryAx` | **0 件**（不在） |
+| `Quot.sound` | **0 件**（不在） |
+| `propext` | **0 件**（不在） |
+| 出力 | 両 def とも `'...' does not depend on any axioms` |
+
+→ **禁止公理・許容公理とも 0 件。公理監査は合格。**
+
+### BX-5. CONFIRMED / BY-DESIGN / UNRESOLVED と未形式化の確認
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **1** |
+| **BY-DESIGN** | **6** |
+| **UNRESOLVED** | **0（ゼロ）** |
+
+> 上限値（50‰）・needle・反例・公理には食い違いなし。下記 CONFIRMED は**モデル値ではなく doc-comment の出典ラベル**に関するものであり、両者を混同しないこと。
+
+#### CONFIRMED（1 件）
+
+- **C-1 doc-comment の「item ロ/」という出典ラベルが逐語原文と不一致**: モジュール header（行 10）は `Article Num 2 §1 (item ロ/)` と記載するが、行 13–14 の逐語「当該道県が…０．０５とする。」は、pinned 構造では **Article Num=2 > Paragraph Num=1 > Item Num=66 > Subitem1(Num=1)＝「イ」（道県）** 配下の C 葉に存在する。**Subitem1(Num=2)＝「ロ」（市町村）** 配下の C 葉は「当該市町村がＢに係る不均一課税に際して適用する税率。ただし、当該率が０．０１４を超えるときは、０．０１４とする。」であり、上限は **０．０１４（=14‰）** で ０．０５ ではない。すなわち「item ロ/」を文字通り採ればモデル値 50 と矛盾する。**独立確認した限り、モデル値 `rateCapPerThousand = 50` は逐語原文（イ／道県の 0.05）に忠実で正しい**。誤りは出典ラベルのみ（doc-comment の fidelity 上の記載誤り）。修正は形式化担当の責任範囲（本レビューは読み取り専用のため未修正）。
+
+#### BY-DESIGN（6 件）— いずれもモジュール doc-comment 行 20–22 に `NOT MODELLED` と明記済み
+
+- **B-1 区域認定（復興特別区域法等の適用判定）NOT MODELLED**: 「復興特別区域法等の適用判定・課税標準額の算定は NOT MODELLED」と明記。区域該当性は caller-established。明示済みの境界。
+- **B-2 税率単位解釈（百分率か倍率か）NOT MODELLED**: 「税率の単位解釈（百分率か倍率か）・不均一課税の具体算定は NOT MODELLED」と明記。本モデルは 0.05 を千分率 50 として整数表現するが、原文が当該率を百分率／倍率のいずれとして扱うかの法的解釈は行わない。**本レビューでもこの未形式化を確認**（人間の法的レビューを要する論点としてではなく、明示された境界として記録）。
+- **B-3 課税標準額の算定 NOT MODELLED**: B-1 と同じく明記。与えられた税率上限のみを扱う。
+- **B-4 上限処理のみ・下限は NOT MODELLED**: 同一 Art.2 §1 の他変数には下限を伴う例が存在する（例: Ｌ葉「当該道県がＫに係る不均一課税に際して適用する税率。ただし、当該率が０．０５を超えるときは、０．０５とし、当該率が０．０１２５に満たないときは、０．０１２５とする。」＝下限 1.25‰、また同イ内に上限 ０．０４ / ０．０１４ の C 葉も存在）。本モデルは doc-comment のとおり「上限処理のみ」であり、これら別変数の下限・他上限は範囲外。明示済みの境界。
+- **B-5 Nat 整数（千分率 50）による表現**: 0.05 を `Fraction(50,1000)` として表現する設計。有理数一致を BX-1 で確認。
+- **B-6 厳密 `>` による上限適用**: 原文「超える」に対応し、`cappedRate 50 = 50`（境界で丸めなし）、`cappedRate 51 = 50`（超過時のみ丸め）。反例探索で確認済み。
+
+#### UNRESOLVED（0 件）
+
+- 上限値・境界・needle・公理は pinned 原文から一意に決定され、区域認定・税率単位解釈・課税標準額の算定は B-1〜B-3 として明示的に範囲外とされているため、モデル値に影響する未解決事項は **0 件（ゼロ）**。
+
+### BX-6. 総合判定・最終報告
+
+- pinned revision `505M60000008043_20240426_506M60000008046` の art.2 §1 から独立抽出した上限 `０．０５ = 50/1000` と「超える」＝厳密不等式は、`rateCapPerThousand = 50` / `cappedRate r = if r > 50 then 50 else r` と完全一致。**0.5 / 5.0 の桁違い・境界の取り違えは 0 件（ゼロ）**。
+- **CONFIRMED: 1 件（C-1: doc-comment の出典ラベル「item ロ/」が逐語原文の「イ／道県」と不一致。モデル値自体は正しい） / BY-DESIGN: 6 件 / UNRESOLVED: 0 件**。
+- **needle 健全性**: CI `checks()` 実文字列 2 本、自前正規化原文で **2/2 FOUND**、needle 内 U+3000 = 0。
+- **反例**: 指定の 3 点 `cappedRate 30=30` / `50=50` / `80=50` を `#eval` と `by decide` の両方で確認（補助 0/49/51/1000 も確認）。矛盾 0。
+- **公理**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて **0 件**（axiom-free、exit code 0）。一時ファイルは削除済み。
+- **未形式化の確認**: 区域認定・税率単位解釈（百分率か倍率か）・課税標準額の算定はすべて `NOT MODELLED` と明記（B-1〜B-3）。
+- 追記後レビュー件数: **74 件**（既存 73 件 ＋ 本 BX 1 件。coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` に `## Batch BX review (2026-11-23)` が整合）。既存セクション（Batch G〜BW を含む 73 件）はすべて保持。
+- Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。commit / push / merge / ブランチ切替は行っていない。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・桁違い／率／境界の数値抽出・needle 健全性・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
