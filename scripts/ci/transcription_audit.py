@@ -1310,6 +1310,15 @@ def checks():
            "article", "第八条",
            ["\u524d\u9805\u306e\u8abf\u67fb\u306f\u3001\u7b2c\u4e09\u5341\u4e8c\u9805\u306e\u898f\u5b9a\u306b\u3088\u308b\u8acb\u6c42\u304c\u3042\u3064\u305f\u65e5\u304b\u3089\u4e00\u5e74\u4ee5\u5185\u306b\u7d42\u4e86\u3059\u308b\u3082\u306e\u3068\u3059\u308b\u3002"])
 
+    # CustomsTariffArt8ExtensionPara20.lean - NORM|49816f02... (para20 extension CONDITION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第八条 (Paragraph 30, Item 1, Column 1);
+    # find_article_text(...,"第八条") returns that article (len 6919) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.8 extension para20 - CustomsTariffArt8ExtensionPara20.lean",
+           "143AC0000000054",
+           "article", "第八条",
+           ["\u7b2c\u4e8c\u5341\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u5ef6\u9577\u3059\u308b\u5834\u5408"])
+
     # CustomsTariffArt7ExtensionPara17.lean - NORM|28020c69... (para-17 extension CONDITION, law 143AC0000000054)
     # Needle is in MainProvision Article 第七条 (Paragraph 27, Item 1, Column 1, Sentence);
     # find_article_text(...,"第七条") returns that article (len 5989) with needle -
