@@ -6,7 +6,7 @@ A whole-text numeric match is NOT article-level verification. This is a
 source-fidelity diagnostic (D=PASS means needle in stated article only),
 never a completion gate or a semantic/legal claim.
 
-- checks with article/table-cell scoped needles: 325
+- checks with article/table-cell scoped needles: 340
 - checks with no scoped unit: 0
 
 | law_id | stated article | needle hits | scoped positions | D |
@@ -148,6 +148,11 @@ never a completion gate or a semantic/legal claim.
 | `322CO0000000268` | (file-level) | 3 | 3 | PASS |
 | `322CO0000000268` | (file-level) | 3 | 3 | PASS |
 | `322CO0000000268` | (file-level) | 3 | 3 | PASS |
+| `143AC0000000054` | 第七条 | 3 | 3 | PASS |
+| `143AC0000000054` | 第七条 | 2 | 2 | PASS |
+| `143AC0000000054` | 第七条 | 2 | 2 | PASS |
+| `143AC0000000054` | 第六条 | 2 | 2 | PASS |
+| `143AC0000000054` | 第七条 | 3 | 3 | PASS |
 | `143AC0000000054` | 第七条 | 2 | 2 | PASS |
 | `143AC0000000054` | 第七条 | 2 | 2 | PASS |
 | `143AC0000000054` | 第四条 | 3 | 3 | PASS |
@@ -235,6 +240,10 @@ never a completion gate or a semantic/legal claim.
 | `329CO0000000051` | (file-level) | 2 | 3 | PASS |
 | `329M50000040039` | (file-level) | 2 | 3 | PASS |
 | `507CO0000000095` | (file-level) | 2 | 4 | PASS |
+| `502CO0000000208` | (file-level) | 2 | 4 | PASS |
+| `341CO0000000005` | (file-level) | 2 | 3 | PASS |
+| `337CO0000000227` | (file-level) | 2 | 3 | PASS |
+| `363M50000040053` | (file-level) | 2 | 3 | PASS |
 | `340AC0000000033` | (file-level) | 4 | 16 | PASS |
 | `332CO0000000043` | (file-level) | 4 | 10 | PASS |
 | `337M50000008017` | (file-level) | 2 | 8 | PASS |
@@ -336,3 +345,9 @@ never a completion gate or a semantic/legal claim.
 | `340AC0000000033` | 第二条 | 3 | 3 | PASS |
 | `332AC0000000026` | 第七十条の六の八 | 3 | 3 | PASS |
 | `332AC0000000026` | 第七十条の六の八 | 3 | 3 | PASS |
+| `332AC0000000038` | 第五条 | 2 | 2 | PASS |
+| `404AC0000000015` | 第七条 | 3 | 3 | PASS |
+| `346CO0000000257` | 第十七条 | 3 | 3 | PASS |
+| `340AC0000000156` | 第十条 | 2 | 2 | PASS |
+| `426AC0000000011` | 第二十四条の三 | 2 | 2 | PASS |
+| `359AC0000000072` | 第十一条 | 2 | 2 | PASS |
