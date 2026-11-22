@@ -6,10 +6,10 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 169
-- presence-facts-only complete: 169
+- articles with explicit pin: 180
+- presence-facts-only complete: 180
 - NOT_STARTED: 9
-- PARTIAL: 160
+- PARTIAL: 171
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
 - BLOCKED: 0
@@ -77,6 +77,11 @@ source positions. Human legal review is a separate axis and is pending.
 | `325M50000040017` | 第三十条 | InheritanceRegPrescribedAmount | YES | YES | NO | PARTIAL |
 | `325CO0000000245` | 第六条の九の二 | LocalTaxOrderArt15_4Amount | YES | NO | NO | NOT_STARTED |
 | `326CO0000000216` | 第六条の二 | TaxAccountantRegDelegatedAmount | YES | YES | NO | PARTIAL |
+| `143AC0000000054` | 第七条 | CustomsTariffArt7ExtensionPara17 | YES | YES | NO | PARTIAL |
+| `143AC0000000054` | 第七条 | CustomsTariffArt7PrevParagraphReading | YES | YES | NO | PARTIAL |
+| `143AC0000000054` | 第七条 | CustomsTariffArt7ReadingApplication | YES | YES | NO | PARTIAL |
+| `143AC0000000054` | 第六条 | CustomsTariffArt6RetaliatoryDelegation | YES | YES | NO | PARTIAL |
+| `143AC0000000054` | 第七条 | CustomsTariffArt7ProvisionalPeriod | YES | YES | NO | PARTIAL |
 | `143AC0000000054` | 第七条 | CustomsTariffArt7InvestigationDeadline | YES | YES | NO | PARTIAL |
 | `143AC0000000054` | 第七条 | CustomsTariffArt7CountervailingDelegation | YES | YES | NO | PARTIAL |
 | `143AC0000000054` | 第四条 | CustomsTariffArt4ProductionServiceDelegation | YES | YES | NO | PARTIAL |
@@ -182,7 +187,13 @@ source positions. Human legal review is a separate axis and is pending.
 | `342CO0000000146` | 第二十一条 | TonnageExpansionRatioCap | YES | YES | NO | PARTIAL |
 | `407CO0000000029` | 第八条の三 | RatioCapAtOne | YES | YES | NO | PARTIAL |
 | `328AC0000000006` | 第二十三条 | LiquorDegreeSteppedAmount | YES | YES | NO | PARTIAL |
-| `340CO0000000096` | 第二十条の二 | CommutingDistance95 | YES | YES | YES | PARTIAL |
-| `340AC0000000033` | 第二条 | EligibleDependentAge70 | YES | YES | YES | PARTIAL |
-| `332AC0000000026` | 第七十条の六の八 | BuildingArea800 | YES | NO | YES | NOT_STARTED |
-| `332AC0000000026` | 第七十条の六の八 | LandArea400 | YES | NO | YES | NOT_STARTED |
+| `340CO0000000096` | 第二十条の二 | CommutingDistance95 | YES | YES | NO | PARTIAL |
+| `340AC0000000033` | 第二条 | EligibleDependentAge70 | YES | YES | NO | PARTIAL |
+| `332AC0000000026` | 第七十条の六の八 | BuildingArea800 | YES | NO | NO | NOT_STARTED |
+| `332AC0000000026` | 第七十条の六の八 | LandArea400 | YES | NO | NO | NOT_STARTED |
+| `332AC0000000038` | 第五条 | SpecialTonSplitRatio | YES | YES | NO | PARTIAL |
+| `404AC0000000015` | 第七条 | MonthCountExclusiveBand | YES | YES | NO | PARTIAL |
+| `346CO0000000257` | 第十七条 | ConditionalApprovalFee | YES | YES | NO | PARTIAL |
+| `340AC0000000156` | 第十条 | PetroleumGasSenRate | YES | YES | NO | PARTIAL |
+| `426AC0000000011` | 第二十四条の三 | LocalCorpRate93_907 | YES | YES | NO | PARTIAL |
+| `359AC0000000072` | 第十一条 | TobaccoRatePerThousand | YES | YES | NO | PARTIAL |
