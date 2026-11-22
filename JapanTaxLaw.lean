@@ -1002,3 +1002,6 @@ import JapanTaxLaw.RatioCapAtOneTests
 import JapanTaxLaw.AntiDumpingRate952
 import JapanTaxLaw.AntiDumpingRate952Spec
 import JapanTaxLaw.AntiDumpingRate952Tests
+import JapanTaxLaw.LiquorDegreeSteppedAmount
+import JapanTaxLaw.LiquorDegreeSteppedAmountSpec
+import JapanTaxLaw.LiquorDegreeSteppedAmountTests

@@ -2581,6 +2581,13 @@ def checks():
            ["当該社員が出資の引受けをした金額に、イに掲げる金額がロに掲げる金額のうちに占める割合（当該割合が一を超える場合には、一とする。）を乗じて計算した金額"])
 
 
+    # 酒税法 art. 23 — LiquorDegreeSteppedAmount.lean
+    yield ("酒税法 art. 23（アルコール分二十一度以上は二十度超一度ごとに一万円加算）↔ LiquorDegreeSteppedAmount.lean (200000 + 10000/deg above 20)",
+           "328AC0000000006",
+           "article", "第二十三条",
+           ["二十万円（アルコール分が二十一度以上のものにあつては、二十万円にアルコール分が二十度を超える一度ごとに一万円を加えた金額）"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
