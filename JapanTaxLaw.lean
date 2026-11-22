@@ -1068,3 +1068,6 @@ import JapanTaxLaw.TobaccoRatePerThousandTests
 import JapanTaxLaw.FiscalYearMonthProration
 import JapanTaxLaw.FiscalYearMonthProrationSpec
 import JapanTaxLaw.FiscalYearMonthProrationTests
+import JapanTaxLaw.FilingRoute
+import JapanTaxLaw.FilingRouteSpec
+import JapanTaxLaw.FilingRouteTests

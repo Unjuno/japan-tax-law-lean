@@ -7649,3 +7649,93 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 - Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。commit / push / merge / ブランチ切替なし。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・国名トークン抽出・needle 実文字列照合・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
+
+## Batch BH review (2026-11-22)
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。担当の STAGING／doc-comment／coordinator 要約は**信じず**、pinned 原文から直接・独立に再抽出して照合した。
+- **対象（読み取り専用・本レビューで変更していない）**: `JapanTaxLaw/ExcludedDutyFreeGoods.lean`（`namespace JapanTaxLaw.ExcludedDutyFreeGoods`、名前付き宣言 `goldBullion` / `platinumBullion` / `goldCoin` / `platinumCoin` / `otherGood` / `isExcludedGood` と 5 つの `example`）。
+- **一次資料（pinned・改変禁止）**: `data/raw/363M50000040053_20261101_507M60000040022.law.json`（law_id `363M50000040053` / revision `363M50000040053_20261101_507M60000040022`、INVENTORY の `source_file` と同一パスを確認）。pinned の `law_title` は「消費税法施行規則」（law_num「昭和六十三年大蔵省令第五十三号」、施行 2026-11-01）であり、課題文の「関税定率法施行規則」というラベルとは一致しない。ただし対象モジュール自身は条文種別を明示せず「規則 art.6」とのみ記すため、本レビューの照合（モジュール vs pinned 原文）には影響しない（下記 BY-DESIGN B-5）。
+- **needle 出所**: `scripts/ci/transcription_audit.py::checks()` の cycle-63 エントリ（`name="ExcludedDutyFreeGoods.lean"` / `law_id="363M50000040053"` / `kind="file"` / `art=None`）から Python で実文字列 2 本を取得（STAGING 記載は未使用）。
+- **操作制約の遵守**: commit / push / merge / ブランチ切替は一切行っていない。Lean モジュール・`data/*`・`scripts/*` は読み取りのみ。書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ（末尾に本セクションを追記）。
+
+### BH-1. pinned 原文からの独立抽出（除外物品 4 種）
+
+- `law_full_text` を再帰走査し `tag="Article"` ノード計 **124** を列挙。うちタイトル `第六条` で列挙句を含むノードは **1 つ**（本文 **68 文字、U+3000 = 0**）。当該ノードの文字列 leaf を文書順に連結した art.6 逐語:
+  - `（免税対象物品から除かれる物品の範囲）第六条法第八条第一項に規定する財務省令で定める物品は、金及び白金の地金並びに金貨及び白金貨とする。`
+- 列挙スパン `金及び白金の地金並びに金貨及び白金貨` を自前で parse（「並びに」で 2 群に分割 → 第 1 群は共用接尾「の地金」を「金」「白金」に分布、第 2 群は「金貨」「白金貨」に分割）。**独立抽出結果はちょうど 4 つ**:
+  - 金の地金 / 白金の地金 / 金貨 / 白金貨
+- 混入検査: 当該 art.6 中の `銀` 出現 **0 回**、`その他` 出現 **0 回**。列挙は 4 つのみで「その他」を含まない。銀の混入・取り違えなし。
+- 照合: 実装は `goldBullion=0` / `platinumBullion=1` / `goldCoin=2` / `platinumCoin=3` / `otherGood=4`、`isExcludedGood(g) = (g <= platinumCoin)` すなわち `g<=3`。原文の 4 物品が 0..3 へ正対応し、`otherGood=4` は列挙外を表す内部番兵であって原文の第 5 の物品ではない。→ **EXTRACT_MATCH = True（発見ゼロ）**。
+
+### BH-2. needle 健全性（CI `checks()` の実文字列 2 本を自前正規化原文で検証）
+
+- needle は手打ちせず `checks()` の cycle-63 エントリから取得。自前で `law_full_text` の文字列 leaf を平坦化（全文 74,141 文字）し `re.sub(r"[\s　]+", "", s)` で正規化（74,071 文字）して含有を数えた。CI の `contains()` / `_norm()` と同一条件。
+
+| needle（CI 実文字列） | 長 | U+3000 | 全文（自前正規化） | art.6（自前正規化） |
+|---|---:|---:|---|---|
+| `金及び白金の地金並びに金貨及び白金貨とする` | 21 | 0 | FOUND（1 回） | FOUND（1 回） |
+| `免税対象物品から除かれる物品の範囲）第六条` | 21 | 0 | FOUND（1 回） | FOUND（1 回） |
+
+- **結果: 2/2 FOUND、needle の U+3000 = 0**。art.6 逐語（68 文字・U+3000 = 0）にも 2 本とも包含在。needle の健全性に問題なし。
+
+### BH-3. 反例探索（`by decide` による kernel 計算）
+
+| 入力 g | 意味 | 期待 | Lean | 判定 |
+|---:|---|---|---|---|
+| 0 | 金の地金 | true | `isExcludedGood 0 = true` ✓ | 一致 |
+| 1 | 白金の地金 | true | `isExcludedGood 1 = true` ✓ | 一致 |
+| 2 | 金貨 | true | `isExcludedGood 2 = true` ✓ | 一致 |
+| 3 | 白金貨 | true | `isExcludedGood 3 = true` ✓ | 一致 |
+| 4 | その他（番兵） | false | `isExcludedGood 4 = false` ✓ | 一致 |
+| 5 | 列挙外 | false | `isExcludedGood 5 = false` ✓ | 一致 |
+
+- すべて `by decide` で kernel 計算確認（`lake env lean`、exit code 0）。**反例 0 件**。特に `g=4`（その他）および `g=5`（列挙外）が `true` とならないことを確認し、原文「4 つのみ」と整合。
+
+### BH-4. 公理監査
+
+- 一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\bh_probe.lean` を作成し、対象モジュールの全名前付き宣言 6 つ（`goldBullion`, `platinumBullion`, `goldCoin`, `platinumCoin`, `otherGood`, `isExcludedGood`）および kernel-decide 検証 11（`bh_goldBullion` 〜 `bh_otherGood`, `bh_excl_0` 〜 `bh_excl_5`）に `#print axioms` を実行（`lake env lean`、**exit code 0**）。監査後、一時ファイルは削除済み。モジュールの静的スキャンで `sorry` / `admit` / `axiom` / `classical` / `noncomputable` / `unsafe` / `choice` / `propext` / `Quot.sound` の一致 **0 件**。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 17（すべて `"does not depend on any axioms"`） |
+| `Classical.choice` | **0 件**（不在） |
+| `sorryAx` | **0 件**（不在） |
+| `Quot.sound` | **0 件**（不在） |
+| `propext` | **0 件**（不在） |
+
+- → 禁止公理は一切検出されず、**propext も 0**。公理監査は合格。
+
+### BH-5. 分類（CONFIRMED / BY-DESIGN / UNRESOLVED）
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **5** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 欠陥件数を手柄にしない。
+
+**CONFIRMED（0 件）**: 除外物品の列挙（金の地金・白金の地金・金貨・白金貨の 4 つのみ、銀・その他なし）、`isExcludedGood` の真偽、needle 2/2、反例 6/6、公理監査のいずれも pinned 原文との食い違い・不整合なし。モデル値の誤りは検出されなかった。
+
+**BY-DESIGN（5 件）**:
+
+- **B-1 除外物品列挙のみの bounded L4 モデル**: doc-comment どおり本モデルは原文 art.6 の「財務省令で定める物品」の列挙のみを扱う。税率・免税額・手続・他の除外規定は扱わない。原文の 4 物品に忠実であり、境界として明示済み。
+- **B-2 物品の Nat 列挙は内部エンコーディング**: `goldBullion=0` 〜 `platinumCoin=3` / `otherGood=4` は原文に現れる数字ではなくモデル内部の表現。`otherGood=4` は「列挙外」を表す番兵であり、原文に存在する第 5 の物品ではない（BH-1 で確認）。→ スコープ宣言どおりで欠陥ではない。
+- **B-3 法 8 条 1 項の免税対象物品の定義・他の除外規定は NOT MODELLED**: doc-comment に明記。**未形式化を確認**（＝スコープ宣言どおりで欠陥ではない）。
+- **B-4 「地金」「貨」の物理的認定（純度・形状等）は NOT MODELLED**: doc-comment に明記。**未形式化を確認**（同上）。
+- **B-5 課題文の law 名ラベルと pinned `law_title` の不一致**: 課題文は「関税定率法施行規則 art.6」と呼ぶが、pinned スナップショットの `law_title` は「消費税法施行規則」（原文も「法第八条第一項」＝消費税法 8 条 1 項を参照）。対象モジュールは条文種別を明示せず「規則 art.6」とのみ記述し、law_id / revision / 原文一致にも影響しない。→ モジュールの欠陥ではない（課題文側のラベル表記として記録）。
+
+**UNRESOLVED（2 件）**:
+
+- **U-1 法 8 条 1 項の免税対象物品の定義・該当性判定の法的妥当性**: pinned art.6 は「法第八条第一項に規定する財務省令で定める物品」と規定するのみで、法 8 条 1 項の定義内容（免税対象物品の範囲・要件）は当該スナップショット内にない。本モデルの Bool 判定（`isExcludedGood`）は与えられた物品番号に対する写像であり、実務上の該当性判定ではない。定義の解釈は pinned 原文（art.6）のみでは決定不能。**人間の法律専門家による確認を要する**。列挙の一致（CONFIRMED = 0）には影響しない。
+- **U-2 「地金」「貨」の物理的認定基準の実務上の完全性**: B-4 のとおり純度・形状等の物理的認定は未形式化（スコープ宣言済み）。本モデルは除外物品列挙スライスであり、実際の免税対象判定の法的確定に単独では使用できない。実務上どこまでを形式化すべきかは pinned 原文のみでは決定不能。**人間の法律専門家による確認を要する**。
+
+- **CONFIRMED: 0 件 / BY-DESIGN: 5 件 / UNRESOLVED: 2 件**。
+- **needle 健全性: 2/2 FOUND、U+3000 = 0**（CI `checks()` cycle-63 実文字列を自前正規化原文で検証）。
+- **反例: 0→true / 1→true / 2→true / 3→true / 4→false / 5→false、反例 0 件**（`by decide`）。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` いずれも **0 件**（17 宣言すべて axiom-free、exit code 0）。監査用一時ファイルは削除済み。
+- **法 8 条 1 項の定義・物理的認定の未形式化を確認**（B-3／B-4／U-1／U-2／スコープ宣言どおり）。
+- **追記後レビュー件数: 58 件**（既存 57 件＝coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` に一致する Batch G〜BG ほかをすべて保持 + 本 BH 1 件）。既存セクションは一切改変していない。
+- Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。commit / push / merge / ブランチ切替なし。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・物品トークン抽出・needle 実文字列照合・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
