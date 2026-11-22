@@ -1391,6 +1391,15 @@ def checks():
            "143AC0000000054",
            "article", "\u7b2c\u5341\u4e94\u6761",
            ["\u5100\u5f0f\u53c8\u306f\u793c\u62dd\u306e\u7528\u306b\u76f4\u63a5\u4f9b\u3059\u308b\u305f\u3081\u5b97\u6559\u56e3\u4f53\u306b\u5bc4\u8d08\u3055\u308c\u305f\u7269\u54c1\u3067\u8ca1\u52d9\u7701\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
+    # CustomsTariffArt18PrevPara5Reading.lean - NORM|7c7c7201... (prev-art.para5 準用 READING, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十八条 (Paragraph 3, Sentence 2) -
+    # verbatim injected from the queue via \u escapes; 前条第五項 = preceding
+    # article paragraph 5. find_article_text(...,'第十八条') len 432 with needle.
+    yield ("customs tariff art.18 prev-art.para5 reading - CustomsTariffArt18PrevPara5Reading.lean",
+           "143AC0000000054",
+           "article", "\u7b2c\u5341\u516b\u6761",
+           ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u524d\u6761\u7b2c\u4e94\u9805\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
+
 
     # CustomsTariffArt14DisabledPersonEquipmentDelegation.lean - NORM|c8d2540f... (disabled-person equipment DELEGATION, law 143AC0000000054)
     # Needle is in MainProvision Article 第十四条 (Paragraph 1, Item 16);
