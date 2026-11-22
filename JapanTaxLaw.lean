@@ -848,3 +848,6 @@ import JapanTaxLaw.TruncatedParenFragmentsTests
 import JapanTaxLaw.ClampOperators
 import JapanTaxLaw.ClampOperatorsSpec
 import JapanTaxLaw.ClampOperatorsTests
+import JapanTaxLaw.RoundingBoundaryOperators
+import JapanTaxLaw.RoundingBoundaryOperatorsSpec
+import JapanTaxLaw.RoundingBoundaryOperatorsTests
