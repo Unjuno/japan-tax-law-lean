@@ -1074,3 +1074,6 @@ import JapanTaxLaw.FiscalYearMonthProrationTests
 import JapanTaxLaw.FilingRoute
 import JapanTaxLaw.FilingRouteSpec
 import JapanTaxLaw.FilingRouteTests
+import JapanTaxLaw.AdultAgeThreshold
+import JapanTaxLaw.AdultAgeThresholdSpec
+import JapanTaxLaw.AdultAgeThresholdTests

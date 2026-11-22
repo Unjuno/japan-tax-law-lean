@@ -2756,6 +2756,13 @@ def checks():
            ["課税事業年度が一年に満たない法人に対する前項の規定の適用については、同項中「年四百万円」とあるのは、「四百万円を十二で除し、これに当該課税事業年度の月数を乗じて計算した金額」とする。"])
 
 
+    # otorinc ordinance art. 7 — AdultAgeThreshold.lean
+    yield ("成年者年齢政令 art. 7（成年者は年齢二十歳以上の人口）↔ AdultAgeThreshold.lean (20 inclusive)",
+           "347M50000008013",
+           "article", "第七条",
+           ["前二項の成年者数は、官報で公示された最近の国勢調査の結果による年齢二十歳以上の人口をいう。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
