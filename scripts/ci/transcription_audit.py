@@ -2657,6 +2657,13 @@ def checks():
            ["当該承認一件ごとに十二万七百円（電子申請の場合にあつては、十一万千八百円）"])
 
 
+    # 石油ガス税法 art. 10 — PetroleumGasSenRate.lean
+    yield ("石油ガス税法 art. 10（税率一キログラムにつき十七円五十銭）↔ PetroleumGasSenRate.lean (17 yen, 50 sen)",
+           "340AC0000000156",
+           "article", "第十条",
+           ["石油ガス税の税率は、課税石油ガス一キログラムにつき、十七円五十銭とする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

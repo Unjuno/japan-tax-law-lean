@@ -1032,3 +1032,6 @@ import JapanTaxLaw.SpecialUseExemptionTests
 import JapanTaxLaw.ConditionalApprovalFee
 import JapanTaxLaw.ConditionalApprovalFeeSpec
 import JapanTaxLaw.ConditionalApprovalFeeTests
+import JapanTaxLaw.PetroleumGasSenRate
+import JapanTaxLaw.PetroleumGasSenRateSpec
+import JapanTaxLaw.PetroleumGasSenRateTests
