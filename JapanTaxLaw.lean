@@ -1175,3 +1175,6 @@ import JapanTaxLaw.AlcoholDegree45Tests
 import JapanTaxLaw.FiscalPeriodLength
 import JapanTaxLaw.FiscalPeriodLengthSpec
 import JapanTaxLaw.FiscalPeriodLengthTests
+import JapanTaxLaw.ClosureFilingDeadline
+import JapanTaxLaw.ClosureFilingDeadlineSpec
+import JapanTaxLaw.ClosureFilingDeadlineTests
