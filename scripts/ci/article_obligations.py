@@ -118,6 +118,9 @@ def main() -> int:
                 "blockers": rec.get("blockers", []),
                 "status": rec.get("status", "NOT_STARTED"),
                 "unhandled_conditions": rec.get("unhandled_conditions", []),
+                # Supply the dependency list explicitly. An absent key would
+                # make derive_status conservatively require a cross-law proof.
+                "dependencies": unit.get("dependencies", []),
             },
             evidence,
         )

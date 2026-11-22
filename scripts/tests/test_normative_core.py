@@ -204,6 +204,20 @@ class CompletionTests(unittest.TestCase):
         st, _ = nc.derive_status(self.unit(unhandled_conditions=["未対応条件"]), self.evidence())
         self.assertEqual(st, nc.STATUS_PROVED_SCOPE)
 
+    def test_cross_law_proof_required_only_with_dependencies(self):
+        ev = self.evidence()
+        ev["cross_law_proof"] = ""
+        st, _ = nc.derive_status(self.unit(dependencies=[]), ev)
+        self.assertEqual(st, nc.STATUS_FULLY_VERIFIED)
+        dep = {"type": "law_article", "law_id": "340AC0000000034",
+               "article": "第二条", "sufficient": True}
+        st, _ = nc.derive_status(self.unit(dependencies=[dep]), ev)
+        self.assertEqual(st, nc.STATUS_PROVED_SCOPE)
+        # Missing metadata is NOT an empty list: a caller that does not pass
+        # dependencies at all must not waive the cross-law proof axis.
+        st, _ = nc.derive_status(self.unit(), ev)
+        self.assertEqual(st, nc.STATUS_PROVED_SCOPE)
+
     def test_blocker_overrides(self):
         st, _ = nc.derive_status(self.unit(blockers=[{"code": "X", "resolved": False}]),
                                  self.evidence())
