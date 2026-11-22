@@ -11,14 +11,14 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 132
+- with >=1 pinned literal check (semantic model): 133
 - with recorded human legal review: 0
 
 ## All laws
 
 | law_id | title | revision | enforcement | raw | parse | articles | pinned checks | human review |
 |---|---|---|---|---|---|---:|---|---|
-| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (41) | NO |
+| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (46) | NO |
 | `322CO0000000109` | 昭和二十二年政令第百九号（財産税法等による物納に因る不動産登記の特例に関する政令） | 322CO0000000109_19470627_000000000000000 | CurrentEnforced | YES | ok | 4 | YES (1) | NO |
 | `322AC0000000175` | 昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律） | 322AC0000000175_20220101_503AC0000000011 | CurrentEnforced | YES | ok | 78 | YES (2) | NO |
 | `322CO0000000268` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施 | 322CO0000000268_20251201_507CO0000000120 | CurrentEnforced | YES | ok | 113 | YES (5) | NO |
@@ -39,7 +39,7 @@ a completion flag.
 | `327AC0000000111` | 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日 | 327AC0000000111_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 62 | YES (2) | NO |
 | `327AC0000000112` | 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日 | 327AC0000000112_20190317_429AC0000000013 | CurrentEnforced | YES | ok | 72 | YES (1) | NO |
 | `327AC0000000113` | 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日 | 327AC0000000113_20260401_508AC0000000012 | CurrentEnforced | YES | ok | 16 | NO (0) | NO |
-| `327AC0000000119` | 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日 | 327AC0000000119_20260401_508AC0000000002 | CurrentEnforced | YES | ok | 40 | NO (0) | NO |
+| `327AC0000000119` | 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日 | 327AC0000000119_20260401_508AC0000000002 | CurrentEnforced | YES | ok | 40 | YES (1) | NO |
 | `327CO0000000124` | 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日 | 327CO0000000124_20220401_502CO0000000207 | CurrentEnforced | YES | ok | 25 | NO (0) | NO |
 | `327CO0000000125` | 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日 | 327CO0000000125_20171008_428CO0000000240 | CurrentEnforced | YES | ok | 33 | YES (1) | NO |
 | `328AC0000000006` | 酒税法 | 328AC0000000006_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 287 | YES (4) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 217
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 221
