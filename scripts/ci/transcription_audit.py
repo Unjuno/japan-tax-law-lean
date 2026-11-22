@@ -1364,51 +1364,6 @@ def checks():
            "article", "第七条",
            ["\u524d\u9805\u306e\u8abf\u67fb\u306f\u3001\u7b2c\u4e8c\u5341\u4e5d\u9805\u306e\u898f\u5b9a\u306b\u3088\u308b\u8acb\u6c42\u304c\u3042\u3064\u305f\u65e5\u304b\u3089\u4e00\u5e74\u4ee5\u5185\u306b\u7d42\u4e86\u3059\u308b\u3082\u306e\u3068\u3059\u308b\u3002"])
 
-    # CustomsTariffArt9ShortTermCondition.lean - NORM|295ccda6... (para13 short-term CONDITION, law 143AC0000000054)
-    # Needle is in MainProvision Article 第九条 (Paragraph 13, Item 2);
-    # find_article_text(...,"第九条") returns that article (len 4135) with needle -
-    # use the precise article locator. Needle literal from queue via \u escapes.
-    yield ("customs tariff art.9 short-term condition - CustomsTariffArt9ShortTermCondition.lean",
-           "143AC0000000054",
-           "article", "第九条",
-           ["\u904e\u53bb\u4e94\u5e74\u4ee5\u5185\u306b\u5f53\u8a72\u77ed\u671f\u306e\u63aa\u7f6e\u306b\u4fc2\u308b\u8ca8\u7269\u306b\u3064\u3044\u3066\u7dca\u6025\u63aa\u7f6e\u304c\u4e09\u56de\u4ee5\u4e0a\u3068\u3089\u308c\u3066\u3044\u306a\u3044\u5834\u5408"])
-
-    # CustomsTariffArt8_2NonApplicability.lean - NORM|3f6a79aa... (para2 non-applicability CONDITION, law 143AC0000000054)
-    # Needle is in MainProvision Article 第八条の二 (Paragraph 2, ParagraphSentence);
-    # find_article_text(...,"第八条の二") returns that article (len 4324) with needle -
-    # use the precise article locator. Needle literal from queue via \u escapes.
-    yield ("customs tariff art.8-2 non-applicability - CustomsTariffArt8_2NonApplicability.lean",
-           "143AC0000000054",
-           "article", "第八条の二",
-           ["\u524d\u9805\u306e\u898f\u5b9a\u306f\u3001\u6b21\u306e\u5404\u53f7\u306e\u3044\u305a\u308c\u304b\u306b\u8a72\u5f53\u3059\u308b\u5834\u5408\u306b\u306f\u3001\u9069\u7528\u3057\u306a\u3044\u3002"])
-
-    # CustomsTariffArt9Delegation.lean - NORM|0487f141... (para15 residual DELEGATION, law 143AC0000000054)
-    # Needle is in MainProvision Article 第九条 (Paragraph 15, ParagraphSentence);
-    # find_article_text(...,"第九条") returns that article (len 4135) with needle -
-    # use the precise article locator. Needle literal from queue via \u escapes.
-    yield ("customs tariff art.9 delegation - CustomsTariffArt9Delegation.lean",
-           "143AC0000000054",
-           "article", "第九条",
-           ["\u524d\u5404\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u3053\u308c\u3089\u306e\u898f\u5b9a\u306e\u9069\u7528\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
-
-    # CustomsTariffArt8_2Delegation.lean - NORM|a47e5aa1... (para17 residual DELEGATION, law 143AC0000000054)
-    # Needle is in MainProvision Article 第八条の二 (Paragraph 17, ParagraphSentence);
-    # find_article_text(...,"第八条の二") returns that article (len 4324) with needle -
-    # use the precise article locator. Needle literal from queue via \u escapes.
-    yield ("customs tariff art.8-2 delegation - CustomsTariffArt8_2Delegation.lean",
-           "143AC0000000054",
-           "article", "第八条の二",
-           ["\u524d\u5404\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u7b2c\u4e00\u9805\u306e\u898f\u5b9a\u306b\u3088\u308b\u95a2\u7a0e\u306e\u9069\u7528\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
-
-    # CustomsTariffArt8AntiDumpingDelegation.lean - NORM|0187b7b5... (anti-dumping residual DELEGATION, law 143AC0000000054)
-    # Needle is in MainProvision Article 第八条 (Paragraph 37, ParagraphSentence);
-    # find_article_text(...,"第八条") returns that article (len 6919) with needle -
-    # use the precise article locator. Needle literal from queue via \u escapes.
-    yield ("customs tariff art.8 anti-dumping delegation - CustomsTariffArt8AntiDumpingDelegation.lean",
-           "143AC0000000054",
-           "article", "第八条",
-           ["\u524d\u5404\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u4e0d\u5f53\u5ec9\u58f2\u95a2\u7a0e\u306e\u9069\u7528\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
-
     # CustomsTariffArt7CountervailingDelegation.lean - NORM|e0b944b3... (countervailing duty delegation DELEGATION, law 143AC0000000054)
     # Needle is in MainProvision Article 第七条 (Paragraph 33, ParagraphSentence);
     # find_article_text(...,"第七条") returns that article (len 5989) with needle -
@@ -2113,12 +2068,6 @@ def checks():
            "405M50000008001",
            "file", None,
            ["課税免除又は不均一課税をした最初の年度から五箇年度とする", "期間に係る年度）第四条"])
-
-    # ElectronicSystemDesignation — cycle-72
-    yield ("ElectronicSystemDesignation.lean",
-           "415M60000040007",
-           "file", None,
-           ["主務省令で定める電子情報処理組織は、輸出入等関連情報処理組織とする", "処分通知等に係る電子情報処理組織）第七条の二"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -2872,6 +2821,30 @@ def checks():
            "325CO0000000245",
            "file", None,
            ["前号イからヘまでに掲げる工事に要した費用の額の合計額が百万円を超えること。"])
+
+    # 十八歳以下の人口 — PopulationAge18.lean
+    yield ("地方交付税法 art. 12（十八歳以下の人口）↔ PopulationAge18.lean (ageCeiling 18)",
+           "325AC0000000211",
+           "file", None,
+           ["最近の国勢調査の結果による当該地方団体の十八歳以下の人口"])
+
+    # 六十五歳以上の人口 — PopulationAge65.lean
+    yield ("地方交付税法 art. 12（六十五歳以上の人口）↔ PopulationAge65.lean (ageFloor65 65)",
+           "325AC0000000211",
+           "file", None,
+           ["最近の国勢調査の結果による当該地方団体の六十五歳以上の人口"])
+
+    # 二百五十六階調以上 — Gradation256.lean
+    yield ("税理士法施行規則 art. 27（二百五十六階調以上）↔ Gradation256.lean (gradationFloor 256)",
+           "326M50000040055",
+           "file", None,
+           ["赤色、緑色及び青色の階調がそれぞれ二百五十六階調以上であること。"])
+
+    # アルコール分 四十五度以下 — AlcoholDegree45.lean
+    yield ("酒税法 art. 3（アルコール分 四十五度以下）↔ AlcoholDegree45.lean (degreeCeiling 45)",
+           "328AC0000000006",
+           "file", None,
+           ["次に掲げる酒類（これらに水を加えたものを含み、前号イからニまでに掲げるものに該当するものを除く。）でアルコール分が四十五度以下のものをいう。"])
 
 
 def main() -> int:
