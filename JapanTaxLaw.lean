@@ -1008,3 +1008,6 @@ import JapanTaxLaw.AntiDumpingRate952Tests
 import JapanTaxLaw.LiquorDegreeSteppedAmount
 import JapanTaxLaw.LiquorDegreeSteppedAmountSpec
 import JapanTaxLaw.LiquorDegreeSteppedAmountTests
+import JapanTaxLaw.AntiDumpingRate372
+import JapanTaxLaw.AntiDumpingRate372Spec
+import JapanTaxLaw.AntiDumpingRate372Tests
