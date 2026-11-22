@@ -1017,3 +1017,6 @@ import JapanTaxLaw.AntiDumpingRate372Tests
 import JapanTaxLaw.SpecialTonSplitRatio
 import JapanTaxLaw.SpecialTonSplitRatioSpec
 import JapanTaxLaw.SpecialTonSplitRatioTests
+import JapanTaxLaw.MonthCountExclusiveBand
+import JapanTaxLaw.MonthCountExclusiveBandSpec
+import JapanTaxLaw.MonthCountExclusiveBandTests
