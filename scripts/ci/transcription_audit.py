@@ -2793,6 +2793,13 @@ def checks():
            ["千二百円を超える税率で課することができない。"])
 
 
+    # 登録免許税法 art. 19 — RegistrationTaxFloor1k.lean
+    yield ("登録免許税法 art. 19（計算額が千円に満たない場合は千円）↔ RegistrationTaxFloor1k.lean (1000 floor)",
+           "342AC0000000035",
+           "article", "第十九条",
+           ["別表第一に掲げる登記又は登録につき同表に掲げる税率を適用して計算した金額が千円に満たない場合には、当該登記又は登録に係る登録免許税の額は、千円とする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
