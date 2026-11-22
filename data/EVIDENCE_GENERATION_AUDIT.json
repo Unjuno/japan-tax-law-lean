@@ -715,7 +715,7 @@
       "boundary_examples_found": 0,
       "independent_spec": false,
       "kanji_literals": [],
-      "kernel_attested": false,
+      "kernel_attested": true,
       "kernel_decided_examples": 4,
       "needles_scoped": true,
       "scoped_article_chars": 5989,
@@ -1049,7 +1049,7 @@
         "十二",
         "四百万"
       ],
-      "kernel_attested": false,
+      "kernel_attested": true,
       "kernel_decided_examples": 19,
       "needles_scoped": true,
       "scoped_article_chars": 568,
@@ -3863,6 +3863,23 @@
         "spec_kanji_in_原文": [
           "三",
           "二"
+        ]
+      },
+      "NORM|02da219c2b4f9a7cda1ea6ea95a7633a2cc18b3897dda8a3b6106ff51ccb0eb7": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 19,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "FiscalYearMonthProration",
+        "spec_kanji_in_原文": [
+          "十二",
+          "四百万"
         ]
       },
       "NORM|03ead29a6bcab60f29f5bc7054f6ce6cc590159a49492fea8be5d4a412c4dfb5": {
@@ -7809,6 +7826,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"3\": [\"三\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/328AC0000000007_20250601_504AC0000000068.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:80/Article#80/Paragraph#4/ParagraphSentence/Sentence#1 sha256=0ef7ec85253d46a1c0fb505342fbf16e0b5a10b18fa0911766211b4ad1695699 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/TwoThirdsMembershipThresholdTests.lean sha256=b6b3ce5325942e7a6a522de0f25d436554b41bf2adf2f6796081473bda742163 (13 kernel-decided examples)"
+    },
+    "NORM|02da219c2b4f9a7cda1ea6ea95a7633a2cc18b3897dda8a3b6106ff51ccb0eb7": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 19 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=404AC0000000015_20010401_413AC0000000006 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/FiscalYearMonthProration.lean sha256=954a3401b761e2e695e60717498906226030e3080fcbe16467605a4ccad904d6",
+      "independent_spec": "JapanTaxLaw/FiscalYearMonthProrationSpec.lean sha256=6a55c9e02c25838b535a09721afd69e39180af8f2bee9353d2aa07357af44eb8 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44977223636: commit 3e396db3155da1edd2b5b91070becef7b3d84768, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [12, 4000000] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"12\": [\"十二\"], \"4000000\": [\"四百万\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/404AC0000000015_20010401_413AC0000000006.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:9/Article#9/Paragraph#3/ParagraphSentence/Sentence sha256=603e33a8712eb9db5652935ae8d8fd793bcee4a2b5ed6fe513d2686435ffa5b8 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/FiscalYearMonthProrationTests.lean sha256=b5abeb0b380f88aba7ced3c0d7703bd200f512b3d29350d804e956ebad958035 (19 kernel-decided examples)"
     },
     "NORM|03ead29a6bcab60f29f5bc7054f6ce6cc590159a49492fea8be5d4a412c4dfb5": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
