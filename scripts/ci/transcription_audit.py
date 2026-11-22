@@ -2829,6 +2829,13 @@ def checks():
            ["この場合において、当該担保付社債の金額がないときは、当該登録免許税の課税標準及び税率は、当該登記又は登録に係る不動産等に関する権利の件数一件につき千五百円とする。"])
 
 
+    # 酒税法施行規則 art. 50 — PermitValidity7Days.lean
+    yield ("酒税法施行規則 art. 50（許可状の有効期間が七日を超えるとき）↔ PermitValidity7Days.lean (7 days strict)",
+           "337CO0000000135",
+           "article", "第五十条",
+           ["許可状が七日を超える有効期間を必要とするときは、その旨及び事由"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

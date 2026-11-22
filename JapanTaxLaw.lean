@@ -1104,3 +1104,6 @@ import JapanTaxLaw.TrustedAffairsClassificationTests
 import JapanTaxLaw.RegistrationFeePerItem
 import JapanTaxLaw.RegistrationFeePerItemSpec
 import JapanTaxLaw.RegistrationFeePerItemTests
+import JapanTaxLaw.PermitValidity7Days
+import JapanTaxLaw.PermitValidity7DaysSpec
+import JapanTaxLaw.PermitValidity7DaysTests
