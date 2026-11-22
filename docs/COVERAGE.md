@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 313 | n/a | n/a |
-| distinct article pins | 136 | 42584 | 0.32% |
-| pinned Lean modules (cross-law) | 703 | n/a | n/a |
+| pinned literal checks | 311 | n/a | n/a |
+| distinct article pins | 134 | 42584 | 0.31% |
+| pinned Lean modules (cross-law) | 701 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 285 |
+| unpinned Lean modules (not counted as verified) | 281 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 50 |
+| adversarial review sessions recorded | 51 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
