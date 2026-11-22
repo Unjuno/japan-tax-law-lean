@@ -8792,3 +8792,107 @@ CI の実文字列は `scripts/ci/transcription_audit.py` の `checks()` cycle-7
 - Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。commit / push / merge / ブランチ切替は行っていない。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・計算構造抽出・needle 健全性・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+## Batch BT review (2026-11-23)
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。担当者の STAGING／doc-comment／CI `checks()` の申告を**信じず**、pinned raw JSON を自前の再帰 walker で直接走査した機械的独立照合。commit / push / merge / ブランチ切替は行っていない。
+- **対象モジュール（読み取り専用・変更なし）**: `JapanTaxLaw/TaxNoticeDeadline.lean`（本体）、`JapanTaxLaw/TaxNoticeDeadlineSpec.lean`、`JapanTaxLaw/TaxNoticeDeadlineTests.lean`（いずれも読み取りのみ。import 先 `JapanTaxLaw/TaxFinance` も読み取りのみ）。
+- **一次資料（pinned・改変禁止）**: `data/raw/327AC0000000119_20260401_508AC0000000002.law.json`
+  - law_id `327AC0000000119` / revision `327AC0000000119_20260401_508AC0000000002`（昭和二十七年法律第百十九号、改正施行 2026-04-01、「…合衆国軍隊の地位に関する協定の実施に伴う地方税法の臨時特例に関する法律」）。
+  - 対象: `law_full_text` の `Article` のうち `attr.Num = "4"`（第四条）**1 件のみ**、さらにその `Paragraph` のうち `attr.Num = "2"`（§2）**1 件のみ**。
+- **独立抽出方法**: `scripts/ci/transcription_audit.py` のロジックを呼ばず、自前の再帰 walker で `children` 内の text leaf のみを document-order に連結。`re.sub(r"[\s\u3000]+", "", …)` の自前正規化器で U+3000 除去・needle 照合。needle は CI `checks()` cycle-75 エントリの実文字列を実装ファイルから直接読み出して使用（STAGING 経由なし）。Lean は一時ファイルを承認済み一時ディレクトリに作成し `lake env lean`（**exit code 0**）で実行、監査後に削除済み。
+
+### BT-1. 独立抽出：原文 art.4 §2 の期限（pinned）
+
+自前 walker が検出した `Article` のうち `Num = "4"` は **1 件のみ**。その flat text leaf は **1167 文字 / U+3000 = 0**（doc-comment の「flat/normalized leaf text 1167 chars, U+3000 count 0」を裏取り）。§2（`Paragraph Num = "2"`）の本文は **93 文字 / U+3000 = 0**:
+
+> ２前項の規定により自動車税又は軽自動車税を普通徴収の方法により徴収しようとする場合において納税者に交付すべき納税通知書は、遅くとも、その納期限前十日までに納税者に交付しなければならない。
+
+- **期限の直接独立抽出**: `納期限前` と `まで` の間の segment は `十日`（len 2、codepoints `0x5341, 0x65e5`）。単位 `日` を除去した純漢数字は `十`（codepoint `0x5341`）のみ。自前の漢数字→整数変換で `十 = 10`。よって **noticeLeadDays = 10** を原文から直接抽出。
+- **照合**: 実装 `noticeLeadDays = 10` および `meetsNoticeDeadline(daysBeforeDue) = daysBeforeDue >= 10` と **一致**。
+- **桁違いの明示除外**: `納期限前一日まで`（1 日）/`納期限前百日まで`（100 日）/`納期限前一日前まで`/`納期限前百日前まで` はいずれも §2 本文に **存在しない**（すべて absent = True）。CNN 的な桁読み違え（1 日・100 日）を明示的に排除。
+- 補足: doc-comment の「原文逐語」は `…納税通知書は、遅くとも、その納期限前十日までに…` と `…` で省略した要約だが、pinned §2 全文（上記）と矛盾しない。
+
+### BT-2. needle 健全性（CI `checks()` 実文字列 2 本）
+
+`scripts/ci/transcription_audit.py:2183-2187` の cycle-75 エントリ（`kind = "file"`、`art = None`）から **実文字列 2 本をソース直読**し（`ast.literal_eval` でパース）、自前で平坦化・正規化した pinned 原文に対して照合した（手打ちせず、STAGING の申告も信じていない）:
+
+| # | CI `checks()` 実文字列 | 長さ | U+3000 | 自前正規化 art.4 で FOUND | 自前正規化・法令全文で FOUND |
+|---|---|---:|---:|---|---|
+| 1 | `遅くとも、その納期限前十日までに納税者に交付しなければならない` | 31 | 0 | ✅（count 1） | ✅（count 1） |
+| 2 | `自動車税及び軽自動車税の徴収の方法等）第四条` | 22 | 0 | ✅（count 1） | ✅（count 1） |
+
+- **needle 結果: 2/2 FOUND、needle 内 U+3000 = 0（合格）。**
+- needle 1 は期限の中核（納期限前十日まで）をそのまま押さえ、§2 本文に 1 回現れる。needle 2 は ArticleCaption `（自動車税及び軽自動車税の徴収の方法等）` と ArticleTitle `第四条` をまたぐ。locator は `"file"`（法令全文 flatten）だが、document-order 連結で連続するため art.4 スコープ・法令全文の双方で FOUND。
+- 補足: 法令全文の生文字列には U+3000 が **29 箇所**存在するが、art.4 内（1167 文字）および 2 本の needle 内には **0**。自前正規化は `[\s\u3000]+` を除去するため照合は U+3000 の有無に左右されない。needle は転写忠実性の検査のみに用いられ、モデルの法的正しさを保証するものではない（下記 B-5 / U-1〜U-3）。
+
+### BT-3. 反例探索（境界値）
+
+一時 Lean ファイルから `lake env lean`（**exit code 0**）で `#eval` を実行し、さらに `example … := by decide`／名前付き `theorem adv_bt_* := by decide` で kernel 確認した:
+
+| `daysBeforeDue` | 期待 | `#eval` | `by decide` | 判定 |
+|---:|---:|---:|---|---|
+| 0 | false | false | ✅ | 一致 |
+| 9 | false | false | ✅ | 一致 |
+| 10 | true | true | ✅ | 一致 |
+| 11 | true | true | ✅ | 一致 |
+
+- `#eval noticeLeadDays` = **10**（BT-1 の独立抽出値と一致）。
+- Spec の独立定式 `specDeadline(d) = d >= 10` との `agreeTaxNoticeDeadline = true` も `by decide` で確認（[0,1,9,10,11,100] の全点で一致）。
+- **反例探索で検出された原文・Lean 間の矛盾: 0 件（ゼロ）。** 境界 9→false / 10→true / 11→true は「遅くとも納期限前十日まで」の「十日前以上前に交付」という含意と整合。
+- 未形式化の攻撃対象（条例選択・納期限算定・日付算術）は本モデルに存在しないため反例探索の対象外（下記 U-1〜U-3）。
+
+### BT-4. 公理監査（`#print axioms`）
+
+一時 Lean ファイルを承認済み一時ディレクトリに作成し、既存 `def` 4 本（`noticeLeadDays` / `meetsNoticeDeadline` / `specDeadline` / `agreeTaxNoticeDeadline`）と本レビューで追加した名前付き定理 4 本（`adv_bt_noticeLeadDays` / `adv_bt_9` / `adv_bt_10` / `adv_bt_11`）計 **8 宣言**について `#print axioms` を実行（`lake env lean`、**exit code 0**）。監査後、一時ファイル・一時スクリプトは**削除済み**。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 8（すべて `does not depend on any axioms`） |
+| `Classical.choice` / `choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+
+- 補足: `scripts/ci/generate_axiom_probe.py` は `theorem` / `lemma` 宣言のみを走査するため、`def` / `example` のみのモジュールは CI 公理プローブの直接対象外となる。本レビューでは既存 `def` も直接 `#print axioms` に掛けて確認した（Batch BO〜BS と同趣旨）。
+- **禁止公理（choice / sorryAx / Quot.sound / propext）はいずれも 0 件。公理監査は合格。**
+
+### BT-5. 分類（CONFIRMED / BY-DESIGN / UNRESOLVED）
+
+| 分類 | 件数 |
+|---:|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **6** |
+| **UNRESOLVED** | **3** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 欠陥件数を手柄にしない。
+
+**CONFIRMED（0 件）**: 原文 art.4 §2 から独立抽出した期限 `十 = 10` ↔ `noticeLeadDays = 10` / `meetsNoticeDeadline(d)=d>=10` の一致、needle 2/2 FOUND（U+3000 = 0）、境界反例 4 点（9/10/11 ほか 0）、公理監査 8 宣言すべてが合格。誤訳・桁違い・needle 不一致・禁止公理のいずれも検出されなかった。
+
+**BY-DESIGN（6 件）**:
+
+- **B-1 bounded L4 モデル（提前日数のみ）**: 本モデルは art.4 §2 の「納税通知書は遅くとも納期限前十日までに交付」という提前日数のみを形式化する。交付手続・税額算定・適用可否等は NOT MODELLED と doc-comment に明記。法的判断を提供しない設計であり、反映漏れではない。
+- **B-2 期限値 10 の直接ハードコードは正当**: BT-1 のとおり原文の期限は漢数字 `十`（=10）のみで、桁違い（1 日/100 日）は原文に存在しない。したがって `noticeLeadDays = 10` と数値を固定する設計は原文に忠実（BY-DESIGN）。
+- **B-3 境界意味 `d >= 10`**: 「遅くとも…までに」を「残り 10 日以上前なら間に合う」と解した `>=` は、境界 9→false / 10→true / 11→true（BT-3）として整合。原文の「まで」を含意する自然な算術化であり欠陥ではない。
+- **B-4 入力は caller-established**: `daysBeforeDue`（納期限までの残り日数）は呼び出し側が与える自然数であり、本 `def` は比較のみを行う。カレンダー日付から残り日数への換算は行わない（U-3）。
+- **B-5 原文逐語の省略と needle の caption/title 横断**: doc-comment の逐語は `…` で省略した要約だが pinned §2 全文と矛盾しない（BT-1）。needle 2 は caption 末尾と title をまたぐが、locator `"file"` の document-order 連結で 2/2 FOUND（BT-2）。いずれも転写・運用上の境界であり欠陥ではない。
+- **B-6 CI 公理プローブの走査対象外**: `generate_axiom_probe.py` は定理宣言のみを走査するため `def` / `example` のみの本モジュールは直接対象外だが、本レビューが直接 `#print axioms` で補完済み（BT-4）。運用上の境界であり欠陥ではない。
+
+**UNRESOLVED（3 件）**: いずれも doc-comment の `Scope / NOT MODELLED`（Lean 本体 19-21 行目）に明記済みで、pinned 原文 art.4 から独立確認した未形式化項目。
+
+- **U-1 地方団体の条例による徴収方法選択の未形式化**: 原文 §1 は「地方団体の条例で定めるところにより、普通徴収又は証紙徴収の方法によらなければならない」と定め、§2 の通知義務も「前項の規定により…普通徴収の方法により徴収しようとする場合」を前提とする。すなわち §2 の適用可否は §1 の条例選択に依存するが、どの地方団体の条例が適用されるかは本 pinned 原文にない。モデルはこの選択を NOT MODELLED とする。**条例選択の特定は pinned 原文のみでは決定不能であり、人間の法律専門家による確認を要する。**
+- **U-2 納期限の算出の未形式化（cross-law relation・§5）**: 原文 §2 は「その納期限前十日まで」と `納期限` を参照するのみで、納期限 itself の定義・算出方法は本 pinned 原文に存在しない（BT-1 で独立確認）。納期限は地方税法（法 id `325AC0000000226`、別レイヤー）等に委ねられ、本 JSON には含まれない。モデルも NOT MODELLED と明記。**納期限の算定は pinned 原文のみでは決定不能であり、人間の法律専門家による確認を要する。**
+- **U-3 日付算術の未形式化**: 原文はカレンダー日付と「残り日数（daysBeforeDue）」の換算規則（起算日・休日扱い・日数カウント方法等）を定めない。モデルは `daysBeforeDue` を抽象的な `Nat` 入力として受け取るのみで、日付算術は NOT MODELLED と明記。**日数カウントの法的規則は pinned 原文のみでは決定不能であり、人間の法律専門家による確認を要する。**
+
+### BT-6. 最終報告・結論
+
+- pinned revision `327AC0000000119_20260401_508AC0000000002` の art.4 §2 から独立抽出した期限は「納期限前十日まで」= **10** の **1 箇所**のみ。1167 文字 / U+3000 = 0、`十`（0x5341）の直接抽出、1 日/100 日の明示除外を確認。`noticeLeadDays = 10` / `meetsNoticeDeadline(d)=d>=10` と一致。**CONFIRMED = 0（ゼロ）**。
+- **CONFIRMED: 0 件 / BY-DESIGN: 6 件 / UNRESOLVED: 3 件。**
+- **needle 健全性: CI `checks()` 実文字列 2 本、自前正規化で 2/2 FOUND、needle 内 U+3000 = 0。**
+- **反例: `meetsNoticeDeadline 9 = false` / `10 = true` / `11 = true`（`#eval` + `by decide`、`0 = false` も確認、矛盾 0）。`agreeTaxNoticeDeadline = true`。**
+- **公理: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件（8 宣言すべて axiom-free、exit code 0）。一時ファイルは削除済み。**
+- **条例選択・納期限算定・日付算術の未形式化を確認**（U-1 / U-2 / U-3、いずれも doc-comment に明記）。
+- 追記後レビュー件数: **70 件**（既存 69 件 ＋ 本 BT 1 件。coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` に `## Batch BT review (2026-11-23)` が整合）。既存セクション（Batch AH〜BS 含む 69 件）はすべて保持。
+- Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。commit / push / merge / ブランチ切替は行っていない。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・期限数値抽出・needle 健全性・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
