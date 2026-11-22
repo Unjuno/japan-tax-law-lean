@@ -1008,3 +1008,15 @@ import JapanTaxLaw.AntiDumpingRate952Tests
 import JapanTaxLaw.LiquorDegreeSteppedAmount
 import JapanTaxLaw.LiquorDegreeSteppedAmountSpec
 import JapanTaxLaw.LiquorDegreeSteppedAmountTests
+import JapanTaxLaw.CommutingDistance95
+import JapanTaxLaw.CommutingDistance95Spec
+import JapanTaxLaw.CommutingDistance95Tests
+import JapanTaxLaw.EligibleDependentAge70
+import JapanTaxLaw.EligibleDependentAge70Spec
+import JapanTaxLaw.EligibleDependentAge70Tests
+import JapanTaxLaw.BuildingArea800
+import JapanTaxLaw.BuildingArea800Spec
+import JapanTaxLaw.BuildingArea800Tests
+import JapanTaxLaw.LandArea400
+import JapanTaxLaw.LandArea400Spec
+import JapanTaxLaw.LandArea400Tests

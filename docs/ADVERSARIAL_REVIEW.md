@@ -7286,3 +7286,52 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 - 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。一時ファイルはすべて削除した。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・漢数字の自前 Arabic 変換・needle 自前正規化検証・カーネル `by decide` 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+### CommutingDistance95.lean — 所得税法施行令 art. 20の2（通勤距離 片道九十五キロメートル以上）
+
+- **pin**: law_id `340CO0000000096` / revision `…20260522_508CO0000000093`; needle 1/1 FOUND verbatim-unique in the scoped article 第二十条の二, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/94/95/96 km を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### EligibleDependentAge70.lean — 所得税法 art. 2（控除対象扶養親族の年齢七十歳以上）
+
+- **pin**: law_id `340AC0000000033` / revision `…20261001_507AC0000000070`; needle 1/1 FOUND verbatim-unique in the scoped article 第二条, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/69/70/71 years を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### BuildingArea800.lean — 租税特別措置法 art. 70の6の8（建物の床面積の合計のうち八百平方メートル以下の部分）
+
+- **pin**: law_id `332AC0000000026` / revision `…20261101_507AC0000000013`; needle 1/1 FOUND verbatim-unique in the scoped article 第七十条の六の八, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/799/800/801 m² を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### LandArea400.lean — 租税特別措置法 art. 70の6の8（宅地等の面積の合計のうち四百平方メートル以下の部分）
+
+- **pin**: law_id `332AC0000000026` / revision `…20261101_507AC0000000013`; needle 1/1 FOUND verbatim-unique in the scoped article 第七十条の六の八, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/399/400/401 m² を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+

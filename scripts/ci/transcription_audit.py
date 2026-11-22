@@ -2597,6 +2597,34 @@ def checks():
            ["二十万円（アルコール分が二十一度以上のものにあつては、二十万円にアルコール分が二十度を超える一度ごとに一万円を加えた金額）"])
 
 
+
+
+
+    # 通勤距離 片道九十五キロメートル以上 — CommutingDistance95.lean
+    yield ("所得税法施行令 art. art. 20の2（通勤距離 片道九十五キロメートル以上）↔ CommutingDistance95.lean (commuteThresholdKm 95)",
+           "340CO0000000096",
+           "article", "第二十条の二",
+           ["その通勤の距離が片道九十五キロメートル以上である場合"])
+
+    # 控除対象扶養親族の年齢七十歳以上 — EligibleDependentAge70.lean
+    yield ("所得税法 art. art. 2（控除対象扶養親族の年齢七十歳以上）↔ EligibleDependentAge70.lean (eligibleAge 70)",
+           "340AC0000000033",
+           "article", "第二条",
+           ["控除対象扶養親族のうち、年齢七十歳以上の者をいう。"])
+
+    # 建物の床面積の合計のうち八百平方メートル以下の部分 — BuildingArea800.lean
+    yield ("租税特別措置法 art. art. 70の6の8（建物の床面積の合計のうち八百平方メートル以下の部分）↔ BuildingArea800.lean (buildingAreaCap 800)",
+           "332AC0000000026",
+           "article", "第七十条の六の八",
+           ["当該建物の床面積の合計のうち八百平方メートル以下の部分"])
+
+    # 宅地等の面積の合計のうち四百平方メートル以下の部分 — LandArea400.lean
+    yield ("租税特別措置法 art. art. 70の6の8（宅地等の面積の合計のうち四百平方メートル以下の部分）↔ LandArea400.lean (landAreaCap 400)",
+           "332AC0000000026",
+           "article", "第七十条の六の八",
+           ["当該宅地等の面積の合計のうち四百平方メートル以下の部分"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

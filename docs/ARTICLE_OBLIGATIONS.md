@@ -6,10 +6,10 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 160
-- presence-facts-only complete: 160
-- NOT_STARTED: 7
-- PARTIAL: 153
+- articles with explicit pin: 169
+- presence-facts-only complete: 169
+- NOT_STARTED: 9
+- PARTIAL: 160
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
 - BLOCKED: 0
@@ -77,6 +77,8 @@ source positions. Human legal review is a separate axis and is pending.
 | `325M50000040017` | 第三十条 | InheritanceRegPrescribedAmount | YES | YES | NO | PARTIAL |
 | `325CO0000000245` | 第六条の九の二 | LocalTaxOrderArt15_4Amount | YES | NO | NO | NOT_STARTED |
 | `326CO0000000216` | 第六条の二 | TaxAccountantRegDelegatedAmount | YES | YES | NO | PARTIAL |
+| `143AC0000000054` | 第七条 | CustomsTariffArt7InvestigationDeadline | YES | YES | NO | PARTIAL |
+| `143AC0000000054` | 第七条 | CustomsTariffArt7CountervailingDelegation | YES | YES | NO | PARTIAL |
 | `143AC0000000054` | 第四条 | CustomsTariffArt4ProductionServiceDelegation | YES | YES | NO | PARTIAL |
 | `143AC0000000054` | 第十四条 | CustomsTariffArt14SamplesOrLowPriceException | YES | YES | NO | PARTIAL |
 | `143AC0000000054` | 第四条の九 | CustomsTariffArt4_9Delegation | YES | YES | NO | PARTIAL |
@@ -133,7 +135,7 @@ source positions. Human legal review is a separate axis and is pending.
 | `322CO0000000109` | 第三条 | CombinedRegistrationRequest | YES | YES | NO | PARTIAL |
 | `326AC1000000145` | 第十四条 | TaxSavingsPenaltyCap | YES | YES | NO | PARTIAL |
 | `346AC0000000089` | 第七条 | VehicleWeightUnit | YES | YES | YES | PARTIAL |
-| `340M50000040012` | 第七条の二 | CourseHoursThreshold | YES | YES | YES | PARTIAL |
+| `340M50000040012` | 第七条の二 | CourseHoursThreshold | YES | YES | NO | PARTIAL |
 | `352M50000040032` | 第二条 | CapitalFiveBillionThreshold | YES | YES | NO | PARTIAL |
 | `502AC0000000025` | 第七条 | CapitalOneBillionExcess | YES | YES | NO | PARTIAL |
 | `353AC0000000025` | 第二十三条 | PetroleumCoalFineRange | YES | YES | NO | PARTIAL |
@@ -170,10 +172,17 @@ source positions. Human legal review is a separate axis and is pending.
 | `348AC0000000102` | 第三条 | AreaThreshold2Ha | YES | YES | NO | PARTIAL |
 | `347M50000008026` | 第四条 | WeightInterval5M25M | YES | YES | NO | PARTIAL |
 | `328M50000040011` | 第十一条の八 | EmploymentDuration6Months | YES | YES | NO | PARTIAL |
-| `334AC0000000147` | 第百十五条 | CollectionPeriodCap30 | YES | YES | YES | PARTIAL |
-| `325AC0000000226` | 第三百四十九条の三の二 | ResidentialLandArea200 | YES | NO | YES | NOT_STARTED |
+| `334AC0000000147` | 第百十五条 | CollectionPeriodCap30 | YES | YES | NO | PARTIAL |
+| `325AC0000000226` | 第三百四十九条の三の二 | ResidentialLandArea200 | YES | NO | NO | NOT_STARTED |
 | `330AC0000000037` | 第二十三条 | RefundFineRange1M | YES | YES | NO | PARTIAL |
 | `504CO0000000372` | 第一条 | CrossSection15mm | YES | YES | NO | PARTIAL |
 | `342CO0000000146` | 第二十九条 | RegistrationTaxTruncation30k | YES | YES | NO | PARTIAL |
 | `326AC1000000237` | 第六条 | AccountingSubjectsCount | YES | YES | NO | PARTIAL |
 | `431AC0000000003` | 第四条 | ForestTaxEligibilityException | YES | YES | NO | PARTIAL |
+| `342CO0000000146` | 第二十一条 | TonnageExpansionRatioCap | YES | YES | NO | PARTIAL |
+| `407CO0000000029` | 第八条の三 | RatioCapAtOne | YES | YES | NO | PARTIAL |
+| `328AC0000000006` | 第二十三条 | LiquorDegreeSteppedAmount | YES | YES | NO | PARTIAL |
+| `340CO0000000096` | 第二十条の二 | CommutingDistance95 | YES | YES | YES | PARTIAL |
+| `340AC0000000033` | 第二条 | EligibleDependentAge70 | YES | YES | YES | PARTIAL |
+| `332AC0000000026` | 第七十条の六の八 | BuildingArea800 | YES | NO | YES | NOT_STARTED |
+| `332AC0000000026` | 第七十条の六の八 | LandArea400 | YES | NO | YES | NOT_STARTED |
