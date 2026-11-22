@@ -1011,3 +1011,6 @@ import JapanTaxLaw.LiquorDegreeSteppedAmountTests
 import JapanTaxLaw.AntiDumpingRate372
 import JapanTaxLaw.AntiDumpingRate372Spec
 import JapanTaxLaw.AntiDumpingRate372Tests
+import JapanTaxLaw.SpecialTonSplitRatio
+import JapanTaxLaw.SpecialTonSplitRatioSpec
+import JapanTaxLaw.SpecialTonSplitRatioTests
