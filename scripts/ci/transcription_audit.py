@@ -2641,6 +2641,13 @@ def checks():
            ["事業年度の変更その他の事由により、指定期間内に終了する事業年度の月数の合計が二十四月に満たない法人及び当該月数の合計が二十四月を超える法人（次号から第五号までに掲げる法人を除く。）"])
 
 
+    # TIR条約特例法施行令 art. 17 — ConditionalApprovalFee.lean
+    yield ("コンテナー通関特例法施行令 art. 17（承認一件ごとの手数料・電子申請は十一万千八百円）↔ ConditionalApprovalFee.lean (120700 / 111800)",
+           "346CO0000000257",
+           "article", "第十七条",
+           ["当該承認一件ごとに十二万七百円（電子申請の場合にあつては、十一万千八百円）"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

@@ -1026,3 +1026,6 @@ import JapanTaxLaw.MonthCountExclusiveBandTests
 import JapanTaxLaw.SpecialUseExemption
 import JapanTaxLaw.SpecialUseExemptionSpec
 import JapanTaxLaw.SpecialUseExemptionTests
+import JapanTaxLaw.ConditionalApprovalFee
+import JapanTaxLaw.ConditionalApprovalFeeSpec
+import JapanTaxLaw.ConditionalApprovalFeeTests
