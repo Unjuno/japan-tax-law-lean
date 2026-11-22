@@ -1407,6 +1407,16 @@ def checks():
            "143AC0000000054",
            "article", "\u7b2c\u5341\u4e03\u6761",
            ["\u7b2c\u5341\u4e09\u6761\u7b2c\u4e03\u9805\u305f\u3060\u3057\u66f8\u306e\u898f\u5b9a\u306f\u3001\u524d\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u95a2\u7a0e\u3092\u5fb4\u53ce\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+    # CustomsTariffArt18PrevPara3ReliefReading.lean - NORM|33d7dae2... (prev-art.para3 準用 READING, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十八条 (Paragraph 4, Sentence 1) -
+    # verbatim injected from the queue via \u escapes; source is 前条第三項 read
+    # in for a person who received 関税の軽減 under 第一項.
+    # find_article_text(...,'第十八条') len 432 with needle.
+    yield ("customs tariff art.18 prev-art.para3 relief reading - CustomsTariffArt18PrevPara3ReliefReading.lean",
+           "143AC0000000054",
+           "article", "\u7b2c\u5341\u516b\u6761",
+           ["\u524d\u6761\u7b2c\u4e09\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e00\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u95a2\u7a0e\u306e\u8efd\u6e1b\u3092\u53d7\u3051\u305f\u8005\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
 
 
 
@@ -2237,6 +2247,12 @@ def checks():
            "508CO0000000224",
            "file", None,
            ["ニッケルの含有量が全重量の〇・六パーセントを超えるもの", "課税物件）第一条"])
+
+    # NonUniformRateCap — cycle-79
+    yield ("NonUniformRateCap.lean",
+           "505M60000008043",
+           "file", None,
+           ["当該率が０．０５を超えるときは、０．０５とする", "不均一課税に際して適用する税率"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
