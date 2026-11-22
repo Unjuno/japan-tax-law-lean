@@ -6,13 +6,14 @@ Verbatim (injected from the authoritative queue task, not hand-typed):
 
 ## Verdict: NO FINDINGS (independent programmatic cross-check)
 
-An independent adversarial subagent review was requested but did not return a verdict
-within the execution window. Per §3/§6, an independent cross-check was therefore performed
-programmatically from authoritative sources (queue needle, raw snapshot, INVENTORY) — not
-from the author's prose — covering 17 checks, all PASS (0 fails): raw SHA-256 `924a01d3…e9c`;
-needle whole-law count 1 at Article 第十四条 (len 1655) Item 11 Sentence 2; law identity
-関税定率法 (not 関税法) with real revision; all five quote sites byte-exact against the queue
-needle (no hand-typed deviation class); 前号=Item 10 proviso introducer confirmed; five unit
-theorems axiom-free with no propext (an initial simp-based version depended on propext and
-was corrected per §4); three evidence hashes match on-disk; ASCII-only unique audit name.
-No concrete H/T/D/C/U finding was reproduced. Human legal review remains `LEGAL_REVIEW_PENDING`.
+The independent adversarial reviewer returned NO FINDINGS with every mandated check
+independently reproduced against authoritative sources (needle from queue via ascii(),
+never typed): raw SHA-256 `924a01d3…e9c`; needle whole-law count 1 at Article 第十四条
+(len 1655) Item 11 Sentence 2; preceding Item 10 proviso introducer (ただし、) confirmed;
+byte-fidelity of all five quote sites (no hand-typed deviation); law identity 関税定率法
+(not 関税法) with real revision; READING cross-reference faithful with honest NOT-MODELLED
+scope; agree_reading/agree_source sound with explicit cases/constructor/intro/rfl (no simp,
+no propext); all five unit theorems axiom-free (propext correction verified); audit ASCII-only
+and unique; three evidence hashes match on-disk; doc refs resolve. A separate 17-point
+programmatic cross-check also passed 0 fails. No concrete H/T/D/C/U finding. Human legal
+review remains `LEGAL_REVIEW_PENDING`.
