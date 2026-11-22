@@ -63,7 +63,7 @@ were made: an initial depth run (4 revisions of one law) and a breadth run
 (`--limit 12 --per-law 1`). Current state:
 
 ```
-346 ACQUIRED_PINNED revisions across 16 distinct laws (3 FETCH_FAILED recorded):
+646 ACQUIRED_PINNED revisions across 35 distinct laws (3 FETCH_FAILED recorded):
   143AC0000000054 (関税定率法)
   322AC0000000175 (災害被害者租税減免)
   322CO0000000268 (災害被害者租税減免政令)
@@ -71,12 +71,12 @@ were made: an initial depth run (4 revisions of one law) and a breadth run
 ```
 Each response was validated as real law-data JSON (`law_full_text` present, so
 HTML 404 templates are rejected) and its SHA-256 re-verified against the on-disk
-bytes under `data/raw_historical/` (346/346 verified). `data/HISTORICAL_PINNED.json`
+bytes under `data/raw_historical/` (646/646 verified). `data/HISTORICAL_PINNED.json`
 and `docs/HISTORICAL_PINNED.md` record the result. `data/SOURCE_LAYERS.json` now
-reports `L6_HISTORICAL = ACQUIRED_PINNED_ONLY`, `count_acquired=346`, still
+reports `L6_HISTORICAL = ACQUIRED_PINNED_ONLY`, `count_acquired=646`, still
 `verification_status=OUT_OF_SCOPE` and NOT merged into L0. 15/15 source-layer
 tests pass, including hash re-verification and status-honesty checks. The
-remaining ~449 discovered historical names stay unacquired; no parse,
+remaining ~149 discovered historical names stay unacquired; no parse,
 formalization, proof or human review is claimed for the pinned snapshots.
 
 ## L5 case-law acquisition (2026-11-21) — first real pins

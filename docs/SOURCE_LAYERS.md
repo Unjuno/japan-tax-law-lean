@@ -20,7 +20,7 @@ layer is never folded into the statutory ledger.
 
 ## Historical revision acquisition
 
-- revisions recorded: 349; ACQUIRED_PINNED: 346
+- revisions recorded: 649; ACQUIRED_PINNED: 646
 - verification_status: OUT_OF_SCOPE (pinned only; NOT parsed, formalized, proved or legally reviewed)
 
 ## Case-law acquisition
