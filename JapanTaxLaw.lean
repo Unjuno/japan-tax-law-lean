@@ -1604,3 +1604,15 @@ import JapanTaxLaw.TaxService15YearsTests
 import JapanTaxLaw.Certificate200k
 import JapanTaxLaw.Certificate200kSpec
 import JapanTaxLaw.Certificate200kTests
+import JapanTaxLaw.CapitalExceed100M
+import JapanTaxLaw.CapitalExceed100MSpec
+import JapanTaxLaw.CapitalExceed100MTests
+import JapanTaxLaw.TaxAccountantFine300k
+import JapanTaxLaw.TaxAccountantFine300kSpec
+import JapanTaxLaw.TaxAccountantFine300kTests
+import JapanTaxLaw.SpecialLand330
+import JapanTaxLaw.SpecialLand330Spec
+import JapanTaxLaw.SpecialLand330Tests
+import JapanTaxLaw.ShareholdersUnder50
+import JapanTaxLaw.ShareholdersUnder50Spec
+import JapanTaxLaw.ShareholdersUnder50Tests

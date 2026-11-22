@@ -1,9 +1,9 @@
 {
-  "commit": "ebeddffe2f057904d27d9042493cab1294a8b369",
+  "commit": "92ed476ac7d8b7b94bbee0d8055adcdccb667ccd",
   "jobs": {
     "Build Lean project and check axioms": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45029985882/job/137231235564",
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45039614363/job/137260908235",
       "required_steps": [
         "Build explicitly",
         "No sorry/admit in adopted proofs",
@@ -14,7 +14,7 @@
     },
     "Semantic audit and mutation injection": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45029985882/job/137231235737"
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45039614363/job/137260908479"
     }
   },
   "modules": {
@@ -197,6 +197,15 @@
     },
     "BusinessOwnerDeductionTests.lean": {
       "sha256": "61b2cc0dc9ba20aeb7d2465e3ecfcc248cb82a687981de2e45d3c349c31be28d"
+    },
+    "CapitalExceed100M.lean": {
+      "sha256": "3be33589402da49c7573b19e1ca988d51f6895cdd7095fc9c91268370f0fae20"
+    },
+    "CapitalExceed100MSpec.lean": {
+      "sha256": "cab3d70845e9e7035de02da37764cc65281bd43ffbc322c9b6c05978254d37a3"
+    },
+    "CapitalExceed100MTests.lean": {
+      "sha256": "146cd04c6448a87888a25119583879c36d0622a0f3aafbd76dec40a5444ebe4e"
     },
     "CapitalFiveBillionThreshold.lean": {
       "sha256": "e4e2a4eb468f292d6392b9b30aeb316efa8369e2a93e1c1570f0c03c54dcd755"
@@ -2898,6 +2907,15 @@
     "SavingsDepositInterestTests.lean": {
       "sha256": "3f37ef2c0bd47786b37cae200a54512161cb24e2be2d9c0100151fa024be5f34"
     },
+    "ShareholdersUnder50.lean": {
+      "sha256": "9764506374a3c5c2b8c563cc08998035484b319d76d0274b48ac4474a349a7a0"
+    },
+    "ShareholdersUnder50Spec.lean": {
+      "sha256": "46e65b06c832de4744bbcb9ebfe51784849501fd7a9365650656d3c4aae0c3eb"
+    },
+    "ShareholdersUnder50Tests.lean": {
+      "sha256": "cd51eb9c1ccdc570405cfd51a72b22c3400a2b4d9bdc7d6b362ee324d71a02dd"
+    },
     "ShortMeasure180Days.lean": {
       "sha256": "59b5a3d9b19cde07d8858f8b5db6a6597c876d4bca284c749809968cc292f38a"
     },
@@ -2969,6 +2987,15 @@
     },
     "SpecialLand200Tests.lean": {
       "sha256": "d7e972f0a4eafcf5d5e9a21f56e7562fe1b53a95f93a09798beed11f44ad50bb"
+    },
+    "SpecialLand330.lean": {
+      "sha256": "0aca1e2e59fd5102762dac868115e6ae955ea56c3c363e1e7e58f2cda7a40417"
+    },
+    "SpecialLand330Spec.lean": {
+      "sha256": "776992c37bf64ce1fd38d8d22d18f90a401dae21d667674e8932f375ba438be6"
+    },
+    "SpecialLand330Tests.lean": {
+      "sha256": "d86bac8cd9c03983fa90b6072d98b24354c3a7c9c78e69d2b8d3f2d4e73ba239"
     },
     "SpecialLand400.lean": {
       "sha256": "e4797cdd85a410791cd2fe5035f271b5c906cbcb84829bbb99ec8dcafc8facd7"
@@ -3149,6 +3176,15 @@
     },
     "TaxAccountantBalanceSheetUnitsTests.lean": {
       "sha256": "b2f9b42a63fe98326a592839d238c99cb898492885af348b0d42ff161249b182"
+    },
+    "TaxAccountantFine300k.lean": {
+      "sha256": "45213612f3eb842284ae6212d88e72acc068e1a52a005d8d47473b91165541db"
+    },
+    "TaxAccountantFine300kSpec.lean": {
+      "sha256": "fc06c0bd39c3110375b73351996c11fbaa7bf6b6d64bfb2b7f02e92f9aae618c"
+    },
+    "TaxAccountantFine300kTests.lean": {
+      "sha256": "47fe951b3cc38df96d39991867371aed210d6f9d1df767424c636d1ce1b9eb19"
     },
     "TaxAccountantFineCap300k.lean": {
       "sha256": "6b561f7dfc66a24ad3da633407f61de3963e530c7cc2d9484802762ac4027f52"
@@ -3460,5 +3496,5 @@
   "note": "Kernel-build attestation. Hashes are SHA-256 of the committed blob bytes (LF-normalised). CI run is a recorded, independently reproducible build of the exact commit; the generator re-checks every hash before accepting it as evidence.",
   "run_conclusion": "success",
   "schema": 1,
-  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45029985882"
+  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45039614363"
 }

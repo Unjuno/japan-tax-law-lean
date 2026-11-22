@@ -3115,6 +3115,30 @@ def checks():
            "file", None,
            ["ただし、締約国品目証明書は、これに係る貨物の課税価格の総額が二十万円以下である場合にあつては、税関長の求めがあつたときに提出すれば足りる。"])
 
+    # 資本金の額が一億円を超える法人 — CapitalExceed100M.lean
+    yield ("地方税法 art. 72_32（資本金の額が一億円を超える法人）↔ CapitalExceed100M.lean (capitalThreshold100M 100000000)",
+           "325AC0000000226",
+           "file", None,
+           ["納税申告書に係る事業年度開始の日現在における資本金の額又は出資金の額が一億円を超える法人"])
+
+    # 過料 三十万円以下 — TaxAccountantFine300k.lean
+    yield ("税理士法 art. 65（過料 三十万円以下）↔ TaxAccountantFine300k.lean (fineCap300k 300000)",
+           "326AC1000000237",
+           "file", None,
+           ["次の各号のいずれかに該当する場合には、税理士法人の社員若しくは清算人又は税理士会若しくは日本税理士会連合会の役員は、三十万円以下の過料に処する。"])
+
+    # 選択特例対象宅地等 三百三十平方メートル以下 — SpecialLand330.lean
+    yield ("租税特別措置法 art. 69_4（選択特例対象宅地等 三百三十平方メートル以下）↔ SpecialLand330.lean (specialLandCap330 330)",
+           "332AC0000000026",
+           "file", None,
+           ["当該選択特例対象宅地等の面積の合計が三百三十平方メートル以下であること。"])
+
+    # 五十人未満の株主から取得 — ShareholdersUnder50.lean
+    yield ("租税特別措置法施行令 art. 39_10_2（五十人未満の株主から取得）↔ ShareholdersUnder50.lean (shareholderLimit50 50)",
+           "332CO0000000043",
+           "file", None,
+           ["当該株式交付により当該株式交付子会社の株式を五十人以上の当該株式交付子会社の株主から取得をした場合"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
