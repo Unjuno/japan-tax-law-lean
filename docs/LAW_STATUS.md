@@ -11,14 +11,14 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 120
+- with >=1 pinned literal check (semantic model): 121
 - with recorded human legal review: 0
 
 ## All laws
 
 | law_id | title | revision | enforcement | raw | parse | articles | pinned checks | human review |
 |---|---|---|---|---|---|---:|---|---|
-| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (28) | NO |
+| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (29) | NO |
 | `322CO0000000109` | 昭和二十二年政令第百九号（財産税法等による物納に因る不動産登記の特例に関する政令） | 322CO0000000109_19470627_000000000000000 | CurrentEnforced | YES | ok | 4 | YES (1) | NO |
 | `322AC0000000175` | 昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律） | 322AC0000000175_20220101_503AC0000000011 | CurrentEnforced | YES | ok | 78 | YES (2) | NO |
 | `322CO0000000268` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施 | 322CO0000000268_20251201_507CO0000000120 | CurrentEnforced | YES | ok | 113 | YES (5) | NO |
@@ -157,7 +157,7 @@ a completion flag.
 | `347CO0000000167` | 航空機燃料譲与税法施行令 | 347CO0000000167_20140312_426CO0000000059 | CurrentEnforced | YES | ok | 48 | NO (0) | NO |
 | `347M50000040042` | 沖縄の復帰に伴う国税関係法令の適用の特別措置等に関する省令 | 347M50000040042_20251231_507M60000040072 | CurrentEnforced | YES | ok | 97 | NO (0) | NO |
 | `347M50000040044` | 沖繩の復帰に伴う国税関係以外の大蔵省関係法令の適用の特別措置等に関する省令 | 347M50000040044_19740711_349M50000040044 | CurrentEnforced | YES | ok | 22 | YES (1) | NO |
-| `347M50000008013` | 沖縄の復帰に伴う地方税法等の適用の特別措置等に関する省令 | 347M50000008013_20010106_412M50000008044 | CurrentEnforced | YES | ok | 23 | NO (0) | NO |
+| `347M50000008013` | 沖縄の復帰に伴う地方税法等の適用の特別措置等に関する省令 | 347M50000008013_20010106_412M50000008044 | CurrentEnforced | YES | ok | 23 | YES (1) | NO |
 | `347M50010000033` | 沖縄県の区域における製造用原料品の減免税割当制度に関する省令 | 347M50010000033_19950401_407M50000200026 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `347M50000008026` | 航空機燃料譲与税法施行規則 | 347M50000008026_20250905_507M60000008091 | CurrentEnforced | YES | ok | 94 | YES (2) | NO |
 | `348AC0000000070` | 物品の一時輸入のための通関手帳に関する通関条約（ＡＴＡ条約）の実施に伴う関税法等の特例に | 348AC0000000070_20060301_417AC0000000022 | CurrentEnforced | YES | ok | 13 | NO (0) | NO |

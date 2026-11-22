@@ -6,10 +6,10 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 181
-- presence-facts-only complete: 181
+- articles with explicit pin: 183
+- presence-facts-only complete: 183
 - NOT_STARTED: 9
-- PARTIAL: 172
+- PARTIAL: 174
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
 - BLOCKED: 0
@@ -77,6 +77,7 @@ source positions. Human legal review is a separate axis and is pending.
 | `325M50000040017` | 第三十条 | InheritanceRegPrescribedAmount | YES | YES | NO | PARTIAL |
 | `325CO0000000245` | 第六条の九の二 | LocalTaxOrderArt15_4Amount | YES | NO | NO | NOT_STARTED |
 | `326CO0000000216` | 第六条の二 | TaxAccountantRegDelegatedAmount | YES | YES | NO | PARTIAL |
+| `143AC0000000054` | 第八条 | CustomsTariffArt8InvestigationDeadline | YES | YES | NO | PARTIAL |
 | `143AC0000000054` | 第七条 | CustomsTariffArt7ExtensionPara17 | YES | YES | NO | PARTIAL |
 | `143AC0000000054` | 第七条 | CustomsTariffArt7PrevParagraphReading | YES | YES | NO | PARTIAL |
 | `143AC0000000054` | 第七条 | CustomsTariffArt7ReadingApplication | YES | YES | NO | PARTIAL |
@@ -198,3 +199,4 @@ source positions. Human legal review is a separate axis and is pending.
 | `426AC0000000011` | 第二十四条の三 | LocalCorpRate93_907 | YES | YES | NO | PARTIAL |
 | `359AC0000000072` | 第十一条 | TobaccoRatePerThousand | YES | YES | NO | PARTIAL |
 | `404AC0000000015` | 第九条 | FiscalYearMonthProration | YES | YES | NO | PARTIAL |
+| `347M50000008013` | 第七条 | AdultAgeThreshold | YES | YES | NO | PARTIAL |
