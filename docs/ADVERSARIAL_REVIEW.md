@@ -7739,3 +7739,92 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 - Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。commit / push / merge / ブランチ切替なし。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・物品トークン抽出・needle 実文字列照合・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
+
+## Batch BI review (2026-11-22) — 酒団法施行令 art.9 / FilingRoute.lean（cycle-64 独立照合）
+
+- 対象: `JapanTaxLaw/FilingRoute.lean`（酒税の保全及び酒類業組合等に関する法律施行令 art.9）、law_id `328CO0000000028`、revision `328CO0000000028_20220401_504CO0000000151`、pinned `data/raw/328CO0000000028_20220401_504CO0000000151.law.json`。
+- 手法: coordinator 要約・担当 STAGING・Lean doc-comment の申告は**信じず**、pinned 原文から Python で直接・独立に経由機関トークンを抽出して照合した。needle は CI 実装 `scripts/ci/transcription_audit.py::checks()` を import して実文字列を取得（手打ちせず）。境界値は `by decide` で kernel 計算、公理は `#print axioms` で監査。監査後に一時ファイルは削除。
+
+### BI-1. pinned 原文からの独立抽出（経由機関 3 種）
+
+- `law_full_text` を再帰走査し `MainProvision` 配下の `tag="Article"` ノード計 **16** を列挙。うち `attr.Num = "9"` / `ArticleTitle = 第九条` のノードは **1 つ**（本文 **71 文字、U+3000 = 0**）。当該ノードの文字列 leaf を文書順に連結した art.9 逐語:
+  - `（届出）第九条法第八十七条の規定による届出は、財務省令で定めるところにより、所轄税務署長、所轄国税局長又は国税庁長官を経由してするものとする。`
+- 全文は生 8,377 文字（生の U+3000 = 23 個）を自前正規化 `re.sub(r"[\s　]+", "", s)` で 8,354 文字（U+3000 = 0）に変換。art.9 本文は正規化前後とも 71 文字・U+3000 = 0（doc-comment の「71 chars / U+3000 count 0」申告と一致）。
+- 列挙スパン `所轄税務署長、所轄国税局長又は国税庁長官` を「`、`」および「`又は`」で自前分割。**独立抽出結果はちょうど 3 つ**:
+  - 所轄税務署長 / 所轄国税局長 / 国税庁長官
+- 混入検査: 当該 art.9 中の `その他` 出現 **0 回**、列挙トークン中の「その他」系語 **0 件**。列挙は 3 つのみで「その他」を含まない。具体的申告（`expected_exact_match = True`、`contains_other = False`）とも一致。
+- 取り違え照合: 原文の順序どおり `所轄税務署長 → taxOfficeHead = 0`、`所轄国税局長 → regionalTaxBureauHead = 1`、`国税庁長官 → nationalTaxAgencyHead = 2`。原文で「国税庁長官」には「所轄」が付かないが、そのまま 2 に対応し取り違えなし。`otherAuthority = 3` は原文に無い内部番兵（「列挙外」を表す）であり第 4 の経由機関ではない。→ **EXTRACT_MATCH = True（発見ゼロ）**。
+
+### BI-2. needle 健全性（CI `checks()` の実文字列 2 本を自前正規化原文で検証）
+
+- needle は手打ちせず `checks()` の cycle-64 エントリ（`name="FilingRoute.lean"` / `law_id="328CO0000000028"` / `kind="file"` / `art=None`）から実文字列 2 本を取得。STAGING の申告は未使用。自前で `law_full_text` を平坦化・正規化（全文 8,354 文字・U+3000 = 0）し、CI の `contains()` / `_norm()` と同一条件で `.find()` / `.count()` を実行した（CI コードをそのまま呼ばず自前実装で再検証）。
+
+| needle（CI 実文字列） | 長 | U+3000 | 全文（自前正規化） | art.9（自前正規化） |
+|---|---:|---:|---|---|
+| `所轄税務署長、所轄国税局長又は国税庁長官を経由してするものとする` | 31 | 0 | FOUND（1 回） | FOUND（1 回） |
+| `届出）第九条` | 6 | 0 | FOUND（1 回） | FOUND（1 回） |
+
+- **結果: 2/2 FOUND、needle の U+3000 = 0**。art.9 逐語（71 文字・U+3000 = 0）にも 2 本とも含有。needle の健全性に問題なし。
+
+### BI-3. 反例探索（`by decide` による kernel 計算）
+
+- 実装は `isCompetentAuthority(a) = (a <= nationalTaxAgencyHead)` すなわち `a <= 2`。境界と列挙外を走査した。
+
+| 入力 a | 意味 | 期待 | 独立再計算 | Lean | 判定 |
+|---:|---|---|---|---|---|
+| 0 | 所轄税務署長 | true | true | `isCompetentAuthority taxOfficeHead = true` ✓ | 一致 |
+| 1 | 所轄国税局長 | true | true | `isCompetentAuthority regionalTaxBureauHead = true` ✓ | 一致 |
+| 2 | 国税庁長官 | true | true | `isCompetentAuthority nationalTaxAgencyHead = true` ✓ | 一致 |
+| 3 | その他（番兵） | false | false | `isCompetentAuthority otherAuthority = false` ✓ | 一致 |
+| 4 | 列挙外 | false | false | `isCompetentAuthority 4 = false` ✓ | 一致 |
+| 5 | 列挙外 | false | false | 独立再計算 `5 <= 2 = false` | 一致 |
+
+- すべて Python  integer 比較と Lean `by decide`（`lake env lean`、exit code 0）で一致。**反例 0 件**。特に `a=3`（その他）および `a=4,5`（列挙外）が `true` とならないことを確認し、原文「3 つのみ」と整合。`Nat` に負数は無く、`a<=2` は 0/1/2 以外をすべて除外する。
+
+### BI-4. 公理監査
+
+- 一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\bi_axioms.lean` を作成し、対象モジュールの全名前付き宣言 5 つ（`taxOfficeHead`, `regionalTaxBureauHead`, `nationalTaxAgencyHead`, `otherAuthority`, `isCompetentAuthority`）および kernel-decide 検証 5（`bi_t0` 〜 `bi_t4`、境界 0..3 と列挙外 4）に `#print axioms` を実行（`lake env lean`、**exit code 0**）。監査後、一時ファイルは削除済み。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 10（すべて `"does not depend on any axioms"`） |
+| `Classical.choice` | **0 件**（不在） |
+| `sorryAx` | **0 件**（不在） |
+| `Quot.sound` | **0 件**（不在） |
+| `propext` | **0 件**（不在） |
+
+- → 禁止公理は一切検出されず、**propext も 0**。公理監査は合格。
+
+### BI-5. 分類（CONFIRMED / BY-DESIGN / UNRESOLVED）
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **4** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 欠陥件数を手柄にしない。
+
+**CONFIRMED（0 件）**: 経由機関の列挙（所轄税務署長・所轄国税局長・国税庁長官の 3 つのみ、その他なし）、対応する 0/1/2 の割当て、`isCompetentAuthority` の真偽、needle 2/2、反例 6/6、公理監査のいずれも pinned 原文との食い違い・不整合なし。モデル値の誤り・取り違えは検出されなかった。
+
+**BY-DESIGN（4 件）**:
+
+- **B-1 経由機関の列挙のみの bounded L4 モデル**: doc-comment どおり本モデルは原文 art.9 の「経由機関の列挙」のみを扱う。届出内容・財務省令の手続・管轄判定は扱わない。原文の 3 機関に忠実であり、境界として明示済み。
+- **B-2 機関の Nat 列挙は内部エンコーディング**: `taxOfficeHead=0` 〜 `nationalTaxAgencyHead=2` / `otherAuthority=3` は原文に現れる数字ではなくモデル内部の表現。`otherAuthority=3` は「列挙外」を表す番兵であり、原文に存在する第 4 の経由機関ではない（BI-1 で確認）。→ スコープ宣言どおりで欠陥ではない。
+- **B-3 `isCompetentAuthority(a) = (a <= 2)` は列挙メンバーシップの内部述語**: 原文に「`<=2`」という数値閾値は存在しない。本述語は与えられた内部番号が 3 機関のいずれかに対応するかを判定する写像であり、法的な「管轄」判定ではない（U-2 参照）。→ 内部表現として設計どおり。
+- **B-4 法87条の届出内容・財務省令の具体手続・「所轄」の管轄判定・実際の経由手続は NOT MODELLED**: doc-comment に明記。**未形式化を確認**（＝スコープ宣言どおりで欠陥ではない）。
+
+**UNRESOLVED（2 件）**:
+
+- **U-1 法87条の届出の内容・財務省令の具体手続の法的妥当性**: pinned art.9 は「法第八十七条の規定による届出は、財務省令で定めるところにより、…を経由してするものとする」と経由機関を列挙するのみで、法87条の届出内容および財務省令の具体手続は当該スナップショット内にない。本モデルの Bool 判定は与えられた内部番号に対する写像であり、実務上の届出手続ではない。解釈は pinned 原文（art.9）のみでは決定不能。**人間の法律専門家による確認を要する**。列挙の一致（CONFIRMED = 0）には影響しない。
+- **U-2 「所轄」の管轄判定および実際の経由手続の実務上の完全性**: B-4 のとおり管轄判定・経由手続は未形式化（スコープ宣言済み）。本モデルは経由機関の列挙スライスであり、実際の届出経路の法的確定に単独では使用できない。実務上どこまでを形式化すべきかは pinned 原文のみでは決定不能。**人間の法律専門家による確認を要する**。
+
+- **CONFIRMED: 0 件 / BY-DESIGN: 4 件 / UNRESOLVED: 2 件**。
+- **needle 健全性: 2/2 FOUND、U+3000 = 0**（CI `checks()` cycle-64 実文字列を自前正規化原文で検証）。
+- **反例: 0→true / 1→true / 2→true / 3→false / 4→false / 5→false、反例 0 件**（`by decide`）。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` いずれも **0 件**（10 宣言すべて axiom-free、exit code 0）。監査用一時ファイルは削除済み。
+- **法87条の届出内容・財務省令の手続・「所轄」の管轄判定・経由手続の未形式化を確認**（B-1／B-4／U-1／U-2／スコープ宣言どおり）。
+- **追記後レビュー件数: 59 件**（既存 58 件＝coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` に一致する Batch G〜BH ほかをすべて保持 + 本 BI 1 件）。既存セクションは一切改変していない。
+- Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。commit / push / merge / ブランチ切替なし。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・機関トークン抽出・needle 実文字列照合・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。

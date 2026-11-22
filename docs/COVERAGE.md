@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 119 | 327 | 36.39% |
+| laws with >=1 pinned literal check | 122 | 327 | 37.31% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 340 | n/a | n/a |
-| distinct article pins | 147 | 42584 | 0.35% |
-| pinned Lean modules (cross-law) | 742 | n/a | n/a |
+| pinned literal checks | 345 | n/a | n/a |
+| distinct article pins | 149 | 42584 | 0.35% |
+| pinned Lean modules (cross-law) | 748 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 327 |
+| unpinned Lean modules (not counted as verified) | 336 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 57 |
+| adversarial review sessions recorded | 59 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -129,6 +129,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `327CO0000000125` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う関税法等の臨時特例に関する法律施行令
 - `328AC0000000006` 酒税法
 - `328AC0000000007` 酒税の保全及び酒類業組合等に関する法律
+- `328CO0000000028` 酒税の保全及び酒類業組合等に関する法律施行令
 - `328CO0000000407` 奄美群島の復帰に伴う国税関係法令の適用の暫定措置等に関する政令
 - `328M50000040011` 酒税の保全及び酒類業組合等に関する法律施行規則
 - `329AC0000000061` 関税法
@@ -186,8 +187,10 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `346CO0000000275` 自動車重量税法施行令
 - `346M50000040066` 自動車重量税法施行規則
 - `347AC0000000007` 航空機燃料税法
+- `347CO0000000057` 航空機燃料税法施行令
 - `347CO0000000151` 沖縄の復帰に伴う国税関係法令の適用の特別措置等に関する政令
 - `347CO0000000161` 沖縄の復帰に伴う地方税法の適用の特別措置等に関する政令
+- `347M50000008013` 沖縄の復帰に伴う地方税法等の適用の特別措置等に関する省令
 - `347M50000008026` 航空機燃料譲与税法施行規則
 - `347M50000040044` 沖繩の復帰に伴う国税関係以外の大蔵省関係法令の適用の特別措置等に関する省令
 - `348AC0000000102` 特定市街化区域農地の固定資産税の課税の適正化に伴う宅地化促進臨時措置法
