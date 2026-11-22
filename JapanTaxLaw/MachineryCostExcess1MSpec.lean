@@ -7,7 +7,7 @@ Pinned source:
   Law id: 414M60000008042
   Revision: 414M60000008042_20250401_507M60000008028
   Snapshot: data/raw/414M60000008042_20250401_507M60000008028.law.json
-  Statutory article: 第四条(1)(3)イ — 機械及び装置の取得価額合計が百万円を超える
+  Statutory article: 第四条(1)(3)ロ — 機械及び装置の取得価額合計が百万円を超える
   原文逐語: 「イに掲げるもののほか、機械及び装置で、これらの取得価額の合計額が百万円を超えるもの」
   Normative unit: NORM|c04fbcd7afdfbd2789ed292aed888fce9110f73ce74c9c5ced62c87e82924d41
 

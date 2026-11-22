@@ -1,7 +1,7 @@
 import JapanTaxLaw.TaxFinance
 
 /-
-# MachineryCostExcess1M — 沖縄振興特別措置法第九条等の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令 第四条(1)(3)イ
+# MachineryCostExcess1M — 沖縄振興特別措置法第九条等の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令 第四条(1)(3)ロ
 （機械及び装置の取得価額の合計額が百万円を超えるもの）
 
 Pinned source:
