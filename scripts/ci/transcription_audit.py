@@ -2792,6 +2792,30 @@ def checks():
            "file", None,
            ["千二百円を超える税率で課することができない。"])
 
+    # 生活費・教育費の支払 三十八万円以上 — LivingSupport380k.lean
+    yield ("地方税法 art. 34（生活費・教育費の支払 三十八万円以上）↔ LivingSupport380k.lean (supportFloorYen 380000)",
+           "325AC0000000226",
+           "file", None,
+           ["その道府県民税の納税義務者から前年において生活費又は教育費に充てるための支払を三十八万円以上受けている者"])
+
+    # 給与の金額の総額 三十万円以下 — SalaryTotal300k.lean
+    yield ("地方税法 art. 317_6（給与の金額の総額 三十万円以下）↔ SalaryTotal300k.lean (salaryTotalCapYen 300000)",
+           "325AC0000000226",
+           "file", None,
+           ["ただし、その給与の支払を受けなくなつた日の属する年に当該給与の支払をする者から支払を受けた給与の金額の総額が三十万円以下である者については、この限りでない。"])
+
+    # 過料 二十万円以下 — FineCap200k.lean
+    yield ("地方税法 art. 802（過料 二十万円以下）↔ FineCap200k.lean (fineCapYen 200000)",
+           "325AC0000000226",
+           "file", None,
+           ["次の各号のいずれかに該当するときは、その違反行為をした機構の役員は、二十万円以下の過料に処する。"])
+
+    # 工事費用の合計額 百万円超 — ConstructionCost1M.lean
+    yield ("地方税法施行令 art. 9（工事費用の合計額 百万円超）↔ ConstructionCost1M.lean (costThresholdYen 1000000)",
+           "325CO0000000245",
+           "file", None,
+           ["前号イからヘまでに掲げる工事に要した費用の額の合計額が百万円を超えること。"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

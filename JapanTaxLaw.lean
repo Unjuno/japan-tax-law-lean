@@ -1092,3 +1092,15 @@ import JapanTaxLaw.TaxErasureTotal60Tests
 import JapanTaxLaw.GolfRateCeiling1200
 import JapanTaxLaw.GolfRateCeiling1200Spec
 import JapanTaxLaw.GolfRateCeiling1200Tests
+import JapanTaxLaw.LivingSupport380k
+import JapanTaxLaw.LivingSupport380kSpec
+import JapanTaxLaw.LivingSupport380kTests
+import JapanTaxLaw.SalaryTotal300k
+import JapanTaxLaw.SalaryTotal300kSpec
+import JapanTaxLaw.SalaryTotal300kTests
+import JapanTaxLaw.FineCap200k
+import JapanTaxLaw.FineCap200kSpec
+import JapanTaxLaw.FineCap200kTests
+import JapanTaxLaw.ConstructionCost1M
+import JapanTaxLaw.ConstructionCost1MSpec
+import JapanTaxLaw.ConstructionCost1MTests

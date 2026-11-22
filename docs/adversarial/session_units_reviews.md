@@ -160,3 +160,59 @@ H/T/D/C/U record:
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
 
+### LivingSupport380k.lean — 地方税法 34（生活費・教育費の支払 三十八万円以上）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`; needle 1/1 FOUND verbatim-unique in the pinned law, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/379999/380000/380001 円 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### SalaryTotal300k.lean — 地方税法 317_6（給与の金額の総額 三十万円以下）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`; needle 1/1 FOUND verbatim-unique in the pinned law, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/299999/300000/300001 円 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### FineCap200k.lean — 地方税法 802（過料 二十万円以下）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`; needle 1/1 FOUND verbatim-unique in the pinned law, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/199999/200000/200001 円 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### ConstructionCost1M.lean — 地方税法施行令 9（工事費用の合計額 百万円超）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325CO0000000245` / revision `325CO0000000245_20261101_508CO0000000083`; needle 1/1 FOUND verbatim-unique in the pinned law, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/999999/1000000/1000001 円 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
