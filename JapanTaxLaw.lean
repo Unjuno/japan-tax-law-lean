@@ -833,3 +833,6 @@ import JapanTaxLaw.AggregationNormsTests
 import JapanTaxLaw.RateValueNorms
 import JapanTaxLaw.RateValueNormsSpec
 import JapanTaxLaw.RateValueNormsTests
+import JapanTaxLaw.HeadingFragments
+import JapanTaxLaw.HeadingFragmentsSpec
+import JapanTaxLaw.HeadingFragmentsTests
