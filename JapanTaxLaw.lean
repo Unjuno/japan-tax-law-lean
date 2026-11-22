@@ -1667,3 +1667,5 @@ import JapanTaxLaw.CustomsTariffArt17ExportContainerDelegationTests
 import JapanTaxLaw.HousingLoanCredit
 import JapanTaxLaw.HousingLoanCreditSpec
 import JapanTaxLaw.HousingLoanCreditTests
+import JapanTaxLaw.NickelContentSpec
+import JapanTaxLaw.NickelContentTests

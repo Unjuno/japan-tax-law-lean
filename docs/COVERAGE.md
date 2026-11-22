@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 134 | 327 | 40.98% |
+| laws with >=1 pinned literal check | 135 | 327 | 41.28% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 400 | n/a | n/a |
-| distinct article pins | 157 | 42584 | 0.37% |
-| pinned Lean modules (cross-law) | 836 | n/a | n/a |
+| pinned literal checks | 410 | n/a | n/a |
+| distinct article pins | 161 | 42584 | 0.38% |
+| pinned Lean modules (cross-law) | 843 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 440 |
+| unpinned Lean modules (not counted as verified) | 445 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 71 |
+| adversarial review sessions recorded | 72 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -242,4 +242,5 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `504CO0000000300` 森林環境税及び森林環境譲与税に関する法律施行令
 - `504CO0000000372` 溶融亜鉛めっき鉄線に対して課する不当廉売関税に関する政令
 - `507CO0000000095` 黒鉛電極に対して課する不当廉売関税に関する政令
+- `508CO0000000224` ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令
 - `508CO0000000254` 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令

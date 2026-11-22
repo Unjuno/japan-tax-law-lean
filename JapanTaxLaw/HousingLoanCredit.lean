@@ -1,7 +1,7 @@
 import JapanTaxLaw.TaxFinance
 
 /-!
-# HousingLoanCredit — 住宅借入金等特別税額控除額の特例（租税特別措置法 art.16 §1）bounded L4 モデル
+# HousingLoanCredit — 住宅借入金等特別税額控除額の特例（阪神・淡路大震災臨時特例法 art.16 §1）bounded L4 モデル
 
 Sources (pinned):
   Law id: 407AC0000000011
@@ -9,7 +9,7 @@ Sources (pinned):
   Raw snapshot: data/raw/407AC0000000011_20200401_502AC0000000008.law.json
   Article Num 16 §1, flat/normalized leaf text 3832 chars, U+3000 count 0.
 
-原文逐語（§1 各号）:
+各号の内容（§1、平坦化）:
   一 再建住宅借入金等の合計額が千万円以下 → 合計額の二パーセント
   二 千万円超二千万円以下 → 千万円を超える金額の一パーセント + 二十万円
   三 二千万円超 → 二千万円を超える金額（上限千万円）の〇・五パーセント + 三十万円
