@@ -383,3 +383,60 @@ H/T/D/C/U record:
 - **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### CapitalExceed100M.lean — 地方税法 art. 72_32（資本金の額が一億円を超える法人）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`; needle 1/1 FOUND verbatim-unique in the pinned law, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/99999999/100000000/100000001 円 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### TaxAccountantFine300k.lean — 税理士法 art. 65（過料 三十万円以下）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `326AC1000000237` / revision `326AC1000000237_20251001_505AC0000000053`; needle 1/1 FOUND verbatim-unique in the pinned law, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/299999/300000/300001 円 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### SpecialLand330.lean — 租税特別措置法 art. 69_4（選択特例対象宅地等 三百三十平方メートル以下）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `332AC0000000026` / revision `332AC0000000026_20261101_507AC0000000013`; needle 1/1 FOUND verbatim-unique in the pinned law, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/329/330/331 ㎡ を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### ShareholdersUnder50.lean — 租税特別措置法施行令 art. 39_10_2（五十人未満の株主から取得）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `332CO0000000043` / revision `332CO0000000043_20261101_507CO0000000127`; needle 1/1 FOUND verbatim-unique in the pinned law, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/49/50/51 人 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
