@@ -11,14 +11,14 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 123
+- with >=1 pinned literal check (semantic model): 124
 - with recorded human legal review: 0
 
 ## All laws
 
 | law_id | title | revision | enforcement | raw | parse | articles | pinned checks | human review |
 |---|---|---|---|---|---|---:|---|---|
-| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (31) | NO |
+| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (32) | NO |
 | `322CO0000000109` | 昭和二十二年政令第百九号（財産税法等による物納に因る不動産登記の特例に関する政令） | 322CO0000000109_19470627_000000000000000 | CurrentEnforced | YES | ok | 4 | YES (1) | NO |
 | `322AC0000000175` | 昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律） | 322AC0000000175_20220101_503AC0000000011 | CurrentEnforced | YES | ok | 78 | YES (2) | NO |
 | `322CO0000000268` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施 | 322CO0000000268_20251201_507CO0000000120 | CurrentEnforced | YES | ok | 113 | YES (5) | NO |
@@ -164,7 +164,7 @@ a completion flag.
 | `348AC0000000102` | 特定市街化区域農地の固定資産税の課税の適正化に伴う宅地化促進臨時措置法 | 348AC0000000102_20010106_411AC0000000160 | CurrentEnforced | YES | ok | 30 | YES (1) | NO |
 | `348CO0000000281` | 特定市街化区域農地の固定資産税の課税の適正化に伴う宅地化促進臨時措置法施行令 | 348CO0000000281_20011001_413CO0000000313 | CurrentEnforced | YES | ok | 75 | NO (0) | NO |
 | `348M50004000017` | 特定市街化区域農地の固定資産税の課税の適正化に伴う宅地化促進臨時措置法施行規則 | 348M50004000017_19730929_000000000000000 | CurrentEnforced | YES | ok | 8 | NO (0) | NO |
-| `348CO0000000317` | 物品の一時輸入のための通関手帳に関する通関条約（ＡＴＡ条約）の実施に伴う関税法等の特例に | 348CO0000000317_20010106_412CO0000000307 | CurrentEnforced | YES | ok | 9 | NO (0) | NO |
+| `348CO0000000317` | 物品の一時輸入のための通関手帳に関する通関条約（ＡＴＡ条約）の実施に伴う関税法等の特例に | 348CO0000000317_20010106_412CO0000000307 | CurrentEnforced | YES | ok | 9 | YES (1) | NO |
 | `348M50000040053` | 物品の一時輸入のための通関手帳に関する通関条約（ＡＴＡ条約）の実施に伴う関税法等の特例に | 348M50000040053_20050307_417M60000040012 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
 | `349AC0000000079` | 電源開発促進税法 | 349AC0000000079_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 56 | YES (1) | NO |
 | `349CO0000000339` | 電源開発促進税法施行令 | 349CO0000000339_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 20 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 207
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 210

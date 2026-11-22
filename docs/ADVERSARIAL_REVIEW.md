@@ -8180,3 +8180,98 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 - Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。commit / push / merge / ブランチ切替なし。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・公示事項抽出・needle 実文字列照合・反例評価・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューが完了したとみなしてはならない。一時ファイルは削除済み。
+
+## Batch BN review (2026-11-22)
+
+- **対象**: 地方交付税法施行令 art.3（総務大臣が検査を行う市町村）/ `JapanTaxLaw/InspectionCity.lean`（cycle-69）。補助 `JapanTaxLaw/InspectionCitySpec.lean` / `JapanTaxLaw/InspectionCityTests.lean` も照合に使用（読み取りのみ）。pinned 原文は `data/raw/333CO0000000117_20010106_412CO0000000304.law.json`（law_id `333CO0000000117` / revision `333CO0000000117_20010106_412CO0000000304`）。
+- **レビュア**: Adversarial Review Agent（形式化担当から独立）。SKILL / STAGING / doc-comment の記述は**信頼せず**、pinned 原文（生 JSON バイト）・CI 実文字列・反例・`#print axioms` を各々独立に再検証した。
+- **原文（pinned・再現）**: 上記 JSON の `revision_info.law_title` は **「地方交付税法施行令」**（依頼文の「地方税法施行令」は表記ゆれだが、law_id / revision による pin は一意で対象特定に影響なし／B-5 参照）。`tag="Article"` かつ `attr.Num="3"` のノードは **1 個のみ**。caption + title + 本文を文書順に連結した自前正規化原文は **98 文字 / U+3000 = 0**（doc-comment の「flat/normalized leaf text 98 chars, U+3000 count 0」と一致）。
+- **needle 出所**: `scripts/ci/transcription_audit.py::checks()` の cycle-69 エントリ（`name="InspectionCity.lean"` / `law_id="333CO0000000117"` / `kind="file"` / `title=None`）から実文字列 2 本を直接取得（STAGING 記載は不使用）。
+- **作業制約の順守**: commit / push / merge / ブランチ切替は一切行わない。Lean モジュール・`data/*`・`scripts/*` は読み取り専用。変更したのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ（末尾に本セクションを追記）。read-then-write で既存履歴を保持。
+
+### BN-1. pinned 原文からの独立抽出（市町村区分の列挙 = 2、「その他」なし）
+
+- `law_full_text` を再帰走査し `tag="Article"` かつ `attr.Num="3"` を探索 → **1 個のみ**。leaf は 3 つ:
+  - leaf[0]（caption）= `（総務大臣が検査を行う市町村）`
+  - leaf[1]（title）= `第三条`
+  - leaf[2]（本文）= `法第十七条の三第一項に規定する政令で定める市町村は、地方自治法（昭和二十二年法律第六十七号）第二百五十二条の十九第一項の指定都市及び総務大臣が指定する市とする。`
+- 自前正規化（leaf 連結・空白/U+3000 除去）: **98 文字 / U+3000 = 0**。
+- 列挙抽出: `市町村は、` と `とする。` の間を切り出し → `地方自治法（昭和二十二年法律第六十七号）第二百五十二条の十九第一項の指定都市及び総務大臣が指定する市`。`及び` で分割して **2 項目**:
+  - item[0] = `地方自治法（昭和二十二年法律第六十七号）第二百五十二条の十九第一項の指定都市`（指定都市）
+  - item[1] = `総務大臣が指定する市`（総務大臣が指定する市）
+- 原文中の `及び` 出現 = **1 回**、`その他` / `その他の市町村` 出現 = **0 回**、`、` による列挙 = 0 回。よって列挙は **指定都市 と 総務大臣が指定する市 の 2 区分のみ** であり、「その他」は含まれない。
+- 実装との照合: `designatedCity=0` / `ministerDesignatedCity=1` / `otherMunicipality=2` / `isInspectionCity(c)=(c<=ministerDesignatedCity)`。原文の 2 区分が 0 / 1 へ順序どおり対応。`otherMunicipality=2` は原文に存在しない便宜値（対象外を表す Sentinel）であり第 3 の法定区分ではない。**EXTRACT_MATCH = True（完全一致）**。
+
+### BN-2. needle 健全性（CI `checks()` の実文字列 2 本を自前正規化原文で照合）
+
+| needle（CI 実文字列） | 文字数 | U+3000 | Art.3 自前正規化（98 文字） |
+|---|---:|---:|---|
+| `第二百五十二条の十九第一項の指定都市及び総務大臣が指定する市とする` | 33 | 0 | FOUND（offset 64） |
+| `検査を行う市町村）第三条` | 12 | 0 | FOUND（offset 6、caption+title を跨ぐ） |
+
+- CI スクリプトは実行せず、実文字列 2 本だけを取得して自前正規化原文（U+3000 = 0）で独立照合した。needle 自身の U+3000 = 0、改行・余分な空白なし。**判定: 2/2 FOUND、needle U+3000 = 0**。
+
+### BN-3. 反例探索（`by decide` / `#eval` による kernel 計算）
+
+| 入力 c | 意味 | 期待 | 独立計算 (c<=1) | Lean | 判定 |
+|---:|---|---|---|---|---|
+| 0 | 指定都市 | true | true | `isInspectionCity 0 = true` | 一致 |
+| 1 | 総務大臣が指定する市 | true | true | `isInspectionCity 1 = true` | 一致 |
+| 2 | その他（便宜値） | false | false | `isInspectionCity 2 = false` | 一致 |
+| 3 | 範囲外 | false | false | `isInspectionCity 3 = false` | 一致 |
+
+- `lake env lean` で `#eval` を実行（exit code 0）し `true / true / false / false` を確認。Spec の `specCity 0/1/2` と `agreeInspectionCity=true` も kernel 確認。さらにレビュー側で全 Nat に対する `isInspectionCity c = specCity c`（`c<=1` ⇔ `c==0 ∨ c==1`）を case split + omega で証明し、0〜3 以外でも食い違いが生じないことを確認。**発見 0**。
+- 補足: 上記の全 Nat 同値の補助定理は `omega` / `simp` タクティックに由来する `propext` / `Quot.sound` に依存するが、これはレビュー側の検証 Artifact であり、BN-4 の監査対象（実装モジュールの宣言）とは無関係。
+
+### BN-4. 公理監査（`#print axioms`）
+
+- `lake env lean` で実装モジュールの `isInspectionCity`、Spec の `specCity` / `agreeInspectionCity`、ならびに本レビューで反例を固定した名前付き定理 4 本（`adv_t0`〜`adv_t3`）に `#print axioms` を実行（**exit code 0**）。すべて `"does not depend on any axioms"`。
+
+| 監査項目 | 結果 |
+|---|---|
+| 監査宣言数 | 7（すべて axiom-free） |
+| `Classical.choice` | **0 件**（不在） |
+| `sorryAx` | **0 件**（不在） |
+| `Quot.sound` | **0 件**（不在） |
+| `propext` | **0 件**（不在） |
+
+- 補足: `scripts/ci/generate_axiom_probe.py` は `THM_PATTERN` / `LEMMA_PATTERN` により `theorem` / `lemma` 宣言のみを走査するため、`def` と匿名 `example` のみから成る本モジュールは CI 公理ゲートの走査対象外である。モデル自体の誤りではなく CI ゲート設計上の限界であり、本レビューが独自プローブで def 自体と名前付き定理を直接監査して代替した。監査用一時 Lean ファイルは実行後に削除。
+
+### BN-5. 分類（CONFIRMED / BY-DESIGN / UNRESOLVED）
+
+| 分類 | 件数 |
+|---:|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **6** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 形式化の誤りは検出されなかった。
+
+**CONFIRMED（0 件）**: 市町村区分の列挙（指定都市 / 総務大臣が指定する市 の 2 つのみ、「その他」なし）、定数値、判定関数の真偽、needle 2/2、反例 4/4、公理監査 — いずれも pinned 原文と整合し、食い違い・不正なし。第 3 の法定区分の混入 0 件、取り違え 0 件。
+
+**BY-DESIGN（6 件）**:
+
+- **B-1 2 区分のみの bounded L4 モデル**: doc-comment のとおり本モデルは art.3 の「政令で定める市町村は、…指定都市及び総務大臣が指定する市とする。」の区分列挙のみを形式化する。法17条の3第1項の検査の内容・手続、および「指定都市」の認定・総務大臣の指定手続は NOT MODELLED（U-1 / U-2 参照）。
+- **B-2 Nat 列挙は便宜的エンコーディング**: `designatedCity=0` / `ministerDesignatedCity=1` / `otherMunicipality=2` は原文に現れる番号ではなくモデル表現である。`otherMunicipality=2` は「その他（対象外）」を表す便宜値であり、BN-1 のとおり原文上に第 3 の区分は存在しない。
+- **B-3 `isInspectionCity(c)=(c<=1)` は列挙 membership の決定手続き**: `<=` という形は原文に無いが、与えられた市町村番号が 2 区分（0 または 1）に対応するかを判定する補助関数であり、実体的な法的判断ではない。全 Nat で `specCity` と同値（BN-3）。
+- **B-4 doc-comment の「原文逐語」は改行整形＋括弧内省略の要約**: モジュールの引用は `地方自治法\n 第二百五十二条の十九第一項…` と途中改行され、pinned 原文が持つ `（昭和二十二年法律第六十七号）` を省略している。自前正規化原文では当該括弧が存在するが、needle 2 本はいずれもその箇所を跨がないため 2/2 FOUND は維持され、照合・計算には影響しない。
+- **B-5 法令名の表記ゆれ**: 依頼文の「地方税法施行令」に対し pinned JSON の `law_title` は「地方交付税法施行令」。law_id `333CO0000000117` / revision `333CO0000000117_20010106_412CO0000000304` による pin は一致しており、対象特定と形式化には影響しない。
+- **B-6 CI 公理プローブの走査対象外**: `def` と匿名 `example` のみから成る本モジュールは CI 公理ゲートで監査されない。モデル自体の誤りではなく CI ゲート設計上の限界であり、本レビューが独自に監査して代替した（BN-4 参照）。
+
+**UNRESOLVED（2 件）**:
+
+- **U-1 法17条の3第1項の検査の内容・手続**: pinned 原文（art.3 の 1 文）は `法第十七条の三第一項に規定する政令で定める市町村` と参照するのみで、検査の内容・手続は地方交付税法側（pinned 原文の外）にある。pinned 原文のみでは確定不能。**人間の法律専門家レビューを要する**。
+- **U-2 指定都市の認定・総務大臣の指定手続**: pinned 原文は `地方自治法第二百五十二条の十九第一項の指定都市` および `総務大臣が指定する市` と参照するのみで、指定都市の認定基準や総務大臣の指定要件・手続は地方自治法側の他規定（pinned 原文の外）にある。pinned 原文のみでは確定不能。本モデルは NOT MODELLED を明記しており、どこまで形式化すべきかは pinned 原文のみでは決定不能。**人間の法律専門家レビューを要する**。
+
+### BN-6. 最終報告・結論
+
+- pinned revision `333CO0000000117_20010106_412CO0000000304` の art.3 から独立抽出した市町村区分は **指定都市 と 総務大臣が指定する市 の 2 つのみ（「その他」なし）**。`designatedCity=0` / `ministerDesignatedCity=1` / `otherMunicipality=2` / `isInspectionCity(c)=(c<=1)` と完全一致し、**CONFIRMED = 0（発見ゼロ）**。形式的誤り 0 件、反例 0 件。
+- **CONFIRMED: 0 件 / BY-DESIGN: 6 件 / UNRESOLVED: 2 件**。
+- **needle 健全性: 2/2 FOUND、needle U+3000 = 0**（CI `checks()` cycle-69 実文字列を自前正規化原文で照合）。
+- **反例: 0→true / 1→true / 2→false / 3→false、発見 0**（`#eval` / `by decide`、全 Nat 同値も確認）。
+- **公理監査**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて **0 件**（7 宣言すべて axiom-free、exit code 0）。
+- **法17条の3第1項の検査内容・指定手続の未形式化を確認**（B-1 / U-1 / U-2、doc-comment 明記）。
+- **追記後レビュー件数: 64 件**（既存 63 件＝coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` に一致する見出しをすべて保持 + 本 BN 1 件）。既存セクションは一切改変していない。
+- Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。commit / push / merge / ブランチ切替なし。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・市町村区分抽出・needle 実文字列照合・反例評価・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューが完了したとみなしてはならない。一時ファイルは削除済み。

@@ -1136,3 +1136,6 @@ import JapanTaxLaw.CustomsTariffArt8PrevReading6to8Spec
 import JapanTaxLaw.CustomsTariffArt8PrevReading6to8Tests
 import JapanTaxLaw.TaxRoundingSpec
 import JapanTaxLaw.TaxRoundingTests
+import JapanTaxLaw.CarnetImportGoods
+import JapanTaxLaw.CarnetImportGoodsSpec
+import JapanTaxLaw.CarnetImportGoodsTests

@@ -2087,6 +2087,12 @@ def checks():
            "file", None,
            ["第二百五十二条の十九第一項の指定都市及び総務大臣が指定する市とする", "検査を行う市町村）第三条"])
 
+    # CarnetImportGoods — cycle-70
+    yield ("CarnetImportGoods.lean",
+           "348CO0000000317",
+           "file", None,
+           ["同項第一号及び第四号に掲げる物品以外の物品とする", "物品の指定）第二条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
