@@ -1,0 +1,72 @@
+import JapanTaxLaw.TaxFinance
+
+/-!
+# CustomsTariffArt6RetaliatoryDelegation — 関税定率法 第六条(3)（委任）DELEGATION
+
+Pinned source:
+  Law id: 143AC0000000054
+  Official title: 関税定率法
+  Law number: 明治四十三年法律第五十四号
+  Law type: Act (法律)
+  Revision: 143AC0000000054_20260601_508AC0000000005
+  Raw snapshot: data/raw/143AC0000000054_20260601_508AC0000000005.law.json
+  sha256: 924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c
+  Normative unit id: NORM|1a84e6b4b4acb58de9110434621a70c324c0533ac262ff85390749f0ed48a56e
+  Source path: LawBody[1]/MainProvision/MainProvision[15]/Article:6/Article#6/
+               Paragraph#3/ParagraphSentence/Sentence#1
+  Article caption: （報復関税等）
+
+原文逐語（pinned, 一字一句改変なし）:
+  「前二項に定めるもののほか、これらの規定の適用に関し必要な事項は、政令で定める。」
+
+Norm kind: DELEGATION — a residual delegation. Besides the matters prescribed in
+the preceding paragraphs (residual clause 前二項, count 2), matters
+necessary for これらの規定の適用 are prescribed by 政令. The residual ほか
+("in addition to") encodes non-overlap with the Act-prescribed matters. The
+computable slice models which legal source determines each matter class. The
+actual content of the 政令 is NOT MODELLED. All statutory terms
+extracted structurally from the verbatim needle's own delimiters and tokens
+(前二項 / のほか / 政令 / これらの規定の適用) — no hand-typed statutory strings.
+
+Variable contract (meaning / unit / domain / type):
+  Matter : Type — inAct (matters in the preceding paragraphs) and
+    necessaryForApplication (matters necessary for application of these provisions).
+  LegalSource : Type — act | cabinetOrder (政令).
+  determinedBy : Matter -> LegalSource — the delegating relation.
+  No numeric amount/unit/dimension applies (structural DELEGATION, not a formula).
+
+Scope: only the delegating structure. The actual 政令 content, other
+articles, and legal correctness are NOT MODELLED. Human legal review remains pending.
+
+No `sorry`, `admit`, `axiom` or `Classical.choice`.
+-/
+
+namespace JapanTaxLaw.CustomsTariffArt6RetaliatoryDelegation
+
+/-- Class of matter (application matters of these provisions). -/
+inductive Matter : Type
+  | inAct : Matter
+  | necessaryForApplication : Matter
+
+/-- Legal source that determines a matter (act | 政令). -/
+inductive LegalSource : Type
+  | act : LegalSource
+  | cabinetOrder : LegalSource
+
+deriving instance DecidableEq for Matter
+deriving instance DecidableEq for LegalSource
+
+/-- 政令で定める: necessary application matters are determined by Cabinet Order. -/
+def determinedBy (m : Matter) : LegalSource :=
+  match m with
+  | Matter.inAct => LegalSource.act
+  | Matter.necessaryForApplication => LegalSource.cabinetOrder
+
+/-- Residual ほか: in-Act matters are determined by the Act, not delegated. -/
+theorem in_act_not_delegated : determinedBy Matter.inAct = LegalSource.act := rfl
+
+/-- Necessary application matters are delegated to 政令. -/
+theorem application_delegated :
+    determinedBy Matter.necessaryForApplication = LegalSource.cabinetOrder := rfl
+
+end JapanTaxLaw.CustomsTariffArt6RetaliatoryDelegation

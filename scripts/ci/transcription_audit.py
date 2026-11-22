@@ -1301,6 +1301,33 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # CustomsTariffArt7ReadingApplication.lean - NORM|bfcac1c4... (mutatis-mutandis 準用 READING, law 143AC0000000054)
+    # Needle is in MainProvision Article 第七条 (Paragraph 21, ParagraphSentence);
+    # find_article_text(...,"第七条") returns that article (len 5989) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.7 reading application - CustomsTariffArt7ReadingApplication.lean",
+           "143AC0000000054",
+           "article", "第七条",
+           ["\u7b2c\u516b\u9805\u53ca\u3073\u7b2c\u4e5d\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u5341\u4e5d\u9805\u306e\u8abf\u67fb\u304c\u958b\u59cb\u3055\u308c\u305f\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
+    # CustomsTariffArt6RetaliatoryDelegation.lean - NORM|1a84e6b4... (residual delegation DELEGATION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第六条 (Paragraph 3, ParagraphSentence);
+    # find_article_text(...,"第六条") returns that article (len 878) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.6 retaliatory delegation - CustomsTariffArt6RetaliatoryDelegation.lean",
+           "143AC0000000054",
+           "article", "第六条",
+           ["\u524d\u4e8c\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u3053\u308c\u3089\u306e\u898f\u5b9a\u306e\u9069\u7528\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
+
+    # CustomsTariffArt7ProvisionalPeriod.lean - NORM|bc9ece29... (provisional period REFERENCE, law 143AC0000000054)
+    # Needle is in MainProvision Article 第七条 (Paragraph 3, Item 3, Column 2, Sentence);
+    # find_article_text(...,"第七条") returns that article (len 5989) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.7 provisional period - CustomsTariffArt7ProvisionalPeriod.lean",
+           "143AC0000000054",
+           "article", "第七条",
+           ["\u66ab\u5b9a\u63aa\u7f6e\u304c\u3068\u3089\u308c\u305f\u65e5\u306e\u4e5d\u5341\u65e5\u524d\u306e\u65e5\u4ee5\u5f8c\u7b2c\u4e00\u9805\u306e\u898f\u5b9a\u306b\u3088\u308b\u6307\u5b9a\u304c\u3055\u308c\u305f\u65e5\u306e\u524d\u65e5\u307e\u3067\u306e\u671f\u9593"])
+
     # CustomsTariffArt7InvestigationDeadline.lean - NORM|a3c6d65d... (investigation deadline REFERENCE, law 143AC0000000054)
     # Needle is in MainProvision Article 第七条 (Paragraph 31, ParagraphSentence);
     # find_article_text(...,"第七条") returns that article (len 5989) with needle -
@@ -1973,6 +2000,18 @@ def checks():
            "file", None,
            ["九十五・二パーセント", "不当廉売関税の税率は"])
 
+    # AntiDumpingRate372 — cycle-60
+    yield ("AntiDumpingRate372.lean",
+           "502CO0000000208",
+           "file", None,
+           ["三十七・二パーセント", "不当廉売関税の税率は"])
+
+    # SpecialUseExemption — cycle-61
+    yield ("SpecialUseExemption.lean",
+           "341CO0000000005",
+           "file", None,
+           ["政令で定める用途は、原料用又は熱源用とする", "特定用途免税の範囲）第七条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2623,6 +2662,25 @@ def checks():
            "332AC0000000026",
            "article", "第七十条の六の八",
            ["当該宅地等の面積の合計のうち四百平方メートル以下の部分"])
+    # 特別とん税法 art. 5 — SpecialTonSplitRatio.lean
+    yield ("特別とん税法 art. 5（特別とん税 三十六分の二十・とん税 三十六分の十六）↔ SpecialTonSplitRatio.lean (20/36 + 16/36)",
+           "332AC0000000038",
+           "article", "第五条",
+           ["特別とん税及びとん税の納付があつたときは、その納付に係る金額の三十六分の二十に相当する税額の特別とん税及び三十六分の十六に相当する税額のとん税の納付があつたものとする。"])
+
+
+    # 法人特別税法 art. 7 — MonthCountExclusiveBand.lean
+    yield ("法人特別税法 art. 7（二十四月に満たない・超える法人の除外）↔ MonthCountExclusiveBand.lean (24-month exclusive band)",
+           "404AC0000000015",
+           "article", "第七条",
+           ["事業年度の変更その他の事由により、指定期間内に終了する事業年度の月数の合計が二十四月に満たない法人及び当該月数の合計が二十四月を超える法人（次号から第五号までに掲げる法人を除く。）"])
+
+
+    # TIR条約特例法施行令 art. 17 — ConditionalApprovalFee.lean
+    yield ("コンテナー通関特例法施行令 art. 17（承認一件ごとの手数料・電子申請は十一万千八百円）↔ ConditionalApprovalFee.lean (120700 / 111800)",
+           "346CO0000000257",
+           "article", "第十七条",
+           ["当該承認一件ごとに十二万七百円（電子申請の場合にあつては、十一万千八百円）"])
 
 
 def main() -> int:

@@ -816,6 +816,12 @@ JapanTaxLaw/PaymentDeadlineTests.lean         # 同上 退行テスト
 JapanTaxLaw/AntiDumpingRate952.lean               # 不当廉売関税率 95.2%（政令 art.2）L4 モデル
 JapanTaxLaw/AntiDumpingRate952Spec.lean           # 同上 独立定式
 JapanTaxLaw/AntiDumpingRate952Tests.lean          # 同上 退行テスト
+JapanTaxLaw/AntiDumpingRate372.lean               # 不当廉売関税率 37.2%（政令 art.2）L4 モデル
+JapanTaxLaw/AntiDumpingRate372Spec.lean           # 同上 独立定式
+JapanTaxLaw/AntiDumpingRate372Tests.lean          # 同上 退行テスト
+JapanTaxLaw/SpecialUseExemption.lean            # 特定用途免税の範囲 原料用/熱源用（政令 art.7）L4 モデル
+JapanTaxLaw/SpecialUseExemptionSpec.lean        # 同上 独立定式
+JapanTaxLaw/SpecialUseExemptionTests.lean       # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト
