@@ -710,6 +710,17 @@
       "scoped_article_chars": 5989,
       "spec_literals": []
     },
+    "CustomsTariffArt7ExtensionPara17": {
+      "adversarial_review": false,
+      "boundary_examples_found": 0,
+      "independent_spec": false,
+      "kanji_literals": [],
+      "kernel_attested": false,
+      "kernel_decided_examples": 4,
+      "needles_scoped": true,
+      "scoped_article_chars": 5989,
+      "spec_literals": []
+    },
     "CustomsTariffArt7InvestigationDeadline": {
       "adversarial_review": false,
       "boundary_examples_found": 0,
@@ -3602,7 +3613,7 @@
         "六千八百二",
         "千"
       ],
-      "kernel_attested": false,
+      "kernel_attested": true,
       "kernel_decided_examples": 20,
       "needles_scoped": true,
       "scoped_article_chars": 151,
@@ -5991,6 +6002,23 @@
         "module": "GasolineTaxRate",
         "spec_kanji_in_原文": [
           "二万四千三百"
+        ]
+      },
+      "NORM|8c99da0d68d1683dbd86d1b50cbaf60117f6cea59bfa0bc19ccdb91ad4188f1a": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 20,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "TobaccoRatePerThousand",
+        "spec_kanji_in_原文": [
+          "六千八百二",
+          "千"
         ]
       },
       "NORM|8d5ed3568c565c414b1bdf2fae79ad90c03966477cc336f6c8cc30321552074c": {
@@ -9545,6 +9573,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"24300\": [\"二万四千三百\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/332AC0000000055_20260525_506AC0000000052.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:9/Article#9/Paragraph#1/ParagraphSentence/Sentence#1 sha256=e5e7d4286963a6424652cc86c75341a6c64d972e4e3e7ef22670ddcf2801de9a (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/GasolineTaxRateTests.lean sha256=e74e741d1ec922ab50808fc0c9d74abaa6ad4b4ae7f5347c4a9fb3037a55273e (7 kernel-decided examples)"
+    },
+    "NORM|8c99da0d68d1683dbd86d1b50cbaf60117f6cea59bfa0bc19ccdb91ad4188f1a": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 20 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=359AC0000000072_20260525_506AC0000000052 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/TobaccoRatePerThousand.lean sha256=39b6c0d545ae2064a08addbed0cebf57798316bfea45d18792334fedbc43d67e",
+      "independent_spec": "JapanTaxLaw/TobaccoRatePerThousandSpec.lean sha256=35cfef5fe4eb9ac2281f091d42c0959088a0c695526188d336515e8c723c0d55 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44977223636: commit 3e396db3155da1edd2b5b91070becef7b3d84768, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [1000, 6802] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"1000\": [\"千\"], \"6802\": [\"六千八百二\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/359AC0000000072_20260525_506AC0000000052.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:11/Article#11/Paragraph#1/ParagraphSentence/Sentence#1 sha256=6079422da9d83bb97d68e5fd824b92563d7a0e183cabdf88fc0d9e0cd241e2cd (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/TobaccoRatePerThousandTests.lean sha256=09b3d67cd028ee707e221cc6563116c976f3f1299e379cfe81ab352d28bc89c0 (20 kernel-decided examples)"
     },
     "NORM|8d5ed3568c565c414b1bdf2fae79ad90c03966477cc336f6c8cc30321552074c": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
