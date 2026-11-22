@@ -11,14 +11,14 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 116
+- with >=1 pinned literal check (semantic model): 117
 - with recorded human legal review: 0
 
 ## All laws
 
 | law_id | title | revision | enforcement | raw | parse | articles | pinned checks | human review |
 |---|---|---|---|---|---|---:|---|---|
-| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (25) | NO |
+| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (26) | NO |
 | `322CO0000000109` | 昭和二十二年政令第百九号（財産税法等による物納に因る不動産登記の特例に関する政令） | 322CO0000000109_19470627_000000000000000 | CurrentEnforced | YES | ok | 4 | YES (1) | NO |
 | `322AC0000000175` | 昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律） | 322AC0000000175_20220101_503AC0000000011 | CurrentEnforced | YES | ok | 78 | YES (2) | NO |
 | `322CO0000000268` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施 | 322CO0000000268_20251201_507CO0000000120 | CurrentEnforced | YES | ok | 113 | YES (5) | NO |
@@ -72,7 +72,7 @@ a completion flag.
 | `330CO0000000237` | 関税定率法第五条の規定による便益関税の適用に関する政令 | 330CO0000000237_20250401_507CO0000000141 | CurrentEnforced | YES | ok | 81 | NO (0) | NO |
 | `331M50000002007` | 地方揮発油譲与税法施行規則 | 331M50000002007_20230401_505M60000008036 | CurrentEnforced | YES | ok | 55 | NO (0) | NO |
 | `331M50000002047` | アメリカ合衆国軍隊等が行う免税軽油の引取りの手続に関する総理府令 | 331M50000002047_20090401_421M60000008036 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
-| `332AC0000000026` | 租税特別措置法 | 332AC0000000026_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 3736 | YES (12) | NO |
+| `332AC0000000026` | 租税特別措置法 | 332AC0000000026_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 3736 | YES (14) | NO |
 | `332AC0000000037` | とん税法 | 332AC0000000037_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 77 | YES (2) | NO |
 | `332AC0000000038` | 特別とん税法 | 332AC0000000038_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 47 | YES (2) | NO |
 | `332CO0000000043` | 租税特別措置法施行令 | 332CO0000000043_20261101_507CO0000000127 | CurrentEnforced | YES | ok | 2820 | YES (6) | NO |
@@ -106,10 +106,10 @@ a completion flag.
 | `338CO0000000275` | 明治三十二年発行の英貨公債を償還する等のため発行する外貨公債に関する特別措置法に基づく外 | 338CO0000000275_20171001_429CO0000000106 | CurrentEnforced | YES | ok | 8 | NO (0) | NO |
 | `339AC0000000101` | 自家用自動車の一時輸入に関する通関条約の実施に伴う関税法等の特例に関する法律 | 339AC0000000101_20010106_411AC0000000160 | CurrentEnforced | YES | ok | 21 | NO (0) | NO |
 | `339CO0000000182` | 自家用自動車の一時輸入に関する通関条約の実施に伴う関税法等の特例に関する法律施行令 | 339CO0000000182_20030401_415CO0000000142 | CurrentEnforced | YES | ok | 16 | YES (1) | NO |
-| `340AC0000000033` | 所得税法 | 340AC0000000033_20261001_507AC0000000070 | CurrentEnforced | YES | ok | 1323 | YES (10) | NO |
+| `340AC0000000033` | 所得税法 | 340AC0000000033_20261001_507AC0000000070 | CurrentEnforced | YES | ok | 1323 | YES (11) | NO |
 | `340AC0000000034` | 法人税法 | 340AC0000000034_20261001_508AC0000000012 | CurrentEnforced | YES | ok | 1183 | YES (8) | NO |
 | `340CO0000000084` | 国際復興開発銀行等からの外資の受入に関する特別措置に関する法律に基づく債券の利子の非課税 | 340CO0000000084_20171001_429CO0000000106 | CurrentEnforced | YES | ok | 8 | NO (0) | NO |
-| `340CO0000000096` | 所得税法施行令 | 340CO0000000096_20260522_508CO0000000093 | CurrentEnforced | YES | ok | 1365 | YES (1) | NO |
+| `340CO0000000096` | 所得税法施行令 | 340CO0000000096_20260522_508CO0000000093 | CurrentEnforced | YES | ok | 1365 | YES (2) | NO |
 | `340CO0000000097` | 法人税法施行令 | 340CO0000000097_20261001_507CO0000000121 | CurrentEnforced | YES | ok | 1541 | YES (4) | NO |
 | `340M50000040011` | 所得税法施行規則 | 340M50000040011_20261001_507M60000040018 | CurrentEnforced | YES | ok | 886 | YES (1) | NO |
 | `340M50000040012` | 法人税法施行規則 | 340M50000040012_20261001_505M60000040013 | CurrentEnforced | YES | ok | 874 | YES (1) | NO |
@@ -142,7 +142,7 @@ a completion flag.
 | `346AC0000000089` | 自動車重量税法 | 346AC0000000089_20220401_504AC0000000004 | CurrentEnforced | YES | ok | 49 | YES (1) | NO |
 | `346AC0000000090` | 自動車重量譲与税法 | 346AC0000000090_20260401_508AC0000000002 | CurrentEnforced | YES | ok | 37 | YES (1) | NO |
 | `346M50000008013` | 自動車重量譲与税法施行規則 | 346M50000008013_20230401_505M60000008036 | CurrentEnforced | YES | ok | 38 | NO (0) | NO |
-| `346CO0000000257` | コンテナーに関する通関条約及び国際道路運送手帳による担保の下で行なう貨物の国際運送に関す | 346CO0000000257_20171008_428CO0000000240 | CurrentEnforced | YES | ok | 40 | NO (0) | NO |
+| `346CO0000000257` | コンテナーに関する通関条約及び国際道路運送手帳による担保の下で行なう貨物の国際運送に関す | 346CO0000000257_20171008_428CO0000000240 | CurrentEnforced | YES | ok | 40 | YES (1) | NO |
 | `346M50000040057` | コンテナーに関する通関条約及び国際道路運送手帳による担保の下で行なう貨物の国際運送に関す | 346M50000040057_20120401_424M60000040035 | CurrentEnforced | YES | ok | 8 | NO (0) | NO |
 | `346CO0000000275` | 自動車重量税法施行令 | 346CO0000000275_20230101_504CO0000000195 | CurrentEnforced | YES | ok | 24 | YES (1) | NO |
 | `346M50000040066` | 自動車重量税法施行規則 | 346M50000040066_20230101_504M60000040020 | CurrentEnforced | YES | ok | 27 | YES (1) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 188
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 192
