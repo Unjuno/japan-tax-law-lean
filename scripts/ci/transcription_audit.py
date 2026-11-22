@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # CustomsTariffArt7CountervailingDelegation.lean - NORM|e0b944b3... (countervailing duty delegation DELEGATION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第七条 (Paragraph 33, ParagraphSentence);
+    # find_article_text(...,"第七条") returns that article (len 5989) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.7 countervailing delegation - CustomsTariffArt7CountervailingDelegation.lean",
+           "143AC0000000054",
+           "article", "第七条",
+           ["\u524d\u5404\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u76f8\u6bba\u95a2\u7a0e\u306e\u9069\u7528\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
+
     # CustomsTariffArt4ProductionServiceDelegation.lean - NORM|166d1cbf... (production service delegation DELEGATION, law 143AC0000000054)
     # Needle is in MainProvision Article 第四条 (Paragraph 1, Item#3, Subitem1#4, ItemSentence);
     # find_article_text(...,"第四条") returns that article (len 2219) with needle -
