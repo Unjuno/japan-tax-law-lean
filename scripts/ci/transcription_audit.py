@@ -1373,6 +1373,15 @@ def checks():
            "article", "第七条",
            ["\u524d\u9805\u306e\u8abf\u67fb\u306f\u3001\u7b2c\u4e8c\u5341\u4e5d\u9805\u306e\u898f\u5b9a\u306b\u3088\u308b\u8acb\u6c42\u304c\u3042\u3064\u305f\u65e5\u304b\u3089\u4e00\u5e74\u4ee5\u5185\u306b\u7d42\u4e86\u3059\u308b\u3082\u306e\u3068\u3059\u308b\u3002"])
 
+    # CustomsTariffArt8_2NonApplicability.lean - NORM|3f6a79aa... (para2 non-applicability CONDITION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第八条の二 (Paragraph 2, ParagraphSentence);
+    # find_article_text(...,"第八条の二") returns that article (len 4324) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.8-2 non-applicability - CustomsTariffArt8_2NonApplicability.lean",
+           "143AC0000000054",
+           "article", "第八条の二",
+           ["\u524d\u9805\u306e\u898f\u5b9a\u306f\u3001\u6b21\u306e\u5404\u53f7\u306e\u3044\u305a\u308c\u304b\u306b\u8a72\u5f53\u3059\u308b\u5834\u5408\u306b\u306f\u3001\u9069\u7528\u3057\u306a\u3044\u3002"])
+
     # CustomsTariffArt9Delegation.lean - NORM|0487f141... (para15 residual DELEGATION, law 143AC0000000054)
     # Needle is in MainProvision Article 第九条 (Paragraph 15, ParagraphSentence);
     # find_article_text(...,"第九条") returns that article (len 4135) with needle -
