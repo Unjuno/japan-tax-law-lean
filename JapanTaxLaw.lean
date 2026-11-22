@@ -1047,3 +1047,6 @@ import JapanTaxLaw.ConditionalApprovalFeeTests
 import JapanTaxLaw.PetroleumGasSenRate
 import JapanTaxLaw.PetroleumGasSenRateSpec
 import JapanTaxLaw.PetroleumGasSenRateTests
+import JapanTaxLaw.ForeignDesignation
+import JapanTaxLaw.ForeignDesignationSpec
+import JapanTaxLaw.ForeignDesignationTests
