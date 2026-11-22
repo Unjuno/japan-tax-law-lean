@@ -1619,3 +1619,6 @@ import JapanTaxLaw.ShareholdersUnder50Tests
 import JapanTaxLaw.TaxNoticeDeadline
 import JapanTaxLaw.TaxNoticeDeadlineSpec
 import JapanTaxLaw.TaxNoticeDeadlineTests
+import JapanTaxLaw.RoadAreaRate
+import JapanTaxLaw.RoadAreaRateSpec
+import JapanTaxLaw.RoadAreaRateTests
