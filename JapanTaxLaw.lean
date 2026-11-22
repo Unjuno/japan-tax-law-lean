@@ -1616,3 +1616,6 @@ import JapanTaxLaw.SpecialLand330Tests
 import JapanTaxLaw.ShareholdersUnder50
 import JapanTaxLaw.ShareholdersUnder50Spec
 import JapanTaxLaw.ShareholdersUnder50Tests
+import JapanTaxLaw.TaxNoticeDeadline
+import JapanTaxLaw.TaxNoticeDeadlineSpec
+import JapanTaxLaw.TaxNoticeDeadlineTests

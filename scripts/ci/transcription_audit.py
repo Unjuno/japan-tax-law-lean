@@ -2180,6 +2180,12 @@ def checks():
            "file", None,
            ["これに相当する相続税法の規定による控除の額に同条に規定する割合を乗じて得た額", "控除の特例）第二条"])
 
+    # TaxNoticeDeadline — cycle-75
+    yield ("TaxNoticeDeadline.lean",
+           "327AC0000000119",
+           "file", None,
+           ["遅くとも、その納期限前十日までに納税者に交付しなければならない", "自動車税及び軽自動車税の徴収の方法等）第四条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
