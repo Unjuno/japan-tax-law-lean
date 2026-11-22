@@ -2042,6 +2042,12 @@ def checks():
            "file", None,
            ["金及び白金の地金並びに金貨及び白金貨とする", "免税対象物品から除かれる物品の範囲）第六条"])
 
+    # FilingRoute — cycle-64
+    yield ("FilingRoute.lean",
+           "328CO0000000028",
+           "file", None,
+           ["所轄税務署長、所轄国税局長又は国税庁長官を経由してするものとする", "届出）第九条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
