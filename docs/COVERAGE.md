@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 118 | 327 | 36.09% |
+| laws with >=1 pinned literal check | 119 | 327 | 36.39% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 335 | n/a | n/a |
-| distinct article pins | 145 | 42584 | 0.34% |
-| pinned Lean modules (cross-law) | 735 | n/a | n/a |
+| pinned literal checks | 338 | n/a | n/a |
+| distinct article pins | 146 | 42584 | 0.34% |
+| pinned Lean modules (cross-law) | 739 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 319 |
+| unpinned Lean modules (not counted as verified) | 324 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 56 |
+| adversarial review sessions recorded | 57 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -199,6 +199,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `363AC0000000107` 税制改革法
 - `363AC0000000108` 消費税法
 - `363CO0000000360` 消費税法施行令
+- `363M50000040053` 消費税法施行規則
 - `403AC0000000069` 地価税法
 - `403CO0000000174` 地価税法施行令
 - `404AC0000000015` 法人特別税法

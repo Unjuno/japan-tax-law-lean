@@ -7557,3 +7557,95 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 - Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。commit / push / merge / ブランチ切替なし。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・用途トークン抽出・needle 実文字列照合・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
+
+---
+
+## Batch BG review (2026-11-22)
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。担当の STAGING／doc-comment／coordinator 要約は**信じず**、pinned 原文から直接・独立に再抽出して照合した。
+- **対象（読み取り専用・本レビューで変更していない）**: `JapanTaxLaw/ForeignDesignation.lean`（`namespace JapanTaxLaw.ForeignDesignation`、名前付き宣言 `taiwan` / `otherCountry` / `isDesignatedForeign` と 2 つの `example`）。
+- **一次資料（pinned・改変禁止）**: `data/raw/337CO0000000227_20260401_508CO0000000083.law.json`（law_id `337CO0000000227` / revision `337CO0000000227_20260401_508CO0000000083`、INVENTORY の `source_file` でも同一パスを確認）。pinned の `law_title` は「外国居住者等の所得に対する相互主義による所得税等の非課税等に関する法律施行令」（略称「外国居住者等所得相互免除法施行令」）であり、課題文の「関税定率法施行令」というラベルとは一致しない。ただし対象モジュール自身は「関税定率法施行令」を主張していないため、本レビューの照合（モジュール vs pinned 原文）には影響しない（下記 BY-DESIGN B-5）。
+- **操作制約の遵守**: commit / push / merge / ブランチ切替は一切行っていない。Lean モジュール・`data/*`・`scripts/*` は読み取りのみ。書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ（末尾に本セクションを追記）。
+- **needle 出所**: `scripts/ci/transcription_audit.py::checks()` の cycle-62 エントリ（`name="ForeignDesignation.lean"` / `law_id="337CO0000000227"` / `kind="file"` / `art=None`）から Python で実文字列 2 本を取得（STAGING 記載は未使用）。
+
+### BG-1. pinned 原文からの独立抽出（指定外国「台湾」）
+
+- `law_full_text` を再帰走査し、本則（`MainProvision`）内の `tag="Article"` ノード計 **39** を列挙。うち `Num="2"`（第二条）は **1 ノードのみ**。当該ノードの子の文字列 leaf を文書順に連結した art.2 逐語（生・自前正規化とも **39 文字、U+3000 = 0**）:
+  - `（外国の指定）第二条法第二条第三号に規定する政令で指定する外国は、台湾とする。`
+- 自前で国名トークンを列挙した結果、art.2 正規化テキスト中の国名は `台湾` の **1 つのみ**（出現 1 回）。他国の混入を検出するため `韓国 / 中国 / 香港 / 澳门 / 澳門 / 朝鮮 / 米国 / アメリカ / 英国 / フランス / ドイツ / フィリピン / シンガポール / タイ / インド` を走査し、**ヒット 0 件**。
+  - **全文での `台湾` 出現は 3 回**（art.2 の指定 1 回＋附則の「改正後の別表中台湾に係る部分…」2 回）。附則の 2 回はいずれも台湾に係る部分の経過規定であり、別の国の指定ではない。art.2 の指定列挙は台湾 1 つだけであることに変わりはない。
+- 照合: 実装は `taiwan=0` / `otherCountry=1` / `isDesignatedForeign(c) = (c == taiwan)`。原文の指定外国 `{台湾}` が `taiwan` へ正対応し、`otherCountry=1` は「指定外国でない」ことを表す内部番兵であって第 2 の指定外国ではない。→ **EXTRACT_MATCH = True（発見ゼロ）**。
+
+### BG-2. needle 健全性（CI `checks()` の実文字列 2 本を自前正規化原文で検証）
+
+- needle は手打ちせず `checks()` の cycle-62 エントリから取得。自前で `law_full_text` の文字列 leaf を平坦化し `re.sub(r"[\s\u3000]+", "", s)` で正規化（全文 49,837 文字 → 正規化 49,778 文字）して含有を数えた。CI の `contains()` / `_norm()` と同一条件。
+
+| needle（CI 実文字列） | 長 | U+3000 | 全文（自前正規化） | art.2（自前正規化・39 文字） |
+|---|---:|---:|---|---|
+| `政令で指定する外国は、台湾とする` | 16 | 0 | FOUND（1 回） | FOUND（1 回） |
+| `外国の指定）第二条` | 9 | 0 | FOUND（1 回） | FOUND（1 回） |
+
+- **結果: 2/2 FOUND、needle の U+3000 = 0**。CI の `contains()` でも 2/2 True。art.2 逐語（U+3000 = 0）にも 2 本とも包含在。needle の健全性に問題なし。
+
+### BG-3. 反例探索（`by decide` による kernel 計算）
+
+| 入力 c | 意味 | 期待 | Lean | 判定 |
+|---:|---|---|---|---|
+| 0 | 台湾 | true | `isDesignatedForeign 0 = true` ✓ | 一致 |
+| 1 | その他（番兵） | false | `isDesignatedForeign 1 = false` ✓ | 一致 |
+| 2 | 列挙外 | false | `isDesignatedForeign 2 = false` ✓ | 一致 |
+| 3 | 列挙外 | false | `isDesignatedForeign 3 = false` ✓ | 一致 |
+
+- すべて `by decide` で kernel 計算確認（`lake env lean`、exit code 0）。**反例 0 件**。特に `c=1`（その他）および `c=2,3`（列挙外）が `true` とならないことを確認し、原文「指定外国は台湾のみ」と整合。
+
+### BG-4. 公理監査
+
+- 一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\bg_axiom_probe.lean` を作成し、対象モジュールの全名前付き宣言（`taiwan`, `otherCountry`, `isDesignatedForeign`）および kernel-decide 反例 6（`bg_taiwan_def`, `bg_other_def`, `bg_fdf_0`〜`bg_fdf_3`）に `#print axioms` を実行（`lake env lean`、**exit code 0**）。監査後、一時ファイルは削除済み。モジュールの静的スキャンで `sorry` / `admit` / `axiom` / `classical` / `noncomputable` / `unsafe` / `choice` / `propext` / `Quot.sound` の一致 **0 件**。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 9（すべて `"does not depend on any axioms"`） |
+| `Classical.choice` | **0 件**（不在） |
+| `sorryAx` | **0 件**（不在） |
+| `Quot.sound` | **0 件**（不在） |
+| `propext` | **0 件**（不在） |
+
+- → 禁止公理は一切検出されず、**propext も 0**。公理監査は合格。
+
+### BG-5. 分類（CONFIRMED / BY-DESIGN / UNRESOLVED）
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **5** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 欠陥件数を手柄にしない。
+
+**CONFIRMED（0 件）**: 指定外国の列挙（台湾 1 つのみ）、`isDesignatedForeign` の真偽、needle 2/2、反例 4/4、公理監査のいずれも pinned 原文との食い違い・不整合なし。モデル値の誤りは検出されなかった。
+
+**BY-DESIGN（5 件）**:
+
+- **B-1 指定外国列挙のみの bounded L4 モデル**: doc-comment どおり本モデルは原文 art.2 の「政令で指定する外国」の列挙のみを扱う。税率・免税額・手続は扱わない。原文の 1 外国に忠実であり、境界として明示済み。
+- **B-2 国の Nat 列挙は内部エンコーディング**: `taiwan=0` / `otherCountry=1` は原文に現れる数字ではなくモデル内部の表現。`otherCountry=1` は「指定外国でない」ことを表す番兵であり、原文に存在する第 2 の指定外国ではない（BG-1 で確認）。→ スコープ宣言どおりで欠陥ではない。
+- **B-3 法2条3号の「外国居住者等」の定義・他の要件は NOT MODELLED**: doc-comment に明記。**未形式化を確認**（＝スコープ宣言どおりで欠陥ではない）。
+- **B-4 台湾以外の地域の取扱い・条約上の地位は NOT MODELLED**: doc-comment に明記。**未形式化を確認**（同上）。附則に台湾に係る別表の経過規定が存在するが、本スコープ外。
+- **B-5 課題文の law 名ラベルと pinned `law_title` の不一致**: 課題文は「関税定率法施行令 art.2」と呼ぶが、pinned スナップショットの `law_title` は外国居住者等所得相互免除法施行令である。対象モジュールは「関税定率法施行令」を主張せず（doc-comment は単に「政令 art.2」）、law_id / revision / 原文一致にも影響しない。→ モジュールの欠陥ではない（課題文側のラベル表記として記録）。
+
+**UNRESOLVED（2 件）**:
+
+- **U-1 法2条3号の「外国居住者等」の定義・該当性判定の法的妥当性**: pinned art.2 は「法第二条第三号に規定する政令で指定する外国」と規定するのみで、法2条3号の定義内容（外国居住者等の範囲・要件）は当該スナップショット内にない。本モデルの Bool 判定（`isDesignatedForeign`）は与えられた国番号に対する写像であり、実務上の該当性判定ではない。定義の解釈は pinned 原文（art.2）のみでは決定不能。**人間の法律専門家による確認を要する**。列挙の一致（CONFIRMED = 0）には影響しない。
+- **U-2 台湾の条約上の地位・台湾以外の地域の取扱いの実務上の完全性**: B-4 のとおり条約上の地位・台湾以外の地域の取扱いは未形式化（スコープ宣言済み）。本モデルは指定外国列挙スライスであり、実際の非課税適用の法的確定に単独では使用できない。実務上どこまでを形式化すべきかは pinned 原文のみでは判断できず、**人間の法律専門家によるレビューを要する**。既存の列挙（発見ゼロ）には影響しない。
+
+### BG-6. 最終報告・総合判定
+
+- pinned revision `337CO0000000227_20260401_508CO0000000083` の art.2 から独立抽出した指定外国は **台湾のみ（1 つ）**。`taiwan=0` / `otherCountry=1` / `isDesignatedForeign(c)=c==0` と完全一致し、**CONFIRMED = 0（発見ゼロ）**。他国の混入 0 件、取り違え 0 件。
+- **CONFIRMED: 0 件 / BY-DESIGN: 5 件 / UNRESOLVED: 2 件**。
+- **needle 健全性: 2/2 FOUND、U+3000 = 0**（CI `checks()` cycle-62 実文字列を自前正規化原文で検証）。
+- **反例: 0→true / 1→false / 2→false / 3→false、反例 0 件**（`by decide`）。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` いずれも **0 件**（9 宣言すべて axiom-free、exit code 0）。監査用一時ファイルは削除済み。
+- **法2条3号の定義・条約上の地位の未形式化を確認**（B-3／B-4／スコープ宣言どおり）。
+- **追記後レビュー件数: 57 件**（既存 56 件＝coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` に一致する Batch G〜BF ほかをすべて保持 + 本 BG 1 件）。既存セクションは一切改変していない。
+- Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。commit / push / merge / ブランチ切替なし。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・国名トークン抽出・needle 実文字列照合・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。

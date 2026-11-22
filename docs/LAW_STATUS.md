@@ -11,14 +11,14 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 118
+- with >=1 pinned literal check (semantic model): 119
 - with recorded human legal review: 0
 
 ## All laws
 
 | law_id | title | revision | enforcement | raw | parse | articles | pinned checks | human review |
 |---|---|---|---|---|---|---:|---|---|
-| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (26) | NO |
+| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (27) | NO |
 | `322CO0000000109` | 昭和二十二年政令第百九号（財産税法等による物納に因る不動産登記の特例に関する政令） | 322CO0000000109_19470627_000000000000000 | CurrentEnforced | YES | ok | 4 | YES (1) | NO |
 | `322AC0000000175` | 昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律） | 322AC0000000175_20220101_503AC0000000011 | CurrentEnforced | YES | ok | 78 | YES (2) | NO |
 | `322CO0000000268` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施 | 322CO0000000268_20251201_507CO0000000120 | CurrentEnforced | YES | ok | 113 | YES (5) | NO |
@@ -180,7 +180,7 @@ a completion flag.
 | `363AC0000000107` | 税制改革法 | 363AC0000000107_19881230_000000000000000 | CurrentEnforced | YES | ok | 18 | YES (2) | NO |
 | `363AC0000000108` | 消費税法 | 363AC0000000108_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 524 | YES (4) | NO |
 | `363CO0000000360` | 消費税法施行令 | 363CO0000000360_20261101_507CO0000000125 | CurrentEnforced | YES | ok | 452 | YES (1) | NO |
-| `363M50000040053` | 消費税法施行規則 | 363M50000040053_20261101_507M60000040022 | CurrentEnforced | YES | ok | 172 | NO (0) | NO |
+| `363M50000040053` | 消費税法施行規則 | 363M50000040053_20261101_507M60000040022 | CurrentEnforced | YES | ok | 172 | YES (1) | NO |
 | `403CO0000000035` | 法人臨時特別税に関する政令 | 403CO0000000035_20010106_412CO0000000307 | CurrentEnforced | YES | ok | 12 | NO (0) | NO |
 | `403CO0000000036` | 石油臨時特別税に関する政令 | 403CO0000000036_20010106_412CO0000000307 | CurrentEnforced | YES | ok | 9 | NO (0) | NO |
 | `403M50000040006` | 法人臨時特別税に関する省令 | 403M50000040006_20030106_414M60000040072 | CurrentEnforced | YES | ok | 9 | NO (0) | NO |
@@ -281,7 +281,7 @@ a completion flag.
 | `424AC0000000068` | 社会保障の安定財源の確保等を図る税制の抜本的な改革を行うための消費税法の一部を改正する等 | 424AC0000000068_20250401_506AC0000000046 | CurrentEnforced | YES | ok | 12 | NO (0) | NO |
 | `425CO0000000025` | 税制調査会令 | 425CO0000000025_20221202_504CO0000000367 | CurrentEnforced | YES | ok | 14 | NO (0) | NO |
 | `425M60000008049` | 福島復興再生特別措置法第二十六条等の地方税の課税免除又は不均一課税に伴う措置が適用される | 425M60000008049_20260401_508M60000008052 | CurrentEnforced | YES | ok | 14 | NO (0) | NO |
-| `426AC0000000011` | 地方法人税法 | 426AC0000000011_20260401_507AC0000000013 | CurrentEnforced | YES | ok | 112 | YES (1) | NO |
+| `426AC0000000011` | 地方法人税法 | 426AC0000000011_20260401_507AC0000000013 | CurrentEnforced | YES | ok | 112 | YES (2) | NO |
 | `426CO0000000139` | 地方法人税法施行令 | 426CO0000000139_20260401_508CO0000000095 | CurrentEnforced | YES | ok | 37 | NO (0) | NO |
 | `426M60000040022` | 地方法人税法施行規則 | 426M60000040022_20260414_508M60000040040 | CurrentEnforced | YES | ok | 79 | NO (0) | NO |
 | `426M60000200069` | 関税暫定措置法施行令第三十二条第二項第八号の農林水産省令で定める方法を定める省令 | 426M60000200069_20181230_430M60000200085 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 190
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 192
