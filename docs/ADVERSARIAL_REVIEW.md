@@ -7172,3 +7172,40 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 - 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。一時ファイルはすべて削除した。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・曜日トークン照合・needle 自前正規化検証・カーネル decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+### CourseHoursThreshold.lean — 法人税法施行規則 art. 7の2（六十時間以上）
+
+- **pin**: pinned law_id / revision / needle verified verbatim-unique in the scoped article; transcription audit check present.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### CollectionPeriodCap30.lean — 国税徴収法 art. 115（三十日を超えることができない）
+
+- **pin**: pinned law_id / revision / needle verified verbatim-unique in the scoped article; transcription audit check present.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### ResidentialLandArea200.lean — 地方税法 art. 349の3の二（二百平方メートル以下）
+
+- **pin**: pinned law_id / revision / needle verified verbatim-unique in the scoped article; transcription audit check present.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
