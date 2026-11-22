@@ -1,0 +1,26 @@
+import JapanTaxLaw.TaxFinance
+
+/-!
+# WirePitch165nm — 租税特別措置法施行令 art. 27_12_6（導線の中心間隔 百六十五ナノメートル以下）
+
+Sources (pinned):
+
+  Law id: 332CO0000000043
+  Revision: 332CO0000000043_20261101_507CO0000000127
+  Raw snapshot: data/raw/332CO0000000043_20261101_507CO0000000127.law.json
+
+Pinned 原文: 「トランジスター上に配置される導線の中心の間隔が最も短い箇所において百六十五ナノメートル以下の特定演算半導体」
+
+Scoped claim: only the 導線の中心間隔 百六十五ナノメートル以下 threshold; other conditions are caller-established.
+-/
+
+namespace JapanTaxLaw.WirePitch165nm
+
+def pitchCap165nm : Nat := 165
+
+def withinPitch165 (x : Nat) : Bool :=
+  decide (x <= pitchCap165nm)
+
+theorem threshold_value : pitchCap165nm = 165 := rfl
+
+end JapanTaxLaw.WirePitch165nm

@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 206
-- presence-facts-only complete: 206
-- NOT_STARTED: 206
+- articles with explicit pin: 205
+- presence-facts-only complete: 205
+- NOT_STARTED: 205
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -85,7 +85,6 @@ source positions. Human legal review is a separate axis and is pending.
 | `143AC0000000054` | 第七条 | CustomsTariffArt7ProvisionalPeriod | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第七条 | CustomsTariffArt7InvestigationDeadline | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十四条 | CustomsTariffArt14ProvisoReading | YES | YES | NO | NOT_STARTED |
-| `143AC0000000054` | 第十四条 | CustomsTariffArt14DisabledPersonEquipmentDelegation | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十七条 | CustomsTariffArt17DutyExemptionReading | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十七条 | CustomsTariffArt17ExportContainerDelegation | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十七条 | CustomsTariffArt17ContainerDelegation | YES | YES | NO | NOT_STARTED |
@@ -222,4 +221,4 @@ source positions. Human legal review is a separate axis and is pending.
 | `337CO0000000097` | 第十二条の二 | ProductionVolume6KL | YES | YES | NO | NOT_STARTED |
 | `342AC0000000035` | 第十四条 | RegistrationFeePerItem | YES | YES | NO | NOT_STARTED |
 | `342AC0000000035` | 第十九条 | RegistrationTaxFloor1k | YES | YES | NO | NOT_STARTED |
-| `425CO0000000025` | 第一条 | CouncilMemberCap30 | YES | YES | NO | NOT_STARTED |
+| `414M60000008042` | 第四条 | MachineryCostExcess1M | YES | YES | NO | NOT_STARTED |
