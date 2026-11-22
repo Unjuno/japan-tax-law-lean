@@ -1,6 +1,6 @@
 import JapanTaxLaw.BuildingArea800
 
-/-- Independent spec for BuildingArea800 (租税特別措置法 art. 70の6の8): strict `¬ 800 < sqm` form. -/
+/-! Independent spec for BuildingArea800 (租税特別措置法 art. 70の6の8): strict `¬ 800 < sqm` form. -/
 
 namespace JapanTaxLaw.BuildingArea800Spec
 
@@ -12,7 +12,6 @@ def agreeBuilding (x : Nat) : Prop :=
 
 theorem agree_building (x : Nat) : agreeBuilding x := by
   unfold agreeBuilding specBuildingArea JapanTaxLaw.BuildingArea800.withinBuildingArea
-  unfold JapanTaxLaw.BuildingArea800.buildingAreaCap
   simp
 
 end JapanTaxLaw.BuildingArea800Spec
