@@ -812,3 +812,6 @@ import JapanTaxLaw.ResidentClassificationNormsTests
 import JapanTaxLaw.RemainderAndValueNorms
 import JapanTaxLaw.RemainderAndValueNormsSpec
 import JapanTaxLaw.RemainderAndValueNormsTests
+import JapanTaxLaw.ReliefAndInterestNorms
+import JapanTaxLaw.ReliefAndInterestNormsSpec
+import JapanTaxLaw.ReliefAndInterestNormsTests
