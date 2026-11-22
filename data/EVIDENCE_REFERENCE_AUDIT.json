@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 1835,
+  "checks": 1839,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -20186,11 +20186,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/CustomsTariffArt17ExportContainerDelegationTests.lean",
       "unit_id": "NORM|733f9fe5fc4dde05006f326edbc48d871bf7c43510bcff1e2dc838d9270fa17b"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_CUSTOMS_TARIFF_ART17_DUTY_EXEMPTION_READING.md — NO FINDINGS via independent 16-point programmatic cros",
+      "unit_id": "NORM|760484ebb1fe349e9ed493fddb34acc8ef4aace8f5092589dfcf179c2f827d25"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt17DutyExemptionReading.lean",
+      "unit_id": "NORM|760484ebb1fe349e9ed493fddb34acc8ef4aace8f5092589dfcf179c2f827d25"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt17DutyExemptionReadingSpec.lean",
+      "unit_id": "NORM|760484ebb1fe349e9ed493fddb34acc8ef4aace8f5092589dfcf179c2f827d25"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt17DutyExemptionReadingTests.lean",
+      "unit_id": "NORM|760484ebb1fe349e9ed493fddb34acc8ef4aace8f5092589dfcf179c2f827d25"
     }
   ],
-  "resolved": 1831,
+  "resolved": 1835,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 380,
+  "units_checked": 381,
   "unresolved": 4
 }
