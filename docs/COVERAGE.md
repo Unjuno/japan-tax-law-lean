@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 134 | 327 | 40.98% |
+| laws with >=1 pinned literal check | 133 | 327 | 40.67% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 401 | n/a | n/a |
-| distinct article pins | 158 | 42584 | 0.37% |
-| pinned Lean modules (cross-law) | 828 | n/a | n/a |
+| pinned literal checks | 399 | n/a | n/a |
+| distinct article pins | 157 | 42584 | 0.37% |
+| pinned Lean modules (cross-law) | 835 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 427 |
+| unpinned Lean modules (not counted as verified) | 438 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 69 |
+| adversarial review sessions recorded | 70 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -126,7 +126,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `326M50000040055` 税理士法施行規則
 - `327AC0000000111` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法律
 - `327AC0000000112` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う関税法等の臨時特例に関する法律
-- `327AC0000000119` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う地方税法の臨時特例に関する法律
 - `327CO0000000125` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う関税法等の臨時特例に関する法律施行令
 - `328AC0000000006` 酒税法
 - `328AC0000000007` 酒税の保全及び酒類業組合等に関する法律
