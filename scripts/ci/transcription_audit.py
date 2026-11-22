@@ -1383,6 +1383,15 @@ def checks():
            "article", "第十二条",
            ["\u51f6\u4f5c\u306e\u5834\u5408\u53c8\u306f\u5929\u707d\u3001\u4e8b\u5909\u305d\u306e\u4ed6\u306e\u7dca\u6025\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u5fc5\u8981\u304c\u3042\u308b\u3068\u304d\u3002"])
 
+    # CustomsTariffArt15ReligiousGiftDelegation.lean - NORM|fa7a3092... (religious-gift 財務省令 DELEGATION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十五条 (Paragraph 1, Item 4) - verbatim
+    # injected from the queue via \u escapes; delegee is 財務省令, not 政令.
+    # find_article_text(...,"\u7b2c\u5341\u4e94\u6761") returns that article (len 1419) with needle.
+    yield ("customs tariff art.15 religious gift delegation - CustomsTariffArt15ReligiousGiftDelegation.lean",
+           "143AC0000000054",
+           "article", "\u7b2c\u5341\u4e94\u6761",
+           ["\u5100\u5f0f\u53c8\u306f\u793c\u62dd\u306e\u7528\u306b\u76f4\u63a5\u4f9b\u3059\u308b\u305f\u3081\u5b97\u6559\u56e3\u4f53\u306b\u5bc4\u8d08\u3055\u308c\u305f\u7269\u54c1\u3067\u8ca1\u52d9\u7701\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
+
     # CustomsTariffArt14DisabledPersonEquipmentDelegation.lean - NORM|c8d2540f... (disabled-person equipment DELEGATION, law 143AC0000000054)
     # Needle is in MainProvision Article 第十四条 (Paragraph 1, Item 16);
     # find_article_text(...,"第十四条") returns that article (len 1655) with needle -
