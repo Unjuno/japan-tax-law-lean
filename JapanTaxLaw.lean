@@ -1601,3 +1601,6 @@ import JapanTaxLaw.SpecialLand330Tests
 import JapanTaxLaw.ShareholdersUnder50
 import JapanTaxLaw.ShareholdersUnder50Spec
 import JapanTaxLaw.ShareholdersUnder50Tests
+import JapanTaxLaw.MachineryCostExcess1M
+import JapanTaxLaw.MachineryCostExcess1MSpec
+import JapanTaxLaw.MachineryCostExcess1MTests

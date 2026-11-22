@@ -3094,6 +3094,14 @@ def checks():
            "file", None,
            ["当該株式交付により当該株式交付子会社の株式を五十人以上の当該株式交付子会社の株主から取得をした場合"])
 
+
+    # 沖縄振興省令 art.4(1)(3)イ — MachineryCostExcess1M.lean (機械装置取得価額百万円超)
+    yield ("沖縄振興省令 art.4(1)(3)イ（機械装置取得価額百万円超）↔ MachineryCostExcess1M.lean (floor 1_000_000, 超える strict)",
+           "414M60000008042",
+           "article", "第四条",
+           ["イに掲げるもののほか、機械及び装置で、これらの取得価額の合計額が百万円を超えるもの"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
