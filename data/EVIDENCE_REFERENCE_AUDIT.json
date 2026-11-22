@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 1856,
+  "checks": 1860,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -20417,11 +20417,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/CustomsTariffArt17DutyExemptionReadingTests.lean",
       "unit_id": "NORM|760484ebb1fe349e9ed493fddb34acc8ef4aace8f5092589dfcf179c2f827d25"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_CUSTOMS_TARIFF_ART14_DISABLED_PERSON_EQUIPMENT_DELEGATION.md — NO FINDINGS via independent 16-point pro",
+      "unit_id": "NORM|c8d2540f3dcbd0d71d4c31a4833f7616bb803940ef8c78479d752b2588172adc"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt14DisabledPersonEquipmentDelegation.lean",
+      "unit_id": "NORM|c8d2540f3dcbd0d71d4c31a4833f7616bb803940ef8c78479d752b2588172adc"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt14DisabledPersonEquipmentDelegationSpec.lean",
+      "unit_id": "NORM|c8d2540f3dcbd0d71d4c31a4833f7616bb803940ef8c78479d752b2588172adc"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt14DisabledPersonEquipmentDelegationTests.lean",
+      "unit_id": "NORM|c8d2540f3dcbd0d71d4c31a4833f7616bb803940ef8c78479d752b2588172adc"
     }
   ],
-  "resolved": 1852,
+  "resolved": 1856,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 384,
+  "units_checked": 385,
   "unresolved": 4
 }

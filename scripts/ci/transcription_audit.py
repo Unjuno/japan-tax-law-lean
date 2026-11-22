@@ -1373,6 +1373,15 @@ def checks():
            "article", "第十四条",
            ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u524d\u53f7\u305f\u3060\u3057\u66f8\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
 
+    # CustomsTariffArt14DisabledPersonEquipmentDelegation.lean - NORM|c8d2540f... (disabled-person equipment DELEGATION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十四条 (Paragraph 1, Item 16);
+    # find_article_text(...,"第十四条") returns that article (len 1655) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.14 disabled-person equipment delegation - CustomsTariffArt14DisabledPersonEquipmentDelegation.lean",
+           "143AC0000000054",
+           "article", "第十四条",
+           ["\u8eab\u4f53\u969c\u5bb3\u8005\u7528\u306b\u7279\u306b\u88fd\u4f5c\u3055\u308c\u305f\u5668\u5177\u305d\u306e\u4ed6\u3053\u308c\u306b\u985e\u3059\u308b\u7269\u54c1\u3067\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
+
     # CustomsTariffArt17DutyExemptionReading.lean - NORM|760484eb... (art13(3) reading into duty exemption, law 143AC0000000054)
     # Needle is in MainProvision Article 第十七条 (Paragraph 2, ParagraphSentence);
     # find_article_text(...,"第十七条") returns that article (len 1032) with needle -
