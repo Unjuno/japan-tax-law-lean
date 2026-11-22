@@ -1958,6 +1958,12 @@ def checks():
            "file", None,
            ["調査決定の日から二十日以内", "納付期限）第十八条"])
 
+    # AntiDumpingRate952 — cycle-59
+    yield ("AntiDumpingRate952.lean",
+           "507CO0000000095",
+           "file", None,
+           ["九十五・二パーセント", "不当廉売関税の税率は"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",

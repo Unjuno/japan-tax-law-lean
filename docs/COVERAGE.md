@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 112 | 327 | 34.25% |
+| laws with >=1 pinned literal check | 114 | 327 | 34.86% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 313 | n/a | n/a |
-| distinct article pins | 134 | 42584 | 0.31% |
-| pinned Lean modules (cross-law) | 704 | n/a | n/a |
+| pinned literal checks | 319 | n/a | n/a |
+| distinct article pins | 137 | 42584 | 0.32% |
+| pinned Lean modules (cross-law) | 711 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 284 |
+| unpinned Lean modules (not counted as verified) | 295 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 52 |
+| adversarial review sessions recorded | 53 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -199,6 +199,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `403AC0000000069` 地価税法
 - `403CO0000000174` 地価税法施行令
 - `404AC0000000015` 法人特別税法
+- `407CO0000000029` 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行令
 - `409CO0000000363` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行令
 - `412CO0000000277` 関税等不服審査会令
 - `414CO0000000262` ポリエステル短繊維に対して課する不当廉売関税に関する政令
@@ -220,4 +221,5 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `502CO0000000160` 新型コロナウイルス感染症等の影響に対応するための国税関係法律の臨時特例に関する法律施行令
 - `503CO0000000065` 炭酸二カリウムに対して課する不当廉売関税に関する政令
 - `504CO0000000372` 溶融亜鉛めっき鉄線に対して課する不当廉売関税に関する政令
+- `507CO0000000095` 黒鉛電極に対して課する不当廉売関税に関する政令
 - `508CO0000000254` 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令

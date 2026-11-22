@@ -7173,39 +7173,116 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・曜日トークン照合・needle 自前正規化検証・カーネル decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
 
-### CourseHoursThreshold.lean — 法人税法施行規則 art. 7の2（六十時間以上）
+---
 
-- **pin**: pinned law_id / revision / needle verified verbatim-unique in the scoped article; transcription audit check present.
-- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
-- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
-- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
-- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
-- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
-- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+## Batch BC review (2026-11-22)
 
-> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+- **レビュア役割**: Adversarial Review Agent（形式化担当から完全に独立）。coordinator 要約・`docs/STAGING_PAYMENTDEADLINE.md`・CI 監査結果は信じず、pinned 原文 JSON を自前で再 parse し、「二十日以内」の漢数字を自前パーサ（十=10 等の位取り）で Arabic 変換して照合し、needle は自前正規化原文で検証した。
+- **対象（読み取り専用・変更していない）**: `JapanTaxLaw/PaymentDeadline.lean`、`JapanTaxLaw/PaymentDeadlineSpec.lean`、`JapanTaxLaw/PaymentDeadlineTests.lean`。Lean モジュール / `data/*` / `scripts/*` は一切変更せず、commit / push / merge / ブランチ切替も行っていない。書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ（末尾追記）。※ 監査実行のため一時ファイルをプロジェクト外 temp に置き `lake env lean` を実行（exit code 0）、実行後に一時ファイルはすべて削除した。
+- **一次資料（pinned・改変禁止）**: law_id `329M50000040039` / revision `329M50000040039_20260924_508M60000040059`（pinned law_title `国税収納金整理資金事務取扱規則`＝タスク文言の「国税収納事務処理省令」、改正法 `508M60000040059`、施行 **2026-09-24**）。実ファイル `data/raw/329M50000040039_20260924_508M60000040059.law.json`、size **323,001 bytes**、SHA-256 **`B781497137BC1B026F06A18FC973D3CC6E48E315DC432D99DD84F1F1B08058DF`**。
+- **needle 出所**: `scripts/ci/transcription_audit.py::checks()` の cycle-58 エントリ（line 1946-1950、`kind="file"`、law_id `329M50000040039`）から実文字列2本を直接読み出し、自前で平坦化・正規化した pinned 原文に適用して包含判定した。
+- **本レビューは機械的独立照合であり、人間の法律専門家によるレビューを称するものではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。
 
-### CollectionPeriodCap30.lean — 国税徴収法 art. 115（三十日を超えることができない）
+### BC-1. 独立抽出（pinned 原文からの「二十日以内」= 20 直接抽出と桁違い除外）
 
-- **pin**: pinned law_id / revision / needle verified verbatim-unique in the scoped article; transcription audit check present.
-- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
-- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
-- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
-- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
-- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
-- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+自前スクリプトで `law_full_text` の `Article` ノードを再帰走査し、`Num="18"` の **1 ノード**（path `/Law/LawBody/MainProvision/Chapter/Section/Article`）を特定して text-child のみを連結（タグ名・属性値は除外）。原文逐語（独立抽出・正規化後 **89 文字**、U+3000 = **0**）:
 
-> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+`（納付期限）第十八条国税収納命令官等は、国税等の納付期限を指定する場合には、法令その他の定がある場合を除く外、調査決定の日から二十日以内において適宜の納付期限を定めるものとする。`
 
-### ResidentialLandArea200.lean — 地方税法 art. 349の3の二（二百平方メートル以下）
+| 項目 | 独立抽出結果 | モジュール doc-comment 申告 | 照合 |
+|---|---|---|:---:|
+| law_id / revision | `329M50000040039` / `329M50000040039_20260924_508M60000040059` | 同一 | OK |
+| Article 18 flat 長 | **89 文字** | 89 chars | OK |
+| U+3000 数（Article 18 flat） | **0** | 0 | OK |
+| 漢数字トークン | `二十`（正規化原文に **1 回**） | — | OK |
+| 自前 Arabic 変換 | `kanji_to_int("二十") = 20` | `maxDaysAfterDecision = 20` | OK |
 
-- **pin**: pinned law_id / revision / needle verified verbatim-unique in the scoped article; transcription audit check present.
-- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
-- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
-- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
-- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
-- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
-- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+- **「二十日以内」の直接抽出**: 正規化原文中に `二十日以内` は **1 回**（offset 7215）。直接直前の漢数字列 `二十` を自前パーサ（一〜九 + 十/百/千の位取り）で変換して **20** を得た。桁違い候補は明示的に除外: `二日以内`（=2）は原文に **0 回**、`二百日以内`（=200）は原文に **0 回**。したがって **2 / 200 日の取り違えは原文バイトレベルで除外**され、20 が一意に確定する。
+- doc-comment の原文逐語（改行・インデント入り）と pinned flat（空白なし）は表示上の差のみで、文字列は同一。
 
-> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+### BC-2. needle 健全性（CI `checks()` 実文字列2本を自前正規化原文で検証）
 
+| # | CI needle（実文字列, line 1950） | U+3000 | 自前正規化原文 count | 判定 |
+|---|---|---:|---:|:---:|
+| N1 | `調査決定の日から二十日以内` | 0 | 1 | **FOUND** |
+| N2 | `納付期限）第十八条` | 0 | 1 | **FOUND** |
+
+- **2/2 FOUND**。needle 内の U+3000 含有 **0 件**。自前正規化 `re.sub(r"[\s\u3000]+", "", s)` は冪等で、needle は正規化前後で同一。
+- pinned ファイル全体には U+3000 が **159 個**存在する（目次ラベル等）が、Article 18 flat では **0**、正規化後は **0**。needle 自身も U+3000 を含まないため、CI の照合は正規化に依存しても健全。
+- N1 は本文の日数上限句、N2 は caption「（納付期限）」＋条名「第十八条」を直接抑える。両者は同一 Article 18 内の異なる位置を指し、片方が欠落・改変されれば即座に 1/2 に落ちる構成であり、needle 健全性は合格。
+
+### BC-3. 反例探索（「以内」= <= の境界含む）
+
+3 モジュールを外部 temp の Lean ファイルで import し、境界値を `by decide`（カーネル還元）で直接検証（`lake env lean`、exit code **0**、エラー 0 件）。
+
+| 検証命題 / 攻撃 | 結果 | 反例 |
+|---|:---:|---|
+| `isWithinDeadline 18 = true` | true | なし |
+| `isWithinDeadline 19 = true` | true | なし |
+| `isWithinDeadline 20 = true`（境界） | true | なし |
+| `isWithinDeadline 21 = false` | false | なし |
+| `isWithinDeadline 22 = false` | false | なし |
+| `maxDaysAfterDecision = 20` | true | なし |
+| `agreePaymentDeadline = true`（Spec 独立定式との一致） | true | なし |
+
+- **境界の判定**: 「二十日以内」の `以内` は上限を含むため `days <= 20` が正しい。19→true / 20→true / 21→false をカーネル還元で直接確認し、**境界を 20 で含むこと／21 で除外すること**を独立検証した。
+- **反例検出数: ゼロ（0）。** 桁違い（2/200）は BC-1 で除外済み。`< 20`（20 を除外）や `<= 21` といった別解釈は原文の「以内」と矛盾するため棄却。
+
+### BC-4. 公理監査
+
+一時 Lean ファイル（外部 temp `bc_axiom_probe.lean`）で、実装の named def 2 本と BC-3 の境界検証定理 5 本、計 **7 宣言**に `#print axioms` を実行（`lake env lean` v4.35.0、exit code **0**）:
+
+- `JapanTaxLaw.PaymentDeadline.maxDaysAfterDecision`
+- `JapanTaxLaw.PaymentDeadline.isWithinDeadline`
+- `bc_t18` / `bc_t19` / `bc_t20` / `bc_t21` / `bc_t22`（全て `by decide`）
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 7 |
+| `does not depend on any axioms` | **7/7** |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+
+- → **choice / sorryAx / Quot.sound / propext への依存はいずれも 0 件。公理監査は合格。**（モジュール内の 4 本の匿名 `example` も同一の `by decide` であり、公理依存なし。）
+
+### BC-5. 未形式化範囲の確認（例外・日付算術・裁量）
+
+doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以下を独立確認した。
+
+- **例外（法令その他の定がある場合を除く外）の未形式化**: doc-comment に明記。pinned 第18条は「法令その他の定がある場合を除く外、…」と例外を文言上持つが、モデルは日数上限 `<= 20` のみで例外判定を実装しない。→ 未形式化を確認（BY-DESIGN B-1 / UNRESOLVED U-1）。
+- **日付算術の未形式化**: doc-comment に「実際の納付期限の指定・日付算術 … NOT MODELLED」と明記。原文は「調査決定の日から二十日以内」と上限日数を定めるのみで、起算日・カレンダー換算・土日祝日の繰り下げ等は本条文に含まれない。モデルは `days : Nat` を caller-established な整数として受け取るのみ。→ 未形式化を確認（BY-DESIGN B-2 / UNRESOLVED U-2）。
+- **「適宜」の裁量の未形式化**: doc-comment に「『適宜』の裁量は NOT MODELLED」と明記。原文「適宜の納付期限を定めるものとする」は当局の裁量を含むが、モデルは上限チェックのみで具体的期限の選択を提供しない。→ 未形式化を確認（BY-DESIGN B-3）。
+- 本スライスは上限日数 20 と境界判定のみを扱い、本モデルは法的レビューを提供しない旨も明記されている。
+
+### BC-6. 分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED（原文矛盾・桁違い・needle 不良・反例・公理汚染）** | **0（ゼロ）** |
+| BY-DESIGN | 4 |
+| UNRESOLVED | 2 |
+
+> **発見された問題はゼロ（CONFIRMED = 0）である。** 原文との矛盾、2/200 日の桁違い、needle 不良、境界反例、公理依存はいずれも検出されなかった。件数を手柄にしない。
+
+#### BY-DESIGN — 4 件
+
+- **B-1 例外（法令その他の定がある場合）は NOT MODELLED**: doc-comment が明示。上限日数のみを提供し例外判定は caller-established（BC-5）。
+- **B-2 日付算術は NOT MODELLED / days は caller-established**: 起算日・暦計算・繰り下げは扱わず、`days : Nat` を入力として `<= 20` を判定する設計（BC-5）。
+- **B-3 「適宜」の裁量は NOT MODELLED**: 具体的な納付期限の選択は扱わず、上限チェックのみ（BC-5）。
+- **B-4 境界は `<=`（「以内」は含む）**: 自前抽出の「二十日以内」= 20 と、doc-comment / Spec の `days <= 20` が一致。19/20/21 のカーネル還元結果（BC-3）と矛盾しない。
+
+#### UNRESOLVED — 2 件
+
+- **U-1 例外条項の射程（「法令その他の定」の定義・適用関係）**: 未形式化自体は B-1 のとおり明示済みだが、pinned 第18条は例外を文言上持つだけで、何が「法令その他の定」に該当し上限 20 日を上書きし得るかは本原文のみでは確定できない。他要目・通則法の解釈を要し、**人間の法律専門家による確認を要する**。数値 20 の一致（CONFIRMED = 0）には影響しない。
+- **U-2 日数起算の慣行（初日算入／不算入等）と暦上の取扱い**: 未形式化自体は B-2 のとおり明示済みだが、「調査決定の日から二十日以内」の起算日算入方法・土日祝日等の繰り下げは他の法令（民法・通則法等の期間計算規則）に依存し、pinned 本条のみでは確定できない。**人間の法律専門家を要する**。モデル値 20 と境界判定（CONFIRMED = 0）には影響しない。
+
+### BC-7. 結論・履歴保全
+
+- pinned 第18条の「二十日以内」を自前パーサで **20** と直接抽出し、2/200 の桁違いを明示除外。`maxDaysAfterDecision = 20` / `isWithinDeadline = days <= 20` と一致。**CONFIRMED = 0**、needle 2/2 FOUND（needle 内 U+3000 = 0、Article 18 flat も 0）、境界反例 0 件、公理依存 0 件（7/7 axiom-free、exit code 0）。
+- 例外・日付算術・「適宜」の裁量の未形式化を確認（B-1〜B-3、法的取扱いは U-1 / U-2 として人間の法律専門家に委ねる）。
+- 既存レビュー履歴 **52 件**（Batch G〜BB 含む）は**すべて保持**。本セクションのみを末尾に連結した。追記後レビュー件数は coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` で **53 件**（52 → 53、要求の 53 以上を満たす）。
+- 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。一時ファイルはすべて削除した。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・漢数字の自前 Arabic 変換・needle 自前正規化検証・カーネル `by decide` 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。

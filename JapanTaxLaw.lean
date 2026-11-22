@@ -999,3 +999,6 @@ import JapanTaxLaw.TonnageExpansionRatioCapTests
 import JapanTaxLaw.RatioCapAtOne
 import JapanTaxLaw.RatioCapAtOneSpec
 import JapanTaxLaw.RatioCapAtOneTests
+import JapanTaxLaw.AntiDumpingRate952
+import JapanTaxLaw.AntiDumpingRate952Spec
+import JapanTaxLaw.AntiDumpingRate952Tests
