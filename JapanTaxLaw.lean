@@ -981,3 +981,6 @@ import JapanTaxLaw.ForestTaxEligibilityExceptionTests
 import JapanTaxLaw.PeriodEndDayException
 import JapanTaxLaw.PeriodEndDayExceptionSpec
 import JapanTaxLaw.PeriodEndDayExceptionTests
+import JapanTaxLaw.PaymentDeadline
+import JapanTaxLaw.PaymentDeadlineSpec
+import JapanTaxLaw.PaymentDeadlineTests

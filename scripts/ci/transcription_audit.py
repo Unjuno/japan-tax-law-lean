@@ -1943,6 +1943,12 @@ def checks():
            "file", None,
            ["政令で定める日は、土曜日とする", "期間の末日の特例）第二十一条の二"])
 
+    # PaymentDeadline — cycle-58
+    yield ("PaymentDeadline.lean",
+           "329M50000040039",
+           "file", None,
+           ["調査決定の日から二十日以内", "納付期限）第十八条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
