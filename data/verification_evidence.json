@@ -860,6 +860,19 @@
       "source_location": "data/raw/340AC0000000033_20261001_507AC0000000070.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:205/Article#205/Paragraph#1/Item#1/ItemSentence/Column#2/Sentence#1 sha256=94c4a7ad83726cde60787967ed4e959585ad0af9279d25db9aa02264b3fe606b (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/IncomeArt205WithholdingTests.lean sha256=bf2e55189ec20604c9719e6177573ff3827ac679b47e1b1f8d4770315f815c3e (24 kernel-decided examples)"
     },
+    "NORM|2c38f882635ccbc2a376685d9f600857044a8013ff08d92e5aad7aa022bfbed9": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 15 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=347M50000008013_20010106_412M50000008044 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/AdultAgeThreshold.lean sha256=fc4352ec461464924ae9e3c16401438f3f6dc8cb498712a5b983c49bf7d9d128",
+      "independent_spec": "JapanTaxLaw/AdultAgeThresholdSpec.lean sha256=d6829506195260a150f373a99d71c116497e753a58120e6d48f194cc56050600 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44977223636: commit 3e396db3155da1edd2b5b91070becef7b3d84768, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [20] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"20\": [\"二十\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/347M50000008013_20010106_412M50000008044.law.json#LawBody[2]/MainProvision/MainProvision[6]/Article:7/Article#7/Paragraph#4/ParagraphSentence/Sentence#1 sha256=de204ca8423008be669b39af7fbda3da864471b0f0d0eb37f039159ae993cb51 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/AdultAgeThresholdTests.lean sha256=fbf5dd86fabc1ceaf8232a8cca473ac860d56d4feb91a485c500a7dc297f66cf (15 kernel-decided examples)"
+    },
     "NORM|2d84148bfb69da0689fcb12de190ab3b60f4d1985124294a5d222bfb7a872e26": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 19 kernel-decided examples covering boundary inputs",
@@ -1626,6 +1639,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['第一項に規定する控除限度調整額とは、第一号に掲げ']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
       "source_location": "data/raw/340CO0000000097_20261001_507CO0000000121.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:148/Article#148/Paragraph#7/ParagraphSentence/Sentence#1 sha256=92bab730d90617c1a1439ba19ba8f79041368febf3840c919103689cfcd90fe6 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/ConsolidationCreditLimitTests.lean sha256=91e5412fe9706d7d9dcd0c328c301b6f1149d6f0a4d4df88bb25b46fdb45fe55 (14 kernel-decided examples)"
+    },
+    "NORM|63e15305f882cf2d9ebf2769dec796a2ef7ef48f1fee685444dfde6bd4f69c9f": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 15 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=1; enforced revision=347M50000008013_20010106_412M50000008044 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/AdultAgeThreshold.lean sha256=fc4352ec461464924ae9e3c16401438f3f6dc8cb498712a5b983c49bf7d9d128",
+      "independent_spec": "JapanTaxLaw/AdultAgeThresholdSpec.lean sha256=d6829506195260a150f373a99d71c116497e753a58120e6d48f194cc56050600 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/44977223636: commit 3e396db3155da1edd2b5b91070becef7b3d84768, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [20] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"20\": [\"二十\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/347M50000008013_20010106_412M50000008044.law.json#LawBody[2]/MainProvision/MainProvision[6]/Article:7/Article#7/Paragraph#4/ParagraphSentence/Sentence#2 sha256=de204ca8423008be669b39af7fbda3da864471b0f0d0eb37f039159ae993cb51 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/AdultAgeThresholdTests.lean sha256=fbf5dd86fabc1ceaf8232a8cca473ac860d56d4feb91a485c500a7dc297f66cf (15 kernel-decided examples)"
     },
     "NORM|64559fa702dfa55d1f28f910d47073c08c936b71fda9e0ef6b3d5695e66e741b": {
       "adversarial_review": "docs/ADVERSARIAL_LOCAL_TAX_ART144_33_FINE_TIER2.md — independent agent: NO FINDINGS, all critical checks pass. Verified sha256 3dd29e00…68d53 (12,181,725 B), needle count 1 at Article 144_33 ¶6 Item 2 Column 2 Sentence 1 with ArticleTitle 第百四十四条の三十三 and ArticleCaption （製造等の承認を受ける義務等に関する罪）, Act identity 地方税法/昭和二十五年法律第二百二十六号 with real revision and every statutory CJK literal byte-exact (no hand-typed errors), CRITICAL 二億=200,000,000 (NOT 二千万/20M) independently reproduced by kanji parser and all numeric forms agree with 以下 inclusive, article-kind locator len 928, successor-strict spec distinct from ≤ with universal axiom-free agree_fine_limit, boundaries 200M qualifies/200,000,001 fails, no real forbidden constructs, English-only audit name, no duplicate (item-1 FineTier1 is distinct norm id). No claim of legal correctness.",
