@@ -2769,6 +2769,13 @@ def checks():
            ["前二項の成年者数は、官報で公示された最近の国勢調査の結果による年齢二十歳以上の人口をいう。"])
 
 
+    # 登録免許税法施行令 art. 12 — AntennaPowerCeiling.lean
+    yield ("登録免許税法施行令 art. 12（基本送信機 空中線電力五百ワット以下）↔ AntennaPowerCeiling.lean (500 W ceiling)",
+           "342CO0000000146",
+           "article", "第十二条",
+           ["法別表第一第五十四号（二）に規定する政令で定める登録は、基本送信機の規模が空中線電力五百ワット以下の無線局の登録とする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
