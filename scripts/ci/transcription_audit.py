@@ -2847,6 +2847,150 @@ def checks():
            ["次に掲げる酒類（これらに水を加えたものを含み、前号イからニまでに掲げるものに該当するものを除く。）でアルコール分が四十五度以下のものをいう。"])
 
 
+    # 登録免許税法施行令 art. 12 — AntennaPowerCeiling.lean
+    yield ("登録免許税法施行令 art. 12（基本送信機 空中線電力五百ワット以下）↔ AntennaPowerCeiling.lean (500 W ceiling)",
+           "342CO0000000146",
+           "article", "第十二条",
+           ["法別表第一第五十四号（二）に規定する政令で定める登録は、基本送信機の規模が空中線電力五百ワット以下の無線局の登録とする。"])
+
+    # CarnetImportGoods — cycle-70
+    yield ("CarnetImportGoods.lean",
+           "348CO0000000317",
+           "file", None,
+           ["同項第一号及び第四号に掲げる物品以外の物品とする", "物品の指定）第二条"])
+
+    # CustomsTariffArt8AntiDumpingDelegation.lean - NORM|0187b7b5... (anti-dumping residual DELEGATION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第八条 (Paragraph 37, ParagraphSentence);
+    # find_article_text(...,"第八条") returns that article (len 6919) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.8 anti-dumping delegation - CustomsTariffArt8AntiDumpingDelegation.lean",
+           "143AC0000000054",
+           "article", "第八条",
+           ["\u524d\u5404\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u4e0d\u5f53\u5ec9\u58f2\u95a2\u7a0e\u306e\u9069\u7528\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
+
+    # CustomsTariffArt8ExtensionPara20.lean - NORM|49816f02... (para20 extension CONDITION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第八条 (Paragraph 30, Item 1, Column 1);
+    # find_article_text(...,"第八条") returns that article (len 6919) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.8 extension para20 - CustomsTariffArt8ExtensionPara20.lean",
+           "143AC0000000054",
+           "article", "第八条",
+           ["\u7b2c\u4e8c\u5341\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u5ef6\u9577\u3059\u308b\u5834\u5408"])
+
+    # CustomsTariffArt8PrevReading6to8.lean - NORM|533e8fd9... (para 6-8 準用 READING, law 143AC0000000054)
+    # Needle is in MainProvision Article 第八条 (Paragraph 14, ParagraphSentence);
+    # find_article_text(...,"第八条") returns that article (len 6919) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.8 prev reading 6to8 - CustomsTariffArt8PrevReading6to8.lean",
+           "143AC0000000054",
+           "article", "第八条",
+           ["\u7b2c\u516d\u9805\u304b\u3089\u7b2c\u516b\u9805\u307e\u3067\u306e\u898f\u5b9a\u306f\u3001\u524d\u9805\u306e\u8abf\u67fb\u304c\u958b\u59cb\u3055\u308c\u305f\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
+    # CustomsTariffArt8PrevReading7_8_23.lean - NORM|0eddc7c5... (para 7/8/23 準用 READING, law 143AC0000000054)
+    # Needle is in MainProvision Article 第八条 (Paragraph 28, ParagraphSentence);
+    # find_article_text(...,"第八条") returns that article (len 6919) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.8 prev reading 7 8 23 - CustomsTariffArt8PrevReading7_8_23.lean",
+           "143AC0000000054",
+           "article", "第八条",
+           ["\u7b2c\u4e03\u9805\u3001\u7b2c\u516b\u9805\u53ca\u3073\u7b2c\u4e8c\u5341\u4e09\u9805\u306e\u898f\u5b9a\u306f\u3001\u524d\u9805\u306e\u8abf\u67fb\u304c\u958b\u59cb\u3055\u308c\u305f\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
+    # CustomsTariffArt8Reading7_8By22.lean - NORM|9839bfa7... (para 7/8 by 22 準用 READING, law 143AC0000000054)
+    # Needle is in MainProvision Article 第八条 (Paragraph 24, ParagraphSentence);
+    # find_article_text(...,"第八条") returns that article (len 6919) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.8 reading 7 8 by 22 - CustomsTariffArt8Reading7_8By22.lean",
+           "143AC0000000054",
+           "article", "第八条",
+           ["\u7b2c\u4e03\u9805\u53ca\u3073\u7b2c\u516b\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e8c\u5341\u4e8c\u9805\u306e\u8abf\u67fb\u304c\u958b\u59cb\u3055\u308c\u305f\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
+    # CustomsTariffArt8_2Delegation.lean - NORM|a47e5aa1... (para17 residual DELEGATION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第八条の二 (Paragraph 17, ParagraphSentence);
+    # find_article_text(...,"第八条の二") returns that article (len 4324) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.8-2 delegation - CustomsTariffArt8_2Delegation.lean",
+           "143AC0000000054",
+           "article", "第八条の二",
+           ["\u524d\u5404\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u7b2c\u4e00\u9805\u306e\u898f\u5b9a\u306b\u3088\u308b\u95a2\u7a0e\u306e\u9069\u7528\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
+
+    # CustomsTariffArt8_2NonApplicability.lean - NORM|3f6a79aa... (para2 non-applicability CONDITION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第八条の二 (Paragraph 2, ParagraphSentence);
+    # find_article_text(...,"第八条の二") returns that article (len 4324) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.8-2 non-applicability - CustomsTariffArt8_2NonApplicability.lean",
+           "143AC0000000054",
+           "article", "第八条の二",
+           ["\u524d\u9805\u306e\u898f\u5b9a\u306f\u3001\u6b21\u306e\u5404\u53f7\u306e\u3044\u305a\u308c\u304b\u306b\u8a72\u5f53\u3059\u308b\u5834\u5408\u306b\u306f\u3001\u9069\u7528\u3057\u306a\u3044\u3002"])
+
+    # CustomsTariffArt9Delegation.lean - NORM|0487f141... (para15 residual DELEGATION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第九条 (Paragraph 15, ParagraphSentence);
+    # find_article_text(...,"第九条") returns that article (len 4135) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.9 delegation - CustomsTariffArt9Delegation.lean",
+           "143AC0000000054",
+           "article", "第九条",
+           ["\u524d\u5404\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u3053\u308c\u3089\u306e\u898f\u5b9a\u306e\u9069\u7528\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
+
+    # ElectronicSystemDesignation — cycle-72
+    yield ("ElectronicSystemDesignation.lean",
+           "415M60000040007",
+           "file", None,
+           ["主務省令で定める電子情報処理組織は、輸出入等関連情報処理組織とする", "処分通知等に係る電子情報処理組織）第七条の二"])
+
+    # InspectionCity — cycle-69
+    yield ("InspectionCity.lean",
+           "333CO0000000117",
+           "file", None,
+           ["第二百五十二条の十九第一項の指定都市及び総務大臣が指定する市とする", "検査を行う市町村）第三条"])
+
+    # NoticeCopyDocument — cycle-66
+    yield ("NoticeCopyDocument.lean",
+           "422M60000040052",
+           "file", None,
+           ["前条に規定する通知書の写しとする", "法人税の特例）第二条"])
+
+    # 租税特別措置法施行令 art. 1_8 — OwnershipPercent5.lean
+    yield ("租税特別措置法施行令 art. 1の8（社外株式五パーセント以上所有）↔ OwnershipPercent5.lean (5% inclusive)",
+           "329CO0000000155",
+           "article", "第一条の八",
+           ["いずれか一方の者が他方の者の事業に係る議決権を伴う社外株式の総数の五パーセント以上の社外株式を直接又は間接に所有し、管理し、又は所持している場合"])
+
+    # 酒税法施行規則 art. 50 — PermitValidity7Days.lean
+    yield ("酒税法施行規則 art. 50（許可状の有効期間が七日を超えるとき）↔ PermitValidity7Days.lean (7 days strict)",
+           "337CO0000000135",
+           "article", "第五十条",
+           ["許可状が七日を超える有効期間を必要とするときは、その旨及び事由"])
+
+    # 酒税法施行規則 art. 12_2 — ProductionVolume6KL.lean
+    yield ("酒税法施行規則 art. 12の2（製造見込数量六キロリットル以上）↔ ProductionVolume6KL.lean (6 kL inclusive)",
+           "337CO0000000097",
+           "article", "第十二条の二",
+           ["一の製造場において原料用アルコール及びスピリッツを製造しようとする場合で、製造免許を受けた後一年間におけるその製造見込数量の合計が六キロリットル以上であるとき。"])
+
+    # PublicityMatter — cycle-68
+    yield ("PublicityMatter.lean",
+           "341M50000040055",
+           "file", None,
+           ["財務大臣が同条第一項の規定による指定をした日とする", "公示事項）第一条の十一"])
+
+    # 登録免許税法 art. 14 — RegistrationFeePerItem.lean
+    yield ("登録免許税法 art. 14（担保付社債金額がない場合 権利一件につき千五百円）↔ RegistrationFeePerItem.lean (1500 per item)",
+           "342AC0000000035",
+           "article", "第十四条",
+           ["この場合において、当該担保付社債の金額がないときは、当該登録免許税の課税標準及び税率は、当該登記又は登録に係る不動産等に関する権利の件数一件につき千五百円とする。"])
+
+    # 登録免許税法 art. 19 — RegistrationTaxFloor1k.lean
+    yield ("登録免許税法 art. 19（計算額が千円に満たない場合は千円）↔ RegistrationTaxFloor1k.lean (1000 floor)",
+           "342AC0000000035",
+           "article", "第十九条",
+           ["別表第一に掲げる登記又は登録につき同表に掲げる税率を適用して計算した金額が千円に満たない場合には、当該登記又は登録に係る登録免許税の額は、千円とする。"])
+
+    # TrustedAffairsClassification — cycle-67
+    yield ("TrustedAffairsClassification.lean",
+           "504CO0000000300",
+           "file", None,
+           ["第二条第九項第一号に規定する第一号法定受託事務とする", "事務の区分）第十条"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
