@@ -845,3 +845,6 @@ import JapanTaxLaw.LongFragmentNormsTests
 import JapanTaxLaw.TruncatedParenFragments
 import JapanTaxLaw.TruncatedParenFragmentsSpec
 import JapanTaxLaw.TruncatedParenFragmentsTests
+import JapanTaxLaw.ClampOperators
+import JapanTaxLaw.ClampOperatorsSpec
+import JapanTaxLaw.ClampOperatorsTests
