@@ -1364,6 +1364,33 @@ def checks():
            "article", "第七条",
            ["\u524d\u9805\u306e\u8abf\u67fb\u306f\u3001\u7b2c\u4e8c\u5341\u4e5d\u9805\u306e\u898f\u5b9a\u306b\u3088\u308b\u8acb\u6c42\u304c\u3042\u3064\u305f\u65e5\u304b\u3089\u4e00\u5e74\u4ee5\u5185\u306b\u7d42\u4e86\u3059\u308b\u3082\u306e\u3068\u3059\u308b\u3002"])
 
+    # CustomsTariffArt14ProvisoReading.lean - NORM|1808965b... (item11 proviso READING, law 143AC0000000054) [repaired: dropped in PR #510 merge]
+    # Needle is in MainProvision Article 第十四条 (Paragraph 1, Item 11, Sentence 2);
+    # find_article_text(...,"第十四条") returns that article (len 1655) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.14 proviso reading - CustomsTariffArt14ProvisoReading.lean",
+           "143AC0000000054",
+           "article", "第十四条",
+           ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u524d\u53f7\u305f\u3060\u3057\u66f8\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
+
+    # CustomsTariffArt17ContainerDelegation.lean - NORM|eb942c04... (imported-goods container DELEGATION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十七条 (Paragraph 1, Item 2);
+    # find_article_text(...,"第十七条") returns that article (len 1032) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.17 container delegation - CustomsTariffArt17ContainerDelegation.lean",
+           "143AC0000000054",
+           "article", "第十七条",
+           ["\u8f38\u5165\u8ca8\u7269\u306e\u5bb9\u5668\u3067\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
+
+    # CustomsTariffArt14Item10ProvisoReading.lean - NORM|490be20c... (item14 reads item10 proviso, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十四条 (Paragraph 1, Item 14, Sentence 2);
+    # find_article_text(...,"第十四条") returns that article (len 1655) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.14 item10 proviso reading - CustomsTariffArt14Item10ProvisoReading.lean",
+           "143AC0000000054",
+           "article", "第十四条",
+           ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u7b2c\u5341\u53f7\u305f\u3060\u3057\u66f8\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
+
     # CustomsTariffArt14UnconditionalExemption.lean - NORM|f6d35daf... (para1 unconditional-exemption DELEGATION, law 143AC0000000054)
     # Needle is in MainProvision Article 第十四条 (Paragraph 1, ParagraphSentence);
     # find_article_text(...,"第十四条") returns that article (len 1655) with needle -
