@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # CustomsTariffArt4ProductionServiceDelegation.lean - NORM|166d1cbf... (production service delegation DELEGATION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第四条 (Paragraph 1, Item#3, Subitem1#4, ItemSentence);
+    # find_article_text(...,"第四条") returns that article (len 2219) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.4 production service delegation - CustomsTariffArt4ProductionServiceDelegation.lean",
+           "143AC0000000054",
+           "article", "第四条",
+           ["\u6280\u8853\u3001\u8a2d\u8a08\u305d\u306e\u4ed6\u5f53\u8a72\u8f38\u5165\u8ca8\u7269\u306e\u751f\u7523\u306b\u95a2\u3059\u308b\u5f79\u52d9\u3067\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
+
     # InheritanceTaxArt56And57Ref.lean - NORM|9444b08b... (article-title cross-reference STRUCTURE, law 325AC0000000073)
     # Needle is an ArticleTitle heading; find_article_text sees main-provision text only
     # (verified: len 0, no needle) - use the file-kind locator. Verbatim-unique in whole law.
