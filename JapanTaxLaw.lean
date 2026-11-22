@@ -1053,3 +1053,6 @@ import JapanTaxLaw.PetroleumGasSenRateTests
 import JapanTaxLaw.ForeignDesignation
 import JapanTaxLaw.ForeignDesignationSpec
 import JapanTaxLaw.ForeignDesignationTests
+import JapanTaxLaw.LocalCorpRate93_907
+import JapanTaxLaw.LocalCorpRate93_907Spec
+import JapanTaxLaw.LocalCorpRate93_907Tests
