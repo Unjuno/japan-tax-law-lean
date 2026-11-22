@@ -836,3 +836,6 @@ import JapanTaxLaw.RateValueNormsTests
 import JapanTaxLaw.HeadingFragments
 import JapanTaxLaw.HeadingFragmentsSpec
 import JapanTaxLaw.HeadingFragmentsTests
+import JapanTaxLaw.ShortLabelFragments
+import JapanTaxLaw.ShortLabelFragmentsSpec
+import JapanTaxLaw.ShortLabelFragmentsTests
