@@ -1556,3 +1556,6 @@ import JapanTaxLaw.RegistrationTaxFloor1kTests
 import JapanTaxLaw.ElectronicSystemDesignation
 import JapanTaxLaw.ElectronicSystemDesignationSpec
 import JapanTaxLaw.ElectronicSystemDesignationTests
+import JapanTaxLaw.TreatyDeduction
+import JapanTaxLaw.TreatyDeductionSpec
+import JapanTaxLaw.TreatyDeductionTests

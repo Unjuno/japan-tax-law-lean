@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 124 | 327 | 37.92% |
+| laws with >=1 pinned literal check | 125 | 327 | 38.23% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 359 | n/a | n/a |
-| distinct article pins | 149 | 42584 | 0.35% |
-| pinned Lean modules (cross-law) | 798 | n/a | n/a |
+| pinned literal checks | 366 | n/a | n/a |
+| distinct article pins | 150 | 42584 | 0.35% |
+| pinned Lean modules (cross-law) | 801 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 391 |
+| unpinned Lean modules (not counted as verified) | 394 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 67 |
+| adversarial review sessions recorded | 68 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -135,6 +135,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `329AC0000000061` 関税法
 - `329AC0000000112` 日本国とアメリカ合衆国との間の相互防衛援助協定の実施に伴う関税法等の臨時特例に関する法律
 - `329AC0000000149` 日本国における国際連合の軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法律
+- `329AC0000000194` 遺産、相続及び贈与に対する租税に関する二重課税の回避及び脱税の防止のための日本国とアメリカ合衆国との間の条約の実施に伴う相続税法の特例等に関する法律
 - `329CO0000000051` 国税収納金整理資金に関する法律施行令
 - `329CO0000000150` 関税法施行令
 - `329CO0000000155` 関税定率法施行令
