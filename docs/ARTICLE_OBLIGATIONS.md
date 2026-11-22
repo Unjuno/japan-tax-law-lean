@@ -6,10 +6,10 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 152
-- presence-facts-only complete: 152
+- articles with explicit pin: 159
+- presence-facts-only complete: 159
 - NOT_STARTED: 7
-- PARTIAL: 145
+- PARTIAL: 152
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
 - BLOCKED: 0
@@ -77,6 +77,8 @@ source positions. Human legal review is a separate axis and is pending.
 | `325M50000040017` | 第三十条 | InheritanceRegPrescribedAmount | YES | YES | NO | PARTIAL |
 | `325CO0000000245` | 第六条の九の二 | LocalTaxOrderArt15_4Amount | YES | NO | NO | NOT_STARTED |
 | `326CO0000000216` | 第六条の二 | TaxAccountantRegDelegatedAmount | YES | YES | NO | PARTIAL |
+| `143AC0000000054` | 第十四条 | CustomsTariffArt14SamplesOrLowPriceException | YES | YES | NO | PARTIAL |
+| `143AC0000000054` | 第四条の九 | CustomsTariffArt4_9Delegation | YES | YES | NO | PARTIAL |
 | `143AC0000000054` | 第八条 | CustomsTariffArt8ReadingSubstitution | YES | YES | NO | PARTIAL |
 | `143AC0000000054` | 第八条 | CustomsTariffArt8PresumedDumpingCap | YES | YES | NO | PARTIAL |
 | `143AC0000000054` | 第二十一条 | CustomsTariffArt21Deeming | YES | YES | NO | PARTIAL |
@@ -169,3 +171,8 @@ source positions. Human legal review is a separate axis and is pending.
 | `328M50000040011` | 第十一条の八 | EmploymentDuration6Months | YES | YES | NO | PARTIAL |
 | `334AC0000000147` | 第百十五条 | CollectionPeriodCap30 | YES | YES | YES | PARTIAL |
 | `325AC0000000226` | 第三百四十九条の三の二 | ResidentialLandArea200 | YES | NO | YES | NOT_STARTED |
+| `330AC0000000037` | 第二十三条 | RefundFineRange1M | YES | YES | NO | PARTIAL |
+| `504CO0000000372` | 第一条 | CrossSection15mm | YES | YES | NO | PARTIAL |
+| `342CO0000000146` | 第二十九条 | RegistrationTaxTruncation30k | YES | YES | NO | PARTIAL |
+| `326AC1000000237` | 第六条 | AccountingSubjectsCount | YES | YES | NO | PARTIAL |
+| `431AC0000000003` | 第四条 | ForestTaxEligibilityException | YES | YES | NO | PARTIAL |
