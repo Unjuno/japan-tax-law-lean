@@ -2852,6 +2852,30 @@ def checks():
            "file", None,
            ["次に掲げる酒類（これらに水を加えたものを含み、前号イからニまでに掲げるものに該当するものを除く。）でアルコール分が四十五度以下のものをいう。"])
 
+    # 権利行使価額 年間合計 千二百万円以下 — OptionExercise12M.lean
+    yield ("租税特別措置法 art. 29_2（権利行使価額 年間合計 千二百万円以下）↔ OptionExercise12M.lean (exerciseCapYen 12000000)",
+           "332AC0000000026",
+           "file", None,
+           ["当該新株予約権の行使に係る権利行使価額の年間の合計額が、千二百万円を超えないこと。"])
+
+    # 選択特例対象宅地等 面積合計 四百平方メートル以下 — SpecialLand400.lean
+    yield ("租税特別措置法 art. 69_4（選択特例対象宅地等 面積合計 四百平方メートル以下）↔ SpecialLand400.lean (specialLandCap400 400)",
+           "332AC0000000026",
+           "file", None,
+           ["当該選択特例対象宅地等の面積の合計が四百平方メートル以下であること。"])
+
+    # 計算面積合計 二百平方メートル以下 — SpecialLand200.lean
+    yield ("租税特別措置法 art. 69_4（計算面積合計 二百平方メートル以下）↔ SpecialLand200.lean (specialLandCap200 200)",
+           "332AC0000000026",
+           "file", None,
+           ["次のイ、ロ及びハの規定により計算した面積の合計が二百平方メートル以下であること。"])
+
+    # 常時使用従業員 三百人超 — Employee300.lean
+    yield ("租税特別措置法 art. 87（常時使用従業員 三百人超）↔ Employee300.lean (employeeFloor300 300)",
+           "332AC0000000026",
+           "file", None,
+           ["その年度の前年度の末日において常時使用する従業員の数が三百人を超える個人"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
