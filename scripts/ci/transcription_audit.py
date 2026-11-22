@@ -1364,24 +1364,6 @@ def checks():
            "article", "第七条",
            ["\u524d\u9805\u306e\u8abf\u67fb\u306f\u3001\u7b2c\u4e8c\u5341\u4e5d\u9805\u306e\u898f\u5b9a\u306b\u3088\u308b\u8acb\u6c42\u304c\u3042\u3064\u305f\u65e5\u304b\u3089\u4e00\u5e74\u4ee5\u5185\u306b\u7d42\u4e86\u3059\u308b\u3082\u306e\u3068\u3059\u308b\u3002"])
 
-    # CustomsTariffArt14ProvisoReading.lean - NORM|1808965b... (item11 proviso READING, law 143AC0000000054) [repaired: dropped in PR #510 merge]
-    # Needle is in MainProvision Article 第十四条 (Paragraph 1, Item 11, Sentence 2);
-    # find_article_text(...,"第十四条") returns that article (len 1655) with needle -
-    # use the precise article locator. Needle literal from queue via \u escapes.
-    yield ("customs tariff art.14 proviso reading - CustomsTariffArt14ProvisoReading.lean",
-           "143AC0000000054",
-           "article", "第十四条",
-           ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u524d\u53f7\u305f\u3060\u3057\u66f8\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
-
-    # CustomsTariffArt14Item10ProvisoReading.lean - NORM|490be20c... (item14 reads item10 proviso, law 143AC0000000054)
-    # Needle is in MainProvision Article 第十四条 (Paragraph 1, Item 14, Sentence 2);
-    # find_article_text(...,"第十四条") returns that article (len 1655) with needle -
-    # use the precise article locator. Needle literal from queue via \u escapes.
-    yield ("customs tariff art.14 item10 proviso reading - CustomsTariffArt14Item10ProvisoReading.lean",
-           "143AC0000000054",
-           "article", "第十四条",
-           ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u7b2c\u5341\u53f7\u305f\u3060\u3057\u66f8\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
-
     # CustomsTariffArt14UnconditionalExemption.lean - NORM|f6d35daf... (para1 unconditional-exemption DELEGATION, law 143AC0000000054)
     # Needle is in MainProvision Article 第十四条 (Paragraph 1, ParagraphSentence);
     # find_article_text(...,"第十四条") returns that article (len 1655) with needle -
@@ -3063,6 +3045,30 @@ def checks():
            "332AC0000000026",
            "file", None,
            ["その年度の前年度の末日において常時使用する従業員の数が三百人を超える個人"])
+
+    # 短期の措置 百八十日以内 — ShortMeasure180Days.lean
+    yield ("関税定率法 art. 9（短期の措置 百八十日以内）↔ ShortMeasure180Days.lean (shortMeasureDays 180)",
+           "143AC0000000054",
+           "file", None,
+           ["ただし、とろうとする措置が百八十日以内の期間でとられるもの（以下この項において「短期の措置」という。）であつて、かつ、次の各号のいずれにも該当する場合は、この限りでない。"])
+
+    # 七十五歳以上の人口 — PopulationAge75.lean
+    yield ("地方交付税法 art. 12（七十五歳以上の人口）↔ PopulationAge75.lean (ageFloor75 75)",
+           "325AC0000000211",
+           "file", None,
+           ["最近の国勢調査の結果による当該地方団体の七十五歳以上の人口"])
+
+    # 国税事務従事 通算十五年以上 — TaxService15Years.lean
+    yield ("税理士法 art. 8（国税事務従事 通算十五年以上）↔ TaxService15Years.lean (serviceYears15 15)",
+           "326AC1000000237",
+           "file", None,
+           ["官公署における国税に関する事務のうち前号に規定する事務以外の事務に従事した期間が通算して十五年以上になる者については、税法に属する科目のうち国税に関するもの"])
+
+    # 締約国品目証明書 課税価格総額 二十万円以下 — Certificate200k.lean
+    yield ("関税法施行令 art. 61（締約国品目証明書 課税価格総額 二十万円以下）↔ Certificate200k.lean (certificateCap200k 200000)",
+           "329CO0000000150",
+           "file", None,
+           ["ただし、締約国品目証明書は、これに係る貨物の課税価格の総額が二十万円以下である場合にあつては、税関長の求めがあつたときに提出すれば足りる。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
