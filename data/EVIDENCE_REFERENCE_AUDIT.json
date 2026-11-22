@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 1366,
+  "checks": 1370,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -15027,11 +15027,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/CustomsTariffArt7CountervailingDelegationTests.lean",
       "unit_id": "NORM|e0b944b35e9349347a9ceecafce676e12456b363118f2bb1271a40efde92025b"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_CUSTOMS_TARIFF_ART7_INVESTIGATION_DEADLINE.md — initial verdict CONCRETE FINDINGS (4 documentation/labe",
+      "unit_id": "NORM|a3c6d65dfb98b73b085f2ef4d01b3ef4243d2c0efc5bc55f46f6fac43405e0ea"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt7InvestigationDeadline.lean",
+      "unit_id": "NORM|a3c6d65dfb98b73b085f2ef4d01b3ef4243d2c0efc5bc55f46f6fac43405e0ea"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt7InvestigationDeadlineSpec.lean",
+      "unit_id": "NORM|a3c6d65dfb98b73b085f2ef4d01b3ef4243d2c0efc5bc55f46f6fac43405e0ea"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt7InvestigationDeadlineTests.lean",
+      "unit_id": "NORM|a3c6d65dfb98b73b085f2ef4d01b3ef4243d2c0efc5bc55f46f6fac43405e0ea"
     }
   ],
-  "resolved": 1362,
+  "resolved": 1366,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 284,
+  "units_checked": 285,
   "unresolved": 4
 }
