@@ -996,3 +996,6 @@ import JapanTaxLaw.PaymentDeadlineTests
 import JapanTaxLaw.TonnageExpansionRatioCap
 import JapanTaxLaw.TonnageExpansionRatioCapSpec
 import JapanTaxLaw.TonnageExpansionRatioCapTests
+import JapanTaxLaw.RatioCapAtOne
+import JapanTaxLaw.RatioCapAtOneSpec
+import JapanTaxLaw.RatioCapAtOneTests
