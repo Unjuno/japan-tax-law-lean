@@ -851,3 +851,6 @@ import JapanTaxLaw.ClampOperatorsTests
 import JapanTaxLaw.RoundingBoundaryOperators
 import JapanTaxLaw.RoundingBoundaryOperatorsSpec
 import JapanTaxLaw.RoundingBoundaryOperatorsTests
+import JapanTaxLaw.CostAdditionOperators
+import JapanTaxLaw.CostAdditionOperatorsSpec
+import JapanTaxLaw.CostAdditionOperatorsTests
