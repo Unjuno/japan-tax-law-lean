@@ -849,6 +849,9 @@ JapanTaxLaw/InspectionCityTests.lean           # 同上 退行テスト
 JapanTaxLaw/CarnetImportGoods.lean            # 通関手帳輸入物品 第1号・第4号除外（政令 art.2）L4 モデル
 JapanTaxLaw/CarnetImportGoodsSpec.lean        # 同上 独立定式
 JapanTaxLaw/CarnetImportGoodsTests.lean       # 同上 退行テスト
+JapanTaxLaw/FiscalPeriodLength.lean            # 不均一課税の期間 5箇年度（省令 art.4）L4 モデル
+JapanTaxLaw/FiscalPeriodLengthSpec.lean        # 同上 独立定式
+JapanTaxLaw/FiscalPeriodLengthTests.lean       # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト
