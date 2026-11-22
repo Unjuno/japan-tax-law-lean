@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 197
-- presence-facts-only complete: 197
-- NOT_STARTED: 197
+- articles with explicit pin: 199
+- presence-facts-only complete: 199
+- NOT_STARTED: 199
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -84,6 +84,12 @@ source positions. Human legal review is a separate axis and is pending.
 | `143AC0000000054` | 第六条 | CustomsTariffArt6RetaliatoryDelegation | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第七条 | CustomsTariffArt7ProvisionalPeriod | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第七条 | CustomsTariffArt7InvestigationDeadline | YES | YES | NO | NOT_STARTED |
+| `143AC0000000054` | 第十四条 | CustomsTariffArt14UnconditionalExemption | YES | YES | NO | NOT_STARTED |
+| `143AC0000000054` | 第九条 | CustomsTariffArt9ShortTermCondition | YES | YES | NO | NOT_STARTED |
+| `143AC0000000054` | 第八条の二 | CustomsTariffArt8_2NonApplicability | YES | YES | NO | NOT_STARTED |
+| `143AC0000000054` | 第九条 | CustomsTariffArt9Delegation | YES | YES | NO | NOT_STARTED |
+| `143AC0000000054` | 第八条の二 | CustomsTariffArt8_2Delegation | YES | YES | NO | NOT_STARTED |
+| `143AC0000000054` | 第八条 | CustomsTariffArt8AntiDumpingDelegation | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第七条 | CustomsTariffArt7CountervailingDelegation | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第四条 | CustomsTariffArt4ProductionServiceDelegation | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十四条 | CustomsTariffArt14SamplesOrLowPriceException | YES | YES | NO | NOT_STARTED |
@@ -201,14 +207,10 @@ source positions. Human legal review is a separate axis and is pending.
 | `404AC0000000015` | 第九条 | FiscalYearMonthProration | YES | YES | NO | NOT_STARTED |
 | `347M50000008013` | 第七条 | AdultAgeThreshold | YES | YES | NO | NOT_STARTED |
 | `342CO0000000146` | 第十二条 | AntennaPowerCeiling | YES | YES | NO | NOT_STARTED |
-| `143AC0000000054` | 第八条 | CustomsTariffArt8AntiDumpingDelegation | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第八条 | CustomsTariffArt8ExtensionPara20 | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第八条 | CustomsTariffArt8PrevReading6to8 | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第八条 | CustomsTariffArt8PrevReading7_8_23 | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第八条 | CustomsTariffArt8Reading7_8By22 | YES | YES | NO | NOT_STARTED |
-| `143AC0000000054` | 第八条の二 | CustomsTariffArt8_2Delegation | YES | YES | NO | NOT_STARTED |
-| `143AC0000000054` | 第八条の二 | CustomsTariffArt8_2NonApplicability | YES | YES | NO | NOT_STARTED |
-| `143AC0000000054` | 第九条 | CustomsTariffArt9Delegation | YES | YES | NO | NOT_STARTED |
 | `329CO0000000155` | 第一条の八 | OwnershipPercent5 | YES | YES | NO | NOT_STARTED |
 | `337CO0000000135` | 第五十条 | PermitValidity7Days | YES | YES | NO | NOT_STARTED |
 | `337CO0000000097` | 第十二条の二 | ProductionVolume6KL | YES | YES | NO | NOT_STARTED |

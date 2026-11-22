@@ -6,7 +6,7 @@ A whole-text numeric match is NOT article-level verification. This is a
 source-fidelity diagnostic (D=PASS means needle in stated article only),
 never a completion gate or a semantic/legal claim.
 
-- checks with article/table-cell scoped needles: 379
+- checks with article/table-cell scoped needles: 382
 - checks with no scoped unit: 0
 
 | law_id | stated article | needle hits | scoped positions | D |
@@ -155,6 +155,12 @@ never a completion gate or a semantic/legal claim.
 | `143AC0000000054` | 第六条 | 2 | 2 | PASS |
 | `143AC0000000054` | 第七条 | 3 | 3 | PASS |
 | `143AC0000000054` | 第七条 | 2 | 2 | PASS |
+| `143AC0000000054` | 第十四条 | 2 | 2 | PASS |
+| `143AC0000000054` | 第九条 | 3 | 3 | PASS |
+| `143AC0000000054` | 第八条の二 | 2 | 2 | PASS |
+| `143AC0000000054` | 第九条 | 2 | 2 | PASS |
+| `143AC0000000054` | 第八条の二 | 2 | 2 | PASS |
+| `143AC0000000054` | 第八条 | 2 | 2 | PASS |
 | `143AC0000000054` | 第七条 | 2 | 2 | PASS |
 | `143AC0000000054` | 第四条 | 3 | 3 | PASS |
 | `325AC0000000073` | (file-level) | 1 | 1 | PASS |
@@ -249,6 +255,7 @@ never a completion gate or a semantic/legal claim.
 | `347CO0000000057` | (file-level) | 2 | 3 | PASS |
 | `405M50000008001` | (file-level) | 2 | 3 | PASS |
 | `346M50000040057` | (file-level) | 2 | 3 | PASS |
+| `329AC0000000194` | (file-level) | 2 | 3 | PASS |
 | `340AC0000000033` | (file-level) | 4 | 16 | PASS |
 | `332CO0000000043` | (file-level) | 4 | 10 | PASS |
 | `337M50000008017` | (file-level) | 2 | 8 | PASS |
@@ -372,14 +379,10 @@ never a completion gate or a semantic/legal claim.
 | `328AC0000000006` | (file-level) | 3 | 3 | PASS |
 | `342CO0000000146` | 第十二条 | 2 | 2 | PASS |
 | `348CO0000000317` | (file-level) | 2 | 3 | PASS |
-| `143AC0000000054` | 第八条 | 2 | 2 | PASS |
 | `143AC0000000054` | 第八条 | 3 | 3 | PASS |
 | `143AC0000000054` | 第八条 | 2 | 2 | PASS |
 | `143AC0000000054` | 第八条 | 2 | 2 | PASS |
 | `143AC0000000054` | 第八条 | 2 | 2 | PASS |
-| `143AC0000000054` | 第八条の二 | 2 | 2 | PASS |
-| `143AC0000000054` | 第八条の二 | 2 | 2 | PASS |
-| `143AC0000000054` | 第九条 | 2 | 2 | PASS |
 | `415M60000040007` | (file-level) | 2 | 3 | PASS |
 | `333CO0000000117` | (file-level) | 2 | 3 | PASS |
 | `422M60000040052` | (file-level) | 2 | 3 | PASS |
