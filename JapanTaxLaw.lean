@@ -1142,3 +1142,6 @@ import JapanTaxLaw.TaxRoundingTests
 import JapanTaxLaw.CarnetImportGoods
 import JapanTaxLaw.CarnetImportGoodsSpec
 import JapanTaxLaw.CarnetImportGoodsTests
+import JapanTaxLaw.ProductionVolume6KL
+import JapanTaxLaw.ProductionVolume6KLSpec
+import JapanTaxLaw.ProductionVolume6KLTests

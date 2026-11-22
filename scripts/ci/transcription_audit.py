@@ -2839,6 +2839,13 @@ def checks():
            ["別表第一に掲げる登記又は登録につき同表に掲げる税率を適用して計算した金額が千円に満たない場合には、当該登記又は登録に係る登録免許税の額は、千円とする。"])
 
 
+    # 酒税法施行規則 art. 12_2 — ProductionVolume6KL.lean
+    yield ("酒税法施行規則 art. 12の2（製造見込数量六キロリットル以上）↔ ProductionVolume6KL.lean (6 kL inclusive)",
+           "337CO0000000097",
+           "article", "第十二条の二",
+           ["一の製造場において原料用アルコール及びスピリッツを製造しようとする場合で、製造免許を受けた後一年間におけるその製造見込数量の合計が六キロリットル以上であるとき。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
