@@ -519,6 +519,24 @@ def merge_state(state: dict[str, Any], units: list[dict[str, Any]]) -> tuple[dic
     return state, notes
 
 
+def _has_evidence(value: Any) -> bool:
+    """An axis is evidenced only by a substantive string, never by a template token.
+
+    A placeholder such as ``__ADVERSARIAL__`` is a non-empty string, so a bare
+    ``bool(value)`` test would wrongly count it as completed review evidence
+    (Objective §1 req 4: a generic/template string must not make COMPLETE).
+    Treat the standard ``__NAME__`` placeholder form as absent evidence.
+    """
+    if not isinstance(value, str):
+        return False
+    stripped = value.strip()
+    if not stripped:
+        return False
+    if re.fullmatch(r"__[A-Z][A-Z0-9_]*__", stripped):
+        return False
+    return True
+
+
 def derive_status(unit: dict[str, Any], evidence: dict[str, Any]) -> tuple[str, list[str]]:
     """Evidence-based status.  Never derives completion from names or existence."""
     errors: list[str] = []
@@ -527,7 +545,7 @@ def derive_status(unit: dict[str, Any], evidence: dict[str, Any]) -> tuple[str, 
         return STATUS_BLOCKED, ["unresolved blocker"]
     if unit.get("unhandled_conditions"):
         errors.append("unhandled conditions remain")
-    ev = {k: bool(evidence.get(k)) for k in EVIDENCE_AXES}
+    ev = {k: _has_evidence(evidence.get(k)) for k in EVIDENCE_AXES}
     if not ev["source_location"]:
         return STATUS_NOT_STARTED, ["no source location evidence"]
     if not ev["decomposition_audit"]:

@@ -219,6 +219,24 @@ class CompletionTests(unittest.TestCase):
         st, _ = nc.derive_status(self.unit(), ev)
         self.assertNotEqual(st, nc.STATUS_FULLY_VERIFIED)
 
+    def test_template_placeholder_is_not_evidence(self):
+        # A __NAME__ template token is non-empty but is NOT review evidence.
+        # A unit whose adversarial_review is still a placeholder must not be
+        # FULLY_VERIFIED (§1 req 4: generic/template string != COMPLETE).
+        self.assertFalse(nc._has_evidence("__ADVERSARIAL__"))
+        self.assertTrue(nc._has_evidence("docs/ADVERSARIAL_X.md - verdict"))
+        ev = self.evidence()
+        ev["adversarial_review"] = "__ADVERSARIAL__"
+        st, errs = nc.derive_status(self.unit(), ev)
+        self.assertEqual(st, nc.STATUS_PROVED_SCOPE)
+        self.assertTrue(errs)
+
+    def test_all_placeholder_forms_are_not_evidence(self):
+        for token in ("__TODO__", "__FILL_ME__", "__REVIEW__", "  __ADVERSARIAL__  "):
+            self.assertFalse(nc._has_evidence(token), token)
+        for good in ("ref", "docs/a.md", "LOCAL VERIFICATION (not CI-attested)"):
+            self.assertTrue(nc._has_evidence(good), good)
+
 
 class SelectorTests(unittest.TestCase):
     def unit(self, uid, **kw):
