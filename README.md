@@ -825,6 +825,9 @@ JapanTaxLaw/SpecialUseExemptionTests.lean       # 同上 退行テスト
 JapanTaxLaw/ForeignDesignation.lean            # 指定外国 台湾（政令 art.2）L4 モデル
 JapanTaxLaw/ForeignDesignationSpec.lean        # 同上 独立定式
 JapanTaxLaw/ForeignDesignationTests.lean       # 同上 退行テスト
+JapanTaxLaw/ExcludedDutyFreeGoods.lean          # 免税対象外物品4種（規則 art.6）L4 モデル
+JapanTaxLaw/ExcludedDutyFreeGoodsSpec.lean      # 同上 独立定式
+JapanTaxLaw/ExcludedDutyFreeGoodsTests.lean     # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト
