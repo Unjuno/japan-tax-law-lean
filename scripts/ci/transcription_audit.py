@@ -3073,6 +3073,30 @@ def checks():
            "file", None,
            ["その年度の前年度の末日において常時使用する従業員の数が三百人を超える個人"])
 
+    # 短期の措置 百八十日以内 — ShortMeasure180Days.lean
+    yield ("関税定率法 art. 9（短期の措置 百八十日以内）↔ ShortMeasure180Days.lean (shortMeasureDays 180)",
+           "143AC0000000054",
+           "file", None,
+           ["ただし、とろうとする措置が百八十日以内の期間でとられるもの（以下この項において「短期の措置」という。）であつて、かつ、次の各号のいずれにも該当する場合は、この限りでない。"])
+
+    # 七十五歳以上の人口 — PopulationAge75.lean
+    yield ("地方交付税法 art. 12（七十五歳以上の人口）↔ PopulationAge75.lean (ageFloor75 75)",
+           "325AC0000000211",
+           "file", None,
+           ["最近の国勢調査の結果による当該地方団体の七十五歳以上の人口"])
+
+    # 国税事務従事 通算十五年以上 — TaxService15Years.lean
+    yield ("税理士法 art. 8（国税事務従事 通算十五年以上）↔ TaxService15Years.lean (serviceYears15 15)",
+           "326AC1000000237",
+           "file", None,
+           ["官公署における国税に関する事務のうち前号に規定する事務以外の事務に従事した期間が通算して十五年以上になる者については、税法に属する科目のうち国税に関するもの"])
+
+    # 締約国品目証明書 課税価格総額 二十万円以下 — Certificate200k.lean
+    yield ("関税法施行令 art. 61（締約国品目証明書 課税価格総額 二十万円以下）↔ Certificate200k.lean (certificateCap200k 200000)",
+           "329CO0000000150",
+           "file", None,
+           ["ただし、締約国品目証明書は、これに係る貨物の課税価格の総額が二十万円以下である場合にあつては、税関長の求めがあつたときに提出すれば足りる。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
