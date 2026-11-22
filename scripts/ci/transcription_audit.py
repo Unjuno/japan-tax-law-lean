@@ -2768,6 +2768,30 @@ def checks():
            "article", "第七条",
            ["前二項の成年者数は、官報で公示された最近の国勢調査の結果による年齢二十歳以上の人口をいう。"])
 
+    # 課税価格の合計額 一万円以下 — CustomsSmallConsignmentCap.lean
+    yield ("関税定率法 art. 14（課税価格の合計額 一万円以下）↔ CustomsSmallConsignmentCap.lean (smallConsignmentCapYen 10000)",
+           "143AC0000000054",
+           "file", None,
+           ["課税価格の合計額が一万円以下の物品"])
+
+    # 消去請求期間の延長 三十日以内 — TaxErasureExtension30.lean
+    yield ("地方税法 art. 22の6（消去請求期間の延長 三十日以内）↔ TaxErasureExtension30.lean (extensionCapDays 30)",
+           "325AC0000000226",
+           "file", None,
+           ["特に必要があるときは、三十日を超えない範囲内で延長"])
+
+    # 消去請求期間の合計 六十日以内 — TaxErasureTotal60.lean
+    yield ("地方税法 art. 22の6（消去請求期間の合計 六十日以内）↔ TaxErasureTotal60.lean (totalCapDays 60)",
+           "325AC0000000226",
+           "file", None,
+           ["ただし、消去しないよう求める期間は、通じて六十日を超えることができない。"])
+
+    # ゴルフ場利用税の税率上限 千二百円 — GolfRateCeiling1200.lean
+    yield ("地方税法 art. 76（ゴルフ場利用税の税率上限 千二百円）↔ GolfRateCeiling1200.lean (golfRateCapYen 1200)",
+           "325AC0000000226",
+           "file", None,
+           ["千二百円を超える税率で課することができない。"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

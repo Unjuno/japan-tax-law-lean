@@ -1080,3 +1080,15 @@ import JapanTaxLaw.AdultAgeThresholdTests
 import JapanTaxLaw.AircraftScope
 import JapanTaxLaw.AircraftScopeSpec
 import JapanTaxLaw.AircraftScopeTests
+import JapanTaxLaw.CustomsSmallConsignmentCap
+import JapanTaxLaw.CustomsSmallConsignmentCapSpec
+import JapanTaxLaw.CustomsSmallConsignmentCapTests
+import JapanTaxLaw.TaxErasureExtension30
+import JapanTaxLaw.TaxErasureExtension30Spec
+import JapanTaxLaw.TaxErasureExtension30Tests
+import JapanTaxLaw.TaxErasureTotal60
+import JapanTaxLaw.TaxErasureTotal60Spec
+import JapanTaxLaw.TaxErasureTotal60Tests
+import JapanTaxLaw.GolfRateCeiling1200
+import JapanTaxLaw.GolfRateCeiling1200Spec
+import JapanTaxLaw.GolfRateCeiling1200Tests
