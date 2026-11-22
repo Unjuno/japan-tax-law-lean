@@ -1098,3 +1098,6 @@ import JapanTaxLaw.OwnershipPercent5Tests
 import JapanTaxLaw.TrustedAffairsClassification
 import JapanTaxLaw.TrustedAffairsClassificationSpec
 import JapanTaxLaw.TrustedAffairsClassificationTests
+import JapanTaxLaw.RegistrationFeePerItem
+import JapanTaxLaw.RegistrationFeePerItemSpec
+import JapanTaxLaw.RegistrationFeePerItemTests

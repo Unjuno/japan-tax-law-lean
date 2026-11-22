@@ -2813,6 +2813,13 @@ def checks():
            ["いずれか一方の者が他方の者の事業に係る議決権を伴う社外株式の総数の五パーセント以上の社外株式を直接又は間接に所有し、管理し、又は所持している場合"])
 
 
+    # 登録免許税法 art. 14 — RegistrationFeePerItem.lean
+    yield ("登録免許税法 art. 14（担保付社債金額がない場合 権利一件につき千五百円）↔ RegistrationFeePerItem.lean (1500 per item)",
+           "342AC0000000035",
+           "article", "第十四条",
+           ["この場合において、当該担保付社債の金額がないときは、当該登録免許税の課税標準及び税率は、当該登記又は登録に係る不動産等に関する権利の件数一件につき千五百円とする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
