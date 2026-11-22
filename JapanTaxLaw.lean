@@ -1675,3 +1675,6 @@ import JapanTaxLaw.HousingLoanCreditSpec
 import JapanTaxLaw.HousingLoanCreditTests
 import JapanTaxLaw.NickelContentSpec
 import JapanTaxLaw.NickelContentTests
+import JapanTaxLaw.CouncilMemberCap30
+import JapanTaxLaw.CouncilMemberCap30Spec
+import JapanTaxLaw.CouncilMemberCap30Tests
