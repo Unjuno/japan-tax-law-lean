@@ -2603,6 +2603,13 @@ def checks():
            ["二十万円（アルコール分が二十一度以上のものにあつては、二十万円にアルコール分が二十度を超える一度ごとに一万円を加えた金額）"])
 
 
+    # 特別とん税法 art. 5 — SpecialTonSplitRatio.lean
+    yield ("特別とん税法 art. 5（特別とん税 三十六分の二十・とん税 三十六分の十六）↔ SpecialTonSplitRatio.lean (20/36 + 16/36)",
+           "332AC0000000038",
+           "article", "第五条",
+           ["特別とん税及びとん税の納付があつたときは、その納付に係る金額の三十六分の二十に相当する税額の特別とん税及び三十六分の十六に相当する税額のとん税の納付があつたものとする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
