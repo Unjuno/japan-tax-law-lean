@@ -7,7 +7,7 @@ completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
 - articles with explicit pin: 199
-- presence-facts-only complete: 198
+- presence-facts-only complete: 199
 - NOT_STARTED: 199
 - PARTIAL: 0
 - PROVED_SCOPE: 0
@@ -84,7 +84,7 @@ source positions. Human legal review is a separate axis and is pending.
 | `143AC0000000054` | 第六条 | CustomsTariffArt6RetaliatoryDelegation | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第七条 | CustomsTariffArt7ProvisionalPeriod | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第七条 | CustomsTariffArt7InvestigationDeadline | YES | YES | NO | NOT_STARTED |
-| `143AC0000000054` | 第十四条 | CustomsTariffArt14UnconditionalExemption | NO | YES | NO | NOT_STARTED |
+| `143AC0000000054` | 第十四条 | CustomsTariffArt14UnconditionalExemption | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第九条 | CustomsTariffArt9ShortTermCondition | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第八条の二 | CustomsTariffArt8_2NonApplicability | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第九条 | CustomsTariffArt9Delegation | YES | YES | NO | NOT_STARTED |

@@ -1577,3 +1577,15 @@ import JapanTaxLaw.Employee300Tests
 import JapanTaxLaw.ClosureFilingDeadline
 import JapanTaxLaw.ClosureFilingDeadlineSpec
 import JapanTaxLaw.ClosureFilingDeadlineTests
+import JapanTaxLaw.ShortMeasure180Days
+import JapanTaxLaw.ShortMeasure180DaysSpec
+import JapanTaxLaw.ShortMeasure180DaysTests
+import JapanTaxLaw.PopulationAge75
+import JapanTaxLaw.PopulationAge75Spec
+import JapanTaxLaw.PopulationAge75Tests
+import JapanTaxLaw.TaxService15Years
+import JapanTaxLaw.TaxService15YearsSpec
+import JapanTaxLaw.TaxService15YearsTests
+import JapanTaxLaw.Certificate200k
+import JapanTaxLaw.Certificate200kSpec
+import JapanTaxLaw.Certificate200kTests
