@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 1555,
+  "checks": 1559,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -17106,11 +17106,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/CustomsTariffArt8ExtensionPara20Tests.lean",
       "unit_id": "NORM|49816f0201acd08b02754683d53a55008f897714937b0ffa08fdce6bba139efc"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_CUSTOMS_TARIFF_ART8_ANTI_DUMPING_DELEGATION.md — NO FINDINGS. Independently reproduced: sha256 924a01d3",
+      "unit_id": "NORM|0187b7b5ea69015b97344eeb2e2b28eef7be540ff68900577a2e77b1fc6273fe"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt8AntiDumpingDelegation.lean",
+      "unit_id": "NORM|0187b7b5ea69015b97344eeb2e2b28eef7be540ff68900577a2e77b1fc6273fe"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt8AntiDumpingDelegationSpec.lean",
+      "unit_id": "NORM|0187b7b5ea69015b97344eeb2e2b28eef7be540ff68900577a2e77b1fc6273fe"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt8AntiDumpingDelegationTests.lean",
+      "unit_id": "NORM|0187b7b5ea69015b97344eeb2e2b28eef7be540ff68900577a2e77b1fc6273fe"
     }
   ],
-  "resolved": 1551,
+  "resolved": 1555,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 324,
+  "units_checked": 325,
   "unresolved": 4
 }
