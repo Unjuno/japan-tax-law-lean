@@ -2822,6 +2822,30 @@ def checks():
            "file", None,
            ["前号イからヘまでに掲げる工事に要した費用の額の合計額が百万円を超えること。"])
 
+    # 十八歳以下の人口 — PopulationAge18.lean
+    yield ("地方交付税法 art. 12（十八歳以下の人口）↔ PopulationAge18.lean (ageCeiling 18)",
+           "325AC0000000211",
+           "file", None,
+           ["最近の国勢調査の結果による当該地方団体の十八歳以下の人口"])
+
+    # 六十五歳以上の人口 — PopulationAge65.lean
+    yield ("地方交付税法 art. 12（六十五歳以上の人口）↔ PopulationAge65.lean (ageFloor65 65)",
+           "325AC0000000211",
+           "file", None,
+           ["最近の国勢調査の結果による当該地方団体の六十五歳以上の人口"])
+
+    # 二百五十六階調以上 — Gradation256.lean
+    yield ("税理士法施行規則 art. 27（二百五十六階調以上）↔ Gradation256.lean (gradationFloor 256)",
+           "326M50000040055",
+           "file", None,
+           ["赤色、緑色及び青色の階調がそれぞれ二百五十六階調以上であること。"])
+
+    # アルコール分 四十五度以下 — AlcoholDegree45.lean
+    yield ("酒税法 art. 3（アルコール分 四十五度以下）↔ AlcoholDegree45.lean (degreeCeiling 45)",
+           "328AC0000000006",
+           "file", None,
+           ["次に掲げる酒類（これらに水を加えたものを含み、前号イからニまでに掲げるものに該当するものを除く。）でアルコール分が四十五度以下のものをいう。"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
