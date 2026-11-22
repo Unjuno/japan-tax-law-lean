@@ -815,3 +815,6 @@ import JapanTaxLaw.RemainderAndValueNormsTests
 import JapanTaxLaw.ReliefAndInterestNorms
 import JapanTaxLaw.ReliefAndInterestNormsSpec
 import JapanTaxLaw.ReliefAndInterestNormsTests
+import JapanTaxLaw.LimitationAndInterestNorms
+import JapanTaxLaw.LimitationAndInterestNormsSpec
+import JapanTaxLaw.LimitationAndInterestNormsTests
