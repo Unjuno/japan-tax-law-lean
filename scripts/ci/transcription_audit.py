@@ -2718,6 +2718,13 @@ def checks():
            ["国際最低課税額等に係る特定基準法人税額に対する地方法人税の額は、各課税対象会計年度の課税標準国際最低課税法人税額に九百七分の九十三の税率を乗じて計算した金額とする。"])
 
 
+    # たばこ税法 art. 11 — TobaccoRatePerThousand.lean
+    yield ("たばこ税法 art. 11（税率千本につき六千八百二円）↔ TobaccoRatePerThousand.lean (6802 per 1000)",
+           "359AC0000000072",
+           "article", "第十一条",
+           ["たばこ税の税率は、千本につき六千八百二円とする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

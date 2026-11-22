@@ -1059,3 +1059,6 @@ import JapanTaxLaw.LocalCorpRate93_907Tests
 import JapanTaxLaw.ExcludedDutyFreeGoods
 import JapanTaxLaw.ExcludedDutyFreeGoodsSpec
 import JapanTaxLaw.ExcludedDutyFreeGoodsTests
+import JapanTaxLaw.TobaccoRatePerThousand
+import JapanTaxLaw.TobaccoRatePerThousandSpec
+import JapanTaxLaw.TobaccoRatePerThousandTests
