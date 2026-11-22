@@ -1065,3 +1065,6 @@ import JapanTaxLaw.ExcludedDutyFreeGoodsTests
 import JapanTaxLaw.TobaccoRatePerThousand
 import JapanTaxLaw.TobaccoRatePerThousandSpec
 import JapanTaxLaw.TobaccoRatePerThousandTests
+import JapanTaxLaw.FiscalYearMonthProration
+import JapanTaxLaw.FiscalYearMonthProrationSpec
+import JapanTaxLaw.FiscalYearMonthProrationTests
