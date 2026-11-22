@@ -842,3 +842,6 @@ import JapanTaxLaw.ShortLabelFragmentsTests
 import JapanTaxLaw.LongFragmentNorms
 import JapanTaxLaw.LongFragmentNormsSpec
 import JapanTaxLaw.LongFragmentNormsTests
+import JapanTaxLaw.TruncatedParenFragments
+import JapanTaxLaw.TruncatedParenFragmentsSpec
+import JapanTaxLaw.TruncatedParenFragmentsTests
