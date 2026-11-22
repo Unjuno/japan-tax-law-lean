@@ -2072,6 +2072,12 @@ def checks():
            "file", None,
            ["発動機を有する滑空機とする", "航空機の範囲）第二条"])
 
+    # InspectionCity — cycle-69
+    yield ("InspectionCity.lean",
+           "333CO0000000117",
+           "file", None,
+           ["第二百五十二条の十九第一項の指定都市及び総務大臣が指定する市とする", "検査を行う市町村）第三条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",

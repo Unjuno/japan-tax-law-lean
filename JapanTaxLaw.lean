@@ -1125,3 +1125,6 @@ import JapanTaxLaw.PublicityMatterTests
 import JapanTaxLaw.RegistrationTaxFloor1k
 import JapanTaxLaw.RegistrationTaxFloor1kSpec
 import JapanTaxLaw.RegistrationTaxFloor1kTests
+import JapanTaxLaw.InspectionCity
+import JapanTaxLaw.InspectionCitySpec
+import JapanTaxLaw.InspectionCityTests

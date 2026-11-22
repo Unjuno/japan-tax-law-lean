@@ -843,6 +843,9 @@ JapanTaxLaw/TrustedAffairsClassificationTests.lean # 同上 退行テスト
 JapanTaxLaw/PublicityMatter.lean                # 公示事項 財務大臣指定日（省令 art.1の11）L4 モデル
 JapanTaxLaw/PublicityMatterSpec.lean            # 同上 独立定式
 JapanTaxLaw/PublicityMatterTests.lean           # 同上 退行テスト
+JapanTaxLaw/InspectionCity.lean                # 検査対象市町村2区分（政令 art.3）L4 モデル
+JapanTaxLaw/InspectionCitySpec.lean            # 同上 独立定式
+JapanTaxLaw/InspectionCityTests.lean           # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト

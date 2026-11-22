@@ -8093,3 +8093,90 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 
 > **本レビューは機械的独立照合（pinned 原文 parse・指定区分抽出・needle 実文字列照合・反例評価・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューが完了したとみなしてはならない。一時ファイルは削除済み。
 
+
+## Batch BM review (2026-11-22)
+
+- **対象**: 関税法施行規則 art.1の11（納付受託者の指定に係る公示事項） / `JapanTaxLaw/PublicityMatter.lean`（cycle-68）。補助 `PublicityMatterSpec.lean` / `PublicityMatterTests.lean` も照合に使用（読み取りのみ）。
+- **レビュア**: Adversarial Review Agent（形式化担当から独立）。SKILL / STAGING / doc-comment の記述は**信頼せず**、pinned 原文（生 JSON バイト）・CI 実文字列・反例・`#print axioms` を各々独立に再検証した。
+- **原文（pinned・再現）**: `data/raw/341M50000040055_20260601_508M60000040016.law.json`（law_id `341M50000040055` / revision `341M50000040055_20260601_508M60000040016`、`law_title`「関税法施行規則」、`amendment_enforcement_date=2026-06-01`、`current_revision_status=CurrentEnforced`、`amendment_law_id=508M60000040016`、`source_sha256=887CF43F...`）。`data/INVENTORY.json` の pin 値と実ファイル名を照合し、乖離なし。
+- **needle 出所**: `scripts/ci/transcription_audit.py::checks()` の cycle-68 エントリ（`name="PublicityMatter.lean"` / `law_id="341M50000040055"` / `kind="file"` / `title=None`）から実文字列 2 本を直接取得（STAGING 記載は不使用）。
+- **作業制約の順守**: commit / push / merge / ブランチ切替は一切行わない。Lean モジュール・`data/*`・`scripts/*` は読み取り専用。変更したのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ（末尾に本セクションを追記）。read-then-write で既存履歴を保持。
+
+### BM-1. pinned 原文からの独立抽出（公示事項の列挙 = 1）
+
+- `law_full_text` を再帰走査し `tag="Article"` かつ `ArticleTitle="第一条の十一"` のノードを探索 → **1 個のみ**（MainProvision 内 95 条中 index 11）。caption + title + 本文を文書順に連結すると `（納付受託者の指定に係る公示事項）第一条の十一法第九条の六第二項（納付受託者）に規定する財務省令で定める事項は、財務大臣が同条第一項の規定による指定をした日とする。`。
+- 自前正規化（CI `_norm` と同価の空白・U+3000 除去）した art.1の11 全文（caption+title+本文）は **82 文字 / U+3000 = 0**（doc-comment の「flat/normalized leaf text 82 chars, U+3000 count 0」と一致）。原文全体は生 66,939 文字 / U+3000 = 95 → 正規化 66,844 文字 / U+3000 = 0。
+- 記述抽出: `に規定する財務省令で定める事項は、` と `とする。` の間を切り出し → `財務大臣が同条第一項の規定による指定をした日`。列挙内部に `、` / `及び` / `並びに` / `次に掲げる` は出現 = 0（`第一条` / `第一項` / `第二項` に含まれる漢字「一」「二」は列挙記号ではない）。よって公示事項の列挙は **`財務大臣が同条第一項の規定による指定をした日` のみ、個数 = 1**。
+- 実装との照合: `designationDate=0` / `otherMatter=1` / `isPublicityMatter(m)=(m==designationDate)`。原文が指定する公示事項は指定日 1 つのみであり、`otherMatter=1` は「その他」を表す便宜値で原文上の第 2 の公示事項ではない。**EXTRACT_MATCH = True（完全一致）**。
+
+### BM-2. needle 健全性（CI `checks()` の実文字列 2 本を自前正規化原文で照合）
+
+| needle（CI 実文字列） | 文字数 | U+3000 | 法令全体正規化（66,844 文字） | art.1の11 正規化（82 文字） |
+|---|---:|---:|---|---|
+| `財務大臣が同条第一項の規定による指定をした日とする` | 25 | 0 | FOUND（1 回） | FOUND（1 回） |
+| `公示事項）第一条の十一` | 11 | 0 | FOUND（caption+title を跨ぐ、1 回） | FOUND（caption+title を跨ぐ） |
+
+- CI スクリプトは実行せず、実文字列 2 本だけを取得して自前正規化（`_norm` と同価）で独立照合した。needle 自身の U+3000 = 0、改行・余分な空白なし。**判定: 2/2 FOUND、needle U+3000 = 0**。
+
+### BM-3. 反例探索（`by decide` / `#eval` による kernel 計算）
+
+| 入力 m | 意味 | 期待 | 独立計算 (m==0) | Lean | 判定 |
+|---:|---|---|---|---|---|
+| 0 | 財務大臣が指定をした日 | true | true | `isPublicityMatter 0 = true` | 一致 |
+| 1 | その他 | false | false | `isPublicityMatter 1 = false` | 一致 |
+| 2 | 範囲外 | false | false | `isPublicityMatter 2 = false` | 一致 |
+
+- `lake env lean` で `#eval` を実行（exit code 0）し `true / false / false` を確認。定数 `designationDate=0` / `otherMatter=1`、`agreePublicityMatter=true`、`specMatter 0/1/2 = true/false/false` も kernel 確認。**発見 0**。
+
+### BM-4. 公理監査（`#print axioms`）
+
+- `lake env lean` で対象モジュールの全宣言 `designationDate` / `otherMatter` / `isPublicityMatter`、Spec の `specMatter` / `agreePublicityMatter`、ならびに本レビューで反例を固定した名前付き定理 4 本に `#print axioms` を実行（**exit code 0**）。すべて `"does not depend on any axioms"`。
+
+| 監査項目 | 結果 |
+|---|---|
+| 監査宣言数 | 9（すべて axiom-free） |
+| `Classical.choice` | **0 件**（不在） |
+| `sorryAx` | **0 件**（不在） |
+| `Quot.sound` | **0 件**（不在） |
+| `propext` | **0 件**（不在） |
+
+- 補足: CI の `#print axioms` プローブは `theorem` / `lemma` 宣言のみを走査するため、本モジュール（`def` と匿名 `example` のみ）は CI 公理ゲートの走査対象外である。本レビューは独自プローブで def 自体と名前付き定理を直接監査した（B-6 参照）。監査用一時 Lean ファイルは実行後に削除。
+
+### BM-5. 分類（CONFIRMED / BY-DESIGN / UNRESOLVED）
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **6** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 形式化の誤りは検出されなかった。
+
+**CONFIRMED（0 件）**: 公示事項の列挙（指定日 1 つのみ）、定数値、判定関数の真偽、needle 2/2、反例 3/3、公理監査 — いずれも pinned 原文と整合し、食い違い・不正なし。第 2 の公示事項の混入 0 件、取り違え 0 件。
+
+**BY-DESIGN（6 件）**:
+
+- **B-1 公示事項のみの bounded L4 モデル**: doc-comment のとおり本モデルは art.1の11 の「…財務省令で定める事項は、…指定をした日とする。」の公示事項指定のみを形式化する。法9条の6の納付受託者の定義・指定手続、および実際の公示の方法・時期は NOT MODELLED（U-1 / U-2 参照）。
+- **B-2 Nat 列挙は便宜的エンコーディング**: `designationDate=0` / `otherMatter=1` は原文に現れる番号ではなくモデル表現である。`otherMatter=1` は「その他」を表す便宜値であり、原文上の第 2 の公示事項ではない（BM-1 で確認）。
+- **B-3 `isPublicityMatter(m)=(m==0)` は列挙 membership の決定手続き**: `==0` という形は原文に無いが、与えられた事項番号が公示事項（指定日）に対応するかを判定する補助関数であり、実体的な法的判断ではない。
+- **B-4 その他の事項・範囲外の NOT MODELLED**: doc-comment に明記。BM-1 のとおり pinned 原文（法令全体）に公示事項の列挙は 1 つのみであり、列挙が 1 つに限定されるのは原文どおりであって欠落ではない。
+- **B-5 doc-comment の「原文逐語」は改行整形された要約**: モジュールの引用は `財務大臣が` / `同条第一項の規定による指定をした日とする。` と途中で改行されているが、pinned 原文は一行である。自前正規化後は完全一致し（needle 1 がそのまま包含）、照合・計算には影響しない。
+- **B-6 CI 公理プローブの走査対象外**: `scripts/ci/generate_axiom_probe.py` は `theorem` / `lemma` のみを `#print axioms` 対象とするため、`def` と匿名 `example` のみから成る本モジュールは CI 公理ゲートで監査されない。モデル自体の誤りではなく CI ゲート設計上の限界であり、本レビューが独自に監査して代替した（BM-4 参照）。
+
+**UNRESOLVED（2 件）**:
+
+- **U-1 法9条の6（納付受託者）の定義・指定手続**: pinned 原文（art.1の11 の 1 文のみ）は `法第九条の六第二項（納付受託者）` および `同条第一項の規定による指定` と参照するのみで、納付受託者の定義や指定の要件・手続は関税法側（pinned 原文の外）にある。pinned 原文のみでは確定不能。**人間の法律専門家レビューを要する**。
+- **U-2 公示の方法・時期**: 法9条の6第2項が公示を要求する一方、art.1の11 は「公示すべき事項」を指定するのみで、公示の方法・時期を規定しない。これらは他規定・他省令にあり、pinned 原文のみでは確定不能。本モデルは NOT MODELLED を明記しており、どこまで形式化すべきかは pinned 原文のみでは決定不能。**人間の法律専門家レビューを要する**。
+
+### BM-6. 最終報告・結論
+
+- pinned revision `341M50000040055_20260601_508M60000040016` の art.1の11 から独立抽出した公示事項は **`財務大臣が同条第一項の規定による指定をした日` のみ（1 つ）**。`designationDate=0` / `otherMatter=1` / `isPublicityMatter(m)=(m==0)` と完全一致し、**CONFIRMED = 0（発見ゼロ）**。形式的誤り 0 件、反例 0 件。
+- **CONFIRMED: 0 件 / BY-DESIGN: 6 件 / UNRESOLVED: 2 件**。
+- **needle 健全性: 2/2 FOUND、needle U+3000 = 0**（CI `checks()` cycle-68 実文字列を自前正規化原文で照合）。
+- **反例: 0→true / 1→false / 2→false、発見 0**（`#eval` / `by decide`）。
+- **公理監査**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて **0 件**（9 宣言すべて axiom-free、exit code 0）。
+- **法9条の6の定義・公示方法の未形式化を確認**（B-1 / U-1 / U-2、doc-comment 明記）。
+- **追記後レビュー件数: 63 件**（既存 62 件＝coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` に一致する見出しをすべて保持 + 本 BM 1 件）。既存セクションは一切改変していない。
+- Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。commit / push / merge / ブランチ切替なし。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・公示事項抽出・needle 実文字列照合・反例評価・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューが完了したとみなしてはならない。一時ファイルは削除済み。
