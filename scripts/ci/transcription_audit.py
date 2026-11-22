@@ -3226,6 +3226,78 @@ def checks():
            "file", None,
            ["トランジスター上に配置される導線の中心の間隔が最も短い箇所において百六十五ナノメートル以下の特定演算半導体"])
 
+    # 税制調査会組織規則 art. 1 — CouncilMemberCap30.lean
+    yield ("税制調査会組織規則 art. 1（委員三十人以内）↔ CouncilMemberCap30.lean (memberCap 30, inclusive)",
+           "425CO0000000025",
+           "article", "第一条",
+           ["税制調査会（以下「調査会」という。）は、委員三十人以内で組織する。"])
+
+    # CustomsTariffArt14DisabledPersonEquipmentDelegation.lean - NORM|c8d2540f... (disabled-person equipment DELEGATION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十四条 (Paragraph 1, Item 16);
+    # find_article_text(...,"第十四条") returns that article (len 1655) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.14 disabled-person equipment delegation - CustomsTariffArt14DisabledPersonEquipmentDelegation.lean",
+           "143AC0000000054",
+           "article", "第十四条",
+           ["\u8eab\u4f53\u969c\u5bb3\u8005\u7528\u306b\u7279\u306b\u88fd\u4f5c\u3055\u308c\u305f\u5668\u5177\u305d\u306e\u4ed6\u3053\u308c\u306b\u985e\u3059\u308b\u7269\u54c1\u3067\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
+
+    # CustomsTariffArt14Item10ProvisoReading.lean - NORM|490be20c... (item14 reads item10 proviso, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十四条 (Paragraph 1, Item 14, Sentence 2);
+    # find_article_text(...,"第十四条") returns that article (len 1655) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.14 item10 proviso reading - CustomsTariffArt14Item10ProvisoReading.lean",
+           "143AC0000000054",
+           "article", "第十四条",
+           ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u7b2c\u5341\u53f7\u305f\u3060\u3057\u66f8\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
+
+    # CustomsTariffArt14ProvisoReading.lean - NORM|1808965b... (item11 proviso READING, law 143AC0000000054) [repaired: dropped in PR #510 merge]
+    # Needle is in MainProvision Article 第十四条 (Paragraph 1, Item 11, Sentence 2);
+    # find_article_text(...,"第十四条") returns that article (len 1655) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.14 proviso reading - CustomsTariffArt14ProvisoReading.lean",
+           "143AC0000000054",
+           "article", "第十四条",
+           ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u524d\u53f7\u305f\u3060\u3057\u66f8\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
+
+    # CustomsTariffArt17ContainerDelegation.lean - NORM|eb942c04... (imported-goods container DELEGATION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十七条 (Paragraph 1, Item 2);
+    # find_article_text(...,"第十七条") returns that article (len 1032) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.17 container delegation - CustomsTariffArt17ContainerDelegation.lean",
+           "143AC0000000054",
+           "article", "第十七条",
+           ["\u8f38\u5165\u8ca8\u7269\u306e\u5bb9\u5668\u3067\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
+
+    # CustomsTariffArt17DutyExemptionReading.lean - NORM|760484eb... (art13(3) reading into duty exemption, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十七条 (Paragraph 2, ParagraphSentence);
+    # find_article_text(...,"第十七条") returns that article (len 1032) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.17 duty exemption reading - CustomsTariffArt17DutyExemptionReading.lean",
+           "143AC0000000054",
+           "article", "第十七条",
+           ["\u7b2c\u5341\u4e09\u6761\u7b2c\u4e09\u9805\u306e\u898f\u5b9a\u306f\u3001\u524d\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u95a2\u7a0e\u3092\u514d\u9664\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
+    # CustomsTariffArt17ExportContainerDelegation.lean - NORM|733f9fe5... (export-container DELEGATION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十七条 (Paragraph 1, Item 3);
+    # find_article_text(...,"第十七条") returns that article (len 1032) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.17 export container delegation - CustomsTariffArt17ExportContainerDelegation.lean",
+           "143AC0000000054",
+           "article", "第十七条",
+           ["\u8f38\u51fa\u8ca8\u7269\u306e\u5bb9\u5668\u3068\u3057\u3066\u4f7f\u7528\u3055\u308c\u308b\u8ca8\u7269\u3067\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
+
+    # RoadAreaRate — cycle-76
+    yield ("RoadAreaRate.lean",
+           "331M50000002007",
+           "file", None,
+           ["道路の面積は、次表の上欄に掲げる道路の種別", "橋りよう四・〇"])
+
+    # TaxNoticeDeadline — cycle-75
+    yield ("TaxNoticeDeadline.lean",
+           "327AC0000000119",
+           "file", None,
+           ["遅くとも、その納期限前十日までに納税者に交付しなければならない", "自動車税及び軽自動車税の徴収の方法等）第四条"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
