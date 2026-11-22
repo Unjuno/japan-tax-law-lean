@@ -797,3 +797,6 @@ import JapanTaxLaw.TaxFreeAndBondNormsTests
 import JapanTaxLaw.CertificateAndRateNorms
 import JapanTaxLaw.CertificateAndRateNormsSpec
 import JapanTaxLaw.CertificateAndRateNormsTests
+import JapanTaxLaw.LossAndCarryoverNorms
+import JapanTaxLaw.LossAndCarryoverNormsSpec
+import JapanTaxLaw.LossAndCarryoverNormsTests
