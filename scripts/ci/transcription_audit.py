@@ -2258,6 +2258,12 @@ def checks():
            "file", None,
            ["ニッケルの含有量が全重量の〇・六パーセントを超えるもの", "課税物件）第一条"])
 
+    # NonUniformRateCap — cycle-79
+    yield ("NonUniformRateCap.lean",
+           "505M60000008043",
+           "file", None,
+           ["当該率が０．０５を超えるときは、０．０５とする", "不均一課税に際して適用する税率"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",

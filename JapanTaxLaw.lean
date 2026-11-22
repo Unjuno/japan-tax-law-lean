@@ -1681,3 +1681,6 @@ import JapanTaxLaw.NickelContentTests
 import JapanTaxLaw.CouncilMemberCap30
 import JapanTaxLaw.CouncilMemberCap30Spec
 import JapanTaxLaw.CouncilMemberCap30Tests
+import JapanTaxLaw.NonUniformRateCap
+import JapanTaxLaw.NonUniformRateCapSpec
+import JapanTaxLaw.NonUniformRateCapTests

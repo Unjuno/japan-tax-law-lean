@@ -11,14 +11,14 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 138
+- with >=1 pinned literal check (semantic model): 139
 - with recorded human legal review: 0
 
 ## All laws
 
 | law_id | title | revision | enforcement | raw | parse | articles | pinned checks | human review |
 |---|---|---|---|---|---|---:|---|---|
-| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (57) | NO |
+| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (58) | NO |
 | `322CO0000000109` | 昭和二十二年政令第百九号（財産税法等による物納に因る不動産登記の特例に関する政令） | 322CO0000000109_19470627_000000000000000 | CurrentEnforced | YES | ok | 4 | YES (1) | NO |
 | `322AC0000000175` | 昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律） | 322AC0000000175_20220101_503AC0000000011 | CurrentEnforced | YES | ok | 78 | YES (2) | NO |
 | `322CO0000000268` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施 | 322CO0000000268_20251201_507CO0000000120 | CurrentEnforced | YES | ok | 113 | YES (5) | NO |
@@ -324,7 +324,7 @@ a completion flag.
 | `504CO0000000372` | 溶融亜鉛めっき鉄線に対して課する不当廉売関税に関する政令 | 504CO0000000372_20221208_000000000000000 | CurrentEnforced | YES | ok | 6 | YES (1) | NO |
 | `504M60000040057` | 溶融亜鉛めっき鉄線に対して課する不当廉売関税に関する政令第一条第一項第一号に規定する電気 | 504M60000040057_20221208_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `504M60000400091` | 溶融亜鉛めっき鉄線に対して課する不当廉売関税に関する政令第一条第一項第一号に規定する電気 | 504M60000400091_20221208_000000000000000 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
-| `505M60000008043` | 地方団体に対して交付すべき令和五年度分の震災復興特別交付税の額の算定方法、決定時期及び決 | 505M60000008043_20240426_506M60000008046 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
+| `505M60000008043` | 地方団体に対して交付すべき令和五年度分の震災復興特別交付税の額の算定方法、決定時期及び決 | 505M60000008043_20240426_506M60000008046 | CurrentEnforced | YES | ok | 10 | YES (1) | NO |
 | `506AC0000000001` | 令和六年能登半島地震災害の被災者に係る所得税法及び災害被害者に対する租税の減免、徴収猶予 | 506AC0000000001_20240221_000000000000000 | CurrentEnforced | YES | ok | 9 | NO (0) | NO |
 | `506CO0000000033` | 令和六年能登半島地震災害の被災者に係る所得税法及び災害被害者に対する租税の減免、徴収猶予 | 506CO0000000033_20240221_000000000000000 | CurrentEnforced | YES | ok | 13 | NO (0) | NO |
 | `506M60000040008` | 森林環境税及び森林環境譲与税に関する法律に基づく森林環境税に係る徴収金の納付手続の特例に | 506M60000040008_20240329_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 232
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 234
