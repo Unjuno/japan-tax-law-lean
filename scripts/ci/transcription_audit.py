@@ -2540,6 +2540,13 @@ def checks():
            ["障害者、未成年者、寡婦又はひとり親（これらの者の当該年度の初日の属する年の前年（次号において「前年」という。）の合計所得金額が百三十五万円を超える場合を除く。）"])
 
 
+    # 登録免許税法施行令 art. 21 — TonnageExpansionRatioCap.lean
+    yield ("登録免許税法施行令 art. 21（設備拡張・一・六倍のトン数比率）↔ TonnageExpansionRatioCap.lean (16/10 ratio cap)",
+           "342CO0000000146",
+           "article", "第二十一条",
+           ["当該設備における最大トン数（製造又は修繕をすることができる船舶の総トン数の最大値をいう。以下この号において同じ。）が、拡張許可前の当該設備における最大トン数の一・六倍を超えることとならないものであること"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
