@@ -1523,3 +1523,6 @@ import JapanTaxLaw.ProductionVolume6KLTests
 import JapanTaxLaw.RegistrationTaxFloor1k
 import JapanTaxLaw.RegistrationTaxFloor1kSpec
 import JapanTaxLaw.RegistrationTaxFloor1kTests
+import JapanTaxLaw.ElectronicSystemDesignation
+import JapanTaxLaw.ElectronicSystemDesignationSpec
+import JapanTaxLaw.ElectronicSystemDesignationTests

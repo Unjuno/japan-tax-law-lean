@@ -11,14 +11,14 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 123
+- with >=1 pinned literal check (semantic model): 124
 - with recorded human legal review: 0
 
 ## All laws
 
 | law_id | title | revision | enforcement | raw | parse | articles | pinned checks | human review |
 |---|---|---|---|---|---|---:|---|---|
-| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (30) | NO |
+| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (34) | NO |
 | `322CO0000000109` | 昭和二十二年政令第百九号（財産税法等による物納に因る不動産登記の特例に関する政令） | 322CO0000000109_19470627_000000000000000 | CurrentEnforced | YES | ok | 4 | YES (1) | NO |
 | `322AC0000000175` | 昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律） | 322AC0000000175_20220101_503AC0000000011 | CurrentEnforced | YES | ok | 78 | YES (2) | NO |
 | `322CO0000000268` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施 | 322CO0000000268_20251201_507CO0000000120 | CurrentEnforced | YES | ok | 113 | YES (5) | NO |
@@ -231,7 +231,7 @@ a completion flag.
 | `414M60000008042` | 沖縄振興特別措置法第九条等の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を | 414M60000008042_20250401_507M60000008028 | CurrentEnforced | YES | ok | 34 | NO (0) | NO |
 | `414CO0000000262` | ポリエステル短繊維に対して課する不当廉売関税に関する政令 | 414CO0000000262_20110401_423CO0000000088 | CurrentEnforced | YES | ok | 10 | YES (1) | NO |
 | `414M60000040045` | ポリエステル短繊維に対して課する不当廉売関税に関する政令に規定する原産地の意義に関する省 | 414M60000040045_20060401_418M60000040032 | CurrentEnforced | YES | ok | 4 | NO (0) | NO |
-| `415M60000040007` | 税関関係法令に係る情報通信技術を活用した行政の推進等に関する省令 | 415M60000040007_20251012_507M60000040035 | CurrentEnforced | YES | ok | 47 | NO (0) | NO |
+| `415M60000040007` | 税関関係法令に係る情報通信技術を活用した行政の推進等に関する省令 | 415M60000040007_20251012_507M60000040035 | CurrentEnforced | YES | ok | 47 | YES (1) | NO |
 | `415M60000008069` | 収入印紙及び自動車重量税印紙の売りさばきに関する省令 | 415M60000008069_20191001_501M60000008047 | CurrentEnforced | YES | ok | 20 | YES (1) | NO |
 | `415M60000040053` | 株式会社産業再生機構が取得した不動産に関する権利の移転登記の登録免許税の免税を受けるため | 415M60000040053_20030410_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `415M60000040071` | 国税関係法令に係る情報通信技術を活用した行政の推進等に関する省令 | 415M60000040071_20260924_506M60000040031 | CurrentEnforced | YES | ok | 70 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 213
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 216

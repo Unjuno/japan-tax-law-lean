@@ -8370,3 +8370,110 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 - Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。commit / push / merge / ブランチ切替なし。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・除外指定抽出・needle 実文字列照合・反例評価・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューが完了したとみなしてはならない。
+
+## Batch BP review (2026-11-22) — 離島振興法第二十条の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令 art.4 / FiscalPeriodLength.lean（cycle-71 独立原文照合）
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。形式化担当の STAGING／doc-comment／CI `checks()` を**信じず**、pinned raw JSON を直接再帰走査して得た機械的照合を持って判定した。commit / push / merge / ブランチ切替は行っていない。
+- **対象モジュール（読み取り専用・変更なし）**: `JapanTaxLaw/FiscalPeriodLength.lean`（本体）、`JapanTaxLaw/FiscalPeriodLengthSpec.lean`、`JapanTaxLaw/FiscalPeriodLengthTests.lean`（いずれも読み取りのみ）。
+- **一次資料（pinned・改変禁止）**: `data/raw/405M50000008001_20250401_507M60000008028.law.json`
+  - law_id `405M50000008001` / revision `405M50000008001_20250401_507M60000008028`（CurrentEnforced、改正法律 `507M60000008028`、施行 2025-04-01）。
+  - 対象: `law_full_text` の `MainProvision` 直下 `Article` のうち `attr.Num = "4"`（ArticleCaption + ArticleTitle + Paragraph/Sentence）のみ。
+- **独立抽出方法**: `scripts/ci/transcription_audit.py` の正規化関数・`find_article_text`・STAGING を一切呼ばず、JSON を自前で再帰走査して leaf 文字列を連結。`str.isspace()` で全空白（U+3000 を含む）を除去する自前正規化器を実装し、needle 照合・漢数字抽出・1-origin 解釈確認を行った。
+
+### BP-1. 独立抽出：期間「五箇年度」= 5 と 1-origin 解釈
+
+Article Num 4 の leaf を直接抽出した結果（原文そのまま）:
+
+| leaf | 原文文字列 |
+|---|---|
+| 0（ArticleCaption） | `（法第二十条に規定する総務省令で定める期間に係る年度）` |
+| 1（ArticleTitle） | `第四条` |
+| 2（Sentence） | `法第二十条に規定する総務省令で定める期間に係る年度は、事業税の課税免除又は不均一課税をした最初の年度から五箇年度とする。` |
+
+- 連結生文字列 = **90 文字**、正規化後も **90 文字**。leaf[2] の末尾は「…**五箇年度とする。**」で、Lean doc-comment の原文逐語と一致。
+- **U+3000 数の独立確認**: art.4 連結文字列の U+3000 = **0**（doc-comment の「flat/normalized leaf text 90 chars, U+3000 count 0」を裏取り）。※ 法令全文には U+3000 が 21 箇所存在するが、すべて目次等の art.4 外であり本対象に影響しない。
+- **期間の独立抽出**: 正規化原文に対し `五箇年度` を regex 検索 → **1 箇所 FOUND**。漢数字 `五` を自前パーサで Arabic 変換 → **5**。`箇` は年度の助数詞であり、月を表すものではない。
+- **桁違いの明示除外**: `五箇月`（5 か月）は art.4 原文に **0 箇所**、`五十箇年度`（50 年度）も **0 箇所**。したがって「5 か月」「50 年度」という解釈は原文によって明示的に排除される。`五箇年度` の出現は 1 回のみで、他条の期間と混同する余地もない。
+- **1-origin 解釈の確認**: 原文は「…課税免除又は不均一課税をした**最初の年度から**五箇年度とする。」であり、`最初の年度から` が art.4 正規化原文に存在（位置 75、`五箇年度` は位置 82）。よって「最初の年度」を期間の **1 年目（offset = 1）** とし、2 年目以降を offset 2…5 とする解釈は原文に忠実。Lean の `periodYears = 5` および `isInPeriod(offset) = (1 <= offset && offset <= periodYears)` と一致する。
+- **照合結果**: 原文抽出値 5 = Lean `periodYears` 定数 5。**不一致なし**。
+
+### BP-2. needle 健全性（CI `checks()` の実文字列 2 本）
+
+CI の実文字列は `scripts/ci/transcription_audit.py` の `checks()` cycle-71 エントリ（行 2067–2070、locator は `"file"`）から**直接転記**したものを使用（STAGING 経由ではない）:
+
+| # | CI `checks()` 実文字列 | 長さ | U+3000 含有 | 自前正規化 art.4 で FOUND | 自前正規化・法令全文で FOUND |
+|---|---|---:|---:|---|---|
+| 1 | `課税免除又は不均一課税をした最初の年度から五箇年度とする` | 28 | 0 | ✅ | ✅ |
+| 2 | `期間に係る年度）第四条` | 11 | 0 | ✅ | ✅ |
+
+- 自前正規化（全 `str.isspace()` 除去）後も両 needle は art.4 連結文字列・法令全文の双方にヒット → **2/2 FOUND**。
+- **needle 文字列内の U+3000 は両方とも 0**。needle 2 は ArticleCaption の末尾 `…年度）` と ArticleTitle `第四条` をまたぐ文字列だが、ファイル種別 `"file"` の flatten テキストでは連続するため健全にヒットする（下記 B-4 参照）。
+- **needle 結果: 2/2 FOUND、U+3000 = 0（合格）。**
+
+### BP-3. 反例探索（境界値）
+
+一時 Lean ファイルから `lake env lean`（exit code **0**）で `#eval` を実行し、さらに `example … := by decide`／名前付き `theorem … := by decide` で kernel 確認した:
+
+| offset | 意味 | `isInPeriod` | `specPeriod`（独立定式） | 判定 |
+|---:|---|---|---|---|
+| 0 | 最初の年度の直前（期間外） | `false` | `false` | 一致 |
+| 1 | 最初の年度（期間 1 年目） | `true` | `true` | 一致 |
+| 5 | 5 年目（期間最終年度） | `true` | `true` | 一致 |
+| 6 | 6 年目（期間後） | `false` | `false` | 一致 |
+
+- `#eval periodYears` = **5**。所属モジュールの `example` 5 本（`periodYears = 5` / `isInPeriod 0 = false` / `1 = true` / `5 = true` / `6 = false`）に加え、本レビューで追加した 10 本の名前付き定理（adv_*）もすべて `by decide` で通った。
+- `agreeFiscalPeriodLength`（`[0,1,2,5,6,10]` で impl と spec を比較）= **`true`**（`#eval` および `by decide`）。
+- **反例探索で検出された原文・Lean 間の矛盾: 0 件（ゼロ）。** 桁違い（5 か月・50 年度）、0-origin 化（`0 <= offset` による 0 の誤採択）、境界の off-by-one（5 の除外／6 の採択）はいずれも発生していない。
+
+### BP-4. 公理監査（`#print axioms`）
+
+- 一時 Lean ファイルを承認済み一時ディレクトリに作成し、4 つの既存宣言（`periodYears` / `isInPeriod` / `specPeriod` / `agreeFiscalPeriodLength`）と本レビューで追加した 10 個の名前付き定理（`adv_*`）計 **14 宣言**について `#print axioms` を実行（`lake env lean`、**exit code 0**）。監査後、一時 Lean ファイル・一時スクリプト・結果ファイルは**削除済み**。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 14（すべて `does not depend on any axioms`） |
+| `Classical.choice` / `choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+
+- 補足: `scripts/ci/generate_axiom_probe.py` は `THM_PATTERN` / `LEMMA_PATTERN` により `theorem` / `lemma` 宣言のみを走査するため、本モジュールのように `def` と `example` のみの場合は CI 公理プローブの直接対象外となる。これは欠陥ではなく CI ゲート設計の範囲であり、本レビューでは既存 def も直接 `#print axioms` に掛けて確認した（Batch BO と同趣旨）。
+- **禁止公理（choice / sorryAx / Quot.sound / propext）はいずれも 0 件。公理監査は合格。**
+
+### BP-5. 分類（CONFIRMED / BY-DESIGN / UNRESOLVED）
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **5** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 欠陥件数を手柄にしない。
+
+**CONFIRMED（0 件）**: 原文「五箇年度」= 5 と `periodYears = 5` の一致、1-origin と `isInPeriod` の一致、needle 2/2 FOUND（U+3000 = 0）、境界 4 点（0/1/5/6）すべて、公理監査 14 宣言すべてが合格。誤訳・桁違い・0-origin 化・off-by-one・禁止公理のいずれも検出されなかった。
+
+**BY-DESIGN（5 件）**:
+
+- **B-1 bounded L4 モデル（期間の年数のみ）**: 本モデルは art.4 の「期間は五箇年度」という年数と 1-origin の包含判定のみを形式化する。**法第二十条の課税免除・不均一課税の具体的内容は NOT MODELLED** と doc-comment に明記。法的判断を提供しない設計であり、反映漏れではない。
+- **B-2 offset の 1-origin はモデル内変換規則**: `最初の年度から` を offset = 1 と対応づけ、`1 <= offset` で 0 を期間外とする。原文は「最初の年度から五箇年度」であり、最初の年度を 1 年目と数えるのは原文に忠実（BP-1）。ただし**「最初の年度」の認定・年度の暦年換算は NOT MODELLED**（U-2 参照）。
+- **B-3 漢数字 `五` → Nat リテラル 5**: 桁違い（五箇月／五十箇年度）は原文に存在せず明示除外済み。`periodYears : Nat := 5` は原文の助数詞付き漢数字を数値化したもので、月単位・10 倍意味ではない。
+- **B-4 needle 2 の caption/title 横断**: `期間に係る年度）第四条` は ArticleCaption 末尾と ArticleTitle をまたぐ。CI locator は `"file"`（法令全文 flatten）なので正規化後に連続し 2/2 FOUND を維持。期間計算（`periodYears` / `isInPeriod`）はこの needle に依存せず、needle は転写忠実性の検査のみに用いられる（監査スクリプト冒頭の趣旨どおり、法的正しさの保証ではない）。
+- **B-5 CI 公理プローブの走査対象外**: def / example のみのモジュール構成上、CI の定理走査には掛からない。設計上の範囲であり、本レビューが直接監査して補完済み（BP-4）。
+
+**UNRESOLVED（2 件）**:
+
+- **U-1 課税免除・不均一課税の具体的内容の未形式化**: 本省令 art.4 は「法第二十条に規定する…」と他法（離島振興法第 20 条、pinned 原文外）を参照するのみで、免除・不均一課税の対象・手続・要件は本 pinned 原文に存在しない。本モデルも doc-comment で NOT MODELLED と明記。**pinned 原文のみでは決定不能であり、人間の法律専門家による確認を要する。**
+- **U-2 「最初の年度」の認定・年度の暦年換算の未形式化**: 原文は「課税免除又は不均一課税をした最初の年度から」と起点のみを定め、どの暦年が「最初の年度」に該当するか、年度と暦年の対応、複数年度にまたがる場合の取扱いは pinned 原文（art.4 1 条）に定義がない。本モデルは offset を caller-established の入力として扱い、この認定を行わない。**pinned 原文のみでは決定不能であり、人間の法律専門家による確認を要する。**
+
+### BP-6. 最終報告・結論
+
+- pinned revision `405M50000008001_20250401_507M60000008028` の art.4 から独立抽出した期間は **「五箇年度」= 5 年**であり、5 か月／50 年度を明示除外、「最初の年度から」を 1-origin（offset = 1）として確認。`periodYears = 5` / `isInPeriod(offset) = (1 <= offset && offset <= periodYears)` と完全一致。**CONFIRMED = 0（ゼロ）**。
+- **CONFIRMED: 0 件 / BY-DESIGN: 5 件 / UNRESOLVED: 2 件。**
+- **needle 健全性: CI `checks()` 実文字列 2 本、自前正規化で 2/2 FOUND、needle 内 U+3000 = 0。**
+- **反例: `isInPeriod(0)=false` / `(1)=true` / `(5)=true` / `(6)=false`（`#eval` + `by decide`、反例 0）。**
+- **公理: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件（14 宣言すべて axiom-free、exit code 0）。一時ファイルは削除済み。**
+- **課税免除の内容・「最初の年度」認定の未形式化を確認**（B-1 / U-1 / U-2、いずれも doc-comment に明記）。
+- 追記後レビュー件数: **66 件**（既存 65 件 ＋ 本 BP 1 件。coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` に `## Batch BP review …` が整合）。既存セクションはすべて保持。
+- Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。commit / push / merge / ブランチ切替は行っていない。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
