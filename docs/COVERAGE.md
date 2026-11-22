@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 123 | 327 | 37.61% |
+| laws with >=1 pinned literal check | 124 | 327 | 37.92% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 348 | n/a | n/a |
-| distinct article pins | 150 | 42584 | 0.35% |
-| pinned Lean modules (cross-law) | 753 | n/a | n/a |
+| pinned literal checks | 351 | n/a | n/a |
+| distinct article pins | 151 | 42584 | 0.35% |
+| pinned Lean modules (cross-law) | 758 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 340 |
+| unpinned Lean modules (not counted as verified) | 344 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 60 |
+| adversarial review sessions recorded | 61 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -229,6 +229,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `502CO0000000160` 新型コロナウイルス感染症等の影響に対応するための国税関係法律の臨時特例に関する法律施行令
 - `502CO0000000208` トリス（クロロプロピル）ホスフェートに対して課する不当廉売関税に関する政令
 - `503CO0000000065` 炭酸二カリウムに対して課する不当廉売関税に関する政令
+- `504CO0000000300` 森林環境税及び森林環境譲与税に関する法律施行令
 - `504CO0000000372` 溶融亜鉛めっき鉄線に対して課する不当廉売関税に関する政令
 - `507CO0000000095` 黒鉛電極に対して課する不当廉売関税に関する政令
 - `508CO0000000254` 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令
