@@ -2619,6 +2619,13 @@ def checks():
            ["特別とん税及びとん税の納付があつたときは、その納付に係る金額の三十六分の二十に相当する税額の特別とん税及び三十六分の十六に相当する税額のとん税の納付があつたものとする。"])
 
 
+    # 法人特別税法 art. 7 — MonthCountExclusiveBand.lean
+    yield ("法人特別税法 art. 7（二十四月に満たない・超える法人の除外）↔ MonthCountExclusiveBand.lean (24-month exclusive band)",
+           "404AC0000000015",
+           "article", "第七条",
+           ["事業年度の変更その他の事由により、指定期間内に終了する事業年度の月数の合計が二十四月に満たない法人及び当該月数の合計が二十四月を超える法人（次号から第五号までに掲げる法人を除く。）"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
