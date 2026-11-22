@@ -809,3 +809,6 @@ import JapanTaxLaw.RatioAndValueNormsTests
 import JapanTaxLaw.ResidentClassificationNorms
 import JapanTaxLaw.ResidentClassificationNormsSpec
 import JapanTaxLaw.ResidentClassificationNormsTests
+import JapanTaxLaw.RemainderAndValueNorms
+import JapanTaxLaw.RemainderAndValueNormsSpec
+import JapanTaxLaw.RemainderAndValueNormsTests
