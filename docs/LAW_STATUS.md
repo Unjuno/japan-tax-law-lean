@@ -11,14 +11,14 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 122
+- with >=1 pinned literal check (semantic model): 123
 - with recorded human legal review: 0
 
 ## All laws
 
 | law_id | title | revision | enforcement | raw | parse | articles | pinned checks | human review |
 |---|---|---|---|---|---|---:|---|---|
-| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (29) | NO |
+| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (30) | NO |
 | `322CO0000000109` | 昭和二十二年政令第百九号（財産税法等による物納に因る不動産登記の特例に関する政令） | 322CO0000000109_19470627_000000000000000 | CurrentEnforced | YES | ok | 4 | YES (1) | NO |
 | `322AC0000000175` | 昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律） | 322AC0000000175_20220101_503AC0000000011 | CurrentEnforced | YES | ok | 78 | YES (2) | NO |
 | `322CO0000000268` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施 | 322CO0000000268_20251201_507CO0000000120 | CurrentEnforced | YES | ok | 113 | YES (5) | NO |
@@ -126,7 +126,7 @@ a completion flag.
 | `342CO0000000108` | 印紙税法施行令 | 342CO0000000108_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 105 | YES (1) | NO |
 | `342M50000040019` | 印紙税法施行規則 | 342M50000040019_20010106_412M50000040069 | CurrentEnforced | YES | ok | 26 | NO (0) | NO |
 | `342AC0000000035` | 登録免許税法 | 342AC0000000035_20261101_508AC0000000021 | CurrentEnforced | YES | ok | 716 | YES (32) | NO |
-| `342CO0000000146` | 登録免許税法施行令 | 342CO0000000146_20261001_507CO0000000124 | CurrentEnforced | YES | ok | 142 | YES (4) | NO |
+| `342CO0000000146` | 登録免許税法施行令 | 342CO0000000146_20261001_507CO0000000124 | CurrentEnforced | YES | ok | 142 | YES (5) | NO |
 | `342M50000040037` | 登録免許税法施行規則 | 342M50000040037_20260401_508M60000040008 | CurrentEnforced | YES | ok | 125 | YES (1) | NO |
 | `344M50000040016` | 関税定率法施行規則 | 344M50000040016_20260401_508M60000040016 | CurrentEnforced | YES | ok | 84 | YES (1) | NO |
 | `344CO0000000088` | 地方揮発油譲与税法施行令 | 344CO0000000088_20090401_421CO0000000100 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
@@ -266,7 +266,7 @@ a completion flag.
 | `422CO0000000221` | 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手 | 422CO0000000221_20101029_000000000000000 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
 | `422CO0000000222` | 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手 | 422CO0000000222_20220401_502CO0000000207 | CurrentEnforced | YES | ok | 4 | NO (0) | NO |
 | `422M60000008097` | 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手 | 422M60000008097_20101029_000000000000000 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
-| `422M60000040052` | 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手 | 422M60000040052_20101029_000000000000000 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
+| `422M60000040052` | 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手 | 422M60000040052_20101029_000000000000000 | CurrentEnforced | YES | ok | 3 | YES (1) | NO |
 | `423AC0000000029` | 東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律 | 423AC0000000029_20260401_508AC0000000012 | CurrentEnforced | YES | ok | 335 | YES (1) | NO |
 | `423CO0000000112` | 東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行令 | 423CO0000000112_20260401_508CO0000000102 | CurrentEnforced | YES | ok | 170 | NO (0) | NO |
 | `423M60000040020` | 東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行規則 | 423M60000040020_20260414_508M60000040039 | CurrentEnforced | YES | ok | 115 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 196
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 198

@@ -7828,3 +7828,94 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 - Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。commit / push / merge / ブランチ切替なし。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・機関トークン抽出・needle 実文字列照合・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
+
+## Batch BJ review (2026-11-22) — 航空機燃料税法施行令 art.2 / AircraftScope.lean（cycle-65 独立照合）
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。担当の STAGING／doc-comment／coordinator 要約は**信じず**、pinned 原文から直接・独立に再抽出して照合した。
+- **対象（読み取り専用・本レビューで変更していない）**: `JapanTaxLaw/AircraftScope.lean`（`namespace JapanTaxLaw.AircraftScope`、名前付き宣言 `motorizedGlider` / `otherAircraft` / `isDesignatedAircraft`）。
+- **一次資料（pinned・改変禁止）**: `data/raw/347CO0000000057_20250401_507CO0000000006.law.json`（law_id `347CO0000000057` / revision `347CO0000000057_20250401_507CO0000000006`、`law_title`「航空機燃料税法施行令」）。
+- **needle 出所**: `scripts/ci/transcription_audit.py::checks()` の cycle-65 エントリ（`name="AircraftScope.lean"` / `law_id="347CO0000000057"` / `kind="file"` / `art=None`）から Python で実文字列 2 本を取得（STAGING 記載は未使用）。
+- **操作制約の遵守**: commit / push / merge / ブランチ切替は一切行っていない。Lean モジュール・`data/*`・`scripts/*` は読み取りのみ。書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ（末尾に本セクションを追記）。
+
+### BJ-1. pinned 原文からの独立抽出（指定機器 1 つ）
+
+- `law_full_text` を自前で再帰走査し `MainProvision` 配下の `tag="Article"` のうち `attr.Num = "2"` のノードは **1 つのみ**（ART2_COUNT = 1）。当該ノードの文字列 leaf を文書順に連結した art.2 平坦逐語（**61 文字、U+3000 = 0**）:
+  - `（航空機の範囲）第二条法第二条第一号に規定する政令で定める航空の用に供することができる機器は、発動機を有する滑空機とする。`
+- 全文は生 3,662 文字（生の U+3000 = 7 個）を自前正規化 `re.sub(r"[\s　]+", "", s)` で 3,655 文字（U+3000 = 0）に変換。art.2 平坦本文は正規化前後とも 61 文字・U+3000 = 0（doc-comment の「flat/normalized leaf text 61 chars, U+3000 count 0」申告と一致）。
+- 列挙スパンを区切り `供することができる機器は、` と終端 `とする。` で自前切り出し → **`発動機を有する滑空機`** のみ。独立抽出結果は **ちょうど 1 つ**:
+  - 発動機を有する滑空機
+- 混入検査: 当該スパンの `、` / `及び` / `又は` / `並びに` / `その他` / `「` / `」` の出現はいずれも **0 回**。完全一致 `enum == "発動機を有する滑空機"` = True、`発動機を有する滑空機` の出現回数 = 1。列挙は 1 つのみで「その他」も第 2 の機器も存在しない。
+- 照合: 実装は `motorizedGlider=0` / `otherAircraft=1`、`isDesignatedAircraft(m) = (m == 0)`。原文の唯一の指定機器が 0 へ正対応し、`otherAircraft=1` は原文に無い内部番兵（「列挙外」を表す）であって第 2 の指定機器ではない。→ **EXTRACT_MATCH = True（発見ゼロ）**。
+
+### BJ-2. needle 健全性（CI `checks()` の実文字列 2 本を自前正規化原文で検証）
+
+- needle は手打ちせず `checks()` の cycle-65 エントリから import で取得。自前で `law_full_text` を平坦化・正規化（全文 3,655 文字・U+3000 = 0）し、CI の `contains()` / `_norm()` と同一条件で `.count()` / `.find()` を実行した（CI コードをそのまま呼ばず自前実装で再検証）。
+
+| needle（CI 実文字列） | 長 | U+3000 | 全文（自前正規化） | art.2（自前正規化） |
+|---|---:|---:|---|---|
+| `発動機を有する滑空機とする` | 13 | 0 | FOUND（1 回） | FOUND |
+| `航空機の範囲）第二条` | 10 | 0 | FOUND（1 回） | FOUND |
+
+- **結果: 2/2 FOUND、needle の U+3000 = 0**。art.2 平坦逐語（61 文字・U+3000 = 0）にも 2 本とも含有。needle の健全性に問題なし。
+
+### BJ-3. 反例探索（`by decide` による kernel 計算）
+
+| 入力 m | 意味 | 期待 | 独立再計算 (m==0) | Lean | 判定 |
+|---|---|---|---|---|---|
+| 0 | 発動機を有する滑空機 | true | true | `isDesignatedAircraft motorizedGlider = true` ✓ | 一致 |
+| 1 | その他（番兵） | false | false | `isDesignatedAircraft otherAircraft = false` ✓ | 一致 |
+| 2 | 列挙外 | false | false | `isDesignatedAircraft 2 = false` ✓ | 一致 |
+
+- すべて `by decide` で kernel 計算確認（`lake env lean`、exit code 0）。**反例 0 件**。特に `m=1`（その他）および `m=2`（列挙外）が `true` とならないことを確認し、原文「1 つのみ」と整合。`Nat` に負数は無く、`m==0` は 0 以外をすべて除外する。定数自体も `motorizedGlider=0` / `otherAircraft=1` を kernel 確認。
+
+### BJ-4. 公理監査
+
+- 一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\bj_axioms.lean` を作成し、対象モジュールの全名前付き宣言 3 つ（`motorizedGlider`, `otherAircraft`, `isDesignatedAircraft`）に `#print axioms` を実行（`lake env lean`、**exit code 0**）。さらに反例／確認 7 つの `example ... := by decide` も同じファイルで kernel 計算し、エラー 0。監査後、一時ファイルは削除済み。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 3（すべて `"does not depend on any axioms"`） |
+| `Classical.choice` | **0 件**（不在） |
+| `sorryAx` | **0 件**（不在） |
+| `Quot.sound` | **0 件**（不在） |
+| `propext` | **0 件**（不在） |
+
+- → 禁止公理は一切検出されず、**propext も 0**。公理監査は合格。
+
+### BJ-5. 分類（CONFIRMED / BY-DESIGN / UNRESOLVED）
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **4** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 欠陥件数を手柄にしない。
+
+**CONFIRMED（0 件）**: 指定機器の列挙（発動機を有する滑空機 1 つのみ）、`motorizedGlider=0` / `otherAircraft=1` の割当て、`isDesignatedAircraft` の真偽、needle 2/2、反例 3/3、公理監査のいずれも pinned 原文との食い違い・不整合なし。モデル値の誤り・取り違えは検出されなかった。
+
+**BY-DESIGN（4 件）**:
+
+- **B-1 指定機器列挙のみの bounded L4 モデル**: doc-comment どおり本モデルは原文 art.2 の「政令で定める航空の用に供することができる機器」の列挙のみを扱う。税率・免税額・手続は扱わない。原文の 1 機器に忠実であり、境界として明示済み。
+- **B-2 機器の Nat 列挙は内部エンコーディング**: `motorizedGlider=0` / `otherAircraft=1` は原文に現れる数字ではなくモデル内部の表現。`otherAircraft=1` は「列挙外」を表す番兵であり、原文に存在する第 2 の指定機器ではない（BJ-1 で確認）。→ スコープ宣言どおりで欠陥ではない。
+- **B-3 `isDesignatedAircraft(m) = (m == 0)` は列挙メンバーシップの内部述語**: 原文に「`==0`」という数値判定は存在しない。本述語は与えられた内部番号が指定機器（発動機付滑空機）に対応するかを判定する写像であり、法的な該当性判定ではない（U-1 参照）。→ 内部表現として設計どおり。
+- **B-4 法2条1号の定義・発動機／滑空機の技術的認定は NOT MODELLED**: doc-comment に明記。**未形式化を確認**（＝スコープ宣言どおりで欠陥ではない）。
+
+**UNRESOLVED（2 件）**:
+
+- **U-1 法2条1号の「航空の用に供することができる機器」の定義・該当性判定の法的妥当性**: pinned art.2 は「法第二条第一号に規定する政令で定める航空の用に供することができる機器は、発動機を有する滑空機とする」と規定するのみで、法2条1号の定義内容（「航空の用に供することができる機器」の範囲・要件）は当該スナップショット内にない。本モデルの Bool 判定（`isDesignatedAircraft`）は与えられた内部番号に対する写像であり、実務上の該当性判定ではない。解釈は pinned 原文（art.2）のみでは決定不能。**人間の法律専門家による確認を要する**。列挙の一致（CONFIRMED = 0）には影響しない。
+- **U-2 発動機・滑空機の技術的認定基準の実務上の完全性**: B-4 のとおり技術的認定は未形式化（スコープ宣言済み）。本モデルは指定機器列挙スライスであり、実際の課税対象判定の法的確定に単独では使用できない。実務上どこまでを形式化すべきかは pinned 原文のみでは決定不能。**人間の法律専門家による確認を要する**。
+
+### BJ-6. 最終報告・総合判定
+
+- pinned revision `347CO0000000057_20250401_507CO0000000006` の art.2 から独立抽出した指定機器は **発動機を有する滑空機 のみ（1 つ）**。`motorizedGlider=0` / `otherAircraft=1` / `isDesignatedAircraft(m)=(m==0)` と完全一致し、**CONFIRMED = 0（発見ゼロ）**。他機器の混入 0 件、取り違え 0 件。
+- **CONFIRMED: 0 件 / BY-DESIGN: 4 件 / UNRESOLVED: 2 件**。
+- **needle 健全性: 2/2 FOUND、U+3000 = 0**（CI `checks()` cycle-65 実文字列を自前正規化原文で検証）。
+- **反例: 0→true / 1→false / 2→false、反例 0 件**（`by decide`）。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` いずれも **0 件**（3 宣言すべて axiom-free、exit code 0）。監査用一時ファイルは削除済み。
+- **法2条1号の定義・発動機／滑空機の技術認定の未形式化を確認**（B-1／B-4／U-1／U-2／スコープ宣言どおり）。
+- **追記後レビュー件数: 60 件**（既存 59 件＝coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` に一致する Batch G〜BI ほかをすべて保持 + 本 BJ 1 件）。既存セクションは一切改変していない。
+- Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。commit / push / merge / ブランチ切替なし。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・機器トークン抽出・needle 実文字列照合・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
+

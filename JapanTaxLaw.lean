@@ -1086,3 +1086,6 @@ import JapanTaxLaw.AircraftScopeTests
 import JapanTaxLaw.AntennaPowerCeiling
 import JapanTaxLaw.AntennaPowerCeilingSpec
 import JapanTaxLaw.AntennaPowerCeilingTests
+import JapanTaxLaw.NoticeCopyDocument
+import JapanTaxLaw.NoticeCopyDocumentSpec
+import JapanTaxLaw.NoticeCopyDocumentTests

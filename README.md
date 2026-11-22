@@ -834,6 +834,9 @@ JapanTaxLaw/FilingRouteTests.lean               # 同上 退行テスト
 JapanTaxLaw/AircraftScope.lean                  # 航空機の範囲 発動機付滑空機（令 art.2）L4 モデル
 JapanTaxLaw/AircraftScopeSpec.lean              # 同上 独立定式
 JapanTaxLaw/AircraftScopeTests.lean             # 同上 退行テスト
+JapanTaxLaw/NoticeCopyDocument.lean            # 法人税特例書類 通知書写し（省令 art.2）L4 モデル
+JapanTaxLaw/NoticeCopyDocumentSpec.lean        # 同上 独立定式
+JapanTaxLaw/NoticeCopyDocumentTests.lean       # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト
