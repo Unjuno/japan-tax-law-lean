@@ -803,3 +803,6 @@ import JapanTaxLaw.LossAndCarryoverNormsTests
 import JapanTaxLaw.SecurityGuaranteeNorms
 import JapanTaxLaw.SecurityGuaranteeNormsSpec
 import JapanTaxLaw.SecurityGuaranteeNormsTests
+import JapanTaxLaw.RatioAndValueNorms
+import JapanTaxLaw.RatioAndValueNormsSpec
+import JapanTaxLaw.RatioAndValueNormsTests
