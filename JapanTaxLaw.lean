@@ -1023,3 +1023,6 @@ import JapanTaxLaw.SpecialTonSplitRatioTests
 import JapanTaxLaw.MonthCountExclusiveBand
 import JapanTaxLaw.MonthCountExclusiveBandSpec
 import JapanTaxLaw.MonthCountExclusiveBandTests
+import JapanTaxLaw.SpecialUseExemption
+import JapanTaxLaw.SpecialUseExemptionSpec
+import JapanTaxLaw.SpecialUseExemptionTests

@@ -11,14 +11,14 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 115
+- with >=1 pinned literal check (semantic model): 116
 - with recorded human legal review: 0
 
 ## All laws
 
 | law_id | title | revision | enforcement | raw | parse | articles | pinned checks | human review |
 |---|---|---|---|---|---|---:|---|---|
-| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (23) | NO |
+| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (25) | NO |
 | `322CO0000000109` | 昭和二十二年政令第百九号（財産税法等による物納に因る不動産登記の特例に関する政令） | 322CO0000000109_19470627_000000000000000 | CurrentEnforced | YES | ok | 4 | YES (1) | NO |
 | `322AC0000000175` | 昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律） | 322AC0000000175_20220101_503AC0000000011 | CurrentEnforced | YES | ok | 78 | YES (2) | NO |
 | `322CO0000000268` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施 | 322CO0000000268_20251201_507CO0000000120 | CurrentEnforced | YES | ok | 113 | YES (5) | NO |
@@ -74,7 +74,7 @@ a completion flag.
 | `331M50000002047` | アメリカ合衆国軍隊等が行う免税軽油の引取りの手続に関する総理府令 | 331M50000002047_20090401_421M60000008036 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `332AC0000000026` | 租税特別措置法 | 332AC0000000026_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 3736 | YES (12) | NO |
 | `332AC0000000037` | とん税法 | 332AC0000000037_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 77 | YES (2) | NO |
-| `332AC0000000038` | 特別とん税法 | 332AC0000000038_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 47 | YES (1) | NO |
+| `332AC0000000038` | 特別とん税法 | 332AC0000000038_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 47 | YES (2) | NO |
 | `332CO0000000043` | 租税特別措置法施行令 | 332CO0000000043_20261101_507CO0000000127 | CurrentEnforced | YES | ok | 2820 | YES (6) | NO |
 | `332CO0000000048` | とん税法施行令 | 332CO0000000048_20201001_502CO0000000128 | CurrentEnforced | YES | ok | 20 | NO (0) | NO |
 | `332CO0000000049` | 特別とん税法施行令 | 332CO0000000049_20201001_502CO0000000128 | CurrentEnforced | YES | ok | 14 | NO (0) | NO |
@@ -117,7 +117,7 @@ a completion flag.
 | `340M50000040049` | 国税質問検査章規則 | 340M50000040049_20260101_506M60000040048 | CurrentEnforced | YES | ok | 56 | NO (0) | NO |
 | `340AC0000000156` | 石油ガス税法 | 340AC0000000156_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 76 | YES (1) | NO |
 | `340AC0000000157` | 石油ガス譲与税法 | 340AC0000000157_20090401_421AC0000000009 | CurrentEnforced | YES | ok | 29 | YES (1) | NO |
-| `341CO0000000005` | 石油ガス税法施行令 | 341CO0000000005_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 42 | NO (0) | NO |
+| `341CO0000000005` | 石油ガス税法施行令 | 341CO0000000005_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 42 | YES (1) | NO |
 | `341M50000040004` | 石油ガス税法施行規則 | 341M50000040004_20250401_507M60000040023 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `341M50000008002` | 石油ガス譲与税法施行規則 | 341M50000008002_20191128_501M60000008059 | CurrentEnforced | YES | ok | 30 | YES (2) | NO |
 | `341M50000040019` | とん税の納付書の様式を定める省令 | 341M50000040019_19660331_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
@@ -189,7 +189,7 @@ a completion flag.
 | `403CO0000000174` | 地価税法施行令 | 403CO0000000174_20250722_507CO0000000249 | CurrentEnforced | YES | ok | 62 | YES (2) | NO |
 | `403M50000040031` | 地価税法施行規則 | 403M50000040031_20260401_508M60000040010 | CurrentEnforced | YES | ok | 53 | NO (0) | NO |
 | `403M50000040054` | 電子情報処理組織を使用して処理する場合における国税等の徴収関係事務等の取扱いの特例に関す | 403M50000040054_20260924_508M60000040059 | CurrentEnforced | YES | ok | 88 | NO (0) | NO |
-| `404AC0000000015` | 法人特別税法 | 404AC0000000015_20010401_413AC0000000006 | CurrentEnforced | YES | ok | 33 | YES (2) | NO |
+| `404AC0000000015` | 法人特別税法 | 404AC0000000015_20010401_413AC0000000006 | CurrentEnforced | YES | ok | 33 | YES (3) | NO |
 | `404CO0000000089` | 法人特別税法施行令 | 404CO0000000089_20010106_412CO0000000307 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `404M50000008008` | 沖縄振興開発特別措置法第十五条等の地方税の課税免除又は不均一課税に伴う措置が適用される場 | 404M50000008008_20020301_414M60000008019 | CurrentEnforced | YES | ok | 13 | NO (0) | NO |
 | `404M50000040015` | 法人特別税法施行規則 | 404M50000040015_20030106_414M60000040072 | CurrentEnforced | YES | ok | 7 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 186
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 188
