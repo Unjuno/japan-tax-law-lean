@@ -11,7 +11,7 @@ Pinned source:
   Revision: 414M60000008042_20250401_507M60000008028
   Raw snapshot: data/raw/414M60000008042_20250401_507M60000008028.law.json
   sha256: 5aca579dacd513116533f1a62abe88320dd4fdf5200b57d45973f41cd6fa1182
-  Statutory article: 第四条 (art. 4), 第一項 (1), 第三号 (3), イ (subitem 2)
+  Statutory article: 第四条 (art. 4), 第一項 (1), 第三号 (3), ロ (subitem 2)
   Source path: LawBody[2]/MainProvision/MainProvision[3]/Article:4/Article#4/
                Paragraph#1/Item#3/Subitem1#2/Subitem1Sentence/Sentence#1
   Normative unit id: NORM|c04fbcd7afdfbd2789ed292aed888fce9110f73ce74c9c5ced62c87e82924d41

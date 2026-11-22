@@ -1,7 +1,7 @@
 import JapanTaxLaw.MachineryCostExcess1M
 
 /-
-# MachineryCostExcess1MSpec — independent spec for 沖縄振興省令 art.4(1)(3)イ（百万円超）
+# MachineryCostExcess1MSpec — independent spec for 沖縄振興省令 art.4(1)(3)ロ（百万円超）
 
 Pinned source:
   Law id: 414M60000008042

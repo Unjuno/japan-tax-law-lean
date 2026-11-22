@@ -1,4 +1,4 @@
-# Unit review — 沖縄振興省令 art.4(1)(3)イ（機械装置取得価額百万円超）
+# Unit review — 沖縄振興省令 art.4(1)(3)ロ（機械装置取得価額百万円超）
 
 Normative unit id: `NORM|c04fbcd7afdfbd2789ed292aed888fce9110f73ce74c9c5ced62c87e82924d41`
 
@@ -19,7 +19,7 @@ costs > ¥1,000,000 (超える strict lower bound).
 | T (reproduction) | `python scripts/ci/transcription_audit.py` pin 「沖縄振興省令 art.4(1)(3)イ…↔ MachineryCostExcess1M.lean」 law 414M60000008042, article 第四条; needle unique. Full audit: 395/395 passed. |
 | D (decision) | PASS — needle located uniquely in scoped Article 第四条. |
 | C (competing interpretation) | Reading 超える as inclusive 以上 would admit exactly ¥1,000,000; the kernel theorem `floor_exclusive` rejects that reading. |
-| U (uncertainty) | Transcription fidelity only, not legal correctness. The イ category, gated tax exemption and 機械及び装置 definition require human legal review (`LEGAL_REVIEW_PENDING`). |
+| U (uncertainty) | Transcription fidelity only, not legal correctness. The ロ category, gated tax exemption and 機械及び装置 definition require human legal review (`LEGAL_REVIEW_PENDING`). |
 
 ## Model and proof scope
 
@@ -30,7 +30,7 @@ costs > ¥1,000,000 (超える strict lower bound).
 
 ## Not modelled (explicitly retained as unhandled scope)
 
-The イ category, the gated tax exemption/non-uniform taxation, 機械及び装置
+The ロ category, the gated tax exemption/non-uniform taxation, 機械及び装置
 definitions, other items/subitems and enforcement rules. This is a computable
 slice of one CONDITION norm unit, not an article-level claim.
 
