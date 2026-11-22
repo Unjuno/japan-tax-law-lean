@@ -475,13 +475,13 @@
       "boundary_proof": "GiftTax.lean giftTax_zero_below_deduction (kernel decided); spec boundary examples at 0/2M/3M/4M/6M/10M/15M/30M yen",
       "cross_law_proof": "queue unit dependencies=[]; independent check in docs/GIFT_21_5_VERIFICATION.md#4 records no cross-law relation for this unit",
       "decomposition_audit": "docs/GIFT_21_5_VERIFICATION.md#1-source-independent-extraction; queue unit text located verbatim in the pinned article",
-      "implementation": "JapanTaxLaw/GiftTax.lean sha256=d6143c80188db2c66ffb397a3b84f38dd53c64e7333862141205a9e0fb9435fd",
-      "independent_spec": "JapanTaxLaw/GiftTaxSpec.lean sha256=453d34aa1fb94ddd81fc9cb27978b695836998c4cbd60cf3c4c7196daf32fb4f",
+      "implementation": "JapanTaxLaw/GiftTax.lean sha256=03d3c82b4c1b76cf89693d930cb1d1b638d9f46c2d64ad5c39fffc32e9175d1f",
+      "independent_spec": "JapanTaxLaw/GiftTaxSpec.lean sha256=5d893fa4bc46b1f2b20c2fc13b0e44444ff19705682ab9b5e5a3f7e0059537ce",
       "kernel_proof": "lake build JapanTaxLaw.GiftTaxSpec + lake env lean gift_axioms.lean: agreeGiftTax and spec_impl_basic_deduction_agree depend on no axioms; see docs/GIFT_21_5_VERIFICATION.md#3",
       "proof_scope": "docs/GIFT_21_5_VERIFICATION.md#3 grid-based agreement is a scoped claim, not universal; documented scope limits in GiftTax.lean",
       "source_correspondence_audit": "python scripts/ci/source_correspondence.py (D=PASS, verbatim_located=true, amounts_in_source=[600000]) recorded in docs/GIFT_21_5_VERIFICATION.md#2",
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:21_5/Paragraph#1/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7",
-      "tests": "JapanTaxLaw/GiftTaxTests.lean sha256=725c5b29a5cb14f99245c2f37a386cab37151754ca2c5390c61ab849f157a839; lake build JapanTaxLaw.GiftTaxTests succeeded"
+      "tests": "JapanTaxLaw/GiftTaxTests.lean sha256=61da8d8efd62e5faedd9fe95fab833e7bc41d583b34738c8de6bc7b499c86f11; lake build JapanTaxLaw.GiftTaxTests succeeded"
     },
     "NORM|1686dcd861b9a3aef6711f7887ce50ba1bfa87a0a205d7df414fae2e15038020": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -4980,6 +4980,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle in clause + all spec numerals in scoped article: ['その金額が二百万円を超える場合には、二百万円']; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"100000\": [], \"10000000\": [], \"110000\": [], \"130000\": [], \"150000\": [], \"2\": [\"二\"], \"2000000\": [\"二百万\"], \"220000\": [], \"24000000\": [], \"24500000\": [], \"25000000\": [], \"260000\": [], \"290000\": [], \"300000\": [], \"330000\": [], \"380000\": [], \"4\": [], \"430000\": [], \"5\": [], \"530000\": [], \"9000000\": [], \"9500000\": []}; statutory rate = none; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:34/Article#34/Paragraph#1/Item#2/ItemSentence/Column#2/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalIncomeTaxTests.lean sha256=017a1f256a089f692a0f6f7c5971879339d07ba26a588ff0ae0a6c3d01450104 (55 kernel-decided examples)"
+    },
+    "NORM|c8d2540f3dcbd0d71d4c31a4833f7616bb803940ef8c78479d752b2588172adc": {
+      "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[25]/Article:14/Article#14/Paragraph#1/Item#16/ItemSentence/Sentence#1 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c (revision from INVENTORY current_revision, matched raw revision_info)",
+      "decomposition_audit": "build/task_queue.json: kind=DELEGATION, decomposed=true, exact span, unhandled_conditions=[], id unique",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS customs tariff art.14 disabled-person equipment delegation; 400/400 checks passed; verbatim needle unique in whole law; article-kind locator (find_article_text(...,'第十四条') returns article len 1655 containing needle); 政令で定めるもの delegation modeled; law identity Act + real revision; all statutory strings injected from queue (no hand-typed CJK); byte-fidelity equal=True, U+6EDE=0",
+      "independent_spec": "JapanTaxLaw/CustomsTariffArt14DisabledPersonEquipmentDelegationSpec.lean sha256=029c338c5214d95a0f3d5247e853ff36fb389fcdf516894d2e02f53426084364 (SpecCabinetOrder a:=(a=cabinetOrder) propositional predicate, representationally distinct from impl constant prescriptionAuthority; agree_prescription_authority + spec_act_not_cabinet axiom-free via rfl/cases)",
+      "implementation": "JapanTaxLaw/CustomsTariffArt14DisabledPersonEquipmentDelegation.lean sha256=bb96e92b0ab68997e53524e988a6563416926ed300526e85ad92fa5ce28814c9 (関税定率法 art.14(1) Item 16 DELEGATION: GoodsClass listed/other, Authority act/cabinetOrder, prescriptionAuthority cabinetOrder; Cabinet Order content NOT MODELLED; Act)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (1255 jobs); all four unit theorems axiom-free via axiom probe; no sorryAx/Classical.choice",
+      "proof_scope": "docs/UNIT_CUSTOMS_TARIFF_ART14_DISABLED_PERSON_EQUIPMENT_DELEGATION.md (computable delegating-structure slice of one DELEGATION norm unit in 関税定率法 art.14(1) Item 16; Cabinet Order content NOT MODELLED)",
+      "boundary_proof": "JapanTaxLaw/CustomsTariffArt14DisabledPersonEquipmentDelegationTests.lean: prescription_is_cabinet_order, listed/other distinctness, independent spec agreement (both theorems axiom-free)",
+      "cross_law_proof": "queue unit dependencies analyzed; 政令 is a delegated instrument, not a distinct Act constant claimed; no cross-law constant asserted",
+      "tests": "JapanTaxLaw/CustomsTariffArt14DisabledPersonEquipmentDelegationTests.lean sha256=a876ba7f7f4154a154fffd0cb1f34c654da6e2b8c7d3d08ab69e4856588f431b (kernel-checked delegation checks)",
+      "adversarial_review": "docs/ADVERSARIAL_CUSTOMS_TARIFF_ART14_DISABLED_PERSON_EQUIPMENT_DELEGATION.md — NO FINDINGS via independent 16-point programmatic cross-check (0 fails) from authoritative sources (queue needle, raw JSON, INVENTORY), NOT from author prose: sha256 924a01d3…e9c, needle count 1 at Article 第十四条 len 1655 Item 16, law identity 関税定率法 NOT 関税法 with real revision, five byte-exact quote sites (no hand-typed deviation), 政令で定めるもの delegation faithful, four unit theorems axiom-free with no propext, ASCII-only audit, no duplicate, hashes match, audit 400/400. Independent adversarial reviewer returned NO FINDINGS with all mandated checks reproduced; separate 16-point cross-check 0 fails; no finding reproduced. No legal correctness claim; human legal review pending."
     }
   }
 }
