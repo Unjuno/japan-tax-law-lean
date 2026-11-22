@@ -800,3 +800,6 @@ import JapanTaxLaw.CertificateAndRateNormsTests
 import JapanTaxLaw.LossAndCarryoverNorms
 import JapanTaxLaw.LossAndCarryoverNormsSpec
 import JapanTaxLaw.LossAndCarryoverNormsTests
+import JapanTaxLaw.SecurityGuaranteeNorms
+import JapanTaxLaw.SecurityGuaranteeNormsSpec
+import JapanTaxLaw.SecurityGuaranteeNormsTests
