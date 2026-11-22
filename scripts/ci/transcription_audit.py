@@ -2199,17 +2199,11 @@ def checks():
            "file", None,
            ["これに相当する相続税法の規定による控除の額に同条に規定する割合を乗じて得た額", "控除の特例）第二条"])
 
-    # TaxNoticeDeadline — cycle-75
-    yield ("TaxNoticeDeadline.lean",
-           "327AC0000000119",
+    # HousingLoanCredit — cycle-77
+    yield ("HousingLoanCredit.lean",
+           "407AC0000000011",
            "file", None,
-           ["遅くとも、その納期限前十日までに納税者に交付しなければならない", "自動車税及び軽自動車税の徴収の方法等）第四条"])
-
-    # RoadAreaRate — cycle-76
-    yield ("RoadAreaRate.lean",
-           "331M50000002007",
-           "file", None,
-           ["道路の面積は、次表の上欄に掲げる道路の種別", "橋りよう四・〇"])
+           ["千万円以下である場合当該合計額の二パーセントに相当する金額", "千万円を超え二千万円以下である場合"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -3169,6 +3163,35 @@ def checks():
            "332CO0000000043",
            "file", None,
            ["当該株式交付により当該株式交付子会社の株式を五十人以上の当該株式交付子会社の株主から取得をした場合"])
+
+    # 沖縄振興省令 art.4(1)(3)イ — MachineryCostExcess1M.lean (機械装置取得価額百万円超)
+    yield ("沖縄振興省令 art.4(1)(3)ロ（機械装置取得価額百万円超）↔ MachineryCostExcess1M.lean (floor 1_000_000, 超える strict)",
+           "414M60000008042",
+           "article", "第四条",
+           ["イに掲げるもののほか、機械及び装置で、これらの取得価額の合計額が百万円を超えるもの"])
+    # 生活費・教育費の支払 三十八万円以上 — LivingSupport380kArt314.lean
+    yield ("地方税法 art. 314_2（生活費・教育費の支払 三十八万円以上）↔ LivingSupport380kArt314.lean (supportFloorArt314 380000)",
+           "325AC0000000226",
+           "file", None,
+           ["その市町村民税の納税義務者から前年において生活費又は教育費に充てるための支払を三十八万円以上受けている者"])
+
+    # 合計所得金額の見積額 百三十二万円以下 — Income1320k.lean
+    yield ("租税特別措置法 art. 41_16_2（合計所得金額の見積額 百三十二万円以下）↔ Income1320k.lean (incomeCap1320k 1320000)",
+           "332AC0000000026",
+           "file", None,
+           ["その居住者のその年分の所得税に係る合計所得金額が百三十二万円以下である場合"])
+
+    # 組合員その他の構成員の数 五十万人以上 — Members500k.lean
+    yield ("租税特別措置法 art. 68（組合員その他の構成員の数 五十万人以上）↔ Members500k.lean (memberFloor500k 500000)",
+           "332AC0000000026",
+           "file", None,
+           ["当該事業年度終了の時における組合員その他の構成員の数が五十万人以上であること。"])
+
+    # 導線の中心間隔 百六十五ナノメートル以下 — WirePitch165nm.lean
+    yield ("租税特別措置法施行令 art. 27_12_6（導線の中心間隔 百六十五ナノメートル以下）↔ WirePitch165nm.lean (pitchCap165nm 165)",
+           "332CO0000000043",
+           "file", None,
+           ["トランジスター上に配置される導線の中心の間隔が最も短い箇所において百六十五ナノメートル以下の特定演算半導体"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
