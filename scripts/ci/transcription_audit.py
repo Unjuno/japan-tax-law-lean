@@ -2087,6 +2087,12 @@ def checks():
            "file", None,
            ["前条に規定する通知書の写しとする", "法人税の特例）第二条"])
 
+    # TrustedAffairsClassification — cycle-67
+    yield ("TrustedAffairsClassification.lean",
+           "504CO0000000300",
+           "file", None,
+           ["第二条第九項第一号に規定する第一号法定受託事務とする", "事務の区分）第十条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2805,6 +2811,13 @@ def checks():
            "329CO0000000155",
            "article", "第一条の八",
            ["いずれか一方の者が他方の者の事業に係る議決権を伴う社外株式の総数の五パーセント以上の社外株式を直接又は間接に所有し、管理し、又は所持している場合"])
+
+
+    # 登録免許税法 art. 14 — RegistrationFeePerItem.lean
+    yield ("登録免許税法 art. 14（担保付社債金額がない場合 権利一件につき千五百円）↔ RegistrationFeePerItem.lean (1500 per item)",
+           "342AC0000000035",
+           "article", "第十四条",
+           ["この場合において、当該担保付社債の金額がないときは、当該登録免許税の課税標準及び税率は、当該登記又は登録に係る不動産等に関する権利の件数一件につき千五百円とする。"])
 
 
 def main() -> int:

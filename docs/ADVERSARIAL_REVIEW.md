@@ -7919,3 +7919,90 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 
 > **本レビューは機械的独立照合（pinned 原文 parse・機器トークン抽出・needle 実文字列照合・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
 
+## Batch BK review (2026-11-22) — 法人税の特例に関する省令 art.2 / NoticeCopyDocument.lean（cycle-66 独立照合）
+
+- **レビュア**: Adversarial Review Agent（形式化担当から独立）。SKILL / STAGING / doc-comment の記述は**信頼せず**、pinned 原文（生 JSON バイト）・CI 実文字列・反例・`#print axioms` を各々独立に再検証した。
+- **対象（読み取り専用・変更していない）**: `JapanTaxLaw/NoticeCopyDocument.lean`（`namespace JapanTaxLaw.NoticeCopyDocument`、定数 `noticeCopy` / `otherDocument` / `isSpecifiedDocument`）。補助 `NoticeCopyDocumentSpec.lean` / `NoticeCopyDocumentTests.lean` も照合に使用（読み取りのみ）。
+- **原文（pinned・再現）**: `data/raw/422M60000040052_20101029_000000000000000.law.json`（law_id `422M60000040052` / revision `422M60000040052_20101029_000000000000000`、`law_title`「平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての所得税及び法人税の臨時特例に関する法律施行規則」）。
+- **needle 出所**: `scripts/ci/transcription_audit.py::checks()` の cycle-66 エントリ（`name="NoticeCopyDocument.lean"` / `law_id="422M60000040052"` / `kind="file"` / `art=None`）から実文字列 2 本を Python で直接取得（STAGING 記載は不使用）。
+- **作業制約の順守**: commit / push / merge / ブランチ切替は一切行わない。Lean モジュール・`data/*`・`scripts/*` は読み取り専用。変更したのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ（末尾に本セクションを追記）。read-then-write で既存履歴を保持。
+
+### BK-1. pinned 原文からの独立抽出（指定書類の列挙 = 1）
+
+- `law_full_text` を再帰走査し `tag="Article"` かつ `attr.Num="2"` のノードを探索 → **1 個のみ**（ART2_COUNT = 1。他は `Num="1"`）。leaf を文書順に連結すると、caption `（法人税の特例）` / title `第二条` / Paragraph Sentence `令第二条第二項に規定する財務省令で定める書類は、前条に規定する通知書の写しとする。`。
+- 自前正規化（空白・U+3000 を除去）した art.2 全体（caption+title+本文）は **52 文字 / U+3000 = 0**（doc-comment の「flat/normalized leaf text 52 chars, U+3000 count 0」と一致）。Paragraph 本文のみでは 41 文字 / U+3000 = 0。
+- 記述抽出: `書類は` と `とする` の間を正規表現で切り出し → `、前条に規定する通知書の写し`（先頭読点のみ）。本文内の区切り記号 `、` / `及び` / `並びに` の出現 = 0。よって指定書類の列挙は **`前条に規定する通知書の写し` のみ、個数 = 1**。
+- 実装との照合: `noticeCopy=0` / `otherDocument=1` / `isSpecifiedDocument(d)=(d==0)`。原文が指定するのは通知書の写し 1 種のみであり、`otherDocument=1` は「その他」を表す便宜値で原文上の第 2 の指定書類ではない。**EXTRACT_MATCH = True（完全一致）**。
+
+### BK-2. needle 健全性（CI `checks()` の実文字列 2 本を自前正規化原文で照合）
+
+- needle は自前で `checks()` cycle-66 エントリから取得。原文全体を再帰連結して自前正規化（CI `_norm` と同価の空白・U+3000 除去）し、`count()` / `in` で独立照合した。
+
+| needle（CI 実文字列） | 文字数 | U+3000 | 全体正規化（604 文字） | art.2 正規化（52 文字） |
+|---|---:|---:|---|---|
+| `前条に規定する通知書の写しとする` | 16 | 0 | FOUND（1 回） | FOUND（1 回） |
+| `法人税の特例）第二条` | 10 | 0 | FOUND（1 回） | FOUND（caption+title を跨ぐ） |
+
+- 原文全体は生 605 文字 / U+3000 = 1 → 自前正規化で 604 文字 / U+3000 = 0。needle 自身の U+3000 = 0、改行・余分な空白なし。**判定: 2/2 FOUND、needle U+3000 = 0**。
+
+### BK-3. 反例探索（`by decide` / `#eval` による kernel 計算）
+
+| 入力 d | 意味 | 期待 | 独立計算 (d==0) | Lean | 判定 |
+|---|---|---|---|---|---|
+| 0 | 通知書の写し | true | true | `isSpecifiedDocument 0 = true` | 一致 |
+| 1 | その他 | false | false | `isSpecifiedDocument 1 = false` | 一致 |
+| 2 | 範囲外 | false | false | `isSpecifiedDocument 2 = false` | 一致 |
+
+- `lake env lean --stdin` で `#eval` / `by decide` を実行（exit code 0）。**発見 0**。定数 `noticeCopy=0` / `otherDocument=1` も kernel 確認。`d=1`（その他）および `d=2`（範囲外）が `true` とならないことを確認し、列挙が「1 つのみ」であることを裏取りした。
+
+### BK-4. 公理監査（`#print axioms`）
+
+- `lake env lean --stdin` で対象モジュールの全宣言 `noticeCopy` / `otherDocument` / `isSpecifiedDocument` および Spec の `specDocument` / `agreeNoticeCopyDocument` に `#print axioms` を実行（**exit code 0**）。すべて `"does not depend on any axioms"`。
+
+| 監査項目 | 結果 |
+|---|---|
+| 監査宣言数 | 5（すべて axiom-free） |
+| `Classical.choice` | **0 件**（不在） |
+| `sorryAx` | **0 件**（不在） |
+| `Quot.sound` | **0 件**（不在） |
+| `propext` | **0 件**（不在） |
+
+- 不可解な依存は検出されず、**公理監査は健全**。監査は stdin 入力で実施し Lean 一時ファイルは未作成。抽出用一時ファイルは削除済み。
+
+### BK-5. 分類（CONFIRMED / BY-DESIGN / UNRESOLVED）
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **4** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 形式化の誤りは検出されなかった。
+
+**CONFIRMED（0 件）**: 指定書類の列挙（通知書の写し 1 つのみ）、定数値、判定関数の真偽、needle 2/2、反例 3/3、公理監査 — いずれも pinned 原文と整合し、食い違い・不正なし。反例探索でも誤判定は生じなかった。
+
+**BY-DESIGN（4 件）**:
+
+- **B-1 書類列挙のみの bounded L4 モデル**: doc-comment のとおり本モデルは art.2 の「書類は、…通知書の写しとする」の列挙のみを形式化する。書類数が 1 に限定されるのは原文どおりであり、設計上の限定であって欠落ではない。
+- **B-2 書類の Nat 列挙は便宜的エンコーディング**: `noticeCopy=0` / `otherDocument=1` は原文に現れる番号ではなくモデル表現である。`otherDocument=1` は「その他」を表す便宜値であり、原文上の第 2 の指定書類ではない（BK-1 で確認）。ソース改変の根拠にならない。
+- **B-3 `isSpecifiedDocument(d)=(d==0)` は列挙 membership の決定手続き**: `==0` という形は原文に無いが、与えられた列挙番号が指定書類（通知書の写し）に対応するかを判定する補助関数であり、実体的な法的判断ではない。
+- **B-4 令2条2項の特例内容・通知書手続・書類形式/記載事項の NOT MODELLED**: doc-comment に明記。本レビューでも未形式化を確認（U-1 / U-2 参照）。
+
+**UNRESOLVED（2 件）**:
+
+- **U-1 令2条2項の特例の内容・「前条に規定する通知書」の発行手続の法的判断**: pinned 原文（art.2 の 1 文のみ）は「令第二条第二項に規定する財務省令で定める書類は、前条に規定する通知書の写しとする」と規定するのみで、施行令第2条第2項の特例の内容や通知書の発行手続・適用範囲は別源にある。pinned 原文のみでは確定不能。**人間の法律専門家レビューを要する**。分類件数（CONFIRMED = 0）には影響しない。
+- **U-2 書類の物理的形式・記載事項の完全な定義**: B-4 と同趣旨で未形式化。本モデルは書類列挙の Bool 判定のみであり、実際の提出書類の法的妥当性を単純化して判断できない。どこまでを形式化すべきかは pinned 原文のみでは決定不能。**人間の法律専門家レビューを要する**。
+
+### BK-6. 最終報告・結論
+
+- pinned revision `422M60000040052_20101029_000000000000000` の art.2 から独立抽出した指定書類は **通知書の写し のみ（1 個）**。実装と完全一致し、**CONFIRMED = 0（発見ゼロ）**。形式的誤り 0 件、反例 0 件。
+- **CONFIRMED: 0 件 / BY-DESIGN: 4 件 / UNRESOLVED: 2 件**。
+- **needle 健全性: 2/2 FOUND、needle U+3000 = 0**（CI `checks()` cycle-66 実文字列を自前正規化原文で照合）。
+- **反例: 0→true / 1→false / 2→false、発見 0**（`by decide` / `#eval`）。
+- **公理監査**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて **0 件**（5 宣言すべて axiom-free、exit code 0）。
+- **令2条2項の特例内容・通知書手続の未形式化を確認**（B-4 / U-1 / U-2、doc-comment 明記）。
+- **追記後レビュー件数: 61 件**（既存 60 件の `## ... review` 見出しを全て保持 + 本 BK 1 件）。本 BK 見出しは coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|所得税法|Article-pinned)[^\n]*review` に合致する。付記: 同 regex を厳密適用すると追記前 59 / 追記後 60 件となり、既存見出し `## 国税徴収法 104の2 review (2026-11-18)` は `所得税法` ではなく `国税徴収法` のため一致しない（当該見出し自体は保持）。本セクションの件数は `## ... review` 見出し数（60→61）で算出した。既存セクションは全て保持。
+- Lean モジュール / `data/*` / `scripts/*` は読み取り専用。commit / push / merge / ブランチ切替なし。変更は `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・書類列挙抽出・needle 文字列照合・反例評価・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な最終判断は専門家に委ねる。本レビューをもって法的レビューが完了したとみなしてはならない。一時ファイルは削除済み。
+

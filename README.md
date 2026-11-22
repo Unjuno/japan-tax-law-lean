@@ -837,6 +837,9 @@ JapanTaxLaw/AircraftScopeTests.lean             # 同上 退行テスト
 JapanTaxLaw/NoticeCopyDocument.lean            # 法人税特例書類 通知書写し（省令 art.2）L4 モデル
 JapanTaxLaw/NoticeCopyDocumentSpec.lean        # 同上 独立定式
 JapanTaxLaw/NoticeCopyDocumentTests.lean       # 同上 退行テスト
+JapanTaxLaw/TrustedAffairsClassification.lean      # 事務の区分 第一号法定受託事務（政令 art.10）L4 モデル
+JapanTaxLaw/TrustedAffairsClassificationSpec.lean  # 同上 独立定式
+JapanTaxLaw/TrustedAffairsClassificationTests.lean # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト
