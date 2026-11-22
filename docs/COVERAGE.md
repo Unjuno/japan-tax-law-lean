@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 124 | 327 | 37.92% |
+| laws with >=1 pinned literal check | 126 | 327 | 38.53% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 351 | n/a | n/a |
-| distinct article pins | 151 | 42584 | 0.35% |
-| pinned Lean modules (cross-law) | 758 | n/a | n/a |
+| pinned literal checks | 355 | n/a | n/a |
+| distinct article pins | 153 | 42584 | 0.36% |
+| pinned Lean modules (cross-law) | 765 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 344 |
+| unpinned Lean modules (not counted as verified) | 349 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 61 |
+| adversarial review sessions recorded | 62 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -158,6 +158,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `335CO0000000069` 関税暫定措置法施行令
 - `337AC0000000066` 国税通則法
 - `337CO0000000097` 酒税法施行令
+- `337CO0000000135` 国税通則法施行令
 - `337CO0000000227` 外国居住者等の所得に対する相互主義による所得税等の非課税等に関する法律施行令
 - `337M50000008017` 普通交付税に関する省令
 - `337M50000040026` 酒税法施行規則
@@ -173,6 +174,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `340M50000040012` 法人税法施行規則
 - `341CO0000000005` 石油ガス税法施行令
 - `341M50000008002` 石油ガス譲与税法施行規則
+- `341M50000040055` 関税法施行規則
 - `342AC0000000023` 印紙税法
 - `342AC0000000035` 登録免許税法
 - `342CO0000000108` 印紙税法施行令

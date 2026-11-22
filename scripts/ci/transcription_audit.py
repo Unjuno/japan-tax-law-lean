@@ -2102,6 +2102,12 @@ def checks():
            "file", None,
            ["第二条第九項第一号に規定する第一号法定受託事務とする", "事務の区分）第十条"])
 
+    # PublicityMatter — cycle-68
+    yield ("PublicityMatter.lean",
+           "341M50000040055",
+           "file", None,
+           ["財務大臣が同条第一項の規定による指定をした日とする", "公示事項）第一条の十一"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",

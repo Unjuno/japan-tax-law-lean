@@ -11,14 +11,14 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 124
+- with >=1 pinned literal check (semantic model): 126
 - with recorded human legal review: 0
 
 ## All laws
 
 | law_id | title | revision | enforcement | raw | parse | articles | pinned checks | human review |
 |---|---|---|---|---|---|---:|---|---|
-| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (31) | NO |
+| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (32) | NO |
 | `322CO0000000109` | 昭和二十二年政令第百九号（財産税法等による物納に因る不動産登記の特例に関する政令） | 322CO0000000109_19470627_000000000000000 | CurrentEnforced | YES | ok | 4 | YES (1) | NO |
 | `322AC0000000175` | 昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律） | 322AC0000000175_20220101_503AC0000000011 | CurrentEnforced | YES | ok | 78 | YES (2) | NO |
 | `322CO0000000268` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施 | 322CO0000000268_20251201_507CO0000000120 | CurrentEnforced | YES | ok | 113 | YES (5) | NO |
@@ -95,7 +95,7 @@ a completion flag.
 | `337CO0000000097` | 酒税法施行令 | 337CO0000000097_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 165 | YES (1) | NO |
 | `337M50000040026` | 酒税法施行規則 | 337M50000040026_20250401_507M60000040034 | CurrentEnforced | YES | ok | 75 | YES (1) | NO |
 | `337AC0000000066` | 国税通則法 | 337AC0000000066_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 433 | YES (7) | NO |
-| `337CO0000000135` | 国税通則法施行令 | 337CO0000000135_20260401_507CO0000000126 | CurrentEnforced | YES | ok | 193 | NO (0) | NO |
+| `337CO0000000135` | 国税通則法施行令 | 337CO0000000135_20260401_507CO0000000126 | CurrentEnforced | YES | ok | 193 | YES (1) | NO |
 | `337M50000040028` | 国税通則法施行規則 | 337M50000040028_20261101_507M60000040025 | CurrentEnforced | YES | ok | 95 | YES (1) | NO |
 | `337M50000040030` | 揮発油税法施行規則 | 337M50000040030_20191216_501M60000040036 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `337M50000040031` | 国税徴収法施行規則 | 337M50000040031_20260521_506M60000040023 | CurrentEnforced | YES | ok | 32 | NO (0) | NO |
@@ -121,11 +121,11 @@ a completion flag.
 | `341M50000040004` | 石油ガス税法施行規則 | 341M50000040004_20250401_507M60000040023 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `341M50000008002` | 石油ガス譲与税法施行規則 | 341M50000008002_20191128_501M60000008059 | CurrentEnforced | YES | ok | 30 | YES (2) | NO |
 | `341M50000040019` | とん税の納付書の様式を定める省令 | 341M50000040019_19660331_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
-| `341M50000040055` | 関税法施行規則 | 341M50000040055_20260601_508M60000040016 | CurrentEnforced | YES | ok | 184 | NO (0) | NO |
+| `341M50000040055` | 関税法施行規則 | 341M50000040055_20260601_508M60000040016 | CurrentEnforced | YES | ok | 184 | YES (1) | NO |
 | `342AC0000000023` | 印紙税法 | 342AC0000000023_20261001_507AC0000000070 | CurrentEnforced | YES | ok | 403 | YES (3) | NO |
 | `342CO0000000108` | 印紙税法施行令 | 342CO0000000108_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 105 | YES (1) | NO |
 | `342M50000040019` | 印紙税法施行規則 | 342M50000040019_20010106_412M50000040069 | CurrentEnforced | YES | ok | 26 | NO (0) | NO |
-| `342AC0000000035` | 登録免許税法 | 342AC0000000035_20261101_508AC0000000021 | CurrentEnforced | YES | ok | 716 | YES (32) | NO |
+| `342AC0000000035` | 登録免許税法 | 342AC0000000035_20261101_508AC0000000021 | CurrentEnforced | YES | ok | 716 | YES (33) | NO |
 | `342CO0000000146` | 登録免許税法施行令 | 342CO0000000146_20261001_507CO0000000124 | CurrentEnforced | YES | ok | 142 | YES (5) | NO |
 | `342M50000040037` | 登録免許税法施行規則 | 342M50000040037_20260401_508M60000040008 | CurrentEnforced | YES | ok | 125 | YES (1) | NO |
 | `344M50000040016` | 関税定率法施行規則 | 344M50000040016_20260401_508M60000040016 | CurrentEnforced | YES | ok | 84 | YES (1) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 201
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 204

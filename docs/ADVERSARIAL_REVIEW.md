@@ -8006,3 +8006,90 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 
 > **本レビューは機械的独立照合（pinned 原文 parse・書類列挙抽出・needle 文字列照合・反例評価・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な最終判断は専門家に委ねる。本レビューをもって法的レビューが完了したとみなしてはならない。一時ファイルは削除済み。
 
+## Batch BL review (2026-11-22) — 森林環境税及び森林環境譲与税に関する法律施行令 art.10 / TrustedAffairsClassification.lean（cycle-67 独立照合）
+
+- **レビュア**: Adversarial Review Agent（形式化担当から独立）。SKILL / STAGING / doc-comment の記述は**信頼せず**、pinned 原文（生 JSON バイト）・CI 実文字列・反例・`#print axioms` を各々独立に再検証した。
+- **対象（読み取り専用・変更していない）**: `JapanTaxLaw/TrustedAffairsClassification.lean`（`namespace JapanTaxLaw.TrustedAffairsClassification`、定数 `firstCategoryTrustedAffair` / `otherAffair`、判定 `isTrustedAffair`）。補助 `TrustedAffairsClassificationSpec.lean` / `TrustedAffairsClassificationTests.lean` も照合に使用（読み取りのみ）。
+- **原文（pinned・再現）**: `data/raw/504CO0000000300_20260401_508CO0000000083.law.json`（law_id `504CO0000000300` / revision `504CO0000000300_20260401_508CO0000000083`、`law_title`「森林環境税及び森林環境譲与税に関する法律施行令」、`amendment_enforcement_date=2026-04-01`、`current_revision_status=CurrentEnforced`、`amendment_law_id=508CO0000000083`）。Python で JSON を直接 parse し pin 値を確認した。
+- **needle 出所**: `scripts/ci/transcription_audit.py::checks()` の cycle-67 エントリ（`name="TrustedAffairsClassification.lean"` / `law_id="504CO0000000300"` / `kind="file"` / `title=None`）から実文字列 2 本を直接取得（STAGING 記載は不使用）。
+- **作業制約の順守**: commit / push / merge / ブランチ切替は一切行わない。Lean モジュール・`data/*`・`scripts/*` は読み取り専用。変更したのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ（末尾に本セクションを追記）。read-then-write で既存履歴を保持。
+
+### BL-1. pinned 原文からの独立抽出（指定区分の列挙 = 1）
+
+- `law_full_text` を再帰走査し `tag="Article"` かつ `attr.Num="10"` のノードを探索 → **1 個のみ**。leaf を文書順に連結すると、caption `（事務の区分）` / title `第十条` / Paragraph `第二条第一項の規定により都道府県が処理することとされている事務は、地方自治法（昭和二十二年法律第六十七号）第二条第九項第一号に規定する第一号法定受託事務とする。`。
+- 自前正規化（CI `_norm` と同価の空白・U+3000 除去）した art.10 全文（caption+title+本文）は **90 文字 / U+3000 = 0**（doc-comment の「flat/normalized leaf text 90 chars, U+3000 count 0」と一致）。原文全体は生 4,814 文字 / U+3000 = 3 → 正規化 4,811 文字 / U+3000 = 0。
+- 記述抽出: `第二条第九項第一号に規定する` と `とする` の間を切り出し → `第一号法定受託事務`。指定区分の列挙内部に区切り記号 `、` / `及び` / `並びに` は出現 = 0。原文（art.10）における `第一号法定受託事務` の出現 = **1**、`第二号法定受託事務` の出現 = **0**（法令全体でも 1 / 0、`法定受託事務` の総出現 = 1）。よって指定区分の列挙は **`第一号法定受託事務` のみ、個数 = 1**。
+- 実装との照合: `firstCategoryTrustedAffair=0` / `otherAffair=1` / `isTrustedAffair(a)=(a==0)`。原文が指定する区分は第一号法定受託事務 1 つのみであり、`otherAffair=1` は「その他」を表す便宜値で原文上の第 2 の区分ではない。**EXTRACT_MATCH = True（完全一致）**。
+
+### BL-2. needle 健全性（CI `checks()` の実文字列 2 本を自前正規化原文で照合）
+
+| needle（CI 実文字列） | 文字数 | U+3000 | 法令全体正規化（4,811 文字） | art.10 正規化（90 文字） |
+|---|---:|---:|---|---|
+| `第二条第九項第一号に規定する第一号法定受託事務とする` | 26 | 0 | FOUND（1 回） | FOUND（1 回） |
+| `事務の区分）第十条` | 9 | 0 | FOUND（caption+title を跨ぐ、1 回） | FOUND（caption+title を跨ぐ） |
+
+- CI スクリプトは実行せず、実文字列 2 本だけを取得して自前正規化（`_norm` と同価）で独立照合した。needle 自身の U+3000 = 0、改行・余分な空白なし。**判定: 2/2 FOUND、needle U+3000 = 0**。
+
+### BL-3. 反例探索（`by decide` / `#eval` による kernel 計算）
+
+| 入力 a | 意味 | 期待 | 独立計算 (a==0) | Lean | 判定 |
+|---|---|---|---|---|---|
+| 0 | 第一号法定受託事務 | true | true | `isTrustedAffair 0 = true` | 一致 |
+| 1 | その他 | false | false | `isTrustedAffair 1 = false` | 一致 |
+| 2 | 範囲外 | false | false | `isTrustedAffair 2 = false` | 一致 |
+
+- `lake env lean` で `#eval` を実行（exit code 0）。定数 `firstCategoryTrustedAffair=0` / `otherAffair=1`、`agreeTrustedAffairsClassification=true`、`specAffair 0/1/2 = true/false/false` も kernel 確認。**発見 0**。
+
+### BL-4. 公理監査（`#print axioms`）
+
+- `lake env lean` で対象モジュールの全宣言 `firstCategoryTrustedAffair` / `otherAffair` / `isTrustedAffair` および Spec の `specAffair` / `agreeTrustedAffairsClassification` に `#print axioms` を実行（**exit code 0**）。すべて `"does not depend on any axioms"`。
+
+| 監査項目 | 結果 |
+|---|---|
+| 監査宣言数 | 5（すべて axiom-free） |
+| `Classical.choice` | **0 件**（不在） |
+| `sorryAx` | **0 件**（不在） |
+| `Quot.sound` | **0 件**（不在） |
+| `propext` | **0 件**（不在） |
+
+- 不可解な依存は検出されず、**公理監査は健全**。監査用一時Leanファイルは実行後に削除（stdin ではなく一時ファイルを使用）。
+
+### BL-5. 分類（CONFIRMED / BY-DESIGN / UNRESOLVED）
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **6** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 形式化の誤りは検出されなかった。
+
+**CONFIRMED（0 件）**: 指定区分の列挙（第一号法定受託事務 1 つのみ）、定数値、判定関数の真偽、needle 2/2、反例 3/3、公理監査 — いずれも pinned 原文と整合し、食い違い・不正なし。第二号等の混入 0 件、取り違え 0 件。
+
+**BY-DESIGN（6 件）**:
+
+- **B-1 区分列挙のみの bounded L4 モデル**: doc-comment のとおり本モデルは art.10 の「…事務は、…第一号法定受託事務とする」の区分指定のみを形式化する。法2条1項の「都道府県が処理することとされている事務」の具体内容は NOT MODELLED（U-1 参照）。
+- **B-2 区分の Nat 列挙は便宜的エンコーディング**: `firstCategoryTrustedAffair=0` / `otherAffair=1` は原文に現れる番号ではなくモデル表現である。`otherAffair=1` は「その他」を表す便宜値であり、原文上の第 2 の区分ではない（BL-1 で確認）。
+- **B-3 `isTrustedAffair(a)=(a==0)` は列挙 membership の決定手続き**: `==0` という形は原文に無いが、与えられた区分番号が指定区分（第一号法定受託事務）に対応するかを判定する補助関数であり、実体的な法的判断ではない。
+- **B-4 他区分（第二号法定受託事務等）の NOT MODELLED**: doc-comment に明記。BL-1 のとおり pinned 原文（法令全体）に `第二号法定受託事務` は存在せず、列挙が 1 つに限定されるのは原文どおりであり設計上の限定であって欠落ではない。
+- **B-5 レビュー対象ラベルと pinned 法名の不一致**: 課題文のラベルは「地方交付税法施行令 art.10」だが、pinned `law_title` は「森林環境税及び森林環境譲与税に関する法律施行令」である。対象モジュール自身は法名を主張せず「政令 art.10」とのみ記述するため、pinned バイトを基準とする本照合の判定には影響しない（入力ラベルのみの差異）。
+- **B-6 doc-comment の「原文逐語」は括弧注を省略した要約**: モジュールの引用は `地方自治法第二条第九項第一号…` だが、pinned 原文は `地方自治法（昭和二十二年法律第六十七号）第二条第九項第一号…` と法律番号括弧を含む。needle は括弧を跨がないため照合・計算には影響せず、註記レベルの省略である。
+
+**UNRESOLVED（2 件）**:
+
+- **U-1 法2条1項の「都道府県が処理することとされている事務」の具体内容**: pinned 原文（art.10 の 1 文のみ）は当該事務を「法2条1項の規定により都道府県が処理することとされている事務」と参照するのみで、その内容は別源（森林環境税及び森林環境譲与税に関する法律）にある。pinned 原文のみでは確定不能。**人間の法律専門家レビューを要する**。
+- **U-2 地方自治法2条9項1号の「第一号法定受託事務」の定義および他区分の法令上の位置づけ**: 定義は地方自治法側にあり、pinned 原文の外。本モデルは指定区分への membership 判定のみを提供し、第一号／第二号の実質的範囲や適用関係を形式化していない。どこまで形式化すべきかは pinned 原文のみでは決定不能。**人間の法律専門家レビューを要する**。
+
+### BL-6. 最終報告・結論
+
+- pinned revision `504CO0000000300_20260401_508CO0000000083` の art.10 から独立抽出した指定区分は **`第一号法定受託事務` のみ（1 つ）**。`firstCategoryTrustedAffair=0` / `otherAffair=1` / `isTrustedAffair(a)=(a==0)` と完全一致し、**CONFIRMED = 0（発見ゼロ）**。形式的誤り 0 件、反例 0 件。
+- **CONFIRMED: 0 件 / BY-DESIGN: 6 件 / UNRESOLVED: 2 件**。
+- **needle 健全性: 2/2 FOUND、needle U+3000 = 0**（CI `checks()` cycle-67 実文字列を自前正規化原文で照合）。
+- **反例: 0→true / 1→false / 2→false、発見 0**（`by decide` / `#eval`）。
+- **公理監査**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて **0 件**（5 宣言すべて axiom-free、exit code 0）。
+- **都道府県の事務内容・他区分の未形式化を確認**（B-1 / B-4 / U-1 / U-2、doc-comment 明記）。
+- **追記後レビュー件数: 62 件**（既存 61 件＝coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` に一致する見出しをすべて保持 + 本 BL 1 件）。既存セクションは一切改変していない。
+- Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。commit / push / merge / ブランチ切替なし。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・指定区分抽出・needle 実文字列照合・反例評価・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューが完了したとみなしてはならない。一時ファイルは削除済み。
+
