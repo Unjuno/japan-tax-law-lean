@@ -1080,3 +1080,6 @@ import JapanTaxLaw.AdultAgeThresholdTests
 import JapanTaxLaw.AircraftScope
 import JapanTaxLaw.AircraftScopeSpec
 import JapanTaxLaw.AircraftScopeTests
+import JapanTaxLaw.AntennaPowerCeiling
+import JapanTaxLaw.AntennaPowerCeilingSpec
+import JapanTaxLaw.AntennaPowerCeilingTests
