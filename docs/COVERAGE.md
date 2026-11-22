@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 138 | 327 | 42.20% |
+| laws with >=1 pinned literal check | 139 | 327 | 42.51% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 420 | n/a | n/a |
+| pinned literal checks | 422 | n/a | n/a |
 | distinct article pins | 162 | 42584 | 0.38% |
-| pinned Lean modules (cross-law) | 841 | n/a | n/a |
+| pinned Lean modules (cross-law) | 849 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 444 |
+| unpinned Lean modules (not counted as verified) | 451 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 72 |
+| adversarial review sessions recorded | 73 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -244,6 +244,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `503CO0000000065` 炭酸二カリウムに対して課する不当廉売関税に関する政令
 - `504CO0000000300` 森林環境税及び森林環境譲与税に関する法律施行令
 - `504CO0000000372` 溶融亜鉛めっき鉄線に対して課する不当廉売関税に関する政令
+- `505M60000008043` 地方団体に対して交付すべき令和五年度分の震災復興特別交付税の額の算定方法、決定時期及び決定額並びに交付時期及び交付額等の特例に関する省令
 - `507CO0000000095` 黒鉛電極に対して課する不当廉売関税に関する政令
 - `508CO0000000224` ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令
 - `508CO0000000254` 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令

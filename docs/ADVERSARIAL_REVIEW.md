@@ -9092,3 +9092,100 @@ CI の実文字列は `scripts/ci/transcription_audit.py` の `checks()` cycle-7
 - Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。commit / push / merge / ブランチ切替は行っていない。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・金額境界／率／加算額／端数の数値抽出・needle 健全性・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+---
+
+## Batch BW review (2026-11-23) — 不当廉売関税政令 art.1 イ / NickelContent.lean（cycle-78 独立原文照合）
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。担当者の STAGING／doc-comment の数値主張を信じず、pinned の JSON バイトから自前で再抽出した結果をもって判定した。
+- **対象モジュール（読み取り専用・本レビューで変更していない）**: `JapanTaxLaw/NickelContent.lean`（`exceedsNickelThreshold`）。
+- **一次資料（pinned・改変禁止）**: `data/raw/508CO0000000224_20261031_508CO0000000340.law.json`
+  - law_id `508CO0000000224` / revision `508CO0000000224_20261031_508CO0000000340` / law_type `CabinetOrder`。
+  - `revision_info.law_title` = `ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令`（不当廉売関税政令）。施行日 2026-10-31。
+  - 対象: `law_full_text` 直下の `Article`（`attr.Num = "1"`、ArticleTitle `第一条`、ArticleCaption `（課税物件）`）。当該 Article の葉テキスト連結は **1,080 文字 / U+3000 = 0**（モジュール header の主張と一致）。
+- **独立抽出方法**: JSON を Python で自前 parse し、`children` 再帰走査で葉文字列を平坦化。日本語数字（`〇` / `六`）を自前変換して百分率を `fractions.Fraction` で有理数比較。needle は CI `scripts/ci/transcription_audit.py` の `checks()` 実文字列を、自前正規化（空白・U+3000 除去）した原文に対して検証。Lean は `lake env lean` で `#eval` / `by decide` / `#print axioms` を実行。
+
+### BW-1. pinned 原文からの独立抽出と照合（桁違いの明示除外）
+
+| 項目 | 独立抽出結果 | Lean 実装 | 照合 |
+|---|---|---|---|
+| 原文葉（イ） | `ニッケルの含有量が全重量の〇・六パーセントを超えるもの`（Article 1 平坦文字列 offset 303、葉 27 文字、U+3000 = 0） | doc-comment 行 13 の逐語と完全一致 | ✅ |
+| 文字コード | `〇` = U+3007 / `・` = **U+30FB（中黒）** / `六` = U+516D。`・` は U+3000（全角空白）ではない | needle も U+30FB を使用 | ✅ |
+| 「〇・六パーセント」の自前パース | `〇` → 0、`六` → 6（小数第 1 位）⇒ **0.6% = 6/1000 = 3/500** | `nickel * 1000 > total * 6` の係数 6/1000 | ✅ |
+| 「超える」 | 原文は「〜を**超える**」、近傍に「以上」は存在しない ⇒ **厳密不等式**（6/1000 ちょうどは対象外） | `>`（厳密） | ✅ |
+
+**桁違いの明示除外**: 0.6% = 6/1000 であり、**6% = 60/1000 でも 0.06% = 6/10000 でもない**。自前パース値 `3/500` は `6/1000` と有理数一致し、`60/1000` とは不一致、`6/10000` とも不一致であることを機械確認した。したがって「〇」を落とした 6% 読み、「〇・六」を 0.06% 読みとする誤りは**いずれも除外**できる。率・境界の食い違いは **0 件（ゼロ）**。
+
+### BW-2. needle 健全性
+
+CI `checks()` の cycle-78 エントリ（`scripts/ci/transcription_audit.py` 行 2226–2230、`kind = "file"`）の実文字列 2 本を、自前正規化した pinned 全文（平坦化 3,583 文字、原文中の U+3000 は他箇所に 56 個存在するが正規化で除去）に対して検証した。
+
+| needle（CI 実文字列） | needle 内 U+3000 | 自前正規化原文 | 判定 |
+|---|---:|---|---|
+| `ニッケルの含有量が全重量の〇・六パーセントを超えるもの` | 0 | FOUND | ✅ |
+| `課税物件）第一条` | 0 | FOUND | ✅ |
+
+- **2 / 2 FOUND、needle 内 U+3000 = 0**。needle の「・」は U+30FB であって U+3000 ではない。1 本目は桁違い（6% / 0.06%）を検出し得る逐語アンカーとしても機能する。
+
+### BW-3. 反例探索
+
+`Money := Nat`（`JapanTaxLaw/TaxFinance.lean` 行 29 の `abbrev Money := Nat`）なので、整数入力に対して `nickel * 1000 > total * 6` は丸めなしの厳密有理数比較になる。
+
+| 攻撃対象 `#eval` | 期待 | 実測 | 判定 |
+|---|---|---|---|
+| `exceedsNickelThreshold 6 1000`（0.6% ちょうど） | false | false | 矛盾なし（境界除外を確認） |
+| `exceedsNickelThreshold 7 1000`（0.7%） | true | true | 矛盾なし（6% 読みなら false となるため桁違いも排除） |
+| `exceedsNickelThreshold 5 1000`（0.5%） | false | false | 矛盾なし |
+| `exceedsNickelThreshold 12 2000`（拡大スケールで 0.6% ちょうど） | false | false | 矛盾なし |
+| `exceedsNickelThreshold 13 2000` | true | true | 矛盾なし |
+| 補助: `0/0`, `1/1000`, `0/1000` | false, false, false | false, false, false | 矛盾なし |
+
+上記 5 本の境界例はすべて `by decide` でも `{false, true, false, false, true}` と再確認した。**反例探索で検出された原文・Lean 間の矛盾: 0 件（ゼロ）。**
+
+### BW-4. 公理監査
+
+- 一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\bw_probe.lean` を作成し、`JapanTaxLaw.NickelContent.exceedsNickelThreshold` に対して `#print axioms` を実行（`lake env lean`、exit code **0**）。監査後、一時ファイルは削除済み。
+
+| 監査項目 | 結果 |
+|---|---|
+| `Classical.choice` | **0 件**（不在） |
+| `sorryAx` | **0 件**（不在） |
+| `Quot.sound` | **0 件**（不在） |
+| `propext` | **0 件**（不在） |
+| 出力 | `'JapanTaxLaw.NickelContent.exceedsNickelThreshold' does not depend on any axioms` |
+
+→ **禁止公理・許容公理とも 0 件。公理監査は合格。**
+
+### BW-5. CONFIRMED / BY-DESIGN / UNRESOLVED と未形式化の確認
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **4** |
+| **UNRESOLVED** | **0（ゼロ）** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 欠陥件数を手柄にしない。率（6/1000）・厳密不等式・needle・反例・公理のいずれにも食い違いなし。
+
+**BY-DESIGN（4 件）— いずれもモジュール doc-comment 行 20–23 に `NOT MODELLED` と明記済み**
+
+- **B-1 冷間圧延の有無・クラッド／めっき／被覆の除外・加工品の区分 NOT MODELLED**: 原文（ロ）以下に「冷間圧延をしたもの（クラッドし、めっきし、又は被覆したもの及び次に掲げる加工したものを除く。）」等が続くが、本モデルは（イ）の含有量閾値のみを扱う。明示済みの境界。
+- **B-2 重量の測定・含有量の認定手続 NOT MODELLED**: 「全重量」の算定方法・含有量の認定手続は入力側（caller-established）とし、`nickel` / `total` を与えられた整数として比較するのみ。明示済みの境界。
+- **B-3 特定国等・期間・関税率表の号の特定 NOT MODELLED**: 対象国・適用期間・税率表の号の指定は範囲外と明記。
+- **B-4 整数入力（`Money := Nat`）による厳密比較**: 小数点以下の重量を扱わず、与えられた整数比で `nickel/total > 6/1000` を判定する設計。原文の率・境界とは整合し、丸め規定の有無は本モデルでは導入していない（境界は厳密）。
+
+**UNRESOLVED（0 件）**
+
+- 率・境界は pinned 原文から一意に決定され、外部認定を要する論点は B-1〜B-3 として明示的に範囲外とされているため、モデル値に影響する未解決事項は **0 件（ゼロ）**。
+
+### BW-6. 総合判定・最終報告
+
+- pinned revision `508CO0000000224_20261031_508CO0000000340` の art.1 イから独立抽出した `〇・六パーセント = 6/1000` と「超える」＝厳密不等式は、`exceedsNickelThreshold(nickel,total) = nickel * 1000 > total * 6` と完全一致。**6% / 0.06% の桁違い・境界の取り違えは 0 件（ゼロ）**。
+- **CONFIRMED: 0 件 / BY-DESIGN: 4 件 / UNRESOLVED: 0 件**。発見ゼロの場合も本節に明示した。
+- **needle 健全性**: CI `checks()` 実文字列 2 本、自前正規化原文で **2/2 FOUND**、needle 内 U+3000 = 0。
+- **反例**: 指定の 5 点 `(6,1000)=false` / `(7,1000)=true` / `(5,1000)=false` / `(12,2000)=false` / `(13,2000)=true` を `#eval` と `by decide` の両方で確認。矛盾 0。
+- **公理**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて **0 件**（axiom-free、exit code 0）。一時ファイルは削除済み。
+- **未形式化の確認**: 冷間圧延・加工区分・重量認定（および特定国等・期間・号の特定）はすべて `NOT MODELLED` と明記（B-1〜B-3）。
+- 追記後レビュー件数: **73 件**（既存 72 件 ＋ 本 BW 1 件。coverage ledger regex `^## (?:Batch [A-Z]+|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` に `## Batch BW review (2026-11-23)` が整合）。既存セクション（Batch G〜BV を含む 72 件）はすべて保持。
+- Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。commit / push / merge / ブランチ切替は行っていない。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・桁違い／率／境界の数値抽出・needle 健全性・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
