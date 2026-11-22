@@ -11,14 +11,14 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 111
+- with >=1 pinned literal check (semantic model): 112
 - with recorded human legal review: 0
 
 ## All laws
 
 | law_id | title | revision | enforcement | raw | parse | articles | pinned checks | human review |
 |---|---|---|---|---|---|---:|---|---|
-| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (20) | NO |
+| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (21) | NO |
 | `322CO0000000109` | 昭和二十二年政令第百九号（財産税法等による物納に因る不動産登記の特例に関する政令） | 322CO0000000109_19470627_000000000000000 | CurrentEnforced | YES | ok | 4 | YES (1) | NO |
 | `322AC0000000175` | 昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律） | 322AC0000000175_20220101_503AC0000000011 | CurrentEnforced | YES | ok | 78 | YES (2) | NO |
 | `322CO0000000268` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施 | 322CO0000000268_20251201_507CO0000000120 | CurrentEnforced | YES | ok | 113 | YES (5) | NO |
@@ -28,7 +28,7 @@ a completion flag.
 | `325M50000040021` | 税務官署における収入官吏及び出納員並びに歳入歳出外現金出納官吏の備えるべき現金領収証書に | 325M50000040021_20260924_508M60000040059 | CurrentEnforced | YES | ok | 15 | NO (0) | NO |
 | `325M50000040022` | 相続税の物納財産収納後の手続等に関する省令 | 325M50000040022_20210401_503M60000040030 | CurrentEnforced | YES | ok | 24 | NO (0) | NO |
 | `325AC0000000211` | 地方交付税法 | 325AC0000000211_20261102_508AC0000000062 | CurrentEnforced | YES | ok | 499 | YES (2) | NO |
-| `325AC0000000226` | 地方税法 | 325AC0000000226_20261101_508AC0000000002 | CurrentEnforced | YES | ok | 4259 | YES (27) | NO |
+| `325AC0000000226` | 地方税法 | 325AC0000000226_20261101_508AC0000000002 | CurrentEnforced | YES | ok | 4259 | YES (28) | NO |
 | `325CO0000000245` | 地方税法施行令 | 325CO0000000245_20261101_508CO0000000083 | CurrentEnforced | YES | ok | 2274 | YES (12) | NO |
 | `326AC1000000145` | 納税貯蓄組合法 | 326AC1000000145_20211122_503AC0000000046 | CurrentEnforced | YES | ok | 41 | YES (3) | NO |
 | `326CO0000000099` | 納税貯蓄組合法施行令 | 326CO0000000099_20191216_501CO0000000183 | CurrentEnforced | YES | ok | 14 | YES (1) | NO |
@@ -54,7 +54,7 @@ a completion flag.
 | `329M50000002023` | 地方税法施行規則 | 329M50000002023_20261101_508M60000008045 | CurrentEnforced | YES | ok | 1461 | YES (2) | NO |
 | `329AC0000000112` | 日本国とアメリカ合衆国との間の相互防衛援助協定の実施に伴う関税法等の臨時特例に関する法律 | 329AC0000000112_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 38 | YES (1) | NO |
 | `329CO0000000103` | 日本国とアメリカ合衆国との間の相互防衛援助協定の実施に伴う関税法等の臨時特例に関する法律 | 329CO0000000103_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 33 | NO (0) | NO |
-| `329M50000040039` | 国税収納金整理資金事務取扱規則 | 329M50000040039_20260924_508M60000040059 | CurrentEnforced | YES | ok | 251 | NO (0) | NO |
+| `329M50000040039` | 国税収納金整理資金事務取扱規則 | 329M50000040039_20260924_508M60000040059 | CurrentEnforced | YES | ok | 251 | YES (1) | NO |
 | `329AC0000000149` | 日本国における国際連合の軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法 | 329AC0000000149_20190107_430AC0000000016 | CurrentEnforced | YES | ok | 48 | YES (1) | NO |
 | `329CO0000000128` | 日本国における国際連合の軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法 | 329CO0000000128_20190107_430CO0000000161 | CurrentEnforced | YES | ok | 17 | NO (0) | NO |
 | `329CO0000000150` | 関税法施行令 | 329CO0000000150_20260701_508CO0000000217 | CurrentEnforced | YES | ok | 534 | YES (1) | NO |
@@ -86,7 +86,7 @@ a completion flag.
 | `333M50000040019` | アメリカ合衆国軍隊の構成員等の免税輸入物品の譲渡申告書等の様式を定める省令 | 333M50000040019_20210901_503M60000040052 | CurrentEnforced | YES | ok | 27 | NO (0) | NO |
 | `333CO0000000117` | 地方交付税法施行令 | 333CO0000000117_20010106_412CO0000000304 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `333CO0000000337` | 産業投資特別会計の貸付の財源に充てるための外貨債の発行に関する法律に基く外貨債の利子の非 | 333CO0000000337_20171001_429CO0000000106 | CurrentEnforced | YES | ok | 11 | NO (0) | NO |
-| `334AC0000000147` | 国税徴収法 | 334AC0000000147_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 371 | YES (1) | NO |
+| `334AC0000000147` | 国税徴収法 | 334AC0000000147_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 371 | YES (2) | NO |
 | `334CO0000000329` | 国税徴収法施行令 | 334CO0000000329_20260525_507CO0000000244 | CurrentEnforced | YES | ok | 116 | YES (2) | NO |
 | `335AC0000000036` | 関税暫定措置法 | 335AC0000000036_20260401_508AC0000000005 | CurrentEnforced | YES | ok | 262 | YES (2) | NO |
 | `335CO0000000069` | 関税暫定措置法施行令 | 335CO0000000069_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 287 | YES (2) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 177
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 180

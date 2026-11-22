@@ -1952,6 +1952,12 @@ def checks():
            "file", None,
            ["政令で定める日は、土曜日とする", "期間の末日の特例）第二十一条の二"])
 
+    # PaymentDeadline — cycle-58
+    yield ("PaymentDeadline.lean",
+           "329M50000040039",
+           "file", None,
+           ["調査決定の日から二十日以内", "納付期限）第十八条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2507,6 +2513,18 @@ def checks():
            "article", "第十一条の八",
            ["引き続き六月以上の期間継続して雇用されることが予定されている者"])
 
+    # 国税徴収法 art. 115 — CollectionPeriodCap30.lean (30-day cap on payment period)
+    yield ("国税徴収法 art. 115（買受代金の納付の期限の上限・三十日）↔ CollectionPeriodCap30.lean (maxPeriodDays 30)",
+           "334AC0000000147",
+           "article", "第百十五条",
+           ["ただし、その期間は、三十日を超えることができない。"])
+
+    # 地方税法 art. 349の3の二 — ResidentialLandArea200.lean (200 m² residential land)
+    yield ("地方税法 art. 349の3の二（住宅用地の面積 二百平方メートル以下）↔ ResidentialLandArea200.lean (areaThresholdSqm 200)",
+           "325AC0000000226",
+           "article", "第三百四十九条の三の二",
+           ["住宅用地でその面積が二百平方メートル以下であるもの"])
+
 
     # 輸徵法 art. 23 — RefundFineRange1M.lean
     yield ("輸入品内国消費税徴収法 art. 23（罰金範囲・三倍が百万円超）↔ RefundFineRange1M.lean (fineFloor 1_000_000, multiplier 3)",
@@ -2541,6 +2559,13 @@ def checks():
            "431AC0000000003",
            "article", "第四条",
            ["障害者、未成年者、寡婦又はひとり親（これらの者の当該年度の初日の属する年の前年（次号において「前年」という。）の合計所得金額が百三十五万円を超える場合を除く。）"])
+
+
+    # 登録免許税法施行令 art. 21 — TonnageExpansionRatioCap.lean
+    yield ("登録免許税法施行令 art. 21（設備拡張・一・六倍のトン数比率）↔ TonnageExpansionRatioCap.lean (16/10 ratio cap)",
+           "342CO0000000146",
+           "article", "第二十一条",
+           ["当該設備における最大トン数（製造又は修繕をすることができる船舶の総トン数の最大値をいう。以下この号において同じ。）が、拡張許可前の当該設備における最大トン数の一・六倍を超えることとならないものであること"])
 
 
 def main() -> int:

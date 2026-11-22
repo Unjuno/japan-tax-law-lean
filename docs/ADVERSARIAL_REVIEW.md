@@ -7061,3 +7061,151 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 - 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない（既存の他エージェントによる無関係な変更は触れていない）。一時ファイルはすべて削除した。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・自前元号換算・needle 自前正規化検証・端点値 kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+---
+
+## Batch BB review (2026-11-22)
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から完全に独立）。coordinator 要約・STAGING・CI 監査結果は信じず、pinned 原文 JSON を直接再 parse し、曜日列挙・曜日トークンを自前で照合し、needle は CI と同一の正規化を自前適用して検証した。
+- **対象（読み取り専用・変更していない）**: `JapanTaxLaw/PeriodEndDayException.lean`、`JapanTaxLaw/PeriodEndDayExceptionSpec.lean`、`JapanTaxLaw/PeriodEndDayExceptionTests.lean`。Lean モジュール / `data/*` / `scripts/*` は一切変更せず、commit / push / merge / ブランチ切替も行っていない。書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ（末尾追記）。※ 監査実行のため一時ファイルをプロジェクト外 temp に置き `lake env lean` を実行した（exit code 0）、実行後に一時ファイルはすべて削除した。
+- **一次資料（pinned・改変禁止）**: law_id `329CO0000000051` / revision `329CO0000000051_20260401_508CO0000000085`（政令「国税収納金整理資金に関する法律施行令」、改正法 `508CO0000000085`、施行 **2026-04-01**）。実ファイル `data/raw/329CO0000000051_20260401_508CO0000000085.law.json`、size **304,971 bytes**、SHA-256 **`fff3c8a427069a3671749a9058ce571842ddbca91ebb5cf5babe6b70593f412f`**。`data/INVENTORY.json` の `current_revision.law_revision_id` / `raw_snapshot.source_sha256`（大文字表記 `FFF3C8...412F`）/ `size_bytes = 304971` も同一 pinned を指すことを独立確認。
+- **needle 出所**: `scripts/ci/transcription_audit.py::checks()` の cycle-57 エントリ（line 1923-1927、`kind="file"`、law_id `329CO0000000051`）から実文字列2本を直接読み出し、CI と同一の正規化 `re.sub(r"[\s\u3000]+", "", s)` を**自前で平坦化した pinned 原文**に適用して包含判定した。
+- **本レビューは機械的独立照合であり、人間の法律専門家によるレビューを称するものではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。
+
+### BB-1. pin 完全性と原文独立抽出（曜日取り違えの直接除外）
+
+自前スクリプトで `law_full_text` の `Article` ノードを再帰走査し、`Num="21_2"` の **1 ノード**（path `[1,3,3,2]`、第四章「歳入への組入等」内）を特定して text-child のみを連結した（タグ名・属性値は除外）。原文逐語（独立抽出・正規化後 **46 文字**、U+3000 = **0**）:
+
+`（期間の末日の特例）第二十一条の二法第十四条第一項に規定する政令で定める日は、土曜日とする。`
+
+| 項目 | 独立抽出結果 | モジュール doc-comment 申告 | 照合 |
+|---|---|---|:---:|
+| law_id / revision | `329CO0000000051` / `329CO0000000051_20260401_508CO0000000085` | 同一 | OK |
+| Article 21_2 flat 長 | **46 文字** | 46 chars | OK |
+| U+3000 数（Article 21_2 flat） | **0** | 0 | OK |
+| 原文逐語（本文） | `法第十四条第一項に規定する政令で定める日は、土曜日とする。`（完全一致、1 件） | 同一 | OK |
+
+- **「土曜日」の独立抽出**: caption「（期間の末日の特例）」＋条名「第二十一条の二」＋本文 1 文。本文の曜日トークンは **`土曜日` のみ 1 回**。`月曜日` / `火曜日` / `水曜日` / `木曜日` / `金曜日` / `日曜日` は当該条に **0 回**（pinned 法令全体でも `土曜日` = 1 回、他 6 曜日 = 0 回、`休日` = 0 回）。→ 他曜日との取り違えは原文バイトレベルで除外。
+- **曜日列挙の照合**: doc-comment の列挙 `月=0, 火=1, 水=2, 木=3, 金=4, 土=5, 日=6` を自前で添字確認し、`saturday = 5` が「土」の添字 **5** と一致することを確認。取り違え候補 `4`（＝金曜日）は原文に `金曜日` が存在せず、**6**（＝日曜日、または `日=0..土=6` の星期日基底）は doc が明示的に `月=0..日=6` を採用しているため、いずれも棄却。
+
+### BB-2. needle 健全性（CI `checks()` 実文字列2本を自前正規化原文で検証）
+
+| # | CI needle（実文字列, line 1927） | 長 | U+3000 | 正規化前後 | 法令全体 count | Article 21_2 内 count | 判定 |
+|---|---|---:|---:|:---:|---:|---:|:---:|
+| N1 | `政令で定める日は、土曜日とする` | 15 | 0 | 同一（冪等） | 1 | 1 | **FOUND** |
+| N2 | `期間の末日の特例）第二十一条の二` | 16 | 0 | 同一（冪等） | 1 | 1 | **FOUND** |
+
+- **2/2 FOUND**。needle 内の U+3000 含有 **0 件**、CI 正規化前後で同一（冪等）。Article 21_2 flat 自体の U+3000 も **0**。（pinned ファイル全体には U+3000 が **182** 個存在するが、目次ラベル等であり正規化で除去される。needle 自身は U+3000 を含まない。）
+- N1 は本文の日付文（曜日指定）を、N2 は caption「（期間の末日の特例）」＋条名「第二十一条の二」を直接抑える。両者は同一 Article 21_2 内の異なる位置を指し、片方が欠落・改変されれば即座に 1/2 に落ちる構成であり、needle 健全性は合格。
+- **方法論的観察（不具合ではない）**: 自前平坦化の初期実装でタグ名（`ArticleCaption` / `ArticleTitle` 等）を text に混入させたところ N2 が 1/2 に落ちた。これは caption と条名の間にタグ名が入るためであり、CI の `text()`（`node.get("children")` のみを連結）が正しい平坦化である。タグ名を含めない自前 children-only 平坦化で **2/2 FOUND** を再確認した。needle の健全性は CI の平坦化規約に依存するが、その規約どおりに検証した限り問題なし。
+
+### BB-3. 反例探索（`saturday = 5`）
+
+3 モジュールを外部 temp の Lean ファイルで import し、公称値と独立 spec 一致を `by decide`（カーネル還元）で直接検証（`lake env lean`、3 ファイルとも exit code **0**、エラー 0 件）。
+
+| 検証命題 / 攻撃 | 結果 | 反例 |
+|---|:---:|---|
+| `saturday = 5` | true | なし |
+| `specSaturday = 5` | true | なし |
+| `agreePeriodEndDayException = true` | true | なし |
+| 取り違え `saturday = 4`（金曜日） | 棄却 | `金曜日` トークン原文 0 回、添字 4 は「金」 |
+| 取り違え `saturday = 6`（日曜日／日=0 基底） | 棄却 | `日曜日` トークン原文 0 回、doc は `月=0..日=6` を明示 |
+| その他の値（0〜3, 7 以上） | 棄却 | 列挙添字 5 と矛盾 |
+
+- **反例検出数: ゼロ（0）。** 定数 5、独立 spec との一致、および全曜日取り違え候補の棄却はすべて成立。
+
+### BB-4. 公理監査
+
+一時 Lean ファイル（外部 temp）で以下の **3 named def** に `#print axioms` を実行（`lake env lean`、exit code **0**）:
+
+- `JapanTaxLaw.PeriodEndDayException.saturday`
+- `JapanTaxLaw.PeriodEndDayException.specSaturday`
+- `JapanTaxLaw.PeriodEndDayException.agreePeriodEndDayException`
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 3 |
+| `does not depend on any axioms` | **3/3** |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+
+- → **禁止公理（choice / sorryAx）および Quot.sound / propext への依存はいずれも 0 件。公理監査は合格。**
+
+### BB-5. 未形式化範囲の確認（末日算術・他の特例）
+
+doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以下を独立確認した。
+
+- **法第十四条第一項の期間・末日算術の未形式化**: doc-comment に「法14条1項の期間・末日算術 … NOT MODELLED」と明記。pinned 第21条の二は「政令で定める日を土曜日とする」と**曜日を指定するのみ**で、期間の起算・末日そのものの算術は本条文（および本スライス）に含まれない。→ 未形式化を確認（BY-DESIGN B-4 / UNRESOLVED U-1）。
+- **他の特例（日曜・休日等）の未形式化**: doc-comment に「他の特例（日曜・休日等）は NOT MODELLED」と明記。pinned 法令全体で `日曜日` = 0 回、`休日` = 0 回、`土曜日` = 1 回のみであり、本政令中に MODELLED 対象外の競合曜日指定は存在しない。→ 未形式化を確認（BY-DESIGN B-4 / UNRESOLVED U-2）。
+- 本スライスは「政令で定める日 = 土曜日」の**曜日定数のみ**を扱い、本モデルは法的レビューを提供しない旨も明記されている。
+
+### BB-6. 分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED（原文矛盾・曜日取り違え・needle 不良・反例・公理汚染）** | **0（ゼロ）** |
+| BY-DESIGN | 5 |
+| UNRESOLVED | 2 |
+
+> **発見された問題はゼロ（CONFIRMED = 0）である。** 原文矛盾、他曜日との取り違え、needle 不良、反例、公理依存はいずれも検出されなかった。件数を手柄にしない。
+
+#### BY-DESIGN — 5 件
+
+- **B-1 曜日列挙は明示された model convention**: `月=0..日=6` は doc-comment が明示する列挙であり、`saturday = 5` はその帰結。原文は添字基底を定めないため、明示した基底に従う限り正しい（星期日基底 `日=0..土=6` なら土=6 だが、本モデルは採用していない）。
+- **B-2 doc-comment の pin 申告が pinned と完全一致**: law_id / revision / flat 46 文字 / U+3000 = 0 / 原文逐語がいずれも独立抽出と一致。原文逐語中の改行・空白は可読性のための表示であり、pinned flat は空白なし（pinned バイト列との不一致ではない）。
+- **B-3 CI needle の正規化と 2/2 FOUND**: U+3000 除去は転記監査の仕様であり、モデル値・原文忠実性に影響しない（needle 内 U+3000 = 0、Article 21_2 flat も 0）。children-only 平坦化の規約どおりに検証し 2/2 FOUND。
+- **B-4 bounded L4 スライス**: 曜日定数のみを提供し、法14条1項の期間・末日算術、他の特例（日曜・休日等）は NOT MODELLED（doc-comment 明記、BB-5 で独立確認）。
+- **B-5 自然数定数としての保持**: 曜日は `Nat` で 5 として保持され、`by decide` のカーネル還元で公称値・独立 spec 一致を検証。曜日型・カレンダー型ではなく整数定数に留める設計。
+
+#### UNRESOLVED — 2 件
+
+- **U-1 「政令で定める日 = 土曜日」が法14条1項の末日算術にどう効くか**: 未形式化自体は B-4 のとおり明示済みだが、pinned 政令 art.21の2 は曜日を指定するのみで、末日が土曜日のときの取扱い（前日／翌営業日への繰り替え等）は確定できない。法14条1項本文・通則法の解釈を要し、**人間の法律専門家による確認を要する**。値 `saturday = 5` の一致（CONFIRMED = 0）には影響しない。
+- **U-2 他法令・通則における日曜・休日等の特例の有無・適用関係**: pinned 政令の範囲外で判断不能（本政令中に当該曜日トークンは 0 回）。**人間の法律専門家を要する**。数値一致（CONFIRMED = 0）には影響しない。
+
+### BB-7. 結論・履歴保全
+
+- pinned 第21条の二の「政令で定める日 = 土曜日」を独立抽出し、曜日列挙 `月=0..日=6` のもとで `saturday = 5` が正しいことを確認。**他曜日との取り違えゼロ**、needle 2/2 FOUND（needle 内 U+3000 = 0、Article 21_2 flat も 0）、反例 0 件、公理依存 0 件（3/3 axiom-free、exit code 0）。
+- 末日算術・他の特例（日曜・休日等）の未形式化を確認（B-4、法的取扱いは U-1 / U-2 として人間の法律専門家に委ねる）。
+- 既存レビュー履歴 **51 件**（Batch G〜BA 含む）は**すべて保持**。本セクションのみを末尾に連結した。追記後レビュー件数は coverage ledger regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` で **52 件**（51 → 52、要求の 52 以上を満たす）。
+- 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。一時ファイルはすべて削除した。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・曜日トークン照合・needle 自前正規化検証・カーネル decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+### CourseHoursThreshold.lean — 法人税法施行規則 art. 7の2（六十時間以上）
+
+- **pin**: pinned law_id / revision / needle verified verbatim-unique in the scoped article; transcription audit check present.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### CollectionPeriodCap30.lean — 国税徴収法 art. 115（三十日を超えることができない）
+
+- **pin**: pinned law_id / revision / needle verified verbatim-unique in the scoped article; transcription audit check present.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### ResidentialLandArea200.lean — 地方税法 art. 349の3の二（二百平方メートル以下）
+
+- **pin**: pinned law_id / revision / needle verified verbatim-unique in the scoped article; transcription audit check present.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+

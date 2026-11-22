@@ -810,6 +810,9 @@ JapanTaxLaw/ConsumptionTaxSpecialDateTests.lean   # 同上 退行テスト
 JapanTaxLaw/PeriodEndDayException.lean            # 期間末日の特例 土曜日（政令 art.21の2）L4 モデル
 JapanTaxLaw/PeriodEndDayExceptionSpec.lean        # 同上 独立定式
 JapanTaxLaw/PeriodEndDayExceptionTests.lean       # 同上 退行テスト
+JapanTaxLaw/PaymentDeadline.lean              # 国税納付期限 20日以内（省令 art.18）L4 モデル
+JapanTaxLaw/PaymentDeadlineSpec.lean          # 同上 独立定式
+JapanTaxLaw/PaymentDeadlineTests.lean         # 同上 退行テスト
 JapanTaxLaw/AmamiCurrencyConversion.lean      # 奄美群島税法施行令 art.6（通貨の換算）L4 モデル
 JapanTaxLaw/AmamiCurrencyConversionSpec.lean  # 同上 独立定式
 JapanTaxLaw/AmamiCurrencyConversionTests.lean # 同上 退行テスト
