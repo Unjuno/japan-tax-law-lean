@@ -2734,6 +2734,13 @@ def checks():
            ["たばこ税の税率は、千本につき六千八百二円とする。"])
 
 
+    # 法人特別税法 art. 9 — FiscalYearMonthProration.lean
+    yield ("法人特別税法 art. 9（一年未満の事業年度の月数按分・四百万円を十二で除す）↔ FiscalYearMonthProration.lean (4M / 12 * months)",
+           "404AC0000000015",
+           "article", "第九条",
+           ["課税事業年度が一年に満たない法人に対する前項の規定の適用については、同項中「年四百万円」とあるのは、「四百万円を十二で除し、これに当該課税事業年度の月数を乗じて計算した金額」とする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
