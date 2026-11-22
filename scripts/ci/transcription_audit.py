@@ -1373,6 +1373,16 @@ def checks():
            "article", "第十四条",
            ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u524d\u53f7\u305f\u3060\u3057\u66f8\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
 
+    # CustomsTariffArt12MiningEmergencyCondition.lean - NORM|87b9f966... (mining/emergency CONDITION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十二条 (Paragraph 1, Item 2) - verbatim injected,
+    # including the source's own 場合互は characters (never hand-typed or corrected).
+    # find_article_text(...,"第十二条") returns that article (len 468) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.12 mining emergency condition - CustomsTariffArt12MiningEmergencyCondition.lean",
+           "143AC0000000054",
+           "article", "第十二条",
+           ["\u51f6\u4f5c\u306e\u5834\u5408\u53c8\u306f\u5929\u707d\u3001\u4e8b\u5909\u305d\u306e\u4ed6\u306e\u7dca\u6025\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u5fc5\u8981\u304c\u3042\u308b\u3068\u304d\u3002"])
+
     # CustomsTariffArt14DisabledPersonEquipmentDelegation.lean - NORM|c8d2540f... (disabled-person equipment DELEGATION, law 143AC0000000054)
     # Needle is in MainProvision Article 第十四条 (Paragraph 1, Item 16);
     # find_article_text(...,"第十四条") returns that article (len 1655) with needle -
