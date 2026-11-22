@@ -984,3 +984,6 @@ import JapanTaxLaw.PeriodEndDayExceptionTests
 import JapanTaxLaw.PaymentDeadline
 import JapanTaxLaw.PaymentDeadlineSpec
 import JapanTaxLaw.PaymentDeadlineTests
+import JapanTaxLaw.TonnageExpansionRatioCap
+import JapanTaxLaw.TonnageExpansionRatioCapSpec
+import JapanTaxLaw.TonnageExpansionRatioCapTests
