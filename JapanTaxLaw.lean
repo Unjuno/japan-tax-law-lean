@@ -1131,3 +1131,8 @@ import JapanTaxLaw.RegistrationTaxFloor1kTests
 import JapanTaxLaw.InspectionCity
 import JapanTaxLaw.InspectionCitySpec
 import JapanTaxLaw.InspectionCityTests
+import JapanTaxLaw.CustomsTariffArt8PrevReading6to8
+import JapanTaxLaw.CustomsTariffArt8PrevReading6to8Spec
+import JapanTaxLaw.CustomsTariffArt8PrevReading6to8Tests
+import JapanTaxLaw.TaxRoundingSpec
+import JapanTaxLaw.TaxRoundingTests
