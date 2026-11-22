@@ -1373,6 +1373,15 @@ def checks():
            "article", "第十四条",
            ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u524d\u53f7\u305f\u3060\u3057\u66f8\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
 
+    # CustomsTariffArt17ExportContainerDelegation.lean - NORM|733f9fe5... (export-container DELEGATION, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十七条 (Paragraph 1, Item 3);
+    # find_article_text(...,"第十七条") returns that article (len 1032) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.17 export container delegation - CustomsTariffArt17ExportContainerDelegation.lean",
+           "143AC0000000054",
+           "article", "第十七条",
+           ["\u8f38\u51fa\u8ca8\u7269\u306e\u5bb9\u5668\u3068\u3057\u3066\u4f7f\u7528\u3055\u308c\u308b\u8ca8\u7269\u3067\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
+
     # CustomsTariffArt17ContainerDelegation.lean - NORM|eb942c04... (imported-goods container DELEGATION, law 143AC0000000054)
     # Needle is in MainProvision Article 第十七条 (Paragraph 1, Item 2);
     # find_article_text(...,"第十七条") returns that article (len 1032) with needle -
