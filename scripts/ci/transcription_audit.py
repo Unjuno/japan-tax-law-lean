@@ -1301,6 +1301,15 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
+    # CustomsTariffArt7PrevParagraphReading.lean - NORM|f8c7e9bb... (prev-paragraph 準用 READING, law 143AC0000000054)
+    # Needle is in MainProvision Article 第七条 (Paragraph 25, ParagraphSentence);
+    # find_article_text(...,"第七条") returns that article (len 5989) with needle -
+    # use the precise article locator. Needle literal from queue via \u escapes.
+    yield ("customs tariff art.7 prev paragraph reading - CustomsTariffArt7PrevParagraphReading.lean",
+           "143AC0000000054",
+           "article", "第七条",
+           ["\u7b2c\u516b\u9805\u3001\u7b2c\u4e5d\u9805\u53ca\u3073\u7b2c\u4e8c\u5341\u9805\u306e\u898f\u5b9a\u306f\u3001\u524d\u9805\u306e\u8abf\u67fb\u304c\u958b\u59cb\u3055\u308c\u305f\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
     # CustomsTariffArt7ReadingApplication.lean - NORM|bfcac1c4... (mutatis-mutandis 準用 READING, law 143AC0000000054)
     # Needle is in MainProvision Article 第七条 (Paragraph 21, ParagraphSentence);
     # find_article_text(...,"第七条") returns that article (len 5989) with needle -
