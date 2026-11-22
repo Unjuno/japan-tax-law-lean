@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 133
+- with >=1 pinned literal check (semantic model): 134
 - with recorded human legal review: 0
 
 ## All laws
@@ -228,7 +228,7 @@ a completion flag.
 | `413M60000008054` | 原子力発電施設等立地地域の振興に関する特別措置法第十条の地方税の不均一課税に伴う措置が適 | 413M60000008054_20250401_507M60000008028 | CurrentEnforced | YES | ok | 17 | NO (0) | NO |
 | `413M60000040056` | 額面株式の株券の無効手続に伴い作成する株券に係る印紙税の非課税に関する省令 | 413M60000040056_20250401_507M60000040034 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `414CO0000000116` | 経済連携協定に基づく関税の緊急措置に関する政令 | 414CO0000000116_20181230_429CO0000000006 | CurrentEnforced | YES | ok | 14 | NO (0) | NO |
-| `414M60000008042` | 沖縄振興特別措置法第九条等の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を | 414M60000008042_20250401_507M60000008028 | CurrentEnforced | YES | ok | 34 | NO (0) | NO |
+| `414M60000008042` | 沖縄振興特別措置法第九条等の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を | 414M60000008042_20250401_507M60000008028 | CurrentEnforced | YES | ok | 34 | YES (1) | NO |
 | `414CO0000000262` | ポリエステル短繊維に対して課する不当廉売関税に関する政令 | 414CO0000000262_20110401_423CO0000000088 | CurrentEnforced | YES | ok | 10 | YES (1) | NO |
 | `414M60000040045` | ポリエステル短繊維に対して課する不当廉売関税に関する政令に規定する原産地の意義に関する省 | 414M60000040045_20060401_418M60000040032 | CurrentEnforced | YES | ok | 4 | NO (0) | NO |
 | `415M60000040007` | 税関関係法令に係る情報通信技術を活用した行政の推進等に関する省令 | 415M60000040007_20251012_507M60000040035 | CurrentEnforced | YES | ok | 47 | YES (1) | NO |

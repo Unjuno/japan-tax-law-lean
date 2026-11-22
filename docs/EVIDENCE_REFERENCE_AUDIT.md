@@ -6,13 +6,10 @@ A document name in an evidence string is not proof that the document
 supports the unit. This audit resolves each reference against the artifact.
 
 - units checked: 384
-- references resolved: 1852/1856
-- references UNRESOLVED: 4
+- references resolved: 1856/1857
+- references UNRESOLVED: 1
 - all-complete claimable from references: False
 
 | unit | axis | D | detail |
 |---|---|---|---|
-| `NORM|167b8cabf184adb` | implementation | FAIL | sha256 MISMATCH |
-| `NORM|167b8cabf184adb` | independent_spec | FAIL | sha256 MISMATCH |
-| `NORM|167b8cabf184adb` | tests | FAIL | sha256 MISMATCH |
 | `NORM|6b83a747a7e86cb` | adversarial_review | FAIL | non-batch reference |

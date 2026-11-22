@@ -8,22 +8,22 @@ obligations being complete. SKIP is never counted as PASS.
 ## Axis A — registered checks (last recorded gate run)
 
 - results file available: True
-- PASS: 46
+- PASS: 47
 - FAIL: 0
 - SKIP: 0
 - required gates SKIPped: 0
-- gate results commit: d0e3fb4447c53d36fbbe65d0740518691bdb8f91
-- current HEAD commit: 9569736dc33049609e3afe0312049be4109c121d
-- results bound to this commit: False
-- registered checks all green: False
+- gate results commit: 941e5a3a29315cae551be5532477f66e26202958
+- current HEAD commit: 941e5a3a29315cae551be5532477f66e26202958
+- results bound to this commit: True
+- registered checks all green: True
 
 ## Axis B — all registered obligations complete
 
 - normative units: 396854
-- NOT_STARTED: 396599
+- NOT_STARTED: 396468
 - PARTIAL: 0
-- PROVED_SCOPE: 2
-- FULLY_VERIFIED: 251
+- PROVED_SCOPE: 3
+- FULLY_VERIFIED: 381
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180619
@@ -36,26 +36,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 253 | 396854 |
-| kernel proved (CI-attested proof evidence) | 253 | 396854 |
-| source-audited (原文 correspondence evidence) | 253 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 384 | 396854 |
+| kernel proved (CI-attested proof evidence) | 384 | 396854 |
+| source-audited (原文 correspondence evidence) | 384 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 253 |
-| boundary_proof | 253 |
-| cross_law_proof | 253 |
-| decomposition_audit | 253 |
-| implementation | 253 |
-| independent_spec | 253 |
-| kernel_proof | 253 |
-| proof_scope | 253 |
-| source_correspondence_audit | 253 |
-| source_location | 253 |
-| tests | 253 |
+| adversarial_review | 384 |
+| boundary_proof | 384 |
+| cross_law_proof | 384 |
+| decomposition_audit | 384 |
+| implementation | 384 |
+| independent_spec | 384 |
+| kernel_proof | 384 |
+| proof_scope | 384 |
+| source_correspondence_audit | 384 |
+| source_location | 384 |
+| tests | 384 |
 
 ## Verdict
 

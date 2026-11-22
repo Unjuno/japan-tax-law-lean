@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 133 | 327 | 40.67% |
+| laws with >=1 pinned literal check | 134 | 327 | 40.98% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 400 | n/a | n/a |
-| distinct article pins | 157 | 42584 | 0.37% |
-| pinned Lean modules (cross-law) | 826 | n/a | n/a |
+| pinned literal checks | 401 | n/a | n/a |
+| distinct article pins | 158 | 42584 | 0.37% |
+| pinned Lean modules (cross-law) | 828 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 426 |
+| unpinned Lean modules (not counted as verified) | 427 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -218,6 +218,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `409CO0000000363` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行令
 - `412CO0000000277` 関税等不服審査会令
 - `414CO0000000262` ポリエステル短繊維に対して課する不当廉売関税に関する政令
+- `414M60000008042` 沖縄振興特別措置法第九条等の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令
 - `415M60000008069` 収入印紙及び自動車重量税印紙の売りさばきに関する省令
 - `415M60000040007` 税関関係法令に係る情報通信技術を活用した行政の推進等に関する省令
 - `417M60000200012` 経済連携協定に基づく農林水産省の所掌事務に係る物資の関税割当制度に関する省令
