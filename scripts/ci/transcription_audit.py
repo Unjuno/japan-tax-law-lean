@@ -1301,33 +1301,6 @@ def checks():
            "file", None,
            ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である被災給与所得者等"])
 
-    # CustomsTariffArt8PrevReading7_8_23.lean - NORM|0eddc7c5... (para 7/8/23 準用 READING, law 143AC0000000054)
-    # Needle is in MainProvision Article 第八条 (Paragraph 28, ParagraphSentence);
-    # find_article_text(...,"第八条") returns that article (len 6919) with needle -
-    # use the precise article locator. Needle literal from queue via \u escapes.
-    yield ("customs tariff art.8 prev reading 7 8 23 - CustomsTariffArt8PrevReading7_8_23.lean",
-           "143AC0000000054",
-           "article", "第八条",
-           ["\u7b2c\u4e03\u9805\u3001\u7b2c\u516b\u9805\u53ca\u3073\u7b2c\u4e8c\u5341\u4e09\u9805\u306e\u898f\u5b9a\u306f\u3001\u524d\u9805\u306e\u8abf\u67fb\u304c\u958b\u59cb\u3055\u308c\u305f\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
-
-    # CustomsTariffArt8Reading7_8By22.lean - NORM|9839bfa7... (para 7/8 by 22 準用 READING, law 143AC0000000054)
-    # Needle is in MainProvision Article 第八条 (Paragraph 24, ParagraphSentence);
-    # find_article_text(...,"第八条") returns that article (len 6919) with needle -
-    # use the precise article locator. Needle literal from queue via \u escapes.
-    yield ("customs tariff art.8 reading 7 8 by 22 - CustomsTariffArt8Reading7_8By22.lean",
-           "143AC0000000054",
-           "article", "第八条",
-           ["\u7b2c\u4e03\u9805\u53ca\u3073\u7b2c\u516b\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e8c\u5341\u4e8c\u9805\u306e\u8abf\u67fb\u304c\u958b\u59cb\u3055\u308c\u305f\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
-
-    # CustomsTariffArt8PrevReading6to8.lean - NORM|533e8fd9... (para 6-8 準用 READING, law 143AC0000000054)
-    # Needle is in MainProvision Article 第八条 (Paragraph 14, ParagraphSentence);
-    # find_article_text(...,"第八条") returns that article (len 6919) with needle -
-    # use the precise article locator. Needle literal from queue via \u escapes.
-    yield ("customs tariff art.8 prev reading 6to8 - CustomsTariffArt8PrevReading6to8.lean",
-           "143AC0000000054",
-           "article", "第八条",
-           ["\u7b2c\u516d\u9805\u304b\u3089\u7b2c\u516b\u9805\u307e\u3067\u306e\u898f\u5b9a\u306f\u3001\u524d\u9805\u306e\u8abf\u67fb\u304c\u958b\u59cb\u3055\u308c\u305f\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
-
     # CustomsTariffArt8InvestigationDeadline.lean - NORM|8e7f2e77... (investigation deadline REFERENCE, law 143AC0000000054)
     # Needle is in MainProvision Article 第八条 (Paragraph 34, ParagraphSentence);
     # find_article_text(...,"第八条") returns that article (len 6919) with needle -
@@ -2090,24 +2063,6 @@ def checks():
            "file", None,
            ["発動機を有する滑空機とする", "航空機の範囲）第二条"])
 
-    # NoticeCopyDocument — cycle-66
-    yield ("NoticeCopyDocument.lean",
-           "422M60000040052",
-           "file", None,
-           ["前条に規定する通知書の写しとする", "法人税の特例）第二条"])
-
-    # TrustedAffairsClassification — cycle-67
-    yield ("TrustedAffairsClassification.lean",
-           "504CO0000000300",
-           "file", None,
-           ["第二条第九項第一号に規定する第一号法定受託事務とする", "事務の区分）第十条"])
-
-    # PublicityMatter — cycle-68
-    yield ("PublicityMatter.lean",
-           "341M50000040055",
-           "file", None,
-           ["財務大臣が同条第一項の規定による指定をした日とする", "公示事項）第一条の十一"])
-
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2813,33 +2768,29 @@ def checks():
            "article", "第七条",
            ["前二項の成年者数は、官報で公示された最近の国勢調査の結果による年齢二十歳以上の人口をいう。"])
 
+    # 課税価格の合計額 一万円以下 — CustomsSmallConsignmentCap.lean
+    yield ("関税定率法 art. 14（課税価格の合計額 一万円以下）↔ CustomsSmallConsignmentCap.lean (smallConsignmentCapYen 10000)",
+           "143AC0000000054",
+           "file", None,
+           ["課税価格の合計額が一万円以下の物品"])
 
-    # 登録免許税法施行令 art. 12 — AntennaPowerCeiling.lean
-    yield ("登録免許税法施行令 art. 12（基本送信機 空中線電力五百ワット以下）↔ AntennaPowerCeiling.lean (500 W ceiling)",
-           "342CO0000000146",
-           "article", "第十二条",
-           ["法別表第一第五十四号（二）に規定する政令で定める登録は、基本送信機の規模が空中線電力五百ワット以下の無線局の登録とする。"])
+    # 消去請求期間の延長 三十日以内 — TaxErasureExtension30.lean
+    yield ("地方税法 art. 22の6（消去請求期間の延長 三十日以内）↔ TaxErasureExtension30.lean (extensionCapDays 30)",
+           "325AC0000000226",
+           "file", None,
+           ["特に必要があるときは、三十日を超えない範囲内で延長"])
 
+    # 消去請求期間の合計 六十日以内 — TaxErasureTotal60.lean
+    yield ("地方税法 art. 22の6（消去請求期間の合計 六十日以内）↔ TaxErasureTotal60.lean (totalCapDays 60)",
+           "325AC0000000226",
+           "file", None,
+           ["ただし、消去しないよう求める期間は、通じて六十日を超えることができない。"])
 
-    # 租税特別措置法施行令 art. 1_8 — OwnershipPercent5.lean
-    yield ("租税特別措置法施行令 art. 1の8（社外株式五パーセント以上所有）↔ OwnershipPercent5.lean (5% inclusive)",
-           "329CO0000000155",
-           "article", "第一条の八",
-           ["いずれか一方の者が他方の者の事業に係る議決権を伴う社外株式の総数の五パーセント以上の社外株式を直接又は間接に所有し、管理し、又は所持している場合"])
-
-
-    # 登録免許税法 art. 14 — RegistrationFeePerItem.lean
-    yield ("登録免許税法 art. 14（担保付社債金額がない場合 権利一件につき千五百円）↔ RegistrationFeePerItem.lean (1500 per item)",
-           "342AC0000000035",
-           "article", "第十四条",
-           ["この場合において、当該担保付社債の金額がないときは、当該登録免許税の課税標準及び税率は、当該登記又は登録に係る不動産等に関する権利の件数一件につき千五百円とする。"])
-
-
-    # 酒税法施行規則 art. 50 — PermitValidity7Days.lean
-    yield ("酒税法施行規則 art. 50（許可状の有効期間が七日を超えるとき）↔ PermitValidity7Days.lean (7 days strict)",
-           "337CO0000000135",
-           "article", "第五十条",
-           ["許可状が七日を超える有効期間を必要とするときは、その旨及び事由"])
+    # ゴルフ場利用税の税率上限 千二百円 — GolfRateCeiling1200.lean
+    yield ("地方税法 art. 76（ゴルフ場利用税の税率上限 千二百円）↔ GolfRateCeiling1200.lean (golfRateCapYen 1200)",
+           "325AC0000000226",
+           "file", None,
+           ["千二百円を超える税率で課することができない。"])
 
 
 def main() -> int:
