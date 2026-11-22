@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 132
+- with >=1 pinned literal check (semantic model): 133
 - with recorded human legal review: 0
 
 ## All laws
@@ -279,7 +279,7 @@ a completion flag.
 | `424M60000040007` | 復興特別法人税に関する省令 | 424M60000040007_20210415_503M60000040045 | CurrentEnforced | YES | ok | 15 | NO (0) | NO |
 | `424M60000040012` | 株式会社東日本大震災事業者再生支援機構が取得した不動産に関する権利の移転登記の登録免許税 | 424M60000040012_20130401_425M60000040026 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
 | `424AC0000000068` | 社会保障の安定財源の確保等を図る税制の抜本的な改革を行うための消費税法の一部を改正する等 | 424AC0000000068_20250401_506AC0000000046 | CurrentEnforced | YES | ok | 12 | NO (0) | NO |
-| `425CO0000000025` | 税制調査会令 | 425CO0000000025_20221202_504CO0000000367 | CurrentEnforced | YES | ok | 14 | NO (0) | NO |
+| `425CO0000000025` | 税制調査会令 | 425CO0000000025_20221202_504CO0000000367 | CurrentEnforced | YES | ok | 14 | YES (1) | NO |
 | `425M60000008049` | 福島復興再生特別措置法第二十六条等の地方税の課税免除又は不均一課税に伴う措置が適用される | 425M60000008049_20260401_508M60000008052 | CurrentEnforced | YES | ok | 14 | NO (0) | NO |
 | `426AC0000000011` | 地方法人税法 | 426AC0000000011_20260401_507AC0000000013 | CurrentEnforced | YES | ok | 112 | YES (2) | NO |
 | `426CO0000000139` | 地方法人税法施行令 | 426CO0000000139_20260401_508CO0000000095 | CurrentEnforced | YES | ok | 37 | NO (0) | NO |

@@ -1601,3 +1601,6 @@ import JapanTaxLaw.SpecialLand330Tests
 import JapanTaxLaw.ShareholdersUnder50
 import JapanTaxLaw.ShareholdersUnder50Spec
 import JapanTaxLaw.ShareholdersUnder50Tests
+import JapanTaxLaw.CouncilMemberCap30
+import JapanTaxLaw.CouncilMemberCap30Spec
+import JapanTaxLaw.CouncilMemberCap30Tests

@@ -3094,6 +3094,13 @@ def checks():
            "file", None,
            ["当該株式交付により当該株式交付子会社の株式を五十人以上の当該株式交付子会社の株主から取得をした場合"])
 
+    # 税制調査会組織規則 art. 1 — CouncilMemberCap30.lean
+    yield ("税制調査会組織規則 art. 1（委員三十人以内）↔ CouncilMemberCap30.lean (memberCap 30, inclusive)",
+           "425CO0000000025",
+           "article", "第一条",
+           ["税制調査会（以下「調査会」という。）は、委員三十人以内で組織する。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
