@@ -9288,3 +9288,123 @@ CI `checks()` の cycle-79 エントリ（`scripts/ci/transcription_audit.py` �
 - Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。commit / push / merge / ブランチ切替は行っていない。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・桁違い／率／境界の数値抽出・needle 健全性・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+---
+
+## Batch BY review (2026-11-23) — 地方税法 art.71の28 / DividendTaxRate.lean（cycle-81 独立原文照合）
+
+### BY-0. 範囲・独立性の申告
+
+- **レビュア役割**: Adversarial Review Agent。形式化担当とは独立に、pinned 原文・CI 実装・Lean モジュールを機械的に再走査して判定した。担当者の STAGING／doc-comment の「5%」という記述は参照したが、その正否は**信じず**、pinned JSON から直接再抽出した値をもって照合した。
+- **対象モジュール（読み取り専用・本レビューで一切変更していない）**:
+  - `JapanTaxLaw/DividendTaxRate.lean`（impl、`ratePercent` / `taxYen`）
+  - `JapanTaxLaw/DividendTaxRateSpec.lean`（`specTax` / `agreeDividendTaxRate`）
+  - `JapanTaxLaw/DividendTaxRateTests.lean`（`by decide` smoke）
+- **一次資料（pinned・改変禁止）**: `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`
+  - Python で直接確認: `law_id = 325AC0000000226`、`revision_info.law_revision_id = 325AC0000000226_20261101_508AC0000000002`、`amendment_enforcement_date = 2026-11-01`、`current_revision_status = CurrentEnforced`。
+- **抽出方法**: `law_full_text` を `transcription_audit.py` の `text()` と同一ロジックで平坦化（**2,357,362 文字**／正規化後 **2,355,516 文字**、`_norm = re.sub(r"[\s\u3000]+", "", s)`）。`MainProvision` 配下の `Article` **1,348 件**を走査し、`ArticleTitle == 第七十一条の二十八`（`attr.Num = 71_28`）の本文を逐語取得した。needle は **CI 実装 `scripts/ci/transcription_audit.py` の `checks()` を直接読み取った実文字列**を使用（手打ちしない）。
+- **書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ**。Lean モジュール・Spec・Tests・`data/*` ・CI スクリプトは読み取り専用。commit / push / merge / ブランチ切替（`main` のまま）は行っていない。作業ツリーには他エージェントによる無関係な未コミット変更が存在するが、本レビューでは一切触れていない（`transcription_audit.py` の本対象 check 周辺に diff がないことも確認）。
+
+### BY-1. 原文直接抽出と税率の独立照合（桁違いの明示除外）
+
+pinned 原文から独立抽出した art.71の28 本文（平坦化・正規化文字列、**33 文字**、U+3000 **0 個**）:
+
+- `（配当割の税率）第七十一条の二十八配当割の税率は、百分の五とする。`
+
+| 項目 | 独立抽出結果 | Lean 実装 | 照合 |
+|---|---|---|---|
+| 税率文言 | `配当割の税率は、百分の五とする` | doc-comment に逐語保持 | ✅ |
+| 日本語数字 | `五` → Arabic **5** | `ratePercent : Nat := 5` | ✅ |
+| 率 | 百分の五 = **5/100 = 5%** | `taxYen base = base * ratePercent / 100` = `base * 5 / 100` | ✅ |
+| 桁違い 0.5% | `百分の〇・五` は本文に **0 回**（明示除外） | `ratePercent ≠ 0`（=5） | ✅ |
+| 桁違い 50% | `百分の五十` は本文に **0 回**（明示除外） | `ratePercent ≠ 50`（=5） | ✅ |
+
+- 正規表現 `配当割の税率は、百分の([一二三四五六七八九十百千万〇零]+)とする` により漢数字 `五` を捕捉し、自前の kansuji 変換で **5** を得た。`5/100 = 5%` は `ratePercent = 5` および `base * 5 / 100` と完全一致。
+- **桁違い（0.5% = `百分の〇・五`、50% = `百分の五十`）はいずれも pinned 原文に存在せず、明示的に除外した。** 小数点を含む率ではないため分母は 100 のままで正しく、`/10000` 等への拡大は不要。
+- 本文冒頭の `（配当割の税率）` は見出し、続く `第七十一条の二十八` は条号であり、税率算術に関与しない。
+
+### BY-2. needle 健全性（CI 実文字列 2 本を自前正規化原文で検証）
+
+`scripts/ci/transcription_audit.py` の `checks()` うち、`DividendTaxRate.lean`（law `325AC0000000226`）に組込まれた **2 本**の needle を抽出し、自前で平坦化・正規化した pinned 全文（2,355,516 文字）に対して `.find()` / `.count()` を実行した（STAGING の「FOUND」申告は信じていない）。
+
+| needle（CI 実文字列） | U+3000 | 正規化 find offset | count | 結果 |
+|---|---:|---:|---:|---|
+| `配当割の税率は、百分の五とする` | 0 | 200644 | 1 | **FOUND** |
+| `第七十一条の二十八` | 0 | 200635 | 3 | **FOUND** |
+
+- **U+3000（全角空白）を含む needle: 0 件**。**2/2 FOUND、MISS 0**。
+- 両 needle はいずれも対象条文（art.71の28）本文内に含まれることを別途確認（needle1: True / needle2: True）。needle2「第七十一条の二十八」は法律全文では 3 回出現するが、これは他条からの参照によるもので、対象条文内では一意であり転写健全性に影響しない。
+- 原文側の全角空白は `_norm` で除去されるため、needle が全角空白を含んでいても検証は通るが、現状は含まない。
+
+### BY-3. 反例探索（独立整数再計算）
+
+Python で Lean と同一の整数式 `base * 5 // 100` を再計算し、指定された攻撃点を走査した。値はすべて Lean の `by decide` smoke（`ratePercent = 5` を含む 4 件）および Spec の `specTax` と一致した。
+
+| 攻撃対象 | 独立再計算 | Lean smoke / Spec | 結果 |
+|---|---:|---|---|
+| `taxYen 0` | 0 | `taxYen 0 = 0` | 矛盾なし |
+| `taxYen 1000` | 50 | `taxYen 1000 = 50` / `specTax 1000 = 50` | 矛盾なし |
+| `taxYen 10000` | 500 | `taxYen 10000 = 500` / `specTax 10000 = 500` | 矛盾なし |
+| 桁違い 0.5% を採った場合 | `10000*0.5/100 = 50` ではなく 5 になる | `ratePercent = 5` で 500 | 矛盾なし（0.5% は除外） |
+| 桁違い 50% を採った場合 | `1000*50/100 = 500` | `taxYen 1000 = 50` | 矛盾なし（50% は除外） |
+| 端数境界（`base = 19`） | `19*5/100 = 0`（floor） | Nat 除算と同値 | 矛盾なし（端数処理は B-Y2 / U-Y1） |
+
+**反例探索で検出された原文↔Lean の矛盾: 0 件（ゼロ）。**
+
+### BY-4. 公理監査
+
+- 一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\batchBY_axiom_probe.lean` を作成し、impl / Spec / Tests の**名前付き宣言 4 件**（`ratePercent` / `taxYen` / `specTax` / `agreeDividendTaxRate`）すべてに `#print axioms` を実行（`lake env lean`、exit code **0**、error 0）。監査後、一時ファイル・一時スクリプト・一時出力は**削除済み**。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | **4** |
+| `does not depend on any axioms` | **4/4** |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+
+→ **choice / sorryAx / Quot.sound / propext 依存はいずれも 0 件。公理監査は合格。**
+（Tests の 4 件の `example` は匿名のため `#print axioms` 対象外だが、すべて `by decide` の計算のみで公理を導入しない。）
+
+### BY-5. 分類判定
+
+| 分類 | 件数 |
+|---|---|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **4** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = ゼロ）を明示する。** 税率定数・算術・needle・反例・公理のいずれにも原文との食い違いは検出されなかった。件数を手柄にしない。
+
+#### CONFIRMED（0 件）
+
+- 税率: 原文「百分の五」= 5/100 = 5% と `ratePercent = 5` / `base * 5 / 100` は完全一致。
+- 桁違い: 0.5%・50% とも原文に存在せず、実装も採っていない。
+- needle: 2/2 FOUND、U+3000 0 件、MISS 0。
+- 反例: `taxYen(0)=0` / `(1000)=50` / `(10000)=500` すべて一致。
+- 公理: choice / sorryAx / Quot.sound / propext とも 0 件。
+
+#### BY-DESIGN（4 件）
+
+- **B-Y1 税率定数のみの bounded L4 slice**: 本スライスは税率定数（5%）と与えられた課税標準への乗算のみを扱う。**配当割の課税標準（配当金額の算定）・申告納付手続は NOT MODELLED** と doc-comment で明示済み。原文 art.71の28 自体が税率のみを定めるため、反映漏れではない。
+- **B-Y2 `base * 5 / 100` の整数除算（floor）**: 原文に端数規定がないため、Nat 除算の切り捨てをモデル規約として明示。法的正当性は U-Y1 で保留。
+- **B-Y3 needle の取り扱い**: CI 実文字列 2 本を自前正規化原文で検証し 2/2 FOUND（U+3000 0 件）。needle2 は全文で count 3 だが対象条文内で一意であり、健全性に影響なし。
+- **B-Y4 Spec の独立定式**: `specTax b = b * 5 / 100` と `agreeDividendTaxRate`（`[0,1,100,1000,10000]` 上の有限 spot-check）を併設。`agree = true` は有限サンプル上の一致であり全称等価証明ではないことを明示。
+
+#### UNRESOLVED（2 件）
+
+- **U-Y1 端数処理（floor）の法的正当性**: 原文「配当割の税率は、百分の五とする。」には端数規定がなく、モデルは `base * 5 / 100` の Nat 切り捨てを採用。pinned 原文のみではこの切り捨てが法的に正しいか決定不能。**人間の法律専門家による確認を要する**（従来バッチの U-1 と同趣旨）。
+- **U-Y2 課税標準・申告手続の未形式化が法的に十分か**: 原文は税率のみを定め、課税標準（配当金額の算定）・申告納付手続は本スライスの対象外として NOT MODELLED。透明に申告されているが、形式化として十分かは pinned 原文のみでは解けず、**専門家判断を要する**。税率定数・税額算術の一致（発見ゼロ）には影響しない。
+
+### BY-6. 総合判定・最終報告
+
+- pinned revision `325AC0000000226_20261101_508AC0000000002`（地方税法、適用日 2026-11-01）の art.71の28 本文 33 文字を独立抽出し、`ratePercent = 5` / `taxYen(base) = base * 5 / 100` を照合。**モデル値の食い違いは 0 件（ゼロ）**。0.5%・50% の桁違いは原文上も実装上も明示的に除外した。
+- **CONFIRMED: 0 件（発見ゼロ）** / **BY-DESIGN: 4 件** / **UNRESOLVED: 2 件**。
+- **needle 健全性**: U+3000 **0 件**、CI 実文字列 **2/2 FOUND**（MISS 0）。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` とも **0 件**、4/4 宣言が axiom-free（`lake env lean`、exit 0）。監査用一時ファイルは削除済み。
+- **反例探索**: `taxYen(0)=0` / `(1000)=50` / `(10000)=500` を含む全攻撃点で矛盾 **0 件**。
+- **書き換えたのは本ファイルのみ**（既存の Batch G〜BX レビュー履歴はすべて保持）。Lean モジュール・`data/*` は読み取り専用。commit / push / merge / ブランチ切替なし。
+- 残る UNRESOLVED（U-Y1 端数処理の法的正当性、U-Y2 課税標準・申告手続の未形式化の法的十分性）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・漢数字変換による税率照合・needle の `.find()` 検証・integer 式の反例走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。

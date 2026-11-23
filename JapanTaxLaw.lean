@@ -1687,3 +1687,6 @@ import JapanTaxLaw.NonUniformRateCapTests
 import JapanTaxLaw.DividendTaxRate
 import JapanTaxLaw.DividendTaxRateSpec
 import JapanTaxLaw.DividendTaxRateTests
+import JapanTaxLaw.RealPropertyAcquisitionTaxRate
+import JapanTaxLaw.RealPropertyAcquisitionTaxRateSpec
+import JapanTaxLaw.RealPropertyAcquisitionTaxRateTests
