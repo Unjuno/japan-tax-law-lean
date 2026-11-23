@@ -9744,3 +9744,106 @@ pinned JSON の `Law/LawBody/SupplProvision/Article`（`attr.Num = "1"`）から
 - 公理: `choice` / `sorryAx` / `Quot.sound` / `propext` 依存 **0**、8/8 axiom-free。
 - **CONFIRMED 0 / BY-DESIGN 5 / UNRESOLVED 2**。実 defect はゼロ。
 - 追記は本ファイルのみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替は行わない。一時ファイルは削除済み。
+
+---
+
+## Batch CC review (2026-11-23) — 国税収納金整理資金に関する法律 art.11 §3 / PaymentCeiling.lean（cycle-86 独立原文照合）
+
+- **レビュア役割**: 独立 Adversarial Review Agent（形式化担当から独立）。**本レビューは機械的独立照合であり、人間の法律専門家レビューではない。**
+- **対象モジュール（読み取り専用・変更していない）**: `JapanTaxLaw/PaymentCeiling.lean`（実装）、`JapanTaxLaw/PaymentCeilingSpec.lean`（独立 Spec）、`JapanTaxLaw/PaymentCeilingTests.lean`（smoke tests）
+- **pinned 原文**: `data/raw/329AC0000000036_20240101_431AC0000000003.law.json`; law_id `329AC0000000036` / revision `329AC0000000036_20240101_431AC0000000003`
+- **形式化担当の STAGING (`docs/STAGING_PAYMENTCEILING.md`) は参照情報としてのみ扱い、抽出・判定には使用しない。** pinned JSON の `law_full_text.children[1].children[1].children[10]`（`Article attr.Num='11'`）を直接再帰走査した。
+
+### CC-1. 独立抽出（pinned 原文 → 自前正規化）
+
+Article 11 の部分木を再帰走査し、文字リーフを文書順に連結（`flat`）後、U+3000 を除去（`norm`）した結果:
+
+- `Article attr={'Num':'11'}` / Caption `（資金の支払計画等）` / Title `第十一条`
+- Paragraph `Num=1`: `財務大臣は、政令で定めるところにより、国税資金支払命令官（前条第一項の規定により委任された職員をいう。以下同じ。）ごとに、資金の支払計画を定め、これを国税資金支払命令官に示達しなければならない。`（ParagraphNum なし）
+- Paragraph `Num=2`: ParagraphNum `２` + `財務大臣は、政令で定めるところにより、前項の事務の一部を所属の職員に行わせることができる。`
+- **Paragraph `Num=3`: ParagraphNum `３`(U+FF13) + `国税資金支払命令官は、第一項の規定により示達された資金の支払計画に定める金額をこえて支払命令をしてはならない。`** ← 本レビュー対象
+- Paragraph `Num=4`: ParagraphNum `４` + 会計法第十六条・第二十一条第一項・第二十六条・第二十八条の準用 + 読み替え規定（`歳出の支出`→`支払命令`、`支出官`→`国税資金支払命令官`）
+
+計測: `flat` = **351 chars**、article-11 leaf の **U+3000 = 0**（doc-comment「flat/normalized leaf text 351 chars, U+3000 count 0」と一致）。なお raw ファイル全体では U+3000 = 26 / 全角 `３`(U+FF13) = 6 が他条に存在するが、article-11 正規化 leaf は U+3000 = 0 であり doc の主張は article-11 レベルで正しい。
+
+### CC-2. 独立判定（「こえて」= 以下）
+
+- 原文の規範語は `金額をこえて支払命令をしてはならない`。`こえて`（厳密超過）の禁止は **`amount <= plan`**（以下）を意味し、**`<`（未満）ではない**。ちょうど同額（`amount = plan`）は許容される。
+- 実装 `orderWithinPlan (amount : Money) (plan : Money) : Bool := amount <= plan`（`Money = Nat`）はこの判定と整合。
+- 独立 Spec `specWithin (a p : Nat) : Bool := Nat.ble a p` は Bool レベルの別定式であり、実装の `<=` と定式が異なる（独立再定式として妥当）。
+
+### CC-3. needle 健全性（CI 実文字列 2 本）
+
+`scripts/ci/transcription_audit.py` の `checks()` ジェネレータ（PaymentCeiling の yield）から **AST で実文字列を直接抽出**（手転記による誤り混入を排除）:
+
+| needle | 実文字列 | U+3000 | 自前正規化原文での結果 |
+|---|---|---|---|
+| 1 | `３国税資金支払命令官は、第一項の規定により示達された資金の支払計画に定める金額をこえて支払命令をしてはならない` | 0 | **FOUND** |
+| 2 | `第十一条` | 0 | **FOUND** |
+
+- **U+3000 = 0 本、2/2 FOUND（MISS 0）**。
+- needle1 の先頭文字は **全角 `３`(U+FF13)** で、これは原文 Paragraph 3 の `ParagraphNum` そのもの（原文に実在）。末尾の句点 `。` は含まない prefix であり、flatten 順（`ParagraphNum` + `Sentence`）と整合。
+- needle2 `第十一条` は `ArticleTitle` と一致。
+
+### CC-4. 反例探索・独立 Spec 一致（`lake env lean` 実行、exit 0）
+
+| 入力 (amount, plan) | `orderWithinPlan` | 独立 Spec `specWithin` | 期待 | 判定 |
+|---|---|---|---|---|
+| (0, 100) | `true` | `true` | `true` | ✅ |
+| (100, 100) | `true`（境界許容） | `true` | `true` | ✅ |
+| (101, 100) | `false`（超過禁止） | `false` | `false` | ✅ |
+| (50, 100) | `true` | `true` | `true` | ✅ |
+| (0, 0) | `true` | `true` | `true` | ✅ |
+| (200, 100) | `false` | `false` | `false` | ✅ |
+
+- `agreePaymentCeiling = true`（Lean 側は 6 点 spot-check: `(0,0),(0,100),(50,100),(100,100),(101,100),(200,100)`）。
+- 補完として `a,p ∈ 0..200` の **40,401 組を全走査**し `orderWithinPlan a p == specWithin a p` を確認、**不一致 0**。反例は検出されず。
+
+### CC-5. 公理監査（`lake env lean` / `#print axioms`, exit 0）
+
+| 宣言 | 結果 |
+|---|---|
+| `JapanTaxLaw.PaymentCeiling.orderWithinPlan` | `does not depend on any axioms` |
+| `JapanTaxLaw.PaymentCeiling.specWithin` | `does not depend on any axioms` |
+| `JapanTaxLaw.PaymentCeiling.agreePaymentCeiling` | `does not depend on any axioms` |
+
+→ **`Classical.choice` / `sorryAx` / `Quot.sound` / `propext` 依存 0 件**（3/3 axiom-free）。補助として `PaymentCeiling*.lean` を `sorry|admit|axiom|Classical.choice|noncomputable|unsafe` で走査し **0 matches**。CI の `generate_axiom_probe.py` は本モデルの名前付き theorem/lemma を一切 emit しない（def と `example` のみで構成）点も確認し、上記の宣言直接監査が適切であることを確認した。
+
+### CC-6. 分類
+
+| 分類 | 件数 |
+|---|---|
+| CONFIRMED（実 defect） | **0（ゼロ）** |
+| BY-DESIGN | **5** |
+| UNRESOLVED | **3** |
+
+#### CONFIRMED（0 件）
+
+原文逐語・「こえて」判定・needle・反例・Spec 一致・公理のいずれにも矛盾を検出せず。**発見ゼロ（実 defect ゼロ）**。
+
+#### BY-DESIGN（5 件）
+
+- **B-CC1  bounded L4 slice**: art.11 §3 の上限規範（以下）のみを formalize し、支払命令官の設置・金額の実際の算定は NOT MODELLED と doc-comment に明記。意図的な範囲制限であり欠陥ではない。
+- **B-CC2  full-width `３` の needle 包含**: needle1 先頭の全角 `３` は Paragraph 3 の `ParagraphNum` であり原文に実在。flatten 順の prefix として正しく、転記ミスではない。
+- **B-CC3  U+3000 の主張スコープ**: doc-comment の「U+3000 count 0」は article-11 正規化 leaf に対する主張であり、その通り（0）。raw 全体の 26 本は他条に由来し、矛盾しない。
+- **B-CC4  `Money = Nat`**: 金額を Nat で表現し、通貨単位・端数処理・負額はモデル化しない。上限比較（`<=`）のみを扱う bounded 設計。
+- **B-CC5  Spec 一致の Lean 側は spot-check**: `agreePaymentCeiling` は 6 点のみであるが、独立 Python による 40,401 組の全走査（不一致 0）で補完済み。証明の強さの違いは設計上許容。
+
+#### UNRESOLVED（3 件）
+
+いずれも doc-comment で NOT MODELLED と明示された意図的な範囲外だが、pinned 原文だけでは §3 上限規範への法的影響を判定できず、**人間の法律専門家によるレビューが必要**。
+
+- **U-CC1  第1項の支払計画示達手続**: `財務大臣は…資金の支払計画を定め、これを国税資金支払命令官に示達しなければならない。` の手続・「示達された」の法的効果は未形式化。
+- **U-CC2  第2項の委任**: `前項の事務の一部を所属の職員に行わせることができる。` の委任は未形式化。委任先が §3 の「国税資金支払命令官」に含まれるか等の解釈は pinned 原文のみでは確定しない。
+- **U-CC3  第4項の準用**: 会計法第十六条・第二十一条第一項・第二十六条・第二十八条的準用および読み替え規定は未形式化。§3 上限との相互関係の法的効果は要 human legal review。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正誤は専門家による確認を要する。本レビューをもって法的レビューを称さない。
+
+### CC-7. 総括
+
+- pinned 原文から art.11 §3 の `金額をこえて支払命令をしてはならない` を独立抽出し、`こえて` = 厳密超過の禁止 = **以下（`<=`）**、ちょうど同額許容（`<` ではない）を確認。実装・独立 Spec いずれとも整合。
+- needle 健全性: U+3000 **0 本**、CI 実文字列 **2/2 FOUND**（MISS 0）、needle1 先頭の全角 `３` は原文 ParagraphNum に実在。
+- 反例: 指定 3 点（0/100・100/100・101/100）すべて期待値。境界 100=100 は許容、101>100 は禁止。全走査 40,401 組で不一致 0。
+- 公理: `choice` / `sorryAx` / `Quot.sound` / `propext` 依存 **0**、3/3 axiom-free。
+- **CONFIRMED 0 / BY-DESIGN 5 / UNRESOLVED 3**。実 defect はゼロ（発見ゼロ）。
+- 追記は `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替は行わない。一時ファイルは削除済み。

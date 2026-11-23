@@ -1699,3 +1699,6 @@ import JapanTaxLaw.FixedAssetEvalEnforcementDateTests
 import JapanTaxLaw.PaymentCeiling
 import JapanTaxLaw.PaymentCeilingSpec
 import JapanTaxLaw.PaymentCeilingTests
+import JapanTaxLaw.RiceContentThreshold
+import JapanTaxLaw.RiceContentThresholdSpec
+import JapanTaxLaw.RiceContentThresholdTests
