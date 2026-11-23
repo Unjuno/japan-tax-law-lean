@@ -29,7 +29,7 @@
       },
       "text_file": "data/raw/treaties/JP_US_INCOME_TAX_2003.txt",
       "formalized": {
-        "article": "第一条・第二条・第三条・第四条３・第六条 (Articles 1,2,3,4(3),6)・第七条 (Article 7)・第十条 (Article 10)・第十一条 (Article 11)・第十二条 (Article 12)・第十三条 (Article 13)・第十四条 (Article 14)・第十六条 (Article 16)・第十七条 (Article 17)・第十七条 (Article 17)・第十八条 (Article 18)・第十五条 (Article 15)・第十九条・第二十一条 (Articles 19,21)・第二十三条 (Article 23)・第二十四条 (Article 24)・第二十五条 (Article 25)・第二十六条 (Article 26)・第二十七条 (Article 27)・第二十二条 (Article 22)",
+        "article": "第一条・第二条・第三条・第四条３・第六条 (Articles 1,2,3,4(3),6)・第七条 (Article 7)・第十条 (Article 10)・第十一条 (Article 11)・第十二条 (Article 12)・第十三条 (Article 13)・第十四条 (Article 14)・第十六条 (Article 16)・第十七条 (Article 17)・第十七条 (Article 17)・第十八条 (Article 18)・第十五条 (Article 15)・第十九条・第二十一条 (Articles 19,21)・第二十三条 (Article 23)・第二十四条 (Article 24)・第二十五条 (Article 25)・第二十六条 (Article 26)・第二十七条 (Article 27)・第二十二条 (Article 22)・第二十八条・第二十九条 (Articles 28,29)",
         "operators": [
           "inScope (resident of one or both states -> disjunction)",
           "preservesRelief (treaty does not limit tax relief -> identity)",
@@ -76,7 +76,10 @@
           "mayAssist (permitted by law only)",
           "assistanceEligible (eligible claim AND law-permitted)",
           "isQualifyingCategory (disjunctive eligible-person cascade)",
-          "treatyEligible (requirements AND category, separate provision override)"
+          "treatyEligible (requirements AND category, separate provision override)",
+          "diplomaticPrivilegesPreserved (treaty does not affect diplomatic privileges)",
+          "consultationRequested (material change)",
+          "withinThreeMonths (3-month consultation deadline)"
         ],
         "modules": {
           "JapanTaxLaw/TreatyJPUSScope.lean": "86f234ee32b82339fb87e0606b75c3dafb22f0c8a9e37ab1469e7dd1f3f939e5",
@@ -144,7 +147,10 @@
           "JapanTaxLaw/TreatyJPUSCollectionAssistanceTests.lean": "94cf651c89b051a9f7dffa4b4bcadcf60f8fe79851c3bac38747b0a1799d6396",
           "JapanTaxLaw/TreatyJPUSLimitationOnBenefits.lean": "dd60424bc2f4211455b878ab6d0f44b00a0ad7d28ff2e5fac847880788ded66d",
           "JapanTaxLaw/TreatyJPUSLimitationOnBenefitsSpec.lean": "88de97b3e3f4ec645494bdbe30c6c40c52192673f287d0a459e357f480d7a607",
-          "JapanTaxLaw/TreatyJPUSLimitationOnBenefitsTests.lean": "97a1fa500ef4acf79febfaf79288300e0480b458f83d6f7c36e1759ab7e12df3"
+          "JapanTaxLaw/TreatyJPUSLimitationOnBenefitsTests.lean": "97a1fa500ef4acf79febfaf79288300e0480b458f83d6f7c36e1759ab7e12df3",
+          "JapanTaxLaw/TreatyJPUSDiplomaticAndConsultation.lean": "487d829e03303ab7debe102939b82b39781a2e70fc1fb35ff8f66df153209090",
+          "JapanTaxLaw/TreatyJPUSDiplomaticAndConsultationSpec.lean": "061d8b4fbea43a0820ab928186ca1d4cf9d4f2514dc01a0af542784fd637418e",
+          "JapanTaxLaw/TreatyJPUSDiplomaticAndConsultationTests.lean": "6adaf251a0513feacf6b551b238333899a792ecfe0f422858b7e2e6ca5b675d8"
         },
         "proof": "Lean 4.35.0 kernel; independent spec; no sorry/admit",
         "legal_review": "PENDING (separate axis)",
@@ -171,7 +177,8 @@
           "第二十五条 (Art.25: mutual agreement procedure — 3-year filing, agreement implementation)",
           "第二十六条 (Art.26: exchange of information — confidentiality, purpose limitation, no duty for unobtainable info)",
           "第二十七条 (Art.27: assistance in collection — mutual assistance within law, eligible claims only)",
-          "第二十二条 (Art.22: limitation on benefits — qualifying-person cascade and eligibility conjunction)"
+          "第二十二条 (Art.22: limitation on benefits — qualifying-person cascade and eligibility conjunction)",
+          "第二十八条/第二十九条 (Art.28 diplomatic privileges unaffected; Art.29 renegotiation consultation within 3 months)"
         ]
       }
     },
