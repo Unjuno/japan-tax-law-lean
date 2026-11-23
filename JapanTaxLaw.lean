@@ -1034,6 +1034,9 @@ import JapanTaxLaw.LapseOfEffectNormsTests
 import JapanTaxLaw.NotificationNorms
 import JapanTaxLaw.NotificationNormsSpec
 import JapanTaxLaw.NotificationNormsTests
+import JapanTaxLaw.MultiplicationOperatorNorms
+import JapanTaxLaw.MultiplicationOperatorNormsSpec
+import JapanTaxLaw.MultiplicationOperatorNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
