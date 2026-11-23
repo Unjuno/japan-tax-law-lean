@@ -23,7 +23,8 @@ def main():
     q = json.loads(QUEUE.read_text(encoding="utf-8"))
     selected = [t for t in q["tasks"]
                 if t.get("status") == "NOT_STARTED"
-                and "読み替え" in (t.get("norm_fragment") or "")]
+                and any(k in (t.get("norm_fragment") or "") for k in
+                        ("読み替え", "に代えて", "の代わりに"))]
     cache = {}
     records = []
     for t in selected:
