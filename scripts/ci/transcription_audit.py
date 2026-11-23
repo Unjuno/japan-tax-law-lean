@@ -3514,6 +3514,15 @@ def checks():
            "article", "第五条",
            ["白色から黒色までの階調が二百五十六階調以上であること。"])
 
+    # InheritanceTaxOrderArt1_2MutualAidContractReference.lean - NORM|11f7f467... (政令 art.1_2 mutual-aid contract reference, law 325CO0000000071)
+    # Needle is in Article 1_2 Paragraph 1 Item 3 Subitem 6 - verbatim injected
+    # from the queue via \u escapes; reference coordinates 12/1/5 extracted
+    # structurally from the needle, never hand-typed.
+    yield ("inheritance tax order art.1_2 mutual-aid contract reference - InheritanceTaxOrderArt1_2MutualAidContractReference.lean",
+           "325CO0000000071",
+           "article", "\u7b2c\u4e00\u6761\u306e\u4e8c",
+           ["\u6cd5\u7b2c\u5341\u4e8c\u6761\u7b2c\u4e00\u9805\u7b2c\u4e94\u53f7\u306b\u898f\u5b9a\u3059\u308b\u5171\u6e08\u5236\u5ea6\u306b\u4fc2\u308b\u5951\u7d04"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
