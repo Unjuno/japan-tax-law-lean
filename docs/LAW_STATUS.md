@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 155
+- with >=1 pinned literal check (semantic model): 153
 - with recorded human legal review: 0
 
 ## All laws
@@ -220,7 +220,7 @@ a completion flag.
 | `410M50000040119` | 承継銀行等が取得した不動産に関する権利の移転登記の登録免許税の免税を受けるための手続に関 | 410M50000040119_20140306_426M60000040011 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `410CO0000000345` | たばこ特別税に関する政令 | 410CO0000000345_20241001_506CO0000000147 | CurrentEnforced | YES | ok | 22 | NO (0) | NO |
 | `410M50000040122` | たばこ特別税に関する省令 | 410M50000040122_20150401_427M60000040039 | CurrentEnforced | YES | ok | 13 | NO (0) | NO |
-| `411M50000008014` | 奄美群島振興開発特別措置法第三十八条の地方税の課税免除又は不均一課税に伴う措置が適用され | 411M50000008014_20240401_506M60000008035 | CurrentEnforced | YES | ok | 32 | YES (1) | NO |
+| `411M50000008014` | 奄美群島振興開発特別措置法第三十八条の地方税の課税免除又は不均一課税に伴う措置が適用され | 411M50000008014_20240401_506M60000008035 | CurrentEnforced | YES | ok | 32 | NO (0) | NO |
 | `412CO0000000276` | 関税・外国為替等審議会令 | 412CO0000000276_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 27 | YES (1) | NO |
 | `412CO0000000277` | 関税等不服審査会令 | 412CO0000000277_20160401_428CO0000000168 | CurrentEnforced | YES | ok | 13 | YES (1) | NO |
 | `412CO0000000278` | 国税審議会令 | 412CO0000000278_20260401_507CO0000000412 | CurrentEnforced | YES | ok | 22 | NO (0) | NO |
@@ -234,7 +234,7 @@ a completion flag.
 | `415M60000040007` | 税関関係法令に係る情報通信技術を活用した行政の推進等に関する省令 | 415M60000040007_20251012_507M60000040035 | CurrentEnforced | YES | ok | 47 | YES (1) | NO |
 | `415M60000008069` | 収入印紙及び自動車重量税印紙の売りさばきに関する省令 | 415M60000008069_20191001_501M60000008047 | CurrentEnforced | YES | ok | 20 | YES (1) | NO |
 | `415M60000040053` | 株式会社産業再生機構が取得した不動産に関する権利の移転登記の登録免許税の免税を受けるため | 415M60000040053_20030410_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
-| `415M60000040071` | 国税関係法令に係る情報通信技術を活用した行政の推進等に関する省令 | 415M60000040071_20260924_506M60000040031 | CurrentEnforced | YES | ok | 70 | YES (1) | NO |
+| `415M60000040071` | 国税関係法令に係る情報通信技術を活用した行政の推進等に関する省令 | 415M60000040071_20260924_506M60000040031 | CurrentEnforced | YES | ok | 70 | NO (0) | NO |
 | `416M60000040025` | 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律に基づく租税条約 | 416M60000040025_20250401_507M60000040034 | CurrentEnforced | YES | ok | 20 | NO (0) | NO |
 | `417CO0000000035` | 経済連携協定に基づく関税割当制度に関する政令 | 417CO0000000035_20220401_504CO0000000135 | CurrentEnforced | YES | ok | 29 | NO (0) | NO |
 | `417M60000200012` | 経済連携協定に基づく農林水産省の所掌事務に係る物資の関税割当制度に関する省令 | 417M60000200012_20260401_507M60000200056 | CurrentEnforced | YES | ok | 21 | YES (1) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 284
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 281
