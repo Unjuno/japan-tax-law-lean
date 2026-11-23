@@ -10239,3 +10239,214 @@ pinned 原文の独立抽出（50% 厳密超え・桁違い除外）、needle 2/
 - **CONFIRMED 0 / BY-DESIGN 6 / UNRESOLVED 3**。発見ゼロ。
 - 追記後レビュー件数 **83**（既存 82 件は全件保持、Batch AH〜CF を含む）。追記は `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替なし。一時ファイルは削除済み。
 - **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。
+
+## Batch CH review (2026-11-23)
+
+- 対象: `JapanTaxLaw/ServiceYearFractionRoundDown.lean`（`roundDownToYear(months)=months/12` と 5 つの `by decide` 例）＋独立 Spec `ServiceYearFractionRoundDownSpec.lean`（`specRound` / `agreeServiceYearFractionRoundDown`）＋`ServiceYearFractionRoundDownTests.lean`。pinned law `347M50000040042` / rev `347M50000040042_20251231_507M60000040072`（沖縄の復帰に伴う国税関係法令の適用の特別措置等に関する省令 art.52 §3、勤続年数の一年未満端数切捨て）。
+- 手法: coordinator 要約・STAGING・Lean doc-comment の申告を**信じず**、pinned 生 JSON を自前 Python で再読・再平坦化して原文リテラルを独立抽出。CI needle は実装 `scripts/ci/transcription_audit.py::checks()`（cycle-91 エントリ）から実文字列を取得し、自前正規化原文で照合。算術は独立再計算（Python 整数＋全数走査）。Lean は `lake env lean`（toolchain `v4.35.0`）で実カーネル再実行。一時ファイルは approved temp dir に置き実行後に削除。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替は行わない。書き込みは本ファイル 1 ファイルのみ（全量 read → 末尾連結 → write の read-then-write）。
+- **本レビューは pinned e-Gov 原文との機械的独立照合であり、人間の法律専門家レビューではない。** 法解釈の正しさ・網羅性を保証しない。
+
+### CH-1. pin と独立定位
+
+- raw `data/raw/347M50000040042_20251231_507M60000040072.law.json`: 実測 **156,649 bytes**、SHA-256 再計算 `A403B5C2CB0EDD15CD1AD54F18A7A33132C74AC80B7F9AFCDCE7935B51AAF667` = `data/INVENTORY.json` の `raw_snapshot.source_sha256` と一致。`revisions.json` 上も同 revision が `current_revision_status: CurrentEnforced`（改正公布 2025-12-19 / 施行 2025-12-31、改正法 令和七年財務省令第七十二号）で実在し、`INVENTORY.json` の `current_enforced` エントリと一致。
+- `law_full_text` を再帰平坦化し `tag=Article, attr.Num="52"` を **1 件**検出。ArticleTitle「第五十二条」→ **LOCATED**。caption「（勤続年数の計算）」。
+- Article 52 全体の正規化 leaf は **422 文字**（U+3000 0）。Paragraph `Num="3"` は 1 件、その正規化 leaf は **45 文字**（U+3000 0）。doc-comment の "Article Num 52 §3, flat/normalized leaf text 422 chars" の 422 は **§3 単体（45 文字）ではなく Article 52 全体**を指す（転記ミスではなくスコープ表記の違い、BY-DESIGN B-CH5 参照 / CG-1 と同種）。
+
+### CH-2. 原文からの独立抽出と実装照合
+
+- §3 の原文 leaf を pinned JSON から直接抽出（段落見出し「３」を含む 45 文字）:
+  `３前二項の規定により計算した勤続年数に一年未満の端数がある場合には、その端数は切り捨てる。`
+- モジュール doc-comment の逐語引用「前二項の規定により計算した勤続年数に一年未満の端数がある場合には、その端数は切り捨てる。」は、段落記号「３」と句点を除き **正規化原文に 1 回一致**。抽出は STAGING / doc-comment を経由せず pinned JSON から直接行った。
+- **「一年未満の端数...切り捨てる」の照合**: §3 は「前二項の規定により計算した勤続年数」に一年未満の端数がある場合、その端数を切捨てると規定。実装 `roundDownToYear : Nat → Nat := months / 12` は自然数除算により 12 未満の月数（＝一年未満の端数）を 0 に捨てる。**不整合なし。**
+- **1 年 = 12 ヶ月の確認（モデル上の約束）**: §3 自身は「十二」/「12」を **明示しない**（§3 leaf に数字リテラルなし）。しかし §2 は勤続年数を「従業者となつた日の属する月から離職した日の属する月までの**月数**」で計算すると明記し、§3 はその結果の「一年未満」端数を扱う。したがって「1 年 = 12 ヶ月」は §2 の月数基準と暦法上の 年/月 の関係から導かれる**モデル上の約束**であり、pinned 原文に照らして合理的（BY-DESIGN B-CH3）。原文が明示する数値は「二分の一」「一月未満」等 §2 に限られ、本スライスはそこを扱わない（UNRESOLVED U-CH2 / U-CH3）。
+- 付近: §1 は「離職の時においてその者を雇用していた通関業者の業務に引き続き従業者として従事した期間について計算するものとする」、§2 は月数算定＋休職等の月の 1/2 除算（「一月未満の端数」切捨てを含む）。いずれも本モデルの対象外（下記 BY-DESIGN / UNRESOLVED）。
+
+### CH-3. needle 健全性（CI `checks()` 実文字列 2 本を自前正規化原文で検証）
+
+`scripts/ci/transcription_audit.py:2361-2365`（cycle-91 エントリ、`name="ServiceYearFractionRoundDown.lean"` / `law_id="347M50000040042"` / `kind="file"` / `art=None`）および `docs/STAGING_SERVICEYEAR.md` から **実文字列 2 本を手打ちせず取得**:
+
+| needle | U+3000 | 自前正規化原文 | 存在箇所 |
+|---|---|---|---|
+| `勤続年数に一年未満の端数がある場合には、その端数は切り捨てる` | 0 | FOUND | art.52 §3 |
+| `第五十二条` | 0 | FOUND | art.52 見出し（ArticleTitle） |
+
+- **2/2 FOUND**。全文は生 20,065 文字（U+3000 66 個）→ 自前正規化 `re.sub(r"[\s\u3000]+","",…)` 後 19,999 文字（U+3000 **0 個**）。needle 自身の U+3000 も **0**。CI の `norm()` / `_norm` / `contains()` と同一条件で一致。
+- needle 2「第五十二条」は §3 内ではなく Article 52 の条文見出しに由来（§3 スコープでは False だが、本文全体・art.52 スコープでは True）。`kind="file"` の全文スコープであり、pinned Article 52 に実在するため誤同定リスクなし（BY-DESIGN B-CH4）。
+
+### CH-4. 反例探索（実装 vs 独立 Spec）
+
+独立 Spec `specRound(m) = (m - m % 12) / 12` を別定義し、実装と比較（Lean `Nat` は任意精度でオーバーフローなし）。
+
+| 入力 m（月数） | 実装 `roundDownToYear` | 独立 Spec | 一致 |
+|---|---|---|---|
+| 0 | 0 | 0 | ✅ |
+| 11 | 0 | 0 | ✅ |
+| 12 | 1 | 1 | ✅ |
+| 23 | 1 | 1 | ✅ |
+| 24 | 2 | 2 | ✅ |
+
+- 追加境界: m=1→0, 13→1, 35→2, 120→10（いずれも一致）。`agreeServiceYearFractionRoundDown`（[0,1,11,12,13,23,24,35,120]）は実カーネルで `true`。全数走査 m=0..10000（10,001 点）で不一致 **0**。
+- 境界ごとの意味: 11ヶ月→0年（端数切捨て）、12ヶ月→1年（ちょうど 1 年）、23ヶ月→1年（1年11ヶ月の端数を捨てる）、24ヶ月→2年。いずれも §3 の「一年未満の端数は切り捨てる」と整合。**反例なし。**
+
+### CH-5. 公理監査（実 Lean カーネル）
+
+一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\axioms.lean` を作成し、3 モジュールの**名前付き宣言 3 件**（`roundDownToYear` / `specRound` / `agreeServiceYearFractionRoundDown`）すべてに `#print axioms` を実行（`lake env lean`、exit code **0**、error 0）。
+
+- `JapanTaxLaw.ServiceYearFractionRoundDown.roundDownToYear` → `does not depend on any axioms`
+- `JapanTaxLaw.ServiceYearFractionRoundDown.specRound` → `does not depend on any axioms`
+- `JapanTaxLaw.ServiceYearFractionRoundDown.agreeServiceYearFractionRoundDown` → `does not depend on any axioms`
+- 3 モジュールの `sorry|admit|axiom|Classical.choice` テキスト走査 **0 matches**。
+- **`Classical.choice` / `sorryAx` / `Quot.sound` / `propext` 依存は 3/3 宣言で 0。公理監査は合格。** 監査用一時ファイル・スクリプトは削除済み。
+
+### CH-6. 判定
+
+| 分類 | 件数 |
+|---|---|
+| CONFIRMED（実 defect） | **0（発見ゼロ）** |
+| BY-DESIGN | **6** |
+| UNRESOLVED | **3** |
+
+#### CONFIRMED（0 件）
+
+pinned 原文の独立抽出（§3 の「一年未満の端数...切り捨てる」）、needle 2/2、指定反例 5 点＋全数走査、公理監査のすべてで不整合なし。**発見ゼロ（実 defect ゼロ）**。
+
+#### BY-DESIGN（6 件）
+
+- **B-CH1 bounded L4 slice**: §3 の端数切捨てのみ形式化。§1 の勤続年数計算方法（「引き続き従業者として従事した期間」の算定・令第百三十三条第一項への外部参照）および §2 の月数算定は `NOT MODELLED` と doc-comment に明記された意図的範囲。
+- **B-CH2 「勤続年数を月単位で表す」というモデル上の約束**: 入力 `months : Nat` は §2 の「月数」を表すモデル量。法的な期間（日付・離職日等）ではなく月数を渡す前提であり、caller-established。負値・小数月は `Nat` ドメイン外。
+- **B-CH3 1 年 = 12 ヶ月の約束**: §3 に「十二」/「12」の明示はないが、§2 が月数基準を定め、暦法上 1 年 = 12 ヶ月。`months / 12` はこの約束のもとでの端数切捨てであり、原文と矛盾しない（CH-2）。
+- **B-CH4 needle スコープ**: CI は `kind="file"` で全文照合。needle 2「第五十二条」は §3 内ではなく条文見出しに由来するが、pinned Article 52 に実在し誤同定リスクなし（CH-3）。
+- **B-CH5 doc-comment の文字数**: "422 chars" は Article 52 **全体**の正規化 leaf 長であり、§3 単体（45 文字）ではない。転記ミスではなくスコープ表記の違い（CH-1 / CG-1 と同種）。
+- **B-CH6 独立 Spec の表現差**: `specRound(m) = (m - m%12)/12` は実装 `m/12` と自然数上の除算・剰余の恒等式により同値であり、別モデルではなく照合用の再定式化（全数不一致 0）。
+
+#### UNRESOLVED（3 件）
+
+いずれも pinned 原文から機械的には決定できず、**人間の法律専門家による確認が必要**な範囲（本レビューは行わない）。
+
+- **U-CH1 第1項の勤続年数計算方法**: 「離職の時においてその者を雇用していた通関業者の業務に引き続き従業者として従事した期間について計算するものとする」の具体的算定、および令第百三十三条第一項（通関貨物取扱人の従業者等）への外部参照は未形式化。pinned 省令のみでは対象者の範囲が確定しない。
+- **U-CH2 第2項の月数算定**: 「従業者となつた日の属する月から離職した日の属する月までの月数」の起算・離職月の取扱い、休職・出勤停止等の月に対する「その月数の二分の一に相当する月数」の除算は未形式化。
+- **U-CH3 第2項の「一月未満の端数」の取扱い**: 上記 1/2 除算の際の「当該月数が一月未満であるときはその月数を、当該月数に一月未満の端数があるときはその端数をそれぞれ切り捨てて計算した月数」という §2 の端数処理は本モデル（§3 の一年未満切捨て）とは別であり、未形式化・未確認。
+
+### CH-7. 最終報告
+
+- pinned 原文（art.52 §3）から「前二項の規定により計算した勤続年数に一年未満の端数がある場合には、その端数は切り捨てる」を直接独立抽出し、実装 `roundDownToYear(m)=m/12` および独立 Spec と不整合なし。1 年 = 12 ヶ月は §2 の月数基準に基づくモデル上の約束である点を明示（BY-DESIGN）。
+- needle: U+3000 **0 個**、**2/2 FOUND**（自前正規化原文、CI 実文字列）。
+- 反例: 指定 5 点（0/11/12/23/24）すべて実装＝独立 Spec、m=0..10000 全数不一致 **0**。
+- 公理: 名前付き宣言 3/3 が `does not depend on any axioms`（choice / sorryAx / Quot.sound / propext 依存 **0**）。
+- **CONFIRMED 0 / BY-DESIGN 6 / UNRESOLVED 3**。発見ゼロ。§1・§2 の勤続年数計算方法および「一月未満の端数」の取扱いは未形式化（BY-DESIGN B-CH1 / UNRESOLVED U-CH1〜U-CH3）。
+- 追記後レビュー件数 **84**（既存 83 件は全件保持、Batch AH〜CG を含む）。追記は `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替なし。一時ファイルは削除済み。
+- **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。
+
+## Batch CI review (2026-11-23)
+
+- 対象: `JapanTaxLaw/GrayscaleLevels.lean`（`meetsGrayscaleRequirement(levels)=levels>=256` と 4 つの `by decide` 例）＋独立 Spec `GrayscaleLevelsSpec.lean`（`specMeets(l)=Nat.ble 256 l` / `agreeGrayscaleLevels`）＋`GrayscaleLevelsTests.lean`。pinned law `415M60000040071` / rev `415M60000040071_20260924_506M60000040031`（国税関係法令に係る情報通信技術を活用した行政の推進等に関する省令 art.5 §2 二号、白色から黒色までの階調 256 以上）。
+- 手法: coordinator 要約・STAGING・Lean doc-comment の申告を**信じず**、pinned 生 JSON を自前 Python で再読・再平坦化して原文リテラルを独立抽出。漢字数字は自前 kansuji パーサで整数化。CI needle は実装 `scripts/ci/transcription_audit.py::checks()`（cycle-92 エントリ）から実文字列を取得し、自前正規化原文で照合。算術は独立再計算（Python 整数＋全数走査）。Lean は `lake env lean`（toolchain `v4.35.0`）で実カーネル再実行。一時ファイルは approved temp dir に置き実行後に削除。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替は行わない。書き込みは本ファイル 1 ファイルのみ（全量 read → 末尾連結 → write の read-then-write）。
+- **本レビューは pinned e-Gov 原文との機械的独立照合であり、人間の法律専門家レビューではない。** 法解釈の正しさ・網羅性を保証しない。
+
+### CI-1. pin と独立定位
+
+- `data/INVENTORY.json`: law `415M60000040071` の `raw_snapshot.source_file` = `data/raw/415M60000040071_20260924_506M60000040031.law.json`、`current_revision.law_revision_id` = `415M60000040071_20260924_506M60000040031`（`CurrentEnforced`、施行 2026-09-24、改正法 令和六年財務省令第三十一号）。モジュール doc-comment の pin と一致。
+- raw `data/raw/415M60000040071_20260924_506M60000040031.law.json`: 実測 **104,184 bytes**、SHA-256 再計算 `EE7CA0224460193BA599803EB2267EABF81EB00A30F36D5905CBB4CD355F9975` = `INVENTORY.json` の `raw_snapshot.source_sha256` と一致。`415M60000040071.revisions.json` 上も同 revision が `law_type: MinisterialOrdinance` / `current_revision_status: CurrentEnforced` で実在。
+- `law_full_text` を自前再帰平坦化し `tag=Article` を 14 件検出、ArticleTitle「第五条」を **LOCATED**。Article 5 全体の正規化 leaf は **3,448 文字**（U+3000 0）、doc-comment の "flat/normalized leaf text 3448 chars" と一致。§2（段落記号「２」）二号の原文 leaf は `二白色から黒色までの階調が二百五十六階調以上であること。`。
+
+### CI-2. 原文からの独立抽出と実装照合
+
+- §2 二号を pinned JSON から直接抽出（STAGING / doc-comment を経由せず）:
+  `二白色から黒色までの階調が二百五十六階調以上であること。`
+- doc-comment の逐語引用「白色から黒色までの階調が二百五十六階調以上であること」は、号番号「二」と句点を除き **正規化原文に 1 回一致**（全文正規化文字列 index 4220、前後文脈は §2 一号の解像度要件と §3 の添付書面等条項）。転記ミスなし。
+- **桁違いの明示除外**: 数値部「二百五十六」を自前 kansuji パーサで整数化し **256** を得た。`25.6` / `2560` / `二十五・六` / `二千五百六十` はいずれも数値部に **存在しない**（全 False）。原文は漢字表記「二百五十六」であり小数点・桁追加の余地なし。混同リスクのある近傍リテラルは §2 一号の「二十五・四ミリメートル当たり二百ドット以上」（25.4 mm / 200 dots）だが、これは解像度の要件であり階調閾値とは別物として明確に区別した。
+- **「以上」= 包含的確認**: 抽出フレーズは「二百五十六階調**以上**」であり包含演算子 `以上` を含む。`以下`（上限）は含まない。したがって **256 ちょうどは可** であり、実装 `levels >= 256` および独立 Spec `Nat.ble 256 l`（Bool レベルの `256 <= l`）と不整合なし。**不整合ゼロ。**
+
+### CI-3. needle 健全性（CI `checks()` 実文字列 2 本を自前正規化原文で検証）
+
+`scripts/ci/transcription_audit.py:2375-2379`（cycle-92 エントリ、`name="GrayscaleLevels.lean"` / `law_id="415M60000040071"` / `kind="file"` / `art=None`）から **実文字列 2 本を手打ちせず取得**:
+
+| needle | U+3000 | 自前正規化原文 | 存在箇所 |
+|---|---|---|---|
+| `白色から黒色までの階調が二百五十六階調以上であること` | 0 | FOUND | art.5 §2 二号 |
+| `第五条` | 0 | FOUND | art.5 見出し（ArticleTitle） |
+
+- **2/2 FOUND**。全文は生 16,837 文字（U+3000 46 個）→ 自前正規化 `re.sub(r"[\s\u3000]+","",…)` 後 16,791 文字（U+3000 **0 個**）。needle 自身の U+3000 も **0**。CI の `_norm` / `contains()` と同一条件で一致（CI 自身の `contains()` を直接呼び出しても 2/2 True を確認）。
+- needle 2「第五条」は §2 二号内ではなく条文見出しに由来（号スコープでは False だが、本文全体・art.5 スコープでは True）。`kind="file"` の全文スコープであり、pinned Article 5 に実在するため誤同定リスクなし（BY-DESIGN B-CI3）。
+
+### CI-4. 反例探索（実装 vs 独立 Spec）
+
+独立 Spec `specMeets(l) = Nat.ble 256 l` を照合用に再定式化し、実装 `meetsGrayscaleRequirement(l) = l >= 256` と比較（Lean `Nat` は任意精度でオーバーフローなし）。
+
+| 入力 levels | 実装 `meetsGrayscaleRequirement` | 独立 Spec `specMeets` | 一致 |
+|---|---|---|---|
+| 0 | false | false | ✅ |
+| 1 | false | false | ✅ |
+| 255 | false | false | ✅ |
+| 256 | true | true | ✅ |
+| 257 | true | true | ✅ |
+| 1000 | true | true | ✅ |
+
+- 指定反例 **255→false / 256→true / 257→true** をすべて確認。256 境界で false→true に遷移し、257 以上も true（上限なし）。`agreeGrayscaleLevels`（[0,1,255,256,257,1000]）は実カーネルで `true`。
+- 追加全数走査 `l=0..100000`（100,001 点）で実装と独立 Spec の不一致 **0**。**反例なし。**
+
+### CI-5. スコープ／未形式化の確認
+
+pinned art.5 全文（3,448 文字）を自前走査し、モジュール doc-comment の `Scope / NOT MODELLED` 注記を照合:
+
+| 項目 | pinned 原文での実在 | 形式化 |
+|---|---|---|
+| §1 の申請等方法（電子署名・識別符号／暗証符号の入力送信、ただし書の個人番号カード・移動端末設備による電子利用者証明の特例） | 実在 | 未形式化（意図的） |
+| §2 一号の解像度要件（二十五・四ミリメートル当たり二百ドット以上、JIS Z 6016 附属書A A・1・2 参照） | 実在 | 未形式化（意図的） |
+| §3 の添付書面等提出の特例（一号〜三号の方法、国税庁長官が定めるものへの外部参照） | 実在 | 未形式化（意図的） |
+| §2 の適用条件（「前項の規定により申請書面等記載事項を入力して送信する方法につき国税庁の使用に係る電子計算機において用いることができない場合」） | 実在 | 未形式化（caller-established） |
+| カラー階調（RGB 256 階調等） | art.5 に「カラー」トークンなし | 対象外 |
+
+- 注記: doc-comment の「第3項の例外（当該申請等を行う者の申出）」のうち、**「申出」という語は pinned art.5 に存在しない**（全文走査 False）。§3 の実体は「添付書面等」の提出方法の特例である。これは `NOT MODELLED` 注記側の表記の粗さであり、§3 が未形式化であるという結論自体は変わらない。**非ブロッキングの注記上の留意点**（BY-DESIGN B-CI6）。
+- 両者を合わせても、本モデルの述語 `meetsGrayscaleRequirement` は §2 二号の数値閾値 **のみ** を表す単純述語であり、上記のいずれをも含意しない。この範囲设定は doc-comment に明記されており意図的（BY-DESIGN B-CI1）。
+
+### CI-6. 公理監査（実 Lean カーネル）
+
+一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\gray_axioms.lean` を作成し、3 モジュールの**名前付き宣言 3 件**（`meetsGrayscaleRequirement` / `specMeets` / `agreeGrayscaleLevels`）および検証用名前付き定理 7 件（計 **10 件**）に `#print axioms` を実行（`lake env lean`、exit code **0**、error 0）。
+
+- `JapanTaxLaw.GrayscaleLevels.meetsGrayscaleRequirement` → `does not depend on any axioms`
+- `JapanTaxLaw.GrayscaleLevels.specMeets` → `does not depend on any axioms`
+- `JapanTaxLaw.GrayscaleLevels.agreeGrayscaleLevels` → `does not depend on any axioms`
+- `gray_255` / `gray_256` / `gray_257` / `gray_0` / `spec_255` / `spec_256` / `agree_thm` → すべて `does not depend on any axioms`
+- 3 モジュールの `sorry|admit|axiom|Classical.choice` テキスト走査 **0 matches**。
+- **`Classical.choice` / `sorryAx` / `Quot.sound` / `propext` 依存は 10/10 宣言で 0。公理監査は合格。** 監査用一時ファイル・スクリプトは削除済み。
+
+### CI-7. 判定
+
+| 分類 | 件数 |
+|---|---|
+| CONFIRMED（実 defect） | **0（発見ゼロ）** |
+| BY-DESIGN | **6** |
+| UNRESOLVED | **4** |
+
+#### CONFIRMED（0 件）
+
+pinned 原文の独立抽出（§2 二号の「二百五十六階調以上」＝256 以上包含）、needle 2/2、指定反例 3 点＋全数走査、公理監査のすべてで不整合なし。**発見ゼロ（実 defect ゼロ）**。
+
+#### BY-DESIGN（6 件）
+
+- **B-CI1 bounded L4 slice**: §2 二号の階調 256 以上のみ形式化。§1・§2 一号・§3 は `NOT MODELLED` と doc-comment に明記された意図的範囲（CI-5）。
+- **B-CI2 `Nat` ドメインと caller-established な入力**: `levels : Nat` は階調数を表すモデル量。負値・小数はドメイン外。法的な「階調」の計測方法は caller が確定する前提。
+- **B-CI3 needle スコープ**: CI は `kind="file"` で全文照合。needle 2「第五条」は二号内ではなく条文見出しに由来するが、pinned Article 5 に実在し誤同定リスクなし（CI-3）。
+- **B-CI4 独立 Spec の表現差**: `Nat.ble 256 l` は Bool レベルの `256 <= l` であり、実装 `l >= 256` と同値。別モデルではなく照合用の再定式化（全数不一致 0）。
+- **B-CI5 doc-comment の文字数**: "3448 chars" は Article 5 **全体**の正規化 leaf 長であり、§2 二号単体（25 文字）ではない。転記ミスではなくスコープ表記の違い（CH-5 と同種）。
+- **B-CI6 スコープ注記の「申出」表記**: pinned art.5 に「申出」トークンはなく、§3 の実体は添付書面等の提出特例。`NOT MODELLED` 注記の表記の粗さであり、形式化対象の述語には影響しない非ブロッキング留意点（CI-5）。
+
+#### UNRESOLVED（4 件）
+
+いずれも pinned 原文から機械的には決定できず、**人間の法律専門家による確認が必要**な範囲（本レビューは行わない）。
+
+- **U-CI1 第1項の申請等方法**: 電子署名・識別符号／暗証符号の入力送信、およびただし書の個人番号カード・移動端末設備による電子利用者証明の特例（外部法律への参照を含む）は未形式化。
+- **U-CI2 第3項の添付書面等提出の特例**: 一号〜三号の送信方法、および「国税庁長官が定めるもの」への外部参照は未形式化。pinned 省令のみでは対象範囲が確定しない。
+- **U-CI3 第2項一号の解像度要件**: 「二十五・四ミリメートル当たり二百ドット以上」および JIS Z 6016 附属書A A・1・2 への外部参照は未形式化。本モデルは階調閾値のみを扱う。
+- **U-CI4 第2項の適用条件**: 256 階調要件は「国税庁の使用に係る電子計算機において用いることができない場合」のスキャナ読取り経路に課される。この適用条件の判定は未形式化であり、`meetsGrayscaleRequirement 256 = true` は当該経路にあることを含意しない（caller-established）。
+
+### CI-8. 最終報告
+
+- pinned 原文（art.5 §2 二号）から「白色から黒色までの階調が二百五十六階調以上であること」を直接独立抽出し、漢字数字 256・「以上」包含的を確認。桁違い（25.6 / 2560）を明示除外。実装 `levels>=256` および独立 Spec `Nat.ble 256 l` と不整合なし。
+- needle: U+3000 **0 個**、**2/2 FOUND**（自前正規化原文、CI 実文字列）。
+- 反例: 指定 3 点（255→false / 256→true / 257→true）＋追加 3 点、全数走査 0..100000 で不一致 **0**。
+- 公理: 名前付き宣言 10/10 が `does not depend on any axioms`（choice / sorryAx / Quot.sound / propext 依存 **0**）。
+- **CONFIRMED 0 / BY-DESIGN 6 / UNRESOLVED 4**。発見ゼロ。§1・§3・他号（解像度）および §2 適用条件は未形式化（BY-DESIGN B-CI1 / UNRESOLVED U-CI1〜U-CI4）。
+- 追記後レビュー件数 **85**（既存 84 件は全件保持、Batch AH〜CH を含む）。追記は `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替なし。一時ファイルは削除済み。
+- **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。
