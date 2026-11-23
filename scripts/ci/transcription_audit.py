@@ -3418,6 +3418,30 @@ def checks():
            "412CO0000000276",
            "article", "第九条",
            ["審議会は、委員及び議事に関係のある臨時委員の三分の一以上が出席しなければ、会議を開き、議決することができない。"])
+# 生活費・教育費の支払 三十八万円以上 — IncomeSupport380kArt2.lean
+    yield ("所得税法 art. 2（生活費・教育費の支払 三十八万円以上）↔ IncomeSupport380kArt2.lean (supportFloor380k 380000)",
+           "340AC0000000033",
+           "file", None,
+           ["その居住者からその年において生活費又は教育費に充てるための支払を三十八万円以上受けている者"])
+
+    # 退職所得 残額 三百万円以下 — RetirementIncome3M.lean
+    yield ("所得税法 art. 30（退職所得 残額 三百万円以下）↔ RetirementIncome3M.lean (retirementCap3M 3000000)",
+           "340AC0000000033",
+           "file", None,
+           ["当該退職手当等の収入金額から退職所得控除額を控除した残額が三百万円以下である場合"])
+
+    # 雑所得以外の合計所得金額 二千万円超 — PensionOtherIncome20M.lean
+    yield ("所得税法 art. 35（雑所得以外の合計所得金額 二千万円超）↔ PensionOtherIncome20M.lean (otherIncomeFloor20M 20000000)",
+           "340AC0000000033",
+           "file", None,
+           ["その年中の公的年金等に係る雑所得以外の合計所得金額が二千万円を超える場合"])
+
+    # 災害関連支出の金額 五万円超 — DisasterExpense50k.lean
+    yield ("所得税法 art. 72（災害関連支出の金額 五万円超）↔ DisasterExpense50k.lean (disasterFloor50k 50000)",
+           "340AC0000000033",
+           "file", None,
+           ["その年における損失の金額に含まれる災害関連支出の金額が五万円を超える場合"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
