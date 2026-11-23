@@ -5,7 +5,7 @@ import JapanTaxLaw.TaxFinance
 
 Pinned source:
   Law id: 403M50000040031
-  Official title: 地価税法施行規則 (Land Value Tax Act Enforcement Order)
+  Official title: 地価税法施行規則 (Land Value Tax Act Enforcement Ordinance / 省令)
   Law type: MinisterialOrdinance (省令)
   Revision: 403M50000040031_20260401_508M60000040010
   Raw snapshot: data/raw/403M50000040031_20260401_508M60000040010.law.json
@@ -23,9 +23,11 @@ Variable contract:
   `meetsTrainingPeriod (years : Nat) : Bool := decide (trainingFloorYears <= years)`.
   Unit 年 (whole years); domain Nat. 「以上」 = inclusive `>=`.
 
-Scope: ONLY this explicit numeric training-period condition is modelled. The
-qualification it belongs to, the definition of 修業, the other items/paragraphs
-and all enforcement rules are NOT MODELLED (caller-established).
+Scope: ONLY this explicit numeric training-period condition is modelled —
+item 1 of paragraph 6, one of SIX conjunctive requirements in that paragraph.
+This predicate alone must NOT be used as the whole paragraph-6 test; the other
+five items are caller-established and NOT MODELLED. The qualification it belongs
+to and the definition of 修業 are likewise NOT MODELLED.
 
 No `sorry`, `admit`, `axiom` or `Classical.choice`.
 -/

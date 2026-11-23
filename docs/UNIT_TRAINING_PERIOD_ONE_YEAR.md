@@ -29,8 +29,9 @@ Kind: **CONDITION** — training period >= 1 year.
 
 ## Not modelled (explicitly retained as unhandled scope)
 
-The qualification, 修業 definition, other items/paragraphs and enforcement
-rules. This is a computable slice of one CONDITION norm unit.
+Item 1 of ¶6 is one of SIX conjunctive requirements; this predicate alone is
+not the whole ¶6 test. The qualification, 修業 definition, the other five items
+and enforcement rules are NOT MODELLED (adversarial finding F-1). This is a computable slice of one CONDITION norm unit.
 
 ## Adversarial review
 
