@@ -1494,6 +1494,14 @@ def checks():
            "143AC0000000054",
            "file", None,
            ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u662d\u548c\u56db\u5341\u516d\u5e74\u4e00\u6708\u4e00\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
+    # CustomsTariffArt20ContrabandDisposalCondition.lean - NORM|6c30cf8d... (art.20 caption CONDITION, law 143AC0000000054)
+    # The needle IS the ArticleCaption; sub-terms extracted from the caption,
+    # never hand-typed. find_article_text(...,'第二十条') len 1487 with needle.
+    yield ("customs tariff art.20 contraband disposal caption condition - CustomsTariffArt20ContrabandDisposalCondition.lean",
+           "143AC0000000054",
+           "article", "\u7b2c\u4e8c\u5341\u6761",
+           ["\uff08\u9055\u7d04\u54c1\u7b49\u306e\u518d\u8f38\u51fa\u53c8\u306f\u5ec3\u68c4\u306e\u5834\u5408\u306e\u623b\u3057\u7a0e\u7b49\uff09"])
+
 
 
     # CustomsTariffArt14DisabledPersonEquipmentDelegation.lean - NORM|c8d2540f... (disabled-person equipment DELEGATION, law 143AC0000000054)
