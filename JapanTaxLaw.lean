@@ -1753,3 +1753,6 @@ import JapanTaxLaw.ShareRatioOverHalfTests
 import JapanTaxLaw.ServiceYearFractionRoundDown
 import JapanTaxLaw.ServiceYearFractionRoundDownSpec
 import JapanTaxLaw.ServiceYearFractionRoundDownTests
+import JapanTaxLaw.ForeignAssetPenaltyCap
+import JapanTaxLaw.ForeignAssetPenaltyCapSpec
+import JapanTaxLaw.ForeignAssetPenaltyCapTests

@@ -3453,6 +3453,12 @@ def checks():
            "article", "第四条",
            ["委員の任期は、二年とする。"])
 
+    # 国外財産調書 art. 10 — ForeignAssetPenaltyCap.lean
+    yield ("国外財産調書 art. 10（一年以下・五十万円以下の罰則上限）↔ ForeignAssetPenaltyCap.lean (1-year / 50-man-yen caps, inclusive)",
+           "409AC0000000110",
+           "article", "第十条",
+           ["正当な理由がなくて国外財産調書をその提出期限までに税務署長に提出しなかったときは、その違反行為をした者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
