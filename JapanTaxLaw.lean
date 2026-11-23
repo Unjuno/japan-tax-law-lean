@@ -890,3 +890,12 @@ import JapanTaxLaw.ArticleSubNumberLabelsTests
 import JapanTaxLaw.TreatyJPUSScope
 import JapanTaxLaw.TreatyJPUSScopeSpec
 import JapanTaxLaw.TreatyJPUSScopeTests
+import JapanTaxLaw.DateSelectionNorms
+import JapanTaxLaw.DateSelectionNormsSpec
+import JapanTaxLaw.DateSelectionNormsTests
+import JapanTaxLaw.PriorityOrderNorms
+import JapanTaxLaw.PriorityOrderNormsSpec
+import JapanTaxLaw.PriorityOrderNormsTests
+import JapanTaxLaw.IdentityPredicateNorms
+import JapanTaxLaw.IdentityPredicateNormsSpec
+import JapanTaxLaw.IdentityPredicateNormsTests
