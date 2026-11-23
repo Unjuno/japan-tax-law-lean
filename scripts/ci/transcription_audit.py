@@ -3545,6 +3545,13 @@ def checks():
            ["当該他の準組合の準組合財産に対する持分の割合が百分の五十を超える場合における当該持分"])
 
 
+    # 租税特別措置法施行令 art. 2 — CorporateOwnershipThird.lean
+    yield ("租税特別措置法施行令 art. 2（法人所有三分の一超）↔ CorporateOwnershipThird.lean (strict >1/3 ownership)",
+           "407M50000008033",
+           "article", "第二条",
+           ["その発行済株式の総数又は出資金額若しくは拠出された金額の三分の一を超える数又は金額が法人税法（昭和二十二年法律第二十八号）別表第一第一号に掲げる法人により所有され、又は出資若しくは拠出をされている法人"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
