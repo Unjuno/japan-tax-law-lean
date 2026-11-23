@@ -911,6 +911,9 @@ import JapanTaxLaw.DefinitionalEquivalenceNormsTests
 import JapanTaxLaw.SameAsNorms
 import JapanTaxLaw.SameAsNormsSpec
 import JapanTaxLaw.SameAsNormsTests
+import JapanTaxLaw.BoundedBandNorms
+import JapanTaxLaw.BoundedBandNormsSpec
+import JapanTaxLaw.BoundedBandNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
