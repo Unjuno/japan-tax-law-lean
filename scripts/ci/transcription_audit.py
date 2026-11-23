@@ -2311,6 +2311,12 @@ def checks():
            "file", None,
            ["売上割合の平均値が百分の七十以上百分の百未満の場合", "売上割合が百分の七十未満の場合"])
 
+    # PopulationDensityBracket — cycle-94
+    yield ("PopulationDensityBracket.lean",
+           "507M60000008043",
+           "file", None,
+           ["処理区域内人口密度が二十五人毎ヘクタール未満の事業に係るもの", "第二条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3538,19 +3544,26 @@ def checks():
            "article", "第六条の三",
            ["令和七年十二月三十一日における対象特定取引に係る特定取引契約資産額が十万円以下であること。"])
 
+    # DisasterTaxReliefArt3ArticleRangeReading.lean - NORM|cc418ced... (art.3(1) article-range 準用 112..114, law 322AC0000000175)
+    # Needle is in MainProvision Article 第三条 (Paragraph 1, Sentence 2) -
+    # verbatim injected from the queue via \u escapes; article range 112..114
+    # extracted structurally from the needle, never hand-typed.
+    yield ("disaster tax relief art.3 article-range reading - DisasterTaxReliefArt3ArticleRangeReading.lean",
+           "322AC0000000175",
+           "article", "\u7b2c\u4e09\u6761",
+           ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u540c\u6cd5\u7b2c\u767e\u5341\u4e8c\u6761\u304b\u3089\u7b2c\u767e\u5341\u56db\u6761\u307e\u3067\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
+
     # 租税特別措置法施行令 art. 16の12 — ShareMajority50.lean
     yield ("租税特別措置法施行令 art. 16の12（持分百分の五十超）↔ ShareMajority50.lean (strict >50% majority)",
            "344M50000048001",
            "article", "第十六条の十二",
            ["当該他の準組合の準組合財産に対する持分の割合が百分の五十を超える場合における当該持分"])
 
-
     # 租税特別措置法施行令 art. 2 — CorporateOwnershipThird.lean
     yield ("租税特別措置法施行令 art. 2（法人所有三分の一超）↔ CorporateOwnershipThird.lean (strict >1/3 ownership)",
            "407M50000008033",
            "article", "第二条",
            ["その発行済株式の総数又は出資金額若しくは拠出された金額の三分の一を超える数又は金額が法人税法（昭和二十二年法律第二十八号）別表第一第一号に掲げる法人により所有され、又は出資若しくは拠出をされている法人"])
-
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

@@ -63,14 +63,14 @@ and must never be merged into the 'laws in ledger' completion rate.
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
 | pinned literal checks | 464 | n/a | n/a |
-| distinct article pins | 177 | 42584 | 0.42% |
-| pinned Lean modules (cross-law) | 909 | n/a | n/a |
+| distinct article pins | 176 | 42584 | 0.41% |
+| pinned Lean modules (cross-law) | 908 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 520 |
+| unpinned Lean modules (not counted as verified) | 521 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 85 |
+| adversarial review sessions recorded | 86 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -227,7 +227,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `405M50000008001` 離島振興法第二十条の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令
 - `407AC0000000011` 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律
 - `407CO0000000029` 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行令
-- `407M50000008033` 大阪湾臨海地域開発整備法第十四条の地方税の不均一課税に伴う措置が適用される場合等を定める省令
 - `409AC0000000110` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律
 - `409CO0000000363` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行令
 - `412CO0000000276` 関税・外国為替等審議会令
@@ -262,5 +261,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `504CO0000000372` 溶融亜鉛めっき鉄線に対して課する不当廉売関税に関する政令
 - `505M60000008043` 地方団体に対して交付すべき令和五年度分の震災復興特別交付税の額の算定方法、決定時期及び決定額並びに交付時期及び交付額等の特例に関する省令
 - `507CO0000000095` 黒鉛電極に対して課する不当廉売関税に関する政令
+- `507M60000008043` 地方団体に対して交付すべき令和七年度分の震災復興特別交付税の額の算定方法、決定時期及び決定額並びに交付時期及び交付額等の特例に関する省令
 - `508CO0000000224` ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令
 - `508CO0000000254` 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令
