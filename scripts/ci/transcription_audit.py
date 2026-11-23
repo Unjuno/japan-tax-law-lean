@@ -3591,6 +3591,14 @@ def checks():
            "article", "\u7b2c\u516b\u6761",
            ["\u524d\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u540c\u9805\u306e\u898f\u5b9a\u306e\u9069\u7528\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
 
+    # InheritanceTaxArt19_4QuasiApplication.lean - NORM|e29e4e1... (相続税法 art.19_4(3) READING/準用, law 325AC0000000073)
+    # Article-kind locator; needle is Sentence#1 of Paragraph 3; the reading
+    # substitution in Sentence#2 is a separate norm, NOT MODELLED here.
+    yield ("inheritance tax art.19-4 quasi-application - InheritanceTaxArt19_4QuasiApplication.lean",
+           "325AC0000000073",
+           "article", "\u7b2c\u5341\u4e5d\u6761\u306e\u56db",
+           ["\u524d\u6761\u7b2c\u4e8c\u9805\u53ca\u3073\u7b2c\u4e09\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e00\u9805\u306e\u898f\u5b9a\u3092\u9069\u7528\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 2725,
+  "checks": 2729,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -29976,11 +29976,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/DisasterTaxReliefArt8DelegationTests.lean",
       "unit_id": "NORM|d351e6ace9606ec2a4061c0a13824f8b21e9bbee9be7c1457e7d7cafbf136433"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_INHERITANCE_TAX_ART19_4_QUASI_APPLICATION.md — NO FINDINGS via independent adversarial review with all ",
+      "unit_id": "NORM|e29e4e105e5b1ef84a82b9e35f096ec01045e79c65186e86f1a2fe08fedcd722"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/InheritanceTaxArt19_4QuasiApplication.lean",
+      "unit_id": "NORM|e29e4e105e5b1ef84a82b9e35f096ec01045e79c65186e86f1a2fe08fedcd722"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/InheritanceTaxArt19_4QuasiApplicationSpec.lean",
+      "unit_id": "NORM|e29e4e105e5b1ef84a82b9e35f096ec01045e79c65186e86f1a2fe08fedcd722"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/InheritanceTaxArt19_4QuasiApplicationTests.lean",
+      "unit_id": "NORM|e29e4e105e5b1ef84a82b9e35f096ec01045e79c65186e86f1a2fe08fedcd722"
     }
   ],
-  "resolved": 2721,
+  "resolved": 2725,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 560,
+  "units_checked": 561,
   "unresolved": 4
 }
