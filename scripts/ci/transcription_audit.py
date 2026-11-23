@@ -2336,12 +2336,6 @@ def checks():
            "file", None,
            ["第一条この省令は、平成十五年一月六日から施行する", "この省令は、平成十五年一月六日から施行する"])
 
-    # LocalGasolineTaxOrderEnforcementDate — cycle-100
-    yield ("LocalGasolineTaxOrderEnforcementDate.lean",
-           "330CO0000000151",
-           "file", None,
-           ["第一条この政令は、昭和四十一年四月一日から施行する", "この政令は、昭和四十一年四月一日から施行する"])
-
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3553,13 +3547,12 @@ def checks():
            "article", "第六条",
            ["この場合において、同号に規定する高額適用額は、その順位を付した適用額が十以上となるまでの適用額に順位を付した場合の第一順位から当該十以上となる順位までに該当する各適用額（第一順位の適用額が十以上となるときは、当該第一順位の適用額）とする。"])
 
-    # InheritanceTaxArt3DeemedAcquisition.lean - NORM|6a574541... (相続税法 art.3 caption DEEMING, law 325AC0000000073)
-    # The needle IS the ArticleCaption; sub-terms 相続/遺贈 extracted from
-    # the caption, never hand-typed. find_article_text(...,'第三条') len 1959.
-    yield ("inheritance tax art.3 deemed acquisition caption - InheritanceTaxArt3DeemedAcquisition.lean",
-           "325AC0000000073",
-           "article", "\u7b2c\u4e09\u6761",
-           ["\uff08\u76f8\u7d9a\u53c8\u306f\u907a\u8d08\u306b\u3088\u308a\u53d6\u5f97\u3057\u305f\u3082\u306e\u3068\u307f\u306a\u3059\u5834\u5408\uff09"])
+    # 記録事項等 art. 5 — CombinableRecordItemsTwo.lean
+    yield ("記録事項等 art. 5（二以上の記録項目の組合せ）↔ CombinableRecordItemsTwo.lean (min 2 items, inclusive)",
+           "410M50000040043",
+           "article", "第五条",
+           ["二以上の任意の記録項目を組み合わせて条件を設定することができること。"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

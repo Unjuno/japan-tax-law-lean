@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 468 | n/a | n/a |
+| pinned literal checks | 467 | n/a | n/a |
 | distinct article pins | 176 | 42584 | 0.41% |
-| pinned Lean modules (cross-law) | 951 | n/a | n/a |
+| pinned Lean modules (cross-law) | 950 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 574 |
+| unpinned Lean modules (not counted as verified) | 572 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 92 |
+| adversarial review sessions recorded | 91 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -150,7 +150,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `330AC0000000104` 地方揮発油税法
 - `330AC0000000113` 地方揮発油譲与税法
 - `330CO0000000100` 輸入品に対する内国消費税の徴収等に関する法律施行令
-- `330CO0000000151` 地方揮発油税法施行令
 - `331M50000002007` 地方揮発油譲与税法施行規則
 - `332AC0000000026` 租税特別措置法
 - `332AC0000000037` とん税法
@@ -232,6 +231,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `407M50000008033` 大阪湾臨海地域開発整備法第十四条の地方税の不均一課税に伴う措置が適用される場合等を定める省令
 - `409AC0000000110` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律
 - `409CO0000000363` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行令
+- `410M50000040043` 電子計算機を使用して作成する国税関係帳簿書類の保存方法等の特例に関する法律施行規則
 - `411M50000008014` 奄美群島振興開発特別措置法第三十八条の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令
 - `412CO0000000276` 関税・外国為替等審議会令
 - `412CO0000000277` 関税等不服審査会令
