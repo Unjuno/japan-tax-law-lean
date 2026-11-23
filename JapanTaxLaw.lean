@@ -872,3 +872,9 @@ import JapanTaxLaw.ReadingSubstitutionNormsTests
 import JapanTaxLaw.CategoryDispatchNorms
 import JapanTaxLaw.CategoryDispatchNormsSpec
 import JapanTaxLaw.CategoryDispatchNormsTests
+import JapanTaxLaw.OverrideOperators
+import JapanTaxLaw.OverrideOperatorsSpec
+import JapanTaxLaw.OverrideOperatorsTests
+import JapanTaxLaw.RestrictionNorms
+import JapanTaxLaw.RestrictionNormsSpec
+import JapanTaxLaw.RestrictionNormsTests
