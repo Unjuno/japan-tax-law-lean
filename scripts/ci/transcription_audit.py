@@ -3555,6 +3555,14 @@ def checks():
            "article", "\u7b2c\u4e09\u6761",
            ["\uff08\u76f8\u7d9a\u53c8\u306f\u907a\u8d08\u306b\u3088\u308a\u53d6\u5f97\u3057\u305f\u3082\u306e\u3068\u307f\u306a\u3059\u5834\u5408\uff09"])
 
+    # SpecialMeasuresArt70_3PresumptiveHeirCondition.lean - NORM|d775175c... (租税特別措置法 art.70_3 PRESUMPTION, law 332AC0000000026)
+    # Needle is in Article 70_3 Paragraph 3 Item 1 Subitem 2 - verbatim injected
+    # from the queue via \u escapes; heir-status facts extracted structurally.
+    yield ("special measures art.70_3 presumptive heir condition - SpecialMeasuresArt70_3PresumptiveHeirCondition.lean",
+           "332AC0000000026",
+           "article", "\u7b2c\u4e03\u5341\u6761\u306e\u4e09",
+           ["\u4f4f\u5b85\u53d6\u5f97\u7b49\u8cc7\u91d1\u306e\u8d08\u4e0e\u3092\u3057\u305f\u8005\u306e\u76f4\u7cfb\u5351\u5c5e\u3067\u3042\u308b\u63a8\u5b9a\u76f8\u7d9a\u4eba\uff08\u5b6b\u3092\u542b\u3080\u3002\uff09\u3067\u3042\u308b\u3053\u3068\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

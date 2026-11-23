@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 2649,
+  "checks": 2653,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -29140,11 +29140,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/InheritanceTaxArt3DeemedAcquisitionTests.lean",
       "unit_id": "NORM|6a574541c0cc8e189b22ac97d2c2ddacaa3a00871afe9a7f5c9ca2137f72dc74"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_SPECIAL_MEASURES_ART70_3_PRESUMPTIVE_HEIR_CONDITION.md — reviewer returned 2 FINDINGS (source-fidelity ",
+      "unit_id": "NORM|d775175c5fdefe03cb113c17eb692261fc30ceac82464eae2afd408b64095615"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/SpecialMeasuresArt70_3PresumptiveHeirCondition.lean",
+      "unit_id": "NORM|d775175c5fdefe03cb113c17eb692261fc30ceac82464eae2afd408b64095615"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/SpecialMeasuresArt70_3PresumptiveHeirConditionSpec.lean",
+      "unit_id": "NORM|d775175c5fdefe03cb113c17eb692261fc30ceac82464eae2afd408b64095615"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/SpecialMeasuresArt70_3PresumptiveHeirConditionTests.lean",
+      "unit_id": "NORM|d775175c5fdefe03cb113c17eb692261fc30ceac82464eae2afd408b64095615"
     }
   ],
-  "resolved": 2645,
+  "resolved": 2649,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 544,
+  "units_checked": 545,
   "unresolved": 4
 }
