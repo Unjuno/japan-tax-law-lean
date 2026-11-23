@@ -1055,6 +1055,9 @@ import JapanTaxLaw.ApplyRefConditionNormsTests
 import JapanTaxLaw.KotashiProvisoNorms
 import JapanTaxLaw.KotashiProvisoNormsSpec
 import JapanTaxLaw.KotashiProvisoNormsTests
+import JapanTaxLaw.TableColumnLookupNorms
+import JapanTaxLaw.TableColumnLookupNormsSpec
+import JapanTaxLaw.TableColumnLookupNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
