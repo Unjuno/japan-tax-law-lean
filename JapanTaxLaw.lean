@@ -1043,6 +1043,9 @@ import JapanTaxLaw.DivisionOperatorNormsTests
 import JapanTaxLaw.SubtractionOperatorNorms
 import JapanTaxLaw.SubtractionOperatorNormsSpec
 import JapanTaxLaw.SubtractionOperatorNormsTests
+import JapanTaxLaw.MinMaxSelectionNorms
+import JapanTaxLaw.MinMaxSelectionNormsSpec
+import JapanTaxLaw.MinMaxSelectionNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
