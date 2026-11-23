@@ -1052,6 +1052,9 @@ import JapanTaxLaw.ScopeMembershipNormsTests
 import JapanTaxLaw.ApplyRefConditionNorms
 import JapanTaxLaw.ApplyRefConditionNormsSpec
 import JapanTaxLaw.ApplyRefConditionNormsTests
+import JapanTaxLaw.KotashiProvisoNorms
+import JapanTaxLaw.KotashiProvisoNormsSpec
+import JapanTaxLaw.KotashiProvisoNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
