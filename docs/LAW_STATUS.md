@@ -76,7 +76,7 @@ a completion flag.
 | `332AC0000000037` | とん税法 | 332AC0000000037_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 77 | YES (2) | NO |
 | `332AC0000000038` | 特別とん税法 | 332AC0000000038_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 47 | YES (2) | NO |
 | `332CO0000000043` | 租税特別措置法施行令 | 332CO0000000043_20261101_507CO0000000127 | CurrentEnforced | YES | ok | 2820 | YES (8) | NO |
-| `332CO0000000048` | とん税法施行令 | 332CO0000000048_20201001_502CO0000000128 | CurrentEnforced | YES | ok | 20 | NO (0) | NO |
+| `332CO0000000048` | とん税法施行令 | 332CO0000000048_20201001_502CO0000000128 | CurrentEnforced | YES | ok | 20 | YES (1) | NO |
 | `332CO0000000049` | 特別とん税法施行令 | 332CO0000000049_20201001_502CO0000000128 | CurrentEnforced | YES | ok | 14 | NO (0) | NO |
 | `332M50000040015` | 租税特別措置法施行規則 | 332M50000040015_20261101_507M60000040026 | CurrentEnforced | YES | ok | 1776 | YES (4) | NO |
 | `332AC0000000055` | 揮発油税法 | 332AC0000000055_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 94 | YES (1) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 292
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 293

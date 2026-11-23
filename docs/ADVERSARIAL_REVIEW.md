@@ -11016,3 +11016,44 @@ pinned 附則（17 ブロック）には本モデルが扱う平成15年施行�
 - **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。
 
 ---
+
+## Batch CQ review (2026-11-24) — 地方揮発油税法施行令 附則 art.1（施行日）/ LocalGasolineTaxOrderEnforcementDate.lean（cycle-100 機械的独立照合・反例探索）
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。**本レビューは機械的独立照合であり、人間の法律専門家レビューではない。**
+- **対象モジュール（読み取り専用・変更していない）**: `JapanTaxLaw/LocalGasolineTaxOrderEnforcementDate.lean`（併せて `...Spec.lean` / `...Tests.lean` を参照）。
+- **pinned 確認**: law `330CO0000000151` / revision `330CO0000000151_20241001_506CO0000000148` / `data/raw/330CO0000000151_20241001_506CO0000000148.law.json`（data/raw に実在）。`data/INVENTORY.json` の当該レコードは `current_revision.current_revision_status = CurrentEnforced`、`raw_snapshot.source_file` がモジュール header の pin と一致、`revisions_sha256` / `source_sha256` 記録付き。
+
+### 1. 独立抽出（pinned 原文 附則 からの直接抽出・照合）
+- pinned JSON の `law_full_text` を再帰走査し、`SupplProvision`（附　則）配下の `Sentence` を直接抽出（形式化担当の STAGING / モジュール header は信じない）。全 10 個の附則ブロックのうち 6 番目が `附　則（施行期日）第一条この政令は、昭和四十一年四月一日から施行する。` であり、タスク提示の原文「第一条 この政令は、昭和四十一年四月一日から施行する。」と逐語一致。
+- 昭成年換算の独立確認: 昭和元年 = 1926 → **1926 + 41 - 1 = 1966**（モジュールの `1925 + 41 = 1966` と同値）。よって `enforcementDate = (1966, 4, 1)`、`dateKey = 19660401`、`enforcementKey = 19660401`。
+- **混同の明示除外**: 昭和40年 = 1965、昭和42年 = 1967 であり対象外。pinned 附則は「四十一年」と明記。同じ pinned JSON には別附則として「昭和四十二年六月一日」（7 番目）、「昭和三十九年四月一日」（5 番目）、「昭和三十年八月一日」（1 番目）、「令和六年十月一日」（10 番目）等が存在するが、いずれも本モデル対象の附則 art.1 ではない。昭和40年/42年を施行年と誤る検出はゼロ。
+
+### 2. needle 健全性（CI checks() 実文字列 2 本）
+- 出典: `scripts/ci/transcription_audit.py` の `checks()` cycle-100 エントリ（line 2339-2343）の実文字列 2 本:
+  1. `第一条この政令は、昭和四十一年四月一日から施行する`
+  2. `この政令は、昭和四十一年四月一日から施行する`
+- 自前正規化（`re.sub(r"[\s　]+", "", s)`、CI の `_norm` と同一規約）を pinned 原文全体に適用し substring 検索した結果、**両方 FOUND（2/2 FOUND）**。両 needle とも **U+3000 不含**（文中に全角空白なし）。needle 不一致・文字化け・U+3000 混入の検出ゼロ。
+
+### 3. 反例探索（境界値 4 点 + 独立 Spec との一致）
+| 入力 d | dateKey | inForce(d) | specInForce(d) | 一致 |
+|---|---|---|---|---|
+| (1966, 3, 31) | 19660331 | false | false | ✓ |
+| (1966, 4, 1) | 19660401 | true | true | ✓ |
+| (1966, 4, 2) | 19660402 | true | true | ✓ |
+| (2000, 1, 1) | 20000101 | true | true | ✓ |
+
+- すべて `by decide` の決定的手続で検証。独立 Spec は辞書順成分比較（`specInForce`）という実装 `dateKey >= 19660401` とは別定式であり、上記 4 点すべてで一致。追加で `showaToSeireki 40 = 1965` / `showaToSeireki 42 = 1967`、`agreeLocalGasolineTaxOrderEnforcementDate = true` も確認。境界の off-by-one（施行前日を true、施行日を false と誤る等）は検出されず。
+
+### 4. 公理監査（#print axioms）
+- `lake env lean` で一時検証ファイルを実行。`#print axioms` の結果: `showaToSeireki`、`enforcementDate`、`dateKey`、`enforcementKey`、`inForce`、`specInForce`、`agreeLocalGasolineTaxOrderEnforcementDate` の **7 定義すべて "does not depend on any axioms"**。
+- すなわち `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` 依存 = **0**。`by decide` ベースの計算のみで構成されている。
+
+### 5. 分類
+- **CONFIRMED（6 件）**: (a) law id / revision / raw snapshot の pin 一致、(b) 附則 art.1 原文の逐語一致（昭和四十一年四月一日）、(c) 昭和41 = 1966 換算および昭和40/42 除外、(d) needle 2/2 FOUND かつ U+3000 なし、(e) 反例 4 点が独立 Spec と一致、(f) 公理依存 0。
+- **BY-DESIGN（3 件）**: (a) CI 正規化が空白 / U+3000 を除去する規約であり、needle にスペースを入れないのは設計、(b) `dateKey` = YYYYMMDD 符号化と施行日での `>=`（施行日当日を含む）は原文から一意に導かれるモデル規約で、独立 Spec も同値、(c) スコープ: 附則の他条・経過措置（例: 「この政令の施行前に提供された担保については、なお従前の例による。」）・他の改正附則（昭和30 / 32 / 34 / 39 / 42、平成21、令和6 等）・地方揮発油税法施行令の実体規定は **NOT MODELLED**（モジュール header に明示）。consolidated 原文に複数の施行期日規定が存在するのは既知のスコープ外事項であり欠陥ではない。
+- **UNRESOLVED（0 件）**: **発見ゼロ。**
+
+- 追記後レビュー件数 **93**（既存 92 件は全件保持、Batch AH〜CP を含む）。追記は `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替なし。一時ファイル（抽出・正規化・検証・公理監査・追記スクリプト）は削除済み。
+- **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。
+
+---
