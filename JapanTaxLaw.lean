@@ -1103,6 +1103,9 @@ import JapanTaxLaw.FixedAssetTaxDetailTests
 import JapanTaxLaw.ConditionalTriggerNorms
 import JapanTaxLaw.ConditionalTriggerNormsSpec
 import JapanTaxLaw.ConditionalTriggerNormsTests
+import JapanTaxLaw.ConditionStateNorms
+import JapanTaxLaw.ConditionStateNormsSpec
+import JapanTaxLaw.ConditionStateNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
