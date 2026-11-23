@@ -1884,3 +1884,6 @@ import JapanTaxLaw.SchoolExemptionRequirementsTests
 import JapanTaxLaw.UnevenTaxInvestmentThreshold
 import JapanTaxLaw.UnevenTaxInvestmentThresholdSpec
 import JapanTaxLaw.UnevenTaxInvestmentThresholdTests
+import JapanTaxLaw.AmamiInvestmentThreshold
+import JapanTaxLaw.AmamiInvestmentThresholdSpec
+import JapanTaxLaw.AmamiInvestmentThresholdTests
