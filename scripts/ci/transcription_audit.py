@@ -3472,6 +3472,24 @@ def checks():
            "file", None,
            ["その年中に支払つた新個人年金保険料の金額の合計額が八万円を超える場合"])
 
+    # 航空機燃料譲与税法 art. 4 — AviationFuelThousandRoundDown.lean
+    yield ("航空機燃料譲与税法 art. 4（千円未満端数切捨て）↔ AviationFuelThousandRoundDown.lean (round down to 1000 yen)",
+           "347AC0000000013",
+           "article", "第四条",
+           ["各空港関係市町村及び空港関係都道府県に対する前条第一項に規定する各譲与時期ごとに譲与すべき航空機燃料譲与税の額として前三条の規定を適用して計算した金額に千円未満の端数金額があるときは、その端数金額を控除した金額をもつて、当該各譲与時期ごとに譲与すべき航空機燃料譲与税の額とする。"])
+
+    # 租税特別措置法施行令 art. 2 — CorporateOwnershipThird.lean
+    yield ("租税特別措置法施行令 art. 2（法人所有三分の一超）↔ CorporateOwnershipThird.lean (strict >1/3 ownership)",
+           "407M50000008033",
+           "article", "第二条",
+           ["その発行済株式の総数又は出資金額若しくは拠出された金額の三分の一を超える数又は金額が法人税法（昭和二十二年法律第二十八号）別表第一第一号に掲げる法人により所有され、又は出資若しくは拠出をされている法人"])
+
+    # 租税特別措置法施行令 art. 16の12 — ShareMajority50.lean
+    yield ("租税特別措置法施行令 art. 16の12（持分百分の五十超）↔ ShareMajority50.lean (strict >50% majority)",
+           "344M50000048001",
+           "article", "第十六条の十二",
+           ["当該他の準組合の準組合財産に対する持分の割合が百分の五十を超える場合における当該持分"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
