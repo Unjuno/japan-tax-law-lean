@@ -1823,3 +1823,6 @@ import JapanTaxLaw.PopulationDensityBracketTests
 import JapanTaxLaw.CorporateOwnershipThird
 import JapanTaxLaw.CorporateOwnershipThirdSpec
 import JapanTaxLaw.CorporateOwnershipThirdTests
+import JapanTaxLaw.MergerGrantFiscalWindow
+import JapanTaxLaw.MergerGrantFiscalWindowSpec
+import JapanTaxLaw.MergerGrantFiscalWindowTests
