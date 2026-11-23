@@ -1820,3 +1820,6 @@ import JapanTaxLaw.ShareMajority50Tests
 import JapanTaxLaw.PopulationDensityBracket
 import JapanTaxLaw.PopulationDensityBracketSpec
 import JapanTaxLaw.PopulationDensityBracketTests
+import JapanTaxLaw.CorporateOwnershipThird
+import JapanTaxLaw.CorporateOwnershipThirdSpec
+import JapanTaxLaw.CorporateOwnershipThirdTests
