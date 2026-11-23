@@ -3338,6 +3338,23 @@
         500000
       ]
     },
+    "MergerGrantFiscalWindow": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "五十二",
+        "四十七"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 25,
+      "needles_scoped": true,
+      "scoped_article_chars": 829,
+      "spec_literals": [
+        47,
+        52
+      ]
+    },
     "MonthCountExclusiveBand": {
       "adversarial_review": true,
       "boundary_examples_found": 6,
@@ -6727,6 +6744,23 @@
         "spec_kanji_in_原文": [
           "三億三千万",
           "千"
+        ]
+      },
+      "NORM|37e1ae99d1ae4f34a73c270d93a4e5be20beb7e2ec6c5f87b61997c4e52904f0": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 25,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "MergerGrantFiscalWindow",
+        "spec_kanji_in_原文": [
+          "五十二",
+          "四十七"
         ]
       },
       "NORM|38300dde37d3473cbce6dcc1c13af79b6fdf7e8d3d759a4f84d295ac90bc44fd": {
@@ -13771,6 +13805,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"1000\": [\"千\"], \"225\": [\"二十二・五\"], \"330000000\": [\"三億三千万\"]}; statutory rate = 9/40; needles scoped",
       "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:41_19/Article#41_19/Paragraph#1/ParagraphSentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/SpecialBaselineIncomeTaxTests.lean sha256=19cbc47e414f914f22cceda1de681ac63cbf7ab80fcb52c89f3a8c401b057bb0 (22 kernel-decided examples)"
+    },
+    "NORM|37e1ae99d1ae4f34a73c270d93a4e5be20beb7e2ec6c5f87b61997c4e52904f0": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 25 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=347CO0000000160_19750430_350CO0000000141 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/MergerGrantFiscalWindow.lean sha256=526cc4e8796dcbaf7d9afbed4ff9dcee95e82476435438e1a278ddacd681a79e",
+      "independent_spec": "JapanTaxLaw/MergerGrantFiscalWindowSpec.lean sha256=02faee58d49c00df23c70349e463fbde9daa542848aaa9cebb1bc3895c49cffb (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45183082291: commit b77278cc61db687bcfa4fe60b4cc90ea7c767544, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [47, 52] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"47\": [\"四十七\"], \"52\": [\"五十二\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/347CO0000000160_19750430_350CO0000000141.law.json#LawBody[2]/MainProvision/MainProvision[7]/Article:8/Article#8/Paragraph#3/ParagraphSentence/Sentence sha256=20d1e1b4cf45e93d4f30be1546919ed16c7c3c8bd63d47cf311a08282d4d85be (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/MergerGrantFiscalWindowTests.lean sha256=602bddb50685a02112f8644111ec561c18cf9d4262e7b08983258102f1724b74 (25 kernel-decided examples)"
     },
     "NORM|38300dde37d3473cbce6dcc1c13af79b6fdf7e8d3d759a4f84d295ac90bc44fd": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",

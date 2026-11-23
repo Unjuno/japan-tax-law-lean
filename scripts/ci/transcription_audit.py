@@ -3473,6 +3473,14 @@ def checks():
            ["３国は、昭和四十七年度から昭和五十二年度までの各年度に限り、市町村の合併をしようとする市町村（以下この条において「合併関係市町村」という。）に対し、市町村の合併の実施を促進するため、予算の範囲内で、補助金を交付することができる。"])
 
 
+
+    # 情報通信技術活用省令 art.5(2)(2) — GrayscaleGradationFloor.lean (二百五十六階調以上)
+    yield ("情報通信技術活用省令 art.5(2)(2)（二百五十六階調以上）↔ GrayscaleGradationFloor.lean (floor 256, 以上 inclusive)",
+           "415M60000040071",
+           "article", "第五条",
+           ["白色から黒色までの階調が二百五十六階調以上であること。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

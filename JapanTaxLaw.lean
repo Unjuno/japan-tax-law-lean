@@ -1854,3 +1854,6 @@ import JapanTaxLaw.SchoolExemptionRequirementsTests
 import JapanTaxLaw.MergerGrantFiscalWindow
 import JapanTaxLaw.MergerGrantFiscalWindowSpec
 import JapanTaxLaw.MergerGrantFiscalWindowTests
+import JapanTaxLaw.GrayscaleGradationFloor
+import JapanTaxLaw.GrayscaleGradationFloorSpec
+import JapanTaxLaw.GrayscaleGradationFloorTests
