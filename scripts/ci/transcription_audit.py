@@ -1451,6 +1451,14 @@ def checks():
            "143AC0000000054",
            "article", "\u7b2c\u4e8c\u5341\u6761\u306e\u4e8c",
            ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u7b2c\u5341\u4e09\u6761\u7b2c\u4e03\u9805\u305f\u3060\u3057\u66f8\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
+    # CustomsTariffArt19_2ExportReliefCondition.lean - NORM|94f8ac86... (art.19-2 caption CONDITION, law 143AC0000000054)
+    # The needle IS the ArticleCaption; sub-terms extracted from the caption,
+    # never hand-typed. find_article_text(...,'第十九条の二') len 1574 with needle.
+    yield ("customs tariff art.19-2 export relief caption condition - CustomsTariffArt19_2ExportReliefCondition.lean",
+           "143AC0000000054",
+           "article", "\u7b2c\u5341\u4e5d\u6761\u306e\u4e8c",
+           ["\uff08\u8ab2\u7a0e\u539f\u6599\u54c1\u7b49\u306b\u3088\u308b\u88fd\u54c1\u3092\u8f38\u51fa\u3057\u305f\u5834\u5408\u306e\u514d\u7a0e\u53c8\u306f\u623b\u3057\u7a0e\u7b49\uff09"])
+
 
 
 
