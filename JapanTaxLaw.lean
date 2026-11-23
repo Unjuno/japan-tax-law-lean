@@ -1088,6 +1088,9 @@ import JapanTaxLaw.LocalBusinessTaxExemptionTests
 import JapanTaxLaw.LocalSecondaryTaxLiability
 import JapanTaxLaw.LocalSecondaryTaxLiabilitySpec
 import JapanTaxLaw.LocalSecondaryTaxLiabilityTests
+import JapanTaxLaw.ResidentialLandTaxBase
+import JapanTaxLaw.ResidentialLandTaxBaseSpec
+import JapanTaxLaw.ResidentialLandTaxBaseTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
