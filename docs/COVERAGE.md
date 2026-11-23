@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 439 | n/a | n/a |
-| distinct article pins | 166 | 42584 | 0.39% |
-| pinned Lean modules (cross-law) | 875 | n/a | n/a |
+| pinned literal checks | 438 | n/a | n/a |
+| distinct article pins | 164 | 42584 | 0.39% |
+| pinned Lean modules (cross-law) | 876 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 482 |
+| unpinned Lean modules (not counted as verified) | 487 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 81 |
+| adversarial review sessions recorded | 80 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -163,6 +163,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `335AC0000000036` 関税暫定措置法
 - `335CO0000000069` 関税暫定措置法施行令
 - `337AC0000000066` 国税通則法
+- `337AC0000000144` 外国居住者等の所得に対する相互主義による所得税等の非課税等に関する法律
 - `337CO0000000097` 酒税法施行令
 - `337CO0000000135` 国税通則法施行令
 - `337CO0000000227` 外国居住者等の所得に対する相互主義による所得税等の非課税等に関する法律施行令
@@ -212,7 +213,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `353AC0000000025` 石油石炭税法
 - `359AC0000000072` たばこ税法
 - `360CO0000000005` たばこ税法施行令
-- `360M50000040001` たばこ税法施行規則
 - `363AC0000000107` 税制改革法
 - `363AC0000000108` 消費税法
 - `363CO0000000360` 消費税法施行令

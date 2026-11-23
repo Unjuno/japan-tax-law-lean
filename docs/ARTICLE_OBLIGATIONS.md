@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 219
-- presence-facts-only complete: 219
-- NOT_STARTED: 219
+- articles with explicit pin: 220
+- presence-facts-only complete: 220
+- NOT_STARTED: 220
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -236,3 +236,4 @@ source positions. Human legal review is a separate axis and is pending.
 | `143AC0000000054` | 第十七条 | CustomsTariffArt17ContainerDelegation | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十七条 | CustomsTariffArt17DutyExemptionReading | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十七条 | CustomsTariffArt17ExportContainerDelegation | YES | YES | NO | NOT_STARTED |
+| `360CO0000000005` | 第十一条 | JointHeirThreshold2 | YES | YES | NO | NOT_STARTED |

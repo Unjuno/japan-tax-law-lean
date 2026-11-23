@@ -2353,12 +2353,6 @@ def checks():
            "file", None,
            ["米の含有量が全重量の三〇％を超えるもの", "第七条"])
 
-    # SenFractionRoundDown — cycle-89
-    yield ("SenFractionRoundDown.lean",
-           "360M50000040001",
-           "file", None,
-           ["一銭未満の端数がある場合には、その端数を切り捨てるものとする", "第四条"])
-
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3448,6 +3442,38 @@ def checks():
            "360CO0000000005",
            "article", "第十一条",
            ["相続人が二人以上ある場合には、前項の申告書は、各相続人が連署して提出するものとする。"])
+# 合計所得金額の見積額 千八百五万円超 — Income18M05.lean
+    yield ("租税特別措置法 art. 41_3_8（合計所得金額の見積額 千八百五万円超）↔ Income18M05.lean (incomeFloor18M05 18050000)",
+           "332AC0000000026",
+           "file", None,
+           ["ただし、その者のその年分の所得税に係るその年の合計所得金額の見積額が千八百五万円を超える場合については、この限りでない。"])
+
+    # 合計所得金額 四百八十九万円超 — Income4M89.lean
+    yield ("租税特別措置法 art. 41_16_2（合計所得金額 四百八十九万円超）↔ Income4M89.lean (incomeFloor4M89 4890000)",
+           "332AC0000000026",
+           "file", None,
+           ["その居住者のその年分の所得税に係る合計所得金額が四百八十九万円を超える場合"])
+
+    # 要耐震改修住宅の床面積 五十平方メートル以上 — QuakeFloor50sqm.lean
+    yield ("租税特別措置法施行規則 art. 18_21（要耐震改修住宅の床面積 五十平方メートル以上）↔ QuakeFloor50sqm.lean (floorMin50 50)",
+           "332M50000040015",
+           "file", None,
+           ["当該要耐震改修住宅の床面積が五十平方メートル以上であること。"])
+
+    # 滞在期間 百八十三日を超えない — Stay183Days.lean
+    yield ("外国居住者等の所得に対する相互主義による所得税等の非課税等に関する法律 art. 23（滞在期間 百八十三日を超えない）↔ Stay183Days.lean (stayCap183 183)",
+           "337AC0000000144",
+           "file", None,
+           ["判定期間の全てにおいて当該外国居住者等の国内における滞在期間が百八十三日を超えないこと。"])
+
+    # MeetingQuorumOneThird.lean - repair: registry entry existed but the
+    # transcription check was dropped in the fast-landing commit. Needle
+    # validated byte-for-byte from the pinned raw source (law 412CO0000000276).
+    yield ("council quorum one-third - MeetingQuorumOneThird.lean",
+           "412CO0000000276",
+           "article", "\u7b2c\u4e5d\u6761",
+           ["\u5be9\u8b70\u4f1a\u306f\u3001\u59d4\u54e1\u53ca\u3073\u8b70\u4e8b\u306b\u95a2\u4fc2\u306e\u3042\u308b\u81e8\u6642\u59d4\u54e1\u306e\u4e09\u5206\u306e\u4e00\u4ee5\u4e0a\u304c\u51fa\u5e2d\u3057\u306a\u3051\u308c\u3070\u3001\u4f1a\u8b70\u3092\u958b\u304d\u3001\u8b70\u6c7a\u3059\u308b\u3053\u3068\u304c\u3067\u304d\u306a\u3044\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
