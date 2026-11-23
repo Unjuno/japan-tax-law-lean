@@ -1028,6 +1028,12 @@ import JapanTaxLaw.TreatyJPIsraelScopeTaxesTests
 import JapanTaxLaw.TreatyJPEgyptScopeTaxes
 import JapanTaxLaw.TreatyJPEgyptScopeTaxesSpec
 import JapanTaxLaw.TreatyJPEgyptScopeTaxesTests
+import JapanTaxLaw.LapseOfEffectNorms
+import JapanTaxLaw.LapseOfEffectNormsSpec
+import JapanTaxLaw.LapseOfEffectNormsTests
+import JapanTaxLaw.NotificationNorms
+import JapanTaxLaw.NotificationNormsSpec
+import JapanTaxLaw.NotificationNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
