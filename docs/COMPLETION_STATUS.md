@@ -13,17 +13,17 @@ obligations being complete. SKIP is never counted as PASS.
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: d2a46cea49954879d10e47f24c12080b552d458b
-- current HEAD commit: ebc79fc08f56c527123ccacb20e09f233772e1b3
+- current HEAD commit: fe54931f3b124bc6dd049638f96f54f8ac66f993
 - results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all registered obligations complete
 
 - normative units: 396854
-- NOT_STARTED: 396348
+- NOT_STARTED: 396345
 - PARTIAL: 0
 - PROVED_SCOPE: 3
-- FULLY_VERIFIED: 501
+- FULLY_VERIFIED: 504
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180619
@@ -36,26 +36,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 504 | 396854 |
-| kernel proved (CI-attested proof evidence) | 504 | 396854 |
-| source-audited (原文 correspondence evidence) | 504 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 507 | 396854 |
+| kernel proved (CI-attested proof evidence) | 507 | 396854 |
+| source-audited (原文 correspondence evidence) | 507 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 504 |
-| boundary_proof | 504 |
-| cross_law_proof | 504 |
-| decomposition_audit | 504 |
-| implementation | 504 |
-| independent_spec | 504 |
-| kernel_proof | 504 |
-| proof_scope | 504 |
-| source_correspondence_audit | 504 |
-| source_location | 504 |
-| tests | 504 |
+| adversarial_review | 507 |
+| boundary_proof | 507 |
+| cross_law_proof | 507 |
+| decomposition_audit | 507 |
+| implementation | 507 |
+| independent_spec | 507 |
+| kernel_proof | 507 |
+| proof_scope | 507 |
+| source_correspondence_audit | 507 |
+| source_location | 507 |
+| tests | 507 |
 
 ## Verdict
 
