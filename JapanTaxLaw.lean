@@ -866,3 +866,9 @@ import JapanTaxLaw.ExclusionRemainderNormsTests
 import JapanTaxLaw.ProvisoRemainderNorms
 import JapanTaxLaw.ProvisoRemainderNormsSpec
 import JapanTaxLaw.ProvisoRemainderNormsTests
+import JapanTaxLaw.ReadingSubstitutionNorms
+import JapanTaxLaw.ReadingSubstitutionNormsSpec
+import JapanTaxLaw.ReadingSubstitutionNormsTests
+import JapanTaxLaw.CategoryDispatchNorms
+import JapanTaxLaw.CategoryDispatchNormsSpec
+import JapanTaxLaw.CategoryDispatchNormsTests

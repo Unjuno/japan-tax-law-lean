@@ -1,7 +1,7 @@
 {
   "tool": "scripts/ci/treaty_acquisition.py",
   "layer_id": "L3_TREATY",
-  "count_acquired": 1,
+  "count_acquired": 7,
   "count_total": null,
   "acquisition_status": "ACQUIRED_PINNED_ONLY",
   "verification_status": "OUT_OF_SCOPE",
@@ -16,7 +16,73 @@
       "bytes": 305222,
       "pdf_header": "%PDF-1.6",
       "note": "和文統合条文（原条約+改正議定書）。法的効力は原条約・議定書の正文のみ。本文テキストはPDF内で圧縮されており、抽出にはPDFパーサが必要（未実施）。"
+    },
+    {
+      "treaty_id": "JP_UK_2006",
+      "label_ja": "日英租税条約 統合条文",
+      "authority": "財務省 租税条約に関する資料",
+      "url": "https://www.mof.go.jp/tax_policy/summary/international/tax_convention/SynthesizedTextforJapan_UnitedKingdom_JP.pdf",
+      "source_file": "data/raw/treaties/JP_UK_2006.pdf",
+      "sha256": "ec3c2c925febc81dffd6c2ae805c6e8f0363ad53d82d4cfba11387c4e5d802fb",
+      "bytes": 371686,
+      "pdf_header": "%PDF-1.6",
+      "note": "和文統合条文（便宜的に作成、法的効力なし）。本文抽出・形式化は未実施。"
+    },
+    {
+      "treaty_id": "JP_ITALY_1969",
+      "label_ja": "日伊租税条約 統合条文",
+      "authority": "財務省 租税条約に関する資料",
+      "url": "https://www.mof.go.jp/tax_policy/summary/international/tax_convention/Italy_ST_jp.pdf",
+      "source_file": "data/raw/treaties/JP_ITALY_1969.pdf",
+      "sha256": "69f2622b8b89c8ea6a08cc9f7480af049b3ecc6df65a7399de1ee93d5db6e04d",
+      "bytes": 191327,
+      "pdf_header": "%PDF-1.4",
+      "note": "和文統合条文（便宜的に作成、法的効力なし）。本文抽出・形式化は未実施。"
+    },
+    {
+      "treaty_id": "JP_INDIA_1989",
+      "label_ja": "日印租税条約 統合条文",
+      "authority": "財務省 租税条約に関する資料",
+      "url": "https://www.mof.go.jp/tax_policy/summary/international/tax_convention/india.text.rev.jpn.pdf",
+      "source_file": "data/raw/treaties/JP_INDIA_1989.pdf",
+      "sha256": "7a574594cd064c5b8180b6f845a1b5d62b9b7ba80dd3b908940cd31a358f31b1",
+      "bytes": 324632,
+      "pdf_header": "%PDF-1.5",
+      "note": "和文統合条文（便宜的に作成、法的効力なし）。本文抽出・形式化は未実施。"
+    },
+    {
+      "treaty_id": "JP_AUSTRALIA_2008",
+      "label_ja": "日豪租税条約 統合条文",
+      "authority": "財務省 租税条約に関する資料",
+      "url": "https://www.mof.go.jp/tax_policy/summary/international/tax_convention/SynthesizedTextforJapan_Australia_JP.pdf",
+      "source_file": "data/raw/treaties/JP_AUSTRALIA_2008.pdf",
+      "sha256": "21339cf6736a4a259c28a41d52b678ebf20ca050e51c06b1210cf3ce5f524207",
+      "bytes": 431311,
+      "pdf_header": "%PDF-1.6",
+      "note": "和文統合条文（便宜的に作成、法的効力なし）。本文抽出・形式化は未実施。"
+    },
+    {
+      "treaty_id": "JP_ISRAEL_1993",
+      "label_ja": "日以租税条約 統合条文",
+      "authority": "財務省 租税条約に関する資料",
+      "url": "https://www.mof.go.jp/tax_policy/summary/international/tax_convention/SynthesizedTextforJapan_Israel_JP.pdf",
+      "source_file": "data/raw/treaties/JP_ISRAEL_1993.pdf",
+      "sha256": "5308dde91e7dbfaea2df34e9f1a8b7c22698b210cc5c20be6832d4b9090b3a9e",
+      "bytes": 309688,
+      "pdf_header": "%PDF-1.6",
+      "note": "和文統合条文（便宜的に作成、法的効力なし）。本文抽出・形式化は未実施。"
+    },
+    {
+      "treaty_id": "JP_EGYPT_1968",
+      "label_ja": "日エジプト租税条約 統合条文",
+      "authority": "財務省 租税条約に関する資料",
+      "url": "https://www.mof.go.jp/tax_policy/summary/international/tax_convention/SynthesizedTextforJapan_Egypt_JP.pdf",
+      "source_file": "data/raw/treaties/JP_EGYPT_1968.pdf",
+      "sha256": "49ace68d143eb9173b5642a6e4ab644c4d87ca8d593fe4789fc3f976c46b010f",
+      "bytes": 296525,
+      "pdf_header": "%PDF-1.6",
+      "note": "和文統合条文（便宜的に作成、法的効力なし）。本文抽出・形式化は未実施。"
     }
   ],
-  "notes": "公式財務省PDFを1件 pin 取得。L0 に合算しない別層。全租税条約の網羅は主張しない。"
+  "notes": "財務省公式PDFを7件 pin 取得（SHA検証済み）。L0 に合算しない別層。全租税条約の網羅は主張しない。"
 }
