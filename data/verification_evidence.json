@@ -6879,19 +6879,6 @@
       "source_location": "data/raw/329CO0000000150_20260701_508CO0000000217.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:61/Article#61/Paragraph#4/ParagraphSentence/Sentence#2 sha256=d0cb666639a6a62af17c1525c09c86c22b9e639b97e45fc7dbe8ace41f2eb166 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/Certificate200kTests.lean sha256=4e28c61c9c796e11f7100632e5fb6e3e85fe3487e7d3a845f75bb4366a7441a7 (11 kernel-decided examples)"
     },
-    "NORM|f419b346978e27bf42b959afb590a4b25283346677b360f6c0c6e56d429b8c8f": {
-      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
-      "boundary_proof": "attested Tests module contains 9 kernel-decided examples covering boundary inputs",
-      "cross_law_proof": "unit dependencies=0; enforced revision=403M50000040031_20260401_508M60000040010 resolved from INVENTORY",
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
-      "implementation": "JapanTaxLaw/TrainingPeriodOneYear.lean sha256=83d578f1a87efef09e2edffaaf67f91bb75fe93617d78e0185bef36492ce3d0d",
-      "independent_spec": "JapanTaxLaw/TrainingPeriodOneYearSpec.lean sha256=cf6400401da6d39f851e7193b6db388460c4a02d6a912d6be8089f1f20fce4cb (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45232920308: commit 0924540f345967ff234f744cfc15c5b58d2cbc59, build/axiom job success, 3 module hashes re-verified",
-      "proof_scope": "basis=pinned needle(s) in clause: ['修業期間が一年以上であること。']; constants [] used by kernel-checked impl + independent spec",
-      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['修業期間が一年以上であること。']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
-      "source_location": "data/raw/403M50000040031_20260401_508M60000040010.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:3/Article#3/Paragraph#6/Item#1/ItemSentence/Sentence#1 sha256=05474a3f79500c643a169b991d9a1cefe7d03dea229849424d511a9f3db13816 (verbatim unit text located in scoped article)",
-      "tests": "JapanTaxLaw/TrainingPeriodOneYearTests.lean sha256=26a8ff5ca18d59eca6e73028a0a95e702b34c604a7244157fe4b99f05b1280f7 (9 kernel-decided examples)"
-    },
     "NORM|f490c62d6a0dab55b0c876c87ea3b2ee0b12290266772097bb3c588973e71f0c": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 14 kernel-decided examples covering boundary inputs",
@@ -7268,6 +7255,19 @@
       "cross_law_proof": "queue unit has one enforcement_version dependency with resolution=textual and sufficient=false. This is a within-law temporal reference fixed by the pinned 関税定率法 enforcement version; full machine resolution beyond the 15-digit law id is NOT claimed by this unit, and no external-law constant is introduced. Honest underdetermination recorded, not hidden.",
       "tests": "JapanTaxLaw/CustomsTariffSupplArt1ExceptionDateTests.lean sha256=1077d5267b3e4e58c532f8b2f8e21f5a9eff5d4ae40e84b831f7ef8c2cdb33b8 (kernel-checked enforcement-date exception checks)",
       "adversarial_review": "docs/ADVERSARIAL_CUSTOMS_TARIFF_SUPPL_ART1_EXCEPTION_DATE.md — NO FINDINGS via independent adversarial review with all 15 mandated checks reproduced from authoritative sources (queue, INVENTORY, raw law JSON, audit helpers), NOT from author prose, plus a programmatic cross-check (0 fails). Reproduced: raw sha256 924a01d3…986ae9c; needle unique in whole law and is the proviso Sentence#2 (attr.Function=proviso, Num=2) with enclosing ParagraphSentence carrying both dates; 平成3年4月1日=⟨3,4,1⟩ general and 平成4年1月1日=⟨4,1,1⟩ exception parsed correctly with exception later; override only for listed provisions with no provisions invented (NOT MODELLED); needle byte-identical in all 5 artifacts with correct codepoints and no wrong-numeral variants; unique ASCII-only audit 472/472; imports once each; no forbidden placeholders/simp/native_decide; nine theorems axiom-free including kernel-checked by-decide date ordering; spec Prop equality-disjunction vs pattern-match; build 1552 jobs; one enforcement_version dep honestly recorded textual/insufficient with no external-law constant; LEGAL_REVIEW_PENDING. No completion claim; human legal review remains pending."
+    },
+    "NORM|f419b346978e27bf42b959afb590a4b25283346677b360f6c0c6e56d429b8c8f": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 9 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=403M50000040031_20260401_508M60000040010 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/TrainingPeriodOneYear.lean sha256=83d578f1a87efef09e2edffaaf67f91bb75fe93617d78e0185bef36492ce3d0d",
+      "independent_spec": "JapanTaxLaw/TrainingPeriodOneYearSpec.lean sha256=cf6400401da6d39f851e7193b6db388460c4a02d6a912d6be8089f1f20fce4cb (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45232920308: commit 0924540f345967ff234f744cfc15c5b58d2cbc59, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=pinned needle(s) in clause: ['修業期間が一年以上であること。']; constants [] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['修業期間が一年以上であること。']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/403M50000040031_20260401_508M60000040010.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:3/Article#3/Paragraph#6/Item#1/ItemSentence/Sentence#1 sha256=05474a3f79500c643a169b991d9a1cefe7d03dea229849424d511a9f3db13816 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/TrainingPeriodOneYearTests.lean sha256=26a8ff5ca18d59eca6e73028a0a95e702b34c604a7244157fe4b99f05b1280f7 (9 kernel-decided examples)"
     }
   }
 }
