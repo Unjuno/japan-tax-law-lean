@@ -1851,3 +1851,6 @@ import JapanTaxLaw.NewAnnuityPremium80kTests
 import JapanTaxLaw.SchoolExemptionRequirements
 import JapanTaxLaw.SchoolExemptionRequirementsSpec
 import JapanTaxLaw.SchoolExemptionRequirementsTests
+import JapanTaxLaw.MergerGrantFiscalWindow
+import JapanTaxLaw.MergerGrantFiscalWindowSpec
+import JapanTaxLaw.MergerGrantFiscalWindowTests
