@@ -495,3 +495,60 @@ H/T/D/C/U record:
 - **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### LocalFine300k.lean — 地方税法 art. 801（罰金 三十万円以下）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`; needle 1/1 FOUND verbatim-unique in the pinned law, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/299999/300000/300001 円 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### SparklingAlcohol11.lean — 酒税法 art. 3（発泡性酒類 アルコール分 十一度未満）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `328AC0000000006` / revision `328AC0000000006_20260525_506AC0000000052`; needle 1/1 FOUND verbatim-unique in the pinned law, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/10/11/12 度 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### GroupRevenue100B.lean — 租税特別措置法 art. 66_4_4（多国籍企業グループ総収入金額 千億円以上）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `332AC0000000026` / revision `332AC0000000026_20261101_507AC0000000013`; needle 1/1 FOUND verbatim-unique in the pinned law, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/99999999999/100000000000/100000000001 円 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### DeceasedUnder70.lean — 租税特別措置法施行規則 art. 23_10（被相続人 七十歳未満）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `332M50000040015` / revision `332M50000040015_20261101_507M60000040026`; needle 1/1 FOUND verbatim-unique in the pinned law, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/69/70/71 歳 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+

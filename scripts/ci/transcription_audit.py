@@ -3359,6 +3359,30 @@ def checks():
            "327AC0000000119",
            "file", None,
            ["遅くとも、その納期限前十日までに納税者に交付しなければならない", "自動車税及び軽自動車税の徴収の方法等）第四条"])
+    # 罰金 三十万円以下 — LocalFine300k.lean
+    yield ("地方税法 art. 801（罰金 三十万円以下）↔ LocalFine300k.lean (localFineCap300k 300000)",
+           "325AC0000000226",
+           "file", None,
+           ["次の各号のいずれかに該当するときは、その違反行為をした機構の役員又は職員は、三十万円以下の罰金に処する。"])
+
+    # 発泡性酒類 アルコール分 十一度未満 — SparklingAlcohol11.lean
+    yield ("酒税法 art. 3（発泡性酒類 アルコール分 十一度未満）↔ SparklingAlcohol11.lean (alcoholLimit11 11)",
+           "328AC0000000006",
+           "file", None,
+           ["イ及びロに掲げる酒類以外の酒類で発泡性を有するもの（アルコール分が十一度未満のものに限る。以下「その他の発泡性酒類」という。）"])
+
+    # 多国籍企業グループ総収入金額 千億円以上 — GroupRevenue100B.lean
+    yield ("租税特別措置法 art. 66_4_4（多国籍企業グループ総収入金額 千億円以上）↔ GroupRevenue100B.lean (revenueFloor100B 100000000000)",
+           "332AC0000000026",
+           "file", None,
+           ["多国籍企業グループのうち、直前の最終親会計年度における多国籍企業グループの総収入金額として財務省令で定める金額が千億円以上であるものをいう。"])
+
+    # 被相続人 七十歳未満 — DeceasedUnder70.lean
+    yield ("租税特別措置法施行規則 art. 23_10（被相続人 七十歳未満）↔ DeceasedUnder70.lean (ageLimit70 70)",
+           "332M50000040015",
+           "file", None,
+           ["ただし、当該相続に係る被相続人が七十歳未満で死亡した場合は、この限りでない。"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
