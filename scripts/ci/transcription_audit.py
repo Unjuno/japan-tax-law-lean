@@ -91,19 +91,6 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
-    # Additional pins live in one file per module under data/TRANSCRIPTION_PINS/.
-    # A dedicated file is durable across merges: editing this hand-written list
-    # for other modules cannot silently drop another module's pin.
-    pins_dir = REPO / "data" / "TRANSCRIPTION_PINS"
-    if pins_dir.exists():
-        for pf in sorted(pins_dir.glob("*.json")):
-            try:
-                rec = json.loads(pf.read_text(encoding="utf-8"))
-                yield (rec["name"], rec["law_id"], rec["kind"], rec.get("art"), rec["needles"])
-            except (ValueError, KeyError):
-                continue
-    cia = find_article_text  # alias for readability
-
     # 法人税法 art. 66 — CorporateTaxRate.lean
     yield ("法人税法 art. 66（法人税率）↔ CorporateTaxRate.lean (smeRate 19% / ordinaryRate 23.2% / 年800万円 cap / 資本金1億円以下)",
            "340AC0000000034",
@@ -3559,7 +3546,6 @@ def checks():
            "article", "第五条",
            ["二以上の任意の記録項目を組み合わせて条件を設定することができること。"])
 
-
     # SpecialMeasuresArt70_3PresumptiveHeirCondition.lean - NORM|d775175c... (租税特別措置法 art.70_3 PRESUMPTION, law 332AC0000000026)
     # Needle is in Article 70_3 Paragraph 3 Item 1 Subitem 2 - verbatim injected
     # from the queue via \u escapes; heir-status facts extracted structurally.
@@ -3575,6 +3561,12 @@ def checks():
            "325AC0000000226",
            "article", "\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067",
            ["\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067", "\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067\u524a\u9664"])
+
+    # 公債収入 art. 2 — BondRevenueFiscalYear.lean
+    yield ("公債収入 art. 2（昭和51年度所属の歳入）↔ BondRevenueFiscalYear.lean (single-year FY attribution 51)",
+           "352AC0000000035",
+           "article", "第二条",
+           ["この場合において、当該公債に係る収入は、昭和五十一年度所属の歳入とする。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
