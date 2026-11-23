@@ -1106,6 +1106,9 @@ import JapanTaxLaw.ConditionalTriggerNormsTests
 import JapanTaxLaw.ConditionStateNorms
 import JapanTaxLaw.ConditionStateNormsSpec
 import JapanTaxLaw.ConditionStateNormsTests
+import JapanTaxLaw.TemporalConditionNorms
+import JapanTaxLaw.TemporalConditionNormsSpec
+import JapanTaxLaw.TemporalConditionNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
