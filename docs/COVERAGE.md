@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 154 | 327 | 47.09% |
+| laws with >=1 pinned literal check | 155 | 327 | 47.40% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,8 +62,8 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 459 | n/a | n/a |
-| distinct article pins | 172 | 42584 | 0.40% |
+| pinned literal checks | 460 | n/a | n/a |
+| distinct article pins | 173 | 42584 | 0.41% |
 | pinned Lean modules (cross-law) | 934 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
@@ -237,6 +237,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `414M60000008042` 沖縄振興特別措置法第九条等の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令
 - `415M60000008069` 収入印紙及び自動車重量税印紙の売りさばきに関する省令
 - `415M60000040007` 税関関係法令に係る情報通信技術を活用した行政の推進等に関する省令
+- `415M60000040071` 国税関係法令に係る情報通信技術を活用した行政の推進等に関する省令
 - `417M60000200012` 経済連携協定に基づく農林水産省の所掌事務に係る物資の関税割当制度に関する省令
 - `418M60000008099` 納税証明書、住民票等の写し等又は印鑑登録証明書の交付の請求の受付及び引渡しの業務の公共サービス実施民間事業者における実施に関する省令
 - `420AC0000000084` 地方税等減収補てん臨時交付金に関する法律
