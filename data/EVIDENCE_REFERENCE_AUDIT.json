@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 2459,
+  "checks": 2463,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -27050,11 +27050,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/CustomsTariffArt1Showa46EnforcementDateTests.lean",
       "unit_id": "NORM|3ae41f5f074cf6b4f9da3b4a62e85f726a734f3c0108278bf1e3ae2002245bf4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_CUSTOMS_TARIFF_ART20_CONTRABAND_DISPOSAL_CONDITION.md — NO FINDINGS via independent 26-point programmat",
+      "unit_id": "NORM|6c30cf8dbebe8cce20c0fcc0c11f69394a2c8dab5b47cd3d1c36c2b6fa7d4e1b"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt20ContrabandDisposalCondition.lean",
+      "unit_id": "NORM|6c30cf8dbebe8cce20c0fcc0c11f69394a2c8dab5b47cd3d1c36c2b6fa7d4e1b"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt20ContrabandDisposalConditionSpec.lean",
+      "unit_id": "NORM|6c30cf8dbebe8cce20c0fcc0c11f69394a2c8dab5b47cd3d1c36c2b6fa7d4e1b"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt20ContrabandDisposalConditionTests.lean",
+      "unit_id": "NORM|6c30cf8dbebe8cce20c0fcc0c11f69394a2c8dab5b47cd3d1c36c2b6fa7d4e1b"
     }
   ],
-  "resolved": 2455,
+  "resolved": 2459,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 506,
+  "units_checked": 507,
   "unresolved": 4
 }
