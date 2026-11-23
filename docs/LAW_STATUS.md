@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 159
+- with >=1 pinned literal check (semantic model): 161
 - with recorded human legal review: 0
 
 ## All laws
@@ -72,11 +72,11 @@ a completion flag.
 | `330CO0000000237` | 関税定率法第五条の規定による便益関税の適用に関する政令 | 330CO0000000237_20250401_507CO0000000141 | CurrentEnforced | YES | ok | 81 | NO (0) | NO |
 | `331M50000002007` | 地方揮発油譲与税法施行規則 | 331M50000002007_20230401_505M60000008036 | CurrentEnforced | YES | ok | 55 | YES (1) | NO |
 | `331M50000002047` | アメリカ合衆国軍隊等が行う免税軽油の引取りの手続に関する総理府令 | 331M50000002047_20090401_421M60000008036 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
-| `332AC0000000026` | 租税特別措置法 | 332AC0000000026_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 3736 | YES (24) | NO |
+| `332AC0000000026` | 租税特別措置法 | 332AC0000000026_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 3736 | YES (25) | NO |
 | `332AC0000000037` | とん税法 | 332AC0000000037_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 77 | YES (2) | NO |
 | `332AC0000000038` | 特別とん税法 | 332AC0000000038_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 47 | YES (2) | NO |
 | `332CO0000000043` | 租税特別措置法施行令 | 332CO0000000043_20261101_507CO0000000127 | CurrentEnforced | YES | ok | 2820 | YES (8) | NO |
-| `332CO0000000048` | とん税法施行令 | 332CO0000000048_20201001_502CO0000000128 | CurrentEnforced | YES | ok | 20 | NO (0) | NO |
+| `332CO0000000048` | とん税法施行令 | 332CO0000000048_20201001_502CO0000000128 | CurrentEnforced | YES | ok | 20 | YES (1) | NO |
 | `332CO0000000049` | 特別とん税法施行令 | 332CO0000000049_20201001_502CO0000000128 | CurrentEnforced | YES | ok | 14 | NO (0) | NO |
 | `332M50000040015` | 租税特別措置法施行規則 | 332M50000040015_20261101_507M60000040026 | CurrentEnforced | YES | ok | 1776 | YES (4) | NO |
 | `332AC0000000055` | 揮発油税法 | 332AC0000000055_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 94 | YES (1) | NO |
@@ -214,7 +214,7 @@ a completion flag.
 | `409CO0000000363` | 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行令 | 409CO0000000363_20250501_507CO0000000128 | CurrentEnforced | YES | ok | 79 | YES (1) | NO |
 | `409M50000040096` | 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行規則 | 409M50000040096_20250401_507M60000040027 | CurrentEnforced | YES | ok | 92 | NO (0) | NO |
 | `410AC0000000025` | 電子計算機を使用して作成する国税関係帳簿書類の保存方法等の特例に関する法律 | 410AC0000000025_20250401_507AC0000000013 | CurrentEnforced | YES | ok | 39 | NO (0) | NO |
-| `410M50000040043` | 電子計算機を使用して作成する国税関係帳簿書類の保存方法等の特例に関する法律施行規則 | 410M50000040043_20250401_507M60000040028 | CurrentEnforced | YES | ok | 34 | NO (0) | NO |
+| `410M50000040043` | 電子計算機を使用して作成する国税関係帳簿書類の保存方法等の特例に関する法律施行規則 | 410M50000040043_20250401_507M60000040028 | CurrentEnforced | YES | ok | 34 | YES (1) | NO |
 | `410M50000040117` | 承継銀行等が取得した不動産に関する権利の移転登記の登録免許税の免税を受けるための手続に関 | 410M50000040117_19981023_000000000000000 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
 | `410M50000040118` | 特別合併により新会社が受ける登記の登録免許税の免税を受けるための手続に関する省令 | 410M50000040118_19981023_000000000000000 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
 | `410M50000040119` | 承継銀行等が取得した不動産に関する権利の移転登記の登録免許税の免税を受けるための手続に関 | 410M50000040119_20140306_426M60000040011 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 290
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 293

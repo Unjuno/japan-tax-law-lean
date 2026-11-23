@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 159 | 327 | 48.62% |
+| laws with >=1 pinned literal check | 161 | 327 | 49.24% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 467 | n/a | n/a |
-| distinct article pins | 176 | 42584 | 0.41% |
-| pinned Lean modules (cross-law) | 950 | n/a | n/a |
+| pinned literal checks | 470 | n/a | n/a |
+| distinct article pins | 178 | 42584 | 0.42% |
+| pinned Lean modules (cross-law) | 958 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 572 |
+| unpinned Lean modules (not counted as verified) | 579 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 91 |
+| adversarial review sessions recorded | 93 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -156,6 +156,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `332AC0000000038` 特別とん税法
 - `332AC0000000055` 揮発油税法
 - `332CO0000000043` 租税特別措置法施行令
+- `332CO0000000048` とん税法施行令
 - `332CO0000000057` 揮発油税法施行令
 - `332M50000040015` 租税特別措置法施行規則
 - `333CO0000000117` 地方交付税法施行令
@@ -232,6 +233,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `407M50000008033` 大阪湾臨海地域開発整備法第十四条の地方税の不均一課税に伴う措置が適用される場合等を定める省令
 - `409AC0000000110` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律
 - `409CO0000000363` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行令
+- `410M50000040043` 電子計算機を使用して作成する国税関係帳簿書類の保存方法等の特例に関する法律施行規則
 - `411M50000008014` 奄美群島振興開発特別措置法第三十八条の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令
 - `412CO0000000276` 関税・外国為替等審議会令
 - `412CO0000000277` 関税等不服審査会令
