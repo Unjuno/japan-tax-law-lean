@@ -1049,6 +1049,9 @@ import JapanTaxLaw.MinMaxSelectionNormsTests
 import JapanTaxLaw.ScopeMembershipNorms
 import JapanTaxLaw.ScopeMembershipNormsSpec
 import JapanTaxLaw.ScopeMembershipNormsTests
+import JapanTaxLaw.ApplyRefConditionNorms
+import JapanTaxLaw.ApplyRefConditionNormsSpec
+import JapanTaxLaw.ApplyRefConditionNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
