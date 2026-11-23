@@ -1726,3 +1726,6 @@ import JapanTaxLaw.GroupRevenue100BTests
 import JapanTaxLaw.DeceasedUnder70
 import JapanTaxLaw.DeceasedUnder70Spec
 import JapanTaxLaw.DeceasedUnder70Tests
+import JapanTaxLaw.SenFractionRoundDown
+import JapanTaxLaw.SenFractionRoundDownSpec
+import JapanTaxLaw.SenFractionRoundDownTests

@@ -9945,3 +9945,105 @@ pinned 原文の逐語・「三〇％ = 30/100」・「超える = 厳密超え�
 - 公理: `choice` / `sorryAx` / `Quot.sound` / `propext` 依存 **0**、3/3 axiom-free。
 - **CONFIRMED 0 / BY-DESIGN 5 / UNRESOLVED 3**。実 defect はゼロ（発見ゼロ）。
 - 追記は `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替は行わない。一時ファイルは削除済み。
+
+## Batch CE review (2026-11-23) — 関税・外国為替等審議会令 art.9 §1 / DeliberationQuorum.lean（cycle-88 独立原文照合）
+
+- **レビュア役割**: 独立 Adversarial Review Agent（形式化担当から独立）。**本レビューは機械的独立照合であり、人間の法律専門家レビューではない。**
+- **対象モジュール（読み取り専用・変更していない）**: `JapanTaxLaw/DeliberationQuorum.lean`（実装）、`JapanTaxLaw/DeliberationQuorumSpec.lean`（独立 Spec）、`JapanTaxLaw/DeliberationQuorumTests.lean`（smoke tests）
+- **pinned 原文**: `data/raw/412CO0000000276_20260401_508CO0000000085.law.json`; law_id `412CO0000000276` / revision `412CO0000000276_20260401_508CO0000000085`（`data/INVENTORY.json` の `current_revision` と raw JSON の `revision_info` を独立照合し一致、`CurrentEnforced`、施行日 2026-04-01）。raw ファイルの実測 SHA-256 `E7D2DA2024D3909CA5B0DB031F8A2BBA4E9B6E4E221E9C8D94EAA74E95A9BD18` = INVENTORY 記載値。
+- **形式化担当の STAGING (`docs/STAGING_QUORUM.md`) は参照情報としてのみ扱い、抽出・判定には使用しない。** pinned JSON を自前再帰走査し `Article attr.Num='9'` を特定した。
+
+### CE-1. 独立抽出（pinned 原文 → 自前正規化）
+
+- `ArticleTitle == '第九条'`、caption `（議事）`。art.9 は **Paragraph 3 件**（§1/§2/§3）。文字リーフ連結は **155 chars / U+3000 = 0**、正規化後も **155 chars**（モジュール doc-comment の「flat/normalized leaf text 155 chars」と一致。なお §1 文単体は 55 chars）。
+- 原文逐語（第1項、全文 55 chars）:
+  `審議会は、委員及び議事に関係のある臨時委員の三分の一以上が出席しなければ、会議を開き、議決することができない。`
+- 自前の正規化（`[\s　]+` 除去）原文と形式化担当の引用は**完全一致**（照合ブール値 true）。
+- 原文逐語（第2項 / 第3項、参照のみ）:
+  - §2 `２審議会の議事は、委員及び議事に関係のある臨時委員で会議に出席したものの過半数で決し、可否同数のときは、会長の決するところによる。`
+  - §3 `３前二項の規定は、分科会及び部会の議事について準用する。`
+
+### CE-2. 独立判定（「三分の一以上」= 1/3 以上、包含）
+
+- 分数トークンを正規表現 `([一二三四五六七八九十]+)分の([一二三四五六七八九十]+)` で自前抽出 → **`('三','一')` の 1 件のみ**。漢数字を自前で Arabic 変換し分母 3 / 分子 1 = **1/3** を得た。
+- 桁違いを明示除外: `二分の一`（1/2）**0 件**、`三分の二`（2/3）**0 件**、`四分の` / `五分の` / `十分の` **0 件**。1/2 を採用した場合 `(10,30)` は false となり原文と矛盾、2/3 を採用した場合も `(10,30)` は false となり矛盾。
+- 規範語は **`以上`（包含 ≥）**。`超える`（厳密 >）は **0 件**。よってちょうど 1/3（`attendance=10,total=30` / `(1,3)`）は **可**。これを厳密 `>` と誤読すると `(10,30)` が false となり反例が出る。
+- 整数昇格の同値性: `total>0` のとき `attendance*3 >= total` ⇔ `attendance >= total/3`（実数）⇔ `attendance >= ceil(total/3)`。例: `total=10 → 4 人以上`、`total=7 → 3 人以上`。実装 `quorumMet (attendance total : Nat) : Bool := attendance * 3 >= total` はこの判定そのものであり、独立 Spec `specQuorum`（同式だが別宣言）とも整合。
+
+### CE-3. needle 健全性（CI 実文字列 2 本）
+
+`scripts/ci/transcription_audit.py::checks()` から実文字列を直接取得（手転記による誤り混入を排除）:
+
+| needle | 実文字列 | 長さ | U+3000 | 自前正規化原文（全体） | 自前正規化 art.9 |
+|---|---|---|---|---|---|
+| 1 | `委員及び議事に関係のある臨時委員の三分の一以上が出席しなければ` | 31 | 0 | **FOUND** | **FOUND** |
+| 2 | `第九条` | 3 | 0 | **FOUND** | **FOUND** |
+
+- **U+3000 = 0 本、2/2 FOUND（MISS 0）**。needle1 は §1 文の部分列（後続の `会議を開き、議決することができない。` は含まない）、needle2 は `ArticleTitle` と一致。
+- `kind="file"` のため CI は全体平坦化テキストに対して照合するが、自前の art.9 スコープ照合でも 2/2 FOUND であり、他条から流用されたものでないことを確認。
+
+### CE-4. 反例探索・独立 Spec 一致
+
+| 入力 (attendance, total) | `quorumMet` | 独立 Spec（ceil / Fraction） | 期待 | 判定 |
+|---|---|---|---|---|
+| (10, 30) | `true` | `true` / `true` | ちょうど 1/3 → 可 | ✅ |
+| (9, 30) | `false` | `false` / `false` | 1/3 未満 → 不可 | ✅ |
+| (11, 30) | `true` | `true` / `true` | 1/3 超 → 可 | ✅ |
+| (1, 3) | `true` | `true` / `true` | ちょうど 1/3 → 可 | ✅ |
+| (0, 0) | `true` | `true` / `true` | 空境界（total=0）→ 可（BY-DESIGN） | ✅ |
+| (0, 3) | `false` | `false` / `false` | 0 人 → 不可 | ✅ |
+| (2, 7) | `false` | `false` / `false` | 2/7 < 1/3 → 不可 | ✅ |
+| (3, 10) | `false` | `false` / `false` | 3/10 < 1/3 → 不可 | ✅ |
+| (4, 10) | `true` | `true` / `true` | ceil(10/3)=4 → 可 | ✅ |
+
+- 独立 Spec は実装の式を再利用せず、(a) `a >= ceil(t/3)`（`(t+2)/3`、`t=0` は真）と (b) `Fraction(a,t) >= Fraction(1,3)`（`t=0` は真）の 2 通りで再定式。`a=0..60, t=0..60` の **3,721 組を全走査し、両 Spec との不一致 0**、反例は検出されず。
+- Lean 側でも外部一時ファイルから `∀ a ∈ List.range 41, ∀ t ∈ List.range 41, quorumMet a t = indepSpec a t` を `by decide` で kernel-checked（compiles）。`#eval` は `(10,30)=true`, `(9,30)=false`, `(11,30)=true`, `(1,3)=true`, `(0,0)=true`, `agreeDeliberationQuorum=true`。
+
+### CE-5. 公理監査（`lake env lean` / `#print axioms`, exit 0）
+
+| 宣言 | 結果 |
+|---|---|
+| `JapanTaxLaw.DeliberationQuorum.quorumMet` | `does not depend on any axioms` |
+| `JapanTaxLaw.DeliberationQuorum.specQuorum` | `does not depend on any axioms` |
+| `JapanTaxLaw.DeliberationQuorum.agreeDeliberationQuorum` | `does not depend on any axioms` |
+
+→ **`Classical.choice` / `sorryAx` / `Quot.sound` / `propext` 依存 0 件**（3/3 axiom-free）。3 ファイルを `sorry|admit|axiom|unsafe` で走査し **0 matches**。
+
+### CE-6. 分類
+
+| 分類 | 件数 |
+|---|---|
+| CONFIRMED（実 defect） | **0（ゼロ）** |
+| BY-DESIGN | **5** |
+| UNRESOLVED | **3** |
+
+#### CONFIRMED（0 件）
+
+pinned 原文の逐語・「三分の一 = 1/3」・「以上 = 包含」・needle・反例・Spec 一致・公理のいずれにも矛盾を検出せず。**発見ゼロ（実 defect ゼロ）**。
+
+#### BY-DESIGN（5 件）
+
+- **B-CE1  bounded L4 slice**: art.9 §1 の定足数判定のみを formalize。§2/§3・具体的構成員数は NOT MODELLED と doc-comment に明記。意図的な範囲制限。
+- **B-CE2  Nat による整数昇格**: `attendance*3 >= total` は有理数比較 `attendance/total >= 1/3` を分母 3 で整数化したもので、除算・丸めを導入しない bounded 設計。`ceil` 挙動（`total=10 → 4 人`）も原文と整合。
+- **B-CE3  空境界 `(0,0)=true`**: total=0 は実在の審議会ではあり得ず、doc-comment に「空の構成（境界）」と明記。退化入力の扱いとして意図的。
+- **B-CE4  needle 照合スコープ**: CI は `kind="file"` で全体平坦テキストに対して照合するが、自前の art.9 スコープでも 2/2 FOUND。article-scoped でないこと自体は既存 CI 設計であり欠陥ではない。
+- **B-CE5  長さ主張のスコープ**: doc の「155 chars」は art.9 全体の平坦 leaf 長（実測 155 / U+3000 0 / 正規化 155）。§1 文単体は 55 chars だが doc は article 全体を指しており整合。
+
+#### UNRESOLVED（3 件）
+
+いずれも doc-comment で NOT MODELLED と明示された意図的な範囲外だが、pinned 原文だけでは法的効果を確定できず、**人間の法律専門家によるレビューが必要**。
+
+- **U-CE1  第2項の過半数決議・可否同数の会長裁定**: 原文 §2 `…出席したものの過半数で決し、可否同数のときは、会長の決するところによる。` は未形式化。`過半数` は `以上` とは異なる規範語であり、本モデル（§1 の 1/3 以上）とは判定演算子が異なる点も未形式化。
+- **U-CE2  第3項の準用**: 原文 §3 `前二項の規定は、分科会及び部会の議事について準用する。` は未形式化。
+- **U-CE3  構成員数の確定**: `total = 委員数 + 議事に関係のある臨時委員数` は caller-established の抽象入力。「議事に関係のある」臨時委員の範囲認定・具体的員数は NOT MODELLED。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正誤は専門家による確認を要する。本レビューをもって法的レビューを称さない。
+
+### CE-7. 総括
+
+- pinned 原文から art.9 §1 の `三分の一以上` を独立抽出し、1/3（1/2・2/3 は明示除外）・`以上` 包含（ちょうど 1/3 は可）を確認。実装・独立 Spec いずれとも整合。
+- needle: U+3000 **0 本**、CI 実文字列 **2/2 FOUND**。
+- 反例: 指定 5 点すべて期待値。3,721 組の全走査で不一致 0、反例なし（Lean 側 41×41 も kernel-checked）。
+- 公理: `choice` / `sorryAx` / `Quot.sound` / `propext` 依存 **0**、3/3 axiom-free。
+- **CONFIRMED 0 / BY-DESIGN 5 / UNRESOLVED 3**。実 defect はゼロ（発見ゼロ）。
+- 追記は `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替は行わない。一時ファイルは削除済み。

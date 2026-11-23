@@ -11,14 +11,14 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 143
+- with >=1 pinned literal check (semantic model): 145
 - with recorded human legal review: 0
 
 ## All laws
 
 | law_id | title | revision | enforcement | raw | parse | articles | pinned checks | human review |
 |---|---|---|---|---|---|---:|---|---|
-| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (59) | NO |
+| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (63) | NO |
 | `322CO0000000109` | 昭和二十二年政令第百九号（財産税法等による物納に因る不動産登記の特例に関する政令） | 322CO0000000109_19470627_000000000000000 | CurrentEnforced | YES | ok | 4 | YES (1) | NO |
 | `322AC0000000175` | 昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律） | 322AC0000000175_20220101_503AC0000000011 | CurrentEnforced | YES | ok | 78 | YES (2) | NO |
 | `322CO0000000268` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施 | 322CO0000000268_20251201_507CO0000000120 | CurrentEnforced | YES | ok | 113 | YES (5) | NO |
@@ -174,8 +174,8 @@ a completion flag.
 | `353AC0000000025` | 石油石炭税法 | 353AC0000000025_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 90 | YES (2) | NO |
 | `353CO0000000132` | 石油石炭税法施行令 | 353CO0000000132_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 47 | NO (0) | NO |
 | `359AC0000000072` | たばこ税法 | 359AC0000000072_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 114 | YES (2) | NO |
-| `360CO0000000005` | たばこ税法施行令 | 360CO0000000005_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 51 | NO (0) | NO |
-| `360M50000040001` | たばこ税法施行規則 | 360M50000040001_20240401_506M60000040021 | CurrentEnforced | YES | ok | 12 | NO (0) | NO |
+| `360CO0000000005` | たばこ税法施行令 | 360CO0000000005_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 51 | YES (1) | NO |
+| `360M50000040001` | たばこ税法施行規則 | 360M50000040001_20240401_506M60000040021 | CurrentEnforced | YES | ok | 12 | YES (1) | NO |
 | `362CO0000000335` | 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律施行令 | 362CO0000000335_20260521_506CO0000000150 | CurrentEnforced | YES | ok | 101 | NO (0) | NO |
 | `363AC0000000107` | 税制改革法 | 363AC0000000107_19881230_000000000000000 | CurrentEnforced | YES | ok | 18 | YES (2) | NO |
 | `363AC0000000108` | 消費税法 | 363AC0000000108_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 524 | YES (4) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 255
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 261
