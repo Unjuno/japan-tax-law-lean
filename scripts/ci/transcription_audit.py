@@ -3514,6 +3514,12 @@ def checks():
            "article", "\u7b2c\u4e09\u6761",
            ["\u524d\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u7b2c\u4e00\u9805\u304b\u3089\u7b2c\u516d\u9805\u307e\u3067\u306e\u898f\u5b9a\u306e\u9069\u7528\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
 
+    # 航空機燃料譲与税法 art. 4 — AviationFuelThousandRoundDown.lean
+    yield ("航空機燃料譲与税法 art. 4（千円未満端数切捨て）↔ AviationFuelThousandRoundDown.lean (round down to 1000 yen)",
+           "347AC0000000013",
+           "article", "第四条",
+           ["各空港関係市町村及び空港関係都道府県に対する前条第一項に規定する各譲与時期ごとに譲与すべき航空機燃料譲与税の額として前三条の規定を適用して計算した金額に千円未満の端数金額があるときは、その端数金額を控除した金額をもつて、当該各譲与時期ごとに譲与すべき航空機燃料譲与税の額とする。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
