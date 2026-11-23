@@ -968,6 +968,9 @@ import JapanTaxLaw.TreatyJPUSDirectorsFeesTests
 import JapanTaxLaw.TreatyJPUSStudentsOtherIncome
 import JapanTaxLaw.TreatyJPUSStudentsOtherIncomeSpec
 import JapanTaxLaw.TreatyJPUSStudentsOtherIncomeTests
+import JapanTaxLaw.TreatyJPUSDoubleTaxation
+import JapanTaxLaw.TreatyJPUSDoubleTaxationSpec
+import JapanTaxLaw.TreatyJPUSDoubleTaxationTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests

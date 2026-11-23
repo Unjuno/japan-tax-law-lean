@@ -29,7 +29,7 @@
       },
       "text_file": "data/raw/treaties/JP_US_INCOME_TAX_2003.txt",
       "formalized": {
-        "article": "第一条・第二条・第三条・第四条３・第六条 (Articles 1,2,3,4(3),6)・第七条 (Article 7)・第十条 (Article 10)・第十一条 (Article 11)・第十二条 (Article 12)・第十三条 (Article 13)・第十四条 (Article 14)・第十六条 (Article 16)・第十七条 (Article 17)・第十七条 (Article 17)・第十八条 (Article 18)・第十五条 (Article 15)・第十九条・第二十一条 (Articles 19,21)",
+        "article": "第一条・第二条・第三条・第四条３・第六条 (Articles 1,2,3,4(3),6)・第七条 (Article 7)・第十条 (Article 10)・第十一条 (Article 11)・第十二条 (Article 12)・第十三条 (Article 13)・第十四条 (Article 14)・第十六条 (Article 16)・第十七条 (Article 17)・第十七条 (Article 17)・第十八条 (Article 18)・第十五条 (Article 15)・第十九条・第二十一条 (Articles 19,21)・第二十三条 (Article 23)",
         "operators": [
           "inScope (resident of one or both states -> disjunction)",
           "preservesRelief (treaty does not limit tax relief -> identity)",
@@ -63,7 +63,9 @@
           "studentGrantExempt (foreign-paid grant, other-state resident origin)",
           "traineeWithinOneYear (1-year limit)",
           "otherIncomeSourceTax (residence-only)",
-          "article7ForOtherIncome (PE real-link fallback)"
+          "article7ForOtherIncome (PE real-link fallback)",
+          "foreignTaxCredit (min(foreign, domestic) cap)",
+          "dividendExcluded (10%+ ownership)"
         ],
         "modules": {
           "JapanTaxLaw/TreatyJPUSScope.lean": "86f234ee32b82339fb87e0606b75c3dafb22f0c8a9e37ab1469e7dd1f3f939e5",
@@ -113,7 +115,10 @@
           "JapanTaxLaw/TreatyJPUSDirectorsFeesTests.lean": "a947e3f45b30aa8c9e1c760f999c462792da0da6a3ff39c40fdb1de241934a68",
           "JapanTaxLaw/TreatyJPUSStudentsOtherIncome.lean": "014df7029aefc5f95effe4914dfe790ff59be4732169b83e7209dafc11bd5a20",
           "JapanTaxLaw/TreatyJPUSStudentsOtherIncomeSpec.lean": "6cb39045a722e535d6815ec148282b952f030f86546bba9486ae3a2fc920734a",
-          "JapanTaxLaw/TreatyJPUSStudentsOtherIncomeTests.lean": "b8af8328b098c053a6f988955baa51c2108e5fb8e4c89e557e30f9a68b84b0bc"
+          "JapanTaxLaw/TreatyJPUSStudentsOtherIncomeTests.lean": "b8af8328b098c053a6f988955baa51c2108e5fb8e4c89e557e30f9a68b84b0bc",
+          "JapanTaxLaw/TreatyJPUSDoubleTaxation.lean": "d770e69f575b31b305c3ca15044a8dd1174600206b408cbeba82807fbd4c8268",
+          "JapanTaxLaw/TreatyJPUSDoubleTaxationSpec.lean": "ee8bdf0b73dfea6f9de3ec3d8b0baab3a6b07dc8680b2b8c6195388f6d887ae8",
+          "JapanTaxLaw/TreatyJPUSDoubleTaxationTests.lean": "70e52bdb606dde31aa6605dd5ac0341d090016709354b070c7daa4526b63b138"
         },
         "proof": "Lean 4.35.0 kernel; independent spec; no sorry/admit",
         "legal_review": "PENDING (separate axis)",
@@ -134,7 +139,8 @@
           "第十七条 (Art.17: pensions — residence-only, non-deductible alimony taxable in neither state)",
           "第十八条 (Art.18: government service — payer-state only, other-state exception)",
           "第十五条 (Art.15: directors' fees taxable in company's state of residence)",
-          "第十九条/第二十一条 (Art.19 student/trainee exemption; Art.21 other income residence-only with Art.7 PE fallback)"
+          "第十九条/第二十一条 (Art.19 student/trainee exemption; Art.21 other income residence-only with Art.7 PE fallback)",
+          "第二十三条 (Art.23: elimination of double taxation — ordinary foreign tax credit with domestic-tax cap)"
         ]
       }
     },
