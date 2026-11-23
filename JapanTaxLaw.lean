@@ -1762,3 +1762,6 @@ import JapanTaxLaw.RetirementAggregate3MTests
 import JapanTaxLaw.DependentAge13
 import JapanTaxLaw.DependentAge13Spec
 import JapanTaxLaw.DependentAge13Tests
+import JapanTaxLaw.InvestmentIncomeBelowHalf
+import JapanTaxLaw.InvestmentIncomeBelowHalfSpec
+import JapanTaxLaw.InvestmentIncomeBelowHalfTests
