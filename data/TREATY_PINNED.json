@@ -281,7 +281,25 @@
         "居住者": true
       },
       "normalized_text_file": "data/raw/treaties/JP_ITALY_1969_normalized.txt",
-      "normalized_text_sha256": "bd74afce8977937915f557d8e5bd9747ae178a5868edfe282ef2c2a65d5ea0f9"
+      "normalized_text_sha256": "bd74afce8977937915f557d8e5bd9747ae178a5868edfe282ef2c2a65d5ea0f9",
+      "formalized": {
+        "article": "第一条・第二条 (Articles 1,2)",
+        "operators": [
+          "inScope (resident of one or both states)",
+          "coveredTax (listed or successor-similar)"
+        ],
+        "modules": {
+          "JapanTaxLaw/TreatyJPItalyScopeTaxes.lean": "2780014be5820466306a14d4f5fd965825f7939ea180c6096ab57db010694d4e",
+          "JapanTaxLaw/TreatyJPItalyScopeTaxesSpec.lean": "86531b5f96562a5f97290687278676e5fce5829b390d57fff124181d2be17c8e",
+          "JapanTaxLaw/TreatyJPItalyScopeTaxesTests.lean": "0f3a421c919017eba7ed23105d5f4c66cd8c6c72c29151b9b88e9339cbe5657b"
+        },
+        "proof": "Lean 4.35.0 kernel; independent spec; no sorry/admit",
+        "legal_review": "PENDING (separate axis)",
+        "articles": [
+          "第一条 (Art.1: scope — residents of one or both states)",
+          "第二条 (Art.2: covered taxes incl. successor/similar taxes)"
+        ]
+      }
     },
     {
       "treaty_id": "JP_INDIA_1989",

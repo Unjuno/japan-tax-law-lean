@@ -1013,6 +1013,9 @@ import JapanTaxLaw.TreatyJPUSEntryTerminationTests
 import JapanTaxLaw.TreatyJPUKScope
 import JapanTaxLaw.TreatyJPUKScopeSpec
 import JapanTaxLaw.TreatyJPUKScopeTests
+import JapanTaxLaw.TreatyJPItalyScopeTaxes
+import JapanTaxLaw.TreatyJPItalyScopeTaxesSpec
+import JapanTaxLaw.TreatyJPItalyScopeTaxesTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
