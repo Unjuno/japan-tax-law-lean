@@ -3547,6 +3547,14 @@ def checks():
            "article", "第六条",
            ["この場合において、同号に規定する高額適用額は、その順位を付した適用額が十以上となるまでの適用額に順位を付した場合の第一順位から当該十以上となる順位までに該当する各適用額（第一順位の適用額が十以上となるときは、当該第一順位の適用額）とする。"])
 
+    # InheritanceTaxArt3DeemedAcquisition.lean - NORM|6a574541... (相続税法 art.3 caption DEEMING, law 325AC0000000073)
+    # The needle IS the ArticleCaption; sub-terms 相続/遺贈 extracted from
+    # the caption, never hand-typed. find_article_text(...,'第三条') len 1959.
+    yield ("inheritance tax art.3 deemed acquisition caption - InheritanceTaxArt3DeemedAcquisition.lean",
+           "325AC0000000073",
+           "article", "\u7b2c\u4e09\u6761",
+           ["\uff08\u76f8\u7d9a\u53c8\u306f\u907a\u8d08\u306b\u3088\u308a\u53d6\u5f97\u3057\u305f\u3082\u306e\u3068\u307f\u306a\u3059\u5834\u5408\uff09"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
