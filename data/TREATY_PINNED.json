@@ -27,7 +27,21 @@
         "租税": true,
         "居住者": true
       },
-      "text_file": "data/raw/treaties/JP_US_INCOME_TAX_2003.txt"
+      "text_file": "data/raw/treaties/JP_US_INCOME_TAX_2003.txt",
+      "formalized": {
+        "article": "第一条 (Article 1: scope of application)",
+        "operators": [
+          "inScope (resident of one or both states -> disjunction)",
+          "preservesRelief (treaty does not limit tax relief -> identity)"
+        ],
+        "modules": {
+          "JapanTaxLaw/TreatyJPUSScope.lean": "86f234ee32b82339fb87e0606b75c3dafb22f0c8a9e37ab1469e7dd1f3f939e5",
+          "JapanTaxLaw/TreatyJPUSScopeSpec.lean": "dbe5b09c46069a26340644c16a0d0a6ddfad1366671a0611a8a391d6d1afaee4",
+          "JapanTaxLaw/TreatyJPUSScopeTests.lean": "0c02197b626a04571f69650ce84c47ff5a3050b2812c5ecb12c9e6d9f6ce710c"
+        },
+        "proof": "Lean 4.35.0 kernel; independent spec; no sorry/admit",
+        "legal_review": "PENDING (separate axis)"
+      }
     },
     {
       "treaty_id": "JP_UK_2006",
@@ -178,5 +192,6 @@
     }
   ],
   "notes": "財務省公式PDFを7件 pin 取得・SHA検証・テキスト抽出済み（7件）。L0 に合算しない別層。形式化は未実施。",
-  "parsed_count": 7
+  "parsed_count": 7,
+  "formalized_count": 1
 }

@@ -887,3 +887,6 @@ import JapanTaxLaw.CapComparisonNormsTests
 import JapanTaxLaw.ArticleSubNumberLabels
 import JapanTaxLaw.ArticleSubNumberLabelsSpec
 import JapanTaxLaw.ArticleSubNumberLabelsTests
+import JapanTaxLaw.TreatyJPUSScope
+import JapanTaxLaw.TreatyJPUSScopeSpec
+import JapanTaxLaw.TreatyJPUSScopeTests
