@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 159
+- with >=1 pinned literal check (semantic model): 160
 - with recorded human legal review: 0
 
 ## All laws
@@ -72,7 +72,7 @@ a completion flag.
 | `330CO0000000237` | 関税定率法第五条の規定による便益関税の適用に関する政令 | 330CO0000000237_20250401_507CO0000000141 | CurrentEnforced | YES | ok | 81 | NO (0) | NO |
 | `331M50000002007` | 地方揮発油譲与税法施行規則 | 331M50000002007_20230401_505M60000008036 | CurrentEnforced | YES | ok | 55 | YES (1) | NO |
 | `331M50000002047` | アメリカ合衆国軍隊等が行う免税軽油の引取りの手続に関する総理府令 | 331M50000002047_20090401_421M60000008036 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
-| `332AC0000000026` | 租税特別措置法 | 332AC0000000026_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 3736 | YES (24) | NO |
+| `332AC0000000026` | 租税特別措置法 | 332AC0000000026_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 3736 | YES (25) | NO |
 | `332AC0000000037` | とん税法 | 332AC0000000037_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 77 | YES (2) | NO |
 | `332AC0000000038` | 特別とん税法 | 332AC0000000038_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 47 | YES (2) | NO |
 | `332CO0000000043` | 租税特別措置法施行令 | 332CO0000000043_20261101_507CO0000000127 | CurrentEnforced | YES | ok | 2820 | YES (8) | NO |
@@ -169,7 +169,7 @@ a completion flag.
 | `349AC0000000079` | 電源開発促進税法 | 349AC0000000079_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 56 | YES (1) | NO |
 | `349CO0000000339` | 電源開発促進税法施行令 | 349CO0000000339_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 20 | NO (0) | NO |
 | `351M50000008035` | 特別交付税に関する省令 | 351M50000008035_20260316_508M60000008025 | CurrentEnforced | YES | ok | 146 | YES (1) | NO |
-| `352AC0000000035` | 昭和五十一年分所得税の特別減税の実施のための財政処理の特別措置に関する法律 | 352AC0000000035_19770504_000000000000000 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
+| `352AC0000000035` | 昭和五十一年分所得税の特別減税の実施のための財政処理の特別措置に関する法律 | 352AC0000000035_19770504_000000000000000 | CurrentEnforced | YES | ok | 3 | YES (1) | NO |
 | `352M50000040032` | 国税局課税部等の統括国税調査官等の所掌に属する事務の範囲を定める省令 | 352M50000040032_20220710_504M60000040044 | CurrentEnforced | YES | ok | 36 | YES (2) | NO |
 | `353AC0000000025` | 石油石炭税法 | 353AC0000000025_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 90 | YES (2) | NO |
 | `353CO0000000132` | 石油石炭税法施行令 | 353CO0000000132_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 47 | NO (0) | NO |

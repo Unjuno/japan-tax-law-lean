@@ -3562,6 +3562,13 @@ def checks():
            "article", "\u7b2c\u4e03\u5341\u6761\u306e\u4e09",
            ["\u4f4f\u5b85\u53d6\u5f97\u7b49\u8cc7\u91d1\u306e\u8d08\u4e0e\u3092\u3057\u305f\u8005\u306e\u76f4\u7cfb\u5351\u5c5e\u3067\u3042\u308b\u63a8\u5b9a\u76f8\u7d9a\u4eba\uff08\u5b6b\u3092\u542b\u3080\u3002\uff09\u3067\u3042\u308b\u3053\u3068\u3002"])
 
+    # 公債収入 art. 2 — BondRevenueFiscalYear.lean
+    yield ("公債収入 art. 2（昭和51年度所属の歳入）↔ BondRevenueFiscalYear.lean (single-year FY attribution 51)",
+           "352AC0000000035",
+           "article", "第二条",
+           ["この場合において、当該公債に係る収入は、昭和五十一年度所属の歳入とする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
