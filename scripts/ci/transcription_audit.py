@@ -3574,6 +3574,15 @@ def checks():
            "article", "第二条",
            ["この場合において、当該公債に係る収入は、昭和五十一年度所属の歳入とする。"])
 
+    # CustomsTariffSupplArt1ExceptionDate.lean - NORM|34bc97d6... (関税定率法 附則1 EXCEPTION, law 143AC0000000054)
+    # Sentence#2 of 附則第一条 Paragraph 1; located by whole-law text (not main Article).
+    # Both enforcement dates (平成3年4月1日 / 平成4年1月1日) parsed from the enclosing
+    # ParagraphSentence, never hand-typed. Needle injected via \\u escapes.
+    yield ("customs tariff suppl art.1 exception date - CustomsTariffSupplArt1ExceptionDate.lean",
+           "143AC0000000054",
+           "law", None,
+           ["\u305f\u3060\u3057\u3001\u6b21\u306b\u63b2\u3052\u308b\u898f\u5b9a\u306f\u3001\u5e73\u6210\u56db\u5e74\u4e00\u6708\u4e00\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
