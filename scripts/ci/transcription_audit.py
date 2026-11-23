@@ -1425,35 +1425,6 @@ def checks():
            "143AC0000000054",
            "article", "\u7b2c\u5341\u4e5d\u6761",
            ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u7b2c\u5341\u4e09\u6761\u7b2c\u4e03\u9805\u4f46\u66f8\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
-    # CustomsTariffArt1Showa44EnforcementDate.lean - NORM|f5b0c58f... (附則 enforcement date REFERENCE, law 143AC0000000054)
-    # Needle sits in an 附則 (SupplProvision) article; find_article_text sees main only
-    # - use the file-kind locator. Needle verbatim-unique in whole law; literal via \u escapes.
-    yield ("customs tariff 附則 art.1 Showa44 enforcement date - CustomsTariffArt1Showa44EnforcementDate.lean",
-           "143AC0000000054",
-           "file", None,
-           ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u662d\u548c\u56db\u5341\u56db\u5e74\u56db\u6708\u4e00\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
-    # CustomsTariffArt19PrevPara5Or6Reading.lean - NORM|a0184c1f... (前項 準用 for 第五項 or 第六項, law 143AC0000000054)
-    # Needle is in MainProvision Article 第十九条 (Paragraph 8, Sentence 1) -
-    # verbatim injected from the queue via \u escapes; sub-terms 前項/第五項/第六項
-    # extracted from the needle, never hand-typed. len 2200 with needle.
-    yield ("customs tariff art.19 prev-para 5-or-6 reading - CustomsTariffArt19PrevPara5Or6Reading.lean",
-           "143AC0000000054",
-           "article", "\u7b2c\u5341\u4e5d\u6761",
-           ["\u524d\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e94\u9805\u53c8\u306f\u7b2c\u516d\u9805\u306e\u898f\u5b9a\u3092\u9069\u7528\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
-    # CustomsTariffArt20No2Art13ProvisoException.lean - NORM|04057a73... (art.13(7) proviso 準用 EXCEPTION in art.20-2(3), law 143AC0000000054)
-    # Needle is in MainProvision Article 第二十条の二 (Paragraph 3, Sentence 2) -
-    # verbatim injected from the queue via \u escapes; sub-terms 第十三条第七項ただし書
-    # and この場合 extracted from the needle, never hand-typed. len 570 with needle.
-    # NOTE: distinct from the art.17(5) unit — that sibling's needle is a
-    # different sentence (第十三条第七項ただし書の規定は、前項の規定により…),
-    # though both reference the same proviso.
-    yield ("customs tariff art.20-2 art13(7) proviso exception - CustomsTariffArt20No2Art13ProvisoException.lean",
-           "143AC0000000054",
-           "article", "\u7b2c\u4e8c\u5341\u6761\u306e\u4e8c",
-           ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u7b2c\u5341\u4e09\u6761\u7b2c\u4e03\u9805\u305f\u3060\u3057\u66f8\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
-
-
-
 
 
 
@@ -2328,12 +2299,6 @@ def checks():
            "344M50000040039",
            "file", None,
            ["米の含有量が全重量の三〇％を超えるもの", "第七条"])
-
-    # DeliberationQuorum — cycle-88
-    yield ("DeliberationQuorum.lean",
-           "412CO0000000276",
-           "file", None,
-           ["委員及び議事に関係のある臨時委員の三分の一以上が出席しなければ", "第九条"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -3395,17 +3360,29 @@ def checks():
            "file", None,
            ["遅くとも、その納期限前十日までに納税者に交付しなければならない", "自動車税及び軽自動車税の徴収の方法等）第四条"])
 
-    # 租税条約等実施特例法施行令 art.6-3(16)(3) — TreatyAssetCeiling100K.lean (十万円以下)
-    yield ("租税条約等実施特例法施行令 art.6-3(16)(3)（特定取引契約資産額十万円以下）↔ TreatyAssetCeiling100K.lean (ceiling 100_000, 以下 inclusive)",
-           "362CO0000000335",
-           "article", "第六条の三",
-           ["令和七年十二月三十一日における対象特定取引に係る特定取引契約資産額が十万円以下であること。"])
-    # 相続税法施行規則 art. 11 — JointHeirThreshold2.lean
-    yield ("相続税法施行規則 art. 11（相続人二人以上の連署申告）↔ JointHeirThreshold2.lean (heirFloor 2, inclusive)",
-           "360CO0000000005",
-           "article", "第十一条",
-           ["相続人が二人以上ある場合には、前項の申告書は、各相続人が連署して提出するものとする。"])
+    # 罰金 三十万円以下 — LocalFine300k.lean
+    yield ("地方税法 art. 801（罰金 三十万円以下）↔ LocalFine300k.lean (localFineCap300k 300000)",
+           "325AC0000000226",
+           "file", None,
+           ["次の各号のいずれかに該当するときは、その違反行為をした機構の役員又は職員は、三十万円以下の罰金に処する。"])
 
+    # 発泡性酒類 アルコール分 十一度未満 — SparklingAlcohol11.lean
+    yield ("酒税法 art. 3（発泡性酒類 アルコール分 十一度未満）↔ SparklingAlcohol11.lean (alcoholLimit11 11)",
+           "328AC0000000006",
+           "file", None,
+           ["イ及びロに掲げる酒類以外の酒類で発泡性を有するもの（アルコール分が十一度未満のものに限る。以下「その他の発泡性酒類」という。）"])
+
+    # 多国籍企業グループ総収入金額 千億円以上 — GroupRevenue100B.lean
+    yield ("租税特別措置法 art. 66_4_4（多国籍企業グループ総収入金額 千億円以上）↔ GroupRevenue100B.lean (revenueFloor100B 100000000000)",
+           "332AC0000000026",
+           "file", None,
+           ["多国籍企業グループのうち、直前の最終親会計年度における多国籍企業グループの総収入金額として財務省令で定める金額が千億円以上であるものをいう。"])
+
+    # 被相続人 七十歳未満 — DeceasedUnder70.lean
+    yield ("租税特別措置法施行規則 art. 23_10（被相続人 七十歳未満）↔ DeceasedUnder70.lean (ageLimit70 70)",
+           "332M50000040015",
+           "file", None,
+           ["ただし、当該相続に係る被相続人が七十歳未満で死亡した場合は、この限りでない。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
