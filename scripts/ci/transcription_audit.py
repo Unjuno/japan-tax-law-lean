@@ -3538,6 +3538,14 @@ def checks():
            "article", "第六条の三",
            ["令和七年十二月三十一日における対象特定取引に係る特定取引契約資産額が十万円以下であること。"])
 
+
+    # 電子帳簿保存法施行規則 art.2(6)(2) — Gradation256Floor.lean (二百五十六階調以上)
+    yield ("電子帳簿保存法施行規則 art.2(6)(2)（二百五十六階調以上）↔ Gradation256Floor.lean (floor 256, 以上 inclusive)",
+           "410M50000040043",
+           "article", "第二条",
+           ["赤色、緑色及び青色の階調がそれぞれ二百五十六階調以上で読み取るものであること。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
