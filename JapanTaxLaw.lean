@@ -1058,6 +1058,9 @@ import JapanTaxLaw.KotashiProvisoNormsTests
 import JapanTaxLaw.TableColumnLookupNorms
 import JapanTaxLaw.TableColumnLookupNormsSpec
 import JapanTaxLaw.TableColumnLookupNormsTests
+import JapanTaxLaw.InheritanceTaxDebtForgiveness
+import JapanTaxLaw.InheritanceTaxDebtForgivenessSpec
+import JapanTaxLaw.InheritanceTaxDebtForgivenessTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
