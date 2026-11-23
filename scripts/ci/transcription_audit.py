@@ -3514,6 +3514,13 @@ def checks():
            "article", "第五条",
            ["白色から黒色までの階調が二百五十六階調以上であること。"])
 
+    # 高額適用額 art. 6 — RankedAmountCountTen.lean
+    yield ("高額適用額 art. 6（順位十件目までの算定）↔ RankedAmountCountTen.lean (rank cutoff 10, inclusive)",
+           "422M60000040022",
+           "article", "第六条",
+           ["この場合において、同号に規定する高額適用額は、その順位を付した適用額が十以上となるまでの適用額に順位を付した場合の第一順位から当該十以上となる順位までに該当する各適用額（第一順位の適用額が十以上となるときは、当該第一順位の適用額）とする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
