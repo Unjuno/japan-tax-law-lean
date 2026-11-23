@@ -2335,6 +2335,12 @@ def checks():
            "file", None,
            ["第一条この政令は、昭和五十一年四月一日から施行する", "この政令は、昭和五十一年四月一日から施行する"])
 
+    # PowerDevelopmentTaxOrderEnforcementDate — cycle-103
+    yield ("PowerDevelopmentTaxOrderEnforcementDate.lean",
+           "349CO0000000339",
+           "file", None,
+           ["第一条この政令は、平成十二年三月二十一日から施行する", "この政令は、平成十二年三月二十一日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3574,22 +3580,12 @@ def checks():
            "article", "第二条",
            ["この場合において、当該公債に係る収入は、昭和五十一年度所属の歳入とする。"])
 
-    # CustomsTariffSupplArt1ExceptionDate.lean - NORM|34bc97d6... (関税定率法 附則1 EXCEPTION, law 143AC0000000054)
-    # Sentence#2 of 附則第一条 Paragraph 1; located by whole-law text (not main Article).
-    # Both enforcement dates (平成3年4月1日 / 平成4年1月1日) parsed from the enclosing
-    # ParagraphSentence, never hand-typed. Needle injected via \\u escapes.
-    yield ("customs tariff suppl art.1 exception date - CustomsTariffSupplArt1ExceptionDate.lean",
-           "143AC0000000054",
-           "law", None,
-           ["\u305f\u3060\u3057\u3001\u6b21\u306b\u63b2\u3052\u308b\u898f\u5b9a\u306f\u3001\u5e73\u6210\u56db\u5e74\u4e00\u6708\u4e00\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
+    # 滅失建物等 art. 31 — AreaMultiplierSixTwo.lean
+    yield ("滅失建物等 art. 31（面積六倍・特例二倍）↔ AreaMultiplierSixTwo.lean (conditional multiplier x6 / x2)",
+           "423CO0000000112",
+           "article", "第三十一条",
+           ["り当該共用部分の床面積を按あん分して計算した面積を含む。））に六（前条第三項第一号の建物にあっては、二）を乗じて計算した面積と当該滅失建物等の敷地の用に供されていた土地の面積とのいずれか大きい面積とする。"])
 
-    # DisasterTaxReliefArt8Delegation.lean - NORM|d351e6a... (災害被害者租税減免法 art.8(2) DELEGATION, law 322AC0000000175)
-    # Article-kind locator; needle is the whole Paragraph 2 Sentence (政法? no: 政令で定める).
-    # Delegation target 政令 / residual scope derived from the needle via \\u escapes.
-    yield ("disaster tax relief art.8 delegation - DisasterTaxReliefArt8Delegation.lean",
-           "322AC0000000175",
-           "article", "\u7b2c\u516b\u6761",
-           ["\u524d\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u540c\u9805\u306e\u898f\u5b9a\u306e\u9069\u7528\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
 
     # InheritanceTaxArt19_4QuasiApplication.lean - NORM|e29e4e1... (相続税法 art.19_4(3) READING/準用, law 325AC0000000073)
     # Article-kind locator; needle is Sentence#1 of Paragraph 3; the reading
