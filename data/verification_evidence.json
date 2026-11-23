@@ -1926,6 +1926,19 @@
       "source_location": "data/raw/326CO0000000216_20240401_505CO0000000146.law.json#LawBody[2]/MainProvision/MainProvision[8]/Article:6_2/Article#6_2/Paragraph#2/ParagraphSentence/Sentence#1 sha256=346e24c2512be9a2ef3524e48a54b67b3bff30d1d81468f69e3f39b92cf8d296",
       "tests": "JapanTaxLaw/TaxAccountantRegDelegatedAmountTests.lean sha256=2a17a54fe547dfe660792bb293b09314ab223980c935526db42ecc9a8dc79214 (kernel-decided boundary checks)"
     },
+    "NORM|5adb98f94dfcc1816db82d141229cfd8c175fbebd2c2a3ad22d59aafbc2a2032": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 10 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=412CO0000000278_20260401_507CO0000000412 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/CommitteeTermTwoYears.lean sha256=5b68b9d68634db7ca53cc66c6c8d117b7e4c76da8131a26dfb3a5f91463c1f7c",
+      "independent_spec": "JapanTaxLaw/CommitteeTermTwoYearsSpec.lean sha256=ecda65dcbd20e1702d2b33414b923e2ef13ec6e724137e5a9d9cf46c1e5486a3 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45049659458: commit 017d59efc71f4a36aa13b8368a7d054574c62240, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/412CO0000000278_20260401_507CO0000000412.law.json#LawBody[2]/MainProvision/MainProvision[3]/Article:4/Article#4/Paragraph#1/ParagraphSentence/Sentence#1 sha256=165d5edc3356cf47fead9f75eac0d3cd410266ef01827d8880614af90d8c0186 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/CommitteeTermTwoYearsTests.lean sha256=c0f0256a4f6824a153917f36064246b155d0a4a548a2d971bcab5d6b112445f6 (10 kernel-decided examples)"
+    },
     "NORM|5b6c8119290ea16031166e1862f128cff413715cdd837d73cee5c969f63dd0a2": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",
