@@ -3574,6 +3574,13 @@ def checks():
            "article", "第二条",
            ["この場合において、当該公債に係る収入は、昭和五十一年度所属の歳入とする。"])
 
+    # 滅失建物等 art. 31 — AreaMultiplierSixTwo.lean
+    yield ("滅失建物等 art. 31（面積六倍・特例二倍）↔ AreaMultiplierSixTwo.lean (conditional multiplier x6 / x2)",
+           "423CO0000000112",
+           "article", "第三十一条",
+           ["り当該共用部分の床面積を按あん分して計算した面積を含む。））に六（前条第三項第一号の建物にあっては、二）を乗じて計算した面積と当該滅失建物等の敷地の用に供されていた土地の面積とのいずれか大きい面積とする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
