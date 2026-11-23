@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 158
+- with >=1 pinned literal check (semantic model): 159
 - with recorded human legal review: 0
 
 ## All laws
@@ -21,7 +21,7 @@ a completion flag.
 | `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (60) | NO |
 | `322CO0000000109` | 昭和二十二年政令第百九号（財産税法等による物納に因る不動産登記の特例に関する政令） | 322CO0000000109_19470627_000000000000000 | CurrentEnforced | YES | ok | 4 | YES (1) | NO |
 | `322AC0000000175` | 昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律） | 322AC0000000175_20220101_503AC0000000011 | CurrentEnforced | YES | ok | 78 | YES (2) | NO |
-| `322CO0000000268` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施 | 322CO0000000268_20251201_507CO0000000120 | CurrentEnforced | YES | ok | 113 | YES (5) | NO |
+| `322CO0000000268` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施 | 322CO0000000268_20251201_507CO0000000120 | CurrentEnforced | YES | ok | 113 | YES (6) | NO |
 | `325AC0000000073` | 相続税法 | 325AC0000000073_20260401_506AC0000000008 | CurrentEnforced | YES | ok | 432 | YES (28) | NO |
 | `325CO0000000071` | 相続税法施行令 | 325CO0000000071_20260401_506CO0000000143 | CurrentEnforced | YES | ok | 255 | YES (1) | NO |
 | `325M50000040017` | 相続税法施行規則 | 325M50000040017_20260901_506M60000040016 | CurrentEnforced | YES | ok | 163 | YES (3) | NO |
@@ -187,7 +187,7 @@ a completion flag.
 | `403M50000040007` | 石油臨時特別税に関する省令 | 403M50000040007_20010106_412M50000040069 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
 | `403AC0000000069` | 地価税法 | 403AC0000000069_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 268 | YES (2) | NO |
 | `403CO0000000174` | 地価税法施行令 | 403CO0000000174_20250722_507CO0000000249 | CurrentEnforced | YES | ok | 62 | YES (2) | NO |
-| `403M50000040031` | 地価税法施行規則 | 403M50000040031_20260401_508M60000040010 | CurrentEnforced | YES | ok | 53 | NO (0) | NO |
+| `403M50000040031` | 地価税法施行規則 | 403M50000040031_20260401_508M60000040010 | CurrentEnforced | YES | ok | 53 | YES (1) | NO |
 | `403M50000040054` | 電子情報処理組織を使用して処理する場合における国税等の徴収関係事務等の取扱いの特例に関す | 403M50000040054_20260924_508M60000040059 | CurrentEnforced | YES | ok | 88 | NO (0) | NO |
 | `404AC0000000015` | 法人特別税法 | 404AC0000000015_20010401_413AC0000000006 | CurrentEnforced | YES | ok | 33 | YES (4) | NO |
 | `404CO0000000089` | 法人特別税法施行令 | 404CO0000000089_20010106_412CO0000000307 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
