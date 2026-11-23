@@ -25,7 +25,7 @@ Verbatim source text: 「赤色、緑色及び青色の階調がそれぞれ二�
 - Impl: `gradationFloor=256`, `meetsGradationFloor g := decide (256 <= g)`.
 - Independent spec: `specMeetsGradation g := decide (¬ g < 256)` (negated strict order — distinct operator); universal `agree_gradation_floor` over all Nat, kernel-checked with `by omega`.
 - Boundary theorems: `floor_inclusive` (256 qualifies), `just_below` (255 fails), `zero_false`.
-- Tests: 11 kernel-decided examples; boundary categories `{zero, small_input, saturation}`.
+- Tests: 12 kernel-decided examples; boundary categories `{zero, small_input, saturation}`.
 
 ## Not modelled (explicitly retained as unhandled scope)
 
