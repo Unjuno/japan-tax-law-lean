@@ -3526,6 +3526,30 @@ def checks():
            "article", "第八条",
            ["３国は、昭和四十七年度から昭和五十二年度までの各年度に限り、市町村の合併をしようとする市町村（以下この条において「合併関係市町村」という。）に対し、市町村の合併の実施を促進するため、予算の範囲内で、補助金を交付することができる。"])
 
+# 旧長期損害保険料 二万円超 — OldLongTermPremium20k.lean
+    yield ("所得税法 art. 10（旧長期損害保険料 二万円超）↔ OldLongTermPremium20k.lean (premiumFloor20k 20000)",
+           "340AC0000000033",
+           "file", None,
+           ["その年中に支払った旧長期損害保険料の金額の合計額が二万円を超える場合"])
+
+    # 資本金の額 一億円超 — CorporateCapital100M.lean
+    yield ("法人税法 art. 66（資本金の額 一億円超）↔ CorporateCapital100M.lean (capitalFloor100M 100000000)",
+           "340AC0000000034",
+           "file", None,
+           ["当該各事業年度終了の時における資本金の額又は出資金の額が一億円を超える法人"])
+
+    # 課税価格の総額 二十万円以下（物品又は特例申告貨物） — CustomsCertificate200k.lean
+    yield ("関税暫定措置法施行令 art. 31（課税価格の総額 二十万円以下（物品又は特例申告貨物））↔ CustomsCertificate200k.lean (customsCertCap200k 200000)",
+           "335CO0000000069",
+           "file", None,
+           ["ただし、課税価格の総額が二十万円以下の物品又は特例申告貨物については、この限りでない。"])
+
+    # 課税価格の総額 二十万円以下（物品） — CustomsGoods200k.lean
+    yield ("関税暫定措置法施行令 art. 31（課税価格の総額 二十万円以下（物品））↔ CustomsGoods200k.lean (customsGoodsCap200k 200000)",
+           "335CO0000000069",
+           "file", None,
+           ["ただし、課税価格の総額が二十万円以下の物品については、この限りでない。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

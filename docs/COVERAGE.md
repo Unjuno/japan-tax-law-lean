@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 150 | 327 | 45.87% |
+| laws with >=1 pinned literal check | 152 | 327 | 46.48% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 455 | n/a | n/a |
-| distinct article pins | 169 | 42584 | 0.40% |
-| pinned Lean modules (cross-law) | 920 | n/a | n/a |
+| pinned literal checks | 461 | n/a | n/a |
+| distinct article pins | 171 | 42584 | 0.40% |
+| pinned Lean modules (cross-law) | 936 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 539 |
+| unpinned Lean modules (not counted as verified) | 559 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 86 |
+| adversarial review sessions recorded | 88 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -203,6 +203,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `347AC0000000013` 航空機燃料譲与税法
 - `347CO0000000057` 航空機燃料税法施行令
 - `347CO0000000151` 沖縄の復帰に伴う国税関係法令の適用の特別措置等に関する政令
+- `347CO0000000160` 沖縄の復帰に伴う地方税関係以外の自治省関係法令の適用の特別措置等に関する政令
 - `347CO0000000161` 沖縄の復帰に伴う地方税法の適用の特別措置等に関する政令
 - `347M50000008013` 沖縄の復帰に伴う地方税法等の適用の特別措置等に関する省令
 - `347M50000008026` 航空機燃料譲与税法施行規則
@@ -253,6 +254,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `502CO0000000160` 新型コロナウイルス感染症等の影響に対応するための国税関係法律の臨時特例に関する法律施行令
 - `502CO0000000208` トリス（クロロプロピル）ホスフェートに対して課する不当廉売関税に関する政令
 - `503CO0000000065` 炭酸二カリウムに対して課する不当廉売関税に関する政令
+- `503M60000008031` 過疎地域の持続的発展の支援に関する特別措置法第二十四条の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令
 - `504CO0000000300` 森林環境税及び森林環境譲与税に関する法律施行令
 - `504CO0000000372` 溶融亜鉛めっき鉄線に対して課する不当廉売関税に関する政令
 - `505M60000008043` 地方団体に対して交付すべき令和五年度分の震災復興特別交付税の額の算定方法、決定時期及び決定額並びに交付時期及び交付額等の特例に関する省令
