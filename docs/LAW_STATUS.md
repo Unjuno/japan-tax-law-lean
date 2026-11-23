@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 162
+- with >=1 pinned literal check (semantic model): 163
 - with recorded human legal review: 0
 
 ## All laws
@@ -129,7 +129,7 @@ a completion flag.
 | `342CO0000000146` | 登録免許税法施行令 | 342CO0000000146_20261001_507CO0000000124 | CurrentEnforced | YES | ok | 142 | YES (5) | NO |
 | `342M50000040037` | 登録免許税法施行規則 | 342M50000040037_20260401_508M60000040008 | CurrentEnforced | YES | ok | 125 | YES (1) | NO |
 | `344M50000040016` | 関税定率法施行規則 | 344M50000040016_20260401_508M60000040016 | CurrentEnforced | YES | ok | 84 | YES (1) | NO |
-| `344CO0000000088` | 地方揮発油譲与税法施行令 | 344CO0000000088_20090401_421CO0000000100 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
+| `344CO0000000088` | 地方揮発油譲与税法施行令 | 344CO0000000088_20090401_421CO0000000100 | CurrentEnforced | YES | ok | 10 | YES (1) | NO |
 | `344AC0000000046` | 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律 | 344AC0000000046_20260521_508AC0000000012 | CurrentEnforced | YES | ok | 190 | NO (0) | NO |
 | `344M50000040036` | 遺産、相続及び贈与に対する租税に関する二重課税の回避及び脱税の防止のための日本国とアメリ | 344M50000040036_20250401_507M60000040034 | CurrentEnforced | YES | ok | 11 | NO (0) | NO |
 | `344M50000048001` | 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律の施行に関する省 | 344M50000048001_20260601_508M60000048004 | CurrentEnforced | YES | ok | 207 | YES (1) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 293
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 294
