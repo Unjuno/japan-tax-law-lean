@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 220
-- presence-facts-only complete: 220
-- NOT_STARTED: 220
+- articles with explicit pin: 231
+- presence-facts-only complete: 231
+- NOT_STARTED: 231
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -91,6 +91,11 @@ source positions. Human legal review is a separate axis and is pending.
 | `143AC0000000054` | 第十七条 | CustomsTariffArt13Para7ProvisoException | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十八条 | CustomsTariffArt18PrevPara3ReliefReading | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十九条 | CustomsTariffArt19Art13Para7ProvisoReading | YES | YES | NO | NOT_STARTED |
+| `143AC0000000054` | 第十九条 | CustomsTariffArt19PrevPara5Or6Reading | YES | YES | NO | NOT_STARTED |
+| `143AC0000000054` | 第二十条の二 | CustomsTariffArt20No2Art13ProvisoException | YES | YES | NO | NOT_STARTED |
+| `143AC0000000054` | 第十九条の二 | CustomsTariffArt19_2ExportReliefCondition | YES | YES | NO | NOT_STARTED |
+| `143AC0000000054` | 第十九条の三 | CustomsTariffArt19_3ReexportSameStateCondition | YES | YES | NO | NOT_STARTED |
+| `143AC0000000054` | 第八条の二 | CustomsTariffArt8_2AntiDumpingCircumventionEffect | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十四条 | CustomsTariffArt14DisabledPersonEquipmentDelegation | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十七条 | CustomsTariffArt17DutyExemptionReading | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十七条 | CustomsTariffArt17ExportContainerDelegation | YES | YES | NO | NOT_STARTED |
@@ -237,3 +242,9 @@ source positions. Human legal review is a separate axis and is pending.
 | `143AC0000000054` | 第十七条 | CustomsTariffArt17DutyExemptionReading | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十七条 | CustomsTariffArt17ExportContainerDelegation | YES | YES | NO | NOT_STARTED |
 | `360CO0000000005` | 第十一条 | JointHeirThreshold2 | YES | YES | NO | NOT_STARTED |
+| `412CO0000000276` | 第九条 | MeetingQuorumOneThird | YES | YES | NO | NOT_STARTED |
+| `412CO0000000276` | 第九条 | MeetingQuorumOneThird | YES | YES | NO | NOT_STARTED |
+| `412CO0000000278` | 第四条 | CommitteeTermTwoYears | YES | YES | NO | NOT_STARTED |
+| `409AC0000000110` | 第十条 | ForeignAssetPenaltyCap | YES | YES | NO | NOT_STARTED |
+| `362CO0000000335` | 第四条 | LimitRateSevenPercent | YES | YES | NO | NOT_STARTED |
+| `362CO0000000335` | 第六条の三 | TreatyAssetCeiling100K | YES | YES | NO | NOT_STARTED |
