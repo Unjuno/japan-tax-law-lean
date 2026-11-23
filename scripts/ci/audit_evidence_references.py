@@ -37,6 +37,21 @@ def _read(path: Path) -> str:
     return path.read_text(encoding="utf-8") if path.exists() else ""
 
 
+# SHA-256 of a module is invariant across units; one read per file instead of
+# one read per evidence unit (the ledger has hundreds of thousands of units).
+_DIGEST_CACHE: dict[str, str] = {}
+
+
+def _module_digest(rel: str) -> str:
+    if rel not in _DIGEST_CACHE:
+        p = REPO / rel
+        _DIGEST_CACHE[rel] = (
+            hashlib.sha256(p.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
+            if p.exists() else ""
+        )
+    return _DIGEST_CACHE[rel]
+
+
 def _review_section(name: str, review: str) -> str:
     m = re.search(r"^## " + re.escape(name) + r" review[^\n]*\n(.*?)(?=^## |\Z)", review, re.S | re.M)
     return m.group(1) if m else ""
@@ -74,8 +89,7 @@ def check_unit(uid: str, axes: dict, review: str, attestation: dict) -> list[dic
         text = str(axes.get(axis, ""))
         hm = re.search(r"(JapanTaxLaw/\w+\.lean) sha256=([0-9a-f]{64})", text)
         if hm:
-            p = REPO / hm.group(1)
-            digest = hashlib.sha256(p.read_bytes().replace(b"\r\n", b"\n")).hexdigest() if p.exists() else ""
+            digest = _module_digest(hm.group(1))
             add(axis, digest == hm.group(2), f"sha256 {'match' if digest == hm.group(2) else 'MISMATCH'}", hm.group(1))
 
     kp = str(axes.get("kernel_proof", ""))
