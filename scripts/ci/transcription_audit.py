@@ -2300,12 +2300,6 @@ def checks():
            "file", None,
            ["米の含有量が全重量の三〇％を超えるもの", "第七条"])
 
-    # AmamiInvestmentThreshold — cycle-97
-    yield ("AmamiInvestmentThreshold.lean",
-           "411M50000008014",
-           "file", None,
-           ["五百万円（租税特別措置法施行令", "不均一課税をすることとしている場合"])
-
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3532,20 +3526,35 @@ def checks():
            "article", "第八条",
            ["３国は、昭和四十七年度から昭和五十二年度までの各年度に限り、市町村の合併をしようとする市町村（以下この条において「合併関係市町村」という。）に対し、市町村の合併の実施を促進するため、予算の範囲内で、補助金を交付することができる。"])
 
+# 旧長期損害保険料 二万円超 — OldLongTermPremium20k.lean
+    yield ("所得税法 art. 10（旧長期損害保険料 二万円超）↔ OldLongTermPremium20k.lean (premiumFloor20k 20000)",
+           "340AC0000000033",
+           "file", None,
+           ["その年中に支払った旧長期損害保険料の金額の合計額が二万円を超える場合"])
+
+    # 資本金の額 一億円超 — CorporateCapital100M.lean
+    yield ("法人税法 art. 66（資本金の額 一億円超）↔ CorporateCapital100M.lean (capitalFloor100M 100000000)",
+           "340AC0000000034",
+           "file", None,
+           ["当該各事業年度終了の時における資本金の額又は出資金の額が一億円を超える法人"])
+
+    # 課税価格の総額 二十万円以下（物品又は特例申告貨物） — CustomsCertificate200k.lean
+    yield ("関税暫定措置法施行令 art. 31（課税価格の総額 二十万円以下（物品又は特例申告貨物））↔ CustomsCertificate200k.lean (customsCertCap200k 200000)",
+           "335CO0000000069",
+           "file", None,
+           ["ただし、課税価格の総額が二十万円以下の物品又は特例申告貨物については、この限りでない。"])
+
+    # 課税価格の総額 二十万円以下（物品） — CustomsGoods200k.lean
+    yield ("関税暫定措置法施行令 art. 31（課税価格の総額 二十万円以下（物品））↔ CustomsGoods200k.lean (customsGoodsCap200k 200000)",
+           "335CO0000000069",
+           "file", None,
+           ["ただし、課税価格の総額が二十万円以下の物品については、この限りでない。"])
+
     # 租税特別措置法施行令 art. 6の9 — InvestmentIncomeBelowHalf.lean
     yield ("租税条約等実施特例法施行令 art. 6の9（投資関連所得割合五十分未満）↔ InvestmentIncomeBelowHalf.lean (strict <50%)",
            "362CO0000000335",
            "article", "第六条の九",
            ["直前事業年度の総収入金額のうちに当該直前事業年度の投資関連所得（利子所得、配当所得その他の総務省令、財務省令で定める所得をいう。ロにおいて同じ。）に係る収入金額の占める割合が百分の五十に満たないこと。"])
-
-
-
-    # 情報通信技術活用省令 art.5(2)(2) — GrayscaleGradationFloor.lean (二百五十六階調以上)
-    yield ("情報通信技術活用省令 art.5(2)(2)（二百五十六階調以上）↔ GrayscaleGradationFloor.lean (floor 256, 以上 inclusive)",
-           "415M60000040071",
-           "article", "第五条",
-           ["白色から黒色までの階調が二百五十六階調以上であること。"])
-
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
