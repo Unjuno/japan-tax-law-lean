@@ -29,7 +29,7 @@
       },
       "text_file": "data/raw/treaties/JP_US_INCOME_TAX_2003.txt",
       "formalized": {
-        "article": "第一条・第二条・第四条３ (Articles 1, 2, 4(3))",
+        "article": "第一条・第二条・第三条・第四条３ (Articles 1, 2, 3, 4(3))",
         "operators": [
           "inScope (resident of one or both states -> disjunction)",
           "preservesRelief (treaty does not limit tax relief -> identity)"
@@ -43,14 +43,18 @@
           "JapanTaxLaw/TreatyJPUSCoveredTaxTests.lean": "7baa159fc9b70a72267287699209d3b5c5b2f8bbcc203e4a330fd2f9e6e0d67c",
           "JapanTaxLaw/TreatyJPUSTieBreaker.lean": "bb7c85b9c2019fb6e866d967c18c7b065b62be44ac0e5e88198c90fe30fec319",
           "JapanTaxLaw/TreatyJPUSTieBreakerSpec.lean": "49dbc871576fc2a125755756b67559fb58782180543c6975193e1eb18da1971f",
-          "JapanTaxLaw/TreatyJPUSTieBreakerTests.lean": "ba8e0e7797ab99d4be8b4bf0620fc784a472e0bf2cb4569464d90fd023e3b2df"
+          "JapanTaxLaw/TreatyJPUSTieBreakerTests.lean": "ba8e0e7797ab99d4be8b4bf0620fc784a472e0bf2cb4569464d90fd023e3b2df",
+          "JapanTaxLaw/TreatyJPUSDefinitions.lean": "9538200d902465878ffb591ae52dc3df2a41de7d4b37348745715c02c74a843f",
+          "JapanTaxLaw/TreatyJPUSDefinitionsSpec.lean": "15b00fa7d0ce132c83a71d2de303c67ebd5454e7eb144681dcc19e0a38e14ab1",
+          "JapanTaxLaw/TreatyJPUSDefinitionsTests.lean": "424e8c164c79f76a4c3951ce491d0e59fb1962244c7b5f268e5152b6e6bb9ef6"
         },
         "proof": "Lean 4.35.0 kernel; independent spec; no sorry/admit",
         "legal_review": "PENDING (separate axis)",
         "articles": [
           "第一条 (Article 1: scope of application)",
           "第二条 (Article 2: taxes covered) — inTaxList set membership, treatyApplies disjunction for listed/successor taxes",
-          "第四条３ (Art.4(3): dual-resident tie-breaker cascade — first decisive criterion wins)"
+          "第四条３ (Art.4(3): dual-resident tie-breaker cascade — first decisive criterion wins)",
+          "第三条 (Art.3: Person-category union, US-territory exclusion)"
         ]
       }
     },
