@@ -3368,6 +3368,13 @@ def checks():
            "file", None,
            ["遅くとも、その納期限前十日までに納税者に交付しなければならない", "自動車税及び軽自動車税の徴収の方法等）第四条"])
 
+    # 相続税法施行規則 art. 11 — JointHeirThreshold2.lean
+    yield ("相続税法施行規則 art. 11（相続人二人以上の連署申告）↔ JointHeirThreshold2.lean (heirFloor 2, inclusive)",
+           "360CO0000000005",
+           "article", "第十一条",
+           ["相続人が二人以上ある場合には、前項の申告書は、各相続人が連署して提出するものとする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
