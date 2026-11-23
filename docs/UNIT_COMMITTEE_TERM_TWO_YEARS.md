@@ -30,7 +30,8 @@ Kind: **EFFECT** — the committee member term is exactly 2 years.
 ## Not modelled (explicitly retained as unhandled scope)
 
 委員 identity, appointment/renewal rules, committee powers, other articles and
-operational rules. This is a computable slice of one EFFECT norm unit.
+operational rules. This is a computable slice of one EFFECT norm unit (本則 only; the
+補欠 proviso is out of scope, per adversarial finding F-1).
 
 ## Adversarial review
 

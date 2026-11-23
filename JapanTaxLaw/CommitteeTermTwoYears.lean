@@ -23,9 +23,13 @@ Variable contract:
   `isCommitteeTerm (years : Nat) : Bool := decide (2 <= years && years <= 2)`.
   Unit 年; domain Nat (whole years). The predicate is true exactly at two years.
 
-Scope: ONLY the explicit term length is modelled. The identity of 委員, the
-appointment/renewal rules, the committee's powers, other articles and all
-operational rules are NOT MODELLED.
+Scope: ONLY the explicit term length for an ordinary (本則) member is
+modelled. The same paragraph contains a proviso for 補欠の委員 (a substitute
+member serves the predecessor's remaining term, which may be shorter than two
+years); that proviso and the identity of 委員, appointment/renewal rules, the
+committee's powers, other articles and all operational rules are NOT MODELLED.
+Consequently `isCommitteeTerm 1 = false` concerns the modelled ordinary term
+only, not a substitute member's residual term.
 
 No `sorry`, `admit`, `axiom` or `Classical.choice`.
 -/
