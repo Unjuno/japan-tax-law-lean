@@ -929,6 +929,12 @@ import JapanTaxLaw.SavingsClauseNormsTests
 import JapanTaxLaw.ProvisionApplicationNorms
 import JapanTaxLaw.ProvisionApplicationNormsSpec
 import JapanTaxLaw.ProvisionApplicationNormsTests
+import JapanTaxLaw.EnforcementDateNorms
+import JapanTaxLaw.EnforcementDateNormsSpec
+import JapanTaxLaw.EnforcementDateNormsTests
+import JapanTaxLaw.TreatyJPUSBusinessProfits
+import JapanTaxLaw.TreatyJPUSBusinessProfitsSpec
+import JapanTaxLaw.TreatyJPUSBusinessProfitsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests

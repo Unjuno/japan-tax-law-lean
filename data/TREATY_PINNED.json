@@ -29,10 +29,13 @@
       },
       "text_file": "data/raw/treaties/JP_US_INCOME_TAX_2003.txt",
       "formalized": {
-        "article": "第一条・第二条・第三条・第四条３・第六条 (Articles 1,2,3,4(3),6)",
+        "article": "第一条・第二条・第三条・第四条３・第六条 (Articles 1,2,3,4(3),6)・第七条 (Article 7)",
         "operators": [
           "inScope (resident of one or both states -> disjunction)",
-          "preservesRelief (treaty does not limit tax relief -> identity)"
+          "preservesRelief (treaty does not limit tax relief -> identity)",
+          "peAttribution (taxable in other state iff PE + positive attributed profit)",
+          "independentEnterprise (attributed profit = hypothetical separate-enterprise profit)",
+          "deduction regardless of expense location"
         ],
         "modules": {
           "JapanTaxLaw/TreatyJPUSScope.lean": "86f234ee32b82339fb87e0606b75c3dafb22f0c8a9e37ab1469e7dd1f3f939e5",
@@ -49,7 +52,10 @@
           "JapanTaxLaw/TreatyJPUSDefinitionsTests.lean": "424e8c164c79f76a4c3951ce491d0e59fb1962244c7b5f268e5152b6e6bb9ef6",
           "JapanTaxLaw/TreatyJPUSImmovable.lean": "5864fac6cee77aa5462499ad9bbe164dad461635cf73b04cf134c04e24ce5417",
           "JapanTaxLaw/TreatyJPUSImmovableSpec.lean": "bc3b3d3dfec1b6b4fc229cc1bbeabd9114eec3dc72e71a289451cc64b020c996",
-          "JapanTaxLaw/TreatyJPUSImmovableTests.lean": "0af597de505accd62ea24ad42dbd1449afa96caca9a58c4d691b0060db4c82f9"
+          "JapanTaxLaw/TreatyJPUSImmovableTests.lean": "0af597de505accd62ea24ad42dbd1449afa96caca9a58c4d691b0060db4c82f9",
+          "JapanTaxLaw/TreatyJPUSBusinessProfits.lean": "9466bf9ec139c4dd2eaef1a6499084066ccc94bb597f5bca3f5fc788ecdd06dc",
+          "JapanTaxLaw/TreatyJPUSBusinessProfitsSpec.lean": "9ab16add1b01313e0ad645fb629674c8b73ac3fe73acd59350ae795e6baa7f0b",
+          "JapanTaxLaw/TreatyJPUSBusinessProfitsTests.lean": "848f5d82d1c3463eed44e1a2d7baa8e25087d2d6bf78b1acdd689cda26f515e1"
         },
         "proof": "Lean 4.35.0 kernel; independent spec; no sorry/admit",
         "legal_review": "PENDING (separate axis)",
@@ -58,7 +64,8 @@
           "第二条 (Article 2: taxes covered) — inTaxList set membership, treatyApplies disjunction for listed/successor taxes",
           "第四条３ (Art.4(3): dual-resident tie-breaker cascade — first decisive criterion wins)",
           "第三条 (Art.3: Person-category union, US-territory exclusion)",
-          "第六条 (Art.6: source-state taxation of immovable-property income; ships/aircraft not immovable)"
+          "第六条 (Art.6: source-state taxation of immovable-property income; ships/aircraft not immovable)",
+          "第七条 (Art.7: business profits — PE attribution, independent-enterprise principle, expense deduction, mere-purchase exclusion, consistent method)"
         ]
       }
     },
