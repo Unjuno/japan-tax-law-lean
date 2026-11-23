@@ -1860,3 +1860,6 @@ import JapanTaxLaw.CapitalTieredAmountTests
 import JapanTaxLaw.UnevenTaxInvestmentThreshold
 import JapanTaxLaw.UnevenTaxInvestmentThresholdSpec
 import JapanTaxLaw.UnevenTaxInvestmentThresholdTests
+import JapanTaxLaw.InvestmentIncomeBelowHalf
+import JapanTaxLaw.InvestmentIncomeBelowHalfSpec
+import JapanTaxLaw.InvestmentIncomeBelowHalfTests

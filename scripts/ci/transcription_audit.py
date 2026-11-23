@@ -3486,6 +3486,13 @@ def checks():
            ["五百万円（資本金の額等が五千万円超一億円以下である法人が行うものにあっては千万円とし、資本金の額等が一億円超である法人が行うものにあっては二千万円とする。）"])
 
 
+    # 租税特別措置法施行令 art. 6の9 — InvestmentIncomeBelowHalf.lean
+    yield ("租税条約等実施特例法施行令 art. 6の9（投資関連所得割合五十分未満）↔ InvestmentIncomeBelowHalf.lean (strict <50%)",
+           "362CO0000000335",
+           "article", "第六条の九",
+           ["直前事業年度の総収入金額のうちに当該直前事業年度の投資関連所得（利子所得、配当所得その他の総務省令、財務省令で定める所得をいう。ロにおいて同じ。）に係る収入金額の占める割合が百分の五十に満たないこと。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
