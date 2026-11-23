@@ -2311,6 +2311,12 @@ def checks():
            "file", None,
            ["修業期間が一年以上であること", "が六百八十時間以上"])
 
+    # UnevenTaxInvestmentThreshold — cycle-96
+    yield ("UnevenTaxInvestmentThreshold.lean",
+           "407M50000008016",
+           "file", None,
+           ["五百万円（租税特別措置法施行令", "不均一課税をすることとしている場合"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",

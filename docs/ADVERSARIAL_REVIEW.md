@@ -10620,3 +10620,84 @@ pinned 原文の独立抽出（§5 一 イ/ロ/ハ と 100/70/69 境界）、nee
 
 - 追記後レビュー件数 **87**（既存 86 件は全件保持、Batch AH〜CJ を含む）。追記は `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替なし。一時ファイル（抽出・検証・公理監査スクリプト）は削除済み。
 - **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。
+---
+
+## Batch CL review (2026-11-24) — 地価税法施行規則 art.3 §6 一・二 / SchoolExemptionRequirements.lean（cycle-95 独立原文照合・反例探索）
+
+**本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。
+
+### CL-0. 対象・pin 照合
+- 対象: `JapanTaxLaw/SchoolExemptionRequirements.lean`（40 行、`meetsSchoolRequirements` 1 def + 4 example）、独立 Spec `JapanTaxLaw/SchoolExemptionRequirementsSpec.lean`、Tests `JapanTaxLaw/SchoolExemptionRequirementsTests.lean`（いずれも読み取り専用・本レビューで変更していない）。
+- モジュール doc の pin 主張: law id `403M50000040031` / revision `403M50000040031_20260401_508M60000040010` / snapshot `data/raw/403M50000040031_20260401_508M60000040010.law.json` / Article Num 3 §6 一・二。
+- 独立確認: `data/INVENTORY.json`（line 6285–6314）の law レコードは `law_id = 403M50000040031`、`current_revision.law_revision_id = 403M50000040031_20260401_508M60000040010`、`raw_snapshot.source_file` は上記 snapshot と一致。`data/raw/403M50000040031.revisions.json` にも同 revision（`CurrentEnforced`、施行 2026-04-01、令和八年財務省令第十号）が実在。
+- snapshot 実在: 211,857 bytes / SHA-256 `05474a3f79500c643a169b991d9a1cefe7d03dea229849424d511a9f3db13816`。revisions.json は 5,161 bytes / SHA-256 `880084b310bf6fb4165f7cf876e419387a4108bcb4b90b54bac5eab550f62dc0`。
+- 自前平坦化（`children` 再帰連結）＋空白/U+3000 除去では Article 3 全体 9,857 chars、§6 部分 753 chars となり、モジュール doc の「flat/normalized leaf text 6233 chars」は本レビューの平坦化規約では再現しなかった（他規約でも 6,847 chars）。これは規約依存の付随メタデータであり、下記の数値要件・needle 照合には影響しない（BY-DESIGN、欠陥ではない）。
+
+### CL-1. 独立抽出（pinned 原文からの直接抽出・形式化担当の STAGING を信じない）
+pinned JSON の葉テキストを再帰走査し、§6（全 6 Item）を直接取得。数値は自前の漢数字パーサで Arabic 変換した。
+
+| 原文条項 | 原文逐語（pinned leaf） | 自前抽出値 | 実装 | 照合 |
+|---|---|---|---|---|
+| 第6項 一 | `修業期間が一年以上であること。` | 一年 = **12 ヶ月**（1 年=12 月の単位換算。原文は月数を直接書かない） | `months >= 12` | ✅ |
+| 第6項 二 | `一年の授業時間数（普通科、専攻科その他これらに類する区別された課程がある場合には、それぞれの課程の授業時間数）が六百八十時間以上であること。` | 六百八十 = **680 時間** | `hours >= 680` | ✅ |
+
+- 自前パーサの検算: `一`=1, `十二`=12, `六百八十`=**680**, `六十八`=68, `六千八百`=6800。
+- **桁違いの明示除外**: Article 3 正規化テキスト中、`六百八十時間` は FOUND、一方 `六十八時間` / `六千八百時間` / `68時間` / `680時間` / `6800時間` はすべて **NOT FOUND**。すなわち 68 時間・6,800 時間という誤記は原文に存在せず、680 時間が一意。
+- 境界（「以上」は境界値を含む）: 11 ヶ月→false / 12 ヶ月→true、679 時間→false / 680 時間→true。
+- 照合結論: 2 つの数値要件（12 ヶ月、680 時間）とも原文から独立抽出した値と実装定数は完全一致。食い違いなし。
+
+### CL-2. needle 健全性（CI `checks()` 実文字列）
+`data/ARTICLE_SCOPE_POSITIONS.json` の `checks()` エントリ `SchoolExemptionRequirements.lean`（law_id `403M50000040031`、`stated_article = (file-level)`）の実文字列 2 本を、自前正規化原文（全 4,428 葉・57,142 chars）で検証した。
+
+1. `修業期間が一年以上であること`（14 chars）— **U+3000 なし**、正規化原文で **FOUND**（pos=3507）。
+2. `が六百八十時間以上`（9 chars）— **U+3000 なし**、正規化原文で **FOUND**（pos=3621）。
+
+**結果: U+3000 なし、2/2 FOUND。** CI 記録の `D=PASS`、および unit_hits（`MainProvision/Article/3` = 2、`MainProvision/Paragraph/6` = 2、`MainProvision/Item/1` = 1、`MainProvision/Item/2` = 1）とも整合。
+
+### CL-3. 反例探索
+`lake env lean`（Lean v4.35.0）で実装・独立 Spec を再評価（モジュール内の example を信じず独立に再実行）。
+
+| 入力 (months, hours) | `meetsSchoolRequirements` | 独立 Spec `specMeets` | 判定 |
+|---|---|---|---|
+| (12, 680) | true | true | 境界双方で成立 ✅ |
+| (11, 680) | false | false | 月数 1 不足を検出 ✅ |
+| (12, 679) | false | false | 時間 1 不足を検出 ✅ |
+| (24, 1000) | true | true | 上回る場合も成立 ✅ |
+| (0, 0) / (11, 679) | false / false | false / false | 追加確認 ✅ |
+| (13, 680) / (12, 681) | true / true | true / true | 追加確認 ✅ |
+
+- 独立 Spec は `Nat.ble 12 m && Nat.ble 680 h` で実装の `>=` と別形式に書き下したもの。months 0..30 × hours 0..1000 の **31,031 点を全数比較し不一致 0**。`agreeSchoolExemptionRequirements = true` も確認。
+- **反例 0 件（ゼロ）。**
+
+### CL-4. 公理監査
+一時 Lean ファイルを作成し `lake env lean` で `#print axioms` を実行（exit code 0）:
+
+| 宣言 | 結果 |
+|---|---|
+| `JapanTaxLaw.SchoolExemptionRequirements.meetsSchoolRequirements` | does not depend on any axioms |
+| `JapanTaxLaw.SchoolExemptionRequirements.specMeets` | does not depend on any axioms |
+| `JapanTaxLaw.SchoolExemptionRequirements.agreeSchoolExemptionRequirements` | does not depend on any axioms |
+| 独立 probe `CLProbe.gridAgree` | does not depend on any axioms |
+
+- `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` の依存は **すべて 0 件**。本モジュールに theorem/lemma は無く（def + example のみ）、CI の axiom probe に加え直接 probe で代替確認した。公理監査は合格。監査用一時ファイルは削除済み。
+
+### CL-5. 未形式化項目の確認（スコープ）
+§6 の原文（正規化 753 chars）には本モデルが扱う一・二のほか、以下が存在する。いずれもモジュール doc の Scope 声明どおり **NOT MODELLED** であり、欠陥ではない。
+
+- §6 本文: 各種学校の生徒のうち当該課程を履修する生徒数の占める割合が **常時百分の五十以上**（50% 要件）。
+- 三: 授業が年二回を超えない一定の時期に開始され、終期が明確に定められていること。
+- 四: 学年・学期ごとの成績評価と、成績考査に関する表簿その他の書類への登載。
+- 五: 所定技術の修得評価と、評価に基づく卒業証書／修了証書の授与。
+- 六: 施設（教員の数を含む。）が同時に授業を受ける生徒の数に比し十分であること。
+- 「普通科・専攻科その他これらに類する区別された課程」ごとの**授業時間数の算定方法**。
+- 法別表第一第一号の定義、**非課税の法的効果**。
+
+### CL-6. 判定
+> 本節の CONFIRMED は「確認済みの検証項目」を指し、欠陥の存在を意味しない。原文と Lean の食い違い（欠陥）は **0 件（ゼロ）**。発見ゼロの場合も本節に明示する。
+
+- **CONFIRMED（5 件）**: (1) pin 一致（law id / revision / snapshot / SHA-256 / INVENTORY / revisions.json）、(2) 2 つの数値要件（12 ヶ月・680 時間）の独立抽出一致と桁違い除外、(3) needle 2/2 FOUND かつ U+3000 なし、(4) 反例ゼロ（31,031 点全数一致）、(5) 公理依存 0。
+- **BY-DESIGN（4 件）**: (1) §6 の他要件（50% 割合・三〜六）の未形式化、(2) 授業時間数の算定方法（課程別）の未形式化、(3) 非課税の法的効果・法別表第一第一号の定義の未形式化、(4) モジュール doc の文字数メタデータ（6233 chars）は平坦化規約依存で本レビュー規約では再現しないが数値照合に無影響。いずれも明示的スコープ外または付随情報であり欠陥ではない。
+- **UNRESOLVED（0 件）**: 未解決事項なし。**発見ゼロ。**
+
+- 追記後レビュー件数 **88**（既存 87 件は全件保持、Batch AH〜CK を含む）。追記は `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替なし。一時ファイル（抽出・検証・公理監査・追記スクリプト）は削除済み。
+- **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。

@@ -1857,3 +1857,6 @@ import JapanTaxLaw.MergerGrantFiscalWindowTests
 import JapanTaxLaw.CapitalTieredAmount
 import JapanTaxLaw.CapitalTieredAmountSpec
 import JapanTaxLaw.CapitalTieredAmountTests
+import JapanTaxLaw.UnevenTaxInvestmentThreshold
+import JapanTaxLaw.UnevenTaxInvestmentThresholdSpec
+import JapanTaxLaw.UnevenTaxInvestmentThresholdTests
