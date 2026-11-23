@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 233
-- presence-facts-only complete: 233
-- NOT_STARTED: 233
+- articles with explicit pin: 228
+- presence-facts-only complete: 228
+- NOT_STARTED: 228
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -17,8 +17,6 @@ source positions. Human legal review is a separate axis and is pending.
 
 | law_id | article | module | presence | scoped | review | authoritative status |
 |---|---|---|---|---|---|---|
-| `415M60000040071` | 第五条 | GrayscaleGradationFloor | YES | YES | NO | NOT_STARTED |
-| `403M50000040031` | 第三条 | TrainingPeriodOneYear | YES | YES | NO | NOT_STARTED |
 | `340AC0000000034` | 第六十六条 | CorporateTaxRate | YES | YES | YES | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の七 | GiftTax | YES | YES | YES | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の五 | GiftTax | YES | YES | YES | NOT_STARTED |
@@ -247,6 +245,3 @@ source positions. Human legal review is a separate axis and is pending.
 | `503M60000008031` | 第一条 | CapitalTieredAmount | YES | YES | NO | NOT_STARTED |
 | `347CO0000000160` | 第八条 | MergerGrantFiscalWindow | YES | YES | NO | NOT_STARTED |
 | `362CO0000000335` | 第六条の九 | InvestmentIncomeBelowHalf | YES | YES | NO | NOT_STARTED |
-| `322CO0000000268` | 第十条 | DisasterTaxReliefOrderArt10ApplicationItem3_5 | YES | YES | NO | NOT_STARTED |
-| `415M60000040071` | 第五条 | GrayscaleGradationFloor | YES | YES | NO | NOT_STARTED |
-| `422M60000040022` | 第六条 | RankedAmountCountTen | YES | YES | NO | NOT_STARTED |
