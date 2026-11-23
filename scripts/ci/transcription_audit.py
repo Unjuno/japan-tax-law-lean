@@ -3440,6 +3440,29 @@ def checks():
            "360CO0000000005",
            "article", "第十一条",
            ["相続人が二人以上ある場合には、前項の申告書は、各相続人が連署して提出するものとする。"])
+    # CustomsTariffArt19PrevPara5Or6Reading.lean - NORM|a0184c1f... (前項 準用 for 第五項 or 第六項, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十九条 (Paragraph 8, Sentence 1) -
+    # verbatim injected from the queue via \u escapes; sub-terms 前項/第五項/第六項
+    # extracted from the needle, never hand-typed. len 2200 with needle.
+    yield ("customs tariff art.19 prev-para 5-or-6 reading - CustomsTariffArt19PrevPara5Or6Reading.lean",
+           "143AC0000000054",
+           "article", "\u7b2c\u5341\u4e5d\u6761",
+           ["\u524d\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e94\u9805\u53c8\u306f\u7b2c\u516d\u9805\u306e\u898f\u5b9a\u3092\u9069\u7528\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
+    # CustomsTariffArt1Showa44EnforcementDate.lean - NORM|f5b0c58f... (附則 enforcement date REFERENCE, law 143AC0000000054)
+    # Needle sits in an 附則 (SupplProvision) article; find_article_text sees main only
+    # - use the file-kind locator. Needle verbatim-unique in whole law; literal via \u escapes.
+    yield ("customs tariff 附則 art.1 Showa44 enforcement date - CustomsTariffArt1Showa44EnforcementDate.lean",
+           "143AC0000000054",
+           "file", None,
+           ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u662d\u548c\u56db\u5341\u56db\u5e74\u56db\u6708\u4e00\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
+
+    # 審議会規則 art. 9 — MeetingQuorumOneThird.lean
+    yield ("審議会規則 art. 9（三分の一以上の出席）↔ MeetingQuorumOneThird.lean (quorumDivisor 3, inclusive)",
+           "412CO0000000276",
+           "article", "第九条",
+           ["審議会は、委員及び議事に関係のある臨時委員の三分の一以上が出席しなければ、会議を開き、議決することができない。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

@@ -1732,3 +1732,6 @@ import JapanTaxLaw.DeceasedUnder70Tests
 import JapanTaxLaw.SenFractionRoundDown
 import JapanTaxLaw.SenFractionRoundDownSpec
 import JapanTaxLaw.SenFractionRoundDownTests
+import JapanTaxLaw.MeetingQuorumOneThird
+import JapanTaxLaw.MeetingQuorumOneThirdSpec
+import JapanTaxLaw.MeetingQuorumOneThirdTests
