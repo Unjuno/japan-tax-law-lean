@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 156
+- with >=1 pinned literal check (semantic model): 155
 - with recorded human legal review: 0
 
 ## All laws
@@ -340,10 +340,10 @@ a completion flag.
 | `508CO0000000107` | 所得税法等の一部を改正する法律の一部の施行に伴う国際観光旅客税の記帳義務に関する経過措置 | 508CO0000000107_20260701_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `508M60000040027` | 防衛特別所得税に関する省令 | - | fully_unenforced | NO | raw_not_pinned | 0 | NO (0) | NO |
 | `508M60000008056` | 令和八年度分の地方交付税の交付額の特例に関する省令 | 508M60000008056_20260401_000000000000000 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
-| `508M60000008066` | 地方団体に対して交付すべき令和八年度分の震災復興特別交付税の額の算定方法、決定時期及び決 | 508M60000008066_20260427_000000000000000 | CurrentEnforced | YES | ok | 9 | YES (1) | NO |
+| `508M60000008066` | 地方団体に対して交付すべき令和八年度分の震災復興特別交付税の額の算定方法、決定時期及び決 | 508M60000008066_20260427_000000000000000 | CurrentEnforced | YES | ok | 9 | NO (0) | NO |
 | `508CO0000000224` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令 | 508CO0000000224_20261031_508CO0000000340 | CurrentEnforced | YES | ok | 7 | YES (1) | NO |
 | `508M60000040049` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000040049_20261031_508M60000040064 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 287
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 284
