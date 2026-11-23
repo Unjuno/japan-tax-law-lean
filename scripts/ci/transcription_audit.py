@@ -3538,6 +3538,13 @@ def checks():
            "article", "第六条の三",
            ["令和七年十二月三十一日における対象特定取引に係る特定取引契約資産額が十万円以下であること。"])
 
+    # 租税特別措置法施行令 art. 16の12 — ShareMajority50.lean
+    yield ("租税特別措置法施行令 art. 16の12（持分百分の五十超）↔ ShareMajority50.lean (strict >50% majority)",
+           "344M50000048001",
+           "article", "第十六条の十二",
+           ["当該他の準組合の準組合財産に対する持分の割合が百分の五十を超える場合における当該持分"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

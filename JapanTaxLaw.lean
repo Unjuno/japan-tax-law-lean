@@ -1811,3 +1811,6 @@ import JapanTaxLaw.AviationFuelThousandRoundDownTests
 import JapanTaxLaw.SalesRatioBracket
 import JapanTaxLaw.SalesRatioBracketSpec
 import JapanTaxLaw.SalesRatioBracketTests
+import JapanTaxLaw.ShareMajority50
+import JapanTaxLaw.ShareMajority50Spec
+import JapanTaxLaw.ShareMajority50Tests
