@@ -1432,6 +1432,15 @@ def checks():
            "143AC0000000054",
            "file", None,
            ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u662d\u548c\u56db\u5341\u56db\u5e74\u56db\u6708\u4e00\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
+    # CustomsTariffArt19PrevPara5Or6Reading.lean - NORM|a0184c1f... (前項 準用 for 第五項 or 第六項, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十九条 (Paragraph 8, Sentence 1) -
+    # verbatim injected from the queue via \u escapes; sub-terms 前項/第五項/第六項
+    # extracted from the needle, never hand-typed. len 2200 with needle.
+    yield ("customs tariff art.19 prev-para 5-or-6 reading - CustomsTariffArt19PrevPara5Or6Reading.lean",
+           "143AC0000000054",
+           "article", "\u7b2c\u5341\u4e5d\u6761",
+           ["\u524d\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e94\u9805\u53c8\u306f\u7b2c\u516d\u9805\u306e\u898f\u5b9a\u3092\u9069\u7528\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
 
 
 
