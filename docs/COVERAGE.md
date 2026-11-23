@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 144 | 327 | 44.04% |
+| laws with >=1 pinned literal check | 146 | 327 | 44.65% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 430 | n/a | n/a |
-| distinct article pins | 164 | 42584 | 0.39% |
-| pinned Lean modules (cross-law) | 859 | n/a | n/a |
+| pinned literal checks | 434 | n/a | n/a |
+| distinct article pins | 165 | 42584 | 0.39% |
+| pinned Lean modules (cross-law) | 866 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 465 |
+| unpinned Lean modules (not counted as verified) | 470 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 79 |
+| adversarial review sessions recorded | 80 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -212,6 +212,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `353AC0000000025` 石油石炭税法
 - `359AC0000000072` たばこ税法
 - `360CO0000000005` たばこ税法施行令
+- `362CO0000000335` 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律施行令
 - `363AC0000000107` 税制改革法
 - `363AC0000000108` 消費税法
 - `363CO0000000360` 消費税法施行令
@@ -223,6 +224,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `407AC0000000011` 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律
 - `407CO0000000029` 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行令
 - `409CO0000000363` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行令
+- `412CO0000000276` 関税・外国為替等審議会令
 - `412CO0000000277` 関税等不服審査会令
 - `414CO0000000262` ポリエステル短繊維に対して課する不当廉売関税に関する政令
 - `414M60000008042` 沖縄振興特別措置法第九条等の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令

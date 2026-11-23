@@ -2329,6 +2329,12 @@ def checks():
            "file", None,
            ["米の含有量が全重量の三〇％を超えるもの", "第七条"])
 
+    # DeliberationQuorum — cycle-88
+    yield ("DeliberationQuorum.lean",
+           "412CO0000000276",
+           "file", None,
+           ["委員及び議事に関係のある臨時委員の三分の一以上が出席しなければ", "第九条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3389,6 +3395,11 @@ def checks():
            "file", None,
            ["遅くとも、その納期限前十日までに納税者に交付しなければならない", "自動車税及び軽自動車税の徴収の方法等）第四条"])
 
+    # 租税条約等実施特例法施行令 art.6-3(16)(3) — TreatyAssetCeiling100K.lean (十万円以下)
+    yield ("租税条約等実施特例法施行令 art.6-3(16)(3)（特定取引契約資産額十万円以下）↔ TreatyAssetCeiling100K.lean (ceiling 100_000, 以下 inclusive)",
+           "362CO0000000335",
+           "article", "第六条の三",
+           ["令和七年十二月三十一日における対象特定取引に係る特定取引契約資産額が十万円以下であること。"])
     # 相続税法施行規則 art. 11 — JointHeirThreshold2.lean
     yield ("相続税法施行規則 art. 11（相続人二人以上の連署申告）↔ JointHeirThreshold2.lean (heirFloor 2, inclusive)",
            "360CO0000000005",
