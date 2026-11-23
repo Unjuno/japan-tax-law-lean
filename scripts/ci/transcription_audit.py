@@ -3448,6 +3448,13 @@ def checks():
            "article", "第十条",
            ["正当な理由がなくて国外財産調書をその提出期限までに税務署長に提出しなかったときは、その違反行為をした者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
 
+    # 航空機燃料譲与税法 art. 4 — AviationFuelThousandRoundDown.lean
+    yield ("航空機燃料譲与税法 art. 4（千円未満端数切捨て）↔ AviationFuelThousandRoundDown.lean (round down to 1000 yen)",
+           "347AC0000000013",
+           "article", "第四条",
+           ["各空港関係市町村及び空港関係都道府県に対する前条第一項に規定する各譲与時期ごとに譲与すべき航空機燃料譲与税の額として前三条の規定を適用して計算した金額に千円未満の端数金額があるときは、その端数金額を控除した金額をもつて、当該各譲与時期ごとに譲与すべき航空機燃料譲与税の額とする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
