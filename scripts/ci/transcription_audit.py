@@ -2288,6 +2288,12 @@ def checks():
            "file", None,
            ["この省令は、昭和五十七年四月一日から施行する", "昭和五十七年四月一日"])
 
+    # PaymentCeiling — cycle-86
+    yield ("PaymentCeiling.lean",
+           "329AC0000000036",
+           "file", None,
+           ["３国税資金支払命令官は、第一項の規定により示達された資金の支払計画に定める金額をこえて支払命令をしてはならない", "第十一条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",

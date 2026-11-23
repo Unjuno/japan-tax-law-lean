@@ -32,8 +32,8 @@ recursive discovery remains incomplete (see docs/RECURSIVE_DISCOVERY.md).
 ## Recorded unresolved items (not completion blockers by themselves)
 
 - unresolved (unenforced) laws in ledger: 2 — {'law_id': '508CO0000000106', 'status': 'fully_unenforced'}, {'law_id': '508M60000040027', 'status': 'fully_unenforced'}
-- independent review sessions: 77
-- review-level UNRESOLVED markers: 392 (require human legal judgement; not implementation defects)
+- independent review sessions: 78
+- review-level UNRESOLVED markers: 394 (require human legal judgement; not implementation defects)
 - historical-version references (Phase F): 795 names / 12977 occurrences — historical revisions not pinned to e-Gov snapshots
 - verified anomalies: 0 (means no independent legal review has established a defect)
 

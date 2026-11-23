@@ -1696,3 +1696,6 @@ import JapanTaxLaw.CarCountReferenceDateTests
 import JapanTaxLaw.FixedAssetEvalEnforcementDate
 import JapanTaxLaw.FixedAssetEvalEnforcementDateSpec
 import JapanTaxLaw.FixedAssetEvalEnforcementDateTests
+import JapanTaxLaw.PaymentCeiling
+import JapanTaxLaw.PaymentCeilingSpec
+import JapanTaxLaw.PaymentCeilingTests

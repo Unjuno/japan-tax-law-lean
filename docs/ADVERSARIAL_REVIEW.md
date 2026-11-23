@@ -9652,3 +9652,95 @@ Python で Nat の saturating subtraction を再実装し、Lean の `by decide`
 - 残る UNRESOLVED（U-C1 乗用車定義・台数算定の未形式化、U-C2 年度の暦年／会計年度の別・適用開始時点の未形式化、U-C3 提示 revision の不在）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビュー／コーディネータによる出典確認を要する**。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・needle の自前 `.count()` 検証・境界値の独立再計算・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+---
+
+## Batch CB review (2026-11-23) — 固定資産評価基準省令 art.1 施行期日 / FixedAssetEvalEnforcementDate.lean（cycle-85）
+
+- **対象（読み取り専用）**: `JapanTaxLaw/FixedAssetEvalEnforcementDate.lean`, `JapanTaxLaw/FixedAssetEvalEnforcementDateSpec.lean`, `JapanTaxLaw/FixedAssetEvalEnforcementDateTests.lean`
+- **pinned 原文**: `data/raw/328M50000002091_20240425_506M60000008045.law.json`（law_id `328M50000002091` / revision `328M50000002091_20240425_506M60000008045`）
+- **独立抽出の経路**: CI の `INVENTORY.json` / `load_law_text()` を経由せず、pinned JSON を直接 `json.loads` し `law_full_text` を再帰的に葉文字列へ平坦化して照合（形式化担当とは独立の経路）。
+- **方法**: pinned 原文の直接 parse、needle の自前正規化（`re.sub(r"[\s　]+","",s)`）照合、反例・単調性・Spec 一致の独立再計算（`by decide` を信じず再導出）、`lake env lean` による `#print axioms`。
+
+### CB-1. pinned 原文の独立抽出・照合
+
+pinned JSON の `Law/LawBody/SupplProvision/Article`（`attr.Num = "1"`）から独立に抽出した引用（抽出結果そのまま）:
+
+- ArticleCaption: `（施行期日）`
+- ArticleTitle: `第一条`
+- Paragraph: `この省令は、昭和五十七年四月一日から施行する。`
+- 平坦化テキスト全長 **32 文字**（`（施行期日）第一条この省令は、昭和五十七年四月一日から施行する。`）、当該記事の U+3000 数 **0**。
+
+→ モジュール doc-comment の原文逐語 `「この省令は、昭和五十七年四月一日から施行する。」` と **完全一致**。施行日の算定も独立再計算で `1926 + 57 - 1 = 1982`（昭和元年 = 1926）、`enforcementDate = (1982,4,1)`、`dateKey = 19820401` となり、実装 `showaToSeireki 57 = 1925 + 57 = 1982` と一致する。
+
+**混同の明示除外**: pinned snapshot の葉文字列には、別の附則の施行期日として `この省令は、昭和五十六年四月一日から施行し、昭和五十六年度分の固定資産税から適用する。` と `この省令は、昭和五十八年四月一日から施行し、昭和五十八年度以後の年度分の固定資産税について適用する。` も存在する。しかし対象の `この省令は、昭和五十七年四月一日から施行する。` は pinned 原文内で **出現回数 1（verbatim-unique）** であり、昭和56年（1981-04-01）／昭和58年（1983-04-01）を誤採用する余地は needle レベルで排除される。独立再計算も 昭和56→1981 / 昭和57→1982 / 昭和58→1983 であり、1982 を採る実装は正しい。
+
+### CB-2. needle 健全性（CI checks() 実文字列 2 本）
+
+`scripts/ci/transcription_audit.py` の cycle-85 エントリの 2 本を、CI と同じ正規化を自前適用した原文に対して検証:
+
+| CI needle（実文字列） | 文字数 | U+3000 | 原文 raw | 正規化後 |
+|---|---|---|---|---|
+| `この省令は、昭和五十七年四月一日から施行する` | 22 | 0 | FOUND | FOUND |
+| `昭和五十七年四月一日` | 10 | 0 | FOUND | FOUND |
+
+→ **U+3000 なし、2/2 FOUND、MISS 0**。（pinned 原文全体の U+3000 は 124 箇所あるが、いずれも needle 外の附則ラベル等であり、needle 自身には含まれない。needle は U+3000 に依存しないため正規化の影響を受けない。）
+
+### CB-3. 反例・単調性・独立 Spec 一致の探索
+
+| 入力 `(y,m,d)` | `dateKey` | 実装 `inForce` | 独立 Spec `specInForce`（辞書順成分比較） | 一致 |
+|---|---|---|---|---|
+| (1982,4,1) | 19820401 | true | true | ✓ |
+| (1982,3,31) | 19820331 | false | false | ✓ |
+| (2000,1,1) | 20000101 | true | true | ✓ |
+| (1982,4,2) | 19820402 | true | true | ✓ |
+| (1981,12,31) | 19811231 | false | false | ✓ |
+| (1982,4,0) | 19820400 | false | false | ✓ |
+
+- 指定の 3 反例 `(1982,4,1)=true` / `(1982,3,31)=false` / `(2000,1,1)=true` はすべて期待値どおり。
+- `dateKey` の単調性: 1980–1990 の正当な暦日（うるう年考慮）について **strictly increasing、違反 0**。
+- Spec 一致: 実装（YYYYMMDD の Nat 比較）と独立 Spec（辞書順の成分比較）は定式が異なるが、独立 Python で `y=1900–2100 / m=0–12 / d=0–31` の **83,472 組を全走査し不一致 0**。Lean 側の `agreeFixedAssetEvalEnforcementDate` は 5 点 spot-check（`by decide`）であり全証明ではない点を明示する。
+
+### CB-4. 公理監査（`lake env lean` / `#print axioms`, exit 0）
+
+| 宣言 | 結果 |
+|---|---|
+| `showaToSeireki`, `enforcementDate`, `dateKey`, `enforcementKey`, `inForce` | すべて `does not depend on any axioms` |
+| `specDate`, `specInForce`, `agreeFixedAssetEvalEnforcementDate` | すべて `does not depend on any axioms` |
+
+→ **8/8 axiom-free**。`Classical.choice` / `sorryAx` / `Quot.sound` / `propext` 依存 **0 件**。
+
+### CB-5. 分類
+
+| 分類 | 件数 |
+|---|---|
+| CONFIRMED（実 defect） | **0（ゼロ）** |
+| BY-DESIGN | **5** |
+| UNRESOLVED | **2** |
+
+#### CONFIRMED（0 件）
+
+原文逐語・年代換算・needle・反例・単調性・Spec 一致・公理のいずれにも矛盾を検出せず。**発見ゼロ（実 defect ゼロ）**。
+
+#### BY-DESIGN（5 件）
+
+- **B-C1  bounded L4 slice**: 原文に明記された施行日の算定のみを扱い、附則の経過措置・適用除外・改正による施行日の変更は NOT MODELLED と doc-comment に明記。意図的な範囲制限であり欠陥ではない。
+- **B-C2  同一 pinned snapshot 内の複数施行期日条項**: 昭和54/56/57/58/60 年、公布の日、平成13年1月6日、改正法施行日に依存する条項が併存するが、対象 needle が verbatim-unique（count 1）で law_id + revision pin と相まって一意に同定される。
+- **B-C3  dateKey 符号化と辞書順 Spec の定式差**: 実装は YYYYMMDD の Nat、Spec は成分比較で定式が異なるが全走査で一致。表現の選択であり欠陥ではない。
+- **B-C4  Nat タプルの暦日バリデーション不在**: 月 0/13 や日 0/32 も受け付けるが、実装・Spec ともに同結果であり、範囲外入力の扱いは bounded モデルの設計事項。
+- **B-C5  Spec 一致の Lean 側は spot-check**: `agreeFixedAssetEvalEnforcementDate` は 5 点のみ。独立 Python の全走査（不一致 0）で補完済みであり、証明の強さの違いは設計上許容。
+
+#### UNRESOLVED（2 件）
+
+- **U-C1  附則の経過措置・年度別適用の法的効果**: pinned 原文には `この省令は、昭和五十八年四月一日から施行し、昭和五十八年度以後の年度分の固定資産税について適用する。` 等の年度別適用条項が存在するが、`inForce` は単一の日付比較のみ。実務上の適用判定への影響は pinned 原文だけでは判断できず、**人間の法律専門家によるレビューが必要**。
+- **U-C2  改正による施行日の変更**: 最新附則に `この省令は、日本電信電話株式会社等に関する法律の一部を改正する法律の施行の日から施行する。` があり、現 revision の `amendment_enforcement_date = 2024-04-25`（改正法 `506M60000008045` = 同法施行に伴う総務省関係省令の整備に関する省令）と対応する。静的モデルは art.1 の 1982-04-01 のみを採り、改正後の現行施行日を反映しない。要 human legal review。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正誤は専門家による確認を要する。本レビューをもって法的レビューを称さない。
+
+### CB-6. 総括
+
+- pinned 原文から `昭和五十七年四月一日` を独立抽出し、昭和57 = 1982 / 施行日 1982-04-01 を確認。昭和56/58 との混同は verbatim-unique needle により明示除外。
+- needle 健全性: U+3000 **0 本**、CI 実文字列 **2/2 FOUND**（MISS 0）。
+- 反例・単調性・Spec: 指定 3 反例すべて期待値、単調性違反 0、Spec 全走査不一致 0。
+- 公理: `choice` / `sorryAx` / `Quot.sound` / `propext` 依存 **0**、8/8 axiom-free。
+- **CONFIRMED 0 / BY-DESIGN 5 / UNRESOLVED 2**。実 defect はゼロ。
+- 追記は本ファイルのみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替は行わない。一時ファイルは削除済み。
