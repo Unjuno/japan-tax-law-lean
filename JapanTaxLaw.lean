@@ -1799,3 +1799,6 @@ import JapanTaxLaw.ShareRatioOverHalfTests
 import JapanTaxLaw.TreatyAssetCeiling100K
 import JapanTaxLaw.TreatyAssetCeiling100KSpec
 import JapanTaxLaw.TreatyAssetCeiling100KTests
+import JapanTaxLaw.SalesRatioBracket
+import JapanTaxLaw.SalesRatioBracketSpec
+import JapanTaxLaw.SalesRatioBracketTests

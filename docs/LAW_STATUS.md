@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 148
+- with >=1 pinned literal check (semantic model): 149
 - with recorded human legal review: 0
 
 ## All laws
@@ -268,7 +268,7 @@ a completion flag.
 | `422M60000008097` | 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手 | 422M60000008097_20101029_000000000000000 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
 | `422M60000040052` | 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手 | 422M60000040052_20101029_000000000000000 | CurrentEnforced | YES | ok | 3 | YES (1) | NO |
 | `423AC0000000029` | 東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律 | 423AC0000000029_20260401_508AC0000000012 | CurrentEnforced | YES | ok | 335 | YES (1) | NO |
-| `423CO0000000112` | 東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行令 | 423CO0000000112_20260401_508CO0000000102 | CurrentEnforced | YES | ok | 170 | NO (0) | NO |
+| `423CO0000000112` | 東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行令 | 423CO0000000112_20260401_508CO0000000102 | CurrentEnforced | YES | ok | 170 | YES (1) | NO |
 | `423M60000040020` | 東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行規則 | 423M60000040020_20260414_508M60000040039 | CurrentEnforced | YES | ok | 115 | NO (0) | NO |
 | `423M60000040059` | 原子力損害賠償・廃炉等支援機構が買取りをした不動産の所有権の移転登記の登録免許税の免税を | 423M60000040059_20140818_426M60000040069 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
 | `423AC0000000118` | 東日本大震災からの復興に関し地方公共団体が実施する防災のための施策に必要な財源の確保に係 | 423AC0000000118_20111202_000000000000000 | CurrentEnforced | YES | ok | 4 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 270
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 274
