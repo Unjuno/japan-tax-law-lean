@@ -3413,6 +3413,10 @@ def checks():
            "file", None,
            ["判定期間の全てにおいて当該外国居住者等の国内における滞在期間が百八十三日を超えないこと。"])
 
+    # 審議会規則 art. 9 — MeetingQuorumOneThird.lean
+    yield ("審議会規則 art. 9（三分の一以上の出席）↔ MeetingQuorumOneThird.lean (quorumDivisor 3, inclusive)",
+           "412CO0000000276",
+           "article", "第九条",
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
