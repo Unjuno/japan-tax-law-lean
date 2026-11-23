@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 143
+- with >=1 pinned literal check (semantic model): 144
 - with recorded human legal review: 0
 
 ## All laws
@@ -174,7 +174,7 @@ a completion flag.
 | `353AC0000000025` | 石油石炭税法 | 353AC0000000025_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 90 | YES (2) | NO |
 | `353CO0000000132` | 石油石炭税法施行令 | 353CO0000000132_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 47 | NO (0) | NO |
 | `359AC0000000072` | たばこ税法 | 359AC0000000072_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 114 | YES (2) | NO |
-| `360CO0000000005` | たばこ税法施行令 | 360CO0000000005_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 51 | NO (0) | NO |
+| `360CO0000000005` | たばこ税法施行令 | 360CO0000000005_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 51 | YES (1) | NO |
 | `360M50000040001` | たばこ税法施行規則 | 360M50000040001_20240401_506M60000040021 | CurrentEnforced | YES | ok | 12 | NO (0) | NO |
 | `362CO0000000335` | 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律施行令 | 362CO0000000335_20260521_506CO0000000150 | CurrentEnforced | YES | ok | 101 | NO (0) | NO |
 | `363AC0000000107` | 税制改革法 | 363AC0000000107_19881230_000000000000000 | CurrentEnforced | YES | ok | 18 | YES (2) | NO |
