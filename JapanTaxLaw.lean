@@ -1744,6 +1744,9 @@ import JapanTaxLaw.QuakeFloor50sqmTests
 import JapanTaxLaw.Stay183Days
 import JapanTaxLaw.Stay183DaysSpec
 import JapanTaxLaw.Stay183DaysTests
+import JapanTaxLaw.CommitteeTermTwoYears
+import JapanTaxLaw.CommitteeTermTwoYearsSpec
+import JapanTaxLaw.CommitteeTermTwoYearsTests
 import JapanTaxLaw.ShareRatioOverHalf
 import JapanTaxLaw.ShareRatioOverHalfSpec
 import JapanTaxLaw.ShareRatioOverHalfTests

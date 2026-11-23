@@ -3441,6 +3441,12 @@ def checks():
            "article", "第九条",
            ["審議会は、委員及び議事に関係のある臨時委員の三分の一以上が出席しなければ、会議を開き、議決することができない。"])
 
+    # 国税審議会令 art.4 — CommitteeTermTwoYears.lean (委員の任期二年)
+    yield ("国税審議会令 art.4（委員の任期は二年とする）↔ CommitteeTermTwoYears.lean (term 2 years)",
+           "412CO0000000278",
+           "article", "第四条",
+           ["委員の任期は、二年とする。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
