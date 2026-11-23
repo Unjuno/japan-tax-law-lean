@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 160 | 327 | 48.93% |
+| laws with >=1 pinned literal check | 162 | 327 | 49.54% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 469 | n/a | n/a |
-| distinct article pins | 178 | 42584 | 0.42% |
-| pinned Lean modules (cross-law) | 956 | n/a | n/a |
+| pinned literal checks | 471 | n/a | n/a |
+| distinct article pins | 179 | 42584 | 0.42% |
+| pinned Lean modules (cross-law) | 959 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 578 |
+| unpinned Lean modules (not counted as verified) | 581 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 92 |
+| adversarial review sessions recorded | 93 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -156,6 +156,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `332AC0000000038` 特別とん税法
 - `332AC0000000055` 揮発油税法
 - `332CO0000000043` 租税特別措置法施行令
+- `332CO0000000048` とん税法施行令
 - `332CO0000000057` 揮発油税法施行令
 - `332M50000040015` 租税特別措置法施行規則
 - `333CO0000000117` 地方交付税法施行令
@@ -225,6 +226,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `363M50000040053` 消費税法施行規則
 - `403AC0000000069` 地価税法
 - `403CO0000000174` 地価税法施行令
+- `403M50000040031` 地価税法施行規則
 - `404AC0000000015` 法人特別税法
 - `405M50000008001` 離島振興法第二十条の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令
 - `407AC0000000011` 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律
