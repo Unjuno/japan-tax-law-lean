@@ -1802,3 +1802,6 @@ import JapanTaxLaw.SenFractionRoundDownTests
 import JapanTaxLaw.TreatyAssetCeiling100K
 import JapanTaxLaw.TreatyAssetCeiling100KSpec
 import JapanTaxLaw.TreatyAssetCeiling100KTests
+import JapanTaxLaw.GrayscaleLevels
+import JapanTaxLaw.GrayscaleLevelsSpec
+import JapanTaxLaw.GrayscaleLevelsTests

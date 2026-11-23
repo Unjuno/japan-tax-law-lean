@@ -2372,6 +2372,12 @@ def checks():
            "file", None,
            ["勤続年数に一年未満の端数がある場合には、その端数は切り捨てる", "第五十二条"])
 
+    # GrayscaleLevels — cycle-92
+    yield ("GrayscaleLevels.lean",
+           "415M60000040071",
+           "file", None,
+           ["白色から黒色までの階調が二百五十六階調以上であること", "第五条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
