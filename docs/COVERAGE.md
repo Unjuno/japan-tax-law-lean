@@ -63,7 +63,7 @@ and must never be merged into the 'laws in ledger' completion rate.
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
 | pinned literal checks | 469 | n/a | n/a |
-| distinct article pins | 177 | 42584 | 0.42% |
+| distinct article pins | 178 | 42584 | 0.42% |
 | pinned Lean modules (cross-law) | 956 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 93 |
+| adversarial review sessions recorded | 92 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -156,7 +156,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `332AC0000000038` 特別とん税法
 - `332AC0000000055` 揮発油税法
 - `332CO0000000043` 租税特別措置法施行令
-- `332CO0000000048` とん税法施行令
 - `332CO0000000057` 揮発油税法施行令
 - `332M50000040015` 租税特別措置法施行規則
 - `333CO0000000117` 地方交付税法施行令
@@ -214,6 +213,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `348CO0000000317` 物品の一時輸入のための通関手帳に関する通関条約（ＡＴＡ条約）の実施に伴う関税法等の特例に関する法律施行令
 - `349AC0000000079` 電源開発促進税法
 - `351M50000008035` 特別交付税に関する省令
+- `352AC0000000035` 昭和五十一年分所得税の特別減税の実施のための財政処理の特別措置に関する法律
 - `352M50000040032` 国税局課税部等の統括国税調査官等の所掌に属する事務の範囲を定める省令
 - `353AC0000000025` 石油石炭税法
 - `359AC0000000072` たばこ税法
