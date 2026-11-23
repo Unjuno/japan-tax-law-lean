@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 2351,
+  "checks": 2355,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -25862,11 +25862,55 @@
       "detail": "run=45129788423 attested_run=45129788423 conclusion=success",
       "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45129788423: commit c77aa602f54faea941142628da90c9469db561ec, ",
       "unit_id": "NORM|fff89ad304c83b401e45afc8fa865f356060ed7292f4a5afd6848aa8d0a0431e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_CUSTOMS_TARIFF_ART19_2_EXPORT_RELIEF_CONDITION.md — NO FINDINGS via independent 29-point programmatic c",
+      "unit_id": "NORM|94f8ac863c981996cb5c2c94d16ae32907d432241027cf14c7a43894887c873a"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt19_2ExportReliefCondition.lean",
+      "unit_id": "NORM|94f8ac863c981996cb5c2c94d16ae32907d432241027cf14c7a43894887c873a"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt19_2ExportReliefConditionSpec.lean",
+      "unit_id": "NORM|94f8ac863c981996cb5c2c94d16ae32907d432241027cf14c7a43894887c873a"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt19_2ExportReliefConditionTests.lean",
+      "unit_id": "NORM|94f8ac863c981996cb5c2c94d16ae32907d432241027cf14c7a43894887c873a"
     }
   ],
-  "resolved": 2347,
+  "resolved": 2351,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 484,
+  "units_checked": 485,
   "unresolved": 4
 }

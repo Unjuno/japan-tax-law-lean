@@ -1425,6 +1425,43 @@ def checks():
            "143AC0000000054",
            "article", "\u7b2c\u5341\u4e5d\u6761",
            ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u7b2c\u5341\u4e09\u6761\u7b2c\u4e03\u9805\u4f46\u66f8\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
+    # CustomsTariffArt1Showa44EnforcementDate.lean - NORM|f5b0c58f... (附則 enforcement date REFERENCE, law 143AC0000000054)
+    # Needle sits in an 附則 (SupplProvision) article; find_article_text sees main only
+    # - use the file-kind locator. Needle verbatim-unique in whole law; literal via \u escapes.
+    yield ("customs tariff 附則 art.1 Showa44 enforcement date - CustomsTariffArt1Showa44EnforcementDate.lean",
+           "143AC0000000054",
+           "file", None,
+           ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u662d\u548c\u56db\u5341\u56db\u5e74\u56db\u6708\u4e00\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
+    # CustomsTariffArt19PrevPara5Or6Reading.lean - NORM|a0184c1f... (前項 準用 for 第五項 or 第六項, law 143AC0000000054)
+    # Needle is in MainProvision Article 第十九条 (Paragraph 8, Sentence 1) -
+    # verbatim injected from the queue via \u escapes; sub-terms 前項/第五項/第六項
+    # extracted from the needle, never hand-typed. len 2200 with needle.
+    yield ("customs tariff art.19 prev-para 5-or-6 reading - CustomsTariffArt19PrevPara5Or6Reading.lean",
+           "143AC0000000054",
+           "article", "\u7b2c\u5341\u4e5d\u6761",
+           ["\u524d\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e94\u9805\u53c8\u306f\u7b2c\u516d\u9805\u306e\u898f\u5b9a\u3092\u9069\u7528\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+    # CustomsTariffArt20No2Art13ProvisoException.lean - NORM|04057a73... (art.13(7) proviso 準用 EXCEPTION in art.20-2(3), law 143AC0000000054)
+    # Needle is in MainProvision Article 第二十条の二 (Paragraph 3, Sentence 2) -
+    # verbatim injected from the queue via \u escapes; sub-terms 第十三条第七項ただし書
+    # and この場合 extracted from the needle, never hand-typed. len 570 with needle.
+    # NOTE: distinct from the art.17(5) unit — that sibling's needle is a
+    # different sentence (第十三条第七項ただし書の規定は、前項の規定により…),
+    # though both reference the same proviso.
+    yield ("customs tariff art.20-2 art13(7) proviso exception - CustomsTariffArt20No2Art13ProvisoException.lean",
+           "143AC0000000054",
+           "article", "\u7b2c\u4e8c\u5341\u6761\u306e\u4e8c",
+           ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u7b2c\u5341\u4e09\u6761\u7b2c\u4e03\u9805\u305f\u3060\u3057\u66f8\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
+    # CustomsTariffArt19_2ExportReliefCondition.lean - NORM|94f8ac86... (art.19-2 caption CONDITION, law 143AC0000000054)
+    # The needle IS the ArticleCaption; sub-terms extracted from the caption,
+    # never hand-typed. find_article_text(...,'第十九条の二') len 1574 with needle.
+    yield ("customs tariff art.19-2 export relief caption condition - CustomsTariffArt19_2ExportReliefCondition.lean",
+           "143AC0000000054",
+           "article", "\u7b2c\u5341\u4e5d\u6761\u306e\u4e8c",
+           ["\uff08\u8ab2\u7a0e\u539f\u6599\u54c1\u7b49\u306b\u3088\u308b\u88fd\u54c1\u3092\u8f38\u51fa\u3057\u305f\u5834\u5408\u306e\u514d\u7a0e\u53c8\u306f\u623b\u3057\u7a0e\u7b49\uff09"])
+
+
+
+
 
 
 
