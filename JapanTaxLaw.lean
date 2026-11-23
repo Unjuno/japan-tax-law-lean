@@ -878,3 +878,6 @@ import JapanTaxLaw.OverrideOperatorsTests
 import JapanTaxLaw.RestrictionNorms
 import JapanTaxLaw.RestrictionNormsSpec
 import JapanTaxLaw.RestrictionNormsTests
+import JapanTaxLaw.EnumerationNorms
+import JapanTaxLaw.EnumerationNormsSpec
+import JapanTaxLaw.EnumerationNormsTests
