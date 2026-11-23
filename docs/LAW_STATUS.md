@@ -11,14 +11,14 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 149
+- with >=1 pinned literal check (semantic model): 150
 - with recorded human legal review: 0
 
 ## All laws
 
 | law_id | title | revision | enforcement | raw | parse | articles | pinned checks | human review |
 |---|---|---|---|---|---|---:|---|---|
-| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (65) | NO |
+| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (66) | NO |
 | `322CO0000000109` | 昭和二十二年政令第百九号（財産税法等による物納に因る不動産登記の特例に関する政令） | 322CO0000000109_19470627_000000000000000 | CurrentEnforced | YES | ok | 4 | YES (1) | NO |
 | `322AC0000000175` | 昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律） | 322AC0000000175_20220101_503AC0000000011 | CurrentEnforced | YES | ok | 78 | YES (2) | NO |
 | `322CO0000000268` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施 | 322CO0000000268_20251201_507CO0000000120 | CurrentEnforced | YES | ok | 113 | YES (5) | NO |
@@ -210,7 +210,7 @@ a completion flag.
 | `407M50000008016` | 半島振興法第十七条の地方税の不均一課税に伴う措置が適用される場合等を定める省令 | 407M50000008016_20250401_507M60000008028 | CurrentEnforced | YES | ok | 34 | NO (0) | NO |
 | `407M50000008033` | 大阪湾臨海地域開発整備法第十四条の地方税の不均一課税に伴う措置が適用される場合等を定める | 407M50000008033_20040401_416M60000008074 | CurrentEnforced | YES | ok | 13 | NO (0) | NO |
 | `408AC0000000002` | 平成七年度における租税収入の減少を補うための公債の発行の特例に関する法律 | 408AC0000000002_19960223_000000000000000 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
-| `409AC0000000110` | 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律 | 409AC0000000110_20260812_508AC0000000064 | CurrentEnforced | YES | ok | 102 | NO (0) | NO |
+| `409AC0000000110` | 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律 | 409AC0000000110_20260812_508AC0000000064 | CurrentEnforced | YES | ok | 102 | YES (1) | NO |
 | `409CO0000000363` | 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行令 | 409CO0000000363_20250501_507CO0000000128 | CurrentEnforced | YES | ok | 79 | YES (1) | NO |
 | `409M50000040096` | 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行規則 | 409M50000040096_20250401_507M60000040027 | CurrentEnforced | YES | ok | 92 | NO (0) | NO |
 | `410AC0000000025` | 電子計算機を使用して作成する国税関係帳簿書類の保存方法等の特例に関する法律 | 410AC0000000025_20250401_507AC0000000013 | CurrentEnforced | YES | ok | 39 | NO (0) | NO |

@@ -1588,6 +1588,19 @@
       "source_location": "data/raw/403AC0000000069_20250601_504AC0000000068.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:22/Article#22/Paragraph#1/ParagraphSentence/Sentence#1 sha256=0fe4bb9c6d07ff6e648db1d5bdb49af134af1b1f7563ea641ea8f87d4f72cbe2 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LandValueTaxRateTests.lean sha256=b76d44b2a4b23378d674dad4c4c2db521c926f3ad5405e92b6bee3df9119aa9c (15 kernel-decided examples)"
     },
+    "NORM|3974fb8af655a6e602c42e456b07bb0e421fd7ea5db5f80552e81acad45fc216": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 33 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=409AC0000000110_20260812_508AC0000000064 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/ForeignAssetPenaltyCap.lean sha256=d03a759cffe107e09fc29d0102ca589b2e582e694b9ff78f9062d8b7935ae31a",
+      "independent_spec": "JapanTaxLaw/ForeignAssetPenaltyCapSpec.lean sha256=90acac069e7dd2a8f5cfd7f50140d37d86420dc3ed4037618e30ff4f73f83ff2 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45142831300: commit cfa77bf39ca7d40903b8d487c2e7458379f84a8c, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [50] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"50\": [\"五十\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/409AC0000000110_20260812_508AC0000000064.law.json#LawBody[2]/MainProvision/MainProvision[7]/Article:10/Article#10/Paragraph#2/ParagraphSentence/Sentence#1 sha256=b4440b62d96b6d2f0962a72c815ce075705da13530f625f1204d534313fc24ab (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/ForeignAssetPenaltyCapTests.lean sha256=6ff18e4c3b0a4791d462c7c28f0689f43f814c1dea3cf854dbaad8ff5902e305 (33 kernel-decided examples)"
+    },
     "NORM|3a332aabc259ae8e229460eb34f86f4942a89489e966353134aff5daea300aaf": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",
@@ -1600,6 +1613,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100000000000\": [\"千億\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:66_4_4/Article#66_4_4/Paragraph#4/Item#3/ItemSentence/Column#2/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/GroupRevenue100BTests.lean sha256=90be3fe879bd701956e7d6de9c302427741ae47725304c103a4225ce4cd4a900 (11 kernel-decided examples)"
+    },
+    "NORM|3ae41f5f074cf6b4f9da3b4a62e85f726a734f3c0108278bf1e3ae2002245bf4": {
+      "adversarial_review": "docs/ADVERSARIAL_CUSTOMS_TARIFF_ART1_SHOWA46_ENFORCEMENT_DATE.md — NO FINDINGS via independent 29-point programmatic cross-check (0 fails) from authoritative sources (queue needle, raw JSON, INVENTORY), NOT from author prose: raw sha256 924a01d3…e9c, needle whole-law count 1 in 附則第一条 (file-kind locator), enforcement date 昭和46年1月1日 components extracted from kanji numerals, law identity 関税定率法 with real revision, five unit theorems axiom-free with no omega/propext, ASCII-only unique file-kind audit 449/449, enforcement_version dependency recorded honestly, LEGAL_REVIEW_PENDING. Independent adversarial reviewer verdict recorded in the adversarial doc; no remaining findings. No legal correctness claim; human legal review remains pending.",
+      "boundary_proof": "JapanTaxLaw/CustomsTariffArt1Showa46EnforcementDateTests.lean: in force on/at and after ⟨46,1,1⟩, not before (year/month boundaries), universal spec agreement (all axiom-free)",
+      "cross_law_proof": "queue dependencies analyzed: one enforcement_version dependency (textual, sufficient=false) recorded honestly; distinct from Showa42/Showa44 sibling enforcement-date units (different queue id/date/path); no cross-law constant claimed",
+      "decomposition_audit": "build/task_queue.json: kind=REFERENCE, decomposed=true, exact span, unhandled_conditions=[], id unique; unit is a 附則 enforcement-date clause",
+      "implementation": "JapanTaxLaw/CustomsTariffArt1Showa46EnforcementDate.lean sha256=02f54db1dffda489bc3a28fae5d9c925b9e4ed870a87592d2adc78e786a9d57f (関税定率法 附則第一条 REFERENCE: Date year/month/day Nat, enforcementDate=⟨46,1,1⟩, leDate lexicographic, inForce on-and-after; cross-era comparison NOT MODELLED; Act)",
+      "independent_spec": "JapanTaxLaw/CustomsTariffArt1Showa46EnforcementDateSpec.lean sha256=ad55e3f10cadd7d63969450971484a36bc51730af3eb565ee781facfdec3b6b8 (SpecInForce flat >/>= disjunction, representationally distinct from the nested </<= leDate implementation; agree_in_force axiom-free via case analysis — no omega/Classical.choice/simp/propext)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (1372 jobs); all five unit theorems axiom-free via #print axioms probe; no sorryAx/Classical.choice",
+      "proof_scope": "docs/UNIT_CUSTOMS_TARIFF_ART1_SHOWA46_ENFORCEMENT_DATE.md (computable temporal-application slice of one REFERENCE norm unit in 関税定率法 附則第一条; Gregorian/cross-era comparison NOT MODELLED)",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS customs tariff 附則 art.1 Showa46 enforcement date; 449/449 checks passed; verbatim needle unique in whole law; file-kind locator (needle is in a 附則; find_article_text('第一条') does NOT contain it); date components 46/1/1 extracted from needle kanji numerals, never hand-typed; law identity Act + real revision; byte-fidelity equal=True, U+6EDE=0",
+      "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[23]/SupplProvision/SupplProvision[1]/Article:1/Article#1/Paragraph#1/ParagraphSentence/Sentence#1 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c (revision from INVENTORY current_revision, matched raw revision_info)",
+      "tests": "JapanTaxLaw/CustomsTariffArt1Showa46EnforcementDateTests.lean sha256=32696e2aeacd99f87a1ceb5698984e3ee081e02e23f7830ddf631321aa5b6d8e (kernel-checked temporal checks)"
     },
     "NORM|3b1013fc326dbfcb98839b2a2a363fb2569d565af04514f05fe362ce89d7d027": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -6034,6 +6060,19 @@
       "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:69_4/Article#69_4/Paragraph#2/Item#3/Subitem1#2/Subitem1Sentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/SpecialLand330Tests.lean sha256=d86bac8cd9c03983fa90b6072d98b24354c3a7c9c78e69d2b8d3f2d4e73ba239 (11 kernel-decided examples)"
     },
+    "NORM|ec2740f132f03a47601ddbfffc0aab2aaae98dd2b8dcda6e66bcd477ae914367": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 33 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=409AC0000000110_20260812_508AC0000000064 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/ForeignAssetPenaltyCap.lean sha256=d03a759cffe107e09fc29d0102ca589b2e582e694b9ff78f9062d8b7935ae31a",
+      "independent_spec": "JapanTaxLaw/ForeignAssetPenaltyCapSpec.lean sha256=90acac069e7dd2a8f5cfd7f50140d37d86420dc3ed4037618e30ff4f73f83ff2 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45142831300: commit cfa77bf39ca7d40903b8d487c2e7458379f84a8c, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [50] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"50\": [\"五十\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/409AC0000000110_20260812_508AC0000000064.law.json#LawBody[2]/MainProvision/MainProvision[7]/Article:10/Article#10/Paragraph#1/ParagraphSentence/Sentence#1 sha256=b4440b62d96b6d2f0962a72c815ce075705da13530f625f1204d534313fc24ab (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/ForeignAssetPenaltyCapTests.lean sha256=6ff18e4c3b0a4791d462c7c28f0689f43f814c1dea3cf854dbaad8ff5902e305 (33 kernel-decided examples)"
+    },
     "NORM|ec2f01a6db7c44f32d7eda4123bb2c70c7071d6b15bd83b6de12ae8f9cab9513": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 6 kernel-decided examples covering boundary inputs",
@@ -6566,19 +6605,6 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle in clause + all spec numerals in scoped article: ['その金額が二百万円を超える場合には、二百万円']; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"100000\": [], \"10000000\": [], \"110000\": [], \"130000\": [], \"150000\": [], \"2\": [\"二\"], \"2000000\": [\"二百万\"], \"220000\": [], \"24000000\": [], \"24500000\": [], \"25000000\": [], \"260000\": [], \"290000\": [], \"300000\": [], \"330000\": [], \"380000\": [], \"4\": [], \"430000\": [], \"5\": [], \"530000\": [], \"9000000\": [], \"9500000\": []}; statutory rate = none; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:34/Article#34/Paragraph#1/Item#2/ItemSentence/Column#2/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalIncomeTaxTests.lean sha256=017a1f256a089f692a0f6f7c5971879339d07ba26a588ff0ae0a6c3d01450104 (55 kernel-decided examples)"
-    },
-    "NORM|3ae41f5f074cf6b4f9da3b4a62e85f726a734f3c0108278bf1e3ae2002245bf4": {
-      "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[23]/SupplProvision/SupplProvision[1]/Article:1/Article#1/Paragraph#1/ParagraphSentence/Sentence#1 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c (revision from INVENTORY current_revision, matched raw revision_info)",
-      "decomposition_audit": "build/task_queue.json: kind=REFERENCE, decomposed=true, exact span, unhandled_conditions=[], id unique; unit is a 附則 enforcement-date clause",
-      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS customs tariff 附則 art.1 Showa46 enforcement date; 449/449 checks passed; verbatim needle unique in whole law; file-kind locator (needle is in a 附則; find_article_text('第一条') does NOT contain it); date components 46/1/1 extracted from needle kanji numerals, never hand-typed; law identity Act + real revision; byte-fidelity equal=True, U+6EDE=0",
-      "independent_spec": "JapanTaxLaw/CustomsTariffArt1Showa46EnforcementDateSpec.lean sha256=ad55e3f10cadd7d63969450971484a36bc51730af3eb565ee781facfdec3b6b8 (SpecInForce flat >/>= disjunction, representationally distinct from the nested </<= leDate implementation; agree_in_force axiom-free via case analysis — no omega/Classical.choice/simp/propext)",
-      "implementation": "JapanTaxLaw/CustomsTariffArt1Showa46EnforcementDate.lean sha256=02f54db1dffda489bc3a28fae5d9c925b9e4ed870a87592d2adc78e786a9d57f (関税定率法 附則第一条 REFERENCE: Date year/month/day Nat, enforcementDate=⟨46,1,1⟩, leDate lexicographic, inForce on-and-after; cross-era comparison NOT MODELLED; Act)",
-      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (1372 jobs); all five unit theorems axiom-free via #print axioms probe; no sorryAx/Classical.choice",
-      "proof_scope": "docs/UNIT_CUSTOMS_TARIFF_ART1_SHOWA46_ENFORCEMENT_DATE.md (computable temporal-application slice of one REFERENCE norm unit in 関税定率法 附則第一条; Gregorian/cross-era comparison NOT MODELLED)",
-      "boundary_proof": "JapanTaxLaw/CustomsTariffArt1Showa46EnforcementDateTests.lean: in force on/at and after ⟨46,1,1⟩, not before (year/month boundaries), universal spec agreement (all axiom-free)",
-      "cross_law_proof": "queue dependencies analyzed: one enforcement_version dependency (textual, sufficient=false) recorded honestly; distinct from Showa42/Showa44 sibling enforcement-date units (different queue id/date/path); no cross-law constant claimed",
-      "tests": "JapanTaxLaw/CustomsTariffArt1Showa46EnforcementDateTests.lean sha256=32696e2aeacd99f87a1ceb5698984e3ee081e02e23f7830ddf631321aa5b6d8e (kernel-checked temporal checks)",
-      "adversarial_review": "docs/ADVERSARIAL_CUSTOMS_TARIFF_ART1_SHOWA46_ENFORCEMENT_DATE.md — NO FINDINGS via independent 29-point programmatic cross-check (0 fails) from authoritative sources (queue needle, raw JSON, INVENTORY), NOT from author prose: raw sha256 924a01d3…e9c, needle whole-law count 1 in 附則第一条 (file-kind locator), enforcement date 昭和46年1月1日 components extracted from kanji numerals, law identity 関税定率法 with real revision, five unit theorems axiom-free with no omega/propext, ASCII-only unique file-kind audit 449/449, enforcement_version dependency recorded honestly, LEGAL_REVIEW_PENDING. Independent adversarial reviewer verdict recorded in the adversarial doc; no remaining findings. No legal correctness claim; human legal review remains pending."
     },
     "NORM|6c30cf8dbebe8cce20c0fcc0c11f69394a2c8dab5b47cd3d1c36c2b6fa7d4e1b": {
       "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[35]/Article:20/Article#20/ArticleCaption sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c (revision from INVENTORY current_revision, matched raw revision_info)",
