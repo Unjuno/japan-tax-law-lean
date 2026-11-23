@@ -231,7 +231,25 @@
         "租税": true,
         "居住者": true
       },
-      "text_file": "data/raw/treaties/JP_UK_2006.txt"
+      "text_file": "data/raw/treaties/JP_UK_2006.txt",
+      "formalized": {
+        "article": "第一条・第三条１ (Articles 1, 3(1) BEPS)",
+        "operators": [
+          "inScope (resident of one or both states)",
+          "fiscallyTransparentAttribution (BEPS transparent-entity rule)"
+        ],
+        "modules": {
+          "JapanTaxLaw/TreatyJPUKScope.lean": "ff2696888670193f839a48e124f56e2ac1ec16a0409454ea48757cbe83d835bc",
+          "JapanTaxLaw/TreatyJPUKScopeSpec.lean": "f67c07288ed739b87c51f2f5d4c933c0020d6c0d750a44cbe0b3f3763922d2f0",
+          "JapanTaxLaw/TreatyJPUKScopeTests.lean": "41fe9ce05a91911b7896bf8a7d0ca533d20b1e49560cbc09f80d27e24f22efa3"
+        },
+        "proof": "Lean 4.35.0 kernel; independent spec; no sorry/admit",
+        "legal_review": "PENDING (separate axis)",
+        "articles": [
+          "第一条 (Art.1: scope — residents of one or both states)",
+          "第三条１ (BEPS MLI replacing Art.4(5): fiscally transparent entities)"
+        ]
+      }
     },
     {
       "treaty_id": "JP_ITALY_1969",

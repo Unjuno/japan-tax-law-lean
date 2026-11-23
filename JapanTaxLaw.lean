@@ -1010,6 +1010,9 @@ import JapanTaxLaw.TreatyJPUSResidentDefinitionTests
 import JapanTaxLaw.TreatyJPUSEntryTermination
 import JapanTaxLaw.TreatyJPUSEntryTerminationSpec
 import JapanTaxLaw.TreatyJPUSEntryTerminationTests
+import JapanTaxLaw.TreatyJPUKScope
+import JapanTaxLaw.TreatyJPUKScopeSpec
+import JapanTaxLaw.TreatyJPUKScopeTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
