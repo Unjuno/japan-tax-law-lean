@@ -2330,6 +2330,12 @@ def checks():
            "file", None,
            ["処理区域内人口密度が二十五人毎ヘクタール未満の事業に係るもの", "令和八年度九月震災復興特別交付税額の算定方法"])
 
+    # PropertyInKindEnforcementDate — cycle-99
+    yield ("PropertyInKindEnforcementDate.lean",
+           "325M50000040022",
+           "file", None,
+           ["第一条この省令は、平成十五年一月六日から施行する", "この省令は、平成十五年一月六日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
