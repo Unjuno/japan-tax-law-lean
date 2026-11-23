@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 215
-- presence-facts-only complete: 215
-- NOT_STARTED: 215
+- articles with explicit pin: 219
+- presence-facts-only complete: 219
+- NOT_STARTED: 219
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -87,6 +87,10 @@ source positions. Human legal review is a separate axis and is pending.
 | `143AC0000000054` | 第十四条 | CustomsTariffArt14ProvisoReading | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十二条 | CustomsTariffArt12MiningEmergencyCondition | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十五条 | CustomsTariffArt15ReligiousGiftDelegation | YES | YES | NO | NOT_STARTED |
+| `143AC0000000054` | 第十八条 | CustomsTariffArt18PrevPara5Reading | YES | YES | NO | NOT_STARTED |
+| `143AC0000000054` | 第十七条 | CustomsTariffArt13Para7ProvisoException | YES | YES | NO | NOT_STARTED |
+| `143AC0000000054` | 第十八条 | CustomsTariffArt18PrevPara3ReliefReading | YES | YES | NO | NOT_STARTED |
+| `143AC0000000054` | 第十九条 | CustomsTariffArt19Art13Para7ProvisoReading | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十四条 | CustomsTariffArt14DisabledPersonEquipmentDelegation | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十七条 | CustomsTariffArt17DutyExemptionReading | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十七条 | CustomsTariffArt17ExportContainerDelegation | YES | YES | NO | NOT_STARTED |

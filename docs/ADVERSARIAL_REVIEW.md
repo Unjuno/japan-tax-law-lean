@@ -9847,3 +9847,101 @@ Article 11 の部分木を再帰走査し、文字リーフを文書順に連結
 - 公理: `choice` / `sorryAx` / `Quot.sound` / `propext` 依存 **0**、3/3 axiom-free。
 - **CONFIRMED 0 / BY-DESIGN 5 / UNRESOLVED 3**。実 defect はゼロ（発見ゼロ）。
 - 追記は `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替は行わない。一時ファイルは削除済み。
+
+## Batch CD review (2026-11-23) — 関税暫定措置法施行規則 art.7 §1 / RiceContentThreshold.lean（cycle-87 独立原文照合）
+
+- **レビュア役割**: 独立 Adversarial Review Agent（形式化担当から独立）。**本レビューは機械的独立照合であり、人間の法律専門家レビューではない。**
+- **対象モジュール（読み取り専用・変更していない）**: `JapanTaxLaw/RiceContentThreshold.lean`（実装）、`JapanTaxLaw/RiceContentThresholdSpec.lean`（独立 Spec）、`JapanTaxLaw/RiceContentThresholdTests.lean`（smoke tests）
+- **pinned 原文**: `data/raw/344M50000040039_20241215_505M60000040057.law.json`; law_id `344M50000040039` / revision `344M50000040039_20241215_505M60000040057`（`data/INVENTORY.json` の `current_revision` と raw JSON の `revision_info` を独立照合し一致、`CurrentEnforced`）。
+- **形式化担当の STAGING (`docs/STAGING_RICECONTENT.md`) は参照情報としてのみ扱い、抽出・判定には使用しない。** pinned JSON の `MainProvision` 直下 `Article attr.Num='7'` を自前再帰走査した。
+
+### CD-1. 独立抽出（pinned 原文 → 自前正規化）
+
+- `MainProvision` 配下の `Article` は 17 件。`ArticleTitle == '第七条'` のノードを特定（`attr={'Num':'7'}`）。
+- article-7 の文字リーフ連結は **1,398 chars / U+3000 = 5**、U+3000 除去後の正規化テキストは **1,393 chars**（モジュール doc-comment の「flat/normalized leaf text 1393 chars」と一致）。
+- 原文逐語（該当箇所の文脈、2 箇所に同一文字列で出現）:
+  1. `関税率表第一九〇四・九〇号の一に掲げる物品のうち米の含有量が全重量の三〇％を超えるもの`
+  2. `関税率表第一九〇一・九〇号の一の（三）に掲げる物品のうち米の含有量が全重量の三〇％を超えるもの`
+- いずれも閾値文字列は `米の含有量が全重量の三〇％を超えるもの` で同一。art.7 内の `％` はこの **2 箇所のみ**。
+
+### CD-2. 独立判定（「三〇％」= 30/100、「超える」= 厳密不等式）
+
+- codepoint 直接確認: `三`=U+4E09, `〇`=U+3007（漢数字の零）, `％`=U+FF05（全角パーセント）。自前で漢数字を解析し `三〇 → [3,0] → 30`、`％ → /100` を得た。**30% = 30/100**。
+- 桁違いを明示除外: `三％`（3%）は原文に **0 件**、`三〇〇％`（300%）は原文に **0 件**。`三〇％` は art.7 に 2 件のみで、いずれも 30/100 と解析。
+- 規範語は `超える`（U+8D85 U+3048 U+308B）。対象句に `以上`（≥）は含まれず、**厳密超え**。したがって `rice/total > 30/100` ⇔ `rice*100 > total*30`（total>0）。30% ちょうど（`rice=30,total=100` 等）は対象外。
+- 実装 `exceedsRiceThreshold (rice total : Nat) : Bool := rice * 100 > total * 30` と独立 Spec `specExceeds` はともにこの判定と整合。
+
+### CD-3. needle 健全性（CI 実文字列 2 本）
+
+`scripts/ci/transcription_audit.py` の `checks()` から **AST で実文字列を直接抽出**（手転記による誤り混入を排除）:
+
+| needle | 実文字列 | U+3000 | 自前正規化原文（全体） | 自前正規化 art.7 |
+|---|---|---|---|---|
+| 1 | `米の含有量が全重量の三〇％を超えるもの` | 0 | **FOUND** | **FOUND** |
+| 2 | `第七条` | 0 | **FOUND** | **FOUND** |
+
+- **U+3000 = 0 本、2/2 FOUND（MISS 0）**。`kind="file"` のため CI は全体平坦化テキストに対して照合するが、自前の art.7 スコープ照合でも 2/2 FOUND であり、needle が他条から流用されたものでないことを確認。
+- needle1 は対象句の prefix（後続する税率表示 `一` / `一・一四` は含まない）。needle2 は `ArticleTitle` と一致。
+
+### CD-4. 反例探索・独立 Spec 一致
+
+| 入力 (rice, total) | `exceedsRiceThreshold` | 独立 Spec（Fraction による厳密有理数比較） | 期待 | 判定 |
+|---|---|---|---|---|
+| (30, 100) | `false` | `false` | 対象外（30%ちょうど） | ✅ |
+| (31, 100) | `true` | `true` | 対象（31% > 30%） | ✅ |
+| (60, 200) | `false` | `false` | 対象外（30%ちょうど） | ✅ |
+| (61, 200) | `true` | `true` | 対象（30.5% > 30%） | ✅ |
+| (29, 100) / (1, 1000) / (0, 100) | `false` | `false` | 対象外 | ✅ |
+| (100, 300) / (101, 300) | `true` / `true` | `true` / `true` | 33.3% / 33.7% | ✅ |
+
+- 独立 Spec は実装の式を再利用せず `Fraction(rice,total) > Fraction(30,100)` として再定式。`t = 1..300, r = 0..300` の **90,300 組を全走査し不一致 0**、反例は検出されず。
+- `agreeRiceContentThreshold = true`（Lean 側 7 点 spot-check）も同一の 7 点で確認。
+
+### CD-5. 公理監査（`lake env lean` / `#print axioms`, exit 0）
+
+| 宣言 | 結果 |
+|---|---|
+| `JapanTaxLaw.RiceContentThreshold.exceedsRiceThreshold` | `does not depend on any axioms` |
+| `JapanTaxLaw.RiceContentThreshold.specExceeds` | `does not depend on any axioms` |
+| `JapanTaxLaw.RiceContentThreshold.agreeRiceContentThreshold` | `does not depend on any axioms` |
+
+→ **`Classical.choice` / `sorryAx` / `Quot.sound` / `propext` 依存 0 件**（3/3 axiom-free）。3 ファイルを `sorry|admit|axiom|Classical.choice|noncomputable|unsafe` で走査し **0 matches**。
+
+### CD-6. 分類
+
+| 分類 | 件数 |
+|---|---|
+| CONFIRMED（実 defect） | **0（ゼロ）** |
+| BY-DESIGN | **5** |
+| UNRESOLVED | **3** |
+
+#### CONFIRMED（0 件）
+
+pinned 原文の逐語・「三〇％ = 30/100」・「超える = 厳密超え」・needle・反例・Spec 一致・公理のいずれにも矛盾を検出せず。**発見ゼロ（実 defect ゼロ）**。
+
+#### BY-DESIGN（5 件）
+
+- **B-CD1  bounded L4 slice**: art.7 の 30% 数値閾値のみを formalize し、関税率表の品目区分・他の含有量基準・重量認定方法は NOT MODELLED と doc-comment に明記。意図的な範囲制限。
+- **B-CD2  同一文字列の 2 回出現**: 対象の `三〇％` 句は art.7 内で 2 箇所（1904.90.1-1 と 1901.90.1-(3) の物品）に同一文字列で出現。閾値は同一であり、needle の transcription fidelity に影響しない。品目区分自体は U-CD1 のとおり未形式化。
+- **B-CD3  Nat による整数比較**: `rice*100 > total*30` は有理数比較を分母 100 で整数化したもので、`total>0` で `rice/total > 30/100` と同値。除算・丸めを導入しない bounded 設計。`total=0` の退化入力は Spec の 7 点に含まれず（すべて total>0）、実装は `rice>0` を返すが法的対象外。
+- **B-CD4  正規化長の主張スコープ**: doc の「1393 chars」は U+3000 除去後の正規化 leaf 長。実測は raw 1,398 / U+3000 5 / 正規化 1,393 で整合。
+- **B-CD5  needle 照合スコープ**: CI は `kind="file"` で全体平坦テキストに対して照合するが、自前の art.7 スコープでも 2/2 FOUND。article-scoped でないこと自体は既存 CI 設計であり欠陥ではない。
+
+#### UNRESOLVED（3 件）
+
+いずれも doc-comment で NOT MODELLED と明示された意図的な範囲外だが、pinned 原文だけでは 30% 閾値の法的効果を確定できず、**人間の法律専門家によるレビューが必要**。
+
+- **U-CD1  関税率表の品目区分**: 対象句は `関税率表第一九〇四・九〇号の一…のうち` / `関税率表第一九〇一・九〇号の一の（三）…のうち` という品目指定の内側にあり、閾値は特定税率（一 / 一・一四）への振り分け基準として機能する。どの物品が当該品目に該当するか・他号との境界は未形式化。
+- **U-CD2  重量認定方法**: 原文は `全重量` および `米の含有量` という語のみで、測定・認定の方法はこのスライスに含まれない（art.7 に `重量認定` の語は 0 件）。
+- **U-CD3  他の含有量基準との相互関係**: art.7 内の `％` は本対象の 2 箇所のみだが、他条・他法令の含有量基準や税率表との優先関係は pinned スライスでは確定しない。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正誤は専門家による確認を要する。本レビューをもって法的レビューを称さない。
+
+### CD-7. 総括
+
+- pinned 原文から art.7 の `米の含有量が全重量の三〇％を超えるもの` を独立抽出し、`三〇 = 30`、`％ = /100`、`超える = 厳密超え`（30% ちょうど対象外）を確認。3% / 300% は明示除外。実装・独立 Spec いずれとも整合。
+- needle 健全性: U+3000 **0 本**、CI 実文字列 **2/2 FOUND**（MISS 0）。
+- 反例: 指定 4 点すべて期待値。90,300 組の全走査で不一致 0、反例なし。
+- 公理: `choice` / `sorryAx` / `Quot.sound` / `propext` 依存 **0**、3/3 axiom-free。
+- **CONFIRMED 0 / BY-DESIGN 5 / UNRESOLVED 3**。実 defect はゼロ（発見ゼロ）。
+- 追記は `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替は行わない。一時ファイルは削除済み。
