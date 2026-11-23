@@ -29,7 +29,7 @@
       },
       "text_file": "data/raw/treaties/JP_US_INCOME_TAX_2003.txt",
       "formalized": {
-        "article": "第一条・第二条・第三条・第四条３・第六条 (Articles 1,2,3,4(3),6)・第七条 (Article 7)・第十条 (Article 10)・第十一条 (Article 11)・第十二条 (Article 12)",
+        "article": "第一条・第二条・第三条・第四条３・第六条 (Articles 1,2,3,4(3),6)・第七条 (Article 7)・第十条 (Article 10)・第十一条 (Article 11)・第十二条 (Article 12)・第十三条 (Article 13)",
         "operators": [
           "inScope (resident of one or both states -> disjunction)",
           "preservesRelief (treaty does not limit tax relief -> identity)",
@@ -44,7 +44,9 @@
           "ordinary interest taxable only in residence state",
           "royalty residence-only taxation",
           "article7 PE-real-link fallback",
-          "royaltyExcessCap (5% on special-relationship excess)"
+          "royaltyExcessCap (5% on special-relationship excess)",
+          "gainsTaxableInSource (immovable-property gains taxable at source)",
+          "isImmovable (Art.6 property OR share proxy OR USRPI)"
         ],
         "modules": {
           "JapanTaxLaw/TreatyJPUSScope.lean": "86f234ee32b82339fb87e0606b75c3dafb22f0c8a9e37ab1469e7dd1f3f939e5",
@@ -73,7 +75,10 @@
           "JapanTaxLaw/TreatyJPUSInterestTests.lean": "d708bad8476595aba42e48a8e73b945d5cb81c9beb6c6d3db94aae7897e50df3",
           "JapanTaxLaw/TreatyJPUSRoyalties.lean": "c413157f5f945092cbb193155bf9362aaa7328e4c4c095c44abae5eb3cd9b0aa",
           "JapanTaxLaw/TreatyJPUSRoyaltiesSpec.lean": "f6efc5d53f6a5bbd873cbd7ed19b1b36029ad6dfd4b36b483dadfe15ef293866",
-          "JapanTaxLaw/TreatyJPUSRoyaltiesTests.lean": "3102f74482f6e24e9038f5b235b01fe85b354effc82201ce2b74a560c85a31d4"
+          "JapanTaxLaw/TreatyJPUSRoyaltiesTests.lean": "3102f74482f6e24e9038f5b235b01fe85b354effc82201ce2b74a560c85a31d4",
+          "JapanTaxLaw/TreatyJPUSCapitalGains.lean": "7e0766ebbe22cfa1070a1f103c5b4663f5bf74e6c64b0c80b551fb48c537a822",
+          "JapanTaxLaw/TreatyJPUSCapitalGainsSpec.lean": "142c6d8041f6f6818d8198fac867ddd5d305ef5cc4e5053f1a2166791d838199",
+          "JapanTaxLaw/TreatyJPUSCapitalGainsTests.lean": "a2455949fa4c17feb253bd3103fe1218163c144403ad0272b960dc624b127be2"
         },
         "proof": "Lean 4.35.0 kernel; independent spec; no sorry/admit",
         "legal_review": "PENDING (separate axis)",
@@ -86,7 +91,8 @@
           "第七条 (Art.7: business profits — PE attribution, independent-enterprise principle, expense deduction, mere-purchase exclusion, consistent method)",
           "第十条 (Art.10: dividends — 5%/10% rate caps, source exemption for 50%+ owners/pension funds, RIC exclusion)",
           "第十一条 (Art.11: interest — residence-only ordinary interest, 10% contingent-interest cap, 5% excess cap)",
-          "第十二条 (Art.12: royalties — residence-only, Art.7 PE fallback, 5% excess cap)"
+          "第十二条 (Art.12: royalties — residence-only, Art.7 PE fallback, 5% excess cap)",
+          "第十三条 (Art.13: capital gains — source-state immovable-property gains, immovable definition extension)"
         ]
       }
     },
