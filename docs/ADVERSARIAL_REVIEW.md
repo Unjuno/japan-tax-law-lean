@@ -10868,3 +10868,77 @@ pinned 原文（Article 1 正規化 1,549 chars）には本モデルが扱う �
 
 - 追記後レビュー件数 **90**（既存 89 件は全件保持、Batch AH〜CM を含む）。追記は `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替なし。一時ファイル（抽出・正規化・検証・公理監査・追記スクリプト）は削除済み。
 - **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。
+
+## Batch CO review (2026-11-24) — 令和八年度分 震災復興特別交付税 算定方法 art.2 / PopulationDensityBracketFY8.lean（cycle-98 独立原文照合・反例探索）
+
+**本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。
+
+### CO-0. 対象・pin 照合
+- 対象: `JapanTaxLaw/PopulationDensityBracketFY8.lean`（44 行、`densityRate` 1 def + 5 example、namespace `JapanTaxLaw.PopulationDensityBracketFY8`）、同 Spec `PopulationDensityBracketFY8Spec.lean`（21 行）、同 Tests `PopulationDensityBracketFY8Tests.lean`（16 行）。すべて読み取り専用・本レビューで変更していない。
+- モジュール doc の pin 主張: law id `508M60000008066` / revision `508M60000008066_20260427_000000000000000` / snapshot `data/raw/508M60000008066_20260427_000000000000000.law.json` / Article Num 2、flat/normalized leaf text 42596 chars。
+- 独立確認: `data/INVENTORY.json`（line 11908–11944）の law レコードは `law_id = 508M60000008066`、`law_num = 令和八年総務省令第六十六号`、`current_revision.law_revision_id = 508M60000008066_20260427_000000000000000`（`CurrentEnforced`、施行 2026-04-27、公布 2026-04-27）、`raw_snapshot.source_file` は上記 snapshot と一致。`data/raw/508M60000008066.revisions.json`（1,425 bytes）にも同 revision が実在（`mission = New`、`repeal_status = None`）。
+- snapshot 実在: **246,419 bytes** / 自前再計算 SHA-256 `06310828571D9ED4BC4B9560E72D830678727CC8A80EE36D9BFC54E85A3199B2` は INVENTORY `source_sha256` と完全一致。revisions.json も SHA-256 `F6A7B5D08E22E76F5030408B6EDE50168C9BAFA3D473073BCEFEA97A5C611123` は INVENTORY `revisions_sha256` と完全一致。
+- 自前平坦化（CI と同じ `children` 再帰連結）＋全空白/U+3000 除去で Article 2（ArticleTitle `第二条`）の正規化葉テキスト長は **42,596 chars**、全文は 50,540 chars。Article 2 正規化テキストの U+3000 は **0 個**（原文生テキストには 189 個あるが正規化で除去）。モジュール doc のメタデータ 42596 chars と完全一致。
+- **cycle-94 との別法・別版の独立確認**: cycle-94 は law `507M60000008043` / revision `507M60000008043_20250425_000000000000000`（令和七年度分・総務省令第四十三号）。本件は law `508M60000008066` / revision `508M60000008066_20260427_000000000000000`（令和八年度分・総務省令第六十六号）。law id・revision・snapshot・SHA-256 のすべてが異なり、needle の 2 本目も異なる（下記 CO-2）。→ 同一区分の循環的流用ではなく別原文に由来。
+
+### CO-1. 独立抽出（pinned 原文からの直接抽出・モジュール doc / cycle-94 レビューを信じない）
+pinned JSON の葉テキストを再帰走査し、第二条の区分表を直接取得した。漢数字表記の 5 区分は各 **2 回**（2 表に重複出現）、続く全角数字表記の表（例 `２５人／ｈａ`）も数値的に同一（率は `０．７００` 等の小数第 3 位まで 0 埋め）。原文逐語（正規化 pinned leaf）と実装値の照合:
+
+| 原文区分句（逐語） | 原文率 | 境界（人/ha） | 実装値(×100) | 照合 |
+|---|---|---|---|---|
+| 処理区域内人口密度が二十五人毎ヘクタール未満の事業に係るもの | 〇・七〇 | d<25 | 70 | ✅ |
+| 処理区域内人口密度が二十五人毎ヘクタール以上五十人毎ヘクタール未満の事業に係るもの | 〇・六〇 | 25≤d<50 | 60 | ✅ |
+| 処理区域内人口密度が五十人毎ヘクタール以上七十五人毎ヘクタール未満の事業に係るもの | 〇・五〇 | 50≤d<75 | 50 | ✅ |
+| 処理区域内人口密度が七十五人毎ヘクタール以上百人毎ヘクタール未満の事業に係るもの | 〇・四〇 | 75≤d<100 | 40 | ✅ |
+| 処理区域内人口密度が百人毎ヘクタール以上の事業に係るもの | 〇・三〇 | d≥100 | 30 | ✅ |
+
+- 境界の包含関係は原文の「未満／以上」に忠実: **24→70, 25→60, 50→50, 75→40, 100→30**。区切り値 25/50/75/100 は「以上」側（上位区分）に含まれ、実装の下方 `<` チェーンと整合（例: d=25 は `density < 25` が false となり 60）。
+- 率 0.70/0.60/0.50/0.40/0.30 を ×100 整数 70/60/50/40/30 で表現するのはモデル上の符号化規約であり、数値対応は一意（全角数字表の ０．７００ 等も整合）。
+- needle[1] の文脈は `…（令和八年度九月震災復興特別交付税額の算定方法）第二条各道府県及び各市町村に対して、令和八年九月に交付すべき震災復興特別交付税…` であり、第二条の直前の章見出しであることを独立確認。
+
+### CO-2. needle 健全性（CI `checks()` 実文字列）
+`scripts/ci/transcription_audit.py` line 2314–2318 の PopulationDensityBracketFY8 エントリ（law_id `508M60000008066`、`kind = file`）の実文字列 2 本を、自前正規化原文（CI と同じ `re.sub(r"[\s　]+", "", s)`、全文 50,540 chars / Article 2 42,596 chars）で検証した。
+
+1. `処理区域内人口密度が二十五人毎ヘクタール未満の事業に係るもの`（30 chars）— **U+3000 なし**、全文 FOUND（count=2）、Article 2 FOUND（count=2）。
+2. `令和八年度九月震災復興特別交付税額の算定方法`（22 chars）— **U+3000 なし**、全文 FOUND（count=1）、Article 2 FOUND（count=1）。
+
+**結果: U+3000 なし、2/2 FOUND**（全文・Article 2 スコープの双方で命中）。
+
+**cycle-94 との needle 相違**: cycle-94（Batch CK）の 2 本は `処理区域内人口密度が二十五人毎ヘクタール未満の事業に係るもの` と `第二条` であった。本件は 1 本目は同一だが **2 本目が異なる**（本件は「令和八年度九月震災復興特別交付税額の算定方法」を含む）。自前確認により本件 2 本目は cycle-94 snapshot には **NOT FOUND**（cycle-94 の 1 本目は本件 snapshot にも FOUND＝同一の区分句だが別原文に由来）。→ 指摘どおり needle が異なり、別法・別版の mechanically independent な pin であることを確認。
+
+### CO-3. 反例探索
+- 独立 Spec は実装の下方 `<` チェーンをコピーせず、区間 membership 形式で書き下した: `if 25<=d && d<50 then 60 else if 50<=d && d<75 then 50 else if 75<=d && d<100 then 40 else if 100<=d then 30 else 70`。
+- `lake env lean`（Lean v4.35.0）で d=0..199 の **200 点を全数比較 → gridOk = true**、不一致 **0 件**。モジュール Spec の `agreePopulationDensityBracketFY8 = true` も確認。
+- 指定境界の実 `#eval`: `densityRate 24=70 / 25=60 / 50=50 / 75=40 / 100=30`。独立 Spec も同じ 5 値。モジュールの 5 example および Tests の 5 smoke もすべて一致。
+- **反例 0 件（ゼロ）。**
+
+### CO-4. 公理監査
+一時 Lean ファイルで `lake env lean`（exit code 0）により `#print axioms` を実行:
+
+| 宣言 | 結果 |
+|---|---|
+| `JapanTaxLaw.PopulationDensityBracketFY8.densityRate` | does not depend on any axioms |
+| `JapanTaxLaw.PopulationDensityBracketFY8.specRate` | does not depend on any axioms |
+| `JapanTaxLaw.PopulationDensityBracketFY8.agreePopulationDensityBracketFY8` | does not depend on any axioms |
+| レビュー側独立 Spec `COProbe.indepSpec` / `COProbe.gridOk` / 境界 5 定理 `co_b24` / `co_b25` / `co_b50` / `co_b75` / `co_b100` / `co_grid` | すべて does not depend on any axioms |
+
+- `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` の依存は **すべて 0 件**。本モジュールに theorem/lemma は無く（def + example のみ）、CI の axiom probe（theorem/lemma 走査）に加え直接 probe で代替確認した。公理監査は合格。監査用一時ファイルは削除済み。
+
+### CO-5. 未形式化項目の確認（スコープ）
+pinned 第二条（正規化 42,596 chars）には本モデルが扱う公共下水道事業の人口密度 5 区分のほか、以下が存在する。いずれもモジュール doc の `Scope / NOT MODELLED` 声明どおり **NOT MODELLED** であり、欠陥ではない（括弧内は正規化原文中の出現回数で存在を独立確認）。
+
+- **分流式・他事業区分**: 雨水排水対策事業（2）、合流式（3）、簡易水道（3）、公共下水道事業以外（3）、市場事業（3）、分流式（4）および対応する率（一・〇〇／〇・一〇／〇・五五 等）は未形式化。`densityRate` は公共下水道事業の 5 区分のみを扱う。
+- **処理区域内人口密度の算定方法**: 処理区域内人口・区域面積からの密度算出（人/ha の求め方）および端数処理は未形式化。`density` は caller-established の入力。
+- **交付税額の算定**: 各道府県・市町村への交付税額の算定、決定時期・決定額・交付時期等の特例は未形式化。
+- 本モデルは区分判定のみを提供し、法的レビューを提供しない（モジュール doc の声明どおり）。
+
+### CO-6. 判定
+> 本節の CONFIRMED は「確認済みの検証項目」を指し、欠陥の存在を意味しない。原文と Lean の食い違い（欠陥・発見）は **0 件（ゼロ）**。発見ゼロの場合も本節に明示する。
+
+- **CONFIRMED（6 件）**: (1) pin 一致（law id / revision / snapshot / SHA-256 / INVENTORY / revisions.json / Article 2 = 42,596 chars）、(2) 5 区分・25/50/75/100 境界・0.70/0.60/0.50/0.40/0.30 の独立抽出一致（漢数字表・全角数字表の双方、各区分 2 表）、(3) **cycle-94 との別法・別版・needle 相違が各 pinned 原文に忠実であること**、(4) needle 2/2 FOUND かつ U+3000 なし、(5) 反例ゼロ（0..199 全数一致・5 境界一致）、(6) 公理依存 0。
+- **BY-DESIGN（3 件）**: (1) 分流式・公共下水道事業以外の他事業区分（雨水排水対策／合流式／簡易水道／市場事業等）の未形式化、(2) 処理区域内人口密度の算定方法・端数処理および交付税額の算定の未形式化、(3) 率を ×100 整数で表現する設計（〇・七〇→70 の変換はモデル表現上の規約）。いずれも明示的スコープ外であり欠陥ではない。
+- **UNRESOLVED（0 件）**: 未解決事項なし。**発見ゼロ。**
+
+- 追記後レビュー件数 **91**（既存 90 件は全件保持、Batch AH〜CN を含む）。追記は `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替なし。一時ファイル（抽出・正規化・検証・公理監査・追記スクリプト）は削除済み。
+- **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。
+
