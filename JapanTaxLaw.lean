@@ -977,6 +977,12 @@ import JapanTaxLaw.TreatyJPUSNondiscriminationTests
 import JapanTaxLaw.TreatyJPUSMutualAgreement
 import JapanTaxLaw.TreatyJPUSMutualAgreementSpec
 import JapanTaxLaw.TreatyJPUSMutualAgreementTests
+import JapanTaxLaw.BareDeonticNorms
+import JapanTaxLaw.BareDeonticNormsSpec
+import JapanTaxLaw.BareDeonticNormsTests
+import JapanTaxLaw.TreatyJPUSInfoExchange
+import JapanTaxLaw.TreatyJPUSInfoExchangeSpec
+import JapanTaxLaw.TreatyJPUSInfoExchangeTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
