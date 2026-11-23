@@ -1425,51 +1425,6 @@ def checks():
            "143AC0000000054",
            "article", "\u7b2c\u5341\u4e5d\u6761",
            ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u7b2c\u5341\u4e09\u6761\u7b2c\u4e03\u9805\u4f46\u66f8\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
-    # CustomsTariffArt1Showa44EnforcementDate.lean - NORM|f5b0c58f... (附則 enforcement date REFERENCE, law 143AC0000000054)
-    # Needle sits in an 附則 (SupplProvision) article; find_article_text sees main only
-    # - use the file-kind locator. Needle verbatim-unique in whole law; literal via \u escapes.
-    yield ("customs tariff 附則 art.1 Showa44 enforcement date - CustomsTariffArt1Showa44EnforcementDate.lean",
-           "143AC0000000054",
-           "file", None,
-           ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u662d\u548c\u56db\u5341\u56db\u5e74\u56db\u6708\u4e00\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
-    # CustomsTariffArt19PrevPara5Or6Reading.lean - NORM|a0184c1f... (前項 準用 for 第五項 or 第六項, law 143AC0000000054)
-    # Needle is in MainProvision Article 第十九条 (Paragraph 8, Sentence 1) -
-    # verbatim injected from the queue via \u escapes; sub-terms 前項/第五項/第六項
-    # extracted from the needle, never hand-typed. len 2200 with needle.
-    yield ("customs tariff art.19 prev-para 5-or-6 reading - CustomsTariffArt19PrevPara5Or6Reading.lean",
-           "143AC0000000054",
-           "article", "\u7b2c\u5341\u4e5d\u6761",
-           ["\u524d\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e94\u9805\u53c8\u306f\u7b2c\u516d\u9805\u306e\u898f\u5b9a\u3092\u9069\u7528\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
-    # CustomsTariffArt20No2Art13ProvisoException.lean - NORM|04057a73... (art.13(7) proviso 準用 EXCEPTION in art.20-2(3), law 143AC0000000054)
-    # Needle is in MainProvision Article 第二十条の二 (Paragraph 3, Sentence 2) -
-    # verbatim injected from the queue via \u escapes; sub-terms 第十三条第七項ただし書
-    # and この場合 extracted from the needle, never hand-typed. len 570 with needle.
-    # NOTE: distinct from the art.17(5) unit — that sibling's needle is a
-    # different sentence (第十三条第七項ただし書の規定は、前項の規定により…),
-    # though both reference the same proviso.
-    yield ("customs tariff art.20-2 art13(7) proviso exception - CustomsTariffArt20No2Art13ProvisoException.lean",
-           "143AC0000000054",
-           "article", "\u7b2c\u4e8c\u5341\u6761\u306e\u4e8c",
-           ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u7b2c\u5341\u4e09\u6761\u7b2c\u4e03\u9805\u305f\u3060\u3057\u66f8\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
-    # CustomsTariffArt19_2ExportReliefCondition.lean - NORM|94f8ac86... (art.19-2 caption CONDITION, law 143AC0000000054)
-    # The needle IS the ArticleCaption; sub-terms extracted from the caption,
-    # never hand-typed. find_article_text(...,'第十九条の二') len 1574 with needle.
-    yield ("customs tariff art.19-2 export relief caption condition - CustomsTariffArt19_2ExportReliefCondition.lean",
-           "143AC0000000054",
-           "article", "\u7b2c\u5341\u4e5d\u6761\u306e\u4e8c",
-           ["\uff08\u8ab2\u7a0e\u539f\u6599\u54c1\u7b49\u306b\u3088\u308b\u88fd\u54c1\u3092\u8f38\u51fa\u3057\u305f\u5834\u5408\u306e\u514d\u7a0e\u53c8\u306f\u623b\u3057\u7a0e\u7b49\uff09"])
-    # CustomsTariffArt19_3ReexportSameStateCondition.lean - NORM|760c6bfc... (art.19-3 caption CONDITION, law 143AC0000000054)
-    # The needle IS the ArticleCaption; sub-terms extracted from the caption,
-    # never hand-typed. find_article_text(...,'第十九条の三') len 783 with needle.
-    yield ("customs tariff art.19-3 reexport caption condition - CustomsTariffArt19_3ReexportSameStateCondition.lean",
-           "143AC0000000054",
-           "article", "\u7b2c\u5341\u4e5d\u6761\u306e\u4e09",
-           ["\uff08\u8f38\u5165\u6642\u3068\u540c\u4e00\u72b6\u614b\u3067\u518d\u8f38\u51fa\u3055\u308c\u308b\u5834\u5408\u306e\u623b\u3057\u7a0e\u7b49\uff09"])
-
-
-
-
-
 
 
 
@@ -2344,12 +2299,6 @@ def checks():
            "344M50000040039",
            "file", None,
            ["米の含有量が全重量の三〇％を超えるもの", "第七条"])
-
-    # SenFractionRoundDown — cycle-89
-    yield ("SenFractionRoundDown.lean",
-           "360M50000040001",
-           "file", None,
-           ["一銭未満の端数がある場合には、その端数を切り捨てるものとする", "第四条"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -3440,36 +3389,29 @@ def checks():
            "360CO0000000005",
            "article", "第十一条",
            ["相続人が二人以上ある場合には、前項の申告書は、各相続人が連署して提出するものとする。"])
-    # CustomsTariffArt19PrevPara5Or6Reading.lean - NORM|a0184c1f... (前項 準用 for 第五項 or 第六項, law 143AC0000000054)
-    # Needle is in MainProvision Article 第十九条 (Paragraph 8, Sentence 1) -
-    # verbatim injected from the queue via \u escapes; sub-terms 前項/第五項/第六項
-    # extracted from the needle, never hand-typed. len 2200 with needle.
-    yield ("customs tariff art.19 prev-para 5-or-6 reading - CustomsTariffArt19PrevPara5Or6Reading.lean",
-           "143AC0000000054",
-           "article", "\u7b2c\u5341\u4e5d\u6761",
-           ["\u524d\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e94\u9805\u53c8\u306f\u7b2c\u516d\u9805\u306e\u898f\u5b9a\u3092\u9069\u7528\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
-
-    # CustomsTariffArt1Showa44EnforcementDate.lean - NORM|f5b0c58f... (附則 enforcement date REFERENCE, law 143AC0000000054)
-    # Needle sits in an 附則 (SupplProvision) article; find_article_text sees main only
-    # - use the file-kind locator. Needle verbatim-unique in whole law; literal via \u escapes.
-    yield ("customs tariff 附則 art.1 Showa44 enforcement date - CustomsTariffArt1Showa44EnforcementDate.lean",
-           "143AC0000000054",
+# 合計所得金額の見積額 千八百五万円超 — Income18M05.lean
+    yield ("租税特別措置法 art. 41_3_8（合計所得金額の見積額 千八百五万円超）↔ Income18M05.lean (incomeFloor18M05 18050000)",
+           "332AC0000000026",
            "file", None,
-           ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u662d\u548c\u56db\u5341\u56db\u5e74\u56db\u6708\u4e00\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
+           ["ただし、その者のその年分の所得税に係るその年の合計所得金額の見積額が千八百五万円を超える場合については、この限りでない。"])
 
-    # 審議会規則 art. 9 — MeetingQuorumOneThird.lean
-    yield ("審議会規則 art. 9（三分の一以上の出席）↔ MeetingQuorumOneThird.lean (quorumDivisor 3, inclusive)",
-           "412CO0000000276",
-           "article", "第九条",
-           ["審議会は、委員及び議事に関係のある臨時委員の三分の一以上が出席しなければ、会議を開き、議決することができない。"])
+    # 合計所得金額 四百八十九万円超 — Income4M89.lean
+    yield ("租税特別措置法 art. 41_16_2（合計所得金額 四百八十九万円超）↔ Income4M89.lean (incomeFloor4M89 4890000)",
+           "332AC0000000026",
+           "file", None,
+           ["その居住者のその年分の所得税に係る合計所得金額が四百八十九万円を超える場合"])
 
+    # 要耐震改修住宅の床面積 五十平方メートル以上 — QuakeFloor50sqm.lean
+    yield ("租税特別措置法施行規則 art. 18_21（要耐震改修住宅の床面積 五十平方メートル以上）↔ QuakeFloor50sqm.lean (floorMin50 50)",
+           "332M50000040015",
+           "file", None,
+           ["当該要耐震改修住宅の床面積が五十平方メートル以上であること。"])
 
-    # 国税審議会令 art.4 — CommitteeTermTwoYears.lean (委員の任期二年)
-    yield ("国税審議会令 art.4（委員の任期は二年とする）↔ CommitteeTermTwoYears.lean (term 2 years)",
-           "412CO0000000278",
-           "article", "第四条",
-           ["委員の任期は、二年とする。"])
-
+    # 滞在期間 百八十三日を超えない — Stay183Days.lean
+    yield ("外国居住者等の所得に対する相互主義による所得税等の非課税等に関する法律 art. 23（滞在期間 百八十三日を超えない）↔ Stay183Days.lean (stayCap183 183)",
+           "337AC0000000144",
+           "file", None,
+           ["判定期間の全てにおいて当該外国居住者等の国内における滞在期間が百八十三日を超えないこと。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
