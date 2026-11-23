@@ -25,7 +25,7 @@ Verbatim source text: 「白色から黒色までの階調が二百五十六階�
 - Impl: `gradationFloor=256`, `meetsGrayscaleFloor g := decide (256 <= g)`.
 - Independent spec: `specMeetsGrayscale g := decide (¬ g < 256)` (negated strict order — distinct operator); universal `agree_grayscale_floor` over all Nat, kernel-checked with `by omega`.
 - Boundary theorems: `floor_inclusive` (256 qualifies), `just_below` (255 fails), `zero_false`.
-- Tests: 11 kernel-decided examples; boundary categories `{zero, small_input, saturation}`.
+- Tests: 12 kernel-decided examples; boundary categories `{zero, small_input, saturation}`.
 
 ## Not modelled (explicitly retained as unhandled scope)
 
