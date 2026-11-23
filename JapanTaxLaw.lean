@@ -1067,6 +1067,9 @@ import JapanTaxLaw.InheritanceTaxLiabilityTests
 import JapanTaxLaw.GiftTaxLiability
 import JapanTaxLaw.GiftTaxLiabilitySpec
 import JapanTaxLaw.GiftTaxLiabilityTests
+import JapanTaxLaw.InheritanceTaxAnnuityValuation
+import JapanTaxLaw.InheritanceTaxAnnuityValuationSpec
+import JapanTaxLaw.InheritanceTaxAnnuityValuationTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
