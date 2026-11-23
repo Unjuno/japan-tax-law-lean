@@ -893,6 +893,9 @@ import JapanTaxLaw.TreatyJPUSScopeTests
 import JapanTaxLaw.TreatyJPUSCoveredTax
 import JapanTaxLaw.TreatyJPUSCoveredTaxSpec
 import JapanTaxLaw.TreatyJPUSCoveredTaxTests
+import JapanTaxLaw.TreatyJPUSTieBreaker
+import JapanTaxLaw.TreatyJPUSTieBreakerSpec
+import JapanTaxLaw.TreatyJPUSTieBreakerTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests

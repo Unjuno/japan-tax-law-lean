@@ -29,7 +29,7 @@
       },
       "text_file": "data/raw/treaties/JP_US_INCOME_TAX_2003.txt",
       "formalized": {
-        "article": "第一条・第二条 (Articles 1-2)",
+        "article": "第一条・第二条・第四条３ (Articles 1, 2, 4(3))",
         "operators": [
           "inScope (resident of one or both states -> disjunction)",
           "preservesRelief (treaty does not limit tax relief -> identity)"
@@ -40,13 +40,17 @@
           "JapanTaxLaw/TreatyJPUSScopeTests.lean": "0c02197b626a04571f69650ce84c47ff5a3050b2812c5ecb12c9e6d9f6ce710c",
           "JapanTaxLaw/TreatyJPUSCoveredTax.lean": "38ceb33d413fdedad8094201c286772c2705bf7a050b6c6f5722f9ac417ecb53",
           "JapanTaxLaw/TreatyJPUSCoveredTaxSpec.lean": "6afdb7c47ca2dfa4188a4fdd74336611604617601ea163b312022bc928e95f0e",
-          "JapanTaxLaw/TreatyJPUSCoveredTaxTests.lean": "7baa159fc9b70a72267287699209d3b5c5b2f8bbcc203e4a330fd2f9e6e0d67c"
+          "JapanTaxLaw/TreatyJPUSCoveredTaxTests.lean": "7baa159fc9b70a72267287699209d3b5c5b2f8bbcc203e4a330fd2f9e6e0d67c",
+          "JapanTaxLaw/TreatyJPUSTieBreaker.lean": "bb7c85b9c2019fb6e866d967c18c7b065b62be44ac0e5e88198c90fe30fec319",
+          "JapanTaxLaw/TreatyJPUSTieBreakerSpec.lean": "49dbc871576fc2a125755756b67559fb58782180543c6975193e1eb18da1971f",
+          "JapanTaxLaw/TreatyJPUSTieBreakerTests.lean": "ba8e0e7797ab99d4be8b4bf0620fc784a472e0bf2cb4569464d90fd023e3b2df"
         },
         "proof": "Lean 4.35.0 kernel; independent spec; no sorry/admit",
         "legal_review": "PENDING (separate axis)",
         "articles": [
           "第一条 (Article 1: scope of application)",
-          "第二条 (Article 2: taxes covered) — inTaxList set membership, treatyApplies disjunction for listed/successor taxes"
+          "第二条 (Article 2: taxes covered) — inTaxList set membership, treatyApplies disjunction for listed/successor taxes",
+          "第四条３ (Art.4(3): dual-resident tie-breaker cascade — first decisive criterion wins)"
         ]
       }
     },
