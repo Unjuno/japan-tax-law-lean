@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 145 | 327 | 44.34% |
+| laws with >=1 pinned literal check | 146 | 327 | 44.65% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 438 | n/a | n/a |
-| distinct article pins | 164 | 42584 | 0.39% |
-| pinned Lean modules (cross-law) | 876 | n/a | n/a |
+| pinned literal checks | 439 | n/a | n/a |
+| distinct article pins | 165 | 42584 | 0.39% |
+| pinned Lean modules (cross-law) | 887 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 487 |
+| unpinned Lean modules (not counted as verified) | 494 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 80 |
+| adversarial review sessions recorded | 81 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -223,6 +223,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `405M50000008001` 離島振興法第二十条の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令
 - `407AC0000000011` 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律
 - `407CO0000000029` 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行令
+- `409AC0000000110` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律
 - `409CO0000000363` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行令
 - `412CO0000000277` 関税等不服審査会令
 - `414CO0000000262` ポリエステル短繊維に対して課する不当廉売関税に関する政令
