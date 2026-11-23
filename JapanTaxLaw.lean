@@ -1079,6 +1079,9 @@ import JapanTaxLaw.InheritanceTaxSuperficiesValuationTests
 import JapanTaxLaw.LocalTaxCollectionStay
 import JapanTaxLaw.LocalTaxCollectionStaySpec
 import JapanTaxLaw.LocalTaxCollectionStayTests
+import JapanTaxLaw.TaxPenaltyTriggers
+import JapanTaxLaw.TaxPenaltyTriggersSpec
+import JapanTaxLaw.TaxPenaltyTriggersTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
