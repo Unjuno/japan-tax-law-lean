@@ -59,7 +59,7 @@
 ## 5. クロスロー・ピン整合（L1↔L3）
 
 ```text
-cross_law: scanned 1426 Lean files; 908 pinned modules consistent, 0 failed; 518 unpinned (not counted as verified); unresolved unenforced laws: 508CO0000000106, 508M60000040027
+cross_law: scanned 1450 Lean files; 918 pinned modules consistent, 0 failed; 532 unpinned (not counted as verified); unresolved unenforced laws: 508CO0000000106, 508M60000040027
 ```
 
 ## 6. 検証境界（誠実な宣言）
