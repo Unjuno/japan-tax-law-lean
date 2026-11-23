@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 139
+- with >=1 pinned literal check (semantic model): 140
 - with recorded human legal review: 0
 
 ## All laws
@@ -141,7 +141,7 @@ a completion flag.
 | `346AC0000000065` | コンテナーに関する通関条約及び国際道路運送手帳による担保の下で行なう貨物の国際運送に関す | 346AC0000000065_20120401_424AC0000000019 | CurrentEnforced | YES | ok | 28 | YES (1) | NO |
 | `346AC0000000089` | 自動車重量税法 | 346AC0000000089_20220401_504AC0000000004 | CurrentEnforced | YES | ok | 49 | YES (1) | NO |
 | `346AC0000000090` | 自動車重量譲与税法 | 346AC0000000090_20260401_508AC0000000002 | CurrentEnforced | YES | ok | 37 | YES (1) | NO |
-| `346M50000008013` | 自動車重量譲与税法施行規則 | 346M50000008013_20230401_505M60000008036 | CurrentEnforced | YES | ok | 38 | NO (0) | NO |
+| `346M50000008013` | 自動車重量譲与税法施行規則 | 346M50000008013_20230401_505M60000008036 | CurrentEnforced | YES | ok | 38 | YES (1) | NO |
 | `346CO0000000257` | コンテナーに関する通関条約及び国際道路運送手帳による担保の下で行なう貨物の国際運送に関す | 346CO0000000257_20171008_428CO0000000240 | CurrentEnforced | YES | ok | 40 | YES (1) | NO |
 | `346M50000040057` | コンテナーに関する通関条約及び国際道路運送手帳による担保の下で行なう貨物の国際運送に関す | 346M50000040057_20120401_424M60000040035 | CurrentEnforced | YES | ok | 8 | YES (1) | NO |
 | `346CO0000000275` | 自動車重量税法施行令 | 346CO0000000275_20230101_504CO0000000195 | CurrentEnforced | YES | ok | 24 | YES (1) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 240
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 244

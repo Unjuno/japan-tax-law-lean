@@ -1690,3 +1690,6 @@ import JapanTaxLaw.DividendTaxRateTests
 import JapanTaxLaw.RealPropertyAcquisitionTaxRate
 import JapanTaxLaw.RealPropertyAcquisitionTaxRateSpec
 import JapanTaxLaw.RealPropertyAcquisitionTaxRateTests
+import JapanTaxLaw.CarCountReferenceDate
+import JapanTaxLaw.CarCountReferenceDateSpec
+import JapanTaxLaw.CarCountReferenceDateTests
