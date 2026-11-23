@@ -905,6 +905,12 @@ import JapanTaxLaw.TreatyJPUSImmovableTests
 import JapanTaxLaw.DefinedTermNorms
 import JapanTaxLaw.DefinedTermNormsSpec
 import JapanTaxLaw.DefinedTermNormsTests
+import JapanTaxLaw.DefinitionalEquivalenceNorms
+import JapanTaxLaw.DefinitionalEquivalenceNormsSpec
+import JapanTaxLaw.DefinitionalEquivalenceNormsTests
+import JapanTaxLaw.SameAsNorms
+import JapanTaxLaw.SameAsNormsSpec
+import JapanTaxLaw.SameAsNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
