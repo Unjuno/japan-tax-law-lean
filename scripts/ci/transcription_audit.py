@@ -3384,6 +3384,13 @@ def checks():
            ["相続人が二人以上ある場合には、前項の申告書は、各相続人が連署して提出するものとする。"])
 
 
+    # 審議会規則 art. 9 — MeetingQuorumOneThird.lean
+    yield ("審議会規則 art. 9（三分の一以上の出席）↔ MeetingQuorumOneThird.lean (quorumDivisor 3, inclusive)",
+           "412CO0000000276",
+           "article", "第九条",
+           ["審議会は、委員及び議事に関係のある臨時委員の三分の一以上が出席しなければ、会議を開き、議決することができない。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

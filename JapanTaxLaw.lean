@@ -1711,3 +1711,6 @@ import JapanTaxLaw.RiceContentThresholdTests
 import JapanTaxLaw.JointHeirThreshold2
 import JapanTaxLaw.JointHeirThreshold2Spec
 import JapanTaxLaw.JointHeirThreshold2Tests
+import JapanTaxLaw.MeetingQuorumOneThird
+import JapanTaxLaw.MeetingQuorumOneThirdSpec
+import JapanTaxLaw.MeetingQuorumOneThirdTests
