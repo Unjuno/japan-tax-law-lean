@@ -3556,6 +3556,30 @@ def checks():
            "article", "第六条の九",
            ["直前事業年度の総収入金額のうちに当該直前事業年度の投資関連所得（利子所得、配当所得その他の総務省令、財務省令で定める所得をいう。ロにおいて同じ。）に係る収入金額の占める割合が百分の五十に満たないこと。"])
 
+    # 滅失建物等 art. 31 — AreaMultiplierSixTwo.lean
+    yield ("滅失建物等 art. 31（面積六倍・特例二倍）↔ AreaMultiplierSixTwo.lean (conditional multiplier x6 / x2)",
+           "423CO0000000112",
+           "article", "第三十一条",
+           ["り当該共用部分の床面積を按あん分して計算した面積を含む。））に六（前条第三項第一号の建物にあっては、二）を乗じて計算した面積と当該滅失建物等の敷地の用に供されていた土地の面積とのいずれか大きい面積とする。"])
+
+    # 公債収入 art. 2 — BondRevenueFiscalYear.lean
+    yield ("公債収入 art. 2（昭和51年度所属の歳入）↔ BondRevenueFiscalYear.lean (single-year FY attribution 51)",
+           "352AC0000000035",
+           "article", "第二条",
+           ["この場合において、当該公債に係る収入は、昭和五十一年度所属の歳入とする。"])
+
+    # 記録事項等 art. 5 — CombinableRecordItemsTwo.lean
+    yield ("記録事項等 art. 5（二以上の記録項目の組合せ）↔ CombinableRecordItemsTwo.lean (min 2 items, inclusive)",
+           "410M50000040043",
+           "article", "第五条",
+           ["二以上の任意の記録項目を組み合わせて条件を設定することができること。"])
+
+    # 高額適用額 art. 6 — RankedAmountCountTen.lean
+    yield ("高額適用額 art. 6（順位十件目までの算定）↔ RankedAmountCountTen.lean (rank cutoff 10, inclusive)",
+           "422M60000040022",
+           "article", "第六条",
+           ["この場合において、同号に規定する高額適用額は、その順位を付した適用額が十以上となるまでの適用額に順位を付した場合の第一順位から当該十以上となる順位までに該当する各適用額（第一順位の適用額が十以上となるときは、当該第一順位の適用額）とする。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
