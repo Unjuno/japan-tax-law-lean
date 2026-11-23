@@ -2337,12 +2337,6 @@ def checks():
            "file", None,
            ["米の含有量が全重量の三〇％を超えるもの", "第七条"])
 
-    # DeliberationQuorum — cycle-88
-    yield ("DeliberationQuorum.lean",
-           "412CO0000000276",
-           "file", None,
-           ["委員及び議事に関係のある臨時委員の三分の一以上が出席しなければ", "第九条"])
-
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3403,18 +3397,35 @@ def checks():
            "file", None,
            ["遅くとも、その納期限前十日までに納税者に交付しなければならない", "自動車税及び軽自動車税の徴収の方法等）第四条"])
 
-    # 租税条約等実施特例法施行令 art.6-3(16)(3) — TreatyAssetCeiling100K.lean (十万円以下)
-    yield ("租税条約等実施特例法施行令 art.6-3(16)(3)（特定取引契約資産額十万円以下）↔ TreatyAssetCeiling100K.lean (ceiling 100_000, 以下 inclusive)",
-           "362CO0000000335",
-           "article", "第六条の三",
-           ["令和七年十二月三十一日における対象特定取引に係る特定取引契約資産額が十万円以下であること。"])
+    # 罰金 三十万円以下 — LocalFine300k.lean
+    yield ("地方税法 art. 801（罰金 三十万円以下）↔ LocalFine300k.lean (localFineCap300k 300000)",
+           "325AC0000000226",
+           "file", None,
+           ["次の各号のいずれかに該当するときは、その違反行為をした機構の役員又は職員は、三十万円以下の罰金に処する。"])
+
+    # 発泡性酒類 アルコール分 十一度未満 — SparklingAlcohol11.lean
+    yield ("酒税法 art. 3（発泡性酒類 アルコール分 十一度未満）↔ SparklingAlcohol11.lean (alcoholLimit11 11)",
+           "328AC0000000006",
+           "file", None,
+           ["イ及びロに掲げる酒類以外の酒類で発泡性を有するもの（アルコール分が十一度未満のものに限る。以下「その他の発泡性酒類」という。）"])
+
+    # 多国籍企業グループ総収入金額 千億円以上 — GroupRevenue100B.lean
+    yield ("租税特別措置法 art. 66_4_4（多国籍企業グループ総収入金額 千億円以上）↔ GroupRevenue100B.lean (revenueFloor100B 100000000000)",
+           "332AC0000000026",
+           "file", None,
+           ["多国籍企業グループのうち、直前の最終親会計年度における多国籍企業グループの総収入金額として財務省令で定める金額が千億円以上であるものをいう。"])
+
+    # 被相続人 七十歳未満 — DeceasedUnder70.lean
+    yield ("租税特別措置法施行規則 art. 23_10（被相続人 七十歳未満）↔ DeceasedUnder70.lean (ageLimit70 70)",
+           "332M50000040015",
+           "file", None,
+           ["ただし、当該相続に係る被相続人が七十歳未満で死亡した場合は、この限りでない。"])
+
     # 相続税法施行規則 art. 11 — JointHeirThreshold2.lean
     yield ("相続税法施行規則 art. 11（相続人二人以上の連署申告）↔ JointHeirThreshold2.lean (heirFloor 2, inclusive)",
            "360CO0000000005",
            "article", "第十一条",
            ["相続人が二人以上ある場合には、前項の申告書は、各相続人が連署して提出するものとする。"])
-
-
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
