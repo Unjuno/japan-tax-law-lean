@@ -3547,6 +3547,13 @@ def checks():
            "article", "第六条",
            ["この場合において、同号に規定する高額適用額は、その順位を付した適用額が十以上となるまでの適用額に順位を付した場合の第一順位から当該十以上となる順位までに該当する各適用額（第一順位の適用額が十以上となるときは、当該第一順位の適用額）とする。"])
 
+    # 記録事項等 art. 5 — CombinableRecordItemsTwo.lean
+    yield ("記録事項等 art. 5（二以上の記録項目の組合せ）↔ CombinableRecordItemsTwo.lean (min 2 items, inclusive)",
+           "410M50000040043",
+           "article", "第五条",
+           ["二以上の任意の記録項目を組み合わせて条件を設定することができること。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
