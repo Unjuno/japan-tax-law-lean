@@ -920,6 +920,12 @@ import JapanTaxLaw.DelegationClauseNormsTests
 import JapanTaxLaw.InclusionScopeNorms
 import JapanTaxLaw.InclusionScopeNormsSpec
 import JapanTaxLaw.InclusionScopeNormsTests
+import JapanTaxLaw.DeterminationSourceNorms
+import JapanTaxLaw.DeterminationSourceNormsSpec
+import JapanTaxLaw.DeterminationSourceNormsTests
+import JapanTaxLaw.SavingsClauseNorms
+import JapanTaxLaw.SavingsClauseNormsSpec
+import JapanTaxLaw.SavingsClauseNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
