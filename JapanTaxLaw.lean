@@ -1040,6 +1040,9 @@ import JapanTaxLaw.MultiplicationOperatorNormsTests
 import JapanTaxLaw.DivisionOperatorNorms
 import JapanTaxLaw.DivisionOperatorNormsSpec
 import JapanTaxLaw.DivisionOperatorNormsTests
+import JapanTaxLaw.SubtractionOperatorNorms
+import JapanTaxLaw.SubtractionOperatorNormsSpec
+import JapanTaxLaw.SubtractionOperatorNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
