@@ -5014,6 +5014,17 @@
         16
       ]
     },
+    "TrainingPeriodOneYear": {
+      "adversarial_review": true,
+      "boundary_examples_found": 3,
+      "independent_spec": true,
+      "kanji_literals": [],
+      "kernel_attested": true,
+      "kernel_decided_examples": 9,
+      "needles_scoped": true,
+      "scoped_article_chars": 6233,
+      "spec_literals": []
+    },
     "TrustPensionReserve": {
       "adversarial_review": true,
       "boundary_examples_found": 3,
@@ -12512,6 +12523,20 @@
           "二十万"
         ]
       },
+      "NORM|f419b346978e27bf42b959afb590a4b25283346677b360f6c0c6e56d429b8c8f": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 9,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "TrainingPeriodOneYear",
+        "spec_kanji_in_原文": []
+      },
       "NORM|f490c62d6a0dab55b0c876c87ea3b2ee0b12290266772097bb3c588973e71f0c": {
         "checks": {
           "cross_law": true,
@@ -18883,6 +18908,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"200000\": [\"二十万\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329CO0000000150_20260701_508CO0000000217.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:61/Article#61/Paragraph#4/ParagraphSentence/Sentence#2 sha256=d0cb666639a6a62af17c1525c09c86c22b9e639b97e45fc7dbe8ace41f2eb166 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/Certificate200kTests.lean sha256=4e28c61c9c796e11f7100632e5fb6e3e85fe3487e7d3a845f75bb4366a7441a7 (11 kernel-decided examples)"
+    },
+    "NORM|f419b346978e27bf42b959afb590a4b25283346677b360f6c0c6e56d429b8c8f": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 9 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=403M50000040031_20260401_508M60000040010 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/TrainingPeriodOneYear.lean sha256=83d578f1a87efef09e2edffaaf67f91bb75fe93617d78e0185bef36492ce3d0d",
+      "independent_spec": "JapanTaxLaw/TrainingPeriodOneYearSpec.lean sha256=cf6400401da6d39f851e7193b6db388460c4a02d6a912d6be8089f1f20fce4cb (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45232920308: commit 0924540f345967ff234f744cfc15c5b58d2cbc59, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=pinned needle(s) in clause: ['修業期間が一年以上であること。']; constants [] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['修業期間が一年以上であること。']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/403M50000040031_20260401_508M60000040010.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:3/Article#3/Paragraph#6/Item#1/ItemSentence/Sentence#1 sha256=05474a3f79500c643a169b991d9a1cefe7d03dea229849424d511a9f3db13816 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/TrainingPeriodOneYearTests.lean sha256=26a8ff5ca18d59eca6e73028a0a95e702b34c604a7244157fe4b99f05b1280f7 (9 kernel-decided examples)"
     },
     "NORM|f490c62d6a0dab55b0c876c87ea3b2ee0b12290266772097bb3c588973e71f0c": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
