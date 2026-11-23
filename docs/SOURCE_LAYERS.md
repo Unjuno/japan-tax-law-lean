@@ -32,7 +32,7 @@ layer is never folded into the statutory ledger.
 ## Ordinance acquisition
 
 - index: Doshisha 条例Webアーカイブ (third-party academic aggregator, NOT an official original) (third-party aggregator, NOT an official original)
-- index reported hits: 14611; ACQUIRED_PINNED official pages: 105
+- index reported hits: 14611; ACQUIRED_PINNED official pages: 228
 - verification_status: OUT_OF_SCOPE (pinned only; all-municipality coverage NOT claimed)
 
 | layer | label | legal nature | acquisition | scope | count | verification |
@@ -50,8 +50,8 @@ layer is never folded into the statutory ledger.
 
 - normative_units_total: unknown
 - fully_verified_units: 144001
-- proved_scope_units: 221447
-- not_started_units: 31404
+- proved_scope_units: 221953
+- not_started_units: 30898
 - blocked_units: 2
 - human_legal_reviews: 0
 
