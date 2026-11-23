@@ -1064,6 +1064,9 @@ import JapanTaxLaw.InheritanceTaxDebtForgivenessTests
 import JapanTaxLaw.InheritanceTaxLiability
 import JapanTaxLaw.InheritanceTaxLiabilitySpec
 import JapanTaxLaw.InheritanceTaxLiabilityTests
+import JapanTaxLaw.GiftTaxLiability
+import JapanTaxLaw.GiftTaxLiabilitySpec
+import JapanTaxLaw.GiftTaxLiabilityTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
