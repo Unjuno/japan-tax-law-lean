@@ -1094,6 +1094,12 @@ import JapanTaxLaw.ResidentialLandTaxBaseTests
 import JapanTaxLaw.LocalTaxAgencyStatus
 import JapanTaxLaw.LocalTaxAgencyStatusSpec
 import JapanTaxLaw.LocalTaxAgencyStatusTests
+import JapanTaxLaw.MiningTaxMonthlyProration
+import JapanTaxLaw.MiningTaxMonthlyProrationSpec
+import JapanTaxLaw.MiningTaxMonthlyProrationTests
+import JapanTaxLaw.FixedAssetTaxDetail
+import JapanTaxLaw.FixedAssetTaxDetailSpec
+import JapanTaxLaw.FixedAssetTaxDetailTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
