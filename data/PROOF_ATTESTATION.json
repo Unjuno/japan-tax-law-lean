@@ -1,9 +1,9 @@
 {
-  "commit": "017d59efc71f4a36aa13b8368a7d054574c62240",
+  "commit": "c77aa602f54faea941142628da90c9469db561ec",
   "jobs": {
     "Build Lean project and check axioms": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45049659458/job/137291765164",
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45129788423/job/137542410949",
       "required_steps": [
         "Build explicitly",
         "No sorry/admit in adopted proofs",
@@ -14,7 +14,7 @@
     },
     "Semantic audit and mutation injection": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45049659458/job/137291765408"
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45129788423/job/137542410617"
     }
   },
   "modules": {
@@ -224,6 +224,15 @@
     },
     "CapitalOneBillionExcessTests.lean": {
       "sha256": "da059206d66a151655c1af08041996f342ecd89748f177f2f3ad3399d8db702e"
+    },
+    "CarCountReferenceDate.lean": {
+      "sha256": "e5b19f58b987ffc679fa21220eed0424d075cbb9a3cec1c06c52fce64962b47a"
+    },
+    "CarCountReferenceDateSpec.lean": {
+      "sha256": "363dd72941474544fd5ca1d2c3c94fb283d32cb41876c1e4c6a5b38b7d1f753f"
+    },
+    "CarCountReferenceDateTests.lean": {
+      "sha256": "cf4136bc2fd59a306ddc67d420bafa1e7826f44ca3b08860589eb44658fb9893"
     },
     "CarnetImportGoods.lean": {
       "sha256": "bb38ac0205b3b344e00e28248ccb28921efa7aeeccaea4666cdfb7b06bc4f21b"
@@ -459,6 +468,15 @@
     "CorporateTaxRateTests.lean": {
       "sha256": "8526759adb05250216391bcfc12e6863c90dc4f0f9f4f3a66dd80b902422ff30"
     },
+    "CouncilMemberCap30.lean": {
+      "sha256": "50e13679b858a96e09433218d2fe416bcbefbdb8eee5a91158a0ffae8f6d5ddf"
+    },
+    "CouncilMemberCap30Spec.lean": {
+      "sha256": "2b13a38f04732238f4e9c6b2c955c2e382bbee49f61e8e878f2a8d46eb181909"
+    },
+    "CouncilMemberCap30Tests.lean": {
+      "sha256": "0ae8fbae6583950a0764ad1d06b78bbc8999d18eecdc0eeb07afddff92a59fcd"
+    },
     "CourseHoursThreshold.lean": {
       "sha256": "8bc6cf8e63b8062df052a05ef7ddc33ed11de87b835da787ab1eadd307f8ce3c"
     },
@@ -612,6 +630,51 @@
     "CustomsStorageFeeTests.lean": {
       "sha256": "a551e7e295d6dd76ae0320d58dafdd852257fb8b09568a64b507825775bc82f4"
     },
+    "CustomsTariffArt12MiningEmergencyCondition.lean": {
+      "sha256": "cc32283f657803a2e941382f7492db512446972d401af8fd542ae456413c12cf"
+    },
+    "CustomsTariffArt12MiningEmergencyConditionSpec.lean": {
+      "sha256": "09a27e0a421fdffccf37fecd407df2ae8b30d35cb3c0f0de22998970c2636c75"
+    },
+    "CustomsTariffArt12MiningEmergencyConditionTests.lean": {
+      "sha256": "ace5ee13976ab5fa1098f9e07c2ad34a9cde11e6f022f77e663751a2d5a67d5a"
+    },
+    "CustomsTariffArt13Para7ProvisoException.lean": {
+      "sha256": "c590017d4691730baf287510c569c5ef04f14004a8cbd0795a4c6194d50227ad"
+    },
+    "CustomsTariffArt13Para7ProvisoExceptionSpec.lean": {
+      "sha256": "6b8a10582eadc74ceee7fca2dbee49608ff787f4e07ba9643488e31f3c9a4830"
+    },
+    "CustomsTariffArt13Para7ProvisoExceptionTests.lean": {
+      "sha256": "42624ffa99bb55e959ae85b049411ac7320498a84ae979d427193904f09d3663"
+    },
+    "CustomsTariffArt14DisabledPersonEquipmentDelegation.lean": {
+      "sha256": "bb96e92b0ab68997e53524e988a6563416926ed300526e85ad92fa5ce28814c9"
+    },
+    "CustomsTariffArt14DisabledPersonEquipmentDelegationSpec.lean": {
+      "sha256": "029c338c5214d95a0f3d5247e853ff36fb389fcdf516894d2e02f53426084364"
+    },
+    "CustomsTariffArt14DisabledPersonEquipmentDelegationTests.lean": {
+      "sha256": "a876ba7f7f4154a154fffd0cb1f34c654da6e2b8c7d3d08ab69e4856588f431b"
+    },
+    "CustomsTariffArt14Item10ProvisoReading.lean": {
+      "sha256": "48abd096694dd53c6e53651db2c21d3a84d7a482ba43e93cceea24f41fef27b3"
+    },
+    "CustomsTariffArt14Item10ProvisoReadingSpec.lean": {
+      "sha256": "9ff95792128052e1ac9eee120484eefe09fb39df4616fab46c5e0464ad2aca06"
+    },
+    "CustomsTariffArt14Item10ProvisoReadingTests.lean": {
+      "sha256": "8a6f946cafb13f1a8797f110308feae910ef6718fbb12142c3092f4fbe7dfd71"
+    },
+    "CustomsTariffArt14ProvisoReading.lean": {
+      "sha256": "796fae35fe3ad8bcf57681ea7ee787ea23b37d3a67b05cfe89877fb7ef3ed6b6"
+    },
+    "CustomsTariffArt14ProvisoReadingSpec.lean": {
+      "sha256": "86400939dafb2e0e1431e457a9a02f3bc2e5386593e9c02101b19fd1b751bb81"
+    },
+    "CustomsTariffArt14ProvisoReadingTests.lean": {
+      "sha256": "e9c457f71156cc4d1c8c7211e26c2a17f56c8cb07e49dd72dcec1115516de48c"
+    },
     "CustomsTariffArt14SamplesOrLowPriceException.lean": {
       "sha256": "2662408451ea15cae627a2ca58cdca14c70e2159f59fa5de62f9eaa57a0a2171"
     },
@@ -629,6 +692,69 @@
     },
     "CustomsTariffArt14UnconditionalExemptionTests.lean": {
       "sha256": "a5a20844c3f06b94ed92feade7bc3b1f12479ee890d2e1b68e05643e3c3f04e4"
+    },
+    "CustomsTariffArt15ReligiousGiftDelegation.lean": {
+      "sha256": "7f12d3cd89a461f463545b7ab7a4e8a1ea2d9c30906018e03fd6285296b5f678"
+    },
+    "CustomsTariffArt15ReligiousGiftDelegationSpec.lean": {
+      "sha256": "b72c6d237b76020baa16fe7541bf70ecf1471f15bac41e3222bb3623b2606da7"
+    },
+    "CustomsTariffArt15ReligiousGiftDelegationTests.lean": {
+      "sha256": "a026ff4a638674e34053fc82f1509425785c2d8ff79cffd309c47a39cc6c546a"
+    },
+    "CustomsTariffArt17ContainerDelegation.lean": {
+      "sha256": "5af8cce6533f1d194a1c74764c3148e8bab26f14f9c017693f66a6bab12bc862"
+    },
+    "CustomsTariffArt17ContainerDelegationSpec.lean": {
+      "sha256": "c558448f5573bf2d813abb1265b432db4039a894760213e4c2fa99c7b324c51f"
+    },
+    "CustomsTariffArt17ContainerDelegationTests.lean": {
+      "sha256": "1333bf5b485d382d4f4fc9460d9184c69985c3fd9bf91df3cc909702168fcd9c"
+    },
+    "CustomsTariffArt17DutyExemptionReading.lean": {
+      "sha256": "e7c6d0c3a24797087454f46dc6896fddb00f7a1b15f37cd133e76d43b0e6f989"
+    },
+    "CustomsTariffArt17DutyExemptionReadingSpec.lean": {
+      "sha256": "8d2afb19c44b95cfbb8aab34aa8e2a2549354c34ca6d273946cd81b51a0ba1d5"
+    },
+    "CustomsTariffArt17DutyExemptionReadingTests.lean": {
+      "sha256": "60cf1e088007301ce07946e27b1e73eb5a6d48276b85ddaf3d9229624dc8c575"
+    },
+    "CustomsTariffArt17ExportContainerDelegation.lean": {
+      "sha256": "823ce2113d1cb623ad4d6deb44f5a775f067429222a44b3df49d18e5fb087160"
+    },
+    "CustomsTariffArt17ExportContainerDelegationSpec.lean": {
+      "sha256": "32812551796aa6603435153ffebff3c34b41f88fb787f49b96f16428b6064a18"
+    },
+    "CustomsTariffArt17ExportContainerDelegationTests.lean": {
+      "sha256": "a4835001c89dde0e73a350dd448dae825f296f27e41300bc27f56dea319b331d"
+    },
+    "CustomsTariffArt18PrevPara3ReliefReading.lean": {
+      "sha256": "2743171965eadaffa51be5cda2a8f7c79b1c3f465c842aa51fe534e91ffe95ff"
+    },
+    "CustomsTariffArt18PrevPara3ReliefReadingSpec.lean": {
+      "sha256": "9c9f1d902165fae566371f326e12348dedb5431cdbc8d409d2d37692aa30e925"
+    },
+    "CustomsTariffArt18PrevPara3ReliefReadingTests.lean": {
+      "sha256": "222584445429ebcb97423bf2dbdbbf9ec923eed8ae5cc4b2fd87cb323bd3d9d2"
+    },
+    "CustomsTariffArt18PrevPara5Reading.lean": {
+      "sha256": "c721d155a21cd1aea3baf8ac8cd5d84d717fc87e717d6247a8b9ad0d5aaa912a"
+    },
+    "CustomsTariffArt18PrevPara5ReadingSpec.lean": {
+      "sha256": "09bdc3e8586eb8033e896c5f43c1f98e0dcb5790eae3c7d004eb884f24199a21"
+    },
+    "CustomsTariffArt18PrevPara5ReadingTests.lean": {
+      "sha256": "9b81b9452fe7f060ba48c4b0ce3fb1e41940d4be2c66ac2cf9b742d8da72be23"
+    },
+    "CustomsTariffArt19Art13Para7ProvisoReading.lean": {
+      "sha256": "bbb55e48700b22da11d00e2be3a001ff2b6a8bfbb9eceed1017a595bf8ce6719"
+    },
+    "CustomsTariffArt19Art13Para7ProvisoReadingSpec.lean": {
+      "sha256": "1bc5ac5a1662c35eedde234a2b49100843d42b630e608bc9d312e7accb09d6d5"
+    },
+    "CustomsTariffArt19Art13Para7ProvisoReadingTests.lean": {
+      "sha256": "99f9507c20867271b3bd7c9f12a489b1e84d7810dfd06f74b38bfcc383783665"
     },
     "CustomsTariffArt1EnforcementDate.lean": {
       "sha256": "9c4cd5dee9cfb7be4eb0e365207b627127a41e30b909d72a7859f52486abb4e8"
@@ -891,6 +1017,15 @@
     "CustomsValueAfterDamageTests.lean": {
       "sha256": "871843f70ac4ffa2cd616255d604fe45bc06edaa872e2075452e9658e4993901"
     },
+    "DeceasedUnder70.lean": {
+      "sha256": "ea820bb5cb3220f0065e6ca42713394c73541516c895eb9380ba10a18412bf27"
+    },
+    "DeceasedUnder70Spec.lean": {
+      "sha256": "cf25aa62509784047b8a9c5723a901a178528047d94d04e40f17d09f05cf2a89"
+    },
+    "DeceasedUnder70Tests.lean": {
+      "sha256": "7e0ff9d03663ad7a80a71e322a1fdf313eeb0c1a5a746e08d56f86e0e52cbabc"
+    },
     "DeemedCapitalGainsCost.lean": {
       "sha256": "7ef5335c40f7b18c9944345af995ed2a3d3768dd0af47ddca0240022c0c797a4"
     },
@@ -1007,6 +1142,15 @@
     },
     "DiscountBondRefundTests.lean": {
       "sha256": "26812a51b853f9ef44b3add1e4fd41c192737de46ef8d6053a4c6b19e1ce57ce"
+    },
+    "DividendTaxRate.lean": {
+      "sha256": "a21afb6f6332e7d891f64e5d3941f7afeea379742380d9f6b9790cb4fdd559bc"
+    },
+    "DividendTaxRateSpec.lean": {
+      "sha256": "a78468c98c2d62bf8ba25847db8374d95bb0cc81dbe61341120df8ad5f55f166"
+    },
+    "DividendTaxRateTests.lean": {
+      "sha256": "239c803b9b612e639941149238f5878c1b1a8ca4de80e1b22f427028b63d981d"
     },
     "DonationAggregateStrictLimit.lean": {
       "sha256": "eccb2bfdc083b6ab20ef68c83578f08ee874cfebdd9708ead8375ce6b36d7a23"
@@ -1133,6 +1277,15 @@
     },
     "FiscalYearMonthProrationTests.lean": {
       "sha256": "b5abeb0b380f88aba7ced3c0d7703bd200f512b3d29350d804e956ebad958035"
+    },
+    "FixedAssetEvalEnforcementDate.lean": {
+      "sha256": "cc1652c3646091bd6d7182949240c0c05565ee4505bbac7fe6152bece5e81bc7"
+    },
+    "FixedAssetEvalEnforcementDateSpec.lean": {
+      "sha256": "ab292ddf63e6a7c007bf601b8ba478a18c7baeeab442431fab82746da56b4370"
+    },
+    "FixedAssetEvalEnforcementDateTests.lean": {
+      "sha256": "9cf40f4a0a5f08240b1b68b8443700822cab2354b803cc47364b14cc2023b4c7"
     },
     "ForeignCorpResidualRate.lean": {
       "sha256": "6b605c59e44f63027df2999d8a101d7f46fab4f9630910034ee481ccf28b8047"
@@ -1277,6 +1430,24 @@
     },
     "GroupLossRatioTests.lean": {
       "sha256": "d06c96119fb0701cf4a906904a69a9c395d0b5fd156423d19707db47cf100dab"
+    },
+    "GroupRevenue100B.lean": {
+      "sha256": "66c88a40088220ff1facede924b29d6f4fb8ed0a429bb51f73aace3989f2cff8"
+    },
+    "GroupRevenue100BSpec.lean": {
+      "sha256": "b624e8a75c218e1841d6f2c3e5d951d827c7c751d889794296e6d316de39dd06"
+    },
+    "GroupRevenue100BTests.lean": {
+      "sha256": "90be3fe879bd701956e7d6de9c302427741ae47725304c103a4225ce4cd4a900"
+    },
+    "HousingLoanCredit.lean": {
+      "sha256": "2b277ae2b59dd07d5913c74d69533d0b8ff6487e709b7afba9f7b637e1f6be84"
+    },
+    "HousingLoanCreditSpec.lean": {
+      "sha256": "98b426e1dddb7ad53c4f1390ff86d65b69ef6bbe91cb5cbabbafcf1b5b94a6d0"
+    },
+    "HousingLoanCreditTests.lean": {
+      "sha256": "a3090cb78fc61573693eebeb410655e749850bf313639ccf67a5210992894bd3"
     },
     "ImportValueCap200k.lean": {
       "sha256": "495e0ec8e203d8f01bc1d776ec4153236825ee767186fe24bba684e3f9544f37"
@@ -1791,6 +1962,15 @@
     "LocalCorporationTaxRateTests.lean": {
       "sha256": "122f61db1b2a600aa70a7ece2249381480fc3941be2f4ef38c75c20d391e42e9"
     },
+    "LocalFine300k.lean": {
+      "sha256": "fcf77155e422dd4851b947408cf69b24345da5c079fb9281511c2282b7c3149d"
+    },
+    "LocalFine300kSpec.lean": {
+      "sha256": "e00955555aa0c5e30d0a9b681ddc2cf0a28633ed95db715b13d5b948c558057d"
+    },
+    "LocalFine300kTests.lean": {
+      "sha256": "733b3b6e08e1d4230c40e266e584d6a5ca1eaf9dae7363cdcf6fbe8190288717"
+    },
     "LocalGasolineTaxRate.lean": {
       "sha256": "a521cf2bdf620dfc2e17f6a56ae461b56021f0c9fe2669adac69f5ab2fc6c1f7"
     },
@@ -2061,6 +2241,15 @@
     "LowAlcoholDutySpecialRateTests.lean": {
       "sha256": "ceec79b2756347fecdf77b3c388a088b248775f52c2723c764afea3800c59d25"
     },
+    "MachineryCostExcess1M.lean": {
+      "sha256": "a3f40e397bd0d2a04862ac2f80d0b9251c223f81b7c02e7e630f970426a79e4f"
+    },
+    "MachineryCostExcess1MSpec.lean": {
+      "sha256": "90de52e1fc1dae4cb7f52d819b852b12211702a2b564a9f0e97c9a864c518d92"
+    },
+    "MachineryCostExcess1MTests.lean": {
+      "sha256": "48f4d0a0c010698e1d3275aaeec1b7fc07417adfb4b62e576a5c5207304b07b8"
+    },
     "MaxLengthMultiplier115.lean": {
       "sha256": "a28d73b98f3d597bdde5451f6d3c66da2180e560809c7587884263b004c7306f"
     },
@@ -2115,6 +2304,15 @@
     "NationalTaxCommonDelegatedAmountTests.lean": {
       "sha256": "93f0279b4a8d4212de79a4a929acd5d5e025594c72e9d0aee5e2c4ef36147ff5"
     },
+    "NickelContent.lean": {
+      "sha256": "8342cd57f3f07d0974c4a4933cf051090a3c1dbd1f3ee7c02556daa29c6a9da8"
+    },
+    "NickelContentSpec.lean": {
+      "sha256": "07f9d2f6162ff9d22f1d9e3332db33bff5c2e4ac8fe94fc7f881ff68da12e04a"
+    },
+    "NickelContentTests.lean": {
+      "sha256": "2ca5b7342b6fc68bd16408728d6df408be56eba8f594de1dc7fa39da6d16f657"
+    },
     "NickelContentThreshold.lean": {
       "sha256": "13bfa7818286fde365f1b94d3c633083171a8fcf3a1db23f8dfdff66c101fd55"
     },
@@ -2132,6 +2330,15 @@
     },
     "NonTaxSavingsCeilingTests.lean": {
       "sha256": "0cd1f4fc72566b27d6d1b0adb44beedb04a4f181193378662d4e31e7fc291d4d"
+    },
+    "NonUniformRateCap.lean": {
+      "sha256": "44f94e8f56c2d1675d0b4f9ad76348e1d5e730db73d3832ada26fd7c5224408a"
+    },
+    "NonUniformRateCapSpec.lean": {
+      "sha256": "41a6234bdd069396ccca35f8b282538d76567f0b983920b9d2d18abcace0a4e8"
+    },
+    "NonUniformRateCapTests.lean": {
+      "sha256": "73b8cc598a0c7dca3f2766597f177d2c90b0aa42357ab3d88759460b087e3c1a"
     },
     "NonpaymentSurcharge.lean": {
       "sha256": "630188d67855f29f2a66a7d256c59175afbb3089d4d06fe9afd1cc0f0e412601"
@@ -2222,6 +2429,15 @@
     },
     "PassengerCapacityTests.lean": {
       "sha256": "0f5343b3ceaa9d3e83380dbb7ae83c08b8c6f9eafa72af34a35c3c8c0d047eb3"
+    },
+    "PaymentCeiling.lean": {
+      "sha256": "97910e3c693352511bb2c306d025b30adfecd2871f7509fd03b56494c891a40d"
+    },
+    "PaymentCeilingSpec.lean": {
+      "sha256": "f9aa1e7c2952a17253118e70d7807b40498fd24aaf6a100854d3595a41fd8e47"
+    },
+    "PaymentCeilingTests.lean": {
+      "sha256": "a943d2db22ce251ac06b35ae95beb3530c899c5a8185d02311bd7d34ddf10805"
     },
     "PaymentDeadline.lean": {
       "sha256": "23614503f9d500f166ad3cd1d8f780398507c69d9e8964d283cee1f7d97a5c00"
@@ -2474,6 +2690,15 @@
     },
     "ReadingSubstitutionMunicipalTests.lean": {
       "sha256": "599080d9e52e851967c568fcde61ff28248845fabb3d77ff3b86cdf8a05f4a61"
+    },
+    "RealPropertyAcquisitionTaxRate.lean": {
+      "sha256": "05e914484d47c43af4bc777bc8b88b77f60050b797551e16374b409ace46d03d"
+    },
+    "RealPropertyAcquisitionTaxRateSpec.lean": {
+      "sha256": "54c45ce806146fa7d7898076d375dd16f1971f6ab6c7440b983737daa5aa72c7"
+    },
+    "RealPropertyAcquisitionTaxRateTests.lean": {
+      "sha256": "ca5797d1098748e665a55cf0ca95b7e1bd395a60e6aec2d486cf49303b0365e4"
     },
     "ReformDoubleBasicDeduction.lean": {
       "sha256": "5e9b79bd89144a9954de43ab4ce83588180d4ca11541fdd932e5607732a54562"
@@ -2889,6 +3114,24 @@
     "RetainedAmountLocalTaxTests.lean": {
       "sha256": "ed8b3da38d1c0b12d7f8b729bb2a0ce2b00c1f161c451b2eec60c09ca5f021c3"
     },
+    "RiceContentThreshold.lean": {
+      "sha256": "ddc747f3fb7a7a5bad984ab535e3879d95ef5de0daa48464de6c3d777f443a4d"
+    },
+    "RiceContentThresholdSpec.lean": {
+      "sha256": "6f35d1816f7f01dda4763ee491c6be2e350ab2db0d8323ce235307eed42569e5"
+    },
+    "RiceContentThresholdTests.lean": {
+      "sha256": "71cc7ae36b26cce5f4c41ba3e2ca2309d4f66e702051b2a725f2d9227bfef118"
+    },
+    "RoadAreaRate.lean": {
+      "sha256": "d44baece595aa8338d14fe9ce4625e9a54266ff292c911da51a7df073c35b319"
+    },
+    "RoadAreaRateSpec.lean": {
+      "sha256": "1b6a121cab46b8632e580c2c6d8cfd878f84f42ab96bd3526cb03c3979d1a839"
+    },
+    "RoadAreaRateTests.lean": {
+      "sha256": "4f99ebf297c44000df5623599ba087601cd5d09b0739c82205fabb58df371697"
+    },
     "RoadGrantAllocation.lean": {
       "sha256": "55b384584cdcd471f46695f1aa65cacb0448f283c903c8572be9977b0c73eb3a"
     },
@@ -2969,6 +3212,15 @@
     },
     "SocialInsuranceMutualAidDeductionTests.lean": {
       "sha256": "014fdef236e857e93c61be7fd89cb16a63b45f6ba980f90596eb601eb419cd32"
+    },
+    "SparklingAlcohol11.lean": {
+      "sha256": "4363cfd1aa9c608585a67babae7aaec0466dd33b5a6f287eebc154cf95cbb7e1"
+    },
+    "SparklingAlcohol11Spec.lean": {
+      "sha256": "73047405cba2b9b4926400fae0b2ac51ebe99783214fb0e1cd30e713d6b31374"
+    },
+    "SparklingAlcohol11Tests.lean": {
+      "sha256": "a0cd2ce981f37d5ebfa6b9fc89ff9da8eba0f3288d4189ef022a61b4c665f21a"
     },
     "SpecialBaselineIncomeTax.lean": {
       "sha256": "b654d6e7d0f9b405cff5fc2dc4b08b949cb11e4edddeaa32398209319ca3e448"
@@ -3294,6 +3546,15 @@
     "TaxJudgeCountTests.lean": {
       "sha256": "5f607d079569663670090a0448ba14ade3de93df3e34797b300e80694ce3a650"
     },
+    "TaxNoticeDeadline.lean": {
+      "sha256": "4101a24b7ea2b440569bffe2b09ff42f1c8b06c847159e912382fc521e4c174e"
+    },
+    "TaxNoticeDeadlineSpec.lean": {
+      "sha256": "fddc74eeb99a8adb99cc610528cd4e7d800b33bb0bf92519b8e245360906e2fb"
+    },
+    "TaxNoticeDeadlineTests.lean": {
+      "sha256": "fc7a57dcfe6fc6647a78f2f3536d17257e5d05a50a4c86a2b4b3295afad1dbd8"
+    },
     "TaxRounding.lean": {
       "sha256": "91bd22daa7eb7a81d9db2fa99ebf7899d5caacf024e07bac9e8b88a800002b97"
     },
@@ -3532,5 +3793,5 @@
   "note": "Kernel-build attestation. Hashes are SHA-256 of the committed blob bytes (LF-normalised). CI run is a recorded, independently reproducible build of the exact commit; the generator re-checks every hash before accepting it as evidence.",
   "run_conclusion": "success",
   "schema": 1,
-  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45049659458"
+  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45129788423"
 }
