@@ -1100,6 +1100,9 @@ import JapanTaxLaw.MiningTaxMonthlyProrationTests
 import JapanTaxLaw.FixedAssetTaxDetail
 import JapanTaxLaw.FixedAssetTaxDetailSpec
 import JapanTaxLaw.FixedAssetTaxDetailTests
+import JapanTaxLaw.ConditionalTriggerNorms
+import JapanTaxLaw.ConditionalTriggerNormsSpec
+import JapanTaxLaw.ConditionalTriggerNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
