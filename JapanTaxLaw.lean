@@ -1693,3 +1693,6 @@ import JapanTaxLaw.RealPropertyAcquisitionTaxRateTests
 import JapanTaxLaw.CarCountReferenceDate
 import JapanTaxLaw.CarCountReferenceDateSpec
 import JapanTaxLaw.CarCountReferenceDateTests
+import JapanTaxLaw.FixedAssetEvalEnforcementDate
+import JapanTaxLaw.FixedAssetEvalEnforcementDateSpec
+import JapanTaxLaw.FixedAssetEvalEnforcementDateTests

@@ -9526,3 +9526,129 @@ Python で Lean と同一の整数式 `base * 4 // 100` を再計算し、指定
 - 残る UNRESOLVED（U-Z1 端数処理の法的正当性、U-Z2 標準税率と条例別税率の関係・課税標準・申告手続の未形式化の法的十分性）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・漢数字変換による税率照合・needle の `.find()` 検証・integer 式の反例走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+## Batch CA review (2026-11-23) — 自動車重量譲与税法施行規則 art.3の2 / CarCountReferenceDate.lean（cycle-84 独立原文照合）
+
+### CA-0. 範囲・独立性の申告
+
+- **レビュア役割**: Adversarial Review Agent。形式化担当とは独立に、pinned 原文 JSON・CI `checks()` の実文字列・Lean モジュールを機械的に再走査し、担当者の STAGING／doc-comment を**信じず**に判定した。
+- **対象モジュール（読み取り専用・本レビューで一切変更していない）**:
+  - `JapanTaxLaw/CarCountReferenceDate.lean`（impl: `referenceYear` / `referenceDate`、`by decide` example 4 件）
+  - `JapanTaxLaw/CarCountReferenceDateSpec.lean`（`specYear` / `specDate` / `agreeCarCountReferenceDate`）
+  - `JapanTaxLaw/CarCountReferenceDateTests.lean`（`by decide` smoke 3 件）
+- **一次資料（pinned・改変禁止）**: `data/raw/346M50000008013_20230401_505M60000008036.law.json`
+  - Python で直接確認: `revision_info.law_revision_id = 346M50000008013_20230401_505M60000008036`、`amendment_enforcement_date = 2023-04-01`、`current_revision_status = CurrentEnforced`、SHA-256(bytes) = `3f10bc7ec1c64f2b8c27614d71334bfb6f7324c061c27023e9ac936ee9731631`。
+  - **出典の不整合（明示）**: タスク提示の `data/raw/346M50000008013_20260801_507M50000008014.law.json` はリポジトリに**存在せず**、`346M50000008013.revisions.json` にも `507M50000008014`／`20260801` の revision は記載がない（実在するのは `...20270401_508M60000008119`＝UnEnforced と `...20230401_505M60000008036`＝CurrentEnforced 等）。`data/INVENTORY.json` の `raw_snapshot.source_file` および impl／Spec／Tests の doc-comment も一貫して `...20230401_505M60000008036` を pin している。したがって本レビューは**実在する pinned revision** を唯一の根拠とした。提示 revision との同一性は検証不能（U-C3）。
+- **抽出方法**: `law_full_text` を自前の平坦化（辞書の `children` 再帰連結）と自前正規化 `re.sub(r"[\s\u3000]+", "", s)` で処理し、`Article` ノードを走査して `attr.Num = 3_2`（条号 `第三条の二`）を **1 件**に同定。needle は CI 実装 `scripts/ci/transcription_audit.py` の `checks()`（line 2280–2283）に組込まれた実文字列 **2 本**をそのまま使用（手打ち・STAGING コピーなし）。
+- **書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ**。Lean モジュール・Spec・Tests・`data/*`・CI スクリプトは読み取り専用。commit / push / merge / ブランチ切替は行っていない。
+
+### CA-1. 原文直接抽出と「前年の四月一日現在」の独立照合
+
+pinned 原文の `Article Num=3_2` から独立抽出した平坦化文字列（正規化後 **70 文字**、U+3000 **0 個**）:
+
+- `（自家用の乗用車の台数の算定）第三条の二法第二条の二第一項の自家用の乗用車の台数の算定は、毎年度、前年の四月一日現在において行うものとする。`
+
+本文（見出し・条号を除く文）はタスク提示の原文逐語と完全一致:
+
+- `法第二条の二第一項の自家用の乗用車の台数の算定は、毎年度、前年の四月一日現在において行うものとする。`
+
+| 項目 | 独立抽出結果 | Lean 実装 | 照合 |
+|---|---|---|---|
+| 基準年 | `前年` → 年度から 1 を引く | `referenceYear(y) = y - 1`（Nat） | ✅ |
+| 基準月日 | `四月一日現在` → 4 月 1 日 | `referenceDate(y) = (y-1, 4, 1)` | ✅ |
+| 算定頻度 | `毎年度` → 年度ごとに算定 | 年度 `fiscalYear` を入力とする関数として表現 | ✅ |
+| 根拠条文 | `法第二条の二第一項` の自家用乗用車 | doc-comment に逐語保持（台数算定ロジック自体は NOT MODELLED） | ✅ |
+| 正規化文字数 | 70 文字 | doc-comment の `70 chars, U+3000 count 0` と一致 | ✅ |
+
+- **混同の明示除外**: 自前正規化した対象条文内で `当年の四月一日` = **0 回**、`当年の四月一日現在` = **0 回**、`前年の三月三十一日` = **0 回**、`三月三十一日` = **0 回**。したがって「当年の四月一日」や「前年の三月三十一日」を基準日とする解釈は原文に根拠がなく、**明示的に除外**した。採られるべきは `前年の四月一日` = **1 回**、`四月一日現在` = **1 回**、`毎年度` = **1 回** のみ。
+- 月日逆転（`四月一日` を 1 月 4 日と読む）も原文の漢字表記 `四月一日` により除外し、`(…, 4, 1)` が正しい。
+
+### CA-2. needle 健全性（CI 実文字列 2 本を自前正規化原文で検証）
+
+`scripts/ci/transcription_audit.py` の `checks()` うち `CarCountReferenceDate.lean`（law `346M50000008013`）の **2 本**を抽出し、自前で平坦化・正規化した対象条文（70 文字）および法律全文に対して `.count()` を実行した（STAGING の「FOUND」申告は信じていない）。
+
+| needle（CI 実文字列） | U+3000 | 正規化文字数 | 対象条文内 count | 法律全文 count | 結果 |
+|---|---:|---:|---:|---:|---|
+| `自家用の乗用車の台数の算定` | 0 | 13 | 2 | 3 | **FOUND** |
+| `前年の四月一日現在において行うものとする` | 0 | 20 | 1 | 2 | **FOUND** |
+
+- **U+3000（全角空白）を含む needle: 0 件**。**2/2 FOUND、MISS 0**。
+- needle1 が対象条文内で 2 回なのは、見出し `（自家用の乗用車の台数の算定）` と本文 `…自家用の乗用車の台数の算定は…` の両方に部分文字列として含まれるためであり、転写健全性上の問題ではない（needle2 は本文に一意）。
+
+### CA-3. 反例探索（独立再計算・境界値）
+
+Python で Nat の saturating subtraction を再実装し、Lean の `by decide` smoke（独立一時 Lean ファイルでも再確認）と照合した。
+
+| 攻撃対象 | 独立再計算 | Lean 実装 | 結果 |
+|---|---|---|---|
+| `referenceYear 2025` | 2025−1 = **2024** | `example … = 2024`（impl / Tests） | 矛盾なし |
+| `referenceDate 2025` | **(2024, 4, 1)** | `example … = (2024, 4, 1)` | 矛盾なし |
+| `referenceDate 2026` | **(2025, 4, 1)** | `example … = (2025, 4, 1)` | 矛盾なし |
+| `referenceYear 0`（Nat 境界 0−1） | saturating → **0** | 独立一時 Lean で `by decide` 成立 | 矛盾なし |
+| `referenceDate 0` | **(0, 4, 1)** | 独立一時 Lean で `by decide` 成立 | 矛盾なし |
+| `referenceYear 1` | **0** | `example … = 0`（impl） | 矛盾なし |
+| 「当年の四月一日」仮説 `(y,4,1)` | 原文 0 回 → 採らない | 実装は `y-1` | 矛盾なし（CA-1 で明示除外） |
+| 「前年の三月三十一日」仮説 `(y-1,3,31)` | 原文 0 回 → 採らない | 実装は `(y-1,4,1)` | 矛盾なし（CA-1 で明示除外） |
+| 月日逆転 `(y-1,1,4)` | `四月一日` = 4 月 1 日 | 実装は `(…,4,1)` | 矛盾なし |
+| Spec 独立定式との一致 | `specYear y = if y=0 then 0 else y-1` ≡ Nat 減算、0 を含む全点で一致 | `agreeCarCountReferenceDate = true`（`by decide`） | 矛盾なし（有限 spot-check、B-C5） |
+
+**反例探索で検出された原文↔Lean の矛盾: 0 件（ゼロ）。**
+
+### CA-4. 公理監査
+
+- 一時 Lean ファイル `C:/Users/junny/AppData/Local/Temp/opencode/ca_axiom_probe.lean` を作成し、impl／Spec の**名前付き宣言 5 件**（`referenceYear` / `referenceDate` / `specYear` / `specDate` / `agreeCarCountReferenceDate`）に `#print axioms` を実行（`lake env lean`、exit code **0**、error 0）。別の一時ファイル `ca_axiom_probe4.lean` で y=0 境界の `by decide` example 5 件と `referenceYear` / `referenceDate` の `#print axioms` も再確認（exit code 0）。
+- 3 モジュール本文を正規表現 `\b(sorry|admit|axiom|Classical\.choice|noncomputable|by_contra|open Classical)\b` で走査し、**一致 0 件**。匿名の `example` は `#print axioms` の直接対象外だが、すべて `by decide` の計算のみで公理を導入しない。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査した名前付き宣言 | **5**（+ 境界確認 example 5 件すべて `by decide` 成立） |
+| `does not depend on any axioms` | **5/5** |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+
+→ **choice / sorryAx / Quot.sound / propext 依存はいずれも 0 件。公理監査は合格。** 監査用一時ファイル・一時スクリプト・一時出力はすべて削除済み。
+
+### CA-5. 分類判定
+
+| 分類 | 件数 |
+|---|---|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **5** |
+| **UNRESOLVED** | **3** |
+
+> **発見ゼロ（CONFIRMED = ゼロ）を明示する。** 基準日の抽出・needle・反例・公理のいずれにも原文との食い違いは検出されなかった。件数を手柄にしない。
+
+#### CONFIRMED（0 件）
+
+- 基準年: 原文 `前年` と `referenceYear(y)=y-1` は完全一致。
+- 基準日: 原文 `四月一日現在` と `referenceDate(y)=(y-1,4,1)` は完全一致。混同候補（当年の四月一日／前年の三月三十一日）は原文 0 回で除外。
+- needle: U+3000 **0 件**、CI 実文字列 **2/2 FOUND**、MISS 0。
+- 反例: `referenceYear 2025=2024`、`referenceDate 2025=(2024,4,1)`、`referenceDate 2026=(2025,4,1)`、Nat 境界 `y=0→0` すべて一致。
+- 公理: choice / sorryAx / Quot.sound / propext とも 0 件。
+
+#### BY-DESIGN（5 件）
+
+- **B-C1 基準日算定のみの bounded L4 slice**: 「自家用の乗用車」の定義・台数の実際の算定方法は NOT MODELLED と impl doc-comment で明示済み。pinned 原文 art.3の2 自体が算定「基準日」のみを定めるため、反映漏れではない（法的十分性は U-C1）。
+- **B-C2 年度の暦年／会計年度の別・適用開始時点の NOT MODELLED**: doc-comment で明示済み。原文 `毎年度` は年度ごとの算定を定めるが、暦年／会計年度の別や適用開始時点は本条文から決定できないため、モデル化しない判断は妥当（法的十分性は U-C2）。
+- **B-C3 Nat の saturating subtraction（`0-1=0`）**: doc-comment に「年度は 1 以上とする」とあり、Spec の `specYear` も `if y=0 then 0 else y-1` で同じ飽和を採用。独立一時 Lean で `referenceYear 0 = 0` / `referenceDate 0 = (0,4,1)` を `by decide` 確認。境界の扱いは明示されたモデル規約。
+- **B-C4 needle1 の対象条文内 count 2**: 見出しと本文の両方に部分文字列として含まれるため（CA-2）。実質的な needle 健全性に影響なし。
+- **B-C5 Spec の有限 spot-check**: `agreeCarCountReferenceDate` は `[1,2,100,2025,2026]` 上の一致（`by decide`）であり、全称等価証明ではないことを明示。独立 Python で y=0 を含む追加点でも一致を確認済み。
+
+#### UNRESOLVED（3 件）
+
+- **U-C1 乗用車の定義・台数の実際算定方法の未形式化が法的に十分か**: 原文は `法第二条の二第一項の自家用の乗用車の台数の算定` と他条を参照するだけで、「自家用の乗用車」の定義も台数の数え方も本条文に含まれない。doc-comment は NOT MODELLED と申告しているが、形式化として十分かは pinned 原文のみでは解けず、**人間の法律専門家によるレビューを要する**。基準日モデルの一致（発見ゼロ）には影響しない。
+- **U-C2 年度の暦年／会計年度の別・適用開始時点の未形式化**: `毎年度` の「年度」が暦年か会計年度（4 月始まり）か、および適用開始時点は本条文のみでは確定しない。Doc-comment は NOT MODELLED を明示するが、この区別がモデルの正しさに与える影響は専門家判断を要する。
+- **U-C3 タスク提示の pinned revision の不在**: 提示された `346M50000008013_20260801_507M50000008014.law.json` は存在せず revisions.json にも記載がない（CA-0）。実在する CurrentEnforced revision を pin として照合した結果は発見ゼロだが、**提示 revision との同一性は検証不能**であり、コーディネータによる出典確認を要する（モデル自体の欠陥ではない）。
+
+### CA-6. 総合判定・最終報告
+
+- 実在する pinned revision `346M50000008013_20230401_505M60000008036`（自動車重量譲与税法施行規則、適用日 2023-04-01）の art.3の2 本文 70 文字を独立抽出し、`referenceYear(y)=y-1` / `referenceDate(y)=(y-1,4,1)` を照合。**モデル値の食い違いは 0 件（ゼロ）**。「当年の四月一日」「前年の三月三十一日」は原文 0 回で明示除外した。
+- **CONFIRMED: 0 件（発見ゼロ）** / **BY-DESIGN: 5 件** / **UNRESOLVED: 3 件**。
+- **needle 健全性**: U+3000 **0 件**、CI 実文字列 **2/2 FOUND**（MISS 0）。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` とも **0 件**、5/5 名前付き宣言が axiom-free（`lake env lean`、exit 0）。監査用一時ファイルは削除済み。
+- **反例探索**: `referenceYear 2025=2024`、`referenceDate 2025=(2024,4,1)`、`referenceDate 2026=(2025,4,1)`、Nat 境界 `y=0→0` を含む全攻撃点で矛盾 **0 件**。
+- **書き換えたのは本ファイルのみ**（既存のレビュー履歴 Batch AH〜BZ はすべて保持）。Lean モジュール・`data/*` は読み取り専用。commit / push / merge / ブランチ切替なし。
+- 残る UNRESOLVED（U-C1 乗用車定義・台数算定の未形式化、U-C2 年度の暦年／会計年度の別・適用開始時点の未形式化、U-C3 提示 revision の不在）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビュー／コーディネータによる出典確認を要する**。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle の自前 `.count()` 検証・境界値の独立再計算・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
