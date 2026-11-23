@@ -3384,6 +3384,11 @@ def checks():
            "file", None,
            ["ただし、当該相続に係る被相続人が七十歳未満で死亡した場合は、この限りでない。"])
 
+    # 相続税法施行規則 art. 11 — JointHeirThreshold2.lean
+    yield ("相続税法施行規則 art. 11（相続人二人以上の連署申告）↔ JointHeirThreshold2.lean (heirFloor 2, inclusive)",
+           "360CO0000000005",
+           "article", "第十一条",
+           ["相続人が二人以上ある場合には、前項の申告書は、各相続人が連署して提出するものとする。"])
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
