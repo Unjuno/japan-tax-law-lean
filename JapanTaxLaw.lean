@@ -1814,3 +1814,6 @@ import JapanTaxLaw.SalesRatioBracketTests
 import JapanTaxLaw.ShareMajority50
 import JapanTaxLaw.ShareMajority50Spec
 import JapanTaxLaw.ShareMajority50Tests
+import JapanTaxLaw.PopulationDensityBracket
+import JapanTaxLaw.PopulationDensityBracketSpec
+import JapanTaxLaw.PopulationDensityBracketTests
