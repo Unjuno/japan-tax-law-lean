@@ -3420,6 +3420,13 @@ def checks():
            ["正当な理由がなくて国外財産調書をその提出期限までに税務署長に提出しなかったときは、その違反行為をした者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
 
 
+    # 審議会規則 art. 9 — MeetingQuorumOneThird.lean
+    yield ("審議会規則 art. 9（三分の一以上の出席）↔ MeetingQuorumOneThird.lean (quorumDivisor 3, inclusive)",
+           "412CO0000000276",
+           "article", "第九条",
+           ["審議会は、委員及び議事に関係のある臨時委員の三分の一以上が出席しなければ、会議を開き、議決することができない。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
