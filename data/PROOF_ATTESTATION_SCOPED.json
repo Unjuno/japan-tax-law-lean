@@ -1,9 +1,9 @@
 {
-  "commit": "0de02ff844d6366eafe34988f38b5326cd75cd92",
+  "commit": "cadc1f258ce81759101f990c891b74b388216427",
   "jobs": {
     "Build Lean project and check axioms": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45202791615/job/137790419633"
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45211303304/job/137820556202"
     }
   },
   "modules": {
@@ -223,6 +223,15 @@
     "CapitalOneBillionExcessTests.lean": {
       "sha256": "da059206d66a151655c1af08041996f342ecd89748f177f2f3ad3399d8db702e"
     },
+    "CapitalTieredAmount.lean": {
+      "sha256": "ce59c2732315ea676ae5d317bed77310c98105f5d28b8125c0845e708fd5e611"
+    },
+    "CapitalTieredAmountSpec.lean": {
+      "sha256": "e783fbc5003f902434aae8bdd835f3205b717d9378c8d8ec3862e1685c7becad"
+    },
+    "CapitalTieredAmountTests.lean": {
+      "sha256": "58d733301ed55d4b675a8259b0493c4a78ebc40711cd0e5893538e4c664ba253"
+    },
     "CarCountReferenceDate.lean": {
       "sha256": "e5b19f58b987ffc679fa21220eed0424d075cbb9a3cec1c06c52fce64962b47a"
     },
@@ -231,6 +240,15 @@
     },
     "CarCountReferenceDateTests.lean": {
       "sha256": "cf4136bc2fd59a306ddc67d420bafa1e7826f44ca3b08860589eb44658fb9893"
+    },
+    "CareMedicalPremium80k.lean": {
+      "sha256": "b89fc59e7368d77269c9d6867b38e75e1f51e101e575ef99c4790267db02dcd6"
+    },
+    "CareMedicalPremium80kSpec.lean": {
+      "sha256": "fc85afedd56ec831f6fb2df71624fc5630cb39306d861cc91ea7ca906e360fda"
+    },
+    "CareMedicalPremium80kTests.lean": {
+      "sha256": "405620bca13fc803138e2aa38ba74008755cadacc1026566a6f46e37ab9ba6af"
     },
     "CarnetImportGoods.lean": {
       "sha256": "bb38ac0205b3b344e00e28248ccb28921efa7aeeccaea4666cdfb7b06bc4f21b"
@@ -1204,6 +1222,15 @@
     "DisasterTaxReliefArt3CabinetOrderDelegationTests.lean": {
       "sha256": "3f563ef216894aacddf5c4a5f8f42efa5aba24fed0887c06bc96866441367b98"
     },
+    "DisasterTaxReliefOrderArt6PrecedingTwoReading.lean": {
+      "sha256": "5dc143531145c47da47124f0c835206e56164554d3303aaf5239bd9eb3c2c976"
+    },
+    "DisasterTaxReliefOrderArt6PrecedingTwoReadingSpec.lean": {
+      "sha256": "100605291956dcfce03cdd57456585e6aed539fffc13e6cccf2ebe72c948b8e1"
+    },
+    "DisasterTaxReliefOrderArt6PrecedingTwoReadingTests.lean": {
+      "sha256": "e4f583ba4023a55d6c4f6e8c1385d83acb18a2cf906e33ad13b23a5e4c469ac4"
+    },
     "DisasterVictimIncomeBracket.lean": {
       "sha256": "2f607243f20b5b8f50316b5c563755d0efff9a0694974c7fdcb5c346f6016d0b"
     },
@@ -1530,6 +1557,15 @@
     },
     "Gradation256.lean": {
       "sha256": "863598f31bed62abbe9f5d97f488ac1aed66a0ca5594d94dfeece062f3556eeb"
+    },
+    "Gradation256Floor.lean": {
+      "sha256": "8849d456ae165452de789f527e1b38037d664229c8a676d91680b3a0d654f2f6"
+    },
+    "Gradation256FloorSpec.lean": {
+      "sha256": "064a503ed0bf4e837a3e3118ae514f62b12c83e1973ac4c964e70773366ac92a"
+    },
+    "Gradation256FloorTests.lean": {
+      "sha256": "6adc1bf1972f23cd6266540dfa8b75c76673fe7ea4f0f876e03156aa2f21a6a7"
     },
     "Gradation256Spec.lean": {
       "sha256": "e62f119d42a97555116163c8d84c7881ab30852bcd370b174e9c97167550cdce"
@@ -2491,6 +2527,24 @@
     "NationalTaxCommonDelegatedAmountTests.lean": {
       "sha256": "93f0279b4a8d4212de79a4a929acd5d5e025594c72e9d0aee5e2c4ef36147ff5"
     },
+    "NewAnnuityPremium80k.lean": {
+      "sha256": "2eb3e331485d29249069c57bd1b939e48279e027b7ea1b20a92335ee72aec519"
+    },
+    "NewAnnuityPremium80kSpec.lean": {
+      "sha256": "797a9e30eac7eb47507d57966a825f0a985b201f2864d0025b4d87b818170a99"
+    },
+    "NewAnnuityPremium80kTests.lean": {
+      "sha256": "7f88c300f4b686dca371f62f8a10060bc5635257cf0b0ee79089eec02a5de5e1"
+    },
+    "NewLifePremium80k.lean": {
+      "sha256": "d5818b80165e9f97f64ff9d39c76a709618baca7ca8cef7aafec9ee372ad57df"
+    },
+    "NewLifePremium80kSpec.lean": {
+      "sha256": "2cff2f987109dcf2aeb86b0d736156bc592ccfe469b96303d392dbbf5f1ab0f3"
+    },
+    "NewLifePremium80kTests.lean": {
+      "sha256": "6099df97f620b794eb9aaa3db83f5b258a4c0306511acb179cd7274f4961676c"
+    },
     "NickelContent.lean": {
       "sha256": "8342cd57f3f07d0974c4a4933cf051090a3c1dbd1f3ee7c02556daa29c6a9da8"
     },
@@ -2589,6 +2643,15 @@
     },
     "OldAgePensionAnnualAmountCeilingTests.lean": {
       "sha256": "2004a9c7308536dd93570f2028550595e61691c661d16afdc0aa1d1c2e921e7f"
+    },
+    "OldLifePremium100k.lean": {
+      "sha256": "d9ae6e43a6decd8282146a438612d8ce6511181360fc66d5ae04a52ffc429210"
+    },
+    "OldLifePremium100kSpec.lean": {
+      "sha256": "b7da93f083d8e737d4c9fc0f73645e095d394196d90e345dcdc4732cbddc56ca"
+    },
+    "OldLifePremium100kTests.lean": {
+      "sha256": "37b6fdd0aa1c48e415e1e348ee136d4546a6844425523949ec7c8e9ca02cb92f"
     },
     "OptionExercise12M.lean": {
       "sha256": "82a7a95b70951aae7c6ea44f745589a553aa725b7823bbdab5d8332793caccd6"
@@ -3400,6 +3463,15 @@
     "SavingsDepositInterestTests.lean": {
       "sha256": "3f37ef2c0bd47786b37cae200a54512161cb24e2be2d9c0100151fa024be5f34"
     },
+    "SchoolExemptionRequirements.lean": {
+      "sha256": "8c07403a7153a87d2bd47b0d4404271df5c985d2f586ef7c7990b01f957f5cc2"
+    },
+    "SchoolExemptionRequirementsSpec.lean": {
+      "sha256": "66c02ffd8767fe27cc4982b3f91583e764945804554f92d5a97447eed5f3f98a"
+    },
+    "SchoolExemptionRequirementsTests.lean": {
+      "sha256": "e5ffb1dd89c7c776a61a00decb34d971f8c348ddbc1210ad83467834d0ba09c4"
+    },
     "ServiceYearFractionRoundDown.lean": {
       "sha256": "ad2f5b0545a245fd42b71832be49f0ec491b91af948d0a6124901bab6aad1e21"
     },
@@ -4063,5 +4135,5 @@
   "schema": 1,
   "scope": "lean_job_only",
   "tool": "scripts/ci/make_scoped_attestation.py",
-  "workflow_run": "https://api.github.com/repos/Unjuno/japan-tax-law-lean/actions/runs/45202791615"
+  "workflow_run": "https://api.github.com/repos/Unjuno/japan-tax-law-lean/actions/runs/45211303304"
 }

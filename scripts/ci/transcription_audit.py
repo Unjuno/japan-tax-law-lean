@@ -758,14 +758,14 @@ def checks():
             "前年中に支払つた地震保険料の金額の合計額",
             "を控除した残額）の二分の一に相当する金額（その金額が二万五千円を超える場合には、二万五千円）"])
 
-    # 消費税法 art. 29 — ConsumptionTaxRate.lean (standardRate 7.8% / reducedRate 6.24%)
-    yield ("消費税法 art. 29（税率: 百分の七・八／軽減対象課税資産の譲渡等及び保税地域から引き取られる軽減対象課税貨物 百分の六・二四）↔ ConsumptionTaxRate.lean (standardRate 78/1000, reducedRate 624/10000)",
+    # 相続税法 art. 29 — ConsumptionTaxRate.lean (standardRate 7.8% / reducedRate 6.24%)
+    yield ("相続税法 art. 29（税率: 百分の七・八／軽減対象課税資産の譲渡等及び保税地域から引き取られる軽減対象課税貨物 百分の六・二四）↔ ConsumptionTaxRate.lean (standardRate 78/1000, reducedRate 624/10000)",
            "363AC0000000108",
            "article", "第二十九条",
            ["百分の七・八", "百分の六・二四"])
 
-    # 消費税法 art. 28(1)(2)(3) — ConsumptionTaxableBase.lean (taxableTransferBase / specifiedPurchaseBase / deemedSupplyBase)
-    yield ("消費税法 art. 28(1)(2)(3)（課税標準: 対価の額／ただし書著しく低い役員譲渡は資産の価額／特定課税仕入れは支払対価の額／消費・使用・贈与は資産の価額）↔ ConsumptionTaxableBase.lean",
+    # 相続税法 art. 28(1)(2)(3) — ConsumptionTaxableBase.lean (taxableTransferBase / specifiedPurchaseBase / deemedSupplyBase)
+    yield ("相続税法 art. 28(1)(2)(3)（課税標準: 対価の額／ただし書著しく低い役員譲渡は資産の価額／特定課税仕入れは支払対価の額／消費・使用・贈与は資産の価額）↔ ConsumptionTaxableBase.lean",
            "363AC0000000108",
            "article", "第二十八条",
            ["課税資産の譲渡等に係る消費税の課税標準は、課税資産の譲渡等の対価の額",
@@ -775,8 +775,8 @@ def checks():
             "当該消費し、又は使用した資産の価額に相当する金額",
             "当該贈与をした資産の価額に相当する金額"])
 
-    # 消費税法 art. 28(4) — ConsumptionTaxImportBase.lean (importTaxableBase)
-    yield ("消費税法 art. 28(4)（保税地域から引き取られる課税貨物の課税標準: 関税定率法art.4〜4の9に準じた価格＋消費税以外の消費税等（附帯税除く）＋関税の額（附帯税除く））↔ ConsumptionTaxImportBase.lean",
+    # 相続税法 art. 28(4) — ConsumptionTaxImportBase.lean (importTaxableBase)
+    yield ("相続税法 art. 28(4)（保税地域から引き取られる課税貨物の課税標準: 関税定率法art.4〜4の9に準じた価格＋消費税以外の消費税等（附帯税除く）＋関税の額（附帯税除く））↔ ConsumptionTaxImportBase.lean",
            "363AC0000000108",
            "article", "第二十八条",
            ["保税地域から引き取られる課税貨物に係る消費税の課税標準は、当該課税貨物につき",
@@ -784,8 +784,8 @@ def checks():
             "消費税等（国税通則法第二条第三号（定義）に規定する消費税等をいう。）の額（附帯税の額に相当する額を除く。）",
             "関税の額（関税法第二条第一項第四号の二に規定する附帯税の額に相当する額を除く。）に相当する金額を加算した金額とする。"])
 
-    # 消費税法 art. 30(1) — ConsumptionTaxInputCredit.lean (specifiedPurchaseTax / totalInputTax / taxAfterCredit)
-    yield ("消費税法 art. 30(1)（仕入れに係る消費税額の控除: 課税標準額に対する消費税額から 課税仕入れ税額＋特定課税仕入れ税額（支払対価×7.8%）＋保税課税貨物税額 を控除）↔ ConsumptionTaxInputCredit.lean",
+    # 相続税法 art. 30(1) — ConsumptionTaxInputCredit.lean (specifiedPurchaseTax / totalInputTax / taxAfterCredit)
+    yield ("相続税法 art. 30(1)（仕入れに係る消費税額の控除: 課税標準額に対する消費税額から 課税仕入れ税額＋特定課税仕入れ税額（支払対価×7.8%）＋保税課税貨物税額 を控除）↔ ConsumptionTaxInputCredit.lean",
            "363AC0000000108",
            "article", "第三十条",
            ["事業者（第九条第一項本文の規定により消費税を納める義務が免除される事業者を除く。）", "第四十五条第一項第二号に掲げる消費税額（以下この章において「課税標準額に対する消費税額」という。）から", "当該課税仕入れに係る適格請求書（第五十七条の四第一項に規定する適格請求書をいう。", "当該特定課税仕入れに係る支払対価の額に百分の七・八を乗じて算出した金額をいう。", "保税地域からの引取りに係る課税貨物（他の法律又は条約の規定により消費税が免除されるものを除く。", "につき課された又は課されるべき消費税額（附帯税の額に相当する額を除く。", "の合計額を控除する。", "同項に規定する課税期間における課税売上高が五億円を超えるとき、又は当該課税期間における課税売上割合が百分の九十五に満たないときは", "課税資産の譲渡等にのみ要するもの、課税資産の譲渡等以外の資産の譲渡等", "課税資産の譲渡等とその他の資産の譲渡等に共通して要するものにその区分が明らかにされている場合", "イに掲げる金額にロに掲げる金額を加算する方法", "課税資産の譲渡等とその他の資産の譲渡等に共通して要する課税仕入れ、特定課税仕入れ及び課税貨物に係る課税仕入れ等の税額の合計額に課税売上割合を乗じて計算した金額", "当該課税期間における課税仕入れ等の税額の合計額に課税売上割合を乗じて計算する方法"])
@@ -2311,6 +2311,12 @@ def checks():
            "file", None,
            ["修業期間が一年以上であること", "が六百八十時間以上"])
 
+    # UnevenTaxInvestmentThreshold — cycle-96
+    yield ("UnevenTaxInvestmentThreshold.lean",
+           "407M50000008016",
+           "file", None,
+           ["五百万円（租税特別措置法施行令", "不均一課税をすることとしている場合"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3460,11 +3466,21 @@ def checks():
            "410M50000040043",
            "article", "第二条",
            ["赤色、緑色及び青色の階調がそれぞれ二百五十六階調以上で読み取るものであること。"])
+
     # 租税特別措置法施行令 art. 2 — CorporateOwnershipThird.lean
     yield ("租税特別措置法施行令 art. 2（法人所有三分の一超）↔ CorporateOwnershipThird.lean (strict >1/3 ownership)",
            "407M50000008033",
            "article", "第二条",
            ["その発行済株式の総数又は出資金額若しくは拠出された金額の三分の一を超える数又は金額が法人税法（昭和二十二年法律第二十八号）別表第一第一号に掲げる法人により所有され、又は出資若しくは拠出をされている法人"])
+
+    # InheritanceTaxDecisionException.lean - NORM|a272ba52... (相続税法 art.1_2 item6 decision carve-out, law 325AC0000000073)
+    # Needle is in MainProvision Article 第一条の二 (Item 6, Column 2, Sentence 1) -
+    # verbatim injected from the queue via \u escapes; cross-law deps resolved by
+    # name to 国税通則法 art.33-2/25 (enforcement 2026-11-01).
+    yield ("inheritance tax decision carve-out exception - InheritanceTaxDecisionException.lean",
+           "325AC0000000073",
+           "article", "\u7b2c\u4e00\u6761\u306e\u4e8c",
+           ["\u7b2c\u4e09\u5341\u4e09\u6761\u306e\u4e8c\u306e\u5834\u5408\u3092\u9664\u304d\u3001\u56fd\u7a0e\u901a\u5247\u6cd5\u7b2c\u4e8c\u5341\u4e94\u6761\uff08\u6c7a\u5b9a\uff09\u306e\u898f\u5b9a\u306b\u3088\u308b\u6c7a\u5b9a\u3092\u3044\u3046\u3002"])
 
     # 市町村合併補助金 art. 8 — MergerGrantFiscalWindow.lean
     yield ("市町村合併補助金 art. 8（昭和47〜52年度の適用期間）↔ MergerGrantFiscalWindow.lean (inclusive [47,52])",
@@ -3472,6 +3488,11 @@ def checks():
            "article", "第八条",
            ["３国は、昭和四十七年度から昭和五十二年度までの各年度に限り、市町村の合併をしようとする市町村（以下この条において「合併関係市町村」という。）に対し、市町村の合併の実施を促進するため、予算の範囲内で、補助金を交付することができる。"])
 
+    # 資本金区分 art. 1 — CapitalTieredAmount.lean
+    yield ("資本金区分 art. 1（三段階額 五百万・千万・二千万円）↔ CapitalTieredAmount.lean (tiered by capital)",
+           "503M60000008031",
+           "article", "第一条",
+           ["五百万円（資本金の額等が五千万円超一億円以下である法人が行うものにあっては千万円とし、資本金の額等が一億円超である法人が行うものにあっては二千万円とする。）"])
 
 
     # 情報通信技術活用省令 art.5(2)(2) — GrayscaleGradationFloor.lean (二百五十六階調以上)
