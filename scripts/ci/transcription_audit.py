@@ -1425,6 +1425,14 @@ def checks():
            "143AC0000000054",
            "article", "\u7b2c\u5341\u4e5d\u6761",
            ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u7b2c\u5341\u4e09\u6761\u7b2c\u4e03\u9805\u4f46\u66f8\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
+    # CustomsTariffArt1Showa44EnforcementDate.lean - NORM|f5b0c58f... (附則 enforcement date REFERENCE, law 143AC0000000054)
+    # Needle sits in an 附則 (SupplProvision) article; find_article_text sees main only
+    # - use the file-kind locator. Needle verbatim-unique in whole law; literal via \u escapes.
+    yield ("customs tariff 附則 art.1 Showa44 enforcement date - CustomsTariffArt1Showa44EnforcementDate.lean",
+           "143AC0000000054",
+           "file", None,
+           ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u662d\u548c\u56db\u5341\u56db\u5e74\u56db\u6708\u4e00\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
+
 
 
 
