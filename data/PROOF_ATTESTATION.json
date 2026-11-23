@@ -1,9 +1,9 @@
 {
-  "commit": "f0730fd7c6c2c267f11dac8b8ec93dbb1078081a",
+  "commit": "b77278cc61db687bcfa4fe60b4cc90ea7c767544",
   "jobs": {
     "Build Lean project and check axioms": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45155747777/job/137628104881",
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45183082291/job/137721617548",
       "required_steps": [
         "Build explicitly",
         "No sorry/admit in adopted proofs",
@@ -14,7 +14,7 @@
     },
     "Semantic audit and mutation injection": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45155747777/job/137628106433"
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45183082291/job/137721618002"
     }
   },
   "modules": {
@@ -233,6 +233,15 @@
     },
     "CarCountReferenceDateTests.lean": {
       "sha256": "cf4136bc2fd59a306ddc67d420bafa1e7826f44ca3b08860589eb44658fb9893"
+    },
+    "CareMedicalPremium80k.lean": {
+      "sha256": "b89fc59e7368d77269c9d6867b38e75e1f51e101e575ef99c4790267db02dcd6"
+    },
+    "CareMedicalPremium80kSpec.lean": {
+      "sha256": "fc85afedd56ec831f6fb2df71624fc5630cb39306d861cc91ea7ca906e360fda"
+    },
+    "CareMedicalPremium80kTests.lean": {
+      "sha256": "405620bca13fc803138e2aa38ba74008755cadacc1026566a6f46e37ab9ba6af"
     },
     "CarnetImportGoods.lean": {
       "sha256": "bb38ac0205b3b344e00e28248ccb28921efa7aeeccaea4666cdfb7b06bc4f21b"
@@ -1296,6 +1305,15 @@
     "FixedAssetEvalEnforcementDateTests.lean": {
       "sha256": "9cf40f4a0a5f08240b1b68b8443700822cab2354b803cc47364b14cc2023b4c7"
     },
+    "ForeignAssetPenaltyCap.lean": {
+      "sha256": "d03a759cffe107e09fc29d0102ca589b2e582e694b9ff78f9062d8b7935ae31a"
+    },
+    "ForeignAssetPenaltyCapSpec.lean": {
+      "sha256": "90acac069e7dd2a8f5cfd7f50140d37d86420dc3ed4037618e30ff4f73f83ff2"
+    },
+    "ForeignAssetPenaltyCapTests.lean": {
+      "sha256": "6ff18e4c3b0a4791d462c7c28f0689f43f814c1dea3cf854dbaad8ff5902e305"
+    },
     "ForeignCorpResidualRate.lean": {
       "sha256": "6b605c59e44f63027df2999d8a101d7f46fab4f9630910034ee481ccf28b8047"
     },
@@ -2358,6 +2376,24 @@
     "NationalTaxCommonDelegatedAmountTests.lean": {
       "sha256": "93f0279b4a8d4212de79a4a929acd5d5e025594c72e9d0aee5e2c4ef36147ff5"
     },
+    "NewAnnuityPremium80k.lean": {
+      "sha256": "2eb3e331485d29249069c57bd1b939e48279e027b7ea1b20a92335ee72aec519"
+    },
+    "NewAnnuityPremium80kSpec.lean": {
+      "sha256": "797a9e30eac7eb47507d57966a825f0a985b201f2864d0025b4d87b818170a99"
+    },
+    "NewAnnuityPremium80kTests.lean": {
+      "sha256": "7f88c300f4b686dca371f62f8a10060bc5635257cf0b0ee79089eec02a5de5e1"
+    },
+    "NewLifePremium80k.lean": {
+      "sha256": "d5818b80165e9f97f64ff9d39c76a709618baca7ca8cef7aafec9ee372ad57df"
+    },
+    "NewLifePremium80kSpec.lean": {
+      "sha256": "2cff2f987109dcf2aeb86b0d736156bc592ccfe469b96303d392dbbf5f1ab0f3"
+    },
+    "NewLifePremium80kTests.lean": {
+      "sha256": "6099df97f620b794eb9aaa3db83f5b258a4c0306511acb179cd7274f4961676c"
+    },
     "NickelContent.lean": {
       "sha256": "8342cd57f3f07d0974c4a4933cf051090a3c1dbd1f3ee7c02556daa29c6a9da8"
     },
@@ -2456,6 +2492,15 @@
     },
     "OldAgePensionAnnualAmountCeilingTests.lean": {
       "sha256": "2004a9c7308536dd93570f2028550595e61691c661d16afdc0aa1d1c2e921e7f"
+    },
+    "OldLifePremium100k.lean": {
+      "sha256": "d9ae6e43a6decd8282146a438612d8ce6511181360fc66d5ae04a52ffc429210"
+    },
+    "OldLifePremium100kSpec.lean": {
+      "sha256": "b7da93f083d8e737d4c9fc0f73645e095d394196d90e345dcdc4732cbddc56ca"
+    },
+    "OldLifePremium100kTests.lean": {
+      "sha256": "37b6fdd0aa1c48e415e1e348ee136d4546a6844425523949ec7c8e9ca02cb92f"
     },
     "OptionExercise12M.lean": {
       "sha256": "82a7a95b70951aae7c6ea44f745589a553aa725b7823bbdab5d8332793caccd6"
@@ -3883,5 +3928,5 @@
   "note": "Kernel-build attestation. Hashes are SHA-256 of the committed blob bytes (LF-normalised). CI run is a recorded, independently reproducible build of the exact commit; the generator re-checks every hash before accepting it as evidence.",
   "run_conclusion": "success",
   "schema": 1,
-  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45155747777"
+  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45183082291"
 }

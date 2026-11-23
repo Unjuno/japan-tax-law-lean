@@ -1814,3 +1814,15 @@ import JapanTaxLaw.SalesRatioBracketTests
 import JapanTaxLaw.Gradation256Floor
 import JapanTaxLaw.Gradation256FloorSpec
 import JapanTaxLaw.Gradation256FloorTests
+import JapanTaxLaw.NewLifePremium80k
+import JapanTaxLaw.NewLifePremium80kSpec
+import JapanTaxLaw.NewLifePremium80kTests
+import JapanTaxLaw.OldLifePremium100k
+import JapanTaxLaw.OldLifePremium100kSpec
+import JapanTaxLaw.OldLifePremium100kTests
+import JapanTaxLaw.CareMedicalPremium80k
+import JapanTaxLaw.CareMedicalPremium80kSpec
+import JapanTaxLaw.CareMedicalPremium80kTests
+import JapanTaxLaw.NewAnnuityPremium80k
+import JapanTaxLaw.NewAnnuityPremium80kSpec
+import JapanTaxLaw.NewAnnuityPremium80kTests
