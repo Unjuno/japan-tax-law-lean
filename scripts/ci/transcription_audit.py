@@ -3490,6 +3490,30 @@ def checks():
            "article", "第十六条の十二",
            ["当該他の準組合の準組合財産に対する持分の割合が百分の五十を超える場合における当該持分"])
 
+# 合計所得金額 二千三百五十万円以下 — BasicDeductionIncome23M50.lean
+    yield ("所得税法 art. 86（合計所得金額 二千三百五十万円以下）↔ BasicDeductionIncome23M50.lean (incomeCap23M50 23500000)",
+           "340AC0000000033",
+           "file", None,
+           ["その居住者の合計所得金額が二千三百五十万円以下である場合"])
+
+    # 退職手当等 残額 三百万円以下 — RetirementResidual3M.lean
+    yield ("所得税法 art. 201（退職手当等 残額 三百万円以下）↔ RetirementResidual3M.lean (residualCap3M 3000000)",
+           "340AC0000000033",
+           "file", None,
+           ["その支払う退職手当等の金額から退職所得控除額を控除した残額が三百万円以下である場合"])
+
+    # 退職手当等の合計額 残額 三百万円以下 — RetirementAggregate3M.lean
+    yield ("所得税法 art. 201（退職手当等の合計額 残額 三百万円以下）↔ RetirementAggregate3M.lean (aggregateCap3M 3000000)",
+           "340AC0000000033",
+           "file", None,
+           ["その支払う退職手当等の金額とその支払済みの他の退職手当等の金額との合計額から退職所得控除額を控除した残額が三百万円以下である場合"])
+
+    # 扶養親族の年齢 十三歳以上 — DependentAge13.lean
+    yield ("所得税法 art. 3（扶養親族の年齢 十三歳以上）↔ DependentAge13.lean (ageFloor13 13)",
+           "340AC0000000033",
+           "file", None,
+           ["扶養親族に該当するかどうか及び居住者の扶養親族の年齢が十三歳以上であるかどうかの判定"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

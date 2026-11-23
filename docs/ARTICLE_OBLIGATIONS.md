@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 222
-- presence-facts-only complete: 222
-- NOT_STARTED: 222
+- articles with explicit pin: 225
+- presence-facts-only complete: 225
+- NOT_STARTED: 225
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -239,3 +239,6 @@ source positions. Human legal review is a separate axis and is pending.
 | `360CO0000000005` | 第十一条 | JointHeirThreshold2 | YES | YES | NO | NOT_STARTED |
 | `412CO0000000276` | 第九条 | MeetingQuorumOneThird | YES | YES | NO | NOT_STARTED |
 | `409AC0000000110` | 第十条 | ForeignAssetPenaltyCap | YES | YES | NO | NOT_STARTED |
+| `347AC0000000013` | 第四条 | AviationFuelThousandRoundDown | YES | YES | NO | NOT_STARTED |
+| `407M50000008033` | 第二条 | CorporateOwnershipThird | YES | YES | NO | NOT_STARTED |
+| `344M50000048001` | 第十六条の十二 | ShareMajority50 | YES | YES | NO | NOT_STARTED |
