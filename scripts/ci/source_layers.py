@@ -165,7 +165,7 @@ def build() -> dict:
             "pinned_snapshot": "",
             "verification_status": "OUT_OF_SCOPE",
             "auxiliary": True,
-            "notes": "法源上の性質が異なるため L0 に混ぜない。別層として管理する。財務省公式PDFを1件 pin 取得（TREATY_PINNED.json, SHA検証済み）。全租税条約の網羅は主張しない。",
+            "notes": "法源上の性質が異なるため L0 に混ぜない。別層として管理する。財務省公式PDFを%d件 pin 取得・SHA検証・テキスト抽出済み（%d件、内容マーカー検証済み、TREATY_PINNED.json）。形式化・人間レビューは未実施。全租税条約の網羅は主張しない。" % (l3_acquired, treaty_ledger.get("parsed_count", 0)),
         },
         {
             "layer_id": "L4_CIRCULAR",
