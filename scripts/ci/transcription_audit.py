@@ -2311,6 +2311,12 @@ def checks():
            "file", None,
            ["修業期間が一年以上であること", "が六百八十時間以上"])
 
+    # UnevenTaxInvestmentThreshold — cycle-96
+    yield ("UnevenTaxInvestmentThreshold.lean",
+           "407M50000008016",
+           "file", None,
+           ["五百万円（租税特別措置法施行令", "不均一課税をすることとしている場合"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3455,6 +3461,12 @@ def checks():
            "article", "第十六条の十二",
            ["当該他の準組合の準組合財産に対する持分の割合が百分の五十を超える場合における当該持分"])
 
+    # 電子帳簿保存法施行規則 art.2(6)(2) — Gradation256Floor.lean (二百五十六階調以上)
+    yield ("電子帳簿保存法施行規則 art.2(6)(2)（二百五十六階調以上）↔ Gradation256Floor.lean (floor 256, 以上 inclusive)",
+           "410M50000040043",
+           "article", "第二条",
+           ["赤色、緑色及び青色の階調がそれぞれ二百五十六階調以上で読み取るものであること。"])
+
     # 租税特別措置法施行令 art. 2 — CorporateOwnershipThird.lean
     yield ("租税特別措置法施行令 art. 2（法人所有三分の一超）↔ CorporateOwnershipThird.lean (strict >1/3 ownership)",
            "407M50000008033",
@@ -3469,6 +3481,18 @@ def checks():
            "325AC0000000073",
            "article", "\u7b2c\u4e00\u6761\u306e\u4e8c",
            ["\u7b2c\u4e09\u5341\u4e09\u6761\u306e\u4e8c\u306e\u5834\u5408\u3092\u9664\u304d\u3001\u56fd\u7a0e\u901a\u5247\u6cd5\u7b2c\u4e8c\u5341\u4e94\u6761\uff08\u6c7a\u5b9a\uff09\u306e\u898f\u5b9a\u306b\u3088\u308b\u6c7a\u5b9a\u3092\u3044\u3046\u3002"])
+
+    # 市町村合併補助金 art. 8 — MergerGrantFiscalWindow.lean
+    yield ("市町村合併補助金 art. 8（昭和47〜52年度の適用期間）↔ MergerGrantFiscalWindow.lean (inclusive [47,52])",
+           "347CO0000000160",
+           "article", "第八条",
+           ["３国は、昭和四十七年度から昭和五十二年度までの各年度に限り、市町村の合併をしようとする市町村（以下この条において「合併関係市町村」という。）に対し、市町村の合併の実施を促進するため、予算の範囲内で、補助金を交付することができる。"])
+
+    # 資本金区分 art. 1 — CapitalTieredAmount.lean
+    yield ("資本金区分 art. 1（三段階額 五百万・千万・二千万円）↔ CapitalTieredAmount.lean (tiered by capital)",
+           "503M60000008031",
+           "article", "第一条",
+           ["五百万円（資本金の額等が五千万円超一億円以下である法人が行うものにあっては千万円とし、資本金の額等が一億円超である法人が行うものにあっては二千万円とする。）"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
