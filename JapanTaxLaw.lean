@@ -881,3 +881,6 @@ import JapanTaxLaw.RestrictionNormsTests
 import JapanTaxLaw.EnumerationNorms
 import JapanTaxLaw.EnumerationNormsSpec
 import JapanTaxLaw.EnumerationNormsTests
+import JapanTaxLaw.CapComparisonNorms
+import JapanTaxLaw.CapComparisonNormsSpec
+import JapanTaxLaw.CapComparisonNormsTests
