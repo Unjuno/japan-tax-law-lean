@@ -29,7 +29,7 @@
       },
       "text_file": "data/raw/treaties/JP_US_INCOME_TAX_2003.txt",
       "formalized": {
-        "article": "第一条・第二条・第三条・第四条３・第六条 (Articles 1,2,3,4(3),6)・第七条 (Article 7)・第十条 (Article 10)・第十一条 (Article 11)・第十二条 (Article 12)・第十三条 (Article 13)・第十四条 (Article 14)・第十六条 (Article 16)・第十七条 (Article 17)・第十七条 (Article 17)・第十八条 (Article 18)・第十五条 (Article 15)・第十九条・第二十一条 (Articles 19,21)・第二十三条 (Article 23)",
+        "article": "第一条・第二条・第三条・第四条３・第六条 (Articles 1,2,3,4(3),6)・第七条 (Article 7)・第十条 (Article 10)・第十一条 (Article 11)・第十二条 (Article 12)・第十三条 (Article 13)・第十四条 (Article 14)・第十六条 (Article 16)・第十七条 (Article 17)・第十七条 (Article 17)・第十八条 (Article 18)・第十五条 (Article 15)・第十九条・第二十一条 (Articles 19,21)・第二十三条 (Article 23)・第二十四条 (Article 24)・第二十五条 (Article 25)",
         "operators": [
           "inScope (resident of one or both states -> disjunction)",
           "preservesRelief (treaty does not limit tax relief -> identity)",
@@ -65,7 +65,11 @@
           "otherIncomeSourceTax (residence-only)",
           "article7ForOtherIncome (PE real-link fallback)",
           "foreignTaxCredit (min(foreign, domestic) cap)",
-          "dividendExcluded (10%+ ownership)"
+          "dividendExcluded (10%+ ownership)",
+          "notMoreBurdensome (foreign burden <= comparable domestic)",
+          "coveredByNondiscrimination (national or PE)",
+          "withinThreeYears (3-year filing deadline)",
+          "agreementImplemented (mutual agreement overrides domestic time bar)"
         ],
         "modules": {
           "JapanTaxLaw/TreatyJPUSScope.lean": "86f234ee32b82339fb87e0606b75c3dafb22f0c8a9e37ab1469e7dd1f3f939e5",
@@ -118,7 +122,13 @@
           "JapanTaxLaw/TreatyJPUSStudentsOtherIncomeTests.lean": "b8af8328b098c053a6f988955baa51c2108e5fb8e4c89e557e30f9a68b84b0bc",
           "JapanTaxLaw/TreatyJPUSDoubleTaxation.lean": "d770e69f575b31b305c3ca15044a8dd1174600206b408cbeba82807fbd4c8268",
           "JapanTaxLaw/TreatyJPUSDoubleTaxationSpec.lean": "ee8bdf0b73dfea6f9de3ec3d8b0baab3a6b07dc8680b2b8c6195388f6d887ae8",
-          "JapanTaxLaw/TreatyJPUSDoubleTaxationTests.lean": "70e52bdb606dde31aa6605dd5ac0341d090016709354b070c7daa4526b63b138"
+          "JapanTaxLaw/TreatyJPUSDoubleTaxationTests.lean": "70e52bdb606dde31aa6605dd5ac0341d090016709354b070c7daa4526b63b138",
+          "JapanTaxLaw/TreatyJPUSNondiscrimination.lean": "cbdad6adc6685b5455d985417e78eadabbfab90ed66f63f852bbf53963f62c50",
+          "JapanTaxLaw/TreatyJPUSNondiscriminationSpec.lean": "bbb986a3bd4d53592beef0cd02e54af6c1bdb4cc25c7a300ec8b2f75e9836ccd",
+          "JapanTaxLaw/TreatyJPUSNondiscriminationTests.lean": "449334b666e83361816f942e45e689777d33af8c244268ea8d580646abdc95f2",
+          "JapanTaxLaw/TreatyJPUSMutualAgreement.lean": "27e652461b9d739c4d8c0a38281a52441bf0be9f412b029db4a17d5f4b8edf82",
+          "JapanTaxLaw/TreatyJPUSMutualAgreementSpec.lean": "5678e81055757adec4b0e2dacaa2b79d10eecfb7128684609ec99cd7aa9dcaf6",
+          "JapanTaxLaw/TreatyJPUSMutualAgreementTests.lean": "0d2ad8e408cac048647e8c05cd1f1987e36161644d3c4aebaf70a13c8d0fab0f"
         },
         "proof": "Lean 4.35.0 kernel; independent spec; no sorry/admit",
         "legal_review": "PENDING (separate axis)",
@@ -140,7 +150,9 @@
           "第十八条 (Art.18: government service — payer-state only, other-state exception)",
           "第十五条 (Art.15: directors' fees taxable in company's state of residence)",
           "第十九条/第二十一条 (Art.19 student/trainee exemption; Art.21 other income residence-only with Art.7 PE fallback)",
-          "第二十三条 (Art.23: elimination of double taxation — ordinary foreign tax credit with domestic-tax cap)"
+          "第二十三条 (Art.23: elimination of double taxation — ordinary foreign tax credit with domestic-tax cap)",
+          "第二十四条 (Art.24: non-discrimination / national treatment — no heavier burden than comparable domestic) ",
+          "第二十五条 (Art.25: mutual agreement procedure — 3-year filing, agreement implementation)"
         ]
       }
     },
