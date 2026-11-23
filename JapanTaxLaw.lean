@@ -1838,3 +1838,6 @@ import JapanTaxLaw.NewLifePremium80kTests
 import JapanTaxLaw.OldLifePremium100k
 import JapanTaxLaw.OldLifePremium100kSpec
 import JapanTaxLaw.OldLifePremium100kTests
+import JapanTaxLaw.SchoolExemptionRequirements
+import JapanTaxLaw.SchoolExemptionRequirementsSpec
+import JapanTaxLaw.SchoolExemptionRequirementsTests
