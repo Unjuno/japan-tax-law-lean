@@ -1768,3 +1768,6 @@ import JapanTaxLaw.InvestmentIncomeBelowHalfTests
 import JapanTaxLaw.GrayscaleGradationFloor
 import JapanTaxLaw.GrayscaleGradationFloorSpec
 import JapanTaxLaw.GrayscaleGradationFloorTests
+import JapanTaxLaw.AmamiInvestmentThreshold
+import JapanTaxLaw.AmamiInvestmentThresholdSpec
+import JapanTaxLaw.AmamiInvestmentThresholdTests
