@@ -983,6 +983,9 @@ import JapanTaxLaw.BareDeonticNormsTests
 import JapanTaxLaw.TreatyJPUSInfoExchange
 import JapanTaxLaw.TreatyJPUSInfoExchangeSpec
 import JapanTaxLaw.TreatyJPUSInfoExchangeTests
+import JapanTaxLaw.InlineReadingSubstitutionNorms
+import JapanTaxLaw.InlineReadingSubstitutionNormsSpec
+import JapanTaxLaw.InlineReadingSubstitutionNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
