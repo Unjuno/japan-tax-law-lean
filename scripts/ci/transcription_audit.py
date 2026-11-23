@@ -3494,6 +3494,14 @@ def checks():
            "article", "第一条",
            ["五百万円（資本金の額等が五千万円超一億円以下である法人が行うものにあっては千万円とし、資本金の額等が一億円超である法人が行うものにあっては二千万円とする。）"])
 
+    # CustomsTariffSupplArt1StaggeredEnforcementException.lean - NORM|01ed33c3... (附則 staggered enforcement EXCEPTION, law 143AC0000000054)
+    # Needle is in a 附則 Article 1 (Paragraph 1, Sentence 2); use file-kind locator
+    # (find_article_text sees main only). Verbatim injected via \u escapes.
+    yield ("customs tariff 附則 art.1 staggered enforcement exception - CustomsTariffSupplArt1StaggeredEnforcementException.lean",
+           "143AC0000000054",
+           "file", None,
+           ["\u305f\u3060\u3057\u3001\u6b21\u306e\u5404\u53f7\u306b\u63b2\u3052\u308b\u6539\u6b63\u898f\u5b9a\u306f\u3001\u5f53\u8a72\u5404\u53f7\u306b\u63b2\u3052\u308b\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
