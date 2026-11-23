@@ -3514,6 +3514,18 @@ def checks():
            "file", None,
            ["扶養親族に該当するかどうか及び居住者の扶養親族の年齢が十三歳以上であるかどうかの判定"])
 
+    # 資本金区分 art. 1 — CapitalTieredAmount.lean
+    yield ("資本金区分 art. 1（三段階額 五百万・千万・二千万円）↔ CapitalTieredAmount.lean (tiered by capital)",
+           "503M60000008031",
+           "article", "第一条",
+           ["五百万円（資本金の額等が五千万円超一億円以下である法人が行うものにあっては千万円とし、資本金の額等が一億円超である法人が行うものにあっては二千万円とする。）"])
+
+    # 市町村合併補助金 art. 8 — MergerGrantFiscalWindow.lean
+    yield ("市町村合併補助金 art. 8（昭和47〜52年度の適用期間）↔ MergerGrantFiscalWindow.lean (inclusive [47,52])",
+           "347CO0000000160",
+           "article", "第八条",
+           ["３国は、昭和四十七年度から昭和五十二年度までの各年度に限り、市町村の合併をしようとする市町村（以下この条において「合併関係市町村」という。）に対し、市町村の合併の実施を促進するため、予算の範囲内で、補助金を交付することができる。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
