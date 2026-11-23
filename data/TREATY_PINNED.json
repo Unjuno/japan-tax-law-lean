@@ -322,7 +322,25 @@
         "租税": true,
         "居住者": true
       },
-      "text_file": "data/raw/treaties/JP_INDIA_1989.txt"
+      "text_file": "data/raw/treaties/JP_INDIA_1989.txt",
+      "formalized": {
+        "article": "第一条・第二条 (Articles 1,2)",
+        "operators": [
+          "inScope (resident of one or both states)",
+          "coveredTax (listed or successor-similar)"
+        ],
+        "modules": {
+          "JapanTaxLaw/TreatyJPIndiaScopeTaxes.lean": "d443140239ef97fbf96eee216ebf6defb4f572522b805f5d1543c2e8e7c20078",
+          "JapanTaxLaw/TreatyJPIndiaScopeTaxesSpec.lean": "f8520ac86feb63096b9bb7a871a8b797da4e68cabf025698875989d0aa3ebf05",
+          "JapanTaxLaw/TreatyJPIndiaScopeTaxesTests.lean": "e25e99a4b63622825a23943b53d8a4422475438ae29dfc5bd5052477cabd458f"
+        },
+        "proof": "Lean 4.35.0 kernel; independent spec; no sorry/admit",
+        "legal_review": "PENDING (separate axis)",
+        "articles": [
+          "第一条 (Art.1: scope)",
+          "第二条 (Art.2: covered taxes incl. successor)"
+        ]
+      }
     },
     {
       "treaty_id": "JP_AUSTRALIA_2008",
@@ -345,7 +363,25 @@
         "租税": true,
         "居住者": true
       },
-      "text_file": "data/raw/treaties/JP_AUSTRALIA_2008.txt"
+      "text_file": "data/raw/treaties/JP_AUSTRALIA_2008.txt",
+      "formalized": {
+        "article": "第一条・第二条 (Articles 1,2)",
+        "operators": [
+          "inScope (resident of one or both states)",
+          "coveredTax (listed or successor-similar)"
+        ],
+        "modules": {
+          "JapanTaxLaw/TreatyJPAustraliaScopeTaxes.lean": "363ecb548309235b5caedcce826f14ac244013835d95c262291286759c33243d",
+          "JapanTaxLaw/TreatyJPAustraliaScopeTaxesSpec.lean": "01e7bd9307fde97aa52cdb3abd7b40e00fff812b43f7f2bdf631205393d24aca",
+          "JapanTaxLaw/TreatyJPAustraliaScopeTaxesTests.lean": "4cdd2acd5a6a3b0038c6db13b7e1836471f60826180cb48380d9d3ad6dac00a8"
+        },
+        "proof": "Lean 4.35.0 kernel; independent spec; no sorry/admit",
+        "legal_review": "PENDING (separate axis)",
+        "articles": [
+          "第一条 (Art.1: scope)",
+          "第二条 (Art.2: covered taxes incl. successor)"
+        ]
+      }
     },
     {
       "treaty_id": "JP_ISRAEL_1993",
@@ -368,7 +404,25 @@
         "租税": true,
         "居住者": true
       },
-      "text_file": "data/raw/treaties/JP_ISRAEL_1993.txt"
+      "text_file": "data/raw/treaties/JP_ISRAEL_1993.txt",
+      "formalized": {
+        "article": "第一条・第二条 (Articles 1,2)",
+        "operators": [
+          "inScope (resident of one or both states)",
+          "coveredTax (listed or successor-similar)"
+        ],
+        "modules": {
+          "JapanTaxLaw/TreatyJPIsraelScopeTaxes.lean": "fc2b73a91d3f7fdb62041e9d9dd5e2f1333a9f07881454090c3871e8e695b1e7",
+          "JapanTaxLaw/TreatyJPIsraelScopeTaxesSpec.lean": "cac64077edc1b29607912b511078e7c96dce2282008fe4ae459044b079027855",
+          "JapanTaxLaw/TreatyJPIsraelScopeTaxesTests.lean": "a07b03955d0b4c07b7f8e227c206027775cff5fc6ed77d27762013fd857c97fb"
+        },
+        "proof": "Lean 4.35.0 kernel; independent spec; no sorry/admit",
+        "legal_review": "PENDING (separate axis)",
+        "articles": [
+          "第一条 (Art.1: scope)",
+          "第二条 (Art.2: covered taxes incl. successor)"
+        ]
+      }
     },
     {
       "treaty_id": "JP_EGYPT_1968",
@@ -391,7 +445,25 @@
         "租税": true,
         "居住者": true
       },
-      "text_file": "data/raw/treaties/JP_EGYPT_1968.txt"
+      "text_file": "data/raw/treaties/JP_EGYPT_1968.txt",
+      "formalized": {
+        "article": "第一条・第二条 (Articles 1,2)",
+        "operators": [
+          "inScope (resident of one or both states)",
+          "coveredTax (listed or successor-similar)"
+        ],
+        "modules": {
+          "JapanTaxLaw/TreatyJPEgyptScopeTaxes.lean": "52a966e7ceacf135e3864bb4fb2e5831758cc5dfe9abbb84b0054c769f624254",
+          "JapanTaxLaw/TreatyJPEgyptScopeTaxesSpec.lean": "c669c9d96a3706e775bde1f5e69db33a3be6e3f085448c64c41d44c02828de2c",
+          "JapanTaxLaw/TreatyJPEgyptScopeTaxesTests.lean": "90e1c097944bb68eef1999fb3ed393e488a1e6eb8d2ffceb0ec7cd8026e9e4e2"
+        },
+        "proof": "Lean 4.35.0 kernel; independent spec; no sorry/admit",
+        "legal_review": "PENDING (separate axis)",
+        "articles": [
+          "第一条 (Art.1: scope)",
+          "第二条 (Art.2: covered taxes incl. successor)"
+        ]
+      }
     }
   ],
   "notes": "財務省公式PDFを7件 pin 取得・SHA検証・テキスト抽出済み（7件）。L0 に合算しない別層。形式化は未実施。",
