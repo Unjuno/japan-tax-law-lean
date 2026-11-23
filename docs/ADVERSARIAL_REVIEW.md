@@ -9408,3 +9408,121 @@ Python で Lean と同一の整数式 `base * 5 // 100` を再計算し、指定
 - 残る UNRESOLVED（U-Y1 端数処理の法的正当性、U-Y2 課税標準・申告手続の未形式化の法的十分性）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・漢数字変換による税率照合・needle の `.find()` 検証・integer 式の反例走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+## Batch BZ review (2026-11-23) — 地方税法 art.73の15 / RealPropertyAcquisitionTaxRate.lean（cycle-82 独立原文照合）
+
+### BZ-0. 範囲・独立性の申告
+
+- **レビュア役割**: Adversarial Review Agent。形式化担当とは独立に、pinned 原文・CI `checks()` 実文字列・Lean モジュールを機械的に再走査し、担当者の記述を**信じず**に判定した。
+- **対象モジュール（読み取り専用・本レビューで一切変更していない）**:
+  - `JapanTaxLaw/RealPropertyAcquisitionTaxRate.lean`（impl: `standardRatePercent` / `taxYen`）
+  - `JapanTaxLaw/RealPropertyAcquisitionTaxRateSpec.lean`（`specTax` / `agreeRealPropertyAcquisitionTaxRate`）
+  - `JapanTaxLaw/RealPropertyAcquisitionTaxRateTests.lean`（`by decide` smoke）
+- **一次資料（pinned・改変禁止）**: `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`
+  - Python で直接確認: `revision_info.law_revision_id = 325AC0000000226_20261101_508AC0000000002`、`amendment_enforcement_date = 2026-11-01`、`current_revision_status = CurrentEnforced`。
+- **抽出方法**: `law_full_text` を自前の平坦化（辞書の `children` 再帰連結、全長 **2,357,362 文字**／自前正規化後 **2,355,516 文字**、`re.sub(r"[\s\u3000]+", "", s)`）で処理し、`MainProvision` 配下の `Article` **1,348 件**から `ArticleTitle == 第七十三条の十五`（`attr.Num = 73_15`）を走査・逐語取得。needle は **CI 実装 `scripts/ci/transcription_audit.py` の `checks()`（line 2277）に組込まれた実文字列 2 本**をそのまま使用（手打ちしない）。
+- **書き換えたのは本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ**。Lean モジュール・Spec・Tests・`data/*`・CI スクリプトは読み取り専用。commit / push / merge / ブランチ切替は行っていない。
+
+### BZ-1. 原文直接抽出と「百分の四」=4% の独立照合（桁違いの明示除外）
+
+pinned 原文から独立抽出した art.73の15 本文（平坦化文字列、**40 文字**、U+3000 **0 個**）:
+
+- `（不動産取得税の税率）第七十三条の十五不動産取得税の標準税率は、百分の四とする。`
+
+| 項目 | 独立抽出結果 | Lean 実装 | 照合 |
+|---|---|---|---|
+| 税率文言 | `標準税率は、百分の四とする` | doc-comment に逐語保持 | ✅ |
+| 日本語数字 | `四`（codepoint `U+56DB`）→ Arabic **4** | `standardRatePercent : Nat := 4` | ✅ |
+| 率 | 百分の四 = **4/100 = 4%** | `taxYen base = base * standardRatePercent / 100` = `base * 4 / 100` | ✅ |
+| 桁違い 0.4% | `百分の〇・四` / `百分の零・四` は本文に **0 回**（明示除外） | `standardRatePercent ≠ 0`（=4） | ✅ |
+| 桁違い 40% | `百分の四十` は本文に **0 回**（明示除外） | `standardRatePercent ≠ 40`（=4） | ✅ |
+
+- 正規表現 `標準税率は、百分の([一二三四五六七八九十百千万〇零]+)とする` で漢数字を捕捉し、自前の kansuji 変換（`四` → 4）で **4** を得た。捕捉文字列は `四` のみで小数点・「十」を含まないため、`4/100 = 4%` は `standardRatePercent = 4` と `base * 4 / 100` に完全一致。
+- **桁違い（0.4% = `百分の〇・四`、40% = `百分の四十`）は pinned 原文に存在せず、明示的に除外した。** 小数点を含む率ではないため分母は 100 のままで正しく、`/10000` 等への拡大は不要。
+- **「標準税率」である点を確認**: 本文冒頭の `（不動産取得税の税率）` は見出し、続く `第七十三条の十五` は条号であり、税率算術には関与しない。算術対象の文言は `標準税率は、百分の四とする` であり、**実際の税率（条例で別税率を定める場合）ではない**。impl の doc-comment も「標準税率と実際の税率（条例で別税率の場合）の関係は NOT MODELLED」と明示しており、この区別は仕様どおり。
+- 参考: 同じ法律の `第七十三条の十五の二`（本文 358 文字）に「不動産取得税の免税点」「課税標準となるべき額」が規定されており、**課税標準は本モデル対象の条文には含まれない**。NOT MODELLED の申告と整合する。
+
+### BZ-2. needle 健全性（CI 実文字列 2 本を自前正規化原文で検証）
+
+`scripts/ci/transcription_audit.py` の `checks()` うち、`RealPropertyAcquisitionTaxRate.lean`（law `325AC0000000226`）に組込まれた **2 本**の needle を抽出し、自前で平坦化・正規化した pinned 全文（2,355,516 文字）に対して `.find()` / `.count()` を実行した（STAGING の「FOUND」申告は信じていない）。
+
+| needle（CI 実文字列） | U+3000 | 正規化 find offset | 全文 count | 対象条文内 | 結果 |
+|---|---:|---:|---:|---|
+| `不動産取得税の標準税率は、百分の四とする` | 0 | 380154 | 1 | find=19 / FOUND | **FOUND** |
+| `第七十三条の十五` | 0 | 1478 | 10 | find=11 / FOUND | **FOUND** |
+
+- **U+3000（全角空白）を含む needle: 0 件**。**2/2 FOUND、MISS 0**。
+- 両 needle はいずれも対象条文（art.73の15）本文内に含まれることを別途確認（needle1: True / needle2: True）。needle2「第七十三条の十五」は法律全文では 10 回出現するが、これは他条（例: 第七十三条の十五の二）からの参照によるもので、対象条文内では一意であり転写健全性に影響しない。
+- 原文側の全角空白（全文で 1,846 個）は自前正規化で除去されるため、needle が全角空白を含んでいても検証は通るが、現状は含まない。
+
+### BZ-3. 反例探索（独立整数再計算）
+
+Python で Lean と同一の整数式 `base * 4 // 100` を再計算し、指定された攻撃点を走査した。値はすべて Lean の `by decide` smoke（`standardRatePercent = 4` を含む 4 件）および Spec の `specTax` と一致した。
+
+| 攻撃対象 | 独立再計算 | Lean smoke / Spec | 結果 |
+|---|---:|---|---|
+| `taxYen 0` | 0 | `taxYen 0 = 0` | 矛盾なし |
+| `taxYen 1000` | 40 | `taxYen 1000 = 40` / `specTax 1000 = 40` | 矛盾なし |
+| `taxYen 10000` | 400 | `taxYen 10000 = 400` / `specTax 10000 = 400` | 矛盾なし |
+| 端数境界（`base = 19`） | `19*4/100 = 0`（floor） | Nat 除算と同値 | 矛盾なし（端数処理は B-Z2 / U-Z1） |
+| 桁違い 0.4% を採った場合 | `1000*4/1000 = 4`（≠40） | `standardRatePercent = 4` で 40 | 矛盾なし（0.4% は除外） |
+| 桁違い 40% を採った場合 | `1000*40/100 = 400`（≠40） | `taxYen 1000 = 40` | 矛盾なし（40% は除外） |
+
+**反例探索で検出された原文↔Lean の矛盾: 0 件（ゼロ）。**
+
+### BZ-4. 公理監査
+
+- 一時 Lean ファイル `C:/Users/junny/AppData/Local/Temp/opencode/bz_axioms.lean` を作成し、impl / Spec の**名前付き宣言 4 件**（`standardRatePercent` / `taxYen` / `specTax` / `agreeRealPropertyAcquisitionTaxRate`）および独立再定義の定理 4 件（`standardRatePercent = 4`、`taxYen 0 = 0`、`taxYen 1000 = 40`、`taxYen 10000 = 400`、`by decide`）に `#print axioms` を実行（`lean` v4.35.0、`LEAN_PATH` を `.lake/build/lib/lean` に設定、exit code **0**、error 0）。監査後、一時ファイル・一時スクリプト・一時出力は**削除済み**。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | **8**（名前付き 4 + 独立定理 4） |
+| `does not depend on any axioms` | **8/8** |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+
+→ **choice / sorryAx / Quot.sound / propext 依存はいずれも 0 件。公理監査は合格。**
+（Tests の 4 件の `example` は匿名のため `#print axioms` 対象外だが、すべて `by decide` の計算のみで公理を導入しない。）
+
+### BZ-5. 分類判定
+
+| 分類 | 件数 |
+|---|---|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **4** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = ゼロ）を明示する。** 税率定数・算術・needle・反例・公理のいずれにも原文との食い違いは検出されなかった。件数を手柄にしない。
+
+#### CONFIRMED（0 件）
+
+- 税率: 原文「百分の四」= 4/100 = 4% と `standardRatePercent = 4` / `taxYen(base) = base * 4 / 100` は完全一致。
+- 桁違い: 0.4%・40% とも原文に存在せず、実装も採っていない。
+- needle: 2/2 FOUND、U+3000 0 件、MISS 0。
+- 反例: `taxYen(0)=0` / `(1000)=40` / `(10000)=400` すべて一致。
+- 公理: choice / sorryAx / Quot.sound / propext とも 0 件。
+
+#### BY-DESIGN（4 件）
+
+- **B-Z1 「標準税率」のみの bounded L4 slice**: 原文は「標準税率」を定めるのみで、**実際の税率（条例で別税率を定める場合）との関係は NOT MODELLED** と doc-comment で明示済み。pinned 原文 art.73の15 自体が標準税率のみを定めるため、反映漏れではない。
+- **B-Z2 `base * 4 / 100` の整数除算（floor）**: 原文に端数規定がないため、Nat 除算の切り捨てをモデル規約として明示。法的正当性は U-Z1 で保留。
+- **B-Z3 needle の取り扱い**: CI 実文字列 2 本を自前正規化原文で検証し 2/2 FOUND（U+3000 0 件）。needle2 は全文で count 10 だが対象条文内で一意であり、健全性に影響なし。
+- **B-Z4 Spec の独立定式**: `specTax b = b * 4 / 100` と `agreeRealPropertyAcquisitionTaxRate`（`[0,1,100,1000,10000]` 上の有限 spot-check）を併設。`agree = true` は有限サンプル上の一致であり全称等価証明ではないことを明示。
+
+#### UNRESOLVED（2 件）
+
+- **U-Z1 端数処理（floor）の法的正当性**: 原文「不動産取得税の標準税率は、百分の四とする。」には端数規定がなく、モデルは `base * 4 / 100` の Nat 切り捨てを採用。pinned 原文のみではこの切り捨てが法的に正しいか決定不能。**人間の法律専門家による確認を要する**（従来バッチの U-1 と同趣旨）。
+- **U-Z2 標準税率と条例別税率の関係・課税標準・申告手続の未形式化が法的に十分か**: 原文は標準税率のみを定め、条例による別税率の適用関係、不動産取得税の課税標準（本条文外の art.73の15の二 に規定）・申告納付手続は本スライスの対象外として NOT MODELLED。透明に申告されているが、形式化として十分かは pinned 原文のみでは解けず、**専門家判断を要する**。税率定数・税額算術の一致（発見ゼロ）には影響しない。
+
+### BZ-6. 総合判定・最終報告
+
+- pinned revision `325AC0000000226_20261101_508AC0000000002`（地方税法、適用日 2026-11-01）の art.73の15 本文 40 文字を独立抽出し、`standardRatePercent = 4` / `taxYen(base) = base * 4 / 100` を照合。**モデル値の食い違いは 0 件（ゼロ）**。0.4%・40% の桁違いは原文上も実装上も明示的に除外した。「標準税率」である点（実際税率とは区別）を確認。
+- **CONFIRMED: 0 件（発見ゼロ）** / **BY-DESIGN: 4 件** / **UNRESOLVED: 2 件**。
+- **needle 健全性**: U+3000 **0 件**、CI 実文字列 **2/2 FOUND**（MISS 0）。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` とも **0 件**、8/8 宣言が axiom-free（`lean` v4.35.0、exit 0）。監査用一時ファイルは削除済み。
+- **反例探索**: `taxYen(0)=0` / `(1000)=40` / `(10000)=400` を含む全攻撃点で矛盾 **0 件**。
+- **書き換えたのは本ファイルのみ**（既存のレビュー履歴 Batch AH〜BY はすべて保持）。Lean モジュール・`data/*` は読み取り専用。commit / push / merge / ブランチ切替なし。
+- 残る UNRESOLVED（U-Z1 端数処理の法的正当性、U-Z2 標準税率と条例別税率の関係・課税標準・申告手続の未形式化の法的十分性）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・漢数字変換による税率照合・needle の `.find()` 検証・integer 式の反例走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
