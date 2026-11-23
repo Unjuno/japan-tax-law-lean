@@ -1440,6 +1440,18 @@ def checks():
            "143AC0000000054",
            "article", "\u7b2c\u5341\u4e5d\u6761",
            ["\u524d\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e94\u9805\u53c8\u306f\u7b2c\u516d\u9805\u306e\u898f\u5b9a\u3092\u9069\u7528\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+    # CustomsTariffArt20No2Art13ProvisoException.lean - NORM|04057a73... (art.13(7) proviso 準用 EXCEPTION in art.20-2(3), law 143AC0000000054)
+    # Needle is in MainProvision Article 第二十条の二 (Paragraph 3, Sentence 2) -
+    # verbatim injected from the queue via \u escapes; sub-terms 第十三条第七項ただし書
+    # and この場合 extracted from the needle, never hand-typed. len 570 with needle.
+    # NOTE: distinct from the art.17(5) unit — that sibling's needle is a
+    # different sentence (第十三条第七項ただし書の規定は、前項の規定により…),
+    # though both reference the same proviso.
+    yield ("customs tariff art.20-2 art13(7) proviso exception - CustomsTariffArt20No2Art13ProvisoException.lean",
+           "143AC0000000054",
+           "article", "\u7b2c\u4e8c\u5341\u6761\u306e\u4e8c",
+           ["\u3053\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u7b2c\u5341\u4e09\u6761\u7b2c\u4e03\u9805\u305f\u3060\u3057\u66f8\u306e\u898f\u5b9a\u3092\u6e96\u7528\u3059\u308b\u3002"])
+
 
 
 
