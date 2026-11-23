@@ -520,7 +520,19 @@ def checks_by_module():
     mod = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(mod)
     out = {}
-    for name, law_id, kind, art, needles in mod.checks():
+    # Durable per-module pins live in data/TRANSCRIPTION_PINS/*.json. Loaded
+    # here directly so a merge touching transcription_audit.py cannot silently
+    # drop another module's evidence anchor.
+    pins_dir = REPO / "data" / "TRANSCRIPTION_PINS"
+    entries = []
+    if pins_dir.exists():
+        for pf in sorted(pins_dir.glob("*.json")):
+            try:
+                rec = json.loads(pf.read_text(encoding="utf-8"))
+                entries.append((rec["name"], rec["law_id"], rec["kind"], rec.get("art"), rec["needles"]))
+            except (ValueError, KeyError):
+                continue
+    for name, law_id, kind, art, needles in list(mod.checks()) + entries:
         m = re.search(r"(\w+)\.lean", name)
         if not m:
             continue
