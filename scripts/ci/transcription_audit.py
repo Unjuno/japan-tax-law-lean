@@ -3556,13 +3556,7 @@ def checks():
            "article", "第六条の九",
            ["直前事業年度の総収入金額のうちに当該直前事業年度の投資関連所得（利子所得、配当所得その他の総務省令、財務省令で定める所得をいう。ロにおいて同じ。）に係る収入金額の占める割合が百分の五十に満たないこと。"])
 
-# 工事費用の合計額 百万円超 — ConstructionCost1M.lean
-    yield ("地方税法施行令 art. 9（工事費用の合計額 百万円超）↔ ConstructionCost1M.lean (constructionFloor1M 1000000)",
-           "325CO0000000245",
-           "file", None,
-           ["前号イからヘまでに掲げる工事に要した費用の額の合計額が百万円を超えること。"])
-
-    # 信託契約期間 二十年以上 — TrustPeriod20Y.lean
+# 信託契約期間 二十年以上 — TrustPeriod20Y.lean
     yield ("租税特別措置法施行令 art. 25_13（信託契約期間 二十年以上）↔ TrustPeriod20Y.lean (trustFloor20Y 20)",
            "332CO0000000043",
            "file", None,

@@ -7,10 +7,10 @@ namespace JapanTaxLaw.ConstructionCost1MTests
 open JapanTaxLaw.ConstructionCost1M
 open JapanTaxLaw.ConstructionCost1MSpec
 
-example : exceedsConstruction1M 0 = false := by decide
-example : exceedsConstruction1M 999999 = false := by decide
-example : exceedsConstruction1M 1000000 = false := by decide
-example : exceedsConstruction1M 1000001 = true := by decide
+example : exceedsCost 0 = false := by decide
+example : exceedsCost 999999 = false := by decide
+example : exceedsCost 1000000 = false := by decide
+example : exceedsCost 1000001 = true := by decide
 example : specWithin 999999 = false := by decide
 example : specWithin 1000000 = false := by decide
 example : specWithin 1000001 = true := by decide

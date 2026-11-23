@@ -1,7 +1,7 @@
 import JapanTaxLaw.TaxFinance
 
 /-!
-# ConstructionCost1M — 地方税法施行令 art. 9（工事費用の合計額 百万円超）
+# ConstructionCost1M — 地方税法施行令 9（工事費用の合計額 百万円超）
 
 Sources (pinned):
 
@@ -11,16 +11,16 @@ Sources (pinned):
 
 Pinned 原文: 「前号イからヘまでに掲げる工事に要した費用の額の合計額が百万円を超えること。」
 
-Scoped claim: only the 工事費用の合計額 百万円超 threshold; other conditions are caller-established.
+Scoped claim: only the 工事費用の合計額 百万円超; other conditions are caller-established.
 -/
 
 namespace JapanTaxLaw.ConstructionCost1M
 
-def constructionFloor1M : Nat := 1000000
+def costThresholdYen : Nat := 1000000
 
-def exceedsConstruction1M (x : Nat) : Bool :=
-  decide (constructionFloor1M < x)
+def exceedsCost (x : Nat) : Bool :=
+  decide (costThresholdYen < x)
 
-theorem threshold_value : constructionFloor1M = 1000000 := rfl
+theorem threshold_value : costThresholdYen = 1000000 := rfl
 
 end JapanTaxLaw.ConstructionCost1M

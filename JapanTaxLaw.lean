@@ -1101,9 +1101,6 @@ import JapanTaxLaw.SalaryTotal300kTests
 import JapanTaxLaw.FineCap200k
 import JapanTaxLaw.FineCap200kSpec
 import JapanTaxLaw.FineCap200kTests
-import JapanTaxLaw.ConstructionCost1M
-import JapanTaxLaw.ConstructionCost1MSpec
-import JapanTaxLaw.ConstructionCost1MTests
 import JapanTaxLaw.AntennaPowerCeiling
 import JapanTaxLaw.AntennaPowerCeilingSpec
 import JapanTaxLaw.AntennaPowerCeilingTests
@@ -1774,9 +1771,6 @@ import JapanTaxLaw.CustomsCertificate200kTests
 import JapanTaxLaw.CustomsGoods200k
 import JapanTaxLaw.CustomsGoods200kSpec
 import JapanTaxLaw.CustomsGoods200kTests
-import JapanTaxLaw.ConstructionCost1M
-import JapanTaxLaw.ConstructionCost1MSpec
-import JapanTaxLaw.ConstructionCost1MTests
 import JapanTaxLaw.TrustPeriod20Y
 import JapanTaxLaw.TrustPeriod20YSpec
 import JapanTaxLaw.TrustPeriod20YTests
@@ -1907,3 +1901,6 @@ import JapanTaxLaw.TreatyAssetCeiling100KTests
 import JapanTaxLaw.UnevenTaxInvestmentThreshold
 import JapanTaxLaw.UnevenTaxInvestmentThresholdSpec
 import JapanTaxLaw.UnevenTaxInvestmentThresholdTests
+import JapanTaxLaw.ConstructionCost1M
+import JapanTaxLaw.ConstructionCost1MSpec
+import JapanTaxLaw.ConstructionCost1MTests
