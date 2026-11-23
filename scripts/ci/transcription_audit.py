@@ -91,6 +91,19 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # Additional pins live in one file per module under data/TRANSCRIPTION_PINS/.
+    # A dedicated file is durable across merges: editing this hand-written list
+    # for other modules cannot silently drop another module's pin.
+    pins_dir = REPO / "data" / "TRANSCRIPTION_PINS"
+    if pins_dir.exists():
+        for pf in sorted(pins_dir.glob("*.json")):
+            try:
+                rec = json.loads(pf.read_text(encoding="utf-8"))
+                yield (rec["name"], rec["law_id"], rec["kind"], rec.get("art"), rec["needles"])
+            except (ValueError, KeyError):
+                continue
+    cia = find_article_text  # alias for readability
+
     # 法人税法 art. 66 — CorporateTaxRate.lean
     yield ("法人税法 art. 66（法人税率）↔ CorporateTaxRate.lean (smeRate 19% / ordinaryRate 23.2% / 年800万円 cap / 資本金1億円以下)",
            "340AC0000000034",
@@ -2317,6 +2330,12 @@ def checks():
            "file", None,
            ["処理区域内人口密度が二十五人毎ヘクタール未満の事業に係るもの", "令和八年度九月震災復興特別交付税額の算定方法"])
 
+    # PropertyInKindEnforcementDate — cycle-99
+    yield ("PropertyInKindEnforcementDate.lean",
+           "325M50000040022",
+           "file", None,
+           ["第一条この省令は、平成十五年一月六日から施行する", "この省令は、平成十五年一月六日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3500,6 +3519,14 @@ def checks():
            "article", "第六条の九",
            ["直前事業年度の総収入金額のうちに当該直前事業年度の投資関連所得（利子所得、配当所得その他の総務省令、財務省令で定める所得をいう。ロにおいて同じ。）に係る収入金額の占める割合が百分の五十に満たないこと。"])
 
+    # DisasterTaxReliefOrderArt10ApplicationItem3_5.lean - NORM|89782d86... (政令 art.10 application item EFFECT, law 322CO0000000268)
+    # Needle is in Article 10 Paragraph 1 Item 2 - verbatim injected from the
+    # queue via \u escapes; reference coordinates 3/5 extracted structurally.
+    yield ("disaster tax relief order art.10 application item 3-5 effect - DisasterTaxReliefOrderArt10ApplicationItem3_5.lean",
+           "322CO0000000268",
+           "article", "\u7b2c\u5341\u6761",
+           ["\u6cd5\u7b2c\u4e09\u6761\u7b2c\u4e94\u9805\u306e\u898f\u5b9a\u306e\u9069\u7528\u3092\u53d7\u3051\u3088\u3046\u3068\u3059\u308b\u65e8"])
+
     # CustomsTariffSupplArt1StaggeredEnforcementException.lean - NORM|01ed33c3... (附則 staggered enforcement EXCEPTION, law 143AC0000000054)
     # Needle is in a 附則 Article 1 (Paragraph 1, Sentence 2); use file-kind locator
     # (find_article_text sees main only). Verbatim injected via \u escapes.
@@ -3519,7 +3546,6 @@ def checks():
            "422M60000040022",
            "article", "第六条",
            ["この場合において、同号に規定する高額適用額は、その順位を付した適用額が十以上となるまでの適用額に順位を付した場合の第一順位から当該十以上となる順位までに該当する各適用額（第一順位の適用額が十以上となるときは、当該第一順位の適用額）とする。"])
-
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

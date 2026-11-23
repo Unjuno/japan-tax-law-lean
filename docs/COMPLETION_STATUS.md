@@ -13,7 +13,7 @@ obligations being complete. SKIP is never counted as PASS.
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: 348f86a937b884cc89f6bf1109cd64ad582f1bf7
-- current HEAD commit: 8ba4fa302099bb7c7d6a54e40e778bec58d58839
+- current HEAD commit: 46246bddb7db97edf84c5c395b4dd129a30866d0
 - results bound to this commit: False
 - registered checks all green: False
 
