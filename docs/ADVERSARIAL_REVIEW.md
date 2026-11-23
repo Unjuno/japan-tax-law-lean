@@ -10142,3 +10142,100 @@ pinned 原文・needle・5 例・独立 Spec・公理監査のすべてで不整
 - **CONFIRMED 0 / BY-DESIGN 6 / UNRESOLVED 3**。発見ゼロ。
 - 追記後レビュー件数 **82**（既存 81 件は全件保持、Batch AH〜CE を含む）。追記は `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替なし。一時ファイルは削除済み。
 - **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。
+
+## Batch CG review (2026-11-23)
+
+- 対象: `JapanTaxLaw/ShareRatioOverHalf.lean`（`exceedsHalf` と 5 つの `by decide` 例）＋独立 Spec `ShareRatioOverHalfSpec.lean`（`specOverHalf` / `agreeShareRatioOverHalf`）＋`ShareRatioOverHalfTests.lean`。pinned law `344M50000048001` / rev `344M50000048001_20260601_508M60000048004`（租税条約等実施特例法施行省令 art.16の12 §6）。
+- 手法: coordinator 要約・STAGING・Lean doc-comment の申告を**信じず**、pinned 生 JSON を自前 Python で再読・再平坦化して原文リテラルを独立抽出。CI needle は実装 `scripts/ci/transcription_audit.py::checks()`（cycle-90 エントリ）から実文字列を取得し、自前正規化原文で照合。算術は独立再計算（Python 整数＋全数走査）。Lean は `lake env lean`（toolchain `v4.35.0`）で実カーネル再実行。一時ファイルは approved temp dir に置き実行後に削除。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替は行わない。書き込みは本ファイル 1 ファイルのみ（全量 read → 末尾連結 → write の read-then-write）。
+- **本レビューは pinned e-Gov 原文との機械的独立照合であり、人間の法律専門家レビューではない。** 法解釈の正しさ・網羅性を保証しない。
+
+### CG-1. pin と独立定位
+
+- raw `data/raw/344M50000048001_20260601_508M60000048004.law.json`: 実測 **1,100,908 bytes**、SHA-256 再計算 `16F478FAC8E3F64E3BDA43D638C4FC98BFD8F5747AF82B4E2321AC0648A8B0FE` = `data/INVENTORY.json` の `raw_snapshot.source_sha256` と一致。`law_id` / `law_revision_id`（一致）/ 施行日 `2026-06-01` / `current_revision_status: CurrentEnforced` / law_title `租税条約等の実施に伴う所得税法、法人税法及び地方税法の施行に関する省令` も raw 側から独立確認（INVENTORY の `current_enforced` エントリと一致）。実在 revision であることを確認。
+- `law_full_text` を再帰平坦化し `tag=Article, attr.Num="16_12"` を **1 件**検出。ArticleTitle「第十六条の十二」→ **LOCATED**。本文（caption「（報告金融機関等による報告事項の提供）」）を文書順に連結。
+- Article 16の12 全体の正規化 leaf は **7,905 文字**（U+3000 0）。Paragraph `Num="6"` は 1 件、その正規化 leaf は **1,057 文字**（U+3000 0）。doc-comment の "flat/normalized leaf text 7905 chars" は **§6 単体ではなく Article 16の12 全体**を指す（転記ミスではなくスコープ表記の違い、BY-DESIGN B-CG5 参照）。
+
+### CG-2. 原文からの独立抽出と実装照合
+
+- §6 一号 ロ の原文 leaf を pinned JSON から直接抽出（Article 内 offset 2,083）:
+  `当該他の組合の組合財産に対する持分の割合が百分の五十を超える場合における当該持分`
+  文中の「組合財産に対する持分の割合」「百分の五十を超える場合」「当該持分」を正規化 leaf 上で独立検出。doc-comment の逐語引用は正規化原文に 1 回一致。
+- **桁の独立確認**: 日本語数字を自前パース（五=5, 十=10 → 五十 = 5×10 = **50**; 百=**100**）し、`百分の五十 = 50/100 = 50%` と算出。桁違いを明示除外: `持分の割合が百分の五を超える場合`（5%）/`持分の割合が百分の五百を超える場合`（500%）は正規化原文に **いずれも存在しない（False）**。
+- **「超える」= 厳密不等式**: 当該箇所に「超える」が存在し「百分の五十以上」は存在しない（False）。よって 50% **ちょうどは対象外**、50% を厳密に超える場合のみ対象。
+- 実装 `exceedsHalf(share,total) = share*100 > total*50` は「50/100 を厳密超え」と整合。両辺を 50 で約した独立 Spec `specOverHalf(s,t) = s*2 > t` とも代数的に同値（自然数上で全数一致、CG-4）。**不整合なし。**
+- 参考（原文 §6 の近傍）: 一号 イ は「発行済株式又は出資の総数又は総額の百分の五十を超える数又は金額の株式又は出資」、ハ は「準組合財産に対する持分の割合が百分の五十を超える場合」、ニ は「受益権の総額の百分の五十を超える金額の受益権」。いずれも閾値は 50% 厳密超えで、本モデルの ロ と整合するが、**これらの号は未形式化**（BY-DESIGN B-CG1 / UNRESOLVED U-CG2）。
+
+### CG-3. needle 健全性（CI `checks()` 実文字列 2 本を自前正規化原文で検証）
+
+`scripts/ci/transcription_audit.py:2303-2307`（cycle-90 エントリ、`name="ShareRatioOverHalf.lean"` / `law_id="344M50000048001"` / `kind="file"` / `art=None`）から **実文字列 2 本を手打ちせず取得**:
+
+| needle | U+3000 | 自前正規化原文 | 正規化全文での出現回数 |
+|---|---|---|---|
+| `持分の割合が百分の五十を超える場合` | 0 | FOUND | 2 |
+| `第十六条の十二` | 0 | FOUND | 29 |
+
+- **2/2 FOUND**。全文は生 210,598 文字（U+3000 80 個）→ 自前正規化 `re.sub(r"[\s\u3000]+","",…)` 後 210,518 文字（U+3000 **0 個**）。needle 自身の U+3000 も **0**。CI の `_norm` / `contains()` / `load_law_text()` と同一条件で一致。
+- needle 1 の 2 回は §6 の ロ（組合）と ハ（準組合）に由来し、needle 2 は条文見出し＋参照。いずれも pinned Article 16の12 内に実在し、`kind="file"` の全文スコープでも誤同定しない（BY-DESIGN B-CG4）。
+
+### CG-4. 反例探索（実装 vs 独立 Spec）
+
+独立 Spec `specOverHalf(s,t) = s*2 > t` を別定義し、実装と比較（Lean の `Nat` は任意精度でオーバーフローなし）。
+
+| 入力 (share, total) | 割合 | 実装 `exceedsHalf` | 独立 Spec | 一致 |
+|---|---|---|---|---|
+| (50, 100) | 50% ちょうど | false | false | ✅ |
+| (51, 100) | 51% | true | true | ✅ |
+| (100, 200) | 50% ちょうど | false | false | ✅ |
+| (101, 200) | 50.5% | true | true | ✅ |
+
+- 追加境界: (49,100)=false, (0,100)=false, (1,1000)=false（いずれも一致）。`total=0` も `share>0` のとき両者 true で代数的に一致。
+- 全数走査 `share=0..200, total=1..200`（40,200 点）で不一致 **0**。モジュール内の `by decide` 例も実カーネルで再実行し全通过。
+
+### CG-5. 公理監査（実 Lean カーネル）
+
+一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\cg_axiom_probe.lean` を作成し、3 モジュールの**名前付き宣言 3 件**（`exceedsHalf` / `specOverHalf` / `agreeShareRatioOverHalf`）すべてに `#print axioms` を実行（`lake env lean`、exit code **0**、error 0）。
+
+- `JapanTaxLaw.ShareRatioOverHalf.exceedsHalf` → `does not depend on any axioms`
+- `JapanTaxLaw.ShareRatioOverHalf.specOverHalf` → `does not depend on any axioms`
+- `JapanTaxLaw.ShareRatioOverHalf.agreeShareRatioOverHalf` → `does not depend on any axioms`
+- 3 モジュールの `sorry|admit|axiom|unsafe` テキスト走査 **0 matches**（doc-comment 中の文字列もなし）。
+- **`Classical.choice` / `sorryAx` / `Quot.sound` / `propext` 依存は 3/3 宣言で 0。公理監査は合格。** 監査用一時ファイル・スクリプトは削除済み。
+
+### CG-6. 判定
+
+| 分類 | 件数 |
+|---|---|
+| CONFIRMED（実 defect） | **0（発見ゼロ）** |
+| BY-DESIGN | **6** |
+| UNRESOLVED | **3** |
+
+#### CONFIRMED（0 件）
+
+pinned 原文の独立抽出（50% 厳密超え・桁違い除外）、needle 2/2、指定反例 4 点＋全数走査、公理監査のすべてで不整合なし。**発見ゼロ（実 defect ゼロ）**。
+
+#### BY-DESIGN（6 件）
+
+- **B-CG1 bounded L4 slice**: 数値閾値（50% 厳密超え）のみ形式化。「組合財産」「持分」の定義、他の号（イ 株式・出資、ハ 準組合持分、ニ 信託受益権）の閾値、当該持分の算定・適用場面は `NOT MODELLED` と doc-comment に明記された意図的範囲。
+- **B-CG2 `Nat` ドメイン**: `share` / `total` は非負整数。負値・有理数パーセント・`total=0` の法的意味は対象外。自然数上で `s*100>t*50 ⇔ s*2>t` は成立（CG-4）。
+- **B-CG3 任意精度**: Lean `Nat` はオーバーフローしないため `share*100` / `total*50` の桁溢れによる誤判定はない。実装上の制約ではない。
+- **B-CG4 needle スコープ**: CI は `kind="file"` で全文照合。needle 1 は 2 回（ロ と ハ）、needle 2 は 29 回出現するが、いずれも pinned Article 16の12 に実在し誤同定リスクなし（CG-3）。
+- **B-CG5 doc-comment の文字数**: "7905 chars" は Article 16の12 **全体**の正規化 leaf 長であり、§6 単体（1,057 文字）ではない。転記ミスではなく表記スコープの違い（CG-1）。
+- **B-CG6 独立 Spec の表現差**: `s*2>t` は実装 `s*100>t*50` を 50 で約した同値表現であり、別モデルではなく照合用の再定式化（全数不一致 0）。
+
+#### UNRESOLVED（3 件）
+
+いずれも pinned 原文から機械的には決定できず、**人間の法律専門家による確認が必要**な範囲（本レビューは行わない）。
+
+- **U-CG1 組合財産・持分の定義**: 原文は「組合の組合財産」「当該持分」を法第十条の五第八項第六号イ等の外部規定へ参照するのみで、pinned 原文中に定義がない。定義の具體は未形式化・未確認。
+- **U-CG2 他の号の閾値・適用関係**: §6 一号 イ（株式・出資）/ ハ（準組合持分）/ ニ（信託受益権）は原文上いずれも 50% 厳密超えだが、本モデルは ロ のみを扱い、これらの号の算定・適用関係は未形式化。二号（議決権）との関係も未確認。
+- **U-CG3 適用場面**: 令第六条の十四第一項第一号の報告事項（外国 government 等グループとの関係等）における「当該持分」の具体的算定・適用場面は未形式化で caller-established。pinned 原文のみでは起算となる財産評価が確定しない。
+
+### CG-7. 最終報告
+
+- pinned 原文（art.16の12 §6 一号 ロ）から「持分の割合が百分の五十を超える場合」を直接独立抽出し、**50% 厳密超え**（5%/500% を明示除外、50% ちょうど対象外）を確認。実装 `exceedsHalf` および独立 Spec と不整合なし。
+- needle: U+3000 **0 個**、**2/2 FOUND**（自前正規化原文、CI 実文字列）。
+- 反例: 指定 4 点すべて実装＝独立 Spec、`share=0..200 / total=1..200` 全数不一致 **0**。
+- 公理: 名前付き宣言 3/3 が `does not depend on any axioms`（choice / sorryAx / Quot.sound / propext 依存 **0**）。
+- **CONFIRMED 0 / BY-DESIGN 6 / UNRESOLVED 3**。発見ゼロ。
+- 追記後レビュー件数 **83**（既存 82 件は全件保持、Batch AH〜CF を含む）。追記は `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替なし。一時ファイルは削除済み。
+- **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。

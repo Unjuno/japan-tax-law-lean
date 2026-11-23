@@ -2366,6 +2366,12 @@ def checks():
            "file", None,
            ["米の含有量が全重量の三〇％を超えるもの", "第七条"])
 
+    # ServiceYearFractionRoundDown — cycle-91
+    yield ("ServiceYearFractionRoundDown.lean",
+           "347M50000040042",
+           "file", None,
+           ["勤続年数に一年未満の端数がある場合には、その端数は切り捨てる", "第五十二条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3454,6 +3460,12 @@ def checks():
            "412CO0000000278",
            "article", "第四条",
            ["委員の任期は、二年とする。"])
+
+    # 国外財産調書 art. 10 — ForeignAssetPenaltyCap.lean
+    yield ("国外財産調書 art. 10（一年以下・五十万円以下の罰則上限）↔ ForeignAssetPenaltyCap.lean (1-year / 50-man-yen caps, inclusive)",
+           "409AC0000000110",
+           "article", "第十条",
+           ["正当な理由がなくて国外財産調書をその提出期限までに税務署長に提出しなかったときは、その違反行為をした者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
