@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 163
+- with >=1 pinned literal check (semantic model): 164
 - with recorded human legal review: 0
 
 ## All laws
@@ -167,7 +167,7 @@ a completion flag.
 | `348CO0000000317` | 物品の一時輸入のための通関手帳に関する通関条約（ＡＴＡ条約）の実施に伴う関税法等の特例に | 348CO0000000317_20010106_412CO0000000307 | CurrentEnforced | YES | ok | 9 | YES (1) | NO |
 | `348M50000040053` | 物品の一時輸入のための通関手帳に関する通関条約（ＡＴＡ条約）の実施に伴う関税法等の特例に | 348M50000040053_20050307_417M60000040012 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
 | `349AC0000000079` | 電源開発促進税法 | 349AC0000000079_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 56 | YES (1) | NO |
-| `349CO0000000339` | 電源開発促進税法施行令 | 349CO0000000339_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 20 | NO (0) | NO |
+| `349CO0000000339` | 電源開発促進税法施行令 | 349CO0000000339_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 20 | YES (1) | NO |
 | `351M50000008035` | 特別交付税に関する省令 | 351M50000008035_20260316_508M60000008025 | CurrentEnforced | YES | ok | 146 | YES (1) | NO |
 | `352AC0000000035` | 昭和五十一年分所得税の特別減税の実施のための財政処理の特別措置に関する法律 | 352AC0000000035_19770504_000000000000000 | CurrentEnforced | YES | ok | 3 | YES (1) | NO |
 | `352M50000040032` | 国税局課税部等の統括国税調査官等の所掌に属する事務の範囲を定める省令 | 352M50000040032_20220710_504M60000040044 | CurrentEnforced | YES | ok | 36 | YES (2) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 294
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 295
