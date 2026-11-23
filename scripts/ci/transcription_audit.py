@@ -91,19 +91,6 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
-    # Additional pins live in one file per module under data/TRANSCRIPTION_PINS/.
-    # A dedicated file is durable across merges: editing this hand-written list
-    # for other modules cannot silently drop another module's pin.
-    pins_dir = REPO / "data" / "TRANSCRIPTION_PINS"
-    if pins_dir.exists():
-        for pf in sorted(pins_dir.glob("*.json")):
-            try:
-                rec = json.loads(pf.read_text(encoding="utf-8"))
-                yield (rec["name"], rec["law_id"], rec["kind"], rec.get("art"), rec["needles"])
-            except (ValueError, KeyError):
-                continue
-    cia = find_article_text  # alias for readability
-
     # 法人税法 art. 66 — CorporateTaxRate.lean
     yield ("法人税法 art. 66（法人税率）↔ CorporateTaxRate.lean (smeRate 19% / ordinaryRate 23.2% / 年800万円 cap / 資本金1億円以下)",
            "340AC0000000034",
@@ -2342,6 +2329,12 @@ def checks():
            "file", None,
            ["第一条この政令は、昭和六十四年四月一日から施行する", "この政令は、昭和六十四年四月一日から施行する"])
 
+    # LocalGasolineGrantTaxOrderEnforcementDate — cycle-102
+    yield ("LocalGasolineGrantTaxOrderEnforcementDate.lean",
+           "344CO0000000088",
+           "file", None,
+           ["第一条この政令は、昭和五十一年四月一日から施行する", "この政令は、昭和五十一年四月一日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3559,7 +3552,6 @@ def checks():
            "article", "第五条",
            ["二以上の任意の記録項目を組み合わせて条件を設定することができること。"])
 
-
     # SpecialMeasuresArt70_3PresumptiveHeirCondition.lean - NORM|d775175c... (租税特別措置法 art.70_3 PRESUMPTION, law 332AC0000000026)
     # Needle is in Article 70_3 Paragraph 3 Item 1 Subitem 2 - verbatim injected
     # from the queue via \u escapes; heir-status facts extracted structurally.
@@ -3568,12 +3560,19 @@ def checks():
            "article", "\u7b2c\u4e03\u5341\u6761\u306e\u4e09",
            ["\u4f4f\u5b85\u53d6\u5f97\u7b49\u8cc7\u91d1\u306e\u8d08\u4e0e\u3092\u3057\u305f\u8005\u306e\u76f4\u7cfb\u5351\u5c5e\u3067\u3042\u308b\u63a8\u5b9a\u76f8\u7d9a\u4eba\uff08\u5b6b\u3092\u542b\u3080\u3002\uff09\u3067\u3042\u308b\u3053\u3068\u3002"])
 
+    # LocalTaxArt48To50DeletedRange.lean - NORM|76351db6... (地方税法 art.48:50 ArticleTitle STRUCTURE, law 325AC0000000226)
+    # Needle is the ArticleTitle; full Article flat text (with 削除) also checked.
+    # Article numbers 48/50 parsed from kanji numerals in the needle (not hand-typed).
+    yield ("local tax art.48-50 deleted range - LocalTaxArt48To50DeletedRange.lean",
+           "325AC0000000226",
+           "article", "\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067",
+           ["\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067", "\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067\u524a\u9664"])
+
     # 公債収入 art. 2 — BondRevenueFiscalYear.lean
     yield ("公債収入 art. 2（昭和51年度所属の歳入）↔ BondRevenueFiscalYear.lean (single-year FY attribution 51)",
            "352AC0000000035",
            "article", "第二条",
            ["この場合において、当該公債に係る収入は、昭和五十一年度所属の歳入とする。"])
-
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

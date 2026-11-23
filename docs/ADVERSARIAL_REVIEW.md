@@ -11057,3 +11057,44 @@ pinned 附則（17 ブロック）には本モデルが扱う平成15年施行�
 - **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。
 
 ---
+
+## Batch CR review (2026-11-24) — とん税法施行令 附則 art.1（施行日）/ TonTaxOrderEnforcementDate.lean（cycle-101 機械的独立照合・反例探索）
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。**本レビューは機械的独立照合であり、人間の法律専門家レビューではない。**
+- **対象モジュール（読み取り専用・変更していない）**: `JapanTaxLaw/TonTaxOrderEnforcementDate.lean`（併せて `...Spec.lean` / `...Tests.lean` を参照のみ）。
+- **pinned 確認**: law `332CO0000000048` / revision `332CO0000000048_20201001_502CO0000000128` / `data/raw/332CO0000000048_20201001_502CO0000000128.law.json`（data/raw に実在）。`data/INVENTORY.json` の当該レコードは `current_revision.current_revision_status = CurrentEnforced`、`raw_snapshot.source_file` がモジュール header の pin と一致、`revisions_sha256` / `source_sha256` 記録付き。`332CO0000000048.revisions.json` にも当該 revision が現役（CurrentEnforced）として存在。自前計算の SHA256 `e14d1d8cfae001bcc6eb2974a8c9b6223f796d7a82b57b99e8da41f97dfb502d` / size 25,446 bytes は INVENTORY の `source_sha256` / `size_bytes` と一致。
+
+### 1. 独立抽出（pinned 原文 附則 からの直接抽出・照合）
+- pinned JSON の `law_full_text` を再帰走査し、`SupplProvision`（附　則）配下の `Sentence` を直接抽出（形式化担当の STAGING / モジュール header の「原文逐語」は信じない）。全 **9** 個の附則ブロックのうち 0-based index **4**（`AmendLawNum = 昭和六三年一二月三〇日政令第三六一号`）が `附則（施行期日）第一条この政令は、昭和六十四年四月一日から施行する。ただし、第七条…の規定は、消費税法の施行の日から施行する。` であり、当該 `Sentence` を逐語抽出すると `この政令は、昭和六十四年四月一日から施行する。`。日付リテラルは `昭和六十四年四月一日` で、タスク提示の原文「第一条 この政令は、昭和六十四年四月一日から施行する。」と逐語一致（全角空白は正規化 `re.sub(r"[\s　]+","",…)` で除去された差のみ）。
+- 昭成年換算の独立確認: 昭和元年 = 1926 → **1926 + 64 - 1 = 1989**（モジュールの `1925 + 64 = 1989` と同値）。昭和64年は昭和最後の年（昭和64年は 1989-01-07 まで）。よって `enforcementDate = (1989, 4, 1)`、`dateKey` / `enforcementKey` = `19890401`。
+- **混同の明示除外**: 昭和63年 = 1925 + 63 = **1988**。pinned の附則を改正した政令は「昭和六三年政令第三六一号」（1988-12-30 公布）だが、これは**改正政令の年号であり施行日ではない**。また平成元年も西暦 1989 だが、原文は字面「昭和六十四年」であり、平成年号の附則は「平成十三年一月六日」「平成十六年三月二十二日」「平成十七年三月七日」のみで「平成元年」は存在しない。needle 実文字列も「昭和六十四年四月一日」を固定している。昭和63年（1988）・平成元年への取り違え検出はゼロ。
+
+### 2. needle 健全性（CI checks() 実文字列 2 本）
+- 出典: `scripts/ci/transcription_audit.py` の `checks()` cycle-101 エントリ（line 2339-2343）の実文字列 2 本（STAGING の申告は信じていない）:
+  1. `第一条この政令は、昭和六十四年四月一日から施行する`
+  2. `この政令は、昭和六十四年四月一日から施行する`
+- 自前正規化（`re.sub(r"[\s　]+", "", s)`、CI の `_norm` と同一規約）を pinned `law_full_text` 全体（正規化後 3,606 文字）に適用し substring 検索した結果、**両方 FOUND（2/2 FOUND、各 count = 1、find = 3080 / 3083）**。両 needle とも **U+3000 不含**。needle 不一致・文字化け・U+3000 混入の検出ゼロ。
+
+### 3. 反例探索（境界値 4 点 + 独立 Spec との一致）
+| 入力 d | dateKey | inForce(d) | specInForce(d) | 一致 |
+|---|---|---|---|---|
+| (1989, 3, 31) | 19890331 | false | false | ✓ |
+| (1989, 4, 1) | 19890401 | true | true | ✓ |
+| (1989, 4, 2) | 19890402 | true | true | ✓ |
+| (2000, 1, 1) | 20000101 | true | true | ✓ |
+
+- すべて `by decide` の決定的手続で検証（`lake env lean`、exit code **0**）。独立 Spec は辞書順成分比較（`specInForce`）という実装 `dateKey >= 19890401` とは別定式であり、上記 4 点すべてで一致。`showaToSeireki 64 = 1989` / `showaToSeireki 63 = 1988` / `showaToSeireki 1 = 1926` / `enforcementKey = 19890401` / `agreeTonTaxOrderEnforcementDate = true` も併せて確認。境界の off-by-one（施行前日を true、施行日を false と誤る等）は検出されず。
+
+### 4. 公理監査（#print axioms）
+- 一時 Lean ファイル（テンポラリディレクトリ、repo 外）を作成し、`lake env lean` をプロジェクトルートから実行（exit code **0**）。`#print axioms` の結果: `showaToSeireki` / `enforcementDate` / `dateKey` / `enforcementKey` / `inForce` / `specDate` / `specInForce` / `agreeTonTaxOrderEnforcementDate` の **8 定義すべて "does not depend on any axioms"**。
+- すなわち `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` 依存 = **0**。`by decide` ベースの計算のみで構成。監査後、一時ファイルは削除済み。
+
+### 5. 分類
+- **CONFIRMED（6 件）**: (a) law id / revision / raw snapshot の pin 一致（SHA256 一致を含む）、(b) 附則 art.1 原文の逐語一致（昭和六十四年四月一日）、(c) 昭和64 = 1989 換算および昭和63年（1988）/ 平成元年の混同除外、(d) needle 2/2 FOUND かつ U+3000 なし、(e) 反例 4 点が独立 Spec と一致、(f) 公理依存 0。※ これらはすべて**照合成功の確認事項**であり、原文・Lean 間の食い違い（欠陥）ではない。
+- **BY-DESIGN（3 件）**: (a) CI 正規化が空白 / U+3000 を除去する規約であり、needle にスペースを入れないのは設計、(b) `dateKey` = YYYYMMDD 符号化と施行日での `>=`（施行日当日を含む）は原文から一意に導かれるモデル規約で、独立 Spec も同値、(c) スコープ: 附則 art.1 内の **ただし書**（第七条・第十一条・第十三条・第十四条・第十九条は「消費税法の施行の日」から施行＝条ごとの特例日）に加え、他の 8 つの附則（昭和32年4月1日 / 昭和35年1月1日 / 昭和41年4月1日 / 昭和57年7月18日 / 平成13年1月6日 / 平成16年3月22日 / 平成17年3月7日 / 令和2年4月1日・令和2年10月1日）・経過措置・とん税法施行令の実体規定は **NOT MODELLED**（モジュール header に明示）。ただし書は art.1 内にあるが「条ごとの施行日を個別判定する」モデルではなく一般施行日のみを扱う境界であり、欠陥ではない。
+- **UNRESOLVED（0 件）**: **発見ゼロ。原文・Lean 間の不一致（欠陥）件数 = 0 件（ゼロ）。** 判断保留を要する事項は存在しない。
+
+> 追記後レビュー件数 **94**（既存 93 件は全件保持、Batch AH〜CQ を含む）。追記は `docs/ADVERSARIAL_REVIEW.md` のみ（read-then-write で既存履歴を連結保持）。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替なし。一時ファイル（抽出・正規化・検証・公理監査・追記スクリプト）は削除済み。
+> **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。
+
+---

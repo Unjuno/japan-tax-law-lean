@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 162
+- with >=1 pinned literal check (semantic model): 161
 - with recorded human legal review: 0
 
 ## All laws
@@ -187,7 +187,7 @@ a completion flag.
 | `403M50000040007` | 石油臨時特別税に関する省令 | 403M50000040007_20010106_412M50000040069 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
 | `403AC0000000069` | 地価税法 | 403AC0000000069_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 268 | YES (2) | NO |
 | `403CO0000000174` | 地価税法施行令 | 403CO0000000174_20250722_507CO0000000249 | CurrentEnforced | YES | ok | 62 | YES (2) | NO |
-| `403M50000040031` | 地価税法施行規則 | 403M50000040031_20260401_508M60000040010 | CurrentEnforced | YES | ok | 53 | YES (1) | NO |
+| `403M50000040031` | 地価税法施行規則 | 403M50000040031_20260401_508M60000040010 | CurrentEnforced | YES | ok | 53 | NO (0) | NO |
 | `403M50000040054` | 電子情報処理組織を使用して処理する場合における国税等の徴収関係事務等の取扱いの特例に関す | 403M50000040054_20260924_508M60000040059 | CurrentEnforced | YES | ok | 88 | NO (0) | NO |
 | `404AC0000000015` | 法人特別税法 | 404AC0000000015_20010401_413AC0000000006 | CurrentEnforced | YES | ok | 33 | YES (4) | NO |
 | `404CO0000000089` | 法人特別税法施行令 | 404CO0000000089_20010106_412CO0000000307 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
