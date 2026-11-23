@@ -3186,6 +3186,21 @@
         115
       ]
     },
+    "MeetingQuorumOneThird": {
+      "adversarial_review": true,
+      "boundary_examples_found": 6,
+      "independent_spec": true,
+      "kanji_literals": [
+        "三"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 23,
+      "needles_scoped": true,
+      "scoped_article_chars": 155,
+      "spec_literals": [
+        3
+      ]
+    },
     "Members500k": {
       "adversarial_review": true,
       "boundary_examples_found": 4,
@@ -8580,6 +8595,22 @@
         "module": "PopulationAge18",
         "spec_kanji_in_原文": [
           "十八"
+        ]
+      },
+      "NORM|8e77ae7f02777efcf6fec7e7511235e386a238cbda28838df68f3c509278ab8f": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 23,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "MeetingQuorumOneThird",
+        "spec_kanji_in_原文": [
+          "三"
         ]
       },
       "NORM|8e9b0c020fec0c1146fbfe0963cf83103f7cca9e423f00cfa3bf281407cddee0": {
@@ -14757,6 +14788,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"18\": [\"十八\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/325AC0000000211_20261102_508AC0000000062.law.json#LawBody[1]/MainProvision/MainProvision[13]/Article:12/Article#12/Paragraph#3/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=151df453a55442acb1cdca91f420bc5f7b04b914b85d86b575311ff6e3a7cd95 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/PopulationAge18Tests.lean sha256=919e37d19a9a9f1a61c1e0b24e0008f0ebb53dcea0f1b48435c02d9d48caaf07 (11 kernel-decided examples)"
+    },
+    "NORM|8e77ae7f02777efcf6fec7e7511235e386a238cbda28838df68f3c509278ab8f": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 23 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=412CO0000000276_20260401_508CO0000000085 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/MeetingQuorumOneThird.lean sha256=43f62d34308847ca23220c054440e564593c79f4e6d97e648d49751ca85714d3",
+      "independent_spec": "JapanTaxLaw/MeetingQuorumOneThirdSpec.lean sha256=01ea70e777ee39d89376bd90aac16f61e0953cbb8793049db8fe36698558eca1 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45142831300: commit cfa77bf39ca7d40903b8d487c2e7458379f84a8c, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [3] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"3\": [\"三\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/412CO0000000276_20260401_508CO0000000085.law.json#LawBody[2]/MainProvision/MainProvision[8]/Article:9/Article#9/Paragraph#1/ParagraphSentence/Sentence#1 sha256=e7d2da2024d3909ca5b0db031f8a2bba4e9b6e4e221e9c8d94eaa74e95a9bd18 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/MeetingQuorumOneThirdTests.lean sha256=050fc6f63fdad3fc3e03ccec31fb8b4f909b6e76072ae6c04ec64442314b1413 (23 kernel-decided examples)"
     },
     "NORM|8e9b0c020fec0c1146fbfe0963cf83103f7cca9e423f00cfa3bf281407cddee0": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",

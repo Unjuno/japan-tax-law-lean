@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 145
+- with >=1 pinned literal check (semantic model): 147
 - with recorded human legal review: 0
 
 ## All laws
@@ -132,7 +132,7 @@ a completion flag.
 | `344CO0000000088` | 地方揮発油譲与税法施行令 | 344CO0000000088_20090401_421CO0000000100 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `344AC0000000046` | 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律 | 344AC0000000046_20260521_508AC0000000012 | CurrentEnforced | YES | ok | 190 | NO (0) | NO |
 | `344M50000040036` | 遺産、相続及び贈与に対する租税に関する二重課税の回避及び脱税の防止のための日本国とアメリ | 344M50000040036_20250401_507M60000040034 | CurrentEnforced | YES | ok | 11 | NO (0) | NO |
-| `344M50000048001` | 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律の施行に関する省 | 344M50000048001_20260601_508M60000048004 | CurrentEnforced | YES | ok | 207 | NO (0) | NO |
+| `344M50000048001` | 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律の施行に関する省 | 344M50000048001_20260601_508M60000048004 | CurrentEnforced | YES | ok | 207 | YES (1) | NO |
 | `344M50000040039` | 関税暫定措置法施行規則 | 344M50000040039_20241215_505M60000040057 | CurrentEnforced | YES | ok | 99 | YES (1) | NO |
 | `344M50000040050` | 税関職員服制 | 344M50000040050_20240401_506M60000040033 | CurrentEnforced | YES | ok | 13 | NO (0) | NO |
 | `345M50000040007` | 小笠原諸島振興開発特別措置法の施行に伴う譲渡所得等の課税の特例の適用に関する省令 | 345M50000040007_20140401_426M60000040034 | CurrentEnforced | YES | ok | 7 | NO (0) | NO |
@@ -221,7 +221,7 @@ a completion flag.
 | `410CO0000000345` | たばこ特別税に関する政令 | 410CO0000000345_20241001_506CO0000000147 | CurrentEnforced | YES | ok | 22 | NO (0) | NO |
 | `410M50000040122` | たばこ特別税に関する省令 | 410M50000040122_20150401_427M60000040039 | CurrentEnforced | YES | ok | 13 | NO (0) | NO |
 | `411M50000008014` | 奄美群島振興開発特別措置法第三十八条の地方税の課税免除又は不均一課税に伴う措置が適用され | 411M50000008014_20240401_506M60000008035 | CurrentEnforced | YES | ok | 32 | NO (0) | NO |
-| `412CO0000000276` | 関税・外国為替等審議会令 | 412CO0000000276_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 27 | NO (0) | NO |
+| `412CO0000000276` | 関税・外国為替等審議会令 | 412CO0000000276_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 27 | YES (1) | NO |
 | `412CO0000000277` | 関税等不服審査会令 | 412CO0000000277_20160401_428CO0000000168 | CurrentEnforced | YES | ok | 13 | YES (1) | NO |
 | `412CO0000000278` | 国税審議会令 | 412CO0000000278_20260401_507CO0000000412 | CurrentEnforced | YES | ok | 22 | NO (0) | NO |
 | `412M50000040058` | 保険契約者保護機構等が取得した不動産に関する権利等の移転登記に係る登録免許税の免税を受け | 412M50000040058_20010106_412M50000040069 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 258
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 262
