@@ -3526,6 +3526,18 @@ def checks():
            "article", "第四条",
            ["各空港関係市町村及び空港関係都道府県に対する前条第一項に規定する各譲与時期ごとに譲与すべき航空機燃料譲与税の額として前三条の規定を適用して計算した金額に千円未満の端数金額があるときは、その端数金額を控除した金額をもつて、当該各譲与時期ごとに譲与すべき航空機燃料譲与税の額とする。"])
 
+    # 租税条約等実施特例法施行令 art.4(1)(4) — LimitRateSevenPercent.lean (限度税率百分の七)
+    yield ("租税条約等実施特例法施行令 art.4(1)(4)（限度税率百分の七）↔ LimitRateSevenPercent.lean (rate 7/100)",
+           "362CO0000000335",
+           "article", "第四条",
+           ["限度税率が百分の七である場合"])
+
+    # 租税条約等実施特例法施行令 art.6-3(16)(3) — TreatyAssetCeiling100K.lean (十万円以下)
+    yield ("租税条約等実施特例法施行令 art.6-3(16)(3)（特定取引契約資産額十万円以下）↔ TreatyAssetCeiling100K.lean (ceiling 100_000, 以下 inclusive)",
+           "362CO0000000335",
+           "article", "第六条の三",
+           ["令和七年十二月三十一日における対象特定取引に係る特定取引契約資産額が十万円以下であること。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
