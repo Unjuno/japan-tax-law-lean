@@ -1848,4 +1848,6 @@ import JapanTaxLaw.CareMedicalPremium80kTests
 import JapanTaxLaw.NewAnnuityPremium80k
 import JapanTaxLaw.NewAnnuityPremium80kSpec
 import JapanTaxLaw.NewAnnuityPremium80kTests
-
+import JapanTaxLaw.SchoolExemptionRequirements
+import JapanTaxLaw.SchoolExemptionRequirementsSpec
+import JapanTaxLaw.SchoolExemptionRequirementsTests

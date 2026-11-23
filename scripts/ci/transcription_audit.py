@@ -2305,6 +2305,12 @@ def checks():
            "file", None,
            ["米の含有量が全重量の三〇％を超えるもの", "第七条"])
 
+    # SchoolExemptionRequirements — cycle-95
+    yield ("SchoolExemptionRequirements.lean",
+           "403M50000040031",
+           "file", None,
+           ["修業期間が一年以上であること", "が六百八十時間以上"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
