@@ -1487,6 +1487,14 @@ def checks():
            "143AC0000000054",
            "article", "\u7b2c\u516b\u6761\u306e\u4e8c",
            ["\uff08\u4e0d\u5f53\u5ec9\u58f2\u95a2\u7a0e\u306e\u8ab2\u7a0e\u306e\u56de\u907f\u306e\u305f\u3081\u306b\u7b2c\u4e09\u56fd\u304b\u3089\u8f38\u5165\u3055\u308c\u308b\u8ca8\u7269\u7b49\u306b\u5bfe\u3057\u3066\u8ab2\u3059\u308b\u95a2\u7a0e\uff09"])
+    # CustomsTariffArt1Showa46EnforcementDate.lean - NORM|3ae41f5f... (附則 enforcement date REFERENCE, law 143AC0000000054)
+    # Needle sits in an 附則 (SupplProvision) article; find_article_text sees main only
+    # - use the file-kind locator. Needle verbatim-unique in whole law; literal via \u escapes.
+    yield ("customs tariff 附則 art.1 Showa46 enforcement date - CustomsTariffArt1Showa46EnforcementDate.lean",
+           "143AC0000000054",
+           "file", None,
+           ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u662d\u548c\u56db\u5341\u516d\u5e74\u4e00\u6708\u4e00\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
+
 
     # CustomsTariffArt14DisabledPersonEquipmentDelegation.lean - NORM|c8d2540f... (disabled-person equipment DELEGATION, law 143AC0000000054)
     # Needle is in MainProvision Article 第十四条 (Paragraph 1, Item 16);
