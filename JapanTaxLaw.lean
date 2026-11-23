@@ -1750,3 +1750,6 @@ import JapanTaxLaw.CommitteeTermTwoYearsTests
 import JapanTaxLaw.ShareRatioOverHalf
 import JapanTaxLaw.ShareRatioOverHalfSpec
 import JapanTaxLaw.ShareRatioOverHalfTests
+import JapanTaxLaw.ServiceYearFractionRoundDown
+import JapanTaxLaw.ServiceYearFractionRoundDownSpec
+import JapanTaxLaw.ServiceYearFractionRoundDownTests

@@ -11,14 +11,14 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 148
+- with >=1 pinned literal check (semantic model): 149
 - with recorded human legal review: 0
 
 ## All laws
 
 | law_id | title | revision | enforcement | raw | parse | articles | pinned checks | human review |
 |---|---|---|---|---|---|---:|---|---|
-| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (59) | NO |
+| `143AC0000000054` | 関税定率法 | 143AC0000000054_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 179 | YES (65) | NO |
 | `322CO0000000109` | 昭和二十二年政令第百九号（財産税法等による物納に因る不動産登記の特例に関する政令） | 322CO0000000109_19470627_000000000000000 | CurrentEnforced | YES | ok | 4 | YES (1) | NO |
 | `322AC0000000175` | 昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律） | 322AC0000000175_20220101_503AC0000000011 | CurrentEnforced | YES | ok | 78 | YES (2) | NO |
 | `322CO0000000268` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施 | 322CO0000000268_20251201_507CO0000000120 | CurrentEnforced | YES | ok | 113 | YES (5) | NO |
@@ -155,7 +155,7 @@ a completion flag.
 | `347CO0000000160` | 沖縄の復帰に伴う地方税関係以外の自治省関係法令の適用の特別措置等に関する政令 | 347CO0000000160_19750430_350CO0000000141 | CurrentEnforced | YES | ok | 31 | NO (0) | NO |
 | `347CO0000000161` | 沖縄の復帰に伴う地方税法の適用の特別措置等に関する政令 | 347CO0000000161_20010106_412CO0000000304 | CurrentEnforced | YES | ok | 32 | YES (1) | NO |
 | `347CO0000000167` | 航空機燃料譲与税法施行令 | 347CO0000000167_20140312_426CO0000000059 | CurrentEnforced | YES | ok | 48 | NO (0) | NO |
-| `347M50000040042` | 沖縄の復帰に伴う国税関係法令の適用の特別措置等に関する省令 | 347M50000040042_20251231_507M60000040072 | CurrentEnforced | YES | ok | 97 | NO (0) | NO |
+| `347M50000040042` | 沖縄の復帰に伴う国税関係法令の適用の特別措置等に関する省令 | 347M50000040042_20251231_507M60000040072 | CurrentEnforced | YES | ok | 97 | YES (1) | NO |
 | `347M50000040044` | 沖繩の復帰に伴う国税関係以外の大蔵省関係法令の適用の特別措置等に関する省令 | 347M50000040044_19740711_349M50000040044 | CurrentEnforced | YES | ok | 22 | YES (1) | NO |
 | `347M50000008013` | 沖縄の復帰に伴う地方税法等の適用の特別措置等に関する省令 | 347M50000008013_20010106_412M50000008044 | CurrentEnforced | YES | ok | 23 | YES (1) | NO |
 | `347M50010000033` | 沖縄県の区域における製造用原料品の減免税割当制度に関する省令 | 347M50010000033_19950401_407M50000200026 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
@@ -221,7 +221,7 @@ a completion flag.
 | `410CO0000000345` | たばこ特別税に関する政令 | 410CO0000000345_20241001_506CO0000000147 | CurrentEnforced | YES | ok | 22 | NO (0) | NO |
 | `410M50000040122` | たばこ特別税に関する省令 | 410M50000040122_20150401_427M60000040039 | CurrentEnforced | YES | ok | 13 | NO (0) | NO |
 | `411M50000008014` | 奄美群島振興開発特別措置法第三十八条の地方税の課税免除又は不均一課税に伴う措置が適用され | 411M50000008014_20240401_506M60000008035 | CurrentEnforced | YES | ok | 32 | NO (0) | NO |
-| `412CO0000000276` | 関税・外国為替等審議会令 | 412CO0000000276_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 27 | YES (1) | NO |
+| `412CO0000000276` | 関税・外国為替等審議会令 | 412CO0000000276_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 27 | YES (2) | NO |
 | `412CO0000000277` | 関税等不服審査会令 | 412CO0000000277_20160401_428CO0000000168 | CurrentEnforced | YES | ok | 13 | YES (1) | NO |
 | `412CO0000000278` | 国税審議会令 | 412CO0000000278_20260401_507CO0000000412 | CurrentEnforced | YES | ok | 22 | YES (1) | NO |
 | `412M50000040058` | 保険契約者保護機構等が取得した不動産に関する権利等の移転登記に係る登録免許税の免税を受け | 412M50000040058_20010106_412M50000040069 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 262
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 266
