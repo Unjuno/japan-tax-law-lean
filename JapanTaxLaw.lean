@@ -1981,3 +1981,6 @@ import JapanTaxLaw.UnevenTaxInvestmentThresholdTests
 import JapanTaxLaw.AmamiInvestmentThreshold
 import JapanTaxLaw.AmamiInvestmentThresholdSpec
 import JapanTaxLaw.AmamiInvestmentThresholdTests
+import JapanTaxLaw.PopulationDensityBracketFY8
+import JapanTaxLaw.PopulationDensityBracketFY8Spec
+import JapanTaxLaw.PopulationDensityBracketFY8Tests

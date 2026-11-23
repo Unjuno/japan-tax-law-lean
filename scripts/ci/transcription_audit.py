@@ -2311,6 +2311,12 @@ def checks():
            "file", None,
            ["五百万円（租税特別措置法施行令", "不均一課税をすることとしている場合"])
 
+    # PopulationDensityBracketFY8 — cycle-98
+    yield ("PopulationDensityBracketFY8.lean",
+           "508M60000008066",
+           "file", None,
+           ["処理区域内人口密度が二十五人毎ヘクタール未満の事業に係るもの", "令和八年度九月震災復興特別交付税額の算定方法"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
