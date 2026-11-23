@@ -1109,6 +1109,9 @@ import JapanTaxLaw.ConditionStateNormsTests
 import JapanTaxLaw.TemporalConditionNorms
 import JapanTaxLaw.TemporalConditionNormsSpec
 import JapanTaxLaw.TemporalConditionNormsTests
+import JapanTaxLaw.ActionTimingTriggers
+import JapanTaxLaw.ActionTimingTriggersSpec
+import JapanTaxLaw.ActionTimingTriggersTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
