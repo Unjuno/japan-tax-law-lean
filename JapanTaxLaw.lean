@@ -902,6 +902,9 @@ import JapanTaxLaw.TreatyJPUSDefinitionsTests
 import JapanTaxLaw.TreatyJPUSImmovable
 import JapanTaxLaw.TreatyJPUSImmovableSpec
 import JapanTaxLaw.TreatyJPUSImmovableTests
+import JapanTaxLaw.DefinedTermNorms
+import JapanTaxLaw.DefinedTermNormsSpec
+import JapanTaxLaw.DefinedTermNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
