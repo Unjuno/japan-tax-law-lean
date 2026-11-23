@@ -2300,6 +2300,12 @@ def checks():
            "file", None,
            ["米の含有量が全重量の三〇％を超えるもの", "第七条"])
 
+    # ShareRatioOverHalf — cycle-90
+    yield ("ShareRatioOverHalf.lean",
+           "344M50000048001",
+           "file", None,
+           ["持分の割合が百分の五十を超える場合", "第十六条の十二"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3418,13 +3424,11 @@ def checks():
            "412CO0000000276",
            "article", "第九条",
            ["審議会は、委員及び議事に関係のある臨時委員の三分の一以上が出席しなければ、会議を開き、議決することができない。"])
-
     # 国税審議会令 art.4 — CommitteeTermTwoYears.lean (委員の任期二年)
     yield ("国税審議会令 art.4（委員の任期は二年とする）↔ CommitteeTermTwoYears.lean (term 2 years)",
            "412CO0000000278",
            "article", "第四条",
            ["委員の任期は、二年とする。"])
-
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

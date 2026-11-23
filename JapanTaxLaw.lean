@@ -1729,3 +1729,6 @@ import JapanTaxLaw.Stay183DaysTests
 import JapanTaxLaw.CommitteeTermTwoYears
 import JapanTaxLaw.CommitteeTermTwoYearsSpec
 import JapanTaxLaw.CommitteeTermTwoYearsTests
+import JapanTaxLaw.ShareRatioOverHalf
+import JapanTaxLaw.ShareRatioOverHalfSpec
+import JapanTaxLaw.ShareRatioOverHalfTests
