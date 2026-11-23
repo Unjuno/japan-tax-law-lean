@@ -1802,3 +1802,6 @@ import JapanTaxLaw.TreatyAssetCeiling100KTests
 import JapanTaxLaw.AviationFuelThousandRoundDown
 import JapanTaxLaw.AviationFuelThousandRoundDownSpec
 import JapanTaxLaw.AviationFuelThousandRoundDownTests
+import JapanTaxLaw.SalesRatioBracket
+import JapanTaxLaw.SalesRatioBracketSpec
+import JapanTaxLaw.SalesRatioBracketTests
