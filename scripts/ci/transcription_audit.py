@@ -3467,6 +3467,21 @@ def checks():
            "article", "第十条",
            ["正当な理由がなくて国外財産調書をその提出期限までに税務署長に提出しなかったときは、その違反行為をした者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
 
+
+    # 租税条約等実施特例法施行令 art.4(1)(4) — LimitRateSevenPercent.lean (限度税率百分の七)
+    yield ("租税条約等実施特例法施行令 art.4(1)(4)（限度税率百分の七）↔ LimitRateSevenPercent.lean (rate 7/100)",
+           "362CO0000000335",
+           "article", "第四条",
+           ["限度税率が百分の七である場合"])
+
+
+    # 租税条約等実施特例法施行令 art.6-3(16)(3) — TreatyAssetCeiling100K.lean (十万円以下)
+    yield ("租税条約等実施特例法施行令 art.6-3(16)(3)（特定取引契約資産額十万円以下）↔ TreatyAssetCeiling100K.lean (ceiling 100_000, 以下 inclusive)",
+           "362CO0000000335",
+           "article", "第六条の三",
+           ["令和七年十二月三十一日における対象特定取引に係る特定取引契約資産額が十万円以下であること。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

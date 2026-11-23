@@ -1783,3 +1783,6 @@ import JapanTaxLaw.ServiceYearFractionRoundDownTests
 import JapanTaxLaw.ForeignAssetPenaltyCap
 import JapanTaxLaw.ForeignAssetPenaltyCapSpec
 import JapanTaxLaw.ForeignAssetPenaltyCapTests
+import JapanTaxLaw.LimitRateSevenPercent
+import JapanTaxLaw.LimitRateSevenPercentSpec
+import JapanTaxLaw.LimitRateSevenPercentTests
