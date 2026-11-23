@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 151 | 327 | 46.18% |
+| laws with >=1 pinned literal check | 150 | 327 | 45.87% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 453 | n/a | n/a |
-| distinct article pins | 172 | 42584 | 0.40% |
-| pinned Lean modules (cross-law) | 895 | n/a | n/a |
+| pinned literal checks | 448 | n/a | n/a |
+| distinct article pins | 169 | 42584 | 0.40% |
+| pinned Lean modules (cross-law) | 904 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 501 |
+| unpinned Lean modules (not counted as verified) | 516 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 83 |
+| adversarial review sessions recorded | 85 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -189,7 +189,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `342M50000040037` 登録免許税法施行規則
 - `344M50000040016` 関税定率法施行規則
 - `344M50000040039` 関税暫定措置法施行規則
-- `344M50000048001` 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律の施行に関する省令
 - `345M50000040017` 国税不服審判所組織規則
 - `346AC0000000065` コンテナーに関する通関条約及び国際道路運送手帳による担保の下で行なう貨物の国際運送に関する通関条約（ＴＩＲ条約）の実施に伴う関税法等の特例に関する法律
 - `346AC0000000089` 自動車重量税法
@@ -200,12 +199,12 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `346M50000040057` コンテナーに関する通関条約及び国際道路運送手帳による担保の下で行なう貨物の国際運送に関する通関条約（ＴＩＲ条約）の実施に伴う関税法等の特例に関する法律施行規則
 - `346M50000040066` 自動車重量税法施行規則
 - `347AC0000000007` 航空機燃料税法
+- `347AC0000000013` 航空機燃料譲与税法
 - `347CO0000000057` 航空機燃料税法施行令
 - `347CO0000000151` 沖縄の復帰に伴う国税関係法令の適用の特別措置等に関する政令
 - `347CO0000000161` 沖縄の復帰に伴う地方税法の適用の特別措置等に関する政令
 - `347M50000008013` 沖縄の復帰に伴う地方税法等の適用の特別措置等に関する省令
 - `347M50000008026` 航空機燃料譲与税法施行規則
-- `347M50000040042` 沖縄の復帰に伴う国税関係法令の適用の特別措置等に関する省令
 - `347M50000040044` 沖繩の復帰に伴う国税関係以外の大蔵省関係法令の適用の特別措置等に関する省令
 - `348AC0000000102` 特定市街化区域農地の固定資産税の課税の適正化に伴う宅地化促進臨時措置法
 - `348CO0000000317` 物品の一時輸入のための通関手帳に関する通関条約（ＡＴＡ条約）の実施に伴う関税法等の特例に関する法律施行令
@@ -230,7 +229,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `409CO0000000363` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行令
 - `412CO0000000276` 関税・外国為替等審議会令
 - `412CO0000000277` 関税等不服審査会令
-- `412CO0000000278` 国税審議会令
 - `414CO0000000262` ポリエステル短繊維に対して課する不当廉売関税に関する政令
 - `414M60000008042` 沖縄振興特別措置法第九条等の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令
 - `415M60000008069` 収入印紙及び自動車重量税印紙の売りさばきに関する省令
@@ -241,6 +239,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `420M60000008116` 地方税等減収補てん臨時交付金に関する省令
 - `422M60000040052` 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての所得税及び法人税の臨時特例に関する法律施行規則
 - `423AC0000000029` 東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律
+- `423CO0000000112` 東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行令
 - `425CO0000000025` 税制調査会令
 - `426AC0000000011` 地方法人税法
 - `426CO0000000415` トルエンジイソシアナートに対して課する不当廉売関税に関する政令
