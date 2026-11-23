@@ -7,6 +7,7 @@ is always in sync with the tree, on every branch.
 
 Output is deterministic (sorted by fully-qualified name).
 """
+import pathlib
 import re
 import subprocess
 import sys
@@ -24,6 +25,35 @@ def tracked_lean_files():
         check=True,
     ).stdout
     return [f for f in out.decode("utf-8").split("\0") if f]
+
+
+def reachable_lean_files():
+    """Only modules imported (transitively) by JapanTaxLaw.lean.
+
+    The probe imports `JapanTaxLaw`; `#print axioms` for a theorem in a module
+    that is not reachable would fail with "Unknown constant". Such modules are
+    not part of the built artifact, so their theorems are out of scope for this
+    probe. This keeps the check robust when a concurrent merge drops an import.
+    """
+    tracked = set(tracked_lean_files())
+    imports = {}
+    for f in tracked:
+        text = pathlib.Path(f).read_text(encoding="utf-8", errors="replace")
+        imports[f] = re.findall(r"^\s*import\s+([A-Za-z0-9_.']+)", text, flags=re.M)
+    root = "JapanTaxLaw.lean"
+    if root not in tracked:
+        return sorted(tracked)
+    seen, stack = set(), [root]
+    while stack:
+        f = stack.pop()
+        if f in seen:
+            continue
+        seen.add(f)
+        for imp in imports.get(f, []):
+            cand = imp.replace(".", "/") + ".lean"
+            if cand in tracked and cand not in seen:
+                stack.append(cand)
+    return sorted(seen)
 
 
 def strip_comments(text: str) -> str:
@@ -70,7 +100,7 @@ def theorems_of(path):
 
 def main() -> int:
     names = set()
-    for f in tracked_lean_files():
+    for f in reachable_lean_files():
         for q in theorems_of(f):
             names.add(q)
     print("import JapanTaxLaw")
