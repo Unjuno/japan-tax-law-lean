@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 2639,
+  "checks": 2643,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -29030,11 +29030,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/CustomsTariffSupplArt1StaggeredEnforcementExceptionTests.lean",
       "unit_id": "NORM|01ed33c34b3cea793208f86ea0e86fa6c3e2fc52b3f93a0b0dd94c09e6a0bd36"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_INHERITANCE_TAX_ORDER_ART1_2_MUTUAL_AID_REFERENCE.md — NO FINDINGS via independent 23-point programmati",
+      "unit_id": "NORM|11f7f4673dcaa2422142b0f75a5bb0310325bee78dc770b7857dd592bb56d975"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/InheritanceTaxOrderArt1_2MutualAidContractReference.lean",
+      "unit_id": "NORM|11f7f4673dcaa2422142b0f75a5bb0310325bee78dc770b7857dd592bb56d975"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/InheritanceTaxOrderArt1_2MutualAidContractReferenceSpec.lean",
+      "unit_id": "NORM|11f7f4673dcaa2422142b0f75a5bb0310325bee78dc770b7857dd592bb56d975"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/InheritanceTaxOrderArt1_2MutualAidContractReferenceTests.lean",
+      "unit_id": "NORM|11f7f4673dcaa2422142b0f75a5bb0310325bee78dc770b7857dd592bb56d975"
     }
   ],
-  "resolved": 2635,
+  "resolved": 2639,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 542,
+  "units_checked": 543,
   "unresolved": 4
 }
