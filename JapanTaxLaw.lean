@@ -1085,6 +1085,9 @@ import JapanTaxLaw.TaxPenaltyTriggersTests
 import JapanTaxLaw.LocalBusinessTaxExemption
 import JapanTaxLaw.LocalBusinessTaxExemptionSpec
 import JapanTaxLaw.LocalBusinessTaxExemptionTests
+import JapanTaxLaw.LocalSecondaryTaxLiability
+import JapanTaxLaw.LocalSecondaryTaxLiabilitySpec
+import JapanTaxLaw.LocalSecondaryTaxLiabilityTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
