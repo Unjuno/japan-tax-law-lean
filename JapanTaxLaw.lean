@@ -1898,3 +1898,6 @@ import JapanTaxLaw.InheritanceTaxOrderArt1_2MutualAidContractReferenceTests
 import JapanTaxLaw.OldLongTermPremium20k
 import JapanTaxLaw.OldLongTermPremium20kSpec
 import JapanTaxLaw.OldLongTermPremium20kTests
+import JapanTaxLaw.TrainingPeriodOneYear
+import JapanTaxLaw.TrainingPeriodOneYearSpec
+import JapanTaxLaw.TrainingPeriodOneYearTests
