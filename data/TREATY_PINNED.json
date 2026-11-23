@@ -29,7 +29,7 @@
       },
       "text_file": "data/raw/treaties/JP_US_INCOME_TAX_2003.txt",
       "formalized": {
-        "article": "第一条・第二条・第三条・第四条３・第六条 (Articles 1,2,3,4(3),6)・第七条 (Article 7)・第十条 (Article 10)・第十一条 (Article 11)・第十二条 (Article 12)・第十三条 (Article 13)・第十四条 (Article 14)・第十六条 (Article 16)・第十七条 (Article 17)・第十七条 (Article 17)・第十八条 (Article 18)・第十五条 (Article 15)・第十九条・第二十一条 (Articles 19,21)・第二十三条 (Article 23)・第二十四条 (Article 24)・第二十五条 (Article 25)・第二十六条 (Article 26)・第二十七条 (Article 27)・第二十二条 (Article 22)・第二十八条・第二十九条 (Articles 28,29)・第五条 (Article 5)・第八条・第九条 (Articles 8,9)",
+        "article": "第一条・第二条・第三条・第四条３・第六条 (Articles 1,2,3,4(3),6)・第七条 (Article 7)・第十条 (Article 10)・第十一条 (Article 11)・第十二条 (Article 12)・第十三条 (Article 13)・第十四条 (Article 14)・第十六条 (Article 16)・第十七条 (Article 17)・第十七条 (Article 17)・第十八条 (Article 18)・第十五条 (Article 15)・第十九条・第二十一条 (Articles 19,21)・第二十三条 (Article 23)・第二十四条 (Article 24)・第二十五条 (Article 25)・第二十六条 (Article 26)・第二十七条 (Article 27)・第二十二条 (Article 22)・第二十八条・第二十九条 (Articles 28,29)・第五条 (Article 5)・第八条・第九条 (Articles 8,9)・第四条１・２ (Article 4(1)(2))",
         "operators": [
           "inScope (resident of one or both states -> disjunction)",
           "preservesRelief (treaty does not limit tax relief -> identity)",
@@ -86,7 +86,9 @@
           "shippingProfitsSourceTax (residence-only)",
           "containerSourceTax",
           "transferPricingAdjustment (arm's length)",
-          "adjustmentWithinSevenYears"
+          "adjustmentWithinSevenYears",
+          "isResident (worldwide income, source-only excluded)",
+          "usResident (3-condition conjunction)"
         ],
         "modules": {
           "JapanTaxLaw/TreatyJPUSScope.lean": "86f234ee32b82339fb87e0606b75c3dafb22f0c8a9e37ab1469e7dd1f3f939e5",
@@ -163,7 +165,10 @@
           "JapanTaxLaw/TreatyJPUSPermanentEstablishmentTests.lean": "e1acdee8ce8ae2019ea2dfb550484a727674337de032d41affe74a6a3fd031d9",
           "JapanTaxLaw/TreatyJPUSShippingTransferPricing.lean": "367d96f0910adc87c0bb6187303f051ac4fbf884a9e7c761495d1a0ad3dc535d",
           "JapanTaxLaw/TreatyJPUSShippingTransferPricingSpec.lean": "14c2ba0d0d46b71cd09a866eed94cf7184f3c72d7bacb096e895c211c215e949",
-          "JapanTaxLaw/TreatyJPUSShippingTransferPricingTests.lean": "5259beed43219c12577c38d36f1184c48bdd593d8702599edd9e5273d7ed8610"
+          "JapanTaxLaw/TreatyJPUSShippingTransferPricingTests.lean": "5259beed43219c12577c38d36f1184c48bdd593d8702599edd9e5273d7ed8610",
+          "JapanTaxLaw/TreatyJPUSResidentDefinition.lean": "98fc860b6b9ef9c76f8c83f63244bbdb58d20bcca23207eac2957ddb2473d317",
+          "JapanTaxLaw/TreatyJPUSResidentDefinitionSpec.lean": "1c8faa0eaa9bb72cde2dbb359537b205f2b173dd23db1a19d69efcecd9ba5668",
+          "JapanTaxLaw/TreatyJPUSResidentDefinitionTests.lean": "92e72464d974520543cc3ce9ec2445fbce1c99b525af07ba814d4714ece391e2"
         },
         "proof": "Lean 4.35.0 kernel; independent spec; no sorry/admit",
         "legal_review": "PENDING (separate axis)",
@@ -193,7 +198,8 @@
           "第二十二条 (Art.22: limitation on benefits — qualifying-person cascade and eligibility conjunction)",
           "第二十八条/第二十九条 (Art.28 diplomatic privileges unaffected; Art.29 renegotiation consultation within 3 months)",
           "第五条 (Art.5: permanent establishment — fixed place, 12-month construction, agency PE, exclusions)",
-          "第八条/第九条 (Art.8 shipping/air transport residence-only; Art.9 associated enterprises — transfer pricing, 7-year limit)"
+          "第八条/第九条 (Art.8 shipping/air transport residence-only; Art.9 associated enterprises — transfer pricing, 7-year limit)",
+          "第四条１・２ (Art.4(1)(2): resident definition, US citizen/green-card holder 3-condition test)"
         ]
       }
     },
