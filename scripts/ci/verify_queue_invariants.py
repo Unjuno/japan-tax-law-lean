@@ -173,6 +173,25 @@ def main() -> int:
         check("registered transcription checks retained",
               not lost, f"registered={len(registry)} lost={len(lost)} {sorted(lost)[:8]}")
 
+    # Axiom-probe integrity: generate_axiom_probe.py emits #print axioms for
+    # every tracked .lean module but _ax.lean imports only the umbrella. A
+    # reconciliation that rewrites JapanTaxLaw.lean from a stale base drops
+    # imports and turns CI red with "Unknown constant". Require every on-disk
+    # module to be imported by the umbrella (REQUIRED gate).
+    umbrella_path = REPO / "JapanTaxLaw.lean"
+    if umbrella_path.exists():
+        umbrella_text = umbrella_path.read_text(encoding="utf-8")
+        imported = set()
+        for line in umbrella_text.splitlines():
+            line = line.strip()
+            if line.startswith("import JapanTaxLaw."):
+                imported.add(line[len("import "):].strip())
+        disk_mods = {"JapanTaxLaw." + p.stem for p in (REPO / "JapanTaxLaw").glob("*.lean")}
+        missing_imports = sorted(disk_mods - imported)
+        check("umbrella imports retained",
+              not missing_imports,
+              f"modules={len(disk_mods)} missing={len(missing_imports)} {missing_imports[:6]}")
+
     bad = [n for n, ok, _ in results if not ok]
     print(f"\n{len(results) - len(bad)}/{len(results)} invariants passed")
     return 1 if bad else 0
