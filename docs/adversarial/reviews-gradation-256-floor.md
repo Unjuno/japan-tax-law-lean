@@ -1,6 +1,8 @@
 # 独立再抽出 照合 — adversarial review (read-only research)
 
 ### Gradation256Floor.lean — 電子帳簿保存法施行規則 art.2(6)(2)（二百五十六階調以上）
+照合 (comparison with independent spec and pinned raw bytes): every check below records an actual command/output and a PASS/FAIL decision.
+
 
 Machine-checked record token: **H/T/D/C/U**. Every result below was independently
 re-extracted (独立再抽出) from the pinned primary artifact with fresh Python/grep
