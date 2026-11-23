@@ -935,6 +935,9 @@ import JapanTaxLaw.EnforcementDateNormsTests
 import JapanTaxLaw.TreatyJPUSBusinessProfits
 import JapanTaxLaw.TreatyJPUSBusinessProfitsSpec
 import JapanTaxLaw.TreatyJPUSBusinessProfitsTests
+import JapanTaxLaw.TreatyJPUSDividends
+import JapanTaxLaw.TreatyJPUSDividendsSpec
+import JapanTaxLaw.TreatyJPUSDividendsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
