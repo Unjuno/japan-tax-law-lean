@@ -2336,6 +2336,12 @@ def checks():
            "file", None,
            ["第一条この省令は、平成十五年一月六日から施行する", "この省令は、平成十五年一月六日から施行する"])
 
+    # TonTaxOrderEnforcementDate — cycle-101
+    yield ("TonTaxOrderEnforcementDate.lean",
+           "332CO0000000048",
+           "file", None,
+           ["第一条この政令は、昭和六十四年四月一日から施行する", "この政令は、昭和六十四年四月一日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3546,6 +3552,21 @@ def checks():
            "422M60000040022",
            "article", "第六条",
            ["この場合において、同号に規定する高額適用額は、その順位を付した適用額が十以上となるまでの適用額に順位を付した場合の第一順位から当該十以上となる順位までに該当する各適用額（第一順位の適用額が十以上となるときは、当該第一順位の適用額）とする。"])
+
+    # 記録事項等 art. 5 — CombinableRecordItemsTwo.lean
+    yield ("記録事項等 art. 5（二以上の記録項目の組合せ）↔ CombinableRecordItemsTwo.lean (min 2 items, inclusive)",
+           "410M50000040043",
+           "article", "第五条",
+           ["二以上の任意の記録項目を組み合わせて条件を設定することができること。"])
+
+
+    # SpecialMeasuresArt70_3PresumptiveHeirCondition.lean - NORM|d775175c... (租税特別措置法 art.70_3 PRESUMPTION, law 332AC0000000026)
+    # Needle is in Article 70_3 Paragraph 3 Item 1 Subitem 2 - verbatim injected
+    # from the queue via \u escapes; heir-status facts extracted structurally.
+    yield ("special measures art.70_3 presumptive heir condition - SpecialMeasuresArt70_3PresumptiveHeirCondition.lean",
+           "332AC0000000026",
+           "article", "\u7b2c\u4e03\u5341\u6761\u306e\u4e09",
+           ["\u4f4f\u5b85\u53d6\u5f97\u7b49\u8cc7\u91d1\u306e\u8d08\u4e0e\u3092\u3057\u305f\u8005\u306e\u76f4\u7cfb\u5351\u5c5e\u3067\u3042\u308b\u63a8\u5b9a\u76f8\u7d9a\u4eba\uff08\u5b6b\u3092\u542b\u3080\u3002\uff09\u3067\u3042\u308b\u3053\u3068\u3002"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
