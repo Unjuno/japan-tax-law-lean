@@ -2563,6 +2563,19 @@
       "source_location": "data/raw/363AC0000000108_20261101_507AC0000000013.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:30/Article#30/Paragraph#2/Item#1/ItemSentence/Column#1/Sentence#1 sha256=25dccebffb6690902c117a4ab9c16e4d64db087bba6d184a10ea6aeb58ab4a82 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/ConsumptionTaxInputCreditTests.lean sha256=c50f5dda31ac5159d0c3378c554b53eed6cf0ded827bcb86c4ed114343d375b3 (15 kernel-decided examples)"
     },
+    "NORM|7e12ccd9d760be2c3ed177e4d172b5eea5ff1d350aa8eb4a23ee7313025e8ce8": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=1; enforced revision=362CO0000000335_20260521_506CO0000000150 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/TreatyAssetCeiling100K.lean sha256=9c12d370ee17076485f77490e4380c6502c19fc92df6915e44a5f406f9e56a25",
+      "independent_spec": "JapanTaxLaw/TreatyAssetCeiling100KSpec.lean sha256=c80d32216085a1c2ed8939d1cebe1ce53f8eab2734cc9212309d285484142048 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45049659458: commit 017d59efc71f4a36aa13b8368a7d054574c62240, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [100000] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100000\": [\"十万\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/362CO0000000335_20260521_506CO0000000150.law.json#LawBody[2]/MainProvision/MainProvision[14]/Article:6_3/Article#6_3/Paragraph#16/Item#3/ItemSentence/Sentence#1 sha256=8b21ff78cd78a30af9f90521756b31c40e33d0fd919481bb90822de542421e18 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/TreatyAssetCeiling100KTests.lean sha256=c0929eb00303f3f01c6aab97d7c1e2a28e88ee8938b1d880e698322e28720770 (11 kernel-decided examples)"
+    },
     "NORM|7e9db39251bc28440bf2799c75e0a9d152df7bb0d0dcc984788e68b272d6befd": {
       "adversarial_review": "docs/ADVERSARIAL_PUBLIC_SALE_GUARANTEE_DEPOSIT.md — independent agent: VERDICT NO FINDINGS, all 8 critical checks pass. Verified sha256 (f45ac77c…a83f, 200,255 B), needle fidelity (whole-law count 1; queue text==Lean quote==doc quote==decoded audit needle, 37 codepoints), CabinetOrder law identity with title 国税徴収法施行令/law num 昭和三十四年政令第三百二十九号 byte-correct and NO 関税/税関/貯蔵場/蔵置場 transposition errors, amount 五十万=500000 all forms agree, article caption byte-exact, article-kind locator len 74, Lean proofs (amount_decoded rfl + agree_amount_successor succ 499999=500000) genuinely distinct & axiom-free with no forbidden constructs, ASCII-only audit check name. Author's zero-hand-typed-Japanese claim verified: every Japanese literal matches authoritative sources byte-for-byte. Non-finding: audit line 1068 belongs to a different unit (AuctionDepositValuation.lean), out of scope. No claim of legal correctness.",
       "boundary_proof": "JapanTaxLaw/PublicSaleGuaranteeDepositTests.lean: amount_decoded (500,000), specAmountPredecessor (499,999), agree_amount_successor (succ 499999 = 500000)",

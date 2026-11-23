@@ -6,7 +6,7 @@ A whole-text numeric match is NOT article-level verification. This is a
 source-fidelity diagnostic (D=PASS means needle in stated article only),
 never a completion gate or a semantic/legal claim.
 
-- checks with article/table-cell scoped needles: 401
+- checks with article/table-cell scoped needles: 430
 - checks with no scoped unit: 0
 
 | law_id | stated article | needle hits | scoped positions | D |
@@ -156,6 +156,13 @@ never a completion gate or a semantic/legal claim.
 | `143AC0000000054` | 第七条 | 3 | 3 | PASS |
 | `143AC0000000054` | 第七条 | 2 | 2 | PASS |
 | `143AC0000000054` | 第十四条 | 3 | 3 | PASS |
+| `143AC0000000054` | 第十二条 | 3 | 3 | PASS |
+| `143AC0000000054` | 第十五条 | 3 | 3 | PASS |
+| `143AC0000000054` | 第十八条 | 2 | 2 | PASS |
+| `143AC0000000054` | 第十七条 | 2 | 2 | PASS |
+| `143AC0000000054` | 第十八条 | 2 | 2 | PASS |
+| `143AC0000000054` | 第十九条 | 2 | 2 | PASS |
+| `143AC0000000054` | 第十四条 | 3 | 3 | PASS |
 | `143AC0000000054` | 第十七条 | 2 | 2 | PASS |
 | `143AC0000000054` | 第十七条 | 3 | 3 | PASS |
 | `143AC0000000054` | 第十七条 | 3 | 3 | PASS |
@@ -261,7 +268,15 @@ never a completion gate or a semantic/legal claim.
 | `405M50000008001` | (file-level) | 2 | 3 | PASS |
 | `346M50000040057` | (file-level) | 2 | 3 | PASS |
 | `329AC0000000194` | (file-level) | 2 | 3 | PASS |
-| `327AC0000000119` | (file-level) | 2 | 3 | PASS |
+| `407AC0000000011` | (file-level) | 4 | 6 | PASS |
+| `508CO0000000224` | (file-level) | 3 | 4 | PASS |
+| `505M60000008043` | (file-level) | 3 | 6 | PASS |
+| `325AC0000000226` | (file-level) | 6 | 7 | PASS |
+| `325AC0000000226` | (file-level) | 17 | 18 | PASS |
+| `346M50000008013` | (file-level) | 5 | 7 | PASS |
+| `328M50000002091` | (file-level) | 2 | 4 | PASS |
+| `329AC0000000036` | (file-level) | 6 | 7 | PASS |
+| `344M50000040039` | (file-level) | 14 | 15 | PASS |
 | `340AC0000000033` | (file-level) | 4 | 16 | PASS |
 | `332CO0000000043` | (file-level) | 4 | 10 | PASS |
 | `337M50000008017` | (file-level) | 2 | 8 | PASS |
@@ -412,3 +427,17 @@ never a completion gate or a semantic/legal claim.
 | `332AC0000000026` | (file-level) | 3 | 3 | PASS |
 | `332CO0000000043` | (file-level) | 3 | 3 | PASS |
 | `414M60000008042` | 第四条 | 3 | 3 | PASS |
+| `325AC0000000226` | (file-level) | 3 | 3 | PASS |
+| `332AC0000000026` | (file-level) | 3 | 3 | PASS |
+| `332AC0000000026` | (file-level) | 3 | 3 | PASS |
+| `332CO0000000043` | (file-level) | 3 | 3 | PASS |
+| `425CO0000000025` | 第一条 | 2 | 2 | PASS |
+| `143AC0000000054` | 第十四条 | 3 | 3 | PASS |
+| `143AC0000000054` | 第十四条 | 3 | 3 | PASS |
+| `143AC0000000054` | 第十四条 | 3 | 3 | PASS |
+| `143AC0000000054` | 第十七条 | 3 | 3 | PASS |
+| `143AC0000000054` | 第十七条 | 2 | 2 | PASS |
+| `143AC0000000054` | 第十七条 | 3 | 3 | PASS |
+| `331M50000002007` | (file-level) | 3 | 5 | PASS |
+| `327AC0000000119` | (file-level) | 2 | 3 | PASS |
+| `362CO0000000335` | 第六条の三 | 3 | 3 | PASS |
