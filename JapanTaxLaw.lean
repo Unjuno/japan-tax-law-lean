@@ -1702,3 +1702,6 @@ import JapanTaxLaw.PaymentCeilingTests
 import JapanTaxLaw.RiceContentThreshold
 import JapanTaxLaw.RiceContentThresholdSpec
 import JapanTaxLaw.RiceContentThresholdTests
+import JapanTaxLaw.TreatyAssetCeiling100K
+import JapanTaxLaw.TreatyAssetCeiling100KSpec
+import JapanTaxLaw.TreatyAssetCeiling100KTests

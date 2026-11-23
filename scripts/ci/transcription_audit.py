@@ -3360,6 +3360,14 @@ def checks():
            "file", None,
            ["遅くとも、その納期限前十日までに納税者に交付しなければならない", "自動車税及び軽自動車税の徴収の方法等）第四条"])
 
+
+    # 租税条約等実施特例法施行令 art.6-3(16)(3) — TreatyAssetCeiling100K.lean (十万円以下)
+    yield ("租税条約等実施特例法施行令 art.6-3(16)(3)（特定取引契約資産額十万円以下）↔ TreatyAssetCeiling100K.lean (ceiling 100_000, 以下 inclusive)",
+           "362CO0000000335",
+           "article", "第六条の三",
+           ["令和七年十二月三十一日における対象特定取引に係る特定取引契約資産額が十万円以下であること。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
