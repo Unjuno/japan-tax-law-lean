@@ -1708,3 +1708,6 @@ import JapanTaxLaw.PaymentCeilingTests
 import JapanTaxLaw.RiceContentThreshold
 import JapanTaxLaw.RiceContentThresholdSpec
 import JapanTaxLaw.RiceContentThresholdTests
+import JapanTaxLaw.JointHeirThreshold2
+import JapanTaxLaw.JointHeirThreshold2Spec
+import JapanTaxLaw.JointHeirThreshold2Tests
