@@ -17,7 +17,7 @@ Computation（原文逐語から導出、数値閾値のみ）:
   meetsGrayscaleRequirement(levels) = levels >= 256
 
 Scope / NOT MODELLED:
-  - 第1項の申請等方法・第3項の例外（当該申請等を行う者の申出）は NOT MODELLED。
+  - 第1項の申請等方法・第3項の添付書面等の提出特例は NOT MODELLED。
   - 他の号（カラー階調等）・入出力用プログラムの仕様は NOT MODELLED。
 本モデルは法的レビューを提供しない。
 -/

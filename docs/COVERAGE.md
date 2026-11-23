@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 447 | n/a | n/a |
-| distinct article pins | 168 | 42584 | 0.39% |
-| pinned Lean modules (cross-law) | 903 | n/a | n/a |
+| pinned literal checks | 448 | n/a | n/a |
+| distinct article pins | 169 | 42584 | 0.40% |
+| pinned Lean modules (cross-law) | 904 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 517 |
+| unpinned Lean modules (not counted as verified) | 516 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -189,7 +189,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `342M50000040037` 登録免許税法施行規則
 - `344M50000040016` 関税定率法施行規則
 - `344M50000040039` 関税暫定措置法施行規則
-- `344M50000048001` 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律の施行に関する省令
 - `345M50000040017` 国税不服審判所組織規則
 - `346AC0000000065` コンテナーに関する通関条約及び国際道路運送手帳による担保の下で行なう貨物の国際運送に関する通関条約（ＴＩＲ条約）の実施に伴う関税法等の特例に関する法律
 - `346AC0000000089` 自動車重量税法
@@ -215,6 +214,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `353AC0000000025` 石油石炭税法
 - `359AC0000000072` たばこ税法
 - `360CO0000000005` たばこ税法施行令
+- `362CO0000000335` 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律施行令
 - `363AC0000000107` 税制改革法
 - `363AC0000000108` 消費税法
 - `363CO0000000360` 消費税法施行令
