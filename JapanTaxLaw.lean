@@ -1684,3 +1684,6 @@ import JapanTaxLaw.CouncilMemberCap30Tests
 import JapanTaxLaw.NonUniformRateCap
 import JapanTaxLaw.NonUniformRateCapSpec
 import JapanTaxLaw.NonUniformRateCapTests
+import JapanTaxLaw.DividendTaxRate
+import JapanTaxLaw.DividendTaxRateSpec
+import JapanTaxLaw.DividendTaxRateTests

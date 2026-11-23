@@ -7,7 +7,7 @@ Sources (pinned):
   Law id: 505M60000008043
   Revision: 505M60000008043_20240426_506M60000008046
   Raw snapshot: data/raw/505M60000008043_20240426_506M60000008046.law.json
-  Article Num 2 §1 (item ロ/), flat/normalized leaf text 29511 chars, U+3000 count 0.
+  Article Num 2 §1 (item イ > subitem 1, C leaf), flat/normalized leaf text 29511 chars, U+3000 count 0.
 
 原文逐語:
   「当該道県が…不均一課税に際して適用する税率。ただし、当該率が０．０５を超える
