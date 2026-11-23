@@ -7,7 +7,7 @@ REPO = Path(__file__).resolve().parents[2]
 QUEUE = REPO / "build" / "task_queue.json"
 OUT = REPO / "data" / "source_correspondence_savings.json"
 EXPECTED = int(sys.argv[1]) if len(sys.argv) > 1 else 0
-PAT = re.compile(r"なおその効力を有する。[。）)]*\s*$")
+PAT = re.compile(r"なお(その)?効力を有する。[。）)]*\s*$")
 
 
 def text_of(node):
