@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 152
+- with >=1 pinned literal check (semantic model): 153
 - with recorded human legal review: 0
 
 ## All laws
@@ -29,7 +29,7 @@ a completion flag.
 | `325M50000040022` | 相続税の物納財産収納後の手続等に関する省令 | 325M50000040022_20210401_503M60000040030 | CurrentEnforced | YES | ok | 24 | NO (0) | NO |
 | `325AC0000000211` | 地方交付税法 | 325AC0000000211_20261102_508AC0000000062 | CurrentEnforced | YES | ok | 499 | YES (5) | NO |
 | `325AC0000000226` | 地方税法 | 325AC0000000226_20261101_508AC0000000002 | CurrentEnforced | YES | ok | 4259 | YES (39) | NO |
-| `325CO0000000245` | 地方税法施行令 | 325CO0000000245_20261101_508CO0000000083 | CurrentEnforced | YES | ok | 2274 | YES (13) | NO |
+| `325CO0000000245` | 地方税法施行令 | 325CO0000000245_20261101_508CO0000000083 | CurrentEnforced | YES | ok | 2274 | YES (14) | NO |
 | `326AC1000000145` | 納税貯蓄組合法 | 326AC1000000145_20211122_503AC0000000046 | CurrentEnforced | YES | ok | 41 | YES (3) | NO |
 | `326CO0000000099` | 納税貯蓄組合法施行令 | 326CO0000000099_20191216_501CO0000000183 | CurrentEnforced | YES | ok | 14 | YES (1) | NO |
 | `326AC1000000237` | 税理士法 | 326AC1000000237_20251001_505AC0000000053 | CurrentEnforced | YES | ok | 372 | YES (6) | NO |
@@ -75,10 +75,10 @@ a completion flag.
 | `332AC0000000026` | 租税特別措置法 | 332AC0000000026_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 3736 | YES (24) | NO |
 | `332AC0000000037` | とん税法 | 332AC0000000037_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 77 | YES (2) | NO |
 | `332AC0000000038` | 特別とん税法 | 332AC0000000038_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 47 | YES (2) | NO |
-| `332CO0000000043` | 租税特別措置法施行令 | 332CO0000000043_20261101_507CO0000000127 | CurrentEnforced | YES | ok | 2820 | YES (8) | NO |
+| `332CO0000000043` | 租税特別措置法施行令 | 332CO0000000043_20261101_507CO0000000127 | CurrentEnforced | YES | ok | 2820 | YES (9) | NO |
 | `332CO0000000048` | とん税法施行令 | 332CO0000000048_20201001_502CO0000000128 | CurrentEnforced | YES | ok | 20 | NO (0) | NO |
 | `332CO0000000049` | 特別とん税法施行令 | 332CO0000000049_20201001_502CO0000000128 | CurrentEnforced | YES | ok | 14 | NO (0) | NO |
-| `332M50000040015` | 租税特別措置法施行規則 | 332M50000040015_20261101_507M60000040026 | CurrentEnforced | YES | ok | 1776 | YES (4) | NO |
+| `332M50000040015` | 租税特別措置法施行規則 | 332M50000040015_20261101_507M60000040026 | CurrentEnforced | YES | ok | 1776 | YES (5) | NO |
 | `332AC0000000055` | 揮発油税法 | 332AC0000000055_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 94 | YES (1) | NO |
 | `332CO0000000057` | 揮発油税法施行令 | 332CO0000000057_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 60 | YES (1) | NO |
 | `332AC0000000077` | 特別とん譲与税法 | 332AC0000000077_20010106_411AC0000000160 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
@@ -107,7 +107,7 @@ a completion flag.
 | `339AC0000000101` | 自家用自動車の一時輸入に関する通関条約の実施に伴う関税法等の特例に関する法律 | 339AC0000000101_20010106_411AC0000000160 | CurrentEnforced | YES | ok | 21 | NO (0) | NO |
 | `339CO0000000182` | 自家用自動車の一時輸入に関する通関条約の実施に伴う関税法等の特例に関する法律施行令 | 339CO0000000182_20030401_415CO0000000142 | CurrentEnforced | YES | ok | 16 | YES (1) | NO |
 | `340AC0000000033` | 所得税法 | 340AC0000000033_20261001_507AC0000000070 | CurrentEnforced | YES | ok | 1323 | YES (24) | NO |
-| `340AC0000000034` | 法人税法 | 340AC0000000034_20261001_508AC0000000012 | CurrentEnforced | YES | ok | 1183 | YES (9) | NO |
+| `340AC0000000034` | 法人税法 | 340AC0000000034_20261001_508AC0000000012 | CurrentEnforced | YES | ok | 1183 | YES (10) | NO |
 | `340CO0000000084` | 国際復興開発銀行等からの外資の受入に関する特別措置に関する法律に基づく債券の利子の非課税 | 340CO0000000084_20171001_429CO0000000106 | CurrentEnforced | YES | ok | 8 | NO (0) | NO |
 | `340CO0000000096` | 所得税法施行令 | 340CO0000000096_20260522_508CO0000000093 | CurrentEnforced | YES | ok | 1365 | YES (2) | NO |
 | `340CO0000000097` | 法人税法施行令 | 340CO0000000097_20261001_507CO0000000121 | CurrentEnforced | YES | ok | 1541 | YES (4) | NO |
@@ -176,7 +176,7 @@ a completion flag.
 | `359AC0000000072` | たばこ税法 | 359AC0000000072_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 114 | YES (2) | NO |
 | `360CO0000000005` | たばこ税法施行令 | 360CO0000000005_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 51 | YES (1) | NO |
 | `360M50000040001` | たばこ税法施行規則 | 360M50000040001_20240401_506M60000040021 | CurrentEnforced | YES | ok | 12 | NO (0) | NO |
-| `362CO0000000335` | 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律施行令 | 362CO0000000335_20260521_506CO0000000150 | CurrentEnforced | YES | ok | 101 | NO (0) | NO |
+| `362CO0000000335` | 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律施行令 | 362CO0000000335_20260521_506CO0000000150 | CurrentEnforced | YES | ok | 101 | YES (1) | NO |
 | `363AC0000000107` | 税制改革法 | 363AC0000000107_19881230_000000000000000 | CurrentEnforced | YES | ok | 18 | YES (2) | NO |
 | `363AC0000000108` | 消費税法 | 363AC0000000108_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 524 | YES (4) | NO |
 | `363CO0000000360` | 消費税法施行令 | 363CO0000000360_20261101_507CO0000000125 | CurrentEnforced | YES | ok | 452 | YES (1) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 281
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 287
