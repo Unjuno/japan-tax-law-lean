@@ -3448,6 +3448,30 @@ def checks():
            "article", "第十条",
            ["正当な理由がなくて国外財産調書をその提出期限までに税務署長に提出しなかったときは、その違反行為をした者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
 
+# 新生命保険料の金額の合計額 八万円超 — NewLifePremium80k.lean
+    yield ("所得税法 art. 76（新生命保険料の金額の合計額 八万円超）↔ NewLifePremium80k.lean (newLifeFloor80k 80000)",
+           "340AC0000000033",
+           "file", None,
+           ["その年中に支払つた新生命保険料の金額の合計額が八万円を超える場合"])
+
+    # 旧生命保険料の金額の合計額 十万円超 — OldLifePremium100k.lean
+    yield ("所得税法 art. 76（旧生命保険料の金額の合計額 十万円超）↔ OldLifePremium100k.lean (oldLifeFloor100k 100000)",
+           "340AC0000000033",
+           "file", None,
+           ["その年中に支払つた旧生命保険料の金額の合計額が十万円を超える場合"])
+
+    # 介護医療保険料の金額の合計額 八万円超 — CareMedicalPremium80k.lean
+    yield ("所得税法 art. 76（介護医療保険料の金額の合計額 八万円超）↔ CareMedicalPremium80k.lean (careMedicalFloor80k 80000)",
+           "340AC0000000033",
+           "file", None,
+           ["その年中に支払つた介護医療保険料の金額の合計額が八万円を超える場合"])
+
+    # 新個人年金保険料の金額の合計額 八万円超 — NewAnnuityPremium80k.lean
+    yield ("所得税法 art. 76（新個人年金保険料の金額の合計額 八万円超）↔ NewAnnuityPremium80k.lean (newAnnuityFloor80k 80000)",
+           "340AC0000000033",
+           "file", None,
+           ["その年中に支払つた新個人年金保険料の金額の合計額が八万円を超える場合"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
