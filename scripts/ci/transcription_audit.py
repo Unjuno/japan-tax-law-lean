@@ -3562,6 +3562,14 @@ def checks():
            "article", "\u7b2c\u4e03\u5341\u6761\u306e\u4e09",
            ["\u4f4f\u5b85\u53d6\u5f97\u7b49\u8cc7\u91d1\u306e\u8d08\u4e0e\u3092\u3057\u305f\u8005\u306e\u76f4\u7cfb\u5351\u5c5e\u3067\u3042\u308b\u63a8\u5b9a\u76f8\u7d9a\u4eba\uff08\u5b6b\u3092\u542b\u3080\u3002\uff09\u3067\u3042\u308b\u3053\u3068\u3002"])
 
+    # LocalTaxArt48To50DeletedRange.lean - NORM|76351db6... (地方税法 art.48:50 ArticleTitle STRUCTURE, law 325AC0000000226)
+    # Needle is the ArticleTitle; full Article flat text (with 削除) also checked.
+    # Article numbers 48/50 parsed from kanji numerals in the needle (not hand-typed).
+    yield ("local tax art.48-50 deleted range - LocalTaxArt48To50DeletedRange.lean",
+           "325AC0000000226",
+           "article", "\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067",
+           ["\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067", "\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067\u524a\u9664"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
