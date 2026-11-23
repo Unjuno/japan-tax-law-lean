@@ -3559,6 +3559,15 @@ def checks():
            "article", "第十六条の十二",
            ["当該他の準組合の準組合財産に対する持分の割合が百分の五十を超える場合における当該持分"])
 
+    # DisasterTaxReliefOrderArt6PrecedingTwoReading.lean - NORM|d589439... (政令 art.6 前二条 reading, law 322CO0000000268)
+    # Needle is in MainProvision Article 第六条 (Paragraph 1, Sentence 1) -
+    # verbatim injected from the queue via \u escapes; source range 4..5 and
+    # trigger 第三条の二第四項 extracted structurally, never hand-typed.
+    yield ("disaster tax relief order art.6 preceding-two reading - DisasterTaxReliefOrderArt6PrecedingTwoReading.lean",
+           "322CO0000000268",
+           "article", "\u7b2c\u516d\u6761",
+           ["\u524d\u4e8c\u6761\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e09\u6761\u306e\u4e8c\u7b2c\u56db\u9805\u306e\u5834\u5408\u306b\u3064\u3044\u3066\u3001\u3053\u308c\u3092\u6e96\u7528\u3059\u308b\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
