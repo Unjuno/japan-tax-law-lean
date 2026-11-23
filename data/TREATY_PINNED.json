@@ -29,7 +29,7 @@
       },
       "text_file": "data/raw/treaties/JP_US_INCOME_TAX_2003.txt",
       "formalized": {
-        "article": "第一条・第二条・第三条・第四条３・第六条 (Articles 1,2,3,4(3),6)・第七条 (Article 7)・第十条 (Article 10)・第十一条 (Article 11)・第十二条 (Article 12)・第十三条 (Article 13)・第十四条 (Article 14)・第十六条 (Article 16)",
+        "article": "第一条・第二条・第三条・第四条３・第六条 (Articles 1,2,3,4(3),6)・第七条 (Article 7)・第十条 (Article 10)・第十一条 (Article 11)・第十二条 (Article 12)・第十三条 (Article 13)・第十四条 (Article 14)・第十六条 (Article 16)・第十七条 (Article 17)・第十七条 (Article 17)・第十八条 (Article 18)・第十五条 (Article 15)・第十九条・第二十一条 (Articles 19,21)",
         "operators": [
           "inScope (resident of one or both states -> disjunction)",
           "preservesRelief (treaty does not limit tax relief -> identity)",
@@ -52,7 +52,18 @@
           "exemptionConditions (conjunctive 3-condition cascade)",
           "internationalTransportExempt",
           "sourceTaxIfExceeds10000 (USD 10000 gross-receipts threshold)",
-          "attributionException (attribution to other-state resident without designation right)"
+          "attributionException (attribution to other-state resident without designation right)",
+          "pension residence-only taxation",
+          "alimonyTaxable (deductible=payer only, nondeductible=neither state)",
+          "pension residence-only taxation",
+          "alimonyTaxable (deductible=payer only, nondeductible=neither state)",
+          "otherStateOnlyTax (service in other + tied-to-other)",
+          "payerStateOnlyTax (unless 18(1)(b) exception)",
+          "directorsFeesTaxableInCompanyState",
+          "studentGrantExempt (foreign-paid grant, other-state resident origin)",
+          "traineeWithinOneYear (1-year limit)",
+          "otherIncomeSourceTax (residence-only)",
+          "article7ForOtherIncome (PE real-link fallback)"
         ],
         "modules": {
           "JapanTaxLaw/TreatyJPUSScope.lean": "86f234ee32b82339fb87e0606b75c3dafb22f0c8a9e37ab1469e7dd1f3f939e5",
@@ -90,7 +101,19 @@
           "JapanTaxLaw/TreatyJPUSDependentServicesTests.lean": "af1ec9af97c77ede9d44d85508be18b7669cf92f44e95f9c6a3b413967291ead",
           "JapanTaxLaw/TreatyJPUSArtistesAthletes.lean": "13da824afd9721329c8acf43f3de7d67f88d5af837d8e5455646f8f29eaf2d2e",
           "JapanTaxLaw/TreatyJPUSArtistesAthletesSpec.lean": "22759cf9960fff18b0aef05fc0b1a73d6fc15ab2d89da2efd2ae3542b006ff7d",
-          "JapanTaxLaw/TreatyJPUSArtistesAthletesTests.lean": "5dda959dc3060b569bd7e1349a509d0346bb84093399ea2610a6dce88996e810"
+          "JapanTaxLaw/TreatyJPUSArtistesAthletesTests.lean": "5dda959dc3060b569bd7e1349a509d0346bb84093399ea2610a6dce88996e810",
+          "JapanTaxLaw/TreatyJPUSPensions.lean": "5ad8cbf1908be71f3ed73832720c9d2d322dd7973e7b9d0ea923e9cb175b148e",
+          "JapanTaxLaw/TreatyJPUSPensionsSpec.lean": "d6d875f0e053d539befbbc0c22760df65299e28528e137e67df8ff2d341685de",
+          "JapanTaxLaw/TreatyJPUSPensionsTests.lean": "b9e64fbd9efb4c11bda51b24c0492f70ccca8619486314244c59fc2f56760a93",
+          "JapanTaxLaw/TreatyJPUSGovernmentService.lean": "416dcbe63fdabbb12270524c0544a88a82590c8d60da542c1ef235e86810bc42",
+          "JapanTaxLaw/TreatyJPUSGovernmentServiceSpec.lean": "412340872dcb68261e05e22542901e2d1439a091b487f7e22768920e9b6505fc",
+          "JapanTaxLaw/TreatyJPUSGovernmentServiceTests.lean": "9ef2a1ce33ef98657986b2499d17ad57ac6e8b0fc1e6a39fe86cbbbee071d60a",
+          "JapanTaxLaw/TreatyJPUSDirectorsFees.lean": "6409d5ce87d5af781e578d9200bcefcc48e3669a28256d2fa78b6ddfc25d5e94",
+          "JapanTaxLaw/TreatyJPUSDirectorsFeesSpec.lean": "ac03fa283f73b62fb1671c224d089a52414d67b7ab75c1c11432250ab239d8c3",
+          "JapanTaxLaw/TreatyJPUSDirectorsFeesTests.lean": "a947e3f45b30aa8c9e1c760f999c462792da0da6a3ff39c40fdb1de241934a68",
+          "JapanTaxLaw/TreatyJPUSStudentsOtherIncome.lean": "014df7029aefc5f95effe4914dfe790ff59be4732169b83e7209dafc11bd5a20",
+          "JapanTaxLaw/TreatyJPUSStudentsOtherIncomeSpec.lean": "6cb39045a722e535d6815ec148282b952f030f86546bba9486ae3a2fc920734a",
+          "JapanTaxLaw/TreatyJPUSStudentsOtherIncomeTests.lean": "b8af8328b098c053a6f988955baa51c2108e5fb8e4c89e557e30f9a68b84b0bc"
         },
         "proof": "Lean 4.35.0 kernel; independent spec; no sorry/admit",
         "legal_review": "PENDING (separate axis)",
@@ -106,7 +129,12 @@
           "第十二条 (Art.12: royalties — residence-only, Art.7 PE fallback, 5% excess cap)",
           "第十三条 (Art.13: capital gains — source-state immovable-property gains, immovable definition extension)",
           "第十四条 (Art.14: dependent personal services — work-location allocation, 183-day/employer/PE exception, international transport)",
-          "第十六条 (Art.16: artistes and athletes — USD 10000 threshold, attribution exception)"
+          "第十六条 (Art.16: artistes and athletes — USD 10000 threshold, attribution exception)",
+          "第十七条 (Art.17: pensions — residence-only, non-deductible alimony taxable in neither state)",
+          "第十七条 (Art.17: pensions — residence-only, non-deductible alimony taxable in neither state)",
+          "第十八条 (Art.18: government service — payer-state only, other-state exception)",
+          "第十五条 (Art.15: directors' fees taxable in company's state of residence)",
+          "第十九条/第二十一条 (Art.19 student/trainee exemption; Art.21 other income residence-only with Art.7 PE fallback)"
         ]
       }
     },
