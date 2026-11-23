@@ -3556,6 +3556,14 @@ def checks():
            "article", "第六条の九",
            ["直前事業年度の総収入金額のうちに当該直前事業年度の投資関連所得（利子所得、配当所得その他の総務省令、財務省令で定める所得をいう。ロにおいて同じ。）に係る収入金額の占める割合が百分の五十に満たないこと。"])
 
+    # DisasterTaxReliefOrderArt10ApplicationItem3_5.lean - NORM|89782d86... (政令 art.10 application item EFFECT, law 322CO0000000268)
+    # Needle is in Article 10 Paragraph 1 Item 2 - verbatim injected from the
+    # queue via \u escapes; reference coordinates 3/5 extracted structurally.
+    yield ("disaster tax relief order art.10 application item 3-5 effect - DisasterTaxReliefOrderArt10ApplicationItem3_5.lean",
+           "322CO0000000268",
+           "article", "\u7b2c\u5341\u6761",
+           ["\u6cd5\u7b2c\u4e09\u6761\u7b2c\u4e94\u9805\u306e\u898f\u5b9a\u306e\u9069\u7528\u3092\u53d7\u3051\u3088\u3046\u3068\u3059\u308b\u65e8"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
