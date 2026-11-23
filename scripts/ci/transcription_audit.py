@@ -91,6 +91,17 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # Additional pins live in one file per module under data/TRANSCRIPTION_PINS/.
+    # A dedicated file is durable across merges: editing this hand-written list
+    # for other modules cannot silently drop another module's pin.
+    pins_dir = REPO / "data" / "TRANSCRIPTION_PINS"
+    if pins_dir.exists():
+        for pf in sorted(pins_dir.glob("*.json")):
+            try:
+                rec = json.loads(pf.read_text(encoding="utf-8"))
+                yield (rec["name"], rec["law_id"], rec["kind"], rec.get("art"), rec["needles"])
+            except (ValueError, KeyError):
+                continue
     cia = find_article_text  # alias for readability
 
     # 法人税法 art. 66 — CorporateTaxRate.lean
