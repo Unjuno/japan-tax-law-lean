@@ -950,6 +950,9 @@ import JapanTaxLaw.TreatyJPUSCapitalGainsTests
 import JapanTaxLaw.TreatyJPUSDependentServices
 import JapanTaxLaw.TreatyJPUSDependentServicesSpec
 import JapanTaxLaw.TreatyJPUSDependentServicesTests
+import JapanTaxLaw.TreatyJPUSArtistesAthletes
+import JapanTaxLaw.TreatyJPUSArtistesAthletesSpec
+import JapanTaxLaw.TreatyJPUSArtistesAthletesTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
