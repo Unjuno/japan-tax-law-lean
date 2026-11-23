@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 2389,
+  "checks": 2393,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -26280,11 +26280,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/CustomsTariffArt19_3ReexportSameStateConditionTests.lean",
       "unit_id": "NORM|760c6bfcb0b3bc22f09624b5e53c32fb918c0b6587084cfe8b2fa44a7185b523"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_CUSTOMS_TARIFF_ART8_2_ANTI_DUMPING_CIRCUMVENTION_EFFECT.md — reviewer returned ONE FINDING (documentati",
+      "unit_id": "NORM|8789ee655212d701703263bc001c3736ef358b2ecfcbb3cd68bb4a181dd709bd"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt8_2AntiDumpingCircumventionEffect.lean",
+      "unit_id": "NORM|8789ee655212d701703263bc001c3736ef358b2ecfcbb3cd68bb4a181dd709bd"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt8_2AntiDumpingCircumventionEffectSpec.lean",
+      "unit_id": "NORM|8789ee655212d701703263bc001c3736ef358b2ecfcbb3cd68bb4a181dd709bd"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffArt8_2AntiDumpingCircumventionEffectTests.lean",
+      "unit_id": "NORM|8789ee655212d701703263bc001c3736ef358b2ecfcbb3cd68bb4a181dd709bd"
     }
   ],
-  "resolved": 2385,
+  "resolved": 2389,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 492,
+  "units_checked": 493,
   "unresolved": 4
 }

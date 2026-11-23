@@ -1465,6 +1465,14 @@ def checks():
            "143AC0000000054",
            "article", "\u7b2c\u5341\u4e5d\u6761\u306e\u4e09",
            ["\uff08\u8f38\u5165\u6642\u3068\u540c\u4e00\u72b6\u614b\u3067\u518d\u8f38\u51fa\u3055\u308c\u308b\u5834\u5408\u306e\u623b\u3057\u7a0e\u7b49\uff09"])
+    # CustomsTariffArt8_2AntiDumpingCircumventionEffect.lean - NORM|8789ee65... (art.8-2 caption EFFECT, law 143AC0000000054)
+    # The needle IS the ArticleCaption; sub-terms extracted from the caption,
+    # never hand-typed. find_article_text(...,'第八条の二') len 4324 with needle.
+    yield ("customs tariff art.8-2 anti-dumping circumvention caption effect - CustomsTariffArt8_2AntiDumpingCircumventionEffect.lean",
+           "143AC0000000054",
+           "article", "\u7b2c\u516b\u6761\u306e\u4e8c",
+           ["\uff08\u4e0d\u5f53\u5ec9\u58f2\u95a2\u7a0e\u306e\u8ab2\u7a0e\u306e\u56de\u907f\u306e\u305f\u3081\u306b\u7b2c\u4e09\u56fd\u304b\u3089\u8f38\u5165\u3055\u308c\u308b\u8ca8\u7269\u7b49\u306b\u5bfe\u3057\u3066\u8ab2\u3059\u308b\u95a2\u7a0e\uff09"])
+
 
 
 
