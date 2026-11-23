@@ -10701,3 +10701,87 @@ pinned JSON の葉テキストを再帰走査し、§6（全 6 Item）を直接�
 
 - 追記後レビュー件数 **88**（既存 87 件は全件保持、Batch AH〜CK を含む）。追記は `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替なし。一時ファイル（抽出・検証・公理監査・追記スクリプト）は削除済み。
 - **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。
+
+## Batch CM review (2026-11-24) — 半島振興法措置省令 art.1 一 イ / UnevenTaxInvestmentThreshold.lean（cycle-96 独立原文照合・反例探索）
+
+**本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。
+
+### CM-0. 対象・pin 照合
+- 対象: `JapanTaxLaw/UnevenTaxInvestmentThreshold.lean`（44 行、`investmentThreshold` 1 def + 4 example）、独立 Spec `JapanTaxLaw/UnevenTaxInvestmentThresholdSpec.lean`（22 行）、Tests `JapanTaxLaw/UnevenTaxInvestmentThresholdTests.lean`（16 行）。すべて読み取り専用・本レビューで変更していない。CI `checks()` 登録は `scripts/ci/transcription_audit.py` line 2314–2318。
+- モジュール doc の pin 主張: law id `407M50000008016` / revision `407M50000008016_20250401_507M60000008028` / snapshot `data/raw/407M50000008016_20250401_507M60000008028.law.json` / Article Num 1 一、flat/normalized leaf text 1429 chars。
+- 独立確認: `data/INVENTORY.json`（line 7024–7060）の law レコードは `law_id = 407M50000008016`、`current_revision.law_revision_id = 407M50000008016_20250401_507M60000008028`（`CurrentEnforced`、施行 2025-04-01、令和七年総務省令第二十八号）、`raw_snapshot.source_file` は上記 snapshot と一致。`data/raw/407M50000008016.revisions.json` にも同 revision が実在。
+- snapshot 実在: 37,806 bytes / 自前再計算 SHA-256 `7cc3a8a91ecd1a2ec087e547b780d9177a330884d756e9b6ef097117a724d5f2`、`data/INVENTORY.json` の `source_sha256 = 7CC3A8A91ECD1A2EC087E547B780D9177A330884D756E9B6EF097117A724D5F2` と大文字小文字を除き一致。
+- 自前平坦化（`children` 再帰連結）で Article 1（ArticleTitle `第一条`）の leaf text は **1,429 chars** となり、モジュール doc のメタデータ 1429 chars と完全一致（付随メタデータの食い違いなし）。
+
+### CM-1. 独立抽出（pinned 原文からの直接抽出・形式化担当の STAGING を信じない）
+pinned JSON の葉テキストを再帰走査し、第一条 一 イ（法第十七条第一号又は第五号に掲げる事業）の金額基準を直接取得した。原文逐語（pinned leaf）:
+
+> 五百万円（租税特別措置法施行令（昭和三十二年政令第四十三号）第二十八条の九第十項第一号に規定する資本金の額等が千万円超五千万円以下である法人にあっては千万円とし、資本金の額等が五千万円超である法人にあっては二千万円とする。）以上のもの
+
+| 区分 | 原文逐語（pinned leaf） | 自前抽出値（万円） | 実装 | 照合 |
+|---|---|---|---|---|
+| 基準（その他） | `五百万円（…）以上のもの` | **500** | `else 500` | ✅ |
+| 中位 | `資本金の額等が千万円超五千万円以下である法人にあっては千万円とし` | **1000**（資本金 >1000 かつ ≤5000） | `if c > 1000 then 1000` | ✅ |
+| 上位 | `資本金の額等が五千万円超である法人にあっては二千万円とする` | **2000**（資本金 >5000） | `if c > 5000 then 2000` | ✅ |
+
+- 単位換算（円→万円）: 五百万円 = 5,000,000 円 = **500 万円** / 千万円 = 10,000,000 円 = **1000 万円** / 二千万円 = 20,000,000 円 = **2000 万円**。資本金側の境界は 千万円 = 1000 万円、五千万円 = 5000 万円。原文の「超」「以下」に従い境界は `>1000`・`≤5000`・`>5000`（`>=` ではない）。
+- **桁違いの明示除外**: 正規化原文で正しい 3 文字列（base `五百万円（租税特別措置法施行令`、mid `千万円超五千万円以下である法人にあっては千万円`、high `五千万円超である法人にあっては二千万円`）はすべて **FOUND**、一方 `五十万円`（50 万）/ `五千万円（租税特別措置法施行令`（base を 5000 万と誤読）/ `五億円` / `百万円超五千万円以下` / `…にあっては百万円` / `…にあっては二百万円` / `二億円` はすべて **NOT FOUND**。`五千万円` という語自体は原文に存在するが、それは括弧内の資本金境界（`五千万円以下`・`五千万円超`）であり、基準額（括弧の前の `五百万円`）ではない。混乱を排除済み。
+- 境界の意味確認: `千万円超五千万円以下` は (1000, 5000] 万円、`五千万円超` は (5000, ∞) 万円、それ以外（≤1000 万円）が 500 万円。実装の if 順序（5000 判定を先に実施）と整合。
+- 照合結論: 資本金別 3 閾値（500 / 1000 / 2000 万円）すべてが pinned 原文から独立抽出した値と完全一致。食い違いなし。
+
+### CM-2. needle 健全性（CI `checks()` 実文字列）
+`scripts/ci/transcription_audit.py` line 2314–2318 の `checks()` エントリ `UnevenTaxInvestmentThreshold.lean`（law_id `407M50000008016`、`kind = file`、article 指定なし）の実文字列 2 本を、自前正規化原文（Article 1 平坦化 1,429 chars、全文平坦化 5,983 chars）で検証した。`docs/STAGING_INVESTTHRESH.md` の `needles` および `data/ARTICLE_SCOPE_POSITIONS.json` の同 law エントリ（`D = PASS`、`article_scoped = true`、`whole_text_only = false`、`competing_locations = []`）と同一の 2 本。
+
+1. `五百万円（租税特別措置法施行令`（15 chars）— **U+3000 なし**、正規化原文で **FOUND**（Article 1 で 1 回、全文で 1 回）。
+2. `不均一課税をすることとしている場合`（17 chars）— **U+3000 なし**、正規化原文で **FOUND**（Article 1 で 3 回、全文で 3 回）。
+
+**結果: U+3000 なし、2/2 FOUND。** 自前正規化は CI の `_norm`（`re.sub(r"[\s　]+", "", s)`）と同じく全空白・U+3000 を除去。Article 1 自体にも U+3000 は存在しない。`ARTICLE_SCOPE_POSITIONS.json` の `unit_hits`（`MainProvision/Article/1` = 2、`MainProvision/Paragraph/1` = 2、`MainProvision/Item/1` = 2、`MainProvision/Item/2` = 1、`MainProvision/Item/3` = 1）とも整合。
+
+### CM-3. 反例探索
+`lake env lean`（Lean v4.35.0）で実装・独立 Spec を再評価（モジュール内の example を信じず独立に再実行、exit code 0）。
+
+| 資本金 c（万円） | `investmentThreshold` | 独立 probe `indepSpec` | モジュール `specThreshold` | 判定 |
+|---|---|---|---|---|
+| 0 | 500 | 500 | — | ✅ |
+| 999 | 500 | 500 | — | ✅ |
+| **1000** | **500** | 500 | 500 | 境界（1千万ちょうど）✅ |
+| **1001** | **1000** | 1000 | 1000 | 境界（1千万超）✅ |
+| 4999 | 1000 | 1000 | — | ✅ |
+| **5000** | **1000** | 1000 | — | 境界（5千万ちょうど）✅ |
+| **5001** | **2000** | 2000 | 2000 | 境界（5千万超）✅ |
+| 10000 | 2000 | 2000 | — | ✅ |
+
+- 独立 Spec は `if c > 5000 then 2000 else if c > 1000 then 1000 else 500` をレビュー側で書き下した `indepSpec`。8 点すべてで `investmentThreshold c == indepSpec c` が **true**、モジュールの `agreeUnevenTaxInvestmentThreshold = true` も確認。
+- 指定された 4 境界（1000→500、1001→1000、5000→1000、5001→2000）すべて一致。
+- **反例 0 件（ゼロ）。**
+
+### CM-4. 公理監査
+一時 Lean ファイルを作成し `lake env lean` で `#print axioms` を実行（exit code 0）。
+
+| 宣言 | 結果 |
+|---|---|
+| `JapanTaxLaw.UnevenTaxInvestmentThreshold.investmentThreshold` | does not depend on any axioms |
+| 独立 probe `indepSpec` | does not depend on any axioms |
+| `JapanTaxLaw.UnevenTaxInvestmentThreshold.specThreshold` | does not depend on any axioms |
+| `JapanTaxLaw.UnevenTaxInvestmentThreshold.agreeUnevenTaxInvestmentThreshold` | does not depend on any axioms |
+| probe theorems `cm_t1000` / `cm_t1001` / `cm_t5000` / `cm_t5001` / `cm_agree` | すべて does not depend on any axioms |
+
+- `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` の依存は **すべて 0 件**。本モジュールに theorem/lemma は無く（def + example のみ）、CI の axiom probe に加え直接 probe で代替確認した。公理監査は合格。監査用一時ファイルは削除済み。
+
+### CM-5. 未形式化項目の確認（スコープ）
+pinned 原文（Article 1 正規化 1,429 chars）には本モデルが扱う 一 イ の資本金別閾値のほか、以下が存在する。いずれもモジュール doc の `Scope / NOT MODELLED` 声明どおり **NOT MODELLED** であり、欠陥ではない。
+
+- **事業区分**: 一 イ（法第十七条第一号又は第五号）のみをモデル化。一 ロ（法第十七条第二号又は第四号）は資本金区分なしの `五百万円以上のもの`（定額）であり、本モデルを ロ に適用するのはスコープ外。法第十七条各号の事業の定義・判定も NOT MODELLED。
+- **投資額算定方法**: `取得価額の合計額`、特別償却設備（事業の用に供する施設又は設備）の定義・算定方法、計画期間（初日から令和九年三月三十一日まで等）、地区指定・取消しの判定は NOT MODELLED。
+- **適用効果**: 事業税の課税標準額の計算、不均一課税の法的効果は NOT MODELLED。
+- **その他条項**: 二（不動産取得税）、三（固定資産税）の不均一課税、および租税特別措置法施行令 第二十八条の九第十項第一号の「資本金の額等」の定義・算定方法も NOT MODELLED。
+
+### CM-6. 判定
+> 本節の CONFIRMED は「確認済みの検証項目」を指し、欠陥の存在を意味しない。原文と Lean の食い違い（欠陥）は **0 件（ゼロ）**。発見ゼロの場合も本節に明示する。
+
+- **CONFIRMED（5 件）**: (1) pin 一致（law id / revision / snapshot / SHA-256 / INVENTORY / revisions.json / Article 1 = 1429 chars）、(2) 資本金別 3 閾値（500 / 1000 / 2000 万円）の独立抽出一致・境界意味（`>1000`・`≤5000`・`>5000`）一致・桁違い除外、(3) needle 2/2 FOUND かつ U+3000 なし、(4) 反例ゼロ（8 点独立 Spec 一致、4 境界一致）、(5) 公理依存 0。
+- **BY-DESIGN（4 件）**: (1) 事業区分（一 ロ の定額 500 万円を含む）の未形式化、(2) 投資額算定方法（取得価額・特別償却設備・計画期間等）の未形式化、(3) 不均一課税の適用効果（課税標準額計算等）の未形式化、(4) 二・三（不動産取得税・固定資産税）および「資本金の額等」定義の未形式化。いずれも明示的スコープ外であり欠陥ではない。
+- **UNRESOLVED（0 件）**: 未解決事項なし。**発見ゼロ。**
+
+- 追記後レビュー件数 **89**（既存 88 件は全件保持、Batch AH〜CL を含む）。追記は `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替なし。一時ファイル（抽出・decoy・検証・公理監査・追記スクリプト）は削除済み。
+- **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。

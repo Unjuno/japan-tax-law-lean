@@ -1765,3 +1765,6 @@ import JapanTaxLaw.DependentAge13Tests
 import JapanTaxLaw.InvestmentIncomeBelowHalf
 import JapanTaxLaw.InvestmentIncomeBelowHalfSpec
 import JapanTaxLaw.InvestmentIncomeBelowHalfTests
+import JapanTaxLaw.AmamiInvestmentThreshold
+import JapanTaxLaw.AmamiInvestmentThresholdSpec
+import JapanTaxLaw.AmamiInvestmentThresholdTests
