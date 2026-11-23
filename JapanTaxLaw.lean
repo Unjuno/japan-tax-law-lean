@@ -1115,6 +1115,9 @@ import JapanTaxLaw.ActionTimingTriggersTests
 import JapanTaxLaw.FactEstablishmentConditions
 import JapanTaxLaw.FactEstablishmentConditionsSpec
 import JapanTaxLaw.FactEstablishmentConditionsTests
+import JapanTaxLaw.ResidualConditionalForms
+import JapanTaxLaw.ResidualConditionalFormsSpec
+import JapanTaxLaw.ResidualConditionalFormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
