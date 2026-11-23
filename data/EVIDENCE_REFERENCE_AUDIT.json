@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 2645,
+  "checks": 2649,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -29096,11 +29096,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/DisasterTaxReliefOrderArt10ApplicationItem3_5Tests.lean",
       "unit_id": "NORM|89782d86b1c41898c6684fa9644bde155cf5722491c2e2a5a743f27654b89cc5"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_INHERITANCE_TAX_ART3_DEEMED_ACQUISITION.md — NO FINDINGS via independent 26-point programmatic cross-ch",
+      "unit_id": "NORM|6a574541c0cc8e189b22ac97d2c2ddacaa3a00871afe9a7f5c9ca2137f72dc74"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/InheritanceTaxArt3DeemedAcquisition.lean",
+      "unit_id": "NORM|6a574541c0cc8e189b22ac97d2c2ddacaa3a00871afe9a7f5c9ca2137f72dc74"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/InheritanceTaxArt3DeemedAcquisitionSpec.lean",
+      "unit_id": "NORM|6a574541c0cc8e189b22ac97d2c2ddacaa3a00871afe9a7f5c9ca2137f72dc74"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/InheritanceTaxArt3DeemedAcquisitionTests.lean",
+      "unit_id": "NORM|6a574541c0cc8e189b22ac97d2c2ddacaa3a00871afe9a7f5c9ca2137f72dc74"
     }
   ],
-  "resolved": 2641,
+  "resolved": 2645,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 543,
+  "units_checked": 544,
   "unresolved": 4
 }
