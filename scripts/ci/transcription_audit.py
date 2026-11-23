@@ -3533,6 +3533,14 @@ def checks():
            ["直前事業年度の総収入金額のうちに当該直前事業年度の投資関連所得（利子所得、配当所得その他の総務省令、財務省令で定める所得をいう。ロにおいて同じ。）に係る収入金額の占める割合が百分の五十に満たないこと。"])
 
 
+
+    # 情報通信技術活用省令 art.5(2)(2) — GrayscaleGradationFloor.lean (二百五十六階調以上)
+    yield ("情報通信技術活用省令 art.5(2)(2)（二百五十六階調以上）↔ GrayscaleGradationFloor.lean (floor 256, 以上 inclusive)",
+           "415M60000040071",
+           "article", "第五条",
+           ["白色から黒色までの階調が二百五十六階調以上であること。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

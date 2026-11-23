@@ -1765,3 +1765,6 @@ import JapanTaxLaw.DependentAge13Tests
 import JapanTaxLaw.InvestmentIncomeBelowHalf
 import JapanTaxLaw.InvestmentIncomeBelowHalfSpec
 import JapanTaxLaw.InvestmentIncomeBelowHalfTests
+import JapanTaxLaw.GrayscaleGradationFloor
+import JapanTaxLaw.GrayscaleGradationFloorSpec
+import JapanTaxLaw.GrayscaleGradationFloorTests
