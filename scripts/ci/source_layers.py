@@ -35,6 +35,7 @@ AUX_INDEX = REPO / "data" / "raw_circulars" / "nta_tsutatsu_index.meta.json"
 HIST_PINNED = REPO / "data" / "HISTORICAL_PINNED.json"
 CASE_PINNED = REPO / "data" / "CASELAW_PINNED.json"
 ORDINANCE_PINNED = REPO / "data" / "ORDINANCE_PINNED.json"
+TREATY_PINNED = REPO / "data" / "TREATY_PINNED.json"
 BLOCKED = REPO / "docs" / "BLOCKED.md"
 OUT_JSON = REPO / "data" / "SOURCE_LAYERS.json"
 OUT_MD = REPO / "docs" / "SOURCE_LAYERS.md"
@@ -105,6 +106,9 @@ def build() -> dict:
     ord_ledger = json.loads(ORDINANCE_PINNED.read_text(encoding="utf-8")) if ORDINANCE_PINNED.exists() else None
     l2_acquired = (ord_ledger or {}).get("count_acquired", 0)
     l2_status = "ACQUIRED_PINNED_ONLY" if l2_acquired else "NOT_ACQUIRED"
+    treaty_ledger = json.loads(TREATY_PINNED.read_text(encoding="utf-8")) if TREATY_PINNED.exists() else {}
+    l3_acquired = (treaty_ledger or {}).get("count_acquired", 0)
+    l3_status = "ACQUIRED_PINNED_ONLY" if l3_acquired else "NOT_ACQUIRED"
 
     layers = [
         {
@@ -154,14 +158,14 @@ def build() -> dict:
             "label_ja": "租税条約",
             "legal_nature": "条約（国際法源）— 国内法とは効力発生の機構が異なる",
             "authority": "外務省 / 条約締結",
-            "acquisition_status": "NOT_ACQUIRED",
+            "acquisition_status": l3_status,
             "scope_status": "AUXILIARY_LAYER",
             "count": None,
-            "count_acquired": 0,
+            "count_acquired": l3_acquired,
             "pinned_snapshot": "",
             "verification_status": "OUT_OF_SCOPE",
             "auxiliary": True,
-            "notes": "法源上の性質が異なるため L0 に混ぜない。別層として管理する。",
+            "notes": "法源上の性質が異なるため L0 に混ぜない。別層として管理する。財務省公式PDFを1件 pin 取得（TREATY_PINNED.json, SHA検証済み）。全租税条約の網羅は主張しない。",
         },
         {
             "layer_id": "L4_CIRCULAR",

@@ -857,3 +857,12 @@ import JapanTaxLaw.CostAdditionOperatorsTests
 import JapanTaxLaw.EquivalentGakuNorms
 import JapanTaxLaw.EquivalentGakuNormsSpec
 import JapanTaxLaw.EquivalentGakuNormsTests
+import JapanTaxLaw.DeemingRemainderNorms
+import JapanTaxLaw.DeemingRemainderNormsSpec
+import JapanTaxLaw.DeemingRemainderNormsTests
+import JapanTaxLaw.ExclusionRemainderNorms
+import JapanTaxLaw.ExclusionRemainderNormsSpec
+import JapanTaxLaw.ExclusionRemainderNormsTests
+import JapanTaxLaw.ProvisoRemainderNorms
+import JapanTaxLaw.ProvisoRemainderNormsSpec
+import JapanTaxLaw.ProvisoRemainderNormsTests

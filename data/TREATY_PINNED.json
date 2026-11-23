@@ -1,0 +1,22 @@
+{
+  "tool": "scripts/ci/treaty_acquisition.py",
+  "layer_id": "L3_TREATY",
+  "count_acquired": 1,
+  "count_total": null,
+  "acquisition_status": "ACQUIRED_PINNED_ONLY",
+  "verification_status": "OUT_OF_SCOPE",
+  "acquisitions": [
+    {
+      "treaty_id": "JP_US_INCOME_TAX_2003",
+      "label_ja": "日米租税条約（所得に対する租税に関する二重課税の回避及び脱税の防止のための日本国政府とアメリカ合衆国政府との間の条約）",
+      "authority": "財務省 租税条約に関する資料",
+      "url": "https://www.mof.go.jp/tax_policy/summary/international/tax_convention/USA_ST_jp.pdf",
+      "source_file": "data/raw/treaties/USA_ST_jp.pdf",
+      "sha256": "a09142948a36a9f8c7c6515aae0fdc1464d937c73df8c83bee568979ba7ca750",
+      "bytes": 305222,
+      "pdf_header": "%PDF-1.6",
+      "note": "和文統合条文（原条約+改正議定書）。法的効力は原条約・議定書の正文のみ。本文テキストはPDF内で圧縮されており、抽出にはPDFパーサが必要（未実施）。"
+    }
+  ],
+  "notes": "公式財務省PDFを1件 pin 取得。L0 に合算しない別層。全租税条約の網羅は主張しない。"
+}
