@@ -3407,6 +3407,14 @@ def checks():
            ["相続人が二人以上ある場合には、前項の申告書は、各相続人が連署して提出するものとする。"])
 
 
+
+    # 国税審議会令 art.4 — CommitteeTermTwoYears.lean (委員の任期二年)
+    yield ("国税審議会令 art.4（委員の任期は二年とする）↔ CommitteeTermTwoYears.lean (term 2 years)",
+           "412CO0000000278",
+           "article", "第四条",
+           ["委員の任期は、二年とする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

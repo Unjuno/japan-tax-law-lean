@@ -1720,3 +1720,6 @@ import JapanTaxLaw.JointHeirThreshold2Tests
 import JapanTaxLaw.DeliberationQuorum
 import JapanTaxLaw.DeliberationQuorumSpec
 import JapanTaxLaw.DeliberationQuorumTests
+import JapanTaxLaw.CommitteeTermTwoYears
+import JapanTaxLaw.CommitteeTermTwoYearsSpec
+import JapanTaxLaw.CommitteeTermTwoYearsTests
