@@ -1,9 +1,9 @@
 {
-  "commit": "b77278cc61db687bcfa4fe60b4cc90ea7c767544",
+  "commit": "33e41b0847f0f2e5dad93baae692f014f889e9c4",
   "jobs": {
     "Build Lean project and check axioms": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45183082291/job/137721617548",
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45210301431/job/137817006359",
       "required_steps": [
         "Build explicitly",
         "No sorry/admit in adopted proofs",
@@ -14,7 +14,7 @@
     },
     "Semantic audit and mutation injection": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45183082291/job/137721618002"
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45210301431/job/137817005904"
     }
   },
   "modules": {
@@ -170,6 +170,24 @@
     },
     "AviationFuelTaxRateTests.lean": {
       "sha256": "0cf0c11bd619f67e724ed6e8c8184f6577532d51ff75ea97051726e096d6c3c4"
+    },
+    "AviationFuelThousandRoundDown.lean": {
+      "sha256": "beb4a414f14744f2f2318138620ee256e8394612b62df0256b81f950698a1d09"
+    },
+    "AviationFuelThousandRoundDownSpec.lean": {
+      "sha256": "fdbdeada6e3877d7fbfb50fbeae76a4a75b850191915143e9102a2ebebc31cb4"
+    },
+    "AviationFuelThousandRoundDownTests.lean": {
+      "sha256": "707c9f85212647d3ea160551bf1641a4ffe541a13871c268498ae71bf60c5c51"
+    },
+    "BasicDeductionIncome23M50.lean": {
+      "sha256": "ea7c076f304a026334146afe7a69dac62b4e63757dd2295a4c26ebcce3ef607f"
+    },
+    "BasicDeductionIncome23M50Spec.lean": {
+      "sha256": "59c0e40ca7cc8f5db2630186c52b37905ea8539498c1ffb1aa8e20c26aae5bf5"
+    },
+    "BasicDeductionIncome23M50Tests.lean": {
+      "sha256": "4f7586c5d1846e6ec0f11357d54494de887b59fee3613a31e721509c34ae0a07"
     },
     "BondedAreaKinds.lean": {
       "sha256": "1c469160dbf5585fb5ec15a7358f51a7e7d3a5098a972e9821eab81e1df4732f"
@@ -440,6 +458,15 @@
     },
     "CorporateMiscRatesTests.lean": {
       "sha256": "f9ba4a9da7d560f860b77c4aae1c5b255777ab55d5cffe4fe29ce5636daefc55"
+    },
+    "CorporateOwnershipThird.lean": {
+      "sha256": "73f61657a796c197dc577d58920c83e0aef5cc11b2351f8642f85043347a2de9"
+    },
+    "CorporateOwnershipThirdSpec.lean": {
+      "sha256": "264cc2fa8cde0c271fd1a0ad5c047d2c3faadf01814663b309457f316b4ea29a"
+    },
+    "CorporateOwnershipThirdTests.lean": {
+      "sha256": "201dacf1213ed12a5f7eba8dc44e5ca32c61aa2683b514d937d4493e2731c3c0"
     },
     "CorporateSpecialTaxBase.lean": {
       "sha256": "c27ba89a577b1a92d6cfdf20da95e0607cd4881ad954651212cc625b79428a61"
@@ -1052,6 +1079,15 @@
     },
     "DelinquencyTaxTests.lean": {
       "sha256": "790f7de5a4a9087de997116bdaadf5ac642c018d30beb406715963629b898cfc"
+    },
+    "DependentAge13.lean": {
+      "sha256": "753c9df50617b5cee66807029a263021e414a15ea7ad1c330027eebac16697df"
+    },
+    "DependentAge13Spec.lean": {
+      "sha256": "f7706da9c8ae33583ba2579db56444b7a0486395abee6c6910bfb40711e18fcd"
+    },
+    "DependentAge13Tests.lean": {
+      "sha256": "a25225f85331eb08c478e8aeafa6d04660a04bb63d5063e236d627e001b0ff93"
     },
     "DependentAgeSupport.lean": {
       "sha256": "e7c95b0306aa5121c3b4423ba17c0fd215290d3d4ea41b8ceb0e0a64f9db9634"
@@ -3231,6 +3267,15 @@
     "RetainedAmountLocalTaxTests.lean": {
       "sha256": "ed8b3da38d1c0b12d7f8b729bb2a0ce2b00c1f161c451b2eec60c09ca5f021c3"
     },
+    "RetirementAggregate3M.lean": {
+      "sha256": "0c295306b98547206fb9aff9b63b68b2f78fd3e71d99285257b8d066e86a6ab9"
+    },
+    "RetirementAggregate3MSpec.lean": {
+      "sha256": "016e691b99e513fffc4d2853eecadef4a7147dd46905c34f8ec266650eb24248"
+    },
+    "RetirementAggregate3MTests.lean": {
+      "sha256": "1e001d87478f3feace7917ec34b7883260ae5eff7c5126516b60f660010e49fd"
+    },
     "RetirementIncome3M.lean": {
       "sha256": "c2e29db992a9c2c99a927216a0f3543681edd9335decd9fdc330e279b7a6a5d5"
     },
@@ -3239,6 +3284,15 @@
     },
     "RetirementIncome3MTests.lean": {
       "sha256": "62360114e414f12d4af7072d87aa5faffc03b3a7ec1f134123b84449a39e632c"
+    },
+    "RetirementResidual3M.lean": {
+      "sha256": "3605dc798d66017fd04d9e729b4079ab78952cf091ffa0dcc20980569a993677"
+    },
+    "RetirementResidual3MSpec.lean": {
+      "sha256": "625df9d68469abaa1f5ae214dae0f74652874c69e888af24331c59fcdc31ac32"
+    },
+    "RetirementResidual3MTests.lean": {
+      "sha256": "2cc618c9f191b1980ead424cf300d8346448067b64348c5270dc2a1c2d823279"
     },
     "RiceContentThreshold.lean": {
       "sha256": "ddc747f3fb7a7a5bad984ab535e3879d95ef5de0daa48464de6c3d777f443a4d"
@@ -3302,6 +3356,15 @@
     },
     "SavingsDepositInterestTests.lean": {
       "sha256": "3f37ef2c0bd47786b37cae200a54512161cb24e2be2d9c0100151fa024be5f34"
+    },
+    "ShareMajority50.lean": {
+      "sha256": "4122882ad5aa5a43fad983345258c3f34188159e83fea3384932dd223ffb5da6"
+    },
+    "ShareMajority50Spec.lean": {
+      "sha256": "8c296c10d08c633d41afefd811eea9cb559855bc3a430b5c4e58e60783a39b5a"
+    },
+    "ShareMajority50Tests.lean": {
+      "sha256": "c15d8828d255785cf2757e157a854b82876368bec1183c8ea92a83c31c170702"
     },
     "ShareholdersUnder50.lean": {
       "sha256": "9764506374a3c5c2b8c563cc08998035484b319d76d0274b48ac4474a349a7a0"
@@ -3928,5 +3991,5 @@
   "note": "Kernel-build attestation. Hashes are SHA-256 of the committed blob bytes (LF-normalised). CI run is a recorded, independently reproducible build of the exact commit; the generator re-checks every hash before accepting it as evidence.",
   "run_conclusion": "success",
   "schema": 1,
-  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45183082291"
+  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45210301431"
 }
