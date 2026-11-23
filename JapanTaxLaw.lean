@@ -884,3 +884,6 @@ import JapanTaxLaw.EnumerationNormsTests
 import JapanTaxLaw.CapComparisonNorms
 import JapanTaxLaw.CapComparisonNormsSpec
 import JapanTaxLaw.CapComparisonNormsTests
+import JapanTaxLaw.ArticleSubNumberLabels
+import JapanTaxLaw.ArticleSubNumberLabelsSpec
+import JapanTaxLaw.ArticleSubNumberLabelsTests
