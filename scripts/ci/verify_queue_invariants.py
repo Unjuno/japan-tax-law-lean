@@ -191,6 +191,19 @@ def main() -> int:
         check("umbrella imports retained",
               not missing_imports,
               f"modules={len(disk_mods)} missing={len(missing_imports)} {missing_imports[:6]}")
+        # STRICTER (not a relaxation): the umbrella must also be exactly the
+        # canonical sorted/deduplicated output of generate_umbrella.py. This
+        # catches stale-base rewrites and duplicate-append drift that the
+        # "retained" check alone cannot see.
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        import generate_umbrella as gu
+        canonical = gu.canonical_text()
+        actual_lines = umbrella_text.splitlines()
+        duplicates = len(actual_lines) - len(set(actual_lines))
+        check("umbrella imports canonical",
+              umbrella_text == canonical and not duplicates and not missing_imports,
+              f"canonical_lines={len(canonical.splitlines())} actual_lines={len(actual_lines)} "
+              f"duplicates={duplicates}")
 
     bad = [n for n, ok, _ in results if not ok]
     print(f"\n{len(results) - len(bad)}/{len(results)} invariants passed")
