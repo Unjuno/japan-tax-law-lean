@@ -198,6 +198,28 @@ Versioned official source bytes are pinned with SHA-256/byte count in
 
 Every entry is `PINNED_BYTES_ONLY`, `NOT_MODELLED` and `LEGAL_REVIEW_PENDING`;
 none is folded into the L0 statutory ledger. Nine source-layer tests pass.
+L3 now has 2 treaty texts (US and Iceland); L2 has 3 municipal sources.
+
+### Fifth iteration
+
+Six more threshold/tier units (`InheritanceGiftRate4M6M`,
+`LocalTax71_14UpTo500k`, `71_14Over3M`, `72_21UpTo100B`,
+`72_21Band100B500B`, `LocalTax37Over2M`) were validated under the same axes
+(build 1889 jobs, invariants 17/17, batch-233 review). CI run `45480158811`
+on `82e0f430a1be7a2e222491755f1a66f7f8a2c0a2` completed `success`;
+`data/PROOF_ATTESTATION_SCOPED_T5.json` binds 18 module hashes from committed
+blobs at that commit to that run.
+
+```
+before: FULLY_VERIFIED=751  NOT_STARTED=396098  evidence=754
+after:  FULLY_VERIFIED=764  NOT_STARTED=396085  evidence=767
+delta:  FULLY_VERIFIED=+13 NOT_STARTED=-13  evidence=+13
+progress_ledger: COUNTED; NOT_STARTED delta -13; new modules 18
+```
+
+All six target units carry `kernel_proof`; the wider +13 includes previously
+stale units recovered by the same honest regeneration. Scoped-clause-only
+status and `LEGAL_REVIEW_PENDING` are unchanged.
 
 ## Independent status axes (never collapsed into one "COMPLETE")
 
