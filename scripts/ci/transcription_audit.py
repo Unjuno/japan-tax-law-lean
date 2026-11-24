@@ -3580,6 +3580,13 @@ def checks():
            "article", "第六条",
            ["この場合において、同号に規定する高額適用額は、その順位を付した適用額が十以上となるまでの適用額に順位を付した場合の第一順位から当該十以上となる順位までに該当する各適用額（第一順位の適用額が十以上となるときは、当該第一順位の適用額）とする。"])
 
+    # 沖縄 special art. 10 — PostOfficeExceptionDate.lean
+    yield ("沖縄 special art. 10（指定郵便局は八月三十一日）↔ PostOfficeExceptionDate.lean (exception date 8/31)",
+           "347CO0000000150",
+           "article", "第十条",
+           ["ただし、郵政大臣が指定する郵便局にあつては、同年八月三十一日とする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
