@@ -1208,6 +1208,9 @@ import JapanTaxLaw.DeclarationFormRefsTests
 import JapanTaxLaw.DeemedStatusNorms
 import JapanTaxLaw.DeemedStatusNormsSpec
 import JapanTaxLaw.DeemedStatusNormsTests
+import JapanTaxLaw.TermAliasNorms
+import JapanTaxLaw.TermAliasNormsSpec
+import JapanTaxLaw.TermAliasNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
