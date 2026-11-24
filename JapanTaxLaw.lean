@@ -1121,6 +1121,9 @@ import JapanTaxLaw.ResidualConditionalFormsTests
 import JapanTaxLaw.CaseWhenConditions
 import JapanTaxLaw.CaseWhenConditionsSpec
 import JapanTaxLaw.CaseWhenConditionsTests
+import JapanTaxLaw.CorpFiscalYearArt72_13
+import JapanTaxLaw.CorpFiscalYearArt72_13Spec
+import JapanTaxLaw.CorpFiscalYearArt72_13Tests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
