@@ -617,20 +617,6 @@
       "status": "NOT_STARTED"
     },
     {
-      "adversarial_review": true,
-      "article": "第七条",
-      "errors": [
-        "no source location evidence"
-      ],
-      "law": "関税定率法",
-      "law_id": "143AC0000000054",
-      "legal_review": "LEGAL_REVIEW_PENDING",
-      "module": "InvestigationExtensionSixMonths",
-      "presence_facts": true,
-      "scoped": true,
-      "status": "NOT_STARTED"
-    },
-    {
       "adversarial_review": false,
       "article": "第十五条",
       "errors": [
@@ -660,14 +646,14 @@
     },
     {
       "adversarial_review": false,
-      "article": "第十五条",
+      "article": "第二十七条",
       "errors": [
         "no source location evidence"
       ],
-      "law": "地方揮発油税法",
-      "law_id": "330AC0000000104",
+      "law": "揮発油税法",
+      "law_id": "332AC0000000055",
       "legal_review": "LEGAL_REVIEW_PENDING",
-      "module": "LocalGasolineArt15TripleFineRange",
+      "module": "GasolineTaxArt27TripleFineRange",
       "presence_facts": true,
       "scoped": true,
       "status": "NOT_STARTED"
@@ -1844,20 +1830,6 @@
       "law_id": "340AC0000000157",
       "legal_review": "LEGAL_REVIEW_PENDING",
       "module": "OilGasGrantArt4Rounding",
-      "presence_facts": true,
-      "scoped": true,
-      "status": "NOT_STARTED"
-    },
-    {
-      "adversarial_review": true,
-      "article": "第四条",
-      "errors": [
-        "no source location evidence"
-      ],
-      "law": "石油ガス譲与税法",
-      "law_id": "340AC0000000157",
-      "legal_review": "LEGAL_REVIEW_PENDING",
-      "module": "OilGasGrantRounding",
       "presence_facts": true,
       "scoped": true,
       "status": "NOT_STARTED"
@@ -3474,48 +3446,6 @@
     },
     {
       "adversarial_review": false,
-      "article": "第十条",
-      "errors": [
-        "no source location evidence"
-      ],
-      "law": "昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施行に関する政令）",
-      "law_id": "322CO0000000268",
-      "legal_review": "LEGAL_REVIEW_PENDING",
-      "module": "DisasterTaxReliefOrderArt10Item5FieldCondition",
-      "presence_facts": true,
-      "scoped": true,
-      "status": "NOT_STARTED"
-    },
-    {
-      "adversarial_review": false,
-      "article": "第六条",
-      "errors": [
-        "no source location evidence"
-      ],
-      "law": "沖縄の復帰に伴う国税関係法令の適用の特別措置等に関する省令",
-      "law_id": "347M50000040042",
-      "legal_review": "LEGAL_REVIEW_PENDING",
-      "module": "RefundDifferenceAmount",
-      "presence_facts": true,
-      "scoped": true,
-      "status": "NOT_STARTED"
-    },
-    {
-      "adversarial_review": false,
-      "article": "第二条",
-      "errors": [
-        "no source location evidence"
-      ],
-      "law": "法人臨時特別税に関する政令",
-      "law_id": "403CO0000000035",
-      "legal_review": "LEGAL_REVIEW_PENDING",
-      "module": "LocalCorpMaxCapital",
-      "presence_facts": true,
-      "scoped": true,
-      "status": "NOT_STARTED"
-    },
-    {
-      "adversarial_review": false,
       "article": "第二条",
       "errors": [
         "no source location evidence"
@@ -3558,14 +3488,14 @@
     },
     {
       "adversarial_review": false,
-      "article": "第九条",
+      "article": "第十五条",
       "errors": [
         "no source location evidence"
       ],
-      "law": "昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律）",
-      "law_id": "322AC0000000175",
+      "law": "地方揮発油税法",
+      "law_id": "330AC0000000104",
       "legal_review": "LEGAL_REVIEW_PENDING",
-      "module": "DisasterTaxReliefArt9VehicleNumberReference",
+      "module": "LocalGasolineArt15TripleFineRange",
       "presence_facts": true,
       "scoped": true,
       "status": "NOT_STARTED"
@@ -3576,10 +3506,24 @@
       "errors": [
         "no source location evidence"
       ],
-      "law": "昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施行に関する政令）",
-      "law_id": "322CO0000000268",
+      "law": "相続税法",
+      "law_id": "325AC0000000073",
       "legal_review": "LEGAL_REVIEW_PENDING",
-      "module": "DisasterTaxReliefOrderArt10Item5FieldCondition",
+      "module": "InheritanceTaxArt10ShipAircraftLocationException",
+      "presence_facts": true,
+      "scoped": true,
+      "status": "NOT_STARTED"
+    },
+    {
+      "adversarial_review": false,
+      "article": "第六条",
+      "errors": [
+        "no source location evidence"
+      ],
+      "law": "地方法人税法施行令",
+      "law_id": "426CO0000000139",
+      "legal_review": "LEGAL_REVIEW_PENDING",
+      "module": "FilingDateException",
       "presence_facts": true,
       "scoped": true,
       "status": "NOT_STARTED"
@@ -3588,7 +3532,7 @@
   "totals": {
     "BLOCKED": 0,
     "FULLY_VERIFIED": 0,
-    "NOT_STARTED": 256,
+    "NOT_STARTED": 252,
     "PARTIAL": 0,
     "PROVED_SCOPE": 0
   }
