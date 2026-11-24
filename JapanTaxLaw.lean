@@ -236,6 +236,9 @@ import JapanTaxLaw.CourseUnits31Tests
 import JapanTaxLaw.CrossSection15mm
 import JapanTaxLaw.CrossSection15mmSpec
 import JapanTaxLaw.CrossSection15mmTests
+import JapanTaxLaw.CustomsAdditionalDutyCeiling
+import JapanTaxLaw.CustomsAdditionalDutyCeilingSpec
+import JapanTaxLaw.CustomsAdditionalDutyCeilingTests
 import JapanTaxLaw.CustomsAirCargo
 import JapanTaxLaw.CustomsAirCargoSpec
 import JapanTaxLaw.CustomsAirCargoTests
