@@ -1848,6 +1848,9 @@ import JapanTaxLaw.TransitionalTariffRateTests
 import JapanTaxLaw.TravelerExemptionLimit
 import JapanTaxLaw.TravelerExemptionLimitSpec
 import JapanTaxLaw.TravelerExemptionLimitTests
+import JapanTaxLaw.TreasuryCollectionNet
+import JapanTaxLaw.TreasuryCollectionNetSpec
+import JapanTaxLaw.TreasuryCollectionNetTests
 import JapanTaxLaw.TreatyAsset100M
 import JapanTaxLaw.TreatyAsset100MSpec
 import JapanTaxLaw.TreatyAsset100MTests
