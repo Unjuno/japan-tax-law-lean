@@ -1661,6 +1661,17 @@
         50000
       ]
     },
+    "DisasterGrantSeptemberZero": {
+      "adversarial_review": true,
+      "boundary_examples_found": 3,
+      "independent_spec": true,
+      "kanji_literals": [],
+      "kernel_attested": true,
+      "kernel_decided_examples": 9,
+      "needles_scoped": true,
+      "scoped_article_chars": 4383,
+      "spec_literals": []
+    },
     "DisasterIncomeTaxRelief": {
       "adversarial_review": true,
       "boundary_examples_found": 5,
@@ -14141,6 +14152,20 @@
           "二百五十六"
         ]
       },
+      "NORM|d749035b746df1b6685fb1a4af5c00df8468570b5fca56b2197055ec3e77861f": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 9,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "DisasterGrantSeptemberZero",
+        "spec_kanji_in_原文": []
+      },
       "NORM|d7b1565d84959d5fb853a0c28af3462ac74eb3badc2a9129a8c593bfdedbc726": {
         "checks": {
           "cross_law": true,
@@ -22365,6 +22390,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"256\": [\"二百五十六\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/415M60000040071_20260924_506M60000040031.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:5/Article#5/Paragraph#2/Item#2/ItemSentence/Sentence#1 sha256=ee7ca0224460193ba599803eb2267eabf81eb00a30f36d5905cbb4cd355f9975 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/GrayscaleGradationFloorTests.lean sha256=b73a2b39212cc94db34f1dacd18f123bccac2354130731025061c622cbafeebf (11 kernel-decided examples)"
+    },
+    "NORM|d749035b746df1b6685fb1a4af5c00df8468570b5fca56b2197055ec3e77861f": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 9 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=507M60000008043_20250425_000000000000000 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/DisasterGrantSeptemberZero.lean sha256=3c6ddf5746ef4f6da9ae1fa888dff08f5337284352cadce935a1213d41652370",
+      "independent_spec": "JapanTaxLaw/DisasterGrantSeptemberZeroSpec.lean sha256=5838a36f8ae6e8c4c3d6313f2bddb02b8df3ce9ce1dd653cd7099b838a6649e7 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45344189369: commit a841838a7bbad76ecb477c247ce93d7d13f02ea8, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=pinned needle(s) in clause: ['この場合において、令和七年度九月震災復興特別交付']; constants [] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['この場合において、令和七年度九月震災復興特別交付']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/507M60000008043_20250425_000000000000000.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:3/Article#3/Paragraph#3/ParagraphSentence/Sentence#2 sha256=02d256b8f5b48afc01a886eebb88ed78eec7d84d4726a543088115ba8f32f60e (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/DisasterGrantSeptemberZeroTests.lean sha256=beb901667ba4717e8225916121cffba778fe2183fa6cf89df983e55edb41599f (9 kernel-decided examples)"
     },
     "NORM|d7b1565d84959d5fb853a0c28af3462ac74eb3badc2a9129a8c593bfdedbc726": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
