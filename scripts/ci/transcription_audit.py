@@ -3834,6 +3834,13 @@ def checks():
            "file", None,
            ["関税等不服審査会（以下「審査会」という。）は、委員二十人以内で組織する。"])
 
+    # 震災復興特別交付税額 art. 5 — SignedAdjustmentAmount.lean
+    yield ("震災復興特別交付税額 art. 5（符号付き調整額の算定）↔ SignedAdjustmentAmount.lean (signed adjustment chain)",
+           "507M60000008043",
+           "article", "第五条",
+           ["令和八年三月において、令和七年度三月震災復興特別交付税額は、前条の規定によって算定した額から第一号の額を減額した後の額に第二号の額を加算した額（同号の額が負数となるときは、当該負数となる額に相当する額を減額した額）から第三号の額を減額した額とする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
