@@ -3994,6 +3994,21 @@ def checks():
            "article", "第二条",
            ["合併により被合併法人の株主等に交付された合併後存続する法人の株式又は出資に係る資本の金額又は出資金額（被合併法人が二以上ある場合には、各被合併法人に係るこれらの金額のうち最も多い金額）"])
 
+    # 地方税法 art. 50の4 — LocalSeparateIncomeTaxRate4.lean (分離課税 4%)
+    yield ("地方税法 art. 50_4（分離課税所得割4%）↔ LocalSeparateIncomeTaxRate4.lean",
+           "325AC0000000226", "file", None,
+           ["分離課税に係る所得割の税率は、百分の四とする。"])
+
+    # 地方税法 art. 328の3 — LocalSeparateIncomeTaxRate6.lean (分離課税 6%)
+    yield ("地方税法 art. 328_3（分離課税所得割6%）↔ LocalSeparateIncomeTaxRate6.lean",
+           "325AC0000000226", "file", None,
+           ["分離課税に係る所得割の税率は、百分の六とする。"])
+
+    # 地方税法施行令 art. 48の13 — LocalCorporateDeductionLimitRate6.lean (6%)
+    yield ("地方税法施行令 art. 48_13（法人税控除限度額6%）↔ LocalCorporateDeductionLimitRate6.lean",
+           "325CO0000000245", "file", None,
+           ["法人税の控除限度額に百分の六を乗じて計算した額とする。"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
