@@ -2312,6 +2312,12 @@ def checks():
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
 
+    # MedicalExpenseDeduction — cycle-110
+    yield ("MedicalExpenseDeduction.lean",
+           "325AC0000000226",
+           "file", None,
+           ["の合計額の百分の五に相当する金額（その金額が十万円を超える場合には、十万円）", "その超える金額（その金額が二百万円を超える場合には、二百万円）"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
