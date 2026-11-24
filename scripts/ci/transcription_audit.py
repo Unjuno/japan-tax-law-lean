@@ -2318,12 +2318,6 @@ def checks():
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
 
-    # LifeInsurancePremiumDeduction — cycle-111
-    yield ("LifeInsurancePremiumDeduction.lean",
-           "325AC0000000226",
-           "file", None,
-           ["一万二千円と当該合計額から一万二千円を控除した金額の二分の一に相当する金額との合計額", "一万二千円を超え三万二千円以下である場合"])
-
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3893,6 +3887,62 @@ def checks():
            "507M60000008043",
            "article", "第五条",
            ["令和八年三月において、令和七年度三月震災復興特別交付税額は、前条の規定によって算定した額から第一号の額を減額した後の額に第二号の額を加算した額（同号の額が負数となるときは、当該負数となる額に相当する額を減額した額）から第三号の額を減額した額とする。"])
+
+# 災害時の合計所得金額の見積額 六百万円超七百五十万円以下 — DisasterIncomeBand6M75M.lean
+    yield ("昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施行に関する政令） art. 3（災害時の合計所得金額の見積額 六百万円超七百五十万円以下）↔ DisasterIncomeBand6M75M.lean",
+           "322CO0000000268",
+           "file", None,
+           ["災害時の合計所得金額の見積額が六百万円を超え七百五十万円以下である報酬等の支払を受ける者"])
+
+    # 災害時の合計所得金額の見積額 七百五十万円超千万円以下 — DisasterIncomeBand75M10M.lean
+    yield ("昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施行に関する政令） art. 3（災害時の合計所得金額の見積額 七百五十万円超千万円以下）↔ DisasterIncomeBand75M10M.lean",
+           "322CO0000000268",
+           "file", None,
+           ["災害時の合計所得金額の見積額が七百五十万円を超え千万円以下である報酬等の支払を受ける者"])
+
+    # 相続税・贈与税 被害部分の価額の割合 十分の一以上 — DamageRatioTenthInheritGift.lean
+    yield ("昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施行に関する政令） art. 11（相続税・贈与税 被害部分の価額の割合 十分の一以上）↔ DamageRatioTenthInheritGift.lean",
+           "322CO0000000268",
+           "file", None,
+           ["相続税又は贈与税の課税価格の計算の基礎となつた財産の価額のうちに被害を受けた部分の価額の占める割合が十分の一以上であること。"])
+
+    # 相続税 動産等の被害部分の割合 十分の一以上 — DamageRatioTenthInheritMovable.lean
+    yield ("昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施行に関する政令） art. 12（相続税 動産等の被害部分の割合 十分の一以上）↔ DamageRatioTenthInheritMovable.lean",
+           "322CO0000000268",
+           "file", None,
+           ["相続税の課税価格の計算の基礎となるべき動産等の価額のうちに当該動産等について被害を受けた部分の価額の占める割合が十分の一以上であること。"])
+
+    # 贈与税 財産の被害部分の割合 十分の一以上 — DamageRatioTenthGiftProperty.lean
+    yield ("昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施行に関する政令） art. 12（贈与税 財産の被害部分の割合 十分の一以上）↔ DamageRatioTenthGiftProperty.lean",
+           "322CO0000000268",
+           "file", None,
+           ["贈与税の課税価格の計算の基礎となるべき財産の価額のうちに被害を受けた部分の価額の占める割合が十分の一以上であること。"])
+
+    # 贈与税 動産等の被害部分の割合 十分の一以上 — DamageRatioTenthGiftMovable.lean
+    yield ("昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施行に関する政令） art. 12（贈与税 動産等の被害部分の割合 十分の一以上）↔ DamageRatioTenthGiftMovable.lean",
+           "322CO0000000268",
+           "file", None,
+           ["贈与税の課税価格の計算の基礎となるべき動産等の価額のうちに当該動産等について被害を受けた部分の価額の占める割合が十分の一以上であること。"])
+
+    # 合併資本金額 art. 2 — MergerMaxCapital.lean
+    yield ("合併資本金額 art. 2（被合併法人二以上の最大額選択）↔ MergerMaxCapital.lean (max selection, trigger >=2)",
+           "404CO0000000089",
+           "article", "第二条",
+           ["合併により被合併法人の株主等に交付された合併後存続する法人の株式又は出資に係る資本の金額又は出資金額（被合併法人が二以上ある場合には、各被合併法人に係るこれらの金額のうち最も多い金額）"])
+
+    # 所得税額の還付 art. 6 — RefundDifferenceAmount.lean
+    yield ("所得税額の還付 art. 6（前号控除後の残額）↔ RefundDifferenceAmount.lean (saturating refund residual)",
+           "347M50000040042",
+           "article", "第六条",
+           ["第三号に掲げる所得税の額から前号に掲げる所得税の額を控除した残額のうち還付を受けようとする金額"])
+
+
+    # DisasterTaxReliefOrderSupplArt2HokkaidoBureauException.lean - NORM|483362ae... (災害被害者租税減免法施行政令 附則2 table EXCEPTION, law 322CO0000000268)
+    # Whole-law locator (table cell in 附則, not a main-provision Article).
+    yield ("disaster tax relief order suppl art.2 hokkaido bureau exception - DisasterTaxReliefOrderSupplArt2HokkaidoBureauException.lean",
+           "322CO0000000268",
+           "law", None,
+           ["\u6771\u5317\u6d77\u904b\u5c40\u9577\uff08\u5c71\u5f62\u770c\u53c8\u306f\u79cb\u7530\u770c\u306e\u533a\u57df\u306b\u4fc2\u308b\u51e6\u5206\u7b49\u53c8\u306f\u7533\u8acb\u7b49\u306b\u4fc2\u308b\u5834\u5408\u3092\u9664\u304f\u3002\uff09"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
