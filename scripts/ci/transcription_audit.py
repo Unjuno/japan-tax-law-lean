@@ -92,6 +92,13 @@ def contains(haystack: str, needle: str) -> bool:
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
     yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
+
+    # TokyoAsCityDeeming.lean - NORM|1a2cafd55f792102d5682dcc811260486c83126edbf8985d8a31d64c3eddb32f
+    # 特別とん譲与税法 第六条第一項 第二文 (DEEMING 「都を市とみなして」).
+    # Needle is in MainProvision Article 第六条; revision pinned in INVENTORY.
+    yield ("特別とん譲与税法 art.6(1)（都を市とみなす）↔ TokyoAsCityDeeming.lean",
+           "332AC0000000077", "article", "第六条",
+           ["この場合においては、都を市とみなして、この法律の規定を適用する。"])
     # Restored registry checks dropped by a concurrent stale-base rewrite.
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,

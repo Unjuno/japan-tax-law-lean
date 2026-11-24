@@ -12327,3 +12327,14 @@ CI `checks()` の `LifeInsurancePremiumDeductionUpper.lean` エントリ（law_i
 - **独立再抽出**: pinned 原文から 1,000 円未満の端数控除を再導出。独立仕様 `x - x % 1000` と実装 `x / 1000 * 1000` の対応を全称定理 `agreeRound` でカーネル検証。
 - **H/T/D**: 単位 1,000 円、定義域 Nat、needle 1/1、境界 0/999/1000/1001/1999/2000 PASS。
 - **C/U**: 石油ガス譲与税法 art.4 は別法源。前三条の算定・附則は未形式化。人間レビュー `LEGAL_REVIEW_PENDING`。
+
+
+---
+
+### TokyoAsCityDeeming.lean — 特別とん譲与税法 第六条第一項（都を市とみなす）
+
+独立再抽出（一次資料 `data/raw/332AC0000000077_20010106_411AC0000000160.law.json`）。raw bytes = 14003、SHA-256（CRLF→LF）= `c24ccc49c14a5d0e9f626f02635e3ee6d90587628e5aba803ca5e31a33bf112d`（INVENTORY と大小文字違いのみ一致）。revision = `332AC0000000077_20010106_411AC0000000160`、`CurrentEnforced`。逐語 needle 「この場合においては、都を市とみなして、この法律の規定を適用する。」は全局 1 回、第六条 scoped（101 文字）内 1 回、MAIN provision（附則ではない）。禁止トークン 0、spec 独立（impl 定義非再利用）、spec literal 空につき needle anchor、境界カテゴリ = {zero, small_input, saturation}、example 12、普遍一致定理 `agree_as_city_code (c : Nat)`。**判定: PASS**（転記・符号化にブロッキング欠陥なし）。
+
+**H/T/D/C/U** の詳細検査記録は `docs/adversarial/reviews-tokyo-as-city-deeming.md` を参照。H = raw ハッシュ・needle 一意性・循環・off-by-one の反証可能性、T = 上記実測コマンド、D = PASS（実測値付き）、C = 対立解釈（区分コードは法令数値ではない／附則別出なし）、U = F-1「この場合」の触发条件は対象外（非ブロッキング）、カーネル実行は CI attestation 待ち。
+
+法的正確性を主張するものではない。人間の法的レビューは未完了（LEGAL_REVIEW_PENDING）。
