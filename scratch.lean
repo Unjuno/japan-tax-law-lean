@@ -1,2 +1,0 @@
-import JapanTaxLaw.DisasterGrantSeptemberZeroSpec
-#print axioms JapanTaxLaw.DisasterGrantSeptemberZero.agree_zero_amount

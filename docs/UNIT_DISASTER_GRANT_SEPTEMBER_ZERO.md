@@ -15,7 +15,7 @@ Kind: **CONDITION** — the September special grant amount is set to zero.
 | field | value |
 |---|---|
 | H (refutable hypothesis) | In the cases described by the antecedent, the September 2025 disaster-reconstruction special grant amount is zero. |
-| T (reproduction) | Durable pin `data/TRANSCRIPTION_PINS/DisasterGrantSeptemberZero.json`: law 507M60000008043, article 第三条, verbatim needle unique. Generator checks pass; `int_to_kanji(0) = 零` and the verbatim needle is verified directly. Note: `spec_literals` deliberately excludes 0/1 as structural, so the numeric-literal axis is vacuous for this zeroing unit; the kanji check and verbatim pin carry the source audit. |
+| T (reproduction) | Durable pin `data/TRANSCRIPTION_PINS/DisasterGrantSeptemberZero.json`: law 507M60000008043, article 第三条, verbatim needle unique. Generator checks pass; `int_to_kanji(0) = 零` and the verbatim needle is verified directly. Note: `spec_literals` deliberately excludes 0/1 as structural, so the generator's numeric-literal axis is vacuous for this zeroing unit; the source audit rests on the verbatim pin and an explicit independent `int_to_kanji(0) = 零` check, not on that axis. |
 | D (decision) | PASS — needle located uniquely in scoped Article 第三条/Paragraph 3; 零 = 0 verified independently. |
 | C (competing interpretation) | Reading 零とする as "not specified" would admit nonzero amounts; `zero_true`, `one_false`, `two_false` reject that. |
 | U (uncertainty) | Transcription fidelity only, not legal correctness. The 「この場合」 antecedent, calculation method and other months require human legal review (`LEGAL_REVIEW_PENDING`). |
