@@ -91,21 +91,22 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
-
     # Restored registry checks dropped by a concurrent stale-base rewrite.
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,
            ["事業所税の額の百分の五に相当する額とする"])
+
     yield ("LightMotorVehicleTaxShortfallSurcharge35.lean — 地方税法 art.30の2 不足額加算35%",
            "325AC0000000226", "file", None,
            ["同項の不足額に、これに百分の三十五の割合を乗じて計算した金額を加算した金額とする"])
+
     yield ("MotorVehicleTaxShortfallSurcharge35.lean — 地方税法 art.12の5 不足額加算35%",
            "325AC0000000226", "file", None,
            ["同項の不足額に、これに百分の三十五の割合を乗じて計算した金額を加算した金額とする"])
+
     yield ("SpecialMeasuresOrderRate75.lean — 租税特別措置法施行令 art.5の5 75%",
            "332CO0000000043", "file", None,
            ["法第十条の三第一項に規定する政令で定める割合は、百分の七十五とする"])
-    cia = find_article_text  # alias for readability
 
     # 法人税法 art. 66 — CorporateTaxRate.lean
     yield ("法人税法 art. 66（法人税率）↔ CorporateTaxRate.lean (smeRate 19% / ordinaryRate 23.2% / 年800万円 cap / 資本金1億円以下)",
@@ -4166,13 +4167,16 @@ def checks():
            "410AC0000000025",
            "file", None,
            ["この法律は、公布の日から起算して六月を超えない範囲内において政令で定める日（以下「施行日」という。）から施行する。"])
+
     # Restored dropped registry checks (concurrent reconcile).
     yield ("所得税法施行令 art. 83_2（配偶者の合計所得金額 九十五万円以下）↔ SpouseIncomeCeiling950k.lean",
            "340AC0000000033", "file", None,
            ["合計所得金額が九十五万円以下である配偶者"])
+
     yield ("租税特別措置法施行令 art. 5_5（政令割合75%）↔ SpecialMeasuresOrderRate75.lean",
            "332CO0000000043", "file", None,
            ["法第十条の三第一項に規定する政令で定める割合は、百分の七十五とする。"])
+
     yield ("地方税法施行規則 art. 24_28（事業所税徴収費5%）↔ BusinessTaxCollectionCostRate5.lean",
            "329M50000002023", "file", None,
            ["事業所税の徴収に要する費用は、当該年度の歳入に所属する事業所税の額の百分の五に相当する額とする。"])
@@ -4180,9 +4184,11 @@ def checks():
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,
            ["事業所税の額の百分の五に相当する額とする"])
+
     yield ("SpecialMeasuresOrderRate75.lean — 租税特別措置法施行令 art.5の5 75%",
            "332CO0000000043", "file", None,
            ["法第十条の三第一項に規定する政令で定める割合は、百分の七十五とする"])
+
     yield ("所得税法施行令 art. 83_2（配偶者の合計所得金額 九十五万円以下）↔ SpouseIncomeCeiling950k.lean",
            "340AC0000000033",
            "file", None,
@@ -4194,6 +4200,16 @@ def checks():
            "325AC0000000073",
            "law", None,
            ["\u5f53\u8a72\u8ca1\u7523\u306e\u4fa1\u984d\u306f\u3001\u7b2c\u4e00\u9805\u306e\u8d08\u4e0e\u306e\u6642\u306b\u304a\u3051\u308b\u4fa1\u984d\u3068\u3059\u308b\u3002"])
+
+    # 租税特別措置法 art. 68の3の3 — SpecialMeasuresDistributionRatio90.lean (>90%)
+    yield ("租税特別措置法 art. 68_3_3（収益分配割合90%超）↔ SpecialMeasuresDistributionRatio90.lean",
+           "332AC0000000026", "file", None,
+           ["割合として政令で定める割合が百分の九十を超えていること。"])
+
+    # 租税特別措置法 art. 83の2の2 — SpecialMeasuresRealEstateRatio75.lean (>=75%)
+    yield ("租税特別措置法 art. 83_2_2（特定不動産割合75%以上）↔ SpecialMeasuresRealEstateRatio75.lean",
+           "332AC0000000026", "file", None,
+           ["特定不動産の割合が百分の七十五以上であること。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
