@@ -43,12 +43,12 @@ Measured results on this branch (2026-11-20):
 
 ```
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=396794, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=58, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=396793, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=59, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=58 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=59 axes=11 unbacked=0
 12/12 invariants passed
 $ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
 
@@ -150,7 +150,13 @@ resolved; constants [94,100] pass the Lean-independent audit, agreement is
 universal over all bases, and H/T/D/C/U review records the out-of-scope base
 and floor-rounding model choice.
 
-So 58 evidence-backed units left NOT_STARTED on this branch; the
+The 59th unit is 地方税法 art. 30
+`NORM|78c4b66b…`: the inclusive fine cap 三十万円以下 (300,000 yen). The
+violation conditions and the 前条第一項 cross-reference remain
+caller-established/out of scope; only the cap predicate is proved, with an
+independent spec, universal agreement and kernel boundaries.
+
+So 59 evidence-backed units left NOT_STARTED on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
 durable. `docs/TASK_QUEUE.md` is regenerated with these counts.

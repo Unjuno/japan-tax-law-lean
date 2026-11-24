@@ -392,6 +392,19 @@
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:38/Article#38/Paragraph#4/ParagraphSentence/Sentence#2 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7; verbatim located in art.38(4) sentence 2",
       "tests": "JapanTaxLaw/DeferralExceptionLimitTests.lean sha256=f605ac3565053d09f7001b5c6ed78de0e6dca3710e03312dcb914cc2fbdde1d7"
     },
+    "NORM|78c4b66be4df3492b588b23896bb80a6c620035b38cf0677804af0bc7f039118": {
+      "adversarial_review": "docs/ADVERSARIAL_PENALTY_300K.md H/T/D/C/U; inclusive-vs-exclusive competing reading recorded",
+      "boundary_proof": "PenaltyCap300kTests.lean kernel-decided 0/299999/300000/300001",
+      "cross_law_proof": "dependencies=[]; 前条第一項 cross-reference out of scope",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/PenaltyCap300k.lean sha256=b5f1e306110ed7a775072406f61252b93c9fe69673fc569b111c2eed332ba045",
+      "independent_spec": "JapanTaxLaw/PenaltyCap300kSpec.lean sha256=f2efd977918ebd4f830c6e7b70d271fb4e073181a29cda3b6afe5057d312c99f; spec uses negation of strict excess",
+      "kernel_proof": "lake build JapanTaxLaw.PenaltyCap300kTests: Build completed successfully (5 jobs); at_cap/above_cap axiom-free; agree_spec_impl standard propext",
+      "proof_scope": "agree_spec_impl universal over all Nat amounts; only the cap, violation conditions caller-established",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; amounts_in_source=[300000]; missing=[]",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:30/Article#30/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53; verbatim located in art.30",
+      "tests": "JapanTaxLaw/PenaltyCap300kTests.lean sha256=fb8c02f55670fba915de2d3b819b37065f541607c4392ded7a48793fd21daa98"
+    },
     "NORM|7c44d96e862814c1901d7933fac29836b751889946845a0a88c41cd62094b470": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
