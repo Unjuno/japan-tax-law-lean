@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 242
-- presence-facts-only complete: 242
-- NOT_STARTED: 242
+- articles with explicit pin: 245
+- presence-facts-only complete: 245
+- NOT_STARTED: 245
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -146,6 +146,7 @@ source positions. Human legal review is a separate axis and is pending.
 | `325M50000040017` | 第三十条 | InheritanceRegSurrenderValueCondition | YES | YES | NO | NOT_STARTED |
 | `329CO0000000155` | 第一条の二 | CustomsDutiableValueThreshold | YES | YES | NO | NOT_STARTED |
 | `327AC0000000111` | 第十一条 | UsForcesDutyFreePenalty | YES | YES | NO | NOT_STARTED |
+| `340AC0000000157` | 第四条 | OilGasGrantRounding | YES | YES | YES | NOT_STARTED |
 | `143AC0000000054` | 第十条 | CustomsDamageReduction | YES | YES | YES | NOT_STARTED |
 | `143AC0000000054` | 第四条の七 | CustomsExchangeRate | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第三条の三 | CustomsSmallConsignment | YES | YES | NO | NOT_STARTED |
@@ -259,3 +260,5 @@ source positions. Human legal review is a separate axis and is pending.
 | `408AC0000000002` | 第二条 | HeiseiFY7Attribution | YES | YES | NO | NOT_STARTED |
 | `406AC0000000108` | 第二条 | HeiseiFY6Attribution | YES | YES | NO | NOT_STARTED |
 | `507M60000008043` | 第五条 | SignedAdjustmentAmount | YES | YES | NO | NOT_STARTED |
+| `404CO0000000089` | 第二条 | MergerMaxCapital | YES | YES | NO | NOT_STARTED |
+| `347M50000040042` | 第六条 | RefundDifferenceAmount | YES | YES | NO | NOT_STARTED |
