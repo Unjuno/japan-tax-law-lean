@@ -6,16 +6,16 @@ Directive §5: a new model counts as progress ONLY when the number of
 unverified units decreases. This ledger records measured deltas, not
 the count of models or theorems. It makes no completion claim.
 
-head: `90898bffc556`
+head: `6d2a4790acbf`
 verdict: **COUNTED**
 
 | status | count | delta |
 |---|---:|---:|
-| NOT_STARTED | 396278 | -6 |
+| NOT_STARTED | 396276 | -2 |
 | PARTIAL | 0 | +0 |
-| PROVED_SCOPE | 3 | +0 |
-| FULLY_VERIFIED | 571 | +6 |
+| PROVED_SCOPE | 1 | -2 |
+| FULLY_VERIFIED | 575 | +4 |
 | BLOCKED | 2 | +0 |
 
-new Lean modules since previous snapshot: 9
-NOT_STARTED reduction: 6
+new Lean modules since previous snapshot: 18
+NOT_STARTED reduction: 2
