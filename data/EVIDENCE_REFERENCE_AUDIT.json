@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 2904,
+  "checks": 2908,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -31945,11 +31945,55 @@
       "detail": "sha256 match",
       "reference": "JapanTaxLaw/SpecialMeasuresArt70_3PresumptiveHeirConditionTests.lean",
       "unit_id": "NORM|d775175c5fdefe03cb113c17eb692261fc30ceac82464eae2afd408b64095615"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_DISASTER_TAX_RELIEF_ORDER_ART15_4_REFUND_BASE.md — NO FINDINGS via independent adversarial review with ",
+      "unit_id": "NORM|beaa62718d9817915074146fe618eb76b36fa3647c372ba793c4f2a85d27d58e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DisasterTaxReliefOrderArt15_4RefundBase.lean",
+      "unit_id": "NORM|beaa62718d9817915074146fe618eb76b36fa3647c372ba793c4f2a85d27d58e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DisasterTaxReliefOrderArt15_4RefundBaseSpec.lean",
+      "unit_id": "NORM|beaa62718d9817915074146fe618eb76b36fa3647c372ba793c4f2a85d27d58e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DisasterTaxReliefOrderArt15_4RefundBaseTests.lean",
+      "unit_id": "NORM|beaa62718d9817915074146fe618eb76b36fa3647c372ba793c4f2a85d27d58e"
     }
   ],
-  "resolved": 2901,
+  "resolved": 2905,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 596,
+  "units_checked": 597,
   "unresolved": 3
 }
