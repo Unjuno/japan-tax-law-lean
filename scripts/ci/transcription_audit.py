@@ -2053,11 +2053,23 @@ def checks():
            "file", None,
            ["抵当権等の設定等の登記等が課税される普通法人の資本金等の額）第二十六条", "法別表第三の一の四の項及び一の五の項に規定する政令で定める金額は、五億円とする"])
 
+    # OilGasGrantArt4Rounding — 石油ガス譲与税法 art.4 千円未満端数控除
+    yield ("石油ガス譲与税法 art.4（譲与時期ごとの譲与額・千円未満端数控除）↔ OilGasGrantArt4Rounding.lean",
+           "340AC0000000157",
+           "article", "4",
+           ["千円未満の端数金額があるときは、その端数金額を控除した金額をもつて", "第四条"])
+
     # OilGasGrantTax — cycle-35
     yield ("OilGasGrantTax.lean",
            "340AC0000000157",
            "file", None,
            ["石油ガス譲与税は、石油ガス税法", "石油ガス税の収入額の二分の一に相当する額"])
+
+    # OilGasGrantRounding — normative unit: 石油ガス譲与税法 art.4 千円未満端数控除
+    yield ("石油 GAS 譲与税法 art. 4（譲与額の千円未満端数を控除）↔ OilGasGrantRounding.lean",
+           "340AC0000000157",
+           "article", "第四条",
+           ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
 
     # SpecialCorporationGrantTax — cycle-36
     yield ("SpecialCorporationGrantTax.lean",
@@ -2316,6 +2328,12 @@ def checks():
            "336M50000400035",
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
+
+    # OldLifeInsurancePremiumDeductionUpper — cycle-114
+    yield ("OldLifeInsurancePremiumDeductionUpper.lean",
+           "325AC0000000226",
+           "file", None,
+           ["二万七千五百円と当該合計額から四万円を控除した金額の四分の一に相当する金額との合計額", "四万円を超え七万円以下である場合"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -4062,6 +4080,28 @@ def checks():
            "345CO0000000050",
            "article", "第二条",
            ["国税不服審判所の支部（以下「支部」という。）のうち財務省令で定めるものに、次席国税審判官各一人を置き、国税審判官をもつてこれに充てる。"])
+
+    # 石油ガス譲与税法 art. 4 — OilGasGrantArt4Rounding.lean (千円未満端数)
+    yield ("石油ガス譲与税法 art. 4（千円未満端数）↔ OilGasGrantArt4Rounding.lean",
+           "340AC0000000157",
+           "file", None,
+           ["千円未満の端数金額があるときは、その端数金額を控除した金額をもつて"])
+
+    # 地方税法 art. 51 — LocalTaxRateCeiling2Percent.lean (2% 上限)
+    yield ("地方税法 art. 51（標準税率超過時の2%上限）↔ LocalTaxRateCeiling2Percent.lean",
+           "325AC0000000226", "file", None,
+           ["標準税率を超える税率で課する場合においても、百分の二を超えることができない。"])
+
+    # 地方税法 附則 art. 11の2 — PropertyAcquisitionSpecialRate3.lean (3%)
+    yield ("地方税法 art. 11_2（附則 不動産取得税標準税率3%）↔ PropertyAcquisitionSpecialRate3.lean",
+           "325AC0000000226", "file", None,
+           ["不動産取得税の標準税率は、第七十三条の十五の規定にかかわらず、百分の三とする。"])
+
+
+    yield ("租税特別措置法 art. 10（試験研究費割合の控除割増率: (割合-10%)*2、三位未満切捨て、10%上限）↔ RndSurchargeRate.lean",
+           "332AC0000000026",
+           "file", None,
+           ["当該試験研究費割合から百分の十を控除した割合に二を乗じて計算した割合（当該割合に小数点以下三位未満の端数があるときはこれを切り捨てた割合とし、当該計算した割合が百分の十を超えるときは百分の十とする。）"])
 
 
     # 石油ガス譲与税法 art. 4 — OilGasGrantArt4Rounding.lean (千円未満端数)
