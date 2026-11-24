@@ -13,17 +13,17 @@ obligations being complete. SKIP is never counted as PASS.
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: (none)
-- current HEAD commit: 4485597a5ff02ace23d94d62c4790f54ae27696e
+- current HEAD commit: 70ec19353c70bd54aa600f1a67d740f268f2d05b
 - results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all TECHNICAL obligations complete (human review excluded)
 
 - normative units: 396854
-- NOT_STARTED: 396162
+- NOT_STARTED: 396152
 - PARTIAL: 0
 - PROVED_SCOPE: 3
-- FULLY_VERIFIED: 687
+- FULLY_VERIFIED: 697
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180619
@@ -43,26 +43,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 690 | 396854 |
-| kernel proved (CI-attested proof evidence) | 690 | 396854 |
-| source-audited (原文 correspondence evidence) | 690 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 703 | 396854 |
+| kernel proved (CI-attested proof evidence) | 703 | 396854 |
+| source-audited (原文 correspondence evidence) | 703 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 690 |
-| boundary_proof | 690 |
-| cross_law_proof | 690 |
-| decomposition_audit | 690 |
-| implementation | 690 |
-| independent_spec | 690 |
-| kernel_proof | 690 |
-| proof_scope | 690 |
-| source_correspondence_audit | 690 |
-| source_location | 690 |
-| tests | 690 |
+| adversarial_review | 703 |
+| boundary_proof | 703 |
+| cross_law_proof | 703 |
+| decomposition_audit | 703 |
+| implementation | 703 |
+| independent_spec | 703 |
+| kernel_proof | 703 |
+| proof_scope | 703 |
+| source_correspondence_audit | 703 |
+| source_location | 703 |
+| tests | 703 |
 
 ## Verdict
 
