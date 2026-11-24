@@ -104,6 +104,16 @@ Final measured state: `FULLY_VERIFIED=717`, `NOT_STARTED=396,134`,
 human legal reviews 0, all `LEGAL_REVIEW_PENDING`. Resumable tip pushed:
 `7b8c6aaa`. Only scoped rule cells are ever claimed, never whole articles.
 
+## 5g. Cycle-120 (2026-11-25)
+
+Two bounded modules pushed at `fff1f95d`:
+`SpecialMeasuresOwnershipThreshold50` (租税特別措置法施行令 art.19の3) and
+`LocalBusinessOwnershipThreshold50` (地方税法施行規則 art.3の13の3), both the
+「百分の五十を超える」 strict `>50` predicate. Checks: 8/8 Lean builds,
+transcription 584/584, invariants 17/17, no `sorry`. CI run `45473747773`
+Lean/axiom job verified before scoped attestation binding. Legal review stays
+`LEGAL_REVIEW_PENDING`.
+
 ## 6. Resume procedure (exact)
 
 1. `git fetch origin main`; `python scripts/ci/generate_verification_evidence.py`
