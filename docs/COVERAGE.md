@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 171 | 327 | 52.29% |
+| laws with >=1 pinned literal check | 169 | 327 | 51.68% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 499 | n/a | n/a |
+| pinned literal checks | 505 | n/a | n/a |
 | distinct article pins | 185 | 42584 | 0.43% |
-| pinned Lean modules (cross-law) | 1000 | n/a | n/a |
+| pinned Lean modules (cross-law) | 1006 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 633 |
+| unpinned Lean modules (not counted as verified) | 645 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 100 |
+| adversarial review sessions recorded | 98 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -150,7 +150,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `330AC0000000104` 地方揮発油税法
 - `330AC0000000113` 地方揮発油譲与税法
 - `330CO0000000100` 輸入品に対する内国消費税の徴収等に関する法律施行令
-- `330CO0000000237` 関税定率法第五条の規定による便益関税の適用に関する政令
 - `331M50000002007` 地方揮発油譲与税法施行規則
 - `332AC0000000026` 租税特別措置法
 - `332AC0000000037` とん税法
@@ -179,7 +178,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `340AC0000000034` 法人税法
 - `340AC0000000156` 石油ガス税法
 - `340AC0000000157` 石油ガス譲与税法
-- `340CO0000000084` 国際復興開発銀行等からの外資の受入に関する特別措置に関する法律に基づく債券の利子の非課税等に関する規定の適用を受けない者の範囲を定める政令
 - `340CO0000000096` 所得税法施行令
 - `340CO0000000097` 法人税法施行令
 - `340M50000040011` 所得税法施行規則

@@ -2312,18 +2312,6 @@ def checks():
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
 
-    # PreferentialTariffOrderEnforcementDate — cycle-107
-    yield ("PreferentialTariffOrderEnforcementDate.lean",
-           "330CO0000000237",
-           "file", None,
-           ["第一条この政令は、平成十七年四月一日から施行する", "この政令は、平成十七年四月一日から施行する"])
-
-    # ForeignCapitalSpecialOrderEnforcementDate — cycle-108
-    yield ("ForeignCapitalSpecialOrderEnforcementDate.lean",
-           "340CO0000000084",
-           "file", None,
-           ["第一条この政令は、平成二十六年四月一日から施行する", "この政令は、平成二十六年四月一日から施行する"])
-
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3743,6 +3731,54 @@ def checks():
            "406AC0000000108",
            "article", "第二条",
            ["この場合において、同年四月一日以後発行される同項の公債に係る収入は、平成六年度所属の歳入とする。"])
+
+# 株主の数 五十人未満 — ShareExchange50Under.lean
+    yield ("法人税法施行令 art. 119（株主の数 五十人未満）↔ ShareExchange50Under.lean (shareLimit50 50)",
+           "340CO0000000097",
+           "file", None,
+           ["当該適格株式交換等の直前において株主の数が五十人未満である株式交換完全子法人の株式の取得をした場合"])
+
+    # 株主の数 五十人以上 — ShareExchange50Plus.lean
+    yield ("法人税法施行令 art. 119（株主の数 五十人以上）↔ ShareExchange50Plus.lean (shareFloor50 50)",
+           "340CO0000000097",
+           "file", None,
+           ["当該適格株式交換等の直前において株主の数が五十人以上である株式交換完全子法人の株式の取得をした場合"])
+
+    # 罰金 三十万円以下 — StampFine300k.lean
+    yield ("印紙税法 art. 23（罰金 三十万円以下）↔ StampFine300k.lean (stampFineCap300k 300000)",
+           "342AC0000000023",
+           "file", None,
+           ["次の各号のいずれかに該当する者は、三十万円以下の罰金に処する。"])
+
+    # 移出数量 千三百キロリットル超 — OkinawaShochu1300kL.lean
+    yield ("沖縄の復帰に伴う国税関係法令の適用の特別措置等に関する政令 art. 72（移出数量 千三百キロリットル超）↔ OkinawaShochu1300kL.lean (shochuFloor1300 1300)",
+           "347CO0000000151",
+           "file", None,
+           ["前年度特例適用単式蒸留焼酎の移出数量が千三百キロリットルを超える場合"])
+
+    # 診療時間の合計 四千六百二十二時間以上 — ClinicHours4622.lean
+    yield ("特別交付税に関する省令 art. 3（診療時間の合計 四千六百二十二時間以上）↔ ClinicHours4622.lean (clinicFloor4622 4622)",
+           "351M50000008035",
+           "file", None,
+           ["前年度の休日及び夜間の診療時間の合計時間が四千六百二十二時間以上の診療所"])
+
+    # 取得価額の合計額 五百万円超 — OkinawaEquip5M.lean
+    yield ("沖縄振興特別措置法第九条等の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令 art. 3（取得価額の合計額 五百万円超）↔ OkinawaEquip5M.lean (equipFloor5M 5000000)",
+           "414M60000008042",
+           "file", None,
+           ["イに掲げるもののほか、機械及び装置並びに器具及び備品で、これらの取得価額の合計額が五百万円を超えるもの"])
+
+    # 取得価額の合計額 五十万円超 — OkinawaEquip500k.lean
+    yield ("沖縄振興特別措置法第九条等の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令 art. 5（取得価額の合計額 五十万円超）↔ OkinawaEquip500k.lean (equipFloor500k 500000)",
+           "414M60000008042",
+           "file", None,
+           ["イに掲げるもののほか、機械及び装置並びに器具及び備品で、これらの取得価額の合計額が五十万円を超えるもの"])
+
+    # 資本金等の額 一億円超 — LocalCorpCapital100M.lean
+    yield ("地方法人税法 art. 19_3（資本金等の額 一億円超）↔ LocalCorpCapital100M.lean (localCapitalFloor100M 100000000)",
+           "426AC0000000011",
+           "file", None,
+           ["当該課税事業年度開始の時における資本金の額、出資金の額その他これらに類するものとして政令で定める金額が一億円を超える法人"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
