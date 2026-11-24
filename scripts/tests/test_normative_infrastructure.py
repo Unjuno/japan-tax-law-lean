@@ -406,6 +406,19 @@ class TestRealInventory(unittest.TestCase):
         inv = json.loads((REPO / "data" / "INVENTORY.json").read_text(encoding="utf-8"))
         self.assertEqual(len(inv["laws"]), 327)  # discovery never auto-expands inventory
 
+    def test_local_ordinance_layer_is_separate_and_unacquired(self):
+        p = REPO / "build" / "local_ordinance_ledger.json"
+        if not p.exists():
+            self.skipTest("local ordinance ledger not generated")
+        d = json.loads(p.read_text(encoding="utf-8"))
+        self.assertEqual(d["prefectures"], 47)
+        self.assertEqual(d["municipalities"], 1747)
+        self.assertEqual(d["local_governments_total"], 1794)
+        self.assertEqual(d["acquired"], 0)
+        self.assertTrue(d["separate_from_national_inventory"])
+        self.assertTrue(all(e["acquisition_status"] == "NOT_ACQUIRED"
+                            for e in d["entries"]))
+
     def test_snapshot_is_pinned_and_raw_files_exist(self):
         inv = json.loads((REPO / "data" / "INVENTORY.json").read_text(encoding="utf-8"))
         self.assertEqual(inv.get("snapshot_date"), "2026-11-15")
