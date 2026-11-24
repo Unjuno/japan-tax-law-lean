@@ -209,6 +209,18 @@ class TestCompletionState(unittest.TestCase):
             st.record_evidence({"records": {}}, "norm-test", "PROOF_SOUNDNESS",
                                evidence_ref="")
 
+    def test_concurrent_evidence_writers_do_not_clobber(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = Path(d) / "ev.json"
+            a = st.load_evidence(p)
+            st.record_evidence(a, "u", "TESTS", evidence_ref="r1")
+            st.save_evidence(a, p)
+            b = st.load_evidence(p)
+            st.record_evidence(b, "u", "PROOF_SCOPE", evidence_ref="r2")
+            st.save_evidence(b, p)
+            axes = {r["axis"] for r in st.load_evidence(p)["records"]["u"]}
+            self.assertEqual(axes, {"TESTS", "PROOF_SCOPE"})
+
     def test_unresolved_caps_at_proved_scope(self):
         u = self.unit(unresolved_conditions=["delegated_fact_unresolved"])
         self.assertEqual(st.derive_status(u, {"units": {}}, self.evidence_all())["status"],

@@ -47,9 +47,11 @@ CHALLENGE → VERIFY → record cycle on a single normative unit.
 - 10 mechanical evidence axes recorded in `data/verification_evidence.json` via
   `scripts/ci/record_unit_evidence.py`.
 
-Measured status change: **NOT_STARTED 265,003 → 265,002;
-FULLY_VERIFIED 0 → 1**. Human legal review remains `LEGAL_REVIEW_PENDING`
-(separate axis).
+Measured status change: **NOT_STARTED 265,003 → 264,999;
+FULLY_VERIFIED 0 → 4**. The same audited model covers §3 items 1–4, so the
+four sibling units (`de48b1a2a49e`, `1648e9c462eb`, `bb380ddbbc5a`,
+`365651e3b787`) each carry genuine evidence and are FULLY_VERIFIED. Human legal
+review remains `LEGAL_REVIEW_PENDING` (separate axis).
 
 ## Residual uncertainty (not claimed as verified)
 

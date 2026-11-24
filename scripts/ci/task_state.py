@@ -179,7 +179,25 @@ def load_evidence(path: Path = EVIDENCE_PATH) -> dict:
 
 
 def save_evidence(evidence: dict, path: Path = EVIDENCE_PATH) -> None:
+    """Append-only save: merge records another writer added since our load.
+
+    Evidence is strictly append-only by design. Re-reading the on-disk file
+    before writing prevents a stale in-memory copy from silently dropping
+    records recorded by a concurrent or interleaved writer.
+    """
     evidence["schema"] = SCHEMA_EVIDENCE
+    on_disk = _read_json(path, {"records": {}})
+    ours = evidence.setdefault("records", {})
+    for uid, recs in (on_disk.get("records") or {}).items():
+        if uid not in ours:
+            ours[uid] = list(recs)
+            continue
+        seen = {(r.get("axis"), r.get("evidence_ref"), r.get("date")) for r in ours[uid]}
+        for r in recs:
+            key = (r.get("axis"), r.get("evidence_ref"), r.get("date"))
+            if key not in seen:
+                ours[uid].append(r)
+                seen.add(key)
     _atomic_write(path, evidence)
 
 
