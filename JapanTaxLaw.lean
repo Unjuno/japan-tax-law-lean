@@ -1142,6 +1142,9 @@ import JapanTaxLaw.DocumentRequirementNormsTests
 import JapanTaxLaw.AmendmentProvisionRefs
 import JapanTaxLaw.AmendmentProvisionRefsSpec
 import JapanTaxLaw.AmendmentProvisionRefsTests
+import JapanTaxLaw.ComputedAmountRefs
+import JapanTaxLaw.ComputedAmountRefsSpec
+import JapanTaxLaw.ComputedAmountRefsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
