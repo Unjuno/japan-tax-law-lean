@@ -166,33 +166,11 @@ def select_tasks(tasks: list[dict], n: int, claims: dict | None = None) -> dict:
 
 
 def main() -> int:
-    n = int(sys.argv[1]) if len(sys.argv) > 1 and sys.argv[1].isdigit() else 12
-    agent = ""
-    for arg in sys.argv[2:]:
-        if arg.startswith("--agent="):
-            agent = arg.split("=", 1)[1]
+    n = int(sys.argv[1]) if len(sys.argv) > 1 else 12
     q = json.loads(QUEUE.read_text(encoding="utf-8"))
-    result = select_tasks(q.get("tasks", []), n)
-    # Directive §1.7: an ownership claim must survive regeneration and session
-    # restart. Persist it in the durable task state, not only in stdout.
-    if agent and result.get("selected"):
-        state = core.load_state(core.STATE_PATH)
-        changed = False
-        for item in result["selected"]:
-            uid = item.get("normative_id") or item.get("task_id")
-            rec = state["units"].setdefault(uid, core.default_state(uid))
-            if rec.get("owner") != agent:
-                rec["owner"] = agent
-                rec.setdefault("history", []).append(
-                    {"event": "claimed", "agent": agent})
-                changed = True
-        if changed:
-            core.save_state(state, core.STATE_PATH)
-        result["owner_assigned"] = agent
-        result["state_persisted"] = changed
     # Machine-readable output MUST be UTF-8. On Windows, sys.stdout defaults to
     # cp932; printing raw Japanese then corrupts the JSON for API/CI consumers.
-    payload = json.dumps(result, ensure_ascii=False, indent=2)
+    payload = json.dumps(select_tasks(q.get("tasks", []), n), ensure_ascii=False, indent=2)
     try:
         sys.stdout.reconfigure(encoding="utf-8")
     except (AttributeError, ValueError):

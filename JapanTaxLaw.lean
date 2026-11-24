@@ -112,6 +112,9 @@ import JapanTaxLaw.CertFeeTests
 import JapanTaxLaw.Certificate200k
 import JapanTaxLaw.Certificate200kSpec
 import JapanTaxLaw.Certificate200kTests
+import JapanTaxLaw.CertificationIssuanceDeadlineFifteenDays
+import JapanTaxLaw.CertificationIssuanceDeadlineFifteenDaysSpec
+import JapanTaxLaw.CertificationIssuanceDeadlineFifteenDaysTests
 import JapanTaxLaw.ClampedSubtraction
 import JapanTaxLaw.ClampedSubtractionSpec
 import JapanTaxLaw.ClampedSubtractionTests
@@ -615,6 +618,9 @@ import JapanTaxLaw.ExcludedDutyFreeGoodsTests
 import JapanTaxLaw.ExplorationReserve
 import JapanTaxLaw.ExplorationReserveSpec
 import JapanTaxLaw.ExplorationReserveTests
+import JapanTaxLaw.FilingDateException
+import JapanTaxLaw.FilingDateExceptionSpec
+import JapanTaxLaw.FilingDateExceptionTests
 import JapanTaxLaw.FilingRoute
 import JapanTaxLaw.FilingRouteSpec
 import JapanTaxLaw.FilingRouteTests
@@ -657,6 +663,12 @@ import JapanTaxLaw.ForestGrantRoundingTests
 import JapanTaxLaw.ForestTaxEligibilityException
 import JapanTaxLaw.ForestTaxEligibilityExceptionSpec
 import JapanTaxLaw.ForestTaxEligibilityExceptionTests
+import JapanTaxLaw.FreeCarePatientBand2_5
+import JapanTaxLaw.FreeCarePatientBand2_5Spec
+import JapanTaxLaw.FreeCarePatientBand2_5Tests
+import JapanTaxLaw.FreeCarePatientBand5_10
+import JapanTaxLaw.FreeCarePatientBand5_10Spec
+import JapanTaxLaw.FreeCarePatientBand5_10Tests
 import JapanTaxLaw.GasolineDeduction
 import JapanTaxLaw.GasolineDeductionSpec
 import JapanTaxLaw.GasolineDeductionTests
@@ -835,6 +847,9 @@ import JapanTaxLaw.InheritanceTaxArt19SevenYearGiftConditionTests
 import JapanTaxLaw.InheritanceTaxArt19_4QuasiApplication
 import JapanTaxLaw.InheritanceTaxArt19_4QuasiApplicationSpec
 import JapanTaxLaw.InheritanceTaxArt19_4QuasiApplicationTests
+import JapanTaxLaw.InheritanceTaxArt21_16GiftTimeValuation
+import JapanTaxLaw.InheritanceTaxArt21_16GiftTimeValuationSpec
+import JapanTaxLaw.InheritanceTaxArt21_16GiftTimeValuationTests
 import JapanTaxLaw.InheritanceTaxArt3DeemedAcquisition
 import JapanTaxLaw.InheritanceTaxArt3DeemedAcquisitionSpec
 import JapanTaxLaw.InheritanceTaxArt3DeemedAcquisitionTests
@@ -1208,6 +1223,12 @@ import JapanTaxLaw.NonpaymentSurchargeTests
 import JapanTaxLaw.NoticeCopyDocument
 import JapanTaxLaw.NoticeCopyDocumentSpec
 import JapanTaxLaw.NoticeCopyDocumentTests
+import JapanTaxLaw.NursingCareBand2_5
+import JapanTaxLaw.NursingCareBand2_5Spec
+import JapanTaxLaw.NursingCareBand2_5Tests
+import JapanTaxLaw.NursingCareBand5_10
+import JapanTaxLaw.NursingCareBand5_10Spec
+import JapanTaxLaw.NursingCareBand5_10Tests
 import JapanTaxLaw.ObligationArt15
 import JapanTaxLaw.ObligationArt15Spec
 import JapanTaxLaw.ObligationArt15Tests
