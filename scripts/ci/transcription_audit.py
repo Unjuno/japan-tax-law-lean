@@ -3580,14 +3580,24 @@ def checks():
            "article", "第六条",
            ["この場合において、同号に規定する高額適用額は、その順位を付した適用額が十以上となるまでの適用額に順位を付した場合の第一順位から当該十以上となる順位までに該当する各適用額（第一順位の適用額が十以上となるときは、当該第一順位の適用額）とする。"])
 
-    # InheritanceTaxArt19_4QuasiApplication.lean - NORM|e29e4e1... (相続税法 art.19_4(3) READING/準用, law 325AC0000000073)
-    # Article-kind locator; needle is Sentence#1 of Paragraph 3; the reading
-    # substitution in Sentence#2 is a separate norm, NOT MODELLED here.
+    # 沖縄 special art. 10 — PostOfficeExceptionDate.lean
+    yield ("沖縄 special art. 10（指定郵便局は八月三十一日）↔ PostOfficeExceptionDate.lean (exception date 8/31)",
+           "347CO0000000150",
+           "article", "第十条",
+           ["ただし、郵政大臣が指定する郵便局にあつては、同年八月三十一日とする。"])
+
+
+    # DisasterTaxReliefOrderArt15_4RefundBase.lean - NORM|beaa6271... (災害被害者租税減免法施行政令 art.15_4(1) item2 EFFECT, law 322CO0000000268)
+    # Article-kind locator; needle is Item 2 Sentence (額に相当する金額).
+    yield ("disaster tax relief order art.15-4 refund base - DisasterTaxReliefOrderArt15_4RefundBase.lean",
+           "322CO0000000268",
+           "article", "\u7b2c\u5341\u4e94\u6761\u306e\u56db",
+           ["\u9084\u4ed8\u3092\u53d7\u3051\u3088\u3046\u3068\u3059\u308b\u81ea\u52d5\u8eca\u91cd\u91cf\u7a0e\u306e\u984d\u306b\u76f8\u5f53\u3059\u308b\u91d1\u984d"])
+
     yield ("inheritance tax art.19-4 quasi-application - InheritanceTaxArt19_4QuasiApplication.lean",
            "325AC0000000073",
            "article", "\u7b2c\u5341\u4e5d\u6761\u306e\u56db",
            ["\u524d\u6761\u7b2c\u4e8c\u9805\u53ca\u3073\u7b2c\u4e09\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e00\u9805\u306e\u898f\u5b9a\u3092\u9069\u7528\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
-
     yield ("AmamiInvestmentThreshold.lean",
            "411M50000008014",
            "file", None,
@@ -3632,13 +3642,6 @@ def checks():
            "325AC0000000226",
            "article", "\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067",
            ["\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067", "\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067\u524a\u9664"])
-
-    # DisasterTaxReliefOrderArt15_4RefundBase.lean - NORM|beaa6271... (災害被害者租税減免法施行政令 art.15_4(1) item2 EFFECT, law 322CO0000000268)
-    # Article-kind locator; needle is Item 2 Sentence (額に相当する金額).
-    yield ("disaster tax relief order art.15-4 refund base - DisasterTaxReliefOrderArt15_4RefundBase.lean",
-           "322CO0000000268",
-           "article", "\u7b2c\u5341\u4e94\u6761\u306e\u56db",
-           ["\u9084\u4ed8\u3092\u53d7\u3051\u3088\u3046\u3068\u3059\u308b\u81ea\u52d5\u8eca\u91cd\u91cf\u7a0e\u306e\u984d\u306b\u76f8\u5f53\u3059\u308b\u91d1\u984d"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
