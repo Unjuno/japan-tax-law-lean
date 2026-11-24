@@ -569,3 +569,6 @@ import JapanTaxLaw.SpecialDeductionBaseTests
 import JapanTaxLaw.EnforcementDates
 import JapanTaxLaw.EnforcementDatesSpec
 import JapanTaxLaw.EnforcementDatesTests
+import JapanTaxLaw.PromulgationEffective
+import JapanTaxLaw.PromulgationEffectiveSpec
+import JapanTaxLaw.PromulgationEffectiveTests
