@@ -3956,6 +3956,10 @@ def checks():
 
     # DisasterTaxReliefOrderArt10Item5FieldCondition.lean (restored after merge dropped it)
     # NORM|776e380c… 災害被害者租税減免法施行政令 art.10(1) item5 CONDITION.
+    yield ("DisasterTaxReliefOrderArt10Item5FieldCondition.lean — 災害被害者租税減免法施行令 art.10(1) item5 CONDITION",
+           "322CO0000000268",
+           "article", "第十条",
+           ["徴収猶予限度額又は徴収猶予期間及びこれらの計算の基礎"])
 
     # 地方法人税法 art. 2 — LocalCorpMaxCapital.lean
     yield ("法人臨時特別税政令 art. 2（被合併法人二以上の最大額選択）↔ LocalCorpMaxCapital.lean (max selection, trigger >=2)",
