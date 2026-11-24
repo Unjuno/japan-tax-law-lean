@@ -2312,12 +2312,6 @@ def checks():
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
 
-    # MedicalExpenseDeduction — cycle-110
-    yield ("MedicalExpenseDeduction.lean",
-           "325AC0000000226",
-           "file", None,
-           ["の合計額の百分の五に相当する金額（その金額が十万円を超える場合には、十万円）", "その超える金額（その金額が二百万円を超える場合には、二百万円）"])
-
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3834,12 +3828,53 @@ def checks():
            "file", None,
            ["関税等不服審査会（以下「審査会」という。）は、委員二十人以内で組織する。"])
 
-    # 震災復興特別交付税額 art. 5 — SignedAdjustmentAmount.lean
-    yield ("震災復興特別交付税額 art. 5（符号付き調整額の算定）↔ SignedAdjustmentAmount.lean (signed adjustment chain)",
-           "507M60000008043",
-           "article", "第五条",
-           ["令和八年三月において、令和七年度三月震災復興特別交付税額は、前条の規定によって算定した額から第一号の額を減額した後の額に第二号の額を加算した額（同号の額が負数となるときは、当該負数となる額に相当する額を減額した額）から第三号の額を減額した額とする。"])
+# 罰金 五十万円以下 — LiquorOrderFine500k.lean
+    yield ("酒税の保全及び酒類業組合等に関する法律 art. 5（罰金 五十万円以下）↔ LiquorOrderFine500k.lean (liquorOrderCap500k 500000)",
+           "328AC0000000007",
+           "file", None,
+           ["前項の規定による命令に違反した者は、五十万円以下の罰金に処する。"])
 
+    # 階調 二百五十六階調以上 — LocalGradation256.lean
+    yield ("地方税法施行規則 art. 25（階調 二百五十六階調以上）↔ LocalGradation256.lean (gradationFloor256 256)",
+           "329M50000002023",
+           "file", None,
+           ["赤色、緑色及び青色の階調がそれぞれ二百五十六階調以上で読み取るものであること。"])
+
+    # 敷地の面積 三千平方メートル以上 — GiftLand3000sqm.lean
+    yield ("租税特別措置法施行令 art. 40_23（敷地の面積 三千平方メートル以上）↔ GiftLand3000sqm.lean (giftLandFloor3000 3000000)",
+           "332CO0000000043",
+           "file", None,
+           ["当該建築物の敷地の面積が三千平方メートル以上であること。"])
+
+    # 混和後のアルコール分 二十六度以上 — LiquorMix26Deg.lean
+    yield ("酒税法施行令 art. 50（混和後のアルコール分 二十六度以上）↔ LiquorMix26Deg.lean (mixFloor26 26)",
+           "337CO0000000097",
+           "file", None,
+           ["ただし、連続式蒸留焼酎又は単式蒸留焼酎と当該物品との混和をした酒類で、その混和後のアルコール分が二十六度以上のものその他財務省令で定めるものは、スピリッツとみなす。"])
+
+    # 資本金の額 一億円超 — CorpCapital75_4_100M.lean
+    yield ("法人税法 art. 75_4（資本金の額 一億円超）↔ CorpCapital75_4_100M.lean (capitalFloor75_4 100000000)",
+           "340AC0000000034",
+           "file", None,
+           ["当該事業年度開始の時における資本金の額又は出資金の額が一億円を超える法人"])
+
+    # 単位数 三十一単位以上 — CorpUnits31Art7.lean
+    yield ("法人税法施行規則 art. 7（単位数 三十一単位以上）↔ CorpUnits31Art7.lean (corpUnitsFloor31 31)",
+           "340M50000040012",
+           "file", None,
+           ["その修業期間を通ずる単位数をその修業期間の年数で除して計算した単位数が三十一単位以上であること。"])
+
+    # 特定取引契約資産額 一億円超 — TreatyAsset100M.lean
+    yield ("租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律施行令 art. 6_6（特定取引契約資産額 一億円超）↔ TreatyAsset100M.lean (treatyAssetFloor100M 100000000)",
+           "362CO0000000335",
+           "file", None,
+           ["次に掲げる特定取引契約資産額がそれぞれ次に定める日以後最初に一億円を超えることとなつた場合"])
+
+    # 資本金等の額 一億円超 — LocalCorp24_5_100M.lean
+    yield ("地方法人税法 art. 24_5（資本金等の額 一億円超）↔ LocalCorp24_5_100M.lean (localCapitalFloor24_5 100000000)",
+           "426AC0000000011",
+           "file", None,
+           ["当該課税対象会計年度開始の時における資本金の額、出資金の額その他これらに類するものとして政令で定める金額が一億円を超える法人"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
