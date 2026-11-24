@@ -12440,3 +12440,9 @@ CI `checks()` の `LifeInsurancePremiumDeductionUpper.lean` エントリ（law_i
 
 > **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・反例/走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
 
+### AircraftFuelTaxPayable.lean — 航空機燃料税法 art.14(1) 第四号
+
+- **pin**: law `347AC0000000007`, revision `347AC0000000007_20250601_504AC0000000068`, article 14 item 4.
+- **独立再抽出**: `二号税額 − 前号税額` の飽和減算（単位 円、定義域 Nat）。独立仕様 `second - first` と条件分岐実装を全称定理 `agreePayable` で照合。
+- **H/T/D**: 境界 0/1/100/40/99/100/101 PASS、needle 1/1。
+- **C/U**: 各号税額算定・申告手続は NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
