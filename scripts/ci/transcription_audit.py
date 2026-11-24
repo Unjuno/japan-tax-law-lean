@@ -4124,6 +4124,13 @@ def checks():
            "325AC0000000226", "file", None,
            ["同項の不足額に、これに百分の三十五の割合を乗じて計算した金額を加算した金額とする。"])
 
+    # InheritanceTaxArt19SevenYearGiftCondition.lean - NORM|5516848e... (相続税法 art.19 ArticleCaption CONDITION, law 325AC0000000073)
+    # Whole-law locator (ArticleCaption node); 七年以内 inclusive threshold.
+    yield ("inheritance tax art.19 seven-year gift condition - InheritanceTaxArt19SevenYearGiftCondition.lean",
+           "325AC0000000073",
+           "law", None,
+           ["\uff08\u76f8\u7d9a\u958b\u59cb\u524d\u4e03\u5e74\u4ee5\u5185\u306b\u8d08\u4e0e\u304c\u3042\u3064\u305f\u5834\u5408\u306e\u76f8\u7d9a\u7a0e\u984d\uff09"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
