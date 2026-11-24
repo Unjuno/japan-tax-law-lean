@@ -703,6 +703,9 @@ import JapanTaxLaw.GiftSpecialDeduction
 import JapanTaxLaw.GiftSpecialDeductionSpec
 import JapanTaxLaw.GiftSpecialDeductionTests
 import JapanTaxLaw.GiftTax
+import JapanTaxLaw.GiftTaxSettlementBasicDeduction600k
+import JapanTaxLaw.GiftTaxSettlementBasicDeduction600kSpec
+import JapanTaxLaw.GiftTaxSettlementBasicDeduction600kTests
 import JapanTaxLaw.GiftTaxSpec
 import JapanTaxLaw.GiftTaxTests
 import JapanTaxLaw.GolfCourseUseTaxStandardRate
@@ -1136,6 +1139,9 @@ import JapanTaxLaw.LocalTaxCapitalOverFiveBillionTests
 import JapanTaxLaw.LocalTaxDeductionSpouse
 import JapanTaxLaw.LocalTaxDeductionSpouseSpec
 import JapanTaxLaw.LocalTaxDeductionSpouseTests
+import JapanTaxLaw.LocalTaxDependentIncomeCeiling1350k
+import JapanTaxLaw.LocalTaxDependentIncomeCeiling1350kSpec
+import JapanTaxLaw.LocalTaxDependentIncomeCeiling1350kTests
 import JapanTaxLaw.LocalTaxEnforcementDelegatedAmount3000
 import JapanTaxLaw.LocalTaxEnforcementDelegatedAmount3000Spec
 import JapanTaxLaw.LocalTaxEnforcementDelegatedAmount3000Tests
@@ -1878,6 +1884,9 @@ import JapanTaxLaw.TransitionalTariffRateTests
 import JapanTaxLaw.TravelerExemptionLimit
 import JapanTaxLaw.TravelerExemptionLimitSpec
 import JapanTaxLaw.TravelerExemptionLimitTests
+import JapanTaxLaw.TreasuryCollectionNet
+import JapanTaxLaw.TreasuryCollectionNetSpec
+import JapanTaxLaw.TreasuryCollectionNetTests
 import JapanTaxLaw.TreatyAsset100M
 import JapanTaxLaw.TreatyAsset100MSpec
 import JapanTaxLaw.TreatyAsset100MTests
