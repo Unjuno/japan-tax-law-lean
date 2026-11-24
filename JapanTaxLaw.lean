@@ -1498,6 +1498,9 @@ import JapanTaxLaw.RetirementResidual3MTests
 import JapanTaxLaw.RiceContentThreshold
 import JapanTaxLaw.RiceContentThresholdSpec
 import JapanTaxLaw.RiceContentThresholdTests
+import JapanTaxLaw.RndSurchargeRate
+import JapanTaxLaw.RndSurchargeRateSpec
+import JapanTaxLaw.RndSurchargeRateTests
 import JapanTaxLaw.RoadAreaRate
 import JapanTaxLaw.RoadAreaRateSpec
 import JapanTaxLaw.RoadAreaRateTests
