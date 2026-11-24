@@ -615,6 +615,9 @@ import JapanTaxLaw.ExcludedDutyFreeGoodsTests
 import JapanTaxLaw.ExplorationReserve
 import JapanTaxLaw.ExplorationReserveSpec
 import JapanTaxLaw.ExplorationReserveTests
+import JapanTaxLaw.FilingDateException
+import JapanTaxLaw.FilingDateExceptionSpec
+import JapanTaxLaw.FilingDateExceptionTests
 import JapanTaxLaw.FilingRoute
 import JapanTaxLaw.FilingRouteSpec
 import JapanTaxLaw.FilingRouteTests
