@@ -3649,6 +3649,13 @@ def checks():
            "article", "\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067",
            ["\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067", "\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067\u524a\u9664"])
 
+    # 公債収入 art. 2 — HeiseiFY7Attribution.lean
+    yield ("公債収入 art. 2（平成7年度所属の歳入）↔ HeiseiFY7Attribution.lean (single-year FY attribution 7)",
+           "408AC0000000002",
+           "article", "第二条",
+           ["この場合において、同年四月一日以後発行される同条の公債に係る収入は、平成七年度所属の歳入とする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
