@@ -1321,3 +1321,87 @@ H/T/D/C/U record:
 - **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### DisasterIncomeBand6M75M.lean — 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施行に関する政令） art. 3（災害時の合計所得金額の見積額 六百万円超七百五十万円以下）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `322CO0000000268` / revision `322CO0000000268_20251201_507CO0000000120`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値条件を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/6000000/6000001/7500000/7500001 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### DisasterIncomeBand75M10M.lean — 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施行に関する政令） art. 3（災害時の合計所得金額の見積額 七百五十万円超千万円以下）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `322CO0000000268` / revision `322CO0000000268_20251201_507CO0000000120`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値条件を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/7500000/7500001/10000000/10000001 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### DamageRatioTenthInheritGift.lean — 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施行に関する政令） art. 11（相続税・贈与税 被害部分の価額の割合 十分の一以上）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `322CO0000000268` / revision `322CO0000000268_20251201_507CO0000000120`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値条件を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 total=100 damaged=9/10/11 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### DamageRatioTenthInheritMovable.lean — 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施行に関する政令） art. 12（相続税 動産等の被害部分の割合 十分の一以上）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `322CO0000000268` / revision `322CO0000000268_20251201_507CO0000000120`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値条件を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 total=100 damaged=9/10/11 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### DamageRatioTenthGiftProperty.lean — 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施行に関する政令） art. 12（贈与税 財産の被害部分の割合 十分の一以上）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `322CO0000000268` / revision `322CO0000000268_20251201_507CO0000000120`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値条件を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 total=100 damaged=9/10/11 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### DamageRatioTenthGiftMovable.lean — 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施行に関する政令） art. 12（贈与税 動産等の被害部分の割合 十分の一以上）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `322CO0000000268` / revision `322CO0000000268_20251201_507CO0000000120`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値条件を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 total=100 damaged=9/10/11 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**

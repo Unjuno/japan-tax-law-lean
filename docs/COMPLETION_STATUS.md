@@ -12,18 +12,18 @@ obligations being complete. SKIP is never counted as PASS.
 - FAIL: 0
 - SKIP: 0
 - required gates SKIPped: 0
-- gate results commit: 21eb79cb3d5d6ba1283f11116b675c5ed8f4dfec
-- current HEAD commit: 21eb79cb3d5d6ba1283f11116b675c5ed8f4dfec
+- gate results commit: babf6663687f3d3ec3391ba2c324ce8f1fe1813b
+- current HEAD commit: babf6663687f3d3ec3391ba2c324ce8f1fe1813b
 - results bound to this commit: True
 - registered checks all green: True
 
 ## Axis B — all registered obligations complete
 
 - normative units: 396854
-- NOT_STARTED: 396173
+- NOT_STARTED: 396158
 - PARTIAL: 0
 - PROVED_SCOPE: 3
-- FULLY_VERIFIED: 676
+- FULLY_VERIFIED: 691
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180619
@@ -36,26 +36,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 679 | 396854 |
-| kernel proved (CI-attested proof evidence) | 679 | 396854 |
-| source-audited (原文 correspondence evidence) | 679 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 694 | 396854 |
+| kernel proved (CI-attested proof evidence) | 694 | 396854 |
+| source-audited (原文 correspondence evidence) | 694 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 679 |
-| boundary_proof | 679 |
-| cross_law_proof | 679 |
-| decomposition_audit | 679 |
-| implementation | 679 |
-| independent_spec | 679 |
-| kernel_proof | 679 |
-| proof_scope | 679 |
-| source_correspondence_audit | 679 |
-| source_location | 679 |
-| tests | 679 |
+| adversarial_review | 694 |
+| boundary_proof | 694 |
+| cross_law_proof | 694 |
+| decomposition_audit | 694 |
+| implementation | 694 |
+| independent_spec | 694 |
+| kernel_proof | 694 |
+| proof_scope | 694 |
+| source_correspondence_audit | 694 |
+| source_location | 694 |
+| tests | 694 |
 
 ## Verdict
 
