@@ -1193,6 +1193,9 @@ import JapanTaxLaw.LowAlcoholDutySpecialRateTests
 import JapanTaxLaw.MachineryCostExcess1M
 import JapanTaxLaw.MachineryCostExcess1MSpec
 import JapanTaxLaw.MachineryCostExcess1MTests
+import JapanTaxLaw.MachineryCostFloor400k
+import JapanTaxLaw.MachineryCostFloor400kSpec
+import JapanTaxLaw.MachineryCostFloor400kTests
 import JapanTaxLaw.MaxLengthMultiplier115
 import JapanTaxLaw.MaxLengthMultiplier115Spec
 import JapanTaxLaw.MaxLengthMultiplier115Tests
