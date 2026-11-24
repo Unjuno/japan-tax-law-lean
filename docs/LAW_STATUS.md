@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 173
+- with >=1 pinned literal check (semantic model): 174
 - with recorded human legal review: 0
 
 ## All laws
@@ -28,7 +28,7 @@ a completion flag.
 | `325M50000040021` | 税務官署における収入官吏及び出納員並びに歳入歳出外現金出納官吏の備えるべき現金領収証書に | 325M50000040021_20260924_508M60000040059 | CurrentEnforced | YES | ok | 15 | NO (0) | NO |
 | `325M50000040022` | 相続税の物納財産収納後の手続等に関する省令 | 325M50000040022_20210401_503M60000040030 | CurrentEnforced | YES | ok | 24 | YES (1) | NO |
 | `325AC0000000211` | 地方交付税法 | 325AC0000000211_20261102_508AC0000000062 | CurrentEnforced | YES | ok | 499 | YES (6) | NO |
-| `325AC0000000226` | 地方税法 | 325AC0000000226_20261101_508AC0000000002 | CurrentEnforced | YES | ok | 4259 | YES (49) | NO |
+| `325AC0000000226` | 地方税法 | 325AC0000000226_20261101_508AC0000000002 | CurrentEnforced | YES | ok | 4259 | YES (51) | NO |
 | `325CO0000000245` | 地方税法施行令 | 325CO0000000245_20261101_508CO0000000083 | CurrentEnforced | YES | ok | 2274 | YES (17) | NO |
 | `326AC1000000145` | 納税貯蓄組合法 | 326AC1000000145_20211122_503AC0000000046 | CurrentEnforced | YES | ok | 41 | YES (3) | NO |
 | `326CO0000000099` | 納税貯蓄組合法施行令 | 326CO0000000099_20191216_501CO0000000183 | CurrentEnforced | YES | ok | 14 | YES (1) | NO |
@@ -51,7 +51,7 @@ a completion flag.
 | `329AC0000000036` | 国税収納金整理資金に関する法律 | 329AC0000000036_20240101_431AC0000000003 | CurrentEnforced | YES | ok | 52 | YES (1) | NO |
 | `329CO0000000051` | 国税収納金整理資金に関する法律施行令 | 329CO0000000051_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 283 | YES (1) | NO |
 | `329AC0000000061` | 関税法 | 329AC0000000061_20260601_508AC0000000005 | CurrentEnforced | YES | ok | 603 | YES (2) | NO |
-| `329M50000002023` | 地方税法施行規則 | 329M50000002023_20261101_508M60000008045 | CurrentEnforced | YES | ok | 1461 | YES (5) | NO |
+| `329M50000002023` | 地方税法施行規則 | 329M50000002023_20261101_508M60000008045 | CurrentEnforced | YES | ok | 1461 | YES (9) | NO |
 | `329AC0000000112` | 日本国とアメリカ合衆国との間の相互防衛援助協定の実施に伴う関税法等の臨時特例に関する法律 | 329AC0000000112_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 38 | YES (1) | NO |
 | `329CO0000000103` | 日本国とアメリカ合衆国との間の相互防衛援助協定の実施に伴う関税法等の臨時特例に関する法律 | 329CO0000000103_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 33 | NO (0) | NO |
 | `329M50000040039` | 国税収納金整理資金事務取扱規則 | 329M50000040039_20260924_508M60000040059 | CurrentEnforced | YES | ok | 251 | YES (1) | NO |
@@ -116,7 +116,7 @@ a completion flag.
 | `340M50010000013` | とうもろこし等の関税割当制度に関する省令 | 340M50010000013_20220401_504M60000200005 | CurrentEnforced | YES | ok | 12 | NO (0) | NO |
 | `340M50000040049` | 国税質問検査章規則 | 340M50000040049_20260101_506M60000040048 | CurrentEnforced | YES | ok | 56 | NO (0) | NO |
 | `340AC0000000156` | 石油ガス税法 | 340AC0000000156_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 76 | YES (2) | NO |
-| `340AC0000000157` | 石油ガス譲与税法 | 340AC0000000157_20090401_421AC0000000009 | CurrentEnforced | YES | ok | 29 | YES (1) | NO |
+| `340AC0000000157` | 石油ガス譲与税法 | 340AC0000000157_20090401_421AC0000000009 | CurrentEnforced | YES | ok | 29 | YES (3) | NO |
 | `341CO0000000005` | 石油ガス税法施行令 | 341CO0000000005_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 42 | YES (1) | NO |
 | `341M50000040004` | 石油ガス税法施行規則 | 341M50000040004_20250401_507M60000040023 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `341M50000008002` | 石油ガス譲与税法施行規則 | 341M50000008002_20191128_501M60000008059 | CurrentEnforced | YES | ok | 30 | YES (2) | NO |
@@ -136,7 +136,7 @@ a completion flag.
 | `344M50000040039` | 関税暫定措置法施行規則 | 344M50000040039_20241215_505M60000040057 | CurrentEnforced | YES | ok | 99 | YES (1) | NO |
 | `344M50000040050` | 税関職員服制 | 344M50000040050_20240401_506M60000040033 | CurrentEnforced | YES | ok | 13 | NO (0) | NO |
 | `345M50000040007` | 小笠原諸島振興開発特別措置法の施行に伴う譲渡所得等の課税の特例の適用に関する省令 | 345M50000040007_20140401_426M60000040034 | CurrentEnforced | YES | ok | 7 | NO (0) | NO |
-| `345CO0000000050` | 国税不服審判所組織令 | 345CO0000000050_20010106_412CO0000000307 | CurrentEnforced | YES | ok | 7 | NO (0) | NO |
+| `345CO0000000050` | 国税不服審判所組織令 | 345CO0000000050_20010106_412CO0000000307 | CurrentEnforced | YES | ok | 7 | YES (1) | NO |
 | `345M50000040017` | 国税不服審判所組織規則 | 345M50000040017_20260710_508M60000040048 | CurrentEnforced | YES | ok | 37 | YES (2) | NO |
 | `346AC0000000065` | コンテナーに関する通関条約及び国際道路運送手帳による担保の下で行なう貨物の国際運送に関す | 346AC0000000065_20120401_424AC0000000019 | CurrentEnforced | YES | ok | 28 | YES (1) | NO |
 | `346AC0000000089` | 自動車重量税法 | 346AC0000000089_20220401_504AC0000000004 | CurrentEnforced | YES | ok | 49 | YES (1) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 335
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 336

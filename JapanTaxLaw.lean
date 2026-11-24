@@ -639,6 +639,12 @@ import JapanTaxLaw.ForestGrantRoundingTests
 import JapanTaxLaw.ForestTaxEligibilityException
 import JapanTaxLaw.ForestTaxEligibilityExceptionSpec
 import JapanTaxLaw.ForestTaxEligibilityExceptionTests
+import JapanTaxLaw.FreeCarePatientBand2_5
+import JapanTaxLaw.FreeCarePatientBand2_5Spec
+import JapanTaxLaw.FreeCarePatientBand2_5Tests
+import JapanTaxLaw.FreeCarePatientBand5_10
+import JapanTaxLaw.FreeCarePatientBand5_10Spec
+import JapanTaxLaw.FreeCarePatientBand5_10Tests
 import JapanTaxLaw.GasolineDeduction
 import JapanTaxLaw.GasolineDeductionSpec
 import JapanTaxLaw.GasolineDeductionTests
@@ -1175,6 +1181,12 @@ import JapanTaxLaw.NonpaymentSurchargeTests
 import JapanTaxLaw.NoticeCopyDocument
 import JapanTaxLaw.NoticeCopyDocumentSpec
 import JapanTaxLaw.NoticeCopyDocumentTests
+import JapanTaxLaw.NursingCareBand2_5
+import JapanTaxLaw.NursingCareBand2_5Spec
+import JapanTaxLaw.NursingCareBand2_5Tests
+import JapanTaxLaw.NursingCareBand5_10
+import JapanTaxLaw.NursingCareBand5_10Spec
+import JapanTaxLaw.NursingCareBand5_10Tests
 import JapanTaxLaw.ObligationArt15
 import JapanTaxLaw.ObligationArt15Spec
 import JapanTaxLaw.ObligationArt15Tests

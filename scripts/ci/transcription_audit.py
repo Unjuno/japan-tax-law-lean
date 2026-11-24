@@ -3956,6 +3956,10 @@ def checks():
 
     # DisasterTaxReliefOrderArt10Item5FieldCondition.lean (restored after merge dropped it)
     # NORM|776e380c… 災害被害者租税減免法施行政令 art.10(1) item5 CONDITION.
+    yield ("disaster tax relief order art.10 item5 field condition - DisasterTaxReliefOrderArt10Item5FieldCondition.lean",
+           "322CO0000000268",
+           "article", "第十条",
+           ["徴収猶予限度額又は徴収猶予期間及びこれらの計算の基礎"])
 
     # 地方法人税法 art. 2 — LocalCorpMaxCapital.lean
     yield ("法人臨時特別税政令 art. 2（被合併法人二以上の最大額選択）↔ LocalCorpMaxCapital.lean (max selection, trigger >=2)",
@@ -4071,6 +4075,30 @@ def checks():
     yield ("地方税法 art. 11_2（附則 不動産取得税標準税率3%）↔ PropertyAcquisitionSpecialRate3.lean",
            "325AC0000000226", "file", None,
            ["不動産取得税の標準税率は、第七十三条の十五の規定にかかわらず、百分の三とする。"])
+
+# 無料又は低額診療患者の割合 百分の五以上百分の十未満 — FreeCarePatientBand5_10.lean
+    yield ("地方税法施行規則 art. 10_7_3（無料又は低額診療患者の割合 百分の五以上百分の十未満）↔ FreeCarePatientBand5_10.lean",
+           "329M50000002023",
+           "file", None,
+           ["無料又は低額診療患者の割合が百分の五以上百分の十未満である事業の用に供する固定資産（無料又は低額診療患者の割合から百分の五を減じた割合に五を乗じた割合に百分の七十五を加えて得た割合に相当する部分に限る。）"])
+
+    # 無料又は低額診療患者の割合 百分の二以上百分の五未満 — FreeCarePatientBand2_5.lean
+    yield ("地方税法施行規則 art. 10_7_3（無料又は低額診療患者の割合 百分の二以上百分の五未満）↔ FreeCarePatientBand2_5.lean",
+           "329M50000002023",
+           "file", None,
+           ["無料又は低額診療患者の割合が百分の二以上百分の五未満である事業の用に供する固定資産（無料又は低額診療患者の割合から百分の二を減じた割合に十五を乗じた割合に百分の三十を加えて得た割合に相当する部分に限る。）"])
+
+    # 介護医療院入所者の割合 百分の五以上百分の十未満 — NursingCareBand5_10.lean
+    yield ("地方税法施行規則 art. 10_7_3（介護医療院入所者の割合 百分の五以上百分の十未満）↔ NursingCareBand5_10.lean",
+           "329M50000002023",
+           "file", None,
+           ["無料又は低額利用に係る介護医療院入所者の割合が百分の五以上百分の十未満である事業の用に供する固定資産（無料又は低額利用に係る介護医療院入所者の割合から百分の五を減じた割合に五を乗じた割合に百分の七十五を加えて得た割合に相当する部分に限る。）"])
+
+    # 介護医療院入所者の割合 百分の二以上百分の五未満 — NursingCareBand2_5.lean
+    yield ("地方税法施行規則 art. 10_7_3（介護医療院入所者の割合 百分の二以上百分の五未満）↔ NursingCareBand2_5.lean",
+           "329M50000002023",
+           "file", None,
+           ["無料又は低額利用に係る介護医療院入所者の割合が百分の二以上百分の五未満である事業の用に供する固定資産（無料又は低額利用に係る介護医療院入所者の割合から百分の二を減じた割合に十五を乗じた割合に百分の三十を加えて得た割合に相当する部分に限る。）"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
