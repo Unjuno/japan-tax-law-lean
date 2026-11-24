@@ -13,7 +13,7 @@ obligations being complete. SKIP is never counted as PASS.
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: 9041d98f7a3c99b9fbfe78a70872d210be50d3e8
-- current HEAD commit: be54ed8b64afd95ad5a09acf28fa956be97bce24
+- current HEAD commit: 3f2c000b012784132036f57c18b66ae5200a809b
 - results bound to this commit: False
 - registered checks all green: False
 
@@ -43,26 +43,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 785 | 396854 |
-| kernel proved (CI-attested proof evidence) | 785 | 396854 |
-| source-audited (原文 correspondence evidence) | 785 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 792 | 396854 |
+| kernel proved (CI-attested proof evidence) | 792 | 396854 |
+| source-audited (原文 correspondence evidence) | 792 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 785 |
-| boundary_proof | 785 |
-| cross_law_proof | 785 |
-| decomposition_audit | 785 |
-| implementation | 785 |
-| independent_spec | 785 |
-| kernel_proof | 785 |
-| proof_scope | 785 |
-| source_correspondence_audit | 785 |
-| source_location | 785 |
-| tests | 785 |
+| adversarial_review | 792 |
+| boundary_proof | 792 |
+| cross_law_proof | 792 |
+| decomposition_audit | 792 |
+| implementation | 792 |
+| independent_spec | 792 |
+| kernel_proof | 792 |
+| proof_scope | 792 |
+| source_correspondence_audit | 792 |
+| source_location | 792 |
+| tests | 792 |
 
 ## Verdict
 
