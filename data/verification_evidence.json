@@ -197,6 +197,19 @@
       "source_location": "data/raw/340AC0000000033_20261001_507AC0000000070.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:205/Article#205/Paragraph#1/Item#1/ItemSentence/Column#2/Sentence#1 sha256=94c4a7ad83726cde60787967ed4e959585ad0af9279d25db9aa02264b3fe606b (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/IncomeArt205WithholdingTests.lean sha256=bf2e55189ec20604c9719e6177573ff3827ac679b47e1b1f8d4770315f815c3e (24 kernel-decided examples)"
     },
+    "NORM|30ed71fa6118f5875097cd20a81a022db6c3de058f41c43787932def13cc9ec6": {
+      "adversarial_review": "docs/ADVERSARIAL_INVESTIGATION_DEADLINE.md H/T/D/C/U; 365-day conversion explicitly rejected as unproven",
+      "boundary_proof": "InvestigationDeadlineOneYearTests.lean kernel-decided 0/1/2 whole-year counts",
+      "cross_law_proof": "dependencies=[]",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/InvestigationDeadlineOneYear.lean sha256=a4599c27bd8d80eb844c4158fc6970ec6f1a550c50cf4c1a6a51ec86c6ab29cb",
+      "independent_spec": "JapanTaxLaw/InvestigationDeadlineOneYearSpec.lean sha256=ddfdd2f5a28a69f3652cf53fbd3e792f173af4d9cd10c905028909a8096e4494; spec uses negation of strict excess",
+      "kernel_proof": "lake build JapanTaxLaw.InvestigationDeadlineOneYearTests: Build completed successfully (5 jobs); at_one_year/after_one_year axiom-free; agree_spec_impl standard propext",
+      "proof_scope": "agree_spec_impl universal over all Nat whole-year counts; no 365-day calendar conversion asserted",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; phrase_only_correspondence=true; 一年以内 located",
+      "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[16]/Article:7/Article#7/Paragraph#7/ParagraphSentence/Sentence#1 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c; verbatim located in art.7(7)",
+      "tests": "JapanTaxLaw/InvestigationDeadlineOneYearTests.lean sha256=c8eb8784143b89e828672a6efebef6a80f559c8aefadc47f88a60fb78932e359"
+    },
     "NORM|3459d92a625fdc51ce4b15a5a7b6744dd2097b2475898707d47d06c8c0b6ff48": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
