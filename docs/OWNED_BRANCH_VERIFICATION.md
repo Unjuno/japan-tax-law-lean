@@ -66,16 +66,20 @@ $ python scripts/ci/batch_strict_upper_pipeline.py --limit 60
 strict-upper batch pipeline: verified=60 failed=2  (2 source-audit failures skip-listed)
 $ python scripts/ci/batch_fraction_pipeline.py --limit 20 / --limit 100
 fraction batch pipeline: verified=20 failed=0 / verified=100 failed=0
-$ python scripts/ci/batch_period_pipeline.py --limit 10 / --limit 100
-period batch pipeline: verified=10 failed=0 / verified=100 failed=0
+$ python scripts/ci/batch_period_pipeline.py --limit 10 / --limit 100 / --limit 200
+period batch pipeline: verified=10 / 100 / 200, all failed=0
+$ python scripts/ci/batch_threshold_pipeline.py --limit 200
+batch pipeline: verified=200 failed=22  (source-audit failures skip-listed)
+$ python scripts/ci/batch_delegation_pipeline.py --limit 10 / --limit 50
+delegation batch pipeline: verified=6 failed=0 / verified=0 failed=0 (class exhausted)
 
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=395761, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=1091, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=395355, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=1497, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=1091 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=1497 axes=11 unbacked=0
 12/12 invariants passed
 $ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
 
@@ -264,7 +268,13 @@ thresholds (年/月/日/回 with 以下/以内/未満/を超える), with the so
 extended to parse period literals; it verified 110 further obligations with
 zero failures.
 
-So 1091 units are evidence-backed FULLY_VERIFIED and 395,761 remain NOT_STARTED
+An eighth pipeline, `scripts/ci/batch_delegation_pipeline.py`, models a
+delegation-gated threshold with the delegated determination kept as a
+caller-established Bool (NOT resolved). Its guarded class contains only 6
+units; all 6 were verified. Failures in other batches were left NOT_STARTED
+with recorded reasons in per-pipeline skip lists.
+
+So 1497 units are evidence-backed FULLY_VERIFIED and 395,355 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
