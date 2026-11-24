@@ -12440,3 +12440,13 @@ CI `checks()` の `LifeInsurancePremiumDeductionUpper.lean` エントリ（law_i
 
 > **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・反例/走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
 
+
+## Batch BOT review (2026-11-25) — 地方税法 art.701の42
+
+### BusinessOfficeTaxRate.lean — 独立再抽出・照合
+
+- **対象**: `JapanTaxLaw/BusinessOfficeTaxRate.lean`, `JapanTaxLaw/BusinessOfficeTaxRateSpec.lean`, `JapanTaxLaw/BusinessOfficeTaxRateTests.lean`
+- **一次資料（pinned・改変禁止）**: `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`
+- **独立再抽出**: 形式化担当の数値を信じず、e-Gov JSON の MainProvision 直下の第七百一条の四十二を ArticleTitle で特定し、SHA-256 pin を再計算。原文から税率を独立抽出。
+- **照合・判定**: 六百円/㎡ → `a * 600`、百分の〇・二五 → 25/10000（0.25%）。25/1000（10倍誤り）を反例テストで排除。D=CONFIRMED（H/T/D/C/U は `scripts/ci/source_audit_business_office_tax_rate.py` の出力を参照）。
+- **限界**: 認定・課税標準・申告徴収手続・附則は NOT MODELLED。本レビューは機械的独立照合であり人間の法的レビューではない（LEGAL_REVIEW_PENDING）。
