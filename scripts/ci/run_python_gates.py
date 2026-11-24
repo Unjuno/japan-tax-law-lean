@@ -28,6 +28,7 @@ GATES = [
     ("completion gate adversary tests", ["python", "-m", "unittest", "scripts.tests.test_completion_gate_adversary", "-v"], ["scripts/tests/test_completion_gate_adversary.py"]),
     ("completion gate adversarial (full §1 rule set)", ["python", "scripts/ci/completion_gate_adversarial.py"], ["scripts/ci/completion_gate_adversarial.py", "docs/COMPLETION_GATE_ADVERSARIAL.md"]),
     ("task selector computable ranking tests", ["python", "-m", "unittest", "scripts.tests.test_task_selector", "-v"], ["scripts/tests/test_task_selector.py", "scripts/ci/task_selector.py"]),
+    ("coordinator autonomous-loop tests (Sponsor Directive §3)", ["python", "-m", "unittest", "scripts.tests.test_coordinator", "-v"], ["scripts/tests/test_coordinator.py", "scripts/ci/coordinator.py"]),
     ("gate result provenance tests", ["python", "-m", "unittest", "scripts.tests.test_gate_provenance", "-v"], ["scripts/tests/test_gate_provenance.py", "scripts/ci/completion_gate.py"]),
     ("queue invariant gate regression tests", ["python", "-m", "unittest", "scripts.tests.test_queue_invariants", "-v"], ["scripts/tests/test_queue_invariants.py", "scripts/ci/verify_queue_invariants.py"]),
     ("multi-scoped attestation merge tests", ["python", "-m", "unittest", "scripts.tests.test_multi_scoped_attestation", "-v"], ["scripts/tests/test_multi_scoped_attestation.py"]),

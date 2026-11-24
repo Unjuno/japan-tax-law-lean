@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 243
-- presence-facts-only complete: 243
-- NOT_STARTED: 243
+- articles with explicit pin: 251
+- presence-facts-only complete: 251
+- NOT_STARTED: 251
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -28,7 +28,7 @@ source positions. Human legal review is a separate axis and is pending.
 | `332AC0000000026` | 第八十七条の二 | LowAlcoholDutySpecialRate | YES | YES | NO | NOT_STARTED |
 | `332AC0000000026` | 第九条の三の二 | ListedDividendWithholding | YES | NO | NO | NOT_STARTED |
 | `332AC0000000026` | 第三十一条の三 | ResidentialTransferSpecialTax | YES | YES | NO | NOT_STARTED |
-| `332AC0000000026` | 第三十一条の二 | ExcellentLandTransferSpecialTax | YES | YES | NO | NOT_STARTED |
+| `332AC0000000026` | 第三十一条の二 | ExcellentLandTransferSpecialTax | YES | YES | YES | NOT_STARTED |
 | `332AC0000000026` | 第七十条の二の五 | SpecialGiftRate | YES | NO | YES | NOT_STARTED |
 | `332AC0000000026` | 第九十一条 | StampDutySpecial91 | YES | YES | NO | NOT_STARTED |
 | `340AC0000000034` | 第六十七条 | CorporateSurtax | YES | YES | NO | NOT_STARTED |
@@ -112,6 +112,7 @@ source positions. Human legal review is a separate axis and is pending.
 | `143AC0000000054` | 第三条 | CustomsTariffArt3TaxBase | YES | YES | NO | NOT_STARTED |
 | `325AC0000000226` | 第百五十四条 | LocalTaxArt154FreightTonSurcharge | YES | YES | NO | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の七 | InheritanceGiftTaxRateBracket10M15M | YES | YES | NO | NOT_STARTED |
+| `325AC0000000073` | 第二十一条の七 | InheritanceGiftTaxRateBracket15M30M | YES | YES | NO | NOT_STARTED |
 | `325AC0000000226` | 第七百三十四条 | LocalTaxArt734AmountTier1 | YES | YES | NO | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の七 | InheritanceGiftTaxRateBracket4M6M | YES | YES | NO | NOT_STARTED |
 | `340AC0000000033` | 第二十八条 | IncomeTaxRevenueBracket1900k | YES | YES | NO | NOT_STARTED |
@@ -260,3 +261,10 @@ source positions. Human legal review is a separate axis and is pending.
 | `406AC0000000108` | 第二条 | HeiseiFY6Attribution | YES | YES | NO | NOT_STARTED |
 | `507M60000008043` | 第五条 | SignedAdjustmentAmount | YES | YES | NO | NOT_STARTED |
 | `404CO0000000089` | 第二条 | MergerMaxCapital | YES | YES | NO | NOT_STARTED |
+| `325AC0000000073` | 第十五条 | InheritanceTaxArt15NoBioChildTwoAdoptedCondition | YES | YES | NO | NOT_STARTED |
+| `322CO0000000268` | 第十条 | DisasterTaxReliefOrderArt10Item5FieldCondition | YES | YES | NO | NOT_STARTED |
+| `347M50000040042` | 第六条 | RefundDifferenceAmount | YES | YES | NO | NOT_STARTED |
+| `403CO0000000035` | 第二条 | LocalCorpMaxCapital | YES | YES | NO | NOT_STARTED |
+| `403CO0000000035` | 第二条 | LocalCorpMaxCapital | YES | YES | NO | NOT_STARTED |
+| `347M50000040042` | 第六条 | RefundDifferenceAmount | YES | YES | NO | NOT_STARTED |
+| `322AC0000000175` | 第九条 | DisasterTaxReliefArt9TermDefinitionDelegation | YES | YES | NO | NOT_STARTED |

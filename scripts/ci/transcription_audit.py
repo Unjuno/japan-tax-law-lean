@@ -1641,6 +1641,14 @@ def checks():
            "article", "第二十一条の七",
            ["\u5343\u4e07\u5186\u3092\u8d85\u3048\u5343\u4e94\u767e\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
 
+    # InheritanceGiftTaxRateBracket15M30M.lean - NORM|68cc7a51... (gift-tax rate
+    # bracket 15M-30M CONDITION, law 325AC0000000073). The needle is the table
+    # upper-column cell of MainProvision Article 第二十一条の七 (Paragraph 1).
+    yield ("gift-tax rate bracket 15M-30M - InheritanceGiftTaxRateBracket15M30M.lean",
+           "325AC0000000073",
+           "article", "第二十一条の七",
+           ["\u5343\u4e94\u767e\u4e07\u5186\u3092\u8d85\u3048\u4e09\u5343\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+
     # LocalTaxArt734AmountTier1.lean - NORM|41efee8e... (dual amount 120k/140k yen CONDITION, law 325AC0000000226)
     # Needle is in MainProvision Article 734 (Paragraph 3, table cell, Sentence 1);
     # find_article_text(...,"第七百三十四条") returns that article (len 2046) with needle -
