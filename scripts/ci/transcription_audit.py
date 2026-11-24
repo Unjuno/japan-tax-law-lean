@@ -2318,6 +2318,12 @@ def checks():
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
 
+    # LongTermGainSpecialMeasure — cycle-113 (restored after merge dropped it)
+    yield ("LongTermGainSpecialMeasure.lean",
+           "325AC0000000226",
+           "file", None,
+           ["当該課税長期譲渡所得金額から二千万円を控除した金額の百分の二", "第三十四条の二"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3888,6 +3894,13 @@ def checks():
            "article", "第五条",
            ["令和八年三月において、令和七年度三月震災復興特別交付税額は、前条の規定によって算定した額から第一号の額を減額した後の額に第二号の額を加算した額（同号の額が負数となるときは、当該負数となる額に相当する額を減額した額）から第三号の額を減額した額とする。"])
 
+    # DisasterTaxReliefOrderArt10Item5FieldCondition.lean (restored after merge dropped it)
+    # NORM|776e380c… 災害被害者租税減免法施行政令 art.10(1) item5 CONDITION.
+    yield ("disaster tax relief order art.10 item5 field condition - DisasterTaxReliefOrderArt10Item5FieldCondition.lean",
+           "322CO0000000268",
+           "article", "\u7b2c\u5341\u6761",
+           ["\u5fb4\u53ce\u7336\u4e88\u9650\u5ea6\u984d\u53c8\u306f\u5fb4\u53ce\u7336\u4e88\u671f\u9593\u53ca\u3073\u3053\u308c\u3089\u306e\u8a08\u7b97\u306e\u57fa\u790e"])
+
 # 災害時の合計所得金額の見積額 六百万円超七百五十万円以下 — DisasterIncomeBand6M75M.lean
     yield ("昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施行に関する政令） art. 3（災害時の合計所得金額の見積額 六百万円超七百五十万円以下）↔ DisasterIncomeBand6M75M.lean",
            "322CO0000000268",
@@ -3936,6 +3949,24 @@ def checks():
            "article", "第六条",
            ["第三号に掲げる所得税の額から前号に掲げる所得税の額を控除した残額のうち還付を受けようとする金額"])
 
+    # 地方交付税法 art. 6の2 §2/§3 — LocalGrantTaxShares.lean (94% / 6%)
+    yield ("LocalGrantTaxShares.lean",
+           "325AC0000000211",
+           "file", None,
+           ["前条第二項の額の百分の九十四に相当する額", "前条第二項の額の百分の六に相当する額"])
+
+    # 相続税法施行令 art. 28 §1 — StandingTimberDeferredRate30.lean (30%)
+    yield ("StandingTimberDeferredRate30.lean",
+           "325CO0000000071",
+           "file", None,
+           ["法第五十二条第一項第一号ロに規定する政令で定める割合は、百分の三十とする"])
+
+    # 地方税法 art. 23 第11号イ(2) — WidowDependentIncomeCeiling5M.lean (五百万円以下)
+    yield ("WidowDependentIncomeCeiling5M.lean",
+           "325AC0000000226",
+           "file", None,
+           ["前年の合計所得金額が五百万円以下であること"])
+
 
     # DisasterTaxReliefOrderSupplArt2HokkaidoBureauException.lean - NORM|483362ae... (災害被害者租税減免法施行政令 附則2 table EXCEPTION, law 322CO0000000268)
     # Whole-law locator (table cell in 附則, not a main-provision Article).
@@ -3943,6 +3974,20 @@ def checks():
            "322CO0000000268",
            "law", None,
            ["\u6771\u5317\u6d77\u904b\u5c40\u9577\uff08\u5c71\u5f62\u770c\u53c8\u306f\u79cb\u7530\u770c\u306e\u533a\u57df\u306b\u4fc2\u308b\u51e6\u5206\u7b49\u53c8\u306f\u7533\u8acb\u7b49\u306b\u4fc2\u308b\u5834\u5408\u3092\u9664\u304f\u3002\uff09"])
+
+    # CustomsTariffSupplArt1UnclosEnforcementDate.lean - NORM|6290b6ac... (関税定率法 附則1 施行期日 REFERENCE, law 143AC0000000054)
+    # Whole-law locator (附則 node; multiple 第一条 exist). Relative date tied to treaty.
+    yield ("customs tariff suppl art.1 unclos enforcement date - CustomsTariffSupplArt1UnclosEnforcementDate.lean",
+           "143AC0000000054",
+           "law", None,
+           ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u56fd\u9023\u6d77\u6d0b\u6cd5\u6761\u7d04\u304c\u65e5\u672c\u56fd\u306b\u3064\u3044\u3066\u52b9\u529b\u3092\u751f\u305a\u308b\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
+
+    # 地方法人税法 art. 2 — LocalCorpMaxCapital.lean
+    yield ("法人臨時特別税政令 art. 2（被合併法人二以上の最大額選択）↔ LocalCorpMaxCapital.lean (max selection, trigger >=2)",
+           "403CO0000000035",
+           "article", "第二条",
+           ["合併により被合併法人の株主等に交付された合併後存続する法人の株式又は出資に係る資本の金額又は出資金額（被合併法人が二以上ある場合には、各被合併法人に係るこれらの金額のうち最も多い金額）"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
