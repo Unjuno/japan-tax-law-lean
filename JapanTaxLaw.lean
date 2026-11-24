@@ -115,6 +115,9 @@ import JapanTaxLaw.CertFeeTests
 import JapanTaxLaw.Certificate200k
 import JapanTaxLaw.Certificate200kSpec
 import JapanTaxLaw.Certificate200kTests
+import JapanTaxLaw.CertificationIssuanceDeadlineFifteenDays
+import JapanTaxLaw.CertificationIssuanceDeadlineFifteenDaysSpec
+import JapanTaxLaw.CertificationIssuanceDeadlineFifteenDaysTests
 import JapanTaxLaw.ClampedSubtraction
 import JapanTaxLaw.ClampedSubtractionSpec
 import JapanTaxLaw.ClampedSubtractionTests
@@ -239,6 +242,9 @@ import JapanTaxLaw.CourseUnits31Tests
 import JapanTaxLaw.CrossSection15mm
 import JapanTaxLaw.CrossSection15mmSpec
 import JapanTaxLaw.CrossSection15mmTests
+import JapanTaxLaw.CustomsAdditionalDutyCeiling
+import JapanTaxLaw.CustomsAdditionalDutyCeilingSpec
+import JapanTaxLaw.CustomsAdditionalDutyCeilingTests
 import JapanTaxLaw.CustomsAirCargo
 import JapanTaxLaw.CustomsAirCargoSpec
 import JapanTaxLaw.CustomsAirCargoTests
@@ -500,6 +506,9 @@ import JapanTaxLaw.DependentAge13Tests
 import JapanTaxLaw.DependentAgeSupport
 import JapanTaxLaw.DependentAgeSupportSpec
 import JapanTaxLaw.DependentAgeSupportTests
+import JapanTaxLaw.DisasterExciseTaxCredit
+import JapanTaxLaw.DisasterExciseTaxCreditSpec
+import JapanTaxLaw.DisasterExciseTaxCreditTests
 import JapanTaxLaw.DisasterExpense50k
 import JapanTaxLaw.DisasterExpense50kSpec
 import JapanTaxLaw.DisasterExpense50kTests
@@ -612,6 +621,9 @@ import JapanTaxLaw.ExcludedDutyFreeGoodsTests
 import JapanTaxLaw.ExplorationReserve
 import JapanTaxLaw.ExplorationReserveSpec
 import JapanTaxLaw.ExplorationReserveTests
+import JapanTaxLaw.FilingDateException
+import JapanTaxLaw.FilingDateExceptionSpec
+import JapanTaxLaw.FilingDateExceptionTests
 import JapanTaxLaw.FilingRoute
 import JapanTaxLaw.FilingRouteSpec
 import JapanTaxLaw.FilingRouteTests
@@ -654,6 +666,12 @@ import JapanTaxLaw.ForestGrantRoundingTests
 import JapanTaxLaw.ForestTaxEligibilityException
 import JapanTaxLaw.ForestTaxEligibilityExceptionSpec
 import JapanTaxLaw.ForestTaxEligibilityExceptionTests
+import JapanTaxLaw.FreeCarePatientBand2_5
+import JapanTaxLaw.FreeCarePatientBand2_5Spec
+import JapanTaxLaw.FreeCarePatientBand2_5Tests
+import JapanTaxLaw.FreeCarePatientBand5_10
+import JapanTaxLaw.FreeCarePatientBand5_10Spec
+import JapanTaxLaw.FreeCarePatientBand5_10Tests
 import JapanTaxLaw.GasolineDeduction
 import JapanTaxLaw.GasolineDeductionSpec
 import JapanTaxLaw.GasolineDeductionTests
@@ -832,6 +850,9 @@ import JapanTaxLaw.InheritanceTaxArt19SevenYearGiftConditionTests
 import JapanTaxLaw.InheritanceTaxArt19_4QuasiApplication
 import JapanTaxLaw.InheritanceTaxArt19_4QuasiApplicationSpec
 import JapanTaxLaw.InheritanceTaxArt19_4QuasiApplicationTests
+import JapanTaxLaw.InheritanceTaxArt21_16GiftTimeValuation
+import JapanTaxLaw.InheritanceTaxArt21_16GiftTimeValuationSpec
+import JapanTaxLaw.InheritanceTaxArt21_16GiftTimeValuationTests
 import JapanTaxLaw.InheritanceTaxArt3DeemedAcquisition
 import JapanTaxLaw.InheritanceTaxArt3DeemedAcquisitionSpec
 import JapanTaxLaw.InheritanceTaxArt3DeemedAcquisitionTests
@@ -969,6 +990,9 @@ import JapanTaxLaw.LocalAllocationTaxEnforcementDateTests
 import JapanTaxLaw.LocalAllocationTaxRounding
 import JapanTaxLaw.LocalAllocationTaxRoundingSpec
 import JapanTaxLaw.LocalAllocationTaxRoundingTests
+import JapanTaxLaw.LocalBusinessOwnershipThreshold50
+import JapanTaxLaw.LocalBusinessOwnershipThreshold50Spec
+import JapanTaxLaw.LocalBusinessOwnershipThreshold50Tests
 import JapanTaxLaw.LocalCapitalBand100M1B
 import JapanTaxLaw.LocalCapitalBand100M1BSpec
 import JapanTaxLaw.LocalCapitalBand100M1BTests
@@ -1205,6 +1229,12 @@ import JapanTaxLaw.NonpaymentSurchargeTests
 import JapanTaxLaw.NoticeCopyDocument
 import JapanTaxLaw.NoticeCopyDocumentSpec
 import JapanTaxLaw.NoticeCopyDocumentTests
+import JapanTaxLaw.NursingCareBand2_5
+import JapanTaxLaw.NursingCareBand2_5Spec
+import JapanTaxLaw.NursingCareBand2_5Tests
+import JapanTaxLaw.NursingCareBand5_10
+import JapanTaxLaw.NursingCareBand5_10Spec
+import JapanTaxLaw.NursingCareBand5_10Tests
 import JapanTaxLaw.ObligationArt15
 import JapanTaxLaw.ObligationArt15Spec
 import JapanTaxLaw.ObligationArt15Tests
@@ -1658,6 +1688,9 @@ import JapanTaxLaw.SpecialMeasuresMiscTests
 import JapanTaxLaw.SpecialMeasuresOrderRate75
 import JapanTaxLaw.SpecialMeasuresOrderRate75Spec
 import JapanTaxLaw.SpecialMeasuresOrderRate75Tests
+import JapanTaxLaw.SpecialMeasuresOwnershipThreshold50
+import JapanTaxLaw.SpecialMeasuresOwnershipThreshold50Spec
+import JapanTaxLaw.SpecialMeasuresOwnershipThreshold50Tests
 import JapanTaxLaw.SpecialMeasuresRealEstateRatio75
 import JapanTaxLaw.SpecialMeasuresRealEstateRatio75Spec
 import JapanTaxLaw.SpecialMeasuresRealEstateRatio75Tests
