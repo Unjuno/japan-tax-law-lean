@@ -3879,6 +3879,13 @@ def checks():
            "article", "第二条",
            ["合併により被合併法人の株主等に交付された合併後存続する法人の株式又は出資に係る資本の金額又は出資金額（被合併法人が二以上ある場合には、各被合併法人に係るこれらの金額のうち最も多い金額）"])
 
+    # 所得税額の還付 art. 6 — RefundDifferenceAmount.lean
+    yield ("所得税額の還付 art. 6（前号控除後の残額）↔ RefundDifferenceAmount.lean (saturating refund residual)",
+           "347M50000040042",
+           "article", "第六条",
+           ["第三号に掲げる所得税の額から前号に掲げる所得税の額を控除した残額のうち還付を受けようとする金額"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
