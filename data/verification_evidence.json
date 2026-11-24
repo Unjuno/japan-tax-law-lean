@@ -17044,6 +17044,88 @@
         "tool": "lake build"
       }
     ],
+    "1d80c375432ee9258d5aecfb1189cb20ed929755154346f5276288df94d05789": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T16:39:55+00:00",
+        "evidence_ref": "data/raw/332M50000040015_20261101_507M60000040026.law.json#SupplProvision:令和七年一二月五日財務省令第六八号@400#221-250",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T16:39:55+00:00",
+        "evidence_ref": "independent_fidelity:UNCLEAR-VALUE-DEFAULT-SRC-1",
+        "note": "Independent read-only source-fidelity audit: 財務省令 default 1.9% when value unclear verified against pinned raw article; Option-based independent spec and universal agreement confirmed",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T16:39:55+00:00",
+        "evidence_ref": "task_queue.json#1d80c375432e#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T16:39:55+00:00",
+        "evidence_ref": "JapanTaxLaw/UnclearValueDefaultSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T16:39:55+00:00",
+        "evidence_ref": "JapanTaxLaw/UnclearValueDefault.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T16:39:55+00:00",
+        "evidence_ref": "JapanTaxLaw/UnclearValueDefaultSpec.lean#agree*@kernel",
+        "note": "agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T16:39:55+00:00",
+        "evidence_ref": "JapanTaxLaw/UnclearValueDefaultSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T16:39:55+00:00",
+        "evidence_ref": "JapanTaxLaw/UnclearValueDefaultTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T16:39:55+00:00",
+        "evidence_ref": "JapanTaxLaw/UnclearValueDefaultTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T16:39:55+00:00",
+        "evidence_ref": "independent_fidelity:UNCLEAR-VALUE-DEFAULT-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "1db00ba6f7f84c20f832f632ae07cb6c866228cd4fe04d735bacbbde1087355a": [
       {
         "axis": "SOURCE_LOCATION",
