@@ -91,6 +91,7 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
     # Restored registry checks dropped by a concurrent stale-base rewrite.
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,
@@ -1391,7 +1392,6 @@ def checks():
            "143AC0000000054",
            "article", "第七条",
            ["\u524d\u9805\u306e\u8abf\u67fb\u306f\u3001\u7b2c\u4e8c\u5341\u4e5d\u9805\u306e\u898f\u5b9a\u306b\u3088\u308b\u8acb\u6c42\u304c\u3042\u3064\u305f\u65e5\u304b\u3089\u4e00\u5e74\u4ee5\u5185\u306b\u7d42\u4e86\u3059\u308b\u3082\u306e\u3068\u3059\u308b\u3002"])
-
 
     # 関税定率法 art. 7 — InvestigationExtensionSixMonths.lean (six-month ceiling)
     yield ("関税定率法 art. 7（調査期間の延長: 六月以内に限り延長する — 上限のみをモデル化、特別の理由の認定・元の期間・延長判断は caller-established）↔ InvestigationExtensionSixMonths.lean",
@@ -4159,17 +4159,19 @@ def checks():
            "340AC0000000033",
            "file", None,
            ["合計所得金額が九十五万円以下である配偶者"])
+
     # Restored registered checks after main merge.
     yield ("地方税法 art.71_6(1)（利子割の税率 百分の五）↔ InterestSplitRate5Pct.lean (exact 5/100, no rounding)",
            "325AC0000000226", "article", "第七十一条の六",
            ["利子割の税率は、百分の五とする。"])
+
     yield ("地方税法施行規則 art.24の28（事業所税徴収費5%）↔ BusinessTaxCollectionCostRate5.lean",
            "329M50000002023", "file", None,
            ["法第七百一条の七十三の事業所税の徴収に要する費用は、当該年度の歳入に所属する事業所税の額の百分の五に相当する額とする。"])
+
     yield ("租税特別措置法施行令 art.5の5（政令割合75%）↔ SpecialMeasuresOrderRate75.lean",
            "332CO0000000043", "file", None,
            ["法第十条の三第一項に規定する政令で定める割合は、百分の七十五とする。"])
-
 
     # 地方揮発油税法 art.15(4) — LocalGasolineArt15TripleFineRange.lean
     yield ("地方揮発油税法 art.15(4)（相当金額の三倍が五十万円超の罰金範囲）↔ LocalGasolineArt15TripleFineRange.lean",
@@ -4224,9 +4226,20 @@ def checks():
     yield ("租税特別措置法施行令 art. 19_3（所有割合50%超）↔ SpecialMeasuresOwnershipThreshold50.lean",
            "332CO0000000043", "file", None,
            ["発行済株式等の総数又は総額の百分の五十を超える数又は金額の株式が当該株式会社により所有されている場合"])
+
     yield ("地方税法施行規則 art. 3_13_3（所有割合50%超）↔ LocalBusinessOwnershipThreshold50.lean",
            "329M50000002023", "file", None,
            ["発行済株式等の百分の五十を超える数又は金額の株式等が同項の一方の者により保有されている場合"])
+
+    # 租税特別措置法 art.41_18(2) — SpecialIncomeTaxCreditCap25.lean
+    yield ("租税特別措置法 art.41_18(2)（控除限度 所得税額の百分の二十五・百円未満切捨て）↔ SpecialIncomeTaxCreditCap25.lean",
+           "332AC0000000026", "article", "第四十一条の十八",
+           ["当該控除する金額が、当該個人のその年分の所得税の額の百分の二十五に相当する金額を超えるときは"])
+
+    # Restored registered check (dropped by a concurrent main merge).
+    yield ("通算法人 第六条（指定された期日が提出期限前の日）↔ FilingDateException.lean",
+           "426CO0000000139", "article", "第六条",
+           ["ただし、当該指定された期日が当該他の通算法人の同条第一項の規定による申告書の提出期限前の日である場合は、この限りでない。"])
 
     # 国税収納金整理資金法 art. 14(1) — TreasuryCollectionNet.lean
     yield ("国税収納金整理資金法 art. 14（過誤納還付金控除後の歳入組み入れ額）↔ TreasuryCollectionNet.lean",
@@ -4244,7 +4257,6 @@ def checks():
            "article", "第六条",
            ["ただし、当該指定された期日が当該他の通算法人の同条第一項の規定による申告書の提出期限前の日である場合は、この限りでない。"])
 
-
     yield ("地方税法施行令 art. 57_2_8（事業税7.7%）↔ LocalBusinessTaxRate77PerMilleB.lean",
            "325CO0000000245", "file", None,
            ["の百分の七・七に相当する額"])
@@ -4254,20 +4266,27 @@ def checks():
            "325AC0000000073", "file", None,
            ["贈与税の課税価格から六十万円を控除する。"])
 
-
     yield ("相続税法 art. 21_11_2（贈与税基礎控除60万円）↔ GiftTaxSettlementBasicDeduction600k.lean",
            "325AC0000000073", "file", None,
            ["贈与税の課税価格から六十万円を控除する。"])
+
     # 地方税法 art. 24の5 — LocalTaxDependentIncomeCeiling1350k.lean (135万円)
     yield ("地方税法 art. 24_5（合計所得金額135万円）↔ LocalTaxDependentIncomeCeiling1350k.lean",
            "325AC0000000226", "file", None,
            ["これらの者の前年の合計所得金額が百三十五万円を超える場合を除く。"])
 
+    # InheritanceTaxArt25LumpSumPremiumCondition.lean - NORM|fa8a8f71... (相続税法 art.25(1) item1 CONDITION, law 325AC0000000073)
+    # Article-kind locator; needle is the lump-sum premium payment condition.
+    yield ("inheritance tax art.25 lump-sum premium condition - InheritanceTaxArt25LumpSumPremiumCondition.lean",
+           "325AC0000000073",
+           "article", "\u7b2c\u4e8c\u5341\u4e94\u6761",
+           ["\u5f53\u8a72\u5951\u7d04\u306b\u4fc2\u308b\u639b\u91d1\u53c8\u306f\u4fdd\u967a\u6599\u304c\u4e00\u6642\u306b\u6255\u3044\u8fbc\u307e\u308c\u305f\u5834\u5408"])
 
     # 相続税法 art. 69 — InheritanceTaxLateFilingFineCap500k.lean (50万円)
     yield ("相続税法 art. 69（無申告罰金上限50万円）↔ InheritanceTaxLateFilingFineCap500k.lean",
            "325AC0000000073", "file", None,
            ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
     # 地方税法 art. 55の2 — LocalTaxDeferralSmallAmountException1M.lean (100万円)
     yield ("地方税法 art. 55_2（納税猶予100万円例外）↔ LocalTaxDeferralSmallAmountException1M.lean",
            "325AC0000000226", "file", None,
