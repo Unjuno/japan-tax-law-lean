@@ -1130,6 +1130,9 @@ import JapanTaxLaw.FactAssertionConditionsTests
 import JapanTaxLaw.NegativeFactConditions
 import JapanTaxLaw.NegativeFactConditionsSpec
 import JapanTaxLaw.NegativeFactConditionsTests
+import JapanTaxLaw.AmountSettingNorms
+import JapanTaxLaw.AmountSettingNormsSpec
+import JapanTaxLaw.AmountSettingNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
