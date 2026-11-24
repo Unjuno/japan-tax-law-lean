@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 169
+- with >=1 pinned literal check (semantic model): 170
 - with recorded human legal review: 0
 
 ## All laws
@@ -69,7 +69,7 @@ a completion flag.
 | `330AC0000000104` | 地方揮発油税法 | 330AC0000000104_20260401_508AC0000000012 | CurrentEnforced | YES | ok | 74 | YES (1) | NO |
 | `330CO0000000151` | 地方揮発油税法施行令 | 330CO0000000151_20241001_506CO0000000148 | CurrentEnforced | YES | ok | 14 | NO (0) | NO |
 | `330AC0000000113` | 地方揮発油譲与税法 | 330AC0000000113_20190401_431AC0000000002 | CurrentEnforced | YES | ok | 52 | YES (1) | NO |
-| `330CO0000000237` | 関税定率法第五条の規定による便益関税の適用に関する政令 | 330CO0000000237_20250401_507CO0000000141 | CurrentEnforced | YES | ok | 81 | NO (0) | NO |
+| `330CO0000000237` | 関税定率法第五条の規定による便益関税の適用に関する政令 | 330CO0000000237_20250401_507CO0000000141 | CurrentEnforced | YES | ok | 81 | YES (1) | NO |
 | `331M50000002007` | 地方揮発油譲与税法施行規則 | 331M50000002007_20230401_505M60000008036 | CurrentEnforced | YES | ok | 55 | YES (1) | NO |
 | `331M50000002047` | アメリカ合衆国軍隊等が行う免税軽油の引取りの手続に関する総理府令 | 331M50000002047_20090401_421M60000008036 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `332AC0000000026` | 租税特別措置法 | 332AC0000000026_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 3736 | YES (25) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 301
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 305

@@ -2012,3 +2012,6 @@ import JapanTaxLaw.HeiseiFY7AttributionTests
 import JapanTaxLaw.PrescribedTimesTwo
 import JapanTaxLaw.PrescribedTimesTwoSpec
 import JapanTaxLaw.PrescribedTimesTwoTests
+import JapanTaxLaw.PreferentialTariffOrderEnforcementDate
+import JapanTaxLaw.PreferentialTariffOrderEnforcementDateSpec
+import JapanTaxLaw.PreferentialTariffOrderEnforcementDateTests
