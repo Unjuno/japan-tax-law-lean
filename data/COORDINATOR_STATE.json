@@ -380,39 +380,6 @@
       "unhandled_conditions": []
     },
     {
-      "article": "27",
-      "checklist": [
-        "write an independent spec FIRST (own spec* definitions, no implementation ids)",
-        "implement the pinned clause as a separate Lean module",
-        "record pinned law id / revision / scoped article and exact needle in both headers",
-        "do NOT mark legal review: it stays LEGAL_REVIEW_PENDING"
-      ],
-      "claim_owner": "",
-      "dependencies": [],
-      "enforcement_date": "2026-05-25",
-      "law_id": "332AC0000000055",
-      "legal_review": "LEGAL_REVIEW_PENDING",
-      "normative_id": "NORM|0b733f32ad62ee9eb38946a83a200c9e305427d46b05ce7cae8d298ad38bc24b",
-      "remaining_axes": [
-        "source_location",
-        "decomposition_audit",
-        "source_correspondence_audit",
-        "independent_spec",
-        "implementation",
-        "kernel_proof",
-        "proof_scope",
-        "boundary_proof",
-        "cross_law_proof",
-        "tests",
-        "adversarial_review"
-      ],
-      "revision": "332AC0000000055_20260525_506AC0000000052",
-      "role": "FORMALIZE",
-      "scope": "FULL_ARTICLE",
-      "status": "NOT_STARTED",
-      "unhandled_conditions": []
-    },
-    {
       "article": "2",
       "checklist": [
         "write an independent spec FIRST (own spec* definitions, no implementation ids)",
@@ -440,6 +407,39 @@
         "adversarial_review"
       ],
       "revision": "332AC0000000077_20010106_411AC0000000160",
+      "role": "FORMALIZE",
+      "scope": "FULL_ARTICLE",
+      "status": "NOT_STARTED",
+      "unhandled_conditions": []
+    },
+    {
+      "article": "32",
+      "checklist": [
+        "write an independent spec FIRST (own spec* definitions, no implementation ids)",
+        "implement the pinned clause as a separate Lean module",
+        "record pinned law id / revision / scoped article and exact needle in both headers",
+        "do NOT mark legal review: it stays LEGAL_REVIEW_PENDING"
+      ],
+      "claim_owner": "",
+      "dependencies": [],
+      "enforcement_date": "2026-04-01",
+      "law_id": "335CO0000000069",
+      "legal_review": "LEGAL_REVIEW_PENDING",
+      "normative_id": "NORM|06ecf4e83a75240fefb191c05f7df0f5ead383672e0052e4472472d1cde8dd3f",
+      "remaining_axes": [
+        "source_location",
+        "decomposition_audit",
+        "source_correspondence_audit",
+        "independent_spec",
+        "implementation",
+        "kernel_proof",
+        "proof_scope",
+        "boundary_proof",
+        "cross_law_proof",
+        "tests",
+        "adversarial_review"
+      ],
+      "revision": "335CO0000000069_20260401_508CO0000000085",
       "role": "FORMALIZE",
       "scope": "FULL_ARTICLE",
       "status": "NOT_STARTED",
@@ -586,9 +586,53 @@
     {
       "id": "NORM|a7c200db2396f1e421f70506e6b0f44824a62aa57a544d681d9229563d403edf",
       "reason": "BLOCKED_BY_DEPENDENCY"
+    },
+    {
+      "id": "NORM|d5ae7c894fdc0aa15fa8f88c02c0bf19730f3c90d769c4bda89c066329afea40",
+      "reason": "BLOCKED_BY_DEPENDENCY"
+    },
+    {
+      "id": "NORM|4993145f019a36c624aeb915f6b0820eed87d13746a1da299acc05d13148b57d",
+      "reason": "BLOCKED_BY_DEPENDENCY"
+    },
+    {
+      "id": "NORM|e82ef94eacd0ecda31239534891c0e6ebd736d02258907378ca25095c58abb3e",
+      "reason": "BLOCKED_BY_DEPENDENCY"
+    },
+    {
+      "id": "NORM|3c84013c6f4bb9acf1fe22cd5fefdaea87647991d061871d379884e4268a4429",
+      "reason": "BLOCKED_BY_DEPENDENCY"
+    },
+    {
+      "id": "NORM|4bd1b924297433ef99c76ece2c5dc6a077a88e636794d026d4f50aa60eef96fe",
+      "reason": "BLOCKED_BY_DEPENDENCY"
+    },
+    {
+      "id": "NORM|0da86ce416f61207c44f00b59ef9625b1f46829e240dadbab718fa1015fdfde1",
+      "reason": "BLOCKED_BY_DEPENDENCY"
+    },
+    {
+      "id": "NORM|d06394960ee8cb135d541333a00026811813d7238d21a6779cf1a0213ce1db94",
+      "reason": "BLOCKED_BY_DEPENDENCY"
+    },
+    {
+      "id": "NORM|1c22fe51c07dc3aea42d65c66198ccafc5c28a18804a0d05ad65767324e4ebef",
+      "reason": "BLOCKED_BY_DEPENDENCY"
+    },
+    {
+      "id": "NORM|080436e8fdc000176e96a9b60a8de172ff49be06e4919f512394eb29ec5c7e7b",
+      "reason": "BLOCKED_BY_DEPENDENCY"
+    },
+    {
+      "id": "NORM|5caf21d81a46d7bf5fe91399c5260ffda7857e559e4fbbbc782d210f52d94fb9",
+      "reason": "BLOCKED_BY_DEPENDENCY"
+    },
+    {
+      "id": "NORM|6297f401ef0a432d597ab9942aac033047b8db80e9b1979ba8fe32089198748c",
+      "reason": "BLOCKED_BY_DEPENDENCY"
     }
   ],
-  "blocked_total": 35,
+  "blocked_total": 46,
   "legal_review_is_not_a_completion_gate": true,
   "legal_review_is_not_a_filter": true,
   "loop": [
@@ -614,15 +658,15 @@
       "stage": "INSPECT",
       "status_counts": {
         "BLOCKED": 2,
-        "FULLY_VERIFIED": 767,
-        "NOT_STARTED": 396084,
+        "FULLY_VERIFIED": 778,
+        "NOT_STARTED": 396073,
         "PROVED_SCOPE": 1
       }
     },
     {
-      "selectable": 396085,
+      "selectable": 396074,
       "selected": 12,
-      "skipped_dependency_or_blocker": 35,
+      "skipped_dependency_or_blocker": 46,
       "stage": "SELECT"
     },
     {
@@ -639,8 +683,8 @@
           "NORM|7128dfb6a017d1db0d57b3a37b36cce183c850974de506050bf109b7e08a8a90",
           "NORM|177401da2045261df6446abf1263b5eb3ab6799cf18872b743a0dcfc2c7e82bc",
           "NORM|2f886a909310a1f78cd7bd2e372a1664fea11ee5a4b06a02f77527939e87f273",
-          "NORM|0b733f32ad62ee9eb38946a83a200c9e305427d46b05ce7cae8d298ad38bc24b",
-          "NORM|25fa4c2ac0e109c13793841e0bb7254f55c8710cbf2398e8ed9b048cf29ed86f"
+          "NORM|25fa4c2ac0e109c13793841e0bb7254f55c8710cbf2398e8ed9b048cf29ed86f",
+          "NORM|06ecf4e83a75240fefb191c05f7df0f5ead383672e0052e4472472d1cde8dd3f"
         ],
         "PROVE": [],
         "VERIFY": []

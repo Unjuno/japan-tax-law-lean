@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 254
-- presence-facts-only complete: 254
-- NOT_STARTED: 254
+- articles with explicit pin: 253
+- presence-facts-only complete: 253
+- NOT_STARTED: 253
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -63,6 +63,7 @@ source positions. Human legal review is a separate axis and is pending.
 | `143AC0000000054` | 第六条 | CustomsRetaliatoryDuty | YES | YES | NO | NOT_STARTED |
 | `430AC0000000016` | 第十五条 | InternationalTouristTaxRate | YES | YES | NO | NOT_STARTED |
 | `347AC0000000007` | 第十一条 | AviationFuelTaxRate | YES | YES | NO | NOT_STARTED |
+| `332AC0000000055` | 第二十七条 | GasolineTaxArt27TripleFineRange | YES | YES | NO | NOT_STARTED |
 | `330AC0000000104` | 第四条 | LocalGasolineTaxRate | YES | YES | NO | NOT_STARTED |
 | `332AC0000000055` | 第九条 | GasolineTaxRate | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十四条 | CustomsSameContentLimit | YES | YES | NO | NOT_STARTED |
@@ -262,9 +263,10 @@ source positions. Human legal review is a separate axis and is pending.
 | `507M60000008043` | 第五条 | SignedAdjustmentAmount | YES | YES | NO | NOT_STARTED |
 | `404CO0000000089` | 第二条 | MergerMaxCapital | YES | YES | NO | NOT_STARTED |
 | `322CO0000000268` | 第十条 | DisasterTaxReliefOrderArt10Item5FieldCondition | YES | YES | NO | NOT_STARTED |
-| `322CO0000000268` | 第十条 | DisasterTaxReliefOrderArt10Item5FieldCondition | YES | YES | NO | NOT_STARTED |
 | `403CO0000000035` | 第二条 | LocalCorpMaxCapital | YES | YES | NO | NOT_STARTED |
 | `347M50000040042` | 第六条 | RefundDifferenceAmount | YES | YES | NO | NOT_STARTED |
 | `345CO0000000050` | 第二条 | BranchDeputyAppointment | YES | YES | NO | NOT_STARTED |
-| `322AC0000000175` | 第九条 | DisasterTaxReliefArt9VehicleNumberReference | YES | YES | NO | NOT_STARTED |
-| `322CO0000000268` | 第十条 | DisasterTaxReliefOrderArt10Item5FieldCondition | YES | YES | NO | NOT_STARTED |
+| `325AC0000000226` | 第七十一条の六 | InterestSplitRate5Pct | YES | YES | NO | NOT_STARTED |
+| `330AC0000000104` | 第十五条 | LocalGasolineArt15TripleFineRange | YES | YES | NO | NOT_STARTED |
+| `325AC0000000073` | 第十条 | InheritanceTaxArt10ShipAircraftLocationException | YES | YES | NO | NOT_STARTED |
+| `426CO0000000139` | 第六条 | FilingDateException | YES | YES | NO | NOT_STARTED |

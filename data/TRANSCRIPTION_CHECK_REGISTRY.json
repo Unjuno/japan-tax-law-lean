@@ -147,6 +147,7 @@
     "GiftAddBack",
     "GiftSpecialDeduction",
     "GiftTax",
+    "GiftTaxSettlementBasicDeduction600k",
     "GolfCourseUseTaxStandardRate",
     "GolfRateCeiling1200",
     "Gradation256",
@@ -233,6 +234,7 @@
     "LocalTaxArt803AdministrativeFine",
     "LocalTaxCapitalOverFiveBillion",
     "LocalTaxDeductionSpouse",
+    "LocalTaxDependentIncomeCeiling1350k",
     "LocalTaxEnforcementDelegatedAmount3000",
     "LocalTaxIncomeBracket4_8",
     "LocalTaxInsuranceEstimate",
@@ -415,7 +417,9 @@
     "VehicleWeightUnit",
     "WeightInterval5M25M",
     "WeightTaxTransfer",
-    "WidowDependentIncomeCeiling5M"
+    "WidowDependentIncomeCeiling5M",
+    "DisasterExciseTaxCredit",
+    "TreasuryCollectionNet"
   ],
   "note": "Modules that MUST retain a transcription audit check. A reconciliation that rewrites transcription_audit.py from a stale base and drops any of these fails the REQUIRED queue-invariant gate. Update this registry only when deliberately removing a module.",
   "schema": 1

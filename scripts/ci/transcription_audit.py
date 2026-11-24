@@ -4231,6 +4231,42 @@ def checks():
            ["ただし、当該指定された期日が当該他の通算法人の同条第一項の規定による申告書の提出期限前の日である場合は、この限りでない。"])
 
 
+    # 国税収納金整理資金法 art. 14(1) — TreasuryCollectionNet.lean
+    yield ("国税収納金整理資金法 art. 14（過誤納還付金控除後の歳入組み入れ額）↔ TreasuryCollectionNet.lean",
+           "329AC0000000036",
+           "file", None,
+           ["財務大臣は、毎会計年度、政令で定めるところにより、当該年度の初日から翌年度の五月三十一日までの期間内において資金に受け入れた国税収納金等（国税に係る返納金で政令で定めるもの並びに特定地方税及びこれに係る返納金を除く。）で当該年度に所属するものの額から当該年度において支払の決定をした過誤納金の還付金等（特定地方税に係る過誤納金の還付金等を除く。第三項において同じ。）の額を控除した額を、当該年度の一般会計又は特別会計の歳入に組み入れるものとする。"])
+
+    yield ("地方税法施行規則 art. 3_13_3（所有割合50%超）↔ LocalBusinessOwnershipThreshold50.lean",
+           "329M50000002023", "file", None,
+           ["発行済株式等の百分の五十を超える数又は金額の株式等が同項の一方の者により保有されている場合"])
+
+    # 通算法人 art. 6 — FilingDateException.lean
+    yield ("通算法人 第六条（指定期日が提出期限前の日の例外）↔ FilingDateException.lean (exception, strict date-before)",
+           "426CO0000000139",
+           "article", "第六条",
+           ["ただし、当該指定された期日が当該他の通算法人の同条第一項の規定による申告書の提出期限前の日である場合は、この限りでない。"])
+
+
+    yield ("地方税法施行令 art. 57_2_8（事業税7.7%）↔ LocalBusinessTaxRate77PerMilleB.lean",
+           "325CO0000000245", "file", None,
+           ["の百分の七・七に相当する額"])
+
+    # 相続税法 art. 21の11の2 — GiftTaxSettlementBasicDeduction600k.lean (60万円控除)
+    yield ("相続税法 art. 21_11_2（贈与税基礎控除60万円）↔ GiftTaxSettlementBasicDeduction600k.lean",
+           "325AC0000000073", "file", None,
+           ["贈与税の課税価格から六十万円を控除する。"])
+
+
+    yield ("相続税法 art. 21_11_2（贈与税基礎控除60万円）↔ GiftTaxSettlementBasicDeduction600k.lean",
+           "325AC0000000073", "file", None,
+           ["贈与税の課税価格から六十万円を控除する。"])
+    # 地方税法 art. 24の5 — LocalTaxDependentIncomeCeiling1350k.lean (135万円)
+    yield ("地方税法 art. 24_5（合計所得金額135万円）↔ LocalTaxDependentIncomeCeiling1350k.lean",
+           "325AC0000000226", "file", None,
+           ["これらの者の前年の合計所得金額が百三十五万円を超える場合を除く。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
