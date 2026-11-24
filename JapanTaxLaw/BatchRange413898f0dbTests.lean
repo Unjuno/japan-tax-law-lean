@@ -1,0 +1,16 @@
+import JapanTaxLaw.BatchRange413898f0dbSpec
+
+/-! Kernel-decided boundary tests. -/
+namespace JapanTaxLaw.BatchRange413898f0db
+
+example : lowerYen = 10000000 := by decide
+example : upperYen = 50000000 := by decide
+example : inRange 10000000 = false := by decide
+example : inRange 10000001 = true := by decide
+example : inRange 50000000 = true := by decide
+example : inRange 50000001 = false := by decide
+example : specInRange 10000000 = inRange 10000000 := agree_spec_impl 10000000
+example : specInRange 10000001 = inRange 10000001 := agree_spec_impl 10000001
+example : specInRange 50000000 = inRange 50000000 := agree_spec_impl 50000000
+
+end JapanTaxLaw.BatchRange413898f0db

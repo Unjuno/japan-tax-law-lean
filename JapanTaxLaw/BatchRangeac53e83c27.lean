@@ -1,0 +1,20 @@
+import JapanTaxLaw.TaxFinance
+
+/-! Generated batch template for a statutory range: lower strict, upper inclusive.
+    Units: yen. The amount is caller-established. -/
+namespace JapanTaxLaw.BatchRangeac53e83c27
+
+/-- Strict lower edge (円). -/
+def lowerYen : Nat := 40000000
+/-- Inclusive upper edge (円). -/
+def upperYen : Nat := 50000000
+
+/-- Membership in the range (lower < x ∧ x ≤ upper). -/
+def inRange (x : Nat) : Bool := decide (lowerYen < x && x <= upperYen)
+
+theorem at_lower : inRange 40000000 = false := by decide
+theorem just_above_lower : inRange 40000001 = true := by decide
+theorem at_upper : inRange 50000000 = true := by decide
+theorem above_upper : inRange 50000001 = false := by decide
+
+end JapanTaxLaw.BatchRangeac53e83c27

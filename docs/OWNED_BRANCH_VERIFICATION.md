@@ -56,14 +56,18 @@ $ python scripts/ci/batch_rate_pipeline.py --limit 50
 rate batch pipeline: verified=50 failed=0
 $ python scripts/ci/batch_rate_pipeline.py --limit 100
 rate batch pipeline: verified=100 failed=0
+$ python scripts/ci/batch_range_pipeline.py --limit 50
+range batch pipeline: verified=50 failed=0
+$ python scripts/ci/batch_range_pipeline.py --limit 100
+range batch pipeline: verified=100 failed=0
 
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=396281, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=571, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=396131, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=721, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=571 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=721 axes=11 unbacked=0
 12/12 invariants passed
 $ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
 
@@ -210,7 +214,11 @@ verification to 百分のX rate norms (fraction with typed denominator,
 independent spec, universal agreement, kernel boundaries, source audit).
 It verified 150 further obligations with zero failures.
 
-So 571 units are evidence-backed FULLY_VERIFIED and 396,281 remain NOT_STARTED
+A third pipeline, `scripts/ci/batch_range_pipeline.py`, covers two-bound ranges
+(「A円を超えB円以下」) with strict lower / inclusive upper edges; it verified
+150 further obligations with zero failures.
+
+So 721 units are evidence-backed FULLY_VERIFIED and 396,131 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
