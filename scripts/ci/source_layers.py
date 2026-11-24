@@ -30,6 +30,7 @@ INVENTORY = REPO / "data" / "INVENTORY.json"
 DISCOVERY = REPO / "docs" / "RECURSIVE_DISCOVERY.md"
 BLOCKED = REPO / "docs" / "BLOCKED.md"
 LOCAL_JURISDICTIONS = REPO / "data" / "LOCAL_JURISDICTIONS.json"
+TAX_TREATIES = REPO / "data" / "TAX_TREATIES.json"
 OUT_JSON = REPO / "data" / "SOURCE_LAYERS.json"
 OUT_MD = REPO / "docs" / "SOURCE_LAYERS.md"
 
@@ -74,6 +75,13 @@ def build() -> dict:
         except (ValueError, OSError):
             local_enum = None
     ordinances = local_enum if local_enum is not None else declared_ordinances
+    treaty_count = None
+    if TAX_TREATIES.exists():
+        try:
+            treaty_count = int(json.loads(
+                TAX_TREATIES.read_text(encoding="utf-8")).get("partners_total") or 0)
+        except (ValueError, OSError):
+            treaty_count = None
     reviewers = _int(r"candidates with recorded reviewer: (\d+)", blocked)
 
     layers = [
@@ -128,13 +136,16 @@ def build() -> dict:
             "legal_nature": "条約（国際法源）— 国内法とは効力発生の機構が異なる",
             "authority": "外務省 / 条約締結",
             "acquisition_status": "NOT_ACQUIRED",
-            "scope_status": "AUXILIARY_LAYER",
-            "count": None,
+            "scope_status": ("ENUMERATED_NOT_ACQUIRED" if treaty_count is not None
+                             else "AUXILIARY_LAYER"),
+            "count": treaty_count,
             "count_acquired": 0,
             "pinned_snapshot": "",
             "verification_status": "OUT_OF_SCOPE",
             "auxiliary": True,
-            "notes": "法源上の性質が異なるため L0 に混ぜない。別層として管理する。",
+            "notes": ("財務省の公式一覧から相手国・協定種別を列挙済み"
+                      "（data/TAX_TREATIES.json）。条約本文・施行版・証明は未取得。"
+                      "法源上の性質が異なるため L0 に混ぜない。"),
         },
         {
             "layer_id": "L4_CIRCULAR",

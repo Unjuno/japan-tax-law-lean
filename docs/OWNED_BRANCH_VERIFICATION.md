@@ -230,6 +230,12 @@ A fifth pipeline, `scripts/ci/batch_strict_upper_pipeline.py`, covers strict
 upper bounds (「N円未満」), including rounding-fragment conditions; it verified
 60 further obligations (2 source-audit failures skip-listed).
 
+Auxiliary scope work: `data/TAX_TREATIES.json` enumerates 96 treaty/agreement
+partners (82 tax treaties, 11 information-exchange agreements, 3 other) from
+the official MOF list dated 2026-11-24, with `NOT_ACQUIRED` status; treaty texts
+are not acquired or proved. `docs/SOURCE_LAYERS.md` reports L3_TREATY as
+ENUMERATED_NOT_ACQUIRED (96), separate from L0 statutes.
+
 So 841 units are evidence-backed FULLY_VERIFIED and 396,011 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
