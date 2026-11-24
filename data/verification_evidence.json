@@ -522,6 +522,19 @@
       "source_location": "data/raw/325CO0000000245_20261101_508CO0000000083.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:21_8/Article#21_8/Paragraph#1/ParagraphSentence/Sentence#1 sha256=9bc03b230fb0ed1039e33a1544cd53772939ee25d6d4648a386400ea269dfb17 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalTaxMedicalIncomeRatioTests.lean sha256=30261d035d1b61066ae5c34aaef3aab08965b08ab1eedf54b714ffe484fdb3b9 (19 kernel-decided examples)"
     },
+    "NORM|aa4f3f14e89453a655123308fabc4e12a2dc360836eecd7bfb35ff829538c7ce": {
+      "adversarial_review": "docs/ADVERSARIAL_PRESUMPTION_40_4.md H/T/D/C/U; rebuttable-vs-conclusive competing interpretation recorded",
+      "boundary_proof": "PresumptionNoDocumentsTests.lean covers submitted=true/false, kernel-checked",
+      "cross_law_proof": "dependencies=[]",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/PresumptionNoDocuments.lean sha256=5ab081503d7fd9c0a2731ff1190f66e5c7c06c834f029f177537640f12e6a42e",
+      "independent_spec": "JapanTaxLaw/PresumptionNoDocumentsSpec.lean sha256=36ba3a34a2811d94ba7adedbf0290242b81796541f0a468e0bd5652e98db1e1f; spec uses two-branch conditional, impl boolean negation",
+      "kernel_proof": "lake build JapanTaxLaw.PresumptionNoDocumentsTests: Build completed successfully (5 jobs); presume_when_absent / no_presumption_when_present / agree_spec_impl all axiom-free",
+      "proof_scope": "agree_spec_impl exhaustive over Bool; one-way presumption, converse not asserted",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; phrase_only_correspondence=true; verbatim located",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:40_4/Article#40_4/Paragraph#3/ParagraphSentence/Sentence#2 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee; verbatim located in art.40_4(3)",
+      "tests": "JapanTaxLaw/PresumptionNoDocumentsTests.lean sha256=6b120249379bbe8981c3113cdd4b80f1e78d6b66ba74257835e0f8cd28ff5483"
+    },
     "NORM|ac371ade261bbd9d8681252eb9998c1991cc66b0773a70cd8b45389690aecb6f": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",

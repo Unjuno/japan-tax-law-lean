@@ -43,12 +43,12 @@ Measured results on this branch (2026-11-20):
 
 ```
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=396797, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=55, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=396796, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=56, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=55 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=56 axes=11 unbacked=0
 12/12 invariants passed
 $ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
 
@@ -130,7 +130,13 @@ The 55th unit is 関税定率法 art. 8(3) みなし納付
 independent two-branch spec and exhaustive Bool agreement. The source auditor
 reports `phrase_only_correspondence=true` (no numeric literal in this unit).
 
-So 55 evidence-backed units left NOT_STARTED on this branch; the
+The 56th unit is 租税特別措置法 art. 40の4(3) 推定
+`NORM|aa4f3f14…`: a PRESUMPTION-kind norm. It is an axiom-free one-way rule
+(absence of documents → presumed non-applicability), with an independent
+two-branch spec, exhaustive Bool agreement, and a phrase-only source audit
+that is explicitly labelled as such.
+
+So 56 evidence-backed units left NOT_STARTED on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
 durable. `docs/TASK_QUEUE.md` is regenerated with these counts.
