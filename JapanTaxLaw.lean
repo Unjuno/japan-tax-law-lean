@@ -572,3 +572,6 @@ import JapanTaxLaw.EnforcementDatesTests
 import JapanTaxLaw.PromulgationEffective
 import JapanTaxLaw.PromulgationEffectiveSpec
 import JapanTaxLaw.PromulgationEffectiveTests
+import JapanTaxLaw.ReadingSubstitutions
+import JapanTaxLaw.ReadingSubstitutionsSpec
+import JapanTaxLaw.ReadingSubstitutionsTests

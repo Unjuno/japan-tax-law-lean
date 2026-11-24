@@ -11,8 +11,8 @@ reconstruction only, never semantic fidelity to the statute.
 ## Counts (independent axes)
 
 - normative units: 268107
-- NOT_STARTED: 261094
-- PARTIAL: 4184
+- NOT_STARTED: 260967
+- PARTIAL: 4311
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 2827
 - BLOCKED: 2
