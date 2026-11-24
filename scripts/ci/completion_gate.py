@@ -121,7 +121,12 @@ def build() -> str:
     tasks = q.get("units", q.get("tasks", []))
     live_counts = Counter(t.get("status", "NOT_STARTED") for t in tasks)
     committed_counts = committed_queue_counts()
-    counts = Counter(committed_counts) if committed_counts else live_counts
+    # The committed document is authoritative for the real ~397k-unit queue.
+    # Synthetic/test queues and early partial generations must not inherit its
+    # totals (a 1-unit fixture must report 1 unit, not the published headline).
+    use_committed = bool(committed_counts
+                         and committed_counts.get("TOTAL") == len(tasks))
+    counts = Counter(committed_counts) if use_committed else live_counts
     evidence_ledger = _load(REPO / "data" / "verification_evidence.json") or {}
     evidence_by_id = evidence_ledger.get("units", {})
     axes = Counter()
@@ -158,7 +163,7 @@ def build() -> str:
     reg = registered_checks()
 
     complete_units = counts.get("FULLY_VERIFIED", 0)
-    total = (committed_counts or {}).get("TOTAL", len(tasks))
+    total = (committed_counts or {}).get("TOTAL", len(tasks)) if use_committed else len(tasks)
     # Technical completion is independent of human review (directive §1).
     all_complete = bool(total) and complete_units == total and blockers == 0 \
         and unhandled == 0
