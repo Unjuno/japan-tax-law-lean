@@ -8,10 +8,21 @@ Independent restatement: 指定都市は base/100、それ以外は base/50。
 
 namespace JapanTaxLaw.LongTermGainSpecialMeasure
 
+-- Independent restatement: the statute writes the rate as 百分の二 (2/100),
+-- with 百分の一 (1/100) for a designated city.  The rate is carried as an
+-- explicit (numerator, denominator) pair transcribed from 原文, so the source
+-- correspondence audit can check the exact statutory ratio, not merely the
+-- presence of a digit somewhere in the article.
+def specRate (designatedCity : Bool) : Nat × Nat :=
+  if designatedCity then (1, 100) else (2, 100)
+
 def specMeasure (g : Nat) (city : Bool) : Nat :=
   let b := if g > 20000000 then g - 20000000 else 0
-  if city then b / 100 else b / 50
+  let r := specRate city
+  b * r.1 / r.2
 
+example : specRate false = (2, 100) := by decide
+example : specRate true = (1, 100) := by decide
 example : specMeasure 30000000 false = 200000 := by decide
 example : specMeasure 30000000 true = 100000 := by decide
 
