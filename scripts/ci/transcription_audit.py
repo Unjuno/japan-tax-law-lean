@@ -4166,6 +4166,13 @@ def checks():
            "file", None,
            ["合計所得金額が九十五万円以下である配偶者"])
 
+    # InheritanceTaxArt21_16GiftTimeValuation.lean - NORM|f700e895... (相続税法 art.21_16(3) item1 EFFECT, law 325AC0000000073)
+    # Article-kind locator; needle is the gift-time valuation sentence.
+    yield ("inheritance tax art.21-16 gift-time valuation - InheritanceTaxArt21_16GiftTimeValuation.lean",
+           "325AC0000000073",
+           "law", None,
+           ["\u5f53\u8a72\u8ca1\u7523\u306e\u4fa1\u984d\u306f\u3001\u7b2c\u4e00\u9805\u306e\u8d08\u4e0e\u306e\u6642\u306b\u304a\u3051\u308b\u4fa1\u984d\u3068\u3059\u308b\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
