@@ -672,6 +672,9 @@ import JapanTaxLaw.FreeCarePatientBand5_10Tests
 import JapanTaxLaw.GasolineDeduction
 import JapanTaxLaw.GasolineDeductionSpec
 import JapanTaxLaw.GasolineDeductionTests
+import JapanTaxLaw.GasolineTaxArt27TripleFineRange
+import JapanTaxLaw.GasolineTaxArt27TripleFineRangeSpec
+import JapanTaxLaw.GasolineTaxArt27TripleFineRangeTests
 import JapanTaxLaw.GasolineTaxCombination
 import JapanTaxLaw.GasolineTaxCombinationSpec
 import JapanTaxLaw.GasolineTaxCombinationTests
