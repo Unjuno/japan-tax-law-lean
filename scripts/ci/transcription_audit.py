@@ -4138,6 +4138,22 @@ def checks():
            ["この法律は、公布の日から起算して六月を超えない範囲内において政令で定める日（以下「施行日」という。）から施行する。"])
 
 
+    # BusinessTaxCollectionCostRate5 — 地方税法施行規則 art.24の28 徴収費5%
+    yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
+           "329M50000002023", "file", None,
+           ["事業所税の額の百分の五に相当する額とする"])
+
+    # SpecialMeasuresOrderRate75 — 租税特別措置法施行令 art.5の5 75%
+    yield ("SpecialMeasuresOrderRate75.lean — 租税特別措置法施行令 art.5の5 75%",
+           "332CO0000000043", "file", None,
+           ["法第十条の三第一項に規定する政令で定める割合は、百分の七十五とする"])
+
+    # 所得税法施行令 art. 83_2 — SpouseIncomeCeiling950k.lean
+    yield ("所得税法施行令 art. 83_2（配偶者の合計所得金額 九十五万円以下）↔ SpouseIncomeCeiling950k.lean",
+           "340AC0000000033", "file", None,
+           ["合計所得金額が九十五万円以下である配偶者"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
