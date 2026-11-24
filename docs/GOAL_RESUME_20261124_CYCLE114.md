@@ -128,6 +128,17 @@ existing attestations remain valid):
 `scripts/tests/test_verification_evidence.py` and `test_structural_evidence.py`:
 25/25 OK; targeted generator check now yields 3 cycle-116 units.
 
+## 5d. Cycle-117 (2026-11-25)
+
+Two bounded modules pushed at `68f057a8`:
+`MotorVehicleTaxShortfallSurcharge35` (art.12の5) and
+`LightMotorVehicleTaxShortfallSurcharge35` (art.30の2), each the 35% addition
+on the prior-paragraph shortfall. CI run `45433520770` Lean/axiom job verified;
+scoped attestations bound after success. Checks: 8/8 Lean builds, transcription
+569/569, invariants 17/17, no `sorry`. Legal review stays
+`LEGAL_REVIEW_PENDING`. Only the 35% addition is modelled, not the shortfall
+computation, total tax or rounding.
+
 ## 6. Resume procedure (exact)
 
 1. `git fetch origin main`; `python scripts/ci/generate_verification_evidence.py`
