@@ -12320,3 +12320,14 @@ CI `checks()` の `LifeInsurancePremiumDeductionUpper.lean` エントリ（law_i
 - H（反証可能仮説）: 上限が別の語である可能性。T（再現検査）: pinned JSON の当該条を直接 flatten し needle を数える。D（合否）: needle 2 回・「六」存在 → PASS。C（対立解釈）: 延長回数と読む解釈もあり得るが、原文は「期間を六月以内」であり期間上限を採用。U（不確かさ）: 特別の理由の認定基準は条文外であり未検証として保持。
 
 このレビューは機械的な独立照合であり、人間の法的レビューではない。
+
+### AutoWeightGrantRounding.lean — 自動車重量譲与税法 art.4（千円未満端数）— Batch EA2
+
+- **pin**: law `346AC0000000090`, revision `346AC0000000090_20260401_508AC0000000002`, snapshot `data/raw/346AC0000000090_20260401_508AC0000000002.law.json`. Needle 「千円未満の端数金額があるときは、その端数金額を控除した金額」 scoped to MainProvision Article Num 4.
+- **独立再抽出**: pinned UTF-8 原文から `千円未満 → 1,000 円単位の切捨て` を再導出。独立仕様 `specFloor x = x - x % 1000` と実装 `x / 1000 * 1000` は別定式で、対応は全称定理 `agreeRound` をカーネル検証。
+- **H**: art.4 の端数は 1,000 円未満を控除し、単位は円、定義域は `Nat`（金額）。
+- **T**: transcription audit の pinned needle + 境界例 0/999/1000/1001/1999/2000。
+- **D**: PASS（原文一致・境界一致）。法的妥当性の判定ではない。
+- **C**: 石油ガス譲与税法 art.4 の同種端数規定は別法源であり、本ユニットの根拠ではない。前三条の譲与額算定は未形式化。
+- **U**: 端数処理が前三条の算定途中にも及ぶかは原文から確定せず、未対応条件として保持。
+- **判定**: BY-DESIGN。CONFIRMED 0 / UNRESOLVED 1。人間レビュー `LEGAL_REVIEW_PENDING`。

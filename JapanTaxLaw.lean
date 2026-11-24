@@ -52,6 +52,9 @@ import JapanTaxLaw.AreaThreshold2HaTests
 import JapanTaxLaw.AuctionDepositValuation
 import JapanTaxLaw.AuctionDepositValuationSpec
 import JapanTaxLaw.AuctionDepositValuationTests
+import JapanTaxLaw.AutoWeightGrantRounding
+import JapanTaxLaw.AutoWeightGrantRoundingSpec
+import JapanTaxLaw.AutoWeightGrantRoundingTests
 import JapanTaxLaw.AviationFuelTaxAmountFloor
 import JapanTaxLaw.AviationFuelTaxAmountFloorSpec
 import JapanTaxLaw.AviationFuelTaxAmountFloorTests
@@ -873,6 +876,9 @@ import JapanTaxLaw.IntermediateSurchargeRefundTests
 import JapanTaxLaw.InternationalTouristTaxRate
 import JapanTaxLaw.InternationalTouristTaxRateSpec
 import JapanTaxLaw.InternationalTouristTaxRateTests
+import JapanTaxLaw.InvestigationExtensionSixMonths
+import JapanTaxLaw.InvestigationExtensionSixMonthsSpec
+import JapanTaxLaw.InvestigationExtensionSixMonthsTests
 import JapanTaxLaw.InvestmentIncomeBelowHalf
 import JapanTaxLaw.InvestmentIncomeBelowHalfSpec
 import JapanTaxLaw.InvestmentIncomeBelowHalfTests
@@ -1883,6 +1889,3 @@ import JapanTaxLaw.WidowDependentIncomeCeiling5MTests
 import JapanTaxLaw.WirePitch165nm
 import JapanTaxLaw.WirePitch165nmSpec
 import JapanTaxLaw.WirePitch165nmTests
-import JapanTaxLaw.InvestigationExtensionSixMonths
-import JapanTaxLaw.InvestigationExtensionSixMonthsSpec
-import JapanTaxLaw.InvestigationExtensionSixMonthsTests
