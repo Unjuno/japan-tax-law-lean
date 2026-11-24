@@ -1,4 +1,38 @@
 {
+  "_units": {
+    "NORM|8c095d47899bc578623b2e1cd9acb6d078f63048d0f3ac1c82036369a1e99a8b": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 6,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "LocalTaxDeferralSmallAmountException1M",
+      "spec_kanji_in_原文": [
+        "百万"
+      ]
+    },
+    "NORM|fc6d15c660ee7d08d6f6aaf79496da961af0b4df13a87e9878894f288fe1f951": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 6,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "InheritanceTaxLateFilingFineCap500k",
+      "spec_kanji_in_原文": [
+        "五十万"
+      ]
+    }
+  },
   "attestation_commit": "9f004eda309428649646a4358676f47302a1fbfd",
   "module_detail": {
     "AccessoryPriceFloor": {
@@ -3073,6 +3107,21 @@
         1000001
       ]
     },
+    "InheritanceTaxLateFilingFineCap500k": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "五十万"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 6,
+      "needles_scoped": true,
+      "scoped_article_chars": 116,
+      "spec_literals": [
+        500000
+      ]
+    },
     "InheritanceTaxRateBracket100_200": {
       "adversarial_review": false,
       "boundary_examples_found": 0,
@@ -4229,6 +4278,21 @@
       "spec_literals": [
         10000000,
         10000001
+      ]
+    },
+    "LocalTaxDeferralSmallAmountException1M": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "百万"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 6,
+      "needles_scoped": true,
+      "scoped_article_chars": 2250,
+      "spec_literals": [
+        1000000
       ]
     },
     "LocalTaxDependentIncomeCeiling1350k": {
