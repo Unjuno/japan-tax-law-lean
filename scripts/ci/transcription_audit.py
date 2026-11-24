@@ -4064,6 +4064,13 @@ def checks():
            "article", "\u7b2c\u4e5d\u6761",
            ["\u524d\u9805\u306b\u304a\u3044\u3066\u3001\u6b21\u306e\u5404\u53f7\u306b\u63b2\u3052\u308b\u7528\u8a9e\u306e\u610f\u7fa9\u306f\u3001\u5f53\u8a72\u5404\u53f7\u306b\u5b9a\u3081\u308b\u3068\u3053\u308d\u306b\u3088\u308b\u3002"])
 
+    # DisasterTaxReliefArt9VehicleNumberReference.lean - NORM|5bbe8f54... (災害被害者租税減免法 art.9(2) item3 REFERENCE, law 322AC0000000175)
+    # Article-kind locator; cross-law reference resolved_by_name in queue deps.
+    yield ("disaster tax relief art.9 vehicle number reference - DisasterTaxReliefArt9VehicleNumberReference.lean",
+           "322AC0000000175",
+           "article", "\u7b2c\u4e5d\u6761",
+           ["\u81ea\u52d5\u8eca\u91cd\u91cf\u7a0e\u6cd5\u7b2c\u4e8c\u6761\u7b2c\u4e00\u9805\u7b2c\u4e09\u53f7\u306b\u898f\u5b9a\u3059\u308b\u8eca\u4e21\u756a\u53f7\u306e\u6307\u5b9a\u3092\u3044\u3046\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
