@@ -1085,9 +1085,6 @@ import JapanTaxLaw.LocalTaxOrderRate99ATests
 import JapanTaxLaw.LocalTaxPerCapitaStandardRate
 import JapanTaxLaw.LocalTaxPerCapitaStandardRateSpec
 import JapanTaxLaw.LocalTaxPerCapitaStandardRateTests
-import JapanTaxLaw.LocalTaxRateCeiling2Percent
-import JapanTaxLaw.LocalTaxRateCeiling2PercentSpec
-import JapanTaxLaw.LocalTaxRateCeiling2PercentTests
 import JapanTaxLaw.LocalTaxShortfallRounding
 import JapanTaxLaw.LocalTaxShortfallRoundingSpec
 import JapanTaxLaw.LocalTaxShortfallRoundingTests
@@ -1295,9 +1292,6 @@ import JapanTaxLaw.PrescribedTimesTwoTests
 import JapanTaxLaw.ProductionVolume6KL
 import JapanTaxLaw.ProductionVolume6KLSpec
 import JapanTaxLaw.ProductionVolume6KLTests
-import JapanTaxLaw.PropertyAcquisitionSpecialRate3
-import JapanTaxLaw.PropertyAcquisitionSpecialRate3Spec
-import JapanTaxLaw.PropertyAcquisitionSpecialRate3Tests
 import JapanTaxLaw.PropertyInKindEnforcementDate
 import JapanTaxLaw.PropertyInKindEnforcementDateSpec
 import JapanTaxLaw.PropertyInKindEnforcementDateTests
@@ -1501,9 +1495,6 @@ import JapanTaxLaw.RetirementResidual3MTests
 import JapanTaxLaw.RiceContentThreshold
 import JapanTaxLaw.RiceContentThresholdSpec
 import JapanTaxLaw.RiceContentThresholdTests
-import JapanTaxLaw.RndSurchargeRate
-import JapanTaxLaw.RndSurchargeRateSpec
-import JapanTaxLaw.RndSurchargeRateTests
 import JapanTaxLaw.RoadAreaRate
 import JapanTaxLaw.RoadAreaRateSpec
 import JapanTaxLaw.RoadAreaRateTests
