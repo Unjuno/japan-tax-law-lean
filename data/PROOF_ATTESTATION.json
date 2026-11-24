@@ -1,9 +1,9 @@
 {
-  "commit": "1a685966f0dff2dd7ea3fc60bf53275764a08728",
+  "commit": "a841838a7bbad76ecb477c247ce93d7d13f02ea8",
   "jobs": {
     "Build Lean project and check axioms": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45333988195/job/138241636723",
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45344189369/job/138274681574",
       "required_steps": [
         "Build explicitly",
         "No sorry/admit in adopted proofs",
@@ -14,7 +14,7 @@
     },
     "Semantic audit and mutation injection": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45333988195/job/138241636414"
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45344189369/job/138274681935"
     }
   },
   "modules": {
@@ -495,6 +495,15 @@
     "CorpAssetCompressionTests.lean": {
       "sha256": "7f3c2199fac2e0b98614961d62c7dcc842d9fc047ce925903e4c06feec317575"
     },
+    "CorpCapital75_4_100M.lean": {
+      "sha256": "915de813930c7f681a84776acbff2074741236e717022173b955e81c97b16979"
+    },
+    "CorpCapital75_4_100MSpec.lean": {
+      "sha256": "d72913965c41d33afb302756617d5547a91b99b07ec2f8b146cc1a6350661096"
+    },
+    "CorpCapital75_4_100MTests.lean": {
+      "sha256": "075e2593c13dab64024d995d55130eefb6a6469f88b43731716ed2ad05b409cd"
+    },
     "CorpCourseUnits17.lean": {
       "sha256": "d41d347817022999f9210eedf3be265f6d38f3f028dffa5b38a23f71f17fc8db"
     },
@@ -512,6 +521,15 @@
     },
     "CorpIncome10MTests.lean": {
       "sha256": "fde25c06ac681d8805098422ab71c84239ff7d31bcafea69046d075bf8e41afb"
+    },
+    "CorpUnits31Art7.lean": {
+      "sha256": "b842844338989c506ddd07f8973447b2d369b4fe0ed5de87e46136d7ec23cc93"
+    },
+    "CorpUnits31Art7Spec.lean": {
+      "sha256": "509827269cc738537977648e7498c5bc7b2f6125c18f559593964e64edf61b4d"
+    },
+    "CorpUnits31Art7Tests.lean": {
+      "sha256": "f01fd5777afe8c7e3d6df8e876013a0ce33007907a9c15cc176defac3a5dd891"
     },
     "CorporateCapital100M.lean": {
       "sha256": "8435b4f91d7327fc16a0eac4dca0bcbf4aac8e65b0152b640c61d922d6d390ca"
@@ -1647,6 +1665,15 @@
     "GiftAddBackTests.lean": {
       "sha256": "54e66358ad26be6275ee00cf9125443a3e16fd660a3071428c8e13e0a7682978"
     },
+    "GiftLand3000sqm.lean": {
+      "sha256": "46762eb47f04677b97ef6b28152e8582a9e9032a98b21871073d0b45a5328e3b"
+    },
+    "GiftLand3000sqmSpec.lean": {
+      "sha256": "5e5c530110b1bdd58c0af28b46861478bf106cb6920cadb4dd667bbc94bd2aa2"
+    },
+    "GiftLand3000sqmTests.lean": {
+      "sha256": "3dcab4a139bee7b3a7c35d90ab501f18c02ecd3e0078a76628b0c9d308a5f657"
+    },
     "GiftSpecialDeduction.lean": {
       "sha256": "336436c45d1e1a47590e5d609475f6f5daf06d7b6ae9903fb3e60b7e83c0ee3e"
     },
@@ -2259,6 +2286,24 @@
     "LiquorFine500kTests.lean": {
       "sha256": "62ed29968c32a5ef4730436bc99b34c7bd9011e1b1c17fbc641360c58cd01b59"
     },
+    "LiquorMix26Deg.lean": {
+      "sha256": "44036a939853ae3c6a4a62c03de716af6fabcb5de4eed3a48fe37b1286f97128"
+    },
+    "LiquorMix26DegSpec.lean": {
+      "sha256": "536aa582c2ce9c6b2ce1cfb06a2ebc15a1398c552a462135c671ced2476034bb"
+    },
+    "LiquorMix26DegTests.lean": {
+      "sha256": "fbe1695690257c60dd824eb6b35bff866a018ee80b07bc7c9017699fc3f5edd4"
+    },
+    "LiquorOrderFine500k.lean": {
+      "sha256": "6d1f13a2bd51762e8916d3ab3dc9ce6f3ea9931757b257ea7ecb0a2b00e6f56b"
+    },
+    "LiquorOrderFine500kSpec.lean": {
+      "sha256": "26d6739deeaa35fbd89a346af6f972ecb4c6487a15fcdd1337c99e47ce8e5d6a"
+    },
+    "LiquorOrderFine500kTests.lean": {
+      "sha256": "bf03a28a95f7b45c3d52c5eea238c4d4f44c11de9c3bf718b07b31b25c26df6e"
+    },
     "LiquorTaxSakeAlcoholBracket15_16.lean": {
       "sha256": "80acebe523d7c04e3b5e530f24e568681112de4ed2d6f93cbaef75c3d3e4491b"
     },
@@ -2322,6 +2367,15 @@
     "LocalAllocationTaxRoundingTests.lean": {
       "sha256": "20227679cd5c4dbd0d64b8d7662b06759e6c2a668e3965cd85666a44b55d7306"
     },
+    "LocalCorp24_5_100M.lean": {
+      "sha256": "08132a750d46ca958bb23222b9f19b8898d86981c498f12ddb4028f4fadc4de2"
+    },
+    "LocalCorp24_5_100MSpec.lean": {
+      "sha256": "b76720fc275ceaf834a12316ba069ece1f1e17a9e08b87c0048ba393d2adc050"
+    },
+    "LocalCorp24_5_100MTests.lean": {
+      "sha256": "390bb7dea34aba5a07e4c1eb42535160428100fef19551695e85964cd90436d7"
+    },
     "LocalCorpCapital100M.lean": {
       "sha256": "ec7e2c64d816c53d616b3fdd9144f8f5fbb46f0f8b8d9fcc9e219116deced8d7"
     },
@@ -2375,6 +2429,15 @@
     },
     "LocalGasolineTaxRateTests.lean": {
       "sha256": "81f3ea80b7304b39f475b2ded76eec6f9931e1c999382fbe4c807c582d72b676"
+    },
+    "LocalGradation256.lean": {
+      "sha256": "46c388ab9c19982c8a8bb1f2505d6b4f884f1557c12a63582da62a54bcaa1228"
+    },
+    "LocalGradation256Spec.lean": {
+      "sha256": "2d7e3ea059d3b30a92d47d08593a616d937d1e8aecc0c26163bd0bcf45e601f8"
+    },
+    "LocalGradation256Tests.lean": {
+      "sha256": "6e5ba761077073077d503ec14fc5f157456b1fb73a9c89909c7bcf71e473507a"
     },
     "LocalGrantRevenueBase.lean": {
       "sha256": "d6aafc8bff6c20b7d6d3670df4e19b6ffee18699b4696b919d8aead6bfb24592"
@@ -4356,6 +4419,15 @@
     "TravelerExemptionLimitTests.lean": {
       "sha256": "10aa00cf6aefc736825e5eea4870f61e4af19546e99b56a0aededd600c22ca2d"
     },
+    "TreatyAsset100M.lean": {
+      "sha256": "d588386daec9f9112e224a4a3d75af1daade2eb12998db38473ae0ffee2ac025"
+    },
+    "TreatyAsset100MSpec.lean": {
+      "sha256": "dd9c64c78fccf0cc5226273ff37aadd16ff6776c629fd951765b3e6a5a3f9706"
+    },
+    "TreatyAsset100MTests.lean": {
+      "sha256": "f8ff2d00dcd4dc9798b3a175e60d613fea051336399329c2de2888fb2948a114"
+    },
     "TreatyDeduction.lean": {
       "sha256": "35e235c29bd9167d90e2296d169bbf77a68c62b2c129b06aefaf31463d5159dd"
     },
@@ -4513,5 +4585,5 @@
   "note": "Kernel-build attestation. Hashes are SHA-256 of the committed blob bytes (LF-normalised). CI run is a recorded, independently reproducible build of the exact commit; the generator re-checks every hash before accepting it as evidence.",
   "run_conclusion": "success",
   "schema": 1,
-  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45333988195"
+  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45344189369"
 }
