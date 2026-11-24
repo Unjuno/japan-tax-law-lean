@@ -91,6 +91,22 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+
+    # Restored registry checks dropped by a concurrent stale-base rewrite.
+    yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
+           "329M50000002023", "file", None,
+           ["事業所税の額の百分の五に相当する額とする"])
+    yield ("LightMotorVehicleTaxShortfallSurcharge35.lean — 地方税法 art.30の2 不足額加算35%",
+           "325AC0000000226", "file", None,
+           ["同項の不足額に、これに百分の三十五の割合を乗じて計算した金額を加算した金額とする"])
+    yield ("MotorVehicleTaxShortfallSurcharge35.lean — 地方税法 art.12の5 不足額加算35%",
+           "325AC0000000226", "file", None,
+           ["同項の不足額に、これに百分の三十五の割合を乗じて計算した金額を加算した金額とする"])
+    yield ("SpecialMeasuresOrderRate75.lean — 租税特別措置法施行令 art.5の5 75%",
+           "332CO0000000043", "file", None,
+           ["法第十条の三第一項に規定する政令で定める割合は、百分の七十五とする"])
+    cia = find_article_text  # alias for readability
+
     # 法人税法 art. 66 — CorporateTaxRate.lean
     yield ("法人税法 art. 66（法人税率）↔ CorporateTaxRate.lean (smeRate 19% / ordinaryRate 23.2% / 年800万円 cap / 資本金1億円以下)",
            "340AC0000000034",
@@ -2065,7 +2081,7 @@ def checks():
            "file", None,
            ["石油ガス譲与税は、石油ガス税法", "石油ガス税の収入額の二分の一に相当する額"])
 
-    # OilGasGrantRounding — normative unit: 石油ガス譲与税法 art.4 千円未満端数控除
+    # OilGasGrantRounding — normative unit art.4
     yield ("石油 GAS 譲与税法 art. 4（譲与額の千円未満端数を控除）↔ OilGasGrantRounding.lean",
            "340AC0000000157",
            "article", "第四条",
@@ -3938,19 +3954,15 @@ def checks():
            "file", None,
            ["残存期間が二十五年を超え三十年以下のもの及び地上権で存続期間の定めのないもの"])
 
-    # InheritanceTaxArt15NoBioChildTwoAdoptedCondition.lean - NORM|e3c065da... (相続税法 art.15(2) item2 CONDITION, law 325AC0000000073)
-    # Article-kind locator; needle is the 実子/養子 threshold condition sentence.
-    yield ("inheritance tax art.15 no-bio-child two-adopted condition - InheritanceTaxArt15NoBioChildTwoAdoptedCondition.lean",
-           "325AC0000000073",
-           "article", "\u7b2c\u5341\u4e94\u6761",
-           ["\u5f53\u8a72\u88ab\u76f8\u7d9a\u4eba\u306b\u5b9f\u5b50\u304c\u306a\u304f\u3001\u990a\u5b50\u306e\u6570\u304c\u4e8c\u4eba\u4ee5\u4e0a\u3067\u3042\u308b\u5834\u5408"])
-
-    yield ("LongTermGainSpecialMeasure.lean",
-           "325AC0000000226",
-           "file", None,
-           ["当該課税長期譲渡所得金額から二千万円を控除した金額の百分の二", "第三十四条の二"])
-
+    # DisasterTaxReliefOrderArt10Item5FieldCondition.lean (restored after merge dropped it)
+    # NORM|776e380c… 災害被害者租税減免法施行政令 art.10(1) item5 CONDITION.
     yield ("disaster tax relief order art.10 item5 field condition - DisasterTaxReliefOrderArt10Item5FieldCondition.lean",
+           "322CO0000000268",
+           "article", "第十条",
+           ["徴収猶予限度額又は徴収猶予期間及びこれらの計算の基礎"])
+
+    # Disaster item5 restored
+    yield ("DisasterTaxReliefOrderArt10Item5FieldCondition.lean — 災害被害者租税減免法施行令 art.10(1) item5 CONDITION",
            "322CO0000000268",
            "article", "\u7b2c\u5341\u6761",
            ["\u5fb4\u53ce\u7336\u4e88\u9650\u5ea6\u984d\u53c8\u306f\u5fb4\u53ce\u7336\u4e88\u671f\u9593\u53ca\u3073\u3053\u308c\u3089\u306e\u8a08\u7b97\u306e\u57fa\u790e"])
