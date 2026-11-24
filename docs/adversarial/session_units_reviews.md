@@ -1405,3 +1405,129 @@ H/T/D/C/U record:
 - **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
 
 > **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### LocalCapitalBand10M100M.lean — 地方税法 art. 52（資本金等の額 千万円超一億円以下）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の区間条件を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 10000000 < x <= 100000000 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### LocalCapitalBand100M1B.lean — 地方税法 art. 52（資本金等の額 一億円超十億円以下）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の区間条件を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 100000000 < x <= 1000000000 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### LocalCapitalBand1B5B.lean — 地方税法 art. 52（資本金等の額 十億円超五十億円以下）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の区間条件を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 1000000000 < x <= 5000000000 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### InheritanceResidual25_30.lean — 相続税法 art. 23（地上権の残存期間 二十五年超三十年以下）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325AC0000000073` / revision `325AC0000000073_20260401_506AC0000000008`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の区間条件を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 25 < x <= 30 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### LocalFloorArea50_240.lean — 地方税法施行令 art. 9（床面積 五十平方メートル以上二百四十平方メートル以下）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325CO0000000245` / revision `325CO0000000245_20261101_508CO0000000083`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値条件・算定式を独立仕様として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### LocalFloorArea40_240.lean — 地方税法施行令 art. 12（住宅の床面積 四十平方メートル以上二百四十平方メートル以下）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325CO0000000245` / revision `325CO0000000245_20261101_508CO0000000083`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値条件・算定式を独立仕様として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### LiquorTaxBand15to16.lean — 酒税法 art. 38（アルコール分 十五度以上十六度未満）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `328AC0000000006` / revision `328AC0000000006_20260525_506AC0000000052`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値条件・算定式を独立仕様として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### LiquorTaxSchedule12.lean — 酒税法 art. 23（酒税額 十二万円＋十二度超一度ごとに一万円加算）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `328AC0000000006` / revision `328AC0000000006_20260525_506AC0000000052`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値条件・算定式を独立仕様として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### TaxAccountantExamFeeSchedule.lean — 税理士法施行令 art. 6_2（税理士試験 受験料 四千円＋二科目目以降千五百円加算）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `326CO0000000216` / revision `326CO0000000216_20240401_505CO0000000146`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値条件・算定式を独立仕様として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
