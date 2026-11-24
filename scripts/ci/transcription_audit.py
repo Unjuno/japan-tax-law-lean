@@ -3950,6 +3950,10 @@ def checks():
 
     # DisasterTaxReliefOrderArt10Item5FieldCondition.lean (restored after merge dropped it)
     # NORM|776e380c… 災害被害者租税減免法施行政令 art.10(1) item5 CONDITION.
+    yield ("disaster tax relief order art.10 item5 field condition - DisasterTaxReliefOrderArt10Item5FieldCondition.lean",
+           "322CO0000000268",
+           "article", "第十条",
+           ["徴収猶予限度額又は徴収猶予期間及びこれらの計算の基礎"])
 
     # 地方法人税法 art. 2 — LocalCorpMaxCapital.lean
     yield ("法人臨時特別税政令 art. 2（被合併法人二以上の最大額選択）↔ LocalCorpMaxCapital.lean (max selection, trigger >=2)",
@@ -4013,6 +4017,36 @@ def checks():
            "325AC0000000226",
            "file", None,
            ["前年の合計所得金額が五百万円以下であること"])
+
+# 床面積 五十平方メートル以上二百四十平方メートル以下 — LocalFloorArea50_240.lean
+    yield ("地方税法施行令 art. 9（床面積 五十平方メートル以上二百四十平方メートル以下）↔ LocalFloorArea50_240.lean",
+           "325CO0000000245",
+           "file", None,
+           ["床面積が五十平方メートル以上二百四十平方メートル以下のものであること。"])
+
+    # 住宅の床面積 四十平方メートル以上二百四十平方メートル以下 — LocalFloorArea40_240.lean
+    yield ("地方税法施行令 art. 12（住宅の床面積 四十平方メートル以上二百四十平方メートル以下）↔ LocalFloorArea40_240.lean",
+           "325CO0000000245",
+           "file", None,
+           ["床面積が四十平方メートル以上二百四十平方メートル以下である住宅"])
+
+    # アルコール分 十五度以上十六度未満 — LiquorTaxBand15to16.lean
+    yield ("酒税法 art. 38（アルコール分 十五度以上十六度未満）↔ LiquorTaxBand15to16.lean",
+           "328AC0000000006",
+           "file", None,
+           ["アルコール分が十五度以上十六度未満のもの　二十七万九千五百円"])
+
+    # 酒税額 十二万円＋十二度超一度ごとに一万円加算 — LiquorTaxSchedule12.lean
+    yield ("酒税法 art. 23（酒税額 十二万円＋十二度超一度ごとに一万円加算）↔ LiquorTaxSchedule12.lean",
+           "328AC0000000006",
+           "file", None,
+           ["十二万円（アルコール分が十三度以上のものにあつては、十二万円にアルコール分が十二度を超える一度ごとに一万円を加えた金額）"])
+
+    # 税理士試験 受験料 四千円＋二科目目以降千五百円加算 — TaxAccountantExamFeeSchedule.lean
+    yield ("税理士法施行令 art. 6_2（税理士試験 受験料 四千円＋二科目目以降千五百円加算）↔ TaxAccountantExamFeeSchedule.lean",
+           "326CO0000000216",
+           "file", None,
+           ["法第九条第一項に規定する政令で定める額は、受験科目の数が一である場合にあつては四千円、受験科目の数が二以上である場合にあつては四千円と千五百円に一を超える受験科目の数を乗じて得た額との合計額とする。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
