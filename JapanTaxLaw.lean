@@ -1178,6 +1178,9 @@ import JapanTaxLaw.DocumentCopyNormsTests
 import JapanTaxLaw.DelegatedMannerNorms
 import JapanTaxLaw.DelegatedMannerNormsSpec
 import JapanTaxLaw.DelegatedMannerNormsTests
+import JapanTaxLaw.OccurrenceDateRefs
+import JapanTaxLaw.OccurrenceDateRefsSpec
+import JapanTaxLaw.OccurrenceDateRefsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
