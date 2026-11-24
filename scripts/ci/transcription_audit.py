@@ -4136,12 +4136,18 @@ def checks():
            "325AC0000000226", "file", None,
            ["同項の不足額に、これに百分の三十五の割合を乗じて計算した金額を加算した金額とする。"])
 
+    # InheritanceTaxArt19SevenYearGiftCondition.lean - NORM|5516848e... (相続税法 art.19 ArticleCaption CONDITION, law 325AC0000000073)
+    # Whole-law locator (ArticleCaption node); 七年以内 inclusive threshold.
+    yield ("inheritance tax art.19 seven-year gift condition - InheritanceTaxArt19SevenYearGiftCondition.lean",
+           "325AC0000000073",
+           "law", None,
+           ["\uff08\u76f8\u7d9a\u958b\u59cb\u524d\u4e03\u5e74\u4ee5\u5185\u306b\u8d08\u4e0e\u304c\u3042\u3064\u305f\u5834\u5408\u306e\u76f8\u7d9a\u7a0e\u984d\uff09"])
+
     # 公布後三月以内の政令施行日（委任＋期間上限） — DelegatedEnforcement3M.lean
     yield ("公布後三月以内の政令施行日（委任＋期間上限） ↔ DelegatedEnforcement3M.lean (delegated enforcement date, cap 3 months)",
            "422AC1000000050",
            "file", None,
            ["この法律は、公布の日から起算して三月を超えない範囲内において政令で定める日から施行する。"])
-
 
     # 公布後六月以内の政令施行日（委任＋期間上限） — DelegatedEnforcement6M.lean
     yield ("公布後六月以内の政令施行日（委任＋期間上限） ↔ DelegatedEnforcement6M.lean (delegated enforcement date, cap 6 months)",
@@ -4159,6 +4165,16 @@ def checks():
            "329M50000002023", "file", None,
            ["事業所税の徴収に要する費用は、当該年度の歳入に所属する事業所税の額の百分の五に相当する額とする。"])
 
+    yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
+           "329M50000002023", "file", None,
+           ["事業所税の額の百分の五に相当する額とする"])
+    yield ("SpecialMeasuresOrderRate75.lean — 租税特別措置法施行令 art.5の5 75%",
+           "332CO0000000043", "file", None,
+           ["法第十条の三第一項に規定する政令で定める割合は、百分の七十五とする"])
+    yield ("所得税法施行令 art. 83_2（配偶者の合計所得金額 九十五万円以下）↔ SpouseIncomeCeiling950k.lean",
+           "340AC0000000033",
+           "file", None,
+           ["合計所得金額が九十五万円以下である配偶者"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
