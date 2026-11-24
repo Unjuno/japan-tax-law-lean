@@ -2111,3 +2111,9 @@ import JapanTaxLaw.LocalGradation256Tests
 import JapanTaxLaw.TreatyAsset100M
 import JapanTaxLaw.TreatyAsset100MSpec
 import JapanTaxLaw.TreatyAsset100MTests
+import JapanTaxLaw.DisasterGrantSeptemberZero
+import JapanTaxLaw.DisasterGrantSeptemberZeroSpec
+import JapanTaxLaw.DisasterGrantSeptemberZeroTests
+import JapanTaxLaw.LifeInsurancePremiumDeductionUpper
+import JapanTaxLaw.LifeInsurancePremiumDeductionUpperSpec
+import JapanTaxLaw.LifeInsurancePremiumDeductionUpperTests

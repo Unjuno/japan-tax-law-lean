@@ -1,12 +1,12 @@
 # Adversarial audit of the completion gate
 
-repo: `D:\CodexData\Temp\attest-worktree`
+repo: `D:\CodexData\Temp\opencode\umbrella-wt`
 
 verdict: **PASS** (0 MUST failures)
 
 - tools present: 4/4
-- evidence file: D:\CodexData\Temp\attest-worktree\data\verification_evidence.json
-- durable state counts: {"BLOCKED": 2, "FULLY_VERIFIED": 676, "NOT_STARTED": 8, "PROVED_SCOPE": 3}
+- evidence file: D:\CodexData\Temp\opencode\umbrella-wt\data\verification_evidence.json
+- durable state counts: {"BLOCKED": 2, "FULLY_VERIFIED": 677, "NOT_STARTED": 8, "PROVED_SCOPE": 3}
 
 | rule | must | H | T | D | C | U |
 |---|---|---|---|---|---|---|
