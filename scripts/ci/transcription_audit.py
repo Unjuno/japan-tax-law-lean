@@ -3948,6 +3948,72 @@ def checks():
            "file", None,
            ["残存期間が二十五年を超え三十年以下のもの及び地上権で存続期間の定めのないもの"])
 
+    # DisasterTaxReliefOrderArt10Item5FieldCondition.lean (restored after merge dropped it)
+    # NORM|776e380c… 災害被害者租税減免法施行政令 art.10(1) item5 CONDITION.
+
+    # 地方法人税法 art. 2 — LocalCorpMaxCapital.lean
+    yield ("法人臨時特別税政令 art. 2（被合併法人二以上の最大額選択）↔ LocalCorpMaxCapital.lean (max selection, trigger >=2)",
+           "403CO0000000035",
+           "article", "第二条",
+           ["合併により被合併法人の株主等に交付された合併後存続する法人の株式又は出資に係る資本の金額又は出資金額（被合併法人が二以上ある場合には、各被合併法人に係るこれらの金額のうち最も多い金額）"])
+
+    # 地方税法施行令 art. 48の13 — LocalCorporateDeductionLimitRate6.lean (6%)
+    yield ("地方税法施行令 art. 48_13（法人税控除限度額6%）↔ LocalCorporateDeductionLimitRate6.lean",
+           "325CO0000000245", "file", None,
+           ["法人税の控除限度額に百分の六を乗じて計算した額とする。"])
+
+    # 地方交付税法 art. 6の2 §2/§3 — LocalGrantTaxShares.lean (94% / 6%)
+    yield ("LocalGrantTaxShares.lean",
+           "325AC0000000211",
+           "file", None,
+           ["前条第二項の額の百分の九十四に相当する額", "前条第二項の額の百分の六に相当する額"])
+
+    # 地方税法 art. 71の6 — LocalInterestTaxRate5.lean (利子割 5%)
+    yield ("地方税法 art. 71_6（利子割の税率5%）↔ LocalInterestTaxRate5.lean",
+           "325AC0000000226",
+           "file", None,
+           ["利子割の税率は、百分の五とする。"])
+
+    # 地方税法 art. 50の4 — LocalSeparateIncomeTaxRate4.lean (分離課税 4%)
+    yield ("地方税法 art. 50_4（分離課税所得割4%）↔ LocalSeparateIncomeTaxRate4.lean",
+           "325AC0000000226", "file", None,
+           ["分離課税に係る所得割の税率は、百分の四とする。"])
+
+    # 地方税法 art. 328の3 — LocalSeparateIncomeTaxRate6.lean (分離課税 6%)
+    yield ("地方税法 art. 328_3（分離課税所得割6%）↔ LocalSeparateIncomeTaxRate6.lean",
+           "325AC0000000226", "file", None,
+           ["分離課税に係る所得割の税率は、百分の六とする。"])
+
+    # 地方税法 art. 71の49 — LocalStockTransferTaxRate5.lean (株式等譲渡所得割 5%)
+    yield ("地方税法 art. 71_49（株式等譲渡所得割の税率5%）↔ LocalStockTransferTaxRate5.lean",
+           "325AC0000000226",
+           "file", None,
+           ["株式等譲渡所得割の税率は、百分の五とする。"])
+
+    # LongTermGainSpecialMeasure — cycle-113 (restored after merge dropped it)
+    yield ("LongTermGainSpecialMeasure.lean",
+           "325AC0000000226",
+           "file", None,
+           ["当該課税長期譲渡所得金額から二千万円を控除した金額の百分の二", "第三十四条の二"])
+
+    # 所得税額の還付 art. 6 — RefundDifferenceAmount.lean
+    yield ("所得税額の還付 art. 6（前号控除後の残額）↔ RefundDifferenceAmount.lean (saturating refund residual)",
+           "347M50000040042",
+           "article", "第六条",
+           ["第三号に掲げる所得税の額から前号に掲げる所得税の額を控除した残額のうち還付を受けようとする金額"])
+
+    # 相続税法施行令 art. 28 §1 — StandingTimberDeferredRate30.lean (30%)
+    yield ("StandingTimberDeferredRate30.lean",
+           "325CO0000000071",
+           "file", None,
+           ["法第五十二条第一項第一号ロに規定する政令で定める割合は、百分の三十とする"])
+
+    # 地方税法 art. 23 第11号イ(2) — WidowDependentIncomeCeiling5M.lean (五百万円以下)
+    yield ("WidowDependentIncomeCeiling5M.lean",
+           "325AC0000000226",
+           "file", None,
+           ["前年の合計所得金額が五百万円以下であること"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
