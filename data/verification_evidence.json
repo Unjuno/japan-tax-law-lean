@@ -223,6 +223,19 @@
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:24/Article#24/Paragraph#1/Item#1/Subitem1#2/Subitem1Sentence/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/InheritanceAnnuityMinMaxTests.lean sha256=0f60d94f383ee999f49f4233b0a010675cf66a81e75c8edb29658190b1bd28b6 (18 kernel-decided examples)"
     },
+    "NORM|357718120dc5d73305dba5f4884ee941c800423843672b294650d98af017cc47": {
+      "adversarial_review": "docs/ADVERSARIAL_SAKE_TIER.md H/T/D/C/U; malformed queue source path recorded and corrected pin documented",
+      "boundary_proof": "SakeTieredAmountTests.lean kernel-decided degrees 0/19/20/21/22/30",
+      "cross_law_proof": "dependencies=[]",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/SakeTieredAmount.lean sha256=fdb484331c37611e6bf6999c7949825462f11ce1c69b894c4e20499f60eb67c8",
+      "independent_spec": "JapanTaxLaw/SakeTieredAmountSpec.lean sha256=2e4eeeac4666b85329b2b3d41ea98d145582fa2f147e5e62db211b46dba26cfa; spec uses saturating subtraction, impl uses if/then",
+      "kernel_proof": "lake build JapanTaxLaw.SakeTieredAmountTests: Build completed successfully (5 jobs); at_20/at_21 axiom-free; agree_spec_impl standard propext",
+      "proof_scope": "agree_spec_impl universal over all alcohol degrees; tax base out of scope",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; amounts_in_source=[10000,200000]; missing=[]",
+      "source_location": "data/raw/328AC0000000006_20260525_506AC0000000052.law.json (corrected law id; queue path had 14 chars) sha256=01d87149a80f64fa70d8b6eafffead6341982d902c4d206630cbc3f91c781e70; verbatim located in art.23(1)三",
+      "tests": "JapanTaxLaw/SakeTieredAmountTests.lean sha256=e32a00cf851e7b34dffec30dfd6141776a9188befb5b069186f495abe5b53e99"
+    },
     "NORM|3c0ac5b522d94a46daf976f441c3dbe41d0982fd8e31bfb61b7787bd44a8a973": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",

@@ -43,12 +43,12 @@ Measured results on this branch (2026-11-20):
 
 ```
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=396791, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=61, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=396790, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=62, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=61 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=62 axes=11 unbacked=0
 12/12 invariants passed
 $ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
 
@@ -168,7 +168,14 @@ three divisors [1, 1000, 1000000] pass the Lean-independent audit; agreement is
 exhaustive over the three declared units and all theorems are axiom-free.
 Truncation is explicitly a model choice; no statutory rounding rule is claimed.
 
-So 61 evidence-backed units left NOT_STARTED on this branch; the
+The 62nd unit is 酒税法 art. 23(1)三 段額 `NORM|357718120…`: a tiered amount
+(¥200,000 flat, +¥10,000 per degree above 20 when degree ≥ 21). Its
+independently re-pinned source revealed a malformed law id in the queue's
+`source_file` (14 chars instead of 15); the correct revision and SHA-256 are
+recorded in `docs/ADVERSARIAL_SAKE_TIER.md`. Agreement with a saturation-based
+spec is universal and boundary values are kernel-decided.
+
+So 62 evidence-backed units left NOT_STARTED on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
 durable. `docs/TASK_QUEUE.md` is regenerated with these counts.
