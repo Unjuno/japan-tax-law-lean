@@ -1,0 +1,74 @@
+# Historical revision pinning obligations (machine-generated)
+
+Do not hand-edit. Regenerate: `python scripts/law_audit/inventory/historical_revision_ledger.py`.
+
+Objective §2 requires historical references (新法/旧法 in 附則・経過措置) to be distinguished from unenforced and unobtained sources. Each entry below is an explicit PIN obligation. NONE is pinned: no historical snapshot, revision id or SHA-256 is claimed.
+
+- snapshot: 2026-11-15
+- historical references: 87
+- distinct base laws: 59
+- pinned: 0
+- not pinned: 87
+
+| reference | occurrences | base law | status |
+|---|---:|---|---|
+| 新租税特別措置法 | 3190 | `332AC0000000026` | PIN_REQUIRED_NOT_DONE |
+| 旧租税特別措置法 | 3052 | `332AC0000000026` | PIN_REQUIRED_NOT_DONE |
+| 旧法人税法 | 724 | `340AC0000000034` | PIN_REQUIRED_NOT_DONE |
+| 新法人税法 | 609 | `340AC0000000034` | PIN_REQUIRED_NOT_DONE |
+| 新所得税法 | 403 | `340AC0000000033` | PIN_REQUIRED_NOT_DONE |
+| 旧所得税法 | 369 | `340AC0000000033` | PIN_REQUIRED_NOT_DONE |
+| 旧地方税法 | 187 | `325AC0000000226` | PIN_REQUIRED_NOT_DONE |
+| 新租税特別措置法施行令 | 175 | `332CO0000000043` | PIN_REQUIRED_NOT_DONE |
+| 新消費税法 | 140 | `363AC0000000108` | PIN_REQUIRED_NOT_DONE |
+| 新関税法 | 132 | `329AC0000000061` | PIN_REQUIRED_NOT_DONE |
+| 新法人税法施行令 | 109 | `340CO0000000097` | PIN_REQUIRED_NOT_DONE |
+| 旧租税特別措置法施行令 | 109 | `332CO0000000043` | PIN_REQUIRED_NOT_DONE |
+| 新相続税法 | 108 | `325AC0000000073` | PIN_REQUIRED_NOT_DONE |
+| 新地方税法 | 87 | `325AC0000000226` | PIN_REQUIRED_NOT_DONE |
+| 旧法人税法施行令 | 77 | `340CO0000000097` | PIN_REQUIRED_NOT_DONE |
+| 新酒税法 | 70 | `328AC0000000006` | PIN_REQUIRED_NOT_DONE |
+| 新国税通則法 | 63 | `337AC0000000066` | PIN_REQUIRED_NOT_DONE |
+| 旧所得税法施行令 | 61 | `340CO0000000096` | PIN_REQUIRED_NOT_DONE |
+| 新所得税法施行令 | 51 | `340CO0000000096` | PIN_REQUIRED_NOT_DONE |
+| 旧関税法 | 50 | `329AC0000000061` | PIN_REQUIRED_NOT_DONE |
+| 旧消費税法 | 45 | `363AC0000000108` | PIN_REQUIRED_NOT_DONE |
+| 旧厚生年金保険法 | 43 | `329AC0000000115` | PIN_REQUIRED_NOT_DONE |
+| 新沖縄振興特別措置法 | 38 | `414AC0000000014` | PIN_REQUIRED_NOT_DONE |
+| 旧酒税法 | 33 | `328AC0000000006` | PIN_REQUIRED_NOT_DONE |
+| 旧相続税法 | 30 | `325AC0000000073` | PIN_REQUIRED_NOT_DONE |
+| 新租税特別措置法施行規則 | 28 | `332M50000040015` | PIN_REQUIRED_NOT_DONE |
+| 新地方交付税法 | 27 | `325AC0000000211` | PIN_REQUIRED_NOT_DONE |
+| 新所得税法施行規則 | 21 | `340M50000040011` | PIN_REQUIRED_NOT_DONE |
+| 旧所得税法施行規則 | 20 | `340M50000040011` | PIN_REQUIRED_NOT_DONE |
+| 旧租税特別措置法施行規則 | 20 | `332M50000040015` | PIN_REQUIRED_NOT_DONE |
+| 旧農地法 | 20 | `327AC0000000229` | PIN_REQUIRED_NOT_DONE |
+| 新地方法人税法 | 17 | `426AC0000000011` | PIN_REQUIRED_NOT_DONE |
+| 旧地方法人税法 | 17 | `426AC0000000011` | PIN_REQUIRED_NOT_DONE |
+| 新国税徴収法 | 15 | `334AC0000000147` | PIN_REQUIRED_NOT_DONE |
+| 新法人税法施行規則 | 15 | `340M50000040012` | PIN_REQUIRED_NOT_DONE |
+| 新税理士法 | 12 | `326AC1000000237` | PIN_REQUIRED_NOT_DONE |
+| 旧民法 | 11 | `129AC0000000089` | PIN_REQUIRED_NOT_DONE |
+| 旧確定給付企業年金法 | 10 | `413AC0000000050` | PIN_REQUIRED_NOT_DONE |
+| 新特定非営利活動促進法 | 9 | `410AC1000000007` | PIN_REQUIRED_NOT_DONE |
+| 新登録免許税法 | 9 | `342AC0000000035` | PIN_REQUIRED_NOT_DONE |
+| 旧国税通則法 | 9 | `337AC0000000066` | PIN_REQUIRED_NOT_DONE |
+| 旧国税徴収法 | 8 | `334AC0000000147` | PIN_REQUIRED_NOT_DONE |
+| 新地価税法 | 7 | `403AC0000000069` | PIN_REQUIRED_NOT_DONE |
+| 新地方税法施行規則 | 7 | `329M50000002023` | PIN_REQUIRED_NOT_DONE |
+| 新地方税法施行令 | 6 | `325CO0000000245` | PIN_REQUIRED_NOT_DONE |
+| 旧住民基本台帳法 | 6 | `342AC0000000081` | PIN_REQUIRED_NOT_DONE |
+| 旧地方税法施行令 | 6 | `325CO0000000245` | PIN_REQUIRED_NOT_DONE |
+| 新地方自治法 | 5 | `322AC0000000067` | PIN_REQUIRED_NOT_DONE |
+| 新自動車重量譲与税法 | 5 | `346AC0000000090` | PIN_REQUIRED_NOT_DONE |
+| 新鉱山保安法 | 5 | `324AC0000000070` | PIN_REQUIRED_NOT_DONE |
+| 旧勤労者財産形成促進法 | 5 | `346AC0000000092` | PIN_REQUIRED_NOT_DONE |
+| 旧商法 | 5 | `132AC0000000048` | PIN_REQUIRED_NOT_DONE |
+| 旧沖縄振興特別措置法 | 5 | `414AC0000000014` | PIN_REQUIRED_NOT_DONE |
+| 旧法人税法施行規則 | 5 | `340M50000040012` | PIN_REQUIRED_NOT_DONE |
+| 旧鉱山保安法 | 5 | `324AC0000000070` | PIN_REQUIRED_NOT_DONE |
+| 新公認会計士法 | 4 | `323AC0000000103` | PIN_REQUIRED_NOT_DONE |
+| 新海上運送法 | 4 | `324AC0000000187` | PIN_REQUIRED_NOT_DONE |
+| 新航空機燃料譲与税法 | 4 | `347AC0000000013` | PIN_REQUIRED_NOT_DONE |
+| 旧森林法 | 4 | `326AC1000000249` | PIN_REQUIRED_NOT_DONE |
+| 旧石油石炭税法 | 4 | `353AC0000000025` | PIN_REQUIRED_NOT_DONE |
