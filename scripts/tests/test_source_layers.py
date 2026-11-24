@@ -34,11 +34,7 @@ class LayerTests(unittest.TestCase):
         for l in self.reg["layers"]:
             if l["auxiliary"]:
                 self.assertEqual(l["acquisition_status"], "NOT_ACQUIRED")
-                # Sponsor directive 2026-11-24: unimplemented state, never
-                # a permanent exclusion from the target.
-                self.assertEqual(l["verification_status"], "NOT_IMPLEMENTED")
-                self.assertIn(l["scope_status"],
-                              ("IN_SCOPE_BACKLOG", "IN_SCOPE_INTERPRETATION_LAYER"))
+                self.assertEqual(l["verification_status"], "BACKLOG_NOT_ACQUIRED")
         aux = {l["layer_id"] for l in self.reg["layers"] if l["auxiliary"]}
         self.assertEqual(aux, {"L3_TREATY", "L4_CIRCULAR", "L5_CASELAW"})
 
@@ -47,16 +43,25 @@ class LayerTests(unittest.TestCase):
         self.assertEqual(by["L2_ORDINANCE"]["scope_status"], "IN_SCOPE_BACKLOG")
         self.assertGreater(by["L2_ORDINANCE"]["count"], 0)
         self.assertEqual(by["L2_ORDINANCE"]["count_acquired"], 0)
-        self.assertEqual(by["L6_HISTORICAL"]["scope_status"], "IN_SCOPE_BACKLOG")
+        self.assertEqual(by["L6_HISTORICAL"]["scope_status"], "HISTORICAL_LAYER")
         self.assertGreater(by["L6_HISTORICAL"]["count"], 0)
 
-    def test_sponsor_directive_flags_keep_every_layer_in_scope(self):
-        flags = self.reg["sponsor_directive_2026_11_24"]
-        self.assertTrue(all(flags.values()))
-        for l in self.reg["layers"]:
-            self.assertTrue(l["scope_status"].startswith("IN_SCOPE")
-                            or l["scope_status"] == "PROVISIONAL_POPULATION"
-                            or l["scope_status"] == "INCLUDED_IN_L0")
+    def test_unacquired_layers_are_backlog_not_permanent_exclusions(self):
+        """Directive §1/§5: UNSUPPORTED is a state, not a scope decision."""
+        by = {l["layer_id"]: l for l in self.reg["layers"]}
+        for lid in ("L2_ORDINANCE", "L3_TREATY", "L4_CIRCULAR",
+                    "L5_CASELAW", "L6_HISTORICAL"):
+            layer = by[lid]
+            self.assertIn("backlog", layer)
+            self.assertEqual(layer["backlog"]["layer_id"], lid)
+            self.assertTrue(layer["backlog"]["next_action"])
+            self.assertEqual(layer["backlog"]["legal_review"], "LEGAL_REVIEW_PENDING")
+            self.assertEqual(layer["backlog"]["acquisition_evidence"], "")
+        self.assertEqual(self.reg["backlog"]["task_count"], 5)
+        self.assertNotIn("DECLARED_UNSUPPORTED",
+                         [l["scope_status"] for l in self.reg["layers"]])
+        self.assertNotIn("OUT_OF_SCOPE",
+                         [l["verification_status"] for l in self.reg["layers"]])
 
     def test_statutory_layer_is_provisional_not_complete(self):
         l0 = self.reg["layers"][0]
