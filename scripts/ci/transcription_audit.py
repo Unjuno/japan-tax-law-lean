@@ -1174,6 +1174,12 @@ def checks():
            "article", "第十一条",
            ["航空機燃料税の税率は、航空機燃料一キロリットルにつき二万六千円とする。"])
 
+    # 揮発油税法 art.27(2) — GasolineTaxArt27TripleFineRange.lean
+    yield ("揮発油税法 art.27(2)（相当金額の三倍が百万円超の罰金範囲）↔ GasolineTaxArt27TripleFineRange.lean",
+           "332AC0000000055",
+           "article", "第二十七条",
+           ["三倍が百万円を超える場合には、情状により、同項の罰金は、百万円を超え", "第二十七条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
