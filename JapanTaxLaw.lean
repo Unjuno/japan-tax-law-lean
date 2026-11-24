@@ -1175,6 +1175,9 @@ import JapanTaxLaw.AuthorityDutyNormsTests
 import JapanTaxLaw.DocumentCopyNorms
 import JapanTaxLaw.DocumentCopyNormsSpec
 import JapanTaxLaw.DocumentCopyNormsTests
+import JapanTaxLaw.DelegatedMannerNorms
+import JapanTaxLaw.DelegatedMannerNormsSpec
+import JapanTaxLaw.DelegatedMannerNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
