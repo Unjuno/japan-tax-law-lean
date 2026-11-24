@@ -353,6 +353,19 @@
       "source_location": "data/raw/325CO0000000245_20261101_508CO0000000083.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:56_50/Article#56_50/Paragraph#1/ParagraphSentence/Sentence#1 sha256=9bc03b230fb0ed1039e33a1544cd53772939ee25d6d4648a386400ea269dfb17 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalTaxOfficeApportionmentTests.lean sha256=d7539eba1267dbdf033c2293f8ab28edb412a062e1e7b60278c5a5bf344f48a9 (21 kernel-decided examples)"
     },
+    "NORM|6c27921434c59ba57a352e0bf3f7ff011871be1423b177bd348091a1ab4d0156": {
+      "adversarial_review": "docs/ADVERSARIAL_DEFERRAL_EXCEPTION.md H/T/D/C/U; AND-vs-OR and money-vs-years dimension checks recorded",
+      "boundary_proof": "DeferralExceptionLimitTests.lean kernel-decided (1M,3),(1M+1,3),(1M,4),(1M+1,4)",
+      "cross_law_proof": "dependencies=[]",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/DeferralExceptionLimit.lean sha256=f4cb381c7a01ff175471d60e9933325301d4736a9bc79d907d4c156c5865fab8",
+      "independent_spec": "JapanTaxLaw/DeferralExceptionLimitSpec.lean sha256=f64047cebffc3c4e425f482778a2de9e9f771ee2531430c22e62c412f6540300; spec uses negated strict comparisons joined by Bool AND",
+      "kernel_proof": "lake build JapanTaxLaw.DeferralExceptionLimitTests: Build completed successfully (5 jobs); amount_at_cap/amount_over_cap/period_over_cap: no axioms; agree_spec_impl: standard propext",
+      "proof_scope": "agree_spec_impl universal over all Nat pairs; exception predicate only, not the negated base rule",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; amounts_in_source=[1000000]; no missing constants; period 三年→3 years verified in verbatim and constants",
+      "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:38/Article#38/Paragraph#4/ParagraphSentence/Sentence#2 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7; verbatim located in art.38(4) sentence 2",
+      "tests": "JapanTaxLaw/DeferralExceptionLimitTests.lean sha256=f605ac3565053d09f7001b5c6ed78de0e6dca3710e03312dcb914cc2fbdde1d7"
+    },
     "NORM|7c44d96e862814c1901d7933fac29836b751889946845a0a88c41cd62094b470": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",

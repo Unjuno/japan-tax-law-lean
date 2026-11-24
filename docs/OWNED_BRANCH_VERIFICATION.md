@@ -43,12 +43,12 @@ Measured results on this branch (2026-11-20):
 
 ```
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=396802, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=50, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=396801, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=51, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=50 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=51 axes=11 unbacked=0
 12/12 invariants passed
 $ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
 
@@ -93,7 +93,15 @@ explicit `NOT_ACQUIRED` status; ordinance text, revisions and proofs are NOT
 acquired. `docs/SOURCE_LAYERS.md` now reports L2_ORDINANCE as
 `ENUMERATED_NOT_ACQUIRED` (1,965), still separate from the statutory layer.
 
-So 50 evidence-backed units left NOT_STARTED on this branch; the
+The 51st unit is 相続税法 art. 38(4) ただし書
+`NORM|6c279214c…`: the compound exception requiring BOTH 延納税額 ≤ ¥1,000,000
+AND 延納期間 ≤ 3 years. Money (yen) and duration (years) are typed as distinct
+variables with recorded units; the spec is a Boolean negation of both strict
+comparisons, agreement is universal over all Nat pairs, and boundaries for both
+caps are kernel-decided. H/T/D/C/U review records the AND-vs-OR competing
+reading and the dimension check.
+
+So 51 evidence-backed units left NOT_STARTED on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
 durable. `docs/TASK_QUEUE.md` is regenerated with these counts.
