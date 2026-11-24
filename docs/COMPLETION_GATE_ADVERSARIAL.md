@@ -6,7 +6,7 @@ verdict: **PASS** (0 MUST failures)
 
 - tools present: 4/4
 - evidence file: D:\CodexData\Temp\opencode\jtl\data\verification_evidence.json
-- durable state counts: {"BLOCKED": 2, "FULLY_VERIFIED": 664, "NOT_STARTED": 8, "PROVED_SCOPE": 3}
+- durable state counts: {"BLOCKED": 2, "FULLY_VERIFIED": 674, "NOT_STARTED": 8, "PROVED_SCOPE": 3}
 
 | rule | must | H | T | D | C | U |
 |---|---|---|---|---|---|---|
