@@ -107,7 +107,7 @@ def classify(rows: list[dict], inventory: dict) -> dict:
             "matched_law_id": law.get("law_id", "") if law else "",
             "acquisition_status": "NOT_PINNED",
             "snapshot_pinned": False,
-            "verification_status": "OUT_OF_SCOPE",
+            "verification_status": "IN_SCOPE_BACKLOG",
         })
     out.sort(key=lambda r: (-r["occurrences"], r["name"]))
     return {
@@ -154,7 +154,9 @@ def main() -> int:
         "",
         "Historical (新/旧) names in 附則・経過措置 are recorded separately and",
         "are NEVER treated as current enforced versions. No snapshot is pinned",
-        "for them, so none is counted as acquired or verified.", "",
+        "for them, so none is counted as acquired or verified. They remain IN",
+        "SCOPE (sponsor directive 2026-11-24); this is implementation backlog,",
+        "not permanent exclusion.", "",
         f"- distinct names in the published table: {t['distinct_names']}",
         f"- occurrences in the published table: {t['occurrences']}",
         "- reported by recursive discovery (all names, table is top-frequency only): "
