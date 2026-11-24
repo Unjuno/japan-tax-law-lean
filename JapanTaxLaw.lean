@@ -2166,3 +2166,5 @@ import JapanTaxLaw.StandingTimberDeferredRate30Tests
 import JapanTaxLaw.WidowDependentIncomeCeiling5M
 import JapanTaxLaw.WidowDependentIncomeCeiling5MSpec
 import JapanTaxLaw.WidowDependentIncomeCeiling5MTests
+import JapanTaxLaw.BusinessOfficeTaxRateSpec
+import JapanTaxLaw.BusinessOfficeTaxRateTests
