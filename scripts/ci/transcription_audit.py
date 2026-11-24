@@ -848,6 +848,12 @@ def checks():
            "article", "第六条",
            ["（報復関税等）第六条", "別表の税率による関税のほか、当該貨物の課税価格と同額以下の関税を課することができる", "別表の税率による関税のほか、その貨物の課税価格と同額以下の関税を課することができる", "ただし、前項第一号に規定する紛争解決機関の手続に委ねられるべき場合は、この限りでない"])
 
+    # 関税定率法 art. 7 — InvestigationExtensionSixMonths.lean (six-month ceiling)
+    yield ("関税定率法 art. 7（調査期間の延長: 六月以内に限り延長する — 上限のみをモデル化、特別の理由の認定・元の期間・延長判断は caller-established）↔ InvestigationExtensionSixMonths.lean",
+           "143AC0000000054",
+           "article", "第七条",
+           ["ただし、特別の理由により必要があると認められる場合には、その期間を六月以内に限り延長することができる"])
+
     # 相続税法 art. 21の13/26/17 — InheritanceMiscRates.lean
     yield ("相続税法 art. 21の13/26/17（相続時精算課税20%・立木評価85%・各相続人税額の課税価格按分）↔ InheritanceMiscRates.lean",
            "325AC0000000073",
@@ -1172,6 +1178,12 @@ def checks():
            "347AC0000000007",
            "article", "第十一条",
            ["航空機燃料税の税率は、航空機燃料一キロリットルにつき二万六千円とする。"])
+
+    # 地方揮発油税法 art.15(4) — LocalGasolineArt15TripleFineRange.lean
+    yield ("地方揮発油税法 art.15(4)（相当金額の三倍が五十万円超の罰金範囲）↔ LocalGasolineArt15TripleFineRange.lean",
+           "330AC0000000104",
+           "article", "第十五条",
+           ["三倍が五十万円を超える場合には、情状により、同項の罰金は、五十万円を超え", "第十五条"])
 
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8

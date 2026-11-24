@@ -213,6 +213,7 @@
     "LocalCorpRate93_907",
     "LocalCorporateDeductionLimitRate6",
     "LocalCorporationTaxRate",
+    "LocalGasolineArt15TripleFineRange",
     "LocalGasolineTaxRate",
     "LocalGrantRevenueBase",
     "LocalGrantTaxShares",
@@ -348,6 +349,7 @@
     "ResidentialLandArea200",
     "ResidentialTransferSpecialTax",
     "RetainedAmountLocalTax",
+    "RndSurchargeRate",
     "RoadGrantAllocation",
     "RoadWidthThreshold",
     "SCFVPenaltyCeiling",
@@ -371,6 +373,7 @@
     "SpecialTonSplitRatio",
     "SpecialUseExemption",
     "SpousalGiftDeduction",
+    "SpouseIncomeCeiling950k",
     "SpouseRelief",
     "SpouseResidenceValuation",
     "SpouseSpecialDeduction",
@@ -415,9 +418,7 @@
     "VehicleWeightUnit",
     "WeightInterval5M25M",
     "WeightTaxTransfer",
-    "WidowDependentIncomeCeiling5M",
-    "RndSurchargeRate",
-    "SpouseIncomeCeiling950k"
+    "WidowDependentIncomeCeiling5M"
   ],
   "note": "Modules that MUST retain a transcription audit check. A reconciliation that rewrites transcription_audit.py from a stale base and drops any of these fails the REQUIRED queue-invariant gate. Update this registry only when deliberately removing a module.",
   "schema": 1
