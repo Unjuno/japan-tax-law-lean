@@ -26,6 +26,12 @@ REPO = Path(__file__).resolve().parents[2]
 SYNC_STEPS = [
     ("umbrella imports", None),
     ("task queue", ["python", "scripts/ci/task_queue.py"]),
+    # coverage/L7 ledgers derive from sweep outputs; produce them first, in the
+    # same order as run_python_gates.py. Without this the preflight-ledgers are
+    # computed from a different state than the gate-suite-ledgers and the drift
+    # gates fail even after preflight (observed in PR #622 CI).
+    ("cross-law scan", ["python", "scripts/law_audit/phase_e/cross_law.py"]),
+    ("full sweep", ["python", "scripts/ci/sweep_gate.py"]),
     ("law status ledger", ["python", "scripts/ci/law_status_ledger.py", "--write"]),
     ("coverage ledger", ["python", "scripts/ci/coverage_ledger.py", "--write"]),
     ("L7 ledger", ["python", "scripts/ci/l7_ledger.py", "--write"]),
