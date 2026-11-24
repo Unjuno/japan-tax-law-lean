@@ -48,14 +48,16 @@ $ python scripts/ci/batch_threshold_pipeline.py --limit 12
 batch pipeline: verified=12 failed=0
 $ python scripts/ci/batch_threshold_pipeline.py --limit 40
 batch pipeline: verified=40 failed=2   (2 source-audit failures left NOT_STARTED)
+$ python scripts/ci/batch_threshold_pipeline.py --limit 100
+batch pipeline: verified=100 failed=2  (same 2 failures; now in a skip list)
 
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=396731, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=121, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=396631, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=221, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=121 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=221 axes=11 unbacked=0
 12/12 invariants passed
 $ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
 
@@ -197,7 +199,7 @@ NOT_STARTED and reported. This closed 58 additional obligations in three runs
 (12 + 12 + 40, with 2 honest failures). H/T/D/C/U entries are appended to
 `docs/BATCH_THRESHOLD_REVIEW.md`.
 
-So 121 units are evidence-backed FULLY_VERIFIED and 396,731 remain NOT_STARTED
+So 221 units are evidence-backed FULLY_VERIFIED and 396,631 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is

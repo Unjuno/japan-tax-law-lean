@@ -26,6 +26,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
 QUEUE = REPO / "build" / "task_queue.json"
 EVIDENCE = REPO / "data" / "verification_evidence.json"
+SKIPS = REPO / "data" / "BATCH_THRESHOLD_SKIPS.json"
 JAPAN = REPO / "JapanTaxLaw"
 LAKE = Path(r"C:\Users\user\.elan\bin\lake.exe")
 TEMP = Path(r"D:\CodexData\Temp\opencode\batch_axioms")
@@ -142,12 +143,15 @@ def main() -> int:
 
     q = json.loads(QUEUE.read_text(encoding="utf-8"))
     ev = json.loads(EVIDENCE.read_text(encoding="utf-8"))
+    skips = json.loads(SKIPS.read_text(encoding="utf-8")) if SKIPS.exists() else {}
     done, failed = [], []
     for t in q["tasks"]:
         if len(done) >= a.limit:
             break
         uid = t.get("id", "")
         if t.get("status") != "NOT_STARTED" or uid in ev["units"]:
+            continue
+        if uid in skips:  # previously failed a real check; do not repeat unchanged
             continue
         if t.get("unhandled_conditions") or t.get("dependencies"):
             continue
@@ -214,6 +218,10 @@ def main() -> int:
         }
         done.append(uid)
     EVIDENCE.write_text(json.dumps(ev, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    for f in failed:
+        skips[f["id"]] = {"reason": f["reason"], "note": f.get("out", "")[-500:]}
+    SKIPS.write_text(json.dumps(skips, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+                     encoding="utf-8")
     review = REPO / "docs/BATCH_THRESHOLD_REVIEW.md"
     with review.open("a", encoding="utf-8") as f:
         for uid in done:
