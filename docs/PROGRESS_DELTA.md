@@ -11,11 +11,11 @@ verdict: **COUNTED**
 
 | status | count | delta |
 |---|---:|---:|
-| NOT_STARTED | 396117 | -2 |
+| NOT_STARTED | 396026 | -93 |
 | PARTIAL | 0 | +0 |
-| PROVED_SCOPE | 3 | +0 |
-| FULLY_VERIFIED | 732 | +2 |
+| PROVED_SCOPE | 1 | +0 |
+| FULLY_VERIFIED | 825 | +93 |
 | BLOCKED | 2 | +0 |
 
-new Lean modules since previous snapshot: 0
-NOT_STARTED reduction: 2
+new Lean modules since previous snapshot: 18
+NOT_STARTED reduction: 93

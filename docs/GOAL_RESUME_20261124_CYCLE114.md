@@ -104,6 +104,30 @@ Final measured state: `FULLY_VERIFIED=717`, `NOT_STARTED=396,134`,
 human legal reviews 0, all `LEGAL_REVIEW_PENDING`. Resumable tip pushed:
 `7b8c6aaa`. Only scoped rule cells are ever claimed, never whole articles.
 
+## 5c. Cycle-116 (2026-11-25)
+
+Two more bounded modules pushed at `badd196b`:
+`LocalTaxRateCeiling2Percent` (art.51, 2% inclusive ceiling) and
+`PropertyAcquisitionSpecialRate3` (附則 art.11の2, 3% rate). Lean/axiom job of
+REST-verified run `45422155189` succeeded; both scoped `lean_job_only`
+attestations were bound from committed blobs (`kernel_attested=True`).
+Checks: 8/8 targeted Lean builds, transcription 564/564, `check_no_sorry`
+clean, `verify_queue_invariants.py` 17/17 after regenerating the canonical
+umbrella (a concurrent rewrite had truncated it; the guard was restored, not
+disabled). Legal review remains `LEGAL_REVIEW_PENDING`.
+
+Cycle-116 initially produced zero evidenced units despite green modules. Two
+further generator defects were found and fixed (no module hash changed, so the
+existing attestations remain valid):
+1. `source_literals_verified` required a spec ratio pair for rate clauses,
+   rejecting a faithful numerator-only spec of 「百分の二」. It now accepts
+   `{2}` with the exact 「二」 spelling in the clause (a tenfold `20` still fails).
+2. `scoped_article_text` returned only the FIRST Article with a given `Num`,
+   hiding a supplementary provision (art.11の2). It now collects every matching
+   article; the exact cell remains pinned by `source_path` + clause needle.
+`scripts/tests/test_verification_evidence.py` and `test_structural_evidence.py`:
+25/25 OK; targeted generator check now yields 3 cycle-116 units.
+
 ## 6. Resume procedure (exact)
 
 1. `git fetch origin main`; `python scripts/ci/generate_verification_evidence.py`
