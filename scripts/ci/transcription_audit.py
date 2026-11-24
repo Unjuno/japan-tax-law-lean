@@ -4063,6 +4063,25 @@ def checks():
            "file", None,
            ["前年の合計所得金額が五百万円以下であること"])
 
+    # 国税不服審判所支部 art. 2 — BranchDeputyAppointment.lean
+    yield ("国税不服審判所支部 art. 2（財務省令指定＋各一人配置）↔ BranchDeputyAppointment.lean (delegation + one per branch)",
+           "345CO0000000050",
+           "article", "第二条",
+           ["国税不服審判所の支部（以下「支部」という。）のうち財務省令で定めるものに、次席国税審判官各一人を置き、国税審判官をもつてこれに充てる。"])
+
+    # 石油ガス譲与税法 art. 4 — OilGasGrantArt4Rounding.lean (千円未満端数)
+    yield ("石油ガス譲与税法 art. 4（千円未満端数）↔ OilGasGrantArt4Rounding.lean",
+           "340AC0000000157",
+           "file", None,
+           ["千円未満の端数金額があるときは、その端数金額を控除した金額をもつて"])
+
+
+    yield ("租税特別措置法 art. 10（試験研究費割合の控除割増率: (割合-10%)*2、三位未満切捨て、10%上限）↔ RndSurchargeRate.lean",
+           "332AC0000000026",
+           "file", None,
+           ["当該試験研究費割合から百分の十を控除した割合に二を乗じて計算した割合（当該割合に小数点以下三位未満の端数があるときはこれを切り捨てた割合とし、当該計算した割合が百分の十を超えるときは百分の十とする。）"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
