@@ -60,14 +60,16 @@ $ python scripts/ci/batch_range_pipeline.py --limit 50
 range batch pipeline: verified=50 failed=0
 $ python scripts/ci/batch_range_pipeline.py --limit 100
 range batch pipeline: verified=100 failed=0
+$ python scripts/ci/batch_lower_bound_pipeline.py --limit 60
+lower-bound batch pipeline: verified=60 failed=0
 
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=396131, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=721, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=396071, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=781, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=721 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=781 axes=11 unbacked=0
 12/12 invariants passed
 $ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
 
@@ -218,7 +220,11 @@ A third pipeline, `scripts/ci/batch_range_pipeline.py`, covers two-bound ranges
 (「A円を超えB円以下」) with strict lower / inclusive upper edges; it verified
 150 further obligations with zero failures.
 
-So 721 units are evidence-backed FULLY_VERIFIED and 396,131 remain NOT_STARTED
+A fourth pipeline, `scripts/ci/batch_lower_bound_pipeline.py`, covers inclusive
+lower bounds (「N円以上」) with a negation-of-strict-below spec; it verified
+60 further obligations with zero failures.
+
+So 781 units are evidence-backed FULLY_VERIFIED and 396,071 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
