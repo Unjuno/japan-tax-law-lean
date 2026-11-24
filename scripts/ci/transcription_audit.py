@@ -4076,6 +4076,12 @@ def checks():
            ["当該試験研究費割合から百分の十を控除した割合に二を乗じて計算した割合（当該割合に小数点以下三位未満の端数があるときはこれを切り捨てた割合とし、当該計算した割合が百分の十を超えるときは百分の十とする。）"])
 
 
+    # 所得税法施行令 art. 83_2 — SpouseIncomeCeiling950k.lean
+    yield ("所得税法施行令 art. 83_2（配偶者の合計所得金額 九十五万円以下）↔ SpouseIncomeCeiling950k.lean",
+           "340AC0000000033",
+           "file", None,
+           ["合計所得金額が九十五万円以下である配偶者"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
