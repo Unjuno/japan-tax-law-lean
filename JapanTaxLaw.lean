@@ -10,6 +10,9 @@ import JapanTaxLaw.AdultAgeThresholdTests
 import JapanTaxLaw.AircraftFuelGrantTaxOrderEnforcementDate
 import JapanTaxLaw.AircraftFuelGrantTaxOrderEnforcementDateSpec
 import JapanTaxLaw.AircraftFuelGrantTaxOrderEnforcementDateTests
+import JapanTaxLaw.AircraftFuelTaxPayable
+import JapanTaxLaw.AircraftFuelTaxPayableSpec
+import JapanTaxLaw.AircraftFuelTaxPayableTests
 import JapanTaxLaw.AircraftScope
 import JapanTaxLaw.AircraftScopeSpec
 import JapanTaxLaw.AircraftScopeTests
