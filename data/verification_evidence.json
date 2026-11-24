@@ -3808,6 +3808,88 @@
         "tool": "independent-adversarial"
       }
     ],
+    "07cb7548b259e3874b964cfb39d1e0fc45004b708b298bb79da634f28d3e0255": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T18:56:28+00:00",
+        "evidence_ref": "data/raw/340CO0000000097_20261001_507CO0000000121.law.json#MainProvision:MainProvision/Part:2@1/Chapter:1/Section:2@1/Subsection:2@1/Article:141_6@6#760-829",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T18:56:28+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1",
+        "note": "Independent fraction audit: 第141_6条 百分の十 -> (10,100) verified against pinned raw text; kanji fraction conversion and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T18:56:28+00:00",
+        "evidence_ref": "task_queue.json#07cb7548b259#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T18:56:28+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T18:56:28+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractions.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T18:56:28+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T18:56:28+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T18:56:28+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T18:56:28+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T18:56:28+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "07d55a37fd1e9a767f23b7d52f040571b4bfb10ce1ca58446e1e8b4dd6286060": [
       {
         "axis": "SOURCE_LOCATION",
@@ -50110,6 +50192,88 @@
         "tool": "lake build"
       }
     ],
+    "57a183ac3a520d1431c343ba8fab0182f6d4ce92ae09e0047272578db870be4b": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T18:56:12+00:00",
+        "evidence_ref": "data/raw/325AC0000000211_20261102_508AC0000000062.law.json#MainProvision:MainProvision/Article:6_2@6#70-114",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T18:56:12+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1",
+        "note": "Independent fraction audit: 第6_2条 百分の六 -> (6,100) verified against pinned raw text; kanji fraction conversion and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T18:56:12+00:00",
+        "evidence_ref": "task_queue.json#57a183ac3a52#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T18:56:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T18:56:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractions.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T18:56:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T18:56:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T18:56:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T18:56:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T18:56:12+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "57a947ea2d9c04acf0852aa91705deb23f7fbb1c4eba06a447aa968d8d1ccfe3": [
       {
         "axis": "SOURCE_LOCATION",
@@ -52332,6 +52496,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "5c379602e2bccc73dc1985032f7dc1e593e17640ca9ba97ee131606639b1617a": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T18:55:29+00:00",
+        "evidence_ref": "data/raw/325AC0000000211_20261102_508AC0000000062.law.json#MainProvision:MainProvision/Article:6_2@6#24-70",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T18:55:29+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1",
+        "note": "Independent fraction audit: 第6_2条 百分の九十四 -> (94,100) verified against pinned raw text; kanji fraction conversion and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T18:55:29+00:00",
+        "evidence_ref": "task_queue.json#5c379602e2bc#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T18:55:29+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T18:55:29+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractions.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T18:55:29+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T18:55:29+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T18:55:29+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T18:55:29+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T18:55:29+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
       }
     ],
     "5cbb04e790911df0e3a8ad5c303f0b096772ce6e425280fe27005a31326c5fbd": [
@@ -62726,6 +62972,88 @@
         "tool": "lake build"
       }
     ],
+    "6f95254faa2d1fdf48dbdc5f3960c8afb2a489765083ec654634c18acb9eb1f9": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T18:54:55+00:00",
+        "evidence_ref": "data/raw/347AC0000000013_20240401_506AC0000000004.law.json#MainProvision:MainProvision/Article:2@1#0-38",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T18:54:55+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1",
+        "note": "Independent fraction audit: 第2条 五分の四 -> (4,5) verified against pinned raw text; kanji fraction conversion and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T18:54:55+00:00",
+        "evidence_ref": "task_queue.json#6f95254faa2d#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T18:54:55+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T18:54:55+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractions.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T18:54:55+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T18:54:55+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T18:54:55+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T18:54:55+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T18:54:55+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "6fb179b04fb373e3b0b13702d749cc781e0b68edd1b1634ecc494022b46f6eaf": [
       {
         "axis": "SOURCE_LOCATION",
@@ -66676,6 +67004,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "76ce90738f47b8b1d3ec8168d9d4cffb5b7fbcd4af192792585bd6fa55a2220d": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T18:54:46+00:00",
+        "evidence_ref": "data/raw/347AC0000000013_20240401_506AC0000000004.law.json#MainProvision:MainProvision/Article:2_2@2#0-39",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T18:54:46+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1",
+        "note": "Independent fraction audit: 第2_2条 五分の一 -> (1,5) verified against pinned raw text; kanji fraction conversion and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T18:54:46+00:00",
+        "evidence_ref": "task_queue.json#76ce90738f47#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T18:54:46+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T18:54:46+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractions.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T18:54:46+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T18:54:46+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T18:54:46+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T18:54:46+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T18:54:46+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
       }
     ],
     "76fb0f8a78d447ffc2b0bc901a21dbc108f7eefafe486bba5c62daa9810f9fa2": [
@@ -72940,6 +73350,88 @@
         "tool": "lake build"
       }
     ],
+    "81a268397b8ea168a5e0976a65043481671ffb689655ed7a609b928bef03e7ee": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T18:55:38+00:00",
+        "evidence_ref": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#MainProvision:MainProvision/Chapter:2@1/Section:2@1/Subsection:1/Article:10#242-305",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T18:55:38+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1",
+        "note": "Independent fraction audit: 第10条 百分の二十五 -> (25,100) verified against pinned raw text; kanji fraction conversion and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T18:55:38+00:00",
+        "evidence_ref": "task_queue.json#81a268397b8e#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T18:55:38+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T18:55:38+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractions.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T18:55:38+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T18:55:38+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T18:55:38+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T18:55:38+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T18:55:38+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "81df29de0a66401740bb94f82f5d9bbce58dd1f6fdd79a7f04012317e22000e3": [
       {
         "axis": "SOURCE_LOCATION",
@@ -74136,6 +74628,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "849e29d374e25b534fd1d2a103dfb77a02579e5516e297e73e0d232df148e0fd": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T18:55:21+00:00",
+        "evidence_ref": "data/raw/340CO0000000097_20261001_507CO0000000121.law.json#MainProvision:MainProvision/Part:2@1/Chapter:1/Section:2@1/Subsection:2@1/Article:142@9#968-1028",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T18:55:21+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1",
+        "note": "Independent fraction audit: 第142条 百分の九十 -> (90,100) verified against pinned raw text; kanji fraction conversion and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T18:55:21+00:00",
+        "evidence_ref": "task_queue.json#849e29d374e2#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T18:55:21+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T18:55:21+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractions.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T18:55:21+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T18:55:21+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T18:55:21+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T18:55:21+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T18:55:21+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
       }
     ],
     "84b2325103b49fa06bcce168ad7ddea77d161eea1bcaf6d683cb6fe2502e79ef": [
@@ -94394,6 +94968,88 @@
         "tool": "lake build"
       }
     ],
+    "a52721ce75418a14170165f6eda6a4d89abde6036ce3da488569c2e1c8c8d172": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T18:55:03+00:00",
+        "evidence_ref": "data/raw/431AC0000000003_20260401_508AC0000000002.law.json#MainProvision:MainProvision/Chapter:3@2/Article:29@2#0-41",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T18:55:03+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1",
+        "note": "Independent fraction audit: 第29条 十分の一 -> (1,10) verified against pinned raw text; kanji fraction conversion and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T18:55:03+00:00",
+        "evidence_ref": "task_queue.json#a52721ce7541#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T18:55:03+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T18:55:03+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractions.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T18:55:03+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T18:55:03+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T18:55:03+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T18:55:03+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T18:55:03+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "a53b334d5a0477c57636b8056f267423c85c433b5d966cc7df070ff5433aeb71": [
       {
         "axis": "SOURCE_LOCATION",
@@ -95126,6 +95782,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "a68c68e81d8ed7e3c1c44b8d2e236a79afa3b54247b0b1ad198aa32b352549e7": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T18:55:55+00:00",
+        "evidence_ref": "data/raw/328CO0000000407_19660331_341CO0000000078.law.json#MainProvision:MainProvision/Chapter:5@5/Article:31@1#539-572",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T18:55:55+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1",
+        "note": "Independent fraction audit: 第31条 百分の五十 -> (50,100) verified against pinned raw text; kanji fraction conversion and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T18:55:55+00:00",
+        "evidence_ref": "task_queue.json#a68c68e81d8e#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T18:55:55+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T18:55:55+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractions.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T18:55:55+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T18:55:55+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T18:55:55+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T18:55:55+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T18:55:55+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
       }
     ],
     "a69330a2fb10a36b590411f6afd4fa3821f73e1c73e4e73880495a174fd009ce": [
@@ -101792,6 +102530,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "b1ee6828b55c3fa4aef47d3e4405d78231b443a369e6b9d5c3ef63130006f461": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T18:55:12+00:00",
+        "evidence_ref": "data/raw/431AC0000000003_20260401_508AC0000000002.law.json#MainProvision:MainProvision/Chapter:3@2/Article:28@1#0-40",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T18:55:12+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1",
+        "note": "Independent fraction audit: 第28条 十分の九 -> (9,10) verified against pinned raw text; kanji fraction conversion and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T18:55:12+00:00",
+        "evidence_ref": "task_queue.json#b1ee6828b55c#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T18:55:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T18:55:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractions.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T18:55:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T18:55:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T18:55:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T18:55:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T18:55:12+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
       }
     ],
     "b1efb66572419d844553ac52654aa86b7c001e4419898d0e058b7bd7772a1f97": [
@@ -115390,6 +116210,88 @@
         "tool": "lake build"
       }
     ],
+    "c6806bfe8e5c022f9c32bdff6ed638a0d25bcd5fc5797f0c6f0e19536471069d": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T18:54:17+00:00",
+        "evidence_ref": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#MainProvision:MainProvision/Chapter:2@1/Section:3@2/Subsection:3@2/Article:72_104@4#128-187",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T18:54:17+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1",
+        "note": "Independent fraction audit: 第72_104条 七十八分の二十二 -> (22,78) verified against pinned raw text; kanji fraction conversion and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T18:54:17+00:00",
+        "evidence_ref": "task_queue.json#c6806bfe8e5c#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T18:54:17+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T18:54:17+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractions.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T18:54:17+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T18:54:17+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T18:54:17+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T18:54:17+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T18:54:17+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "c683314c3d54e12b1e72d2d38103ab78214259078a4ab67674849161a16706c1": [
       {
         "axis": "SOURCE_LOCATION",
@@ -115624,6 +116526,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "c6f1fa029236f88afe05ef268d8aa337d381fe433707e51da446e5bbe315d2a4": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T18:55:46+00:00",
+        "evidence_ref": "data/raw/329M50000002023_20261101_508M60000008045.law.json#MainProvision:MainProvision/Article:24_28@370#0-59",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T18:55:46+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1",
+        "note": "Independent fraction audit: 第24_28条 百分の五 -> (5,100) verified against pinned raw text; kanji fraction conversion and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T18:55:46+00:00",
+        "evidence_ref": "task_queue.json#c6f1fa029236#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T18:55:46+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T18:55:46+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractions.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T18:55:46+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T18:55:46+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T18:55:46+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T18:55:46+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T18:55:46+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
       }
     ],
     "c70042a923ccf908d9770747bb505a7048251133c194abb959501ee3c92ca029": [
@@ -124128,6 +125112,88 @@
         "tool": "lake build"
       }
     ],
+    "d526c5fc67b4a3b829540e1fff4f6d13c7c300be45e5520940660f04dd953f92": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T18:54:27+00:00",
+        "evidence_ref": "data/raw/329M50000002023_20261101_508M60000008045.law.json#SupplProvision:昭和四六年三月三〇日自治省令第八号@57/Article:4@3#0-64",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T18:54:27+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1",
+        "note": "Independent fraction audit: 第4条 三分の一 -> (1,3) verified against pinned raw text; kanji fraction conversion and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T18:54:27+00:00",
+        "evidence_ref": "task_queue.json#d526c5fc67b4#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T18:54:27+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T18:54:27+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractions.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T18:54:27+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T18:54:27+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T18:54:27+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T18:54:27+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T18:54:27+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "d53b3f0a6d2dde5667d7b0f5bfbf4667474a5263c2a399dd9a573b752c37a7fd": [
       {
         "axis": "SOURCE_LOCATION",
@@ -127616,6 +128682,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "dbe5e13a57232a83f26ece1b8e9860c212b8da6c2713c2dfd83dbc7f84ad4bcf": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T18:56:04+00:00",
+        "evidence_ref": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#SupplProvision:平成二年三月三一日法律第一三号@190/Article:7@6#83-151",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T18:56:04+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1",
+        "note": "Independent fraction audit: 第7条 百分の八十 -> (80,100) verified against pinned raw text; kanji fraction conversion and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T18:56:04+00:00",
+        "evidence_ref": "task_queue.json#dbe5e13a5723#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T18:56:04+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T18:56:04+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractions.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T18:56:04+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T18:56:04+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T18:56:04+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T18:56:04+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T18:56:04+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
       }
     ],
     "dbf9863ddf7cfbb118d5e0f07aa2ebc7cf8668b461ec3c9113064c9291fa34ca": [
@@ -141332,6 +142480,88 @@
         "tool": "lake build"
       }
     ],
+    "f3104a1f43caf29ae13c4550bbef3755e7bc92d24369d9c788ba5487af03ba3b": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T18:56:20+00:00",
+        "evidence_ref": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#SupplProvision:平成元年三月三一日法律第一二号@179/Article:11@10#2303-2354",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T18:56:20+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1",
+        "note": "Independent fraction audit: 第11条 百分の六十 -> (60,100) verified against pinned raw text; kanji fraction conversion and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T18:56:20+00:00",
+        "evidence_ref": "task_queue.json#f3104a1f43ca#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T18:56:20+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T18:56:20+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractions.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T18:56:20+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T18:56:20+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T18:56:20+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T18:56:20+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T18:56:20+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "f31c7beb5d27b16775795bde81bb428945a5d587f85bedb1c14d690d1d37a1a7": [
       {
         "axis": "SOURCE_LOCATION",
@@ -145484,6 +146714,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "f9a7bbee49284fa8649ee8286888702269343490bffd199ff29956c0f05c029e": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T18:54:37+00:00",
+        "evidence_ref": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#MainProvision:MainProvision/Chapter:2@1/Section:2@1/Subsection:2@1/Article:72_48@54#1713-1786",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T18:54:37+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1",
+        "note": "Independent fraction audit: 第72_48条 二分の一 -> (1,2) verified against pinned raw text; kanji fraction conversion and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T18:54:37+00:00",
+        "evidence_ref": "task_queue.json#f9a7bbee4928#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T18:54:37+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T18:54:37+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractions.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T18:54:37+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T18:54:37+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T18:54:37+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T18:54:37+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryFractionsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T18:54:37+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-FRACTIONS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
       }
     ],
     "f9cc6cf3daac28dbabb38c124a435774ee2102c677640eff378c8c22a15fa2f1": [
