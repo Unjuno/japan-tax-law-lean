@@ -4225,6 +4225,11 @@ def checks():
            "332AC0000000026", "article", "第四十一条の十八",
            ["当該控除する金額が、当該個人のその年分の所得税の額の百分の二十五に相当する金額を超えるときは"])
 
+    # Restored registered check (dropped by a concurrent main merge).
+    yield ("通算法人 第六条（指定された期日が提出期限前の日）↔ FilingDateException.lean",
+           "426CO0000000139", "article", "第六条",
+           ["ただし、当該指定された期日が当該他の通算法人の同条第一項の規定による申告書の提出期限前の日である場合は、この限りでない。"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
