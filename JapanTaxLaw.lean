@@ -1958,3 +1958,6 @@ import JapanTaxLaw.TrustPeriod20YTests
 import JapanTaxLaw.InheritanceTaxArt19_4QuasiApplication
 import JapanTaxLaw.InheritanceTaxArt19_4QuasiApplicationSpec
 import JapanTaxLaw.InheritanceTaxArt19_4QuasiApplicationTests
+import JapanTaxLaw.PrescribedTimesTwo
+import JapanTaxLaw.PrescribedTimesTwoSpec
+import JapanTaxLaw.PrescribedTimesTwoTests
