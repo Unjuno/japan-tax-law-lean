@@ -1107,6 +1107,7 @@ import JapanTaxLaw.LocalTax37_2Band695To900Tests
 import JapanTaxLaw.LocalTax37_2Band900To1800
 import JapanTaxLaw.LocalTax37_2Band900To1800Spec
 import JapanTaxLaw.LocalTax37_2Band900To1800Tests
+import JapanTaxLaw.LocalTax37_2BandPartition
 import JapanTaxLaw.LocalTax37_2BandUpTo195
 import JapanTaxLaw.LocalTax37_2BandUpTo195Spec
 import JapanTaxLaw.LocalTax37_2BandUpTo195Tests
