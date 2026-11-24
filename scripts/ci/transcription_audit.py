@@ -1732,6 +1732,26 @@ def checks():
            "325AC0000000226", "article", "第三十七条",
            ["\u4e8c\u767e\u4e07\u5186\u3092\u8d85\u3048\u308b\u5834\u5408"])
 
+    # Sixth batch: art.34 thresholds of 地方税法.
+    yield ("local tax 34 disaster expense over 50k - LocalTax34DisasterExpense50k.lean",
+           "325AC0000000226", "article", "第三十四条",
+           ["\u640d\u5931\u306e\u91d1\u984d\u306b\u542b\u307e\u308c\u308b\u707d\u5bb3\u95a2\u9023\u652f\u51fa\u306e\u91d1\u984d\u304c\u4e94\u4e07\u5186\u3092\u8d85\u3048\u308b\u5834\u5408"])
+    yield ("local tax 34 new life insurance over 56k - LocalTax34NewLifeInsurance56k.lean",
+           "325AC0000000226", "article", "第三十四条",
+           ["\u524d\u5e74\u4e2d\u306b\u652f\u6255\u3064\u305f\u65b0\u751f\u547d\u4fdd\u967a\u6599\u306e\u91d1\u984d\u306e\u5408\u8a08\u984d\u304c\u4e94\u4e07\u516d\u5343\u5186\u3092\u8d85\u3048\u308b\u5834\u5408"])
+    yield ("local tax 34 old life insurance over 70k - LocalTax34OldLifeInsurance70k.lean",
+           "325AC0000000226", "article", "第三十四条",
+           ["\u524d\u5e74\u4e2d\u306b\u652f\u6255\u3064\u305f\u65e7\u751f\u547d\u4fdd\u967a\u6599\u306e\u91d1\u984d\u306e\u5408\u8a08\u984d\u304c\u4e03\u4e07\u5186\u3092\u8d85\u3048\u308b\u5834\u5408"])
+    yield ("local tax 34 income up to 9M - LocalTax34IncomeUpTo9M.lean",
+           "325AC0000000226", "article", "第三十四条",
+           ["\u5f53\u8a72\u7d0d\u7a0e\u7fa9\u52d9\u8005\u306e\u524d\u5e74\u306e\u5408\u8a08\u6240\u5f97\u91d1\u984d\u304c\u4e5d\u767e\u4e07\u5186\u4ee5\u4e0b\u3067\u3042\u308b\u5834\u5408"])
+    yield ("local tax 34 spouse band 1M-1.3M - LocalTax34SpouseBand1M13M.lean",
+           "325AC0000000226", "article", "第三十四条",
+           ["\u524d\u5e74\u306e\u5408\u8a08\u6240\u5f97\u91d1\u984d\u304c\u767e\u4e07\u5186\u3092\u8d85\u3048\u767e\u4e09\u5341\u4e07\u5186\u4ee5\u4e0b\u3067\u3042\u308b\u914d\u5076\u8005"])
+    yield ("local tax 34 spouse over 1.3M - LocalTax34SpouseOver13M.lean",
+           "325AC0000000226", "article", "第三十四条",
+           ["\u524d\u5e74\u306e\u5408\u8a08\u6240\u5f97\u91d1\u984d\u304c\u767e\u4e09\u5341\u4e07\u5186\u3092\u8d85\u3048\u308b\u914d\u5076\u8005"])
+
     # LocalTaxArt734AmountTier1.lean - NORM|41efee8e... (dual amount 120k/140k yen CONDITION, law 325AC0000000226)
     # Needle is in MainProvision Article 734 (Paragraph 3, table cell, Sentence 1);
     # find_article_text(...,"第七百三十四条") returns that article (len 2046) with needle -
