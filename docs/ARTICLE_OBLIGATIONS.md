@@ -146,7 +146,7 @@ source positions. Human legal review is a separate axis and is pending.
 | `325M50000040017` | 第三十条 | InheritanceRegSurrenderValueCondition | YES | YES | NO | NOT_STARTED |
 | `329CO0000000155` | 第一条の二 | CustomsDutiableValueThreshold | YES | YES | NO | NOT_STARTED |
 | `327AC0000000111` | 第十一条 | UsForcesDutyFreePenalty | YES | YES | NO | NOT_STARTED |
-| `340AC0000000157` | 4 | OilGasGrantArt4Rounding | YES | YES | NO | NOT_STARTED |
+| `340AC0000000157` | 第四条 | OilGasGrantArt4Rounding | YES | YES | NO | NOT_STARTED |
 | `340AC0000000157` | 第四条 | OilGasGrantRounding | YES | YES | YES | NOT_STARTED |
 | `143AC0000000054` | 第十条 | CustomsDamageReduction | YES | YES | YES | NOT_STARTED |
 | `143AC0000000054` | 第四条の七 | CustomsExchangeRate | YES | YES | NO | NOT_STARTED |
