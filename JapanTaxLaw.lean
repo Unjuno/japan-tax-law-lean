@@ -1955,3 +1955,6 @@ import JapanTaxLaw.PowerDevelopmentTaxOrderEnforcementDateTests
 import JapanTaxLaw.TrustPeriod20Y
 import JapanTaxLaw.TrustPeriod20YSpec
 import JapanTaxLaw.TrustPeriod20YTests
+import JapanTaxLaw.InheritanceTaxArt19_4QuasiApplication
+import JapanTaxLaw.InheritanceTaxArt19_4QuasiApplicationSpec
+import JapanTaxLaw.InheritanceTaxArt19_4QuasiApplicationTests
