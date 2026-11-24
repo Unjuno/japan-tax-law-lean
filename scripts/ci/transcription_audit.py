@@ -4312,6 +4312,13 @@ def checks():
            "file", None,
            ["前項の納付しなかった国際観光旅客税の額が二百万円を超えるときは、情状により、同項の罰金は、二百万円を超えその納付しなかった国際観光旅客税の額に相当する金額以下とすることができる。"])
 
+    # InheritanceTaxArt13ResidualAssetDebtException.lean - NORM|e1208a4e... (相続税法 art.13(2) item3 EXCEPTION, law 325AC0000000073)
+    # Article-kind locator; needle is the residual asset debt category.
+    yield ("inheritance tax art.13 residual asset debt exception - InheritanceTaxArt13ResidualAssetDebtException.lean",
+           "325AC0000000073",
+           "article", "\u7b2c\u5341\u4e09\u6761",
+           ["\u524d\u4e8c\u53f7\u306b\u63b2\u3052\u308b\u50b5\u52d9\u3092\u9664\u304f\u307b\u304b\u3001\u305d\u306e\u8ca1\u7523\u306e\u53d6\u5f97\u3001\u7dad\u6301\u53c8\u306f\u7ba1\u7406\u306e\u305f\u3081\u306b\u751f\u3058\u305f\u50b5\u52d9"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
