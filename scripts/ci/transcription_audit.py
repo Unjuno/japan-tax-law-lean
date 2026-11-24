@@ -1181,6 +1181,12 @@ def checks():
            "article", "第二十七条",
            ["三倍が百万円を超える場合には、情状により、同項の罰金は、百万円を超え", "第二十七条"])
 
+    # 特別とん税法 art.10(1) — SpecialTonnageArt10PenaltyCap.lean
+    yield ("特別とん税法 art.10(1)（3年/50万円の上限）↔ SpecialTonnageArt10PenaltyCap.lean",
+           "332AC0000000038",
+           "article", "第十条",
+           ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する", "第十条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",

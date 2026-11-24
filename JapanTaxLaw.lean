@@ -1745,6 +1745,9 @@ import JapanTaxLaw.SpecialOrderPensionMinimumTests
 import JapanTaxLaw.SpecialTonSplitRatio
 import JapanTaxLaw.SpecialTonSplitRatioSpec
 import JapanTaxLaw.SpecialTonSplitRatioTests
+import JapanTaxLaw.SpecialTonnageArt10PenaltyCap
+import JapanTaxLaw.SpecialTonnageArt10PenaltyCapSpec
+import JapanTaxLaw.SpecialTonnageArt10PenaltyCapTests
 import JapanTaxLaw.SpecialUseExemption
 import JapanTaxLaw.SpecialUseExemptionSpec
 import JapanTaxLaw.SpecialUseExemptionTests
