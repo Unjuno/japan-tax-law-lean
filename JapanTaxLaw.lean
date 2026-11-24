@@ -2042,3 +2042,6 @@ import JapanTaxLaw.PreferentialTariffOrderEnforcementDateTests
 import JapanTaxLaw.PrescribedTimesTwo
 import JapanTaxLaw.PrescribedTimesTwoSpec
 import JapanTaxLaw.PrescribedTimesTwoTests
+import JapanTaxLaw.PrescribedPeriodWithinFourMonths
+import JapanTaxLaw.PrescribedPeriodWithinFourMonthsSpec
+import JapanTaxLaw.PrescribedPeriodWithinFourMonthsTests
