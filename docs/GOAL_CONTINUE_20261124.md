@@ -163,6 +163,42 @@ verify_queue_invariants: 17/17; all 6 target units in evidence
 The eight status axes remain separate; these six units cover only their scoped
 rate-table cells, not the whole of 地方税法 art.37_2.
 
+### Fourth iteration (thresholds/tiers across 相続税法 and 地方税法)
+
+Six further units (`LocalTax37_2Over40M`, `InheritanceTaxRateUpTo10M`,
+`InheritanceTaxRateOver600M`, `InheritanceGiftRateOver30M`,
+`InheritanceGiftRateUpTo2M`, `LocalTax71_14MidTier`) were validated with the
+same axes (build 1871 jobs, invariants 17/17, batch-227 review). A source audit
+again caught a `h.1`/`h.2` numeral leak in a proof and it was corrected before
+attestation. CI run `45468592769` on `15b474270f88bca9a12b7b99f5ff412c9a9f6081`
+completed `success`; `data/PROOF_ATTESTATION_SCOPED_T4.json` binds 18 module
+hashes from committed blobs at that commit to that run.
+
+```
+before: FULLY_VERIFIED=743  NOT_STARTED=396106  evidence=746
+after:  FULLY_VERIFIED=751  NOT_STARTED=396098  evidence=754
+delta:  FULLY_VERIFIED=+8  NOT_STARTED=-8  evidence=+8
+progress_ledger: COUNTED; NOT_STARTED delta -8; new modules 18
+```
+
+All six target units carry a `kernel_proof` axis; the wider +8 includes a
+previously stale unit recovered by honest regeneration.
+
+### Auxiliary source layers (§5, Directive §1)
+
+Versioned official source bytes are pinned with SHA-256/byte count in
+`data/SOURCE_ACQUISITIONS.json` and counted only when the local bytes hash-match:
+
+- L2_ORDINANCE: 3 sources (Tokyo full ordinance 2026-07-01, Osaka City
+  amendment 2026-03-31, Kanagawa Prefecture amendment 2026-05-18) out of
+  1,788 declared municipalities — the rest remain backlog.
+- L3_TREATY: MOF Japan–US income-tax treaty consolidated text (1).
+- L4_CIRCULAR: NTA 2026-06-30 income-tax basic circular amendment (1).
+- L5_CASELAW: Supreme Court 1962-02-28 withholding constitutionality judgment (1).
+
+Every entry is `PINNED_BYTES_ONLY`, `NOT_MODELLED` and `LEGAL_REVIEW_PENDING`;
+none is folded into the L0 statutory ledger. Nine source-layer tests pass.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |
