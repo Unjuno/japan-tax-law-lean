@@ -2312,12 +2312,6 @@ def checks():
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
 
-    # LongTermGainSpecialMeasure — cycle-113 (restored after merge dropped it)
-    yield ("LongTermGainSpecialMeasure.lean",
-           "325AC0000000226",
-           "file", None,
-           ["当該課税長期譲渡所得金額から二千万円を控除した金額の百分の二", "第三十四条の二"])
-
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3888,13 +3882,6 @@ def checks():
            "article", "第五条",
            ["令和八年三月において、令和七年度三月震災復興特別交付税額は、前条の規定によって算定した額から第一号の額を減額した後の額に第二号の額を加算した額（同号の額が負数となるときは、当該負数となる額に相当する額を減額した額）から第三号の額を減額した額とする。"])
 
-    # DisasterTaxReliefOrderArt10Item5FieldCondition.lean (restored after merge dropped it)
-    # NORM|776e380c… 災害被害者租税減免法施行政令 art.10(1) item5 CONDITION.
-    yield ("disaster tax relief order art.10 item5 field condition - DisasterTaxReliefOrderArt10Item5FieldCondition.lean",
-           "322CO0000000268",
-           "article", "\u7b2c\u5341\u6761",
-           ["\u5fb4\u53ce\u7336\u4e88\u9650\u5ea6\u984d\u53c8\u306f\u5fb4\u53ce\u7336\u4e88\u671f\u9593\u53ca\u3073\u3053\u308c\u3089\u306e\u8a08\u7b97\u306e\u57fa\u790e"])
-
 # 災害時の合計所得金額の見積額 六百万円超七百五十万円以下 — DisasterIncomeBand6M75M.lean
     yield ("昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施行に関する政令） art. 3（災害時の合計所得金額の見積額 六百万円超七百五十万円以下）↔ DisasterIncomeBand6M75M.lean",
            "322CO0000000268",
@@ -3937,17 +3924,83 @@ def checks():
            "article", "第二条",
            ["合併により被合併法人の株主等に交付された合併後存続する法人の株式又は出資に係る資本の金額又は出資金額（被合併法人が二以上ある場合には、各被合併法人に係るこれらの金額のうち最も多い金額）"])
 
-    # 所得税額の還付 art. 6 — RefundDifferenceAmount.lean
-    yield ("所得税額の還付 art. 6（前号控除後の残額）↔ RefundDifferenceAmount.lean (saturating refund residual)",
-           "347M50000040042",
-           "article", "第六条",
-           ["第三号に掲げる所得税の額から前号に掲げる所得税の額を控除した残額のうち還付を受けようとする金額"])
+# 資本金等の額 千万円超一億円以下 — LocalCapitalBand10M100M.lean
+    yield ("地方税法 art. 52（資本金等の額 千万円超一億円以下）↔ LocalCapitalBand10M100M.lean",
+           "325AC0000000226",
+           "file", None,
+           ["二　資本金等の額を有する法人で資本金等の額が千万円を超え一億円以下であるもの"])
+
+    # 資本金等の額 一億円超十億円以下 — LocalCapitalBand100M1B.lean
+    yield ("地方税法 art. 52（資本金等の額 一億円超十億円以下）↔ LocalCapitalBand100M1B.lean",
+           "325AC0000000226",
+           "file", None,
+           ["三　資本金等の額を有する法人で資本金等の額が一億円を超え十億円以下であるもの"])
+
+    # 資本金等の額 十億円超五十億円以下 — LocalCapitalBand1B5B.lean
+    yield ("地方税法 art. 52（資本金等の額 十億円超五十億円以下）↔ LocalCapitalBand1B5B.lean",
+           "325AC0000000226",
+           "file", None,
+           ["四　資本金等の額を有する法人で資本金等の額が十億円を超え五十億円以下であるもの"])
+
+    # 地上権の残存期間 二十五年超三十年以下 — InheritanceResidual25_30.lean
+    yield ("相続税法 art. 23（地上権の残存期間 二十五年超三十年以下）↔ InheritanceResidual25_30.lean",
+           "325AC0000000073",
+           "file", None,
+           ["残存期間が二十五年を超え三十年以下のもの及び地上権で存続期間の定めのないもの"])
+
+    # DisasterTaxReliefOrderArt10Item5FieldCondition.lean (restored after merge dropped it)
+    # NORM|776e380c… 災害被害者租税減免法施行政令 art.10(1) item5 CONDITION.
+
+    # 地方法人税法 art. 2 — LocalCorpMaxCapital.lean
+    yield ("法人臨時特別税政令 art. 2（被合併法人二以上の最大額選択）↔ LocalCorpMaxCapital.lean (max selection, trigger >=2)",
+           "403CO0000000035",
+           "article", "第二条",
+           ["合併により被合併法人の株主等に交付された合併後存続する法人の株式又は出資に係る資本の金額又は出資金額（被合併法人が二以上ある場合には、各被合併法人に係るこれらの金額のうち最も多い金額）"])
+
+    # 地方税法施行令 art. 48の13 — LocalCorporateDeductionLimitRate6.lean (6%)
+    yield ("地方税法施行令 art. 48_13（法人税控除限度額6%）↔ LocalCorporateDeductionLimitRate6.lean",
+           "325CO0000000245", "file", None,
+           ["法人税の控除限度額に百分の六を乗じて計算した額とする。"])
 
     # 地方交付税法 art. 6の2 §2/§3 — LocalGrantTaxShares.lean (94% / 6%)
     yield ("LocalGrantTaxShares.lean",
            "325AC0000000211",
            "file", None,
            ["前条第二項の額の百分の九十四に相当する額", "前条第二項の額の百分の六に相当する額"])
+
+    # 地方税法 art. 71の6 — LocalInterestTaxRate5.lean (利子割 5%)
+    yield ("地方税法 art. 71_6（利子割の税率5%）↔ LocalInterestTaxRate5.lean",
+           "325AC0000000226",
+           "file", None,
+           ["利子割の税率は、百分の五とする。"])
+
+    # 地方税法 art. 50の4 — LocalSeparateIncomeTaxRate4.lean (分離課税 4%)
+    yield ("地方税法 art. 50_4（分離課税所得割4%）↔ LocalSeparateIncomeTaxRate4.lean",
+           "325AC0000000226", "file", None,
+           ["分離課税に係る所得割の税率は、百分の四とする。"])
+
+    # 地方税法 art. 328の3 — LocalSeparateIncomeTaxRate6.lean (分離課税 6%)
+    yield ("地方税法 art. 328_3（分離課税所得割6%）↔ LocalSeparateIncomeTaxRate6.lean",
+           "325AC0000000226", "file", None,
+           ["分離課税に係る所得割の税率は、百分の六とする。"])
+
+    # 地方税法 art. 71の49 — LocalStockTransferTaxRate5.lean (株式等譲渡所得割 5%)
+    yield ("地方税法 art. 71_49（株式等譲渡所得割の税率5%）↔ LocalStockTransferTaxRate5.lean",
+           "325AC0000000226",
+           "file", None,
+           ["株式等譲渡所得割の税率は、百分の五とする。"])
+
+    # LongTermGainSpecialMeasure — cycle-113 (restored after merge dropped it)
+    yield ("LongTermGainSpecialMeasure.lean",
+           "325AC0000000226",
+           "file", None,
+           ["当該課税長期譲渡所得金額から二千万円を控除した金額の百分の二", "第三十四条の二"])
+
+    # 所得税額の還付 art. 6 — RefundDifferenceAmount.lean
+    yield ("所得税額の還付 art. 6（前号控除後の残額）↔ RefundDifferenceAmount.lean (saturating refund residual)",
+           "347M50000040042",
+           "article", "第六条",
+           ["第三号に掲げる所得税の額から前号に掲げる所得税の額を控除した残額のうち還付を受けようとする金額"])
 
     # 相続税法施行令 art. 28 §1 — StandingTimberDeferredRate30.lean (30%)
     yield ("StandingTimberDeferredRate30.lean",
@@ -3960,14 +4013,6 @@ def checks():
            "325AC0000000226",
            "file", None,
            ["前年の合計所得金額が五百万円以下であること"])
-
-
-    # DisasterTaxReliefOrderSupplArt2HokkaidoBureauException.lean - NORM|483362ae... (災害被害者租税減免法施行政令 附則2 table EXCEPTION, law 322CO0000000268)
-    # Whole-law locator (table cell in 附則, not a main-provision Article).
-    yield ("disaster tax relief order suppl art.2 hokkaido bureau exception - DisasterTaxReliefOrderSupplArt2HokkaidoBureauException.lean",
-           "322CO0000000268",
-           "law", None,
-           ["\u6771\u5317\u6d77\u904b\u5c40\u9577\uff08\u5c71\u5f62\u770c\u53c8\u306f\u79cb\u7530\u770c\u306e\u533a\u57df\u306b\u4fc2\u308b\u51e6\u5206\u7b49\u53c8\u306f\u7533\u8acb\u7b49\u306b\u4fc2\u308b\u5834\u5408\u3092\u9664\u304f\u3002\uff09"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

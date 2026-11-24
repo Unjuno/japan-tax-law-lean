@@ -13,17 +13,17 @@ obligations being complete. SKIP is never counted as PASS.
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: c491ceffafd6fcb1205da0203fceca140304e7f9
-- current HEAD commit: c491ceffafd6fcb1205da0203fceca140304e7f9
-- results bound to this commit: True
+- current HEAD commit: 259e4d3182207df113f6f7b0b84391b083df4026
+- results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all registered obligations complete
 
 - normative units: 396854
-- NOT_STARTED: 396150
+- NOT_STARTED: 396154
 - PARTIAL: 0
 - PROVED_SCOPE: 3
-- FULLY_VERIFIED: 699
+- FULLY_VERIFIED: 695
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180619
@@ -36,26 +36,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 702 | 396854 |
-| kernel proved (CI-attested proof evidence) | 702 | 396854 |
-| source-audited (原文 correspondence evidence) | 702 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 698 | 396854 |
+| kernel proved (CI-attested proof evidence) | 698 | 396854 |
+| source-audited (原文 correspondence evidence) | 698 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 702 |
-| boundary_proof | 702 |
-| cross_law_proof | 702 |
-| decomposition_audit | 702 |
-| implementation | 702 |
-| independent_spec | 702 |
-| kernel_proof | 702 |
-| proof_scope | 702 |
-| source_correspondence_audit | 702 |
-| source_location | 702 |
-| tests | 702 |
+| adversarial_review | 698 |
+| boundary_proof | 698 |
+| cross_law_proof | 698 |
+| decomposition_audit | 698 |
+| implementation | 698 |
+| independent_spec | 698 |
+| kernel_proof | 698 |
+| proof_scope | 698 |
+| source_correspondence_audit | 698 |
+| source_location | 698 |
+| tests | 698 |
 
 ## Verdict
 
