@@ -28,6 +28,7 @@ Regenerate with `python scripts/ci/source_layers.py`; deterministic gate.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -37,6 +38,7 @@ REPO = Path(__file__).resolve().parents[2]
 INVENTORY = REPO / "data" / "INVENTORY.json"
 DISCOVERY = REPO / "docs" / "RECURSIVE_DISCOVERY.md"
 BLOCKED = REPO / "docs" / "BLOCKED.md"
+ACQUISITIONS = REPO / "data" / "SOURCE_ACQUISITIONS.json"
 OUT_JSON = REPO / "data" / "SOURCE_LAYERS.json"
 OUT_MD = REPO / "docs" / "SOURCE_LAYERS.md"
 QUEUE_DOC = REPO / "docs" / "TASK_QUEUE.md"
@@ -71,6 +73,33 @@ def queue_counts() -> dict:
         text, re.M,
     ):
         out[name] = int(value)
+    return out
+
+
+def verified_acquisitions(layer_id: str) -> list[dict]:
+    """Acquisitions whose pinned bytes are actually present and hash-matching.
+
+    A registry claim alone is never evidence.  The local file must exist and
+    its SHA-256 (and byte count, when declared) must match the recorded pin.
+    Unverified entries are ignored, never counted as acquired.
+    """
+    if not ACQUISITIONS.exists():
+        return []
+    data = json.loads(ACQUISITIONS.read_text(encoding="utf-8"))
+    out = []
+    for entry in data.get("acquisitions", []):
+        if entry.get("layer_id") != layer_id:
+            continue
+        path = REPO / str(entry.get("local_path", ""))
+        if not path.is_file():
+            continue
+        raw = path.read_bytes()
+        digest = re.sub(r"[^0-9a-f]", "", hashlib.sha256(raw).hexdigest())
+        if digest != str(entry.get("sha256", "")).lower():
+            continue
+        if entry.get("bytes") is not None and len(raw) != int(entry["bytes"]):
+            continue
+        out.append(entry)
     return out
 
 
@@ -115,6 +144,7 @@ def build() -> dict:
     ordinances = int(m_ord.group(1).replace(",", "")) if m_ord else 0
     reviewers = _int(r"candidates with recorded reviewer: (\d+)", blocked)
 
+    treaty_pins = verified_acquisitions("L3_TREATY")
     layers = [
         {
             "layer_id": "L0_STATUTE",
@@ -165,18 +195,23 @@ def build() -> dict:
             "layer_id": "L3_TREATY",
             "label_ja": "租税条約",
             "legal_nature": "条約（国際法源）— 国内法とは効力発生の機構が異なる",
-            "authority": "外務省 / 条約締結",
-            "acquisition_status": "NOT_ACQUIRED",
+            "authority": "財務省 / 外務省（条約締結）",
+            "acquisition_status": "ACQUIRED_PARTIAL" if treaty_pins else "NOT_ACQUIRED",
             "scope_status": "IN_SCOPE_AUXILIARY_BACKLOG",
-            "count": None,
-            "count_acquired": 0,
-            "pinned_snapshot": "",
-            "verification_status": "BACKLOG_NOT_ACQUIRED",
+            "count": len(treaty_pins) if treaty_pins else None,
+            "count_acquired": len(treaty_pins),
+            "pinned_snapshot": ", ".join(x["source_id"] for x in treaty_pins),
+            "verification_status": "PINNED_BYTES_ONLY" if treaty_pins else "BACKLOG_NOT_ACQUIRED",
             "auxiliary": True,
-            "notes": "対象に保持する。法源上の性質が異なるため L0 に混ぜず別層で管理。未取得はバックログであり除外ではない。",
+            "notes": ("対象に保持し、原文 bytes を版付きで pin 済み（形式化・人間レビューは未実施）。"
+                      "統合条文は法的根拠ではなく、原条約・改正議定書の正文のみが法的文書。"
+                      if treaty_pins else
+                      "対象に保持する。法源上の性質が異なるため L0 に混ぜず別層で管理。未取得はバックログであり除外ではない。"),
+            "acquisitions": treaty_pins,
             "backlog": backlog_record(
                 "L3_TREATY", "TREATY_ACQUISITION",
-                "租税条約を版付きで取得し、国内法との効力発生の違いを別層で形式化する"),
+                "租税条約を版付きで取得し、国内法との効力発生の違いを別層で形式化する"
+                + ("（-pin 済み条约の規範分解を継続）" if treaty_pins else "")),
         },
         {
             "layer_id": "L4_CIRCULAR",
@@ -230,6 +265,10 @@ def build() -> dict:
                 "歴史的施行版を e-Gov 歴史情報から版付きで pin し、経過措置の参照を解決する"),
         },
     ]
+    if treaty_pins:
+        l3 = next(layer for layer in layers if layer["layer_id"] == "L3_TREATY")
+        l3["backlog"]["acquisition_evidence"] = ", ".join(
+            f"{x['source_id']} sha256={x['sha256']}" for x in treaty_pins)
     q = queue_counts()
     pipeline = {
         "normative_units_total": q.get("units_total"),
@@ -304,8 +343,11 @@ def main() -> int:
         "",
         p["note"],
         "",
-        "No layer other than L0 has acquired content in this repository. No",
-        "completion claim is made for any layer.",
+        ("L3_TREATY has pinned source bytes (formalization and legal review still"
+         " pending); all other auxiliary layers remain unacquired backlog."
+         if verified_acquisitions("L3_TREATY") else
+         "No layer other than L0 has acquired content in this repository."),
+        "No completion claim is made for any layer.",
         "",
         "## In-scope backlog (Sponsor Directive §1/§5)",
         "",

@@ -138,6 +138,17 @@ All seven target normative ids (the six new units plus the repaired
 previously stale units recovered by the same honest regeneration. This is a
 measurement from the evidence/queue ledgers, not a count of files or theorems.
 
+## Third iteration — 地方税法 art.37_2(11) bands
+
+Six further dependency-free units from `325AC0000000226_20261101_508AC0000000002`
+were formalized with the same eight-axis treatment: `LocalTax37_2BandUpTo195`,
+`195To330`, `330To695`, `695To900`, `900To1800`, `1800To4000`. Each has an
+independent spec, universal axiom-free bridge, kernel-decided boundary cases,
+a scoped pinned needle, a registry entry and a mechanical review in
+`docs/adversarial/reviews-batch-221.md`. The Lean build reached 1853 jobs green
+and all six passed the evidence pipeline under temporary (never committed)
+validation. They remain NOT_STARTED until a green CI run binds their hashes.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |

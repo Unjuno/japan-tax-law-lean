@@ -30,13 +30,30 @@ class LayerTests(unittest.TestCase):
         self.assertEqual(len(ids), 7)
         self.assertEqual(len(set(ids)), 7)
 
-    def test_auxiliary_layers_are_flagged_and_not_acquired(self):
-        for l in self.reg["layers"]:
-            if l["auxiliary"]:
-                self.assertEqual(l["acquisition_status"], "NOT_ACQUIRED")
-                self.assertEqual(l["verification_status"], "BACKLOG_NOT_ACQUIRED")
+    def test_auxiliary_layers_are_flagged_and_never_merged_into_statutes(self):
+        by = {l["layer_id"]: l for l in self.reg["layers"]}
+        for lid in ("L3_TREATY", "L4_CIRCULAR", "L5_CASELAW"):
+            self.assertTrue(by[lid]["auxiliary"])
+            self.assertNotEqual(by[lid]["scope_status"], "PROVISIONAL_POPULATION")
+        # L3 may hold pinned treaty bytes; L4/L5 remain unacquired interpretation
+        # layers. An acquisition is never a formalization or a legal review.
+        self.assertIn(by["L3_TREATY"]["acquisition_status"],
+                      ("NOT_ACQUIRED", "ACQUIRED_PARTIAL"))
+        for lid in ("L4_CIRCULAR", "L5_CASELAW"):
+            self.assertEqual(by[lid]["acquisition_status"], "NOT_ACQUIRED")
+            self.assertEqual(by[lid]["verification_status"], "BACKLOG_NOT_ACQUIRED")
         aux = {l["layer_id"] for l in self.reg["layers"] if l["auxiliary"]}
         self.assertEqual(aux, {"L3_TREATY", "L4_CIRCULAR", "L5_CASELAW"})
+
+    def test_treaty_acquisition_requires_matching_pinned_bytes(self):
+        """A registry claim alone never counts as acquisition."""
+        entries = sl.verified_acquisitions("L3_TREATY")
+        for entry in entries:
+            raw = (sl.REPO / entry["local_path"]).read_bytes()
+            self.assertEqual(entry["bytes"], len(raw))
+            self.assertEqual(entry["sha256"], sl.hashlib.sha256(raw).hexdigest())
+            self.assertEqual(entry["legal_review"], "LEGAL_REVIEW_PENDING")
+            self.assertEqual(entry["formalization_status"], "NOT_MODELLED")
 
     def test_ordinances_and_history_are_not_merged_into_statutes(self):
         by = {l["layer_id"]: l for l in self.reg["layers"]}
@@ -56,7 +73,11 @@ class LayerTests(unittest.TestCase):
             self.assertEqual(layer["backlog"]["layer_id"], lid)
             self.assertTrue(layer["backlog"]["next_action"])
             self.assertEqual(layer["backlog"]["legal_review"], "LEGAL_REVIEW_PENDING")
-            self.assertEqual(layer["backlog"]["acquisition_evidence"], "")
+            if lid == "L3_TREATY":
+                # Pinned bytes are recorded, but this is not proof or review.
+                self.assertIn("sha256=", layer["backlog"]["acquisition_evidence"])
+            else:
+                self.assertEqual(layer["backlog"]["acquisition_evidence"], "")
         self.assertEqual(self.reg["backlog"]["task_count"], 5)
         self.assertNotIn("DECLARED_UNSUPPORTED",
                          [l["scope_status"] for l in self.reg["layers"]])

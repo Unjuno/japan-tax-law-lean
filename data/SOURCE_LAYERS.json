@@ -13,11 +13,11 @@
         "task_class": "MUNICIPAL_ORDINANCE_ACQUISITION"
       },
       {
-        "acquisition_evidence": "",
+        "acquisition_evidence": "JP-US-INCOME-TAX-20031106 sha256=a09142948a36a9f8c7c6515aae0fdc1464d937c73df8c83bee568979ba7ca750",
         "formalization_evidence": "",
         "layer_id": "L3_TREATY",
         "legal_review": "LEGAL_REVIEW_PENDING",
-        "next_action": "租税条約を版付きで取得し、国内法との効力発生の違いを別層で形式化する",
+        "next_action": "租税条約を版付きで取得し、国内法との効力発生の違いを別層で形式化する（-pin 済み条约の規範分解を継続）",
         "status": "NOT_ACQUIRED",
         "task_class": "TREATY_ACQUISITION"
       },
@@ -113,27 +113,52 @@
       "verification_status": "BACKLOG_NOT_ACQUIRED"
     },
     {
-      "acquisition_status": "NOT_ACQUIRED",
-      "authority": "外務省 / 条約締結",
+      "acquisition_status": "ACQUIRED_PARTIAL",
+      "acquisitions": [
+        {
+          "bytes": 305222,
+          "document_kind": "CONSOLIDATED_TEXT_WITHOUT_LEGAL_FORCE",
+          "document_kind_note": "財務省掲載の統合条文。原条約・改正議定書の正文のみが法的文書であり、本PDFは便宜的な統合文書である。",
+          "entry_into_force": "2004-03-01",
+          "formalization_status": "NOT_MODELLED",
+          "layer_id": "L3_TREATY",
+          "legal_review": "LEGAL_REVIEW_PENDING",
+          "local_path": "data/layers/L3_TREATY/USA_ST_jp_20031106.pdf",
+          "media_type": "application/pdf",
+          "official_url": "https://www.mof.go.jp/tax_policy/summary/international/tax_convention/USA_ST_jp.pdf",
+          "parties": [
+            "日本国",
+            "アメリカ合衆国"
+          ],
+          "retrieved_date": "2026-11-25",
+          "sha256": "a09142948a36a9f8c7c6515aae0fdc1464d937c73df8c83bee568979ba7ca750",
+          "signature_date": "2003-11-06",
+          "source_id": "JP-US-INCOME-TAX-20031106",
+          "title_en": "Convention between the Government of Japan and the Government of the United States of America for the Avoidance of Double Taxation and the Prevention of Tax Evasion with Respect to Taxes on Income",
+          "title_ja": "所得に対する租税に関する二重課税の回避及び脱税の防止のための日本国政府とアメリカ合衆国政府との間の条約",
+          "verification": "PINNED_BYTES_ONLY"
+        }
+      ],
+      "authority": "財務省 / 外務省（条約締結）",
       "auxiliary": true,
       "backlog": {
-        "acquisition_evidence": "",
+        "acquisition_evidence": "JP-US-INCOME-TAX-20031106 sha256=a09142948a36a9f8c7c6515aae0fdc1464d937c73df8c83bee568979ba7ca750",
         "formalization_evidence": "",
         "layer_id": "L3_TREATY",
         "legal_review": "LEGAL_REVIEW_PENDING",
-        "next_action": "租税条約を版付きで取得し、国内法との効力発生の違いを別層で形式化する",
+        "next_action": "租税条約を版付きで取得し、国内法との効力発生の違いを別層で形式化する（-pin 済み条约の規範分解を継続）",
         "status": "NOT_ACQUIRED",
         "task_class": "TREATY_ACQUISITION"
       },
-      "count": null,
-      "count_acquired": 0,
+      "count": 1,
+      "count_acquired": 1,
       "label_ja": "租税条約",
       "layer_id": "L3_TREATY",
       "legal_nature": "条約（国際法源）— 国内法とは効力発生の機構が異なる",
-      "notes": "対象に保持する。法源上の性質が異なるため L0 に混ぜず別層で管理。未取得はバックログであり除外ではない。",
-      "pinned_snapshot": "",
+      "notes": "対象に保持し、原文 bytes を版付きで pin 済み（形式化・人間レビューは未実施）。統合条文は法的根拠ではなく、原条約・改正議定書の正文のみが法的文書。",
+      "pinned_snapshot": "JP-US-INCOME-TAX-20031106",
       "scope_status": "IN_SCOPE_AUXILIARY_BACKLOG",
-      "verification_status": "BACKLOG_NOT_ACQUIRED"
+      "verification_status": "PINNED_BYTES_ONLY"
     },
     {
       "acquisition_status": "NOT_ACQUIRED",
@@ -209,10 +234,10 @@
   "tool": "scripts/ci/source_layers.py",
   "verification_pipeline": {
     "blocked_units": 2,
-    "fully_verified_units": 724,
+    "fully_verified_units": 739,
     "human_legal_reviews": 0,
     "normative_units_total": 396854,
-    "not_started_units": 396125,
+    "not_started_units": 396110,
     "note": "Separate denominators; unknown (None) means the input is absent, never zero.",
     "proved_scope_units": 3
   }
