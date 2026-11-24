@@ -476,6 +476,12 @@ import JapanTaxLaw.DeceasedUnder70Tests
 import JapanTaxLaw.DeemedCapitalGainsCost
 import JapanTaxLaw.DeemedCapitalGainsCostSpec
 import JapanTaxLaw.DeemedCapitalGainsCostTests
+import JapanTaxLaw.DelegatedEnforcement3M
+import JapanTaxLaw.DelegatedEnforcement3MSpec
+import JapanTaxLaw.DelegatedEnforcement3MTests
+import JapanTaxLaw.DelegatedEnforcement6M
+import JapanTaxLaw.DelegatedEnforcement6MSpec
+import JapanTaxLaw.DelegatedEnforcement6MTests
 import JapanTaxLaw.DeliberationQuorum
 import JapanTaxLaw.DeliberationQuorumSpec
 import JapanTaxLaw.DeliberationQuorumTests

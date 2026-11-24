@@ -4124,6 +4124,20 @@ def checks():
            "325AC0000000226", "file", None,
            ["同項の不足額に、これに百分の三十五の割合を乗じて計算した金額を加算した金額とする。"])
 
+    # 公布後三月以内の政令施行日（委任＋期間上限） — DelegatedEnforcement3M.lean
+    yield ("公布後三月以内の政令施行日（委任＋期間上限） ↔ DelegatedEnforcement3M.lean (delegated enforcement date, cap 3 months)",
+           "422AC1000000050",
+           "file", None,
+           ["この法律は、公布の日から起算して三月を超えない範囲内において政令で定める日から施行する。"])
+
+
+    # 公布後六月以内の政令施行日（委任＋期間上限） — DelegatedEnforcement6M.lean
+    yield ("公布後六月以内の政令施行日（委任＋期間上限） ↔ DelegatedEnforcement6M.lean (delegated enforcement date, cap 6 months)",
+           "410AC0000000025",
+           "file", None,
+           ["この法律は、公布の日から起算して六月を超えない範囲内において政令で定める日（以下「施行日」という。）から施行する。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
