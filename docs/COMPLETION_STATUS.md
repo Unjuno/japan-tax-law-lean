@@ -13,17 +13,17 @@ obligations being complete. SKIP is never counted as PASS.
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: 9041d98f7a3c99b9fbfe78a70872d210be50d3e8
-- current HEAD commit: 9900fc5ea749b63dac804ae861cdd57670b32dac
+- current HEAD commit: 3f2c000b012784132036f57c18b66ae5200a809b
 - results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all TECHNICAL obligations complete (human review excluded)
 
 - normative units: 396854
-- NOT_STARTED: 396068
+- NOT_STARTED: 396067
 - PARTIAL: 0
 - PROVED_SCOPE: 1
-- FULLY_VERIFIED: 783
+- FULLY_VERIFIED: 784
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180617
@@ -43,26 +43,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 784 | 396854 |
-| kernel proved (CI-attested proof evidence) | 784 | 396854 |
-| source-audited (原文 correspondence evidence) | 784 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 792 | 396854 |
+| kernel proved (CI-attested proof evidence) | 792 | 396854 |
+| source-audited (原文 correspondence evidence) | 792 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 784 |
-| boundary_proof | 784 |
-| cross_law_proof | 784 |
-| decomposition_audit | 784 |
-| implementation | 784 |
-| independent_spec | 784 |
-| kernel_proof | 784 |
-| proof_scope | 784 |
-| source_correspondence_audit | 784 |
-| source_location | 784 |
-| tests | 784 |
+| adversarial_review | 792 |
+| boundary_proof | 792 |
+| cross_law_proof | 792 |
+| decomposition_audit | 792 |
+| implementation | 792 |
+| independent_spec | 792 |
+| kernel_proof | 792 |
+| proof_scope | 792 |
+| source_correspondence_audit | 792 |
+| source_location | 792 |
+| tests | 792 |
 
 ## Verdict
 

@@ -1392,6 +1392,13 @@ def checks():
            "article", "第七条",
            ["\u524d\u9805\u306e\u8abf\u67fb\u306f\u3001\u7b2c\u4e8c\u5341\u4e5d\u9805\u306e\u898f\u5b9a\u306b\u3088\u308b\u8acb\u6c42\u304c\u3042\u3064\u305f\u65e5\u304b\u3089\u4e00\u5e74\u4ee5\u5185\u306b\u7d42\u4e86\u3059\u308b\u3082\u306e\u3068\u3059\u308b\u3002"])
 
+
+    # 関税定率法 art. 7 — InvestigationExtensionSixMonths.lean (six-month ceiling)
+    yield ("関税定率法 art. 7（調査期間の延長: 六月以内に限り延長する — 上限のみをモデル化、特別の理由の認定・元の期間・延長判断は caller-established）↔ InvestigationExtensionSixMonths.lean",
+           "143AC0000000054",
+           "article", "第七条",
+           ["ただし、特別の理由により必要があると認められる場合には、その期間を六月以内に限り延長することができる"])
+
     # CustomsTariffArt14ProvisoReading.lean - NORM|1808965b... (item11 proviso READING, law 143AC0000000054) [repaired: dropped in PR #510 merge]
     # Needle is in MainProvision Article 第十四条 (Paragraph 1, Item 11, Sentence 2);
     # find_article_text(...,"第十四条") returns that article (len 1655) with needle -
