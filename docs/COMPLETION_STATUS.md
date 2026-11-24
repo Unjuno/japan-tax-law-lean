@@ -13,7 +13,7 @@ obligations being complete. SKIP is never counted as PASS.
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: 9839ca327268df66bfb2655f1c38f98e9603832f
-- current HEAD commit: bc681410e09b5fb1a30972d4ffc7f7840248db56
+- current HEAD commit: 5ed691a90ed93ba119264f01867aea5fe393cd82
 - results bound to this commit: False
 - registered checks all green: False
 
@@ -22,11 +22,11 @@ obligations being complete. SKIP is never counted as PASS.
 - normative units: 396854
 - NOT_STARTED: 396096
 - PARTIAL: 0
-- PROVED_SCOPE: 3
-- FULLY_VERIFIED: 753
+- PROVED_SCOPE: 1
+- FULLY_VERIFIED: 755
 - BLOCKED: 2
 - units with an open blocker: 2
-- units with unhandled conditions: 180619
+- units with unhandled conditions: 180617
 - human legal reviews recorded: 0/3438 candidates
 
 ## Objective §5 coverage layers (separate denominators, never combined)
