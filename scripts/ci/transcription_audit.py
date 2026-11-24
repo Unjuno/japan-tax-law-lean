@@ -4198,6 +4198,28 @@ def checks():
            "332AC0000000026", "file", None,
            ["特定不動産の割合が百分の七十五以上であること。"])
 
+    yield ("租税特別措置法施行令 art. 5_5（政令割合75%）↔ SpecialMeasuresOrderRate75.lean",
+           "332CO0000000043", "file", None,
+           ["法第十条の三第一項に規定する政令で定める割合は、百分の七十五とする。"])
+
+    # 地方税法施行規則 art. 24の28 — BusinessTaxCollectionCostRate5.lean (5%)
+    yield ("地方税法施行規則 art. 24_28（事業所税徴収費5%）↔ BusinessTaxCollectionCostRate5.lean",
+           "329M50000002023", "file", None,
+           ["事業所税の徴収に要する費用は、当該年度の歳入に所属する事業所税の額の百分の五に相当する額とする。"])
+
+
+    # 所得税法施行令 art. 83_2 — SpouseIncomeCeiling950k.lean
+    yield ("所得税法施行令 art. 83_2（配偶者の合計所得金額 九十五万円以下）↔ SpouseIncomeCeiling950k.lean",
+           "340AC0000000033",
+           "file", None,
+           ["合計所得金額が九十五万円以下である配偶者"])
+
+    # 関税定率法 art. 9(1)(1) — CustomsAdditionalDutyCeiling.lean
+    yield ("関税定率法 art. 9（差額関税の上限: 差額-別表関税額以下）↔ CustomsAdditionalDutyCeiling.lean",
+           "143AC0000000054",
+           "file", None,
+           ["指定された期間内に輸入される指定された貨物の全部につき、又は当該貨物のうち一定の数量若しくは額を超えるものにつき、別表の税率による関税のほか、当該貨物の課税価格とこれと同種又は類似の貨物の本邦における適正と認められる卸売価格（類似の貨物にあつては、当該貨物の性質及び取引方法の差異による価格の相違を勘案して合理的に必要と認められる調整を加えた価格）との差額から別表の税率による関税の額を控除した額以下の関税を課すること。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
