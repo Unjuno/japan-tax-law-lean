@@ -1875,6 +1875,9 @@ import JapanTaxLaw.TonnageTaxPenaltySpec
 import JapanTaxLaw.TonnageTaxPenaltyTests
 import JapanTaxLaw.TonnageTaxSpec
 import JapanTaxLaw.TonnageTaxTests
+import JapanTaxLaw.TouristTaxFineRange
+import JapanTaxLaw.TouristTaxFineRangeSpec
+import JapanTaxLaw.TouristTaxFineRangeTests
 import JapanTaxLaw.TrainingPeriodOneYear
 import JapanTaxLaw.TrainingPeriodOneYearSpec
 import JapanTaxLaw.TrainingPeriodOneYearTests
