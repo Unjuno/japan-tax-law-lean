@@ -4002,6 +4002,12 @@ def checks():
            "article", "第六条",
            ["第三号に掲げる所得税の額から前号に掲げる所得税の額を控除した残額のうち還付を受けようとする金額"])
 
+    # 租税特別措置法 art. 10(3)(3) 控除割増率 — RndSurchargeRate.lean
+    yield ("租税特別措置法 art. 10（試験研究費割合の控除割増率: (割合-10%)*2、三位未満切捨て、10%上限）↔ RndSurchargeRate.lean",
+           "332AC0000000026",
+           "file", None,
+           ["当該試験研究費割合から百分の十を控除した割合に二を乗じて計算した割合（当該割合に小数点以下三位未満の端数があるときはこれを切り捨てた割合とし、当該計算した割合が百分の十を超えるときは百分の十とする。）"])
+
     # 相続税法施行令 art. 28 §1 — StandingTimberDeferredRate30.lean (30%)
     yield ("StandingTimberDeferredRate30.lean",
            "325CO0000000071",
