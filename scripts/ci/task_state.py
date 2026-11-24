@@ -158,8 +158,9 @@ def merge_state(state: dict, generated_units: list[dict]) -> dict:
             existing["notes"] = (existing.get("notes", "") +
                                  " | source projection changed; previous verification must be re-established"
                                  ).strip(" |")
-        existing["last_generated_digest"] = digest
-        existing["updated_at"] = _now()
+        if existing.get("last_generated_digest") != digest:
+            existing["last_generated_digest"] = digest
+            existing["updated_at"] = _now()
     for uid, existing in units.items():
         if uid not in seen and existing.get("status") != STATUS_STALE:
             existing["status"] = STATUS_STALE

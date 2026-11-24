@@ -254,6 +254,11 @@ class TestStatePersistence(unittest.TestCase):
         }
         st.merge_state(state, [{"normative_id": "u1", "projection_digest": "d1"},
                                {"normative_id": "u2", "projection_digest": "d2"}])
+        stamp = state["units"]["u1"]["updated_at"]
+        st.merge_state(state, [{"normative_id": "u1", "projection_digest": "d1"},
+                               {"normative_id": "u2", "projection_digest": "d2"}])
+        self.assertEqual(state["units"]["u1"]["updated_at"], stamp,
+                         "unchanged regeneration must not rewrite updated_at")
         self.assertEqual(state["units"]["u1"]["owner"], "FORMALIZE")
         self.assertEqual(state["units"]["u1"]["status"], "PROVED_SCOPE")
         self.assertEqual(state["units"]["u1"]["notes"], "keep me")
