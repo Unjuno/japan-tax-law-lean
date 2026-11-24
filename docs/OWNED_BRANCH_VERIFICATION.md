@@ -106,9 +106,10 @@ shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
 durable. `docs/TASK_QUEUE.md` is regenerated with these counts.
 
-Local full `lake build` was attempted but had to be stopped at 15/524 modules
-under severe system load from concurrent agents; it is NOT claimed as a full
-kernel build. The targeted builds that back the recorded evidence did succeed:
+Full `lake build` subsequently completed: **524/524 modules, exit 0**, with no
+`error:`/`✖`/`Build failed` in the log, and `check_no_sorry.py` reports no
+forbidden placeholder proofs (`docs/FULL_LEAN_BUILD_20261124.md`). The targeted
+builds that back the individual evidence records also succeeded:
 
 ```
 lake build JapanTaxLaw.GiftTaxSpec  → Build completed successfully (4 jobs)
