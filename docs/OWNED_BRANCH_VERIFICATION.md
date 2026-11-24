@@ -43,12 +43,12 @@ Measured results on this branch (2026-11-20):
 
 ```
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=396803, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=49, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=396802, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=50, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=49 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=50 axes=11 unbacked=0
 12/12 invariants passed
 $ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
 
@@ -78,7 +78,15 @@ all `Nat`, kernel boundaries 7,499,999 / 7,500,000 / 7,500,001, source audit
 D=PASS with 七百五十万円 → 7,500,000, and H/T/D/C/U review of the strict-vs-
 inclusive competing reading. It is a distinct unit id from the ≤7.5M band.
 
-So 49 evidence-backed units left NOT_STARTED on this branch; the
+The 50th unit is 相続税法 art. 16 appendix-table band
+`NORM|93b274d3…`: 「千万円を超え三千万円以下の金額」 — a compound
+strict-lower/inclusive-upper predicate with two pinned constants
+(¥10,000,000 and ¥30,000,000). Independent spec, universal agreement over
+all `Nat`, six kernel boundaries, source audit D=PASS, and H/T/D/C/U review
+of the mixed strict/inclusive reading. The rate and other bands are not
+modelled by this unit.
+
+So 50 evidence-backed units left NOT_STARTED on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
 durable. `docs/TASK_QUEUE.md` is regenerated with these counts.

@@ -457,6 +457,19 @@
       "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:25_16/Article#25_16/Paragraph#1/ParagraphSentence/Sentence#2 sha256=d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/InheritedPropertyTransferGainTests.lean sha256=4b99c0d14afdc2f65b45d5618a1a54d49c781acf56b6556a3703dfb7997464da (19 kernel-decided examples)"
     },
+    "NORM|93b274d3db7616b01bf8ebe8da32b6a1bb33b66ca5f224d32215cd1108b0c470": {
+      "adversarial_review": "docs/ADVERSARIAL_INHERITANCE_BAND.md H/T/D/C/U; strict/inclusive edges recorded",
+      "boundary_proof": "InheritanceRateBand10to30Tests.lean kernel-decided 9,999,999/10,000,000/10,000,001/30,000,000/30,000,001",
+      "cross_law_proof": "dependencies=[]",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/InheritanceRateBand10to30.lean sha256=20c58eeaa38ebea380669c343e1ecc64be68c3f3be0d1ec5c8c5da72680e9e09",
+      "independent_spec": "JapanTaxLaw/InheritanceRateBand10to30Spec.lean sha256=dc6db939fd728763c05c2a73a9d7076d50ee9ec90ba05f423d160a28d2e357ff; spec uses two negated comparisons joined by Bool AND",
+      "kernel_proof": "lake build JapanTaxLaw.InheritanceRateBand10to30Tests: Build completed successfully (5 jobs); at_lower/at_upper/above_upper: no axioms; agree_spec_impl: standard propext",
+      "proof_scope": "agree_spec_impl universal over all Nat; only band membership, not the rate",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; amounts_in_source=[10000000, 30000000]; missing=[]",
+      "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:16/Article#16/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7; verbatim located in art.16 table cell",
+      "tests": "JapanTaxLaw/InheritanceRateBand10to30Tests.lean sha256=a5cf4f62ccded91e42347a1b06d1642cca0f96ecf890fb5c14cef68260ac0390; kernel-decided boundaries"
+    },
     "NORM|9cb75dc1ffa0262fa855787a8f03c473ce13f0f6015eda89be790e9aca61d98b": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
