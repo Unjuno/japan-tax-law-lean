@@ -12305,18 +12305,3 @@ CI `checks()` の `LifeInsurancePremiumDeductionUpper.lean` エントリ（law_i
 
 > **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・反例/走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
 
-
-
-## Batch AH review (2026-11-24) — six-month investigation extension
-
-### InvestigationExtensionSixMonths.lean
-
-- **一次資料（pinned）**: `data/raw/143AC0000000054_20260601_508AC0000000005.law.json`, 関税定率法 art. 7.
-- **独立再抽出**: pinned JSON の `law_full_text` を再帰 flatten し `tag=Article, attr.Num=7` の原文から needle を直接抽出した。whitespace 正規化後、
-  「ただし、特別の理由により必要があると認められる場合には、その期間を六月以内に限り延長することができる。」
-  は当該条中に 2 回出現し、「六」は当該条中に存在することを Python で確認。
-- **独立検算**: 上限 6 か月を `¬ 6 < months` として独立に書き、実装の `months <= 6` との一致を `agree_within` として Lean カーネルで検証する。
-- **判定**: needle は原文に存在し、独立仕様は実装定義を参照せず、境界値（0, 1, 6, 7, 11, 12, 13）で一致する。上限のみをモデル化し、特別の理由の認定・元の期間・延長判断は caller-established。
-- H（反証可能仮説）: 上限が別の語である可能性。T（再現検査）: pinned JSON の当該条を直接 flatten し needle を数える。D（合否）: needle 2 回・「六」存在 → PASS。C（対立解釈）: 延長回数と読む解釈もあり得るが、原文は「期間を六月以内」であり期間上限を採用。U（不確かさ）: 特別の理由の認定基準は条文外であり未検証として保持。
-
-このレビューは機械的な独立照合であり、人間の法的レビューではない。
