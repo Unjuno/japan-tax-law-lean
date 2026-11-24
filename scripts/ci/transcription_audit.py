@@ -4292,6 +4292,12 @@ def checks():
            "325AC0000000226", "file", None,
            ["その猶予に係る税額が百万円以下である場合"])
 
+    # 国際観光旅客税法 art. 24(2) — TouristTaxFineRange.lean
+    yield ("国際観光旅客税法 art. 24（未納税額二百万円超の罰金区間）↔ TouristTaxFineRange.lean",
+           "430AC0000000016",
+           "file", None,
+           ["前項の納付しなかった国際観光旅客税の額が二百万円を超えるときは、情状により、同項の罰金は、二百万円を超えその納付しなかった国際観光旅客税の額に相当する金額以下とすることができる。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
