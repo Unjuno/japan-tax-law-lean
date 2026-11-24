@@ -11517,3 +11517,107 @@ pinned 附則（17 ブロック）には本モデルが扱う平成15年施行�
 - 残る UNRESOLVED（U-1 未形式化範囲の法的十分性、U-2 本 revision の改正附則との関係）はいずれも pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・元号換算「元」=1・needle 健全性・境界値走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+---
+
+## Batch CX review (2026-11-24) — 関税定率法第五条便益関税適用政令 附則 art.1（施行日）/ PreferentialTariffOrderEnforcementDate.lean（cycle-107 機械的独立照合・反例探索）
+
+### CX-0. 範囲・独立性の申告
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。担当者の `docs/STAGING_ENFORCE107.md` は参照したが、その needle 記載を**信じず**、pinned 原文から直接再抽出した機械的照合をもって判定した。
+- **対象モジュール（読み取り専用・本レビューで変更していない）**: `JapanTaxLaw/PreferentialTariffOrderEnforcementDate.lean`、`JapanTaxLaw/PreferentialTariffOrderEnforcementDateSpec.lean`、`JapanTaxLaw/PreferentialTariffOrderEnforcementDateTests.lean`。
+- **一次資料（pinned・改変禁止）**: `data/raw/330CO0000000237_20250401_507CO0000000141.law.json`（law id `330CO0000000237` / revision `330CO0000000237_20250401_507CO0000000141`、48,357 bytes、sha256 `B582B596FAD9182C060271FC8119325B3828BF6CDD9435141B07A5FCBD163ED3`）および `data/raw/330CO0000000237.revisions.json`（sha256 `832ADBAF0EFFE9179114CE8497EED715309B1CD804C8BF2846B588F9483BD6D6`）。両 hash は `data/INVENTORY.json` の `raw_snapshot.source_sha256` / `revisions_sha256` と自前再計算で**一致**。同 INVENTORY の `current_revision.law_revision_id` = `330CO0000000237_20250401_507CO0000000141`、`raw_snapshot.source_file` = 上記 JSON パスもモジュール doc-comment の pin と**一致**（law num 昭和三十年政令第二百三十七号）。
+- **書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ**。Lean モジュール・`data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。
+
+### CX-1. pinned 原文の独立抽出と照合（附則に留意）
+
+- **抽出方法**: `law_full_text` を再帰走査し `SupplProvision`（附則）ブロックを列挙した。pinned スナップショットには **78 個**の附則ブロック（制定＋多数の改正）が存在する。STAGING の needle を根拠にせず、JSON の該当ブロックを直接 parse した。
+- **対象ブロック**: 「平成十七年四月一日」を含む附則ブロックは **78 ブロック中 1 個のみ**（index **68**、見出し `附則（施行期日）`）。逐語は以下のとおり。
+  - **第一条**: `この政令は、平成十七年四月一日から施行する。`（全文を空白除去 normalize すると `第一条この政令は、平成十七年四月一日から施行する。`）
+- **独立換算**: 平成元年 = 1989 なので 平成 17 年 = 1989 + 17 − 1 = **2005**（モジュールの `heiseiToSeireki 17 = 1988 + 17 = 2005` と同値）。したがって `enforcementDate = (2005, 4, 1)`、`dateKey = 2005*10000 + 4*100 + 1 = 20050401`、`inForce(d) = dateKey d >= 20050401` は原文逐語から**一意に導出され一致**する。
+- **混同の明示除外**:
+  - 対象ブロック（index 68）に「平成十六年」「平成十六」「平成16年」「平成十八年」「平成十八」「平成18年」はそれぞれ **0 回**。対象ブロックの年号表記は「平成十七年」のみ（1 回）。pinned 全体でも「平成十七年」は **1 回**のみで、これは index 68 に限られる。
+  - 直近の隣接ブロックに **index 69 = 「平成十八年四月一日」(2006-04-01)**、index 67 = 「平成十五年四月一日」(2003-04-01) が実在するが、いずれも **別の附則ブロック**であり本モデルの対象ではない。needle とモジュール pin が指すのは index 68 の 2005-04-01 であって 2006-04-01 ではない（混同を明示的に除外）。
+  - 西暦換算上も 平成16年 = 2004 / 平成18年 = 2006 であり、2005 とは異なる。形式化側の `heiseiToSeireki 17 = 2005` は 16/18 のいずれとも一致しない。
+- **境界の明示除外**: 対象原文の日付は「四月一日」のみで、「三月三十一日」「四月二日」「3月31日」「4月1日」は原文に出現しない（それぞれ 0 回）。「四月一日**から**施行する」の文言どおり、施行日当日を含む `inForce (2005,3,31) = false` / `(2005,4,1) = true` / `(2005,4,2) = true` が成立する。3/31 を true とする誤り、4/1 を false とする誤りはいずれも原文に反する。
+- 他の 77 附則ブロック（公布の日、昭和三十一年四月二十九日、平成十八年四月一日、平成二十一年四月一日、令和七年四月一日 等）は本モデルの対象外（下記 B-4 / U-2）。
+
+### CX-2. needle 健全性（CI `checks()` の実文字列 2 本）
+
+- CI `scripts/ci/transcription_audit.py` の `checks()` が cycle-107 に対して yield する 2 本（同ファイル 2315–2319 行）を、担当者 STAGING ではなく **CI ファイル自身**からプログラムで読み出して検証した。
+  1. `第一条この政令は、平成十七年四月一日から施行する`
+  2. `この政令は、平成十七年四月一日から施行する`
+- CI の 2 本と `docs/STAGING_ENFORCE107.md` の needles は自前比較で**完全一致**。
+- **U+3000 なし**: 2 本とも `\u3000` は含まれない（自前走査で各 0 件）。
+- **2/2 FOUND**: 自前正規化（空白・U+3000 を全除去）した原文断片 `附則（施行期日）第一条この政令は、平成十七年四月一日から施行する。` に対して 2 本とも substring として **FOUND**。CI と同一の照合を Python で再実装し、pinned JSON から独立抽出した文字列に対して検証した。
+- **needle 健全性は合格（2/2、U+3000 混入なし）。**
+
+### CX-3. 反例探索の結果
+
+| 攻撃対象 | 実装 `inForce` | 独立 Spec `specInForce`（辞書順成分比較） | 判定 |
+|---|---|---|---|
+| `(2005, 3, 31)` 施行前日 | `false` | `false` | 一致（境界除外） |
+| `(2005, 4, 1)` 施行日当日 | `true` | `true` | 一致（「から」Include） |
+| `(2005, 4, 2)` 施行日翌日 | `true` | `true` | 一致 |
+| `(2010, 1, 1)` 遠未来 | `true` | `true` | 一致 |
+| `agreePreferentialTariffOrderEnforcementDate`（5 点 grid） | — | `true` | impl と spec が全点一致 |
+
+- 値の実行確認（`lake env lean` / `#eval`）: `heiseiToSeireki 17 = 2005`、`enforcementDate = (2005, 4, 1)`、`enforcementKey = 20050401`、`specDate = (2005, 4, 1)`、上記 4 点の impl/Spec 値、`agree… = true` はすべて期待値どおり。
+- **拡張走査**: 年 1900..2100 × 月 0..13 × 日 0..31 の **90,048 通り**で `inForce` と独立 Spec を比較する名前付き `gridAgree` を走らせ、結果 `true`（不一致 0 件）。`dateKey` による YYYYMMDD 整数比較と辞書順成分比較は、この範囲で完全に等価。
+- **反例探索で検出された原文・Lean 間の矛盾: 0 件（ゼロ）。**
+
+### CX-4. 公理監査結果
+
+- 一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\cx_axiom_probe.lean` を作成し、3 モジュールの名前付き `def` 計 **8 宣言**（本体 5: `heiseiToSeireki` / `enforcementDate` / `dateKey` / `enforcementKey` / `inForce`、Spec 3: `specDate` / `specInForce` / `agreePreferentialTariffOrderEnforcementDate`）に加え、`gridAgree` およびモジュール内の `example ... := by decide` と同一 tactics の名前付き mirror 証明 **12 宣言**（Impl 5 / Tests 4 / Spec 3）の計 **21 宣言**に `#print axioms` を実行（`lake env lean`、`exit code 0`）。監査後、一時ファイルは**削除済み**。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 21 |
+| `Classical.choice` | **0 件**（不在） |
+| `sorryAx` | **0 件**（不在） |
+| `Quot.sound` | **0 件**（不在） |
+| `propext` | **0 件**（不在） |
+| axiom-free（`does not depend on any axioms`） | **21 / 21** |
+
+→ **禁止公理（choice / sorryAx / Quot.sound）および propext を含むいずれの公理依存も 0。公理監査は合格。**
+
+### CX-5. CONFIRMED / BY-DESIGN / UNRESOLVED の分類
+
+| 分類 | 件数 |
+|---|---|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **6** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 原文逐語・元号換算・needle・境界値・独立 Spec・公理のいずれにも食い違いを検出しなかった。
+
+#### CONFIRMED（0 件）
+
+- 原文逐語「平成十七年四月一日」と `heiseiToSeireki 17 = 2005` / `enforcementDate = (2005,4,1)` / `enforcementKey = 20050401` の一致。
+- 平成16/18年への混同、3/31・4/1 境界の誤り、needle の U+3000 混入、独立 Spec との不一致、公理依存——いずれも検出なし。
+
+#### BY-DESIGN（6 件）
+
+- **B-1 施行日の算定のみをモデル化**: 附則第一条の文言どおりに `heiseiToSeireki` / `dateKey` / `inForce` を定義しており、施行日判定以外の意味を付与していない。
+- **B-2 附則の他条・経過措置は NOT MODELLED**: 対象附則ブロック（index 68）には第二条以降の経過措置は存在しないが、他の附則ブロックはスコープ外として doc-comment に明記済み。
+- **B-3 政令の実体規定は NOT MODELLED**: 政令本体の第一条（便益関税を適用する国の指定）以下の実体規定（便益関税の適用そのもの）は、本モデルのスコープ外として明記済み。
+- **B-4 78 附則ブロックのうち対象を限定**: 「平成十七年四月一日」を含む index 68 のみを対象とした判断は妥当。隣接する index 69（平成十八年四月一日）をはじめとする他 77 ブロックの施行日はスコープ外。
+- **B-5 `dateKey` による符号化と辞書順 Spec の等価性**: 実装は YYYYMMDD 整数比較、独立 Spec は成分ごとの辞書順比較で定式が異なるが、5 点 grid および 90,048 通りの拡張 grid で全一致。表現差ではなく等価。
+- **B-6 暦日としての入力妥当性は caller-established**: 月 1〜12・日 1〜31 の範囲チェックや実在日付の検証は行わず、`dateKey` は単なる符号化として設計されている（doc-comment の bounded L4 モデルに整合）。拡張 grid に月 0 や日 0 を含むのは符号化の全数走査であり、暦日としての入力を是とするものではない。
+
+#### UNRESOLVED（2 件）
+
+- **U-1 附則の他条・経過措置・実体規定の未形式化が法的に十分か**: 未形式化自体は B-2/B-3 でスコープ宣言済みだが、pinned 附則第一条のみをもって政令全体の施行日理解として足りるかは原文から決定不能。**人間の法律専門家によるレビューを要する**。
+- **U-2 本 pinned revision 自身の改正附則との関係（令和七年四月一日 = 2025-04-01）**: 本 pinned revision（`330CO0000000237_20250401_507CO0000000141`、改正法 令和七年政令第百四十一号）に属する附則（index 77）第一条は「この政令は、令和七年四月一日から施行する。」（2025-04-01）であり、本モデルが pin した 2005-04-01 とは異なる附則が併存する。「政令全体が in force である」ことの意味が最新改正に及ぶか否かは pinned 原文のみでは判断できず、**人間の法律専門家によるレビューを要する**。いずれもモデル値の誤りではない（CONFIRMED=0 に影響しない）。
+
+### CX-6. 最終報告（サマリ）
+
+- **CONFIRMED: 0 件 / BY-DESIGN: 6 件 / UNRESOLVED: 2 件**。発見ゼロを明示する。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` とも **0 件**（21/21 axiom-free）。監査用一時 Lean ファイルは削除済み。
+- **needle 健全性**: U+3000 なし、2/2 FOUND。
+- **追記後レビュー件数**: **100 件**（既存 99 件をすべて保持 + CX 1 件。`^## .*?review` 見出しで検証）。なお coverage ledger の正規表現 `^## (?:Batch [A-Z]|Art\.\d+|国税庁法|Article-pinned)[^\n]*review` の一致件数は 99 件、`^## Batch [A-Z]+ review` の一致件数は 96 件だが、これは既存の `## 国税徴収法 104の2 review (2026-11-18)` 等が `国税庁法` ではなく `国税徴収法` である既存表記に起因するもので、本 CX 見出し自身は同正規表現に一致する。既存セクションは一切改変していない。
+- **Lean モジュール変更**: なし。`data/*` も読み取り専用。commit / push / merge / ブランチ切替は行っていない。一時ファイルは削除済み。
+- 残る UNRESOLVED（U-1 未形式化範囲の法的十分性、U-2 本 revision の改正附則との関係）はいずれも pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・元号換算・needle 健全性・境界値走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+

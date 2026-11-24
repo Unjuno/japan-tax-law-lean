@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 170
+- with >=1 pinned literal check (semantic model): 171
 - with recorded human legal review: 0
 
 ## All laws
@@ -108,7 +108,7 @@ a completion flag.
 | `339CO0000000182` | 自家用自動車の一時輸入に関する通関条約の実施に伴う関税法等の特例に関する法律施行令 | 339CO0000000182_20030401_415CO0000000142 | CurrentEnforced | YES | ok | 16 | YES (1) | NO |
 | `340AC0000000033` | 所得税法 | 340AC0000000033_20261001_507AC0000000070 | CurrentEnforced | YES | ok | 1323 | YES (24) | NO |
 | `340AC0000000034` | 法人税法 | 340AC0000000034_20261001_508AC0000000012 | CurrentEnforced | YES | ok | 1183 | YES (10) | NO |
-| `340CO0000000084` | 国際復興開発銀行等からの外資の受入に関する特別措置に関する法律に基づく債券の利子の非課税 | 340CO0000000084_20171001_429CO0000000106 | CurrentEnforced | YES | ok | 8 | NO (0) | NO |
+| `340CO0000000084` | 国際復興開発銀行等からの外資の受入に関する特別措置に関する法律に基づく債券の利子の非課税 | 340CO0000000084_20171001_429CO0000000106 | CurrentEnforced | YES | ok | 8 | YES (1) | NO |
 | `340CO0000000096` | 所得税法施行令 | 340CO0000000096_20260522_508CO0000000093 | CurrentEnforced | YES | ok | 1365 | YES (5) | NO |
 | `340CO0000000097` | 法人税法施行令 | 340CO0000000097_20261001_507CO0000000121 | CurrentEnforced | YES | ok | 1541 | YES (4) | NO |
 | `340M50000040011` | 所得税法施行規則 | 340M50000040011_20261001_507M60000040018 | CurrentEnforced | YES | ok | 886 | YES (1) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 305
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 309
