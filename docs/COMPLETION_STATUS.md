@@ -7,23 +7,23 @@ obligations being complete. SKIP is never counted as PASS.
 
 ## Axis A — registered checks (last recorded gate run)
 
-- results file available: False
-- PASS: 0
+- results file available: True
+- PASS: 47
 - FAIL: 0
 - SKIP: 0
 - required gates SKIPped: 0
-- gate results commit: (none)
-- current HEAD commit: 3f3bab22a21e4796a2396cab3d9b7ae59efc456c
+- gate results commit: 9041d98f7a3c99b9fbfe78a70872d210be50d3e8
+- current HEAD commit: 3f2c000b012784132036f57c18b66ae5200a809b
 - results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all TECHNICAL obligations complete (human review excluded)
 
 - normative units: 396854
-- NOT_STARTED: 396066
+- NOT_STARTED: 396067
 - PARTIAL: 0
 - PROVED_SCOPE: 1
-- FULLY_VERIFIED: 785
+- FULLY_VERIFIED: 784
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180617
@@ -43,26 +43,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 786 | 396854 |
-| kernel proved (CI-attested proof evidence) | 786 | 396854 |
-| source-audited (原文 correspondence evidence) | 786 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 792 | 396854 |
+| kernel proved (CI-attested proof evidence) | 792 | 396854 |
+| source-audited (原文 correspondence evidence) | 792 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 786 |
-| boundary_proof | 786 |
-| cross_law_proof | 786 |
-| decomposition_audit | 786 |
-| implementation | 786 |
-| independent_spec | 786 |
-| kernel_proof | 786 |
-| proof_scope | 786 |
-| source_correspondence_audit | 786 |
-| source_location | 786 |
-| tests | 786 |
+| adversarial_review | 792 |
+| boundary_proof | 792 |
+| cross_law_proof | 792 |
+| decomposition_audit | 792 |
+| implementation | 792 |
+| independent_spec | 792 |
+| kernel_proof | 792 |
+| proof_scope | 792 |
+| source_correspondence_audit | 792 |
+| source_location | 792 |
+| tests | 792 |
 
 ## Verdict
 
