@@ -1,0 +1,2 @@
+import JapanTaxLaw.CohabitantReadingThresholdTwoSpec
+#print axioms JapanTaxLaw.CohabitantReadingThresholdTwo.agree_cohabitant_floor
