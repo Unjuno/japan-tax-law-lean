@@ -86,6 +86,13 @@ all `Nat`, six kernel boundaries, source audit D=PASS, and H/T/D/C/U review
 of the mixed strict/inclusive reading. The rate and other bands are not
 modelled by this unit.
 
+Scope work on this branch: `data/LOCAL_JURISDICTIONS.json` enumerates 1,965
+local-government jurisdictions (47 prefectures, 792 cities, 194 wards, 743
+towns, 189 villages) from the official 総務省 municipality-code PDF, with
+explicit `NOT_ACQUIRED` status; ordinance text, revisions and proofs are NOT
+acquired. `docs/SOURCE_LAYERS.md` now reports L2_ORDINANCE as
+`ENUMERATED_NOT_ACQUIRED` (1,965), still separate from the statutory layer.
+
 So 50 evidence-backed units left NOT_STARTED on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is

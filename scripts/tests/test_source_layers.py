@@ -40,7 +40,9 @@ class LayerTests(unittest.TestCase):
 
     def test_ordinances_and_history_are_not_merged_into_statutes(self):
         by = {l["layer_id"]: l for l in self.reg["layers"]}
-        self.assertEqual(by["L2_ORDINANCE"]["scope_status"], "DECLARED_UNSUPPORTED")
+        self.assertIn(by["L2_ORDINANCE"]["scope_status"],
+                      ("DECLARED_UNSUPPORTED", "ENUMERATED_NOT_ACQUIRED"))
+        self.assertEqual(by["L2_ORDINANCE"]["acquisition_status"], "NOT_ACQUIRED")
         self.assertGreater(by["L2_ORDINANCE"]["count"], 0)
         self.assertEqual(by["L2_ORDINANCE"]["count_acquired"], 0)
         self.assertEqual(by["L6_HISTORICAL"]["scope_status"], "HISTORICAL_LAYER")

@@ -29,6 +29,7 @@ REPO = Path(__file__).resolve().parents[2]
 INVENTORY = REPO / "data" / "INVENTORY.json"
 DISCOVERY = REPO / "docs" / "RECURSIVE_DISCOVERY.md"
 BLOCKED = REPO / "docs" / "BLOCKED.md"
+LOCAL_JURISDICTIONS = REPO / "data" / "LOCAL_JURISDICTIONS.json"
 OUT_JSON = REPO / "data" / "SOURCE_LAYERS.json"
 OUT_MD = REPO / "docs" / "SOURCE_LAYERS.md"
 
@@ -62,7 +63,17 @@ def build() -> dict:
     unmatched = _int(r"distinct unmatched reference names: (\d+)", disc)
     tax_candidates = _int(r"Tax-name candidates \(contain '税'.*?\) — (\d+) names", disc)
     m_ord = re.search(r"地方税条例 \(~([\d,]+) municipal ordinances\)", blocked)
-    ordinances = int(m_ord.group(1).replace(",", "")) if m_ord else 0
+    declared_ordinances = int(m_ord.group(1).replace(",", "")) if m_ord else 0
+    # Prefer the official jurisdiction enumeration when present. It records
+    # authority units, NOT ordinance text — acquisition remains zero.
+    local_enum = None
+    if LOCAL_JURISDICTIONS.exists():
+        try:
+            local_enum = int(json.loads(
+                LOCAL_JURISDICTIONS.read_text(encoding="utf-8")).get("jurisdictions_total") or 0)
+        except (ValueError, OSError):
+            local_enum = None
+    ordinances = local_enum if local_enum is not None else declared_ordinances
     reviewers = _int(r"candidates with recorded reviewer: (\d+)", blocked)
 
     layers = [
@@ -100,13 +111,16 @@ def build() -> dict:
             "legal_nature": "自治体条例（地方自治法に基づく法源）",
             "authority": "各自治体",
             "acquisition_status": "NOT_ACQUIRED",
-            "scope_status": "DECLARED_UNSUPPORTED",
+            "scope_status": ("ENUMERATED_NOT_ACQUIRED" if local_enum is not None
+                             else "DECLARED_UNSUPPORTED"),
             "count": ordinances,
             "count_acquired": 0,
             "pinned_snapshot": "",
             "verification_status": "OUT_OF_SCOPE",
             "auxiliary": False,
-            "notes": "自治体単位の収集は未実施。対象を勝手に縮小せず、未取得として明示する。",
+            "notes": ("総務省の公式団体コード一覧から自治体単位を列挙済み"
+                      "（data/LOCAL_JURISDICTIONS.json）。条例本文・施行版・証明は未取得。"
+                      "対象を勝手に縮小せず、未取得として明示する。"),
         },
         {
             "layer_id": "L3_TREATY",
