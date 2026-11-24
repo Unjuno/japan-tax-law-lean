@@ -1151,6 +1151,9 @@ import JapanTaxLaw.FieldEnumerationNormsTests
 import JapanTaxLaw.NegativeOperationNorms
 import JapanTaxLaw.NegativeOperationNormsSpec
 import JapanTaxLaw.NegativeOperationNormsTests
+import JapanTaxLaw.ProvisionReferenceNorms
+import JapanTaxLaw.ProvisionReferenceNormsSpec
+import JapanTaxLaw.ProvisionReferenceNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
