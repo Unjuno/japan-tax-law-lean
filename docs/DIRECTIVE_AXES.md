@@ -5,19 +5,19 @@ Do not hand-edit. Regenerate with `python scripts/ci/directive_axes.py`.
 Eight technical axes are tracked separately; full technical evidence does NOT establish human legal review or whole-article coverage. COMPUTABLE_SLICE_ONLY units are never counted as whole-article norms.
 
 - normative units: 396854
-- expanded units (with committed evidence): 833
+- expanded units (with committed evidence): 834
 - independent human legal review axis: `LEGAL_REVIEW_PENDING` (never auto-satisfied)
 
 | axis | achieved units | remaining units |
 |---|---:|---:|
-| SOURCE_ACQUIRED | 833 | 396021 |
-| VERSION_PINNED | 833 | 396021 |
-| STRUCTURE_IDENTIFIED | 831 | 396023 |
-| NORM_DECOMPOSED | 832 | 396022 |
-| NORMS_FORMALIZED | 833 | 396021 |
-| SPEC_IMPL_CORRESPONDENCE | 833 | 396021 |
-| BOUNDARY_CHECKED | 833 | 396021 |
-| SOURCE_AUDITED | 832 | 396022 |
+| SOURCE_ACQUIRED | 834 | 396020 |
+| VERSION_PINNED | 834 | 396020 |
+| STRUCTURE_IDENTIFIED | 832 | 396022 |
+| NORM_DECOMPOSED | 833 | 396021 |
+| NORMS_FORMALIZED | 834 | 396020 |
+| SPEC_IMPL_CORRESPONDENCE | 834 | 396020 |
+| BOUNDARY_CHECKED | 834 | 396020 |
+| SOURCE_AUDITED | 833 | 396021 |
 
 ## Normative detail categories recorded separately
 
@@ -25,12 +25,12 @@ Conditions, exceptions, effects, delegations, periods, amounts,
 rounding and enforcement dates are recorded in independent fields
 (data/DIRECTIVE_AXES.json), never merged into one generic blob.
 
-- conditions: 657 units
+- conditions: 658 units
 - exceptions: 126 units
-- effects: 285 units
+- effects: 286 units
 - delegations: 151 units
 - periods: 81 units
-- amounts: 223 units
+- amounts: 224 units
 - rounding: 13 units
 - enforcement_dates: 23 units
 
