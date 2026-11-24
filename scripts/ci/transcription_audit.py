@@ -848,6 +848,12 @@ def checks():
            "article", "第六条",
            ["（報復関税等）第六条", "別表の税率による関税のほか、当該貨物の課税価格と同額以下の関税を課することができる", "別表の税率による関税のほか、その貨物の課税価格と同額以下の関税を課することができる", "ただし、前項第一号に規定する紛争解決機関の手続に委ねられるべき場合は、この限りでない"])
 
+    # 関税定率法 art. 7 — InvestigationExtensionSixMonths.lean (six-month ceiling)
+    yield ("関税定率法 art. 7（調査期間の延長: 六月以内に限り延長する — 上限のみをモデル化、特別の理由の認定・元の期間・延長判断は caller-established）↔ InvestigationExtensionSixMonths.lean",
+           "143AC0000000054",
+           "article", "第七条",
+           ["ただし、特別の理由により必要があると認められる場合には、その期間を六月以内に限り延長することができる"])
+
     # 相続税法 art. 21の13/26/17 — InheritanceMiscRates.lean
     yield ("相続税法 art. 21の13/26/17（相続時精算課税20%・立木評価85%・各相続人税額の課税価格按分）↔ InheritanceMiscRates.lean",
            "325AC0000000073",

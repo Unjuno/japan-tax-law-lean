@@ -7,34 +7,27 @@ obligations being complete. SKIP is never counted as PASS.
 
 ## Axis A — registered checks (last recorded gate run)
 
-- results file available: True
-- PASS: 50
-- FAIL: 4
+- results file available: False
+- PASS: 0
+- FAIL: 0
 - SKIP: 0
 - required gates SKIPped: 0
-- gate results commit: 545201ab9d995a03aeb47536b6bad40f1fa50b03
-- current HEAD commit: 7b960a328bdae6a19a2f15a8f17d0403b12df9e7
+- gate results commit: (none)
+- current HEAD commit: 677882b69bfc8f72767b3161e9d268dc7a246468
 - results bound to this commit: False
 - registered checks all green: False
 
-## Axis B — all TECHNICAL obligations complete (human review excluded)
+## Axis B — all registered obligations complete
 
 - normative units: 396854
-- NOT_STARTED: 396019
+- NOT_STARTED: 396166
 - PARTIAL: 0
-- PROVED_SCOPE: 1
-- FULLY_VERIFIED: 832
+- PROVED_SCOPE: 3
+- FULLY_VERIFIED: 683
 - BLOCKED: 2
 - units with an open blocker: 2
-- units with unhandled conditions: 180617
-
-## Axis C — independent human legal determination (separate, not a gate)
-
+- units with unhandled conditions: 180619
 - human legal reviews recorded: 0/3438 candidates
-- legal review pending: True
-- legal determination complete (requires Axis B AND recorded review): False
-- pending review never stops formalization, proof or source audit
-- no reviewer or approval field may be fabricated by automation
 
 ## Objective §5 coverage layers (separate denominators, never combined)
 
@@ -43,35 +36,32 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 833 | 396854 |
-| kernel proved (CI-attested proof evidence) | 833 | 396854 |
-| source-audited (原文 correspondence evidence) | 833 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 686 | 396854 |
+| kernel proved (CI-attested proof evidence) | 686 | 396854 |
+| source-audited (原文 correspondence evidence) | 686 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 833 |
-| boundary_proof | 833 |
-| cross_law_proof | 833 |
-| decomposition_audit | 833 |
-| implementation | 833 |
-| independent_spec | 833 |
-| kernel_proof | 833 |
-| proof_scope | 833 |
-| source_correspondence_audit | 833 |
-| source_location | 833 |
-| tests | 833 |
+| adversarial_review | 686 |
+| boundary_proof | 686 |
+| cross_law_proof | 686 |
+| decomposition_audit | 686 |
+| implementation | 686 |
+| independent_spec | 686 |
+| kernel_proof | 686 |
+| proof_scope | 686 |
+| source_correspondence_audit | 686 |
+| source_location | 686 |
+| tests | 686 |
 
 ## Verdict
 
 - all normative units decomposed, formalized, proved and source-audited: False
-- technical all-complete claimable (still not a legal determination): False
-- final legal determination claimable: False
+- all-complete claimable: False
 
 An absent results file, any FAIL, any SKIP, any non-FULLY_VERIFIED unit,
-any open blocker or any unhandled condition keeps the TECHNICAL
-all-complete claim FALSE. Pending human review keeps the legal
-determination unconfirmed but does not stop formalization. No claim of
-legal correctness is made.
+any open blocker, any unhandled condition or any pending human review
+keeps the all-complete claim FALSE. No claim of legal correctness is made.
