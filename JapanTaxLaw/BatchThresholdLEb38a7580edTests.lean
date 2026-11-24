@@ -1,0 +1,12 @@
+import JapanTaxLaw.BatchThresholdLEb38a7580edSpec
+
+/-! Kernel-decided boundary tests. -/
+namespace JapanTaxLaw.BatchThresholdLEb38a7580ed
+
+example : limit = 9000000 := by decide
+example : meets 0 = meets 0 := rfl
+example : specMeets 9000000 = meets 9000000 := agree_spec_impl 9000000
+example : specMeets 9000001 = meets 9000001 := agree_spec_impl 9000001
+example : specMeets 0 = meets 0 := agree_spec_impl 0
+
+end JapanTaxLaw.BatchThresholdLEb38a7580ed
