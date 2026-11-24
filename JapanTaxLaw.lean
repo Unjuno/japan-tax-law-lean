@@ -1163,6 +1163,9 @@ import JapanTaxLaw.ExemptionNormsTests
 import JapanTaxLaw.RateSettingNorms
 import JapanTaxLaw.RateSettingNormsSpec
 import JapanTaxLaw.RateSettingNormsTests
+import JapanTaxLaw.DateSettingNorms
+import JapanTaxLaw.DateSettingNormsSpec
+import JapanTaxLaw.DateSettingNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
