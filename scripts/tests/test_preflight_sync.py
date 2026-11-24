@@ -27,6 +27,14 @@ class PreflightTests(unittest.TestCase):
         self.assertIn("L7 ledger", names)
         self.assertIn("law status ledger", names)
 
+    def test_sweep_precedes_ledgers(self):
+        # PR #622 CI exposed this: coverage/L7 ledgers derive from sweep
+        # outputs, so sweep_gate.py must run BEFORE them in preflight.
+        names = [n for n, _ in pf.SYNC_STEPS]
+        self.assertIn("full sweep", names)
+        self.assertLess(names.index("full sweep"), names.index("coverage ledger"))
+        self.assertLess(names.index("full sweep"), names.index("L7 ledger"))
+
     def test_write_return_code_one_is_success(self):
         # Regeneration scripts return 1 when they wrote changes; preflight must
         # not treat that as a failure. Verified by reading the source rule.
