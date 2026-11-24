@@ -4090,6 +4090,27 @@ def checks():
            "file", None,
            ["合計所得金額が九十五万円以下である配偶者"])
 
+    yield ("租税特別措置法 art. 10（試験研究費割合の控除割増率: (割合-10%)*2、三位未満切捨て、10%上限）↔ RndSurchargeRate.lean",
+           "332AC0000000026",
+           "file", None,
+           ["当該試験研究費割合から百分の十を控除した割合に二を乗じて計算した割合（当該割合に小数点以下三位未満の端数があるときはこれを切り捨てた割合とし、当該計算した割合が百分の十を超えるときは百分の十とする。）"])
+
+    # 地方税法 art. 12の5 — MotorVehicleTaxShortfallSurcharge35.lean (自動車税 35%)
+    yield ("地方税法 art. 12_5（自動車税 不足額加算35%）↔ MotorVehicleTaxShortfallSurcharge35.lean",
+           "325AC0000000226", "file", None,
+           ["同項の不足額に、これに百分の三十五の割合を乗じて計算した金額を加算した金額とする。"])
+
+
+    yield ("地方税法 art. 12_5（自動車税 不足額加算35%）↔ MotorVehicleTaxShortfallSurcharge35.lean",
+           "325AC0000000226", "file", None,
+           ["同項の不足額に、これに百分の三十五の割合を乗じて計算した金額を加算した金額とする。"])
+
+    # 地方税法 art. 30の2 — LightMotorVehicleTaxShortfallSurcharge35.lean (軽自動車税 35%)
+    yield ("地方税法 art. 30_2（軽自動車税 不足額加算35%）↔ LightMotorVehicleTaxShortfallSurcharge35.lean",
+           "325AC0000000226", "file", None,
+           ["同項の不足額に、これに百分の三十五の割合を乗じて計算した金額を加算した金額とする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
