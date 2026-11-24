@@ -2045,3 +2045,6 @@ import JapanTaxLaw.PrescribedTimesTwoTests
 import JapanTaxLaw.PrescribedPeriodWithinFourMonths
 import JapanTaxLaw.PrescribedPeriodWithinFourMonthsSpec
 import JapanTaxLaw.PrescribedPeriodWithinFourMonthsTests
+import JapanTaxLaw.InsuranceRevenueLevyBase
+import JapanTaxLaw.InsuranceRevenueLevyBaseSpec
+import JapanTaxLaw.InsuranceRevenueLevyBaseTests
