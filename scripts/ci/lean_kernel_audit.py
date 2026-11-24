@@ -50,9 +50,11 @@ def main() -> int:
     build_rc = None
     build_tail = ""
     if lake:
-        r = subprocess.run([lake, "build"], cwd=REPO, capture_output=True, text=True)
+        r = subprocess.run([lake, "build"], cwd=REPO, capture_output=True,
+                           text=True, encoding="utf-8", errors="replace")
         build_rc = r.returncode
-        build_tail = (r.stdout + r.stderr).strip().splitlines()[-1] if (r.stdout + r.stderr).strip() else ""
+        combined = ((r.stdout or "") + (r.stderr or "")).strip()
+        build_tail = combined.splitlines()[-1] if combined else ""
     forbidden = scan_sources()
     payload = {
         "tool": "scripts/ci/lean_kernel_audit.py",

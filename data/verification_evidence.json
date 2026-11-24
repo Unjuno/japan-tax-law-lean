@@ -85910,6 +85910,88 @@
         "tool": "lake build"
       }
     ],
+    "99bfc8eebf9e8c8448e6e8f5ea6af46e3e232032b2870004311b89cbf7e754d7": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T16:09:31+00:00",
+        "evidence_ref": "data/raw/407CO0000000029_20110101_422CO0000000058.law.json#MainProvision:MainProvision/Chapter:5@4/Article:23#206-239",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T16:09:31+00:00",
+        "evidence_ref": "independent_fidelity:LAND-RATIO-ROUND-SRC-1",
+        "note": "Independent read-only source-fidelity audit: 地価税法施行令 23条2項 rounding of ratio fraction below 10% verified against pinned raw article; universal agreement proof and boundary examples confirmed",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T16:09:31+00:00",
+        "evidence_ref": "task_queue.json#99bfc8eebf9e#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T16:09:31+00:00",
+        "evidence_ref": "JapanTaxLaw/LandRatioRoundDownSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T16:09:31+00:00",
+        "evidence_ref": "JapanTaxLaw/LandRatioRoundDown.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T16:09:31+00:00",
+        "evidence_ref": "JapanTaxLaw/LandRatioRoundDownSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T16:09:31+00:00",
+        "evidence_ref": "JapanTaxLaw/LandRatioRoundDownSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T16:09:31+00:00",
+        "evidence_ref": "JapanTaxLaw/LandRatioRoundDownTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T16:09:31+00:00",
+        "evidence_ref": "JapanTaxLaw/LandRatioRoundDownTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T16:09:31+00:00",
+        "evidence_ref": "independent_fidelity:LAND-RATIO-ROUND-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "99c8cac8f558f39165de584c37e6c09db05e19f7013b7dc43c54903798a05ef8": [
       {
         "axis": "SOURCE_LOCATION",
