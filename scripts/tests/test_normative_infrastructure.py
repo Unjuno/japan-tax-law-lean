@@ -414,10 +414,13 @@ class TestRealInventory(unittest.TestCase):
         self.assertEqual(d["prefectures"], 47)
         self.assertEqual(d["municipalities"], 1747)
         self.assertEqual(d["local_governments_total"], 1794)
-        self.assertEqual(d["acquired"], 0)
+        self.assertGreaterEqual(d["acquired"], 1)  # 札幌市税条例 acquired
         self.assertTrue(d["separate_from_national_inventory"])
+        acquired = [e for e in d["entries"] if e["source_acquired"]]
+        self.assertTrue(acquired)
+        self.assertTrue(all(e["sha256"] and e["source_url"] for e in acquired))
         self.assertTrue(all(e["acquisition_status"] == "NOT_ACQUIRED"
-                            for e in d["entries"]))
+                            for e in d["entries"] if not e["source_acquired"]))
 
     def test_snapshot_is_pinned_and_raw_files_exist(self):
         inv = json.loads((REPO / "data" / "INVENTORY.json").read_text(encoding="utf-8"))

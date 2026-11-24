@@ -11,11 +11,11 @@ NOTHING in this layer is acquired, parsed, formalized, proved or reviewed. It is
 - prefectures: 47
 - municipalities: 1747
 - local governments total: 1794
-- acquired: 0
-- not acquired: 1794
-- acquisition coverage: 0.0%
+- acquired: 1
+- not acquired: 1793
+- acquisition coverage: 0.0557%
 
-## Per-prefecture target counts (all NOT_ACQUIRED)
+## Per-prefecture target counts (acquired column)
 
 | prefecture | local governments | acquired |
 |---|---:|---:|
@@ -23,7 +23,7 @@ NOTHING in this layer is acquired, parsed, formalized, proved or reviewed. It is
 | 京都府 | 27 | 0 |
 | 佐賀県 | 21 | 0 |
 | 兵庫県 | 42 | 0 |
-| 北海道 | 186 | 0 |
+| 北海道 | 186 | 1 |
 | 千葉県 | 55 | 0 |
 | 和歌山県 | 31 | 0 |
 | 埼玉県 | 64 | 0 |
@@ -66,3 +66,9 @@ NOTHING in this layer is acquired, parsed, formalized, proved or reviewed. It is
 | 高知県 | 35 | 0 |
 | 鳥取県 | 20 | 0 |
 | 鹿児島県 | 44 | 0 |
+
+## Acquired snapshots (not legally reviewed)
+
+| local_id | name | sha256 (first 12) | status |
+|---|---|---|---|
+| LOCAL-011002 | 北海道札幌市 | `78c9a8add670` | ACQUIRED_NOT_REVIEWED |
