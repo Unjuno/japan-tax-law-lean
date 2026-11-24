@@ -112,6 +112,9 @@ import JapanTaxLaw.CertFeeTests
 import JapanTaxLaw.Certificate200k
 import JapanTaxLaw.Certificate200kSpec
 import JapanTaxLaw.Certificate200kTests
+import JapanTaxLaw.CertificationIssuanceDeadlineFifteenDays
+import JapanTaxLaw.CertificationIssuanceDeadlineFifteenDaysSpec
+import JapanTaxLaw.CertificationIssuanceDeadlineFifteenDaysTests
 import JapanTaxLaw.ClampedSubtraction
 import JapanTaxLaw.ClampedSubtractionSpec
 import JapanTaxLaw.ClampedSubtractionTests
