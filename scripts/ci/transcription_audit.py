@@ -3983,6 +3983,13 @@ def checks():
            ["合併により被合併法人の株主等に交付された合併後存続する法人の株式又は出資に係る資本の金額又は出資金額（被合併法人が二以上ある場合には、各被合併法人に係るこれらの金額のうち最も多い金額）"])
 
 
+    # InheritanceTaxArt15NoBioChildTwoAdoptedCondition.lean - NORM|e3c065da... (相続税法 art.15(2) item2 CONDITION, law 325AC0000000073)
+    # Article-kind locator; needle is the 実子/養子 threshold condition sentence.
+    yield ("inheritance tax art.15 no-bio-child two-adopted condition - InheritanceTaxArt15NoBioChildTwoAdoptedCondition.lean",
+           "325AC0000000073",
+           "article", "\u7b2c\u5341\u4e94\u6761",
+           ["\u5f53\u8a72\u88ab\u76f8\u7d9a\u4eba\u306b\u5b9f\u5b50\u304c\u306a\u304f\u3001\u990a\u5b50\u306e\u6570\u304c\u4e8c\u4eba\u4ee5\u4e0a\u3067\u3042\u308b\u5834\u5408"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
