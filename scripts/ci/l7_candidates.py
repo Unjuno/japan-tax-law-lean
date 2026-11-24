@@ -89,6 +89,7 @@ def load_overlay() -> tuple[dict[str, dict], list[str]]:
 HEADER = [
     "rule_id", "severity", "law_id", "official_title", "path", "line",
     "message", "evidence", "review_status", "reviewer", "review_date",
+    "H", "T", "D", "C", "U",
 ]
 
 
@@ -169,10 +170,12 @@ def collect_rows():
             law_failures += 1
             continue
         for f in findings:
+            from scripts.ci.l7_htcu import htcu
+            h, tt, d, c, u = htcu(f.rule_id, "unreviewed")
             rows.append([
                 f.rule_id, f.severity, lid, norm(title), norm(f.location), f.line,
                 norm(f.message), norm(getattr(f, "evidence", "")),
-                "unreviewed", "", "",
+                "unreviewed", "", "", h, tt, d, c, u,
             ])
     return rows, law_failures
 
