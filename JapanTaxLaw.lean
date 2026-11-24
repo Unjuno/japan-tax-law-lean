@@ -894,6 +894,9 @@ import JapanTaxLaw.InspectionCityTests
 import JapanTaxLaw.InsuranceRevenueLevyBase
 import JapanTaxLaw.InsuranceRevenueLevyBaseSpec
 import JapanTaxLaw.InsuranceRevenueLevyBaseTests
+import JapanTaxLaw.InterestSplitRate5Pct
+import JapanTaxLaw.InterestSplitRate5PctSpec
+import JapanTaxLaw.InterestSplitRate5PctTests
 import JapanTaxLaw.IntermediateSurchargeRefund
 import JapanTaxLaw.IntermediateSurchargeRefundSpec
 import JapanTaxLaw.IntermediateSurchargeRefundTests

@@ -1,0 +1,11 @@
+{
+  "schema": "model_disambiguation/v1",
+  "tool": "manual review decision; see docs/adversarial/reviews-batch-198.md",
+  "note": "When more than one Lean module can match a clause, only the canonical module may produce evidence for that normative unit. This prevents double-counting and prevents a less faithful model from overwriting a more faithful one.",
+  "canonical_modules": {
+    "NORM|7e5f5d2a586ff79c2ee3e9c86d120d3180ba67a3d00fd8a4dba9ab376ba02b5a": "InterestSplitRate5Pct"
+  },
+  "rationale": {
+    "InterestSplitRate5Pct": "local tax art.71_6(1) prescribes an exact 5/100 rate with no rounding rule; this model keeps numerator and denominator separate and imports no floor/ceiling. LocalInterestTaxRate5 applies Nat division (floor), which imports an unstated rounding rule, so it must not produce evidence for this unit."
+  }
+}

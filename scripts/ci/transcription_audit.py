@@ -4152,6 +4152,17 @@ def checks():
            "340AC0000000033",
            "file", None,
            ["合計所得金額が九十五万円以下である配偶者"])
+    # Restored registered checks after main merge.
+    yield ("地方税法 art.71_6(1)（利子割の税率 百分の五）↔ InterestSplitRate5Pct.lean (exact 5/100, no rounding)",
+           "325AC0000000226", "article", "第七十一条の六",
+           ["利子割の税率は、百分の五とする。"])
+    yield ("地方税法施行規則 art.24の28（事業所税徴収費5%）↔ BusinessTaxCollectionCostRate5.lean",
+           "329M50000002023", "file", None,
+           ["法第七百一条の七十三の事業所税の徴収に要する費用は、当該年度の歳入に所属する事業所税の額の百分の五に相当する額とする。"])
+    yield ("租税特別措置法施行令 art.5の5（政令割合75%）↔ SpecialMeasuresOrderRate75.lean",
+           "332CO0000000043", "file", None,
+           ["法第十条の三第一項に規定する政令で定める割合は、百分の七十五とする。"])
+
 
     # 地方揮発油税法 art.15(4) — LocalGasolineArt15TripleFineRange.lean
     yield ("地方揮発油税法 art.15(4)（相当金額の三倍が五十万円超の罰金範囲）↔ LocalGasolineArt15TripleFineRange.lean",
