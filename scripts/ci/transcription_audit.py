@@ -4183,6 +4183,13 @@ def checks():
            "file", None,
            ["無料又は低額利用に係る介護医療院入所者の割合が百分の二以上百分の五未満である事業の用に供する固定資産（無料又は低額利用に係る介護医療院入所者の割合から百分の二を減じた割合に十五を乗じた割合に百分の三十を加えて得た割合に相当する部分に限る。）"])
 
+    # InheritanceTaxArt10ShipAircraftLocationException.lean - NORM|424b2bac... (相続税法 art.10(1) item1 EXCEPTION, law 325AC0000000073)
+    # Article-kind locator; needle is the ただし proviso Sentence#2.
+    yield ("inheritance tax art.10 ship-aircraft location exception - InheritanceTaxArt10ShipAircraftLocationException.lean",
+           "325AC0000000073",
+           "article", "\u7b2c\u5341\u6761",
+           ["\u305f\u3060\u3057\u3001\u8239\u8236\u53c8\u306f\u822a\u7a7a\u6a5f\u306b\u3064\u3044\u3066\u306f\u3001\u8239\u7c4d\u53c8\u306f\u822a\u7a7a\u6a5f\u306e\u767b\u9332\u3092\u3057\u305f\u6a5f\u95a2\u306e\u6240\u5728"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
