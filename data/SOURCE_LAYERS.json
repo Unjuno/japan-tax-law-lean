@@ -18,16 +18,16 @@
         "layer_id": "L3_TREATY",
         "legal_review": "LEGAL_REVIEW_PENDING",
         "next_action": "租税条約を版付きで取得し、国内法との効力発生の違いを別層で形式化する（-pin 済み条约の規範分解を継続）",
-        "status": "NOT_ACQUIRED",
+        "status": "PARTIAL",
         "task_class": "TREATY_ACQUISITION"
       },
       {
-        "acquisition_evidence": "",
+        "acquisition_evidence": "NTA-SHOTOKU-KIHON-20260630 sha256=2013978892d197fe08be0c1df03e40c8db2ef29ef6fec53500b4662041b1f473",
         "formalization_evidence": "",
         "layer_id": "L4_CIRCULAR",
         "legal_review": "LEGAL_REVIEW_PENDING",
         "next_action": "通達を解釈資料レイヤーとして版付き収集し、本文規範と分離して記録する",
-        "status": "NOT_ACQUIRED",
+        "status": "PARTIAL",
         "task_class": "CIRCULAR_ACQUISITION"
       },
       {
@@ -147,7 +147,7 @@
         "layer_id": "L3_TREATY",
         "legal_review": "LEGAL_REVIEW_PENDING",
         "next_action": "租税条約を版付きで取得し、国内法との効力発生の違いを別層で形式化する（-pin 済み条约の規範分解を継続）",
-        "status": "NOT_ACQUIRED",
+        "status": "PARTIAL",
         "task_class": "TREATY_ACQUISITION"
       },
       "count": 1,
@@ -161,27 +161,50 @@
       "verification_status": "PINNED_BYTES_ONLY"
     },
     {
-      "acquisition_status": "NOT_ACQUIRED",
+      "acquisition_status": "ACQUIRED_PARTIAL",
+      "acquisitions": [
+        {
+          "bytes": 625295,
+          "document_kind": "ADMINISTRATIVE_INTERPRETATION_CIRCULAR",
+          "document_kind_note": "法令解釈通達。法的拘束力は条文ではなく行政内部の取扱いであり、L0 の法源規範とは混ぜない。",
+          "document_number": "課個2-8 課法12-7 課審5-3",
+          "formalization_status": "NOT_MODELLED",
+          "issue_date": "2026-06-30",
+          "issuer": "国税庁",
+          "layer_id": "L4_CIRCULAR",
+          "legal_review": "LEGAL_REVIEW_PENDING",
+          "local_path": "data/layers/L4_CIRCULAR/NTA_ShotokuKihonTsutatsu_20260630.pdf",
+          "media_type": "application/pdf",
+          "official_url": "https://www.nta.go.jp/law/tsutatsu/kihon/shotoku/kaisei/2606/index.htm",
+          "pdf_url": "https://www.nta.go.jp/law/tsutatsu/kihon/shotoku/kaisei/2606/pdf/01.pdf",
+          "retrieved_date": "2026-11-25",
+          "sha256": "2013978892d197fe08be0c1df03e40c8db2ef29ef6fec53500b4662041b1f473",
+          "source_id": "NTA-SHOTOKU-KIHON-20260630",
+          "title_en": "Partial amendment to the Basic Income Tax Circular (statutory interpretation circular)",
+          "title_ja": "「所得税基本通達の制定について」の一部改正について（法令解釈通達）",
+          "verification": "PINNED_BYTES_ONLY"
+        }
+      ],
       "authority": "国税庁 / 総務省",
       "auxiliary": true,
       "backlog": {
-        "acquisition_evidence": "",
+        "acquisition_evidence": "NTA-SHOTOKU-KIHON-20260630 sha256=2013978892d197fe08be0c1df03e40c8db2ef29ef6fec53500b4662041b1f473",
         "formalization_evidence": "",
         "layer_id": "L4_CIRCULAR",
         "legal_review": "LEGAL_REVIEW_PENDING",
         "next_action": "通達を解釈資料レイヤーとして版付き収集し、本文規範と分離して記録する",
-        "status": "NOT_ACQUIRED",
+        "status": "PARTIAL",
         "task_class": "CIRCULAR_ACQUISITION"
       },
-      "count": null,
-      "count_acquired": 0,
+      "count": 1,
+      "count_acquired": 1,
       "label_ja": "通達",
       "layer_id": "L4_CIRCULAR",
       "legal_nature": "行政通達（法的拘束力は条文ではなく行政内部）",
-      "notes": "法令本文とは区別した解釈資料レイヤーとして段階的に収録する。未取得はバックログであり除外ではない。",
-      "pinned_snapshot": "",
+      "notes": "解釈資料レイヤーとして原文 bytes を pin 済み（形式化・人間レビュー未実施）。法源規範ではなく行政内部の取扱いとして L0 と分離。",
+      "pinned_snapshot": "NTA-SHOTOKU-KIHON-20260630",
       "scope_status": "IN_SCOPE_INTERPRETATION_BACKLOG",
-      "verification_status": "BACKLOG_NOT_ACQUIRED"
+      "verification_status": "PINNED_BYTES_ONLY"
     },
     {
       "acquisition_status": "NOT_ACQUIRED",

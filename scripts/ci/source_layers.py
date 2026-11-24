@@ -145,6 +145,7 @@ def build() -> dict:
     reviewers = _int(r"candidates with recorded reviewer: (\d+)", blocked)
 
     treaty_pins = verified_acquisitions("L3_TREATY")
+    circular_pins = verified_acquisitions("L4_CIRCULAR")
     layers = [
         {
             "layer_id": "L0_STATUTE",
@@ -218,14 +219,18 @@ def build() -> dict:
             "label_ja": "通達",
             "legal_nature": "行政通達（法的拘束力は条文ではなく行政内部）",
             "authority": "国税庁 / 総務省",
-            "acquisition_status": "NOT_ACQUIRED",
+            "acquisition_status": "ACQUIRED_PARTIAL" if circular_pins else "NOT_ACQUIRED",
             "scope_status": "IN_SCOPE_INTERPRETATION_BACKLOG",
-            "count": None,
-            "count_acquired": 0,
-            "pinned_snapshot": "",
-            "verification_status": "BACKLOG_NOT_ACQUIRED",
+            "count": len(circular_pins) if circular_pins else None,
+            "count_acquired": len(circular_pins),
+            "pinned_snapshot": ", ".join(x["source_id"] for x in circular_pins),
+            "verification_status": "PINNED_BYTES_ONLY" if circular_pins else "BACKLOG_NOT_ACQUIRED",
             "auxiliary": True,
-            "notes": "法令本文とは区別した解釈資料レイヤーとして段階的に収録する。未取得はバックログであり除外ではない。",
+            "notes": ("解釈資料レイヤーとして原文 bytes を pin 済み（形式化・人間レビュー未実施）。"
+                      "法源規範ではなく行政内部の取扱いとして L0 と分離。"
+                      if circular_pins else
+                      "法令本文とは区別した解釈資料レイヤーとして段階的に収録する。未取得はバックログであり除外ではない。"),
+            "acquisitions": circular_pins,
             "backlog": backlog_record(
                 "L4_CIRCULAR", "CIRCULAR_ACQUISITION",
                 "通達を解釈資料レイヤーとして版付き収集し、本文規範と分離して記録する"),
@@ -265,10 +270,13 @@ def build() -> dict:
                 "歴史的施行版を e-Gov 歴史情報から版付きで pin し、経過措置の参照を解決する"),
         },
     ]
-    if treaty_pins:
-        l3 = next(layer for layer in layers if layer["layer_id"] == "L3_TREATY")
-        l3["backlog"]["acquisition_evidence"] = ", ".join(
-            f"{x['source_id']} sha256={x['sha256']}" for x in treaty_pins)
+    for pins in (treaty_pins, circular_pins):
+        if not pins:
+            continue
+        layer = next(l for l in layers if l["layer_id"] == pins[0]["layer_id"])
+        layer["backlog"]["acquisition_evidence"] = ", ".join(
+            f"{x['source_id']} sha256={x['sha256']}" for x in pins)
+        layer["backlog"]["status"] = "PARTIAL"
     q = queue_counts()
     pipeline = {
         "normative_units_total": q.get("units_total"),
@@ -343,10 +351,11 @@ def main() -> int:
         "",
         p["note"],
         "",
-        ("L3_TREATY has pinned source bytes (formalization and legal review still"
-         " pending); all other auxiliary layers remain unacquired backlog."
-         if verified_acquisitions("L3_TREATY") else
-         "No layer other than L0 has acquired content in this repository."),
+        ("L3_TREATY and L4_CIRCULAR have pinned source bytes (formalization and"
+         " legal review still pending); other auxiliary layers remain unacquired"
+         " backlog."
+         if verified_acquisitions("L3_TREATY") or verified_acquisitions("L4_CIRCULAR")
+         else "No layer other than L0 has acquired content in this repository."),
         "No completion claim is made for any layer.",
         "",
         "## In-scope backlog (Sponsor Directive §1/§5)",
