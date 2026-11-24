@@ -2108,3 +2108,6 @@ import JapanTaxLaw.PrescribedTimesTwoTests
 import JapanTaxLaw.SignedAdjustmentAmount
 import JapanTaxLaw.SignedAdjustmentAmountSpec
 import JapanTaxLaw.SignedAdjustmentAmountTests
+import JapanTaxLaw.OilGasGrantRounding
+import JapanTaxLaw.OilGasGrantRoundingSpec
+import JapanTaxLaw.OilGasGrantRoundingTests
