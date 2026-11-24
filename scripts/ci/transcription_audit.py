@@ -3658,6 +3658,13 @@ def checks():
            "law", None,
            ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u5e73\u6210\u5143\u5e74\u56db\u6708\u4e00\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
 
+    # CustomsTariffArt21DeemedForeignRegion.lean - NORM|abdefe5d... (関税定率法 art.21 ArticleCaption DEEMING, law 143AC0000000054)
+    # Needle is the ArticleCaption; whole-law locator (caption node not Article text).
+    yield ("customs tariff art.21 deemed foreign region - CustomsTariffArt21DeemedForeignRegion.lean",
+           "143AC0000000054",
+           "law", None,
+           ["\uff08\u5916\u56fd\u3068\u307f\u306a\u3059\u5730\u57df\uff09"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
