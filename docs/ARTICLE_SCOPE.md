@@ -6,7 +6,7 @@ A whole-text numeric match is NOT article-level verification. This is a
 source-fidelity diagnostic (D=PASS means needle in stated article only),
 never a completion gate or a semantic/legal claim.
 
-- checks with article/table-cell scoped needles: 521
+- checks with article/table-cell scoped needles: 528
 - checks with no scoped unit: 0
 
 | law_id | stated article | needle hits | scoped positions | D |
@@ -532,3 +532,10 @@ never a completion gate or a semantic/legal claim.
 | `340M50000040012` | (file-level) | 3 | 3 | PASS |
 | `362CO0000000335` | (file-level) | 3 | 3 | PASS |
 | `426AC0000000011` | (file-level) | 3 | 3 | PASS |
+| `507M60000008043` | 第五条 | 2 | 2 | PASS |
+| `322CO0000000268` | (file-level) | 3 | 3 | PASS |
+| `322CO0000000268` | (file-level) | 3 | 3 | PASS |
+| `322CO0000000268` | (file-level) | 3 | 3 | PASS |
+| `322CO0000000268` | (file-level) | 3 | 3 | PASS |
+| `322CO0000000268` | (file-level) | 3 | 3 | PASS |
+| `322CO0000000268` | (file-level) | 3 | 3 | PASS |
