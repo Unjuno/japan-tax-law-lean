@@ -2117,3 +2117,6 @@ import JapanTaxLaw.LocalGradation256Tests
 import JapanTaxLaw.TreatyAsset100M
 import JapanTaxLaw.TreatyAsset100MSpec
 import JapanTaxLaw.TreatyAsset100MTests
+import JapanTaxLaw.MergerMaxCapital
+import JapanTaxLaw.MergerMaxCapitalSpec
+import JapanTaxLaw.MergerMaxCapitalTests
