@@ -34,17 +34,29 @@ class LayerTests(unittest.TestCase):
         for l in self.reg["layers"]:
             if l["auxiliary"]:
                 self.assertEqual(l["acquisition_status"], "NOT_ACQUIRED")
-                self.assertEqual(l["verification_status"], "OUT_OF_SCOPE")
+                # Sponsor directive 2026-11-24: unimplemented state, never
+                # a permanent exclusion from the target.
+                self.assertEqual(l["verification_status"], "NOT_IMPLEMENTED")
+                self.assertIn(l["scope_status"],
+                              ("IN_SCOPE_BACKLOG", "IN_SCOPE_INTERPRETATION_LAYER"))
         aux = {l["layer_id"] for l in self.reg["layers"] if l["auxiliary"]}
         self.assertEqual(aux, {"L3_TREATY", "L4_CIRCULAR", "L5_CASELAW"})
 
     def test_ordinances_and_history_are_not_merged_into_statutes(self):
         by = {l["layer_id"]: l for l in self.reg["layers"]}
-        self.assertEqual(by["L2_ORDINANCE"]["scope_status"], "DECLARED_UNSUPPORTED")
+        self.assertEqual(by["L2_ORDINANCE"]["scope_status"], "IN_SCOPE_BACKLOG")
         self.assertGreater(by["L2_ORDINANCE"]["count"], 0)
         self.assertEqual(by["L2_ORDINANCE"]["count_acquired"], 0)
-        self.assertEqual(by["L6_HISTORICAL"]["scope_status"], "HISTORICAL_LAYER")
+        self.assertEqual(by["L6_HISTORICAL"]["scope_status"], "IN_SCOPE_BACKLOG")
         self.assertGreater(by["L6_HISTORICAL"]["count"], 0)
+
+    def test_sponsor_directive_flags_keep_every_layer_in_scope(self):
+        flags = self.reg["sponsor_directive_2026_11_24"]
+        self.assertTrue(all(flags.values()))
+        for l in self.reg["layers"]:
+            self.assertTrue(l["scope_status"].startswith("IN_SCOPE")
+                            or l["scope_status"] == "PROVISIONAL_POPULATION"
+                            or l["scope_status"] == "INCLUDED_IN_L0")
 
     def test_statutory_layer_is_provisional_not_complete(self):
         l0 = self.reg["layers"][0]

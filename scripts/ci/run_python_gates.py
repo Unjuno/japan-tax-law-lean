@@ -66,6 +66,7 @@ GATES = [
     # BLOCKED.md must be regenerated BEFORE source_layers.py, which parses its
     # reviewer/ordinance counts; the reverse order consumed a stale input.
     ("BLOCKED backlog ledger regeneration gate (Directive §1 non-blocking)", ["python", "scripts/ci/blocked_ledger.py"], ["scripts/ci/blocked_ledger.py", "docs/BLOCKED.md"]),
+    ("Source-layer management tests (Directive §1 in-scope backlogs)", ["python", "-m", "unittest", "scripts.tests.test_source_layers", "-v"], ["scripts/tests/test_source_layers.py", "scripts/ci/source_layers.py"]),
     ("Separate source-layer registry (Objective §2)", ["python", "scripts/ci/source_layers.py"], ["scripts/ci/source_layers.py", "docs/SOURCE_LAYERS.md"]),
     ("Coverage ledger regeneration gate (Objective §4 machine-computed coverage)", ["python", "scripts/ci/coverage_ledger.py"], ["scripts/ci/coverage_ledger.py", "docs/COVERAGE.md"]),
     ("L7 ledger regeneration gate", ["python", "scripts/ci/l7_ledger.py"], ["scripts/ci/l7_ledger.py", "docs/L7_LEDGER.md"]),
@@ -101,6 +102,7 @@ REQUIRED_GATES = {
     "Directive §2 eight-axis ledger regeneration",
     "Coordinator loop tests (Sponsor Directive §3)",
     "Coordinator state regeneration gate (Sponsor Directive §3)",
+    "Source-layer management tests (Directive §1 in-scope backlogs)",
     "Separate source-layer registry (Objective §2)",
     "Article verification obligations gate (Objective §4)",
     "Article-scoped fidelity diagnostic (Sponsor Directive §4)",
