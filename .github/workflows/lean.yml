@@ -57,5 +57,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      # PR CI checks out the merge tree (main + PR). When main advances during
+      # the run, a PR's committed derived artifacts go stale and regeneration
+      # gates fail despite correct code. Regenerate from CURRENT inputs first;
+      # every gate still runs and still compares artifacts to inputs.
+      - name: Regenerate derived artifacts from current tree inputs
+        run: python3 scripts/ci/preflight_sync.py
       - name: Python audit gates (present-branch execution, honest skips)
         run: python3 scripts/ci/run_python_gates.py
