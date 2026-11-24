@@ -24,9 +24,13 @@ Variable contract:
   Unit 人 (persons); domain Nat. 「以上」 = inclusive `>=`.
 
 Scope: ONLY the explicit numeric heir-count condition is modelled — the
-threshold at which the joint-declaration requirement is triggered. The
-declaration content, the 連署 procedure, the preceding-paragraph requirements,
-other paragraphs and enforcement rules are NOT MODELLED (caller-established).
+threshold at which the 連署 requirement is triggered. Paragraph 3 also contains
+a proviso (各相続人が各別に提出することを妨げない) permitting separate
+submission; that proviso is NOT MODELLED, so the predicate name
+`needsJointDeclaration` describes the modelled threshold only, not an
+unconditional duty. The declaration content, the 連署 procedure, the
+preceding-paragraph requirements, other paragraphs and enforcement rules are
+NOT MODELLED (caller-established).
 
 No `sorry`, `admit`, `axiom` or `Classical.choice`.
 -/
