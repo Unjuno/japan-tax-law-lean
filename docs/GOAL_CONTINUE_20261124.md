@@ -87,6 +87,57 @@ INSPECT → SELECT → FORMALIZE → PROVE → CHALLENGE → VERIFY → COMMIT �
   is never auto-satisfied. Registered as a REQUIRED gate in
   `run_python_gates.py`.
 
+## Second iteration — additional units and cross-check
+
+Six more dependency-free 相続税法 units were formalized in the same pattern
+(impl / independent spec / kernel boundary tests / pinned needle / adversarial
+record), all from `325AC0000000073_20260401_506AC0000000008`:
+
+| module | clause | normative id |
+|---|---|---|
+| `InheritanceGiftTaxRateBracket3M4M` | 21_7(1) 300万超400万以下 | `NORM|ba11d2cd9757bba62e0170670bdbca61193022421bd60ba07507240125ccbaf1` |
+| `InheritanceGiftTaxRateBracket6M10M` | 21_7(1) 600万超1000万以下 | `NORM|8438fb053f6e98d98adc83fb213c6bb3cccbe3c8e510429fcaec4a7e1ed18d75` |
+| `InheritanceTaxRateBracket10_30` | 16(1) 1000万超3000万以下 | `NORM|93b274d3db7616b01bf8ebe8da32b6a1bb33b66ca5f224d32215cd1108b0c470` |
+| `InheritanceResidualPeriod10Years` | 23 残存期間十年以下 | `NORM|d5a66ff1b06fc056fd9ac865c49e901671853629ac2e087f189151171a59dc39` |
+| `InheritanceTaxRateBracket30_50` | 16(1) 3000万超5000万以下 (repaired spec) | `NORM|2f9abe1626f614eaab2879239d801935a2a1b8cdbc5dde1de4f9c5925696a72b` |
+| `InheritanceTaxRateBracket50_100` | 16(1) 5000万超1億以下 — previously missing row | `NORM|df94f143188b89690e03047e002c6a375e81d8d3c81f4313c1995b484310badc` |
+
+`InheritanceTaxRateBracket30_50` originally had a spec that reused impl
+identifiers and kept boundary theorems inside the spec; its evidence had become
+stale. It was repaired (own literals, universal bridge, Tests-owned boundaries)
+and honestly dropped to NOT_STARTED until a fresh CI attestation is bound.
+
+Cross-check (§4/§5): `InheritanceGiftTaxRateBracketPartition.lean` proves
+contiguity and universal pairwise disjointness of the six art.21_7(1) brackets.
+The kernel **refuted** the naive assumption that the upper cell owns the shared
+boundary: 「以下」 makes the LOWER cell own it, and the next cell's 「を超え」
+excludes it. The correction is recorded in the module.
+
+Before this iteration's attestation: `FULLY_VERIFIED=724`,
+`NOT_STARTED=396125`, evidence ledger 727 units; queue invariants 17/17,
+canonical umbrella OK, Lean build 1835 jobs green. All units passed the full
+evidence pipeline under a temporary (never committed) attestation; no result
+was claimed until a real CI run was bound.
+
+CI run `45443514899` on commit `d85cd802ef2b260238e5b38e0112b74a2d3addc7`
+completed with conclusion `success`. A scoped attestation
+(`data/PROOF_ATTESTATION_SCOPED_SIX.json`) binds 21 module hashes read from
+committed blobs at that commit to that green run. Honest regeneration measured:
+
+```
+before: FULLY_VERIFIED=724  NOT_STARTED=396125  evidence=727
+after:  FULLY_VERIFIED=739  NOT_STARTED=396110  evidence=742
+delta:  FULLY_VERIFIED=+15  NOT_STARTED=-15     evidence=+15
+progress_ledger: COUNTED; NOT_STARTED delta -15; new modules 3
+verify_queue_invariants: 17/17
+local Python gate suite: 48/48 passed, 0 skipped
+```
+
+All seven target normative ids (the six new units plus the repaired
+30M–50M row) now carry a `kernel_proof` evidence axis. The wider +15 includes
+previously stale units recovered by the same honest regeneration. This is a
+measurement from the evidence/queue ledgers, not a count of files or theorems.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |

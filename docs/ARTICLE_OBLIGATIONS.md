@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 251
-- presence-facts-only complete: 251
-- NOT_STARTED: 251
+- articles with explicit pin: 256
+- presence-facts-only complete: 256
+- NOT_STARTED: 256
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -113,6 +113,11 @@ source positions. Human legal review is a separate axis and is pending.
 | `325AC0000000226` | 第百五十四条 | LocalTaxArt154FreightTonSurcharge | YES | YES | NO | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の七 | InheritanceGiftTaxRateBracket10M15M | YES | YES | NO | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の七 | InheritanceGiftTaxRateBracket15M30M | YES | YES | NO | NOT_STARTED |
+| `325AC0000000073` | 第二十一条の七 | InheritanceGiftTaxRateBracket3M4M | YES | YES | NO | NOT_STARTED |
+| `325AC0000000073` | 第二十一条の七 | InheritanceGiftTaxRateBracket6M10M | YES | YES | NO | NOT_STARTED |
+| `325AC0000000073` | 第十六条 | InheritanceTaxRateBracket10_30 | YES | YES | NO | NOT_STARTED |
+| `325AC0000000073` | 第二十三条 | InheritanceResidualPeriod10Years | YES | YES | NO | NOT_STARTED |
+| `325AC0000000073` | 第十六条 | InheritanceTaxRateBracket50_100 | YES | YES | NO | NOT_STARTED |
 | `325AC0000000226` | 第七百三十四条 | LocalTaxArt734AmountTier1 | YES | YES | NO | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の七 | InheritanceGiftTaxRateBracket4M6M | YES | YES | NO | NOT_STARTED |
 | `340AC0000000033` | 第二十八条 | IncomeTaxRevenueBracket1900k | YES | YES | NO | NOT_STARTED |
