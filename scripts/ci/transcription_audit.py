@@ -3950,22 +3950,34 @@ def checks():
            ["第三号に掲げる所得税の額から前号に掲げる所得税の額を控除した残額のうち還付を受けようとする金額"])
 
     # 地方交付税法 art. 6の2 §2/§3 — LocalGrantTaxShares.lean (94% / 6%)
-    yield ("LocalGrantTaxShares.lean",
+    yield ("地方交付税法 art. 6_2（普通交付税94%・特別交付税6%）↔ LocalGrantTaxShares.lean",
            "325AC0000000211",
            "file", None,
            ["前条第二項の額の百分の九十四に相当する額", "前条第二項の額の百分の六に相当する額"])
 
     # 相続税法施行令 art. 28 §1 — StandingTimberDeferredRate30.lean (30%)
-    yield ("StandingTimberDeferredRate30.lean",
+    yield ("相続税法施行令 art. 28（立木延納割合30%）↔ StandingTimberDeferredRate30.lean",
            "325CO0000000071",
            "file", None,
            ["法第五十二条第一項第一号ロに規定する政令で定める割合は、百分の三十とする"])
 
     # 地方税法 art. 23 第11号イ(2) — WidowDependentIncomeCeiling5M.lean (五百万円以下)
-    yield ("WidowDependentIncomeCeiling5M.lean",
+    yield ("地方税法 art. 23（寡婦・ひとり親 合計所得金額五百万円以下）↔ WidowDependentIncomeCeiling5M.lean",
            "325AC0000000226",
            "file", None,
            ["前年の合計所得金額が五百万円以下であること"])
+
+    # 地方税法 art. 71の6 — LocalInterestTaxRate5.lean (利子割 5%)
+    yield ("地方税法 art. 71_6（利子割の税率5%）↔ LocalInterestTaxRate5.lean",
+           "325AC0000000226",
+           "file", None,
+           ["利子割の税率は、百分の五とする。"])
+
+    # 地方税法 art. 71の49 — LocalStockTransferTaxRate5.lean (株式等譲渡所得割 5%)
+    yield ("地方税法 art. 71_49（株式等譲渡所得割の税率5%）↔ LocalStockTransferTaxRate5.lean",
+           "325AC0000000226",
+           "file", None,
+           ["株式等譲渡所得割の税率は、百分の五とする。"])
 
 
     # DisasterTaxReliefOrderSupplArt2HokkaidoBureauException.lean - NORM|483362ae... (災害被害者租税減免法施行政令 附則2 table EXCEPTION, law 322CO0000000268)
