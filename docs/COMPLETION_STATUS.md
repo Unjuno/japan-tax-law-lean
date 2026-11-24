@@ -13,7 +13,7 @@ obligations being complete. SKIP is never counted as PASS.
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: (none)
-- current HEAD commit: fc2f6c324ad9fbf2bad0b42755ac69a63cd4cead
+- current HEAD commit: 768d2a7d6cd648fa7914371afbcb0d753db32956
 - results bound to this commit: False
 - registered checks all green: False
 
@@ -21,9 +21,9 @@ obligations being complete. SKIP is never counted as PASS.
 
 - normative units: 396854
 - NOT_STARTED: 396172
-- PARTIAL: 0
+- PARTIAL: 1
 - PROVED_SCOPE: 3
-- FULLY_VERIFIED: 677
+- FULLY_VERIFIED: 676
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180619
@@ -36,7 +36,7 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 680 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 679 | 396854 |
 | kernel proved (CI-attested proof evidence) | 680 | 396854 |
 | source-audited (原文 correspondence evidence) | 680 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
@@ -49,13 +49,13 @@ obligations being complete. SKIP is never counted as PASS.
 | boundary_proof | 680 |
 | cross_law_proof | 680 |
 | decomposition_audit | 680 |
-| implementation | 680 |
-| independent_spec | 680 |
+| implementation | 679 |
+| independent_spec | 679 |
 | kernel_proof | 680 |
 | proof_scope | 680 |
 | source_correspondence_audit | 680 |
 | source_location | 680 |
-| tests | 680 |
+| tests | 679 |
 
 ## Verdict
 

@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 3330,
+  "checks": 3327,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -17292,39 +17292,6 @@
       "axis": "adversarial_review",
       "detail": "non-batch reference",
       "reference": "docs/ADVERSARIAL_DISASTER_TAX_RELIEF_ORDER_ART10_ITEM5_FIELD_CONDITION.md — reviewer returned 1 HIGH FINDING (source-cha",
-      "unit_id": "NORM|776e380c19760249d8df0f9271e451ace26d44c8f044d76495f3caeb888f038d"
-    },
-    {
-      "C": "a generic/template string may describe a different unit",
-      "D": "FAIL",
-      "H": "the cited reference does not actually support this axis",
-      "T": "resolve the reference against the named artifact",
-      "U": "resolution checks artifact identity only, not legal correctness",
-      "axis": "implementation",
-      "detail": "sha256 MISMATCH",
-      "reference": "JapanTaxLaw/DisasterTaxReliefOrderArt10Item5FieldCondition.lean",
-      "unit_id": "NORM|776e380c19760249d8df0f9271e451ace26d44c8f044d76495f3caeb888f038d"
-    },
-    {
-      "C": "a generic/template string may describe a different unit",
-      "D": "FAIL",
-      "H": "the cited reference does not actually support this axis",
-      "T": "resolve the reference against the named artifact",
-      "U": "resolution checks artifact identity only, not legal correctness",
-      "axis": "independent_spec",
-      "detail": "sha256 MISMATCH",
-      "reference": "JapanTaxLaw/DisasterTaxReliefOrderArt10Item5FieldConditionSpec.lean",
-      "unit_id": "NORM|776e380c19760249d8df0f9271e451ace26d44c8f044d76495f3caeb888f038d"
-    },
-    {
-      "C": "a generic/template string may describe a different unit",
-      "D": "FAIL",
-      "H": "the cited reference does not actually support this axis",
-      "T": "resolve the reference against the named artifact",
-      "U": "resolution checks artifact identity only, not legal correctness",
-      "axis": "tests",
-      "detail": "sha256 MISMATCH",
-      "reference": "JapanTaxLaw/DisasterTaxReliefOrderArt10Item5FieldConditionTests.lean",
       "unit_id": "NORM|776e380c19760249d8df0f9271e451ace26d44c8f044d76495f3caeb888f038d"
     },
     {
@@ -36637,5 +36604,5 @@
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
   "units_checked": 680,
-  "unresolved": 4
+  "unresolved": 1
 }
