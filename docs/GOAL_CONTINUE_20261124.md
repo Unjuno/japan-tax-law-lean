@@ -61,6 +61,26 @@ Local kernel evidence (this iteration):
 - `verify_queue_invariants.py`: 16/16.
 - `transcription_audit.py`: new check PASS, exit 0.
 
+## Autonomous coordination (§3)
+
+`scripts/ci/coordinator.py` operationalizes
+INSPECT → SELECT → FORMALIZE → PROVE → CHALLENGE → VERIFY → COMMIT → REPEAT:
+
+- INSPECT reads the persistent queue and reports independent status counts
+  without declaring completion.
+- SELECT reuses `task_selector` (dependency-ready, unclaimed, round-robin;
+  human review is never a filter).
+- ASSIGN gives each selected unit to three **separate** High4 roles
+  (FORMALIZER / PROVER / INDEPENDENT_REVIEWER) with durable claims in
+  `data/COORDINATOR_CLAIMS.json`, so a stopped task cannot block others and no
+  two agents edit the same artifact.
+- RELEASE frees claims; CYCLE records only measurable counts and never changes
+  a task's status.
+- `scripts/tests/test_coordinator.py` (6 tests) verifies role separation,
+  durable claims, release, dependency blocking isolation and that legal review
+  is never auto-satisfied. Registered as a REQUIRED gate in
+  `run_python_gates.py`.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |
@@ -68,9 +88,22 @@ Local kernel evidence (this iteration):
 | technical verification (Lean kernel) | done locally | build + no-sorry + axiom probe green |
 | independent spec / source correspondence | done | spec literals 千五百万 / 三千万 found verbatim in the scoped clause; needle scoped |
 | formalization of the whole article | **not done** | only this bracket cell is modelled; paired rate, other brackets, deductions and other paragraphs are out of scope |
-| CI hash attestation | pending | must be bound to a real green run of the pushed commit; no attestation is fabricated locally |
-| queue status | NOT_STARTED until attestation + evidence regeneration | status derives only from recorded evidence, never from a file or theorem name |
+| CI hash attestation | done | `data/PROOF_ATTESTATION_SCOPED_15M30M.json` binds the three module hashes to commit `4f57f7014561a175cb8b3cd5c11d3eba3954ea4a` and green run `https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45409652393` (conclusion `success`) |
+| queue status | `FULLY_VERIFIED` | after attestation + honest evidence regeneration; status derives only from recorded evidence, never from a file or theorem name |
 | human legal review | `LEGAL_REVIEW_PENDING` | no human reviewer; no approval is recorded or implied |
+
+### Attestation-to-promotion measurement
+
+```
+before attestation: FULLY_VERIFIED=697  NOT_STARTED=396152  evidence=700
+after attestation:  FULLY_VERIFIED=698  NOT_STARTED=396151  evidence=701
+progress_ledger: COUNTED; NOT_STARTED delta -16; new modules 3
+verify_queue_invariants: 16/16; new unit evidence present = True
+```
+
+The delta of -16 is measured against the committed head snapshot
+(`682/396167`), not against the file count. The new unit is one of those 16;
+the rest came from the umbrella repair described above.
 
 ## Measured delta (this iteration)
 
