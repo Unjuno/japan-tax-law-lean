@@ -560,3 +560,6 @@ import JapanTaxLaw.StatutoryPeriodsTests
 import JapanTaxLaw.MoneyRoundingThresholds
 import JapanTaxLaw.MoneyRoundingThresholdsSpec
 import JapanTaxLaw.MoneyRoundingThresholdsTests
+import JapanTaxLaw.PenaltyCaps
+import JapanTaxLaw.PenaltyCapsSpec
+import JapanTaxLaw.PenaltyCapsTests
