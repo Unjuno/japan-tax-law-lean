@@ -4,7 +4,7 @@
     "task_count": 5,
     "tasks": [
       {
-        "acquisition_evidence": "TOKYO-METRO-TAX-ORDINANCE-20260701 sha256=a33201d3f8f5f79d7a6db5c005f9756495f670dfe9e9571805e86e2a87d3e2e8, OSAKA-CITY-TAX-ORDINANCE-AMEND-20260331 sha256=933f83833c7feb40d1964adc5acb2821f5d80ed355e4c8c4bb2afd5a2cfa53cc",
+        "acquisition_evidence": "TOKYO-METRO-TAX-ORDINANCE-20260701 sha256=a33201d3f8f5f79d7a6db5c005f9756495f670dfe9e9571805e86e2a87d3e2e8, OSAKA-CITY-TAX-ORDINANCE-AMEND-20260331 sha256=933f83833c7feb40d1964adc5acb2821f5d80ed355e4c8c4bb2afd5a2cfa53cc, KANAGAWA-PREF-TAX-ORDINANCE-AMEND-20260518 sha256=9aa59c60154cc6114e8707edf4f052ef9b28608c778f193877f2890b08867488",
         "formalization_evidence": "",
         "layer_id": "L2_ORDINANCE",
         "legal_review": "LEGAL_REVIEW_PENDING",
@@ -129,12 +129,31 @@
           "title_ja": "大阪市市税条例の一部を改正する条例（令和8年3月31日公布）",
           "verification": "PINNED_BYTES_ONLY",
           "version_effective_date": "2026-04-01"
+        },
+        {
+          "bytes": 393424,
+          "document_kind": "MUNICIPAL_TAX_ORDINANCE_AMENDMENT_BILL",
+          "document_kind_note": "県議会議案書に収録された条例改正文。自治体別・版付きで L2 に保管し、L0 法源規範とは混ぜない。",
+          "formalization_status": "NOT_MODELLED",
+          "layer_id": "L2_ORDINANCE",
+          "legal_review": "LEGAL_REVIEW_PENDING",
+          "local_path": "data/layers/L2_ORDINANCE/KanagawaPrefTaxOrdinanceAmendment_20260518.pdf",
+          "media_type": "application/pdf",
+          "municipality": "神奈川県",
+          "official_url": "https://www.pref.kanagawa.jp/documents/134621/jorei_gian_8dai2_0518.pdf",
+          "ordinance_number": "令和8年神奈川県条例（県報第1号 専決処分承認）",
+          "retrieved_date": "2026-11-25",
+          "sha256": "9aa59c60154cc6114e8707edf4f052ef9b28608c778f193877f2890b08867488",
+          "source_id": "KANAGAWA-PREF-TAX-ORDINANCE-AMEND-20260518",
+          "title_ja": "神奈川県県税条例の一部を改正する条例（令和8年第2回定例会議案、専決承認）",
+          "verification": "PINNED_BYTES_ONLY",
+          "version_effective_date": "2026-04-01"
         }
       ],
       "authority": "各自治体",
       "auxiliary": false,
       "backlog": {
-        "acquisition_evidence": "TOKYO-METRO-TAX-ORDINANCE-20260701 sha256=a33201d3f8f5f79d7a6db5c005f9756495f670dfe9e9571805e86e2a87d3e2e8, OSAKA-CITY-TAX-ORDINANCE-AMEND-20260331 sha256=933f83833c7feb40d1964adc5acb2821f5d80ed355e4c8c4bb2afd5a2cfa53cc",
+        "acquisition_evidence": "TOKYO-METRO-TAX-ORDINANCE-20260701 sha256=a33201d3f8f5f79d7a6db5c005f9756495f670dfe9e9571805e86e2a87d3e2e8, OSAKA-CITY-TAX-ORDINANCE-AMEND-20260331 sha256=933f83833c7feb40d1964adc5acb2821f5d80ed355e4c8c4bb2afd5a2cfa53cc, KANAGAWA-PREF-TAX-ORDINANCE-AMEND-20260518 sha256=9aa59c60154cc6114e8707edf4f052ef9b28608c778f193877f2890b08867488",
         "formalization_evidence": "",
         "layer_id": "L2_ORDINANCE",
         "legal_review": "LEGAL_REVIEW_PENDING",
@@ -143,12 +162,12 @@
         "task_class": "MUNICIPAL_ORDINANCE_ACQUISITION"
       },
       "count": 1788,
-      "count_acquired": 2,
+      "count_acquired": 3,
       "label_ja": "地方税条例",
       "layer_id": "L2_ORDINANCE",
       "legal_nature": "自治体条例（地方自治法に基づく法源）",
       "notes": "自治体ごとの版付き条例を一部 pin 済み（全自治体は未取得、形式化・レビュー未実施）。対象に保持し、UNSUPPORTED は実装状態であって恒久除外ではない。",
-      "pinned_snapshot": "TOKYO-METRO-TAX-ORDINANCE-20260701, OSAKA-CITY-TAX-ORDINANCE-AMEND-20260331",
+      "pinned_snapshot": "TOKYO-METRO-TAX-ORDINANCE-20260701, OSAKA-CITY-TAX-ORDINANCE-AMEND-20260331, KANAGAWA-PREF-TAX-ORDINANCE-AMEND-20260518",
       "scope_status": "IN_SCOPE_BACKLOG",
       "verification_status": "PINNED_BYTES_ONLY"
     },
