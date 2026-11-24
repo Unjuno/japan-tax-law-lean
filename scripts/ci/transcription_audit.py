@@ -3924,6 +3924,54 @@ def checks():
            "article", "第二条",
            ["合併により被合併法人の株主等に交付された合併後存続する法人の株式又は出資に係る資本の金額又は出資金額（被合併法人が二以上ある場合には、各被合併法人に係るこれらの金額のうち最も多い金額）"])
 
+# 資本金等の額 千万円超一億円以下 — LocalCapitalBand10M100M.lean
+    yield ("地方税法 art. 52（資本金等の額 千万円超一億円以下）↔ LocalCapitalBand10M100M.lean",
+           "325AC0000000226",
+           "file", None,
+           ["二　資本金等の額を有する法人で資本金等の額が千万円を超え一億円以下であるもの"])
+
+    # 資本金等の額 一億円超十億円以下 — LocalCapitalBand100M1B.lean
+    yield ("地方税法 art. 52（資本金等の額 一億円超十億円以下）↔ LocalCapitalBand100M1B.lean",
+           "325AC0000000226",
+           "file", None,
+           ["三　資本金等の額を有する法人で資本金等の額が一億円を超え十億円以下であるもの"])
+
+    # 資本金等の額 十億円超五十億円以下 — LocalCapitalBand1B5B.lean
+    yield ("地方税法 art. 52（資本金等の額 十億円超五十億円以下）↔ LocalCapitalBand1B5B.lean",
+           "325AC0000000226",
+           "file", None,
+           ["四　資本金等の額を有する法人で資本金等の額が十億円を超え五十億円以下であるもの"])
+
+    # 地上権の残存期間 二十五年超三十年以下 — InheritanceResidual25_30.lean
+    yield ("相続税法 art. 23（地上権の残存期間 二十五年超三十年以下）↔ InheritanceResidual25_30.lean",
+           "325AC0000000073",
+           "file", None,
+           ["残存期間が二十五年を超え三十年以下のもの及び地上権で存続期間の定めのないもの"])
+
+# 資本金等の額 千万円超一億円以下 — LocalCapitalBand10M100M.lean
+    yield ("地方税法 art. 52（資本金等の額 千万円超一億円以下）↔ LocalCapitalBand10M100M.lean",
+           "325AC0000000226",
+           "file", None,
+           ["二　資本金等の額を有する法人で資本金等の額が千万円を超え一億円以下であるもの"])
+
+    # 資本金等の額 一億円超十億円以下 — LocalCapitalBand100M1B.lean
+    yield ("地方税法 art. 52（資本金等の額 一億円超十億円以下）↔ LocalCapitalBand100M1B.lean",
+           "325AC0000000226",
+           "file", None,
+           ["三　資本金等の額を有する法人で資本金等の額が一億円を超え十億円以下であるもの"])
+
+    # 資本金等の額 十億円超五十億円以下 — LocalCapitalBand1B5B.lean
+    yield ("地方税法 art. 52（資本金等の額 十億円超五十億円以下）↔ LocalCapitalBand1B5B.lean",
+           "325AC0000000226",
+           "file", None,
+           ["四　資本金等の額を有する法人で資本金等の額が十億円を超え五十億円以下であるもの"])
+
+    # 地上権の残存期間 二十五年超三十年以下 — InheritanceResidual25_30.lean
+    yield ("相続税法 art. 23（地上権の残存期間 二十五年超三十年以下）↔ InheritanceResidual25_30.lean",
+           "325AC0000000073",
+           "file", None,
+           ["残存期間が二十五年を超え三十年以下のもの及び地上権で存続期間の定めのないもの"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
