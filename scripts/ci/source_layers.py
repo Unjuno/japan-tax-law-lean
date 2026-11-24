@@ -147,6 +147,7 @@ def build() -> dict:
     ordinance_pins = verified_acquisitions("L2_ORDINANCE")
     treaty_pins = verified_acquisitions("L3_TREATY")
     circular_pins = verified_acquisitions("L4_CIRCULAR")
+    caselaw_pins = verified_acquisitions("L5_CASELAW")
     layers = [
         {
             "layer_id": "L0_STATUTE",
@@ -245,14 +246,18 @@ def build() -> dict:
             "label_ja": "裁判例",
             "legal_nature": "判決・裁定（法源ではなく判断例）",
             "authority": "裁判所",
-            "acquisition_status": "NOT_ACQUIRED",
+            "acquisition_status": "ACQUIRED_PARTIAL" if caselaw_pins else "NOT_ACQUIRED",
             "scope_status": "IN_SCOPE_INTERPRETATION_BACKLOG",
-            "count": None,
-            "count_acquired": 0,
-            "pinned_snapshot": "",
-            "verification_status": "BACKLOG_NOT_ACQUIRED",
+            "count": len(caselaw_pins) if caselaw_pins else None,
+            "count_acquired": len(caselaw_pins),
+            "pinned_snapshot": ", ".join(x["source_id"] for x in caselaw_pins),
+            "verification_status": "PINNED_BYTES_ONLY" if caselaw_pins else "BACKLOG_NOT_ACQUIRED",
             "auxiliary": True,
-            "notes": "反例・対立解釈の資料として別層に置き、規範そのものとは混ぜない。段階的収録のバックログ。",
+            "notes": ("判断例として原文 bytes を pin 済み（法源ではなく解釈資料、形式化・レビュー未実施）。"
+                      "規範そのものとは混ぜない。"
+                      if caselaw_pins else
+                      "反例・対立解釈の資料として別層に置き、規範そのものとは混ぜない。段階的収録のバックログ。"),
+            "acquisitions": caselaw_pins,
             "backlog": backlog_record(
                 "L5_CASELAW", "CASELAW_ACQUISITION",
                 "裁判例を解釈資料レイヤーとして収集し、反例・対立解釈を規範と分離して記録する"),
@@ -275,7 +280,7 @@ def build() -> dict:
                 "歴史的施行版を e-Gov 歴史情報から版付きで pin し、経過措置の参照を解決する"),
         },
     ]
-    for pins in (ordinance_pins, treaty_pins, circular_pins):
+    for pins in (ordinance_pins, treaty_pins, circular_pins, caselaw_pins):
         if not pins:
             continue
         layer = next(l for l in layers if l["layer_id"] == pins[0]["layer_id"])

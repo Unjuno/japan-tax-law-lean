@@ -39,10 +39,9 @@ class LayerTests(unittest.TestCase):
         # layers. An acquisition is never a formalization or a legal review.
         self.assertIn(by["L3_TREATY"]["acquisition_status"],
                       ("NOT_ACQUIRED", "ACQUIRED_PARTIAL"))
-        self.assertIn(by["L4_CIRCULAR"]["acquisition_status"],
-                      ("NOT_ACQUIRED", "ACQUIRED_PARTIAL"))
-        self.assertEqual(by["L5_CASELAW"]["acquisition_status"], "NOT_ACQUIRED")
-        self.assertEqual(by["L5_CASELAW"]["verification_status"], "BACKLOG_NOT_ACQUIRED")
+        for lid in ("L4_CIRCULAR", "L5_CASELAW"):
+            self.assertIn(by[lid]["acquisition_status"],
+                          ("NOT_ACQUIRED", "ACQUIRED_PARTIAL"))
         aux = {l["layer_id"] for l in self.reg["layers"] if l["auxiliary"]}
         self.assertEqual(aux, {"L3_TREATY", "L4_CIRCULAR", "L5_CASELAW"})
 
@@ -75,7 +74,8 @@ class LayerTests(unittest.TestCase):
             self.assertEqual(layer["backlog"]["layer_id"], lid)
             self.assertTrue(layer["backlog"]["next_action"])
             self.assertEqual(layer["backlog"]["legal_review"], "LEGAL_REVIEW_PENDING")
-            if lid in ("L2_ORDINANCE", "L3_TREATY", "L4_CIRCULAR"):
+            if lid in ("L2_ORDINANCE", "L3_TREATY", "L4_CIRCULAR",
+                       "L5_CASELAW"):
                 # Pinned bytes are recorded, but this is not proof or review.
                 self.assertIn("sha256=", layer["backlog"]["acquisition_evidence"])
             else:
