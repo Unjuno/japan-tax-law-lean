@@ -36,6 +36,7 @@ GATES = [
     ("historical-discovery classification tests", ["python", "-m", "unittest", "scripts.tests.test_historical_discovery", "-v"], ["scripts/tests/test_historical_discovery.py"]),
     ("independent completion-mechanism audit", ["python", "scripts/ci/qa_completion_audit.py"], ["scripts/ci/qa_completion_audit.py"]),
     ("evidence reference resolution audit", ["python", "scripts/ci/audit_evidence_references.py"], ["scripts/ci/audit_evidence_references.py", "docs/EVIDENCE_REFERENCE_AUDIT.md", "data/EVIDENCE_REFERENCE_AUDIT.json"]),
+    ("evidence attestation binding tests", ["python", "-m", "unittest", "scripts.tests.test_evidence_attestation_binding", "-v"], ["scripts/tests/test_evidence_attestation_binding.py"]),
     ("Phase A inventory integrity", ["python", "scripts/law_audit/inventory/validate_inventory.py"], ["scripts/law_audit/inventory/validate_inventory.py"]),
     ("Phase E cross-law pin consistency", ["python", "scripts/law_audit/phase_e/cross_law.py"], ["scripts/law_audit/phase_e/cross_law.py"]),
     ("Phase F revision impact integrity", ["python", "scripts/law_audit/phase_f/revision_impact.py"], ["scripts/law_audit/phase_f/revision_impact.py"]),
