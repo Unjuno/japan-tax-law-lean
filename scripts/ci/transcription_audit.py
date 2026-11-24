@@ -4198,6 +4198,13 @@ def checks():
            "332AC0000000026", "file", None,
            ["特定不動産の割合が百分の七十五以上であること。"])
 
+    # 通算法人 art. 6 — FilingDateException.lean
+    yield ("通算法人 第六条（指定期日が提出期限前の日の例外）↔ FilingDateException.lean (exception, strict date-before)",
+           "426CO0000000139",
+           "article", "第六条",
+           ["ただし、当該指定された期日が当該他の通算法人の同条第一項の規定による申告書の提出期限前の日である場合は、この限りでない。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
