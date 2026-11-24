@@ -236,6 +236,9 @@ import JapanTaxLaw.CourseUnits31Tests
 import JapanTaxLaw.CrossSection15mm
 import JapanTaxLaw.CrossSection15mmSpec
 import JapanTaxLaw.CrossSection15mmTests
+import JapanTaxLaw.CustomsAdditionalDutyCeiling
+import JapanTaxLaw.CustomsAdditionalDutyCeilingSpec
+import JapanTaxLaw.CustomsAdditionalDutyCeilingTests
 import JapanTaxLaw.CustomsAirCargo
 import JapanTaxLaw.CustomsAirCargoSpec
 import JapanTaxLaw.CustomsAirCargoTests
@@ -1886,3 +1889,15 @@ import JapanTaxLaw.WidowDependentIncomeCeiling5MTests
 import JapanTaxLaw.WirePitch165nm
 import JapanTaxLaw.WirePitch165nmSpec
 import JapanTaxLaw.WirePitch165nmTests
+import JapanTaxLaw.FreeCarePatientBand5_10
+import JapanTaxLaw.FreeCarePatientBand5_10Spec
+import JapanTaxLaw.FreeCarePatientBand5_10Tests
+import JapanTaxLaw.FreeCarePatientBand2_5
+import JapanTaxLaw.FreeCarePatientBand2_5Spec
+import JapanTaxLaw.FreeCarePatientBand2_5Tests
+import JapanTaxLaw.NursingCareBand5_10
+import JapanTaxLaw.NursingCareBand5_10Spec
+import JapanTaxLaw.NursingCareBand5_10Tests
+import JapanTaxLaw.NursingCareBand2_5
+import JapanTaxLaw.NursingCareBand2_5Spec
+import JapanTaxLaw.NursingCareBand2_5Tests
