@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Separate-source-layer registry (Objective §2).
+"""Separate-source-layer registry (Objective §2, Sponsor Directive §1/§5).
 
 The current 327-law ledger is a PROVISIONAL population, not the whole of
 Japanese tax law.  This tool makes the other source families explicit and
@@ -7,14 +7,22 @@ keeps them in separate layers, with their own legal nature, acquisition status
 and verification status.  It NEVER folds an auxiliary layer into the statutory
 ledger and NEVER claims content that has not been acquired.
 
+Directive §1/§5 correction: an unacquired or unimplemented source family is a
+BACKLOG item, not a permanent scope exclusion.  `DECLARED_UNSUPPORTED` only
+ever described the current implementation state; it is now represented as
+`IN_SCOPE_BACKLOG` with an explicit `backlog` record so a task queue can pick
+it up later.  Municipal ordinances and tax treaties stay IN SCOPE (as separate
+layers); circulars and case law stay in scope as interpretation layers.  None
+of them is ever silently dropped from the target population.
+
 Layers:
   L0_STATUTE      法律・政令・省令 (the pinned 2026-11-15 snapshot)
   L1_PROVISION    附則・別表・経過措置 inside L0 snapshots
-  L2_ORDINANCE    地方税条例 (municipality by municipality) — not acquired
-  L3_TREATY       租税条約 — auxiliary legal source, not modelled
-  L4_CIRCULAR     通達 — auxiliary legal source, not modelled
-  L5_CASELAW      裁判例 — auxiliary legal source, not modelled
-  L6_HISTORICAL   歴史的施行版 (旧法/新法 references) — not pinned
+  L2_ORDINANCE    地方税条例 (municipality by municipality) — IN SCOPE, backlog
+  L3_TREATY       租税条約 — IN SCOPE, separate legal layer, backlog
+  L4_CIRCULAR     通達 — IN SCOPE interpretation layer, backlog
+  L5_CASELAW      裁判例 — IN SCOPE interpretation layer, backlog
+  L6_HISTORICAL   歴史的施行版 (旧法/新法 references) — IN SCOPE, unpinned backlog
 
 Regenerate with `python scripts/ci/source_layers.py`; deterministic gate.
 """
@@ -64,6 +72,24 @@ def queue_counts() -> dict:
     ):
         out[name] = int(value)
     return out
+
+
+def backlog_record(layer_id: str, task_class: str, next_action: str) -> dict:
+    """A durable, non-dropping task placeholder for an in-scope source family.
+
+    A backlog record is NOT evidence of acquisition, parsing, proof or legal
+    review.  It only states that the layer remains a target and names the next
+    executable step, so a Coordinator can pick it up without re-deciding scope.
+    """
+    return {
+        "layer_id": layer_id,
+        "task_class": task_class,
+        "status": "NOT_ACQUIRED" if layer_id != "L6_HISTORICAL" else "NOT_PINNED",
+        "legal_review": "LEGAL_REVIEW_PENDING",
+        "next_action": next_action,
+        "acquisition_evidence": "",
+        "formalization_evidence": "",
+    }
 
 
 def build() -> dict:
@@ -124,13 +150,16 @@ def build() -> dict:
             "legal_nature": "自治体条例（地方自治法に基づく法源）",
             "authority": "各自治体",
             "acquisition_status": "NOT_ACQUIRED",
-            "scope_status": "DECLARED_UNSUPPORTED",
+            "scope_status": "IN_SCOPE_BACKLOG",
             "count": ordinances,
             "count_acquired": 0,
             "pinned_snapshot": "",
-            "verification_status": "OUT_OF_SCOPE",
+            "verification_status": "BACKLOG_NOT_ACQUIRED",
             "auxiliary": False,
-            "notes": "自治体単位の収集は未実施。対象を勝手に縮小せず、未取得として明示する。",
+            "notes": "対象に保持する（スポンサー指令§1/§5）。自治体単位の版付き収集は未実施でバックログ。UNSUPPORTED は実装状態であり恒久除外ではない。",
+            "backlog": backlog_record(
+                "L2_ORDINANCE", "MUNICIPAL_ORDINANCE_ACQUISITION",
+                "自治体ごとに版を固定した条例原文を取得し、規範単位に分解する"),
         },
         {
             "layer_id": "L3_TREATY",
@@ -138,13 +167,16 @@ def build() -> dict:
             "legal_nature": "条約（国際法源）— 国内法とは効力発生の機構が異なる",
             "authority": "外務省 / 条約締結",
             "acquisition_status": "NOT_ACQUIRED",
-            "scope_status": "AUXILIARY_LAYER",
+            "scope_status": "IN_SCOPE_AUXILIARY_BACKLOG",
             "count": None,
             "count_acquired": 0,
             "pinned_snapshot": "",
-            "verification_status": "OUT_OF_SCOPE",
+            "verification_status": "BACKLOG_NOT_ACQUIRED",
             "auxiliary": True,
-            "notes": "法源上の性質が異なるため L0 に混ぜない。別層として管理する。",
+            "notes": "対象に保持する。法源上の性質が異なるため L0 に混ぜず別層で管理。未取得はバックログであり除外ではない。",
+            "backlog": backlog_record(
+                "L3_TREATY", "TREATY_ACQUISITION",
+                "租税条約を版付きで取得し、国内法との効力発生の違いを別層で形式化する"),
         },
         {
             "layer_id": "L4_CIRCULAR",
@@ -152,13 +184,16 @@ def build() -> dict:
             "legal_nature": "行政通達（法的拘束力は条文ではなく行政内部）",
             "authority": "国税庁 / 総務省",
             "acquisition_status": "NOT_ACQUIRED",
-            "scope_status": "AUXILIARY_LAYER",
+            "scope_status": "IN_SCOPE_INTERPRETATION_BACKLOG",
             "count": None,
             "count_acquired": 0,
             "pinned_snapshot": "",
-            "verification_status": "OUT_OF_SCOPE",
+            "verification_status": "BACKLOG_NOT_ACQUIRED",
             "auxiliary": True,
-            "notes": "原文対応監査の対象外。解釈資料として別層に置く。",
+            "notes": "法令本文とは区別した解釈資料レイヤーとして段階的に収録する。未取得はバックログであり除外ではない。",
+            "backlog": backlog_record(
+                "L4_CIRCULAR", "CIRCULAR_ACQUISITION",
+                "通達を解釈資料レイヤーとして版付き収集し、本文規範と分離して記録する"),
         },
         {
             "layer_id": "L5_CASELAW",
@@ -166,13 +201,16 @@ def build() -> dict:
             "legal_nature": "判決・裁定（法源ではなく判断例）",
             "authority": "裁判所",
             "acquisition_status": "NOT_ACQUIRED",
-            "scope_status": "AUXILIARY_LAYER",
+            "scope_status": "IN_SCOPE_INTERPRETATION_BACKLOG",
             "count": None,
             "count_acquired": 0,
             "pinned_snapshot": "",
-            "verification_status": "OUT_OF_SCOPE",
+            "verification_status": "BACKLOG_NOT_ACQUIRED",
             "auxiliary": True,
-            "notes": "反例・対立解釈の資料として別層に置き、規範そのものとは混ぜない。",
+            "notes": "反例・対立解釈の資料として別層に置き、規範そのものとは混ぜない。段階的収録のバックログ。",
+            "backlog": backlog_record(
+                "L5_CASELAW", "CASELAW_ACQUISITION",
+                "裁判例を解釈資料レイヤーとして収集し、反例・対立解釈を規範と分離して記録する"),
         },
         {
             "layer_id": "L6_HISTORICAL",
@@ -184,9 +222,12 @@ def build() -> dict:
             "count": hist_names,
             "count_acquired": 0,
             "pinned_snapshot": "",
-            "verification_status": "OUT_OF_SCOPE",
+            "verification_status": "BACKLOG_NOT_PINNED",
             "auxiliary": False,
-            "notes": "附則・経過措置の新旧参照。施行版を別途固定するまで未検証。",
+            "notes": "附則・経過措置の新旧参照。施行版を別途固定するまで未検証。対象に保持し、未固定はバックログ。",
+            "backlog": backlog_record(
+                "L6_HISTORICAL", "HISTORICAL_REVISION_PINNING",
+                "歴史的施行版を e-Gov 歴史情報から版付きで pin し、経過措置の参照を解決する"),
         },
     ]
     q = queue_counts()
@@ -212,6 +253,12 @@ def build() -> dict:
             "human_reviewers_recorded": reviewers,
         },
         "layer_separation_rule": "auxiliary layers are never merged into L0; counts are separate denominators",
+        "backlog_rule": "in-scope source families that are not yet acquired/pinned stay in the task backlog; UNSUPPORTED is a current implementation state, never a permanent scope exclusion",
+        "backlog": {
+            "task_count": sum(1 for l in layers if l.get("backlog")),
+            "tasks": [l["backlog"] for l in layers if l.get("backlog")],
+            "note": "Backlog placeholders are not evidence of acquisition, proof or legal review.",
+        },
         "layers": layers,
     }
 
@@ -259,6 +306,21 @@ def main() -> int:
         "",
         "No layer other than L0 has acquired content in this repository. No",
         "completion claim is made for any layer.",
+        "",
+        "## In-scope backlog (Sponsor Directive §1/§5)",
+        "",
+        "Unacquired/unimplemented source families are NOT permanent exclusions.",
+        "Each remains a target and has a named next executable step:",
+        "",
+        "| layer | task class | status | next action |",
+        "|---|---|---|---|",
+    ]
+    for task in payload["backlog"]["tasks"]:
+        lines.append("| %s | %s | %s | %s |" % (
+            task["layer_id"], task["task_class"], task["status"], task["next_action"]))
+    lines += [
+        "",
+        payload["backlog"]["note"],
         "",
     ]
     OUT_MD.parent.mkdir(parents=True, exist_ok=True)
