@@ -3,11 +3,15 @@
 
 Axis A: registered checks. Read from build/gate_results.json, written by
         run_python_gates.py. SKIP is reported as SKIP and never as PASS.
-Axis B: all obligations complete. Derived ONLY from the generated normative
-        queue + durable evidence. A unit is complete only at FULLY_VERIFIED
-        with no open blocker, no unhandled condition and a recorded human
-        legal review; the all-complete claim additionally requires every unit
-        to be complete.
+Axis B: all TECHNICAL obligations complete. Derived ONLY from the generated
+        normative queue + durable evidence. A unit is technically complete at
+        FULLY_VERIFIED with no open blocker and no unhandled condition. Human
+        legal review is NOT part of this axis: sponsor directive 2026-11-24
+        makes review a condition for a FINAL LEGAL DETERMINATION, not for
+        starting or counting Lean formalization.
+
+Axis C: independent human legal determination — reported separately and never
+        satisfied by proof, attestation or mechanical source review.
 
 The gate NEVER declares all-complete merely because registered checks passed.
 It emits docs/COMPLETION_STATUS.md deterministically; exit 0 iff the emitted
@@ -34,6 +38,30 @@ STATES = ("NOT_STARTED", "PARTIAL", "PROVED_SCOPE", "FULLY_VERIFIED", "BLOCKED")
 
 def _load(path: Path):
     return json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
+
+
+def committed_queue_counts() -> dict | None:
+    """Authoritative status counts from the COMMITTED task-queue document.
+
+    build/task_queue.json is git-ignored and can be regenerated from a slightly
+    different working tree; using it for the headline made published ledgers
+    disagree by several units. Other regenerators (source_layers,
+    directive_axes) already use the committed document.
+    """
+    doc = REPO / "docs" / "TASK_QUEUE.md"
+    if not doc.exists():
+        return None
+    text = doc.read_text(encoding="utf-8")
+    m = re.search(r"normative units:\s*(\d+)", text)
+    counts = {}
+    for state, value in re.findall(
+            r"^\|\s*(NOT_STARTED|PARTIAL|PROVED_SCOPE|FULLY_VERIFIED|BLOCKED)\s*\|\s*(\d+)\s*\|",
+            text, re.M):
+        counts[state] = int(value)
+    if not counts:
+        return None
+    counts["TOTAL"] = int(m.group(1)) if m else sum(counts.values())
+    return counts
 
 
 def _head_sha() -> str:
@@ -91,7 +119,14 @@ def build() -> str:
     # The normative-unit queue generator emits `units`; older rows used
     # `tasks`. Reading only the legacy key silently reported all zeros.
     tasks = q.get("units", q.get("tasks", []))
-    counts = Counter(t.get("status", "NOT_STARTED") for t in tasks)
+    live_counts = Counter(t.get("status", "NOT_STARTED") for t in tasks)
+    committed_counts = committed_queue_counts()
+    # The committed document is authoritative for the real ~397k-unit queue.
+    # Synthetic/test queues and early partial generations must not inherit its
+    # totals (a 1-unit fixture must report 1 unit, not the published headline).
+    use_committed = bool(committed_counts
+                         and committed_counts.get("TOTAL") == len(tasks))
+    counts = Counter(committed_counts) if use_committed else live_counts
     evidence_ledger = _load(REPO / "data" / "verification_evidence.json") or {}
     evidence_by_id = evidence_ledger.get("units", {})
     axes = Counter()
@@ -128,11 +163,14 @@ def build() -> str:
     reg = registered_checks()
 
     complete_units = counts.get("FULLY_VERIFIED", 0)
-    total = len(tasks)
+    total = (committed_counts or {}).get("TOTAL", len(tasks)) if use_committed else len(tasks)
+    # Technical completion is independent of human review (directive §1).
     all_complete = bool(total) and complete_units == total and blockers == 0 \
-        and unhandled == 0 and reviews >= candidates and candidates > 0
+        and unhandled == 0
     checks_ok = checks_are_green(reg)
     claim = all_complete and checks_ok
+    legal_review_complete = bool(candidates) and reviews >= candidates
+    legal_determination_complete = bool(claim and legal_review_complete)
 
     lines = [
         "# Completion status (machine-generated)",
@@ -154,7 +192,7 @@ def build() -> str:
         f"- results bound to this commit: {reg['commit_matches_head']}",
         f"- registered checks all green: {checks_ok}",
         "",
-        "## Axis B — all registered obligations complete",
+        "## Axis B — all TECHNICAL obligations complete (human review excluded)",
         "",
         f"- normative units: {total}",
     ]
@@ -163,7 +201,15 @@ def build() -> str:
     lines += [
         f"- units with an open blocker: {blockers}",
         f"- units with unhandled conditions: {unhandled}",
+        "",
+        "## Axis C — independent human legal determination (separate, not a gate)",
+        "",
         f"- human legal reviews recorded: {reviews}/{candidates} candidates",
+        f"- legal review pending: {not legal_review_complete}",
+        f"- legal determination complete (requires Axis B AND recorded review): "
+        f"{legal_determination_complete}",
+        "- pending review never stops formalization, proof or source audit",
+        "- no reviewer or approval field may be fabricated by automation",
         "",
         "## Objective §5 coverage layers (separate denominators, never combined)",
         "",
@@ -189,11 +235,14 @@ def build() -> str:
         "## Verdict",
         "",
         f"- all normative units decomposed, formalized, proved and source-audited: {all_complete}",
-        f"- all-complete claimable: {claim}",
+        f"- technical all-complete claimable (still not a legal determination): {claim}",
+        f"- final legal determination claimable: {legal_determination_complete}",
         "",
         "An absent results file, any FAIL, any SKIP, any non-FULLY_VERIFIED unit,",
-        "any open blocker, any unhandled condition or any pending human review",
-        "keeps the all-complete claim FALSE. No claim of legal correctness is made.",
+        "any open blocker or any unhandled condition keeps the TECHNICAL",
+        "all-complete claim FALSE. Pending human review keeps the legal",
+        "determination unconfirmed but does not stop formalization. No claim of",
+        "legal correctness is made.",
         "",
     ]
     return "\n".join(lines)

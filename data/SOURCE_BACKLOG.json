@@ -1,0 +1,198 @@
+{
+  "human_review_axis": "LEGAL_REVIEW_PENDING",
+  "human_review_is_never_auto_satisfied": true,
+  "items": [
+    {
+      "acquisition_status": "NOT_ACQUIRED",
+      "blocks_other_units": false,
+      "declared_count": 1788,
+      "formalization_status": "NOT_IMPLEMENTED",
+      "item_id": "L2-ORDINANCE-ACQUISITION",
+      "layer_id": "L2_ORDINANCE",
+      "legal_review_axis": "LEGAL_REVIEW_PENDING",
+      "not_a_permanent_exclusion": true,
+      "note": "自治体ごとの版付き法源として段階的に収集する。対象から除外しない。",
+      "source_kind": "自治体条例",
+      "title": "地方税条例（自治体別）",
+      "verification_obligations": [
+        "acquire pinned bytes with SHA-256",
+        "record law/municipality id and enforced revision",
+        "identify article / paragraph / item / table cell",
+        "decompose normative content including exceptions and effects",
+        "independent spec + implementation bridged by a kernel proof",
+        "source correspondence audit scoped to that article/cell",
+        "independent adversarial review (never a human legal approval)"
+      ],
+      "version_requirement": "自治体 id + 制定/改正版 + 施行日ごとに版固定"
+    },
+    {
+      "acquisition_status": "NOT_ACQUIRED",
+      "blocks_other_units": false,
+      "declared_count": null,
+      "formalization_status": "NOT_IMPLEMENTED",
+      "item_id": "L3-TREATY-ACQUISITION",
+      "layer_id": "L3_TREATY",
+      "legal_review_axis": "LEGAL_REVIEW_PENDING",
+      "not_a_permanent_exclusion": true,
+      "note": "L0 に混ぜず別層として対象に保持する。",
+      "source_kind": "条約（国際法源）",
+      "title": "租税条約",
+      "verification_obligations": [
+        "acquire pinned bytes with SHA-256",
+        "record law/municipality id and enforced revision",
+        "identify article / paragraph / item / table cell",
+        "decompose normative content including exceptions and effects",
+        "independent spec + implementation bridged by a kernel proof",
+        "source correspondence audit scoped to that article/cell",
+        "independent adversarial review (never a human legal approval)"
+      ],
+      "version_requirement": "条約名 + 締結/発効日 + 国内実施法令との対応を版固定"
+    },
+    {
+      "acquisition_status": "NOT_ACQUIRED",
+      "blocks_other_units": false,
+      "declared_count": null,
+      "formalization_status": "NOT_IMPLEMENTED",
+      "item_id": "L4-CIRCULAR-STAGING",
+      "layer_id": "L4_CIRCULAR",
+      "legal_review_axis": "LEGAL_REVIEW_PENDING",
+      "not_a_permanent_exclusion": true,
+      "note": "法令本文と区別した解釈資料として段階的に収録する。",
+      "source_kind": "行政通達",
+      "title": "通達（解釈資料レイヤー）",
+      "verification_obligations": [
+        "acquire pinned bytes with SHA-256",
+        "record law/municipality id and enforced revision",
+        "identify article / paragraph / item / table cell",
+        "decompose normative content including exceptions and effects",
+        "independent spec + implementation bridged by a kernel proof",
+        "source correspondence audit scoped to that article/cell",
+        "independent adversarial review (never a human legal approval)"
+      ],
+      "version_requirement": "発出日 + 改正版 + 参照条文を版固定"
+    },
+    {
+      "acquisition_status": "NOT_ACQUIRED",
+      "blocks_other_units": false,
+      "declared_count": null,
+      "formalization_status": "NOT_IMPLEMENTED",
+      "item_id": "L5-CASELAW-STAGING",
+      "layer_id": "L5_CASELAW",
+      "legal_review_axis": "LEGAL_REVIEW_PENDING",
+      "not_a_permanent_exclusion": true,
+      "note": "反例・対立解釈の資料として段階的に収録する。",
+      "source_kind": "判決・裁定",
+      "title": "裁判例（解釈資料レイヤー）",
+      "verification_obligations": [
+        "acquire pinned bytes with SHA-256",
+        "record law/municipality id and enforced revision",
+        "identify article / paragraph / item / table cell",
+        "decompose normative content including exceptions and effects",
+        "independent spec + implementation bridged by a kernel proof",
+        "source correspondence audit scoped to that article/cell",
+        "independent adversarial review (never a human legal approval)"
+      ],
+      "version_requirement": "事件番号 + 判決日 + 参照条文を版固定"
+    },
+    {
+      "acquisition_status": "NOT_PINNED",
+      "blocks_other_units": false,
+      "declared_count": 20,
+      "formalization_status": "NOT_IMPLEMENTED",
+      "item_id": "L6-HISTORICAL-PINNING",
+      "layer_id": "L6_HISTORICAL",
+      "legal_review_axis": "LEGAL_REVIEW_PENDING",
+      "not_a_permanent_exclusion": true,
+      "note": "附則・経過措置の参照を解決するため版付きで収集する。",
+      "source_kind": "e-Gov 歴史情報",
+      "title": "歴史的施行版（旧法・新法）",
+      "verification_obligations": [
+        "acquire pinned bytes with SHA-256",
+        "record law/municipality id and enforced revision",
+        "identify article / paragraph / item / table cell",
+        "decompose normative content including exceptions and effects",
+        "independent spec + implementation bridged by a kernel proof",
+        "source correspondence audit scoped to that article/cell",
+        "independent adversarial review (never a human legal approval)"
+      ],
+      "version_requirement": "旧法/新法の law_revision_id + 施行日を版固定"
+    },
+    {
+      "acquisition_status": "UNVERIFIED",
+      "blocks_other_units": false,
+      "declared_count": 161664,
+      "formalization_status": "NOT_IMPLEMENTED",
+      "item_id": "REF-EXTERNAL-BINDING",
+      "layer_id": "L0_STATUTE",
+      "legal_review_axis": "LEGAL_REVIEW_PENDING",
+      "not_a_permanent_exclusion": true,
+      "note": "保守的な分類を弱めず、レビュー可能な name→law-id 解決層を追加する。",
+      "source_kind": "他法令参照",
+      "title": "外部法令参照の候補解決",
+      "verification_obligations": [
+        "acquire pinned bytes with SHA-256",
+        "record law/municipality id and enforced revision",
+        "identify article / paragraph / item / table cell",
+        "decompose normative content including exceptions and effects",
+        "independent spec + implementation bridged by a kernel proof",
+        "source correspondence audit scoped to that article/cell",
+        "independent adversarial review (never a human legal approval)"
+      ],
+      "version_requirement": "参照先 law id + 条 + 施行版の候補を UNVERIFIED として記録"
+    },
+    {
+      "acquisition_status": "UNMATCHED",
+      "blocks_other_units": false,
+      "declared_count": 7526,
+      "formalization_status": "NOT_IMPLEMENTED",
+      "item_id": "REF-UNMATCHED-NAMES",
+      "layer_id": "L0_STATUTE",
+      "legal_review_axis": "LEGAL_REVIEW_PENDING",
+      "not_a_permanent_exclusion": true,
+      "note": "架空の法令 ID を割り当てず、継続的に発見する。",
+      "source_kind": "法令名",
+      "title": "未対応法令名",
+      "verification_obligations": [
+        "acquire pinned bytes with SHA-256",
+        "record law/municipality id and enforced revision",
+        "identify article / paragraph / item / table cell",
+        "decompose normative content including exceptions and effects",
+        "independent spec + implementation bridged by a kernel proof",
+        "source correspondence audit scoped to that article/cell",
+        "independent adversarial review (never a human legal approval)"
+      ],
+      "version_requirement": "候補 law id を UNVERIFIED で提示し、人間の法的判断を待つ"
+    },
+    {
+      "acquisition_status": "CANDIDATE",
+      "blocks_other_units": false,
+      "declared_count": 2873,
+      "formalization_status": "NOT_IMPLEMENTED",
+      "item_id": "TAX-NAME-CANDIDATES",
+      "layer_id": "L0_STATUTE",
+      "legal_review_axis": "LEGAL_REVIEW_PENDING",
+      "not_a_permanent_exclusion": true,
+      "note": "327 法令は暫定母集団であり最終母集団ではない。",
+      "source_kind": "税名候補",
+      "title": "台帳外の税名候補",
+      "verification_obligations": [
+        "acquire pinned bytes with SHA-256",
+        "record law/municipality id and enforced revision",
+        "identify article / paragraph / item / table cell",
+        "decompose normative content including exceptions and effects",
+        "independent spec + implementation bridged by a kernel proof",
+        "source correspondence audit scoped to that article/cell",
+        "independent adversarial review (never a human legal approval)"
+      ],
+      "version_requirement": "法源 ID + 版を確定してから台帳に追加"
+    }
+  ],
+  "note": "All items remain IN SCOPE. UNSUPPORTED/NOT_IMPLEMENTED is the current implementation state; no item is a permanent exclusion and no item stops other formalization work.",
+  "schema": "source_backlog/v1",
+  "tool": "scripts/ci/source_backlog.py",
+  "totals": {
+    "blocks_other_units": 0,
+    "items": 8,
+    "unacquired_or_unverified": 8
+  }
+}

@@ -30,7 +30,7 @@ class HistoricalTests(unittest.TestCase):
         for r in self.data["names"]:
             self.assertFalse(r["snapshot_pinned"])
             self.assertEqual(r["acquisition_status"], "NOT_PINNED")
-            self.assertEqual(r["verification_status"], "OUT_OF_SCOPE")
+            self.assertEqual(r["verification_status"], "IN_SCOPE_BACKLOG")
 
     def test_prefix_is_stripped_for_base_matching(self):
         self.assertEqual(hd.PREFIX_RE.match("旧法人税法").group(1), "法人税法")
