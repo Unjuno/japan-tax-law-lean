@@ -4111,6 +4111,16 @@ def checks():
            ["同項の不足額に、これに百分の三十五の割合を乗じて計算した金額を加算した金額とする。"])
 
 
+    yield ("租税特別措置法施行令 art. 5_5（政令割合75%）↔ SpecialMeasuresOrderRate75.lean",
+           "332CO0000000043", "file", None,
+           ["法第十条の三第一項に規定する政令で定める割合は、百分の七十五とする。"])
+
+    # 地方税法施行規則 art. 24の28 — BusinessTaxCollectionCostRate5.lean (5%)
+    yield ("地方税法施行規則 art. 24_28（事業所税徴収費5%）↔ BusinessTaxCollectionCostRate5.lean",
+           "329M50000002023", "file", None,
+           ["事業所税の徴収に要する費用は、当該年度の歳入に所属する事業所税の額の百分の五に相当する額とする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
