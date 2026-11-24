@@ -4227,6 +4227,15 @@ def checks():
            "325CO0000000245", "file", None,
            ["の百分の七・七に相当する額"])
 
+    # 相続税法 art. 21の11の2 — GiftTaxSettlementBasicDeduction600k.lean (60万円控除)
+    yield ("相続税法 art. 21_11_2（贈与税基礎控除60万円）↔ GiftTaxSettlementBasicDeduction600k.lean",
+           "325AC0000000073", "file", None,
+           ["贈与税の課税価格から六十万円を控除する。"])
+    # 地方税法 art. 24の5 — LocalTaxDependentIncomeCeiling1350k.lean (135万円)
+    yield ("地方税法 art. 24_5（合計所得金額135万円）↔ LocalTaxDependentIncomeCeiling1350k.lean",
+           "325AC0000000226", "file", None,
+           ["これらの者の前年の合計所得金額が百三十五万円を超える場合を除く。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
