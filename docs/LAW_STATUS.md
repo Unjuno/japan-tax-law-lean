@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 172
+- with >=1 pinned literal check (semantic model): 173
 - with recorded human legal review: 0
 
 ## All laws
@@ -181,7 +181,7 @@ a completion flag.
 | `363AC0000000108` | 消費税法 | 363AC0000000108_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 524 | YES (4) | NO |
 | `363CO0000000360` | 消費税法施行令 | 363CO0000000360_20261101_507CO0000000125 | CurrentEnforced | YES | ok | 452 | YES (1) | NO |
 | `363M50000040053` | 消費税法施行規則 | 363M50000040053_20261101_507M60000040022 | CurrentEnforced | YES | ok | 172 | YES (1) | NO |
-| `403CO0000000035` | 法人臨時特別税に関する政令 | 403CO0000000035_20010106_412CO0000000307 | CurrentEnforced | YES | ok | 12 | NO (0) | NO |
+| `403CO0000000035` | 法人臨時特別税に関する政令 | 403CO0000000035_20010106_412CO0000000307 | CurrentEnforced | YES | ok | 12 | YES (1) | NO |
 | `403CO0000000036` | 石油臨時特別税に関する政令 | 403CO0000000036_20010106_412CO0000000307 | CurrentEnforced | YES | ok | 9 | NO (0) | NO |
 | `403M50000040006` | 法人臨時特別税に関する省令 | 403M50000040006_20030106_414M60000040072 | CurrentEnforced | YES | ok | 9 | NO (0) | NO |
 | `403M50000040007` | 石油臨時特別税に関する省令 | 403M50000040007_20010106_412M50000040069 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 335
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 329

@@ -3981,6 +3981,20 @@ def checks():
            "law", None,
            ["\u6771\u5317\u6d77\u904b\u5c40\u9577\uff08\u5c71\u5f62\u770c\u53c8\u306f\u79cb\u7530\u770c\u306e\u533a\u57df\u306b\u4fc2\u308b\u51e6\u5206\u7b49\u53c8\u306f\u7533\u8acb\u7b49\u306b\u4fc2\u308b\u5834\u5408\u3092\u9664\u304f\u3002\uff09"])
 
+    # CustomsTariffSupplArt1UnclosEnforcementDate.lean - NORM|6290b6ac... (関税定率法 附則1 施行期日 REFERENCE, law 143AC0000000054)
+    # Whole-law locator (附則 node; multiple 第一条 exist). Relative date tied to treaty.
+    yield ("customs tariff suppl art.1 unclos enforcement date - CustomsTariffSupplArt1UnclosEnforcementDate.lean",
+           "143AC0000000054",
+           "law", None,
+           ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u56fd\u9023\u6d77\u6d0b\u6cd5\u6761\u7d04\u304c\u65e5\u672c\u56fd\u306b\u3064\u3044\u3066\u52b9\u529b\u3092\u751f\u305a\u308b\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
+
+    # 地方法人税法 art. 2 — LocalCorpMaxCapital.lean
+    yield ("法人臨時特別税政令 art. 2（被合併法人二以上の最大額選択）↔ LocalCorpMaxCapital.lean (max selection, trigger >=2)",
+           "403CO0000000035",
+           "article", "第二条",
+           ["合併により被合併法人の株主等に交付された合併後存続する法人の株式又は出資に係る資本の金額又は出資金額（被合併法人が二以上ある場合には、各被合併法人に係るこれらの金額のうち最も多い金額）"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
