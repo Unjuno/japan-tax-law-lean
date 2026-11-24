@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 171
+- with >=1 pinned literal check (semantic model): 172
 - with recorded human legal review: 0
 
 ## All laws
@@ -28,7 +28,7 @@ a completion flag.
 | `325M50000040021` | 税務官署における収入官吏及び出納員並びに歳入歳出外現金出納官吏の備えるべき現金領収証書に | 325M50000040021_20260924_508M60000040059 | CurrentEnforced | YES | ok | 15 | NO (0) | NO |
 | `325M50000040022` | 相続税の物納財産収納後の手続等に関する省令 | 325M50000040022_20210401_503M60000040030 | CurrentEnforced | YES | ok | 24 | YES (1) | NO |
 | `325AC0000000211` | 地方交付税法 | 325AC0000000211_20261102_508AC0000000062 | CurrentEnforced | YES | ok | 499 | YES (5) | NO |
-| `325AC0000000226` | 地方税法 | 325AC0000000226_20261101_508AC0000000002 | CurrentEnforced | YES | ok | 4259 | YES (43) | NO |
+| `325AC0000000226` | 地方税法 | 325AC0000000226_20261101_508AC0000000002 | CurrentEnforced | YES | ok | 4259 | YES (42) | NO |
 | `325CO0000000245` | 地方税法施行令 | 325CO0000000245_20261101_508CO0000000083 | CurrentEnforced | YES | ok | 2274 | YES (14) | NO |
 | `326AC1000000145` | 納税貯蓄組合法 | 326AC1000000145_20211122_503AC0000000046 | CurrentEnforced | YES | ok | 41 | YES (3) | NO |
 | `326CO0000000099` | 納税貯蓄組合法施行令 | 326CO0000000099_20191216_501CO0000000183 | CurrentEnforced | YES | ok | 14 | YES (1) | NO |
@@ -155,7 +155,7 @@ a completion flag.
 | `347CO0000000160` | 沖縄の復帰に伴う地方税関係以外の自治省関係法令の適用の特別措置等に関する政令 | 347CO0000000160_19750430_350CO0000000141 | CurrentEnforced | YES | ok | 31 | YES (1) | NO |
 | `347CO0000000161` | 沖縄の復帰に伴う地方税法の適用の特別措置等に関する政令 | 347CO0000000161_20010106_412CO0000000304 | CurrentEnforced | YES | ok | 32 | YES (1) | NO |
 | `347CO0000000167` | 航空機燃料譲与税法施行令 | 347CO0000000167_20140312_426CO0000000059 | CurrentEnforced | YES | ok | 48 | YES (1) | NO |
-| `347M50000040042` | 沖縄の復帰に伴う国税関係法令の適用の特別措置等に関する省令 | 347M50000040042_20251231_507M60000040072 | CurrentEnforced | YES | ok | 97 | NO (0) | NO |
+| `347M50000040042` | 沖縄の復帰に伴う国税関係法令の適用の特別措置等に関する省令 | 347M50000040042_20251231_507M60000040072 | CurrentEnforced | YES | ok | 97 | YES (1) | NO |
 | `347M50000040044` | 沖繩の復帰に伴う国税関係以外の大蔵省関係法令の適用の特別措置等に関する省令 | 347M50000040044_19740711_349M50000040044 | CurrentEnforced | YES | ok | 22 | YES (1) | NO |
 | `347M50000008013` | 沖縄の復帰に伴う地方税法等の適用の特別措置等に関する省令 | 347M50000008013_20010106_412M50000008044 | CurrentEnforced | YES | ok | 23 | YES (1) | NO |
 | `347M50010000033` | 沖縄県の区域における製造用原料品の減免税割当制度に関する省令 | 347M50010000033_19950401_407M50000200026 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 329
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 325
