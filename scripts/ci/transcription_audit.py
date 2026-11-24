@@ -2056,7 +2056,7 @@ def checks():
     # OilGasGrantArt4Rounding — 石油ガス譲与税法 art.4 千円未満端数控除
     yield ("石油ガス譲与税法 art.4（譲与時期ごとの譲与額・千円未満端数控除）↔ OilGasGrantArt4Rounding.lean",
            "340AC0000000157",
-           "article", "4",
+           "article", "第四条",
            ["千円未満の端数金額があるときは、その端数金額を控除した金額をもつて", "第四条"])
 
     # OilGasGrantTax — cycle-35
