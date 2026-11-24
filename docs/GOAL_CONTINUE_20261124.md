@@ -86,6 +86,12 @@ INSPECT → SELECT → FORMALIZE → PROVE → CHALLENGE → VERIFY → COMMIT �
   durable claims, release, dependency blocking isolation and that legal review
   is never auto-satisfied. Registered as a REQUIRED gate in
   `run_python_gates.py`.
+- Exercised on the live queue: `coordinator.py cycle 6 --write` produced 18
+  durable claims (6 dependency-ready units × 3 distinct roles
+  FORMALIZER/PROVER/INDEPENDENT_REVIEWER) in `data/COORDINATOR_CLAIMS.json`.
+  A subsequent SELECT returned 6 different units with zero overlap with the
+  claimed set, and status was not changed by the coordinator. Claims record
+  assignment only; they are not proof, formalization or legal review.
 
 ## Second iteration — additional units and cross-check
 
