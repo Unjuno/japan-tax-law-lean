@@ -2081,9 +2081,9 @@ import JapanTaxLaw.SignedAdjustmentAmountTests
 import JapanTaxLaw.MedicalExpenseDeduction
 import JapanTaxLaw.MedicalExpenseDeductionSpec
 import JapanTaxLaw.MedicalExpenseDeductionTests
-import JapanTaxLaw.DisasterGrantSeptemberZero
-import JapanTaxLaw.DisasterGrantSeptemberZeroSpec
-import JapanTaxLaw.DisasterGrantSeptemberZeroTests
+import JapanTaxLaw.MergerMaxCapital
+import JapanTaxLaw.MergerMaxCapitalSpec
+import JapanTaxLaw.MergerMaxCapitalTests
 import JapanTaxLaw.CorpCapital75_4_100M
 import JapanTaxLaw.CorpCapital75_4_100MSpec
 import JapanTaxLaw.CorpCapital75_4_100MTests
@@ -2096,9 +2096,6 @@ import JapanTaxLaw.GiftLand3000sqmTests
 import JapanTaxLaw.LifeInsurancePremiumDeduction
 import JapanTaxLaw.LifeInsurancePremiumDeductionSpec
 import JapanTaxLaw.LifeInsurancePremiumDeductionTests
-import JapanTaxLaw.LifeInsurancePremiumDeductionUpper
-import JapanTaxLaw.LifeInsurancePremiumDeductionUpperSpec
-import JapanTaxLaw.LifeInsurancePremiumDeductionUpperTests
 import JapanTaxLaw.LiquorMix26Deg
 import JapanTaxLaw.LiquorMix26DegSpec
 import JapanTaxLaw.LiquorMix26DegTests
