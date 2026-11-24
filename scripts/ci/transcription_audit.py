@@ -3726,6 +3726,12 @@ def checks():
            "file", None,
            ["その修業期間を通ずる単位数をその修業期間の年数に相当する数で除して計算した単位数が三十一単位以上であること（次に掲げる場合には、それぞれ次に定める事項）。"])
 
+    # 公債収入 art. 2 — HeiseiFY6Attribution.lean
+    yield ("公債収入 art. 2（平成6年度所属の歳入）↔ HeiseiFY6Attribution.lean (single-year FY attribution 6)",
+           "406AC0000000108",
+           "article", "第二条",
+           ["この場合において、同年四月一日以後発行される同項の公債に係る収入は、平成六年度所属の歳入とする。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
