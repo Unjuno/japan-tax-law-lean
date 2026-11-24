@@ -100647,6 +100647,56 @@
       }
     ],
     "InheritanceTaxArt56And57Ref": [],
+    "InheritanceTaxArt67LocalSurchargeProhibition": [
+      {
+        "article": "67",
+        "in_scope": false,
+        "kind": "UNRESOLVED",
+        "law_id": "325AC0000000073",
+        "normative_id": "NORM|ceb3fab79ef7ce6e0ddb0c06ef4247062d6eae50661f76f12c623bce7331884b",
+        "reason": "UNIT_HAS_UNRESOLVED_CONDITIONS"
+      },
+      {
+        "article": "67",
+        "in_scope": true,
+        "kind": "STRUCTURE",
+        "law_id": "325AC0000000073",
+        "normative_id": "NORM|f75d58fc50b8b151599ba4596e9e2e22d1d499189a622c0bda7a3252132445e9",
+        "reason": "EXPLICIT_SCOPE_MATCH"
+      },
+      {
+        "article": "67",
+        "in_scope": true,
+        "kind": "EFFECT",
+        "law_id": "325AC0000000073",
+        "normative_id": "NORM|0b8a19d9bdded2a705b40e195fe00f80c0287dd8fbb3abfb0f1c51511ecde0ec",
+        "reason": "EXPLICIT_SCOPE_MATCH"
+      },
+      {
+        "article": "67",
+        "in_scope": true,
+        "kind": "DELEGATION",
+        "law_id": "325AC0000000073",
+        "normative_id": "NORM|5dd30a64d46f06ba63b2cfcc3f59b212985a911ea2acd7aff3b2459446a0c736",
+        "reason": "EXPLICIT_SCOPE_MATCH"
+      },
+      {
+        "article": "67",
+        "in_scope": true,
+        "kind": "STRUCTURE",
+        "law_id": "325AC0000000073",
+        "normative_id": "NORM|13c6c25b8d0c82baeb3aefb382d7d803f1bef0b2629f661eb954aa904f4a7722",
+        "reason": "EXPLICIT_SCOPE_MATCH"
+      },
+      {
+        "article": "67",
+        "in_scope": true,
+        "kind": "DELEGATION",
+        "law_id": "325AC0000000073",
+        "normative_id": "NORM|c4c2bbd3820a1305e2d92020201d1055d5a42cbe00d5b059f6bb3ae99a765d05",
+        "reason": "EXPLICIT_SCOPE_MATCH"
+      }
+    ],
     "InheritanceTaxDelinquencyException": [
       {
         "article": "38",
@@ -211157,6 +211207,40 @@
         "reason": "NO_ARTICLE_DECLARATION_IN_SPEC_HEADER"
       }
     ],
+    "TouristTaxFineRange": [
+      {
+        "article": "24",
+        "in_scope": true,
+        "kind": "STRUCTURE",
+        "law_id": "430AC0000000016",
+        "normative_id": "NORM|fa0209e28863ab4cdee96097010b19cf824e5d5cd2968f9beb562d714b506d26",
+        "reason": "EXPLICIT_SCOPE_MATCH"
+      },
+      {
+        "article": "24",
+        "in_scope": true,
+        "kind": "CONDITION",
+        "law_id": "430AC0000000016",
+        "normative_id": "NORM|76a030fcf2a268873cbd9f609f41a03816dc95578738c9c6d97bd1e6db3ba8b0",
+        "reason": "EXPLICIT_SCOPE_MATCH"
+      },
+      {
+        "article": "24",
+        "in_scope": false,
+        "kind": "UNRESOLVED",
+        "law_id": "430AC0000000016",
+        "normative_id": "NORM|2d221901db09a4b0505c28e2d378fb52ae95817a558b6c406399aa621e7bf648",
+        "reason": "UNIT_HAS_UNRESOLVED_CONDITIONS"
+      },
+      {
+        "article": "24",
+        "in_scope": true,
+        "kind": "CONDITION",
+        "law_id": "430AC0000000016",
+        "normative_id": "NORM|aab84fc32ce58c8a9c2f3b4ea9e1cb70a7ea86a00cefd2b0b7a1f8e1fcbcfae2",
+        "reason": "EXPLICIT_SCOPE_MATCH"
+      }
+    ],
     "TrainingPeriodOneYear": [
       {
         "article": "3",
@@ -221927,6 +222011,17 @@
       ],
       "spec_file": "JapanTaxLaw/InheritanceTaxArt56And57RefSpec.lean"
     },
+    "InheritanceTaxArt67LocalSurchargeProhibition": {
+      "articles": [
+        "67"
+      ],
+      "header_chars": 490,
+      "law_ids": [
+        "325AC0000000073"
+      ],
+      "revisions": [],
+      "spec_file": "JapanTaxLaw/InheritanceTaxArt67LocalSurchargeProhibitionSpec.lean"
+    },
     "InheritanceTaxDelinquencyException": {
       "articles": [
         "三十八"
@@ -224020,6 +224115,19 @@
       "law_ids": [],
       "revisions": [],
       "spec_file": "JapanTaxLaw/TonnageExpansionRatioCapSpec.lean"
+    },
+    "TouristTaxFineRange": {
+      "articles": [
+        "24"
+      ],
+      "header_chars": 480,
+      "law_ids": [
+        "430AC0000000016"
+      ],
+      "revisions": [
+        "430AC0000000016_20260701_508AC0000000012"
+      ],
+      "spec_file": "JapanTaxLaw/TouristTaxFineRangeSpec.lean"
     },
     "TrainingPeriodOneYear": {
       "articles": [],
