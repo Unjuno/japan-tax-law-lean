@@ -3918,6 +3918,12 @@ def checks():
            "file", None,
            ["贈与税の課税価格の計算の基礎となるべき動産等の価額のうちに当該動産等について被害を受けた部分の価額の占める割合が十分の一以上であること。"])
 
+    # 合併資本金額 art. 2 — MergerMaxCapital.lean
+    yield ("合併資本金額 art. 2（被合併法人二以上の最大額選択）↔ MergerMaxCapital.lean (max selection, trigger >=2)",
+           "404CO0000000089",
+           "article", "第二条",
+           ["合併により被合併法人の株主等に交付された合併後存続する法人の株式又は出資に係る資本の金額又は出資金額（被合併法人が二以上ある場合には、各被合併法人に係るこれらの金額のうち最も多い金額）"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
