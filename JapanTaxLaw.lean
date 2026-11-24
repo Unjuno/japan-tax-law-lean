@@ -2123,3 +2123,6 @@ import JapanTaxLaw.TreatyAsset100MTests
 import JapanTaxLaw.MergerMaxCapital
 import JapanTaxLaw.MergerMaxCapitalSpec
 import JapanTaxLaw.MergerMaxCapitalTests
+import JapanTaxLaw.LongTermGainSpecialMeasure
+import JapanTaxLaw.LongTermGainSpecialMeasureSpec
+import JapanTaxLaw.LongTermGainSpecialMeasureTests
