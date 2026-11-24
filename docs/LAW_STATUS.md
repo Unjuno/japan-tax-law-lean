@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 166
+- with >=1 pinned literal check (semantic model): 168
 - with recorded human legal review: 0
 
 ## All laws
@@ -91,7 +91,7 @@ a completion flag.
 | `335AC0000000036` | 関税暫定措置法 | 335AC0000000036_20260401_508AC0000000005 | CurrentEnforced | YES | ok | 262 | YES (2) | NO |
 | `335CO0000000069` | 関税暫定措置法施行令 | 335CO0000000069_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 287 | YES (4) | NO |
 | `336CO0000000153` | 関税割当制度に関する政令 | 336CO0000000153_20260401_508CO0000000085 | CurrentEnforced | YES | ok | 127 | NO (0) | NO |
-| `336M50000400035` | 重油及び粗油等の関税割当制度に関する省令 | 336M50000400035_20201228_502M60000400092 | CurrentEnforced | YES | ok | 16 | NO (0) | NO |
+| `336M50000400035` | 重油及び粗油等の関税割当制度に関する省令 | 336M50000400035_20201228_502M60000400092 | CurrentEnforced | YES | ok | 16 | YES (1) | NO |
 | `337CO0000000097` | 酒税法施行令 | 337CO0000000097_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 165 | YES (2) | NO |
 | `337M50000040026` | 酒税法施行規則 | 337M50000040026_20250401_507M60000040034 | CurrentEnforced | YES | ok | 75 | YES (1) | NO |
 | `337AC0000000066` | 国税通則法 | 337AC0000000066_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 433 | YES (7) | NO |
@@ -209,7 +209,7 @@ a completion flag.
 | `407M50000008013` | 水源地域対策特別措置法第十三条の固定資産税の不均一課税に伴う措置が適用される場合等を定め | 407M50000008013_20190401_431M60000008044 | CurrentEnforced | YES | ok | 22 | NO (0) | NO |
 | `407M50000008016` | 半島振興法第十七条の地方税の不均一課税に伴う措置が適用される場合等を定める省令 | 407M50000008016_20250401_507M60000008028 | CurrentEnforced | YES | ok | 34 | NO (0) | NO |
 | `407M50000008033` | 大阪湾臨海地域開発整備法第十四条の地方税の不均一課税に伴う措置が適用される場合等を定める | 407M50000008033_20040401_416M60000008074 | CurrentEnforced | YES | ok | 13 | YES (1) | NO |
-| `408AC0000000002` | 平成七年度における租税収入の減少を補うための公債の発行の特例に関する法律 | 408AC0000000002_19960223_000000000000000 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
+| `408AC0000000002` | 平成七年度における租税収入の減少を補うための公債の発行の特例に関する法律 | 408AC0000000002_19960223_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 | `409AC0000000110` | 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律 | 409AC0000000110_20260812_508AC0000000064 | CurrentEnforced | YES | ok | 102 | YES (1) | NO |
 | `409CO0000000363` | 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行令 | 409CO0000000363_20250501_507CO0000000128 | CurrentEnforced | YES | ok | 79 | YES (1) | NO |
 | `409M50000040096` | 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行規則 | 409M50000040096_20250401_507M60000040027 | CurrentEnforced | YES | ok | 92 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 296
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 297

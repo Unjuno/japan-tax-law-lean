@@ -2306,6 +2306,12 @@ def checks():
            "file", None,
            ["第一条この政令は、昭和五十四年四月一日から施行する", "この政令は、昭和五十四年四月一日から施行する"])
 
+    # HeavyOilQuotaOrderEnforcementDate — cycle-105
+    yield ("HeavyOilQuotaOrderEnforcementDate.lean",
+           "336M50000400035",
+           "file", None,
+           ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3648,6 +3654,13 @@ def checks():
            "325AC0000000226",
            "article", "\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067",
            ["\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067", "\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067\u524a\u9664"])
+
+    # 公債収入 art. 2 — HeiseiFY7Attribution.lean
+    yield ("公債収入 art. 2（平成7年度所属の歳入）↔ HeiseiFY7Attribution.lean (single-year FY attribution 7)",
+           "408AC0000000002",
+           "article", "第二条",
+           ["この場合において、同年四月一日以後発行される同条の公債に係る収入は、平成七年度所属の歳入とする。"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
