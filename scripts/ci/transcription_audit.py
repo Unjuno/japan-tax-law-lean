@@ -3702,6 +3702,30 @@ def checks():
            "law", None,
            ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u5e73\u6210\u5143\u5e74\u56db\u6708\u4e00\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
 
+# 罰金 五十万円以下 — LiquorFine500k.lean
+    yield ("酒税の保全及び酒類業組合等に関する法律 art. 98（罰金 五十万円以下）↔ LiquorFine500k.lean (liquorFineCap500k 500000)",
+           "328AC0000000007",
+           "file", None,
+           ["次の各号のいずれかに該当する者は、五十万円以下の罰金に処する。"])
+
+    # 総トン数 五百トン以上の船舶 — Vessel500Ton.lean
+    yield ("地方税法施行規則 art. 11_2（総トン数 五百トン以上の船舶）↔ Vessel500Ton.lean (vesselFloor500 500)",
+           "329M50000002023",
+           "file", None,
+           ["総トン数五百トン以上の船舶であつて、総務大臣が当該船舶の構造、資格等からみて主として遠洋区域を航行区域とすると認めるもの"])
+
+    # 倉庫の床面積 三千平方メートル以上 — Warehouse3000sqm.lean
+    yield ("地方税法施行規則 art. 3_2_10（倉庫の床面積 三千平方メートル以上）↔ Warehouse3000sqm.lean (warehouseFloor3000 3000)",
+           "329M50000002023",
+           "file", None,
+           ["倉庫（床面積が三千平方メートル以上のものに限る。）であつて、流通加工の用に供する空間を有するもの"])
+
+    # 修業期間の単位数 三十一単位以上 — CourseUnits31.lean
+    yield ("所得税法施行令 art. 11_3（修業期間の単位数 三十一単位以上）↔ CourseUnits31.lean (unitsFloor31 31)",
+           "340CO0000000096",
+           "file", None,
+           ["その修業期間を通ずる単位数をその修業期間の年数に相当する数で除して計算した単位数が三十一単位以上であること（次に掲げる場合には、それぞれ次に定める事項）。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
