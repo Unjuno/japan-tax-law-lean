@@ -7,7 +7,7 @@ relations and are a SEPARATE source layer. They are NOT in the 327-law tax
 ledger, are NOT parsed, formalized, proved or legally reviewed.
 
 - snapshot date: 2026-11-15
-- discovered new law ids: 382
+- discovered new law ids: 380
 - recorded in this run: 382
 - ACQUIRED (revision + SHA-256 snapshot pinned): 381
 
