@@ -301,6 +301,19 @@
       "source_location": "data/raw/325CO0000000245_20261101_508CO0000000083.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:35_4_6/Article#35_4_6/ArticleCaption sha256=9bc03b230fb0ed1039e33a1544cd53772939ee25d6d4648a386400ea269dfb17 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/StandardRateExcessRatioTests.lean sha256=f3c78382e2b7b8966f371aa977af0fabe04d20bdf82324b4413aa7674e540f6a (15 kernel-decided examples)"
     },
+    "NORM|4ce573224735cd582616b3a9fc89d747f78adfc99af4f10479fa672e1b948b19": {
+      "adversarial_review": "docs/ADVERSARIAL_DELEGATED_RATE.md H/T/D/C/U; unresolved cabinet-order definition explicitly recorded",
+      "boundary_proof": "DelegatedSavingsRateTests.lean kernel-decided designated true/false with premiums 0/1/100/1000",
+      "cross_law_proof": "dependencies=[]; 政令 definition is a delegation, recorded as caller-established, not a resolved cross-law proof",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/DelegatedSavingsRate.lean sha256=489f00891c28c0f203e18c0d6214357db9725d1d3b28c69af834a017fb0cf026",
+      "independent_spec": "JapanTaxLaw/DelegatedSavingsRateSpec.lean sha256=55e88b6291bf7eb024503617de43e96afeea8abb4ad6a4ac6cef83cbc4ef6b93; spec uses (7,100) pair without TaxRate",
+      "kernel_proof": "lake build JapanTaxLaw.DelegatedSavingsRateTests: Build completed successfully (5 jobs); rate_components/applies_when_designated axiom-free; agree_spec_impl standard propext",
+      "proof_scope": "agree_spec_impl universal over Bool designation and all Nat premiums; cabinet-order determination is caller-established, not resolved",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; percent_numerators=[7]; constants_checked=[7,100]; missing=[]",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_24_2/Article#72_24_2/Paragraph#2/Item#2/ItemSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53; verbatim located in art.72_24_2(2)二",
+      "tests": "JapanTaxLaw/DelegatedSavingsRateTests.lean sha256=68523851bb0d5dc13377c30209ef3c307fd51acfe6eeb2af26a3cb4b06700d61"
+    },
     "NORM|6012cdcebd7df9018c086c2a3ceacd5d36da97362049913bf2131aaa2654adac": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
