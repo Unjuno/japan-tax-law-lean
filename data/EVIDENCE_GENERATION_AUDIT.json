@@ -3184,7 +3184,7 @@
         "五",
         "百"
       ],
-      "kernel_attested": false,
+      "kernel_attested": true,
       "kernel_decided_examples": 21,
       "needles_scoped": true,
       "scoped_article_chars": 137,
@@ -5859,6 +5859,23 @@
         15000000,
         30000000,
         45000000
+      ]
+    },
+    "SpecialIncomeTaxCreditCap25": {
+      "adversarial_review": true,
+      "boundary_examples_found": 6,
+      "independent_spec": true,
+      "kanji_literals": [
+        "二十五",
+        "百"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 30,
+      "needles_scoped": true,
+      "scoped_article_chars": 2403,
+      "spec_literals": [
+        25,
+        100
       ]
     },
     "SpecialLand200": {
@@ -12598,6 +12615,23 @@
         "errors": [],
         "module": "ConsumptionTaxInputCredit",
         "spec_kanji_in_原文": []
+      },
+      "NORM|7e5f5d2a586ff79c2ee3e9c86d120d3180ba67a3d00fd8a4dba9ab376ba02b5a": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 21,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "InterestSplitRate5Pct",
+        "spec_kanji_in_原文": [
+          "五",
+          "百"
+        ]
       },
       "NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8": {
         "checks": {
@@ -22930,6 +22964,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle in clause + all spec numerals in scoped article: ['課税資産の譲渡等にのみ要するもの、課税資産の譲渡', '課税資産の譲渡等とその他の資産の譲渡等に共通して']; verbatim spellings found in scoped 原文 = {\"1000\": [], \"78\": []}; statutory rate = none; needles scoped",
       "source_location": "data/raw/363AC0000000108_20261101_507AC0000000013.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:30/Article#30/Paragraph#2/Item#1/ItemSentence/Column#1/Sentence#1 sha256=25dccebffb6690902c117a4ab9c16e4d64db087bba6d184a10ea6aeb58ab4a82 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/ConsumptionTaxInputCreditTests.lean sha256=c50f5dda31ac5159d0c3378c554b53eed6cf0ded827bcb86c4ed114343d375b3 (15 kernel-decided examples)"
+    },
+    "NORM|7e5f5d2a586ff79c2ee3e9c86d120d3180ba67a3d00fd8a4dba9ab376ba02b5a": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 21 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/InterestSplitRate5Pct.lean sha256=35d244245c274fdbea5a7eb060729d1c4069615675583297dacc8f814149c0dc",
+      "independent_spec": "JapanTaxLaw/InterestSplitRate5PctSpec.lean sha256=07242dc193ad2d5084312539913fc96fc4a03ccb12dbeec8116e216ce8977c8c (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45450996055: commit 9f004eda309428649646a4358676f47302a1fbfd, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [5, 100] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"5\": [\"五\"]}; statutory rate = 1/20; needles scoped",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:71_6/Article#71_6/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/InterestSplitRate5PctTests.lean sha256=08ad63aa5f8ade2964bfb9a2cd958c7f805c432860227e31a732084dd2548077 (21 kernel-decided examples)"
     },
     "NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",

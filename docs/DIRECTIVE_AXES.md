@@ -25,11 +25,11 @@ Conditions, exceptions, effects, delegations, periods, amounts,
 rounding and enforcement dates are recorded in independent fields
 (data/DIRECTIVE_AXES.json), never merged into one generic blob.
 
-- conditions: 611 units
-- exceptions: 124 units
-- effects: 280 units
-- delegations: 138 units
-- periods: 66 units
+- conditions: 609 units
+- exceptions: 125 units
+- effects: 281 units
+- delegations: 139 units
+- periods: 67 units
 - amounts: 212 units
 - rounding: 13 units
 - enforcement_dates: 10 units
