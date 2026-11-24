@@ -232,6 +232,11 @@ A fifth pipeline, `scripts/ci/batch_strict_upper_pipeline.py`, covers strict
 upper bounds (「N円未満」), including rounding-fragment conditions; it verified
 60 further obligations (2 source-audit failures skip-listed).
 
+Circular layer: `data/AUXILIARY_SOURCES.json` enumerates 7 NTA circular
+families plus 4 auxiliary information categories from the official NTA「法令等」
+page, all NOT_ACQUIRED; case law is recorded explicitly UNENUMERATED.
+`docs/SOURCE_LAYERS.md` reports L4_CIRCULAR as ENUMERATED_NOT_ACQUIRED (7).
+
 Historical layer: `scripts/law_audit/inventory/pin_historical_revisions.py`
 pinned 60 predecessor-revision candidates across 62 base laws named by 93
 新法/旧法 references, with SHA-256 pins. Each is explicitly a CANDIDATE

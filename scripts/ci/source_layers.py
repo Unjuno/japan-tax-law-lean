@@ -32,6 +32,7 @@ BLOCKED = REPO / "docs" / "BLOCKED.md"
 LOCAL_JURISDICTIONS = REPO / "data" / "LOCAL_JURISDICTIONS.json"
 TAX_TREATIES = REPO / "data" / "TAX_TREATIES.json"
 HISTORICAL_PINS = REPO / "data" / "HISTORICAL_REVISION_PINS.json"
+AUXILIARY_SOURCES = REPO / "data" / "AUXILIARY_SOURCES.json"
 OUT_JSON = REPO / "data" / "SOURCE_LAYERS.json"
 OUT_MD = REPO / "docs" / "SOURCE_LAYERS.md"
 
@@ -76,6 +77,13 @@ def build() -> dict:
         except (ValueError, OSError):
             local_enum = None
     ordinances = local_enum if local_enum is not None else declared_ordinances
+    circular_count = None
+    if AUXILIARY_SOURCES.exists():
+        try:
+            kc = json.loads(AUXILIARY_SOURCES.read_text(encoding="utf-8")).get("kind_counts") or {}
+            circular_count = int(kc.get("CIRCULAR_FAMILY") or 0)
+        except (ValueError, OSError):
+            circular_count = None
     hist_pinned = 0
     if HISTORICAL_PINS.exists():
         try:
@@ -161,13 +169,16 @@ def build() -> dict:
             "legal_nature": "行政通達（法的拘束力は条文ではなく行政内部）",
             "authority": "国税庁 / 総務省",
             "acquisition_status": "NOT_ACQUIRED",
-            "scope_status": "AUXILIARY_LAYER",
-            "count": None,
+            "scope_status": ("ENUMERATED_NOT_ACQUIRED" if circular_count is not None
+                             else "AUXILIARY_LAYER"),
+            "count": circular_count,
             "count_acquired": 0,
             "pinned_snapshot": "",
             "verification_status": "OUT_OF_SCOPE",
             "auxiliary": True,
-            "notes": "原文対応監査の対象外。解釈資料として別層に置く。",
+            "notes": ("国税庁の公式一覧から通達の税目区分を列挙"
+                      "（data/AUXILIARY_SOURCES.json）。通達本文・施行版・証明は未取得。"
+                      "原文対応監査の対象外。"),
         },
         {
             "layer_id": "L5_CASELAW",
