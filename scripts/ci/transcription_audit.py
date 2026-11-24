@@ -1672,6 +1672,26 @@ def checks():
            "article", "第十六条",
            ["\u4e94\u5343\u4e07\u5186\u3092\u8d85\u3048\u4e00\u5104\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
 
+    # 地方税法 第三十七条の二(11) taxable-income bands (six dependency-free units).
+    yield ("local tax 37_2 band up to 1.95M - LocalTax37_2BandUpTo195.lean",
+           "325AC0000000226", "article", "第三十七条の二",
+           ["\u767e\u4e5d\u5341\u4e94\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+    yield ("local tax 37_2 band 1.95M-3.3M - LocalTax37_2Band195To330.lean",
+           "325AC0000000226", "article", "第三十七条の二",
+           ["\u767e\u4e5d\u5341\u4e94\u4e07\u5186\u3092\u8d85\u3048\u4e09\u767e\u4e09\u5341\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+    yield ("local tax 37_2 band 3.3M-6.95M - LocalTax37_2Band330To695.lean",
+           "325AC0000000226", "article", "第三十七条の二",
+           ["\u4e09\u767e\u4e09\u5341\u4e07\u5186\u3092\u8d85\u3048\u516d\u767e\u4e5d\u5341\u4e94\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+    yield ("local tax 37_2 band 6.95M-9M - LocalTax37_2Band695To900.lean",
+           "325AC0000000226", "article", "第三十七条の二",
+           ["\u516d\u767e\u4e5d\u5341\u4e94\u4e07\u5186\u3092\u8d85\u3048\u4e5d\u767e\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+    yield ("local tax 37_2 band 9M-18M - LocalTax37_2Band900To1800.lean",
+           "325AC0000000226", "article", "第三十七条の二",
+           ["\u4e5d\u767e\u4e07\u5186\u3092\u8d85\u3048\u5343\u516b\u767e\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+    yield ("local tax 37_2 band 18M-40M - LocalTax37_2Band1800To4000.lean",
+           "325AC0000000226", "article", "第三十七条の二",
+           ["\u5343\u516b\u767e\u4e07\u5186\u3092\u8d85\u3048\u56db\u5343\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+
     # LocalTaxArt734AmountTier1.lean - NORM|41efee8e... (dual amount 120k/140k yen CONDITION, law 325AC0000000226)
     # Needle is in MainProvision Article 734 (Paragraph 3, table cell, Sentence 1);
     # find_article_text(...,"第七百三十四条") returns that article (len 2046) with needle -
