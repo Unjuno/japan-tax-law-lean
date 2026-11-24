@@ -4204,6 +4204,13 @@ def checks():
            "329M50000002023", "file", None,
            ["発行済株式等の百分の五十を超える数又は金額の株式等が同項の一方の者により保有されている場合"])
 
+    # 通算法人 art. 6 — FilingDateException.lean
+    yield ("通算法人 第六条（指定期日が提出期限前の日の例外）↔ FilingDateException.lean (exception, strict date-before)",
+           "426CO0000000139",
+           "article", "第六条",
+           ["ただし、当該指定された期日が当該他の通算法人の同条第一項の規定による申告書の提出期限前の日である場合は、この限りでない。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
