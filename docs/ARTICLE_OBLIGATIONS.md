@@ -147,7 +147,6 @@ source positions. Human legal review is a separate axis and is pending.
 | `329CO0000000155` | 第一条の二 | CustomsDutiableValueThreshold | YES | YES | NO | NOT_STARTED |
 | `327AC0000000111` | 第十一条 | UsForcesDutyFreePenalty | YES | YES | NO | NOT_STARTED |
 | `340AC0000000157` | 第四条 | OilGasGrantArt4Rounding | YES | YES | NO | NOT_STARTED |
-| `340AC0000000157` | 第四条 | OilGasGrantRounding | YES | YES | YES | NOT_STARTED |
 | `143AC0000000054` | 第十条 | CustomsDamageReduction | YES | YES | YES | NOT_STARTED |
 | `143AC0000000054` | 第四条の七 | CustomsExchangeRate | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第三条の三 | CustomsSmallConsignment | YES | YES | NO | NOT_STARTED |
@@ -264,8 +263,6 @@ source positions. Human legal review is a separate axis and is pending.
 | `404CO0000000089` | 第二条 | MergerMaxCapital | YES | YES | NO | NOT_STARTED |
 | `322CO0000000268` | 第十条 | DisasterTaxReliefOrderArt10Item5FieldCondition | YES | YES | NO | NOT_STARTED |
 | `322CO0000000268` | 第十条 | DisasterTaxReliefOrderArt10Item5FieldCondition | YES | YES | NO | NOT_STARTED |
-| `347M50000040042` | 第六条 | RefundDifferenceAmount | YES | YES | NO | NOT_STARTED |
-| `403CO0000000035` | 第二条 | LocalCorpMaxCapital | YES | YES | NO | NOT_STARTED |
 | `403CO0000000035` | 第二条 | LocalCorpMaxCapital | YES | YES | NO | NOT_STARTED |
 | `347M50000040042` | 第六条 | RefundDifferenceAmount | YES | YES | NO | NOT_STARTED |
 | `345CO0000000050` | 第二条 | BranchDeputyAppointment | YES | YES | NO | NOT_STARTED |
