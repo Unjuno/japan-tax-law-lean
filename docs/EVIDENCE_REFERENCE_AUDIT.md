@@ -5,14 +5,13 @@ Do not hand-edit. Regenerate with `scripts/ci/audit_evidence_references.py`.
 A document name in an evidence string is not proof that the document
 supports the unit. This audit resolves each reference against the artifact.
 
-- units checked: 587
-- references resolved: 2862/2866
-- references UNRESOLVED: 4
+- units checked: 596
+- references resolved: 2901/2904
+- references UNRESOLVED: 3
 - all-complete claimable from references: False
 
 | unit | axis | D | detail |
 |---|---|---|---|
-| `NORM|167b8cabf184adb` | implementation | FAIL | sha256 MISMATCH |
-| `NORM|167b8cabf184adb` | independent_spec | FAIL | sha256 MISMATCH |
-| `NORM|167b8cabf184adb` | tests | FAIL | sha256 MISMATCH |
+| `NORM|3d471dce366351a` | kernel_proof | FAIL | run=45232920308 attested_run=45284336667 conclusion=success |
+| `NORM|53c34444ca1a5c1` | kernel_proof | FAIL | run=45232920308 attested_run=45284336667 conclusion=success |
 | `NORM|6b83a747a7e86cb` | adversarial_review | FAIL | non-batch reference |
