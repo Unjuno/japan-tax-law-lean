@@ -1,0 +1,3 @@
+import JapanTaxLaw.PenaltyCeilingsSixMonthsFiveHundredThousandSpec
+#print axioms JapanTaxLaw.PenaltyCeilingsSixMonthsFiveHundredThousand.agree_imprisonment_months
+#print axioms JapanTaxLaw.PenaltyCeilingsSixMonthsFiveHundredThousand.agree_fine_yen
