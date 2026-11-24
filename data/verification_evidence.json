@@ -548,6 +548,19 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_49_14/Article#72_49_14/Paragraph#2/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/BusinessOwnerDeductionTests.lean sha256=61b2cc0dc9ba20aeb7d2465e3ecfcc248cb82a687981de2e45d3c349c31be28d (18 kernel-decided examples)"
     },
+    "NORM|b3959ec60d94050465584c3e696d6cbdb3df0635bd90da1dfd2c238b7f7e4207": {
+      "adversarial_review": "docs/ADVERSARIAL_DEEMING_ART8.md H/T/D/C/U; one-way deeming and competing reading recorded",
+      "boundary_proof": "DeemingProvisionalDutyTests.lean covers paid=true and paid=false, kernel-checked",
+      "cross_law_proof": "dependencies=[]; cross-reference to 第九項第一号 is a separate unit, not modelled here",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/DeemingProvisionalDuty.lean sha256=c5862c9ceac4b3adb3fa6720cda25e9ecaf55cf5b1f28dd02c924502ee8bd8e6",
+      "independent_spec": "JapanTaxLaw/DeemingProvisionalDutySpec.lean sha256=aedb1420d7cdb7923ccd7eb04d7222f4116f30ef752b24664d760f81106572d4; spec uses a two-branch conditional, impl an identity map",
+      "kernel_proof": "lake build JapanTaxLaw.DeemingProvisionalDutyTests: Build completed successfully (5 jobs); #print axioms: deem_when_paid, no_deem_when_unpaid, agree_spec_impl all axiom-free",
+      "proof_scope": "agree_spec_impl exhaustive over Bool; one-way deeming only, reverse direction not asserted",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; phrase_only_correspondence=true; verbatim located",
+      "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[17]/Article:8/Article#8/Paragraph#3/ParagraphSentence/Sentence#2 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c; verbatim located in art.8(3)",
+      "tests": "JapanTaxLaw/DeemingProvisionalDutyTests.lean sha256=71e22724d253ddcff261e075170d10a89b1a38f4fa9fdd4a4ee38b3abbb12d28"
+    },
     "NORM|bbb2a3a729864b411737ec11ee198176793e4128e8a0e49304035f17b52fc19c": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
