@@ -4183,12 +4183,26 @@ def checks():
            "file", None,
            ["無料又は低額利用に係る介護医療院入所者の割合が百分の二以上百分の五未満である事業の用に供する固定資産（無料又は低額利用に係る介護医療院入所者の割合から百分の二を減じた割合に十五を乗じた割合に百分の三十を加えて得た割合に相当する部分に限る。）"])
 
-    # 通算法人 art. 6 — FilingDateException.lean
-    yield ("通算法人 第六条（指定期日が提出期限前の日の例外）↔ FilingDateException.lean (exception, strict date-before)",
-           "426CO0000000139",
-           "article", "第六条",
-           ["ただし、当該指定された期日が当該他の通算法人の同条第一項の規定による申告書の提出期限前の日である場合は、この限りでない。"])
+    # InheritanceTaxArt10ShipAircraftLocationException.lean - NORM|424b2bac... (相続税法 art.10(1) item1 EXCEPTION, law 325AC0000000073)
+    # Article-kind locator; needle is the ただし proviso Sentence#2.
+    yield ("inheritance tax art.10 ship-aircraft location exception - InheritanceTaxArt10ShipAircraftLocationException.lean",
+           "325AC0000000073",
+           "article", "\u7b2c\u5341\u6761",
+           ["\u305f\u3060\u3057\u3001\u8239\u8236\u53c8\u306f\u822a\u7a7a\u6a5f\u306b\u3064\u3044\u3066\u306f\u3001\u8239\u7c4d\u53c8\u306f\u822a\u7a7a\u6a5f\u306e\u767b\u9332\u3092\u3057\u305f\u6a5f\u95a2\u306e\u6240\u5728"])
 
+    # 災害被害者租税減免法 art. 7(1) — DisasterExciseTaxCredit.lean
+    yield ("災害被害者租税減免法 art. 7（被災酒類等の酒税等税額控除）↔ DisasterExciseTaxCredit.lean",
+           "322AC0000000175",
+           "file", None,
+           ["酒類又は製造たばこ、揮発油、石油ガス、原油、ガス状炭化水素若しくは石炭の製造者（石油ガスについては石油ガスの充てん者とし、原油、ガス状炭化水素又は石炭については原油、ガス状炭化水素又は石炭の採取者とする。以下この条において同じ。）又は販売業者（石油製品の販売業者を含む。以下この条において同じ。）が販売のために所持するこれらの物（石油製品を含む。）で酒税又はたばこ税、揮発油税、地方揮発油税、石油ガス税若しくは石油石炭税を課せられたものが災害により亡失し、滅失し、又はその本来の用途に供することができない状態になつた場合においては、政令で定めるところにより、当該災害により亡失し、滅失し、又はその本来の用途に供することができない状態になつた酒類又は製造たばこ、揮発油、石油ガス、原油、石油製品、ガス状炭化水素若しくは石炭（以下「被災酒類等」と総称する。）について課せられた酒税又はたばこ税、揮発油税、地方揮発油税、石油ガス税若しくは石油石炭税（以下「酒税等」と総称する。）の税額（延滞税、過少申告加算税、無申告加算税及び重加算税の額を除く。）に相当する金額（被災酒類等について当該製造者又は販売業者が保険金、損害賠償金等により損失を補塡されたときは、その補塡された金額に応じ政令で定めるところにより計算した金額を控除した金額）を当該被災酒類等に係る酒税等の納税義務者がその災害のあつた日以後において納付すべき酒税等の税額から、それぞれ控除する。"])
+
+    # art. 19の3 / 3の13の3 — 50% ownership thresholds
+    yield ("租税特別措置法施行令 art. 19_3（所有割合50%超）↔ SpecialMeasuresOwnershipThreshold50.lean",
+           "332CO0000000043", "file", None,
+           ["発行済株式等の総数又は総額の百分の五十を超える数又は金額の株式が当該株式会社により所有されている場合"])
+    yield ("地方税法施行規則 art. 3_13_3（所有割合50%超）↔ LocalBusinessOwnershipThreshold50.lean",
+           "329M50000002023", "file", None,
+           ["発行済株式等の百分の五十を超える数又は金額の株式等が同項の一方の者により保有されている場合"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
