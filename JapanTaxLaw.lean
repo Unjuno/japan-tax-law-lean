@@ -70,6 +70,9 @@ import JapanTaxLaw.BondRevenueFiscalYearTests
 import JapanTaxLaw.BondedAreaKinds
 import JapanTaxLaw.BondedAreaKindsSpec
 import JapanTaxLaw.BondedAreaKindsTests
+import JapanTaxLaw.BranchDeputyAppointment
+import JapanTaxLaw.BranchDeputyAppointmentSpec
+import JapanTaxLaw.BranchDeputyAppointmentTests
 import JapanTaxLaw.BuildingArea800
 import JapanTaxLaw.BuildingArea800Spec
 import JapanTaxLaw.BuildingArea800Tests
@@ -1163,6 +1166,9 @@ import JapanTaxLaw.ObligationArt15Tests
 import JapanTaxLaw.OilCoalTaxRate
 import JapanTaxLaw.OilCoalTaxRateSpec
 import JapanTaxLaw.OilCoalTaxRateTests
+import JapanTaxLaw.OilGasGrantArt4Rounding
+import JapanTaxLaw.OilGasGrantArt4RoundingSpec
+import JapanTaxLaw.OilGasGrantArt4RoundingTests
 import JapanTaxLaw.OilGasGrantTax
 import JapanTaxLaw.OilGasGrantTaxSpec
 import JapanTaxLaw.OilGasGrantTaxTests
