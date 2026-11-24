@@ -91,6 +91,20 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+
+    # Restored registry checks dropped by a concurrent stale-base rewrite.
+    yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
+           "329M50000002023", "file", None,
+           ["事業所税の額の百分の五に相当する額とする"])
+    yield ("LightMotorVehicleTaxShortfallSurcharge35.lean — 地方税法 art.30の2 不足額加算35%",
+           "325AC0000000226", "file", None,
+           ["同項の不足額に、これに百分の三十五の割合を乗じて計算した金額を加算した金額とする"])
+    yield ("MotorVehicleTaxShortfallSurcharge35.lean — 地方税法 art.12の5 不足額加算35%",
+           "325AC0000000226", "file", None,
+           ["同項の不足額に、これに百分の三十五の割合を乗じて計算した金額を加算した金額とする"])
+    yield ("SpecialMeasuresOrderRate75.lean — 租税特別措置法施行令 art.5の5 75%",
+           "332CO0000000043", "file", None,
+           ["法第十条の三第一項に規定する政令で定める割合は、百分の七十五とする"])
     cia = find_article_text  # alias for readability
 
     # 法人税法 art. 66 — CorporateTaxRate.lean
@@ -2060,6 +2074,12 @@ def checks():
            "file", None,
            ["石油ガス譲与税は、石油ガス税法", "石油ガス税の収入額の二分の一に相当する額"])
 
+    # OilGasGrantRounding — normative unit art.4
+    yield ("石油 GAS 譲与税法 art. 4（譲与額の千円未満端数を控除）↔ OilGasGrantRounding.lean",
+           "340AC0000000157",
+           "article", "第四条",
+           ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
+
     # SpecialCorporationGrantTax — cycle-36
     yield ("SpecialCorporationGrantTax.lean",
            "431AC0000000004",
@@ -3956,6 +3976,12 @@ def checks():
 
     # DisasterTaxReliefOrderArt10Item5FieldCondition.lean (restored after merge dropped it)
     # NORM|776e380c… 災害被害者租税減免法施行政令 art.10(1) item5 CONDITION.
+    yield ("disaster tax relief order art.10 item5 field condition - DisasterTaxReliefOrderArt10Item5FieldCondition.lean",
+           "322CO0000000268",
+           "article", "第十条",
+           ["徴収猶予限度額又は徴収猶予期間及びこれらの計算の基礎"])
+
+    # Disaster item5 restored
     yield ("DisasterTaxReliefOrderArt10Item5FieldCondition.lean — 災害被害者租税減免法施行令 art.10(1) item5 CONDITION",
            "322CO0000000268",
            "article", "第十条",

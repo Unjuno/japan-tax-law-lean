@@ -62,7 +62,7 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 555 | n/a | n/a |
+| pinned literal checks | 561 | n/a | n/a |
 | distinct article pins | 191 | 42584 | 0.45% |
 | pinned Lean modules (cross-law) | 1081 | n/a | n/a |
 
