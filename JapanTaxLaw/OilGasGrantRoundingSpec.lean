@@ -27,7 +27,7 @@ def specFloor (x : Money) : Money := x - x % specUnit
 theorem agreeRound (yen : Money) : specFloor yen = floorThousandYen yen := by
   unfold specFloor floorThousandYen specUnit roundingUnitYen
   apply (Nat.sub_eq_iff_eq_add (Nat.mod_le yen 1000)).mpr
-  exact (Nat.div_add_mod yen 1000).symm
+  simpa [Nat.mul_comm] using (Nat.div_add_mod yen 1000).symm
 
 example : specFloor 0 = 0 := by decide
 example : specFloor 999 = 0 := by decide

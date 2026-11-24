@@ -116,7 +116,7 @@ a completion flag.
 | `340M50010000013` | とうもろこし等の関税割当制度に関する省令 | 340M50010000013_20220401_504M60000200005 | CurrentEnforced | YES | ok | 12 | NO (0) | NO |
 | `340M50000040049` | 国税質問検査章規則 | 340M50000040049_20260101_506M60000040048 | CurrentEnforced | YES | ok | 56 | NO (0) | NO |
 | `340AC0000000156` | 石油ガス税法 | 340AC0000000156_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 76 | YES (2) | NO |
-| `340AC0000000157` | 石油ガス譲与税法 | 340AC0000000157_20090401_421AC0000000009 | CurrentEnforced | YES | ok | 29 | YES (1) | NO |
+| `340AC0000000157` | 石油ガス譲与税法 | 340AC0000000157_20090401_421AC0000000009 | CurrentEnforced | YES | ok | 29 | YES (2) | NO |
 | `341CO0000000005` | 石油ガス税法施行令 | 341CO0000000005_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 42 | YES (1) | NO |
 | `341M50000040004` | 石油ガス税法施行規則 | 341M50000040004_20250401_507M60000040023 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `341M50000008002` | 石油ガス譲与税法施行規則 | 341M50000008002_20191128_501M60000008059 | CurrentEnforced | YES | ok | 30 | YES (2) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 321
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 322
