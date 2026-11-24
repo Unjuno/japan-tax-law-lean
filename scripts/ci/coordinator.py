@@ -237,7 +237,22 @@ def main() -> int:
                 and OUT_MD.read_text(encoding="utf-8") == md):
             print("coordinator state matches committed state (deterministic)")
             return 0
-        print("coordinator state DRIFTED; regenerate with --once")
+        committed = json.loads(OUT_JSON.read_text(encoding="utf-8"))
+        diff = [k for k in set(committed) | set(data)
+                if committed.get(k) != data.get(k)]
+        print("coordinator state DRIFTED; fields=" + ",".join(sorted(diff)))
+        if "assignments" in diff:
+            old = committed.get("assignments", [])
+            new = data.get("assignments", [])
+            print("assignment counts: committed=%d generated=%d" % (len(old), len(new)))
+            for i, (a, b) in enumerate(zip(old, new)):
+                fields = [k for k in set(a) | set(b) if a.get(k) != b.get(k)]
+                if fields:
+                    print("first differing assignment %d: %s" % (i, ",".join(sorted(fields))))
+                    for k in fields:
+                        print("  %s: committed=%r generated=%r" %
+                              (k, a.get(k), b.get(k)))
+                    break
         return 1
     ASSIGNMENTS.parent.mkdir(parents=True, exist_ok=True)
     ASSIGNMENTS.write_text(json.dumps(data, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
