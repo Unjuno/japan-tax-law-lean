@@ -3879,6 +3879,13 @@ def checks():
            "article", "第二条",
            ["合併により被合併法人の株主等に交付された合併後存続する法人の株式又は出資に係る資本の金額又は出資金額（被合併法人が二以上ある場合には、各被合併法人に係るこれらの金額のうち最も多い金額）"])
 
+    # InheritanceTaxArt13SecurityRightKinds.lean - NORM|4db9b05d... (相続税法 art.13(2) item2 EFFECT, law 325AC0000000073)
+    # Article-kind locator; needle is the security-right enumeration sentence.
+    yield ("inheritance tax art.13 security right kinds - InheritanceTaxArt13SecurityRightKinds.lean",
+           "325AC0000000073",
+           "article", "\u7b2c\u5341\u4e09\u6761",
+           ["\u305d\u306e\u8ca1\u7523\u3092\u76ee\u7684\u3068\u3059\u308b\u7559\u7f6e\u6a29\u3001\u7279\u5225\u306e\u5148\u53d6\u7279\u6a29\u3001\u8cea\u6a29\u53c8\u306f\u62b5\u5f53\u6a29\u3067\u62c5\u4fdd\u3055\u308c\u308b\u50b5\u52d9"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
