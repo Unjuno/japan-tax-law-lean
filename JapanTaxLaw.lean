@@ -1789,3 +1789,6 @@ import JapanTaxLaw.InterestSplitRate5Pct
 import JapanTaxLaw.InterestSplitRate5PctSpec
 import JapanTaxLaw.InterestSplitRate5PctTests
 -- Restore umbrella imports dropped by concurrent merges (REQUIRED invariant).
+import JapanTaxLaw.SpecialIncomeTaxCreditCap25
+import JapanTaxLaw.SpecialIncomeTaxCreditCap25Spec
+import JapanTaxLaw.SpecialIncomeTaxCreditCap25Tests

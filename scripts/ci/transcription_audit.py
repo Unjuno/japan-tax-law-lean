@@ -4000,6 +4000,12 @@ def checks():
            "article", "第二条",
            ["合併により被合併法人の株主等に交付された合併後存続する法人の株式又は出資に係る資本の金額又は出資金額（被合併法人が二以上ある場合には、各被合併法人に係るこれらの金額のうち最も多い金額）"])
 
+    # 租税特別措置法 art. 41_18(2) — SpecialIncomeTaxCreditCap25.lean
+    yield ("租税特別措置法 art.41_18(2)（控除限度 所得税額の百分の二十五・百円未満切捨て）↔ SpecialIncomeTaxCreditCap25.lean",
+           "332AC0000000026",
+           "article", "第四十一条の十八",
+           ["当該控除する金額が、当該個人のその年分の所得税の額の百分の二十五に相当する金額を超えるときは"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
