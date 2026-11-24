@@ -548,3 +548,6 @@ import JapanTaxLaw.UnclearValueDefaultTests
 import JapanTaxLaw.LocalTaxRateTable
 import JapanTaxLaw.LocalTaxRateTableSpec
 import JapanTaxLaw.LocalTaxRateTableTests
+import JapanTaxLaw.FlatTaxRates
+import JapanTaxLaw.FlatTaxRatesSpec
+import JapanTaxLaw.FlatTaxRatesTests
