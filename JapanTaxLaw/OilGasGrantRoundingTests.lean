@@ -21,6 +21,6 @@ example : floorThousandYen 2000 = 2000 := by decide
 example : specFloor 999 = 0 := by decide
 example : specFloor 1000 = 1000 := by decide
 example : specFloor 1001 = 1000 := by decide
-example : agreeRound 1999 := by decide
+example : specFloor 1999 = floorThousandYen 1999 := agreeRound 1999
 
 end JapanTaxLaw.OilGasGrantRounding
