@@ -2312,6 +2312,12 @@ def checks():
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
 
+    # LongTermGainSpecialMeasure — cycle-113 (restored after merge dropped it)
+    yield ("LongTermGainSpecialMeasure.lean",
+           "325AC0000000226",
+           "file", None,
+           ["当該課税長期譲渡所得金額から二千万円を控除した金額の百分の二", "第三十四条の二"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3882,6 +3888,13 @@ def checks():
            "article", "第五条",
            ["令和八年三月において、令和七年度三月震災復興特別交付税額は、前条の規定によって算定した額から第一号の額を減額した後の額に第二号の額を加算した額（同号の額が負数となるときは、当該負数となる額に相当する額を減額した額）から第三号の額を減額した額とする。"])
 
+    # DisasterTaxReliefOrderArt10Item5FieldCondition.lean (restored after merge dropped it)
+    # NORM|776e380c… 災害被害者租税減免法施行政令 art.10(1) item5 CONDITION.
+    yield ("disaster tax relief order art.10 item5 field condition - DisasterTaxReliefOrderArt10Item5FieldCondition.lean",
+           "322CO0000000268",
+           "article", "\u7b2c\u5341\u6761",
+           ["\u5fb4\u53ce\u7336\u4e88\u9650\u5ea6\u984d\u53c8\u306f\u5fb4\u53ce\u7336\u4e88\u671f\u9593\u53ca\u3073\u3053\u308c\u3089\u306e\u8a08\u7b97\u306e\u57fa\u790e"])
+
 # 災害時の合計所得金額の見積額 六百万円超七百五十万円以下 — DisasterIncomeBand6M75M.lean
     yield ("昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施行に関する政令） art. 3（災害時の合計所得金額の見積額 六百万円超七百五十万円以下）↔ DisasterIncomeBand6M75M.lean",
            "322CO0000000268",
@@ -3929,6 +3942,24 @@ def checks():
            "347M50000040042",
            "article", "第六条",
            ["第三号に掲げる所得税の額から前号に掲げる所得税の額を控除した残額のうち還付を受けようとする金額"])
+
+    # 地方交付税法 art. 6の2 §2/§3 — LocalGrantTaxShares.lean (94% / 6%)
+    yield ("LocalGrantTaxShares.lean",
+           "325AC0000000211",
+           "file", None,
+           ["前条第二項の額の百分の九十四に相当する額", "前条第二項の額の百分の六に相当する額"])
+
+    # 相続税法施行令 art. 28 §1 — StandingTimberDeferredRate30.lean (30%)
+    yield ("StandingTimberDeferredRate30.lean",
+           "325CO0000000071",
+           "file", None,
+           ["法第五十二条第一項第一号ロに規定する政令で定める割合は、百分の三十とする"])
+
+    # 地方税法 art. 23 第11号イ(2) — WidowDependentIncomeCeiling5M.lean (五百万円以下)
+    yield ("WidowDependentIncomeCeiling5M.lean",
+           "325AC0000000226",
+           "file", None,
+           ["前年の合計所得金額が五百万円以下であること"])
 
 
     # DisasterTaxReliefOrderSupplArt2HokkaidoBureauException.lean - NORM|483362ae... (災害被害者租税減免法施行政令 附則2 table EXCEPTION, law 322CO0000000268)
