@@ -43,12 +43,12 @@ Measured results on this branch (2026-11-20):
 
 ```
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=396790, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=62, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=396789, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=63, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=62 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=63 axes=11 unbacked=0
 12/12 invariants passed
 $ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
 
@@ -175,7 +175,12 @@ independently re-pinned source revealed a malformed law id in the queue's
 recorded in `docs/ADVERSARIAL_SAKE_TIER.md`. Agreement with a saturation-based
 spec is universal and boundary values are kernel-decided.
 
-So 62 evidence-backed units left NOT_STARTED on this branch; the
+The 63rd unit is 相続税法施行令 art. 31(4)一
+`NORM|b338babb…`: a strict >50% ownership test using cross-multiplication,
+with caller-established share counts, independent non-strict spec, universal
+agreement, kernel boundaries at 50/51 percent, and source audit D=PASS.
+
+So 63 evidence-backed units left NOT_STARTED on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
 durable. `docs/TASK_QUEUE.md` is regenerated with these counts.

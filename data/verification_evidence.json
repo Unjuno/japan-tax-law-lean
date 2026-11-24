@@ -639,6 +639,19 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_49_14/Article#72_49_14/Paragraph#2/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/BusinessOwnerDeductionTests.lean sha256=61b2cc0dc9ba20aeb7d2465e3ecfcc248cb82a687981de2e45d3c349c31be28d (18 kernel-decided examples)"
     },
+    "NORM|b338babb5647936d561ccd8e4a53d660b56a474820cd86dbadcc18e7ef62686a": {
+      "adversarial_review": "docs/ADVERSARIAL_OWNERSHIP_HALF.md H/T/D/C/U; strict-vs-inclusive and zero-total limitations recorded",
+      "boundary_proof": "OwnershipOverHalfTests.lean kernel-decided 50/100, 51/100, 1/2, 5001/10000",
+      "cross_law_proof": "dependencies=[]",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/OwnershipOverHalf.lean sha256=1320982a9f401c736084205576b6109464d0ab9f752a512ae06d9c7e5f9eef1a",
+      "independent_spec": "JapanTaxLaw/OwnershipOverHalfSpec.lean sha256=ee317e05bb47aaef52fd006d38d0aec55a4f4bf1bd8c12aaf7c06d5229c14acf; spec uses non-strict cross-multiplied comparison",
+      "kernel_proof": "lake build JapanTaxLaw.OwnershipOverHalfTests: Build completed successfully (5 jobs); exactly_half/just_over_half axiom-free; agree_spec_impl standard propext",
+      "proof_scope": "agree_spec_impl universal over all share-count pairs; strict >50% only",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; percent_numerators=[50]; constants_checked=[50,100]; missing=[]",
+      "source_location": "data/raw/325CO0000000071_20260401_506CO0000000143.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:31/Article#31/Paragraph#4/Item#1/ItemSentence/Column#1/Sentence#1 sha256=d1addeab8ae8cbd7f038ac7efe6a27ea75c83d9e0fced138c3f3407442a29f04; verbatim located in art.31(4)一",
+      "tests": "JapanTaxLaw/OwnershipOverHalfTests.lean sha256=0a77e5635605fe09c8508a6ed729d79c334e93a2c96ea8deb7ab24962d326b9c"
+    },
     "NORM|b3959ec60d94050465584c3e696d6cbdb3df0635bd90da1dfd2c238b7f7e4207": {
       "adversarial_review": "docs/ADVERSARIAL_DEEMING_ART8.md H/T/D/C/U; one-way deeming and competing reading recorded",
       "boundary_proof": "DeemingProvisionalDutyTests.lean covers paid=true and paid=false, kernel-checked",
