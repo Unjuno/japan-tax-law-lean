@@ -12294,3 +12294,23 @@ CI `checks()` の `LifeInsurancePremiumDeductionUpper.lean` エントリ（law_i
 
 > **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・反例/走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
 
+
+## Batch BOT review (2026-11-24) — 地方税法 art. 701の42
+
+### BusinessOfficeTaxRate.lean — 独立再抽出・照合
+
+- **対象**: `JapanTaxLaw/BusinessOfficeTaxRate.lean` / `BusinessOfficeTaxRateSpec.lean`
+  / `BusinessOfficeTaxRateTests.lean`
+- **一次資料（pinned・改変禁止）**: `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`
+  - law_id `325AC0000000226` / revision `..._20261101_508AC0000000002`
+  - SHA-256 pin を `scripts/ci/source_audit_business_office_tax_rate.py` で再計算し一致。
+- **独立抽出方法**: 形式化担当の数値を信じず、`MainProvision` 直下の
+  `第七百一条の四十二` を ArticleTitle で特定し、原文文字列を直接再抽出。
+  `事業所税の税率は、資産割にあつては一平方メートルにつき六百円、従業者割にあつては百分の〇・二五とする。`
+- **照合結果**: 600円/㎡ を `a * 600`、百分の〇・二五を 25/10000（=0.25%）と
+  独立に読み取り、10倍誤り 25/1000 を反例テストで排除。独立 Spec との
+  `agree*` 一致をカーネルが `decide` で決定。D=CONFIRMED（H/T/D/C/U は
+  `data` の source audit 出力を参照）。
+- **限界**: 床面積・給与額の認定、課税標準の確定、申告・徴収手続、附則は
+  caller-established / NOT MODELLED。本レビューは機械的独立照合であり、
+  人間の法律専門家レビューではない（LEGAL_REVIEW_PENDING のまま）。

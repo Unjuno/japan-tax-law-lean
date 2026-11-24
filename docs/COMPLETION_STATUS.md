@@ -7,23 +7,23 @@ obligations being complete. SKIP is never counted as PASS.
 
 ## Axis A — registered checks (last recorded gate run)
 
-- results file available: True
-- PASS: 47
+- results file available: False
+- PASS: 0
 - FAIL: 0
 - SKIP: 0
 - required gates SKIPped: 0
-- gate results commit: 59a3218d08b9af25c062d780cad6b29d847e3cb8
-- current HEAD commit: c8db40e80d15317565e2483d61b28da1e6a2b98c
+- gate results commit: (none)
+- current HEAD commit: 571fab45052d7f17eea6f5f50a846847611b1fc6
 - results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all registered obligations complete
 
 - normative units: 396854
-- NOT_STARTED: 396172
+- NOT_STARTED: 396145
 - PARTIAL: 0
 - PROVED_SCOPE: 3
-- FULLY_VERIFIED: 677
+- FULLY_VERIFIED: 704
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180619
@@ -36,26 +36,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 680 | 396854 |
-| kernel proved (CI-attested proof evidence) | 680 | 396854 |
-| source-audited (原文 correspondence evidence) | 680 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 707 | 396854 |
+| kernel proved (CI-attested proof evidence) | 707 | 396854 |
+| source-audited (原文 correspondence evidence) | 707 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 680 |
-| boundary_proof | 680 |
-| cross_law_proof | 680 |
-| decomposition_audit | 680 |
-| implementation | 680 |
-| independent_spec | 680 |
-| kernel_proof | 680 |
-| proof_scope | 680 |
-| source_correspondence_audit | 680 |
-| source_location | 680 |
-| tests | 680 |
+| adversarial_review | 707 |
+| boundary_proof | 707 |
+| cross_law_proof | 707 |
+| decomposition_audit | 707 |
+| implementation | 707 |
+| independent_spec | 707 |
+| kernel_proof | 707 |
+| proof_scope | 707 |
+| source_correspondence_audit | 707 |
+| source_location | 707 |
+| tests | 707 |
 
 ## Verdict
 
