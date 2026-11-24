@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 169 | 327 | 51.68% |
+| laws with >=1 pinned literal check | 170 | 327 | 51.99% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 102 |
+| adversarial review sessions recorded | 104 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -275,6 +275,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `504CO0000000372` 溶融亜鉛めっき鉄線に対して課する不当廉売関税に関する政令
 - `505M60000008043` 地方団体に対して交付すべき令和五年度分の震災復興特別交付税の額の算定方法、決定時期及び決定額並びに交付時期及び交付額等の特例に関する省令
 - `507CO0000000095` 黒鉛電極に対して課する不当廉売関税に関する政令
+- `507M60000008043` 地方団体に対して交付すべき令和七年度分の震災復興特別交付税の額の算定方法、決定時期及び決定額並びに交付時期及び交付額等の特例に関する省令
 - `508CO0000000224` ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令
 - `508CO0000000254` 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令
 - `508M60000008066` 地方団体に対して交付すべき令和八年度分の震災復興特別交付税の額の算定方法、決定時期及び決定額並びに交付時期及び交付額等の特例に関する省令
