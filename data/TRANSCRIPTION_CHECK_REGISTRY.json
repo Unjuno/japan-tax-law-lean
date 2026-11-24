@@ -24,6 +24,7 @@
     "BranchDeputyAppointment",
     "BuildingArea800",
     "BusinessOwnerDeduction",
+    "BusinessTaxCollectionCostRate5",
     "CapitalFiveBillionThreshold",
     "CapitalOneBillionExcess",
     "CapitalTieredAmount",
@@ -105,6 +106,8 @@
     "CustomsTransactionPrice",
     "CustomsValueAfterDamage",
     "DeemedCapitalGainsCost",
+    "DelegatedEnforcement3M",
+    "DelegatedEnforcement6M",
     "DelinquencyTax",
     "DependentAgeSupport",
     "DisasterGrantIncomeBracket",
@@ -362,6 +365,7 @@
     "SpecialMeasuresApportionment",
     "SpecialMeasuresCasinoRatio",
     "SpecialMeasuresMisc",
+    "SpecialMeasuresOrderRate75",
     "SpecialOrderCapitalGainDeduction",
     "SpecialOrderPensionMinimum",
     "SpecialTonSplitRatio",
@@ -411,7 +415,9 @@
     "VehicleWeightUnit",
     "WeightInterval5M25M",
     "WeightTaxTransfer",
-    "WidowDependentIncomeCeiling5M"
+    "WidowDependentIncomeCeiling5M",
+    "RndSurchargeRate",
+    "SpouseIncomeCeiling950k"
   ],
   "note": "Modules that MUST retain a transcription audit check. A reconciliation that rewrites transcription_audit.py from a stale base and drops any of these fails the REQUIRED queue-invariant gate. Update this registry only when deliberately removing a module.",
   "schema": 1

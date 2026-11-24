@@ -82,6 +82,9 @@ import JapanTaxLaw.BuildingSite150sqmTests
 import JapanTaxLaw.BusinessOwnerDeduction
 import JapanTaxLaw.BusinessOwnerDeductionSpec
 import JapanTaxLaw.BusinessOwnerDeductionTests
+import JapanTaxLaw.BusinessTaxCollectionCostRate5
+import JapanTaxLaw.BusinessTaxCollectionCostRate5Spec
+import JapanTaxLaw.BusinessTaxCollectionCostRate5Tests
 import JapanTaxLaw.CapitalExceed100M
 import JapanTaxLaw.CapitalExceed100MSpec
 import JapanTaxLaw.CapitalExceed100MTests
@@ -476,6 +479,12 @@ import JapanTaxLaw.DeceasedUnder70Tests
 import JapanTaxLaw.DeemedCapitalGainsCost
 import JapanTaxLaw.DeemedCapitalGainsCostSpec
 import JapanTaxLaw.DeemedCapitalGainsCostTests
+import JapanTaxLaw.DelegatedEnforcement3M
+import JapanTaxLaw.DelegatedEnforcement3MSpec
+import JapanTaxLaw.DelegatedEnforcement3MTests
+import JapanTaxLaw.DelegatedEnforcement6M
+import JapanTaxLaw.DelegatedEnforcement6MSpec
+import JapanTaxLaw.DelegatedEnforcement6MTests
 import JapanTaxLaw.DeliberationQuorum
 import JapanTaxLaw.DeliberationQuorumSpec
 import JapanTaxLaw.DeliberationQuorumTests
@@ -1634,6 +1643,9 @@ import JapanTaxLaw.SpecialMeasuresCasinoRatioTests
 import JapanTaxLaw.SpecialMeasuresMisc
 import JapanTaxLaw.SpecialMeasuresMiscSpec
 import JapanTaxLaw.SpecialMeasuresMiscTests
+import JapanTaxLaw.SpecialMeasuresOrderRate75
+import JapanTaxLaw.SpecialMeasuresOrderRate75Spec
+import JapanTaxLaw.SpecialMeasuresOrderRate75Tests
 import JapanTaxLaw.SpecialOrderCapitalGainDeduction
 import JapanTaxLaw.SpecialOrderCapitalGainDeductionSpec
 import JapanTaxLaw.SpecialOrderCapitalGainDeductionTests
