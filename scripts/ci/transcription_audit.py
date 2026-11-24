@@ -2300,6 +2300,12 @@ def checks():
            "file", None,
            ["米の含有量が全重量の三〇％を超えるもの", "第七条"])
 
+    # AircraftFuelGrantTaxOrderEnforcementDate — cycle-104
+    yield ("AircraftFuelGrantTaxOrderEnforcementDate.lean",
+           "347CO0000000167",
+           "file", None,
+           ["第一条この政令は、昭和五十四年四月一日から施行する", "この政令は、昭和五十四年四月一日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
