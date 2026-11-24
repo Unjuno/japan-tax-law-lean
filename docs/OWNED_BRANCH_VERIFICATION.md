@@ -66,14 +66,16 @@ $ python scripts/ci/batch_strict_upper_pipeline.py --limit 60
 strict-upper batch pipeline: verified=60 failed=2  (2 source-audit failures skip-listed)
 $ python scripts/ci/batch_fraction_pipeline.py --limit 20 / --limit 100
 fraction batch pipeline: verified=20 failed=0 / verified=100 failed=0
+$ python scripts/ci/batch_period_pipeline.py --limit 10 / --limit 100
+period batch pipeline: verified=10 failed=0 / verified=100 failed=0
 
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=395871, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=981, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=395761, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=1091, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=981 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=1091 axes=11 unbacked=0
 12/12 invariants passed
 $ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
 
@@ -257,7 +259,12 @@ skip list, the defect fixed, and the affected units retried. The source auditor
 was extended to parse fractions. 120 further obligations were verified with
 zero final failures.
 
-So 981 units are evidence-backed FULLY_VERIFIED and 395,871 remain NOT_STARTED
+A seventh pipeline, `scripts/ci/batch_period_pipeline.py`, covers period-only
+thresholds (年/月/日/回 with 以下/以内/未満/を超える), with the source auditor
+extended to parse period literals; it verified 110 further obligations with
+zero failures.
+
+So 1091 units are evidence-backed FULLY_VERIFIED and 395,761 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
