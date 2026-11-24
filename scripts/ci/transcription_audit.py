@@ -4057,18 +4057,11 @@ def checks():
            "file", None,
            ["前年の合計所得金額が五百万円以下であること"])
 
-    # DisasterTaxReliefArt9TermDefinitionDelegation.lean - NORM|20017561... (災害被害者租税減免法 art.9(2) DELEGATION, law 322AC0000000175)
-    # Article-kind locator; needle is the term-definition delegation sentence.
-    yield ("disaster tax relief art.9 term definition delegation - DisasterTaxReliefArt9TermDefinitionDelegation.lean",
-           "322AC0000000175",
-           "article", "\u7b2c\u4e5d\u6761",
-           ["\u524d\u9805\u306b\u304a\u3044\u3066\u3001\u6b21\u306e\u5404\u53f7\u306b\u63b2\u3052\u308b\u7528\u8a9e\u306e\u610f\u7fa9\u306f\u3001\u5f53\u8a72\u5404\u53f7\u306b\u5b9a\u3081\u308b\u3068\u3053\u308d\u306b\u3088\u308b\u3002"])
-
-    # 石油ガス譲与税法 art. 4 — OilGasGrantArt4Rounding.lean (千円未満端数)
-    yield ("石油ガス譲与税法 art. 4（千円未満端数）↔ OilGasGrantArt4Rounding.lean",
-           "340AC0000000157",
-           "file", None,
-           ["千円未満の端数金額があるときは、その端数金額を控除した金額をもつて"])
+    # 国税不服審判所支部 art. 2 — BranchDeputyAppointment.lean
+    yield ("国税不服審判所支部 art. 2（財務省令指定＋各一人配置）↔ BranchDeputyAppointment.lean (delegation + one per branch)",
+           "345CO0000000050",
+           "article", "第二条",
+           ["国税不服審判所の支部（以下「支部」という。）のうち財務省令で定めるものに、次席国税審判官各一人を置き、国税審判官をもつてこれに充てる。"])
 
 
 def main() -> int:
