@@ -349,6 +349,30 @@ class TestGateSemantics(unittest.TestCase):
         self.assertNotIn("COMPLETE", st.STATUSES)
 
 
+class TestFullSpanReader(unittest.TestCase):
+    def test_units_in_same_provision_get_their_own_span(self):
+        import link_existing_proofs as lp
+        q_path = REPO / "build" / "task_queue.json"
+        if not q_path.exists():
+            self.skipTest("queue projection not generated")
+        q = json.loads(q_path.read_text(encoding="utf-8"))
+        groups: dict[tuple[str, str], list[dict]] = {}
+        for t in q["tasks"]:
+            groups.setdefault((t["source_file"], t["path"]), []).append(t)
+        candidates = [g for g in groups.values() if len(g) >= 2]
+        if not candidates:
+            self.skipTest("no multi-unit provisions in projection")
+        reader = lp.make_full_text_reader()
+        for group in candidates[:10]:
+            for t in group:
+                text = reader(t)
+                self.assertTrue(text, "exact span must be non-empty")
+                self.assertTrue(text.startswith(t["norm_fragment"]),
+                                "display prefix must be the start of the exact span")
+                self.assertEqual(t["source_span"]["norm_end"] - t["source_span"]["norm_start"],
+                                 len(text), "span length must match reconstructed text")
+
+
 class TestRealInventory(unittest.TestCase):
     def test_non_tax_related_statutes_are_discovered_not_silently_inventoried(self):
         p = REPO / "build" / "discovered_laws.json"

@@ -59,7 +59,8 @@ def make_full_text_reader():
     texts: dict[tuple[str, str], str] = {}
 
     def full_text(t: dict) -> str:
-        key = (t["source_file"], t["path"])
+        span = t["source_span"]
+        key = (t["source_file"], t["path"], span["norm_start"], span["norm_end"])
         if key in texts:
             return texts[key]
         sf = t["source_file"]
@@ -78,7 +79,6 @@ def make_full_text_reader():
         segments = []
         tq._collect(node, (), segments)
         text = "".join(s for s, _ in segments)
-        span = t["source_span"]
         full = text[span["norm_start"]:span["norm_end"]]
         texts[key] = full
         return full

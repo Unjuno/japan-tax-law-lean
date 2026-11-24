@@ -11,13 +11,13 @@ reconstruction only, never semantic fidelity to the statute.
 ## Counts (independent axes)
 
 - normative units: 268107
-- NOT_STARTED: 265008
-- PARTIAL: 3099
+- NOT_STARTED: 265003
+- PARTIAL: 3104
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
 - BLOCKED: 0
 - STALE: 0
-- adversarial-review evidence recorded: 0 (separate axis)
+- adversarial-review evidence recorded: 5 (separate axis)
 - human legal review completed: 0 (separate axis)
 - registered checks passing does NOT imply all obligations complete
 
@@ -29,6 +29,11 @@ SOURCE_LOCATION, SOURCE_CORRESPONDENCE_AUDIT, DECOMPOSITION_AUDIT, SPEC_INDEPEND
 
 | unit | law_id | article/provision | status |
 |---|---|---|---|
+| `d7e6bb073ea6` | 143AC0000000054 | 第1条 | PARTIAL |
+| `ce0119477403` | 143AC0000000054 | 第2条 | PARTIAL |
+| `1827dc9c7d7b` | 143AC0000000054 | 第3条 | PARTIAL |
+| `cf403b98fe4b` | 143AC0000000054 | 第3_2条 | PARTIAL |
+| `f38a87dbca26` | 143AC0000000054 | 第3_2条 | PARTIAL |
 | `4316501ee5a7` | 143AC0000000054 | 第3_3条 | PARTIAL |
 | `155db9460de6` | 143AC0000000054 | 第3_3条 | PARTIAL |
 | `7117744d4df1` | 143AC0000000054 | 第3_3条 | PARTIAL |
@@ -54,8 +59,3 @@ SOURCE_LOCATION, SOURCE_CORRESPONDENCE_AUDIT, DECOMPOSITION_AUDIT, SPEC_INDEPEND
 | `cd505757eceb` | 143AC0000000054 | 第4条 | PARTIAL |
 | `bc2d050fa15e` | 143AC0000000054 | 第4条 | PARTIAL |
 | `60e10388b3ef` | 143AC0000000054 | 第4条 | PARTIAL |
-| `dd4c01d307fc` | 143AC0000000054 | 第4条 | PARTIAL |
-| `224b0d740a93` | 143AC0000000054 | 第4条 | PARTIAL |
-| `4187fd5dc6dd` | 143AC0000000054 | 第4条 | PARTIAL |
-| `584e19dfd2f7` | 143AC0000000054 | 第4条 | PARTIAL |
-| `636d6de5a59f` | 143AC0000000054 | 第4条 | PARTIAL |
