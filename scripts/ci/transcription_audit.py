@@ -1174,6 +1174,12 @@ def checks():
            "article", "第十一条",
            ["航空機燃料税の税率は、航空機燃料一キロリットルにつき二万六千円とする。"])
 
+    # 揮発油税法 art.27(2) — GasolineTaxArt27TripleFineRange.lean
+    yield ("揮発油税法 art.27(2)（相当金額の三倍が百万円超の罰金範囲）↔ GasolineTaxArt27TripleFineRange.lean",
+           "332AC0000000055",
+           "article", "第二十七条",
+           ["三倍が百万円を超える場合には、情状により、同項の罰金は、百万円を超え", "第二十七条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
@@ -4146,6 +4152,17 @@ def checks():
            "340AC0000000033",
            "file", None,
            ["合計所得金額が九十五万円以下である配偶者"])
+    # Restored registered checks after main merge.
+    yield ("地方税法 art.71_6(1)（利子割の税率 百分の五）↔ InterestSplitRate5Pct.lean (exact 5/100, no rounding)",
+           "325AC0000000226", "article", "第七十一条の六",
+           ["利子割の税率は、百分の五とする。"])
+    yield ("地方税法施行規則 art.24の28（事業所税徴収費5%）↔ BusinessTaxCollectionCostRate5.lean",
+           "329M50000002023", "file", None,
+           ["法第七百一条の七十三の事業所税の徴収に要する費用は、当該年度の歳入に所属する事業所税の額の百分の五に相当する額とする。"])
+    yield ("租税特別措置法施行令 art.5の5（政令割合75%）↔ SpecialMeasuresOrderRate75.lean",
+           "332CO0000000043", "file", None,
+           ["法第十条の三第一項に規定する政令で定める割合は、百分の七十五とする。"])
+
 
     # 地方揮発油税法 art.15(4) — LocalGasolineArt15TripleFineRange.lean
     yield ("地方揮発油税法 art.15(4)（相当金額の三倍が五十万円超の罰金範囲）↔ LocalGasolineArt15TripleFineRange.lean",
@@ -4183,11 +4200,26 @@ def checks():
            "file", None,
            ["無料又は低額利用に係る介護医療院入所者の割合が百分の二以上百分の五未満である事業の用に供する固定資産（無料又は低額利用に係る介護医療院入所者の割合から百分の二を減じた割合に十五を乗じた割合に百分の三十を加えて得た割合に相当する部分に限る。）"])
 
+    # InheritanceTaxArt10ShipAircraftLocationException.lean - NORM|424b2bac... (相続税法 art.10(1) item1 EXCEPTION, law 325AC0000000073)
+    # Article-kind locator; needle is the ただし proviso Sentence#2.
+    yield ("inheritance tax art.10 ship-aircraft location exception - InheritanceTaxArt10ShipAircraftLocationException.lean",
+           "325AC0000000073",
+           "article", "\u7b2c\u5341\u6761",
+           ["\u305f\u3060\u3057\u3001\u8239\u8236\u53c8\u306f\u822a\u7a7a\u6a5f\u306b\u3064\u3044\u3066\u306f\u3001\u8239\u7c4d\u53c8\u306f\u822a\u7a7a\u6a5f\u306e\u767b\u9332\u3092\u3057\u305f\u6a5f\u95a2\u306e\u6240\u5728"])
+
     # 災害被害者租税減免法 art. 7(1) — DisasterExciseTaxCredit.lean
     yield ("災害被害者租税減免法 art. 7（被災酒類等の酒税等税額控除）↔ DisasterExciseTaxCredit.lean",
            "322AC0000000175",
            "file", None,
            ["酒類又は製造たばこ、揮発油、石油ガス、原油、ガス状炭化水素若しくは石炭の製造者（石油ガスについては石油ガスの充てん者とし、原油、ガス状炭化水素又は石炭については原油、ガス状炭化水素又は石炭の採取者とする。以下この条において同じ。）又は販売業者（石油製品の販売業者を含む。以下この条において同じ。）が販売のために所持するこれらの物（石油製品を含む。）で酒税又はたばこ税、揮発油税、地方揮発油税、石油ガス税若しくは石油石炭税を課せられたものが災害により亡失し、滅失し、又はその本来の用途に供することができない状態になつた場合においては、政令で定めるところにより、当該災害により亡失し、滅失し、又はその本来の用途に供することができない状態になつた酒類又は製造たばこ、揮発油、石油ガス、原油、石油製品、ガス状炭化水素若しくは石炭（以下「被災酒類等」と総称する。）について課せられた酒税又はたばこ税、揮発油税、地方揮発油税、石油ガス税若しくは石油石炭税（以下「酒税等」と総称する。）の税額（延滞税、過少申告加算税、無申告加算税及び重加算税の額を除く。）に相当する金額（被災酒類等について当該製造者又は販売業者が保険金、損害賠償金等により損失を補塡されたときは、その補塡された金額に応じ政令で定めるところにより計算した金額を控除した金額）を当該被災酒類等に係る酒税等の納税義務者がその災害のあつた日以後において納付すべき酒税等の税額から、それぞれ控除する。"])
+
+    # art. 19の3 / 3の13の3 — 50% ownership thresholds
+    yield ("租税特別措置法施行令 art. 19_3（所有割合50%超）↔ SpecialMeasuresOwnershipThreshold50.lean",
+           "332CO0000000043", "file", None,
+           ["発行済株式等の総数又は総額の百分の五十を超える数又は金額の株式が当該株式会社により所有されている場合"])
+    yield ("地方税法施行規則 art. 3_13_3（所有割合50%超）↔ LocalBusinessOwnershipThreshold50.lean",
+           "329M50000002023", "file", None,
+           ["発行済株式等の百分の五十を超える数又は金額の株式等が同項の一方の者により保有されている場合"])
 
     # 国税収納金整理資金法 art. 14(1) — TreasuryCollectionNet.lean
     yield ("国税収納金整理資金法 art. 14（過誤納還付金控除後の歳入組み入れ額）↔ TreasuryCollectionNet.lean",

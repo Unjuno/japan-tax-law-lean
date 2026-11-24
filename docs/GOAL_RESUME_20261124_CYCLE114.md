@@ -104,6 +104,29 @@ Final measured state: `FULLY_VERIFIED=717`, `NOT_STARTED=396,134`,
 human legal reviews 0, all `LEGAL_REVIEW_PENDING`. Resumable tip pushed:
 `7b8c6aaa`. Only scoped rule cells are ever claimed, never whole articles.
 
+## 5g. Cycle-120 (2026-11-25)
+
+Two bounded modules pushed at `fff1f95d`:
+`SpecialMeasuresOwnershipThreshold50` (租税特別措置法施行令 art.19の3) and
+`LocalBusinessOwnershipThreshold50` (地方税法施行規則 art.3の13の3), both the
+「百分の五十を超える」 strict `>50` predicate. Checks: 8/8 Lean builds,
+transcription 584/584, invariants 17/17, no `sorry`. CI run `45473747773`
+Lean/axiom job verified before scoped attestation binding. Legal review stays
+`LEGAL_REVIEW_PENDING`.
+
+## 5h. Cycle-121 (2026-11-25)
+
+Two bounded modules pushed at `277b2c9b`:
+`LocalBusinessTaxRate77PerMille` (地方税法施行令 art.35の4の7) and
+`LocalBusinessTaxRate77PerMilleB` (art.57の2の8), both the exact 7.7% rate
+`77/1000` transcribed from 「百分の七・七」 in two distinct table cells.
+An initial test expectation error (76×77/1000 = 5, not 0) was caught by the
+local Lean build and fixed before push. Checks: 6/6 targeted Lean builds,
+transcription 586/586, invariants 17/17. Cycle-120 scoped attestations were
+bound from REST-green run `45473747773`; cycle-121 CI run `45476274333`
+Lean/axiom job verified before its own attestation binding. Legal review stays
+`LEGAL_REVIEW_PENDING`.
+
 ## 6. Resume procedure (exact)
 
 1. `git fetch origin main`; `python scripts/ci/generate_verification_evidence.py`
