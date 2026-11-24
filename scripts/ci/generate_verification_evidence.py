@@ -529,10 +529,13 @@ def checks_by_module():
         for pf in sorted(pins_dir.glob("*.json")):
             try:
                 rec = json.loads(pf.read_text(encoding="utf-8"))
-                entries.append((rec["name"], rec["law_id"], rec["kind"], rec.get("art"), rec["needles"]))
+                entries.append((rec["name"], rec["law_id"], rec["kind"],
+                                rec.get("art"), rec["needles"],
+                                rec.get("normative_id", "")))
             except (ValueError, KeyError):
                 continue
-    for name, law_id, kind, art, needles in list(mod.checks()) + entries:
+    for name, law_id, kind, art, needles, *rest in list(mod.checks()) + entries:
+        normative_id = str(rest[0]) if rest else ""
         m = re.search(r"(\w+)\.lean", name)
         if not m:
             continue
@@ -542,7 +545,12 @@ def checks_by_module():
         article = normalize_article(art) if art else article_from_name(name)
         if not article:
             continue
-        out.setdefault(base, {"law_id": law_id, "article": article, "needles": needles})
+        info = out.setdefault(base, {"law_id": law_id, "article": article,
+                                     "needles": needles, "normative_id": ""})
+        # Transcription checks predate unit pins; a pinned normative id is the
+        # stronger, more specific evidence and must not be lost to setdefault.
+        if normative_id and not info.get("normative_id"):
+            info["normative_id"] = normative_id
     return out
 
 
@@ -605,6 +613,13 @@ def build() -> dict:
 
         for t in tasks:
             if t.get("law_id") != info["law_id"] or t.get("article") != info["article"]:
+                continue
+            # A pin may bind a module to ONE normative unit. This is required
+            # when the same sentence/rate recurs in another paragraph of the
+            # same article: without the pin, both clauses would inherit proof
+            # evidence from a model that only covers the pinned clause.
+            pinned_uid = info.get("normative_id", "")
+            if pinned_uid and t.get("normative_id") != pinned_uid:
                 continue
             if t.get("kind") not in VERIFIABLE_KINDS or t.get("unhandled_conditions"):
                 continue

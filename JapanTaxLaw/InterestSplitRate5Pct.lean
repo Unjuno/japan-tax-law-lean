@@ -7,7 +7,10 @@ Pinned sources:
   Law id: 325AC0000000226 (地方税法)
   Revision: 325AC0000000226_20261101_508AC0000000002 (enforced 2026-11-01)
   Raw snapshot: data/raw/325AC0000000226_20261101_508AC0000000002.law.json
-  Article Num 71_6, Paragraph Num 1, Sentence 1 (exact source_path below).
+  Article Num 71_6, Paragraph Num 1, Sentence 1.
+  Exact source_path:
+  LawBody[2]/MainProvision/MainProvision[1]/Article:71_6/Article#71_6/Paragraph#1/ParagraphSentence/Sentence#1
+  Normative unit: NORM|7e5f5d2a586ff79c2ee3e9c86d120d3180ba67a3d00fd8a4dba9ab376ba02b5a
   SHA-256 (raw bytes): 3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53
 
 Verbatim 原文 needle, scoped to Article 71_6 / Paragraph 1:
