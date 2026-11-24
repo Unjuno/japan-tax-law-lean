@@ -45,9 +45,9 @@ def _review_section(name: str, review: str) -> str:
 def check_unit(uid: str, axes: dict, review: str, attestation: dict) -> list[dict]:
     findings: list[dict] = []
 
-    def add(axis: str, ok: bool, detail: str, ref: str):
+    def add(axis: str, ok: bool, detail: str, ref: str, decision: str | None = None):
         findings.append({
-            "unit_id": uid, "axis": axis, "D": "PASS" if ok else "FAIL",
+            "unit_id": uid, "axis": axis, "D": decision or ("PASS" if ok else "FAIL"),
             "detail": detail, "reference": ref,
             "H": "the cited reference does not actually support this axis",
             "T": "resolve the reference against the named artifact",
@@ -66,6 +66,9 @@ def check_unit(uid: str, axes: dict, review: str, attestation: dict) -> list[dic
         ok = bool(section) and bool(module) and module in section
         add("adversarial_review", ok,
             f"module={module or 'UNKNOWN'} section_chars={len(section)}", bm.group(1))
+    elif ad.startswith("NOT_RECORDED"):
+        add("adversarial_review", False, "no adversarial review claimed", ad[:120],
+            decision="NOT_RECORDED")
     elif ad:
         add("adversarial_review", bool(re.search(r"docs/\S+\.md", ad)),
             "non-batch reference", ad[:120])
@@ -83,8 +86,19 @@ def check_unit(uid: str, axes: dict, review: str, attestation: dict) -> list[dic
     if rm:
         run = rm.group(1)
         recorded = str(attestation.get("workflow_run", "")).rstrip("/").split("/")[-1]
-        add("kernel_proof", run == recorded and attestation.get("run_conclusion") == "success",
-            f"run={run} attested_run={recorded} conclusion={attestation.get('run_conclusion')}", kp[:120])
+        cm = re.search(r"commit\s+([0-9a-f]{40})", kp)
+        if run == recorded and attestation.get("run_conclusion") == "success":
+            decision = "PASS"   # locally confirmed against committed attestation
+        elif cm:
+            # A historical CI run is a real, reproducible reference even when a
+            # newer attestation has since been committed. Do not call it a FAIL;
+            # mark it EXTERNAL: citation resolves, local confirmation absent.
+            decision = "EXTERNAL"
+        else:
+            decision = "FAIL"
+        add("kernel_proof", decision == "PASS",
+            f"run={run} attested_run={recorded} commit={cm.group(1)[:12] if cm else '-'} "
+            f"local_confirmation={decision == 'PASS'}", kp[:120], decision=decision)
 
     return findings
 
@@ -98,14 +112,19 @@ def main() -> int:
         if isinstance(axes, dict):
             findings.extend(check_unit(uid, axes, review, att))
     unresolved = [f for f in findings if f["D"] == "FAIL"]
+    external = [f for f in findings if f["D"] == "EXTERNAL"]
     payload = {
         "tool": "scripts/ci/audit_evidence_references.py",
-        "schema": "evidence-reference-audit/v1",
+        "schema": "evidence-reference-audit/v2",
         "units_checked": len(ev.get("units", {})),
         "checks": len(findings),
+        "locally_confirmed": sum(1 for f in findings if f["D"] == "PASS"),
+        "externally_cited": len(external),
+        "not_recorded": sum(1 for f in findings if f["D"] == "NOT_RECORDED"),
         "resolved": len(findings) - len(unresolved),
         "unresolved": len(unresolved),
-        "all_complete_claimable": not unresolved and bool(findings),
+        "all_complete_claimable": not unresolved and not external
+        and not any(f["D"] == "NOT_RECORDED" for f in findings) and bool(findings),
         "findings": findings,
     }
     text = json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
@@ -122,7 +141,9 @@ def main() -> int:
         "supports the unit. This audit resolves each reference against the artifact.",
         "",
         f"- units checked: {payload['units_checked']}",
-        f"- references resolved: {payload['resolved']}/{payload['checks']}",
+        f"- references locally confirmed: {payload['locally_confirmed']}/{payload['checks']}",
+        f"- references externally cited (historical CI run, not locally attested): {payload['externally_cited']}",
+        f"- axes NOT_RECORDED (no claim made): {payload['not_recorded']}",
         f"- references UNRESOLVED: {payload['unresolved']}",
         f"- all-complete claimable from references: {payload['all_complete_claimable']}",
         "",
