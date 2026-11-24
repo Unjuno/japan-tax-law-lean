@@ -2731,6 +2731,23 @@
         2
       ]
     },
+    "InheritanceGiftTaxRateBracket3M4M": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "三百万",
+        "四百万"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 18,
+      "needles_scoped": true,
+      "scoped_article_chars": 253,
+      "spec_literals": [
+        3000000,
+        4000000
+      ]
+    },
     "InheritanceGiftTaxRateBracket4M6M": {
       "adversarial_review": false,
       "boundary_examples_found": 0,
@@ -2752,6 +2769,23 @@
         4000001,
         6000000,
         6000001
+      ]
+    },
+    "InheritanceGiftTaxRateBracket6M10M": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "六百万",
+        "千万"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 18,
+      "needles_scoped": true,
+      "scoped_article_chars": 253,
+      "spec_literals": [
+        6000000,
+        10000000
       ]
     },
     "InheritanceRegPrescribedAmount": {
@@ -2807,6 +2841,21 @@
       "spec_literals": [
         25,
         30
+      ]
+    },
+    "InheritanceResidualPeriod10Years": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "十"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 10,
+      "needles_scoped": true,
+      "scoped_article_chars": 444,
+      "spec_literals": [
+        10
       ]
     },
     "InheritanceSuccessiveDeduction": {
@@ -2999,6 +3048,23 @@
         200000001
       ]
     },
+    "InheritanceTaxRateBracket10_30": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "三千万",
+        "千万"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 18,
+      "needles_scoped": true,
+      "scoped_article_chars": 437,
+      "spec_literals": [
+        10000000,
+        30000000
+      ]
+    },
     "InheritanceTaxRateBracket200_300": {
       "adversarial_review": false,
       "boundary_examples_found": 0,
@@ -3046,26 +3112,20 @@
       ]
     },
     "InheritanceTaxRateBracket30_50": {
-      "adversarial_review": false,
-      "boundary_examples_found": 0,
-      "independent_spec": false,
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
       "kanji_literals": [
         "三千万",
-        "三千万一",
-        "二",
-        "五千万",
-        "五千万一"
+        "五千万"
       ],
-      "kernel_attested": true,
-      "kernel_decided_examples": 7,
+      "kernel_attested": false,
+      "kernel_decided_examples": 18,
       "needles_scoped": true,
       "scoped_article_chars": 437,
       "spec_literals": [
-        2,
         30000000,
-        30000001,
-        50000000,
-        50000001
+        50000000
       ]
     },
     "InheritedPropertyTransferGain": {

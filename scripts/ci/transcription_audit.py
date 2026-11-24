@@ -1649,6 +1649,24 @@ def checks():
            "article", "第二十一条の七",
            ["\u5343\u4e94\u767e\u4e07\u5186\u3092\u8d85\u3048\u4e09\u5343\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
 
+    # Additional dependency-free 相続税法 table-cell brackets and one period band.
+    yield ("gift-tax rate bracket 3M-4M - InheritanceGiftTaxRateBracket3M4M.lean",
+           "325AC0000000073",
+           "article", "第二十一条の七",
+           ["\u4e09\u767e\u4e07\u5186\u3092\u8d85\u3048\u56db\u767e\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+    yield ("gift-tax rate bracket 6M-10M - InheritanceGiftTaxRateBracket6M10M.lean",
+           "325AC0000000073",
+           "article", "第二十一条の七",
+           ["\u516d\u767e\u4e07\u5186\u3092\u8d85\u3048\u5343\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+    yield ("inheritance-tax rate bracket 10M-30M - InheritanceTaxRateBracket10_30.lean",
+           "325AC0000000073",
+           "article", "第十六条",
+           ["\u5343\u4e07\u5186\u3092\u8d85\u3048\u4e09\u5343\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+    yield ("residual period <= 10 years - InheritanceResidualPeriod10Years.lean",
+           "325AC0000000073",
+           "article", "第二十三条",
+           ["\u6b8b\u5b58\u671f\u9593\u304c\u5341\u5e74\u4ee5\u4e0b\u306e\u3082\u306e"])
+
     # LocalTaxArt734AmountTier1.lean - NORM|41efee8e... (dual amount 120k/140k yen CONDITION, law 325AC0000000226)
     # Needle is in MainProvision Article 734 (Paragraph 3, table cell, Sentence 1);
     # find_article_text(...,"第七百三十四条") returns that article (len 2046) with needle -
