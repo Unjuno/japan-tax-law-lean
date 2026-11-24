@@ -3888,6 +3888,13 @@ def checks():
            "article", "第五条",
            ["令和八年三月において、令和七年度三月震災復興特別交付税額は、前条の規定によって算定した額から第一号の額を減額した後の額に第二号の額を加算した額（同号の額が負数となるときは、当該負数となる額に相当する額を減額した額）から第三号の額を減額した額とする。"])
 
+    # DisasterTaxReliefOrderArt10Item5FieldCondition.lean - NORM|776e380c... (災害被害者租税減免法施行政令 art.10(1) item5 CONDITION, law 322CO0000000268)
+    # Article-kind locator; needle is the item-5 required-entry sentence.
+    yield ("disaster tax relief order art.10 item5 field condition - DisasterTaxReliefOrderArt10Item5FieldCondition.lean",
+           "322CO0000000268",
+           "article", "\u7b2c\u5341\u6761",
+           ["\u5fb4\u53ce\u7336\u4e88\u9650\u5ea6\u984d\u53c8\u306f\u5fb4\u53ce\u7336\u4e88\u671f\u9593\u53ca\u3073\u3053\u308c\u3089\u306e\u8a08\u7b97\u306e\u57fa\u790e"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
