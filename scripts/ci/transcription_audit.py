@@ -3956,10 +3956,6 @@ def checks():
 
     # DisasterTaxReliefOrderArt10Item5FieldCondition.lean (restored after merge dropped it)
     # NORM|776e380c… 災害被害者租税減免法施行政令 art.10(1) item5 CONDITION.
-    yield ("DisasterTaxReliefOrderArt10Item5FieldCondition.lean — 災害被害者租税減免法施行令 art.10(1) item5 CONDITION",
-           "322CO0000000268",
-           "article", "第十条",
-           ["徴収猶予限度額又は徴収猶予期間及びこれらの計算の基礎"])
 
     # 地方法人税法 art. 2 — LocalCorpMaxCapital.lean
     yield ("法人臨時特別税政令 art. 2（被合併法人二以上の最大額選択）↔ LocalCorpMaxCapital.lean (max selection, trigger >=2)",
@@ -4075,6 +4071,45 @@ def checks():
     yield ("地方税法 art. 11_2（附則 不動産取得税標準税率3%）↔ PropertyAcquisitionSpecialRate3.lean",
            "325AC0000000226", "file", None,
            ["不動産取得税の標準税率は、第七十三条の十五の規定にかかわらず、百分の三とする。"])
+
+    yield ("disaster tax relief order art.10 item5 field condition - DisasterTaxReliefOrderArt10Item5FieldCondition.lean",
+           "322CO0000000268",
+           "article", "\u7b2c\u5341\u6761",
+           ["\u5fb4\u53ce\u7336\u4e88\u9650\u5ea6\u984d\u53c8\u306f\u5fb4\u53ce\u7336\u4e88\u671f\u9593\u53ca\u3073\u3053\u308c\u3089\u306e\u8a08\u7b97\u306e\u57fa\u790e"])
+
+
+    # 租税特別措置法 art. 10(3)(3) 控除割増率 — RndSurchargeRate.lean
+    yield ("租税特別措置法 art. 10（試験研究費割合の控除割増率: (割合-10%)*2、三位未満切捨て、10%上限）↔ RndSurchargeRate.lean",
+           "332AC0000000026",
+           "file", None,
+           ["当該試験研究費割合から百分の十を控除した割合に二を乗じて計算した割合（当該割合に小数点以下三位未満の端数があるときはこれを切り捨てた割合とし、当該計算した割合が百分の十を超えるときは百分の十とする。）"])
+
+    # 所得税法施行令 art. 83_2 — SpouseIncomeCeiling950k.lean
+    yield ("所得税法施行令 art. 83_2（配偶者の合計所得金額 九十五万円以下）↔ SpouseIncomeCeiling950k.lean",
+           "340AC0000000033",
+           "file", None,
+           ["合計所得金額が九十五万円以下である配偶者"])
+
+    yield ("租税特別措置法 art. 10（試験研究費割合の控除割増率: (割合-10%)*2、三位未満切捨て、10%上限）↔ RndSurchargeRate.lean",
+           "332AC0000000026",
+           "file", None,
+           ["当該試験研究費割合から百分の十を控除した割合に二を乗じて計算した割合（当該割合に小数点以下三位未満の端数があるときはこれを切り捨てた割合とし、当該計算した割合が百分の十を超えるときは百分の十とする。）"])
+
+    # 地方税法 art. 12の5 — MotorVehicleTaxShortfallSurcharge35.lean (自動車税 35%)
+    yield ("地方税法 art. 12_5（自動車税 不足額加算35%）↔ MotorVehicleTaxShortfallSurcharge35.lean",
+           "325AC0000000226", "file", None,
+           ["同項の不足額に、これに百分の三十五の割合を乗じて計算した金額を加算した金額とする。"])
+
+
+    yield ("地方税法 art. 12_5（自動車税 不足額加算35%）↔ MotorVehicleTaxShortfallSurcharge35.lean",
+           "325AC0000000226", "file", None,
+           ["同項の不足額に、これに百分の三十五の割合を乗じて計算した金額を加算した金額とする。"])
+
+    # 地方税法 art. 30の2 — LightMotorVehicleTaxShortfallSurcharge35.lean (軽自動車税 35%)
+    yield ("地方税法 art. 30_2（軽自動車税 不足額加算35%）↔ LightMotorVehicleTaxShortfallSurcharge35.lean",
+           "325AC0000000226", "file", None,
+           ["同項の不足額に、これに百分の三十五の割合を乗じて計算した金額を加算した金額とする。"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
