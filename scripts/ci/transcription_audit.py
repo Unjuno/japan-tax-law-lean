@@ -4257,6 +4257,15 @@ def checks():
            ["これらの者の前年の合計所得金額が百三十五万円を超える場合を除く。"])
 
 
+    # 相続税法 art. 69 — InheritanceTaxLateFilingFineCap500k.lean (50万円)
+    yield ("相続税法 art. 69（無申告罰金上限50万円）↔ InheritanceTaxLateFilingFineCap500k.lean",
+           "325AC0000000073", "file", None,
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+    # 地方税法 art. 55の2 — LocalTaxDeferralSmallAmountException1M.lean (100万円)
+    yield ("地方税法 art. 55_2（納税猶予100万円例外）↔ LocalTaxDeferralSmallAmountException1M.lean",
+           "325AC0000000226", "file", None,
+           ["その猶予に係る税額が百万円以下である場合"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
