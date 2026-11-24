@@ -13,17 +13,17 @@ obligations being complete. SKIP is never counted as PASS.
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: 9041d98f7a3c99b9fbfe78a70872d210be50d3e8
-- current HEAD commit: e6bd335ad684245fa9f63cf4bcb9bc263518b784
+- current HEAD commit: be54ed8b64afd95ad5a09acf28fa956be97bce24
 - results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all TECHNICAL obligations complete (human review excluded)
 
 - normative units: 396854
-- NOT_STARTED: 396066
+- NOT_STARTED: 396067
 - PARTIAL: 0
 - PROVED_SCOPE: 1
-- FULLY_VERIFIED: 785
+- FULLY_VERIFIED: 784
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180617
