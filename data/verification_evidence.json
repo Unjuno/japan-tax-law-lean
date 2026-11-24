@@ -379,6 +379,19 @@
       "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:25_16/Article#25_16/Paragraph#3/ParagraphSentence/Sentence#1 sha256=d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/InheritedPropertyTransferGainTests.lean sha256=4b99c0d14afdc2f65b45d5618a1a54d49c781acf56b6556a3703dfb7997464da (19 kernel-decided examples)"
     },
+    "NORM|7e5f5d2a586ff79c2ee3e9c86d120d3180ba67a3d00fd8a4dba9ab376ba02b5a": {
+      "adversarial_review": "docs/ADVERSARIAL_INTEREST_RATE_5.md H/T/D/C/U; percent-vs-per-mille and floor-rounding scope recorded",
+      "boundary_proof": "InterestRateFivePercentTests.lean kernel-decided bases 0/1/20/100/1,000 with positivity-typed denominator",
+      "cross_law_proof": "dependencies=[]",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/InterestRateFivePercent.lean sha256=00fc9836ffbe5659d6bed84abe41bb7a8f9d17ee324b690f001960c6935fee82",
+      "independent_spec": "JapanTaxLaw/InterestRateFivePercentSpec.lean sha256=02576c6317ebf8c49fb76015d34498390dc5ec30f58f5564fb8dcc11a24b64a0; specFraction=(5,100), specAmount independent of TaxRate",
+      "kernel_proof": "lake build JapanTaxLaw.InterestRateFivePercentTests: Build completed successfully (5 jobs); rate_components/exact_base: no axioms; agree_spec_impl: standard propext",
+      "proof_scope": "agree_spec_impl universal over every base amount; only the 5% rate, not the tax base or rounding rule",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; percent_numerators=[5]; constants_checked=[5,100]; missing=[]",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:71_6/Article#71_6/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53; verbatim located in art.71_6",
+      "tests": "JapanTaxLaw/InterestRateFivePercentTests.lean sha256=13f4457c18dfaa91496ff9b34635884a3fca42f23ef75edbeb2113f3c35b0623"
+    },
     "NORM|8065c2283d9d10cf29014ce9b3f325dab9a6c86ace649decf8fb1f237053e2aa": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",

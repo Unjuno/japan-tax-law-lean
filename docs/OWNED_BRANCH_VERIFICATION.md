@@ -43,12 +43,12 @@ Measured results on this branch (2026-11-20):
 
 ```
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=396801, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=51, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=396800, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=52, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=51 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=52 axes=11 unbacked=0
 12/12 invariants passed
 $ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
 
@@ -101,7 +101,15 @@ comparisons, agreement is universal over all Nat pairs, and boundaries for both
 caps are kernel-decided. H/T/D/C/U review records the AND-vs-OR competing
 reading and the dimension check.
 
-So 51 evidence-backed units left NOT_STARTED on this branch; the
+The 52nd unit is 地方税法 art. 71の6
+`NORM|7e5f5d2a…`: 「利子割の税率は、百分の五とする。」 — the 5% rate encoded
+as a `TaxRate` fraction 5/100 with a positivity-typed denominator (zero is
+unrepresentable). The independent spec computes from `(5, 100)` without using
+`TaxRate`, with universal agreement over every base amount. The source auditor
+now also parses 百分のX percentages (constants checked [5, 100], D=PASS).
+Floor rounding is recorded as a model choice, not a statutory claim.
+
+So 52 evidence-backed units left NOT_STARTED on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
 durable. `docs/TASK_QUEUE.md` is regenerated with these counts.

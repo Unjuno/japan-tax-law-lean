@@ -84,13 +84,19 @@ def main() -> int:
     # Scope the amounts to THIS normative unit's verbatim sentence, not the
     # whole article (other bands are separate units with their own evidence).
     amounts = sorted({kanji_number(m.group(1)) for m in AMOUNT_RE.finditer(verb)})
+    pct_nums = sorted({kanji_number(m.group(1)) for m in
+                       re.finditer(r"百分の([〇零一二三四五六七八九十百千]+)", verb)})
+    # A 百分のX rate has numerator X and implicit denominator 100; require both
+    # constants in the spec/implementation.
+    values = amounts + pct_nums + ([100] if pct_nums else [])
     spec = (REPO / unquote(a.spec)).read_text(encoding="utf-8")
     impl = (REPO / unquote(a.impl)).read_text(encoding="utf-8")
-    missing = [x for x in amounts if f"{x:_}" not in spec + impl and str(x) not in spec + impl]
-    ok = located and bool(amounts) and not missing
+    missing = [x for x in values if f"{x:_}" not in spec + impl and str(x) not in spec + impl]
+    ok = located and bool(values) and not missing
     print(json.dumps({
         "rule": "source_correspondence", "verbatim_located": located,
-        "amounts_in_source": amounts, "missing_in_spec_or_impl": missing,
+        "amounts_in_source": amounts, "percent_numerators": pct_nums,
+        "constants_checked": values, "missing_in_spec_or_impl": missing,
         "D": "PASS" if ok else "FAIL",
         "H": "the spec does not represent the pinned amount",
         "T": "re-extract pinned article, parse 漢数字, compare Lean constants",
