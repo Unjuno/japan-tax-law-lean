@@ -22,7 +22,7 @@
         "task_class": "TREATY_ACQUISITION"
       },
       {
-        "acquisition_evidence": "NTA-SHOTOKU-KIHON-20260630 sha256=2013978892d197fe08be0c1df03e40c8db2ef29ef6fec53500b4662041b1f473",
+        "acquisition_evidence": "NTA-SHOTOKU-KIHON-20260630 sha256=2013978892d197fe08be0c1df03e40c8db2ef29ef6fec53500b4662041b1f473, NTA-SHOTOKU-KIHON-20260331 sha256=db5966a57518ec9f8e3da4930cdf42ee7ccd936fc4e1d4d4ffc152f535362c0f",
         "formalization_evidence": "",
         "layer_id": "L4_CIRCULAR",
         "legal_review": "LEGAL_REVIEW_PENDING",
@@ -264,12 +264,33 @@
           "title_en": "Partial amendment to the Basic Income Tax Circular (statutory interpretation circular)",
           "title_ja": "「所得税基本通達の制定について」の一部改正について（法令解釈通達）",
           "verification": "PINNED_BYTES_ONLY"
+        },
+        {
+          "bytes": 79294,
+          "document_kind": "ADMINISTRATIVE_INTERPRETATION_CIRCULAR",
+          "document_kind_note": "法令解釈通達（食事支給の非課税上限月額7,500円への引上げ）。行政内部の取扱いであり L0 法源規範と混ぜない。",
+          "document_number": "課法12-1 課個2-3 課審5-1",
+          "formalization_status": "NOT_MODELLED",
+          "issue_date": "2026-03-31",
+          "issuer": "国税庁",
+          "layer_id": "L4_CIRCULAR",
+          "legal_review": "LEGAL_REVIEW_PENDING",
+          "local_path": "data/layers/L4_CIRCULAR/NTA_ShotokuKihonTsutatsu_20260331.pdf",
+          "media_type": "application/pdf",
+          "official_url": "https://www.nta.go.jp/law/tsutatsu/kihon/shotoku/kaisei/260331/index.htm",
+          "pdf_url": "https://www.nta.go.jp/law/tsutatsu/kihon/shotoku/kaisei/260331/pdf/01.pdf",
+          "retrieved_date": "2026-11-25",
+          "sha256": "db5966a57518ec9f8e3da4930cdf42ee7ccd936fc4e1d4d4ffc152f535362c0f",
+          "source_id": "NTA-SHOTOKU-KIHON-20260331",
+          "title_en": "Partial amendment to the Basic Income Tax Circular (2026-03-31)",
+          "title_ja": "「所得税基本通達の制定について」の一部改正について（法令解釈通達）",
+          "verification": "PINNED_BYTES_ONLY"
         }
       ],
       "authority": "国税庁 / 総務省",
       "auxiliary": true,
       "backlog": {
-        "acquisition_evidence": "NTA-SHOTOKU-KIHON-20260630 sha256=2013978892d197fe08be0c1df03e40c8db2ef29ef6fec53500b4662041b1f473",
+        "acquisition_evidence": "NTA-SHOTOKU-KIHON-20260630 sha256=2013978892d197fe08be0c1df03e40c8db2ef29ef6fec53500b4662041b1f473, NTA-SHOTOKU-KIHON-20260331 sha256=db5966a57518ec9f8e3da4930cdf42ee7ccd936fc4e1d4d4ffc152f535362c0f",
         "formalization_evidence": "",
         "layer_id": "L4_CIRCULAR",
         "legal_review": "LEGAL_REVIEW_PENDING",
@@ -277,13 +298,13 @@
         "status": "PARTIAL",
         "task_class": "CIRCULAR_ACQUISITION"
       },
-      "count": 1,
-      "count_acquired": 1,
+      "count": 2,
+      "count_acquired": 2,
       "label_ja": "通達",
       "layer_id": "L4_CIRCULAR",
       "legal_nature": "行政通達（法的拘束力は条文ではなく行政内部）",
       "notes": "解釈資料レイヤーとして原文 bytes を pin 済み（形式化・人間レビュー未実施）。法源規範ではなく行政内部の取扱いとして L0 と分離。",
-      "pinned_snapshot": "NTA-SHOTOKU-KIHON-20260630",
+      "pinned_snapshot": "NTA-SHOTOKU-KIHON-20260630, NTA-SHOTOKU-KIHON-20260331",
       "scope_status": "IN_SCOPE_INTERPRETATION_BACKLOG",
       "verification_status": "PINNED_BYTES_ONLY"
     },
