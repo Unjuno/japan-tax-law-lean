@@ -1982,3 +1982,6 @@ import JapanTaxLaw.WidowDependentIncomeCeiling5MTests
 import JapanTaxLaw.WirePitch165nm
 import JapanTaxLaw.WirePitch165nmSpec
 import JapanTaxLaw.WirePitch165nmTests
+import JapanTaxLaw.SecrecyBreachPenaltyCeilings
+import JapanTaxLaw.SecrecyBreachPenaltyCeilingsSpec
+import JapanTaxLaw.SecrecyBreachPenaltyCeilingsTests
