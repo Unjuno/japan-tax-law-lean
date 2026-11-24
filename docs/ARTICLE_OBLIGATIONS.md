@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 253
-- presence-facts-only complete: 253
-- NOT_STARTED: 253
+- articles with explicit pin: 258
+- presence-facts-only complete: 258
+- NOT_STARTED: 258
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -17,6 +17,7 @@ source positions. Human legal review is a separate axis and is pending.
 
 | law_id | article | module | presence | scoped | review | authoritative status |
 |---|---|---|---|---|---|---|
+| `346AC0000000090` | 第四条 | AutoWeightGrantRounding | YES | YES | YES | NOT_STARTED |
 | `340AC0000000034` | 第六十六条 | CorporateTaxRate | YES | YES | YES | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の七 | GiftTax | YES | YES | YES | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の五 | GiftTax | YES | YES | YES | NOT_STARTED |
@@ -85,6 +86,7 @@ source positions. Human legal review is a separate axis and is pending.
 | `143AC0000000054` | 第六条 | CustomsTariffArt6RetaliatoryDelegation | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第七条 | CustomsTariffArt7ProvisionalPeriod | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第七条 | CustomsTariffArt7InvestigationDeadline | YES | YES | NO | NOT_STARTED |
+| `143AC0000000054` | 第七条 | InvestigationExtensionSixMonths | YES | YES | YES | NOT_STARTED |
 | `143AC0000000054` | 第十四条 | CustomsTariffArt14ProvisoReading | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十二条 | CustomsTariffArt12MiningEmergencyCondition | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十五条 | CustomsTariffArt15ReligiousGiftDelegation | YES | YES | NO | NOT_STARTED |
@@ -269,4 +271,7 @@ source positions. Human legal review is a separate axis and is pending.
 | `325AC0000000226` | 第七十一条の六 | InterestSplitRate5Pct | YES | YES | NO | NOT_STARTED |
 | `330AC0000000104` | 第十五条 | LocalGasolineArt15TripleFineRange | YES | YES | NO | NOT_STARTED |
 | `325AC0000000073` | 第十条 | InheritanceTaxArt10ShipAircraftLocationException | YES | YES | NO | NOT_STARTED |
+| `332AC0000000026` | 第四十一条の十八 | SpecialIncomeTaxCreditCap25 | YES | YES | NO | NOT_STARTED |
 | `426CO0000000139` | 第六条 | FilingDateException | YES | YES | NO | NOT_STARTED |
+| `426CO0000000139` | 第六条 | FilingDateException | YES | YES | NO | NOT_STARTED |
+| `325AC0000000073` | 第二十五条 | InheritanceTaxArt25LumpSumPremiumCondition | YES | YES | NO | NOT_STARTED |
