@@ -1127,6 +1127,9 @@ import JapanTaxLaw.CorpFiscalYearArt72_13Tests
 import JapanTaxLaw.FactAssertionConditions
 import JapanTaxLaw.FactAssertionConditionsSpec
 import JapanTaxLaw.FactAssertionConditionsTests
+import JapanTaxLaw.NegativeFactConditions
+import JapanTaxLaw.NegativeFactConditionsSpec
+import JapanTaxLaw.NegativeFactConditionsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
