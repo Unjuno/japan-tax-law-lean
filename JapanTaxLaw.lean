@@ -503,6 +503,9 @@ import JapanTaxLaw.DependentAge13Tests
 import JapanTaxLaw.DependentAgeSupport
 import JapanTaxLaw.DependentAgeSupportSpec
 import JapanTaxLaw.DependentAgeSupportTests
+import JapanTaxLaw.DisasterExciseTaxCredit
+import JapanTaxLaw.DisasterExciseTaxCreditSpec
+import JapanTaxLaw.DisasterExciseTaxCreditTests
 import JapanTaxLaw.DisasterExpense50k
 import JapanTaxLaw.DisasterExpense50kSpec
 import JapanTaxLaw.DisasterExpense50kTests
