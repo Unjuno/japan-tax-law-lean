@@ -3780,6 +3780,54 @@ def checks():
            "file", None,
            ["当該課税事業年度開始の時における資本金の額、出資金の額その他これらに類するものとして政令で定める金額が一億円を超える法人"])
 
+# 過料 十万円以下 — LiquorFine100k.lean
+    yield ("酒税の保全及び酒類業組合等に関する法律 art. 101（過料 十万円以下）↔ LiquorFine100k.lean (liquorFineCap100k 100000)",
+           "328AC0000000007",
+           "file", None,
+           ["次の各号のいずれかに該当する場合においては、酒類業組合等の発起人、理事、監事若しくは清算人又は酒類製造業者若しくは酒類販売業者は、十万円以下の過料に処する。"])
+
+    # 施行地区の面積 二千平方メートル以上 — UrbanDev2000sqm.lean
+    yield ("租税特別措置法施行令 art. 25_4（施行地区の面積 二千平方メートル以上）↔ UrbanDev2000sqm.lean (urbanDevFloor2000 2000)",
+           "332CO0000000043",
+           "file", None,
+           ["当該集約都市開発事業の施行される土地の区域（以下この項において「施行地区」という。）の面積が二千平方メートル以上であること。"])
+
+    # 建築面積 百五十平方メートル以上 — BuildingSite150sqm.lean
+    yield ("租税特別措置法施行令 art. 43_3（建築面積 百五十平方メートル以上）↔ BuildingSite150sqm.lean (siteFloor150 150)",
+           "332CO0000000043",
+           "file", None,
+           ["当該建築物に係る建築面積が百五十平方メートル以上であること。"])
+
+    # 試みの使用期間 十四日超 — TrialPeriod14Days.lean
+    yield ("租税特別措置法施行規則 art. 21_17_3（試みの使用期間 十四日超）↔ TrialPeriod14Days.lean (trialLimit14 14)",
+           "332M50000040015",
+           "file", None,
+           ["試みの使用期間中の者（十四日を超えて引き続き使用されるに至つた者を除く。）"])
+
+    # 国外事業所等の金額 千万円以下 — ForeignCorpDeduction10M.lean
+    yield ("法人税法施行令 art. 141_6（国外事業所等の金額 千万円以下）↔ ForeignCorpDeduction10M.lean (foreignDeductionCap10M 10000000)",
+           "340CO0000000097",
+           "file", None,
+           ["当該国外事業所等に係る前項の規定により計算した金額が千万円以下であるとき。"])
+
+    # 単位数 十七単位以上 — CorpCourseUnits17.lean
+    yield ("法人税法施行規則 art. 7（単位数 十七単位以上）↔ CorpCourseUnits17.lean (corpUnitsFloor17 17)",
+           "340M50000040012",
+           "file", None,
+           ["その修業期間を通ずる単位数をその修業期間の年数で除して計算した単位数が十七単位以上であること。"])
+
+    # 資本金の額 一億円超（公益法人等を除く） — PublicCorpCapital100M.lean
+    yield ("法人税法施行規則 art. 36_4（資本金の額 一億円超（公益法人等を除く））↔ PublicCorpCapital100M.lean (publicCapitalFloor100M 100000000)",
+           "340M50000040012",
+           "file", None,
+           ["その設立の時における資本金の額又は出資金の額が一億円を超える法人（公益法人等を除く。）"])
+
+    # 関税等不服審査会 委員二十人以内 — CustomsBoard20.lean
+    yield ("関税等不服審査会令 art. 1（関税等不服審査会 委員二十人以内）↔ CustomsBoard20.lean (boardCap20 20)",
+           "412CO0000000277",
+           "file", None,
+           ["関税等不服審査会（以下「審査会」という。）は、委員二十人以内で組織する。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
