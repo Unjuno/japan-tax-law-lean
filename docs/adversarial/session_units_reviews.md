@@ -929,3 +929,59 @@ H/T/D/C/U record:
 - **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### LiquorFine500k.lean — 酒税の保全及び酒類業組合等に関する法律 art. 98（罰金 五十万円以下）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `328AC0000000007` / revision `328AC0000000007_20250601_504AC0000000068`; needle 1/1 FOUND verbatim-unique in the pinned law, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/499999/500000/500001 円 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### Vessel500Ton.lean — 地方税法施行規則 art. 11_2（総トン数 五百トン以上の船舶）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `329M50000002023` / revision `329M50000002023_20261101_508M60000008045`; needle 1/1 FOUND verbatim-unique in the pinned law, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/499/500/501 t を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### Warehouse3000sqm.lean — 地方税法施行規則 art. 3_2_10（倉庫の床面積 三千平方メートル以上）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `329M50000002023` / revision `329M50000002023_20261101_508M60000008045`; needle 1/1 FOUND verbatim-unique in the pinned law, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/2999/3000/3001 ㎡ を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**
+
+### CourseUnits31.lean — 所得税法施行令 art. 11_3（修業期間の単位数 三十一単位以上）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `340CO0000000096` / revision `340CO0000000096_20260522_508CO0000000093`; needle 1/1 FOUND verbatim-unique in the pinned law, transcription audit check added.
+- **H**: 原文の数値閾値を独立仕様の strict 比較として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値 0/30/31/32 単位 を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項・入力額は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接 parse・needle `.find()` 検証・境界値 kernel-decide 走査）。人間の法律専門家によるレビューではない。**

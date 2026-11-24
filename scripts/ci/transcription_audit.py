@@ -2312,12 +2312,6 @@ def checks():
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
 
-    # DutyFreeLightOilOrderEnforcementDate — cycle-106
-    yield ("DutyFreeLightOilOrderEnforcementDate.lean",
-           "331M50000002047",
-           "file", None,
-           ["第一条この省令は、平成元年十月一日から施行する", "この省令は、平成元年十月一日から施行する"])
-
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3708,12 +3702,29 @@ def checks():
            "law", None,
            ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u5e73\u6210\u5143\u5e74\u56db\u6708\u4e00\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
 
-    # 公債収入 art. 2 — HeiseiFY6Attribution.lean
-    yield ("公債収入 art. 2（平成6年度所属の歳入）↔ HeiseiFY6Attribution.lean (single-year FY attribution 6)",
-           "406AC0000000108",
-           "article", "第二条",
-           ["この場合において、同年四月一日以後発行される同項の公債に係る収入は、平成六年度所属の歳入とする。"])
+# 罰金 五十万円以下 — LiquorFine500k.lean
+    yield ("酒税の保全及び酒類業組合等に関する法律 art. 98（罰金 五十万円以下）↔ LiquorFine500k.lean (liquorFineCap500k 500000)",
+           "328AC0000000007",
+           "file", None,
+           ["次の各号のいずれかに該当する者は、五十万円以下の罰金に処する。"])
 
+    # 総トン数 五百トン以上の船舶 — Vessel500Ton.lean
+    yield ("地方税法施行規則 art. 11_2（総トン数 五百トン以上の船舶）↔ Vessel500Ton.lean (vesselFloor500 500)",
+           "329M50000002023",
+           "file", None,
+           ["総トン数五百トン以上の船舶であつて、総務大臣が当該船舶の構造、資格等からみて主として遠洋区域を航行区域とすると認めるもの"])
+
+    # 倉庫の床面積 三千平方メートル以上 — Warehouse3000sqm.lean
+    yield ("地方税法施行規則 art. 3_2_10（倉庫の床面積 三千平方メートル以上）↔ Warehouse3000sqm.lean (warehouseFloor3000 3000)",
+           "329M50000002023",
+           "file", None,
+           ["倉庫（床面積が三千平方メートル以上のものに限る。）であつて、流通加工の用に供する空間を有するもの"])
+
+    # 修業期間の単位数 三十一単位以上 — CourseUnits31.lean
+    yield ("所得税法施行令 art. 11_3（修業期間の単位数 三十一単位以上）↔ CourseUnits31.lean (unitsFloor31 31)",
+           "340CO0000000096",
+           "file", None,
+           ["その修業期間を通ずる単位数をその修業期間の年数に相当する数で除して計算した単位数が三十一単位以上であること（次に掲げる場合には、それぞれ次に定める事項）。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
