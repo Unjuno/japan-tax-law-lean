@@ -3649,6 +3649,13 @@ def checks():
            "article", "\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067",
            ["\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067", "\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067\u524a\u9664"])
 
+    # CustomsTariffSupplArt1Heisei1EnforcementDate.lean - NORM|c1eba0f6... (関税定率法 附則1 施行期日 REFERENCE, law 143AC0000000054)
+    # Whole-law locator (multiple 第一条 nodes; 元=1/四月/一日 parsed from needle).
+    yield ("customs tariff suppl art.1 heisei-1 enforcement date - CustomsTariffSupplArt1Heisei1EnforcementDate.lean",
+           "143AC0000000054",
+           "law", None,
+           ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u5e73\u6210\u5143\u5e74\u56db\u6708\u4e00\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
