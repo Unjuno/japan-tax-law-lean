@@ -42,7 +42,25 @@ def _review_section(name: str, review: str) -> str:
     return m.group(1) if m else ""
 
 
-def check_unit(uid: str, axes: dict, review: str, attestation: dict) -> list[dict]:
+def run_id(url: str) -> str:
+    return str(url or "").rstrip("/").split("/")[-1]
+
+
+def attestations_for_run(run: str, primary: dict, scoped: list[dict]) -> list[dict]:
+    """Bind a kernel_proof reference to the attestation that actually names it.
+
+    Scoped attestations are bound to their own CI runs and commits. Resolving
+    every reference against only the main attestation produced false FAILs for
+    units whose proof was built in an earlier green run. The choice is still
+    evidence-backed: the run id in the reference must be the run id recorded in
+    the attestation, and that attestation's Lean job must have succeeded.
+    """
+    matches = [a for a in [primary] + scoped if run_id(a.get("workflow_run", "")) == run]
+    return matches or [primary]
+
+
+def check_unit(uid: str, axes: dict, review: str, attestation: dict,
+               scoped_attestations: list[dict] | None = None) -> list[dict]:
     findings: list[dict] = []
 
     def add(axis: str, ok: bool, detail: str, ref: str):
@@ -82,9 +100,16 @@ def check_unit(uid: str, axes: dict, review: str, attestation: dict) -> list[dic
     rm = re.search(r"actions/runs/(\d+)", kp)
     if rm:
         run = rm.group(1)
-        recorded = str(attestation.get("workflow_run", "")).rstrip("/").split("/")[-1]
-        add("kernel_proof", run == recorded and attestation.get("run_conclusion") == "success",
-            f"run={run} attested_run={recorded} conclusion={attestation.get('run_conclusion')}", kp[:120])
+        candidate = attestations_for_run(run, attestation, scoped_attestations or [])
+        recorded = run_id(candidate[0].get("workflow_run", ""))
+        conclusion = candidate[0].get("run_conclusion")
+        honest = (conclusion == "success"
+                  or (candidate[0].get("scope") == "lean_job_only"
+                      and conclusion == "lean_job_only"))
+        job_ok = candidate[0].get("jobs", {}).get(
+            "Build Lean project and check axioms", {}).get("conclusion") == "success"
+        add("kernel_proof", run == recorded and honest and job_ok,
+            f"run={run} attested_run={recorded} conclusion={conclusion} job={job_ok}", kp[:120])
 
     return findings
 
@@ -92,11 +117,17 @@ def check_unit(uid: str, axes: dict, review: str, attestation: dict) -> list[dic
 def main() -> int:
     ev = json.loads(EVIDENCE.read_text(encoding="utf-8")) if EVIDENCE.exists() else {"units": {}}
     att = json.loads(ATTESTATION.read_text(encoding="utf-8")) if ATTESTATION.exists() else {}
+    scoped = []
+    for p in sorted((REPO / "data").glob("PROOF_ATTESTATION_SCOPED*.json")):
+        try:
+            scoped.append(json.loads(p.read_text(encoding="utf-8")))
+        except (ValueError, OSError):
+            continue
     review = _read(REPO / "docs" / "ADVERSARIAL_REVIEW.md")
     findings: list[dict] = []
     for uid, axes in ev.get("units", {}).items():
         if isinstance(axes, dict):
-            findings.extend(check_unit(uid, axes, review, att))
+            findings.extend(check_unit(uid, axes, review, att, scoped))
     unresolved = [f for f in findings if f["D"] == "FAIL"]
     payload = {
         "tool": "scripts/ci/audit_evidence_references.py",
