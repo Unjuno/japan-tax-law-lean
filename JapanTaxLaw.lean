@@ -1184,6 +1184,9 @@ import JapanTaxLaw.OccurrenceDateRefsTests
 import JapanTaxLaw.AmountDeterminationNorms
 import JapanTaxLaw.AmountDeterminationNormsSpec
 import JapanTaxLaw.AmountDeterminationNormsTests
+import JapanTaxLaw.MattersEnumerationNorms
+import JapanTaxLaw.MattersEnumerationNormsSpec
+import JapanTaxLaw.MattersEnumerationNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
