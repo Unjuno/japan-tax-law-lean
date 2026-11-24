@@ -21,7 +21,7 @@ Pinned source:
 Variable contract:
   `cohabitantFloor : Nat := 2` = 二人 (inclusive lower bound: 以上).
   `appliesReading (residents : Nat) : Bool := decide (cohabitantFloor <= residents)`.
-  Unit 人 (persons, cohabiting relatives); domain Nat.
+  Unit 人 (居住者 living with the relative specified in the preceding paragraph); domain Nat.
 
 Scope: ONLY the explicit numeric count that triggers the 準用 (reading-in) of
 所得税法施行令第二百五条第二項 is modelled. The content of that cross-law
@@ -36,7 +36,7 @@ namespace JapanTaxLaw.CohabitantReadingThresholdTwo
 /-- 二人 — inclusive lower bound (以上). Unit 人; domain Nat. -/
 def cohabitantFloor : Nat := 2
 
-/-- 「二人以上ある場合」: at least two cohabiting relatives. -/
+/-- 「二人以上ある場合」: at least two such 居住者. -/
 def appliesReading (residents : Nat) : Bool :=
   decide (cohabitantFloor <= residents)
 
