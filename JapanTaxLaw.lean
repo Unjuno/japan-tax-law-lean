@@ -1136,6 +1136,9 @@ import JapanTaxLaw.AmountSettingNormsTests
 import JapanTaxLaw.ImpositionCollectionEffects
 import JapanTaxLaw.ImpositionCollectionEffectsSpec
 import JapanTaxLaw.ImpositionCollectionEffectsTests
+import JapanTaxLaw.DocumentRequirementNorms
+import JapanTaxLaw.DocumentRequirementNormsSpec
+import JapanTaxLaw.DocumentRequirementNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
