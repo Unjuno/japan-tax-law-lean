@@ -4204,6 +4204,13 @@ def checks():
            "329M50000002023", "file", None,
            ["発行済株式等の百分の五十を超える数又は金額の株式等が同項の一方の者により保有されている場合"])
 
+    # DisasterTaxReliefOrderArt15_6PassengerCarReference.lean - NORM|bf32b450... (災害被害者租税減免法施行政令 art.15_6 REFERENCE, law 322CO0000000268)
+    # Article-kind locator; cross-law reference resolved_by_name in queue deps.
+    yield ("disaster tax relief order art.15-6 passenger car reference - DisasterTaxReliefOrderArt15_6PassengerCarReference.lean",
+           "322CO0000000268",
+           "article", "\u7b2c\u5341\u4e94\u6761\u306e\u516d",
+           ["\u81ea\u52d5\u8eca\u91cd\u91cf\u7a0e\u6cd5\u7b2c\u4e03\u6761\u7b2c\u4e8c\u9805\u7b2c\u4e00\u53f7\u306b\u898f\u5b9a\u3059\u308b\u4e57\u7528\u81ea\u52d5\u8eca"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
