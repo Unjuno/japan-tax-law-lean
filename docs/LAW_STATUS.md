@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 173
+- with >=1 pinned literal check (semantic model): 174
 - with recorded human legal review: 0
 
 ## All laws
@@ -28,7 +28,7 @@ a completion flag.
 | `325M50000040021` | 税務官署における収入官吏及び出納員並びに歳入歳出外現金出納官吏の備えるべき現金領収証書に | 325M50000040021_20260924_508M60000040059 | CurrentEnforced | YES | ok | 15 | NO (0) | NO |
 | `325M50000040022` | 相続税の物納財産収納後の手続等に関する省令 | 325M50000040022_20210401_503M60000040030 | CurrentEnforced | YES | ok | 24 | YES (1) | NO |
 | `325AC0000000211` | 地方交付税法 | 325AC0000000211_20261102_508AC0000000062 | CurrentEnforced | YES | ok | 499 | YES (6) | NO |
-| `325AC0000000226` | 地方税法 | 325AC0000000226_20261101_508AC0000000002 | CurrentEnforced | YES | ok | 4259 | YES (49) | NO |
+| `325AC0000000226` | 地方税法 | 325AC0000000226_20261101_508AC0000000002 | CurrentEnforced | YES | ok | 4259 | YES (51) | NO |
 | `325CO0000000245` | 地方税法施行令 | 325CO0000000245_20261101_508CO0000000083 | CurrentEnforced | YES | ok | 2274 | YES (17) | NO |
 | `326AC1000000145` | 納税貯蓄組合法 | 326AC1000000145_20211122_503AC0000000046 | CurrentEnforced | YES | ok | 41 | YES (3) | NO |
 | `326CO0000000099` | 納税貯蓄組合法施行令 | 326CO0000000099_20191216_501CO0000000183 | CurrentEnforced | YES | ok | 14 | YES (1) | NO |
@@ -72,7 +72,7 @@ a completion flag.
 | `330CO0000000237` | 関税定率法第五条の規定による便益関税の適用に関する政令 | 330CO0000000237_20250401_507CO0000000141 | CurrentEnforced | YES | ok | 81 | NO (0) | NO |
 | `331M50000002007` | 地方揮発油譲与税法施行規則 | 331M50000002007_20230401_505M60000008036 | CurrentEnforced | YES | ok | 55 | YES (1) | NO |
 | `331M50000002047` | アメリカ合衆国軍隊等が行う免税軽油の引取りの手続に関する総理府令 | 331M50000002047_20090401_421M60000008036 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
-| `332AC0000000026` | 租税特別措置法 | 332AC0000000026_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 3736 | YES (25) | NO |
+| `332AC0000000026` | 租税特別措置法 | 332AC0000000026_20261101_507AC0000000013 | CurrentEnforced | YES | ok | 3736 | YES (26) | NO |
 | `332AC0000000037` | とん税法 | 332AC0000000037_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 77 | YES (2) | NO |
 | `332AC0000000038` | 特別とん税法 | 332AC0000000038_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 47 | YES (2) | NO |
 | `332CO0000000043` | 租税特別措置法施行令 | 332CO0000000043_20261101_507CO0000000127 | CurrentEnforced | YES | ok | 2820 | YES (13) | NO |
@@ -106,7 +106,7 @@ a completion flag.
 | `338CO0000000275` | 明治三十二年発行の英貨公債を償還する等のため発行する外貨公債に関する特別措置法に基づく外 | 338CO0000000275_20171001_429CO0000000106 | CurrentEnforced | YES | ok | 8 | NO (0) | NO |
 | `339AC0000000101` | 自家用自動車の一時輸入に関する通関条約の実施に伴う関税法等の特例に関する法律 | 339AC0000000101_20010106_411AC0000000160 | CurrentEnforced | YES | ok | 21 | NO (0) | NO |
 | `339CO0000000182` | 自家用自動車の一時輸入に関する通関条約の実施に伴う関税法等の特例に関する法律施行令 | 339CO0000000182_20030401_415CO0000000142 | CurrentEnforced | YES | ok | 16 | YES (1) | NO |
-| `340AC0000000033` | 所得税法 | 340AC0000000033_20261001_507AC0000000070 | CurrentEnforced | YES | ok | 1323 | YES (24) | NO |
+| `340AC0000000033` | 所得税法 | 340AC0000000033_20261001_507AC0000000070 | CurrentEnforced | YES | ok | 1323 | YES (25) | NO |
 | `340AC0000000034` | 法人税法 | 340AC0000000034_20261001_508AC0000000012 | CurrentEnforced | YES | ok | 1183 | YES (11) | NO |
 | `340CO0000000084` | 国際復興開発銀行等からの外資の受入に関する特別措置に関する法律に基づく債券の利子の非課税 | 340CO0000000084_20171001_429CO0000000106 | CurrentEnforced | YES | ok | 8 | NO (0) | NO |
 | `340CO0000000096` | 所得税法施行令 | 340CO0000000096_20260522_508CO0000000093 | CurrentEnforced | YES | ok | 1365 | YES (5) | NO |
@@ -116,7 +116,7 @@ a completion flag.
 | `340M50010000013` | とうもろこし等の関税割当制度に関する省令 | 340M50010000013_20220401_504M60000200005 | CurrentEnforced | YES | ok | 12 | NO (0) | NO |
 | `340M50000040049` | 国税質問検査章規則 | 340M50000040049_20260101_506M60000040048 | CurrentEnforced | YES | ok | 56 | NO (0) | NO |
 | `340AC0000000156` | 石油ガス税法 | 340AC0000000156_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 76 | YES (2) | NO |
-| `340AC0000000157` | 石油ガス譲与税法 | 340AC0000000157_20090401_421AC0000000009 | CurrentEnforced | YES | ok | 29 | YES (1) | NO |
+| `340AC0000000157` | 石油ガス譲与税法 | 340AC0000000157_20090401_421AC0000000009 | CurrentEnforced | YES | ok | 29 | YES (3) | NO |
 | `341CO0000000005` | 石油ガス税法施行令 | 341CO0000000005_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 42 | YES (1) | NO |
 | `341M50000040004` | 石油ガス税法施行規則 | 341M50000040004_20250401_507M60000040023 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `341M50000008002` | 石油ガス譲与税法施行規則 | 341M50000008002_20191128_501M60000008059 | CurrentEnforced | YES | ok | 30 | YES (2) | NO |
@@ -136,7 +136,7 @@ a completion flag.
 | `344M50000040039` | 関税暫定措置法施行規則 | 344M50000040039_20241215_505M60000040057 | CurrentEnforced | YES | ok | 99 | YES (1) | NO |
 | `344M50000040050` | 税関職員服制 | 344M50000040050_20240401_506M60000040033 | CurrentEnforced | YES | ok | 13 | NO (0) | NO |
 | `345M50000040007` | 小笠原諸島振興開発特別措置法の施行に伴う譲渡所得等の課税の特例の適用に関する省令 | 345M50000040007_20140401_426M60000040034 | CurrentEnforced | YES | ok | 7 | NO (0) | NO |
-| `345CO0000000050` | 国税不服審判所組織令 | 345CO0000000050_20010106_412CO0000000307 | CurrentEnforced | YES | ok | 7 | NO (0) | NO |
+| `345CO0000000050` | 国税不服審判所組織令 | 345CO0000000050_20010106_412CO0000000307 | CurrentEnforced | YES | ok | 7 | YES (1) | NO |
 | `345M50000040017` | 国税不服審判所組織規則 | 345M50000040017_20260710_508M60000040048 | CurrentEnforced | YES | ok | 37 | YES (2) | NO |
 | `346AC0000000065` | コンテナーに関する通関条約及び国際道路運送手帳による担保の下で行なう貨物の国際運送に関す | 346AC0000000065_20120401_424AC0000000019 | CurrentEnforced | YES | ok | 28 | YES (1) | NO |
 | `346AC0000000089` | 自動車重量税法 | 346AC0000000089_20220401_504AC0000000004 | CurrentEnforced | YES | ok | 49 | YES (1) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 335
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 336
