@@ -11420,3 +11420,100 @@ pinned 附則（17 ブロック）には本モデルが扱う平成15年施行�
 - 残る UNRESOLVED（U-1 未形式化範囲の法的十分性、U-2 最新改正附則との関係）はいずれも pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・元号換算・needle 健全性・境界値走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+## Batch CW review (2026-11-24) — アメリカ合衆国軍隊等が行う免税軽油の引取りの手続に関する総理府令 附則 art.1（施行日）/ DutyFreeLightOilOrderEnforcementDate.lean（cycle-106 機械的独立照合・反例探索）
+
+### CW-0. 範囲・独立性の申告
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。担当者の `docs/STAGING_ENFORCE106.md` は参照したが、その needle 記載を**信じず**、pinned 原文から直接再抽出した機械的照合をもって判定した。
+- **対象モジュール（読み取り専用・本レビューで変更していない）**: `JapanTaxLaw/DutyFreeLightOilOrderEnforcementDate.lean`、`JapanTaxLaw/DutyFreeLightOilOrderEnforcementDateSpec.lean`、`JapanTaxLaw/DutyFreeLightOilOrderEnforcementDateTests.lean`。
+- **一次資料（pinned・改変禁止）**: `data/raw/331M50000002047_20090401_421M60000008036.law.json`（law id `331M50000002047` / revision `331M50000002047_20090401_421M60000008036`、9,252 bytes、sha256 `1A535CC6F738040CAE69B9678CB41FDAC1ED7DD8819E9085E3829E928F5C9CBD`）および `data/raw/331M50000002047.revisions.json`（sha256 `C5649BFC16E531AEF52648F19F466FB30D8F263D39AA96A438535F5B6136DC42`）。両 hash は `data/INVENTORY.json` の `raw_snapshot.source_sha256` / `revisions_sha256` と自前再計算で**一致**。同 INVENTORY の `current_revision.law_revision_id` = `331M50000002047_20090401_421M60000008036`、`raw_snapshot.source_file` = 上記 JSON パスもモジュール doc-comment の pin と**一致**。
+- **書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ**。Lean モジュール・`data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。
+
+### CW-1. pinned 原文の独立抽出と照合（附則に留意）
+
+- **抽出方法**: `law_full_text` を再帰走査し `SupplProvision`（附則）ブロックを列挙した。pinned スナップショットには **6 個**の附則ブロック（制定＋5 改正）が存在する。STAGING の needle を根拠にせず、JSON の該当ブロックを直接 parse した。
+- **対象ブロック**: 6 ブロック中 index 3（見出し `附則（施行期日）`）。逐語は以下のとおり。
+  - **第一条**: `この省令は、平成元年十月一日から施行する。`（全文を空白除去 normalize すると `第一条この省令は、平成元年十月一日から施行する。`）
+- **独立変換**: 元号の「元」は 1 を表すため 平成元年 = 1988 + 1 = **1989**（モジュールの `heiseiToSeireki 1 = 1988 + 1 = 1989` と同値）。したがって `enforcementDate = (1989, 10, 1)`、`dateKey = 1989*10000 + 10*100 + 1 = 19891001`、`inForce(d) = dateKey d >= 19891001` は原文逐語と**一致**。
+- **混同の明示除外**: 対象ブロックの原文に「昭和64年」および「昭和六十四年」は **0 回**（同じ西暦 1989 だが字面が異なる）、「平成2年」および「平成二年」は **0 回**（1990）。すなわち昭和64年・平成2年への混同は原文レベルで除外した。対象ブロックに含まれる年号表記は「平成元年」のみ。
+- **境界の明示除外**: 対象原文の日付は「十月一日」のみで、「九月三十日」・「十月二日」は原文に出現しない。`inForce (1989,9,30) = false` / `(1989,10,1) = true` / `(1989,10,2) = true` は、原文が「十月一日**から**施行する」と施行日当日を含むことを正しく反映している。
+- 他の 5 附則ブロック（公布の日 / 昭和三十五年法律第百二号の施行の日 / 公布の日 / 平成十三年一月六日 / 平成二十一年四月一日）は本モデルの対象外（下記 B-4 / U-2）。特に **平成二十一年四月一日（2009-04-01）** は本 pinned revision 自身の改正附則第一条であり、本モデルの 1989-10-01 とは異なる（U-2 で言及）。
+
+### CW-2. needle 健全性（CI `checks()` の実文字列 2 本）
+
+- CI `scripts/ci/transcription_audit.py` の `checks()` が cycle-106 に対して yield する 2 本（同ファイル 2315–2319 行）を、担当者 STAGING ではなく **CI ファイル自身**から読み出して検証した。
+  1. `第一条この省令は、平成元年十月一日から施行する`
+  2. `この省令は、平成元年十月一日から施行する`
+- **U+3000 なし**: 2 本とも `\u3000` は含まれない（自前走査で各 0 件）。
+- **2/2 FOUND**: 自前正規化（空白・U+3000 を全除去）した原文断片 `第一条この省令は、平成元年十月一日から施行する。` に対して 2 本とも substring として **FOUND**。CI と同一の照合を Python で再実装し、pinned JSON から独立抽出した文字列に対して検証した。
+- **needle 健全性は合格（2/2、U+3000 混入なし）。**
+
+### CW-3. 反例探索の結果
+
+| 攻撃対象 | 実装 `inForce` | 独立 Spec `specInForce`（辞書順成分比較） | 判定 |
+|---|---|---|---|
+| `(1989, 9, 30)` 施行前日 | `false` | `false` | 一致（境界除外） |
+| `(1989, 10, 1)` 施行日当日 | `true` | `true` | 一致（「から」Include） |
+| `(1989, 10, 2)` 施行日翌日 | `true` | `true` | 一致 |
+| `(2000, 1, 1)` 遠未来 | `true` | `true` | 一致 |
+| （補助）`(1980, 1, 1)` 過去 | `false` | `false` | 一致 |
+| `agreeDutyFreeLightOilOrderEnforcementDate`（5 点 grid） | — | `true` | impl と spec が全点一致 |
+
+- 補助確認: `heiseiToSeireki 1 = 1989`、`enforcementDate = (1989, 10, 1)`、`enforcementKey = 19891001` もすべて成立。
+- **拡張走査**: 年 1900..2100 × 月 0..13 × 日 0..31 の 90,048 通りで `inForce` と独立 Spec を比較し、**不一致 0 件**。
+- **反例探索で検出された原文・Lean 間の矛盾: 0 件（ゼロ）。**
+
+### CW-4. 公理監査結果
+
+- 一時 Lean ファイル `C:\Users\junny\AppData\Local\Temp\opencode\cw_axiom_probe.lean` を作成し、3 モジュールの名前付き `def` 計 **8 宣言**（本体 5: `heiseiToSeireki` / `enforcementDate` / `dateKey` / `enforcementKey` / `inForce`、Spec 3: `specDate` / `specInForce` / `agreeDutyFreeLightOilOrderEnforcementDate`）に加え、モジュール内の `example ... := by decide` と同一 tactics の名前付き mirror 証明 **10 宣言**の計 **18 宣言**に `#print axioms` を実行（`lake env lean`、exit code **0**）。監査後、一時ファイルは**削除済み**。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 18 |
+| `Classical.choice` | **0 件**（不在） |
+| `sorryAx` | **0 件**（不在） |
+| `Quot.sound` | **0 件**（不在） |
+| `propext` | **0 件**（不在） |
+| axiom-free（`does not depend on any axioms`） | **18 / 18** |
+
+→ **禁止公理（choice / sorryAx / Quot.sound）および propext を含むいずれの公理依存も 0。公理監査は合格。**
+
+### CW-5. CONFIRMED / BY-DESIGN / UNRESOLVED の分類
+
+| 分類 | 件数 |
+|---|---|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **6** |
+| **UNRESOLVED** | **2** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 原文逐語・元号換算（「元」=1）・needle・境界値・独立 Spec・公理のいずれにも食い違いを検出しなかった。
+
+#### CONFIRMED（0 件）
+
+- 原文逐語「平成元年十月一日」と `heiseiToSeireki 1 = 1989` / `enforcementDate = (1989,10,1)` / `enforcementKey = 19891001` の一致。
+- 昭和64年／平成2年への混同、9/30・10/2 境界の誤り、needle の U+3000 混入、独立 Spec との不一致、公理依存——いずれも検出なし。
+
+#### BY-DESIGN（6 件）
+
+- **B-1 施行日の算定のみをモデル化**: 附則第一条の文言どおりに `heiseiToSeireki` / `dateKey` / `inForce` を定義しており、施行日判定以外の意味を付与していない。
+- **B-2 附則の他条・経過措置は NOT MODELLED**: 対象附則ブロックには第二条以降の経過措置は存在しないが、他の附則ブロック（公布の日施行等）はスコープ外として doc-comment に明記済み。
+- **B-3 省令の実体規定は NOT MODELLED**: 省令本体の第一条（免税軽油の引取りに係る承認書交付申請）〜第四条（国際連合の軍隊への準用）の実体規定は、本モデルのスコープ外として明記済み。
+- **B-4 複数附則ブロックのうち対象を限定**: pinned スナップショットの 6 附則ブロックのうち、needle とモジュール pin が指す「平成元年十月一日」の附則第一条（index 3）のみを対象とした判断は妥当。他 5 ブロックの施行日はスコープ外。
+- **B-5 `dateKey` による符号化と辞書順 Spec の等価性**: 実装は YYYYMMDD 整数比較、独立 Spec は成分ごとの辞書順比較で定式が異なるが、5 点 grid および 90,048 通りの拡張 grid で全一致。表現差ではなく等価。
+- **B-6 暦日としての入力妥当性は caller-established**: 月 1〜12・日 1〜31 の範囲チェックや実在日付の検証は行わず、`dateKey` は単なる符号化として設計されている（doc-comment の bounded L4 モデルに整合）。
+
+#### UNRESOLVED（2 件）
+
+- **U-1 附則の他条・経過措置・実体規定の未形式化が法的に十分か**: 未形式化自体は B-2/B-3 でスコープ宣言済みだが、pinned 附則第一条のみをもって制度全体の施行日理解として足りるかは原文から決定不能。**人間の法律専門家によるレビューを要する**。
+- **U-2 本 pinned revision 自身の改正附則との関係（平成二十一年四月一日）**: 本 pinned revision（`331M50000002047_20090401_421M60000008036`、改正法 平成二十一年総務省令第三十六号）に属する附則第一条は「この省令は、平成二十一年四月一日から施行する。」（2009-04-01）であり、本モデルが pin した 1989-10-01 とは異なる附則が併存する。「省令全体が in force である」ことの意味が最新改正に及ぶか否かは pinned 原文のみでは判断できず、**人間の法律専門家によるレビューを要する**。いずれもモデル値の誤りではない（CONFIRMED=0 に影響しない）。
+
+### CW-6. 最終報告（サマリ）
+
+- **CONFIRMED: 0 件 / BY-DESIGN: 6 件 / UNRESOLVED: 2 件**。発見ゼロを明示する。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` とも **0 件**（18/18 axiom-free）。監査用一時 Lean ファイルは削除済み。
+- **needle 健全性**: U+3000 なし、2/2 FOUND。
+- **追記後レビュー件数**: **99 件**（既存 98 件をすべて保持 + CW 1 件。H2 の `review` 見出しで検証）。なお coverage ledger の正規表現 `^## (?:Batch [A-Z]|Art\.\d+|国税庁法|Article-pinned)[^\n]*review` の一致件数は 98 件だが、これは既存の `## 国税徴収法 104の2 review (2026-11-18)` が `国税庁法` ではなく `国税徴収法` である既存表記に起因するもので、本 CW 見出し自身は同正規表現に一致する。既存セクションは一切改変していない。
+- **Lean モジュール変更**: なし。`data/*` も読み取り専用。commit / push / merge / ブランチ切替は行っていない。一時ファイルは削除済み。
+- 残る UNRESOLVED（U-1 未形式化範囲の法的十分性、U-2 本 revision の改正附則との関係）はいずれも pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・元号換算「元」=1・needle 健全性・境界値走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
