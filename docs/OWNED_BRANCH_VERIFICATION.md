@@ -43,12 +43,12 @@ Measured results on this branch (2026-11-20):
 
 ```
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=396800, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=52, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=396799, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=53, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=52 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=53 axes=11 unbacked=0
 12/12 invariants passed
 $ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
 
@@ -109,7 +109,14 @@ unrepresentable). The independent spec computes from `(5, 100)` without using
 now also parses 百分のX percentages (constants checked [5, 100], D=PASS).
 Floor rounding is recorded as a model choice, not a statutory claim.
 
-So 52 evidence-backed units left NOT_STARTED on this branch; the
+The 53rd unit is 地方税法 art. 51 ただし書
+`NORM|c6450946a…`: the 2% rate ceiling (百分の二を超えることができない). It is
+encoded as a cross-multiplied STRICT exceedance test, with an independent
+non-strict spec, universal agreement over all numerator/denominator pairs,
+and equal-fraction boundary cases (20/1000 = 2/100). Source audit D=PASS;
+H/T/D/C/U review records the strict-vs-inclusive competing reading.
+
+So 53 evidence-backed units left NOT_STARTED on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
 durable. `docs/TASK_QUEUE.md` is regenerated with these counts.
