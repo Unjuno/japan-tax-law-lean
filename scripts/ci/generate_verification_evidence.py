@@ -177,15 +177,6 @@ def source_literals_verified(lits: set[int], text: str) -> bool:
     if rate is not None:
         pairs = {(a, b) for a in lits for b in lits if b and Fraction(a, b) == rate}
         if not pairs:
-            # A spec may state only the statutory numerator when the
-            # denominator is inherent in 「百分」/「千分」 (e.g. 「百分の二」
-            # and `def specCeiling : Nat := 2`).  Still require the exact
-            # numerator spelling in this clause; a tenfold error such as 20
-            # cannot pass because it is neither 2 nor a matching ratio pair.
-            num = rate.numerator
-            if (rate.denominator in (100, 1000) and lits == {num}
-                    and any(x in text for x in kanji_variants(int(num)))):
-                return True
             return False
         used = {v for pair in pairs for v in pair}
         return all(any(x in text for x in kanji_variants(v)) for v in (lits - used))
@@ -228,9 +219,8 @@ def blob_sha(path: Path) -> str:
 def canonical_modules() -> dict:
     """normative_id -> the one module allowed to evidence that unit.
 
-    An explicit review decision (data/MODEL_DISAMBIGUATION.json) prevents a
-    second, less faithful module from matching the same clause and silently
-    overwriting its evidence entry. Absent a mapping, behaviour is unchanged.
+    A reviewed decision in data/MODEL_DISAMBIGUATION.json prevents a less
+    faithful duplicate module from overwriting evidence for the same clause.
     """
     path = REPO / "data" / "MODEL_DISAMBIGUATION.json"
     if not path.exists():
@@ -375,29 +365,25 @@ def scoped_article_text(law_id: str, article: str) -> str:
         doc = json.loads(p.read_text(encoding="utf-8"))
         root = doc.get("law_full_text")
 
-        found_articles = []
-
         def walk(n):
             if isinstance(n, dict):
                 # Canonicalise both labels: transcription checks cite kanji
                 # titles (第六十六条) or 72_49_14 while e-Gov uses Arabic Num.
                 if n.get("tag") == "Article" and core.article_key(
                         str((n.get("attr") or {}).get("Num", ""))) == core.article_key(article):
-                    found_articles.append(core.norm(core.flat(n)))
-                    return
+                    return core.norm(core.flat(n))
                 for c in n.get("children", []) or []:
-                    walk(c)
+                    found = walk(c)
+                    if found:
+                        return found
             elif isinstance(n, list):
                 for c in n:
-                    walk(c)
+                    found = walk(c)
+                    if found:
+                        return found
+            return ""
 
-        # A main provision and a supplementary provision can share the same
-        # Article Num (e.g. 11の2).  Returning only the first one made a pinned
-        # supplementary clause invisible to source_location.  Collect every
-        # matching article; the exact cell is still pinned by source_path and
-        # the clause-level needle check.
-        walk(root)
-        return " ".join(found_articles)
+        return walk(root)
     return ""
 
 
@@ -560,8 +546,7 @@ def checks_by_module():
             try:
                 rec = json.loads(pf.read_text(encoding="utf-8"))
                 entries.append((rec["name"], rec["law_id"], rec["kind"],
-                                rec.get("art"), rec["needles"],
-                                rec.get("normative_id", "")))
+                                rec.get("art"), rec["needles"], rec.get("normative_id", "")))
             except (ValueError, KeyError):
                 continue
     for name, law_id, kind, art, needles, *rest in list(mod.checks()) + entries:
@@ -577,8 +562,6 @@ def checks_by_module():
             continue
         info = out.setdefault(base, {"law_id": law_id, "article": article,
                                      "needles": needles, "normative_id": ""})
-        # Transcription checks predate unit pins; a pinned normative id is the
-        # stronger, more specific evidence and must not be lost to setdefault.
         if normative_id and not info.get("normative_id"):
             info["normative_id"] = normative_id
     return out
@@ -645,14 +628,9 @@ def build() -> dict:
         for t in tasks:
             if t.get("law_id") != info["law_id"] or t.get("article") != info["article"]:
                 continue
-            # A pin may bind a module to ONE normative unit. This is required
-            # when the same sentence/rate recurs in another paragraph of the
-            # same article: without the pin, both clauses would inherit proof
-            # evidence from a model that only covers the pinned clause.
             pinned_uid = info.get("normative_id", "")
             if pinned_uid and t.get("normative_id") != pinned_uid:
                 continue
-            # Explicit disambiguation: a reviewed canonical module owns the unit.
             if canonical.get(t.get("normative_id", ""), base) != base:
                 continue
             if t.get("kind") not in VERIFIABLE_KINDS or t.get("unhandled_conditions"):
