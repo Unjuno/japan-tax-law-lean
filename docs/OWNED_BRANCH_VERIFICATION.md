@@ -43,12 +43,12 @@ Measured results on this branch (2026-11-20):
 
 ```
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=396795, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=57, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=396794, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=58, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=57 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=58 axes=11 unbacked=0
 12/12 invariants passed
 $ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
 
@@ -143,7 +143,14 @@ designation Bool; the model explicitly does NOT resolve the delegated
 definition. Independent spec, universal agreement, kernel boundaries and
 H/T/D/C/U review of that scope limitation are recorded.
 
-So 57 evidence-backed units left NOT_STARTED on this branch; the
+The 58th unit is 地方交付税法 art. 6の2(2)
+`NORM|2485fde4…`: a REFERENCE-kind norm deriving 94% of the base amount from
+前条第二項. The cross-reference is explicitly caller-established, not silently
+resolved; constants [94,100] pass the Lean-independent audit, agreement is
+universal over all bases, and H/T/D/C/U review records the out-of-scope base
+and floor-rounding model choice.
+
+So 58 evidence-backed units left NOT_STARTED on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
 durable. `docs/TASK_QUEUE.md` is regenerated with these counts.

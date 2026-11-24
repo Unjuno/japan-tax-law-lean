@@ -158,6 +158,19 @@
       "source_location": "data/raw/325CO0000000245_20261101_508CO0000000083.law.json#LawBody[4]/SupplProvision/SupplProvision[117]/Article:26/Article#26/Paragraph#1/ParagraphSentence/Sentence#1 sha256=9bc03b230fb0ed1039e33a1544cd53772939ee25d6d4648a386400ea269dfb17 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/IntermediateSurchargeRefundTests.lean sha256=30d462745dedf42e01e3b0f535aa3d15372afb8fc0438cc9f8ae54ab02b7b8c0 (18 kernel-decided examples)"
     },
+    "NORM|2485fde4475c83b98f617ad1f2d8f6543e766e59e6695c54c9cf94f7e1cc48c2": {
+      "adversarial_review": "docs/ADVERSARIAL_GRANT_94.md H/T/D/C/U; unresolved cross-reference and floor-rounding scope recorded",
+      "boundary_proof": "OrdinaryGrant94PercentTests.lean kernel-decided bases 0/1/50/100/10,000",
+      "cross_law_proof": "dependencies=[]; 前条第二項 reference recorded as out-of-scope base, not a resolved dependency",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/OrdinaryGrant94Percent.lean sha256=8c30747ded33f9682ea9f48183dc901ebb417e425e54de59c136856e1e013386",
+      "independent_spec": "JapanTaxLaw/OrdinaryGrant94PercentSpec.lean sha256=b8e38fbfef17fceea08a861501b7395ee35d6ed1c10b972d6bfea783f280cceb; spec computes from (94,100) without TaxRate",
+      "kernel_proof": "lake build JapanTaxLaw.OrdinaryGrant94PercentTests: Build completed successfully (5 jobs); rate_components/of_10_000 axiom-free; agree_spec_impl standard propext",
+      "proof_scope": "agree_spec_impl universal over all Nat bases; 前条第二項 base is caller-established, not resolved by this unit",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; percent_numerators=[94]; constants_checked=[94,100]; missing=[]",
+      "source_location": "data/raw/325AC0000000211_20261102_508AC0000000062.law.json#LawBody[1]/MainProvision/MainProvision[6]/Article:6_2/Article#6_2/Paragraph#2/ParagraphSentence/Sentence#1 sha256=151df453a55442acb1cdca91f420bc5f7b04b914b85d86b575311ff6e3a7cd95; verbatim located in art.6_2(2)",
+      "tests": "JapanTaxLaw/OrdinaryGrant94PercentTests.lean sha256=361d76e7c11dbc5ab5c291eeffdca444819aa9282a6712c3440d4cd5f5cfe08b"
+    },
     "NORM|2a1dc80cd4074bee88062395289ab4abddf8db19565f3d14b6d56b4003fbfb01": {
       "adversarial_review": "docs/ADVERSARIAL_DISASTER_UPPER.md H/T/D/C/U; strict-vs-inclusive competing reading recorded; scope limits explicit",
       "boundary_proof": "DisasterIncomeUpperBandTests.lean: 7,499,999→false, 7,500,000→false, 7,500,001→true, 10,000,000→true, all kernel-decided",
