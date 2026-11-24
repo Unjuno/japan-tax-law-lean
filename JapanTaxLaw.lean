@@ -1670,6 +1670,9 @@ import JapanTaxLaw.SpecialGiftRate
 import JapanTaxLaw.SpecialGiftRateDomination
 import JapanTaxLaw.SpecialGiftRateSpec
 import JapanTaxLaw.SpecialGiftRateTests
+import JapanTaxLaw.SpecialIncomeTaxCreditCap25
+import JapanTaxLaw.SpecialIncomeTaxCreditCap25Spec
+import JapanTaxLaw.SpecialIncomeTaxCreditCap25Tests
 import JapanTaxLaw.SpecialLand200
 import JapanTaxLaw.SpecialLand200Spec
 import JapanTaxLaw.SpecialLand200Tests
