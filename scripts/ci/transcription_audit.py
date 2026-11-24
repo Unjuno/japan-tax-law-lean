@@ -4044,6 +4044,28 @@ def checks():
            "file", None,
            ["法第九条第一項に規定する政令で定める額は、受験科目の数が一である場合にあつては四千円、受験科目の数が二以上である場合にあつては四千円と千五百円に一を超える受験科目の数を乗じて得た額との合計額とする。"])
 
+    # 国税不服審判所支部 art. 2 — BranchDeputyAppointment.lean
+    yield ("国税不服審判所支部 art. 2（財務省令指定＋各一人配置）↔ BranchDeputyAppointment.lean (delegation + one per branch)",
+           "345CO0000000050",
+           "article", "第二条",
+           ["国税不服審判所の支部（以下「支部」という。）のうち財務省令で定めるものに、次席国税審判官各一人を置き、国税審判官をもつてこれに充てる。"])
+
+    # 地方税法 art. 51 — LocalTaxRateCeiling2Percent.lean (2% 上限)
+    yield ("地方税法 art. 51（標準税率超過時の2%上限）↔ LocalTaxRateCeiling2Percent.lean",
+           "325AC0000000226", "file", None,
+           ["標準税率を超える税率で課する場合においても、百分の二を超えることができない。"])
+
+    # 石油ガス譲与税法 art. 4 — OilGasGrantArt4Rounding.lean (千円未満端数)
+    yield ("石油ガス譲与税法 art. 4（千円未満端数）↔ OilGasGrantArt4Rounding.lean",
+           "340AC0000000157",
+           "file", None,
+           ["千円未満の端数金額があるときは、その端数金額を控除した金額をもつて"])
+
+    # 地方税法 附則 art. 11の2 — PropertyAcquisitionSpecialRate3.lean (3%)
+    yield ("地方税法 art. 11_2（附則 不動産取得税標準税率3%）↔ PropertyAcquisitionSpecialRate3.lean",
+           "325AC0000000226", "file", None,
+           ["不動産取得税の標準税率は、第七十三条の十五の規定にかかわらず、百分の三とする。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
