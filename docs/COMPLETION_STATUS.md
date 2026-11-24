@@ -13,20 +13,20 @@ obligations being complete. SKIP is never counted as PASS.
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: 545201ab9d995a03aeb47536b6bad40f1fa50b03
-- current HEAD commit: 74b60e120a5fb60dd0d95153ba25e172e32843c0
+- current HEAD commit: ab2d57cfed1909aa4540da7080c7e4524e2ae182
 - results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all TECHNICAL obligations complete (human review excluded)
 
 - normative units: 396854
-- NOT_STARTED: 396123
+- NOT_STARTED: 396027
 - PARTIAL: 0
-- PROVED_SCOPE: 3
-- FULLY_VERIFIED: 726
+- PROVED_SCOPE: 1
+- FULLY_VERIFIED: 824
 - BLOCKED: 2
 - units with an open blocker: 2
-- units with unhandled conditions: 180619
+- units with unhandled conditions: 180617
 
 ## Axis C — independent human legal determination (separate, not a gate)
 
@@ -43,26 +43,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 729 | 396854 |
-| kernel proved (CI-attested proof evidence) | 729 | 396854 |
-| source-audited (原文 correspondence evidence) | 729 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 825 | 396854 |
+| kernel proved (CI-attested proof evidence) | 825 | 396854 |
+| source-audited (原文 correspondence evidence) | 825 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 729 |
-| boundary_proof | 729 |
-| cross_law_proof | 729 |
-| decomposition_audit | 729 |
-| implementation | 729 |
-| independent_spec | 729 |
-| kernel_proof | 729 |
-| proof_scope | 729 |
-| source_correspondence_audit | 729 |
-| source_location | 729 |
-| tests | 729 |
+| adversarial_review | 825 |
+| boundary_proof | 825 |
+| cross_law_proof | 825 |
+| decomposition_audit | 825 |
+| implementation | 825 |
+| independent_spec | 825 |
+| kernel_proof | 825 |
+| proof_scope | 825 |
+| source_correspondence_audit | 825 |
+| source_location | 825 |
+| tests | 825 |
 
 ## Verdict
 
