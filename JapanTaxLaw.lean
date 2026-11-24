@@ -1991,3 +1991,6 @@ import JapanTaxLaw.Warehouse3000sqmTests
 import JapanTaxLaw.CourseUnits31
 import JapanTaxLaw.CourseUnits31Spec
 import JapanTaxLaw.CourseUnits31Tests
+import JapanTaxLaw.PrescribedPeriodWithinFourMonths
+import JapanTaxLaw.PrescribedPeriodWithinFourMonthsSpec
+import JapanTaxLaw.PrescribedPeriodWithinFourMonthsTests
