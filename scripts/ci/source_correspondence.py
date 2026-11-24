@@ -92,11 +92,16 @@ def main() -> int:
     spec = (REPO / unquote(a.spec)).read_text(encoding="utf-8")
     impl = (REPO / unquote(a.impl)).read_text(encoding="utf-8")
     missing = [x for x in values if f"{x:_}" not in spec + impl and str(x) not in spec + impl]
-    ok = located and bool(values) and not missing
+    # Some norms (e.g. reading substitutions) carry no numeric literal at all.
+    # For those, phrase location is the whole Lean-independent correspondence;
+    # this is stated explicitly rather than silently counted as a numeral check.
+    phrase_only = located and not values
+    ok = located and not missing and (bool(values) or phrase_only)
     print(json.dumps({
         "rule": "source_correspondence", "verbatim_located": located,
         "amounts_in_source": amounts, "percent_numerators": pct_nums,
-        "constants_checked": values, "missing_in_spec_or_impl": missing,
+        "constants_checked": values, "phrase_only_correspondence": phrase_only,
+        "missing_in_spec_or_impl": missing,
         "D": "PASS" if ok else "FAIL",
         "H": "the spec does not represent the pinned amount",
         "T": "re-extract pinned article, parse 漢数字, compare Lean constants",

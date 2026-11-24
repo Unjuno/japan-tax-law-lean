@@ -665,6 +665,19 @@
       "source_location": "data/raw/325CO0000000245_20261101_508CO0000000083.law.json#LawBody[4]/SupplProvision/SupplProvision[117]/Article:26/Article#26/Paragraph#3/ParagraphSentence/Sentence#1 sha256=9bc03b230fb0ed1039e33a1544cd53772939ee25d6d4648a386400ea269dfb17 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/IntermediateSurchargeRefundTests.lean sha256=30d462745dedf42e01e3b0f535aa3d15372afb8fc0438cc9f8ae54ab02b7b8c0 (18 kernel-decided examples)"
     },
+    "NORM|fc34952b4102c0a6697423e84c629c0eea802fb72c83594cac7374694c7ac66f": {
+      "adversarial_review": "docs/ADVERSARIAL_READING_ART7.md H/T/D/C/U; substring rewrite and axiom-footprint rejection recorded",
+      "boundary_proof": "ReadingSubstitutionArt7Tests.lean covers original/replacement/other plus verbatim phrase constants, all kernel-checked",
+      "cross_law_proof": "dependencies=[]",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/ReadingSubstitutionArt7.lean sha256=59b1d68d7c4e119abdd6894ef9f85db74d717bceddcb772a521fb64e9bb9bd75",
+      "independent_spec": "JapanTaxLaw/ReadingSubstitutionArt7Spec.lean sha256=95af486baa0c11a3fe9e5681ce69aa09e6ddef42215b0ca15ff0221d4f8cfb69; spec uses equality test, impl uses pattern match",
+      "kernel_proof": "lake build JapanTaxLaw.ReadingSubstitutionArt7Tests: Build completed successfully (5 jobs); applies_to_quoted / leaves_other / agree_spec_impl: only standard propext; first string-based model rejected for Classical.choice/Quot.sound",
+      "proof_scope": "agree_spec_impl exhaustive over all three constructors of the declared Phrase domain; whole-phrase rewrite only",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; phrase_only_correspondence=true (no numeric literal); both quoted phrases located in pinned art.7",
+      "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[16]/Article:7/Article#7/Paragraph#15/ParagraphSentence/Sentence#2 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c; verbatim located in art.7",
+      "tests": "JapanTaxLaw/ReadingSubstitutionArt7Tests.lean sha256=7358845b1c3c4cbad380402a6a16f93d55352c2383b6ebed014440c71bcf3fbb"
+    },
     "NORM|fc7d661117603694c16c0f33009ac6e98c30f3525f9e76215335306472110cad": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",
