@@ -2312,6 +2312,12 @@ def checks():
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
 
+    # DutyFreeLightOilOrderEnforcementDate — cycle-106
+    yield ("DutyFreeLightOilOrderEnforcementDate.lean",
+           "331M50000002047",
+           "file", None,
+           ["第一条この省令は、平成元年十月一日から施行する", "この省令は、平成元年十月一日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -3660,6 +3666,53 @@ def checks():
            "408AC0000000002",
            "article", "第二条",
            ["この場合において、同年四月一日以後発行される同条の公債に係る収入は、平成七年度所属の歳入とする。"])
+
+
+    # CustomsTariffArt21DeemedForeignRegion.lean - NORM|abdefe5d... (関税定率法 art.21 ArticleCaption DEEMING, law 143AC0000000054)
+    # Needle is the ArticleCaption; whole-law locator (caption node not Article text).
+    yield ("customs tariff art.21 deemed foreign region - CustomsTariffArt21DeemedForeignRegion.lean",
+           "143AC0000000054",
+           "law", None,
+           ["\uff08\u5916\u56fd\u3068\u307f\u306a\u3059\u5730\u57df\uff09"])
+
+    yield ("地方税法施行令 art. 12（耐震基準適合住宅の床面積 百二十平方メートル超）↔ LocalSeismic120sqm.lean (seismicFloor120 120)",
+           "325CO0000000245",
+           "file", None,
+           ["共同住宅等である特定耐震基準適合住宅以外の特定耐震基準適合住宅にあつては、人の居住の用に供する部分の床面積が百二十平方メートルを超えるもの"])
+    yield ("租税特別措置法施行令 art. 27_12_6（導線の中心間隔 二百十ナノメートル超）↔ Semiconductor210nm.lean (pitchFloor210 210)",
+           "332CO0000000043",
+           "file", None,
+           ["トランジスター上に配置される導線の中心の間隔が最も短い箇所において二百十ナノメートルを超える特定演算半導体"])
+    yield ("所得税法施行令 art. 11_3（授業時間数 百二十時間以上）↔ CourseHours120.lean (courseFloor120 120)",
+           "340CO0000000096",
+           "file", None,
+           ["その修業期間を通ずる対面により行う授業の授業時間数をその修業期間の年数に相当する数で除して計算した授業時間数が百二十時間以上であること。"])
+    yield ("所得税法施行令 art. 319（旧生命保険料 九千円超）↔ OldLifePremium9k.lean (oldLifeFloor9k 9000)",
+           "340CO0000000096",
+           "file", None,
+           ["当該九千円を超える旧生命保険料の金額その他財務省令で定める事項"])
+    yield ("租税特別措置法施行令 art. 25_13（信託契約期間 二十年以上）↔ TrustPeriod20Y.lean (trustFloor20Y 20)",
+           "332CO0000000043",
+           "file", None,
+           ["信託契約期間を定めないこと又は二十年以上の信託契約期間が定められていること。"])
+    yield ("租税特別措置法施行規則 art. 23_8_6（山林の面積 六百五十ヘクタール超）↔ ForestArea650Ha.lean (forestFloor650 650)",
+           "332M50000040015",
+           "file", None,
+           ["認定起算日（当該認定起算日における特定森林経営計画が定められている区域内に存する山林の面積が六百五十ヘクタールを超える場合にあつては、当初認定起算日）"])
+    yield ("法人税法 art. 142_3（政令計算の収益の額 千万円以下）↔ CorpIncome10M.lean (corpIncomeCap10M 10000000)",
+           "340AC0000000034",
+           "file", None,
+           ["前項に規定する満たない部分に相当する金額に係る収益の額として政令で定めるところにより計算した金額が千万円以下であるとき。"])
+    yield ("customs tariff suppl art.1 heisei-1 enforcement date - CustomsTariffSupplArt1Heisei1EnforcementDate.lean",
+           "143AC0000000054",
+           "law", None,
+           ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u5e73\u6210\u5143\u5e74\u56db\u6708\u4e00\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
+
+    # 公債収入 art. 2 — HeiseiFY6Attribution.lean
+    yield ("公債収入 art. 2（平成6年度所属の歳入）↔ HeiseiFY6Attribution.lean (single-year FY attribution 6)",
+           "406AC0000000108",
+           "article", "第二条",
+           ["この場合において、同年四月一日以後発行される同項の公債に係る収入は、平成六年度所属の歳入とする。"])
 
 
 def main() -> int:
