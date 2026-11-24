@@ -1252,6 +1252,88 @@
         "tool": "lake build"
       }
     ],
+    "023f9d31e0ab065606ad125e057a9132c12e7bd02be5ffde37eeaf24b21bebad": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T19:29:10+00:00",
+        "evidence_ref": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#MainProvision:MainProvision/Chapter:3@2/Section:2@1/Subsection:5@4/Article:418@33#134-201",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T19:29:10+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1",
+        "note": "Independent period audit: 第418条 period 一月以内 verified against pinned raw text; kanji numeral and year/month/day mapping and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T19:29:10+00:00",
+        "evidence_ref": "task_queue.json#023f9d31e0ab#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T19:29:10+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T19:29:10+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriods.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T19:29:10+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T19:29:10+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T19:29:10+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T19:29:10+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T19:29:10+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "024fbcfeeb7b8b74a378abeae1c0febb4ca17dbfbabc913fd1a6a46e14607620": [
       {
         "axis": "SOURCE_LOCATION",
@@ -21008,6 +21090,88 @@
         "tool": "lake build"
       }
     ],
+    "234f0e0d592c371acd362181367dd02d06eda94a582cf324345b09f336830659": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T19:29:36+00:00",
+        "evidence_ref": "data/raw/328AC0000000007_20250601_504AC0000000068.law.json#MainProvision:MainProvision/Chapter:2@1/Section:4@3/Article:34@17#479-540",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T19:29:36+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1",
+        "note": "Independent period audit: 第34条 period 十日以内 verified against pinned raw text; kanji numeral and year/month/day mapping and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T19:29:36+00:00",
+        "evidence_ref": "task_queue.json#234f0e0d592c#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T19:29:36+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T19:29:36+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriods.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T19:29:36+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T19:29:36+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T19:29:36+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T19:29:36+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T19:29:36+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "238bfae13405d2926e59f76f510d4c2fd1adcfe57266993118d852d265862c3a": [
       {
         "axis": "SOURCE_LOCATION",
@@ -25760,6 +25924,88 @@
         "tool": "lake build"
       }
     ],
+    "2c9008d411e5fd3004f86f2a9f44c912f833c31bf8a9ac62b5b976f00f32a350": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T19:30:25+00:00",
+        "evidence_ref": "data/raw/420M60000400040_20240301_506M60000400008.law.json#MainProvision:MainProvision/Article:2@1#330-381",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T19:30:25+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1",
+        "note": "Independent period audit: 第2条 period 十五日以内 verified against pinned raw text; kanji numeral and year/month/day mapping and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T19:30:25+00:00",
+        "evidence_ref": "task_queue.json#2c9008d411e5#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T19:30:25+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T19:30:25+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriods.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T19:30:25+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T19:30:25+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T19:30:25+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T19:30:25+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T19:30:25+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "2c9762d4a67f57ae7ee2a3812f7e5131f576c49df851a6fa0b14162516b5a2ce": [
       {
         "axis": "SOURCE_LOCATION",
@@ -26004,6 +26250,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "2cfb4edfe2056e95176f703c4782fff12fb0b62a680f14dd4913aaa65999bf84": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T19:29:19+00:00",
+        "evidence_ref": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#SupplProvision:昭和三一年五月四日法律第九三号@61#17-44",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T19:29:19+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1",
+        "note": "Independent period audit:  period 十年以内 verified against pinned raw text; kanji numeral and year/month/day mapping and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T19:29:19+00:00",
+        "evidence_ref": "task_queue.json#2cfb4edfe205#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T19:29:19+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T19:29:19+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriods.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T19:29:19+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T19:29:19+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T19:29:19+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T19:29:19+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T19:29:19+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
       }
     ],
     "2cfbac234313941917cd7043d37ce918dfbaded0c53179046ef04256b7948c29": [
@@ -31354,6 +31682,88 @@
         "tool": "lake build"
       }
     ],
+    "362386bf11a22add7c80d90312968e4c9b485be3e8572a24e36ae841afd5f54b": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T19:30:09+00:00",
+        "evidence_ref": "data/raw/334AC0000000147_20260525_506AC0000000052.law.json#MainProvision:MainProvision/Chapter:3@2/Article:32@1#272-338",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T19:30:09+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1",
+        "note": "Independent period audit: 第32条 period 五十日以内 verified against pinned raw text; kanji numeral and year/month/day mapping and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T19:30:09+00:00",
+        "evidence_ref": "task_queue.json#362386bf11a2#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T19:30:09+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T19:30:09+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriods.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T19:30:09+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T19:30:09+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T19:30:09+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T19:30:09+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T19:30:09+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "364d133ecb4e7f162440a6614b7b1199890c16537798dcc6877f38e91ce208ed": [
       {
         "axis": "SOURCE_LOCATION",
@@ -35228,6 +35638,88 @@
         "tool": "lake build"
       }
     ],
+    "3e1d1e8e6eda5b491b6e97e3002e2a1991b7a61abb6c194d1678788367a76de1": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T19:28:18+00:00",
+        "evidence_ref": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#MainProvision:MainProvision/Article:7@16#1877-1928",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T19:28:18+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1",
+        "note": "Independent period audit: 第7条 period 六月以内 verified against pinned raw text; kanji numeral and year/month/day mapping and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T19:28:18+00:00",
+        "evidence_ref": "task_queue.json#3e1d1e8e6eda#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T19:28:18+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T19:28:18+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriods.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T19:28:18+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T19:28:18+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T19:28:18+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T19:28:18+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T19:28:18+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "3e5d15b4f8ea4f2c78514956ba0ef42d68e608d30072b6fef3c720b4a606a571": [
       {
         "axis": "SOURCE_LOCATION",
@@ -38196,6 +38688,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "43a851db7c63e6e9503d3a1db97960626a82f83fb71a23da84476eb15564f30a": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T19:28:43+00:00",
+        "evidence_ref": "data/raw/325AC0000000211_20261102_508AC0000000062.law.json#MainProvision:MainProvision/Article:19@24#1381-1448",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T19:28:43+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1",
+        "note": "Independent period audit: 第19条 period 三十日以内 verified against pinned raw text; kanji numeral and year/month/day mapping and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T19:28:43+00:00",
+        "evidence_ref": "task_queue.json#43a851db7c63#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T19:28:43+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T19:28:43+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriods.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T19:28:43+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T19:28:43+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T19:28:43+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T19:28:43+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T19:28:43+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
       }
     ],
     "4401244beec562b79a624adcdc89e67d771056826380aa770caf6db7de65ee3e": [
@@ -61708,6 +62282,88 @@
         "tool": "lake build"
       }
     ],
+    "6d240f9f05034b0f26ded867e785b1f729805b6555586f226f88e4510fab5694": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T19:30:17+00:00",
+        "evidence_ref": "data/raw/337AC0000000066_20261101_507AC0000000013.law.json#MainProvision:MainProvision/Chapter:7@6/Section:1/Article:70#568-632",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T19:30:17+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1",
+        "note": "Independent period audit: 第70条 period 三月以内 verified against pinned raw text; kanji numeral and year/month/day mapping and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T19:30:17+00:00",
+        "evidence_ref": "task_queue.json#6d240f9f0503#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T19:30:17+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T19:30:17+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriods.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T19:30:17+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T19:30:17+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T19:30:17+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T19:30:17+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T19:30:17+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "6d522c80c6cebc355869368c3de18b0e75b6000976061ceb7f813a263c81f134": [
       {
         "axis": "SOURCE_LOCATION",
@@ -71452,6 +72108,88 @@
         "tool": "lake build"
       }
     ],
+    "7f6f96204ad4e661d4ae58eb2d443e46db6eb67913a10f24152d7d59cbaaed47": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T19:28:27+00:00",
+        "evidence_ref": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#MainProvision:MainProvision/Article:9@19#3813-3863",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T19:28:27+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1",
+        "note": "Independent period audit: 第9条 period 百八十日以内 verified against pinned raw text; kanji numeral and year/month/day mapping and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T19:28:27+00:00",
+        "evidence_ref": "task_queue.json#7f6f96204ad4#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T19:28:27+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T19:28:27+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriods.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T19:28:27+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T19:28:27+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T19:28:27+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T19:28:27+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T19:28:27+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "7f877c12a7a379907dc16b7c6898841e290cd2e3993b32ec91976bc8f9de4a31": [
       {
         "axis": "SOURCE_LOCATION",
@@ -74560,6 +75298,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "84715ca55ea2703a0f53c229c6f1054db04e51573f47928d7d9af22919446135": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T19:28:53+00:00",
+        "evidence_ref": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#MainProvision:MainProvision/Chapter:1/Section:1/Article:8@8#662-712",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T19:28:53+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1",
+        "note": "Independent period audit: 第8条 period 六十日以内 verified against pinned raw text; kanji numeral and year/month/day mapping and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T19:28:53+00:00",
+        "evidence_ref": "task_queue.json#84715ca55ea2#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T19:28:53+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T19:28:53+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriods.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T19:28:53+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T19:28:53+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T19:28:53+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T19:28:53+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T19:28:53+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
       }
     ],
     "8478e984662dad9c1fe94452742c128fb6e3c963a78a474b21533b97baa7959d": [
@@ -86656,6 +87476,88 @@
         "tool": "lake build"
       }
     ],
+    "984194bf3bbacfd3af0f315e4b77ed58fc9d240319a629f311c2d04bf7a68570": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T19:30:01+00:00",
+        "evidence_ref": "data/raw/329M50000040039_20260924_508M60000040059.law.json#MainProvision:MainProvision/Chapter:3@2/Section:3@2/Article:62#116-179",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T19:30:01+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1",
+        "note": "Independent period audit: 第62条 period 五日以内 verified against pinned raw text; kanji numeral and year/month/day mapping and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T19:30:01+00:00",
+        "evidence_ref": "task_queue.json#984194bf3bba#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T19:30:01+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T19:30:01+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriods.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T19:30:01+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T19:30:01+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T19:30:01+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T19:30:01+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T19:30:01+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "984f0e321d631fe852a5a2453a0d06cd1826961eb816ede33301bf164c2c5642": [
       {
         "axis": "SOURCE_LOCATION",
@@ -95714,6 +96616,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "a6563d6de031bfc5d78ab3ce9dbf68d41a0ce5692ef246455f310a7018e48a83": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T19:29:02+00:00",
+        "evidence_ref": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#MainProvision:MainProvision/Chapter:2@1/Section:4@3/Subsection:3@2/Article:73_24@9#317-381",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T19:29:02+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1",
+        "note": "Independent period audit: 第73_24条 period 二年以内 verified against pinned raw text; kanji numeral and year/month/day mapping and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T19:29:02+00:00",
+        "evidence_ref": "task_queue.json#a6563d6de031#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T19:29:02+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T19:29:02+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriods.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T19:29:02+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T19:29:02+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T19:29:02+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T19:29:02+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T19:29:02+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
       }
     ],
     "a66f1d77b84cee063ee956bfb3f0f5c9e4ce64b4af2cba5b258d3e5ce978cbb1": [
@@ -136506,6 +137490,88 @@
         "tool": "lake build"
       }
     ],
+    "e8a10a71f5322d1c776f2620e8b25cd7c3222e5a66b215a13d3c3a0614d480ba": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T19:28:35+00:00",
+        "evidence_ref": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#MainProvision:MainProvision/Chapter:7@6/Article:49#761-820",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T19:28:35+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1",
+        "note": "Independent period audit: 第49条 period 二月以内 verified against pinned raw text; kanji numeral and year/month/day mapping and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T19:28:35+00:00",
+        "evidence_ref": "task_queue.json#e8a10a71f532#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T19:28:35+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T19:28:35+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriods.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T19:28:35+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T19:28:35+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T19:28:35+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T19:28:35+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T19:28:35+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "e8a371ae268ef71881aef6dc15acc17213721eb2f4c8620373d779f076f7ad5d": [
       {
         "axis": "SOURCE_LOCATION",
@@ -136638,6 +137704,88 @@
         "note": "pinned needle located in exact unit span",
         "reviewer": "ci",
         "tool": "transcription_audit.py"
+      }
+    ],
+    "e8bff226f72e3d63a417333114899ffe3d394778b991f632180229a4fee3fc7d": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T19:29:53+00:00",
+        "evidence_ref": "data/raw/329AC0000000061_20260601_508AC0000000005.law.json#MainProvision:MainProvision/Chapter:5@4/Article:65@11#190-258",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T19:29:53+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1",
+        "note": "Independent period audit: 第65条 period 七日以内 verified against pinned raw text; kanji numeral and year/month/day mapping and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T19:29:53+00:00",
+        "evidence_ref": "task_queue.json#e8bff226f72e#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T19:29:53+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T19:29:53+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriods.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T19:29:53+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T19:29:53+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T19:29:53+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T19:29:53+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T19:29:53+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
       }
     ],
     "e8dd42a2f186a9a721a2a9de476030a42bd136c15ac37ea60c8546c813d875e6": [
@@ -139180,6 +140328,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "ed41a0aac7044b5e5261b0d9a875264698f59189f2abc3878a5f4126331acf01": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T19:29:44+00:00",
+        "evidence_ref": "data/raw/328M50000040011_20260901_506M60000040032.law.json#MainProvision:MainProvision/Article:11_8@34#299-362",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T19:29:44+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1",
+        "note": "Independent period audit: 第11_8条 period 三年以内 verified against pinned raw text; kanji numeral and year/month/day mapping and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T19:29:44+00:00",
+        "evidence_ref": "task_queue.json#ed41a0aac704#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T19:29:44+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T19:29:44+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriods.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T19:29:44+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T19:29:44+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T19:29:44+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T19:29:44+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T19:29:44+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
       }
     ],
     "ed41da36b772384305cb9c993b92fc1c77ab8ac3fdc5940b9879c90b9cbd2654": [
@@ -144846,6 +146076,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "f6b1af1b3b56cab10a5f294a8bfa898c2ab0d2a782c6c78bad02c2c554a85fc2": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T19:29:27+00:00",
+        "evidence_ref": "data/raw/325CO0000000245_20261101_508CO0000000083.law.json#SupplProvision:昭和三八年四月一日政令第一一六号@36/Article:5@4#0-70",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T19:29:27+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1",
+        "note": "Independent period audit: 第5条 period 五年以内 verified against pinned raw text; kanji numeral and year/month/day mapping and exhaustive universal agreement proved",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T19:29:27+00:00",
+        "evidence_ref": "task_queue.json#f6b1af1b3b56#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T19:29:27+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T19:29:27+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriods.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T19:29:27+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T19:29:27+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T19:29:27+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T19:29:27+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryPeriodsTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T19:29:27+00:00",
+        "evidence_ref": "independent_fidelity:STATUTORY-PERIODS-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
       }
     ],
     "f6f98cea157ac08714be6d766ac0f14b220a61f14bca3bd4ba5485ec55d818ae": [

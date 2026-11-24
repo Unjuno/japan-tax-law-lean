@@ -554,3 +554,6 @@ import JapanTaxLaw.FlatTaxRatesTests
 import JapanTaxLaw.StatutoryFractions
 import JapanTaxLaw.StatutoryFractionsSpec
 import JapanTaxLaw.StatutoryFractionsTests
+import JapanTaxLaw.StatutoryPeriods
+import JapanTaxLaw.StatutoryPeriodsSpec
+import JapanTaxLaw.StatutoryPeriodsTests
