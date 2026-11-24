@@ -3073,6 +3073,21 @@
         1000001
       ]
     },
+    "InheritanceTaxLateFilingFineCap500k": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "五十万"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 6,
+      "needles_scoped": true,
+      "scoped_article_chars": 116,
+      "spec_literals": [
+        500000
+      ]
+    },
     "InheritanceTaxRateBracket100_200": {
       "adversarial_review": false,
       "boundary_examples_found": 0,
@@ -4229,6 +4244,21 @@
       "spec_literals": [
         10000000,
         10000001
+      ]
+    },
+    "LocalTaxDeferralSmallAmountException1M": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "百万"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 6,
+      "needles_scoped": true,
+      "scoped_article_chars": 2250,
+      "spec_literals": [
+        1000000
       ]
     },
     "LocalTaxDependentIncomeCeiling1350k": {
@@ -5889,6 +5919,23 @@
         15000000,
         30000000,
         45000000
+      ]
+    },
+    "SpecialIncomeTaxCreditCap25": {
+      "adversarial_review": true,
+      "boundary_examples_found": 6,
+      "independent_spec": true,
+      "kanji_literals": [
+        "二十五",
+        "百"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 30,
+      "needles_scoped": true,
+      "scoped_article_chars": 2403,
+      "spec_literals": [
+        25,
+        100
       ]
     },
     "SpecialLand200": {
