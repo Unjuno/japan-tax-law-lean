@@ -969,13 +969,13 @@
       "boundary_proof": "GiftTax.lean giftTax_zero_below_deduction (kernel decided); spec boundary examples at 0/2M/3M/4M/6M/10M/15M/30M yen",
       "cross_law_proof": "queue unit dependencies=[]; independent check in docs/GIFT_21_5_VERIFICATION.md#4 records no cross-law relation for this unit",
       "decomposition_audit": "docs/GIFT_21_5_VERIFICATION.md#1-source-independent-extraction; queue unit text located verbatim in the pinned article",
-      "implementation": "JapanTaxLaw/GiftTax.lean sha256=d6143c80188db2c66ffb397a3b84f38dd53c64e7333862141205a9e0fb9435fd",
-      "independent_spec": "JapanTaxLaw/GiftTaxSpec.lean sha256=453d34aa1fb94ddd81fc9cb27978b695836998c4cbd60cf3c4c7196daf32fb4f",
+      "implementation": "JapanTaxLaw/GiftTax.lean sha256=03d3c82b4c1b76cf89693d930cb1d1b638d9f46c2d64ad5c39fffc32e9175d1f",
+      "independent_spec": "JapanTaxLaw/GiftTaxSpec.lean sha256=5d893fa4bc46b1f2b20c2fc13b0e44444ff19705682ab9b5e5a3f7e0059537ce",
       "kernel_proof": "lake build JapanTaxLaw.GiftTaxSpec + lake env lean gift_axioms.lean: agreeGiftTax and spec_impl_basic_deduction_agree depend on no axioms; see docs/GIFT_21_5_VERIFICATION.md#3",
       "proof_scope": "docs/GIFT_21_5_VERIFICATION.md#3 grid-based agreement is a scoped claim, not universal; documented scope limits in GiftTax.lean",
       "source_correspondence_audit": "python scripts/ci/source_correspondence.py (D=PASS, verbatim_located=true, amounts_in_source=[600000]) recorded in docs/GIFT_21_5_VERIFICATION.md#2",
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:21_5/Paragraph#1/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7",
-      "tests": "JapanTaxLaw/GiftTaxTests.lean sha256=725c5b29a5cb14f99245c2f37a386cab37151754ca2c5390c61ab849f157a839; lake build JapanTaxLaw.GiftTaxTests succeeded"
+      "tests": "JapanTaxLaw/GiftTaxTests.lean sha256=61da8d8efd62e5faedd9fe95fab833e7bc41d583b34738c8de6bc7b499c86f11; lake build JapanTaxLaw.GiftTaxTests succeeded"
     },
     "NORM|1686dcd861b9a3aef6711f7887ce50ba1bfa87a0a205d7df414fae2e15038020": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -9439,6 +9439,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle in clause + all spec numerals in scoped article: ['その金額が二百万円を超える場合には、二百万円']; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"100000\": [], \"10000000\": [], \"110000\": [], \"130000\": [], \"150000\": [], \"2\": [\"二\"], \"2000000\": [\"二百万\"], \"220000\": [], \"24000000\": [], \"24500000\": [], \"25000000\": [], \"260000\": [], \"290000\": [], \"300000\": [], \"330000\": [], \"380000\": [], \"4\": [], \"430000\": [], \"5\": [], \"530000\": [], \"9000000\": [], \"9500000\": []}; statutory rate = none; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:34/Article#34/Paragraph#1/Item#2/ItemSentence/Column#2/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalIncomeTaxTests.lean sha256=017a1f256a089f692a0f6f7c5971879339d07ba26a588ff0ae0a6c3d01450104 (55 kernel-decided examples)"
+    },
+    "NORM|200175613e1a4cd1c5e1d7911ce4f45bd97c4d71bebd705ed18c1f06db87cab1": {
+      "source_location": "data/raw/322AC0000000175_20220101_503AC0000000011.law.json#LawBody[1]/MainProvision/MainProvision[8]/Article:9/Article#9/Paragraph#2/ParagraphSentence/Sentence#1 sha256=c3bb5b0bdffbdefd2ee5f358d90ad9e0922d4c887ecb2b133aa7d613f5f4e7ef (revision from INVENTORY current_revision, matched raw revision_info)",
+      "decomposition_audit": "build/task_queue.json: kind=DELEGATION (Article 9(2) definitional delegation: term meanings in preceding paragraph prescribed by the listed items), decomposed=true, exact span, unhandled_conditions=[], id unique",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS disaster tax relief art.9 term definition delegation; 560/560 checks passed; verbatim needle is the whole Paragraph 2 and unique in the whole law; article-kind locator 第九条; 前項/各号/用語の意義/定めるところによる derived programmatically from the needle with exact codepoints (524d 9805 / 5404 53f7 / 7528 8a9e 306e 610f 7fa9 / 5b9a 3081 308b 3068 3053 308d 306b 3088 308b), never hand-typed; law identity 322AC0000000175 Act with real revision; byte-fidelity equal=True, U+6EDE=0",
+      "independent_spec": "JapanTaxLaw/DisasterTaxReliefArt9TermDefinitionDelegationSpec.lean sha256=0aa869492e8aeb3dc94e533e7f8daec3b85695c98c081f8fb9dfd3422ff628d8 (SpecDefinitionSource Prop equality, representationally distinct from the inductive value; implementation/other theorems axiom-free via rfl/cases — no decide/simp/propext)",
+      "implementation": "JapanTaxLaw/DisasterTaxReliefArt9TermDefinitionDelegation.lean sha256=970854d9b99e6e0cf241bd5174af2d4cc8163da897d27f18ac67a2137ca02da1 (災害被害者租税減免法 art.9(2) DELEGATION: DefinitionSource listedItems/other, definitionSource=listedItems with two boundary theorems; item definitions and preceding-paragraph substance NOT MODELLED; Act)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (1816 jobs); all four unit theorems axiom-free via #print axioms probe; no sorryAx/Classical.choice",
+      "proof_scope": "docs/UNIT_DISASTER_TAX_RELIEF_ART9_TERM_DEFINITION_DELEGATION.md (computable definition-source selection slice of one DELEGATION norm unit in 災害被害者租税減免法 art.9(2); item definitions NOT MODELLED)",
+      "boundary_proof": "JapanTaxLaw/DisasterTaxReliefArt9TermDefinitionDelegationTests.lean: definition source is listed items, not other, with Prop spec agreement (all axiom-free)",
+      "cross_law_proof": "queue unit has no dependencies; no cross-law constant introduced. No claim of resolution beyond the 15-digit law id is made.",
+      "tests": "JapanTaxLaw/DisasterTaxReliefArt9TermDefinitionDelegationTests.lean sha256=44e8c0e79e5b72d75e0be9267fa083662a4e3eeb9c82dc55023055277563d3cf (kernel-checked definition-delegation checks)",
+      "adversarial_review": "docs/ADVERSARIAL_DISASTER_TAX_RELIEF_ART9_TERM_DEFINITION_DELEGATION.md — reviewer returned 1 LOW FINDING (documentation only), reproduced from raw law, fixed and confirmed. UNIT doc line 9 claimed the whole Paragraph 2 is the needle sentence, but Paragraph 2 also contains Item#1–3 (term definitions); corrected to say the whole ParagraphSentence is the sentence and Item#1–3 are a separate NOT MODELLED norm; regression guard added (27 checks). Executable model, needle, audit and scope unaffected. All 15 mandated checks otherwise PASS: raw sha256 c3bb5b0b…f5f4e7ef; needle unique and byte-identical with correct codepoints (524d 9805 / 5404 53f7 / 7528 8a9e 306e 610f 7fa9 / 5b9a 3081 308b 3068 3053 308d 306b 3088 308b); definitionSource=listedItems with no invented definitions; audit 560/560; four theorems axiom-free with no simp; build 1816 jobs; no dependencies/cross-law constant; LEGAL_REVIEW_PENDING. No completion claim; human legal review remains pending."
     }
   }
 }
