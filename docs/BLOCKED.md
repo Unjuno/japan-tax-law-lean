@@ -1,33 +1,34 @@
-# BLOCKED — out-of-repo prerequisites (machine-generated)
+# BACKLOG — review and acquisition state (machine-generated, non-blocking)
 
 Do not hand-edit. Regenerate with `python scripts/ci/blocked_ledger.py`.
 
-This repository cannot satisfy the §6 completion criterion while the
-following prerequisites remain outside the Coordinator's authority.
-Green CI, pinned hashes and fidelity-only audits are process evidence
-only and do NOT establish completion.
+Sponsor directive 2026-11-24 overrides the former stop interpretation:
+human legal review is a condition for a FINAL legal determination, NOT for
+starting Lean formalization. Work on every executable unit continues while
+these axes are pending. No completion claim is made from green CI or hashes.
 
-## Sponsor action 1 — independent human legal review
+## Independent human legal review — LEGAL_REVIEW_PENDING (not a gate)
 
 - L7 candidates: 3438
 - candidates with recorded reviewer: 0
 - candidates still awaiting review: 3438
 
-Required: a qualified Japanese tax lawyer reviews all candidates and records
-`reviewer` / `review_date` per row in docs/L7_CANDIDATES_UNREVIEWED.csv.
-The Coordinator MUST NOT self-certify, auto-clear or fabricate these fields:
-doing so would turn `verified-anomaly=0` into a false claim of legal review.
+A qualified Japanese tax lawyer must record `reviewer` / `review_date` per
+row in docs/L7_CANDIDATES_UNREVIEWED.csv before a FINAL legal determination.
+The Coordinator MUST NOT self-certify, auto-clear or fabricate these fields.
+Pending review does not stop formalize / prove / challenge / verify work.
 
-## Sponsor action 2 — scope declaration for unsupported sources
+## Source-scope backlog — UNSUPPORTED is implementation state, not exclusion
 
-Required: an explicit in-repo declaration to model or declare unsupported:
-- 地方税条例 (~1,788 municipal ordinances) — currently unsupported / uncounted
-- 租税条約 (tax treaties) — auxiliary layer, not modelled
-- 通達 (administrative circulars) — auxiliary layer, not modelled
-- 裁判例 (case law) — auxiliary layer, not modelled
+All families below remain IN SCOPE. Unacquired or unmodelled means a
+backlog item with its own versioned source layer, not a permanent exclusion:
+- 地方税条例 (~1,788 municipal ordinances) — in scope; collect per municipality with version pins
+- 租税条約 (tax treaties) — in scope; auxiliary legal source layer, not yet modelled
+- 通達 (administrative circulars) — in scope as interpretation material, kept separate from 法令本文
+- 裁判例 (case law) — in scope as interpretation material, kept separate from 法令本文
 
 The target ledger currently enumerates laws by the '税' name keyword only;
-recursive discovery remains incomplete (see docs/RECURSIVE_DISCOVERY.md).
+delegation / reference / amendment discovery continues (see docs/RECURSIVE_DISCOVERY.md).
 
 ## Recorded unresolved items (not completion blockers by themselves)
 
@@ -39,6 +40,7 @@ recursive discovery remains incomplete (see docs/RECURSIVE_DISCOVERY.md).
 
 ## Repo state is saved and resumable
 
-Work continues on bounded pinned-bytes L4 slices while prerequisites are
-unmet. No completion claim is made. Current coverage figures are in
+The Coordinator continues on all dependency-ready units while the review
+and acquisition backlogs are pending. One blocked unit never stops the rest.
+No completion claim is made. Current coverage figures are in
 docs/COVERAGE.md (machine-generated).

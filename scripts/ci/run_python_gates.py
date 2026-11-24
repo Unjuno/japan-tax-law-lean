@@ -54,13 +54,19 @@ GATES = [
     # (article_obligations.py reads it). Otherwise a stale or partially written
     # queue makes a correct obligations gate fail with a JSONDecodeError.
     ("Persistent task queue regeneration (Sponsor Directive §3)", ["python", "scripts/ci/task_queue.py"], ["scripts/ci/task_queue.py", "docs/TASK_QUEUE.md"]),
-    ("Separate source-layer registry (Objective §2)", ["python", "scripts/ci/source_layers.py"], ["scripts/ci/source_layers.py", "docs/SOURCE_LAYERS.md"]),
+    ("Directive §2 eight-axis ledger tests", ["python", "-m", "unittest", "scripts.tests.test_directive_axes", "-v"], ["scripts/tests/test_directive_axes.py", "scripts/ci/directive_axes.py"]),
+    ("Directive §2 eight-axis ledger regeneration", ["python", "scripts/ci/directive_axes.py"], ["scripts/ci/directive_axes.py", "data/DIRECTIVE_AXES.json", "docs/DIRECTIVE_AXES.md"]),
+    ("Coordinator loop tests (Sponsor Directive §3)", ["python", "-m", "unittest", "scripts.tests.test_coordinator", "-v"], ["scripts/tests/test_coordinator.py", "scripts/ci/coordinator.py"]),
+    ("Coordinator state regeneration gate (Sponsor Directive §3)", ["python", "scripts/ci/coordinator.py", "--check"], ["scripts/ci/coordinator.py", "data/COORDINATOR_STATE.json", "docs/COORDINATOR_STATE.md"]),
     ("normative queue invariants (unique ids, status vocabulary)", ["python", "scripts/ci/verify_queue_invariants.py"], ["scripts/ci/verify_queue_invariants.py"]),
     ("Article verification obligations gate (Objective §4)", ["python", "scripts/ci/article_obligations.py"], ["scripts/ci/article_obligations.py", "docs/ARTICLE_OBLIGATIONS.md"]),
     ("Cross-article rate consistency gate (Objective §5)", ["python", "scripts/law_audit/phase_e/rate_consistency.py"], ["scripts/law_audit/phase_e/rate_consistency.py", "docs/RATE_CONSISTENCY.md"]),
 
     ("Article-scoped fidelity diagnostic (Sponsor Directive §4)", ["python", "scripts/law_audit/phase_e/article_scope.py"], ["scripts/law_audit/phase_e/article_scope.py", "docs/ARTICLE_SCOPE.md"]),
-    ("BLOCKED ledger regeneration gate (Objective §6 out-of-repo prerequisites)", ["python", "scripts/ci/blocked_ledger.py"], ["scripts/ci/blocked_ledger.py", "docs/BLOCKED.md"]),
+    # BLOCKED.md must be regenerated BEFORE source_layers.py, which parses its
+    # reviewer/ordinance counts; the reverse order consumed a stale input.
+    ("BLOCKED backlog ledger regeneration gate (Directive §1 non-blocking)", ["python", "scripts/ci/blocked_ledger.py"], ["scripts/ci/blocked_ledger.py", "docs/BLOCKED.md"]),
+    ("Separate source-layer registry (Objective §2)", ["python", "scripts/ci/source_layers.py"], ["scripts/ci/source_layers.py", "docs/SOURCE_LAYERS.md"]),
     ("Coverage ledger regeneration gate (Objective §4 machine-computed coverage)", ["python", "scripts/ci/coverage_ledger.py"], ["scripts/ci/coverage_ledger.py", "docs/COVERAGE.md"]),
     ("L7 ledger regeneration gate", ["python", "scripts/ci/l7_ledger.py"], ["scripts/ci/l7_ledger.py", "docs/L7_LEDGER.md"]),
     ("L7 per-candidate review-state regeneration gate", ["python", "scripts/ci/l7_candidates.py"], ["scripts/ci/l7_candidates.py", "docs/L7_CANDIDATES_UNREVIEWED.csv"]),
@@ -91,6 +97,10 @@ REQUIRED_GATES = {
     "Explicit spec-scope mapping (Directive §1.5)",
     "Verification evidence regeneration (Directive §1 evidences FULLY_VERIFIED)",
     "Persistent task queue regeneration (Sponsor Directive §3)",
+    "Directive §2 eight-axis ledger tests",
+    "Directive §2 eight-axis ledger regeneration",
+    "Coordinator loop tests (Sponsor Directive §3)",
+    "Coordinator state regeneration gate (Sponsor Directive §3)",
     "Separate source-layer registry (Objective §2)",
     "Article verification obligations gate (Objective §4)",
     "Article-scoped fidelity diagnostic (Sponsor Directive §4)",

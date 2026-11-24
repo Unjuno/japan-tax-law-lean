@@ -3930,6 +3930,12 @@ def checks():
            "article", "第六条",
            ["第三号に掲げる所得税の額から前号に掲げる所得税の額を控除した残額のうち還付を受けようとする金額"])
 
+    # 地方税法 art. 71_6(1) — InterestSplitRate5Pct.lean
+    yield ("地方税法 art.71_6(1)（利子割の税率 百分の五）↔ InterestSplitRate5Pct.lean (exact 5/100, no rounding)",
+           "325AC0000000226",
+           "article", "第七十一条の六",
+           ["利子割の税率は、百分の五とする。"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

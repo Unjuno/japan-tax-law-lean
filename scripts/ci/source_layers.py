@@ -124,13 +124,13 @@ def build() -> dict:
             "legal_nature": "自治体条例（地方自治法に基づく法源）",
             "authority": "各自治体",
             "acquisition_status": "NOT_ACQUIRED",
-            "scope_status": "DECLARED_UNSUPPORTED",
+            "scope_status": "IN_SCOPE_BACKLOG",
             "count": ordinances,
             "count_acquired": 0,
             "pinned_snapshot": "",
-            "verification_status": "OUT_OF_SCOPE",
+            "verification_status": "NOT_IMPLEMENTED",
             "auxiliary": False,
-            "notes": "自治体単位の収集は未実施。対象を勝手に縮小せず、未取得として明示する。",
+            "notes": "対象に保持。自治体・版付きで段階的に収集する。UNSUPPORTED は実装状態であり恒久除外ではない。",
         },
         {
             "layer_id": "L3_TREATY",
@@ -138,13 +138,13 @@ def build() -> dict:
             "legal_nature": "条約（国際法源）— 国内法とは効力発生の機構が異なる",
             "authority": "外務省 / 条約締結",
             "acquisition_status": "NOT_ACQUIRED",
-            "scope_status": "AUXILIARY_LAYER",
+            "scope_status": "IN_SCOPE_BACKLOG",
             "count": None,
             "count_acquired": 0,
             "pinned_snapshot": "",
-            "verification_status": "OUT_OF_SCOPE",
+            "verification_status": "NOT_IMPLEMENTED",
             "auxiliary": True,
-            "notes": "法源上の性質が異なるため L0 に混ぜない。別層として管理する。",
+            "notes": "対象に保持。法源上の性質が異なるため L0 に混ぜず、別層・版付きで管理する。",
         },
         {
             "layer_id": "L4_CIRCULAR",
@@ -152,13 +152,13 @@ def build() -> dict:
             "legal_nature": "行政通達（法的拘束力は条文ではなく行政内部）",
             "authority": "国税庁 / 総務省",
             "acquisition_status": "NOT_ACQUIRED",
-            "scope_status": "AUXILIARY_LAYER",
+            "scope_status": "IN_SCOPE_INTERPRETATION_LAYER",
             "count": None,
             "count_acquired": 0,
             "pinned_snapshot": "",
-            "verification_status": "OUT_OF_SCOPE",
+            "verification_status": "NOT_IMPLEMENTED",
             "auxiliary": True,
-            "notes": "原文対応監査の対象外。解釈資料として別層に置く。",
+            "notes": "対象に保持。法令本文とは区別した解釈資料レイヤーとして段階的に収録する。",
         },
         {
             "layer_id": "L5_CASELAW",
@@ -166,13 +166,13 @@ def build() -> dict:
             "legal_nature": "判決・裁定（法源ではなく判断例）",
             "authority": "裁判所",
             "acquisition_status": "NOT_ACQUIRED",
-            "scope_status": "AUXILIARY_LAYER",
+            "scope_status": "IN_SCOPE_INTERPRETATION_LAYER",
             "count": None,
             "count_acquired": 0,
             "pinned_snapshot": "",
-            "verification_status": "OUT_OF_SCOPE",
+            "verification_status": "NOT_IMPLEMENTED",
             "auxiliary": True,
-            "notes": "反例・対立解釈の資料として別層に置き、規範そのものとは混ぜない。",
+            "notes": "対象に保持。反例・対立解釈の資料として別層に置き、規範そのものとは混ぜない。",
         },
         {
             "layer_id": "L6_HISTORICAL",
@@ -180,13 +180,13 @@ def build() -> dict:
             "legal_nature": "旧法・新法（同一法令の別施行版）",
             "authority": "e-Gov 歴史情報",
             "acquisition_status": "NOT_PINNED",
-            "scope_status": "HISTORICAL_LAYER",
+            "scope_status": "IN_SCOPE_BACKLOG",
             "count": hist_names,
             "count_acquired": 0,
             "pinned_snapshot": "",
-            "verification_status": "OUT_OF_SCOPE",
+            "verification_status": "NOT_PINNED",
             "auxiliary": False,
-            "notes": "附則・経過措置の新旧参照。施行版を別途固定するまで未検証。",
+            "notes": "附則・経過措置の新旧参照。対象に保持し、施行版を版付きで固定する作業を継続する。",
         },
     ]
     q = queue_counts()
@@ -212,6 +212,13 @@ def build() -> dict:
             "human_reviewers_recorded": reviewers,
         },
         "layer_separation_rule": "auxiliary layers are never merged into L0; counts are separate denominators",
+        "sponsor_directive_2026_11_24": {
+            "human_review_is_a_completion_condition_not_a_start_condition": True,
+            "local_ordinances_and_treaties_remain_in_scope": True,
+            "circulars_and_case_law_are_separate_interpretation_layers": True,
+            "unsupported_is_implementation_state_not_permanent_exclusion": True,
+            "formalization_continues_while_backlogs_are_pending": True,
+        },
         "layers": layers,
     }
 
@@ -219,11 +226,13 @@ def build() -> dict:
 def main() -> int:
     payload = build()
     text = json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
-    if OUT_JSON.exists() and OUT_JSON.read_text(encoding="utf-8") == text:
-        print("source layer registry matches committed state (deterministic)")
-    else:
+    changed = False
+    if not OUT_JSON.exists() or OUT_JSON.read_text(encoding="utf-8") != text:
         OUT_JSON.write_text(text, encoding="utf-8")
         print("wrote", OUT_JSON)
+        changed = True
+    else:
+        print("source layer registry matches committed state (deterministic)")
 
     lines = [
         "# Source layers (machine-generated)",
@@ -233,6 +242,11 @@ def main() -> int:
         "The 327-law snapshot is a PROVISIONAL population. The following layers",
         "are kept separate by legal nature and verification status; an auxiliary",
         "layer is never folded into the statutory ledger.",
+        "",
+        "Sponsor directive 2026-11-24: every layer below remains IN SCOPE.",
+        "Human review is a final-determination condition, not a start condition;",
+        "UNSUPPORTED/NOT_IMPLEMENTED is current implementation state, not exclusion.",
+        "Circulars and case law are staged as interpretation layers separate from 法令本文.",
         "",
         f"- snapshot: {payload['inventory_snapshot']}",
         f"- distinct unmatched reference names: {payload['discovery']['distinct_unmatched_reference_names']}",
@@ -261,10 +275,16 @@ def main() -> int:
         "completion claim is made for any layer.",
         "",
     ]
-    OUT_MD.parent.mkdir(parents=True, exist_ok=True)
-    OUT_MD.write_text("\n".join(lines), encoding="utf-8")
+    md_text = "\n".join(lines)
+    if not OUT_MD.exists() or OUT_MD.read_text(encoding="utf-8") != md_text:
+        OUT_MD.parent.mkdir(parents=True, exist_ok=True)
+        OUT_MD.write_text(md_text, encoding="utf-8")
+        print("wrote", OUT_MD)
+        changed = True
     print("layers:", len(payload["layers"]))
-    return 0
+    # A regeneration gate must fail when the committed ledger was stale:
+    # silently rewriting it made a green gate meaningless (SKIP != PASS).
+    return 1 if changed else 0
 
 
 if __name__ == "__main__":
