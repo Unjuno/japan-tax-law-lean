@@ -4104,6 +4104,13 @@ def checks():
            ["当該試験研究費割合から百分の十を控除した割合に二を乗じて計算した割合（当該割合に小数点以下三位未満の端数があるときはこれを切り捨てた割合とし、当該計算した割合が百分の十を超えるときは百分の十とする。）"])
 
 
+    # 石油ガス譲与税法 art. 4 — OilGasGrantArt4Rounding.lean (千円未満端数)
+    yield ("石油ガス譲与税法 art. 4（千円未満端数）↔ OilGasGrantArt4Rounding.lean",
+           "340AC0000000157",
+           "file", None,
+           ["千円未満の端数金額があるときは、その端数金額を控除した金額をもつて"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
