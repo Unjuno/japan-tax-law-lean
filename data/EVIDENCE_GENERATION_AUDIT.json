@@ -1760,6 +1760,17 @@
         21
       ]
     },
+    "DisasterExciseTaxCredit": {
+      "adversarial_review": true,
+      "boundary_examples_found": 3,
+      "independent_spec": true,
+      "kanji_literals": [],
+      "kernel_attested": true,
+      "kernel_decided_examples": 8,
+      "needles_scoped": true,
+      "scoped_article_chars": 1238,
+      "spec_literals": []
+    },
     "DisasterExpense50k": {
       "adversarial_review": true,
       "boundary_examples_found": 4,
@@ -15939,6 +15950,20 @@
           "五百"
         ]
       },
+      "NORM|d595659fb5709f6f1f3a41fb663587388f803cd980d1ede371062ebb1f215def": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 8,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "DisasterExciseTaxCredit",
+        "spec_kanji_in_原文": []
+      },
       "NORM|d60372cc63d9a566c575595a926e2220632dd16347c215bdc16170cd4f4b901f": {
         "checks": {
           "cross_law": true,
@@ -25360,6 +25385,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"500\": [\"五百\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[242]/Article:11_2/Article#11_2/Paragraph#1/Item#3/ItemSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/Vessel500TonTests.lean sha256=fba0c29583ebd2f103bb4be3a03882fa51b458d8bf32e3c6fc5beabfde3af19f (11 kernel-decided examples)"
+    },
+    "NORM|d595659fb5709f6f1f3a41fb663587388f803cd980d1ede371062ebb1f215def": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 8 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=322AC0000000175_20220101_503AC0000000011 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/DisasterExciseTaxCredit.lean sha256=7bf1d88e06a7bbee52d2e5ad9b9c896e09c679e7d70a40e824e238f42b3afbcb",
+      "independent_spec": "JapanTaxLaw/DisasterExciseTaxCreditSpec.lean sha256=8be0b44820a83109e375e620fa30215feaf093db964f9d5185146e6c4f9600f6 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45450996055: commit 9f004eda309428649646a4358676f47302a1fbfd, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=pinned needle(s) in clause: ['酒類又は製造たばこ、揮発油、石油ガス、原油、ガス']; constants [] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['酒類又は製造たばこ、揮発油、石油ガス、原油、ガス']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/322AC0000000175_20220101_503AC0000000011.law.json#LawBody[1]/MainProvision/MainProvision[6]/Article:7/Article#7/Paragraph#1/ParagraphSentence/Sentence#1 sha256=c3bb5b0bdffbdefd2ee5f358d90ad9e0922d4c887ecb2b133aa7d613f5f4e7ef (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/DisasterExciseTaxCreditTests.lean sha256=ee17e7e0006494577cf778d28aefe6833005cbfedabfc9fb0c40f3e50d834602 (8 kernel-decided examples)"
     },
     "NORM|d60372cc63d9a566c575595a926e2220632dd16347c215bdc16170cd4f4b901f": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
