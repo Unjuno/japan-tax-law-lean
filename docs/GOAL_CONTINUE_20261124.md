@@ -248,6 +248,27 @@ The wider +22 includes previously stale units recovered by the honest
 regeneration; all six target units carry `kernel_proof`. L4 now has 2 pinned
 circulars. Scoped-clause-only status and `LEGAL_REVIEW_PENDING` are unchanged.
 
+### Seventh iteration
+
+Six more 地方税法 art.34 units (`LocalTax34OldLife15k40k`,
+`Income950M1000M`, `SpouseUpTo1M`, `Age16Plus`, `IncomeUpTo24M`,
+`RelativeOver1_2M`) were validated (build 1925 jobs, invariants 17/17,
+batch-241 review), including the inclusive-以上 boundary correction.
+CI run `45499831068` on `25050ce84bce8206026e1e5abcb43fe557cbaece` completed
+`success`; `data/PROOF_ATTESTATION_SCOPED_T7.json` binds 18 module hashes from
+committed blobs at that commit to that run.
+
+```
+before: FULLY_VERIFIED=786  NOT_STARTED=396063  evidence=789
+after:  FULLY_VERIFIED=799  NOT_STARTED=396050  evidence=802
+delta:  FULLY_VERIFIED=+13 NOT_STARTED=-13  evidence=+13
+progress_ledger: COUNTED; NOT_STARTED delta -13; new modules 18
+```
+
+All six target units carry `kernel_proof`. L5 now has 2 hash-pinned judgments;
+all 9 pinned auxiliary sources re-verified byte-for-byte. Scoped-clause-only
+and `LEGAL_REVIEW_PENDING` status is unchanged.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |
