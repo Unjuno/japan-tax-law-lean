@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 2866,
+  "checks": 2904,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -3194,34 +3194,34 @@
     },
     {
       "C": "a generic/template string may describe a different unit",
-      "D": "FAIL",
+      "D": "PASS",
       "H": "the cited reference does not actually support this axis",
       "T": "resolve the reference against the named artifact",
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "implementation",
-      "detail": "sha256 MISMATCH",
+      "detail": "sha256 match",
       "reference": "JapanTaxLaw/GiftTax.lean",
       "unit_id": "NORM|167b8cabf184adb595d75baba5ffbf319ec3c502be8a820858e8c493b09f57d7"
     },
     {
       "C": "a generic/template string may describe a different unit",
-      "D": "FAIL",
+      "D": "PASS",
       "H": "the cited reference does not actually support this axis",
       "T": "resolve the reference against the named artifact",
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "independent_spec",
-      "detail": "sha256 MISMATCH",
+      "detail": "sha256 match",
       "reference": "JapanTaxLaw/GiftTaxSpec.lean",
       "unit_id": "NORM|167b8cabf184adb595d75baba5ffbf319ec3c502be8a820858e8c493b09f57d7"
     },
     {
       "C": "a generic/template string may describe a different unit",
-      "D": "FAIL",
+      "D": "PASS",
       "H": "the cited reference does not actually support this axis",
       "T": "resolve the reference against the named artifact",
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "tests",
-      "detail": "sha256 MISMATCH",
+      "detail": "sha256 match",
       "reference": "JapanTaxLaw/GiftTaxTests.lean",
       "unit_id": "NORM|167b8cabf184adb595d75baba5ffbf319ec3c502be8a820858e8c493b09f57d7"
     },
@@ -7226,6 +7226,50 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "adversarial_review",
       "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_CUSTOMS_TARIFF_SUPPL_ART1_EXCEPTION_DATE.md — NO FINDINGS via independent adversarial review with all 1",
+      "unit_id": "NORM|34bc97d6d32588ad832ab14de19ae658b3d7e00e7bb4bacc59564498bfe859c3"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffSupplArt1ExceptionDate.lean",
+      "unit_id": "NORM|34bc97d6d32588ad832ab14de19ae658b3d7e00e7bb4bacc59564498bfe859c3"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffSupplArt1ExceptionDateSpec.lean",
+      "unit_id": "NORM|34bc97d6d32588ad832ab14de19ae658b3d7e00e7bb4bacc59564498bfe859c3"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/CustomsTariffSupplArt1ExceptionDateTests.lean",
+      "unit_id": "NORM|34bc97d6d32588ad832ab14de19ae658b3d7e00e7bb4bacc59564498bfe859c3"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
       "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "unit_id": "NORM|35012598c2439c37c10043d7d2387708fc8a75e5a3ab33b97b2a0296a1c438af"
     },
@@ -8372,6 +8416,61 @@
       "detail": "run=45284336667 attested_run=45284336667 conclusion=success",
       "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45284336667: commit 1f47c37935ee0e5c5dd79d598eed8d7374b9ca21, ",
       "unit_id": "NORM|3d0ffb33ca278f2151471b282f830323d3b801c903e7027d2dda3155e63e4078"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "unit_id": "NORM|3d471dce366351a9b45eb67e82a2195f7367c08ac0f372658e3f4e888f605cd8"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/AreaMultiplierSixTwo.lean",
+      "unit_id": "NORM|3d471dce366351a9b45eb67e82a2195f7367c08ac0f372658e3f4e888f605cd8"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/AreaMultiplierSixTwoSpec.lean",
+      "unit_id": "NORM|3d471dce366351a9b45eb67e82a2195f7367c08ac0f372658e3f4e888f605cd8"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/AreaMultiplierSixTwoTests.lean",
+      "unit_id": "NORM|3d471dce366351a9b45eb67e82a2195f7367c08ac0f372658e3f4e888f605cd8"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "FAIL",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "kernel_proof",
+      "detail": "run=45232920308 attested_run=45284336667 conclusion=success",
+      "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45232920308: commit 0924540f345967ff234f744cfc15c5b58d2cbc59, ",
+      "unit_id": "NORM|3d471dce366351a9b45eb67e82a2195f7367c08ac0f372658e3f4e888f605cd8"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -11518,6 +11617,61 @@
       "detail": "run=45284336667 attested_run=45284336667 conclusion=success",
       "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45284336667: commit 1f47c37935ee0e5c5dd79d598eed8d7374b9ca21, ",
       "unit_id": "NORM|53773bdf6a5db6b2270b1b487f5be6269a73b015abfb51d51806b6bc3ad9a99f"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "unit_id": "NORM|53c34444ca1a5c14b9fdb742337b860b1a54c45d9b5f7036d4d722c388a38722"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/AreaMultiplierSixTwo.lean",
+      "unit_id": "NORM|53c34444ca1a5c14b9fdb742337b860b1a54c45d9b5f7036d4d722c388a38722"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/AreaMultiplierSixTwoSpec.lean",
+      "unit_id": "NORM|53c34444ca1a5c14b9fdb742337b860b1a54c45d9b5f7036d4d722c388a38722"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/AreaMultiplierSixTwoTests.lean",
+      "unit_id": "NORM|53c34444ca1a5c14b9fdb742337b860b1a54c45d9b5f7036d4d722c388a38722"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "FAIL",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "kernel_proof",
+      "detail": "run=45232920308 attested_run=45284336667 conclusion=success",
+      "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45232920308: commit 0924540f345967ff234f744cfc15c5b58d2cbc59, ",
+      "unit_id": "NORM|53c34444ca1a5c14b9fdb742337b860b1a54c45d9b5f7036d4d722c388a38722"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -14917,6 +15071,50 @@
       "detail": "run=45284336667 attested_run=45284336667 conclusion=success",
       "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45284336667: commit 1f47c37935ee0e5c5dd79d598eed8d7374b9ca21, ",
       "unit_id": "NORM|758b35504a601002d799ea75fc11f93dc7d84d09fcd74b6bc2d306d6d982c7d4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_LOCAL_TAX_ART48_TO_50_DELETED_RANGE.md — NO FINDINGS via independent adversarial review with all 15 man",
+      "unit_id": "NORM|76351db6bc4ddafec1d36f9bb70e5fe0fa5aa6eafa4db90ea65f76e66c3050ee"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt48To50DeletedRange.lean",
+      "unit_id": "NORM|76351db6bc4ddafec1d36f9bb70e5fe0fa5aa6eafa4db90ea65f76e66c3050ee"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt48To50DeletedRangeSpec.lean",
+      "unit_id": "NORM|76351db6bc4ddafec1d36f9bb70e5fe0fa5aa6eafa4db90ea65f76e66c3050ee"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt48To50DeletedRangeTests.lean",
+      "unit_id": "NORM|76351db6bc4ddafec1d36f9bb70e5fe0fa5aa6eafa4db90ea65f76e66c3050ee"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -26795,6 +26993,50 @@
       "U": "resolution checks artifact identity only, not legal correctness",
       "axis": "adversarial_review",
       "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_DISASTER_TAX_RELIEF_ART8_DELEGATION.md — NO FINDINGS via independent adversarial review with all 15 man",
+      "unit_id": "NORM|d351e6ace9606ec2a4061c0a13824f8b21e9bbee9be7c1457e7d7cafbf136433"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DisasterTaxReliefArt8Delegation.lean",
+      "unit_id": "NORM|d351e6ace9606ec2a4061c0a13824f8b21e9bbee9be7c1457e7d7cafbf136433"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DisasterTaxReliefArt8DelegationSpec.lean",
+      "unit_id": "NORM|d351e6ace9606ec2a4061c0a13824f8b21e9bbee9be7c1457e7d7cafbf136433"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DisasterTaxReliefArt8DelegationTests.lean",
+      "unit_id": "NORM|d351e6ace9606ec2a4061c0a13824f8b21e9bbee9be7c1457e7d7cafbf136433"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
       "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "unit_id": "NORM|d60372cc63d9a566c575595a926e2220632dd16347c215bdc16170cd4f4b901f"
     },
@@ -31527,11 +31769,187 @@
       "detail": "run=45284336667 attested_run=45284336667 conclusion=success",
       "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45284336667: commit 1f47c37935ee0e5c5dd79d598eed8d7374b9ca21, ",
       "unit_id": "NORM|fff89ad304c83b401e45afc8fa865f356060ed7292f4a5afd6848aa8d0a0431e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_INHERITANCE_TAX_ART19_4_QUASI_APPLICATION.md — NO FINDINGS via independent adversarial review with all ",
+      "unit_id": "NORM|e29e4e105e5b1ef84a82b9e35f096ec01045e79c65186e86f1a2fe08fedcd722"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/InheritanceTaxArt19_4QuasiApplication.lean",
+      "unit_id": "NORM|e29e4e105e5b1ef84a82b9e35f096ec01045e79c65186e86f1a2fe08fedcd722"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/InheritanceTaxArt19_4QuasiApplicationSpec.lean",
+      "unit_id": "NORM|e29e4e105e5b1ef84a82b9e35f096ec01045e79c65186e86f1a2fe08fedcd722"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/InheritanceTaxArt19_4QuasiApplicationTests.lean",
+      "unit_id": "NORM|e29e4e105e5b1ef84a82b9e35f096ec01045e79c65186e86f1a2fe08fedcd722"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_INHERITANCE_TAX_ART3_DEEMED_ACQUISITION.md — NO FINDINGS via independent 26-point programmatic cross-ch",
+      "unit_id": "NORM|6a574541c0cc8e189b22ac97d2c2ddacaa3a00871afe9a7f5c9ca2137f72dc74"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/InheritanceTaxArt3DeemedAcquisition.lean",
+      "unit_id": "NORM|6a574541c0cc8e189b22ac97d2c2ddacaa3a00871afe9a7f5c9ca2137f72dc74"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/InheritanceTaxArt3DeemedAcquisitionSpec.lean",
+      "unit_id": "NORM|6a574541c0cc8e189b22ac97d2c2ddacaa3a00871afe9a7f5c9ca2137f72dc74"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/InheritanceTaxArt3DeemedAcquisitionTests.lean",
+      "unit_id": "NORM|6a574541c0cc8e189b22ac97d2c2ddacaa3a00871afe9a7f5c9ca2137f72dc74"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_DISASTER_TAX_RELIEF_ORDER_ART10_APPLICATION_ITEM_3_5.md — NO FINDINGS via independent 23-point programm",
+      "unit_id": "NORM|89782d86b1c41898c6684fa9644bde155cf5722491c2e2a5a743f27654b89cc5"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DisasterTaxReliefOrderArt10ApplicationItem3_5.lean",
+      "unit_id": "NORM|89782d86b1c41898c6684fa9644bde155cf5722491c2e2a5a743f27654b89cc5"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DisasterTaxReliefOrderArt10ApplicationItem3_5Spec.lean",
+      "unit_id": "NORM|89782d86b1c41898c6684fa9644bde155cf5722491c2e2a5a743f27654b89cc5"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/DisasterTaxReliefOrderArt10ApplicationItem3_5Tests.lean",
+      "unit_id": "NORM|89782d86b1c41898c6684fa9644bde155cf5722491c2e2a5a743f27654b89cc5"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_SPECIAL_MEASURES_ART70_3_PRESUMPTIVE_HEIR_CONDITION.md — reviewer returned 2 FINDINGS (source-fidelity ",
+      "unit_id": "NORM|d775175c5fdefe03cb113c17eb692261fc30ceac82464eae2afd408b64095615"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/SpecialMeasuresArt70_3PresumptiveHeirCondition.lean",
+      "unit_id": "NORM|d775175c5fdefe03cb113c17eb692261fc30ceac82464eae2afd408b64095615"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/SpecialMeasuresArt70_3PresumptiveHeirConditionSpec.lean",
+      "unit_id": "NORM|d775175c5fdefe03cb113c17eb692261fc30ceac82464eae2afd408b64095615"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/SpecialMeasuresArt70_3PresumptiveHeirConditionTests.lean",
+      "unit_id": "NORM|d775175c5fdefe03cb113c17eb692261fc30ceac82464eae2afd408b64095615"
     }
   ],
-  "resolved": 2862,
+  "resolved": 2901,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 587,
-  "unresolved": 4
+  "units_checked": 596,
+  "unresolved": 3
 }
