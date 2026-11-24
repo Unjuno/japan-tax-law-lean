@@ -72,14 +72,16 @@ $ python scripts/ci/batch_threshold_pipeline.py --limit 200
 batch pipeline: verified=200 failed=22  (source-audit failures skip-listed)
 $ python scripts/ci/batch_delegation_pipeline.py --limit 10 / --limit 50
 delegation batch pipeline: verified=6 failed=0 / verified=0 failed=0 (class exhausted)
+$ python scripts/ci/batch_rate_pipeline.py --limit 150
+rate batch pipeline: verified=150 failed=0
 
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=395355, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=1497, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=395205, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=1647, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=1497 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=1647 axes=11 unbacked=0
 12/12 invariants passed
 $ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
 
@@ -274,7 +276,7 @@ caller-established Bool (NOT resolved). Its guarded class contains only 6
 units; all 6 were verified. Failures in other batches were left NOT_STARTED
 with recorded reasons in per-pipeline skip lists.
 
-So 1497 units are evidence-backed FULLY_VERIFIED and 395,355 remain NOT_STARTED
+So 1647 units are evidence-backed FULLY_VERIFIED and 395,205 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
