@@ -2,39 +2,6 @@
   "assignment_packet": "build/coordinator_assignments.json",
   "assignments": [
     {
-      "article": "9",
-      "checklist": [
-        "write an independent spec FIRST (own spec* definitions, no implementation ids)",
-        "implement the pinned clause as a separate Lean module",
-        "record pinned law id / revision / scoped article and exact needle in both headers",
-        "do NOT mark legal review: it stays LEGAL_REVIEW_PENDING"
-      ],
-      "claim_owner": "",
-      "dependencies": [],
-      "enforcement_date": "2026-06-01",
-      "law_id": "143AC0000000054",
-      "legal_review": "LEGAL_REVIEW_PENDING",
-      "normative_id": "NORM|6f539e8731e012eed30b16cceef593768d521afcc1dbef314ac47b5b7929dbb3",
-      "remaining_axes": [
-        "source_location",
-        "decomposition_audit",
-        "source_correspondence_audit",
-        "independent_spec",
-        "implementation",
-        "kernel_proof",
-        "proof_scope",
-        "boundary_proof",
-        "cross_law_proof",
-        "tests",
-        "adversarial_review"
-      ],
-      "revision": "143AC0000000054_20260601_508AC0000000005",
-      "role": "FORMALIZE",
-      "scope": "FULL_ARTICLE",
-      "status": "NOT_STARTED",
-      "unhandled_conditions": []
-    },
-    {
       "article": "7",
       "checklist": [
         "write an independent spec FIRST (own spec* definitions, no implementation ids)",
@@ -444,6 +411,39 @@
       "scope": "FULL_ARTICLE",
       "status": "NOT_STARTED",
       "unhandled_conditions": []
+    },
+    {
+      "article": "27",
+      "checklist": [
+        "write an independent spec FIRST (own spec* definitions, no implementation ids)",
+        "implement the pinned clause as a separate Lean module",
+        "record pinned law id / revision / scoped article and exact needle in both headers",
+        "do NOT mark legal review: it stays LEGAL_REVIEW_PENDING"
+      ],
+      "claim_owner": "",
+      "dependencies": [],
+      "enforcement_date": "2026-05-25",
+      "law_id": "332AC0000000055",
+      "legal_review": "LEGAL_REVIEW_PENDING",
+      "normative_id": "NORM|0b733f32ad62ee9eb38946a83a200c9e305427d46b05ce7cae8d298ad38bc24b",
+      "remaining_axes": [
+        "source_location",
+        "decomposition_audit",
+        "source_correspondence_audit",
+        "independent_spec",
+        "implementation",
+        "kernel_proof",
+        "proof_scope",
+        "boundary_proof",
+        "cross_law_proof",
+        "tests",
+        "adversarial_review"
+      ],
+      "revision": "332AC0000000055_20260525_506AC0000000052",
+      "role": "FORMALIZE",
+      "scope": "FULL_ARTICLE",
+      "status": "NOT_STARTED",
+      "unhandled_conditions": []
     }
   ],
   "blocked": [
@@ -614,13 +614,13 @@
       "stage": "INSPECT",
       "status_counts": {
         "BLOCKED": 2,
-        "FULLY_VERIFIED": 833,
-        "NOT_STARTED": 396018,
+        "FULLY_VERIFIED": 829,
+        "NOT_STARTED": 396022,
         "PROVED_SCOPE": 1
       }
     },
     {
-      "selectable": 396019,
+      "selectable": 396023,
       "selected": 12,
       "skipped_dependency_or_blocker": 35,
       "stage": "SELECT"
@@ -629,7 +629,6 @@
       "assignments_by_role": {
         "CHALLENGE": [],
         "FORMALIZE": [
-          "NORM|6f539e8731e012eed30b16cceef593768d521afcc1dbef314ac47b5b7929dbb3",
           "NORM|d595659fb5709f6f1f3a41fb663587388f803cd980d1ede371062ebb1f215def",
           "NORM|04b6d44ade06008d19d4905278267d4f840442fb0ec58c7d670137fd3aa14ac7",
           "NORM|e78f6d9b6656ad2f410587651d8ef5db4526ea90e926caa8f41a0816105f0bbf",
@@ -640,7 +639,8 @@
           "NORM|3f2a8da12d2428d8dec042c728a5413875a75031575be7ec79a612459ef44325",
           "NORM|7128dfb6a017d1db0d57b3a37b36cce183c850974de506050bf109b7e08a8a90",
           "NORM|177401da2045261df6446abf1263b5eb3ab6799cf18872b743a0dcfc2c7e82bc",
-          "NORM|2f886a909310a1f78cd7bd2e372a1664fea11ee5a4b06a02f77527939e87f273"
+          "NORM|2f886a909310a1f78cd7bd2e372a1664fea11ee5a4b06a02f77527939e87f273",
+          "NORM|0b733f32ad62ee9eb38946a83a200c9e305427d46b05ce7cae8d298ad38bc24b"
         ],
         "PROVE": [],
         "VERIFY": []
