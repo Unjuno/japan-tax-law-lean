@@ -27,6 +27,7 @@ REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "scripts" / "ci"))
 sys.path.insert(0, str(REPO / "scripts" / "law_audit"))
 import kansuji  # noqa: E402
+import task_queue as tq  # noqa: E402
 import task_state as st  # noqa: E402
 
 QUEUE = REPO / "build" / "task_queue.json"
@@ -52,6 +53,39 @@ def base_module(check_name: str) -> str:
     return m.group(1) if m else ""
 
 
+def make_full_text_reader():
+    """Return a cached reader for exact unit text reconstructed from pinned bytes."""
+    docs: dict[str, dict] = {}
+    texts: dict[tuple[str, str], str] = {}
+
+    def full_text(t: dict) -> str:
+        key = (t["source_file"], t["path"])
+        if key in texts:
+            return texts[key]
+        sf = t["source_file"]
+        if sf not in docs:
+            p = REPO / sf
+            docs[sf] = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+        target = tuple(t["path"].split("/"))
+        node = None
+        for path, candidate in tq._walk(docs[sf].get("law_full_text") or {}):
+            if tq._provision_path(path) == target:
+                node = candidate
+                break
+        if node is None:
+            texts[key] = ""
+            return ""
+        segments = []
+        tq._collect(node, (), segments)
+        text = "".join(s for s, _ in segments)
+        span = t["source_span"]
+        full = text[span["norm_start"]:span["norm_end"]]
+        texts[key] = full
+        return full
+
+    return full_text
+
+
 def main() -> int:
     kernel = json.loads(KERNEL.read_text(encoding="utf-8")) if KERNEL.exists() else {}
     if not kernel.get("pass"):
@@ -68,6 +102,16 @@ def main() -> int:
 
     evidence = st.load_evidence()
     state = st.load_state()
+    state_before = json.dumps(state["units"], sort_keys=True, ensure_ascii=False)
+    full_text = make_full_text_reader()
+
+    def add_once(uid: str, axis: str, ref: str, tool: str, note: str) -> bool:
+        existing = evidence["records"].get(uid, [])
+        if any(r.get("axis") == axis and r.get("evidence_ref") == ref for r in existing):
+            return False
+        st.record_evidence(evidence, uid, axis, evidence_ref=ref, tool=tool, note=note)
+        return True
+
     linked = 0
     axes_recorded = 0
     for name, law_id, kind, art, needles in mod.checks():
@@ -87,36 +131,32 @@ def main() -> int:
         if art:
             units = by_key.get((law_id, parse_article(art)), [])
         else:
-            # file-level appendix pins: match the law and a needle prefix
+            # file-level appendix pins: cheap prefix pre-filter, then full span.
             units = [t for t in tasks if t["law_id"] == law_id
                      and any(n[:12] in t["norm_fragment"] for n in needles)]
         for t in units:
-            frag = t["norm_fragment"]
-            located = any(n in frag for n in needles)
             uid = t["normative_id"]
+            span_text = full_text(t)
+            located = any(n in span_text for n in needles) if span_text else (
+                any(n in t["norm_fragment"] for n in needles))
             records_before = len(evidence["records"].get(uid, []))
-            already = any(r.get("tool") == "task_queue.py"
-                          for r in evidence["records"].get(uid, []))
-            if already:
-                continue
-            st.record_evidence(evidence, uid, "SOURCE_LOCATION",
-                               evidence_ref=f"build/task_queue.json#{uid[:12]}#source_span",
-                               tool="task_queue.py", note="exact structural path and offsets")
+            add_once(uid, "SOURCE_LOCATION",
+                     f"build/task_queue.json#{uid[:12]}#source_span",
+                     "task_queue.py", "exact structural path and offsets")
             if located:
-                st.record_evidence(evidence, uid, "SOURCE_CORRESPONDENCE_AUDIT",
-                                   evidence_ref=f"transcription_audit:{base}",
-                                   tool="transcription_audit.py",
-                                   note="pinned needle located in unit span prefix")
+                add_once(uid, "SOURCE_CORRESPONDENCE_AUDIT",
+                         f"transcription_audit:{base}",
+                         "transcription_audit.py",
+                         "pinned needle located in exact unit span")
             for axis, path in artifacts.items():
                 if path.exists():
-                    st.record_evidence(evidence, uid, axis,
-                                       evidence_ref=f"{path.relative_to(REPO).as_posix()}@kernel",
-                                       tool="lake build", note="compiled in successful kernel build")
+                    add_once(uid, axis,
+                             f"{path.relative_to(REPO).as_posix()}@kernel",
+                             "lake build", "compiled in successful kernel build")
             if agree:
-                st.record_evidence(evidence, uid, "PROOF_SOUNDNESS",
-                                   evidence_ref=f"{spec_f.relative_to(REPO).as_posix()}#agree*@kernel",
-                                   tool="lake build",
-                                   note="compiled spec correspondence theorem")
+                add_once(uid, "PROOF_SOUNDNESS",
+                         f"{spec_f.relative_to(REPO).as_posix()}#agree*@kernel",
+                         "lake build", "compiled spec correspondence theorem")
             added = len(evidence["records"].get(uid, [])) - records_before
             if added:
                 linked += 1
@@ -129,7 +169,8 @@ def main() -> int:
                     state["units"][uid] = entry
 
     st.save_evidence(evidence)
-    st.save_state(state)
+    if json.dumps(state["units"], sort_keys=True, ensure_ascii=False) != state_before:
+        st.save_state(state)
     claim = st.completion_claim(tasks, state, evidence)
     OUT.write_text(json.dumps({
         "linked_units": linked,
