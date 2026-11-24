@@ -216,6 +216,23 @@ def blob_sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
+def canonical_modules() -> dict:
+    """normative_id -> the one module allowed to evidence that unit.
+
+    An explicit review decision (data/MODEL_DISAMBIGUATION.json) prevents a
+    second, less faithful module from matching the same clause and silently
+    overwriting its evidence entry. Absent a mapping, behaviour is unchanged.
+    """
+    path = REPO / "data" / "MODEL_DISAMBIGUATION.json"
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except ValueError:
+        return {}
+    return data.get("canonical_modules", {})
+
+
 def load_attestation() -> dict:
     data = json.loads(ATTESTATION.read_text(encoding="utf-8"))
     if data.get("schema") != 1 or data.get("run_conclusion") != "success":
@@ -556,6 +573,7 @@ def checks_by_module():
 
 def build() -> dict:
     att = load_attestation()
+    canonical = canonical_modules()
     review_text = REVIEW.read_text(encoding="utf-8") if REVIEW.exists() else ""
     modules = checks_by_module()
     inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
@@ -620,6 +638,9 @@ def build() -> dict:
             # evidence from a model that only covers the pinned clause.
             pinned_uid = info.get("normative_id", "")
             if pinned_uid and t.get("normative_id") != pinned_uid:
+                continue
+            # Explicit disambiguation: a reviewed canonical module owns the unit.
+            if canonical.get(t.get("normative_id", ""), base) != base:
                 continue
             if t.get("kind") not in VERIFIABLE_KINDS or t.get("unhandled_conditions"):
                 continue
