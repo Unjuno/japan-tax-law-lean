@@ -1339,6 +1339,17 @@
       "scoped_article_chars": 4135,
       "spec_literals": []
     },
+    "CustomsTariffSupplArt1StaggeredEnforcementException": {
+      "adversarial_review": false,
+      "boundary_examples_found": 0,
+      "independent_spec": false,
+      "kanji_literals": [],
+      "kernel_attested": true,
+      "kernel_decided_examples": 4,
+      "needles_scoped": true,
+      "scoped_article_chars": 62,
+      "spec_literals": []
+    },
     "CustomsTemporaryMeasureDutyFreeThreshold": {
       "adversarial_review": false,
       "boundary_examples_found": 0,
@@ -1537,6 +1548,34 @@
       "spec_literals": [
         500000
       ]
+    },
+    "DisasterTaxReliefOrderArt10ApplicationItem3_5": {
+      "adversarial_review": false,
+      "boundary_examples_found": 0,
+      "independent_spec": false,
+      "kanji_literals": [
+        "三",
+        "五"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 4,
+      "needles_scoped": true,
+      "scoped_article_chars": 1652,
+      "spec_literals": [
+        3,
+        5
+      ]
+    },
+    "DisasterTaxReliefOrderArt15_4RefundBase": {
+      "adversarial_review": false,
+      "boundary_examples_found": 0,
+      "independent_spec": false,
+      "kanji_literals": [],
+      "kernel_attested": false,
+      "kernel_decided_examples": 1,
+      "needles_scoped": true,
+      "scoped_article_chars": 596,
+      "spec_literals": []
     },
     "DisasterVictimIncomeLimit": {
       "adversarial_review": true,
@@ -2439,6 +2478,17 @@
         300000000,
         600000000
       ]
+    },
+    "InheritanceTaxArt19_4QuasiApplication": {
+      "adversarial_review": false,
+      "boundary_examples_found": 0,
+      "independent_spec": false,
+      "kanji_literals": [],
+      "kernel_attested": false,
+      "kernel_decided_examples": 8,
+      "needles_scoped": true,
+      "scoped_article_chars": 482,
+      "spec_literals": []
     },
     "InheritanceTaxArt56And57Ref": {
       "adversarial_review": false,
@@ -4548,6 +4598,17 @@
         100,
         1000
       ]
+    },
+    "SpecialMeasuresArt70_3PresumptiveHeirCondition": {
+      "adversarial_review": false,
+      "boundary_examples_found": 0,
+      "independent_spec": false,
+      "kanji_literals": [],
+      "kernel_attested": true,
+      "kernel_decided_examples": 4,
+      "needles_scoped": true,
+      "scoped_article_chars": 6672,
+      "spec_literals": []
     },
     "SpecialMeasuresCasinoRatio": {
       "adversarial_review": true,
@@ -14138,7 +14199,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/JointHeirDeclarationThreshold.lean sha256=2567f1a996aa00947d06ef2be7b7024ad06283e881a551d55fceabc19f62f284",
       "independent_spec": "JapanTaxLaw/JointHeirDeclarationThresholdSpec.lean sha256=1cb5d3b530f670806b516cb06875b69ca6559baf2ea52f20cbfaf2ecab92efc2 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45232920308: commit 0924540f345967ff234f744cfc15c5b58d2cbc59, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45284336667: commit 1f47c37935ee0e5c5dd79d598eed8d7374b9ca21, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/353CO0000000132_20250401_507CO0000000006.law.json#LawBody[2]/MainProvision/MainProvision[9]/Article:13/Article#13/Paragraph#3/ParagraphSentence/Sentence#1 sha256=a11df5044e3b0e7bbd81d87d328d08467def928a3fec7031b1c8a5b60a76499d (verbatim unit text located in scoped article)",
@@ -14372,7 +14433,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/JointHeirDeclarationThreshold.lean sha256=2567f1a996aa00947d06ef2be7b7024ad06283e881a551d55fceabc19f62f284",
       "independent_spec": "JapanTaxLaw/JointHeirDeclarationThresholdSpec.lean sha256=1cb5d3b530f670806b516cb06875b69ca6559baf2ea52f20cbfaf2ecab92efc2 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45232920308: commit 0924540f345967ff234f744cfc15c5b58d2cbc59, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45284336667: commit 1f47c37935ee0e5c5dd79d598eed8d7374b9ca21, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/353CO0000000132_20250401_507CO0000000006.law.json#LawBody[2]/MainProvision/MainProvision[9]/Article:13/Article#13/Paragraph#2/Item#3/ItemSentence/Sentence#1 sha256=a11df5044e3b0e7bbd81d87d328d08467def928a3fec7031b1c8a5b60a76499d (verbatim unit text located in scoped article)",
@@ -16465,7 +16526,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/JointHeirDeclarationThreshold.lean sha256=2567f1a996aa00947d06ef2be7b7024ad06283e881a551d55fceabc19f62f284",
       "independent_spec": "JapanTaxLaw/JointHeirDeclarationThresholdSpec.lean sha256=1cb5d3b530f670806b516cb06875b69ca6559baf2ea52f20cbfaf2ecab92efc2 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45232920308: commit 0924540f345967ff234f744cfc15c5b58d2cbc59, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45284336667: commit 1f47c37935ee0e5c5dd79d598eed8d7374b9ca21, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/353CO0000000132_20250401_507CO0000000006.law.json#LawBody[2]/MainProvision/MainProvision[9]/Article:13/Article#13/Paragraph#2/Item#1/ItemSentence/Sentence#1 sha256=a11df5044e3b0e7bbd81d87d328d08467def928a3fec7031b1c8a5b60a76499d (verbatim unit text located in scoped article)",
@@ -18987,7 +19048,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/JointHeirDeclarationThreshold.lean sha256=2567f1a996aa00947d06ef2be7b7024ad06283e881a551d55fceabc19f62f284",
       "independent_spec": "JapanTaxLaw/JointHeirDeclarationThresholdSpec.lean sha256=1cb5d3b530f670806b516cb06875b69ca6559baf2ea52f20cbfaf2ecab92efc2 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45232920308: commit 0924540f345967ff234f744cfc15c5b58d2cbc59, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45284336667: commit 1f47c37935ee0e5c5dd79d598eed8d7374b9ca21, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/353CO0000000132_20250401_507CO0000000006.law.json#LawBody[2]/MainProvision/MainProvision[9]/Article:13/Article#13/Paragraph#4/ParagraphSentence/Sentence#1 sha256=a11df5044e3b0e7bbd81d87d328d08467def928a3fec7031b1c8a5b60a76499d (verbatim unit text located in scoped article)",
@@ -19585,7 +19646,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/JointHeirDeclarationThreshold.lean sha256=2567f1a996aa00947d06ef2be7b7024ad06283e881a551d55fceabc19f62f284",
       "independent_spec": "JapanTaxLaw/JointHeirDeclarationThresholdSpec.lean sha256=1cb5d3b530f670806b516cb06875b69ca6559baf2ea52f20cbfaf2ecab92efc2 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45232920308: commit 0924540f345967ff234f744cfc15c5b58d2cbc59, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45284336667: commit 1f47c37935ee0e5c5dd79d598eed8d7374b9ca21, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/353CO0000000132_20250401_507CO0000000006.law.json#LawBody[2]/MainProvision/MainProvision[9]/Article:13/Article#13/Paragraph#5/ParagraphSentence/Sentence#1 sha256=a11df5044e3b0e7bbd81d87d328d08467def928a3fec7031b1c8a5b60a76499d (verbatim unit text located in scoped article)",
