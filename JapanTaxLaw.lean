@@ -52,6 +52,9 @@ import JapanTaxLaw.AreaThreshold2HaTests
 import JapanTaxLaw.AuctionDepositValuation
 import JapanTaxLaw.AuctionDepositValuationSpec
 import JapanTaxLaw.AuctionDepositValuationTests
+import JapanTaxLaw.AutoWeightGrantRounding
+import JapanTaxLaw.AutoWeightGrantRoundingSpec
+import JapanTaxLaw.AutoWeightGrantRoundingTests
 import JapanTaxLaw.AviationFuelTaxAmountFloor
 import JapanTaxLaw.AviationFuelTaxAmountFloorSpec
 import JapanTaxLaw.AviationFuelTaxAmountFloorTests
