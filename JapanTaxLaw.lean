@@ -2075,3 +2075,6 @@ import JapanTaxLaw.TrialPeriod14DaysTests
 import JapanTaxLaw.UrbanDev2000sqm
 import JapanTaxLaw.UrbanDev2000sqmSpec
 import JapanTaxLaw.UrbanDev2000sqmTests
+import JapanTaxLaw.MedicalExpenseDeduction
+import JapanTaxLaw.MedicalExpenseDeductionSpec
+import JapanTaxLaw.MedicalExpenseDeductionTests
