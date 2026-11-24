@@ -127092,6 +127092,88 @@
         "tool": "lake build"
       }
     ],
+    "de48b1a2a49e1ca18427f11df5b0c384bbab95ea17b159ff5a755e18e5685e63": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T11:38:27+00:00",
+        "evidence_ref": "data/raw/328AC0000000006_20260525_506AC0000000052.law.json#SupplProvision:昭和四三年四月二六日法律第二七号@12/Article:8@4#702-716",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T11:38:27+00:00",
+        "evidence_ref": "independent_fidelity:LIQUOR-INSTALLMENT-SRC-1",
+        "note": "Independent read-only fidelity audit: five brackets/boundaries, spec independence and universal agreement verified against pinned raw article",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T11:38:27+00:00",
+        "evidence_ref": "task_queue.json#de48b1a2a49e#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T11:38:27+00:00",
+        "evidence_ref": "JapanTaxLaw/LiquorTaxInstallmentSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T11:38:27+00:00",
+        "evidence_ref": "JapanTaxLaw/LiquorTaxInstallment.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T11:38:27+00:00",
+        "evidence_ref": "JapanTaxLaw/LiquorTaxInstallmentSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T11:38:27+00:00",
+        "evidence_ref": "JapanTaxLaw/LiquorTaxInstallmentSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T11:38:27+00:00",
+        "evidence_ref": "JapanTaxLaw/LiquorTaxInstallmentTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T11:38:27+00:00",
+        "evidence_ref": "JapanTaxLaw/LiquorTaxInstallmentTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T11:38:27+00:00",
+        "evidence_ref": "independent_fidelity:LIQUOR-INSTALLMENT-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "de5c4d578baf0af090fc12ad48164787eaf7334a97a4ac9ea74d877161b74691": [
       {
         "axis": "SOURCE_LOCATION",

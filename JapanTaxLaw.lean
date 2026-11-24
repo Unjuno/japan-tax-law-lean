@@ -530,3 +530,6 @@ import JapanTaxLaw.ReformDoubleBasicDeductionTests
 import JapanTaxLaw.TonnageTaxPenalty
 import JapanTaxLaw.TonnageTaxPenaltySpec
 import JapanTaxLaw.TonnageTaxPenaltyTests
+import JapanTaxLaw.LiquorTaxInstallment
+import JapanTaxLaw.LiquorTaxInstallmentSpec
+import JapanTaxLaw.LiquorTaxInstallmentTests
