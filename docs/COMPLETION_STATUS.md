@@ -8,21 +8,21 @@ obligations being complete. SKIP is never counted as PASS.
 ## Axis A — registered checks (last recorded gate run)
 
 - results file available: True
-- PASS: 47
-- FAIL: 0
+- PASS: 44
+- FAIL: 3
 - SKIP: 0
 - required gates SKIPped: 0
-- gate results commit: 59a3218d08b9af25c062d780cad6b29d847e3cb8
-- current HEAD commit: c8db40e80d15317565e2483d61b28da1e6a2b98c
+- gate results commit: 1ef2061cd4a2047ece4c59a558b9473fb4fd4b11
+- current HEAD commit: 2d52f210dd7106ce4ed6b9b7d8622016ff06774c
 - results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all registered obligations complete
 
 - normative units: 396854
-- NOT_STARTED: 396172
+- NOT_STARTED: 396173
 - PARTIAL: 0
-- PROVED_SCOPE: 3
+- PROVED_SCOPE: 2
 - FULLY_VERIFIED: 677
 - BLOCKED: 2
 - units with an open blocker: 2
@@ -36,26 +36,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 680 | 396854 |
-| kernel proved (CI-attested proof evidence) | 680 | 396854 |
-| source-audited (原文 correspondence evidence) | 680 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 681 | 396854 |
+| kernel proved (CI-attested proof evidence) | 681 | 396854 |
+| source-audited (原文 correspondence evidence) | 681 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 680 |
-| boundary_proof | 680 |
-| cross_law_proof | 680 |
-| decomposition_audit | 680 |
-| implementation | 680 |
-| independent_spec | 680 |
-| kernel_proof | 680 |
-| proof_scope | 680 |
-| source_correspondence_audit | 680 |
-| source_location | 680 |
-| tests | 680 |
+| adversarial_review | 681 |
+| boundary_proof | 681 |
+| cross_law_proof | 681 |
+| decomposition_audit | 681 |
+| implementation | 681 |
+| independent_spec | 681 |
+| kernel_proof | 681 |
+| proof_scope | 681 |
+| source_correspondence_audit | 681 |
+| source_location | 681 |
+| tests | 681 |
 
 ## Verdict
 
