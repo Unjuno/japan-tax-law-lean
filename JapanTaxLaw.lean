@@ -70,6 +70,9 @@ import JapanTaxLaw.BondRevenueFiscalYearTests
 import JapanTaxLaw.BondedAreaKinds
 import JapanTaxLaw.BondedAreaKindsSpec
 import JapanTaxLaw.BondedAreaKindsTests
+import JapanTaxLaw.BranchDeputyAppointment
+import JapanTaxLaw.BranchDeputyAppointmentSpec
+import JapanTaxLaw.BranchDeputyAppointmentTests
 import JapanTaxLaw.BuildingArea800
 import JapanTaxLaw.BuildingArea800Spec
 import JapanTaxLaw.BuildingArea800Tests

@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 173
+- with >=1 pinned literal check (semantic model): 174
 - with recorded human legal review: 0
 
 ## All laws
@@ -136,7 +136,7 @@ a completion flag.
 | `344M50000040039` | 関税暫定措置法施行規則 | 344M50000040039_20241215_505M60000040057 | CurrentEnforced | YES | ok | 99 | YES (1) | NO |
 | `344M50000040050` | 税関職員服制 | 344M50000040050_20240401_506M60000040033 | CurrentEnforced | YES | ok | 13 | NO (0) | NO |
 | `345M50000040007` | 小笠原諸島振興開発特別措置法の施行に伴う譲渡所得等の課税の特例の適用に関する省令 | 345M50000040007_20140401_426M60000040034 | CurrentEnforced | YES | ok | 7 | NO (0) | NO |
-| `345CO0000000050` | 国税不服審判所組織令 | 345CO0000000050_20010106_412CO0000000307 | CurrentEnforced | YES | ok | 7 | NO (0) | NO |
+| `345CO0000000050` | 国税不服審判所組織令 | 345CO0000000050_20010106_412CO0000000307 | CurrentEnforced | YES | ok | 7 | YES (1) | NO |
 | `345M50000040017` | 国税不服審判所組織規則 | 345M50000040017_20260710_508M60000040048 | CurrentEnforced | YES | ok | 37 | YES (2) | NO |
 | `346AC0000000065` | コンテナーに関する通関条約及び国際道路運送手帳による担保の下で行なう貨物の国際運送に関す | 346AC0000000065_20120401_424AC0000000019 | CurrentEnforced | YES | ok | 28 | YES (1) | NO |
 | `346AC0000000089` | 自動車重量税法 | 346AC0000000089_20220401_504AC0000000004 | CurrentEnforced | YES | ok | 49 | YES (1) | NO |

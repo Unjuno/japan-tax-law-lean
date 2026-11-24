@@ -4057,6 +4057,13 @@ def checks():
            "file", None,
            ["前年の合計所得金額が五百万円以下であること"])
 
+    # 国税不服審判所支部 art. 2 — BranchDeputyAppointment.lean
+    yield ("国税不服審判所支部 art. 2（財務省令指定＋各一人配置）↔ BranchDeputyAppointment.lean (delegation + one per branch)",
+           "345CO0000000050",
+           "article", "第二条",
+           ["国税不服審判所の支部（以下「支部」という。）のうち財務省令で定めるものに、次席国税審判官各一人を置き、国税審判官をもつてこれに充てる。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
