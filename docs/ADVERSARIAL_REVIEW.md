@@ -11944,6 +11944,17 @@ pinned 附則（17 ブロック）には本モデルが扱う平成15年施行�
 > **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・反例/拡張走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
 
 
+### OilGasGrantRounding.lean — 石油ガス譲与税法 art.4（千円未満端数控除）— Batch EA
+
+- **pin**: law `340AC0000000157`, revision `340AC0000000157_20090401_421AC0000000009`, snapshot `data/raw/340AC0000000157_20090401_421AC0000000009.law.json`; needle 「千円未満の端数金額があるときは、その端数金額を控除した金額」 scoped to MainProvision Article Num 4.
+- **独立再抽出**: 一次資料（pinned UTF-8 raw JSON）から art.4 本文を再取得し、`千円未満の端数 → 1,000 円単位の切捨て` を独立定式 `specFloor x = x - x % 1000` として導出。実装は `x / 1000 * 1000` と別定式で、対応は全称定理 `agreeRound` でカーネル検証。
+- **照合**: needle 1/1 FOUND、U+3000 0、scoped article 内に `千` を確認。数値 1,000 の単位は円、定義域は `Nat`（金額）、境界 0/999/1000/1001/1999/2000 を照合。
+- **H（反証可能仮説）**: art.4 の端数は 1,000 円未満を控除し、控除後額が各譲与時期の譲与額となる。
+- **T（再現検査）**: transcription_audit の pinned needle + `python -m unittest`/`lake build` の境界例。
+- **D（合否）**: PASS（原文一致・境界一致）。法的妥当性の判定ではない。
+- **C（対立解釈）**: 国税通則法 art.118（課税標準の千円未満切捨て）との同一性は別条文・別税目であり、ここでは art.4 のみを根拠とする。前二条の譲与額算定は未形式化。
+- **U（不確かさ）**: 端数処理の規定が前二条の算定途中にも及ぶかは原文から確定せず、未対応条件として保持。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 / UNRESOLVED 1（前二条の算定・附則）。人間レビューは `LEGAL_REVIEW_PENDING`。
 ## Batch DB review (2026-11-24) — 地方税法 art.34 §1 四 イ (ii)（新生命保険料控除 中段 1.2万円超3.2万円以下）/ LifeInsurancePremiumDeduction.lean（cycle-111 機械的独立照合・反例探索）
 
 ### DB-0. 範囲・独立性の申告

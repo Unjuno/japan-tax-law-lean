@@ -2059,6 +2059,12 @@ def checks():
            "file", None,
            ["石油ガス譲与税は、石油ガス税法", "石油ガス税の収入額の二分の一に相当する額"])
 
+    # OilGasGrantRounding — normative unit: 石油ガス譲与税法 art.4 千円未満端数控除
+    yield ("石油 GAS 譲与税法 art. 4（譲与額の千円未満端数を控除）↔ OilGasGrantRounding.lean",
+           "340AC0000000157",
+           "article", "第四条",
+           ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
+
     # SpecialCorporationGrantTax — cycle-36
     yield ("SpecialCorporationGrantTax.lean",
            "431AC0000000004",
