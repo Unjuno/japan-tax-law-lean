@@ -536,3 +536,6 @@ import JapanTaxLaw.LiquorTaxInstallmentTests
 import JapanTaxLaw.LocalTobaccoRate
 import JapanTaxLaw.LocalTobaccoRateSpec
 import JapanTaxLaw.LocalTobaccoRateTests
+import JapanTaxLaw.UrbanPlanningTaxCap
+import JapanTaxLaw.UrbanPlanningTaxCapSpec
+import JapanTaxLaw.UrbanPlanningTaxCapTests

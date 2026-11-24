@@ -14324,6 +14324,88 @@
         "tool": "lake build"
       }
     ],
+    "180090fa279a56e307a656f2399a2cb40af6ed7d35d4e397784568defa50b3e9": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T15:17:56+00:00",
+        "evidence_ref": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#MainProvision:MainProvision/Chapter:4@3/Section:6@4/Article:702_4@3#0-28",
+        "note": "pinned bytes + structural path + offsets",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T15:17:56+00:00",
+        "evidence_ref": "independent_fidelity:URBAN-PLANNING-CAP-SRC-1",
+        "note": "Independent read-only source-fidelity audit: 地方税法 702条の4 ceiling 0.3% (3 per-mille) verified against pinned raw article; negated-proposition spec independence and universal equivalence theorem confirmed",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T15:17:56+00:00",
+        "evidence_ref": "task_queue.json#180090fa279a#coverage",
+        "note": "mechanical reconstruction audit (necessary not sufficient)",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T15:17:56+00:00",
+        "evidence_ref": "JapanTaxLaw/UrbanPlanningTaxCapSpec.lean@kernel",
+        "note": "independent spec compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T15:17:56+00:00",
+        "evidence_ref": "JapanTaxLaw/UrbanPlanningTaxCap.lean@kernel",
+        "note": "typed implementation compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T15:17:56+00:00",
+        "evidence_ref": "JapanTaxLaw/UrbanPlanningTaxCapSpec.lean#agree*@kernel",
+        "note": "universal agreement theorem accepted by kernel",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T15:17:56+00:00",
+        "evidence_ref": "JapanTaxLaw/UrbanPlanningTaxCapSpec.lean#spec_unique@spec_total",
+        "note": "uniqueness and totality of the five statutory branches",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T15:17:56+00:00",
+        "evidence_ref": "JapanTaxLaw/UrbanPlanningTaxCapTests.lean#boundaries",
+        "note": "all four statutory boundary values kernel-decided",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T15:17:56+00:00",
+        "evidence_ref": "JapanTaxLaw/UrbanPlanningTaxCapTests.lean@kernel",
+        "note": "regression tests compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T15:17:56+00:00",
+        "evidence_ref": "independent_fidelity:URBAN-PLANNING-CAP-SRC-1#H-1",
+        "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "1827dc9c7d7bb6cabdabe1c7b2ca13ba2ac66fa82cd00293eb35c24fe6413e8e": [
       {
         "axis": "SOURCE_LOCATION",
