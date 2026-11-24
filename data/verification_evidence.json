@@ -1146,6 +1146,19 @@
       "source_location": "data/raw/332M50000040015_20261101_507M60000040026.law.json#LawBody[4]/MainProvision/MainProvision[3]/Article:23_10/Article#23_10/Paragraph#32/Item#1/Subitem1#1/Subitem2#1/Subitem2Sentence/Column#1/Sentence#1 sha256=2e5d3e585b99e15ffb030c8b6fa0dcc6ccf7cc9532924fa5b6438a68cc05767c (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/DeceasedUnder70Tests.lean sha256=7e0ff9d03663ad7a80a71e322a1fdf313eeb0c1a5a746e08d56f86e0e52cbabc (11 kernel-decided examples)"
     },
+    "NORM|27ba36ac793253dc18c7e0d51b413a5554ceb6c5287167eb62ade42a81a59f3a": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 10 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=353CO0000000132_20250401_507CO0000000006 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/JointHeirDeclarationThreshold.lean sha256=2567f1a996aa00947d06ef2be7b7024ad06283e881a551d55fceabc19f62f284",
+      "independent_spec": "JapanTaxLaw/JointHeirDeclarationThresholdSpec.lean sha256=1cb5d3b530f670806b516cb06875b69ca6559baf2ea52f20cbfaf2ecab92efc2 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45284336667: commit 1f47c37935ee0e5c5dd79d598eed8d7374b9ca21, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/353CO0000000132_20250401_507CO0000000006.law.json#LawBody[2]/MainProvision/MainProvision[9]/Article:13/Article#13/Paragraph#3/ParagraphSentence/Sentence#1 sha256=a11df5044e3b0e7bbd81d87d328d08467def928a3fec7031b1c8a5b60a76499d (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/JointHeirDeclarationThresholdTests.lean sha256=376d968c18a48e4620e051969b32c677596b87abb353f63d175fe162ef136a1f (10 kernel-decided examples)"
+    },
     "NORM|27bdf4a116c2cd07db188e100eaaf6afcea16c1ec2c854a57c4f5a28217fc218": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 18 kernel-decided examples covering boundary inputs",
@@ -1405,6 +1418,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['保税地域から引き取られる課税貨物に係る消費税の課', '関税定率法（明治四十三年法律第五十四号）第四条か', '消費税等（国税通則法第二条第三号（定義）に規定す']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
       "source_location": "data/raw/363AC0000000108_20261101_507AC0000000013.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:28/Article#28/Paragraph#4/ParagraphSentence/Sentence#1 sha256=25dccebffb6690902c117a4ab9c16e4d64db087bba6d184a10ea6aeb58ab4a82 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/ConsumptionTaxImportBaseTests.lean sha256=9e3bc22b5ea6060eed83bd719c0cfce5fbb8f9ef5d692374f34b29bf09dbab67 (11 kernel-decided examples)"
+    },
+    "NORM|2e71e7dbef34bf62f8273cd1403f33b27dfea18b2296f52f49b3351c81f682bd": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 10 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=353CO0000000132_20250401_507CO0000000006 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/JointHeirDeclarationThreshold.lean sha256=2567f1a996aa00947d06ef2be7b7024ad06283e881a551d55fceabc19f62f284",
+      "independent_spec": "JapanTaxLaw/JointHeirDeclarationThresholdSpec.lean sha256=1cb5d3b530f670806b516cb06875b69ca6559baf2ea52f20cbfaf2ecab92efc2 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45284336667: commit 1f47c37935ee0e5c5dd79d598eed8d7374b9ca21, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/353CO0000000132_20250401_507CO0000000006.law.json#LawBody[2]/MainProvision/MainProvision[9]/Article:13/Article#13/Paragraph#2/Item#3/ItemSentence/Sentence#1 sha256=a11df5044e3b0e7bbd81d87d328d08467def928a3fec7031b1c8a5b60a76499d (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/JointHeirDeclarationThresholdTests.lean sha256=376d968c18a48e4620e051969b32c677596b87abb353f63d175fe162ef136a1f (10 kernel-decided examples)"
     },
     "NORM|2f2e5a73e16d32f4fc933658efc64878916c2df248e0b66fa2f0658899526b51": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -3850,6 +3876,19 @@
       "source_location": "data/raw/325CO0000000245_20261101_508CO0000000083.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:35_4_6/Article#35_4_6/Paragraph#3/ParagraphSentence/Sentence#1 sha256=9bc03b230fb0ed1039e33a1544cd53772939ee25d6d4648a386400ea269dfb17 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/StandardRateExcessRatioTests.lean sha256=f3c78382e2b7b8966f371aa977af0fabe04d20bdf82324b4413aa7674e540f6a (15 kernel-decided examples)"
     },
+    "NORM|84bf20390c38a3782819cfb2fb2471539f266e45e1e4904e67ca11c9538871a9": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 10 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=4; enforced revision=353CO0000000132_20250401_507CO0000000006 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/JointHeirDeclarationThreshold.lean sha256=2567f1a996aa00947d06ef2be7b7024ad06283e881a551d55fceabc19f62f284",
+      "independent_spec": "JapanTaxLaw/JointHeirDeclarationThresholdSpec.lean sha256=1cb5d3b530f670806b516cb06875b69ca6559baf2ea52f20cbfaf2ecab92efc2 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45284336667: commit 1f47c37935ee0e5c5dd79d598eed8d7374b9ca21, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/353CO0000000132_20250401_507CO0000000006.law.json#LawBody[2]/MainProvision/MainProvision[9]/Article:13/Article#13/Paragraph#2/Item#1/ItemSentence/Sentence#1 sha256=a11df5044e3b0e7bbd81d87d328d08467def928a3fec7031b1c8a5b60a76499d (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/JointHeirDeclarationThresholdTests.lean sha256=376d968c18a48e4620e051969b32c677596b87abb353f63d175fe162ef136a1f (10 kernel-decided examples)"
+    },
     "NORM|84f30566e583de635fc2da0096497d579f38dd9935595a55259fd024a6e24c0f": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 33 kernel-decided examples covering boundary inputs",
@@ -5631,6 +5670,19 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:34/Article#34/Paragraph#1/Item#11/ItemSentence/Column#2/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LivingSupport380kTests.lean sha256=58b975310a4c3db27125f83f3be200d27b0e169d60b0e2777464420e91f847ad (11 kernel-decided examples)"
     },
+    "NORM|beaa62718d9817915074146fe618eb76b36fa3647c372ba793c4f2a85d27d58e": {
+      "adversarial_review": "docs/ADVERSARIAL_DISASTER_TAX_RELIEF_ORDER_ART15_4_REFUND_BASE.md — NO FINDINGS via independent adversarial review with all 15 mandated checks reproduced from authoritative sources (queue, INVENTORY, raw law JSON, audit helpers), NOT from author prose, plus a programmatic cross-check (0 fails). Reproduced: raw sha256 f6fe1c93…a66a21c; needle unique and is Item 2 of art.15-4(1) with codepoints 還付 9084 4ed8 / 自動車重量税 81ea 52d5 8eca 91cd 91cf 7a0e / 額に相当する金額 984d 306b 76f8 5f53 3059 308b 91d1 984d; CabinetOrder law identity with real revision; full Article 15-4 read and Item 2 is a pure amount definition with no formula/rounding, so the Nat identity amount is justified and no arithmetic invented; eligibility/tax computation/legal correctness NOT MODELLED; needle byte-identical in all 5 artifacts; unique ASCII-only audit 479/479; imports once each; no forbidden placeholders/simp; three theorems axiom-free; spec Prop equality vs Nat function with rfl agreement; build 1576 jobs; no dependencies/cross-law constant; LEGAL_REVIEW_PENDING. One cosmetic doc placeholder token noted by the reviewer was fixed. No completion claim; human legal review remains pending.",
+      "boundary_proof": "JapanTaxLaw/DisasterTaxReliefOrderArt15_4RefundBaseTests.lean: universal amount identity and zero boundary; Prop spec agreement (all axiom-free)",
+      "cross_law_proof": "queue unit has no dependencies; 自動車重量税 is a subject-matter description in the amount definition, NOT modelled as a resolved cross-law dependency; no external-law constant introduced and no claim of resolution beyond the 15-digit law id.",
+      "decomposition_audit": "build/task_queue.json: kind=EFFECT (Item 2 amount definition: 額に相当する金額), decomposed=true, exact span, unhandled_conditions=[], id unique",
+      "implementation": "JapanTaxLaw/DisasterTaxReliefOrderArt15_4RefundBase.lean sha256=d7bf7432cb99858bc8cd68c3b18dc9f17158b64a5962253e5db0c8a9a4147b4d (災害被害者租税減免法施行政令 art.15-4(1) item2 EFFECT: refundBaseAmount identity Nat function on the caller-established automobile weight tax amount (yen), universal + zero-boundary theorems; refund eligibility and tax computation NOT MODELLED; CabinetOrder)",
+      "independent_spec": "JapanTaxLaw/DisasterTaxReliefOrderArt15_4RefundBaseSpec.lean sha256=e797d7d3de758b640074224adfb872ba5046d016c5bf91fb6b668155efb923dc (SpecRefundBase Prop equality, representationally distinct from the Nat identity function; implementation_satisfies_spec axiom-free via rfl — no decide/simp/propext)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (1576 jobs); all three unit theorems axiom-free via #print axioms probe; no sorryAx/Classical.choice",
+      "proof_scope": "docs/UNIT_DISASTER_TAX_RELIEF_ORDER_ART15_4_REFUND_BASE.md (computable amount correspondence slice of one EFFECT norm unit in the Cabinet Order to the disaster tax relief Act art.15-4(1) item2; eligibility/tax computation NOT MODELLED)",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS disaster tax relief order art.15-4 refund base; 479/479 checks passed; verbatim needle is Item 2 Sentence and unique in the whole law; article-kind locator 第十五条の四; amount correspondence 還付 / 自動車重量税 / 額に相当する金額 derived from the needle, never hand-typed; law identity 322CO0000000268 CabinetOrder (政令) with real revision; byte-fidelity equal=True, U+6EDE=0",
+      "source_location": "data/raw/322CO0000000268_20251201_507CO0000000120.law.json#LawBody[1]/MainProvision/MainProvision[19]/Article:15_4/Article#15_4/Paragraph#1/Item#2/ItemSentence/Sentence#1 sha256=f6fe1c9380cd7659d682d0b6d294c920f364045905a23f624f372c419a66a21c (revision from INVENTORY current_revision, matched raw revision_info)",
+      "tests": "JapanTaxLaw/DisasterTaxReliefOrderArt15_4RefundBaseTests.lean sha256=1fc9ac4c18cbab69714b187238338fe8b7cdf67f2000b7e014d13bd8877f1600 (kernel-checked refund-base checks)"
+    },
     "NORM|bf50be6460f51cace6c8a33fc37f7649c070b2732d94d106ea455e132266929b": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",
@@ -6658,6 +6710,19 @@
       "source_location": "data/raw/332M50000040015_20261101_507M60000040026.law.json#LawBody[4]/MainProvision/MainProvision[3]/Article:23_10/Article#23_10/Paragraph#51/ParagraphSentence/Sentence#1 sha256=2e5d3e585b99e15ffb030c8b6fa0dcc6ccf7cc9532924fa5b6438a68cc05767c (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/DeceasedUnder70Tests.lean sha256=7e0ff9d03663ad7a80a71e322a1fdf313eeb0c1a5a746e08d56f86e0e52cbabc (11 kernel-decided examples)"
     },
+    "NORM|e79d806ff6c8022c657a36effef9d00acb6dcdc408ed3060d9419699c8cef58a": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 10 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=353CO0000000132_20250401_507CO0000000006 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/JointHeirDeclarationThreshold.lean sha256=2567f1a996aa00947d06ef2be7b7024ad06283e881a551d55fceabc19f62f284",
+      "independent_spec": "JapanTaxLaw/JointHeirDeclarationThresholdSpec.lean sha256=1cb5d3b530f670806b516cb06875b69ca6559baf2ea52f20cbfaf2ecab92efc2 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45284336667: commit 1f47c37935ee0e5c5dd79d598eed8d7374b9ca21, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/353CO0000000132_20250401_507CO0000000006.law.json#LawBody[2]/MainProvision/MainProvision[9]/Article:13/Article#13/Paragraph#4/ParagraphSentence/Sentence#1 sha256=a11df5044e3b0e7bbd81d87d328d08467def928a3fec7031b1c8a5b60a76499d (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/JointHeirDeclarationThresholdTests.lean sha256=376d968c18a48e4620e051969b32c677596b87abb353f63d175fe162ef136a1f (10 kernel-decided examples)"
+    },
     "NORM|e7b5ed101f264df9590481a13f9ae5b85a1b6694cef44b5b0655ed11b909a684": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 19 kernel-decided examples covering boundary inputs",
@@ -7347,6 +7412,19 @@
       "source_location": "data/raw/332M50000040015_20261101_507M60000040026.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:18_21/Article#18_21/Paragraph#8/Item#1/Subitem1#12/Subitem2#2/Subitem3#3/Subitem3Sentence/Sentence#1 sha256=2e5d3e585b99e15ffb030c8b6fa0dcc6ccf7cc9532924fa5b6438a68cc05767c (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/QuakeFloor50sqmTests.lean sha256=002c80aac73c7a013032eba08afb84b0c2bd591b5c61ef5fc6bd5c7779a1684c (11 kernel-decided examples)"
     },
+    "NORM|fef4c98e30282a408663995ad12e32a0a9e211c4320b9e401347f6064457545d": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 10 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=353CO0000000132_20250401_507CO0000000006 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/JointHeirDeclarationThreshold.lean sha256=2567f1a996aa00947d06ef2be7b7024ad06283e881a551d55fceabc19f62f284",
+      "independent_spec": "JapanTaxLaw/JointHeirDeclarationThresholdSpec.lean sha256=1cb5d3b530f670806b516cb06875b69ca6559baf2ea52f20cbfaf2ecab92efc2 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45284336667: commit 1f47c37935ee0e5c5dd79d598eed8d7374b9ca21, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/353CO0000000132_20250401_507CO0000000006.law.json#LawBody[2]/MainProvision/MainProvision[9]/Article:13/Article#13/Paragraph#5/ParagraphSentence/Sentence#1 sha256=a11df5044e3b0e7bbd81d87d328d08467def928a3fec7031b1c8a5b60a76499d (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/JointHeirDeclarationThresholdTests.lean sha256=376d968c18a48e4620e051969b32c677596b87abb353f63d175fe162ef136a1f (10 kernel-decided examples)"
+    },
     "NORM|ff71e9399a1c15b137c1ce2ae4ba72f825adeed5719fde844c8485004338b0de": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",
@@ -7385,19 +7463,6 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle in clause + all spec numerals in scoped article: ['その金額が二百万円を超える場合には、二百万円']; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"100000\": [], \"10000000\": [], \"110000\": [], \"130000\": [], \"150000\": [], \"2\": [\"二\"], \"2000000\": [\"二百万\"], \"220000\": [], \"24000000\": [], \"24500000\": [], \"25000000\": [], \"260000\": [], \"290000\": [], \"300000\": [], \"330000\": [], \"380000\": [], \"4\": [], \"430000\": [], \"5\": [], \"530000\": [], \"9000000\": [], \"9500000\": []}; statutory rate = none; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:34/Article#34/Paragraph#1/Item#2/ItemSentence/Column#2/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalIncomeTaxTests.lean sha256=017a1f256a089f692a0f6f7c5971879339d07ba26a588ff0ae0a6c3d01450104 (55 kernel-decided examples)"
-    },
-    "NORM|beaa62718d9817915074146fe618eb76b36fa3647c372ba793c4f2a85d27d58e": {
-      "source_location": "data/raw/322CO0000000268_20251201_507CO0000000120.law.json#LawBody[1]/MainProvision/MainProvision[19]/Article:15_4/Article#15_4/Paragraph#1/Item#2/ItemSentence/Sentence#1 sha256=f6fe1c9380cd7659d682d0b6d294c920f364045905a23f624f372c419a66a21c (revision from INVENTORY current_revision, matched raw revision_info)",
-      "decomposition_audit": "build/task_queue.json: kind=EFFECT (Item 2 amount definition: 額に相当する金額), decomposed=true, exact span, unhandled_conditions=[], id unique",
-      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS disaster tax relief order art.15-4 refund base; 479/479 checks passed; verbatim needle is Item 2 Sentence and unique in the whole law; article-kind locator 第十五条の四; amount correspondence 還付 / 自動車重量税 / 額に相当する金額 derived from the needle, never hand-typed; law identity 322CO0000000268 CabinetOrder (政令) with real revision; byte-fidelity equal=True, U+6EDE=0",
-      "independent_spec": "JapanTaxLaw/DisasterTaxReliefOrderArt15_4RefundBaseSpec.lean sha256=e797d7d3de758b640074224adfb872ba5046d016c5bf91fb6b668155efb923dc (SpecRefundBase Prop equality, representationally distinct from the Nat identity function; implementation_satisfies_spec axiom-free via rfl — no decide/simp/propext)",
-      "implementation": "JapanTaxLaw/DisasterTaxReliefOrderArt15_4RefundBase.lean sha256=d7bf7432cb99858bc8cd68c3b18dc9f17158b64a5962253e5db0c8a9a4147b4d (災害被害者租税減免法施行政令 art.15-4(1) item2 EFFECT: refundBaseAmount identity Nat function on the caller-established automobile weight tax amount (yen), universal + zero-boundary theorems; refund eligibility and tax computation NOT MODELLED; CabinetOrder)",
-      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (1576 jobs); all three unit theorems axiom-free via #print axioms probe; no sorryAx/Classical.choice",
-      "proof_scope": "docs/UNIT_DISASTER_TAX_RELIEF_ORDER_ART15_4_REFUND_BASE.md (computable amount correspondence slice of one EFFECT norm unit in the Cabinet Order to the disaster tax relief Act art.15-4(1) item2; eligibility/tax computation NOT MODELLED)",
-      "boundary_proof": "JapanTaxLaw/DisasterTaxReliefOrderArt15_4RefundBaseTests.lean: universal amount identity and zero boundary; Prop spec agreement (all axiom-free)",
-      "cross_law_proof": "queue unit has no dependencies; 自動車重量税 is a subject-matter description in the amount definition, NOT modelled as a resolved cross-law dependency; no external-law constant introduced and no claim of resolution beyond the 15-digit law id.",
-      "tests": "JapanTaxLaw/DisasterTaxReliefOrderArt15_4RefundBaseTests.lean sha256=1fc9ac4c18cbab69714b187238338fe8b7cdf67f2000b7e014d13bd8877f1600 (kernel-checked refund-base checks)",
-      "adversarial_review": "docs/ADVERSARIAL_DISASTER_TAX_RELIEF_ORDER_ART15_4_REFUND_BASE.md — NO FINDINGS via independent adversarial review with all 15 mandated checks reproduced from authoritative sources (queue, INVENTORY, raw law JSON, audit helpers), NOT from author prose, plus a programmatic cross-check (0 fails). Reproduced: raw sha256 f6fe1c93…a66a21c; needle unique and is Item 2 of art.15-4(1) with codepoints 還付 9084 4ed8 / 自動車重量税 81ea 52d5 8eca 91cd 91cf 7a0e / 額に相当する金額 984d 306b 76f8 5f53 3059 308b 91d1 984d; CabinetOrder law identity with real revision; full Article 15-4 read and Item 2 is a pure amount definition with no formula/rounding, so the Nat identity amount is justified and no arithmetic invented; eligibility/tax computation/legal correctness NOT MODELLED; needle byte-identical in all 5 artifacts; unique ASCII-only audit 479/479; imports once each; no forbidden placeholders/simp; three theorems axiom-free; spec Prop equality vs Nat function with rfl agreement; build 1576 jobs; no dependencies/cross-law constant; LEGAL_REVIEW_PENDING. One cosmetic doc placeholder token noted by the reviewer was fixed. No completion claim; human legal review remains pending."
     },
     "NORM|00715ab1002d150045ab0dc8b2bd958a423b4296d34254dcf43f8c3732899e2a": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
