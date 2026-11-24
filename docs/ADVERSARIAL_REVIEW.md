@@ -11944,6 +11944,17 @@ pinned 附則（17 ブロック）には本モデルが扱う平成15年施行�
 > **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・反例/拡張走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
 
 
+### OilGasGrantRounding.lean — 石油ガス譲与税法 art.4（千円未満端数控除）— Batch EA
+
+- **pin**: law `340AC0000000157`, revision `340AC0000000157_20090401_421AC0000000009`, snapshot `data/raw/340AC0000000157_20090401_421AC0000000009.law.json`; needle 「千円未満の端数金額があるときは、その端数金額を控除した金額」 scoped to MainProvision Article Num 4.
+- **独立再抽出**: 一次資料（pinned UTF-8 raw JSON）から art.4 本文を再取得し、`千円未満の端数 → 1,000 円単位の切捨て` を独立定式 `specFloor x = x - x % 1000` として導出。実装は `x / 1000 * 1000` と別定式で、対応は全称定理 `agreeRound` でカーネル検証。
+- **照合**: needle 1/1 FOUND、U+3000 0、scoped article 内に `千` を確認。数値 1,000 の単位は円、定義域は `Nat`（金額）、境界 0/999/1000/1001/1999/2000 を照合。
+- **H（反証可能仮説）**: art.4 の端数は 1,000 円未満を控除し、控除後額が各譲与時期の譲与額となる。
+- **T（再現検査）**: transcription_audit の pinned needle + `python -m unittest`/`lake build` の境界例。
+- **D（合否）**: PASS（原文一致・境界一致）。法的妥当性の判定ではない。
+- **C（対立解釈）**: 国税通則法 art.118（課税標準の千円未満切捨て）との同一性は別条文・別税目であり、ここでは art.4 のみを根拠とする。前二条の譲与額算定は未形式化。
+- **U（不確かさ）**: 端数処理の規定が前二条の算定途中にも及ぶかは原文から確定せず、未対応条件として保持。
+- **判定**: **BY-DESIGN**。CONFIRMED 0 / UNRESOLVED 1（前二条の算定・附則）。人間レビューは `LEGAL_REVIEW_PENDING`。
 ## Batch DB review (2026-11-24) — 地方税法 art.34 §1 四 イ (ii)（新生命保険料控除 中段 1.2万円超3.2万円以下）/ LifeInsurancePremiumDeduction.lean（cycle-111 機械的独立照合・反例探索）
 
 ### DB-0. 範囲・独立性の申告
@@ -12182,4 +12193,115 @@ CI `checks()` の `LifeInsurancePremiumDeductionUpper.lean` エントリ（law_i
 - 残る UNRESOLVED（U-1 未形式化範囲の法的十分性、U-2 端数処理の法的根拠、U-3 政令委任の解釈）はいずれも pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・反例/全走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+## Batch DD review (2026-11-24) — 地方税法 附則 art.34の2 §1（優良住宅地造成等の長期譲渡所得 課税の特例: 2000万円控除／2%・指定都市1%）/ LongTermGainSpecialMeasure.lean（cycle-113 機械的独立照合・反例探索）
+
+### DD-0. 範囲・独立性の申告
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当・上位セッションから独立）。coordinator 要約・STAGING・Lean doc-comment の「原文逐語」は**信じず**、pinned raw JSON のバイトから自前で再抽出した結果をもって判定した。
+- **対象モジュール（読み取り専用・本レビューで変更していない）**: `JapanTaxLaw/LongTermGainSpecialMeasure.lean`（Impl）、`JapanTaxLaw/LongTermGainSpecialMeasureSpec.lean`（独立 Spec）、`JapanTaxLaw/LongTermGainSpecialMeasureTests.lean`。
+- **一次資料（pinned・改変禁止）**: `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`。law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`（地方税法、令和八年法律第二号による改正、施行 2026-11-01）は `data/INVENTORY.json` の `current_revision` と一致。raw の SHA-256 再計算は `3DD29E0078BF24E09C79436CE7B0F00FD2CFB5A5BBCB97BD4F4352971BE68D53`、12,181,725 bytes で INVENTORY の `source_sha256` / `size_bytes` と一致。
+- **独立抽出方法**: `law_full_text` を Python で自前再帰 parse し、`tag="Article"` のうち `attr.Num = "34_2"`（附則第三十四条の二）を同定。漢数字は自前パーサ（万を 10,000 の桁 grouping として処理）で十進数へ、率は `fractions.Fraction` で有理数へ変換して `measure` 定数と照合。needle は自前で手打ちせず CI 実装 `scripts/ci/transcription_audit.py` の `checks()` を import して探索した。Lean は `lake env lean` で `#eval` と `#print axioms` を実行。
+- **書き込み制約の遵守**: 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ（read-then-write: 既存全文をバイト列として読み込み、末尾に本節を連結してから書き戻し、元文字列の前方一致・件数を検証）。Lean モジュール / `data/*` / `scripts/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。
+
+### DD-1. pinned 原文からの独立抽出と照合（附則 art.34の2 §1）
+
+- 対象 Article: `attr.Num = "34_2"`、ArticleCaption「（優良住宅地の造成等のために土地等を譲渡した場合の長期譲渡所得に係る道府県民税及び市町村民税の課税の特例）」、ArticleTitle「第三十四条の二」。葉テキスト連結は **3,765 文字 / U+3000 = 0**（モジュール header の文字数・U+3000 主張と一致）。
+- §1 の当該文言（pinned 正規化本文 offset 680–751、71 文字、U+3000 除去。doc-comment ではなく raw から直接取得）:
+
+> `当該課税長期譲渡所得金額から二千万円を控除した金額の百分の二（当該納税義務者が指定都市の区域内に住所を有する場合には、百分の一）に相当する金額`
+
+| 原文箇所 | 自前抽出値 | Impl | 独立 Spec | 照合 |
+|---|---|---|---|---|
+| `二千万円` | 二千万 = 2,000 × 10,000 = **20,000,000** | `taxableGain > 20000000` を控除 | 同値 | ✅ |
+| `百分の二` | **2/100 = 1/50（2%）** | `b * 2 / 100`（= `b / 50`） | `b / 50` | ✅ |
+| `百分の一` | **1/100（1%）** | `b / 100` | `b / 100` | ✅ |
+| 分岐 | 既定 2% が前段、括弧内後段で「指定都市…百分の一」 | `if designatedCity then b/100 else b*2/100` | 同順 | ✅ |
+
+- **桁違いの明示除外**: `二百万円`（2,000,000）および `二億円`（200,000,000）は当該 §1 clause に **ABSENT**（独立 regex 確認）であり、抽出値 20,000,000 と一致。`千分の二`（0.2%）／`百分の二十`（20%）／`千分の一`（0.1%）／`百分の十`（10%）も clause に **ABSENT**。率は `Fraction` で `百分の二 = 1/50`、`百分の一 = 1/100` と確認し、0.2%・20%・0.1%・10% のいずれとも不一致。
+- **混同の明示除外**: CI `checks()` の租税特別措置法 art. 31の2 エントリは「課税長期譲渡所得金額から二千万円を控除した金額の百分の十五」という类似文言を含むが、それは国税の 10%／15% 特例（`ExcellentLandTransferSpecialTax.lean`）であり、本件の地方税法附則 art.34の2（2%／1%）ではない。本レビューは附則 `34_2` の leaf のみを根拠とした。
+
+### DD-2. needle 健全性（CI `checks()` 実文字列の探索と自前アンカー検証）
+
+- `scripts/ci/transcription_audit.py::checks()` を自前 import した結果: 全 **530** check、うち law_id `325AC0000000226` は **40** check。全エントリの check 名および needle 全文を走査し、`LongTermGainSpecialMeasure` / `34の2` / `34_2` / 本件逐語「…二千万円を控除した金額の百分の二」のいずれをも含む check は **0 件**。すなわち**本モジュールには CI の pin needle が存在せず、タスク前提の「CI `checks()` 実文字列 2 本」は成立しない**（CONFIRMED C-1、DD-5 参照）。`build/cross_law.json` では Impl が `pinned: true`（law_ids `325AC0000000226` / revision 一致）だが、transcription audit の literal coverage は 0 件である。
+- 代替として、CI 文字列を装わず、**pinned §1 原文から本レビュアが自前で選んだ 2 本の逐語アンカー**を、CI と同一の正規化 `re.sub(r"[\s\u3000]+", "", s)` を自前適用した原文に対して検証した（needle は doc-comment / STAGING を信じず raw から取得）:
+
+| # | 自前アンカー（pinned §1 逐語） | needle 内 U+3000 | §1 clause（71 文字） | Article 34_2 全文（3,765 文字） |
+|---|---|---:|---|---|
+| 1 | `当該課税長期譲渡所得金額から二千万円を控除した金額の百分の二` | 0 | FOUND（offset 0 / count 1） | FOUND（offset 680） |
+| 2 | `当該納税義務者が指定都市の区域内に住所を有する場合には、百分の一` | 0 | FOUND（offset 31 / count 1） | FOUND（offset 711） |
+
+- **2/2 FOUND、needle 内 U+3000 = 0**。ただしこれらは **CI needle ではなく本レビュアが原文から導いた照合用アンカー**であり、CI による原文 fidelity 検証の代替にはならない（C-1）。
+
+### DD-3. 反例探索（指定 3 点 + 境界 + 独立 Spec）
+
+- `Money := Nat`。Impl: `baseAfterDeduction g = if g > 20000000 then g - 20000000 else 0`、`measure g city = if city then b/100 else b*2/100`。独立 Spec: `specMeasure g city = if city then b/100 else b/50`。
+- 指定 3 点および補助点を **Python 独立計算と Lean `#eval` の両方**で確認:
+
+| `taxableGain` | `designatedCity` | Impl（`#eval`） | 独立 Spec | 判定 |
+|---:|:--:|---:|---:|:--:|
+| 30,000,000 | false | **200,000** | 200,000 | ✅（1,000万 × 2%） |
+| 30,000,000 | true | **100,000** | 100,000 | ✅（指定都市 1%） |
+| 10,000,000 | false | **0** | 0 | ✅（2,000万控除で 0） |
+| 20,000,000 | false / true | **0 / 0** | 0 / 0 | ✅（境界は「控除した金額」= 0） |
+| 0 | false | **0** | 0 | ✅（Nat 飽和） |
+| 50,000,000 | false | **600,000** | 600,000 | ✅ |
+
+- **Nat 飽和の確認**: `taxableGain ≤ 20,000,000` では減算が 0 に張り付き `measure = 0`。独立 Spec も同じ飽和定式であるため一致（BY-DESIGN B-5 参照）。
+- **全点走査**: `g = 0..60,000,000`（1,000,000 step × city 2 通り、122 点）で Impl と独立 Spec の不一致数は **0**。`agreeLongTermGainSpecialMeasure` は Lean で `#eval = true` / `by decide = true`。`2b/100 = b/50` は有理数一致であり整数除算の丸め順も同一。
+- **反例探索で検出された原文・Impl 間の数値矛盾: 0 件（ゼロ）**。
+
+### DD-4. 公理監査
+
+- 一時 Lean ファイル `C:/Users/junny/AppData/Local/Temp/opencode/dd113_axioms.lean` を作成し、4 宣言（`baseAfterDeduction` / `measure` / `specMeasure` / `agreeLongTermGainSpecialMeasure`）に `#print axioms` を実行（`lake env lean`、**exit code 0**）。別途 `#eval` プローブ `dd113_eval.lean` も実行。監査後、両一時ファイルおよび一時 Python スクリプトは**削除済み**。
+
+| 監査項目 | 結果 |
+|---|---|
+| 走査宣言数 | 4 |
+| `Classical.choice` | **0 件**（不在） |
+| `sorryAx` | **0 件**（不在） |
+| `Quot.sound` | **0 件**（不在） |
+| `propext` | **0 件**（不在） |
+| axiom-free（`does not depend on any axioms`） | **4 / 4** |
+
+→ **禁止公理（choice / sorryAx / Quot.sound）および propext を含むいずれの公理依存も 0。公理監査は合格。**
+
+### DD-5. CONFIRMED / BY-DESIGN / UNRESOLVED の分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **1** |
+| **BY-DESIGN** | **5** |
+| **UNRESOLVED** | **2** |
+
+> **数値モデル（20,000,000 / 2% / 1% / 分岐 / 反例 / 公理）に関する CONFIRMED は 0 件（ゼロ）を明示する。** 唯一の CONFIRMED は CI pin needle 欠如という監査カバレッジの問題であり、モデルの正誤には影響しない。
+
+#### CONFIRMED（1 件）
+
+- **C-1 CI transcription pin の欠如**: `transcription_audit.py::checks()` の 530 check 中、本モジュール／附則 art.34の2 を参照する check は **0 件**。「CI `checks()` 実文字列 2 本」を検証するというタスク前提が成立しない。`build/cross_law.json` の Impl は `pinned: true` だが literal needle による原文照合は走らない。数値自体は DD-1 の自前抽出で一致を確認済み。CI への check 追加は形式化担当・CI 管理者の判断事項であり、本レビュアは `scripts/*` を変更しない。
+
+#### BY-DESIGN（5 件）
+
+- **B-1 優良住宅地等の認定・証明方法 NOT MODELLED**: 原文 §1 は租税特別措置法 art.31の2 §2 各号に掲げる譲渡のうち「総務省令で定めるところにより証明がされたもの」を要件とする（pinned `34_2` 本文 offset 288–345 で「証明」「総務省令」を確認）。モジュール doc-comment の NOT MODELLED 宣言と整合。なお原文に「認定」という語自体は ABSENT で、用語は「証明」である。
+- **B-2 適用年度 NOT MODELLED**: 原文「昭和六十三年年度から令和十一年年度までの各年度分の個人の道府県民税に限り」（offset 60 で確認）は形式化対象外。
+- **B-3 市町村民税側の特例 NOT MODELLED**: ArticleCaption は「道府県民税及び市町村民税の課税の特例」だが、§1 本文は「道府県民税に限り」。市町村民税側の計算は NOT MODELLED。
+- **B-4 端数処理は model candidate**: §1 の 71 文字 clause に「円未満」「切捨て」等の丸め文言は ABSENT。`Nat` 整数除算による丸めは実装上の表現選択であり、pinned 原文に法的根拠は存在しない。
+- **B-5 Nat 飽和はモデル選択**: `taxableGain ≤ 20,000,000` で base = 0 となる saturating 減算は実装上の選択。原文は「控除した金額」のみを定め、控除後が負となる域を規定しない。独立 Spec も同じ規則を採用する。
+
+#### UNRESOLVED（2 件）
+
+- **U-1 未形式化範囲の法的十分性**: B-1〜B-3（証明の具体・総務省令、適用年度の適用除外、市町村民税側の取扱い）はスコープ宣言済みだが、附則 art.34の2 §1 のみをもって特例の理解として足りるかは pinned 原文から決定不能。**人間の法律専門家によるレビューを要する。**
+- **U-2 端数処理の法的根拠**: 百分の二／百分の一の計算における 1 円未満の丸め規則が §1 に存在せず、`Nat` 除算の法的正否は原文のみでは判断できない（モデル値の誤りではない）。**人間の法律専門家によるレビューを要する。**
+
+### DD-6. 最終報告（サマリ）
+
+- **CONFIRMED: 1 件**（C-1 CI pin needle 欠如）／**BY-DESIGN: 5 件**／**UNRESOLVED: 2 件**。数値・アンカー・反例・公理の不一致は **0 件（ゼロ）** であり、発見ゼロの場合も本節に明示する。
+- **needle 健全性**: CI `checks()` 実文字列は **0 本**（前提不成立＝C-1）。代替の自前アンカー 2 本は U+3000 なし・**2/2 FOUND**。
+- **反例**: 指定 3 点を含む 7 点＋122 点走査で Impl = 独立 Spec（`#eval` / `by decide` / Python 一致）。矛盾 0。
+- **公理結果**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて **0 件**（4/4 axiom-free、exit code 0）。一時ファイルは削除済み。
+- **pinned 照合**: `二千万` = 20,000,000、`百分の二` = 1/50、`百分の一` = 1/100、指定都市分岐、raw SHA-256 再計算一致、flat 3,765 chars / U+3000 = 0 を確認。桁違い（200万／2億、0.2%／20%、0.1%／10%）は明示除外。
+- **追記後レビュー件数**: 既存 **105 件**をすべて保持 ＋ DD 1 件 ＝ **106 件**。coverage ledger の正規表現 `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` の一致件数は書き込み後再検証の結果 **106 件**。既存セクション（Batch G〜DC を含む 105 件）は一切改変していない。
+- **書き込み・操作の制約**: Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。commit / push / merge / ブランチ切替は行っていない。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・反例/走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
 

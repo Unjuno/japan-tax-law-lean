@@ -177,6 +177,15 @@ def source_literals_verified(lits: set[int], text: str) -> bool:
     if rate is not None:
         pairs = {(a, b) for a in lits for b in lits if b and Fraction(a, b) == rate}
         if not pairs:
+            # A spec may state only the statutory numerator when the
+            # denominator is inherent in 「百分」/「千分」 (e.g. 「百分の二」
+            # and `def specCeiling : Nat := 2`).  Still require the exact
+            # numerator spelling in this clause; a tenfold error such as 20
+            # cannot pass because it is neither 2 nor a matching ratio pair.
+            num = rate.numerator
+            if (rate.denominator in (100, 1000) and lits == {num}
+                    and any(x in text for x in kanji_variants(int(num)))):
+                return True
             return False
         used = {v for pair in pairs for v in pair}
         return all(any(x in text for x in kanji_variants(v)) for v in (lits - used))
@@ -349,25 +358,29 @@ def scoped_article_text(law_id: str, article: str) -> str:
         doc = json.loads(p.read_text(encoding="utf-8"))
         root = doc.get("law_full_text")
 
+        found_articles = []
+
         def walk(n):
             if isinstance(n, dict):
                 # Canonicalise both labels: transcription checks cite kanji
                 # titles (第六十六条) or 72_49_14 while e-Gov uses Arabic Num.
                 if n.get("tag") == "Article" and core.article_key(
                         str((n.get("attr") or {}).get("Num", ""))) == core.article_key(article):
-                    return core.norm(core.flat(n))
+                    found_articles.append(core.norm(core.flat(n)))
+                    return
                 for c in n.get("children", []) or []:
-                    found = walk(c)
-                    if found:
-                        return found
+                    walk(c)
             elif isinstance(n, list):
                 for c in n:
-                    found = walk(c)
-                    if found:
-                        return found
-            return ""
+                    walk(c)
 
-        return walk(root)
+        # A main provision and a supplementary provision can share the same
+        # Article Num (e.g. 11の2).  Returning only the first one made a pinned
+        # supplementary clause invisible to source_location.  Collect every
+        # matching article; the exact cell is still pinned by source_path and
+        # the clause-level needle check.
+        walk(root)
+        return " ".join(found_articles)
     return ""
 
 
