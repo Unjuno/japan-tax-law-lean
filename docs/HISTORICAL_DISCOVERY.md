@@ -4,7 +4,9 @@ Do not hand-edit. Regenerate with `python scripts/law_audit/inventory/historical
 
 Historical (新/旧) names in 附則・経過措置 are recorded separately and
 are NEVER treated as current enforced versions. No snapshot is pinned
-for them, so none is counted as acquired or verified.
+for them, so none is counted as acquired or verified. They remain IN
+SCOPE (sponsor directive 2026-11-24); this is implementation backlog,
+not permanent exclusion.
 
 - distinct names in the published table: 20
 - occurrences in the published table: 9778

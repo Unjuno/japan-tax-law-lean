@@ -50,6 +50,22 @@ class EvidenceReviewTests(unittest.TestCase):
         self.assertIsNotNone(info)
         self.assertEqual(info["article"], "31_4")
 
+    def test_single_unit_pin_prevents_sibling_paragraph_pollution(self):
+        mods = VE.checks_by_module()
+        info = mods.get("InterestSplitRate5Pct")
+        self.assertIsNotNone(info)
+        self.assertEqual(info["normative_id"],
+                         "NORM|7e5f5d2a586ff79c2ee3e9c86d120d3180ba67a3d00fd8a4dba9ab376ba02b5a")
+        self.assertEqual(info["article"], "71_6")
+
+    def test_canonical_module_owns_the_clause(self):
+        canonical = VE.canonical_modules()
+        uid = ("NORM|7e5f5d2a586ff79c2ee3e9c86d120d3180ba67a3d00fd8a4dba9ab"
+               "376ba02b5a")
+        self.assertEqual(canonical[uid], "InterestSplitRate5Pct")
+        # A less faithful duplicate must not claim this unit.
+        self.assertNotEqual(canonical[uid], "LocalInterestTaxRate5")
+
     def test_attested_count_increased(self):
         d = VE.build()
         self.assertGreaterEqual(len(d["units"]), 9)

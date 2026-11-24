@@ -216,6 +216,22 @@ def blob_sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
 
+def canonical_modules() -> dict:
+    """normative_id -> the one module allowed to evidence that unit.
+
+    A reviewed decision in data/MODEL_DISAMBIGUATION.json prevents a less
+    faithful duplicate module from overwriting evidence for the same clause.
+    """
+    path = REPO / "data" / "MODEL_DISAMBIGUATION.json"
+    if not path.exists():
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except ValueError:
+        return {}
+    return data.get("canonical_modules", {})
+
+
 def load_attestation() -> dict:
     data = json.loads(ATTESTATION.read_text(encoding="utf-8"))
     if data.get("schema") != 1 or data.get("run_conclusion") != "success":
@@ -529,10 +545,12 @@ def checks_by_module():
         for pf in sorted(pins_dir.glob("*.json")):
             try:
                 rec = json.loads(pf.read_text(encoding="utf-8"))
-                entries.append((rec["name"], rec["law_id"], rec["kind"], rec.get("art"), rec["needles"]))
+                entries.append((rec["name"], rec["law_id"], rec["kind"],
+                                rec.get("art"), rec["needles"], rec.get("normative_id", "")))
             except (ValueError, KeyError):
                 continue
-    for name, law_id, kind, art, needles in list(mod.checks()) + entries:
+    for name, law_id, kind, art, needles, *rest in list(mod.checks()) + entries:
+        normative_id = str(rest[0]) if rest else ""
         m = re.search(r"(\w+)\.lean", name)
         if not m:
             continue
@@ -542,12 +560,16 @@ def checks_by_module():
         article = normalize_article(art) if art else article_from_name(name)
         if not article:
             continue
-        out.setdefault(base, {"law_id": law_id, "article": article, "needles": needles})
+        info = out.setdefault(base, {"law_id": law_id, "article": article,
+                                     "needles": needles, "normative_id": ""})
+        if normative_id and not info.get("normative_id"):
+            info["normative_id"] = normative_id
     return out
 
 
 def build() -> dict:
     att = load_attestation()
+    canonical = canonical_modules()
     review_text = REVIEW.read_text(encoding="utf-8") if REVIEW.exists() else ""
     modules = checks_by_module()
     inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
@@ -605,6 +627,11 @@ def build() -> dict:
 
         for t in tasks:
             if t.get("law_id") != info["law_id"] or t.get("article") != info["article"]:
+                continue
+            pinned_uid = info.get("normative_id", "")
+            if pinned_uid and t.get("normative_id") != pinned_uid:
+                continue
+            if canonical.get(t.get("normative_id", ""), base) != base:
                 continue
             if t.get("kind") not in VERIFIABLE_KINDS or t.get("unhandled_conditions"):
                 continue

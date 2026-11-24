@@ -266,11 +266,13 @@ def build() -> dict:
 def main() -> int:
     payload = build()
     text = json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+    changed = False
     if OUT_JSON.exists() and OUT_JSON.read_text(encoding="utf-8") == text:
         print("source layer registry matches committed state (deterministic)")
     else:
         OUT_JSON.write_text(text, encoding="utf-8")
         print("wrote", OUT_JSON)
+        changed = True
 
     lines = [
         "# Source layers (machine-generated)",
@@ -323,10 +325,15 @@ def main() -> int:
         payload["backlog"]["note"],
         "",
     ]
-    OUT_MD.parent.mkdir(parents=True, exist_ok=True)
-    OUT_MD.write_text("\n".join(lines), encoding="utf-8")
+    md_text = "\n".join(lines)
+    if not OUT_MD.exists() or OUT_MD.read_text(encoding="utf-8") != md_text:
+        OUT_MD.parent.mkdir(parents=True, exist_ok=True)
+        OUT_MD.write_text(md_text, encoding="utf-8")
+        print("wrote", OUT_MD)
+        changed = True
     print("layers:", len(payload["layers"]))
-    return 0
+    # SKIP is never PASS: a stale committed ledger must fail regeneration.
+    return 1 if changed else 0
 
 
 if __name__ == "__main__":
