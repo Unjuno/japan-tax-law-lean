@@ -4097,6 +4097,17 @@ def checks():
            "325AC0000000226", "file", None,
            ["不動産取得税の標準税率は、第七十三条の十五の規定にかかわらず、百分の三とする。"])
 
+    # DisasterTaxReliefArt9VehicleNumberReference.lean - NORM|5bbe8f54... (災害被害者租税減免法 art.9(2) item3 REFERENCE, law 322AC0000000175)
+    # Article-kind locator; cross-law reference resolved_by_name in queue deps.
+    yield ("disaster tax relief art.9 vehicle number reference - DisasterTaxReliefArt9VehicleNumberReference.lean",
+           "322AC0000000175",
+           "article", "\u7b2c\u4e5d\u6761",
+           ["\u81ea\u52d5\u8eca\u91cd\u91cf\u7a0e\u6cd5\u7b2c\u4e8c\u6761\u7b2c\u4e00\u9805\u7b2c\u4e09\u53f7\u306b\u898f\u5b9a\u3059\u308b\u8eca\u4e21\u756a\u53f7\u306e\u6307\u5b9a\u3092\u3044\u3046\u3002"])
+
+    yield ("disaster tax relief order art.10 item5 field condition - DisasterTaxReliefOrderArt10Item5FieldCondition.lean",
+           "322CO0000000268",
+           "article", "\u7b2c\u5341\u6761",
+           ["\u5fb4\u53ce\u7336\u4e88\u9650\u5ea6\u984d\u53c8\u306f\u5fb4\u53ce\u7336\u4e88\u671f\u9593\u53ca\u3073\u3053\u308c\u3089\u306e\u8a08\u7b97\u306e\u57fa\u790e"])
 
     yield ("租税特別措置法 art. 10（試験研究費割合の控除割増率: (割合-10%)*2、三位未満切捨て、10%上限）↔ RndSurchargeRate.lean",
            "332AC0000000026",
@@ -4112,7 +4123,6 @@ def checks():
     yield ("地方税法 art. 30_2（軽自動車税 不足額加算35%）↔ LightMotorVehicleTaxShortfallSurcharge35.lean",
            "325AC0000000226", "file", None,
            ["同項の不足額に、これに百分の三十五の割合を乗じて計算した金額を加算した金額とする。"])
-
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
