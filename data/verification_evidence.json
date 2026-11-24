@@ -158,6 +158,19 @@
       "source_location": "data/raw/325CO0000000245_20261101_508CO0000000083.law.json#LawBody[4]/SupplProvision/SupplProvision[117]/Article:26/Article#26/Paragraph#1/ParagraphSentence/Sentence#1 sha256=9bc03b230fb0ed1039e33a1544cd53772939ee25d6d4648a386400ea269dfb17 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/IntermediateSurchargeRefundTests.lean sha256=30d462745dedf42e01e3b0f535aa3d15372afb8fc0438cc9f8ae54ab02b7b8c0 (18 kernel-decided examples)"
     },
+    "NORM|2a1dc80cd4074bee88062395289ab4abddf8db19565f3d14b6d56b4003fbfb01": {
+      "adversarial_review": "docs/ADVERSARIAL_DISASTER_UPPER.md H/T/D/C/U; strict-vs-inclusive competing reading recorded; scope limits explicit",
+      "boundary_proof": "DisasterIncomeUpperBandTests.lean: 7,499,999→false, 7,500,000→false, 7,500,001→true, 10,000,000→true, all kernel-decided",
+      "cross_law_proof": "dependencies=[]; no cross-law dependency for this threshold clause",
+      "decomposition_audit": "queue coverage exact=True unique_ids=True; one clause of art. 2, distinct id from the ≤7.5M band",
+      "implementation": "JapanTaxLaw/DisasterIncomeUpperBand.lean sha256=524a4c7d3b58491c47abb9753822443a51da6c08ebc2286014e0e0a50655b7b8",
+      "independent_spec": "JapanTaxLaw/DisasterIncomeUpperBandSpec.lean sha256=bce3e62a500cfb81d4f98bcfc8a4e7dbda6d89cd989901e9d2b039f5103739ec; spec restates strict exceedance as ¬(income ≤ 7.5M)",
+      "kernel_proof": "lake build JapanTaxLaw.DisasterIncomeUpperBandTests: Build completed successfully (5 jobs); #print axioms at_edge / above_edge: no axioms; agree_spec_impl: standard propext only",
+      "proof_scope": "agree_spec_impl quantified over ALL Nat (universal); this unit covers only the strict >¥7,500,000 band of art. 2(1)",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; verbatim_located=true; amounts_in_source=[7500000]; missing=[]",
+      "source_location": "data/raw/322AC0000000175_20220101_503AC0000000011.law.json#LawBody[1]/MainProvision/MainProvision[1]/Article:2/Article#2/Paragraph#1/List/ListSentence/Column#1/Sentence#1 sha256=c3bb5b0bdffbdefd2ee5f358d90ad9e0922d4c887ecb2b133aa7d613f5f4e7ef; verbatim located in art. 2",
+      "tests": "JapanTaxLaw/DisasterIncomeUpperBandTests.lean sha256=7cbb530926f84d4fba9ab16bff7ec5925f37b0873a39e2c694dfdeda854e671e; kernel-decided examples"
+    },
     "NORM|2bb1ca3263f7e9d5364bf3f9a4f429da2445559f7f9cfbabfaf5db5e5d2a3b31": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",

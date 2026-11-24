@@ -43,12 +43,12 @@ Measured results on this branch (2026-11-20):
 
 ```
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=396804, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=48, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=396803, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=49, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=48 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=49 axes=11 unbacked=0
 12/12 invariants passed
 $ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
 
@@ -71,7 +71,14 @@ inclusive-vs-strict competing reading and the out-of-scope applicability
 conditions. Its agreement theorem uses Lean's standard `propext`; the boundary
 theorems are axiom-free.
 
-So 48 evidence-backed units left NOT_STARTED on this branch; the
+The 49th unit is the same article's strict-exceedance band,
+`NORM|2a1dc80c…`: 「合計所得金額が七百五十万円を超えるとき」. Independent spec
+(`¬(income ≤ 7.5M)`) vs implementation (strict `<`), universal agreement over
+all `Nat`, kernel boundaries 7,499,999 / 7,500,000 / 7,500,001, source audit
+D=PASS with 七百五十万円 → 7,500,000, and H/T/D/C/U review of the strict-vs-
+inclusive competing reading. It is a distinct unit id from the ≤7.5M band.
+
+So 49 evidence-backed units left NOT_STARTED on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
 durable. `docs/TASK_QUEUE.md` is regenerated with these counts.
