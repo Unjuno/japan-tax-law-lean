@@ -1,9 +1,9 @@
 {
-  "commit": "a841838a7bbad76ecb477c247ce93d7d13f02ea8",
+  "commit": "0d54d54457baa73dd12d6f80363e4ad8d96cdf06",
   "jobs": {
     "Build Lean project and check axioms": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45344189369/job/138274681574",
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45370202618/job/138362216201",
       "required_steps": [
         "Build explicitly",
         "No sorry/admit in adopted proofs",
@@ -14,7 +14,7 @@
     },
     "Semantic audit and mutation injection": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45344189369/job/138274681935"
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45370202618/job/138362216584"
     }
   },
   "modules": {
@@ -1242,6 +1242,42 @@
     "CustomsValueAfterDamageTests.lean": {
       "sha256": "871843f70ac4ffa2cd616255d604fe45bc06edaa872e2075452e9658e4993901"
     },
+    "DamageRatioTenthGiftMovable.lean": {
+      "sha256": "a1f48dacdb77188f401b0b7a239b2364398160fb0d26cd8958f5cd9aff758c33"
+    },
+    "DamageRatioTenthGiftMovableSpec.lean": {
+      "sha256": "8b4881d2d9d89fb41ff59ce32924d330f4b8e191f19d495ecca9a2692aeb5ef5"
+    },
+    "DamageRatioTenthGiftMovableTests.lean": {
+      "sha256": "564b16faa16ea0f3f418e6af1312f8394bc7e59d53e448e6433dde2bd5639993"
+    },
+    "DamageRatioTenthGiftProperty.lean": {
+      "sha256": "b606b8e46dbe14cabab28e65b4a983b5c3c9e7e75f58cdffa496168e1db51dd2"
+    },
+    "DamageRatioTenthGiftPropertySpec.lean": {
+      "sha256": "551ed73ebd24e1364dd02f89e439919c9f4c859a041eea5962f69bda4d25474c"
+    },
+    "DamageRatioTenthGiftPropertyTests.lean": {
+      "sha256": "32b01d65064f103a6d22451a6bb649fa178f2bfa6a1abcca10f772384fe4020e"
+    },
+    "DamageRatioTenthInheritGift.lean": {
+      "sha256": "741d782c49bbcc2cac2cfdcc59132f57a118ed9f2d69be47324d3c6e52fcd445"
+    },
+    "DamageRatioTenthInheritGiftSpec.lean": {
+      "sha256": "d27f827b6b0f3e6de19566b3e13b75e0d173095a29a2a956fa34f4f51919119b"
+    },
+    "DamageRatioTenthInheritGiftTests.lean": {
+      "sha256": "a1f3b644c586fec7d91350a166a6dc61487ac57fd8f7e5a59b35a8a2e5e30d0f"
+    },
+    "DamageRatioTenthInheritMovable.lean": {
+      "sha256": "e37af9632cece71aa72bf8bc6b3fd1775ddcc2a6c72974bff39f6bf6be630beb"
+    },
+    "DamageRatioTenthInheritMovableSpec.lean": {
+      "sha256": "b412cae1e70c7113db7f68edf00d437fc9a3635776a0fc30c6891983e23d35ee"
+    },
+    "DamageRatioTenthInheritMovableTests.lean": {
+      "sha256": "f349e97a23606066dab058b66af639a3fe3c6434e116b24c65f7289fd32485e7"
+    },
     "DeceasedUnder70.lean": {
       "sha256": "ea820bb5cb3220f0065e6ca42713394c73541516c895eb9380ba10a18412bf27"
     },
@@ -1313,6 +1349,24 @@
     },
     "DisasterGrantUpperBracketTests.lean": {
       "sha256": "2ec8f22746eb3e41337e5714e9c5083c321f11dae7faa7242abc947addb61fac"
+    },
+    "DisasterIncomeBand6M75M.lean": {
+      "sha256": "8e7fd4211b8a8685a4235c043a9c83c426e1ae3f68641f9229a9a92d04a1c2ab"
+    },
+    "DisasterIncomeBand6M75MSpec.lean": {
+      "sha256": "2ef5f857f5b5e58e0d0b6b05c003f2d0779fcab925c1adfb523e391e0c191c22"
+    },
+    "DisasterIncomeBand6M75MTests.lean": {
+      "sha256": "6132987667856d520b80a78bd46454b37b62000a8d6ed7706717a1f36a13e2ef"
+    },
+    "DisasterIncomeBand75M10M.lean": {
+      "sha256": "7333e60d0ed0a228f78a9fc9c0e3d2c23ac73a3569ba9ddad42a6ea03af1192c"
+    },
+    "DisasterIncomeBand75M10MSpec.lean": {
+      "sha256": "e75d029f5a9a6b3012bd3827e0a18ac96e7b4185c45e196d338fcfe10848de01"
+    },
+    "DisasterIncomeBand75M10MTests.lean": {
+      "sha256": "a83bbe76b8e914b0ecd40bd2a57d3a4ccae529ae83291ae8b1d0bc6d90c7df34"
     },
     "DisasterIncomeTaxRelief.lean": {
       "sha256": "cf3d9bf807211b9f9aa90acd4d81ed96cbd87f33de87a0a44624bc0390ac9a18"
@@ -3897,6 +3951,15 @@
     "ShortMeasure180DaysTests.lean": {
       "sha256": "025bb4fd4abcc3096aca1eaca92e03f624cd028df4c5015ab3ffe94248e2e6f2"
     },
+    "SignedAdjustmentAmount.lean": {
+      "sha256": "e1a5c0ca063cd3bf7e9cb59f323e82d7c8dabb861d21ea0e9f3662ea804b8db9"
+    },
+    "SignedAdjustmentAmountSpec.lean": {
+      "sha256": "e9f9fc2b5e4fd120623da477604dd37c30189c541b9e1ca7e9b996680dabed6e"
+    },
+    "SignedAdjustmentAmountTests.lean": {
+      "sha256": "0af6b7547f1a6b2157e58efb08d1788dc3170485e0eb7b0dc5110b06f21bc48f"
+    },
     "SixMonthPeriodDeeming.lean": {
       "sha256": "61c5bd8886ee2f8fc04dbbbf3d1500f846677a87bdc985c82bf50738d05204a1"
     },
@@ -4585,5 +4648,5 @@
   "note": "Kernel-build attestation. Hashes are SHA-256 of the committed blob bytes (LF-normalised). CI run is a recorded, independently reproducible build of the exact commit; the generator re-checks every hash before accepting it as evidence.",
   "run_conclusion": "success",
   "schema": 1,
-  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45344189369"
+  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45370202618"
 }
