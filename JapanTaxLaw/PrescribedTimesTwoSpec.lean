@@ -36,11 +36,9 @@ def specIsPrescribedCount (n : Nat) : Bool :=
 theorem agree_prescribed_count (n : Nat) :
     isPrescribedCount n = specIsPrescribedCount n := by
   unfold isPrescribedCount prescribedTimes specIsPrescribedCount
-  by_cases h : n = 2
-  · subst n
-    decide
-  · have hs : Nat.succ (Nat.succ 0) != n := by omega
-    simp [h, hs]
+  apply Bool.eq_iff_iff.mpr
+  simp
+  omega
 
 -- Spec-local sanity example (test scaffolding; excluded from statutory literals).
 example : specTimes = 2 := by decide
