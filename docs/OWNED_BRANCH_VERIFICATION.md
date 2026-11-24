@@ -43,12 +43,12 @@ Measured results on this branch (2026-11-20):
 
 ```
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=396792, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=60, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=396791, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=61, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=60 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=61 axes=11 unbacked=0
 12/12 invariants passed
 $ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
 
@@ -162,7 +162,13 @@ an unproven 365-day calendar conversion: it checks a caller-established whole-
 year count against an inclusive one-year limit, with universal agreement,
 kernel boundaries and H/T/D/C/U review recording the competing conversion.
 
-So 60 evidence-backed units left NOT_STARTED on this branch; the
+The 61st unit is 施行規則 art. 22の4(2)
+`NORM|70d9948f3…`: a presentation-unit/rounding norm (一円/千円/百万円). All
+three divisors [1, 1000, 1000000] pass the Lean-independent audit; agreement is
+exhaustive over the three declared units and all theorems are axiom-free.
+Truncation is explicitly a model choice; no statutory rounding rule is claimed.
+
+So 61 evidence-backed units left NOT_STARTED on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
 durable. `docs/TASK_QUEUE.md` is regenerated with these counts.

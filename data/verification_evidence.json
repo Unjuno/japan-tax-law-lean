@@ -405,6 +405,19 @@
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:38/Article#38/Paragraph#4/ParagraphSentence/Sentence#2 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7; verbatim located in art.38(4) sentence 2",
       "tests": "JapanTaxLaw/DeferralExceptionLimitTests.lean sha256=f605ac3565053d09f7001b5c6ed78de0e6dca3710e03312dcb914cc2fbdde1d7"
     },
+    "NORM|70d9948f3c285aa1bca4e2e5dc6a76fd82dede46f1b4739c742e85b5d838098c": {
+      "adversarial_review": "docs/ADVERSARIAL_DISPLAY_UNIT.md H/T/D/C/U; invented rounding rule explicitly rejected",
+      "boundary_proof": "BalanceSheetDisplayUnitTests.lean kernel-decided divisors and 1,234,567 scaled in all three units",
+      "cross_law_proof": "dependencies=[]",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BalanceSheetDisplayUnit.lean sha256=a07c853b42a0f3d57594e2718744f2fced73d2a6f4dccf7ab1df850aab52dd20",
+      "independent_spec": "JapanTaxLaw/BalanceSheetDisplayUnitSpec.lean sha256=10e5205519cb49265c3c1661b2f2f7680e92d42ae61009dcd79fa60b6ee7ca26; spec uses nested conditionals, impl pattern matching",
+      "kernel_proof": "lake build JapanTaxLaw.BalanceSheetDisplayUnitTests: Build completed successfully (5 jobs); divisor_one/divisor_million/agree_spec_impl all axiom-free",
+      "proof_scope": "agree_spec_impl exhaustive over three declared units; truncation is a documented model choice, not a statutory rounding rule",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; amounts_in_source=[1,1000,1000000]; missing=[]",
+      "source_location": "data/raw/326M50000040055_20260901_506M60000040025.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:22_4/Article#22_4/Paragraph#2/ParagraphSentence/Sentence#1 sha256=79731fc38da1bf120231f6ffd7053986c1f2f2fa0c7bf573e7f0bbde09121354; verbatim located in art.22_4(2)",
+      "tests": "JapanTaxLaw/BalanceSheetDisplayUnitTests.lean sha256=aef9e6a5af2f77a9f899c1b07f90cc0eab88afa53b8ade2c1505b8fdee1ccf62"
+    },
     "NORM|78c4b66be4df3492b588b23896bb80a6c620035b38cf0677804af0bc7f039118": {
       "adversarial_review": "docs/ADVERSARIAL_PENALTY_300K.md H/T/D/C/U; inclusive-vs-exclusive competing reading recorded",
       "boundary_proof": "PenaltyCap300kTests.lean kernel-decided 0/299999/300000/300001",
