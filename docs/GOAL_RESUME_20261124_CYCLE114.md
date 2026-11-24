@@ -127,6 +127,16 @@ bound from REST-green run `45473747773`; cycle-121 CI run `45476274333`
 Lean/axiom job verified before its own attestation binding. Legal review stays
 `LEGAL_REVIEW_PENDING`.
 
+## 5i. Cycle-123 (2026-11-25)
+
+Two bounded modules pushed at `3b68510f`:
+`InheritanceTaxLateFilingFineCap500k` (相続税法 art.69, 「五十万円以下」 =
+inclusive fine cap) and `LocalTaxDeferralSmallAmountException1M` (地方税法
+art.55の2, 「百万円以下」 = inclusive tax amount condition). Checks: 8/8
+targeted Lean builds, transcription 598/598, no `sorry`. CI run
+`45491532407` Lean/axiom job verified before scoped attestation binding.
+Legal review stays `LEGAL_REVIEW_PENDING`.
+
 ## 6. Resume procedure (exact)
 
 1. `git fetch origin main`; `python scripts/ci/generate_verification_evidence.py`

@@ -184,6 +184,7 @@
     "InheritanceTax",
     "InheritanceTaxArt56And57Ref",
     "InheritanceTaxDelinquencyException",
+    "InheritanceTaxLateFilingFineCap500k",
     "InheritanceTaxRateBracket100_200",
     "InheritanceTaxRateBracket200_300",
     "InheritanceTaxRateBracket300_600",
@@ -234,6 +235,7 @@
     "LocalTaxArt803AdministrativeFine",
     "LocalTaxCapitalOverFiveBillion",
     "LocalTaxDeductionSpouse",
+    "LocalTaxDeferralSmallAmountException1M",
     "LocalTaxDependentIncomeCeiling1350k",
     "LocalTaxEnforcementDelegatedAmount3000",
     "LocalTaxIncomeBracket4_8",
@@ -360,6 +362,7 @@
     "SocialInsuranceMutualAidDeduction",
     "SpecialBaselineIncomeTax",
     "SpecialCorporationGrantTax",
+    "SpecialIncomeTaxCreditCap25",
     "SpecialDeliveryTaxMarch",
     "SpecialGiftRate",
     "SpecialLandHoldingTax",
@@ -405,6 +408,7 @@
     "TonnageTaxPenalty",
     "TransitionalTariffRate",
     "TravelerExemptionLimit",
+    "TreasuryCollectionNet",
     "TreatyDeduction",
     "TrustPensionReserve",
     "TrustedAffairsClassification",
@@ -416,9 +420,7 @@
     "VehicleWeightUnit",
     "WeightInterval5M25M",
     "WeightTaxTransfer",
-    "WidowDependentIncomeCeiling5M",
-    "DisasterExciseTaxCredit",
-    "TreasuryCollectionNet"
+    "WidowDependentIncomeCeiling5M"
   ],
   "note": "Modules that MUST retain a transcription audit check. A reconciliation that rewrites transcription_audit.py from a stale base and drops any of these fails the REQUIRED queue-invariant gate. Update this registry only when deliberately removing a module.",
   "schema": 1
