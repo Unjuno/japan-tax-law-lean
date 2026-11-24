@@ -4063,6 +4063,12 @@ def checks():
            "article", "第二条",
            ["国税不服審判所の支部（以下「支部」という。）のうち財務省令で定めるものに、次席国税審判官各一人を置き、国税審判官をもつてこれに充てる。"])
 
+    # 石油ガス譲与税法 art. 4 — OilGasGrantArt4Rounding.lean (千円未満端数)
+    yield ("石油ガス譲与税法 art. 4（千円未満端数）↔ OilGasGrantArt4Rounding.lean",
+           "340AC0000000157",
+           "file", None,
+           ["千円未満の端数金額があるときは、その端数金額を控除した金額をもつて"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
