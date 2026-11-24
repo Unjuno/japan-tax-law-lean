@@ -23,7 +23,7 @@ Verbatim source text: 「令第八十七条第四項に規定する財務省令�
 ## Model and proof scope
 
 - Impl: `prescribedTimes=2`, `isPrescribedCount n := decide (n == 2)`.
-- Independent spec: `specTimes := [unit,unit].length`, `specIsPrescribedCount n := decide (succ (succ 0) == n)` (distinct formulation); universal `agree_prescribed_count` over all Nat, kernel-checked with `by omega`.
+- Independent spec: `specTimes := [unit,unit].length`, `specIsPrescribedCount n := decide (succ (succ 0) == n)` (distinct formulation); universal `agree_prescribed_count` over all Nat, kernel-checked by structural recursion (axiom-free).
 - Boundary theorems: `two_true` (2 qualifies), `one_false`, `three_false`.
 - Tests: 13 kernel-decided examples; 6 boundary categories including `{zero, small_input, saturation}`.
 
