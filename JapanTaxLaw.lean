@@ -852,6 +852,9 @@ import JapanTaxLaw.InspectionCityTests
 import JapanTaxLaw.InsuranceRevenueLevyBase
 import JapanTaxLaw.InsuranceRevenueLevyBaseSpec
 import JapanTaxLaw.InsuranceRevenueLevyBaseTests
+import JapanTaxLaw.InterestSplitRate5Pct
+import JapanTaxLaw.InterestSplitRate5PctSpec
+import JapanTaxLaw.InterestSplitRate5PctTests
 import JapanTaxLaw.IntermediateSurchargeRefund
 import JapanTaxLaw.IntermediateSurchargeRefundSpec
 import JapanTaxLaw.IntermediateSurchargeRefundTests
@@ -1208,9 +1211,6 @@ import JapanTaxLaw.OkinawaShochu1300kLTests
 import JapanTaxLaw.OldAgePensionAnnualAmountCeiling
 import JapanTaxLaw.OldAgePensionAnnualAmountCeilingSpec
 import JapanTaxLaw.OldAgePensionAnnualAmountCeilingTests
-import JapanTaxLaw.OldLifeInsurancePremiumDeductionUpper
-import JapanTaxLaw.OldLifeInsurancePremiumDeductionUpperSpec
-import JapanTaxLaw.OldLifeInsurancePremiumDeductionUpperTests
 import JapanTaxLaw.OldLifePremium100k
 import JapanTaxLaw.OldLifePremium100kSpec
 import JapanTaxLaw.OldLifePremium100kTests
@@ -1850,6 +1850,3 @@ import JapanTaxLaw.WidowDependentIncomeCeiling5MTests
 import JapanTaxLaw.WirePitch165nm
 import JapanTaxLaw.WirePitch165nmSpec
 import JapanTaxLaw.WirePitch165nmTests
-import JapanTaxLaw.InterestSplitRate5Pct
-import JapanTaxLaw.InterestSplitRate5PctSpec
-import JapanTaxLaw.InterestSplitRate5PctTests
