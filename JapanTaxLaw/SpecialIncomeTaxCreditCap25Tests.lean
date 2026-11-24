@@ -26,17 +26,19 @@ example : capAmount 99 = 0 := by decide
 example : capAmount 100 = 0 := by decide
 example : capAmount 101 = 0 := by decide
 
--- 境界: 25 の L-1 / L / L+1（税額 24/25/26 → 限度額 0/0/0）
+-- 小額域: 税額 24/25/26 は 25% が 100円未満なので限度額 0。
+-- （同じ数値が 25% の 100 円未満であることを確認する比較例であり、
+--   25% の税率そのものを識別する境界例ではない。下の 400/799/800 が識別例。）
 example : capAmount 24 = 0 := by decide
 example : capAmount 25 = 0 := by decide
 example : capAmount 26 = 0 := by decide
 
--- 境界: 100 の L-1 / L / L+1（税額 99/100/101 → 0/0/0）
+-- 小額域: 税額 99/100/101 も 25% が 100円未満なので限度額 0。
 example : capAmount 99 = 0 := by decide
 example : capAmount 100 = 0 := by decide
 example : capAmount 101 = 0 := by decide
 
--- 百円未満切り捨て（25% = 400円 → 400円、401円→100円（25%=100.25→100））
+-- 百円未満切り捨て（25% = 100/100.25/199.75/200円 → 100/100/100/200円）
 example : capAmount 400 = 100 := by decide
 example : capAmount 401 = 100 := by decide
 example : capAmount 799 = 100 := by decide

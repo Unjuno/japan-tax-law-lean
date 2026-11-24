@@ -4220,6 +4220,11 @@ def checks():
     yield ("地方税法施行規則 art. 3_13_3（所有割合50%超）↔ LocalBusinessOwnershipThreshold50.lean",
            "329M50000002023", "file", None,
            ["発行済株式等の百分の五十を超える数又は金額の株式等が同項の一方の者により保有されている場合"])
+    # 租税特別措置法 art.41_18(2) — SpecialIncomeTaxCreditCap25.lean
+    yield ("租税特別措置法 art.41_18(2)（控除限度 所得税額の百分の二十五・百円未満切捨て）↔ SpecialIncomeTaxCreditCap25.lean",
+           "332AC0000000026", "article", "第四十一条の十八",
+           ["当該控除する金額が、当該個人のその年分の所得税の額の百分の二十五に相当する金額を超えるときは"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
