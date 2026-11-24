@@ -1,9 +1,9 @@
 {
-  "commit": "9f6fd882d16db088f36f8f061b656a176ff9d2e0",
+  "commit": "5f92b76fc349b0c8ddcf6e4e59d849a4262dc166",
   "jobs": {
     "Build Lean project and check axioms": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45416194582/job/138522944742"
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45433852554/job/138586211189"
     }
   },
   "modules": {
@@ -2995,6 +2995,15 @@
     "LocalTaxPerCapitaStandardRateTests.lean": {
       "sha256": "6fed71360d6be17ca8d7f7b8cc156a912019b69596e56d21f14b6b6980669446"
     },
+    "LocalTaxRateCeiling2Percent.lean": {
+      "sha256": "b5e540c0c65eecfba0587d63e4c18f597cf44a7555b6649823063960b81fdb21"
+    },
+    "LocalTaxRateCeiling2PercentSpec.lean": {
+      "sha256": "26956e8147f2740b218182ec706aeafe7cc5ce8fcfc5483c0dddf00d4dfce594"
+    },
+    "LocalTaxRateCeiling2PercentTests.lean": {
+      "sha256": "9997f881067f9c75c3dd48402fdb4dc7a0e2b55f08f88ead73d0a53c4f7ca1d6"
+    },
     "LocalTaxShortfallRounding.lean": {
       "sha256": "6676cb6379268986b4a926578a07da978fb85ffa9214af763565ddd5a97a147b"
     },
@@ -3219,6 +3228,24 @@
     },
     "OilCoalTaxRateTests.lean": {
       "sha256": "581488cdfdd0fd7f28b740588bfdd991d512a70f23b839e2ff50418cd204f926"
+    },
+    "OilGasGrantArt4Rounding.lean": {
+      "sha256": "47c1d3bff2f2ef099fea5ff669b15ee19d2bf732238ac2f0271290864b66ab54"
+    },
+    "OilGasGrantArt4RoundingSpec.lean": {
+      "sha256": "6f6605267f6d3c0d1674d55cb869c7b0b9ff310473ac247308d1ab26c181c3be"
+    },
+    "OilGasGrantArt4RoundingTests.lean": {
+      "sha256": "421cd45cc60af3864ddeaf4399caec7fd20daeb82f4f5eed67c5f1cbf78348be"
+    },
+    "OilGasGrantRounding.lean": {
+      "sha256": "75988a30373e4751d81268dfc4d58a7f677087f7548e6edaeb7dd6bf5c83f1c9"
+    },
+    "OilGasGrantRoundingSpec.lean": {
+      "sha256": "4696dca54bafe3d6f19eb069d45e03ff590e89cacee05e47a9e7b80201a1bcae"
+    },
+    "OilGasGrantRoundingTests.lean": {
+      "sha256": "ab8c68de0bcd9240a70460253cfb886c71b3f179a6ff27a83470d7ebc33fdb2a"
     },
     "OilGasGrantTax.lean": {
       "sha256": "d085cfe0fca05c68e6eb6102920ad9aff0e5398cfe0380cec059962db15e779a"
@@ -3543,6 +3570,15 @@
     },
     "ProductionVolume6KLTests.lean": {
       "sha256": "ca0439ef496426faa37219d226786f282e09043f4bcd1f93d3a51c89230189a0"
+    },
+    "PropertyAcquisitionSpecialRate3.lean": {
+      "sha256": "5fe6a4ddeb4709a5d58f46bd41549623c41a849c039fa33eb125b52c3307b167"
+    },
+    "PropertyAcquisitionSpecialRate3Spec.lean": {
+      "sha256": "149a35361dc63100dd9d6433c68879aaf25d6b4e479099832356feea95bf0f18"
+    },
+    "PropertyAcquisitionSpecialRate3Tests.lean": {
+      "sha256": "47e565ac95e44bf97cb5281d991d3cf0a1a601b5b9d231e889692b85326a04f4"
     },
     "PropertyInKindEnforcementDate.lean": {
       "sha256": "f9eef9044303e4e2f49703682d111abd4a651e8b2b3170823bfdaf0fff6c3ff3"
@@ -4137,6 +4173,15 @@
     },
     "RiceContentThresholdTests.lean": {
       "sha256": "71cc7ae36b26cce5f4c41ba3e2ca2309d4f66e702051b2a725f2d9227bfef118"
+    },
+    "RndSurchargeRate.lean": {
+      "sha256": "f6080ec29178f0c61a34f5e686afea3845cb2096922e899a159b703c873048b1"
+    },
+    "RndSurchargeRateSpec.lean": {
+      "sha256": "7e358f3c8cf3a557b24acb85d264d6632db7aef2b74a418a9340d3f18b5fe4d2"
+    },
+    "RndSurchargeRateTests.lean": {
+      "sha256": "f146e7080a214afdf6f6db55f9f86346cc81fde3706144dad3a4264e61b046d9"
     },
     "RoadAreaRate.lean": {
       "sha256": "d44baece595aa8338d14fe9ce4625e9a54266ff292c911da51a7df073c35b319"
@@ -5008,5 +5053,5 @@
   "schema": 1,
   "scope": "lean_job_only",
   "tool": "scripts/ci/make_scoped_attestation.py",
-  "workflow_run": "https://api.github.com/repos/Unjuno/japan-tax-law-lean/actions/runs/45416194582"
+  "workflow_run": "https://api.github.com/repos/Unjuno/japan-tax-law-lean/actions/runs/45433852554"
 }
