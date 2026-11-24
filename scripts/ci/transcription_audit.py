@@ -4292,6 +4292,13 @@ def checks():
            "325AC0000000226", "file", None,
            ["その猶予に係る税額が百万円以下である場合"])
 
+    # InheritanceTaxArt67LocalSurchargeProhibition.lean - NORM|0b8a19d9... (相続税法 art.67 EFFECT  prohibiting local surcharges, law 325AC0000000073)
+    # Article-kind locator; needle is the prohibition sentence.
+    yield ("inheritance tax art.67 local surcharge prohibition - InheritanceTaxArt67LocalSurchargeProhibition.lean",
+           "325AC0000000073",
+           "article", "\u7b2c\u516d\u5341\u4e03\u6761",
+           ["\u5730\u65b9\u516c\u5171\u56e3\u4f53\u306f\u3001\u76f8\u7d9a\u7a0e\u53c8\u306f\u8d08\u4e0e\u7a0e\u306e\u4ed8\u52a0\u7a0e\u3092\u8ab2\u3059\u308b\u3053\u3068\u304c\u3067\u304d\u306a\u3044\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
