@@ -3604,6 +3604,30 @@ def checks():
            "file", None,
            ["当該九千円を超える旧生命保険料の金額その他財務省令で定める事項"])
 
+    # 信託契約期間 二十年以上 — TrustPeriod20Y.lean
+    yield ("租税特別措置法施行令 art. 25_13（信託契約期間 二十年以上）↔ TrustPeriod20Y.lean (trustFloor20Y 20)",
+           "332CO0000000043",
+           "file", None,
+           ["信託契約期間を定めないこと又は二十年以上の信託契約期間が定められていること。"])
+
+    # 山林の面積 六百五十ヘクタール超 — ForestArea650Ha.lean
+    yield ("租税特別措置法施行規則 art. 23_8_6（山林の面積 六百五十ヘクタール超）↔ ForestArea650Ha.lean (forestFloor650 650)",
+           "332M50000040015",
+           "file", None,
+           ["認定起算日（当該認定起算日における特定森林経営計画が定められている区域内に存する山林の面積が六百五十ヘクタールを超える場合にあつては、当初認定起算日）"])
+
+    # 政令計算の収益の額 千万円以下 — CorpIncome10M.lean
+    yield ("法人税法 art. 142_3（政令計算の収益の額 千万円以下）↔ CorpIncome10M.lean (corpIncomeCap10M 10000000)",
+           "340AC0000000034",
+           "file", None,
+           ["前項に規定する満たない部分に相当する金額に係る収益の額として政令で定めるところにより計算した金額が千万円以下であるとき。"])
+
+    # 沖縄 special art. 10 — PostOfficeExceptionDate.lean
+    yield ("沖縄 special art. 10（指定郵便局は八月三十一日）↔ PostOfficeExceptionDate.lean (exception date 8/31)",
+           "347CO0000000150",
+           "article", "第十条",
+           ["ただし、郵政大臣が指定する郵便局にあつては、同年八月三十一日とする。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
