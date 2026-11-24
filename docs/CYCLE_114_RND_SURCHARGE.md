@@ -42,6 +42,11 @@ axes of the directive separate: 技術的検証済み / 形式化未完了 / 法
 - Evidence generator accepts the unit only with the CI hash check, an
   independent spec, pinned needles in the *scoped article*, the exact rate
   rational, ≥5 kernel-decided examples and ≥3 genuine boundary categories.
+- Measured queue after attestation and ledger reconciliation:
+  `FULLY_VERIFIED=718`, `NOT_STARTED=396131`, `PROVED_SCOPE=3`, `BLOCKED=2`.
+  The progress ledger records `COUNTED; NOT_STARTED delta -4; new modules 3`
+  (three bounded modules landed in this cycle/workstream, of which this unit is
+  one). No completion of the article or the law is claimed.
 
 ## Status axes (kept separate)
 

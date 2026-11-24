@@ -1486,6 +1486,9 @@ import JapanTaxLaw.RetirementResidual3MTests
 import JapanTaxLaw.RiceContentThreshold
 import JapanTaxLaw.RiceContentThresholdSpec
 import JapanTaxLaw.RiceContentThresholdTests
+import JapanTaxLaw.RndSurchargeRate
+import JapanTaxLaw.RndSurchargeRateSpec
+import JapanTaxLaw.RndSurchargeRateTests
 import JapanTaxLaw.RoadAreaRate
 import JapanTaxLaw.RoadAreaRateSpec
 import JapanTaxLaw.RoadAreaRateTests
@@ -1808,6 +1811,3 @@ import JapanTaxLaw.WidowDependentIncomeCeiling5MTests
 import JapanTaxLaw.WirePitch165nm
 import JapanTaxLaw.WirePitch165nmSpec
 import JapanTaxLaw.WirePitch165nmTests
-import JapanTaxLaw.RndSurchargeRate
-import JapanTaxLaw.RndSurchargeRateSpec
-import JapanTaxLaw.RndSurchargeRateTests
