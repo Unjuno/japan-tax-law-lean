@@ -60,7 +60,8 @@ class LayerTests(unittest.TestCase):
         by = {l["layer_id"]: l for l in self.reg["layers"]}
         self.assertEqual(by["L2_ORDINANCE"]["scope_status"], "IN_SCOPE_BACKLOG")
         self.assertGreater(by["L2_ORDINANCE"]["count"], 0)
-        self.assertEqual(by["L2_ORDINANCE"]["count_acquired"], 0)
+        self.assertLessEqual(by["L2_ORDINANCE"]["count_acquired"],
+                             by["L2_ORDINANCE"]["count"])
         self.assertEqual(by["L6_HISTORICAL"]["scope_status"], "HISTORICAL_LAYER")
         self.assertGreater(by["L6_HISTORICAL"]["count"], 0)
 
@@ -74,7 +75,7 @@ class LayerTests(unittest.TestCase):
             self.assertEqual(layer["backlog"]["layer_id"], lid)
             self.assertTrue(layer["backlog"]["next_action"])
             self.assertEqual(layer["backlog"]["legal_review"], "LEGAL_REVIEW_PENDING")
-            if lid in ("L3_TREATY", "L4_CIRCULAR"):
+            if lid in ("L2_ORDINANCE", "L3_TREATY", "L4_CIRCULAR"):
                 # Pinned bytes are recorded, but this is not proof or review.
                 self.assertIn("sha256=", layer["backlog"]["acquisition_evidence"])
             else:

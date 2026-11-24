@@ -144,6 +144,7 @@ def build() -> dict:
     ordinances = int(m_ord.group(1).replace(",", "")) if m_ord else 0
     reviewers = _int(r"candidates with recorded reviewer: (\d+)", blocked)
 
+    ordinance_pins = verified_acquisitions("L2_ORDINANCE")
     treaty_pins = verified_acquisitions("L3_TREATY")
     circular_pins = verified_acquisitions("L4_CIRCULAR")
     layers = [
@@ -180,14 +181,18 @@ def build() -> dict:
             "label_ja": "地方税条例",
             "legal_nature": "自治体条例（地方自治法に基づく法源）",
             "authority": "各自治体",
-            "acquisition_status": "NOT_ACQUIRED",
+            "acquisition_status": "ACQUIRED_PARTIAL" if ordinance_pins else "NOT_ACQUIRED",
             "scope_status": "IN_SCOPE_BACKLOG",
             "count": ordinances,
-            "count_acquired": 0,
-            "pinned_snapshot": "",
-            "verification_status": "BACKLOG_NOT_ACQUIRED",
+            "count_acquired": len(ordinance_pins),
+            "pinned_snapshot": ", ".join(x["source_id"] for x in ordinance_pins),
+            "verification_status": "PINNED_BYTES_ONLY" if ordinance_pins else "BACKLOG_NOT_ACQUIRED",
             "auxiliary": False,
-            "notes": "対象に保持する（スポンサー指令§1/§5）。自治体単位の版付き収集は未実施でバックログ。UNSUPPORTED は実装状態であり恒久除外ではない。",
+            "notes": ("自治体ごとの版付き条例を一部 pin 済み（全自治体は未取得、形式化・レビュー未実施）。"
+                      "対象に保持し、UNSUPPORTED は実装状態であって恒久除外ではない。"
+                      if ordinance_pins else
+                      "対象に保持する（スポンサー指令§1/§5）。自治体単位の版付き収集は未実施でバックログ。UNSUPPORTED は実装状態であり恒久除外ではない。"),
+            "acquisitions": ordinance_pins,
             "backlog": backlog_record(
                 "L2_ORDINANCE", "MUNICIPAL_ORDINANCE_ACQUISITION",
                 "自治体ごとに版を固定した条例原文を取得し、規範単位に分解する"),
@@ -270,7 +275,7 @@ def build() -> dict:
                 "歴史的施行版を e-Gov 歴史情報から版付きで pin し、経過措置の参照を解決する"),
         },
     ]
-    for pins in (treaty_pins, circular_pins):
+    for pins in (ordinance_pins, treaty_pins, circular_pins):
         if not pins:
             continue
         layer = next(l for l in layers if l["layer_id"] == pins[0]["layer_id"])
@@ -351,11 +356,14 @@ def main() -> int:
         "",
         p["note"],
         "",
-        ("L3_TREATY and L4_CIRCULAR have pinned source bytes (formalization and"
-         " legal review still pending); other auxiliary layers remain unacquired"
-         " backlog."
-         if verified_acquisitions("L3_TREATY") or verified_acquisitions("L4_CIRCULAR")
-         else "No layer other than L0 has acquired content in this repository."),
+        ("Pinned source bytes exist in: " + ", ".join(
+            l["layer_id"] for l in payload["layers"]
+            if l.get("verification_status") == "PINNED_BYTES_ONLY")
+          + " (formalization and legal review still pending); remaining layers"
+            " stay unacquired backlog."
+          if any(l.get("verification_status") == "PINNED_BYTES_ONLY"
+                 for l in payload["layers"])
+          else "No layer other than L0 has acquired content in this repository."),
         "No completion claim is made for any layer.",
         "",
         "## In-scope backlog (Sponsor Directive §1/§5)",

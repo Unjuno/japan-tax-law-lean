@@ -4,12 +4,12 @@
     "task_count": 5,
     "tasks": [
       {
-        "acquisition_evidence": "",
+        "acquisition_evidence": "TOKYO-METRO-TAX-ORDINANCE-20260701 sha256=a33201d3f8f5f79d7a6db5c005f9756495f670dfe9e9571805e86e2a87d3e2e8",
         "formalization_evidence": "",
         "layer_id": "L2_ORDINANCE",
         "legal_review": "LEGAL_REVIEW_PENDING",
         "next_action": "自治体ごとに版を固定した条例原文を取得し、規範単位に分解する",
-        "status": "NOT_ACQUIRED",
+        "status": "PARTIAL",
         "task_class": "MUNICIPAL_ORDINANCE_ACQUISITION"
       },
       {
@@ -90,27 +90,48 @@
       "verification_status": "PARTIAL"
     },
     {
-      "acquisition_status": "NOT_ACQUIRED",
+      "acquisition_status": "ACQUIRED_PARTIAL",
+      "acquisitions": [
+        {
+          "bytes": 3488564,
+          "document_kind": "MUNICIPAL_TAX_ORDINANCE",
+          "document_kind_note": "自治体ごとの版付き条例原文。地方税法 L0 の委任を受けた独立法源として別層で管理し、L0 に混ぜない。",
+          "formalization_status": "NOT_MODELLED",
+          "layer_id": "L2_ORDINANCE",
+          "legal_review": "LEGAL_REVIEW_PENDING",
+          "local_path": "data/layers/L2_ORDINANCE/TokyoMetroTaxOrdinance_20260701.html",
+          "media_type": "text/html",
+          "municipality": "東京都",
+          "official_url": "https://www.reiki.metro.tokyo.lg.jp/reiki/reiki_honbun/g101RG00000577.html",
+          "ordinance_number": "昭和25年条例第56号（令和8年7月1日施行版、条例第64号）",
+          "retrieved_date": "2026-11-25",
+          "sha256": "a33201d3f8f5f79d7a6db5c005f9756495f670dfe9e9571805e86e2a87d3e2e8",
+          "source_id": "TOKYO-METRO-TAX-ORDINANCE-20260701",
+          "title_ja": "東京都都税条例",
+          "verification": "PINNED_BYTES_ONLY",
+          "version_effective_date": "2026-07-01"
+        }
+      ],
       "authority": "各自治体",
       "auxiliary": false,
       "backlog": {
-        "acquisition_evidence": "",
+        "acquisition_evidence": "TOKYO-METRO-TAX-ORDINANCE-20260701 sha256=a33201d3f8f5f79d7a6db5c005f9756495f670dfe9e9571805e86e2a87d3e2e8",
         "formalization_evidence": "",
         "layer_id": "L2_ORDINANCE",
         "legal_review": "LEGAL_REVIEW_PENDING",
         "next_action": "自治体ごとに版を固定した条例原文を取得し、規範単位に分解する",
-        "status": "NOT_ACQUIRED",
+        "status": "PARTIAL",
         "task_class": "MUNICIPAL_ORDINANCE_ACQUISITION"
       },
       "count": 1788,
-      "count_acquired": 0,
+      "count_acquired": 1,
       "label_ja": "地方税条例",
       "layer_id": "L2_ORDINANCE",
       "legal_nature": "自治体条例（地方自治法に基づく法源）",
-      "notes": "対象に保持する（スポンサー指令§1/§5）。自治体単位の版付き収集は未実施でバックログ。UNSUPPORTED は実装状態であり恒久除外ではない。",
-      "pinned_snapshot": "",
+      "notes": "自治体ごとの版付き条例を一部 pin 済み（全自治体は未取得、形式化・レビュー未実施）。対象に保持し、UNSUPPORTED は実装状態であって恒久除外ではない。",
+      "pinned_snapshot": "TOKYO-METRO-TAX-ORDINANCE-20260701",
       "scope_status": "IN_SCOPE_BACKLOG",
-      "verification_status": "BACKLOG_NOT_ACQUIRED"
+      "verification_status": "PINNED_BYTES_ONLY"
     },
     {
       "acquisition_status": "ACQUIRED_PARTIAL",
@@ -257,10 +278,10 @@
   "tool": "scripts/ci/source_layers.py",
   "verification_pipeline": {
     "blocked_units": 2,
-    "fully_verified_units": 745,
+    "fully_verified_units": 743,
     "human_legal_reviews": 0,
     "normative_units_total": 396854,
-    "not_started_units": 396104,
+    "not_started_units": 396106,
     "note": "Separate denominators; unknown (None) means the input is absent, never zero.",
     "proved_scope_units": 3
   }
