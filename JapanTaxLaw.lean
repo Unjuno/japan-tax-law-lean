@@ -1811,3 +1811,6 @@ import JapanTaxLaw.WidowDependentIncomeCeiling5MTests
 import JapanTaxLaw.WirePitch165nm
 import JapanTaxLaw.WirePitch165nmSpec
 import JapanTaxLaw.WirePitch165nmTests
+import JapanTaxLaw.OilGasGrantArt4Rounding
+import JapanTaxLaw.OilGasGrantArt4RoundingSpec
+import JapanTaxLaw.OilGasGrantArt4RoundingTests
