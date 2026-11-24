@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 233
-- presence-facts-only complete: 233
-- NOT_STARTED: 233
+- articles with explicit pin: 240
+- presence-facts-only complete: 240
+- NOT_STARTED: 240
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -250,3 +250,10 @@ source positions. Human legal review is a separate axis and is pending.
 | `410M50000040043` | 第五条 | CombinableRecordItemsTwo | YES | YES | NO | NOT_STARTED |
 | `422M60000040022` | 第六条 | RankedAmountCountTen | YES | YES | NO | NOT_STARTED |
 | `347CO0000000150` | 第十条 | PostOfficeExceptionDate | YES | YES | NO | NOT_STARTED |
+| `322CO0000000268` | 第十五条の四 | DisasterTaxReliefOrderArt15_4RefundBase | YES | YES | NO | NOT_STARTED |
+| `325AC0000000073` | 第十九条の四 | InheritanceTaxArt19_4QuasiApplication | YES | YES | NO | NOT_STARTED |
+| `322CO0000000268` | 第十条 | DisasterTaxReliefOrderArt10ApplicationItem3_5 | YES | YES | NO | NOT_STARTED |
+| `415M60000040071` | 第五条 | GrayscaleGradationFloor | YES | YES | NO | NOT_STARTED |
+| `332AC0000000026` | 第七十条の三 | SpecialMeasuresArt70_3PresumptiveHeirCondition | YES | YES | NO | NOT_STARTED |
+| `325AC0000000226` | 第四十八条から第五十条まで | LocalTaxArt48To50DeletedRange | YES | NO | NO | NOT_STARTED |
+| `408AC0000000002` | 第二条 | HeiseiFY7Attribution | YES | YES | NO | NOT_STARTED |
