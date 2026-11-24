@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 248
-- presence-facts-only complete: 248
-- NOT_STARTED: 248
+- articles with explicit pin: 254
+- presence-facts-only complete: 254
+- NOT_STARTED: 254
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -262,6 +262,9 @@ source positions. Human legal review is a separate axis and is pending.
 | `507M60000008043` | 第五条 | SignedAdjustmentAmount | YES | YES | NO | NOT_STARTED |
 | `404CO0000000089` | 第二条 | MergerMaxCapital | YES | YES | NO | NOT_STARTED |
 | `322CO0000000268` | 第十条 | DisasterTaxReliefOrderArt10Item5FieldCondition | YES | YES | NO | NOT_STARTED |
+| `322CO0000000268` | 第十条 | DisasterTaxReliefOrderArt10Item5FieldCondition | YES | YES | NO | NOT_STARTED |
 | `403CO0000000035` | 第二条 | LocalCorpMaxCapital | YES | YES | NO | NOT_STARTED |
 | `347M50000040042` | 第六条 | RefundDifferenceAmount | YES | YES | NO | NOT_STARTED |
 | `345CO0000000050` | 第二条 | BranchDeputyAppointment | YES | YES | NO | NOT_STARTED |
+| `322AC0000000175` | 第九条 | DisasterTaxReliefArt9VehicleNumberReference | YES | YES | NO | NOT_STARTED |
+| `322CO0000000268` | 第十条 | DisasterTaxReliefOrderArt10Item5FieldCondition | YES | YES | NO | NOT_STARTED |

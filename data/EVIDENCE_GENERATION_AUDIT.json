@@ -371,6 +371,21 @@
         200000
       ]
     },
+    "CertificationIssuanceDeadlineFifteenDays": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "十五"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 10,
+      "needles_scoped": true,
+      "scoped_article_chars": 521,
+      "spec_literals": [
+        15
+      ]
+    },
     "ClampedSubtraction": {
       "adversarial_review": true,
       "boundary_examples_found": 3,
@@ -16402,6 +16417,22 @@
           "百"
         ]
       },
+      "NORM|e3f96720f013bcbb5689c22af36d821a4342cd90bcb9a667f1bd983a7e93bbe1": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 10,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "CertificationIssuanceDeadlineFifteenDays",
+        "spec_kanji_in_原文": [
+          "十五"
+        ]
+      },
       "NORM|e4050f7c4aaa2c98dd95fde2750b453414b16894ea855695c29778ad804d3e76": {
         "checks": {
           "cross_law": true,
@@ -25564,6 +25595,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle in clause + all spec numerals in scoped article: ['百分の二十三・二の税率']; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"1000\": [], \"19\": [], \"232\": [\"二十三・二\"], \"8000000\": []}; statutory rate = 29/125; needles scoped",
       "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:66/Article#66/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/CorporateTaxRateTests.lean sha256=224f0d3d1c75b98ac6582b458ffb61ad27f1bd0a8d0b2fcc706215733f98c054 (19 kernel-decided examples)"
+    },
+    "NORM|e3f96720f013bcbb5689c22af36d821a4342cd90bcb9a667f1bd983a7e93bbe1": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 10 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=508M60000400060_20261031_508M60000400078 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/CertificationIssuanceDeadlineFifteenDays.lean sha256=d6b820401df0c5df7f1568a7dc6b22c0cff9903c20195a6ff964378383287a30",
+      "independent_spec": "JapanTaxLaw/CertificationIssuanceDeadlineFifteenDaysSpec.lean sha256=3588d98cb87265bddd1f7562a06aecb79429cf2cc24e77905280975424d29a19 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45450996055: commit 9f004eda309428649646a4358676f47302a1fbfd, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [15] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"15\": [\"十五\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/508M60000400060_20261031_508M60000400078.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:2/Article#2/Paragraph#4/ParagraphSentence/Sentence#1 sha256=b6e8cafa58a7ad7abefdaae2ae12dfb072104c3e69a18956fcf8759e35e9a901 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/CertificationIssuanceDeadlineFifteenDaysTests.lean sha256=d4d543e5efacdf74b1346da645ccdd20bbbe99639332c2a15a69c5734a047e3e (10 kernel-decided examples)"
     },
     "NORM|e4050f7c4aaa2c98dd95fde2750b453414b16894ea855695c29778ad804d3e76": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
