@@ -17,10 +17,10 @@ only from recorded evidence in `data/verification_evidence.json`.
 
 | status | units |
 |---|---:|
-| NOT_STARTED | 264938 |
+| NOT_STARTED | 264871 |
 | PARTIAL | 3104 |
 | PROVED_SCOPE | 0 |
-| FULLY_VERIFIED | 65 |
+| FULLY_VERIFIED | 132 |
 | BLOCKED | 0 |
 | STALE | 0 |
 

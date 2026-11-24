@@ -557,3 +557,6 @@ import JapanTaxLaw.StatutoryFractionsTests
 import JapanTaxLaw.StatutoryPeriods
 import JapanTaxLaw.StatutoryPeriodsSpec
 import JapanTaxLaw.StatutoryPeriodsTests
+import JapanTaxLaw.MoneyRoundingThresholds
+import JapanTaxLaw.MoneyRoundingThresholdsSpec
+import JapanTaxLaw.MoneyRoundingThresholdsTests
