@@ -3593,6 +3593,62 @@ def checks():
            ["ただし、郵政大臣が指定する郵便局にあつては、同年八月三十一日とする。"])
 
 
+    # DisasterTaxReliefOrderArt15_4RefundBase.lean - NORM|beaa6271... (災害被害者租税減免法施行政令 art.15_4(1) item2 EFFECT, law 322CO0000000268)
+    # Article-kind locator; needle is Item 2 Sentence (額に相当する金額).
+    yield ("disaster tax relief order art.15-4 refund base - DisasterTaxReliefOrderArt15_4RefundBase.lean",
+           "322CO0000000268",
+           "article", "\u7b2c\u5341\u4e94\u6761\u306e\u56db",
+           ["\u9084\u4ed8\u3092\u53d7\u3051\u3088\u3046\u3068\u3059\u308b\u81ea\u52d5\u8eca\u91cd\u91cf\u7a0e\u306e\u984d\u306b\u76f8\u5f53\u3059\u308b\u91d1\u984d"])
+
+    yield ("inheritance tax art.19-4 quasi-application - InheritanceTaxArt19_4QuasiApplication.lean",
+           "325AC0000000073",
+           "article", "\u7b2c\u5341\u4e5d\u6761\u306e\u56db",
+           ["\u524d\u6761\u7b2c\u4e8c\u9805\u53ca\u3073\u7b2c\u4e09\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e00\u9805\u306e\u898f\u5b9a\u3092\u9069\u7528\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+    yield ("AmamiInvestmentThreshold.lean",
+           "411M50000008014",
+           "file", None,
+           ["五百万円（租税特別措置法施行令", "不均一課税をすることとしている場合"])
+    yield ("PopulationDensityBracketFY8.lean",
+           "508M60000008066",
+           "file", None,
+           ["処理区域内人口密度が二十五人毎ヘクタール未満の事業に係るもの", "令和八年度九月震災復興特別交付税額の算定方法"])
+    yield ("PropertyInKindEnforcementDate.lean",
+           "325M50000040022",
+           "file", None,
+           ["第一条この省令は、平成十五年一月六日から施行する", "この省令は、平成十五年一月六日から施行する"])
+    yield ("TonTaxOrderEnforcementDate.lean",
+           "332CO0000000048",
+           "file", None,
+           ["第一条この政令は、昭和六十四年四月一日から施行する", "この政令は、昭和六十四年四月一日から施行する"])
+    yield ("LocalGasolineGrantTaxOrderEnforcementDate.lean",
+           "344CO0000000088",
+           "file", None,
+           ["第一条この政令は、昭和五十一年四月一日から施行する", "この政令は、昭和五十一年四月一日から施行する"])
+    yield ("PowerDevelopmentTaxOrderEnforcementDate.lean",
+           "349CO0000000339",
+           "file", None,
+           ["第一条この政令は、平成十二年三月二十一日から施行する", "この政令は、平成十二年三月二十一日から施行する"])
+    yield ("disaster tax relief order art.10 application item 3-5 effect - DisasterTaxReliefOrderArt10ApplicationItem3_5.lean",
+           "322CO0000000268",
+           "article", "\u7b2c\u5341\u6761",
+           ["\u6cd5\u7b2c\u4e09\u6761\u7b2c\u4e94\u9805\u306e\u898f\u5b9a\u306e\u9069\u7528\u3092\u53d7\u3051\u3088\u3046\u3068\u3059\u308b\u65e8"])
+    yield ("customs tariff 附則 art.1 staggered enforcement exception - CustomsTariffSupplArt1StaggeredEnforcementException.lean",
+           "143AC0000000054",
+           "file", None,
+           ["\u305f\u3060\u3057\u3001\u6b21\u306e\u5404\u53f7\u306b\u63b2\u3052\u308b\u6539\u6b63\u898f\u5b9a\u306f\u3001\u5f53\u8a72\u5404\u53f7\u306b\u63b2\u3052\u308b\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
+    yield ("情報通信技術活用省令 art.5(2)(2)（二百五十六階調以上）↔ GrayscaleGradationFloor.lean (floor 256, 以上 inclusive)",
+           "415M60000040071",
+           "article", "第五条",
+           ["白色から黒色までの階調が二百五十六階調以上であること。"])
+    yield ("special measures art.70_3 presumptive heir condition - SpecialMeasuresArt70_3PresumptiveHeirCondition.lean",
+           "332AC0000000026",
+           "article", "\u7b2c\u4e03\u5341\u6761\u306e\u4e09",
+           ["\u4f4f\u5b85\u53d6\u5f97\u7b49\u8cc7\u91d1\u306e\u8d08\u4e0e\u3092\u3057\u305f\u8005\u306e\u76f4\u7cfb\u5351\u5c5e\u3067\u3042\u308b\u63a8\u5b9a\u76f8\u7d9a\u4eba\uff08\u5b6b\u3092\u542b\u3080\u3002\uff09\u3067\u3042\u308b\u3053\u3068\u3002"])
+    yield ("local tax art.48-50 deleted range - LocalTaxArt48To50DeletedRange.lean",
+           "325AC0000000226",
+           "article", "\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067",
+           ["\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067", "\u7b2c\u56db\u5341\u516b\u6761\u304b\u3089\u7b2c\u4e94\u5341\u6761\u307e\u3067\u524a\u9664"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
