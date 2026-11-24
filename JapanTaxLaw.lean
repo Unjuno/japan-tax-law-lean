@@ -1139,6 +1139,9 @@ import JapanTaxLaw.ImpositionCollectionEffectsTests
 import JapanTaxLaw.DocumentRequirementNorms
 import JapanTaxLaw.DocumentRequirementNormsSpec
 import JapanTaxLaw.DocumentRequirementNormsTests
+import JapanTaxLaw.AmendmentProvisionRefs
+import JapanTaxLaw.AmendmentProvisionRefsSpec
+import JapanTaxLaw.AmendmentProvisionRefsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
