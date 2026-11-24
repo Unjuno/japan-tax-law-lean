@@ -563,3 +563,6 @@ import JapanTaxLaw.MoneyRoundingThresholdsTests
 import JapanTaxLaw.PenaltyCaps
 import JapanTaxLaw.PenaltyCapsSpec
 import JapanTaxLaw.PenaltyCapsTests
+import JapanTaxLaw.SpecialDeductionBase
+import JapanTaxLaw.SpecialDeductionBaseSpec
+import JapanTaxLaw.SpecialDeductionBaseTests

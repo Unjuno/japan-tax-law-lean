@@ -30140,6 +30140,88 @@
         "tool": "lake build"
       }
     ],
+    "2d0262ba9134108b9dc08a1339c1bc5db8aa2dbf9310e4019163729880391865": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "build/task_queue.json#2d0262ba9134#source_span",
+        "note": "pensionSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "independent_fidelity:SPECIAL-DEDUCTION-SRC-1-2d0262ba9134",
+        "note": "pensionSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "task_queue.json#2d0262ba9134#coverage",
+        "note": "pensionSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean@kernel",
+        "note": "pensionSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBase.lean@kernel",
+        "note": "pensionSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean#agreeAmounts@kernel",
+        "note": "pensionSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean#agreeAmounts@kernel",
+        "note": "pensionSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseTests.lean#amounts",
+        "note": "pensionSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseTests.lean@kernel",
+        "note": "pensionSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "independent_fidelity:SPECIAL-DEDUCTION-SRC-1-2d0262ba9134#C",
+        "note": "pensionSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "2d0df0b8f35e8d71641cc35d3e45a0b4ef49be9e9c6e531a5f0ee96750af625a": [
       {
         "axis": "SOURCE_LOCATION",
@@ -31456,6 +31538,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "2ef88449e0be4a53ea92de117bbd187757fe02e54ab358ae5cc1c5dbb7025a63": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "build/task_queue.json#2ef88449e0be#source_span",
+        "note": "housingLoanCap: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "independent_fidelity:SPECIAL-DEDUCTION-SRC-1-2ef88449e0be",
+        "note": "housingLoanCap: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "task_queue.json#2ef88449e0be#coverage",
+        "note": "housingLoanCap: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean@kernel",
+        "note": "housingLoanCap: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBase.lean@kernel",
+        "note": "housingLoanCap: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean#agreeAmounts@kernel",
+        "note": "housingLoanCap: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean#agreeAmounts@kernel",
+        "note": "housingLoanCap: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseTests.lean#amounts",
+        "note": "housingLoanCap: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseTests.lean@kernel",
+        "note": "housingLoanCap: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "independent_fidelity:SPECIAL-DEDUCTION-SRC-1-2ef88449e0be#C",
+        "note": "housingLoanCap: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
       }
     ],
     "2f07d5f3a98e1225920751a9354abcf5a8a1d373012182a822a14bdfb5ff7f30": [
@@ -52882,6 +53046,88 @@
         "tool": "lake build"
       }
     ],
+    "4d2862d46a6aecd4468473a62a548e5ddc9980b5ff75c8cad4318fafc7354d4f": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "build/task_queue.json#4d2862d46a6a#source_span",
+        "note": "salarySpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "independent_fidelity:SPECIAL-DEDUCTION-SRC-1-4d2862d46a6a",
+        "note": "salarySpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "task_queue.json#4d2862d46a6a#coverage",
+        "note": "salarySpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean@kernel",
+        "note": "salarySpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBase.lean@kernel",
+        "note": "salarySpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean#agreeAmounts@kernel",
+        "note": "salarySpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean#agreeAmounts@kernel",
+        "note": "salarySpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseTests.lean#amounts",
+        "note": "salarySpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseTests.lean@kernel",
+        "note": "salarySpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "independent_fidelity:SPECIAL-DEDUCTION-SRC-1-4d2862d46a6a#C",
+        "note": "salarySpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "4d4fb53ed8db269256ad4651b66ef896260fdfdd08ce206f1ba24932a9f2f60c": [
       {
         "axis": "SOURCE_LOCATION",
@@ -64742,6 +64988,88 @@
         "tool": "lake build"
       }
     ],
+    "5fc055a604543098083684f1d93eaf0e58a57b2521344d0233778045aba5d2bf": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "build/task_queue.json#5fc055a60454#source_span",
+        "note": "relativeSpecialThreshold2: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "independent_fidelity:SPECIAL-DEDUCTION-SRC-1-5fc055a60454",
+        "note": "relativeSpecialThreshold2: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "task_queue.json#5fc055a60454#coverage",
+        "note": "relativeSpecialThreshold2: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean@kernel",
+        "note": "relativeSpecialThreshold2: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBase.lean@kernel",
+        "note": "relativeSpecialThreshold2: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean#agreeAmounts@kernel",
+        "note": "relativeSpecialThreshold2: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean#agreeAmounts@kernel",
+        "note": "relativeSpecialThreshold2: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseTests.lean#amounts",
+        "note": "relativeSpecialThreshold2: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseTests.lean@kernel",
+        "note": "relativeSpecialThreshold2: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "independent_fidelity:SPECIAL-DEDUCTION-SRC-1-5fc055a60454#C",
+        "note": "relativeSpecialThreshold2: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "5fc5436ea46722ec11db57fa919c78399402953b2c1188f73c56c24ebca50cc4": [
       {
         "axis": "SOURCE_LOCATION",
@@ -70718,6 +71046,88 @@
         "date": "2026-11-24T20:16:42+00:00",
         "evidence_ref": "independent_fidelity:MONEY-ROUNDING-SRC-1#H-1",
         "note": "independent alternative-path source check",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
+    "69ecbbcf43f98b319ea24452e81004e470bd3f6616528281d33bed801a42fddf": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "build/task_queue.json#69ecbbcf43f9#source_span",
+        "note": "prepaymentSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "independent_fidelity:SPECIAL-DEDUCTION-SRC-1-69ecbbcf43f9",
+        "note": "prepaymentSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "task_queue.json#69ecbbcf43f9#coverage",
+        "note": "prepaymentSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean@kernel",
+        "note": "prepaymentSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBase.lean@kernel",
+        "note": "prepaymentSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean#agreeAmounts@kernel",
+        "note": "prepaymentSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean#agreeAmounts@kernel",
+        "note": "prepaymentSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseTests.lean#amounts",
+        "note": "prepaymentSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseTests.lean@kernel",
+        "note": "prepaymentSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "independent_fidelity:SPECIAL-DEDUCTION-SRC-1-69ecbbcf43f9#C",
+        "note": "prepaymentSpecial: 三万円 as deductionBase; independent audit PASS",
         "reviewer": "ci",
         "tool": "independent-adversarial"
       }
@@ -83112,6 +83522,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "7c99b4fb99e625722e08670990d91eb3ac9447c1964b2b737e3b83aa8894bed7": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "build/task_queue.json#7c99b4fb99e6#source_span",
+        "note": "yearEndSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "independent_fidelity:SPECIAL-DEDUCTION-SRC-1-7c99b4fb99e6",
+        "note": "yearEndSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "task_queue.json#7c99b4fb99e6#coverage",
+        "note": "yearEndSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean@kernel",
+        "note": "yearEndSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBase.lean@kernel",
+        "note": "yearEndSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean#agreeAmounts@kernel",
+        "note": "yearEndSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean#agreeAmounts@kernel",
+        "note": "yearEndSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseTests.lean#amounts",
+        "note": "yearEndSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseTests.lean@kernel",
+        "note": "yearEndSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "independent_fidelity:SPECIAL-DEDUCTION-SRC-1-7c99b4fb99e6#C",
+        "note": "yearEndSpecial: 三万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
       }
     ],
     "7cc66c3ecd06f052c95a9cefe02cad0a7002150446799caa4177c98e43a3aed6": [
@@ -130932,6 +131424,88 @@
         "tool": "lake build"
       }
     ],
+    "c03e8889fd99b39f179f655c80c8e2f9d7028ff613dcd20d84e5d48ae5501260": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "build/task_queue.json#c03e8889fd99#source_span",
+        "note": "relativeSpecialThreshold1: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "independent_fidelity:SPECIAL-DEDUCTION-SRC-1-c03e8889fd99",
+        "note": "relativeSpecialThreshold1: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "task_queue.json#c03e8889fd99#coverage",
+        "note": "relativeSpecialThreshold1: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean@kernel",
+        "note": "relativeSpecialThreshold1: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBase.lean@kernel",
+        "note": "relativeSpecialThreshold1: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean#agreeAmounts@kernel",
+        "note": "relativeSpecialThreshold1: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean#agreeAmounts@kernel",
+        "note": "relativeSpecialThreshold1: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseTests.lean#amounts",
+        "note": "relativeSpecialThreshold1: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseTests.lean@kernel",
+        "note": "relativeSpecialThreshold1: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "independent_fidelity:SPECIAL-DEDUCTION-SRC-1-c03e8889fd99#C",
+        "note": "relativeSpecialThreshold1: 八十五万円 as incomeThreshold; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "c045bcdac4af496dd7eec386177062f9b13d6ba0b49e34bdf7262f37ae6da796": [
       {
         "axis": "SOURCE_LOCATION",
@@ -156462,6 +157036,88 @@
         "tool": "lake build"
       }
     ],
+    "e612519f00d79804161e2a707c1d5d1f84c96d099e08d71eee02e3d2f66f3d1e": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "build/task_queue.json#e612519f00d7#source_span",
+        "note": "forestIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "independent_fidelity:SPECIAL-DEDUCTION-SRC-1-e612519f00d7",
+        "note": "forestIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "task_queue.json#e612519f00d7#coverage",
+        "note": "forestIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean@kernel",
+        "note": "forestIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBase.lean@kernel",
+        "note": "forestIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean#agreeAmounts@kernel",
+        "note": "forestIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean#agreeAmounts@kernel",
+        "note": "forestIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseTests.lean#amounts",
+        "note": "forestIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseTests.lean@kernel",
+        "note": "forestIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "independent_fidelity:SPECIAL-DEDUCTION-SRC-1-e612519f00d7#C",
+        "note": "forestIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      }
+    ],
     "e626e8074f6931ab0cb5f69d4a09b93eeb8b7601d6ad4d9f35ad57747ab1bd4b": [
       {
         "axis": "SOURCE_LOCATION",
@@ -168742,6 +169398,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "f7fe067cda1ef367b36395ded90082689ef717a53d52f9fbd1e5f991f35a5530": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "build/task_queue.json#f7fe067cda1e#source_span",
+        "note": "lumpSumIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "independent_fidelity:SPECIAL-DEDUCTION-SRC-1-f7fe067cda1e",
+        "note": "lumpSumIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "task_queue.json#f7fe067cda1e#coverage",
+        "note": "lumpSumIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean@kernel",
+        "note": "lumpSumIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBase.lean@kernel",
+        "note": "lumpSumIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean#agreeAmounts@kernel",
+        "note": "lumpSumIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseSpec.lean#agreeAmounts@kernel",
+        "note": "lumpSumIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseTests.lean#amounts",
+        "note": "lumpSumIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "JapanTaxLaw/SpecialDeductionBaseTests.lean@kernel",
+        "note": "lumpSumIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-24T21:50:44+00:00",
+        "evidence_ref": "independent_fidelity:SPECIAL-DEDUCTION-SRC-1-f7fe067cda1e#C",
+        "note": "lumpSumIncome: 五十万円 as deductionBase; independent audit PASS",
+        "reviewer": "ci",
+        "tool": "independent-adversarial"
       }
     ],
     "f80ae8a529f93000f827952403867986616d45a78286af46285e3dd48b9df156": [
