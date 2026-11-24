@@ -1461,3 +1461,59 @@ H/T/D/C/U record:
 - **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
 
 > **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### FreeCarePatientBand5_10.lean — 地方税法施行規則 art. 10_7_3（無料又は低額診療患者の割合 百分の五以上百分の十未満）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `329M50000002023` / revision `329M50000002023_20261101_508M60000008045`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の割合帯を独立仕様の半開区間 `[lo, hi)` として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 課税標準の軽減率の算定は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### FreeCarePatientBand2_5.lean — 地方税法施行規則 art. 10_7_3（無料又は低額診療患者の割合 百分の二以上百分の五未満）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `329M50000002023` / revision `329M50000002023_20261101_508M60000008045`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の割合帯を独立仕様の半開区間 `[lo, hi)` として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 課税標準の軽減率の算定は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### NursingCareBand5_10.lean — 地方税法施行規則 art. 10_7_3（介護医療院入所者の割合 百分の五以上百分の十未満）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `329M50000002023` / revision `329M50000002023_20261101_508M60000008045`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の割合帯を独立仕様の半開区間 `[lo, hi)` として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 課税標準の軽減率の算定は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### NursingCareBand2_5.lean — 地方税法施行規則 art. 10_7_3（介護医療院入所者の割合 百分の二以上百分の五未満）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `329M50000002023` / revision `329M50000002023_20261101_508M60000008045`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の割合帯を独立仕様の半開区間 `[lo, hi)` として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 課税標準の軽減率の算定は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
