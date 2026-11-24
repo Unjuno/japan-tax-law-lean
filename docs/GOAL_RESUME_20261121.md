@@ -102,3 +102,34 @@ at a scale far beyond a single session.
 6. Regenerate L7 / LAW_STATUS / COVERAGE ledgers before evaluating CI.
 
 Human legal review remains a separate pending axis; do not self-certify it.
+
+## UPDATE 2026-11-24 (latest measured state and new integrity guards)
+
+- Measured on merged main: 396,854 determined-target units;
+  FULLY_VERIFIED=623, NOT_STARTED=396,228, PROVED_SCOPE=1, BLOCKED=2;
+  evidence ledger 624 units. The §5 completion criterion remains unmet.
+- Two new REQUIRED-gate invariants were added to `verify_queue_invariants.py`
+  after repeated silent regressions by a concurrent reconcile workstream:
+  1. `registered transcription checks retained` — every module in
+     `data/TRANSCRIPTION_CHECK_REGISTRY.json` must still have a check in
+     `transcription_audit.py`.
+  2. `umbrella imports retained` — every on-disk `JapanTaxLaw/*.lean` module
+     must be imported by `JapanTaxLaw.lean`. Without this, a stale-base rewrite
+     of the umbrella turns the axiom probe red with "Unknown constant".
+  When either guard fires, restore the dropped checks/imports via a PR; do NOT
+  disable the guard. Also watch `FULLY_VERIFIED evidence refs resolve to current
+  files` — one-off manual evidence entries (e.g. GiftTax) can carry stale hashes
+  after a concurrent file edit; refresh those hashes to current file state.
+- Queue-loop finding: the top 60,000 selector units contain no further clean,
+  semantically-distinct numeric-norm candidates. Remaining candidates are
+  cross-references, section headings, or multi-step computations whose only
+  numerals are law/article identifiers or article-internal rates unrelated to
+  the candidate clause. Do NOT model an identifier as a threshold to pad counts
+  — that would violate the independent source-correspondence requirement.
+  Further progress requires either (a) faithful multi-step arithmetic models,
+  or (b) the parallel §2 tasks: acquiring more raw snapshots (only 31 of 381
+  discovered laws have raw files on disk), pinning historical revisions, and
+  binding external references.
+- Attestation is rebound per model PR to a REST-confirmed CI-green commit's git
+  blobs; latest binding 1494+ module hashes. Always re-derive evidence/queue
+  after each rebind and re-measure FULLY_VERIFIED vs NOT_STARTED.
