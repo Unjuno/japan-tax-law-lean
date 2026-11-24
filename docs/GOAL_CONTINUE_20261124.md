@@ -145,9 +145,23 @@ were formalized with the same eight-axis treatment: `LocalTax37_2BandUpTo195`,
 `195To330`, `330To695`, `695To900`, `900To1800`, `1800To4000`. Each has an
 independent spec, universal axiom-free bridge, kernel-decided boundary cases,
 a scoped pinned needle, a registry entry and a mechanical review in
-`docs/adversarial/reviews-batch-221.md`. The Lean build reached 1853 jobs green
-and all six passed the evidence pipeline under temporary (never committed)
-validation. They remain NOT_STARTED until a green CI run binds their hashes.
+`docs/adversarial/reviews-batch-221.md`.
+
+CI run `45456853736` on commit `b41d78c31da1231de80ce5514e59a62ca0c0c143`
+completed `success` (Lean job plus all Python gates). A scoped attestation
+(`data/PROOF_ATTESTATION_SCOPED_372.json`) binds 18 module hashes read from
+committed blobs at that commit to that green run. Honest regeneration measured:
+
+```
+before: FULLY_VERIFIED=739  NOT_STARTED=396110  evidence=742
+after:  FULLY_VERIFIED=745  NOT_STARTED=396104  evidence=748
+delta:  FULLY_VERIFIED=+6  NOT_STARTED=-6  evidence=+6
+progress_ledger: COUNTED; NOT_STARTED delta -6; new modules 18
+verify_queue_invariants: 17/17; all 6 target units in evidence
+```
+
+The eight status axes remain separate; these six units cover only their scoped
+rate-table cells, not the whole of 地方税法 art.37_2.
 
 ## Independent status axes (never collapsed into one "COMPLETE")
 
