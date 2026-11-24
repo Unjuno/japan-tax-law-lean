@@ -1666,6 +1666,11 @@ def checks():
            "325AC0000000073",
            "article", "第二十三条",
            ["\u6b8b\u5b58\u671f\u9593\u304c\u5341\u5e74\u4ee5\u4e0b\u306e\u3082\u306e"])
+    # Missing 50M-100M row of the art.16 inheritance rate table.
+    yield ("inheritance-tax rate bracket 50M-100M - InheritanceTaxRateBracket50_100.lean",
+           "325AC0000000073",
+           "article", "第十六条",
+           ["\u4e94\u5343\u4e07\u5186\u3092\u8d85\u3048\u4e00\u5104\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
 
     # LocalTaxArt734AmountTier1.lean - NORM|41efee8e... (dual amount 120k/140k yen CONDITION, law 325AC0000000226)
     # Needle is in MainProvision Article 734 (Paragraph 3, table cell, Sentence 1);

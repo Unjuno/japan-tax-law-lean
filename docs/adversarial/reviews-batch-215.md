@@ -90,7 +90,24 @@ from committed bytes. No human legal approval is recorded here.
   D（`rfl`/`by decide`/普遍 bridge）, C（needle scoped, 境界完整, spec 独立）,
   U（対応税率・他区分・控除・他条は非介入）.
 
+### InheritanceTaxRateBracket50_100.lean — 相続税法 第十六条(1)（repair/addition）
+
+独立再抽出（一次資料）による照合・判定。BY-DESIGN / CONFIRMED。
+
+- Needle: 「五千万円を超え一億円以下の金額」 (art.16 Paragraph 1 rate-table
+  cell), found verbatim in the scoped article of the shared pin above.
+- Normative unit: `NORM|df94f143188b89690e03047e002c6a375e81d8d3c81f4313c1995b484310badc`
+- This row was missing from the modelled art.16 table (30M–50M existed, the
+  next modelled row was 100M–200M). It is a genuine dependency-free unit, not
+  an identifier-sized padding candidate.
+- Interval: `50_000_000 < x ∧ x ≤ 100_000_000`; literals 五千万 / 一億 verbatim;
+  zero/small/just-below/at/just-above/upper boundary cases kernel-decided;
+  universal impl/spec equivalence axiom-free.
+- 判定 H/T/D/C/U: H（相続税税率表の欠落行）, T（五千万/一億、bytes pinned）,
+  D（`rfl`/`by decide`/普遍 bridge）, C（needle scoped, 境界完整, spec 独立）,
+  U（対応税率・他区分・控除・他条は非介入）.
+
 ## Status
 
-All five reviews are mechanical, not human. Human legal review remains a
+All six reviews are mechanical, not human. Human legal review remains a
 separate `LEGAL_REVIEW_PENDING` axis; nothing here records an approval.
