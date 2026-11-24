@@ -1712,6 +1712,26 @@ def checks():
            "325AC0000000226", "article", "第七十一条の十四",
            ["\u4e94\u5341\u4e07\u5186\u3092\u8d85\u3048\u4e09\u767e\u4e07\u5186\u4ee5\u4e0b\u306e\u90e8\u5206\u306b\u76f8\u5f53\u3059\u308b\u91d1\u984d"])
 
+    # Fifth batch: threshold/tier units from 相続税法 and 地方税法.
+    yield ("gift rate 4M-6M - InheritanceGiftRate4M6M.lean",
+           "325AC0000000073", "article", "第二十一条の七",
+           ["\u56db\u767e\u4e07\u5186\u3092\u8d85\u3048\u516d\u767e\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+    yield ("local tax 71_14 up to 500k - LocalTax71_14UpTo500k.lean",
+           "325AC0000000226", "article", "第七十一条の十四",
+           ["\u4e94\u5341\u4e07\u5186\u4ee5\u4e0b\u306e\u90e8\u5206\u306b\u76f8\u5f53\u3059\u308b\u91d1\u984d"])
+    yield ("local tax 71_14 over 3M - LocalTax71_14Over3M.lean",
+           "325AC0000000226", "article", "第七十一条の十四",
+           ["\u4e09\u767e\u4e07\u5186\u3092\u8d85\u3048\u308b\u90e8\u5206\u306b\u76f8\u5f53\u3059\u308b\u91d1\u984d"])
+    yield ("local tax 72_21 up to 100B - LocalTax72_21UpTo100B.lean",
+           "325AC0000000226", "article", "第七十二条の二十一",
+           ["\u5343\u5104\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+    yield ("local tax 72_21 100B-500B - LocalTax72_21Band100B500B.lean",
+           "325AC0000000226", "article", "第七十二条の二十一",
+           ["\u5343\u5104\u5186\u3092\u8d85\u3048\u4e94\u5343\u5104\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+    yield ("local tax 37 over 2M - LocalTax37Over2M.lean",
+           "325AC0000000226", "article", "第三十七条",
+           ["\u4e8c\u767e\u4e07\u5186\u3092\u8d85\u3048\u308b\u5834\u5408"])
+
     # LocalTaxArt734AmountTier1.lean - NORM|41efee8e... (dual amount 120k/140k yen CONDITION, law 325AC0000000226)
     # Needle is in MainProvision Article 734 (Paragraph 3, table cell, Sentence 1);
     # find_article_text(...,"第七百三十四条") returns that article (len 2046) with needle -
