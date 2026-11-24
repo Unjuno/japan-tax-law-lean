@@ -92,6 +92,7 @@ def contains(haystack: str, needle: str) -> bool:
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
     yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
+
     # Restored registry checks dropped by a concurrent stale-base rewrite.
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,
@@ -993,6 +994,12 @@ def checks():
            "325CO0000000245",
            "file", None,
            ["（事業所等が指定都市等とその他の市町村とにわたつて所在する場合等における課税標準の特例）第五十六条の五十事業所等が一の指定都市等の区域とその他の市町村の区域とにわたつて所在する場合における当該事業所等において行", "事業所等において行われる事業に対して当該指定都市等が課する事業所税に係る法第七百一条の四十第一項及び第二項の規定の適用については、当該事業所等に係る事業所床面積は、当該事業所等のうち当該指定都市等の区域内に所", "定都市等の区域内に所在する部分に係る事業所床面積（以下この条において「指定都市等所在部分の事業所床面積」という。）に相当する面積とし、当該事業所等に係る従業者給与総額は、当該従業者給与総額に当該指定都市等所在部", "在部分の事業所床面積」という。）に相当する面積とし、当該事業所等に係る従業者給与総額は、当該従業者給与総額に当該指定都市等所在部分の事業所床面積の当該事業所等に係る事業所床面積に対する割合を乗じて得た額とする。"])
+
+    # 地方税法 art. 701の42 — BusinessOfficeTaxRate.lean
+    yield ("地方税法 art. 701の42（事業所税の税率: 資産割 一平方メートルにつき六百円／従業者割 百分の〇・二五 = 25/10000）↔ BusinessOfficeTaxRate.lean",
+           "325AC0000000226",
+           "article", "第七百一条の四十二",
+           ["事業所税の税率は、資産割にあつては一平方メートルにつき六百円、従業者割にあつては百分の〇・二五とする。"])
 
     # 相続税法 art. 24(1) 一号〜三号 — InheritanceAnnuityMaxima.lean
     yield ("相続税法 art. 24(1) 一号〜三号（定期金の評価: 有期/無期/終身 = max(解約返戻金, 一時金, 基礎額) — 無期は平均額÷予定利率、複利現価率・予定利率・余命年数は NOT MODELLED / caller-established）↔ InheritanceAnnuityMaxima.lean",
@@ -4298,6 +4305,12 @@ def checks():
            "325AC0000000073",
            "article", "\u7b2c\u516d\u5341\u4e03\u6761",
            ["\u5730\u65b9\u516c\u5171\u56e3\u4f53\u306f\u3001\u76f8\u7d9a\u7a0e\u53c8\u306f\u8d08\u4e0e\u7a0e\u306e\u4ed8\u52a0\u7a0e\u3092\u8ab2\u3059\u308b\u3053\u3068\u304c\u3067\u304d\u306a\u3044\u3002"])
+
+    # 国際観光旅客税法 art. 24(2) — TouristTaxFineRange.lean
+    yield ("国際観光旅客税法 art. 24（未納税額二百万円超の罰金区間）↔ TouristTaxFineRange.lean",
+           "430AC0000000016",
+           "file", None,
+           ["前項の納付しなかった国際観光旅客税の額が二百万円を超えるときは、情状により、同項の罰金は、二百万円を超えその納付しなかった国際観光旅客税の額に相当する金額以下とすることができる。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

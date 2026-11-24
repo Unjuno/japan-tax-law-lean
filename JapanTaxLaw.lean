@@ -82,6 +82,9 @@ import JapanTaxLaw.BuildingArea800Tests
 import JapanTaxLaw.BuildingSite150sqm
 import JapanTaxLaw.BuildingSite150sqmSpec
 import JapanTaxLaw.BuildingSite150sqmTests
+import JapanTaxLaw.BusinessOfficeTaxRate
+import JapanTaxLaw.BusinessOfficeTaxRateSpec
+import JapanTaxLaw.BusinessOfficeTaxRateTests
 import JapanTaxLaw.BusinessOwnerDeduction
 import JapanTaxLaw.BusinessOwnerDeductionSpec
 import JapanTaxLaw.BusinessOwnerDeductionTests
@@ -1893,6 +1896,9 @@ import JapanTaxLaw.TonnageTaxPenaltySpec
 import JapanTaxLaw.TonnageTaxPenaltyTests
 import JapanTaxLaw.TonnageTaxSpec
 import JapanTaxLaw.TonnageTaxTests
+import JapanTaxLaw.TouristTaxFineRange
+import JapanTaxLaw.TouristTaxFineRangeSpec
+import JapanTaxLaw.TouristTaxFineRangeTests
 import JapanTaxLaw.TrainingPeriodOneYear
 import JapanTaxLaw.TrainingPeriodOneYearSpec
 import JapanTaxLaw.TrainingPeriodOneYearTests
