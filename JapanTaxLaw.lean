@@ -545,3 +545,6 @@ import JapanTaxLaw.LandRatioRoundDownTests
 import JapanTaxLaw.UnclearValueDefault
 import JapanTaxLaw.UnclearValueDefaultSpec
 import JapanTaxLaw.UnclearValueDefaultTests
+import JapanTaxLaw.LocalTaxRateTable
+import JapanTaxLaw.LocalTaxRateTableSpec
+import JapanTaxLaw.LocalTaxRateTableTests
