@@ -4063,21 +4063,17 @@ def checks():
            "file", None,
            ["前年の合計所得金額が五百万円以下であること"])
 
-<<<<<<< HEAD
     yield ("disaster tax relief order art.10 item5 field condition - DisasterTaxReliefOrderArt10Item5FieldCondition.lean",
            "322CO0000000268",
            "article", "\u7b2c\u5341\u6761",
            ["\u5fb4\u53ce\u7336\u4e88\u9650\u5ea6\u984d\u53c8\u306f\u5fb4\u53ce\u7336\u4e88\u671f\u9593\u53ca\u3073\u3053\u308c\u3089\u306e\u8a08\u7b97\u306e\u57fa\u790e"])
 
-=======
     # DisasterTaxReliefArt9TermDefinitionDelegation.lean - NORM|20017561... (災害被害者租税減免法 art.9(2) DELEGATION, law 322AC0000000175)
     # Article-kind locator; needle is the term-definition delegation sentence.
     yield ("disaster tax relief art.9 term definition delegation - DisasterTaxReliefArt9TermDefinitionDelegation.lean",
            "322AC0000000175",
            "article", "\u7b2c\u4e5d\u6761",
            ["\u524d\u9805\u306b\u304a\u3044\u3066\u3001\u6b21\u306e\u5404\u53f7\u306b\u63b2\u3052\u308b\u7528\u8a9e\u306e\u610f\u7fa9\u306f\u3001\u5f53\u8a72\u5404\u53f7\u306b\u5b9a\u3081\u308b\u3068\u3053\u308d\u306b\u3088\u308b\u3002"])
->>>>>>> origin/main
-
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

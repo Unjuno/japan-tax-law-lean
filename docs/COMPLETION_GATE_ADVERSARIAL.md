@@ -6,7 +6,7 @@ verdict: **PASS** (0 MUST failures)
 
 - tools present: 4/4
 - evidence file: C:\Users\junny\.local\share\opencode\worktree\484e09\rnd-surcharge-cycle\data\verification_evidence.json
-- durable state counts: {"BLOCKED": 2, "FULLY_VERIFIED": 718, "NOT_STARTED": 8, "PROVED_SCOPE": 3}
+- durable state counts: {"BLOCKED": 2, "FULLY_VERIFIED": 721, "PROVED_SCOPE": 1}
 
 | rule | must | H | T | D | C | U |
 |---|---|---|---|---|---|---|
