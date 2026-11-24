@@ -566,3 +566,6 @@ import JapanTaxLaw.PenaltyCapsTests
 import JapanTaxLaw.SpecialDeductionBase
 import JapanTaxLaw.SpecialDeductionBaseSpec
 import JapanTaxLaw.SpecialDeductionBaseTests
+import JapanTaxLaw.EnforcementDates
+import JapanTaxLaw.EnforcementDatesSpec
+import JapanTaxLaw.EnforcementDatesTests
