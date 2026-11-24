@@ -4182,6 +4182,16 @@ def checks():
            "file", None,
            ["合計所得金額が九十五万円以下である配偶者"])
 
+    # 租税特別措置法 art. 68の3の3 — SpecialMeasuresDistributionRatio90.lean (>90%)
+    yield ("租税特別措置法 art. 68_3_3（収益分配割合90%超）↔ SpecialMeasuresDistributionRatio90.lean",
+           "332AC0000000026", "file", None,
+           ["割合として政令で定める割合が百分の九十を超えていること。"])
+
+    # 租税特別措置法 art. 83の2の2 — SpecialMeasuresRealEstateRatio75.lean (>=75%)
+    yield ("租税特別措置法 art. 83_2_2（特定不動産割合75%以上）↔ SpecialMeasuresRealEstateRatio75.lean",
+           "332AC0000000026", "file", None,
+           ["特定不動産の割合が百分の七十五以上であること。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
