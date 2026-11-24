@@ -133,3 +133,23 @@ Human legal review remains a separate pending axis; do not self-certify it.
 - Attestation is rebound per model PR to a REST-confirmed CI-green commit's git
   blobs; latest binding 1494+ module hashes. Always re-derive evidence/queue
   after each rebind and re-measure FULLY_VERIFIED vs NOT_STARTED.
+
+## REFERENCE BINDING FINDING (2026-11-24)
+
+Investigated reducing the 175,186 `references_external_unverified` count:
+- `scripts/law_audit/inventory/collect_references.py` loads only INVENTORY (325
+  parsed) laws; I tested also loading the 380 now-on-disk verified discovered-law
+  snapshots. Result: **no change** (external=175,186 both ways).
+- Cause is by design: `scripts/law_audit/rules.py::_classify_law_name` resolves
+  only FAMILY references (a law's own 施行令/施行規則, or an order/rule's parent
+  act) as `act`/`order`/`rule`; every other named law is deliberately classified
+  `external` so a differently-named law is never falsely bound to this one.
+  `other_docs` is keyed by law TYPE, not law_id.
+- Therefore binding the 175k external references needs a separate, reviewable
+  law-name -> law-ID resolution layer (candidate/UNVERIFIED status, never an
+  auto-bind), NOT extending `collect_references.py` with more raw files. Do not
+  weaken the conservative classifier: that would create false cross-law claims.
+- §2 raw-snapshot gap was closed this session: 349 missing snapshots re-fetched
+  with per-file SHA-256 verification against the provenance ledger (0 mismatches;
+  1 skip where the enforced revision advanced). 380/381 discovered laws now have
+  verified raw bytes on disk, enabling future parse/decompose work.
