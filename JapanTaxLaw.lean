@@ -1190,6 +1190,9 @@ import JapanTaxLaw.MattersEnumerationNormsTests
 import JapanTaxLaw.ResidualDelegationNorms
 import JapanTaxLaw.ResidualDelegationNormsSpec
 import JapanTaxLaw.ResidualDelegationNormsTests
+import JapanTaxLaw.RefundReferenceNorms
+import JapanTaxLaw.RefundReferenceNormsSpec
+import JapanTaxLaw.RefundReferenceNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
