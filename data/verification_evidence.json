@@ -405,6 +405,19 @@
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[48]/SupplProvision/SupplProvision[4]/Article:24/Article#24/Paragraph#1/ParagraphSentence/Sentence#2 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/InheritanceAnnuityMinMaxTests.lean sha256=0f60d94f383ee999f49f4233b0a010675cf66a81e75c8edb29658190b1bd28b6 (18 kernel-decided examples)"
     },
+    "NORM|89a8b5e3962e7db358a45105bea6669582c82591554b65860296e9fc58cc71cf": {
+      "adversarial_review": "docs/ADVERSARIAL_DISASTER_2_1.md H/T/D/C/U; inclusive-vs-strict competing reading recorded; scope limits explicit",
+      "boundary_proof": "DisasterIncomeThresholdTests.lean: 4,999,999→true, 5,000,000→true, 5,000,001→false, all kernel-decided",
+      "cross_law_proof": "dependencies=[]; no cross-law dependency for this threshold clause; dependency analysis records law name + article, not a bare 15-digit id",
+      "decomposition_audit": "queue coverage exact=True unique_ids=True; unit is one clause of art. 2",
+      "implementation": "JapanTaxLaw/DisasterIncomeThreshold.lean sha256=71c3f8450c47ab6e242d4b1531f61276aec01c251cd5d9069dea738e3fffbf7d",
+      "independent_spec": "JapanTaxLaw/DisasterIncomeThresholdSpec.lean sha256=1a57be0952f1d5cb00ed263d7d3503eb7b29b955dfaca037f7cb89aef2e5d6c9; specEligible restates threshold as ¬(5M < income)",
+      "kernel_proof": "lake build JapanTaxLaw.DisasterIncomeThresholdTests: Build completed successfully (5 jobs); #print axioms eligible_at_boundary / eligible_above: no axioms; agree_spec_impl: standard propext only",
+      "proof_scope": "agree_spec_impl is a theorem for ALL Nat inputs (universal), not a finite grid; band scope limited to art. 2(1) first threshold",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; verbatim_located=true; amounts_in_source=[5000000]; missing=[]",
+      "source_location": "data/raw/322AC0000000175_20220101_503AC0000000011.law.json#LawBody[1]/MainProvision/MainProvision[1]/Article:2/Article#2/Paragraph#1/List/ListSentence/Column#1/Sentence#1 sha256=c3bb5b0bdffbdefd2ee5f358d90ad9e0922d4c887ecb2b133aa7d613f5f4e7ef; verbatim located in art. 2",
+      "tests": "JapanTaxLaw/DisasterIncomeThresholdTests.lean sha256=5596017f6923bf262e7030bbc11d177ab080a9264135264908488bd0409110ca; 10 kernel-decided examples"
+    },
     "NORM|8bf0fbaf2bd386bfc61bf729f4718dcb5588e73735f02cf82ef461a51712ab06": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
       "boundary_proof": "attested Tests module contains kernel-decided boundary examples (0/1/11/12/13)",

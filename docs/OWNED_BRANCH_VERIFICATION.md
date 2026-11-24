@@ -43,13 +43,14 @@ Measured results on this branch (2026-11-20):
 
 ```
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=396805, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=47, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=396804, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=48, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=47 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=48 axes=11 unbacked=0
 12/12 invariants passed
+$ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -60,7 +61,17 @@ This does not weaken the finding — text-only identification is still invalid;
 the unit is identified by article/paragraph/sentence position and source hash.
 ```
 
-So 47 evidence-backed units left NOT_STARTED on this branch; the
+The 48th unit is 昭和二十二年法律第百七十五号 art. 2(1): 「合計所得金額が
+五百万円以下であるとき」 (`NORM|89a8b5e3…`). It has an independent spec
+restating the non-strict threshold as `¬(5M < income)`, a universal agreement
+theorem over all `Nat` (no finite grid), kernel-decided boundaries
+4,999,999 / 5,000,000 / 5,000,001, a Lean-independent source audit (D=PASS,
+五百万円 → 5,000,000), and an H/T/D/C/U adversarial review recording the
+inclusive-vs-strict competing reading and the out-of-scope applicability
+conditions. Its agreement theorem uses Lean's standard `propext`; the boundary
+theorems are axiom-free.
+
+So 48 evidence-backed units left NOT_STARTED on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
 durable. `docs/TASK_QUEUE.md` is regenerated with these counts.
