@@ -4851,7 +4851,7 @@
         "三",
         "八"
       ],
-      "kernel_attested": false,
+      "kernel_attested": true,
       "kernel_decided_examples": 26,
       "needles_scoped": true,
       "scoped_article_chars": 891,
@@ -8090,6 +8090,24 @@
         "module": "DeceasedUnder70",
         "spec_kanji_in_原文": [
           "七十"
+        ]
+      },
+      "NORM|3711b3a07052a52e5b0edbb283e985682934ff86581a53c6e6585d1495cad7b1": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 26,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "SignedAdjustmentAmount",
+        "spec_kanji_in_原文": [
+          "七",
+          "三",
+          "八"
         ]
       },
       "NORM|3741d864d083cb3fb4aedfedaa64319112b731b74f40e9d39dffa53af066cf27": {
@@ -17203,6 +17221,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"70\": [\"七十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/332M50000040015_20261101_507M60000040026.law.json#LawBody[4]/MainProvision/MainProvision[3]/Article:23_10/Article#23_10/Paragraph#50/Item#1/Subitem1#1/Subitem1Sentence/Sentence#1 sha256=2e5d3e585b99e15ffb030c8b6fa0dcc6ccf7cc9532924fa5b6438a68cc05767c (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/DeceasedUnder70Tests.lean sha256=7e0ff9d03663ad7a80a71e322a1fdf313eeb0c1a5a746e08d56f86e0e52cbabc (11 kernel-decided examples)"
+    },
+    "NORM|3711b3a07052a52e5b0edbb283e985682934ff86581a53c6e6585d1495cad7b1": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 26 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=507M60000008043_20250425_000000000000000 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/SignedAdjustmentAmount.lean sha256=e1a5c0ca063cd3bf7e9cb59f323e82d7c8dabb861d21ea0e9f3662ea804b8db9",
+      "independent_spec": "JapanTaxLaw/SignedAdjustmentAmountSpec.lean sha256=e9f9fc2b5e4fd120623da477604dd37c30189c541b9e1ca7e9b996680dabed6e (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45333988195: commit 1a685966f0dff2dd7ea3fc60bf53275764a08728, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [3, 7, 8] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"3\": [\"三\"], \"7\": [\"七\"], \"8\": [\"八\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/507M60000008043_20250425_000000000000000.law.json#LawBody[2]/MainProvision/MainProvision[4]/Article:5/Article#5/Paragraph#1/ParagraphSentence/Sentence#1 sha256=02d256b8f5b48afc01a886eebb88ed78eec7d84d4726a543088115ba8f32f60e (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/SignedAdjustmentAmountTests.lean sha256=0af6b7547f1a6b2157e58efb08d1788dc3170485e0eb7b0dc5110b06f21bc48f (26 kernel-decided examples)"
     },
     "NORM|3741d864d083cb3fb4aedfedaa64319112b731b74f40e9d39dffa53af066cf27": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",

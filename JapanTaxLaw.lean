@@ -2078,3 +2078,6 @@ import JapanTaxLaw.UrbanDev2000sqmTests
 import JapanTaxLaw.SignedAdjustmentAmount
 import JapanTaxLaw.SignedAdjustmentAmountSpec
 import JapanTaxLaw.SignedAdjustmentAmountTests
+import JapanTaxLaw.MedicalExpenseDeduction
+import JapanTaxLaw.MedicalExpenseDeductionSpec
+import JapanTaxLaw.MedicalExpenseDeductionTests
