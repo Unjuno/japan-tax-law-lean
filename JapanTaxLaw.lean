@@ -1622,6 +1622,9 @@ import JapanTaxLaw.SpecialUseExemptionTests
 import JapanTaxLaw.SpousalGiftDeduction
 import JapanTaxLaw.SpousalGiftDeductionSpec
 import JapanTaxLaw.SpousalGiftDeductionTests
+import JapanTaxLaw.SpouseIncomeCeiling950k
+import JapanTaxLaw.SpouseIncomeCeiling950kSpec
+import JapanTaxLaw.SpouseIncomeCeiling950kTests
 import JapanTaxLaw.SpouseRelief
 import JapanTaxLaw.SpouseReliefSpec
 import JapanTaxLaw.SpouseReliefTests

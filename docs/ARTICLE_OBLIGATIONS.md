@@ -266,4 +266,4 @@ source positions. Human legal review is a separate axis and is pending.
 | `403CO0000000035` | 第二条 | LocalCorpMaxCapital | YES | YES | NO | NOT_STARTED |
 | `403CO0000000035` | 第二条 | LocalCorpMaxCapital | YES | YES | NO | NOT_STARTED |
 | `347M50000040042` | 第六条 | RefundDifferenceAmount | YES | YES | NO | NOT_STARTED |
-| `322AC0000000175` | 第九条 | DisasterTaxReliefArt9TermDefinitionDelegation | YES | YES | NO | NOT_STARTED |
+| `345CO0000000050` | 第二条 | BranchDeputyAppointment | YES | YES | NO | NOT_STARTED |
