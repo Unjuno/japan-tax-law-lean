@@ -130,6 +130,9 @@ import JapanTaxLaw.ClinicHours4622Tests
 import JapanTaxLaw.ClosureFilingDeadline
 import JapanTaxLaw.ClosureFilingDeadlineSpec
 import JapanTaxLaw.ClosureFilingDeadlineTests
+import JapanTaxLaw.CohabitantReadingThresholdTwo
+import JapanTaxLaw.CohabitantReadingThresholdTwoSpec
+import JapanTaxLaw.CohabitantReadingThresholdTwoTests
 import JapanTaxLaw.CollectionPeriodCap30
 import JapanTaxLaw.CollectionPeriodCap30Spec
 import JapanTaxLaw.CollectionPeriodCap30Tests
