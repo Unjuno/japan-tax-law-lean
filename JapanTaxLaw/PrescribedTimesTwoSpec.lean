@@ -33,12 +33,14 @@ def specIsPrescribedCount (n : Nat) : Bool :=
   decide (Nat.succ (Nat.succ 0) == n)
 
 /-- Universal, kernel-checked correspondence for every Nat count. -/
-theorem agree_prescribed_count (n : Nat) :
-    isPrescribedCount n = specIsPrescribedCount n := by
-  unfold isPrescribedCount prescribedTimes specIsPrescribedCount
-  apply Bool.eq_iff_iff.mpr
-  simp
-  omega
+theorem agree_prescribed_count : ∀ n : Nat,
+    isPrescribedCount n = specIsPrescribedCount n
+  | 0 => by decide
+  | Nat.succ 0 => by decide
+  | Nat.succ (Nat.succ 0) => by decide
+  | Nat.succ (Nat.succ (Nat.succ k)) => by
+      unfold isPrescribedCount prescribedTimes specIsPrescribedCount
+      rfl
 
 -- Spec-local sanity example (test scaffolding; excluded from statutory literals).
 example : specTimes = 2 := by decide
