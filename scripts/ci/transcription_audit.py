@@ -2346,6 +2346,12 @@ def checks():
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
 
+    # OldLifeInsurancePremiumDeductionMid — cycle-115
+    yield ("OldLifeInsurancePremiumDeductionMid.lean",
+           "325AC0000000226",
+           "file", None,
+           ["一万五千円と当該合計額から一万五千円を控除した金額の二分の一に相当する金額との合計額", "一万五千円を超え四万円以下である場合"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -4152,17 +4158,6 @@ def checks():
            "340AC0000000033",
            "file", None,
            ["合計所得金額が九十五万円以下である配偶者"])
-    # Restored registered checks after main merge.
-    yield ("地方税法 art.71_6(1)（利子割の税率 百分の五）↔ InterestSplitRate5Pct.lean (exact 5/100, no rounding)",
-           "325AC0000000226", "article", "第七十一条の六",
-           ["利子割の税率は、百分の五とする。"])
-    yield ("地方税法施行規則 art.24の28（事業所税徴収費5%）↔ BusinessTaxCollectionCostRate5.lean",
-           "329M50000002023", "file", None,
-           ["法第七百一条の七十三の事業所税の徴収に要する費用は、当該年度の歳入に所属する事業所税の額の百分の五に相当する額とする。"])
-    yield ("租税特別措置法施行令 art.5の5（政令割合75%）↔ SpecialMeasuresOrderRate75.lean",
-           "332CO0000000043", "file", None,
-           ["法第十条の三第一項に規定する政令で定める割合は、百分の七十五とする。"])
-
 
     # 地方揮発油税法 art.15(4) — LocalGasolineArt15TripleFineRange.lean
     yield ("地方揮発油税法 art.15(4)（相当金額の三倍が五十万円超の罰金範囲）↔ LocalGasolineArt15TripleFineRange.lean",
@@ -4220,6 +4215,17 @@ def checks():
     yield ("地方税法施行規則 art. 3_13_3（所有割合50%超）↔ LocalBusinessOwnershipThreshold50.lean",
            "329M50000002023", "file", None,
            ["発行済株式等の百分の五十を超える数又は金額の株式等が同項の一方の者により保有されている場合"])
+
+    # Restored registry-required checks dropped by concurrent reconcile.
+    yield ("通算法人 第六条（指定期日が提出期限前の日の例外）↔ FilingDateException.lean (exception, strict date-before)",
+           "426CO0000000139", "article", "第六条",
+           ["ただし、当該指定された期日が当該他の通算法人の同条第一項の規定による申告書の提出期限前の日である場合は、この限りでない。"])
+    yield ("地方税法施行令 art. 35_4_7（事業税7.7%）↔ LocalBusinessTaxRate77PerMille.lean",
+           "325CO0000000245", "file", None,
+           ["の百分の七・七に相当する額"])
+    yield ("地方税法施行令 art. 57_2_8（事業税7.7%）↔ LocalBusinessTaxRate77PerMilleB.lean",
+           "325CO0000000245", "file", None,
+           ["の百分の七・七に相当する額"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

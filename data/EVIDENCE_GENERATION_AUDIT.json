@@ -1,4 +1,62 @@
 {
+  "_units": {
+    "NORM|03b1450cc5ca3cc9ebf961b04449bb0f96454999a1b7e3deab81c567241b6b43": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 8,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "LocalBusinessTaxRate77PerMille",
+      "spec_kanji_in_原文": []
+    },
+    "NORM|1eb147f166b8ae9ece46f730ebbb43d81199e881a5acb5c86926b15f65d60088": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 8,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "LocalBusinessTaxRate77PerMilleB",
+      "spec_kanji_in_原文": []
+    },
+    "NORM|251aeb30701b8ba9944f9a728adc5dd33e5acbdf028640f19d3606484cf13855": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 8,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "LocalBusinessTaxRate77PerMilleB",
+      "spec_kanji_in_原文": []
+    },
+    "NORM|c12925c2b8b45d3390a18d305b782ff5d0b17c04212cb1f73f030cb88860de04": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 8,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "LocalBusinessTaxRate77PerMille",
+      "spec_kanji_in_原文": []
+    }
+  },
   "attestation_commit": "9f004eda309428649646a4358676f47302a1fbfd",
   "module_detail": {
     "AccessoryPriceFloor": {
@@ -3549,6 +3607,40 @@
       "spec_literals": [
         50,
         100
+      ]
+    },
+    "LocalBusinessTaxRate77PerMille": {
+      "adversarial_review": true,
+      "boundary_examples_found": 6,
+      "independent_spec": true,
+      "kanji_literals": [
+        "七十七",
+        "千"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 8,
+      "needles_scoped": true,
+      "scoped_article_chars": 1473,
+      "spec_literals": [
+        77,
+        1000
+      ]
+    },
+    "LocalBusinessTaxRate77PerMilleB": {
+      "adversarial_review": true,
+      "boundary_examples_found": 6,
+      "independent_spec": true,
+      "kanji_literals": [
+        "七十七",
+        "千"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 8,
+      "needles_scoped": true,
+      "scoped_article_chars": 1146,
+      "spec_literals": [
+        77,
+        1000
       ]
     },
     "LocalCapitalBand100M1B": {
