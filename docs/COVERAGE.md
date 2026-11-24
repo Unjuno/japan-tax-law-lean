@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 176 | 327 | 53.82% |
+| laws with >=1 pinned literal check | 177 | 327 | 54.13% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,8 +62,8 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 581 | n/a | n/a |
-| distinct article pins | 192 | 42584 | 0.45% |
+| pinned literal checks | 582 | n/a | n/a |
+| distinct article pins | 193 | 42584 | 0.45% |
 | pinned Lean modules (cross-law) | 1097 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
@@ -265,6 +265,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `423CO0000000112` 東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行令
 - `425CO0000000025` 税制調査会令
 - `426AC0000000011` 地方法人税法
+- `426CO0000000139` 地方法人税法施行令
 - `426CO0000000415` トルエンジイソシアナートに対して課する不当廉売関税に関する政令
 - `428CO0000000196` 水酸化カリウムに対して課する不当廉売関税に関する政令
 - `429CO0000000234` 高重合度ポリエチレンテレフタレートに対して課する不当廉売関税に関する政令
