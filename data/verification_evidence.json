@@ -275,6 +275,19 @@
       "source_location": "data/raw/328AC0000000006_20260525_506AC0000000052.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:23/Article#23/Paragraph#1/Item#4/ItemSentence/Column#2/Sentence#1 sha256=01d87149a80f64fa70d8b6eafffead6341982d902c4d206630cbc3f91c781e70 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LiquorDegreeSteppedAmountTests.lean sha256=1948d75352ba3b5fdd930f7bbec256a7846408dc88d498d26739d062bce131fa (18 kernel-decided examples)"
     },
+    "NORM|05a5899479614efa11da83a033d254670bff34951e00ba08a11b856cbbc5630c": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 7 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=331M50000002007_20230401_505M60000008036 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/GrantErrorRounding1000.lean sha256=d3bd876f28586aede7f23acf6508d2055a730b4ec52d0316221077faee965b6e",
+      "independent_spec": "JapanTaxLaw/GrantErrorRounding1000Spec.lean sha256=a079a1267f34e29a0d108627b5202abcda4e3ece9ff9976a66811ad01d0379e5 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45450996055: commit 9f004eda309428649646a4358676f47302a1fbfd, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [1000] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"1000\": [\"千\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/331M50000002007_20230401_505M60000008036.law.json#LawBody[2]/MainProvision/MainProvision[7]/Article:8/Article#8/Paragraph#3/ParagraphSentence/Sentence#1 sha256=65428c4740efa4ee5b6f0cfa326ab6e73c58c7e84b98c15e523cc7197c980ad7 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/GrantErrorRounding1000Tests.lean sha256=0dd5c1649dc2b045d05486dfdbd54c91e9bcff037166e6848ce9f89d01a331e6 (7 kernel-decided examples)"
+    },
     "NORM|05dca37a3558de1de923dbf4e35e831bb23c767bfb883822a56535aeb9c3ae8c": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",
@@ -6268,6 +6281,19 @@
       "source_location": "data/raw/339CO0000000182_20030401_415CO0000000142.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:2/Article#2/Paragraph#1/Item#4/ItemSentence/Sentence sha256=086ef9dd9fc2f555fa952772e0be9e7f93f94f6decd7925e103490542331c0e6 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/AccessoryPriceFloorTests.lean sha256=b7de16c3c3c1e15f535b79f5e11c51075c76d74a66db489f6be6693fa2cbbe24 (16 kernel-decided examples)"
     },
+    "NORM|93070e2906c9df8b4d204aaa6d6539a2e60e2843d8d930ca16be14deaba3d888": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 30 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=332AC0000000026_20261101_507AC0000000013 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/SpecialIncomeTaxCreditCap25.lean sha256=09bb61f28322091ba40f08cbf267c3e54b26c97242363407cd4bd0889f8ea42d",
+      "independent_spec": "JapanTaxLaw/SpecialIncomeTaxCreditCap25Spec.lean sha256=6658f512a2ac62e9ecd0ecaf1cc26e53d2061be8ef01f1fa98cd3c00a9113f43 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45450996055: commit 9f004eda309428649646a4358676f47302a1fbfd, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [25, 100] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"25\": [\"二十五\"]}; statutory rate = 1/4; needles scoped",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:41_18/Article#41_18/Paragraph#2/ParagraphSentence/Sentence#2 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/SpecialIncomeTaxCreditCap25Tests.lean sha256=38d2e1b8985562f0656f7c190a81f6f567f72e80194825dc76ee45e0690a4195 (30 kernel-decided examples)"
+    },
     "NORM|932e9f3c0cfd007aa6270367749cd25e7c81d39ec7a27c13628c5892c3850f76": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 8 kernel-decided examples covering boundary inputs",
@@ -10090,6 +10116,19 @@
       "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[28]/Article:15/Article#15/Paragraph#1/Item#4/ItemSentence/Sentence#1 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c (revision from INVENTORY current_revision, matched raw revision_info)",
       "tests": "JapanTaxLaw/CustomsTariffArt15ReligiousGiftDelegationTests.lean sha256=a026ff4a638674e34053fc82f1509425785c2d8ff79cffd309c47a39cc6c546a (kernel-checked delegation checks)"
     },
+    "NORM|fa8a8f71f0be091e2a94232147a20ebd42a46628962557f1d83fdafcdab82cbb": {
+      "adversarial_review": "docs/ADVERSARIAL_INHERITANCE_TAX_ART25_LUMP_SUM_PREMIUM_CONDITION.md — NO FINDINGS with all 15 mandated checks independently reproduced from authoritative sources (queue, INVENTORY, raw law JSON, audit helpers), NOT from author prose, plus a programmatic cross-check (0 fails). Reproduced: raw sha256 c01bb9be…5043a7; needle unique as Article 25(1) item1 Column#1 Sentence with codepoints 掛金 639b 91d1 / 保険料 4fdd 967a 6599 / 一時に払い込まれた 4e00 6642 306b 6255 3044 8fbc 307e 308c 305f (307e=ま, not 307f=み); PaymentTiming lumpSum/other discriminator faithful with no invented valuation amount (valuation amount / other branches / legal correctness NOT MODELLED); audit 597/597; four theorems axiom-free with no simp; build 1957 jobs; no dependencies/cross-law constant; LEGAL_REVIEW_PENDING. Brief codepoint typo 307f (み) corrected to authoritative 307e (ま) in evidence/PR — artifacts already correct. No completion claim; human legal review remains pending.",
+      "boundary_proof": "JapanTaxLaw/InheritanceTaxArt25LumpSumPremiumConditionTests.lean: lump-sum timing selects branch, other does not; Prop spec agreement (all axiom-free)",
+      "cross_law_proof": "queue unit has no dependencies; no cross-law constant introduced. No claim of resolution beyond the 15-digit law id is made.",
+      "decomposition_audit": "build/task_queue.json: kind=CONDITION (Article 25(1) item1 lump-sum premium payment branch condition), decomposed=true, exact span, unhandled_conditions=[], id unique",
+      "implementation": "JapanTaxLaw/InheritanceTaxArt25LumpSumPremiumCondition.lean sha256=0132967e01ed12de9d6b784761acd5a724cdbf6817ddc667414b121d49947877 (相続税法 art.25(1) item1 CONDITION: PaymentTiming lumpSum/other, isLumpSum true/false with two boundary theorems; column valuation amount and other branches NOT MODELLED; Act)",
+      "independent_spec": "JapanTaxLaw/InheritanceTaxArt25LumpSumPremiumConditionSpec.lean sha256=3383e4a475e2d930143f3ac2c69222426eb11d0349869845abbb88df87fb7bcf (SpecLumpSum Prop equality, representationally distinct from the Bool function; implementation/other theorems axiom-free via rfl/cases — no decide/simp/propext)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (1957 jobs); all four unit theorems axiom-free via #print axioms probe; no sorryAx/Classical.choice",
+      "proof_scope": "docs/UNIT_INHERITANCE_TAX_ART25_LUMP_SUM_PREMIUM_CONDITION.md (computable payment-timing branch discriminator slice of one CONDITION norm unit in 相続税法 art.25(1) item1; valuation amount NOT MODELLED)",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS inheritance tax art.25 lump-sum premium condition; 597/597 checks passed; verbatim needle is Column#1 Sentence of Article 25(1) item1 subitem1 and unique in the whole law; article-kind locator 第二十五条; 掛金/保険料/一時に払い込まれた derived programmatically from the needle with exact codepoints (639b 91d1 / 4fdd 967a 6599 / 4e00 6642 306b 6255 3044 8fbc 307e 308c 305f), never hand-typed; law identity 325AC0000000073 相続税法 Act with real revision; byte-fidelity equal=True, U+6EDE=0",
+      "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:25/Article#25/Paragraph#1/Item#1/Subitem1#1/Subitem1Sentence/Column#1/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7 (revision from INVENTORY current_revision, matched raw revision_info)",
+      "tests": "JapanTaxLaw/InheritanceTaxArt25LumpSumPremiumConditionTests.lean sha256=e23e90ade3762bfb9c5fd2b6b0fb1cb7347271bf76eb04787bfd3e2753b29552 (kernel-checked lump-sum premium condition checks)"
+    },
     "NORM|fac90f71f94dc1d6ec82350dc96820d76b40eb7a15a474259447159d9830cf16": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 10 kernel-decided examples covering boundary inputs",
@@ -10388,19 +10427,6 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle in clause + all spec numerals in scoped article: ['その金額が二百万円を超える場合には、二百万円']; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"100000\": [], \"10000000\": [], \"110000\": [], \"130000\": [], \"150000\": [], \"2\": [\"二\"], \"2000000\": [\"二百万\"], \"220000\": [], \"24000000\": [], \"24500000\": [], \"25000000\": [], \"260000\": [], \"290000\": [], \"300000\": [], \"330000\": [], \"380000\": [], \"4\": [], \"430000\": [], \"5\": [], \"530000\": [], \"9000000\": [], \"9500000\": []}; statutory rate = none; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:34/Article#34/Paragraph#1/Item#2/ItemSentence/Column#2/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalIncomeTaxTests.lean sha256=017a1f256a089f692a0f6f7c5971879339d07ba26a588ff0ae0a6c3d01450104 (55 kernel-decided examples)"
-    },
-    "NORM|fa8a8f71f0be091e2a94232147a20ebd42a46628962557f1d83fdafcdab82cbb": {
-      "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:25/Article#25/Paragraph#1/Item#1/Subitem1#1/Subitem1Sentence/Column#1/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7 (revision from INVENTORY current_revision, matched raw revision_info)",
-      "decomposition_audit": "build/task_queue.json: kind=CONDITION (Article 25(1) item1 lump-sum premium payment branch condition), decomposed=true, exact span, unhandled_conditions=[], id unique",
-      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS inheritance tax art.25 lump-sum premium condition; 597/597 checks passed; verbatim needle is Column#1 Sentence of Article 25(1) item1 subitem1 and unique in the whole law; article-kind locator 第二十五条; 掛金/保険料/一時に払い込まれた derived programmatically from the needle with exact codepoints (639b 91d1 / 4fdd 967a 6599 / 4e00 6642 306b 6255 3044 8fbc 307e 308c 305f), never hand-typed; law identity 325AC0000000073 相続税法 Act with real revision; byte-fidelity equal=True, U+6EDE=0",
-      "independent_spec": "JapanTaxLaw/InheritanceTaxArt25LumpSumPremiumConditionSpec.lean sha256=3383e4a475e2d930143f3ac2c69222426eb11d0349869845abbb88df87fb7bcf (SpecLumpSum Prop equality, representationally distinct from the Bool function; implementation/other theorems axiom-free via rfl/cases — no decide/simp/propext)",
-      "implementation": "JapanTaxLaw/InheritanceTaxArt25LumpSumPremiumCondition.lean sha256=0132967e01ed12de9d6b784761acd5a724cdbf6817ddc667414b121d49947877 (相続税法 art.25(1) item1 CONDITION: PaymentTiming lumpSum/other, isLumpSum true/false with two boundary theorems; column valuation amount and other branches NOT MODELLED; Act)",
-      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (1957 jobs); all four unit theorems axiom-free via #print axioms probe; no sorryAx/Classical.choice",
-      "proof_scope": "docs/UNIT_INHERITANCE_TAX_ART25_LUMP_SUM_PREMIUM_CONDITION.md (computable payment-timing branch discriminator slice of one CONDITION norm unit in 相続税法 art.25(1) item1; valuation amount NOT MODELLED)",
-      "boundary_proof": "JapanTaxLaw/InheritanceTaxArt25LumpSumPremiumConditionTests.lean: lump-sum timing selects branch, other does not; Prop spec agreement (all axiom-free)",
-      "cross_law_proof": "queue unit has no dependencies; no cross-law constant introduced. No claim of resolution beyond the 15-digit law id is made.",
-      "tests": "JapanTaxLaw/InheritanceTaxArt25LumpSumPremiumConditionTests.lean sha256=e23e90ade3762bfb9c5fd2b6b0fb1cb7347271bf76eb04787bfd3e2753b29552 (kernel-checked lump-sum premium condition checks)",
-      "adversarial_review": "docs/ADVERSARIAL_INHERITANCE_TAX_ART25_LUMP_SUM_PREMIUM_CONDITION.md — NO FINDINGS with all 15 mandated checks independently reproduced from authoritative sources (queue, INVENTORY, raw law JSON, audit helpers), NOT from author prose, plus a programmatic cross-check (0 fails). Reproduced: raw sha256 c01bb9be…5043a7; needle unique as Article 25(1) item1 Column#1 Sentence with codepoints 掛金 639b 91d1 / 保険料 4fdd 967a 6599 / 一時に払い込まれた 4e00 6642 306b 6255 3044 8fbc 307e 308c 305f (307e=ま, not 307f=み); PaymentTiming lumpSum/other discriminator faithful with no invented valuation amount (valuation amount / other branches / legal correctness NOT MODELLED); audit 597/597; four theorems axiom-free with no simp; build 1957 jobs; no dependencies/cross-law constant; LEGAL_REVIEW_PENDING. Brief codepoint typo 307f (み) corrected to authoritative 307e (ま) in evidence/PR — artifacts already correct. No completion claim; human legal review remains pending."
     }
   }
 }
