@@ -64,14 +64,16 @@ $ python scripts/ci/batch_lower_bound_pipeline.py --limit 60
 lower-bound batch pipeline: verified=60 failed=0
 $ python scripts/ci/batch_strict_upper_pipeline.py --limit 60
 strict-upper batch pipeline: verified=60 failed=2  (2 source-audit failures skip-listed)
+$ python scripts/ci/batch_fraction_pipeline.py --limit 20 / --limit 100
+fraction batch pipeline: verified=20 failed=0 / verified=100 failed=0
 
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=396011, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=841, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=395871, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=981, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=841 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=981 axes=11 unbacked=0
 12/12 invariants passed
 $ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
 
@@ -242,7 +244,15 @@ the official MOF list dated 2026-11-24, with `NOT_ACQUIRED` status; treaty texts
 are not acquired or proved. `docs/SOURCE_LAYERS.md` reports L3_TREATY as
 ENUMERATED_NOT_ACQUIRED (96), separate from L0 statutes.
 
-So 841 units are evidence-backed FULLY_VERIFIED and 396,011 remain NOT_STARTED
+A sixth, guarded pipeline, `scripts/ci/batch_fraction_pipeline.py`, covers
+fraction thresholds (「X分のY」 with 以上/以下/未満/を超える) using
+cross-multiplication. Its template expectations were corrected after the first
+trial run exposed a wrong boundary constant; that failure was recorded in the
+skip list, the defect fixed, and the affected units retried. The source auditor
+was extended to parse fractions. 120 further obligations were verified with
+zero final failures.
+
+So 981 units are evidence-backed FULLY_VERIFIED and 395,871 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is

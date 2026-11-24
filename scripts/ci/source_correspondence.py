@@ -86,9 +86,15 @@ def main() -> int:
     amounts = sorted({kanji_number(m.group(1)) for m in AMOUNT_RE.finditer(verb)})
     pct_nums = sorted({kanji_number(m.group(1)) for m in
                        re.finditer(r"百分の([〇零一二三四五六七八九十百千]+)", verb)})
-    # A 百分のX rate has numerator X and implicit denominator 100; require both
-    # constants in the spec/implementation.
+    frac = sorted({(kanji_number(m.group(2)), kanji_number(m.group(1))) for m in
+                   re.finditer(r"([〇零一二三四五六七八九十百千]+)分の([〇零一二三四五六七八九十百千]+)", verb)})
+    fraction_components = [list(x) for x in frac]
+    # A 百分のX rate has numerator X and implicit denominator 100; a X分のY
+    # fraction carries numerator Y and denominator X. Require both constants.
     values = amounts + pct_nums + ([100] if pct_nums else [])
+    for num, den in frac:
+        values += [num, den]
+    values = sorted(set(values))
     spec = (REPO / unquote(a.spec)).read_text(encoding="utf-8")
     impl = (REPO / unquote(a.impl)).read_text(encoding="utf-8")
     missing = [x for x in values if f"{x:_}" not in spec + impl and str(x) not in spec + impl]
@@ -100,6 +106,7 @@ def main() -> int:
     print(json.dumps({
         "rule": "source_correspondence", "verbatim_located": located,
         "amounts_in_source": amounts, "percent_numerators": pct_nums,
+        "fraction_components": fraction_components,
         "constants_checked": values, "phrase_only_correspondence": phrase_only,
         "missing_in_spec_or_impl": missing,
         "D": "PASS" if ok else "FAIL",
