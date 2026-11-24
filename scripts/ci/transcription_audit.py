@@ -4188,21 +4188,15 @@ def checks():
            "file", None,
            ["合計所得金額が九十五万円以下である配偶者"])
 
-    # BusinessTaxCollectionCostRate5 — 地方税法施行規則 art.24の28 徴収費5%
-    yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
-           "329M50000002023", "file", None,
-           ["事業所税の額の百分の五に相当する額とする"])
+    # 租税特別措置法 art. 68の3の3 — SpecialMeasuresDistributionRatio90.lean (>90%)
+    yield ("租税特別措置法 art. 68_3_3（収益分配割合90%超）↔ SpecialMeasuresDistributionRatio90.lean",
+           "332AC0000000026", "file", None,
+           ["割合として政令で定める割合が百分の九十を超えていること。"])
 
-    # SpecialMeasuresOrderRate75 — 租税特別措置法施行令 art.5の5 75%
-    yield ("SpecialMeasuresOrderRate75.lean — 租税特別措置法施行令 art.5の5 75%",
-           "332CO0000000043", "file", None,
-           ["法第十条の三第一項に規定する政令で定める割合は、百分の七十五とする"])
-
-    # 所得税法施行令 art. 83_2 — SpouseIncomeCeiling950k.lean
-    yield ("所得税法施行令 art. 83_2（配偶者の合計所得金額 九十五万円以下）↔ SpouseIncomeCeiling950k.lean",
-           "340AC0000000033", "file", None,
-           ["合計所得金額が九十五万円以下である配偶者"])
-
+    # 租税特別措置法 art. 83の2の2 — SpecialMeasuresRealEstateRatio75.lean (>=75%)
+    yield ("租税特別措置法 art. 83_2_2（特定不動産割合75%以上）↔ SpecialMeasuresRealEstateRatio75.lean",
+           "332AC0000000026", "file", None,
+           ["特定不動産の割合が百分の七十五以上であること。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
