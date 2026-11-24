@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 169
+- with >=1 pinned literal check (semantic model): 170
 - with recorded human legal review: 0
 
 ## All laws
@@ -28,7 +28,7 @@ a completion flag.
 | `325M50000040021` | 税務官署における収入官吏及び出納員並びに歳入歳出外現金出納官吏の備えるべき現金領収証書に | 325M50000040021_20260924_508M60000040059 | CurrentEnforced | YES | ok | 15 | NO (0) | NO |
 | `325M50000040022` | 相続税の物納財産収納後の手続等に関する省令 | 325M50000040022_20210401_503M60000040030 | CurrentEnforced | YES | ok | 24 | YES (1) | NO |
 | `325AC0000000211` | 地方交付税法 | 325AC0000000211_20261102_508AC0000000062 | CurrentEnforced | YES | ok | 499 | YES (5) | NO |
-| `325AC0000000226` | 地方税法 | 325AC0000000226_20261101_508AC0000000002 | CurrentEnforced | YES | ok | 4259 | YES (40) | NO |
+| `325AC0000000226` | 地方税法 | 325AC0000000226_20261101_508AC0000000002 | CurrentEnforced | YES | ok | 4259 | YES (41) | NO |
 | `325CO0000000245` | 地方税法施行令 | 325CO0000000245_20261101_508CO0000000083 | CurrentEnforced | YES | ok | 2274 | YES (14) | NO |
 | `326AC1000000145` | 納税貯蓄組合法 | 326AC1000000145_20211122_503AC0000000046 | CurrentEnforced | YES | ok | 41 | YES (3) | NO |
 | `326CO0000000099` | 納税貯蓄組合法施行令 | 326CO0000000099_20191216_501CO0000000183 | CurrentEnforced | YES | ok | 14 | YES (1) | NO |
@@ -334,7 +334,7 @@ a completion flag.
 | `507CO0000000134` | 防衛特別法人税に関する政令 | 507CO0000000134_20260401_508CO0000000105 | CurrentEnforced | YES | ok | 22 | NO (0) | NO |
 | `507CO0000000135` | 所得税法等の一部を改正する法律の一部の施行に伴うたばこ税の税率の特例に関する経過措置に関 | 507CO0000000135_20260401_000000000000000 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
 | `507M60000040031` | 防衛特別法人税に関する省令 | 507M60000040031_20260414_508M60000040042 | CurrentEnforced | YES | ok | 14 | NO (0) | NO |
-| `507M60000008043` | 地方団体に対して交付すべき令和七年度分の震災復興特別交付税の額の算定方法、決定時期及び決 | 507M60000008043_20250425_000000000000000 | CurrentEnforced | YES | ok | 9 | NO (0) | NO |
+| `507M60000008043` | 地方団体に対して交付すべき令和七年度分の震災復興特別交付税の額の算定方法、決定時期及び決 | 507M60000008043_20250425_000000000000000 | CurrentEnforced | YES | ok | 9 | YES (1) | NO |
 | `507M60000008114` | 令和七年度分の地方交付税の交付額の特例に関する省令 | 507M60000008114_20251223_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `508CO0000000106` | 防衛特別所得税に関する政令 | - | fully_unenforced | NO | raw_not_pinned | 0 | NO (0) | NO |
 | `508CO0000000107` | 所得税法等の一部を改正する法律の一部の施行に伴う国際観光旅客税の記帳義務に関する経過措置 | 508CO0000000107_20260701_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 313
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 321

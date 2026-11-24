@@ -2312,6 +2312,12 @@ def checks():
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
 
+    # LifeInsurancePremiumDeduction — cycle-111
+    yield ("LifeInsurancePremiumDeduction.lean",
+           "325AC0000000226",
+           "file", None,
+           ["一万二千円と当該合計額から一万二千円を控除した金額の二分の一に相当する金額との合計額", "一万二千円を超え三万二千円以下である場合"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
