@@ -3702,6 +3702,13 @@ def checks():
            "law", None,
            ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u5e73\u6210\u5143\u5e74\u56db\u6708\u4e00\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
 
+    # 公債収入 art. 2 — HeiseiFY6Attribution.lean
+    yield ("公債収入 art. 2（平成6年度所属の歳入）↔ HeiseiFY6Attribution.lean (single-year FY attribution 6)",
+           "406AC0000000108",
+           "article", "第二条",
+           ["この場合において、同年四月一日以後発行される同項の公債に係る収入は、平成六年度所属の歳入とする。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
