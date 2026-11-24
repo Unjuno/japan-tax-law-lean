@@ -1205,6 +1205,9 @@ import JapanTaxLaw.CalculationBasisNormsTests
 import JapanTaxLaw.DeclarationFormRefs
 import JapanTaxLaw.DeclarationFormRefsSpec
 import JapanTaxLaw.DeclarationFormRefsTests
+import JapanTaxLaw.DeemedStatusNorms
+import JapanTaxLaw.DeemedStatusNormsSpec
+import JapanTaxLaw.DeemedStatusNormsTests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
