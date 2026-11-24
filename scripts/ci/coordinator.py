@@ -172,7 +172,9 @@ def run_once(tasks: list[dict], n: int, claims: dict | None = None) -> dict:
         "assignments": assignments,
         "blocked": selected["blocked"][:50],
         "blocked_total": len(selected["blocked"]),
-        "assignment_packet": str(ASSIGNMENTS.relative_to(REPO)),
+        # Normalize separators: a Windows-authored committed state must equal
+        # the state regenerated on the Linux CI runner.
+        "assignment_packet": ASSIGNMENTS.relative_to(REPO).as_posix(),
     }
 
 
