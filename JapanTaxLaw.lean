@@ -1193,9 +1193,6 @@ import JapanTaxLaw.OkinawaShochu1300kLTests
 import JapanTaxLaw.OldAgePensionAnnualAmountCeiling
 import JapanTaxLaw.OldAgePensionAnnualAmountCeilingSpec
 import JapanTaxLaw.OldAgePensionAnnualAmountCeilingTests
-import JapanTaxLaw.OldLifeInsurancePremiumDeductionUpper
-import JapanTaxLaw.OldLifeInsurancePremiumDeductionUpperSpec
-import JapanTaxLaw.OldLifeInsurancePremiumDeductionUpperTests
 import JapanTaxLaw.OldLifePremium100k
 import JapanTaxLaw.OldLifePremium100kSpec
 import JapanTaxLaw.OldLifePremium100kTests
@@ -1504,6 +1501,9 @@ import JapanTaxLaw.RetirementResidual3MTests
 import JapanTaxLaw.RiceContentThreshold
 import JapanTaxLaw.RiceContentThresholdSpec
 import JapanTaxLaw.RiceContentThresholdTests
+import JapanTaxLaw.RndSurchargeRate
+import JapanTaxLaw.RndSurchargeRateSpec
+import JapanTaxLaw.RndSurchargeRateTests
 import JapanTaxLaw.RoadAreaRate
 import JapanTaxLaw.RoadAreaRateSpec
 import JapanTaxLaw.RoadAreaRateTests
