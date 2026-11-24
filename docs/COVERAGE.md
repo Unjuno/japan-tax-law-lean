@@ -62,7 +62,7 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 590 | n/a | n/a |
+| pinned literal checks | 592 | n/a | n/a |
 | distinct article pins | 195 | 42584 | 0.46% |
 | pinned Lean modules (cross-law) | 1105 | n/a | n/a |
 
@@ -70,7 +70,7 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 837 |
+| unpinned Lean modules (not counted as verified) | 843 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
