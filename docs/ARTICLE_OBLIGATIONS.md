@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 232
-- presence-facts-only complete: 232
-- NOT_STARTED: 232
+- articles with explicit pin: 233
+- presence-facts-only complete: 233
+- NOT_STARTED: 233
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -249,3 +249,4 @@ source positions. Human legal review is a separate axis and is pending.
 | `352AC0000000035` | 第二条 | BondRevenueFiscalYear | YES | YES | NO | NOT_STARTED |
 | `410M50000040043` | 第五条 | CombinableRecordItemsTwo | YES | YES | NO | NOT_STARTED |
 | `422M60000040022` | 第六条 | RankedAmountCountTen | YES | YES | NO | NOT_STARTED |
+| `347CO0000000150` | 第十条 | PostOfficeExceptionDate | YES | YES | NO | NOT_STARTED |
