@@ -3892,6 +3892,13 @@ def checks():
            "article", "\u7b2c\u5341\u4e09\u6761",
            ["\u305d\u306e\u8ca1\u7523\u3092\u76ee\u7684\u3068\u3059\u308b\u7559\u7f6e\u6a29\u3001\u7279\u5225\u306e\u5148\u53d6\u7279\u6a29\u3001\u8cea\u6a29\u53c8\u306f\u62b5\u5f53\u6a29\u3067\u62c5\u4fdd\u3055\u308c\u308b\u50b5\u52d9"])
 
+    # DisasterTaxReliefOrderSupplArt2HokkaidoBureauException.lean - NORM|483362ae... (災害被害者租税減免法施行政令 附則2 table EXCEPTION, law 322CO0000000268)
+    # Whole-law locator (table cell in 附則, not a main-provision Article).
+    yield ("disaster tax relief order suppl art.2 hokkaido bureau exception - DisasterTaxReliefOrderSupplArt2HokkaidoBureauException.lean",
+           "322CO0000000268",
+           "law", None,
+           ["\u6771\u5317\u6d77\u904b\u5c40\u9577\uff08\u5c71\u5f62\u770c\u53c8\u306f\u79cb\u7530\u770c\u306e\u533a\u57df\u306b\u4fc2\u308b\u51e6\u5206\u7b49\u53c8\u306f\u7533\u8acb\u7b49\u306b\u4fc2\u308b\u5834\u5408\u3092\u9664\u304f\u3002\uff09"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
