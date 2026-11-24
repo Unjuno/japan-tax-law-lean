@@ -25,12 +25,14 @@ Verbatim source text: 「法第八条第九項に規定する政令で定める�
 - Impl: `periodMonthCap=4`, `withinPrescribedPeriod m := decide (m <= 4)`.
 - Independent spec: `specMonthCap := 4`, `specWithinPeriod m := decide (¬ 4 < m)` (negated strict order — distinct operator); universal `agree_period_cap` over all Nat, kernel-checked by structural recursion (axiom-free).
 - Boundary theorems: `cap_inclusive` (4 qualifies), `five_false`, `three_true`.
-- Tests: 10 kernel-decided examples; boundary categories `{zero, small_input, saturation}`.
+- Tests: 11 kernel-decided examples; 5 generator boundary categories including `{zero, small_input, saturation}`.
 
 ## Not modelled (explicitly retained as unhandled scope)
 
 The underlying 法第八条第九項 matter, what the period measures, other articles
-and enforcement rules. This is a computable slice of one DELEGATION norm unit.
+and enforcement rules. The ¶1 proviso extending the period (六月以内／九月以内
+in prescribed cases) is a separate EXCEPTION unit and is NOT MODELLED here.
+This is a computable slice of one DELEGATION norm unit.
 
 ## Adversarial review
 

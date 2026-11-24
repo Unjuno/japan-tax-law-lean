@@ -23,10 +23,13 @@ Variable contract:
   `withinPrescribedPeriod (months : Nat) : Bool := decide (months <= periodMonthCap)`.
   Unit 月 (months); domain Nat (whole months).
 
-Scope: ONLY the explicit numeric period ceiling is modelled — the upper bound
-at which the prescribed period ceases to qualify. The underlying 法第八条第九項
-matter, what the period measures, other articles and enforcement rules are NOT
-MODELLED (caller-established).
+Scope: ONLY the explicit numeric period ceiling of the main sentence is
+modelled — the upper bound at which the period ordinarily ceases to qualify.
+Paragraph 1 also has a proviso extending the period (六月以内／九月以内 in
+prescribed cases); that proviso is a separate EXCEPTION unit and is NOT MODELLED
+here, so `withinPrescribedPeriod` is not an unconditional period rule. The
+underlying 法第八条第九項 matter, what the period measures, other articles and
+enforcement rules are NOT MODELLED (caller-established).
 
 No `sorry`, `admit`, `axiom` or `Classical.choice`.
 -/

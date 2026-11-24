@@ -1,2 +1,0 @@
-import JapanTaxLaw.PrescribedPeriodWithinFourMonthsSpec
-#print axioms JapanTaxLaw.PrescribedPeriodWithinFourMonths.agree_period_cap
