@@ -406,6 +406,19 @@ class TestRealInventory(unittest.TestCase):
         inv = json.loads((REPO / "data" / "INVENTORY.json").read_text(encoding="utf-8"))
         self.assertEqual(len(inv["laws"]), 327)  # discovery never auto-expands inventory
 
+    def test_historical_revision_metadata_is_pinned_not_snapshot(self):
+        p = REPO / "build" / "historical_revisions.json"
+        if not p.exists():
+            self.skipTest("historical revision ledger not generated")
+        d = json.loads(p.read_text(encoding="utf-8"))
+        self.assertEqual(d["historical_references"], 87)
+        self.assertEqual(d["revision_lists_pinned"], 59)
+        self.assertGreater(d["historical_candidates_total"], 2000)
+        self.assertTrue(all(e["status"] ==
+                            "REVISION_METADATA_PINNED_SNAPSHOT_NOT_ACQUIRED"
+                            for e in d["entries"]))
+        self.assertTrue(all(not e["raw_snapshot"] for e in d["entries"]))
+
     def test_local_ordinance_layer_is_separate_and_unacquired(self):
         p = REPO / "build" / "local_ordinance_ledger.json"
         if not p.exists():
