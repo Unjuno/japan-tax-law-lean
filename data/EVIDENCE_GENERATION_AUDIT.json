@@ -1112,6 +1112,17 @@
         42
       ]
     },
+    "CustomsTariffArt21DeemedForeignRegion": {
+      "adversarial_review": false,
+      "boundary_examples_found": 0,
+      "independent_spec": false,
+      "kanji_literals": [],
+      "kernel_attested": false,
+      "kernel_decided_examples": 6,
+      "needles_scoped": true,
+      "scoped_article_chars": 53,
+      "spec_literals": []
+    },
     "CustomsTariffArt21Deeming": {
       "adversarial_review": false,
       "boundary_examples_found": 0,
@@ -1369,6 +1380,32 @@
       "scoped_article_chars": 4135,
       "spec_literals": []
     },
+    "CustomsTariffSupplArt1Heisei1EnforcementDate": {
+      "adversarial_review": false,
+      "boundary_examples_found": 0,
+      "independent_spec": false,
+      "kanji_literals": [
+        "四"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 7,
+      "needles_scoped": true,
+      "scoped_article_chars": 62,
+      "spec_literals": [
+        4
+      ]
+    },
+    "CustomsTariffSupplArt1StaggeredEnforcementException": {
+      "adversarial_review": false,
+      "boundary_examples_found": 0,
+      "independent_spec": false,
+      "kanji_literals": [],
+      "kernel_attested": true,
+      "kernel_decided_examples": 4,
+      "needles_scoped": true,
+      "scoped_article_chars": 62,
+      "spec_literals": []
+    },
     "CustomsTemporaryMeasureDutyFreeThreshold": {
       "adversarial_review": false,
       "boundary_examples_found": 0,
@@ -1567,6 +1604,34 @@
       "spec_literals": [
         500000
       ]
+    },
+    "DisasterTaxReliefOrderArt10ApplicationItem3_5": {
+      "adversarial_review": false,
+      "boundary_examples_found": 0,
+      "independent_spec": false,
+      "kanji_literals": [
+        "三",
+        "五"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 4,
+      "needles_scoped": true,
+      "scoped_article_chars": 1652,
+      "spec_literals": [
+        3,
+        5
+      ]
+    },
+    "DisasterTaxReliefOrderArt15_4RefundBase": {
+      "adversarial_review": false,
+      "boundary_examples_found": 0,
+      "independent_spec": false,
+      "kanji_literals": [],
+      "kernel_attested": true,
+      "kernel_decided_examples": 1,
+      "needles_scoped": true,
+      "scoped_article_chars": 596,
+      "spec_literals": []
     },
     "DisasterVictimIncomeLimit": {
       "adversarial_review": true,
@@ -1957,6 +2022,36 @@
       "scoped_article_chars": 3210,
       "spec_literals": [
         100000000000
+      ]
+    },
+    "HeiseiFY6Attribution": {
+      "adversarial_review": true,
+      "boundary_examples_found": 6,
+      "independent_spec": true,
+      "kanji_literals": [
+        "六"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 12,
+      "needles_scoped": true,
+      "scoped_article_chars": 118,
+      "spec_literals": [
+        6
+      ]
+    },
+    "HeiseiFY7Attribution": {
+      "adversarial_review": true,
+      "boundary_examples_found": 6,
+      "independent_spec": true,
+      "kanji_literals": [
+        "七"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 12,
+      "needles_scoped": true,
+      "scoped_article_chars": 115,
+      "spec_literals": [
+        7
       ]
     },
     "ImportValueCap200k": {
@@ -2484,6 +2579,17 @@
         300000000,
         600000000
       ]
+    },
+    "InheritanceTaxArt19_4QuasiApplication": {
+      "adversarial_review": false,
+      "boundary_examples_found": 0,
+      "independent_spec": false,
+      "kanji_literals": [],
+      "kernel_attested": true,
+      "kernel_decided_examples": 8,
+      "needles_scoped": true,
+      "scoped_article_chars": 482,
+      "spec_literals": []
     },
     "InheritanceTaxArt56And57Ref": {
       "adversarial_review": false,
@@ -4638,6 +4744,17 @@
         100,
         1000
       ]
+    },
+    "SpecialMeasuresArt70_3PresumptiveHeirCondition": {
+      "adversarial_review": false,
+      "boundary_examples_found": 0,
+      "independent_spec": false,
+      "kanji_literals": [],
+      "kernel_attested": true,
+      "kernel_decided_examples": 4,
+      "needles_scoped": true,
+      "scoped_article_chars": 6672,
+      "spec_literals": []
     },
     "SpecialMeasuresCasinoRatio": {
       "adversarial_review": true,
@@ -13374,6 +13491,22 @@
           "千二百万"
         ]
       },
+      "NORM|e9757b73b60fd4eb5782422109a417f660d8588581d4992eca11fdcaf21f1ba9": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 12,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "HeiseiFY7Attribution",
+        "spec_kanji_in_原文": [
+          "七"
+        ]
+      },
       "NORM|e9b2521e3769be75bda425b0150207f1cb007a4f13f89b1ecfe0ee0292623ad0": {
         "checks": {
           "cross_law": true,
@@ -20689,6 +20822,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"12000000\": [\"千二百万\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:29_2/Article#29_2/Paragraph#1/ParagraphSentence/Sentence#2 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/OptionExercise12MTests.lean sha256=34f24c935a771e8b33c174983456e5298d8265dfdf18c7a15f2fd0165dba1621 (11 kernel-decided examples)"
+    },
+    "NORM|e9757b73b60fd4eb5782422109a417f660d8588581d4992eca11fdcaf21f1ba9": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 12 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=408AC0000000002_19960223_000000000000000 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/HeiseiFY7Attribution.lean sha256=c1649c4d96077d81b6602e492cd28de8ae3cd30d518b9ddf6dc3b94a332b5b32",
+      "independent_spec": "JapanTaxLaw/HeiseiFY7AttributionSpec.lean sha256=23aea726b72444948ac458fef935f1deeda130f59e7b470d6eaf51a67c96798c (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45295710684: commit 9699d45b243f6d43932d485fe2630bdf2ffeddd3, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [7] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"7\": [\"七\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/408AC0000000002_19960223_000000000000000.law.json#LawBody[1]/MainProvision/MainProvision[1]/Article:2/Article#2/Paragraph#1/ParagraphSentence/Sentence#2 sha256=3ff89a7a62e99caa577bf83a447ae1836cdbbcfc778caf6686316921fef52a5f (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/HeiseiFY7AttributionTests.lean sha256=7c7413d10bcaa156cf15dde2c202a29c270e8cbb545e6e46c37abc0069567e4b (12 kernel-decided examples)"
     },
     "NORM|e9b2521e3769be75bda425b0150207f1cb007a4f13f89b1ecfe0ee0292623ad0": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
