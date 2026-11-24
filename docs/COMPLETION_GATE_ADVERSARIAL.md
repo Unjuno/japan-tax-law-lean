@@ -6,7 +6,7 @@ verdict: **PASS** (0 MUST failures)
 
 - tools present: 4/4
 - evidence file: C:\Users\junny\Desktop\japan-tax-law-lean\data\verification_evidence.json
-- durable state counts: {"BLOCKED": 2, "FULLY_VERIFIED": 819, "NOT_STARTED": 11, "PROVED_SCOPE": 1}
+- durable state counts: {"BLOCKED": 2, "FULLY_VERIFIED": 833, "PROVED_SCOPE": 1}
 
 | rule | must | H | T | D | C | U |
 |---|---|---|---|---|---|---|
