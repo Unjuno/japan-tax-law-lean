@@ -31,6 +31,7 @@ DISCOVERY = REPO / "docs" / "RECURSIVE_DISCOVERY.md"
 BLOCKED = REPO / "docs" / "BLOCKED.md"
 LOCAL_JURISDICTIONS = REPO / "data" / "LOCAL_JURISDICTIONS.json"
 TAX_TREATIES = REPO / "data" / "TAX_TREATIES.json"
+HISTORICAL_PINS = REPO / "data" / "HISTORICAL_REVISION_PINS.json"
 OUT_JSON = REPO / "data" / "SOURCE_LAYERS.json"
 OUT_MD = REPO / "docs" / "SOURCE_LAYERS.md"
 
@@ -75,6 +76,13 @@ def build() -> dict:
         except (ValueError, OSError):
             local_enum = None
     ordinances = local_enum if local_enum is not None else declared_ordinances
+    hist_pinned = 0
+    if HISTORICAL_PINS.exists():
+        try:
+            hist_pinned = int(json.loads(
+                HISTORICAL_PINS.read_text(encoding="utf-8")).get("pinned_candidates") or 0)
+        except (ValueError, OSError):
+            hist_pinned = 0
     treaty_count = None
     if TAX_TREATIES.exists():
         try:
@@ -180,14 +188,17 @@ def build() -> dict:
             "label_ja": "歴史的施行版",
             "legal_nature": "旧法・新法（同一法令の別施行版）",
             "authority": "e-Gov 歴史情報",
-            "acquisition_status": "NOT_PINNED",
+            "acquisition_status": ("PREDECESSOR_CANDIDATES_PINNED" if hist_pinned
+                                   else "NOT_PINNED"),
             "scope_status": "HISTORICAL_LAYER",
             "count": hist_names,
-            "count_acquired": 0,
+            "count_acquired": hist_pinned,
             "pinned_snapshot": "",
             "verification_status": "OUT_OF_SCOPE",
             "auxiliary": False,
-            "notes": "附則・経過措置の新旧参照。施行版を別途固定するまで未検証。",
+            "notes": ("附則・経過措置の新旧参照。直前の施行版を候補として固定"
+                      "（data/HISTORICAL_REVISION_PINS.json）。具体的な新/旧参照との"
+                      "対応は未解決。"),
         },
     ]
     return {

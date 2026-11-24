@@ -230,6 +230,12 @@ A fifth pipeline, `scripts/ci/batch_strict_upper_pipeline.py`, covers strict
 upper bounds (「N円未満」), including rounding-fragment conditions; it verified
 60 further obligations (2 source-audit failures skip-listed).
 
+Historical layer: `scripts/law_audit/inventory/pin_historical_revisions.py`
+pinned 60 predecessor-revision candidates across 62 base laws named by 93
+新法/旧法 references, with SHA-256 pins. Each is explicitly a CANDIDATE
+predecessor — the exact mapping to a given 新/旧 reference is NOT established.
+`docs/SOURCE_LAYERS.md` reports L6_HISTORICAL as PREDECESSOR_CANDIDATES_PINNED.
+
 Auxiliary scope work: `data/TAX_TREATIES.json` enumerates 96 treaty/agreement
 partners (82 tax treaties, 11 information-exchange agreements, 3 other) from
 the official MOF list dated 2026-11-24, with `NOT_ACQUIRED` status; treaty texts

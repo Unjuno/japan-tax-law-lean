@@ -94,15 +94,15 @@
       "verification_status": "OUT_OF_SCOPE"
     },
     {
-      "acquisition_status": "NOT_PINNED",
+      "acquisition_status": "PREDECESSOR_CANDIDATES_PINNED",
       "authority": "e-Gov 歴史情報",
       "auxiliary": false,
       "count": 795,
-      "count_acquired": 0,
+      "count_acquired": 60,
       "label_ja": "歴史的施行版",
       "layer_id": "L6_HISTORICAL",
       "legal_nature": "旧法・新法（同一法令の別施行版）",
-      "notes": "附則・経過措置の新旧参照。施行版を別途固定するまで未検証。",
+      "notes": "附則・経過措置の新旧参照。直前の施行版を候補として固定（data/HISTORICAL_REVISION_PINS.json）。具体的な新/旧参照との対応は未解決。",
       "pinned_snapshot": "",
       "scope_status": "HISTORICAL_LAYER",
       "verification_status": "OUT_OF_SCOPE"
