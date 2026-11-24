@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 236
-- presence-facts-only complete: 236
-- NOT_STARTED: 236
+- articles with explicit pin: 232
+- presence-facts-only complete: 232
+- NOT_STARTED: 232
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -245,11 +245,7 @@ source positions. Human legal review is a separate axis and is pending.
 | `503M60000008031` | 第一条 | CapitalTieredAmount | YES | YES | NO | NOT_STARTED |
 | `347CO0000000160` | 第八条 | MergerGrantFiscalWindow | YES | YES | NO | NOT_STARTED |
 | `362CO0000000335` | 第六条の九 | InvestmentIncomeBelowHalf | YES | YES | NO | NOT_STARTED |
-| `322CO0000000268` | 第十条 | DisasterTaxReliefOrderArt10ApplicationItem3_5 | YES | YES | NO | NOT_STARTED |
-| `415M60000040071` | 第五条 | GrayscaleGradationFloor | YES | YES | NO | NOT_STARTED |
-| `422M60000040022` | 第六条 | RankedAmountCountTen | YES | YES | NO | NOT_STARTED |
-| `410M50000040043` | 第五条 | CombinableRecordItemsTwo | YES | YES | NO | NOT_STARTED |
-| `332AC0000000026` | 第七十条の三 | SpecialMeasuresArt70_3PresumptiveHeirCondition | YES | YES | NO | NOT_STARTED |
-| `325AC0000000226` | 第四十八条から第五十条まで | LocalTaxArt48To50DeletedRange | YES | NO | NO | NOT_STARTED |
-| `352AC0000000035` | 第二条 | BondRevenueFiscalYear | YES | YES | NO | NOT_STARTED |
 | `423CO0000000112` | 第三十一条 | AreaMultiplierSixTwo | YES | YES | NO | NOT_STARTED |
+| `352AC0000000035` | 第二条 | BondRevenueFiscalYear | YES | YES | NO | NOT_STARTED |
+| `410M50000040043` | 第五条 | CombinableRecordItemsTwo | YES | YES | NO | NOT_STARTED |
+| `422M60000040022` | 第六条 | RankedAmountCountTen | YES | YES | NO | NOT_STARTED |
