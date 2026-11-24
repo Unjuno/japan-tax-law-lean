@@ -3976,6 +3976,13 @@ def checks():
            "law", None,
            ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u56fd\u9023\u6d77\u6d0b\u6cd5\u6761\u7d04\u304c\u65e5\u672c\u56fd\u306b\u3064\u3044\u3066\u52b9\u529b\u3092\u751f\u305a\u308b\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
 
+    # 地方法人税法 art. 2 — LocalCorpMaxCapital.lean
+    yield ("法人臨時特別税政令 art. 2（被合併法人二以上の最大額選択）↔ LocalCorpMaxCapital.lean (max selection, trigger >=2)",
+           "403CO0000000035",
+           "article", "第二条",
+           ["合併により被合併法人の株主等に交付された合併後存続する法人の株式又は出資に係る資本の金額又は出資金額（被合併法人が二以上ある場合には、各被合併法人に係るこれらの金額のうち最も多い金額）"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
