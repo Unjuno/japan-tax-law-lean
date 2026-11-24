@@ -4257,6 +4257,13 @@ def checks():
            ["これらの者の前年の合計所得金額が百三十五万円を超える場合を除く。"])
 
 
+    # InheritanceTaxArt25LumpSumPremiumCondition.lean - NORM|fa8a8f71... (相続税法 art.25(1) item1 CONDITION, law 325AC0000000073)
+    # Article-kind locator; needle is the lump-sum premium payment condition.
+    yield ("inheritance tax art.25 lump-sum premium condition - InheritanceTaxArt25LumpSumPremiumCondition.lean",
+           "325AC0000000073",
+           "article", "\u7b2c\u4e8c\u5341\u4e94\u6761",
+           ["\u5f53\u8a72\u5951\u7d04\u306b\u4fc2\u308b\u639b\u91d1\u53c8\u306f\u4fdd\u967a\u6599\u304c\u4e00\u6642\u306b\u6255\u3044\u8fbc\u307e\u308c\u305f\u5834\u5408"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
