@@ -35,7 +35,7 @@ def specIsPrescribedCount (n : Nat) : Bool :=
 /-- Universal, kernel-checked correspondence for every Nat count. -/
 theorem agree_prescribed_count (n : Nat) :
     isPrescribedCount n = specIsPrescribedCount n := by
-  unfold isPrescribedCount prescribedTimes specIsPrescribedCount specTimes
+  unfold isPrescribedCount prescribedTimes specIsPrescribedCount
   by_cases h : n = 2
   · subst n
     decide

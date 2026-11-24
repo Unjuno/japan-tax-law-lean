@@ -25,7 +25,7 @@ Verbatim source text: 「令第八十七条第四項に規定する財務省令�
 - Impl: `prescribedTimes=2`, `isPrescribedCount n := decide (n == 2)`.
 - Independent spec: `specTimes := [unit,unit].length`, `specIsPrescribedCount n := decide (succ (succ 0) == n)` (distinct formulation); universal `agree_prescribed_count` over all Nat, kernel-checked with `by omega`.
 - Boundary theorems: `two_true` (2 qualifies), `one_false`, `three_false`.
-- Tests: 10 kernel-decided examples; boundary categories `{zero, small_input, saturation}`.
+- Tests: 13 kernel-decided examples; 6 boundary categories including `{zero, small_input, saturation}`.
 
 ## Not modelled (explicitly retained as unhandled scope)
 
