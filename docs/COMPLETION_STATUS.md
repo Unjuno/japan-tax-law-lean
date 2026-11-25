@@ -7,13 +7,14 @@ obligations being complete. SKIP is never counted as PASS.
 
 ## Axis A — registered checks (last recorded gate run)
 
-- results file available: True
-- PASS: 54
+- results file available: False
+- PASS: 0
 - FAIL: 0
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: a8f98b5d88d2011c9e30787a3b1f75006fabfdb6
 - current HEAD commit: bb58f8314dfc7a19ed0e09e06f4566c5d17770ba
+
 - results bound to this commit: False
 - registered checks all green: False
 
@@ -24,6 +25,7 @@ obligations being complete. SKIP is never counted as PASS.
 - PARTIAL: 0
 - PROVED_SCOPE: 1
 - FULLY_VERIFIED: 923
+
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180617
@@ -46,6 +48,7 @@ obligations being complete. SKIP is never counted as PASS.
 | partially formalized (spec / impl / tests evidence) | 924 | 396854 |
 | kernel proved (CI-attested proof evidence) | 924 | 396854 |
 | source-audited (原文 correspondence evidence) | 924 | 396854 |
+
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
@@ -63,6 +66,7 @@ obligations being complete. SKIP is never counted as PASS.
 | source_correspondence_audit | 924 |
 | source_location | 924 |
 | tests | 924 |
+
 
 ## Verdict
 

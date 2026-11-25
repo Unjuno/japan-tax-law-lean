@@ -49,6 +49,7 @@
       "achieved_is_not_completion": true,
       "achieved_units": 924,
       "remaining_units": 395930
+
     }
   },
   "detail_note": "Only units with substantive committed evidence are expanded; all other units take the NOT_STARTED / LEGAL_REVIEW_PENDING defaults, reproducible by regenerating build/task_queue.json with scripts/ci/task_queue.py.",
@@ -26771,6 +26772,38 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
+    "NORM|da471de15b3c430f5cace0665b89d06e66fd00ff5948b3632c5a07b9c8aead44": {
+      "article": "594",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "325AC0000000226",
+      "norm_details": {
+        "amounts": [],
+        "conditions": [],
+        "delegations": [],
+        "effects": [
+          "課する",
+          "とする"
+        ],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "325AC0000000226_20261101_508AC0000000002",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
     "NORM|daa39876d7918937c5d96499e350d6397f6023e4bf131c509e554b75ec247be0": {
       "article": "23_10",
       "axes": {
@@ -31354,7 +31387,7 @@
     "amounts": 255,
     "conditions": 739,
     "delegations": 172,
-    "effects": 335,
+    "effects": 336,
     "enforcement_dates": 12,
     "exceptions": 146,
     "periods": 75,
@@ -31364,12 +31397,14 @@
   "schema": "directive_axes/v1",
   "scope_counts": {
     "COMPUTABLE_SLICE_ONLY": 919,
+
     "FULL_ARTICLE": 5
   },
   "technical_status_counts": {
     "BLOCKED": 2,
     "FULLY_VERIFIED": 923,
     "NOT_STARTED": 395928,
+
     "PARTIAL": 0,
     "PROVED_SCOPE": 1
   },

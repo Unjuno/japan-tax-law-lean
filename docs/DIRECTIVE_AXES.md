@@ -6,6 +6,7 @@ Eight technical axes are tracked separately; full technical evidence does NOT es
 
 - normative units: 396854
 - expanded units (with committed evidence): 924
+
 - independent human legal review axis: `LEGAL_REVIEW_PENDING` (never auto-satisfied)
 
 | axis | achieved units | remaining units |
@@ -19,6 +20,7 @@ Eight technical axes are tracked separately; full technical evidence does NOT es
 | BOUNDARY_CHECKED | 924 | 395930 |
 | SOURCE_AUDITED | 923 | 395931 |
 
+
 ## Normative detail categories recorded separately
 
 Conditions, exceptions, effects, delegations, periods, amounts,
@@ -27,7 +29,7 @@ rounding and enforcement dates are recorded in independent fields
 
 - conditions: 739 units
 - exceptions: 146 units
-- effects: 335 units
+- effects: 336 units
 - delegations: 172 units
 - periods: 75 units
 - amounts: 255 units
