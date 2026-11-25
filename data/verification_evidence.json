@@ -10272,6 +10272,19 @@
       "source_location": "data/raw/340AC0000000033_20261001_507AC0000000070.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:86/Article#86/Paragraph#1/Item#2/ItemSentence/Column#1/Sentence#1 sha256=94c4a7ad83726cde60787967ed4e959585ad0af9279d25db9aa02264b3fe606b (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/BasicDeductionIncome23M50Tests.lean sha256=4f7586c5d1846e6ec0f11357d54494de887b59fee3613a31e721509c34ae0a07 (11 kernel-decided examples)"
     },
+    "NORM|da471de15b3c430f5cace0665b89d06e66fd00ff5948b3632c5a07b9c8aead44": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 12 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/SpecialLandHoldingTaxRate.lean sha256=b259b97b9dc78a331d495b6b3bb3db5b94ba2109ef9a15582178055efb4a8463",
+      "independent_spec": "JapanTaxLaw/SpecialLandHoldingTaxRateSpec.lean sha256=19ca75cd6197f2da82778334bbd2d44f6df67862b806adff7f33d1a57bf31bb9 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45650876603: commit bfbacc013c53fa0189842f543b128f5a33c124cd, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [3, 14, 100, 1000] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"1000\": [], \"14\": [\"一・四\"], \"3\": [\"三\"]}; statutory rate = 7/500; needles scoped",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:594/Article#594/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/SpecialLandHoldingTaxRateTests.lean sha256=d87469d4953b54e5024e0e2cd3c9eb03881aa1d07bb2dbe930505f0c0ba65fce (12 kernel-decided examples)"
+    },
     "NORM|daa39876d7918937c5d96499e350d6397f6023e4bf131c509e554b75ec247be0": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",
