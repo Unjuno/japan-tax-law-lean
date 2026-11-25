@@ -1666,6 +1666,9 @@ import JapanTaxLaw.SavingsDepositInterestTests
 import JapanTaxLaw.SchoolExemptionRequirements
 import JapanTaxLaw.SchoolExemptionRequirementsSpec
 import JapanTaxLaw.SchoolExemptionRequirementsTests
+import JapanTaxLaw.SecrecyBreachPenaltyCeilings
+import JapanTaxLaw.SecrecyBreachPenaltyCeilingsSpec
+import JapanTaxLaw.SecrecyBreachPenaltyCeilingsTests
 import JapanTaxLaw.Semiconductor210nm
 import JapanTaxLaw.Semiconductor210nmSpec
 import JapanTaxLaw.Semiconductor210nmTests
