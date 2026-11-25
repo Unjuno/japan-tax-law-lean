@@ -4347,6 +4347,13 @@ def checks():
            "article", "\u7b2c\u5341\u516d\u6761",
            ["\u540c\u9805\u306b\u898f\u5b9a\u3059\u308b\u7533\u8acb\u66f8\u306e\u63d0\u51fa\u304c\u3042\u3064\u305f\u65e5"])
 
+    # DisasterTaxReliefArt102OtherMeasuresDelegation.lean - NORM|89b4b1f4... (災害被害者租税減免法 art.102 ArticleCaption DELEGATION, law 322AC0000000175)
+    # Whole-law locator (supplementary-provision caption).
+    yield ("disaster tax relief art.102 other measures delegation - DisasterTaxReliefArt102OtherMeasuresDelegation.lean",
+           "322AC0000000175",
+           "law", None,
+           ["\uff08\u305d\u306e\u4ed6\u306e\u7d4c\u904e\u63aa\u7f6e\u306e\u653f\u4ee4\u3078\u306e\u59d4\u4efb\uff09"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
