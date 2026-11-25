@@ -8,22 +8,22 @@ obligations being complete. SKIP is never counted as PASS.
 ## Axis A — registered checks (last recorded gate run)
 
 - results file available: True
-- PASS: 53
-- FAIL: 1
+- PASS: 54
+- FAIL: 0
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: a8f98b5d88d2011c9e30787a3b1f75006fabfdb6
-- current HEAD commit: a8f98b5d88d2011c9e30787a3b1f75006fabfdb6
-- results bound to this commit: True
+- current HEAD commit: 869a70f0aabe924cd87b123a4d2a266d072f5618
+- results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all TECHNICAL obligations complete (human review excluded)
 
 - normative units: 396854
-- NOT_STARTED: 396040
+- NOT_STARTED: 396036
 - PARTIAL: 0
 - PROVED_SCOPE: 1
-- FULLY_VERIFIED: 811
+- FULLY_VERIFIED: 815
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180617
@@ -43,26 +43,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 812 | 396854 |
-| kernel proved (CI-attested proof evidence) | 812 | 396854 |
-| source-audited (原文 correspondence evidence) | 812 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 816 | 396854 |
+| kernel proved (CI-attested proof evidence) | 816 | 396854 |
+| source-audited (原文 correspondence evidence) | 816 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 812 |
-| boundary_proof | 812 |
-| cross_law_proof | 812 |
-| decomposition_audit | 812 |
-| implementation | 812 |
-| independent_spec | 812 |
-| kernel_proof | 812 |
-| proof_scope | 812 |
-| source_correspondence_audit | 812 |
-| source_location | 812 |
-| tests | 812 |
+| adversarial_review | 816 |
+| boundary_proof | 816 |
+| cross_law_proof | 816 |
+| decomposition_audit | 816 |
+| implementation | 816 |
+| independent_spec | 816 |
+| kernel_proof | 816 |
+| proof_scope | 816 |
+| source_correspondence_audit | 816 |
+| source_location | 816 |
+| tests | 816 |
 
 ## Verdict
 

@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 264
-- presence-facts-only complete: 264
-- NOT_STARTED: 264
+- articles with explicit pin: 267
+- presence-facts-only complete: 267
+- NOT_STARTED: 267
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -17,9 +17,11 @@ source positions. Human legal review is a separate axis and is pending.
 
 | law_id | article | module | presence | scoped | review | authoritative status |
 |---|---|---|---|---|---|---|
+| `349AC0000000079` | 第十二条 | PowerDevelopmentTaxPenalty | YES | YES | YES | NOT_STARTED |
 | `347AC0000000007` | 第十四条 | AircraftFuelTaxPayable | YES | YES | YES | NOT_STARTED |
 | `346AC0000000090` | 第四条 | AutoWeightGrantRounding | YES | YES | YES | NOT_STARTED |
 | `332AC0000000077` | 第六条 | TokyoAsCityDeeming | YES | YES | YES | NOT_STARTED |
+| `332M50000002021` | 第二条 | TwoOrMorePortMunicipalities | YES | YES | NO | NOT_STARTED |
 | `340AC0000000034` | 第六十六条 | CorporateTaxRate | YES | YES | YES | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の七 | GiftTax | YES | YES | YES | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の五 | GiftTax | YES | YES | YES | NOT_STARTED |
@@ -281,3 +283,4 @@ source positions. Human legal review is a separate axis and is pending.
 | `325AC0000000073` | 第二十五条 | InheritanceTaxArt25LumpSumPremiumCondition | YES | YES | NO | NOT_STARTED |
 | `325AC0000000073` | 第六十七条 | InheritanceTaxArt67LocalSurchargeProhibition | YES | YES | NO | NOT_STARTED |
 | `325AC0000000073` | 第十三条 | InheritanceTaxArt13ResidualAssetDebtException | YES | YES | NO | NOT_STARTED |
+| `322CO0000000268` | 第十六条 | DisasterTaxReliefOrderArt16ApplicationSubmissionDay | YES | YES | NO | NOT_STARTED |
