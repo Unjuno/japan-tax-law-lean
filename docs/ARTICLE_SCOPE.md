@@ -6,11 +6,12 @@ A whole-text numeric match is NOT article-level verification. This is a
 source-fidelity diagnostic (D=PASS means needle in stated article only),
 never a completion gate or a semantic/legal claim.
 
-- checks with article/table-cell scoped needles: 596
+- checks with article/table-cell scoped needles: 608
 - checks with no scoped unit: 0
 
 | law_id | stated article | needle hits | scoped positions | D |
 |---|---|---:|---:|---|
+| `346AC0000000090` | 第四条 | 2 | 2 | PASS |
 | `329M50000002023` | (file-level) | 2 | 2 | PASS |
 | `325AC0000000226` | (file-level) | 4 | 4 | PASS |
 | `325AC0000000226` | (file-level) | 4 | 4 | PASS |
@@ -103,6 +104,7 @@ never a completion gate or a semantic/legal claim.
 | `325CO0000000245` | (file-level) | 2 | 2 | PASS |
 | `325CO0000000245` | (file-level) | 2 | 7 | PASS |
 | `325CO0000000245` | (file-level) | 2 | 7 | PASS |
+| `325AC0000000226` | 第七百一条の四十二 | 2 | 2 | PASS |
 | `325AC0000000073` | (file-level) | 5 | 17 | PASS |
 | `325AC0000000073` | (file-level) | 3 | 6 | PASS |
 | `325AC0000000073` | (file-level) | 3 | 6 | PASS |
@@ -134,6 +136,7 @@ never a completion gate or a semantic/legal claim.
 | `430AC0000000016` | 第十五条 | 2 | 2 | PASS |
 | `347AC0000000007` | 第十一条 | 2 | 2 | PASS |
 | `332AC0000000055` | 第二十七条 | 9 | 10 | PASS |
+| `332AC0000000038` | 第十条 | 7 | 8 | PASS |
 | `330AC0000000104` | 第四条 | 2 | 2 | PASS |
 | `332AC0000000055` | 第九条 | 2 | 2 | PASS |
 | `143AC0000000054` | 第十四条 | 3 | 3 | PASS |
@@ -160,6 +163,7 @@ never a completion gate or a semantic/legal claim.
 | `143AC0000000054` | 第六条 | 2 | 2 | PASS |
 | `143AC0000000054` | 第七条 | 3 | 3 | PASS |
 | `143AC0000000054` | 第七条 | 2 | 2 | PASS |
+| `143AC0000000054` | 第七条 | 9 | 9 | PASS |
 | `143AC0000000054` | 第十四条 | 3 | 3 | PASS |
 | `143AC0000000054` | 第十二条 | 3 | 3 | PASS |
 | `143AC0000000054` | 第十五条 | 3 | 3 | PASS |
@@ -600,6 +604,8 @@ never a completion gate or a semantic/legal claim.
 | `322AC0000000175` | (file-level) | 2 | 2 | PASS |
 | `332CO0000000043` | (file-level) | 3 | 3 | PASS |
 | `329M50000002023` | (file-level) | 6 | 6 | PASS |
+| `332AC0000000026` | 第四十一条の十八 | 4 | 4 | PASS |
+| `426CO0000000139` | 第六条 | 3 | 3 | PASS |
 | `329AC0000000036` | (file-level) | 2 | 2 | PASS |
 | `329M50000002023` | (file-level) | 6 | 6 | PASS |
 | `426CO0000000139` | 第六条 | 3 | 3 | PASS |
@@ -607,3 +613,9 @@ never a completion gate or a semantic/legal claim.
 | `325AC0000000073` | (file-level) | 2 | 2 | PASS |
 | `325AC0000000073` | (file-level) | 2 | 2 | PASS |
 | `325AC0000000226` | (file-level) | 6 | 6 | PASS |
+| `325AC0000000073` | 第二十五条 | 3 | 3 | PASS |
+| `325AC0000000073` | (file-level) | 4 | 4 | PASS |
+| `325AC0000000226` | (file-level) | 10 | 10 | PASS |
+| `325AC0000000073` | 第六十七条 | 2 | 2 | PASS |
+| `430AC0000000016` | (file-level) | 2 | 2 | PASS |
+| `331M50000002007` | (file-level) | 2 | 2 | PASS |
