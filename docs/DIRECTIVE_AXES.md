@@ -5,21 +5,19 @@ Do not hand-edit. Regenerate with `python scripts/ci/directive_axes.py`.
 Eight technical axes are tracked separately; full technical evidence does NOT establish human legal review or whole-article coverage. COMPUTABLE_SLICE_ONLY units are never counted as whole-article norms.
 
 - normative units: 396854
-- expanded units (with committed evidence): 924
-
+- expanded units (with committed evidence): 925
 - independent human legal review axis: `LEGAL_REVIEW_PENDING` (never auto-satisfied)
 
 | axis | achieved units | remaining units |
 |---|---:|---:|
-| SOURCE_ACQUIRED | 924 | 395930 |
-| VERSION_PINNED | 924 | 395930 |
-| STRUCTURE_IDENTIFIED | 919 | 395935 |
-| NORM_DECOMPOSED | 923 | 395931 |
-| NORMS_FORMALIZED | 924 | 395930 |
-| SPEC_IMPL_CORRESPONDENCE | 924 | 395930 |
-| BOUNDARY_CHECKED | 924 | 395930 |
-| SOURCE_AUDITED | 923 | 395931 |
-
+| SOURCE_ACQUIRED | 925 | 395929 |
+| VERSION_PINNED | 925 | 395929 |
+| STRUCTURE_IDENTIFIED | 920 | 395934 |
+| NORM_DECOMPOSED | 924 | 395930 |
+| NORMS_FORMALIZED | 925 | 395929 |
+| SPEC_IMPL_CORRESPONDENCE | 925 | 395929 |
+| BOUNDARY_CHECKED | 925 | 395929 |
+| SOURCE_AUDITED | 924 | 395930 |
 
 ## Normative detail categories recorded separately
 
