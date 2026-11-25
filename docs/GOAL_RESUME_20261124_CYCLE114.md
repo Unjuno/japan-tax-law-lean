@@ -137,6 +137,21 @@ targeted Lean builds, transcription 598/598, no `sorry`. CI run
 `45491532407` Lean/axiom job verified before scoped attestation binding.
 Legal review stays `LEGAL_REVIEW_PENDING`.
 
+## 5j. Cycle-124 (2026-11-25) — CI infrastructure blocker
+
+Two bounded modules pushed at `f93f990d`:
+`LocalTaxFalseFilingFineCap500k` (地方税法 art.22の2) and
+`InheritanceTaxFalseReportFineCap500k` (相続税法 art.70), both the inclusive
+「五十万円以下」 fine cap. Local checks: 8/8 Lean builds, transcription
+618/618, no `sorry`. Their CI run `45491532407` failed at
+**Install Lean toolchain** (not a proof failure); a rerun of the failed job
+also failed at the same step, and other concurrent runs showed the same
+toolchain-install failure. However a later gh-verified green Lean job (run `45634025256`, head
+`cb8eab772d04`) contains the same committed module blobs, so scoped
+attestations were bound from that run and the two cells were added to the
+evidence ledger and queue.
+Legal review stays `LEGAL_REVIEW_PENDING`.
+
 ## 6. Resume procedure (exact)
 
 1. `git fetch origin main`; `python scripts/ci/generate_verification_evidence.py`

@@ -12562,3 +12562,109 @@ needle 2 本を手打ちせず、`scripts/ci/transcription_audit.py` の `checks
 
 > **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・反例/全走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
 
+## Batch DG review (2026-11-25) — 地方税法 art.34 §1 四 ハ (iii)（新個人年金保険料控除 上段 3.2万円超5.6万円以下）/ NewIndividualAnnuityPremiumDeductionUpper.lean（cycle-117 機械的独立照合・反例探索）
+
+### DG-0. 範囲・pinned pin・方法
+
+- 対象: `JapanTaxLaw/NewIndividualAnnuityPremiumDeductionUpper.lean`（Impl）と `NewIndividualAnnuityPremiumDeductionUpperSpec.lean` / `NewIndividualAnnuityPremiumDeductionUpperTests.lean`（独立 Spec・Tests、読み取り専用）。
+- Pin: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`（地方税法、施行 2026-11-01、改正法 508AC0000000002）。`data/raw/325AC0000000226_20261101_508AC0000000002.law.json` を独立再計算 → 12,181,725 bytes、SHA-256 `3DD29E0078BF24E09C79436CE7B0F00FD2CFB5A5BBCB97BD4F4352971BE68D53`（`data/INVENTORY.json` の `source_sha256` と一致）。`revision_info.law_title = 地方税法`、`current_revision_status = CurrentEnforced`。
+- 原文・Lean は doc-comment / `STAGING_ANNUITY_UP.md` / `transcription_audit.py` を信じず、pinned raw JSON の `law_full_text` を木走査して直接抽出した。needle は CI `checks()` に登録済みの 2 本を STAGING 経由で取得し、raw に対して照合した（詳細 DG-2）。
+- 書き込みは `docs/ADVERSARIAL_REVIEW.md` のみ（二段 read-then-write: 書き込み直前に再読込し、末尾に追記、書き込み後に件数と既存セクション保持を検証）。Lean モジュール・`data/*`・`scripts/*` は読み取り専用。commit / push / merge / ブランチ切替は行わない。一時ファイルは承認済み一時ディレクトリに置き、検証後に削除する。
+
+### DG-1. pinned 原文からの数値独立抽出（art.34 §1 四 ハ (iii)）
+
+pinned raw の `Article` ノードのうち `attr.Num = "34"`（9 件中、当該文言を含むのは 1 件）から leaf を連結し、空白（半角空白・改行・U+3000）を除去して正規化した flat text は **13,009 chars**（U+3000 = 0、doc-comment の記載と一致）。当該 (iii) leaf から漢数字パーサで数値を直接変換した:
+
+| 項目 | 原文 | 抽出値 | 意味 |
+|---|---|---:|---|
+| 下限 | 三万二千 | 32,000 | 3.2万円（「を超え」= strict） |
+| 上限 | 五万六千 | 56,000 | 5.6万円（「以下」= inclusive） |
+| base 額 | 二万二千 | 22,000 | 2.2万円 |
+| 控除対象額 | 三万二千 | 32,000 | 合計額から控除する額 |
+| 分率 | 四分の一 | 1/4 | 分子 一 / 分母 四 |
+
+- 桁違いの排除: (iii) leaf に `三千二百`(3,200) / `五千六百`(5,600) / `二千二百`(2,200) / `二分の一`(1/2) は **ABSENT**。数値はすべて 32,000 / 56,000 / 22,000 / 1/4 であり、1 桁落ち・分率誤りは検出されなかった。
+- 原文順: 「三万二千円を超え五万六千円以下である場合二万二千円と当該合計額から三万二千円を控除した金額の四分の一に相当する金額との合計額」→ `deduction(total) = 22000 + (total - 32000) / 4` に直接対応。
+- competing location: 同一文言は `Article attr.Num = "314_2"`（`（所得控除）第三百十四条の二`）にも 1 件出現する。stated article（34）にも 1 件存在するため **LOCATED** であり、whole-text-only の誤検出ではない。モデル側の参照先（art.34）と矛盾しない。
+
+### DG-2. needle 健全性（CI 登録 2 本）
+
+needle 2 本は `scripts/ci/transcription_audit.py` の `checks()` に `NewIndividualAnnuityPremiumDeductionUpper.lean` 名で登録済み（lines 2399–2402）で、`docs/STAGING_ANNUITY_UP.md` の記載と同一。正規化は CI と同じ空白・U+3000 除去を pinned art.34 flat text に適用した。
+
+| # | needle | U+3000 | FOUND | 全文ヒット数 | art.34 内ヒット数 | art.34 offset |
+|---|---|:--:|:--:|---:|---:|---:|
+| 1 | 新個人年金保険料の金額の合計額が三万二千円を超え五万六千円以下である場合二万二千円と当該合計額から三万二千円を控除した金額の四分の一に相当する金額との合計額 | 0 | **FOUND** | 2 | 1 | 4367 |
+| 2 | 第三十四条 | 0 | **FOUND** | 480 | 1 | 6 |
+
+- **結果: U+3000 = 0、2/2 FOUND。** art.34 flat text 13,009 chars に U+3000 は存在しない（raw leaf と normalized が同長）。
+- needle 2 は汎用文字列（全文 480 件）だが、needle 1（固有の 78 文字節）と併用することで art.34 に一意に anchor される。両 needle が同一文言を含むため art.34 内では各 1 件。
+
+### DG-3. 反例検証（独立 Spec との一致）
+
+Impl `deduction(t) = 22000 + (t-32000)/4`（Money = Nat、減算は 0 saturation、除算は floor）に対し、独立 Spec `specDeduction(t) = t/4 + 14000`（記載済み変形に依存しない再定式）で比較した。
+
+| total | Impl | 独立Spec | 一致 |
+|---:|---:|---:|:--:|
+| 32,000（境界） | 22,000 | 22,000 | ✔ |
+| 32,001 | 22,000 | 22,000 | ✔ |
+| **36,000** | **23,000** | 23,000 | ✔ |
+| **40,000** | **24,000** | 24,000 | ✔ |
+| 55,999 | 27,999 | 27,999 | ✔ |
+| **56,000（上限）** | **28,000** | 28,000 | ✔ |
+
+- 課題指定の 3 反例 (36,000 → 23,000 / 40,000 → 24,000 / 56,000 → 28,000) はすべて独立 Spec と一致。さらに `32000..56000` の全 24,001 点を走査し、**不一致 0**（CI の 6 点 `agreeNewIndividualAnnuityPremiumDeductionUpper` も Lean `by decide` で true）。
+- 等価性の理由: 32,000 は 4 で割り切れるため `floor((t-32000)/4) = floor(t/4) - 8000`（t ≥ 32000）が成り立ち、`22000 + (t-32000)/4 = t/4 + 14000`。
+- 定義域外（`t < 32000` で Nat 減算が 0 に saturation し Impl が 22,000 を返す等、`t > 56000` の超過分）は (iii) のスコープ外（BY-DESIGN B-6）。
+
+### DG-4. `#print axioms` 監査
+
+一時 Lean ファイル（`C:\Users\junny\AppData\Local\Temp\opencode\dg_axioms_examples.lean`）で Impl 3 定義（`deduction` / `specDeduction` / `agreeNewIndividualAnnuityPremiumDeductionUpper`）と、`by decide` の例題を再現した named theorem 7 本（計 10 宣言）に対し `lake env lean` で `#print axioms` を実行（exit code 0）。
+
+| 監査項目 | 結果 |
+|---|---|
+| 監査宣言数 | 10 |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+| axiom-free（`does not depend on any axioms`） | **10 / 10** |
+
+- 3 定義・7 定理すべてが `does not depend on any axioms` を返し、choice / sorryAx / Quot.sound / propext の依存は 0。対象 3 ファイルに `sorry` / `admit` / `axiom` / `unsafe` / `Classical` の文字列も検出されず。検証後、一時 Lean ファイルは削除した。
+
+### DG-5. CONFIRMED / BY-DESIGN / UNRESOLVED 分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（不具合なし）** |
+| **BY-DESIGN** | **8** |
+| **UNRESOLVED** | **3** |
+
+#### CONFIRMED（0 件）
+- なし。桁違い（3,200 / 5,600 / 2,200）、分率誤り（1/2）、needle 不被検出、実装/独立Spec 不一致、axiom 依存はいずれも検出されなかった。
+
+#### BY-DESIGN（8 件）
+- **B-1 上段のみのモデル**: (iii)（3.2万円超5.6万円以下）のみ実装。他区分（1.2万以下 / 1.2〜3.2万の `12000+(total-12000)/2` / 5.6万超の 28,000 cap）は **NOT MODELLED**（doc-comment 明示）。
+- **B-2 契約・判定の前提**: 「新個人年金保険契約等」の定義、生存死亡部分の判定は **NOT MODELLED**。`total` は合計額として caller が与える前提。
+- **B-3 caps / 合算**: 7万円 cap、他保険料控除との合算ルールは **NOT MODELLED**。
+- **B-4 独立 Spec の別定式**: `total/4+14000` への変形は、32,000 が 4 で割り切れることによる代数的等価であり、別仕様を表すものではない（DG-3）。
+- **B-5 丸め表現**: 「1円未満切捨て」は Nat の床除算で表現。法的な丸め規則の詳細は pinned 文言のみからは確定できない（管理者判断として現状を維持）。
+- **B-6 定義域外の扱い**: `total < 32000` の Nat saturation、`total > 56000` の超過分は (iii) の適用外で **NOT MODELLED**。impl の返値はスコープ外のため影響しない。
+- **B-7 needle 2 の汎用性**: 「第三十四条」は全文 480 件の汎用文字列。needle 1 との併用で art.34 に anchor されており、登録上の不具合ではない。
+- **B-8 competing location**: 同一文言が第314条の二にも出現するのは原文上の事実であり、stated article（34）にも存在するためモデル側の参照は妥当。
+
+#### UNRESOLVED（3 件）
+- **U-1 他区分・他保険料区分・7万円cap の法的連関**: pinned の (iii) leaf のみでは、他区分や他の控除区分との合算・上限の全体的な扱いを判定できない。**人間の法律専門家レビューが必要**。
+- **U-2 丸めの法的性格**: 「四分の一に相当する金額」の端数処理が切捨てか他の丸めかは、pinned 原文のみからは一意に確定できない（モデルは Nat 床除算を採用）。**人間の法律専門家レビューが必要**。
+- **U-3 生存死亡部分・契約要件の法的判定**: 契約区分や生存死亡部分の判定は pinned 抜粋に含まれず、機械的照合では検証不能。**人間の法律専門家レビューが必要**。
+
+### DG-6. 最終報告（サマリ）
+
+- **CONFIRMED: 0 件 / BY-DESIGN: 8 件 / UNRESOLVED: 3 件**。不具合は検出されず。
+- **pinned 照合**: `三万二千` = 32,000 / `五万六千` = 56,000 / `二万二千` = 22,000 / `四分の一` = 1/4（3,200 / 5,600 / 2,200 / 1/2 を明示除外）。raw SHA-256 は INVENTORY pin と一致、flat 13,009 chars、U+3000 = 0。
+- **needle**: U+3000 = 0、2/2 FOUND（全文 2 / 480 件、art.34 内 1 / 1 件、offset 4367 / 6）。
+- **反例**: 36,000 → 23,000 / 40,000 → 24,000 / 56,000 → 28,000 の 3 点すべて独立 Spec と一致。全 24,001 点の走査でも不一致 0。
+- **axiom 監査**: choice / sorryAx / Quot.sound / propext すべて **0 件**（10/10 axiom-free）。一時ファイルは削除済み。
+- **追記後レビュー件数**: 書き込み直前の再読込では既存 **109 件**（coverage ledger 正規表現一致 109 件、H2 `review` 見出し 109 件）。本 DG セクション追記後は **110 件**（ledger 一致 109 → **110 件**、H2 `review` 見出し 109 → **110 件**）となり、既存 +1 以上を満たす。書き込み後に既存セクション（Batch DF を含む書き込み直前の全バイト列）が前方一致で保持されていることを検証した。
+- **制約順守**: Lean モジュール・`data/*`・`scripts/*` は読み取り専用で変更なし。commit / push / merge / ブランチ切替は行っていない。一時ファイルは削除した。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・反例/全走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
