@@ -6,7 +6,7 @@ Directive §5: a new model counts as progress ONLY when the number of
 unverified units decreases. This ledger records measured deltas, not
 the count of models or theorems. It makes no completion claim.
 
-head: `85685395eb94`
+head: `a512eb232f2c`
 verdict: **UNCOUNTED**
 
 | status | count | delta |
