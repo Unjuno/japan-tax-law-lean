@@ -181,9 +181,9 @@ lake clean && lake build                                                # 再現
 | 指標 | 実測値 |
 |---|---:|
 | 規範単位（確定対象版） | 268,107 |
-| NOT_STARTED | 260,785 |
+| NOT_STARTED | 260,764 |
 | PARTIAL | 4,312 |
-| PROVED_SCOPE | 167 |
+| PROVED_SCOPE | 188 |
 | FULLY_VERIFIED | 2,841（約 1.06%） |
 | BLOCKED | 2 |
 | 未解決条件を持つ単位 | 140,289（条件延べ 162,912） |
@@ -211,10 +211,12 @@ lake clean && lake build                                                # 再現
 トークン化誤り（十分の百 → 実は百十分の百 = 100/110）が発見され
 （`tenths_adversarial_fail.md`）、`FractionRates110` へ再形式化
 （`tenths_110_fix_resolution.md`）。いずれも独立監査で発見された不整合を
-記録し、修正後のモデルで証明し直す循环を経た。サンプル外は `PROVED_SCOPE`。
+記録し、修正後のモデルで証明し直す循环を経た。さらに月数按分 21 単位
+（分母 12/24/36/48/60/180）を、12 で割ってから約分母で割る独立仕様で
+証明（`MonthProration`）。サンプル外は `PROVED_SCOPE`。
 
 **未達（続行すべき義務）**: 未検証義務の大部分（260,785 単位）、未解決条件
-140,289 単位、161 単位分の独立 ADVERSARIAL_REVIEW、人間の法的レビュー、
+140,289 単位、167 単位分の独立 ADVERSARIAL_REVIEW、人間の法的レビュー、
 地方税条例 1,788 件、附則参照 87 件の版写像、租税条約・通達・裁判例の別層整備。
 
 **再開手順**: `git checkout fix/normative-queue-v2` →

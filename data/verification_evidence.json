@@ -12332,6 +12332,80 @@
         "tool": "task_queue.py"
       }
     ],
+    "07bc6eb46ac1fbe9d9e5b09b6ae803ba834835caa003ab77e7a272d276da3c06": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "332AC0000000026#第34条#pinned-months",
+        "note": "月数を乗じてこれを百八十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-07bc6eb46ac1",
+        "note": "月数を乗じてこれを百八十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#07bc6eb46ac1#coverage",
+        "note": "月数を乗じてこれを百八十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを百八十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを百八十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを百八十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを百八十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを百八十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを百八十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "07bdbfe6ac879609636e111ebb4853d6479c4de5791c3db1d89eeae7e3247993": [
       {
         "axis": "SOURCE_LOCATION",
@@ -21896,6 +21970,80 @@
         "note": "unit decomposition and mechanical coverage only",
         "reviewer": "ci",
         "tool": "task_queue.py"
+      }
+    ],
+    "0d7e10bc6eb72fc6ed11a50c9136595fae47e09d367e50ab39cf5f417727bdd1": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "332AC0000000026#第61_4条#pinned-months",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-0d7e10bc6eb7",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#0d7e10bc6eb7#coverage",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "0d823ef23d2eddfe5cf01933e59af7948fc2ba849cf6d8bb3be016fbb107697e": [
@@ -36232,6 +36380,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "14f826dbbaadc1b8e9e4e66e888dfa7f9abb349114bcd07cfa615efcf3f27248": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "332CO0000000043#第39_37条#pinned-months",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-14f826dbbaad",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#14f826dbbaad#coverage",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "14fe82982aacd69df084662c7ae44cfdf1ea39bdd872326014b089e1260b49b7": [
       {
         "axis": "SOURCE_LOCATION",
@@ -50302,6 +50524,80 @@
         "tool": "lake build"
       }
     ],
+    "1dcb9d80b9605ac7a1bebebd9c8a649682316a6a4470f98952ce1dc79810f094": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "332AC0000000026#第66_13条#pinned-months",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-1dcb9d80b960",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#1dcb9d80b960#coverage",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "1dd06fefedac6a093a63e4315ebb00633f141aa2691538c9c388d206454beac9": [
       {
         "axis": "SOURCE_LOCATION",
@@ -63850,6 +64146,80 @@
         "tool": "lake build"
       }
     ],
+    "2668ec36a3c7ad05eeda91c87e87a51037aae93fbb1de79b48fb00b4f274d3e5": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "332AC0000000026#第86条#pinned-months",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-2668ec36a3c7",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#2668ec36a3c7#coverage",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "266da878713572d14fcf1d161dee9ef0e99eb5c92224cabb825efafe704f7ec0": [
       {
         "axis": "SOURCE_LOCATION",
@@ -71576,6 +71946,80 @@
         "tool": "lake build"
       }
     ],
+    "2c20b633e3a72edc11e7075aaf6cf9f9538e67511ab1e372601a56969da41ff7": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "340AC0000000034#第7条#pinned-months",
+        "note": "月数を乗じてこれを四十八で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-2c20b633e3a7",
+        "note": "月数を乗じてこれを四十八で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#2c20b633e3a7#coverage",
+        "note": "月数を乗じてこれを四十八で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを四十八で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを四十八で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを四十八で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを四十八で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを四十八で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを四十八で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "2c2674231f736d0b56d6166e0939241e74a4501df3f4001a0a2f47514e1412d2": [
       {
         "axis": "SOURCE_LOCATION",
@@ -74404,6 +74848,80 @@
         "date": "2026-11-20T09:16:24+00:00",
         "evidence_ref": "JapanTaxLaw/StampDutySpecial91Tests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "2db5135644eb982350f4e1b819b95cd06ed53a655e2d8ee97caae60ec2e53e51": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "332AC0000000026#第66条#pinned-months",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-2db5135644eb",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#2db5135644eb#coverage",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -92686,6 +93204,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "385e894aa253a603b72d51dac7a770c54f4827c8822aab7e553961edad7d8d75": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "332AC0000000026#第77条#pinned-months",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-385e894aa253",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#385e894aa253#coverage",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "3863c101e086150b855d64114629beb974e06b5d580fa069ed236707b1162b42": [
       {
         "axis": "SOURCE_LOCATION",
@@ -101472,6 +102064,80 @@
         "tool": "lake build"
       }
     ],
+    "3ddc24fb6856ee69da8acad0e5a90f411240181fa35537885db1ed7df4ad52c5": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "340CO0000000096#第185条#pinned-months",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-3ddc24fb6856",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#3ddc24fb6856#coverage",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "3ddc450875b9c054a1c63474c2e172fd3ab88c8a502ca0301e46ceb9fd276a33": [
       {
         "axis": "SOURCE_LOCATION",
@@ -104934,6 +105600,80 @@
         "date": "2026-11-25T11:56:50+00:00",
         "evidence_ref": "JapanTaxLaw/HistoricalSalaryDeductionTests.lean@kernel",
         "note": "base 四万円 cap 六十四万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "3fdcb21fd779bf94caaee3a9523449e50854e25da7d2e68ae2d5aab7ef979e9b": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "340CO0000000096#第185条#pinned-months",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-3fdcb21fd779",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#3fdcb21fd779#coverage",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -132494,6 +133234,80 @@
         "date": "2026-11-25T13:20:40+00:00",
         "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
         "note": "千円未満の端数 四捨五入; independent add-half-floor spec; universal agreement; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "50d2499eb27d3a58c4c9b707dcd648fee3b3318d134dbd2b3d2aa233accb2beb": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "332CO0000000043#第12条#pinned-months",
+        "note": "月数を乗じてこれを二十四で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-50d2499eb27d",
+        "note": "月数を乗じてこれを二十四で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#50d2499eb27d#coverage",
+        "note": "月数を乗じてこれを二十四で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを二十四で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを二十四で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを二十四で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを二十四で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを二十四で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを二十四で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -161128,6 +161942,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "6369ce1edab09b869b481f89df6847e990ebac391e6140e14ae05b6d14c2863e": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "340CO0000000096#第185条#pinned-months",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-6369ce1edab0",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#6369ce1edab0#coverage",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "636d6de5a59f4c1b33cd6503793cfc9b0a78e2129791ad2aceab18a6394f68b0": [
       {
         "axis": "SOURCE_LOCATION",
@@ -169736,6 +170624,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "69646ed3910b77c03cfdfd9b0c46abdd852b5940d7f540ab0438098d06562707": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "332CO0000000043#第14条#pinned-months",
+        "note": "月数を乗じてこれを三十六で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-69646ed3910b",
+        "note": "月数を乗じてこれを三十六で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#69646ed3910b#coverage",
+        "note": "月数を乗じてこれを三十六で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを三十六で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを三十六で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを三十六で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを三十六で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを三十六で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを三十六で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "696cc3cf43ffe41c457ff4989f2483bc0673f9ae8d672eaf35f7f1e229d1e14f": [
       {
         "axis": "SOURCE_LOCATION",
@@ -174992,6 +175954,80 @@
         "date": "2026-11-20T09:16:25+00:00",
         "evidence_ref": "JapanTaxLaw/CorporateLossCarryforwardTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "6c236836a6f5e679b381b9d30225dc4a0a6e3b54330059ea7ca2f3167fb9f361": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "332CO0000000043#第5_6_4条#pinned-months",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-6c236836a6f5",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#6c236836a6f5#coverage",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -199820,6 +200856,80 @@
         "note": "enforcement date 令和七年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "7b6e32c681a7e5065a574143a9dbd11e6fbd40491ee51407c09958d4b428e481": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "332AC0000000026#第62条#pinned-months",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-7b6e32c681a7",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#7b6e32c681a7#coverage",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "7b81eec9eda15595fd4fa2bbff8718603f9abd1e60cb7b631a7ff19c39a0c9d8": [
@@ -254828,6 +255938,80 @@
         "tool": "lake build"
       }
     ],
+    "9d605410acaa8e3f8337b358afa745c8caba9df7d91e7a7635cc25e29f226d1f": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "332AC0000000026#第13条#pinned-months",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-9d605410acaa",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#9d605410acaa#coverage",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "9d654cdfe085ada16736d9704c667e16d32cb7ef676fd452f0ce205020922798": [
       {
         "axis": "SOURCE_LOCATION",
@@ -284282,6 +285466,80 @@
         "tool": "lake build"
       }
     ],
+    "ae3b9142266354260d84c3afb833e757fefb6322dac5b791241f7a128d399735": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "332CO0000000043#第10条#pinned-months",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-ae3b91422663",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#ae3b91422663#coverage",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "ae45b4e6f73f95cdadec3fe5f37f511250afa9b5a21ff96832479816abdadb73": [
       {
         "axis": "SOURCE_LOCATION",
@@ -289102,6 +290360,80 @@
         "note": "enforcement date 令和二年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "b10e8b0b7299b04b4b9ffb1071ed4e68ec41d3a57e70f0a716bac1c2bcef96c8": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "340CO0000000096#第185条#pinned-months",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-b10e8b0b7299",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#b10e8b0b7299#coverage",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "b10f84b39fc3b8cc971bbff850d274b6967014f3e8f59972b8770a92a88da651": [
@@ -313824,6 +315156,80 @@
         "tool": "lake build"
       }
     ],
+    "c07763759f20da9c36b6013e65fd09184c430e9e5c04cd63240e9c55aea924b3": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "340CO0000000096#第185条#pinned-months",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-c07763759f20",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#c07763759f20#coverage",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "c07d37ee37434022f594c1ed66b86cfe5bdfc4c0174c7c4d0a3bde389fcf6347": [
       {
         "axis": "SOURCE_LOCATION",
@@ -316416,6 +317822,80 @@
         "note": "unit decomposition and mechanical coverage only",
         "reviewer": "ci",
         "tool": "task_queue.py"
+      }
+    ],
+    "c2d7c6db72e0a73348611735ca4aa32f92212e94e025b0db72e58002a564b75c": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "332AC0000000026#第41条#pinned-months",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-c2d7c6db72e0",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#c2d7c6db72e0#coverage",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを六十で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "c2de3ef46343da10d41763cf2bb95dd5f5a13b508a0cae149a35519828e98de7": [
@@ -360628,6 +362108,80 @@
         "date": "2026-11-24T09:22:24+00:00",
         "evidence_ref": "JapanTaxLaw/LocalInsuranceDeductionTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "ddeefd2e46e5d13b277554c54cd33ccbe1bda4cc2f46485411b55f2c53271ca1": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "340CO0000000096#第185条#pinned-months",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "mechanical-audit:MONTH-ddeefd2e46e5",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "task_queue.json#ddeefd2e46e5#coverage",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#divide-12-then-cofactor@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProration.lean#prorate*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#prorate_by_cofactor/agree*@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationSpec.lean#agree*@universal-Nat-Nat@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean#0/12-months-boundaries@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T15:45:38+00:00",
+        "evidence_ref": "JapanTaxLaw/MonthProrationTests.lean@kernel",
+        "note": "月数を乗じてこれを十二で除して; independent divide-12-then-cofactor spec; universal agreement + monotonicity; annual amount caller-established; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }

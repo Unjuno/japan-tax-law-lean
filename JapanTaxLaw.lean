@@ -608,3 +608,6 @@ import JapanTaxLaw.TenthsFractionsTests
 import JapanTaxLaw.FractionRates110
 import JapanTaxLaw.FractionRates110Spec
 import JapanTaxLaw.FractionRates110Tests
+import JapanTaxLaw.MonthProration
+import JapanTaxLaw.MonthProrationSpec
+import JapanTaxLaw.MonthProrationTests
