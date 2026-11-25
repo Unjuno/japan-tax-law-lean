@@ -94,7 +94,9 @@ def checks():
     # HouseholdCorrectionFloor07 — 航空機燃料譲与税法施行規則 art.4(8) 世帯数〇・七下限
     yield ("航空機燃料譲与税法施行規則 art.4(8)（世帯数〇・七下限）↔ HouseholdCorrectionFloor07.lean",
            "347M50000008026", "article", "第四条", ["前年度の世帯数に〇・七を乗じて得た数に満たず、かつ、当該前年度の世帯数から当該補正世帯数を控除して得た数が千を超える場合には"])
+
     yield ("航空機燃料税法 art. 14(1) 第四号（納付すべき税額＝二号税額−前号税額）↔ AircraftFuelTaxPayable.lean", "347AC0000000007", "article", "第十四条", ["第二号に掲げる航空機燃料税額から前号に掲げる航空機燃料税額を控除した金額"])
+
     yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
 
     # Restored registry checks dropped by a concurrent stale-base rewrite.
@@ -2376,6 +2378,12 @@ def checks():
            "file", None,
            ["一万五千円と当該合計額から一万五千円を控除した金額の二分の一に相当する金額との合計額", "旧個人年金保険料の金額の合計額が一万五千円を超え四万円以下である場合"])
 
+    # LocalTaxFixedAmountRounding — cycle-119
+    yield ("LocalTaxFixedAmountRounding.lean",
+           "325AC0000000226",
+           "file", None,
+           ["地方税の確定金額に百円未満の端数があるとき、又はその全額が百円未満であるときは、その端数金額又はその全額を切り捨てる", "第二十条の四の二"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -4343,11 +4351,18 @@ def checks():
     yield ("地方税法 art. 22_2（更正請求書虚偽記載の罰金上限50万円）↔ LocalTaxFalseFilingFineCap500k.lean",
            "325AC0000000226", "file", None,
            ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
     # 相続税法 art. 70 — InheritanceTaxFalseReportFineCap500k.lean (50万円)
     yield ("相続税法 art. 70（調書虚偽記載の罰金上限50万円）↔ InheritanceTaxFalseReportFineCap500k.lean",
            "325AC0000000073", "file", None,
            ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
 
+    # CustomsTariffArt7MutatisMutandisException.lean - NORM|1432e7d9... (関税定率法 art.7(15) EXCEPTION/READING/CONDITION, law 143AC0000000054)
+    # Article-kind locator; needle is the mutatis-mutandis-with-carveout clause.
+    yield ("customs tariff law art.7 mutatis mutandis exception - CustomsTariffArt7MutatisMutandisException.lean",
+           "143AC0000000054",
+           "article", "\u7b2c\u4e03\u6761",
+           ["\u7b2c\u4e03\u9805\u3001\u7b2c\u516b\u9805\uff08\u7b2c\u4e00\u53f7\u3092\u9664\u304f\u3002\uff09\u53ca\u3073\u7b2c\u4e5d\u9805\u306e\u898f\u5b9a\u306f\u3001\u524d\u9805\u306e\u8abf\u67fb\u304c\u958b\u59cb\u3055\u308c\u305f\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
 
     yield ("特別とん税法 art.10(1)（3年/50万円の上限）↔ SpecialTonnageArt10PenaltyCap.lean",
            "332AC0000000038",
@@ -4360,15 +4375,20 @@ def checks():
            "file", None,
            ["この法律（第二条及び第三条を除く。）は、平成十三年一月六日から施行する。", "第一条"])
 
-
     # 地方税法 art. 27 — LocalTaxOffenseFineCap500k.lean (50万円)
     yield ("地方税法 art. 27（罰金上限50万円）↔ LocalTaxOffenseFineCap500k.lean",
            "325AC0000000226", "file", None,
            ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
     # 地方税法 art. 52 ホ — LocalCapitalCeiling10M.lean (1000万円)
     yield ("地方税法 art. 52（ホ 資本金等の額1000万円以下）↔ LocalCapitalCeiling10M.lean",
            "325AC0000000226", "file", None,
            ["資本金等の額が千万円以下であるもの"])
+    # 地方税法 附則5の12(4) — SpecialTaxCreditCap10000.lean
+    yield ("地方税法 附則第五条の十二 第四項（特別税額控除額 一万円超分岐）↔ SpecialTaxCreditCap10000.lean",
+           "325AC0000000226", "file", None,
+           ["前項の市町村民税に係る令和七年度分特別税額控除額は、個人の住民税の所得割の額が一万円を超える場合には一万円から道府県民税特別税額控除額を控除して得た金額とし、個人の住民税の所得割の額が一万円を超えない場合には第二項第二号に掲げる額に相当する金額とする。"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
