@@ -12466,3 +12466,11 @@ CI `checks()` の `LifeInsurancePremiumDeductionUpper.lean` エントリ（law_i
 - **独立再抽出**: 形式化担当の数値を信じず、e-Gov JSON の MainProvision 直下の第七百一条の四十二を ArticleTitle で特定し、SHA-256 pin を再計算。原文から税率を独立抽出。
 - **照合・判定**: 六百円/㎡ → `a * 600`、百分の〇・二五 → 25/10000（0.25%）。25/1000（10倍誤り）を反例テストで排除。D=CONFIRMED（H/T/D/C/U は `scripts/ci/source_audit_business_office_tax_rate.py` の出力を参照）。
 - **限界**: 認定・課税標準・申告徴収手続・附則は NOT MODELLED。本レビューは機械的独立照合であり人間の法的レビューではない（LEGAL_REVIEW_PENDING）。
+
+### PowerDevelopmentTaxPenalty.lean — 電源開発促進税法 art.12（罰金上限）— Batch EA4
+
+- **pin**: law `349AC0000000079`, article 12; needle 「五十万円を超え当該電源開発促進税に相当する金額の三倍以下」.
+- **独立再抽出**: pinned 原文から `上限 = max(500,000, 相当金額)` を再導出。独立仕様は逆条件定式で、全称定理 `agreeUpper` で実装と照合。
+- **H/T/D**: 単位 円・定義域 Nat。境界 499,999→500,000、500,000→500,000、500,001→500,001、1,000,000→1,000,000 を kernel 確認。
+- **C/U**: 犯罪成立要件・情状による科刑・手続は NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
+- **判定**: BY-DESIGN。CONFIRMED 0 / UNRESOLVED 1。
