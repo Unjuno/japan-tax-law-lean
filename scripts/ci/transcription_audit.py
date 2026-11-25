@@ -1009,6 +1009,12 @@ def checks():
            "article", "第七百一条の四十二",
            ["事業所税の税率は、資産割にあつては一平方メートルにつき六百円、従業者割にあつては百分の〇・二五とする。"])
 
+    # 地方税法 art. 594 — SpecialLandHoldingTaxRate.lean
+    yield ("地方税法 art. 594（特別土地保有税の税率: 土地 百分の一・四 = 14/1000／取得 百分の三 = 3/100）↔ SpecialLandHoldingTaxRate.lean",
+           "325AC0000000226",
+           "article", "第五百九十四条",
+           ["特別土地保有税の税率は、土地に対して課する特別土地保有税にあつては百分の一・四、土地の取得に対して課する特別土地保有税にあつては百分の三とする。"])
+
     # 相続税法 art. 24(1) 一号〜三号 — InheritanceAnnuityMaxima.lean
     yield ("相続税法 art. 24(1) 一号〜三号（定期金の評価: 有期/無期/終身 = max(解約返戻金, 一時金, 基礎額) — 無期は平均額÷予定利率、複利現価率・予定利率・余命年数は NOT MODELLED / caller-established）↔ InheritanceAnnuityMaxima.lean",
            "325AC0000000073",
