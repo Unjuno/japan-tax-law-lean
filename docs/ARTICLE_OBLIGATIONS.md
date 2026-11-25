@@ -6,10 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 266
-- presence-facts-only complete: 266
-- NOT_STARTED: 266
-
+- articles with explicit pin: 265
+- presence-facts-only complete: 265
+- NOT_STARTED: 265
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -18,9 +17,9 @@ source positions. Human legal review is a separate axis and is pending.
 
 | law_id | article | module | presence | scoped | review | authoritative status |
 |---|---|---|---|---|---|---|
-| `347AC0000000007` | 第十四条 | AircraftFuelTaxPayable | YES | YES | YES | NOT_STARTED |
+| `347M50000008026` | 第四条 | HouseholdCorrectionFloor07 | YES | YES | YES | NOT_STARTED |
+| `347AC0000000007` | 第十四条 | AircraftFuelTaxPayable | YES | YES | NO | NOT_STARTED |
 | `346AC0000000090` | 第四条 | AutoWeightGrantRounding | YES | YES | YES | NOT_STARTED |
-| `332AC0000000077` | 第六条 | TokyoAsCityDeeming | YES | YES | YES | NOT_STARTED |
 | `340AC0000000034` | 第六十六条 | CorporateTaxRate | YES | YES | YES | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の七 | GiftTax | YES | YES | YES | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の五 | GiftTax | YES | YES | YES | NOT_STARTED |
@@ -65,12 +64,11 @@ source positions. Human legal review is a separate axis and is pending.
 | `340AC0000000034` | 第六十四条の七 | GroupLossRatio | YES | YES | NO | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の十二 | GiftSpecialDeduction | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第六条 | CustomsRetaliatoryDuty | YES | YES | NO | NOT_STARTED |
-| `325AC0000000226` | 第七百一条の四十二 | BusinessOfficeTaxRate | YES | YES | YES | NOT_STARTED |
+| `325AC0000000226` | 第七百一条の四十二 | BusinessOfficeTaxRate | YES | YES | NO | NOT_STARTED |
 | `430AC0000000016` | 第十五条 | InternationalTouristTaxRate | YES | YES | NO | NOT_STARTED |
 | `347AC0000000007` | 第十一条 | AviationFuelTaxRate | YES | YES | NO | NOT_STARTED |
 | `332AC0000000055` | 第二十七条 | GasolineTaxArt27TripleFineRange | YES | YES | NO | NOT_STARTED |
 | `332AC0000000038` | 第十条 | SpecialTonnageArt10PenaltyCap | YES | YES | NO | NOT_STARTED |
-| `322AC0000000175` | 第七条 | DisasterLiquorDeduction500YenFloor | YES | YES | NO | NOT_STARTED |
 | `330AC0000000104` | 第四条 | LocalGasolineTaxRate | YES | YES | NO | NOT_STARTED |
 | `332AC0000000055` | 第九条 | GasolineTaxRate | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十四条 | CustomsSameContentLimit | YES | YES | NO | NOT_STARTED |
@@ -284,4 +282,3 @@ source positions. Human legal review is a separate axis and is pending.
 | `325AC0000000073` | 第六十七条 | InheritanceTaxArt67LocalSurchargeProhibition | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第七条 | CustomsTariffArt7MutatisMutandisException | YES | YES | NO | NOT_STARTED |
 | `332AC0000000038` | 第十条 | SpecialTonnageArt10PenaltyCap | YES | YES | NO | NOT_STARTED |
-

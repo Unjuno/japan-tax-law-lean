@@ -17,7 +17,6 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
 | laws with >=1 pinned literal check | 177 | 327 | 54.13% |
-
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -64,16 +63,14 @@ and must never be merged into the 'laws in ledger' completion rate.
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
 | pinned literal checks | 630 | n/a | n/a |
-| distinct article pins | 204 | 42584 | 0.48% |
-| pinned Lean modules (cross-law) | 1156 | n/a | n/a |
-
+| distinct article pins | 203 | 42584 | 0.48% |
+| pinned Lean modules (cross-law) | 1161 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 933 |
-
+| unpinned Lean modules (not counted as verified) | 943 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -91,7 +88,6 @@ evidence of absence of defects.
 | axis | count |
 |---|---:|
 | adversarial review sessions recorded | 113 |
-
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
