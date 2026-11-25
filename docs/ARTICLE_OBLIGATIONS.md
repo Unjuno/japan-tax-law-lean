@@ -13,8 +13,8 @@ reconstruction only, never semantic fidelity to the statute.
 - normative units: 268107
 - NOT_STARTED: 260764
 - PARTIAL: 4312
-- PROVED_SCOPE: 188
-- FULLY_VERIFIED: 2841
+- PROVED_SCOPE: 185
+- FULLY_VERIFIED: 2844
 - BLOCKED: 2
 - STALE: 0
 - adversarial-review evidence recorded: 3057 (separate axis)
