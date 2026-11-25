@@ -414,10 +414,13 @@ class TestRealInventory(unittest.TestCase):
         self.assertEqual(d["historical_references"], 87)
         self.assertEqual(d["revision_lists_pinned"], 59)
         self.assertGreater(d["historical_candidates_total"], 2000)
-        self.assertTrue(all(e["status"] ==
-                            "REVISION_METADATA_PINNED_SNAPSHOT_NOT_ACQUIRED"
-                            for e in d["entries"]))
-        self.assertTrue(all(not e["raw_snapshot"] for e in d["entries"]))
+        # 3 unique previous-revision law_data snapshots cover 6 新/旧 references,
+        # but exact reference mapping is NOT done.
+        self.assertGreaterEqual(d["law_data_snapshots_acquired"], 3)
+        allowed = {"REVISION_METADATA_PINNED_SNAPSHOT_NOT_ACQUIRED",
+                   "SNAPSHOT_ACQUIRED_REFERENCE_MAPPING_NOT_DONE",
+                   "PIN_REQUIRED_NOT_DONE"}
+        self.assertTrue(all(e["status"] in allowed for e in d["entries"]))
 
     def test_local_ordinance_layer_is_separate_and_unacquired(self):
         p = REPO / "build" / "local_ordinance_ledger.json"

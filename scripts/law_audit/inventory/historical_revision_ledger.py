@@ -19,6 +19,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[3]
 DISCOVERED = REPO / "build" / "discovered_laws.json"
 PINS = REPO / "data" / "historical_revision_pins.json"
+SNAPSHOTS = REPO / "data" / "historical_law_snapshots.json"
 OUT_JSON = REPO / "build" / "historical_revisions.json"
 OUT_MD = REPO / "docs" / "HISTORICAL_REVISIONS.md"
 STATUS = "PIN_REQUIRED_NOT_DONE"
@@ -32,23 +33,30 @@ def main() -> int:
     if PINS.exists():
         pd = json.loads(PINS.read_text(encoding="utf-8"))
         pins = {p["law_id"]: p for p in pd.get("laws", []) if p.get("law_id")}
+    snaps = {}
+    if SNAPSHOTS.exists():
+        sd = json.loads(SNAPSHOTS.read_text(encoding="utf-8"))
+        snaps = {s["law_id"]: s for s in sd.get("records", []) if s.get("law_id")}
     entries = []
     for e in sorted(hist, key=lambda x: (-x["occurrences"], x["name"])):
         p = pins.get(e.get("law_id", ""), {})
         cand = p.get("historical_candidates", [])
+        snap = snaps.get(e.get("law_id", ""))
         entries.append({
             "reference_name": e["name"],
             "occurrences": e["occurrences"],
             "base_law_id": e.get("law_id", ""),
             "layer": "HISTORICAL_REVISION",
-            "status": ("REVISION_METADATA_PINNED_SNAPSHOT_NOT_ACQUIRED"
-                       if p.get("source_sha256") else STATUS),
-            "pinned_revision_id": cand[0]["law_revision_id"] if cand else "",
+            "status": ("SNAPSHOT_ACQUIRED_REFERENCE_MAPPING_NOT_DONE" if snap
+                       else ("REVISION_METADATA_PINNED_SNAPSHOT_NOT_ACQUIRED"
+                             if p.get("source_sha256") else STATUS)),
+            "pinned_revision_id": (snap or {}).get("revision") or (cand[0]["law_revision_id"] if cand else ""),
             "historical_candidate_count": len(cand),
             "revision_list_sha256": p.get("source_sha256", ""),
-            "raw_snapshot": "",
-            "sha256": "",
-            "note": "e-Gog API v2 revision metadata pinned; exact target revision and full law snapshot NOT acquired",
+            "raw_snapshot": (snap or {}).get("source_file", ""),
+            "sha256": (snap or {}).get("source_sha256", ""),
+            "note": ("e-Gov law_data snapshot acquired for one previous revision; exact 新/旧 reference mapping still NOT done"
+                     if snap else "e-Gov revision metadata pinned; full law snapshot NOT acquired"),
         })
     payload = {
         "tool": "scripts/law_audit/inventory/historical_revision_ledger.py",
@@ -60,6 +68,7 @@ def main() -> int:
         "revision_lists_pinned": sum(1 for p in pins.values() if p.get("source_sha256")),
         "historical_candidates_total": sum(len(p.get("historical_candidates", []))
                                            for p in pins.values()),
+        "law_data_snapshots_acquired": sum(1 for e in entries if e["raw_snapshot"]),
         "entries": entries,
     }
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
@@ -85,6 +94,8 @@ def main() -> int:
         f"- historical revision candidates: {payload['historical_candidates_total']}",
         f"- references with a pinned candidate ID: {payload['pinned']}",
         f"- references without: {payload['not_pinned']}",
+        f"- law-data snapshots acquired (mapping not done): "
+        f"{payload['law_data_snapshots_acquired']}",
         "",
         "| reference | occurrences | base law | status |",
         "|---|---:|---|---|",
@@ -96,8 +107,9 @@ def main() -> int:
     OUT_MD.write_text("\n".join(lines), encoding="utf-8")
     print(f"historical revision ledger: {len(entries)} obligations, "
           f"{payload['revision_lists_pinned']} revision lists pinned, "
-          f"{payload['historical_candidates_total']} candidates "
-          f"(NO law-data snapshot acquired)")
+          f"{payload['historical_candidates_total']} candidates, "
+          f"{payload['law_data_snapshots_acquired']} law-data snapshots acquired "
+          f"(reference mapping NOT done)")
     return 0
 
 
