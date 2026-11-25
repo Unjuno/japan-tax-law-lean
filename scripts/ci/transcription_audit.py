@@ -4445,6 +4445,16 @@ def checks():
            "file", None,
            ["自動車重量譲与税は、自動車重量税法（昭和四十六年法律第八十九号）の規定による自動車重量税の収入額の千分の三百五十七に相当する額とし、市町村（特別区を含む。以下同じ。）及び都道府県に対して譲与するものとする。"])
 
+    yield ("地方税法 art. 70（罰金上限50万円）↔ LocalTaxArt70FineCap500k.lean",
+           "325AC0000000226", "file", None,
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
+
+    yield ("地方税法 art. 71_21（罰金上限50万円）↔ LocalTaxArt71_21FineCap500k.lean",
+           "325AC0000000226", "file", None,
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
