@@ -2389,6 +2389,12 @@ def checks():
            "file", None,
            ["二万二千円と当該合計額から三万二千円を控除した金額の四分の一に相当する金額との合計額", "三万二千円を超え五万六千円以下である場合"])
 
+    # NewIndividualAnnuityPremiumDeductionUpper — cycle-117
+    yield ("NewIndividualAnnuityPremiumDeductionUpper.lean",
+           "325AC0000000226",
+           "file", None,
+           ["新個人年金保険料の金額の合計額が三万二千円を超え五万六千円以下である場合二万二千円と当該合計額から三万二千円を控除した金額の四分の一に相当する金額との合計額", "第三十四条"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
