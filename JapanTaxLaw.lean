@@ -665,6 +665,9 @@ import JapanTaxLaw.Employee300Tests
 import JapanTaxLaw.EmploymentDuration6Months
 import JapanTaxLaw.EmploymentDuration6MonthsSpec
 import JapanTaxLaw.EmploymentDuration6MonthsTests
+import JapanTaxLaw.EqualLevyIncomeRequirement
+import JapanTaxLaw.EqualLevyIncomeRequirementSpec
+import JapanTaxLaw.EqualLevyIncomeRequirementTests
 import JapanTaxLaw.ExamFee
 import JapanTaxLaw.ExamFeeSpec
 import JapanTaxLaw.ExamFeeTests
