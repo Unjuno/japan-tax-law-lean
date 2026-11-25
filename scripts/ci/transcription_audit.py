@@ -102,6 +102,9 @@ def checks():
     yield ("特別とん譲与税法 art.6(1)（都を市とみなす）↔ TokyoAsCityDeeming.lean",
            "332AC0000000077", "article", "第六条",
            ["この場合においては、都を市とみなして、この法律の規定を適用する。"])
+    # TwoOrMorePortMunicipalities.lean - NORM|6d88a4e6... (二以上 CONDITION, law 332M50000002021)
+    yield ("特別とん譲与税法施行規則 art.2(1)（二以上の開港所在市町村）↔ TwoOrMorePortMunicipalities.lean", "332M50000002021", "article", "第二条", ["（二以上の開港所在市町村の区域が一の税関の管轄区域に属する場合の譲与の基準）"])
+
     # Restored registry checks dropped by a concurrent stale-base rewrite.
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,
