@@ -35342,6 +35342,54 @@
         "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfSenRoundingSpec.lean#add-half-sen-floor@kernel",
+        "note": "五十銭未満切捨/五十銭以上一円とする; sub-yen input in 銭; universal half-up agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfSenRounding.lean#roundSen@kernel",
+        "note": "五十銭未満切捨/五十銭以上一円とする; sub-yen input in 銭; universal half-up agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfSenRoundingSpec.lean#agreeRoundSen@kernel",
+        "note": "五十銭未満切捨/五十銭以上一円とする; sub-yen input in 銭; universal half-up agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfSenRoundingSpec.lean#agreeRoundSen@universal-Nat@kernel",
+        "note": "五十銭未満切捨/五十銭以上一円とする; sub-yen input in 銭; universal half-up agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfSenRoundingTests.lean#50-sen-boundary@kernel",
+        "note": "五十銭未満切捨/五十銭以上一円とする; sub-yen input in 銭; universal half-up agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfSenRoundingTests.lean@kernel",
+        "note": "五十銭未満切捨/五十銭以上一円とする; sub-yen input in 銭; universal half-up agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "147fd5e2951689d1a9bcd273dca49614839b9d3c054eba2bafbfa968ed090262": [
@@ -35448,6 +35496,54 @@
         "date": "2026-11-25T13:45:47+00:00",
         "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
         "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#add-half-floor@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRounding.lean#roundHalfUpThousand@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@universal-Nat@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean#500-yen-boundary@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -189706,6 +189802,54 @@
         "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfSenRoundingSpec.lean#add-half-sen-floor@kernel",
+        "note": "五十銭未満切捨/五十銭以上一円とする; sub-yen input in 銭; universal half-up agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfSenRounding.lean#roundSen@kernel",
+        "note": "五十銭未満切捨/五十銭以上一円とする; sub-yen input in 銭; universal half-up agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfSenRoundingSpec.lean#agreeRoundSen@kernel",
+        "note": "五十銭未満切捨/五十銭以上一円とする; sub-yen input in 銭; universal half-up agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfSenRoundingSpec.lean#agreeRoundSen@universal-Nat@kernel",
+        "note": "五十銭未満切捨/五十銭以上一円とする; sub-yen input in 銭; universal half-up agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfSenRoundingTests.lean#50-sen-boundary@kernel",
+        "note": "五十銭未満切捨/五十銭以上一円とする; sub-yen input in 銭; universal half-up agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfSenRoundingTests.lean@kernel",
+        "note": "五十銭未満切捨/五十銭以上一円とする; sub-yen input in 銭; universal half-up agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "7592b7a840a8630dad2aa9bf322be85f0fce279f47a3a861748c056d14c5c03a": [
@@ -228416,6 +228560,54 @@
         "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#add-half-floor@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRounding.lean#roundHalfUpThousand@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@universal-Nat@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean#500-yen-boundary@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "8d9315d57c2f330960df8e2f81e04f3d910de2c88a19cb22ea65b555b9b08a44": [
@@ -261122,6 +261314,54 @@
         "date": "2026-11-25T13:45:47+00:00",
         "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
         "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#add-half-floor@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRounding.lean#roundHalfUpThousand@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@universal-Nat@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean#500-yen-boundary@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -318376,6 +318616,54 @@
         "date": "2026-11-25T13:45:47+00:00",
         "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
         "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#add-half-floor@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRounding.lean#roundHalfUpThousand@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@universal-Nat@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean#500-yen-boundary@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T14:06:45+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
+        "note": "五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
         "reviewer": "ci",
         "tool": "lake build"
       }

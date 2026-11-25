@@ -9304,17 +9304,19 @@
     },
     "1477b60705b536ee194c549760f2874dc479a385c8aac0141eb4f0b540ec98e4": {
       "artifacts": [
-        "JapanTaxLaw/FloorRoundingMinimum.lean",
-        "JapanTaxLaw/FloorRoundingMinimumSpec.lean",
-        "JapanTaxLaw/FloorRoundingMinimumTests.lean"
+        "JapanTaxLaw/HalfSenRounding.lean",
+        "JapanTaxLaw/HalfSenRoundingSpec.lean",
+        "JapanTaxLaw/HalfSenRoundingTests.lean"
       ],
       "blockers": [],
       "last_generated_digest": "f35cfd65f62b9d99008ec87362ab0eb98787d2e4e727d3ca6cd7ce7b09c00454",
       "legal_review": "LEGAL_REVIEW_PENDING",
-      "notes": "切捨て threshold 一円; universal quotient agreement; independent adversarial NOT done",
-      "owner": "ci-formalize-cycle20",
+      "notes": "ADVERSARIAL FAIL resolved: remodelled in HalfSenRounding. 五十銭未満切捨/五十銭以上一円とする; sub-yen input in 銭; universal half-up agreement",
+      "owner": "ci-formalize-cycle21",
       "review_evidence": [
-        "data/evidence_audits/down_audit.json"
+        "data/evidence_audits/down_audit.json",
+        "data/evidence_audits/floor_adversarial_fail.md",
+        "data/evidence_audits/floor_fix_resolution.md"
       ],
       "status": "NOT_STARTED",
       "updated_at": "2026-11-25T13:49:05+00:00"
@@ -9336,17 +9338,19 @@
     },
     "14870787f83c98fcb9dbaefe528cc3e851c943912b26f6fbc1c29bde486444d3": {
       "artifacts": [
-        "JapanTaxLaw/FloorRoundingMinimum.lean",
-        "JapanTaxLaw/FloorRoundingMinimumSpec.lean",
-        "JapanTaxLaw/FloorRoundingMinimumTests.lean"
+        "JapanTaxLaw/HalfUpRounding.lean",
+        "JapanTaxLaw/HalfUpRoundingSpec.lean",
+        "JapanTaxLaw/HalfUpRoundingTests.lean"
       ],
       "blockers": [],
       "last_generated_digest": "b8adb025572ffc36b071d0f3ddd8c0e8809fbe714399dfe67778b19842ad7856",
       "legal_review": "LEGAL_REVIEW_PENDING",
-      "notes": "切捨て threshold 五百円; universal quotient agreement; independent adversarial NOT done",
-      "owner": "ci-formalize-cycle20",
+      "notes": "ADVERSARIAL FAIL resolved: remodelled in HalfUpRounding. 五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+      "owner": "ci-formalize-cycle21",
       "review_evidence": [
-        "data/evidence_audits/down_audit.json"
+        "data/evidence_audits/down_audit.json",
+        "data/evidence_audits/floor_adversarial_fail.md",
+        "data/evidence_audits/floor_fix_resolution.md"
       ],
       "status": "NOT_STARTED",
       "updated_at": "2026-11-25T13:49:06+00:00"
@@ -50814,17 +50818,19 @@
     },
     "758d5a300b6131287d9e633506c449f24361c6d920257c49615bce39d9e4721f": {
       "artifacts": [
-        "JapanTaxLaw/FloorRoundingMinimum.lean",
-        "JapanTaxLaw/FloorRoundingMinimumSpec.lean",
-        "JapanTaxLaw/FloorRoundingMinimumTests.lean"
+        "JapanTaxLaw/HalfSenRounding.lean",
+        "JapanTaxLaw/HalfSenRoundingSpec.lean",
+        "JapanTaxLaw/HalfSenRoundingTests.lean"
       ],
       "blockers": [],
       "last_generated_digest": "c3e12c178ea01542d9acfe7a3f9eaf0963b6ce21cda27919ed5665316db160a6",
       "legal_review": "LEGAL_REVIEW_PENDING",
-      "notes": "切捨て threshold 一円; universal quotient agreement; independent adversarial NOT done",
-      "owner": "ci-formalize-cycle20",
+      "notes": "ADVERSARIAL FAIL resolved: remodelled in HalfSenRounding. 五十銭未満切捨/五十銭以上一円とする; sub-yen input in 銭; universal half-up agreement",
+      "owner": "ci-formalize-cycle21",
       "review_evidence": [
-        "data/evidence_audits/down_audit.json"
+        "data/evidence_audits/down_audit.json",
+        "data/evidence_audits/floor_adversarial_fail.md",
+        "data/evidence_audits/floor_fix_resolution.md"
       ],
       "status": "NOT_STARTED",
       "updated_at": "2026-11-25T13:49:05+00:00"
@@ -61057,17 +61063,19 @@
     },
     "8d90ed35602bf3422734e8527c88390c31abbf418aa2650092910f3be8a4de9b": {
       "artifacts": [
-        "JapanTaxLaw/FloorRoundingMinimum.lean",
-        "JapanTaxLaw/FloorRoundingMinimumSpec.lean",
-        "JapanTaxLaw/FloorRoundingMinimumTests.lean"
+        "JapanTaxLaw/HalfUpRounding.lean",
+        "JapanTaxLaw/HalfUpRoundingSpec.lean",
+        "JapanTaxLaw/HalfUpRoundingTests.lean"
       ],
       "blockers": [],
       "last_generated_digest": "599e4d4270610ab7b57e1bd15a7b2b7b6f8e42ead45a0cb399c7dbe67e08529a",
       "legal_review": "LEGAL_REVIEW_PENDING",
-      "notes": "切捨て threshold 五百円; universal quotient agreement; independent adversarial NOT done",
-      "owner": "ci-formalize-cycle20",
+      "notes": "ADVERSARIAL FAIL resolved: remodelled in HalfUpRounding. 五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+      "owner": "ci-formalize-cycle21",
       "review_evidence": [
-        "data/evidence_audits/down_audit.json"
+        "data/evidence_audits/down_audit.json",
+        "data/evidence_audits/floor_adversarial_fail.md",
+        "data/evidence_audits/floor_fix_resolution.md"
       ],
       "status": "NOT_STARTED",
       "updated_at": "2026-11-25T13:49:06+00:00"
@@ -69654,17 +69662,19 @@
     },
     "a112a33c71fd32667b0f7a7714be3b23d5f36b9c5944a1ad9c9e9c34bbec8010": {
       "artifacts": [
-        "JapanTaxLaw/FloorRoundingMinimum.lean",
-        "JapanTaxLaw/FloorRoundingMinimumSpec.lean",
-        "JapanTaxLaw/FloorRoundingMinimumTests.lean"
+        "JapanTaxLaw/HalfUpRounding.lean",
+        "JapanTaxLaw/HalfUpRoundingSpec.lean",
+        "JapanTaxLaw/HalfUpRoundingTests.lean"
       ],
       "blockers": [],
       "last_generated_digest": "bbf5b485943072fc3f275bd6e1dba3db55cfd8cf4e580c98bbbb3f94d2af6884",
       "legal_review": "LEGAL_REVIEW_PENDING",
-      "notes": "切捨て threshold 五百円; universal quotient agreement; independent adversarial NOT done",
-      "owner": "ci-formalize-cycle20",
+      "notes": "ADVERSARIAL FAIL resolved: remodelled in HalfUpRounding. 五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+      "owner": "ci-formalize-cycle21",
       "review_evidence": [
-        "data/evidence_audits/down_audit.json"
+        "data/evidence_audits/down_audit.json",
+        "data/evidence_audits/floor_adversarial_fail.md",
+        "data/evidence_audits/floor_fix_resolution.md"
       ],
       "status": "NOT_STARTED",
       "updated_at": "2026-11-25T13:49:06+00:00"
@@ -85221,17 +85231,19 @@
     },
     "c4eedc933b788a1e6c6e1dc253139cc12dbaf56f2be863b575ed245b98c5bd00": {
       "artifacts": [
-        "JapanTaxLaw/FloorRoundingMinimum.lean",
-        "JapanTaxLaw/FloorRoundingMinimumSpec.lean",
-        "JapanTaxLaw/FloorRoundingMinimumTests.lean"
+        "JapanTaxLaw/HalfUpRounding.lean",
+        "JapanTaxLaw/HalfUpRoundingSpec.lean",
+        "JapanTaxLaw/HalfUpRoundingTests.lean"
       ],
       "blockers": [],
       "last_generated_digest": "6ac5e1d3c67d8f3f56152d2bf6c4af882e8fa105fcd0139b4f4eb4aa806e9def",
       "legal_review": "LEGAL_REVIEW_PENDING",
-      "notes": "切捨て threshold 五百円; universal quotient agreement; independent adversarial NOT done",
-      "owner": "ci-formalize-cycle20",
+      "notes": "ADVERSARIAL FAIL resolved: remodelled in HalfUpRounding. 五百円未満切捨/五百円以上千円未満を千円とする = 千円単位四捨五入; universal agreement",
+      "owner": "ci-formalize-cycle21",
       "review_evidence": [
-        "data/evidence_audits/down_audit.json"
+        "data/evidence_audits/down_audit.json",
+        "data/evidence_audits/floor_adversarial_fail.md",
+        "data/evidence_audits/floor_fix_resolution.md"
       ],
       "status": "NOT_STARTED",
       "updated_at": "2026-11-25T13:49:06+00:00"
@@ -110815,5 +110827,5 @@
       "updated_at": "2026-11-24T10:11:25+00:00"
     }
   },
-  "updated_at": "2026-11-25T13:49:10+00:00"
+  "updated_at": "2026-11-25T14:09:12+00:00"
 }

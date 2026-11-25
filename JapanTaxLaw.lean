@@ -599,3 +599,6 @@ import JapanTaxLaw.HalfUpRoundingTests
 import JapanTaxLaw.FloorRoundingMinimum
 import JapanTaxLaw.FloorRoundingMinimumSpec
 import JapanTaxLaw.FloorRoundingMinimumTests
+import JapanTaxLaw.HalfSenRounding
+import JapanTaxLaw.HalfSenRoundingSpec
+import JapanTaxLaw.HalfSenRoundingTests
