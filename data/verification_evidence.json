@@ -2560,6 +2560,80 @@
         "tool": "lake build"
       }
     ],
+    "019faeb6ed58fb0c7bbbe98c7b1021a4c2d9130fa239fb98bda7cb982f7bb5a7": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "332AC0000000026#第41_19_3条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-019faeb6ed58",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#019faeb6ed58#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "01a5f2b37aa22b73bd4b570347039794d04b18b85175e9b4f1f568cc25fdad0a": [
       {
         "axis": "SOURCE_LOCATION",
@@ -6568,6 +6642,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "0408211f79f44ea08fed813cdf8e64f2dc35ea5d856419baf3e852147bd846dc": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "332AC0000000026#第41_19_3条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-0408211f79f4",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#0408211f79f4#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "041423cce9f00861fd57044b6359ff2a954985b235d9c88eff0dd47b12e16281": [
       {
         "axis": "SOURCE_LOCATION",
@@ -8680,6 +8828,80 @@
         "tool": "lake build"
       }
     ],
+    "055ee0291846c8c9c91e341fd7c8184c908af5201d7f24dc73d452fc10382bbc": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "337M50000008017#第13条#pinned-floor",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-055ee0291846",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#055ee0291846#coverage",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "056da9cff7dc2144e063e26df09222e27a306ca0a2e36f3fb6d3f352d9c99c09": [
       {
         "axis": "SOURCE_LOCATION",
@@ -9494,6 +9716,80 @@
         "note": "enforcement date 平成三十一年一月七日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "05f6ffcef9bc24b1536704421f50d4d23c8ab9d78c1b9a09917b9b20467d4bbd": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "322CO0000000268#第9条#pinned-floor",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-05f6ffcef9bc",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#05f6ffcef9bc#coverage",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "05fa1d2aef11fd0d3d1953413e617968a3a8829d3f8605368ed64760186c3233": [
@@ -34974,6 +35270,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "1477b60705b536ee194c549760f2874dc479a385c8aac0141eb4f0b540ec98e4": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "325CO0000000245#第35_12条#pinned-floor",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-1477b60705b5",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#1477b60705b5#coverage",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "147fd5e2951689d1a9bcd273dca49614839b9d3c054eba2bafbfa968ed090262": [
       {
         "axis": "SOURCE_LOCATION",
@@ -35004,6 +35374,80 @@
         "date": "2026-11-20T09:16:28+00:00",
         "evidence_ref": "JapanTaxLaw/LocalCorporationTaxRateTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "14870787f83c98fcb9dbaefe528cc3e851c943912b26f6fbc1c29bde486444d3": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "337M50000008017#第17条#pinned-floor",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-14870787f83c",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#14870787f83c#coverage",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -36848,6 +37292,80 @@
         "note": "unit decomposition and mechanical coverage only",
         "reviewer": "ci",
         "tool": "task_queue.py"
+      }
+    ],
+    "1573753818b82685d8be3a9fb3403ae8627a77946ae5fb0633941118f133e990": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "332CO0000000043#第40_8条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-1573753818b8",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#1573753818b8#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "157b5c6be60124bd6556c0f182d43cbcc47270f3da53c2ba2e909bc31984c218": [
@@ -44636,6 +45154,80 @@
         "note": "independent alternative-path source check",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "1ad221f21acf07b05bb422cf953bf5db2828c1ea7f9cbecf2f59b3078e7d49b0": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "332AC0000000026#第41_19_3条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-1ad221f21acf",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#1ad221f21acf#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "1ad331aa03f57f95a3dbbd997a6eb4c7b3dca4c7d2f92649091c173b2768164d": [
@@ -62876,6 +63468,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "264f423fa6ccba3af10e46898ac7519f8207d734f3a83669c66553126a3fcbbd": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "332CO0000000043#第40_8_12条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-264f423fa6cc",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#264f423fa6cc#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "266da878713572d14fcf1d161dee9ef0e99eb5c92224cabb825efafe704f7ec0": [
       {
         "axis": "SOURCE_LOCATION",
@@ -68646,6 +69312,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "2ac50a39e4b839388509bf4b9b5ad3b03a21df695b24c71393d3a0f62dbb7fc6": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "337M50000008017#第19_2条#pinned-floor",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-2ac50a39e4b8",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#2ac50a39e4b8#coverage",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "2ad9b9e4e7ec503913df9621258355ab3352c978ba7fbfda9615a765550a8dc4": [
       {
         "axis": "SOURCE_LOCATION",
@@ -71844,6 +72584,80 @@
         "date": "2026-11-20T09:16:24+00:00",
         "evidence_ref": "JapanTaxLaw/TaxRoundingTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "2ce3b7ebccd64efe20b3c4ca773ddcacfea3144de802832e8c3919df8f1bc644": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "332CO0000000043#第40_7_10条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-2ce3b7ebccd6",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#2ce3b7ebccd6#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -103074,6 +103888,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "3fa888548920ec0c4f8061b43c916044e4026aaa2fa7d0054c922eb9dfe04d6e": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "329AC0000000061#第12条#pinned-floor",
+        "note": "一万円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-3fa888548920",
+        "note": "一万円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#3fa888548920#coverage",
+        "note": "一万円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "一万円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "一万円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "一万円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "一万円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "一万円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "一万円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "3faf4564268907d5be780063194c55a317886823f6806a6c2d5177ad114857e3": [
       {
         "axis": "SOURCE_LOCATION",
@@ -105150,6 +106038,80 @@
         "date": "2026-11-24T09:21:12+00:00",
         "evidence_ref": "JapanTaxLaw/SpecialGiftRateTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "41257b34dcedd59942a434c294979e9113fa62734fa350541dee9f175fc31d29": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "332CO0000000043#第40_7_7条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-41257b34dced",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#41257b34dced#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -122302,6 +123264,80 @@
         "note": "unit decomposition and mechanical coverage only",
         "reviewer": "ci",
         "tool": "task_queue.py"
+      }
+    ],
+    "4c096fd346464b310e36aa86628ddc972cefc790891a12338bef6553796f0434": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "325CO0000000245#第3条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-4c096fd34646",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#4c096fd34646#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "4c10fc4a5d65543514f471171fdd8c3802290fbd7a07c535929cd6fa9bd66398": [
@@ -139990,6 +141026,80 @@
         "note": "penalty cap p22 (百万円以下、十年以下拘禁刑)",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "573a08cd2551f07c2d959abd1bb9c1ee1937ca2d5cd4289fd6818c2c89a9d689": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "332CO0000000043#第40_7_6条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-573a08cd2551",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#573a08cd2551#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "5745957a891d24c52f30c6b2ddc1f41e2ebb0286b0c7dfa9fb0662bb8a6396d7": [
@@ -181672,6 +182782,80 @@
         "tool": "lake build"
       }
     ],
+    "7194bb1c7697367b32632d18d28fd664fae917e31303f5580aeab033760ae0cd": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "423AC0000000029#第8条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-7194bb1c7697",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#7194bb1c7697#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "71a085ad9cb27289961696dd3e2a3b52a4b77425cd5444bc65cf55c27aea2ec5": [
       {
         "axis": "SOURCE_LOCATION",
@@ -188446,6 +189630,80 @@
         "date": "2026-11-20T09:16:28+00:00",
         "evidence_ref": "JapanTaxLaw/SpecialLandHoldingTaxTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "758d5a300b6131287d9e633506c449f24361c6d920257c49615bce39d9e4721f": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "325CO0000000245#第35_12条#pinned-floor",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-758d5a300b61",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#758d5a300b61#coverage",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -203990,6 +205248,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "7f7dd25bd28e40e7b2416c6ec35ec5b0a93f4b9cbb8eb4c9f80020c7d5f38d9f": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "337M50000008017#第14条#pinned-floor",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-7f7dd25bd28e",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#7f7dd25bd28e#coverage",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "7f877c12a7a379907dc16b7c6898841e290cd2e3993b32ec91976bc8f9de4a31": [
       {
         "axis": "SOURCE_LOCATION",
@@ -209990,6 +211322,80 @@
         "date": "2026-11-24T09:22:08+00:00",
         "evidence_ref": "JapanTaxLaw/RegistrationQualificationFeesP7KTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "8316543d00798f33680c5e173a0070920daa65b980d305f0f699bfedf4934795": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "337M50000008017#第15条#pinned-floor",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-8316543d0079",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#8316543d0079#coverage",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -226938,6 +228344,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "8d90ed35602bf3422734e8527c88390c31abbf418aa2650092910f3be8a4de9b": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "337M50000008017#第17条#pinned-floor",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-8d90ed35602b",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#8d90ed35602b#coverage",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "8d9315d57c2f330960df8e2f81e04f3d910de2c88a19cb22ea65b555b9b08a44": [
       {
         "axis": "SOURCE_LOCATION",
@@ -238802,6 +240282,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "9568db4ff6f7cb01bad9c5dc0ae4e81bc44632bdbed13f7e5a889fd3bb7c3f0a": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "325AC0000000226#第5_11条#pinned-floor",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-9568db4ff6f7",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#9568db4ff6f7#coverage",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "957e3c4436637dc519395a91f8a8d47178bf1147c4ee76a86672b58d015ac55c": [
       {
         "axis": "SOURCE_LOCATION",
@@ -245306,6 +246860,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "9999cc3abcca031f20480f7611eed378cc3f1d610727ee88ceec40594e4fe0c4": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "325CO0000000245#第35_9条#pinned-floor",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-9999cc3abcca",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#9999cc3abcca#coverage",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "99a1fd55617f6a70b30fb50b2f3ba1d028dadaa7dd7e3d594a3022dd79a0bc04": [
       {
         "axis": "SOURCE_LOCATION",
@@ -249898,6 +251526,80 @@
         "date": "2026-11-20T09:16:26+00:00",
         "evidence_ref": "JapanTaxLaw/RegistryQualificationFeesJ1Tests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "9bfc4bad32b629321b1745a5c1e1c10e0dc2815b4b20f1c3d5aa8d27d1cf01c6": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "332CO0000000043#第40_8_6条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-9bfc4bad32b6",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#9bfc4bad32b6#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -259346,6 +261048,80 @@
         "date": "2026-11-24T09:22:09+00:00",
         "evidence_ref": "JapanTaxLaw/RegistrationQualificationFeesP7KTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "a112a33c71fd32667b0f7a7714be3b23d5f36b9c5944a1ad9c9e9c34bbec8010": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "337M50000008017#第5条#pinned-floor",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-a112a33c71fd",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#a112a33c71fd#coverage",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -269494,6 +271270,80 @@
         "tool": "transcription_audit.py"
       }
     ],
+    "a6b651ae7d891eacb3ccad0d3e87e8a17008c447f58d6aa225d7873d125bc573": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "332CO0000000043#第40_8_2条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-a6b651ae7d89",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#a6b651ae7d89#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "a6dbbc3d9ac36c1b9f6a2ec74f9a8655d9f377f2514d0c3974cee5134156794d": [
       {
         "axis": "SOURCE_LOCATION",
@@ -269756,6 +271606,80 @@
         "note": "enforcement date 平成十年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "a7195e8397a0255bb0317d61d04410efe7b44cd6236aeafc53734c97c9d9948f": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "332AC0000000026#第41_19_2条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-a7195e8397a0",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#a7195e8397a0#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "a71baebb510961db164fc250274d2b2c381a35a766ddc1744c0b8ac60aec43ec": [
@@ -273484,6 +275408,80 @@
         "date": "2026-11-20T09:16:24+00:00",
         "evidence_ref": "JapanTaxLaw/StampDutySpecial91Tests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "a9871ab6a5fef757c44d89d70cef48acb54d61b6df977ca81fc4a98079019089": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "325AC0000000226#第321_7_2条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-a9871ab6a5fe",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#a9871ab6a5fe#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -287530,6 +289528,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "b1f888197883200f295036c77f9311326fc8b4d534d006b42c77dd524712519f": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "420M60000008116#第2条#pinned-floor",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-b1f888197883",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#b1f888197883#coverage",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "b1fcd074d2d7c287c1f1d8c919f1bc475e2ff453b1e7571d099e2f23715e1aab": [
       {
         "axis": "SOURCE_LOCATION",
@@ -293828,6 +295900,80 @@
         "date": "2026-11-20T09:16:24+00:00",
         "evidence_ref": "JapanTaxLaw/PhaseECorpRatesTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "b65f89f6b12c917e651c895e61fb273cefe85b1af885be100689d7a63f49e29d": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "332AC0000000026#第41_19_3条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-b65f89f6b12c",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#b65f89f6b12c#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -307976,6 +310122,80 @@
         "tool": "task_queue.py"
       }
     ],
+    "bf805b453be784e95d8f97e7bb1108f4fe81b71fa6032bfad865a6148fb0c5b1": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "325AC0000000226#第5_11条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-bf805b453be7",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#bf805b453be7#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "bf99711fd94f7a181db0200765c4cbe56e25e49f01a181f20a03fa69f16767ed": [
       {
         "axis": "SOURCE_LOCATION",
@@ -316082,6 +318302,80 @@
         "date": "2026-11-20T09:16:24+00:00",
         "evidence_ref": "JapanTaxLaw/SpousalGiftDeductionTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "c4eedc933b788a1e6c6e1dc253139cc12dbaf56f2be863b575ed245b98c5bd00": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "337M50000008017#第17条#pinned-floor",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-c4eedc933b78",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#c4eedc933b78#coverage",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "五百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -334946,6 +337240,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "d0bc4b8657ea0b5b61564198b5c9fc27734693af688eb3fcafa7754e9fcbf7b5": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "332AC0000000026#第41_19_3条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-d0bc4b8657ea",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#d0bc4b8657ea#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "d0beb6a5c3ec9f35b9ce71f7a6fcbe5aebfc7ef7dc95d67b455d9c3a2af4565c": [
       {
         "axis": "SOURCE_LOCATION",
@@ -343376,6 +345744,80 @@
         "date": "2026-11-20T09:16:24+00:00",
         "evidence_ref": "JapanTaxLaw/PhaseECorpRatesTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "d55a88dd22595651d47e3c70b598a3a9ffa6754d7ba78b9d09c4c6dbd8da4e30": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "329AC0000000061##pinned-floor",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-d55a88dd2259",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#d55a88dd2259#coverage",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -352596,6 +355038,80 @@
         "tool": "lake build"
       }
     ],
+    "db9641a4740f7f71bc4afd0f510255969d34736f16bee858f355d5e1a440bdcb": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "504CO0000000300#第2条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-db9641a4740f",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#db9641a4740f#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "dba4e01915846b623a8068bf03b9edf0d2f193dc26632f2cf7e79a29fd978620": [
       {
         "axis": "SOURCE_LOCATION",
@@ -356366,6 +358882,80 @@
         "date": "2026-11-20T09:16:25+00:00",
         "evidence_ref": "JapanTaxLaw/GroupLossRatioTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "ddc2e4682b476bf48b75daa91ca06bd5081474e0f0fe3699710ecdade1d12f3e": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "337M50000008017#第14_3条#pinned-floor",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-ddc2e4682b47",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#ddc2e4682b47#coverage",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -363098,6 +365688,80 @@
         "tool": "task_queue.py"
       }
     ],
+    "e2acdeaae79f7a92a0ecfb3faa967c58e9c8ab7860fe200cd1b244af81dac6ed": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "332AC0000000026#第41_18_2条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-e2acdeaae79f",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#e2acdeaae79f#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "e2b612ac9730c928ac844687ddd6374f657d53c6c7eaaed3d7476476da4a37fa": [
       {
         "axis": "SOURCE_LOCATION",
@@ -363152,6 +365816,80 @@
         "date": "2026-11-24T09:22:10+00:00",
         "evidence_ref": "JapanTaxLaw/RegistrationQualificationFeesP7KTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "e2b7b6cca9156f4b8555212abfa0eb4eaf872dd3621282ce5c0a1c6920deb11b": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "340AC0000000033#第114条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-e2b7b6cca915",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#e2b7b6cca915#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -363726,6 +366464,80 @@
         "note": "unit decomposition and mechanical coverage only",
         "reviewer": "ci",
         "tool": "task_queue.py"
+      }
+    ],
+    "e306a73d3c4e0b7d5618a44f096d12a8e6489198d53884bf87e5dcd433cb1322": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "332AC0000000026#第41_19_3条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-e306a73d3c4e",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#e306a73d3c4e#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "e3239de87ee6bac04fedf059785e09e9974b6fd563887d85b569d4b84f726f8e": [
@@ -375022,6 +377834,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "ea3ad7c26234c0311bfa5c2716daac843d6e7c25796ef503d96a697699e12475": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "332CO0000000043#第40_8_9条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-ea3ad7c26234",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#ea3ad7c26234#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "ea40b29a77373f2b369accb183fc580d66fd1d4a7527fb261bafdda5f62ee565": [
       {
         "axis": "SOURCE_LOCATION",
@@ -378186,6 +381072,80 @@
         "date": "2026-11-20T09:16:24+00:00",
         "evidence_ref": "JapanTaxLaw/StampDutySpecial91Tests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "ebf1b646ec7852a5cffa875b7e193b00e014ff24df14c4af0550c1c9ed1aa78e": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "332AC0000000026#第41_19_3条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-ebf1b646ec78",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#ebf1b646ec78#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -396780,6 +399740,80 @@
         "tool": "task_queue.py"
       }
     ],
+    "f7dc2784ddd0391e955439da751b2a4f5d179a34798a64a544d982da9bf5998e": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "325CO0000000245#第6_3条#pinned-floor",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-f7dc2784ddd0",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#f7dc2784ddd0#coverage",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "一円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "f7e5d22eb783201730ff61b7cc57fb79dac33700ee5788c981b075eacd461ab6": [
       {
         "axis": "SOURCE_LOCATION",
@@ -404682,6 +407716,80 @@
         "date": "2026-11-24T09:22:24+00:00",
         "evidence_ref": "JapanTaxLaw/LocalInsuranceDeductionTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "fccc0d8d9b2905f90baeb7b0a7e5f1543ec8f61eaa3c9919d4b84f85d605de24": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "332CO0000000043#第40_7_8条#pinned-floor",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "mechanical-audit:FLOOR-fccc0d8d9b29",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "task_queue.json#fccc0d8d9b29#coverage",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#quotient-formula@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt/floorOrMinimum@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_eq_quotient/floorOrMinimum_agrees@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#agree*@universal-Nat+monotone@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100/1499-boundaries@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T13:45:47+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 切り捨て; independent quotient spec; universal agreement + monotonicity; underlying amount not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
