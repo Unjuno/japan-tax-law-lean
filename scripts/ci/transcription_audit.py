@@ -1202,6 +1202,12 @@ def checks():
            "article", "第十条",
            ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する", "第十条"])
 
+    # 相続税法 art.21の7 表セル — InheritanceTaxArt21_7Bracket3M4M.lean
+    yield ("相続税法 art.21の7 表（三百万円超四百万円以下）↔ InheritanceTaxArt21_7Bracket3M4M.lean",
+           "325AC0000000073",
+           "file", None,
+           ["三百万円を超え四百万円以下の金額", "第二十一条の七"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
