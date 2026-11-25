@@ -1,3 +1,0 @@
-import JapanTaxLaw.SecrecyBreachPenaltyCeilingsSpec
-#print axioms JapanTaxLaw.SecrecyBreachPenaltyCeilings.agree_imprisonment_months
-#print axioms JapanTaxLaw.SecrecyBreachPenaltyCeilings.agree_fine_yen
