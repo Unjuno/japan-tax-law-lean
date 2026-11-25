@@ -1971,6 +1971,9 @@ import JapanTaxLaw.TaxAccountantPenaltyCapTests
 import JapanTaxLaw.TaxAccountantRegDelegatedAmount
 import JapanTaxLaw.TaxAccountantRegDelegatedAmountSpec
 import JapanTaxLaw.TaxAccountantRegDelegatedAmountTests
+import JapanTaxLaw.TaxBaseRounding
+import JapanTaxLaw.TaxBaseRoundingSpec
+import JapanTaxLaw.TaxBaseRoundingTests
 import JapanTaxLaw.TaxCollectionNextBid
 import JapanTaxLaw.TaxCollectionNextBidSpec
 import JapanTaxLaw.TaxCollectionNextBidTests
