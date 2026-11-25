@@ -100,6 +100,9 @@ def _parse_seg(seg: str) -> tuple[str, str | None, int | None]:
     return seg, None, None
 
 
+TRANSPARENT = {"Chapter", "Section", "Subsection", "Division", "Part", "ParagraphSentence"}
+
+
 def resolve_all(doc: dict, source_path: str) -> list:
     """Follow the queue's structural source_path with backtracking.
 
@@ -109,38 +112,58 @@ def resolve_all(doc: dict, source_path: str) -> list:
     selectors. Backtracking over the small number of segments tolerates the
     mixture and pins the node by position rather than by searching for its
     text. Returns None when the path is ambiguous (more than one match)."""
-    segs = [_parse_seg(s) for s in source_path.split("/") if s]
+    segs = [s for s in source_path.split("/") if s]
 
     def matches(node, tag, num) -> bool:
         return (isinstance(node, dict) and node.get("tag") == tag
                 and (num is None or str((node.get("attr") or {}).get("Num", "")) == num))
 
-    def go(node, rest) -> list:
-        if not rest:
-            return [node]
-        (tag, num, idx), tail = rest[0], rest[1:]
+    def find_segment(nodes, seg) -> list:
+        tag, num, idx = _parse_seg(seg)
         out: list = []
-        if matches(node, tag, num):
-            out += go(node, tail)  # segment marks the current node
-        children = node.get("children", []) or [] if isinstance(node, dict) else []
-        if idx is not None:
-            if 0 <= idx < len(children):
-                out += go(children[idx], tail)
-            for c in children:
-                if matches(c, tag, None) and 0 <= idx < len(c.get("children", []) or []):
-                    out += go(c.get("children", [])[idx], tail)
-        else:
-            for c in children:
-                if matches(c, tag, num):
-                    out += go(c, tail)
-        # unique by identity
+
+        def rec(node, self_ok: bool):
+            if not isinstance(node, dict):
+                return
+            if self_ok and matches(node, tag, num):
+                if idx is None:
+                    out.append(node)
+                else:
+                    ch = node.get("children", []) or []
+                    if 0 <= idx < len(ch):
+                        out.append(ch[idx])
+            for c in node.get("children", []) or []:
+                if not isinstance(c, dict):
+                    continue
+                ctag = c.get("tag")
+                if ctag in TRANSPARENT:
+                    rec(c, True)
+                elif matches(c, tag, num):
+                    if idx is None:
+                        out.append(c)
+                    else:
+                        ch = c.get("children", []) or []
+                        if 0 <= idx < len(ch):
+                            out.append(ch[idx])
+                elif idx is not None and matches(c, tag, None):
+                    ch = c.get("children", []) or []
+                    if 0 <= idx < len(ch):
+                        out.append(ch[idx])
+
+        for n in nodes:
+            rec(n, True)
         seen, uniq = set(), []
         for n in out:
             if id(n) not in seen:
                 seen.add(id(n)); uniq.append(n)
         return uniq
 
-    return go(doc.get("law_full_text"), segs)
+    nodes = [doc.get("law_full_text")]
+    for seg in segs:
+        nodes = find_segment(nodes, seg)
+        if not nodes:
+            return []
+    return nodes
 
 
 def resolve_path(doc: dict, source_path: str) -> dict | None:

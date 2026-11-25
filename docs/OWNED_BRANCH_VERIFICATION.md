@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=2202, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=2234, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=2202 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=2234 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -96,8 +96,11 @@ $ python scripts/ci/check_evidence_artifacts.py
 evidence artifact audit: units=2178 missing=0
 $ python scripts/ci/batch_table_reading_pipeline.py --limit 2 / 40
 table-reading batch pipeline: verified=2 failed=0 / verified=22 failed=0
+$ structural path resolver extended through nested Chapter/Section/MainProvision wrappers
+$ python scripts/ci/batch_table_reading_pipeline.py --limit 4 / 15 / 30
+table-reading batch pipeline: verified=4 failed=0 / verified=15 failed=0 / verified=13 failed=0
 
-$ python -m unittest discover -s scripts/tests -t . → 175 tests, OK
+$ python -m unittest discover -s scripts/tests -t . → 179 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -326,9 +329,13 @@ provision-based selection stays caller-established and is NOT resolved. 24
 dependency-ready units with a clean table shape were verified. 32 further
 table units whose structural path does not resolve to a unique pinned
 paragraph remain NOT_STARTED — they are not counted as verified and are not
-skip-listed as PASS. Five synthetic-table regression tests cover the parser.
+skip-listed as PASS. The structural-path resolver was then extended to descend
+through nested `Chapter`/`Section`/`MainProvision` wrappers and to reject
+ambiguous unindexed paths; all 56 dependency-ready table units were verified
+after that fix. Five synthetic-table tests and four structural-path regression
+tests cover these guards.
 
-So 2202 units are evidence-backed FULLY_VERIFIED and 394,650 remain NOT_STARTED
+So 2234 units are evidence-backed FULLY_VERIFIED and 394,618 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
