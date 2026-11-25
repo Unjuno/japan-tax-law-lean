@@ -1220,7 +1220,9 @@ import JapanTaxLaw.LocalTaxArt48To50DeletedRangeTests
 import JapanTaxLaw.LocalTaxArt70FineCap500k
 import JapanTaxLaw.LocalTaxArt70FineCap500kSpec
 import JapanTaxLaw.LocalTaxArt70FineCap500kTests
-
+import JapanTaxLaw.LocalTaxArt71_21FineCap500k
+import JapanTaxLaw.LocalTaxArt71_21FineCap500kSpec
+import JapanTaxLaw.LocalTaxArt71_21FineCap500kTests
 import JapanTaxLaw.LocalTaxArt734AmountTier1
 import JapanTaxLaw.LocalTaxArt734AmountTier1Spec
 import JapanTaxLaw.LocalTaxArt734AmountTier1Tests
