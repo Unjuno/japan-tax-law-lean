@@ -1200,12 +1200,6 @@ def checks():
            "article", "第十条",
            ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する", "第十条"])
 
-    # 災害被害者租税減免法 art.7(3) — DisasterLiquorDeduction500YenFloor.lean
-    yield ("災害被害者租税減免法 art.7(3)（控除額五百円未満は控除しない）↔ DisasterLiquorDeduction500YenFloor.lean",
-           "322AC0000000175",
-           "article", "第七条",
-           ["五百円未満である場合における当該金額については、同項の控除を行わない", "第七条"])
-
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
@@ -2395,6 +2389,12 @@ def checks():
            "325AC0000000226",
            "file", None,
            ["当該同居特別障害者一人につき二十二万円", "第三十七条"])
+
+    # DonationTaxCredit — cycle-121
+    yield ("DonationTaxCredit.lean",
+           "325AC0000000226",
+           "file", None,
+           ["当該合計額が前年の総所得金額、退職所得金額及び山林所得金額の合計額の百分の三十に相当する金額を超える場合には、当該百分の三十に相当する金額", "二千円を超える場合には、その超える金額の百分の四"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",

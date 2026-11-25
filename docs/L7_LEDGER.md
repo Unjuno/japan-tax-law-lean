@@ -60,6 +60,7 @@
 
 ```text
 cross_law: scanned 2089 Lean files; 1156 pinned modules consistent, 0 failed; 933 unpinned (not counted as verified); unresolved unenforced laws: 508CO0000000106, 508M60000040027
+
 ```
 
 ## 6. 検証境界（誠実な宣言）
