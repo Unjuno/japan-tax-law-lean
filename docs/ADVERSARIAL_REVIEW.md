@@ -12997,3 +12997,101 @@ pinned JSON を構造体としてではなく生文字列として走査し、`"
 - **規約遵守**: commit / push / merge / ブランチ切替は行わず、Lean モジュール・`data/*`・`scripts/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文の直接抽出・needle の `.find()` 相当検査・代表点での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。法的な最終判断・解釈は専門家レビューに委ねる。本レビューをもって法的レビューを完了したものとはみなさない。**
+## Batch DK review (2026-11-26)
+
+対象: `JapanTaxLaw/DonationTaxCredit.lean` / `DonationTaxCreditSpec.lean` / `DonationTaxCreditTests.lean` — 地方税法 art.37の2 §1（寄附金税額控除）、law id `325AC0000000226`、revision `325AC0000000226_20261101_508AC0000000002`（cycle-121 の1モデル）。独立 Adversarial Review Agent による機械的照合。
+
+### DK-1. pinned 原文から3数値を直接独立抽出（桁違いの明示除外）
+
+- pinned 原文: `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`（`law_title`: `地方税法`、`law_revision_id`: 上記）。needle 位置 `firstIndex=408465` 付近の `ParagraphSentence / Sentence(Num=1)` の leaf 本文（364 文字）を直接抽出した。
+- 抽出した当該文（逐語）:
+  「道府県は、所得割の納税義務者が、前年中に次に掲げる寄附金を支出し、当該寄附金の額の合計額（当該合計額が前年の総所得金額、退職所得金額及び山林所得金額の合計額の百分の三十に相当する金額を超える場合には、当該百分の三十に相当する金額）が二千円を超える場合には、その超える金額の百分の四（当該納税義務者が指定都市の区域内に住所を有する場合には、百分の二）に相当する金額（……特例控除額を加算した金額。……）を当該納税義務者の第三十五条及び前条の規定を適用した場合の所得割の額から控除するものとする。」
+
+| 原文の数値 | 出現回数（当該文内） | 意味 | 実装 (`credit`) | 照合 |
+|---|---:|---|---|---|
+| `百分の三十` | 2 | 30% 上限 | `totalIncome * 30 / 100` | ✅ |
+| `二千円` | 2 | 2,000 円 Control | `capped > 2000` | ✅ |
+| `百分の四` | 2 | 4% | `excess * 4 / 100` | ✅ |
+| `百分の二` | 2 | 指定都市 2% | `excess * 2 / 100` | ✅ |
+
+- **桁違いの明示除外**: `百分の三`（3%）は当該文内で `百分の三十` の部分文字列として 2 回出現するのみで、単独の 3% 率は 0 回（negative lookahead `百分の三(?!十)` = **0**）。`二百円`（200 円）= **0 回**、`百分の四十`（40%）= **0 回**。したがって **3% / 200 円 / 40% はすべて明示的に除外**され、30% / 2,000 円 / 4%・2% が原文の数値として確定した。pinned 原文全体での記号出现数は他条を含むため参考に留め、当該文内の计数を採用した。
+
+### DK-2. needle 2 本の検証（U+3000 = 0 / 2/2 FOUND）
+
+`docs/STAGING_DONATION_CREDIT.md` の `needles`（`law_id`: `325AC0000000226`）を pinned 原文に対して `.Contains()` 相当で検査。
+
+| needle | 文字数 | U+3000 数 | FOUND | pinned 出現回数 | firstIndex |
+|---|---:|---:|---|---:|---:|
+| `当該合計額が…当該百分の三十に相当する金額` | 69 | 0 | ✅ | 2 | 408465 |
+| `二千円を超える場合には、その超える金額の百分の四` | 24 | 0 | ✅ | 1 | 408536 |
+
+- **FOUND 2/2、MISS 0**。両 needle とも U+3000 を含まない（合計 0 個）。needle 1 は art.37の2 §1 本文と特例寄附金節の 2 箇所に一致するが、いずれも同一の 30% 上限句であり対象条の誤同定ではない。
+
+### DK-3. 反例探索（Impl vs 独立 Spec）
+
+- 実装: `credit(d,inc,city) =` `cap=inc*30/100` → `capped = if d>cap then cap else d` → `excess = if capped>2000 then capped-2000 else 0` → `if city then excess*2/100 else excess*4/100`。
+- 独立 Spec: `specCredit(d,inc,city) =` `capped = min d (inc*30/100)` → `e = if 2000<capped then capped-2000 else 0` → `if city then e/50 else e/25`（min/max と整数除算による別定式）。
+
+| 入力 `(d, inc, city)` | Impl `credit` | 独立 Spec `specCredit` | 一致 |
+|---|---:|---:|---|
+| `(10000, 100000, false)` | **320** | **320** | ✅ |
+| `(10000, 100000, true)` | **160** | **160** | ✅ |
+| `(2000, 100000, false)` | **0** | **0** | ✅ |
+| `(100000, 100000, false)` | 1120 | 1120 | ✅（30% cap の確認） |
+
+- 検算: `100000*30/100=30000` → `min(10000,30000)=10000` → `10000-2000=8000` → `8000*4/100=320`／指定都市 `8000*2/100=160`。`d=2000` は `excess=0` で 0。
+- Spec モジュールの `agreeDonationTaxCredit`（6 点: `(0,100000,false)`, `(2000,100000,false)`, `(10000,100000,false)`, `(10000,100000,true)`, `(100000,100000,false)`, `(50000,200000,false)`）は `by decide` = `true` を確認。Tests モジュールの 3 smoke も impl と同値。
+- 代数的にも `if d>cap then cap else d = min d cap`、`capped>2000 = 2000<capped`、自然数で `e*4/100 = e/25` かつ `e*2/100 = e/50` なので両定式は全入力で同値。**反例（不一致点）は 0 件**。
+
+### DK-4. `#print axioms` 監査
+
+一時 Lean ファイル（`C:\Users\junny\AppData\Local\Temp\opencode\axioms_dk.lean`）から `lake env lean` を実行し、exit code **0** を確認。`#print axioms` を 10 回実行（Impl / Spec の名前付き宣言 3 本 + `by decide` 証明を複製した named theorem 7 本）。
+
+| 検査項目 | 結果 |
+|---|---|
+| `#print axioms` 実行回数 | 10（すべて `does not depend on any axioms`） |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+| axiom-free | **10 / 10 実行** |
+
+- 検査宣言: `DonationTaxCredit.credit`, `.specCredit`, `.agreeDonationTaxCredit`, `DK.dk_credit1..4`, `DK.dk_spec1`, `DK.dk_spec2`, `DK.dk_agree`。
+- 3 モジュールのソースに `sorry` / `admit` / `axiom` / `unsafe` / `Classical` / `choice` / `propext` / `Quot.sound` の文字列は **0 件**。一時 Lean ファイルは削除済み。
+
+### DK-5. CONFIRMED / BY-DESIGN / UNRESOLVED 分類
+
+| 分類 | 件数 |
+|---|---:|
+| CONFIRMED（不一致・誤り） | **0** |
+| BY-DESIGN（明示的 NOT MODELLED / 設計上） | **6** |
+| UNRESOLVED（人間の法律専門家レビューが必要） | **2** |
+
+#### CONFIRMED（0 件）
+
+- なし。桁違い、needle 不整合、Impl/独立 Spec の不一致、axiom 依存はいずれも検出されなかった。
+
+#### BY-DESIGN（6 件）
+
+- **B-1 特例寄附金の加算**: 原文の「特例控除対象寄附金……特例控除額を加算した金額」は **NOT MODELLED**。Impl doc-comment に明記済み。
+- **B-2 所得割上限**: 原文「第三十五条及び前条の規定を適用した場合の所得割の額から控除する」の所得割額の算定・控除額の上限適用は **NOT MODELLED**。本モデルは控除額のみを返す。
+- **B-3 寄附金の定義**: 原文「次に掲げる寄附金」（Item 列挙）による定義・該当性判定は **NOT MODELLED**。
+- **B-4 指定都市の認定**: 「指定都市の区域内に住所を有する場合」の認定は **NOT MODELLED**。`designatedCity : Bool` は caller が確定させる前提。
+- **B-5 総所得金額等の算定**: 「前年の総所得金額、退職所得金額及び山林所得金額の合計額」の算定は **NOT MODELLED**。`totalIncome : Money` は caller が確定させる前提。
+- **B-6 金額の単位・端数**: `Money = Nat`（円・非負整数）で、円未満の丸めや実額調整は扱わない。
+
+#### UNRESOLVED（2 件）
+
+- **U-1 特例控除額・所得割上限の実務計算**: 加算される特例控除額の算定と所得割額による上限適用が実際の控除額に与える影響は pinned 文言の機械的照合だけでは確定できず、人間の法律専門家によるレビューが必要。
+- **U-2 寄附金該当性と指定都市認定の法解釈**: 「次に掲げる寄附金」への該当判定・指定都市の区域内住所の認定は原文の文言のみでは確定できず、専門家解釈を要する（機械照合の限界）。
+
+### DK-6. 最終報告（サマリ）
+
+- **CONFIRMED 0 件 / BY-DESIGN 6 件 / UNRESOLVED 2 件**。不一致（誤り）は検出されず。
+- **pinned 照合**: art.37の2 §1 の leaf 本文を直接抽出し、`百分の三十`（30%）, `二千円`（2,000 円）, `百分の四`（4%）, `百分の二`（指定都市 2%）を確認。桁違いの 3% / 200 円 / 40% は当該文内で 0 回（3% は 30% の部分文字列のみ）として明示除外。
+- **needle**: 各 U+3000 = 0、**2/2 FOUND**、MISS 0。
+- **反例**: `(10000,100000,false)=320`, `(10000,100000,true)=160`, `(2000,100000,false)=0`（＋`(100000,100000,false)=1120`）で Impl = 独立 Spec、不一致 0。
+- **axiom**: choice / sorryAx / Quot.sound / propext すべて **0 件**（10/10 実行が axiom-free、exit code 0）。
+- **規約遵守**: commit / push / merge / ブランチ切替は行わず、Lean モジュール・`data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
+
+> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle の `.find()` 相当検査・代表点での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。法的な最終判断・解釈は専門家レビューに委ねる。本レビューをもって法的レビューを完了したものとはみなさない。**
