@@ -7,12 +7,12 @@ obligations being complete. SKIP is never counted as PASS.
 
 ## Axis A — registered checks (last recorded gate run)
 
-- results file available: False
-- PASS: 0
+- results file available: True
+- PASS: 54
 - FAIL: 0
 - SKIP: 0
 - required gates SKIPped: 0
-- gate results commit: (none)
+- gate results commit: a8f98b5d88d2011c9e30787a3b1f75006fabfdb6
 - current HEAD commit: 18b2fe181428a623ccc58de6d7b4f234f1472c1f
 - results bound to this commit: False
 - registered checks all green: False
@@ -20,10 +20,10 @@ obligations being complete. SKIP is never counted as PASS.
 ## Axis B — all TECHNICAL obligations complete (human review excluded)
 
 - normative units: 396854
-- NOT_STARTED: 395976
+- NOT_STARTED: 395978
 - PARTIAL: 0
 - PROVED_SCOPE: 1
-- FULLY_VERIFIED: 875
+- FULLY_VERIFIED: 873
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180617
