@@ -21490,12 +21490,17 @@
           "event": "status_changed",
           "from": "NOT_STARTED",
           "to": "FULLY_VERIFIED"
+        },
+        {
+          "event": "status_changed",
+          "from": "FULLY_VERIFIED",
+          "to": "NOT_STARTED"
         }
       ],
       "legal_review": "LEGAL_REVIEW_PENDING",
       "owner": "",
       "source_digest": "c77407cb86390875550d2fc40f5f88a1225b29e4b8cbd2618abff1dadeabbf11",
-      "status": "FULLY_VERIFIED",
+      "status": "NOT_STARTED",
       "unhandled_conditions": [],
       "unit_id": "NORM|aa899a2aff6a364b1a8e0838170134762b03cd0a9655819f9a51aca918a2f697"
     },
@@ -25215,6 +25220,44 @@
       "status": "FULLY_VERIFIED",
       "unhandled_conditions": [],
       "unit_id": "NORM|cbad5c43d753c8fa1ea47c365474dd3f890ea35c24eede479784aa3fb24e69b5"
+    },
+    "NORM|cbfd2fefa6e563861d9c68c577bdb9a62bb972f4231212d735d31790229829ee": {
+      "artifacts": {
+        "adversarial_review": "",
+        "implementation": "",
+        "kernel_proof": "",
+        "source_audit": "",
+        "source_pin": "",
+        "spec": "",
+        "tests": ""
+      },
+      "blockers": [],
+      "evidence": {
+        "adversarial_review": "",
+        "boundary_proof": "",
+        "cross_law_proof": "",
+        "decomposition_audit": "",
+        "implementation": "",
+        "independent_spec": "",
+        "kernel_proof": "",
+        "proof_scope": "",
+        "source_correspondence_audit": "",
+        "source_location": "",
+        "tests": ""
+      },
+      "history": [
+        {
+          "event": "status_changed",
+          "from": "NOT_STARTED",
+          "to": "FULLY_VERIFIED"
+        }
+      ],
+      "legal_review": "LEGAL_REVIEW_PENDING",
+      "owner": "",
+      "source_digest": "f6fe1c9380cd7659d682d0b6d294c920f364045905a23f624f372c419a66a21c",
+      "status": "FULLY_VERIFIED",
+      "unhandled_conditions": [],
+      "unit_id": "NORM|cbfd2fefa6e563861d9c68c577bdb9a62bb972f4231212d735d31790229829ee"
     },
     "NORM|cc2e5b2073f35c2d536e2343cde726ee72fc6bbfb7b55ca620b611acbb861a54": {
       "artifacts": {
