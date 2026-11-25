@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 180 | 327 | 55.05% |
+| laws with >=1 pinned literal check | 177 | 327 | 54.13% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -35,10 +35,10 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 
 | axis | count |
 |---|---:|
-| references extracted | n/a |
-| internal references checked | n/a |
-| external references NOT bound to the ledger | n/a |
-| references classified unsupported | n/a |
+| references extracted | 476500 |
+| internal references checked | 63234 |
+| external references NOT bound to the ledger | 175186 |
+| references classified unsupported | 250043 |
 
 external_unverified references are NOT verified and are NOT silently counted
 as covered scope.
@@ -62,19 +62,19 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 616 | n/a | n/a |
+| pinned literal checks | 626 | n/a | n/a |
 | distinct article pins | 203 | 42584 | 0.48% |
-| pinned Lean modules (cross-law) | 1148 | n/a | n/a |
+| pinned Lean modules (cross-law) | 1154 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 902 |
+| unpinned Lean modules (not counted as verified) | 923 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
-| external references NOT bound to the ledger | n/a |
+| external references NOT bound to the ledger | 175186 |
 | related statutes discovered but not acquired (Objective §2) | 380 |
 | related statutes acquired but not parsed/modelled/reviewed | 2 |
 
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 110 |
+| adversarial review sessions recorded | 112 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -155,11 +155,9 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `332AC0000000037` とん税法
 - `332AC0000000038` 特別とん税法
 - `332AC0000000055` 揮発油税法
-- `332AC0000000077` 特別とん譲与税法
 - `332CO0000000043` 租税特別措置法施行令
 - `332CO0000000048` とん税法施行令
 - `332CO0000000057` 揮発油税法施行令
-- `332M50000002021` 特別とん譲与税法施行規則
 - `332M50000040015` 租税特別措置法施行規則
 - `333CO0000000117` 地方交付税法施行令
 - `334AC0000000147` 国税徴収法
@@ -228,7 +226,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `353AC0000000025` 石油石炭税法
 - `359AC0000000072` たばこ税法
 - `360CO0000000005` たばこ税法施行令
-- `360M50000040001` たばこ税法施行規則
 - `362CO0000000335` 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律施行令
 - `363AC0000000107` 税制改革法
 - `363AC0000000108` 消費税法
