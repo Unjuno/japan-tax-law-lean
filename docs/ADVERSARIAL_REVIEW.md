@@ -13095,3 +13095,13 @@ pinned JSON を構造体としてではなく生文字列として走査し、`"
 - **規約遵守**: commit / push / merge / ブランチ切替は行わず、Lean モジュール・`data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文の直接抽出・needle の `.find()` 相当検査・代表点での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。法的な最終判断・解釈は専門家レビューに委ねる。本レビューをもって法的レビューを完了したものとはみなさない。**
+
+## Batch SLHR review (2026-11-25) — 地方税法 art.594
+
+### SpecialLandHoldingTaxRate.lean — 独立再抽出・照合
+
+- **対象**: `JapanTaxLaw/SpecialLandHoldingTaxRate.lean`, Spec, Tests
+- **一次資料（pinned）**: `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`
+- **独立再抽出**: MainProvision 直下の第五百九十四条を ArticleTitle で特定し、原文から税率を独立抽出。SHA-256 pin を再計算。
+- **照合・判定**: 百分の一・四 → 14/1000（1.4%）、百分の三 → 3/100。14/100（10倍誤り）を反例テストで排除。D=CONFIRMED。
+- **限界**: 課税標準・該当性・免除・附則は NOT MODELLED。機械的独立照合であり人間の法的レビューではない（LEGAL_REVIEW_PENDING）。
