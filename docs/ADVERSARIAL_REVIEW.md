@@ -12889,3 +12889,111 @@ Impl `roundDownToHundred(a) = (a / 100) * 100`（Nat）に対し、独立 Spec `
 - **制約順守**: Lean モジュール・`data/*`・`scripts/*` は読み取り専用で変更なし（作業ツリーの他エージェントによる無関係な変更には触れていない）。commit / push / merge / ブランチ切替は行っていない。一時ファイルは削除した。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle の `.find()` 検証・反例/全走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+## Batch DJ review (2026-11-26)
+
+- 対象: `JapanTaxLaw/CohabitantSpecialDisabilityDeduction.lean`（地方税法 art.37 §1 の表 第(2)行 / 同居特別障害者控除、一人 22 万円）。law id `325AC0000000226`、revision `325AC0000000226_20261101_508AC0000000002`、pinned 原文 `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`。
+- 独立 Adversarial Review: 形式化担当とは独立に cycle-120 の 1 モデルを pinned 原文照合・反例探索した。commit / push / merge / ブランチ切替は行っていない。Lean モジュール・`data/*` は読み取り専用。
+
+### DJ-1. pinned 原文からの独立抽出照合（二十二万円 = 220000）
+
+pinned JSON を構造体としてではなく生文字列として走査し、`"tag":"Article","attr":{"Num":"37"}` → `ArticleTitle=第三十七条` → `Paragraph Num=1` → `Item Num=1` → `Subitem1 Num=1` → `TableStruct` の `TableRow` 第(2)行を直接確認した。
+
+| 項目 | 独立抽出結果 |
+|---|---|
+| 上欄 leaf（区分） | （２）　同居特別障害者である同一生計配偶者又は扶養親族を有する所得割の納税義務者 |
+| 下欄 leaf（原文逐語） | 当該同居特別障害者一人につき二十二万円 |
+| 数量 | 二十二万円 = 22 × 10,000 = **220,000 円** |
+| 単位語 | **一人につき**（per person）を leaf 内に確認 |
+| 実装 | `def deduction (count : Nat) : Money := 220000 * count` — 一致 |
+| 独立 Spec | `def specDeduction (n : Nat) : Nat := n * 220000` — 一致 |
+
+桁違いの明示除外:
+
+- 2.2 万 = 22,000 円（原文 `二万二千円`）は本行ではなく生命保険料控除等・他条の金額（pinned 全文に 10 件、例: offset 361649 / 1378417 / 2988900 ほか）であり、同居特別障害者の一人額ではない → **除外**。
+- 220 万 = 2,200,000 円（原文 `二百二十万円`）は附則の読替規定（offset 5379145 / 5380095）にのみ出現し、本行ではない → **除外**。
+- exact needle `当該同居特別障害者一人につき二十二万円` の出現は 2 件（offset 403939 = art.37 側、offset 1638748 = art.314 の六側）。art.37 §1 の当該 row 下欄は `二十二万円` のみで、`二万二千円` も `二百二十万円` も含まない。
+
+同一表の他区分（原文逐語。いずれも NOT MODELLED であることの確認）:
+
+- （ｉ）当該障害者一人につき一万円 = 10,000 円
+- （ｉｉ）当該障害者が特別障害者である場合　当該特別障害者一人につき十万円 = 100,000 円
+- （２）当該同居特別障害者一人につき二十二万円 = 220,000 円 ← 本モデルの対象
+
+### DJ-2. needle 2 本の検証（U+3000 = 0 / 2/2 FOUND）
+
+| needle | U+3000 数 | FOUND | pinned 内一致数 | 先頭 offset |
+|---|---:|---|---:|---:|
+| 当該同居特別障害者一人につき二十二万円 | 0 | ✅ | 2 | 403939 |
+| 第三十七条 | 0 | ✅ | 426 | 309834 |
+
+- FOUND **2/2**、MISS **0**。両 needle に全角空白 U+3000 は含まれない（各 0 個）。
+- needle 1 の 2 件は art.37（offset 403939）と art.314 の六（offset 1638748）の同名表行。対象を art.37 §1 側に固定したため、他条の同名文言との混同はない。
+
+### DJ-3. 反例探索（Impl vs 独立 Spec）
+
+`Money = Nat` の単純乗算なので全自然数で `220000 * n = n * 220000`（Nat 乗法の可換性）だが、機械的に代表点を照合した。
+
+| count | Impl `deduction` | 独立 Spec `count*220000` | 一致 |
+|---:|---:|---:|---|
+| 0 | 0 | 0 | ✅ |
+| 1 | 220000 | 220000 | ✅ |
+| 2 | 440000 | 440000 | ✅ |
+| 3 | 660000 | 660000 | ✅ |
+| 10 | 2200000 | 2200000 | ✅ |
+
+- Spec モジュールの `agreeCohabitantSpecialDisabilityDeduction`（`[0,1,2,3,10].all fun n => deduction n == specDeduction n`）は `by decide` = `true` を確認。Tests モジュールの 0/1/2 の smoke も同一値。
+- 反例（不一致点）は **0 件**。もし 22000（2.2 万）や 2200000（220 万）を返す実装なら 1 人目で不一致となるが、実装は 220000 を返す。
+
+### DJ-4. `#print axioms` 監査
+
+一時 Lean ファイル（`C:\Users\junny\AppData\Local\Temp\opencode\axioms_dj.lean`）から `lake env lean` で `#print axioms` を実行し、exit code **0** を確認。Impl / Spec / Tests の名前付き宣言 3 本と、同じ `by decide` 証明を複製した named theorem 6 本（計 9 本の異なる宣言、うち `deduction` は再確認で 2 回、合計 10 回の実行）を検査した。
+
+| 検査項目 | 結果 |
+|---|---|
+| `#print axioms` 実行回数 | 10（異なる宣言 9 本） |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+| axiom-free（`does not depend on any axioms`） | **10 / 10 実行**（9 / 9 宣言） |
+
+- 検査宣言: `CohabitantSpecialDisabilityDeduction.deduction`, `.specDeduction`, `.agreeCohabitantSpecialDisabilityDeduction`, `DJ.deduction0`, `DJ.deduction1`, `DJ.deduction2`, `DJ.spec1`, `DJ.spec2`, `DJ.agree`。
+- 3 モジュールのソースに `sorry` / `admit` / `axiom` / `unsafe` / `Classical` / `choice` / `propext` / `Quot.sound` の文字列は **0 件**。一時 Lean ファイルは削除済み。
+
+### DJ-5. CONFIRMED / BY-DESIGN / UNRESOLVED 分類
+
+| 分類 | 件数 |
+|---|---:|
+| CONFIRMED（不一致・誤り） | **0** |
+| BY-DESIGN（明示的 NOT MODELLED / 設計上） | **6** |
+| UNRESOLVED（人間の法律専門家レビューが必要） | **2** |
+
+#### CONFIRMED（0 件）
+
+- なし。桁違い、needle 不整合、Impl/独立 Spec 不一致、axiom 依存はいずれも検出されなかった。
+
+#### BY-DESIGN（6 件）
+
+- **B-1 認定・定義**: 「同居特別障害者」の定義・認定（同居を常況とする要件等）は NOT MODELLED。Impl doc-comment に明記済み。
+- **B-2 他区分・特別障害者 10 万円**: 同表（ｉｉ）の `十万円` は対象外で NOT MODELLED。
+- **B-3 他区分・障害者 1 万円**: 同表（ｉ）の `一万円` は対象外で NOT MODELLED。
+- **B-4 所得制限**: §1 の `前年の合計所得金額が二千五百万円以下` および `合計課税所得金額が二百万円以下` の各制限は NOT MODELLED。
+- **B-5 調整控除の計算構造**: 5 万円＋表金額の加算、百分の二／指定都市百分の一、他の所得控除との通算は NOT MODELLED（本モデルは定額 22 万円/人 のみを扱う）。
+- **B-6 金額の単位・前提**: `Money = Nat`（円・非負整数）で、円未満の丸めや実額調整は扱わない。`count` は caller が確定させる前提。
+
+#### UNRESOLVED（2 件）
+
+- **U-1 認定要件の法解釈**: 「同居を常況としている者」等の適用範囲は pinned 原文の文言のみでは確定できず、人間の法律専門家による解釈が必要（機械的照合の限界）。
+- **U-2 調整控除構造と実額への影響**: 所得制限・他控除との通算・他区分との併用が実際の控除額に与える影響は本 L4 モデルの範囲外で、pinned 文言の機械的照合だけでは解決しない。人間のレビューを要する。
+
+### DJ-6. 最終報告（サマリ）
+
+- **CONFIRMED 0 件 / BY-DESIGN 6 件 / UNRESOLVED 2 件**。不一致（誤り）は検出されず。
+- **pinned 照合**: 原文 leaf `当該同居特別障害者一人につき二十二万円` を直接抽出し、`一人につき` を確認。`二十二万円 = 220000`。2.2 万／220 万は他条の出現として明示除外。
+- **needle**: 各 U+3000 = 0、**2/2 FOUND**、MISS 0。
+- **反例**: 0, 1, 2（＋3, 10）で Impl = 独立 Spec = `count*220000`、不一致 0。
+- **axiom**: choice / sorryAx / Quot.sound / propext すべて **0 件**（10/10 実行が axiom-free、exit code 0）。
+- **レビュー件数**: 書き込み前 **112 件**（直近 DI セクションの記録に準拠。並行ワーストリームで変動し得る）、本 DJ セクション追記後 **113 件**（既存 +1）。書き込み直前にファイルを再読込し（SHA-256 `e9e3c1c11657bacf3d477d96623d3c65059f4404237fe250eea15d5a02d1c356`、1,540,980 バイト、H2 見出し 118、Batch 見出し 108、DI 見出し 1、DJ 見出し 0）記録した。追記後に既存バイト列が前方一致で保持されていることを検証済み。
+- **規約遵守**: commit / push / merge / ブランチ切替は行わず、Lean モジュール・`data/*`・`scripts/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
+
+> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle の `.find()` 相当検査・代表点での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。法的な最終判断・解釈は専門家レビューに委ねる。本レビューをもって法的レビューを完了したものとはみなさない。**
