@@ -92,8 +92,15 @@ def contains(haystack: str, needle: str) -> bool:
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
     yield ("航空機燃料税法 art. 14(1) 第四号（納付すべき税額＝二号税額−前号税額）↔ AircraftFuelTaxPayable.lean", "347AC0000000007", "article", "第十四条", ["第二号に掲げる航空機燃料税額から前号に掲げる航空機燃料税額を控除した金額"])
+
     yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
 
+    # TokyoAsCityDeeming.lean - NORM|1a2cafd55f792102d5682dcc811260486c83126edbf8985d8a31d64c3eddb32f
+    # 特別とん譲与税法 第六条第一項 第二文 (DEEMING 「都を市とみなして」).
+    # Needle is in MainProvision Article 第六条; revision pinned in INVENTORY.
+    yield ("特別とん譲与税法 art.6(1)（都を市とみなす）↔ TokyoAsCityDeeming.lean",
+           "332AC0000000077", "article", "第六条",
+           ["この場合においては、都を市とみなして、この法律の規定を適用する。"])
     # Restored registry checks dropped by a concurrent stale-base rewrite.
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,
@@ -4318,6 +4325,13 @@ def checks():
            "430AC0000000016",
            "file", None,
            ["前項の納付しなかった国際観光旅客税の額が二百万円を超えるときは、情状により、同項の罰金は、二百万円を超えその納付しなかった国際観光旅客税の額に相当する金額以下とすることができる。"])
+
+    # InheritanceTaxArt13ResidualAssetDebtException.lean - NORM|e1208a4e... (相続税法 art.13(2) item3 EXCEPTION, law 325AC0000000073)
+    # Article-kind locator; needle is the residual asset debt category.
+    yield ("inheritance tax art.13 residual asset debt exception - InheritanceTaxArt13ResidualAssetDebtException.lean",
+           "325AC0000000073",
+           "article", "\u7b2c\u5341\u4e09\u6761",
+           ["\u524d\u4e8c\u53f7\u306b\u63b2\u3052\u308b\u50b5\u52d9\u3092\u9664\u304f\u307b\u304b\u3001\u305d\u306e\u8ca1\u7523\u306e\u53d6\u5f97\u3001\u7dad\u6301\u53c8\u306f\u7ba1\u7406\u306e\u305f\u3081\u306b\u751f\u3058\u305f\u50b5\u52d9"])
 
     # 地方交付税法施行令 art. 8(3) — GrantErrorRounding1000.lean
     yield ("地方交付税法施行令 art. 8（錯誤額の千円未満切捨て）↔ GrantErrorRounding1000.lean",

@@ -13,17 +13,17 @@ obligations being complete. SKIP is never counted as PASS.
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: (none)
-- current HEAD commit: 39ff5b061c432b1bc917b41834277f70e2a8016e
+- current HEAD commit: ed183d5da73804b290ab0b48f09c82b6d126babc
 - results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all TECHNICAL obligations complete (human review excluded)
 
 - normative units: 396854
-- NOT_STARTED: 396043
+- NOT_STARTED: 396041
 - PARTIAL: 0
 - PROVED_SCOPE: 1
-- FULLY_VERIFIED: 808
+- FULLY_VERIFIED: 810
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180617
@@ -43,26 +43,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 809 | 396854 |
-| kernel proved (CI-attested proof evidence) | 809 | 396854 |
-| source-audited (原文 correspondence evidence) | 809 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 811 | 396854 |
+| kernel proved (CI-attested proof evidence) | 811 | 396854 |
+| source-audited (原文 correspondence evidence) | 811 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 809 |
-| boundary_proof | 809 |
-| cross_law_proof | 809 |
-| decomposition_audit | 809 |
-| implementation | 809 |
-| independent_spec | 809 |
-| kernel_proof | 809 |
-| proof_scope | 809 |
-| source_correspondence_audit | 809 |
-| source_location | 809 |
-| tests | 809 |
+| adversarial_review | 811 |
+| boundary_proof | 811 |
+| cross_law_proof | 811 |
+| decomposition_audit | 811 |
+| implementation | 811 |
+| independent_spec | 811 |
+| kernel_proof | 811 |
+| proof_scope | 811 |
+| source_correspondence_audit | 811 |
+| source_location | 811 |
+| tests | 811 |
 
 ## Verdict
 
