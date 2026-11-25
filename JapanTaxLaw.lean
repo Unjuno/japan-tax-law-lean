@@ -665,6 +665,9 @@ import JapanTaxLaw.Employee300Tests
 import JapanTaxLaw.EmploymentDuration6Months
 import JapanTaxLaw.EmploymentDuration6MonthsSpec
 import JapanTaxLaw.EmploymentDuration6MonthsTests
+import JapanTaxLaw.EqualLevyIncomeRequirement
+import JapanTaxLaw.EqualLevyIncomeRequirementSpec
+import JapanTaxLaw.EqualLevyIncomeRequirementTests
 import JapanTaxLaw.ExamFee
 import JapanTaxLaw.ExamFeeSpec
 import JapanTaxLaw.ExamFeeTests
@@ -2005,6 +2008,9 @@ import JapanTaxLaw.TaxSavingsPenaltyCeilingTests
 import JapanTaxLaw.TaxService15Years
 import JapanTaxLaw.TaxService15YearsSpec
 import JapanTaxLaw.TaxService15YearsTests
+import JapanTaxLaw.TaxableQuantityResidual
+import JapanTaxLaw.TaxableQuantityResidualSpec
+import JapanTaxLaw.TaxableQuantityResidualTests
 import JapanTaxLaw.TaxationPeriod
 import JapanTaxLaw.TaxationPeriodSpec
 import JapanTaxLaw.TaxationPeriodTests

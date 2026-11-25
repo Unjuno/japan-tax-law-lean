@@ -7201,6 +7201,17 @@
         15
       ]
     },
+    "TaxableQuantityResidual": {
+      "adversarial_review": true,
+      "boundary_examples_found": 3,
+      "independent_spec": true,
+      "kanji_literals": [],
+      "kernel_attested": true,
+      "kernel_decided_examples": 6,
+      "needles_scoped": true,
+      "scoped_article_chars": 1188,
+      "spec_literals": []
+    },
     "ThousandYenTruncation": {
       "adversarial_review": true,
       "boundary_examples_found": 5,
@@ -11375,6 +11386,20 @@
         "spec_kanji_in_原文": [
           "七十"
         ]
+      },
+      "NORM|3f049c7ac5a29e667cddf5a3310f6887f45eeae97b97e43ecf1ab0b0517c5adb": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 6,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "TaxableQuantityResidual",
+        "spec_kanji_in_原文": []
       },
       "NORM|3f3ca07e56f7b79a41465de36d2ed3b7fa8973d07307f8cd13ee7ea9bb5cc883": {
         "checks": {
@@ -24299,6 +24324,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"70\": [\"七十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/332M50000040015_20261101_507M60000040026.law.json#LawBody[4]/MainProvision/MainProvision[3]/Article:23_10/Article#23_10/Paragraph#5/ParagraphSentence/Sentence#1 sha256=2e5d3e585b99e15ffb030c8b6fa0dcc6ccf7cc9532924fa5b6438a68cc05767c (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/DeceasedUnder70Tests.lean sha256=7e0ff9d03663ad7a80a71e322a1fdf313eeb0c1a5a746e08d56f86e0e52cbabc (11 kernel-decided examples)"
+    },
+    "NORM|3f049c7ac5a29e667cddf5a3310f6887f45eeae97b97e43ecf1ab0b0517c5adb": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 6 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=328AC0000000006_20260525_506AC0000000052 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/TaxableQuantityResidual.lean sha256=7a570103b979e60031799b8f2fe15cd02abe79a1561c85ed02338fb7a9568567",
+      "independent_spec": "JapanTaxLaw/TaxableQuantityResidualSpec.lean sha256=33774ccd549137f7044ad093a3a8436a38072c8be44f6c1fc63fa63556ae8d7b (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45674788942: commit 209f8de320a86b60fd727cd0c18512578acc0df3, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=pinned needle(s) in clause: ['第一号に規定する課税標準たる数量からそれぞれ当該']; constants [] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['第一号に規定する課税標準たる数量からそれぞれ当該']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/328AC0000000006_20260525_506AC0000000052.law.json#LawBody[3]/MainProvision/MainProvision[4]/Article:30_2/Article#30_2/Paragraph#1/Item#3/ItemSentence/Sentence#1 sha256=01d87149a80f64fa70d8b6eafffead6341982d902c4d206630cbc3f91c781e70 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/TaxableQuantityResidualTests.lean sha256=1cb915bf3fe99342df7a97ed72878cb26f308a240a056588af66bc6079193ea4 (6 kernel-decided examples)"
     },
     "NORM|3f3ca07e56f7b79a41465de36d2ed3b7fa8973d07307f8cd13ee7ea9bb5cc883": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
