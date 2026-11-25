@@ -13188,13 +13188,105 @@ pinned JSON を構造体としてではなく生文字列として走査し、`"
 - **規約遵守**: commit / push / merge / ブランチ切替は行わず、Lean モジュール・`data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文からの直接抽出・needle の部分文字列検査・代表点での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。法的な最終判断・解釈は専門家レビューに委ねる。本レビューをもって法的レビューを完了したものとはみなさない。**
+## Batch DM review (2026-11-26) — 地方税法 art.23 §1 第11号 イ（２）／第12号 イ（２）（前年の合計所得金額が五百万円以下であること）/ `EqualLevyIncomeRequirement.lean`（cycle-123 の1モデル）
 
-## Batch SLHR review (2026-11-25) — 地方税法 art.594
+対象: `JapanTaxLaw/EqualLevyIncomeRequirement.lean` / `EqualLevyIncomeRequirementSpec.lean` / `EqualLevyIncomeRequirementTests.lean` — 地方税法 art.23 §1、law id `325AC0000000226`、revision `325AC0000000226_20261101_508AC0000000002`。独立 Adversarial Review Agent による pinned 原文照合・反例探索（機械的独立照合）。
 
-### SpecialLandHoldingTaxRate.lean — 独立再抽出・照合
+### DM-1. pinned 原文から「五百万円」を直接独立抽出（桁違いの明示除外）
 
-- **対象**: `JapanTaxLaw/SpecialLandHoldingTaxRate.lean`, Spec, Tests
-- **一次資料（pinned）**: `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`
-- **独立再抽出**: MainProvision 直下の第五百九十四条を ArticleTitle で特定し、原文から税率を独立抽出。SHA-256 pin を再計算。
-- **照合・判定**: 百分の一・四 → 14/1000（1.4%）、百分の三 → 3/100。14/100（10倍誤り）を反例テストで排除。D=CONFIRMED。
-- **限界**: 課税標準・該当性・免除・附則は NOT MODELLED。機械的独立照合であり人間の法的レビューではない（LEGAL_REVIEW_PENDING）。
+- pinned 原文: `data/raw/325AC0000000226_20261101_508AC0000000002.law.json` の `law_full_text` を直接辿り、`LawBody > MainProvision > Chapter Num=2 > Section Num=1 > Subsection Num=1 > Article Num=23 > Paragraph Num=1 > Item Num=11（寡婦）> Subitem1 Num=1（イ）> Subitem2 Num=2（（２））` の leaf 本文を逐語抽出:
+  - `前年の合計所得金額が五百万円以下であること。`
+  - 同一文は同 §1 の `Item Num=12（ひとり親）> Subitem1 Num=1（イ）> Subitem2 Num=2` にも 1 回出現（pinned 全体では art.23 側 2 回 + art.292 §1 側 2 回 = 4 回）。`（２）` は別ノード `Subitem2Title` のラベルであり、モジュール doc-comment の逐語「（２）前年の合計所得金額が五百万円以下であること。」は leaf 本文とラベルの結合として確認できた。
+- 数値の独立読解: 漢数字 `五百万` を桁ごとに分解すると `五` = 5、`百万` = 1,000,000 → 5 × 1,000,000 = **5,000,000 円**。独立に実装した漢数字パーサで抽出語 `五百万` を評価した結果も **5000000** で、impl `prevIncome <= 5000000` および独立 Spec `Nat.ble i 5000000` と一致。
+- **桁違いの明示除外**: 当該 leaf 内で `五十万`（50万 = 500,000）は **0 回**、`五千万`（5000万 = 50,000,000）は **0 回**、`未満` は **0 回**、ASCII `5000000` は **0 回**（原文は漢数字表記）。pinned 全体でも `五十万円以下であること` = 0 回、`五千万円以下であること` = 0 回。よって 50万／5000万 の読違いを明示的に除外する。
+- **「以下」の包含的確認**: 原文は `以下`（`未満` ではない）であり、境界値 5,000,000 円を含む。impl の `<=` と独立 Spec の `Nat.ble` はいずれも包含的で、後述 DM-3 の境界反例 `5000000 = true` がこれを裏付ける。
+
+### DM-2. needle 2 本の検証（U+3000 = 0 / 2/2 FOUND）
+
+`data/ARTICLE_SCOPE_POSITIONS.json` の `EqualLevyIncomeRequirement.lean` エントリ（law_id `325AC0000000226`）に登録された 2 本を、pinned JSON の生テキストおよび `Article Num=23` のフラット本文（8,258 文字）に対して部分文字列一致で検査。
+
+| needle | U+3000 数 | FOUND | Article 23 フラット本文での一致 | 備考 |
+|---|---:|---|---:|---|
+| `前年の合計所得金額が五百万円以下であること` | **0** | ✅ | 2（offset 4426 / 4656） | registry の `raw_offsets` [4426, 4656] と完全一致。Item 11 と Item 12 |
+| `第二十三条` | **0** | ✅ | 2（offset 16 / 4893） | 条見出し `ArticleTitle` 等。registry の `raw_offsets` [16, 4893] と完全一致 |
+
+- **FOUND 2/2、MISS 0**。両 needle の U+3000 は各 **0 個**（合計 0）。`（２）` ラベルや行途中の全角スペースは needle に含まれないため条件は成立。
+- registry の `unit_hits` は `MainProvision/Article/23` = 2/2、`MainProvision/Paragraph/1` = 2/2、`D: PASS`、`H: needle occurs in the stated article of the pinned source`。`sufficient_for_completion: false` であり、機械照合のみで法的結論を出さない設計になっている。
+- 同一 needle は art.292 §1（市町村民税側）にも 2 回一致するが、対象は art.23 側であり、registry が `MainProvision/Article/23` で 2/2 を捕捉している点で誤同定ではない（市町村民税側は NOT MODELLED、DM-5 B-4）。
+
+### DM-3. 反例探索（Impl vs 独立 Spec）
+
+- 実装: `meetsIncomeRequirement (prevIncome : Money) : Bool := prevIncome <= 5000000`
+- 独立 Spec（別モジュールの別定式）: `specMeets (i : Nat) : Bool := Nat.ble i 5000000`
+- `agreeEqualLevyIncomeRequirement` は `[0, 1, 4999999, 5000000, 5000001, 10000000]` で `meetsIncomeRequirement i == specMeets i` を比較する。
+
+| 入力 `prevIncome` | Impl | 独立 Spec | 一致 | 備考 |
+|---:|---|---|---|---|
+| 0 | true | true | ✅ | 境界下限 |
+| 1 | true | true | ✅ | |
+| 4999999 | true | true | ✅ | 5,000,000 未満 |
+| **5000000** | **true** | **true** | ✅ | **境界値（ちょうど 5,000,000 円は「以下」なので可）** |
+| **5000001** | **false** | **false** | ✅ | **境界の 1 円超（反例候補）** |
+| 10000000 | false | false | ✅ | |
+
+- `lake env lean --stdin` で `#eval` を実行し、`meetsIncomeRequirement 5000000 = true` / `5000001 = false`、`specMeets 5000000 = true` / `5000001 = false` を直接確認（exit code 0）。
+- 上記 6 点すべてで `by decide` の equality 例が通り、`agreeEqualLevyIncomeRequirement = true` も `by decide` で確認。**不一致（反例）0 件**。
+- 注意: `meetsIncomeRequirement` と `specMeets` は同じ namespace `JapanTaxLaw.EqualLevyIncomeRequirement` に属する別々の `def` であり、同一个定数の再掲ではない（独立定式としての比較）。
+
+### DM-4. `#print axioms` 監査
+
+一時ファイルを作らず `lake env lean --stdin` にパイプして `#print axioms` を **3 回**実行し、いずれも `does not depend on any axioms` を確認（exit code 0）。
+
+| 検査宣言 | 結果 |
+|---|---|
+| `JapanTaxLaw.EqualLevyIncomeRequirement.meetsIncomeRequirement` | does not depend on any axioms |
+| `JapanTaxLaw.EqualLevyIncomeRequirement.specMeets` | does not depend on any axioms |
+| `JapanTaxLaw.EqualLevyIncomeRequirement.agreeEqualLevyIncomeRequirement` | does not depend on any axioms |
+
+| 検査項目 | 結果 |
+|---|---|
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+| axiom-free | **3 / 3 実行** |
+
+- 3 モジュールのソースに `sorry` / `admit` / `axiom` / `unsafe` / `Classical` / `choice` / `propext` / `Quot.sound` の文字列は **0 件**。stdin 入力を用いたため一時ファイルは作成しておらず、削除対象もない。
+
+### DM-5. CONFIRMED / BY-DESIGN / UNRESOLVED 分類
+
+| 分類 | 件数 |
+|---|---:|
+| CONFIRMED（不一致・誤り） | **0** |
+| BY-DESIGN（明示的 NOT MODELLED / 設計上） | **6** |
+| UNRESOLVED（人間の法律専門家レビューが必要） | **3** |
+
+#### CONFIRMED（0 件）
+
+- なし。桁違い（50万/5000万）、needle 不整合、Impl/独立 Spec の不一致、axiom 依存はいずれも検出されなかった。
+
+#### BY-DESIGN（6 件）
+
+- **B-1 他の要件の未形式化**: 同一の `Subitem2` 群の（１）「扶養親族を有すること。」および（３）「その者と事実上婚姻関係と同様の事情にあると認められる者として総務省令で定めるものがいないこと。」は **NOT MODELLED**（Impl doc-comment 明記）。pinned で逐語確認済み。
+- **B-2 合計所得金額の算定の未形式化**: art.23 §1 `Item Num=13（合計所得金額）` は「第三十二条第八項及び第九項の規定による控除前の同条第一項の総所得金額、退職所得金額及び山林所得金額の合計額をいう。」と定義するが、本モデルは `prevIncome` を入力として受け取るのみで算定ロジックは **NOT MODELLED**。
+- **B-3 均等割適用効果の未形式化**: 均等割の非課税／課税の判定・税額計算・`（２）` 要件と他要件の AND 結合は **NOT MODELLED**。本モデルは所得要件の真偽のみを返す。
+- **B-4 市町村民税側の未形式化**: 同一文は art.292 §1（市町村民税、Item 11/12）にも出現するが、Impl doc-comment のとおり **NOT MODELLED**。
+- **B-5 寡婦／ひとり親の認定の未形式化**: 当該文は art.23 §1 の「寡婦」「ひとり親」の定義内にあり、ステータス該当性判定自体は **NOT MODELLED**（所得要件のみを切り出した bounded モデル）。
+- **B-6 単位・範囲**: `Money = Nat`（円・非負整数）。負の所得・円未満の端数等は扱わない。
+
+#### UNRESOLVED（3 件）
+
+- **U-1 均等割非課税の実務判定**: （１）（２）（３）の各要件を満たすかどうかの総合判定は原文の機械照合だけでは確定できず、人間の法律専門家によるレビューが必要。
+- **U-2 合計所得金額の算定実務**: 控除前の総所得金額等を実際に算定する手続は本モデル外であり、専門家解釈を要する。
+- **U-3 条文上の位置と趣旨の接続**: 当該文は寡婦／ひとり親の定義（art.23 §1 Item 11/12）に置かれており、モジュール見出しが「道府県民税 均等割 Non-Taxable の所得要件」とする上位趣旨との法解釈上の接続は、機械抽出では文の位置までしか確認できず専門家レビューが必要。
+
+### DM-6. 最終報告（サマリ）
+
+- **CONFIRMED 0 件 / BY-DESIGN 6 件 / UNRESOLVED 3 件**。不一致（誤り）は検出されず。
+- **pinned 照合**: art.23 §1 Item 11/12 の leaf から `前年の合計所得金額が五百万円以下であること。` を直接抽出。`五百万` = 5 × 1,000,000 = **5,000,000 円**、50万／5000万 は当該 leaf で 0 回として明示除外。`以下` は包含的（境界 5,000,000 可）を確認。
+- **needle**: 各 U+3000 = 0、**2/2 FOUND**、MISS 0（offset も registry と一致）。
+- **反例**: `(5000000)=true`, `(5000001)=false` が Impl = 独立 Spec、`agreeEqualLevyIncomeRequirement = true`。不一致 0。
+- **axiom**: choice / sorryAx / Quot.sound / propext すべて **0 件**（3/3 実行が axiom-free、exit code 0）。
+- **規約遵守**: commit / push / merge / ブランチ切替は行わず、Lean モジュール・`data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。stdin 入力のため一時ファイルは作成せず（削除対象なし）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle の部分文字列検査・境界反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。法的な最終判断・解釈は専門家レビューに委ねる。本レビューをもって法的レビューを完了したものとはみなさない。**
