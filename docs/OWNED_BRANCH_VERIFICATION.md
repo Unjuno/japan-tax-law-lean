@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=2234, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=2271, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=2234 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=2271 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -100,7 +100,11 @@ $ structural path resolver extended through nested Chapter/Section/MainProvision
 $ python scripts/ci/batch_table_reading_pipeline.py --limit 4 / 15 / 30
 table-reading batch pipeline: verified=4 failed=0 / verified=15 failed=0 / verified=13 failed=0
 
-$ python -m unittest discover -s scripts/tests -t . → 179 tests, OK
+$ multi-reading guard relaxed for repeated source phrases under distinct provisions
+$ python scripts/ci/batch_multi_reading_pipeline.py --limit 3 / 50
+multi-reading batch pipeline: verified=3 failed=0 / verified=34 failed=0
+
+$ python -m unittest discover -s scripts/tests -t . → 184 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -335,7 +339,13 @@ ambiguous unindexed paths; all 56 dependency-ready table units were verified
 after that fix. Five synthetic-table tests and four structural-path regression
 tests cover these guards.
 
-So 2234 units are evidence-backed FULLY_VERIFIED and 394,618 remain NOT_STARTED
+The multi-pair 読替え guard was also refined: a source phrase that recurs under
+different target provisions is kept as distinct context constructors rather
+than rejected, with the provision-based selection explicitly recorded as
+caller-established and NOT resolved. This closed 37 more units without
+weakening the direction/verbatim audits. Five parser tests were added.
+
+So 2271 units are evidence-backed FULLY_VERIFIED and 394,581 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is

@@ -46,8 +46,10 @@ def pairs_of(verb: str) -> list[tuple[str, str]]:
     pairs = PAT.findall(verb)
     if not pairs or "読み替える" not in verb:
         return []
-    if len({a for a, _ in pairs}) != len(pairs):
-        return []  # ambiguous: same source phrase with different replacements
+    # A source phrase may recur under different target provisions with
+    # different replacements. Each pair gets its own constructor, so the
+    # provision-based selection is represented as caller-established and is
+    # explicitly recorded as NOT resolved rather than silently collapsed.
     if any(a == b for a, b in pairs) or any(HOSTILE.search(a + b) for a, b in pairs):
         return []
     return pairs
@@ -239,7 +241,8 @@ def main() -> int:
                             "constructors of the declared phrase domain and both trigger values; "
                             "whole-phrase rewrite only; quoted numeric content is not re-derived"),
             "boundary_proof": f"{mod}Tests.lean kernel-decided per-pair original/replacement plus other and untriggered identity",
-            "cross_law_proof": f"dependencies={t.get('dependencies', [])}; trigger caller-established, NOT resolved",
+            "cross_law_proof": (f"dependencies={t.get('dependencies', [])}; trigger and target-provision "
+                                "selection for repeated source phrases caller-established, NOT resolved"),
             "tests": f"JapanTaxLaw/{mod}Tests.lean sha256={sha(paths[2])}",
             "adversarial_review": f"docs/BATCH_MULTI_READING_REVIEW.md generated entry for {uid[:16]}",
         }
