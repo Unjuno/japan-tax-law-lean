@@ -11,10 +11,8 @@ never a completion gate or a semantic/legal claim.
 
 | law_id | stated article | needle hits | scoped positions | D |
 |---|---|---:|---:|---|
-| `349AC0000000079` | 第十二条 | 2 | 2 | PASS |
 | `347AC0000000007` | 第十四条 | 3 | 3 | PASS |
 | `346AC0000000090` | 第四条 | 2 | 2 | PASS |
-| `332AC0000000077` | 第六条 | 2 | 2 | PASS |
 | `329M50000002023` | (file-level) | 2 | 2 | PASS |
 | `325AC0000000226` | (file-level) | 4 | 4 | PASS |
 | `325AC0000000226` | (file-level) | 4 | 4 | PASS |
@@ -108,6 +106,9 @@ never a completion gate or a semantic/legal claim.
 | `325CO0000000245` | (file-level) | 2 | 7 | PASS |
 | `325CO0000000245` | (file-level) | 2 | 7 | PASS |
 | `325AC0000000226` | 第七百一条の四十二 | 2 | 2 | PASS |
+| `325AC0000000073` | (file-level) | 4 | 4 | PASS |
+| `325AC0000000226` | (file-level) | 164 | 164 | PASS |
+| `143AC0000000054` | (file-level) | 118 | 119 | PASS |
 | `325AC0000000226` | 第五百九十四条 | 2 | 2 | PASS |
 | `325AC0000000073` | (file-level) | 5 | 17 | PASS |
 | `325AC0000000073` | (file-level) | 3 | 6 | PASS |
@@ -622,6 +623,5 @@ never a completion gate or a semantic/legal claim.
 | `325AC0000000226` | (file-level) | 10 | 10 | PASS |
 | `325AC0000000073` | 第六十七条 | 2 | 2 | PASS |
 | `430AC0000000016` | (file-level) | 2 | 2 | PASS |
-| `325AC0000000073` | 第十三条 | 3 | 3 | PASS |
 | `331M50000002007` | (file-level) | 2 | 2 | PASS |
-| `322CO0000000268` | 第十六条 | 3 | 3 | PASS |
+| `349AC0000000079` | (file-level) | 2 | 2 | PASS |

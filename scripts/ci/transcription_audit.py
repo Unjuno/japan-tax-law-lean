@@ -1002,6 +1002,19 @@ def checks():
            "article", "第七百一条の四十二",
            ["事業所税の税率は、資産割にあつては一平方メートルにつき六百円、従業者割にあつては百分の〇・二五とする。"])
 
+    # 相続税法 art. 70 — InheritanceTaxFalseReportFineCap500k.lean (50万円)
+    yield ("相続税法 art. 70（調書虚偽記載の罰金上限50万円）↔ InheritanceTaxFalseReportFineCap500k.lean",
+           "325AC0000000073", "file", None,
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+    yield ("地方税法 art. 22_2（更正請求書虚偽記載の罰金上限50万円）↔ LocalTaxFalseFilingFineCap500k.lean",
+           "325AC0000000226", "file", None,
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+    # 関税定率法 附則 art.1 — TariffLawSupplArt1Heisei13Enforcement.lean
+    yield ("関税定率法 附則 art.1（2条3条を除き平成13年1月6日施行）↔ TariffLawSupplArt1Heisei13Enforcement.lean",
+           "143AC0000000054",
+           "file", None,
+           ["この法律（第二条及び第三条を除く。）は、平成十三年一月六日から施行する。", "第一条"])
+
     # 地方税法 art. 594 — SpecialLandHoldingTaxRate.lean
     yield ("地方税法 art. 594（特別土地保有税の税率: 土地 百分の一・四 = 14/1000／取得 百分の三 = 3/100）↔ SpecialLandHoldingTaxRate.lean",
            "325AC0000000226",
