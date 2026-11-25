@@ -4390,7 +4390,23 @@ def checks():
            ["前項の市町村民税に係る令和七年度分特別税額控除額は、個人の住民税の所得割の額が一万円を超える場合には一万円から道府県民税特別税額控除額を控除して得た金額とし、個人の住民税の所得割の額が一万円を超えない場合には第二項第二号に掲げる額に相当する金額とする。"])
 
 
+    # 航空機燃料税法 art. 23(3) — AviationFuelTaxFineRange.lean
+    yield ("航空機燃料税法 art. 23（未納入額二百万円超の罰金区間）↔ AviationFuelTaxFineRange.lean",
+           "431AC0000000003",
+           "file", None,
+           ["前項の納入しなかった金額が二百万円を超える場合には、情状により、同項の罰金の額は、同項の規定にかかわらず、二百万円を超える額でその納入しなかった金額に相当する額以下の額とすることができる。"])
+
+    yield ("地方税法 附則第五条の十二 第四項（特別税額控除額 一万円超分岐）↔ SpecialTaxCreditCap10000.lean",
+           "325AC0000000226", "file", None,
+           ["前項の市町村民税に係る令和七年度分特別税額控除額は、個人の住民税の所得割の額が一万円を超える場合には一万円から道府県民税特別税額控除額を控除して得た金額とし、個人の住民税の所得割の額が一万円を超えない場合には第二項第二号に掲げる額に相当する金額とする。"])
+
+
     # 相続税法施行令 art. 31 — InheritanceTaxOrderOwnership50Threshold.lean (>50%)
+    yield ("相続税法施行令 art. 31（所有割合50%超）↔ InheritanceTaxOrderOwnership50Threshold.lean",
+           "325CO0000000071", "file", None,
+           ["発行済株式等の百分の五十を超える株式等が同項の個人等により所有されている場合"])
+
+
     yield ("相続税法施行令 art. 31（所有割合50%超）↔ InheritanceTaxOrderOwnership50Threshold.lean",
            "325CO0000000071", "file", None,
            ["発行済株式等の百分の五十を超える株式等が同項の個人等により所有されている場合"])
@@ -4398,6 +4414,7 @@ def checks():
     yield ("地方税法施行令 art. 35_4_5（政令率7.7%）↔ LocalBusinessTaxOrderRate77PerMilleC.lean",
            "325CO0000000245", "file", None,
            ["法第七十二条の七十六の政令で定める率は、百分の七・七とする。"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
