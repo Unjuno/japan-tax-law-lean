@@ -2005,6 +2005,9 @@ import JapanTaxLaw.TaxSavingsPenaltyCeilingTests
 import JapanTaxLaw.TaxService15Years
 import JapanTaxLaw.TaxService15YearsSpec
 import JapanTaxLaw.TaxService15YearsTests
+import JapanTaxLaw.TaxableQuantityResidual
+import JapanTaxLaw.TaxableQuantityResidualSpec
+import JapanTaxLaw.TaxableQuantityResidualTests
 import JapanTaxLaw.TaxationPeriod
 import JapanTaxLaw.TaxationPeriodSpec
 import JapanTaxLaw.TaxationPeriodTests
