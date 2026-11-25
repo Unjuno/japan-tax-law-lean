@@ -55,6 +55,9 @@ import JapanTaxLaw.AreaThreshold2HaTests
 import JapanTaxLaw.AuctionDepositValuation
 import JapanTaxLaw.AuctionDepositValuationSpec
 import JapanTaxLaw.AuctionDepositValuationTests
+import JapanTaxLaw.AutoWeightGrantRate357
+import JapanTaxLaw.AutoWeightGrantRate357Spec
+import JapanTaxLaw.AutoWeightGrantRate357Tests
 import JapanTaxLaw.AutoWeightGrantRounding
 import JapanTaxLaw.AutoWeightGrantRoundingSpec
 import JapanTaxLaw.AutoWeightGrantRoundingTests

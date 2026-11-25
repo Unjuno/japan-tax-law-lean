@@ -4416,6 +4416,12 @@ def checks():
            ["法第七十二条の七十六の政令で定める率は、百分の七・七とする。"])
 
 
+    # 自動車重量譲与税法 art. 1(1) — AutoWeightGrantRate357.lean
+    yield ("自動車重量譲与税法 art. 1（収入額の千分の三百五十七）↔ AutoWeightGrantRate357.lean",
+           "346AC0000000090",
+           "file", None,
+           ["自動車重量譲与税は、自動車重量税法（昭和四十六年法律第八十九号）の規定による自動車重量税の収入額の千分の三百五十七に相当する額とし、市町村（特別区を含む。以下同じ。）及び都道府県に対して譲与するものとする。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
