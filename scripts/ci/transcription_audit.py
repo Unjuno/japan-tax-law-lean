@@ -2390,6 +2390,12 @@ def checks():
            "file", None,
            ["当該同居特別障害者一人につき二十二万円", "第三十七条"])
 
+    # DonationTaxCredit — cycle-121
+    yield ("DonationTaxCredit.lean",
+           "325AC0000000226",
+           "file", None,
+           ["当該合計額が前年の総所得金額、退職所得金額及び山林所得金額の合計額の百分の三十に相当する金額を超える場合には、当該百分の三十に相当する金額", "二千円を超える場合には、その超える金額の百分の四"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
