@@ -6,7 +6,7 @@ import JapanTaxLaw.TaxFinance
 Sources (pinned):
   Law id: 325AC0000000226
   Revision: 325AC0000000226_20261101_508AC0000000002
-  Raw snapshot: data/raw/data/raw/325AC0000000226_20261101_508AC0000000002.law.json
+  Raw snapshot: data/raw/325AC0000000226_20261101_508AC0000000002.law.json
   Article Num 34 §1 四 ロ (iii), flat/normalized leaf text 13009 chars. Needles contain no U+3000.
 
 原文逐語:

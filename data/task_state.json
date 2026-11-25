@@ -14247,7 +14247,16 @@
         "branch": "verify/unit3-ff",
         "owner": "FORMALIZE:TwoOrMorePortMunicipalities"
       },
-      "owner": "FORMALIZE:TwoOrMorePortMunicipalities"
+      "history": [
+        {
+          "event": "status_changed",
+          "from": "NOT_STARTED",
+          "to": "FULLY_VERIFIED"
+        }
+      ],
+      "owner": "FORMALIZE:TwoOrMorePortMunicipalities",
+      "source_digest": "2ce4744265b50bdb5b62c0380575ca4b73fc7c92ee7f5125b97f74a90b384c7c",
+      "status": "FULLY_VERIFIED"
     },
     "NORM|6e1ea8de5bf445f60e6960366df7d2777575f9d56fd73a327a45855248ec59f5": {
       "artifacts": {
@@ -23163,12 +23172,17 @@
           "event": "status_changed",
           "from": "NOT_STARTED",
           "to": "FULLY_VERIFIED"
+        },
+        {
+          "event": "status_changed",
+          "from": "FULLY_VERIFIED",
+          "to": "NOT_STARTED"
         }
       ],
       "legal_review": "LEGAL_REVIEW_PENDING",
       "owner": "",
       "source_digest": "3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
-      "status": "FULLY_VERIFIED",
+      "status": "NOT_STARTED",
       "unhandled_conditions": [],
       "unit_id": "NORM|b88374f074e3f700d1af2082386f4ee785130b28c89694ee506265f9be72a061"
     },
