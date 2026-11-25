@@ -774,6 +774,80 @@
         "tool": "lake build"
       }
     ],
+    "00974d74d1c90b3386791998a1aa0a860f7f2bfc9f41cadc7d0f6a08f79101c6": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:29:15+00:00",
+        "evidence_ref": "322AC0000000175#第2条#pinned-20220101",
+        "note": "3-band 減免 全部/5/10/2.5/10; independent 1/2 and 1/4 spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:29:15+00:00",
+        "evidence_ref": "mechanical-audit:DISASTER-00974d74d1c9",
+        "note": "3-band 減免 全部/5/10/2.5/10; independent 1/2 and 1/4 spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:29:15+00:00",
+        "evidence_ref": "task_queue.json#00974d74d1c9#coverage",
+        "note": "3-band 減免 全部/5/10/2.5/10; independent 1/2 and 1/4 spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:29:15+00:00",
+        "evidence_ref": "JapanTaxLaw/DisasterTaxReductionSpec.lean#half-quarter-band-table@kernel",
+        "note": "3-band 減免 全部/5/10/2.5/10; independent 1/2 and 1/4 spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:29:15+00:00",
+        "evidence_ref": "JapanTaxLaw/DisasterTaxReduction.lean#reductionAmount@kernel",
+        "note": "3-band 減免 全部/5/10/2.5/10; independent 1/2 and 1/4 spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:29:15+00:00",
+        "evidence_ref": "JapanTaxLaw/DisasterTaxReductionSpec.lean#pct5/pct25/agreeReduction@kernel",
+        "note": "3-band 減免 全部/5/10/2.5/10; independent 1/2 and 1/4 spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:29:15+00:00",
+        "evidence_ref": "JapanTaxLaw/DisasterTaxReductionSpec.lean#agreeReduction@universal-Nat-Nat@kernel",
+        "note": "3-band 減免 全部/5/10/2.5/10; independent 1/2 and 1/4 spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:29:15+00:00",
+        "evidence_ref": "JapanTaxLaw/DisasterTaxReductionTests.lean#500/750万円-boundaries@kernel",
+        "note": "3-band 減免 全部/5/10/2.5/10; independent 1/2 and 1/4 spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:29:15+00:00",
+        "evidence_ref": "JapanTaxLaw/DisasterTaxReductionTests.lean@kernel",
+        "note": "3-band 減免 全部/5/10/2.5/10; independent 1/2 and 1/4 spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "009ceec7343fdd4745e0b43354190a490d130505c4eee1ff90cbbf2d0712b68f": [
       {
         "axis": "SOURCE_LOCATION",
@@ -2408,6 +2482,80 @@
         "date": "2026-11-20T09:16:28+00:00",
         "evidence_ref": "JapanTaxLaw/RetainedAmountLocalTaxTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "01993ac42751ac9ae4c5ad34702fa2256f23b07115781a1efc49322a0e3efc36": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "332CO0000000043#第15条#pinned-decimal-rate",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "mechanical-audit:DEC-01993ac42751",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "task_queue.json#01993ac42751#coverage",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#lowest-terms@kernel",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRates.lean#decimal-rates@kernel",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree135/4085/4465/624/14@kernel",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree*@universal-Nat@kernel",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean#floor-boundaries@kernel",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean@kernel",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -4304,6 +4452,80 @@
         "note": "enforcement date 令和三年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "02f1439ce42064d4eb31a3cc8008640d19bba0e293c48cf390b09dba35441b34": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "325CO0000000245#第5条#pinned-decimal-rate",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "mechanical-audit:DEC-02f1439ce420",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "task_queue.json#02f1439ce420#coverage",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#lowest-terms@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRates.lean#decimal-rates@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree135/4085/4465/624/14@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree*@universal-Nat@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean#floor-boundaries@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "02f67fe611dde0cf52486afd4d3fd2207fb7ef401be69a095fb339ac11b8baeb": [
@@ -28382,6 +28604,80 @@
         "tool": "task_queue.py"
       }
     ],
+    "10f20a27984ed5e2c4dcc6a9ce5f161c80a16038f314b6cc3975ca791e68741a": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "325AC0000000226#第71_55条#pinned-20261101",
+        "note": "第71_55条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "mechanical-audit:PROG-10f20a27984e",
+        "note": "第71_55条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "task_queue.json#10f20a27984e#coverage",
+        "note": "第71_55条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#reduced-rates-slice-table@kernel",
+        "note": "第71_55条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBrackets.lean#progressiveSurcharge/withAdditional@kernel",
+        "note": "第71_55条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#sliceMid/pct15/20/30/10/agree@kernel",
+        "note": "第71_55条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#agreeSurcharge/agreeWithAdditional@universal-Nat-Nat@kernel",
+        "note": "第71_55条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean#50/300万円-boundaries@kernel",
+        "note": "第71_55条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean@kernel",
+        "note": "第71_55条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "10feba2b150920ca5448a73c9f95b6e7e5d55cc70351e5f1361acea949340671": [
       {
         "axis": "SOURCE_LOCATION",
@@ -35758,6 +36054,80 @@
         "date": "2026-11-24T09:23:09+00:00",
         "evidence_ref": "JapanTaxLaw/RegistryRealEstateFeesP1CTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "155264da04927f04a905c37444f1baf994201e28a368fb3bc17b9bcf9d97c0f1": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "325AC0000000226#第72_46条#pinned-20261101",
+        "note": "第72_46条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "mechanical-audit:PROG-155264da0492",
+        "note": "第72_46条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "task_queue.json#155264da0492#coverage",
+        "note": "第72_46条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#reduced-rates-slice-table@kernel",
+        "note": "第72_46条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBrackets.lean#progressiveSurcharge/withAdditional@kernel",
+        "note": "第72_46条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#sliceMid/pct15/20/30/10/agree@kernel",
+        "note": "第72_46条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#agreeSurcharge/agreeWithAdditional@universal-Nat-Nat@kernel",
+        "note": "第72_46条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean#50/300万円-boundaries@kernel",
+        "note": "第72_46条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean@kernel",
+        "note": "第72_46条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -45220,6 +45590,80 @@
         "note": "pinned needle located in exact unit span",
         "reviewer": "ci",
         "tool": "transcription_audit.py"
+      }
+    ],
+    "1bbe363d04ed35914df5ceba10c91e5f19ff1d7107ef275bd471657babf577cc": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "325AC0000000226#第536条#pinned-20261101",
+        "note": "第536条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "mechanical-audit:PROG-1bbe363d04ed",
+        "note": "第536条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "task_queue.json#1bbe363d04ed#coverage",
+        "note": "第536条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#reduced-rates-slice-table@kernel",
+        "note": "第536条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBrackets.lean#progressiveSurcharge/withAdditional@kernel",
+        "note": "第536条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#sliceMid/pct15/20/30/10/agree@kernel",
+        "note": "第536条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#agreeSurcharge/agreeWithAdditional@universal-Nat-Nat@kernel",
+        "note": "第536条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean#50/300万円-boundaries@kernel",
+        "note": "第536条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean@kernel",
+        "note": "第536条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "1bc1b4335c2f5774fcd94b1b021ed5264de9c6905fe7656791ce57f81e07ad3d": [
@@ -89274,6 +89718,80 @@
         "tool": "task_queue.py"
       }
     ],
+    "3810409b49ba5c7757180ee165119f354034bdfd2e464e8f044e96840f8d427a": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "325CO0000000245#第4条#pinned-decimal-rate",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "mechanical-audit:DEC-3810409b49ba",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "task_queue.json#3810409b49ba#coverage",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#lowest-terms@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRates.lean#decimal-rates@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree135/4085/4465/624/14@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree*@universal-Nat@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean#floor-boundaries@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "381bf6b66d7b21178ca46b95ece95204486c664ae6f732a54573f7a958b032f3": [
       {
         "axis": "SOURCE_LOCATION",
@@ -98306,6 +98824,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "3ddba41aadae97f663a4251274ee3fc7e125680777aee167ee4c5e3986b1fe11": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "325AC0000000226#第71_35条#pinned-20261101",
+        "note": "第71_35条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "mechanical-audit:PROG-3ddba41aadae",
+        "note": "第71_35条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "task_queue.json#3ddba41aadae#coverage",
+        "note": "第71_35条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#reduced-rates-slice-table@kernel",
+        "note": "第71_35条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBrackets.lean#progressiveSurcharge/withAdditional@kernel",
+        "note": "第71_35条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#sliceMid/pct15/20/30/10/agree@kernel",
+        "note": "第71_35条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#agreeSurcharge/agreeWithAdditional@universal-Nat-Nat@kernel",
+        "note": "第71_35条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean#50/300万円-boundaries@kernel",
+        "note": "第71_35条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean@kernel",
+        "note": "第71_35条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "3ddc450875b9c054a1c63474c2e172fd3ab88c8a502ca0301e46ceb9fd276a33": [
       {
         "axis": "SOURCE_LOCATION",
@@ -101004,6 +101596,80 @@
         "note": "enforcement date 平成十九年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "3f9c5521a01cfdebcb262e58d3f4af26c1c5a006dfc19ac7a1f829e8b6819e63": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "325AC0000000226#第609条#pinned-20261101",
+        "note": "第609条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "mechanical-audit:PROG-3f9c5521a01c",
+        "note": "第609条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "task_queue.json#3f9c5521a01c#coverage",
+        "note": "第609条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#reduced-rates-slice-table@kernel",
+        "note": "第609条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBrackets.lean#progressiveSurcharge/withAdditional@kernel",
+        "note": "第609条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#sliceMid/pct15/20/30/10/agree@kernel",
+        "note": "第609条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#agreeSurcharge/agreeWithAdditional@universal-Nat-Nat@kernel",
+        "note": "第609条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean#50/300万円-boundaries@kernel",
+        "note": "第609条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean@kernel",
+        "note": "第609条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "3f9cfc8dd6fee26de2097a9b595f7ff49fd510a0f9b6f46670f1eee48ab03669": [
@@ -111710,6 +112376,80 @@
         "tool": "lake build"
       }
     ],
+    "46ace277b950ee47ff5b4a490b24a890cc715be2a0eedddba4612d1504192fb6": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:18:12+00:00",
+        "evidence_ref": "340AC0000000033#第86条#pinned-20261001",
+        "note": "第86条 piecewise band; reduced-fraction independent spec; universal agreement; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:18:12+00:00",
+        "evidence_ref": "mechanical-audit:BAND-46ace277b950",
+        "note": "第86条 piecewise band; reduced-fraction independent spec; universal agreement; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:18:12+00:00",
+        "evidence_ref": "task_queue.json#46ace277b950#coverage",
+        "note": "第86条 piecewise band; reduced-fraction independent spec; universal agreement; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:18:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryBandsSpec.lean#reduced-fraction-tier-table@kernel",
+        "note": "第86条 piecewise band; reduced-fraction independent spec; universal agreement; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:18:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryBands.lean#salary/basicDeduction@kernel",
+        "note": "第86条 piecewise band; reduced-fraction independent spec; universal agreement; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:18:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryBandsSpec.lean#agreeSalary/agreeBasic@pct30/20/10@kernel",
+        "note": "第86条 piecewise band; reduced-fraction independent spec; universal agreement; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:18:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryBandsSpec.lean#agreeSalary/agreeBasic@universal-Nat@kernel",
+        "note": "第86条 piecewise band; reduced-fraction independent spec; universal agreement; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:18:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryBandsTests.lean#band-boundaries@kernel",
+        "note": "第86条 piecewise band; reduced-fraction independent spec; universal agreement; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:18:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryBandsTests.lean@kernel",
+        "note": "第86条 piecewise band; reduced-fraction independent spec; universal agreement; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "46adec57c6ddc10fa6c43273fab5705688b8aa13b653eede937d3403bb299715": [
       {
         "axis": "SOURCE_LOCATION",
@@ -119278,6 +120018,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "4b5438a931de033b4c479143b865ba1f35d84809341e47e1dfc12109065eae0a": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "325AC0000000226#第74_23条#pinned-20261101",
+        "note": "第74_23条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "mechanical-audit:PROG-4b5438a931de",
+        "note": "第74_23条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "task_queue.json#4b5438a931de#coverage",
+        "note": "第74_23条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#reduced-rates-slice-table@kernel",
+        "note": "第74_23条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBrackets.lean#progressiveSurcharge/withAdditional@kernel",
+        "note": "第74_23条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#sliceMid/pct15/20/30/10/agree@kernel",
+        "note": "第74_23条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#agreeSurcharge/agreeWithAdditional@universal-Nat-Nat@kernel",
+        "note": "第74_23条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean#50/300万円-boundaries@kernel",
+        "note": "第74_23条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean@kernel",
+        "note": "第74_23条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "4b5e48aed2861f595c5eb4e4a0ecb28c89cebf9e8124f4a01b0a0d454ad28928": [
       {
         "axis": "SOURCE_LOCATION",
@@ -126560,6 +127374,80 @@
         "note": "enforcement date 平成十二年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "4fb9bc7f97ac578032e1ff1819a735c52484868b27fdf6fdcd664d20d20c1a6f": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "325AC0000000226#第721条#pinned-20261101",
+        "note": "第721条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "mechanical-audit:PROG-4fb9bc7f97ac",
+        "note": "第721条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "task_queue.json#4fb9bc7f97ac#coverage",
+        "note": "第721条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#reduced-rates-slice-table@kernel",
+        "note": "第721条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBrackets.lean#progressiveSurcharge/withAdditional@kernel",
+        "note": "第721条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#sliceMid/pct15/20/30/10/agree@kernel",
+        "note": "第721条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#agreeSurcharge/agreeWithAdditional@universal-Nat-Nat@kernel",
+        "note": "第721条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean#50/300万円-boundaries@kernel",
+        "note": "第721条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean@kernel",
+        "note": "第721条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "4fbaff8f2229ab86d2d16bc291a0a55d894fb901663e3ace7925fd16e6953154": [
@@ -166560,6 +167448,80 @@
         "tool": "lake build"
       }
     ],
+    "6a55e709c320184010e030e8b7850e3f6c0d1175c89c3b619dd5851949c16723": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "325CO0000000245#第5条#pinned-decimal-rate",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "mechanical-audit:DEC-6a55e709c320",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "task_queue.json#6a55e709c320#coverage",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#lowest-terms@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRates.lean#decimal-rates@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree135/4085/4465/624/14@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree*@universal-Nat@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean#floor-boundaries@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "6a5968993153869aa16ea81820bb6539481eb657a5bfc3b12e7ee7fab76746a1": [
       {
         "axis": "SOURCE_LOCATION",
@@ -179812,6 +180774,80 @@
         "tool": "task_queue.py"
       }
     ],
+    "7250ab6aedf5ac073ae911baf03394211ad17abecd40db3f4c913c995af879c9": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "325AC0000000226#第701_12条#pinned-20261101",
+        "note": "第701_12条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "mechanical-audit:PROG-7250ab6aedf5",
+        "note": "第701_12条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "task_queue.json#7250ab6aedf5#coverage",
+        "note": "第701_12条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#reduced-rates-slice-table@kernel",
+        "note": "第701_12条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBrackets.lean#progressiveSurcharge/withAdditional@kernel",
+        "note": "第701_12条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#sliceMid/pct15/20/30/10/agree@kernel",
+        "note": "第701_12条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#agreeSurcharge/agreeWithAdditional@universal-Nat-Nat@kernel",
+        "note": "第701_12条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean#50/300万円-boundaries@kernel",
+        "note": "第701_12条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean@kernel",
+        "note": "第701_12条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "7251568d9b36efdc767e874a7b9ff0508a13cd7b7d5835e776212c8098fd9978": [
       {
         "axis": "SOURCE_LOCATION",
@@ -186846,6 +187882,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "76bedf6465325fc9c65bec12cf8cc1c0ca2c5976fc7755ba8ad869cc5beee28f": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "325AC0000000226#第278条#pinned-20261101",
+        "note": "第278条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "mechanical-audit:PROG-76bedf646532",
+        "note": "第278条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "task_queue.json#76bedf646532#coverage",
+        "note": "第278条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#reduced-rates-slice-table@kernel",
+        "note": "第278条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBrackets.lean#progressiveSurcharge/withAdditional@kernel",
+        "note": "第278条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#sliceMid/pct15/20/30/10/agree@kernel",
+        "note": "第278条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#agreeSurcharge/agreeWithAdditional@universal-Nat-Nat@kernel",
+        "note": "第278条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean#50/300万円-boundaries@kernel",
+        "note": "第278条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean@kernel",
+        "note": "第278条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "76bfff7d64d932130ea31b336189a0db150a6d3bcaba0a346e161f6119867016": [
       {
         "axis": "SOURCE_LOCATION",
@@ -188604,6 +189714,80 @@
         "tool": "task_queue.py"
       }
     ],
+    "77f9d340d860f275a7d616c774e030ee88459055aac88741e7e55eb1e15830e2": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "325AC0000000226#第483条#pinned-20261101",
+        "note": "第483条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "mechanical-audit:PROG-77f9d340d860",
+        "note": "第483条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "task_queue.json#77f9d340d860#coverage",
+        "note": "第483条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#reduced-rates-slice-table@kernel",
+        "note": "第483条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBrackets.lean#progressiveSurcharge/withAdditional@kernel",
+        "note": "第483条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#sliceMid/pct15/20/30/10/agree@kernel",
+        "note": "第483条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#agreeSurcharge/agreeWithAdditional@universal-Nat-Nat@kernel",
+        "note": "第483条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean#50/300万円-boundaries@kernel",
+        "note": "第483条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean@kernel",
+        "note": "第483条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "780c2fd2ce0583e4bcc3c112224574c7e858839aec369f4b4dad6b3f225d99c9": [
       {
         "axis": "SOURCE_LOCATION",
@@ -189284,6 +190468,80 @@
         "date": "2026-11-24T09:21:12+00:00",
         "evidence_ref": "JapanTaxLaw/SpecialGiftRateTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "78743775782536ef9779af041cbc77893a62c30aeeb21369d95560ba964da216": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "325CO0000000245#第5条#pinned-decimal-rate",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "mechanical-audit:DEC-787437757825",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "task_queue.json#787437757825#coverage",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#lowest-terms@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRates.lean#decimal-rates@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree135/4085/4465/624/14@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree*@universal-Nat@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean#floor-boundaries@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean@kernel",
+        "note": "百分の四十・八五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -193650,6 +194908,80 @@
         "note": "enforcement date 平成十二年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "7b9fe5227ffb42ee288d1d501b1eb9b521013c29f5f12b1454564dd908e4bf00": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "325AC0000000226#第733_18条#pinned-20261101",
+        "note": "第733_18条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "mechanical-audit:PROG-7b9fe5227ffb",
+        "note": "第733_18条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "task_queue.json#7b9fe5227ffb#coverage",
+        "note": "第733_18条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#reduced-rates-slice-table@kernel",
+        "note": "第733_18条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBrackets.lean#progressiveSurcharge/withAdditional@kernel",
+        "note": "第733_18条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#sliceMid/pct15/20/30/10/agree@kernel",
+        "note": "第733_18条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#agreeSurcharge/agreeWithAdditional@universal-Nat-Nat@kernel",
+        "note": "第733_18条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean#50/300万円-boundaries@kernel",
+        "note": "第733_18条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean@kernel",
+        "note": "第733_18条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "7bc8d50dff12b9faa6c7f0b1817fde11e689e8e621aac846fbf912b2d549ce91": [
@@ -200286,6 +201618,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "7fcdea51e5e31513c18fb4ab8fcf7797bb419e484d854401c05f8080fac8f7fd": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "325AC0000000226#第144_47条#pinned-20261101",
+        "note": "第144_47条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "mechanical-audit:PROG-7fcdea51e5e3",
+        "note": "第144_47条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "task_queue.json#7fcdea51e5e3#coverage",
+        "note": "第144_47条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#reduced-rates-slice-table@kernel",
+        "note": "第144_47条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBrackets.lean#progressiveSurcharge/withAdditional@kernel",
+        "note": "第144_47条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#sliceMid/pct15/20/30/10/agree@kernel",
+        "note": "第144_47条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#agreeSurcharge/agreeWithAdditional@universal-Nat-Nat@kernel",
+        "note": "第144_47条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean#50/300万円-boundaries@kernel",
+        "note": "第144_47条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean@kernel",
+        "note": "第144_47条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "7fd5a81a0dd13e9a14125cc737b5c7e3de7e8f4081d27973d562a2f07c8def9c": [
       {
         "axis": "SOURCE_LOCATION",
@@ -201426,6 +202832,80 @@
         "date": "2026-11-20T09:16:24+00:00",
         "evidence_ref": "JapanTaxLaw/RegistrationTaxTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "807dea998bb5a2891c708e399e0344056837925f5744cf0872e1a08316f0c7ed": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "363AC0000000108#第34条#pinned-decimal-rate",
+        "note": "百分の六・二四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "mechanical-audit:DEC-807dea998bb5",
+        "note": "百分の六・二四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "task_queue.json#807dea998bb5#coverage",
+        "note": "百分の六・二四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#lowest-terms@kernel",
+        "note": "百分の六・二四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRates.lean#decimal-rates@kernel",
+        "note": "百分の六・二四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree135/4085/4465/624/14@kernel",
+        "note": "百分の六・二四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree*@universal-Nat@kernel",
+        "note": "百分の六・二四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean#floor-boundaries@kernel",
+        "note": "百分の六・二四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean@kernel",
+        "note": "百分の六・二四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -204042,6 +205522,80 @@
         "tool": "lake build"
       }
     ],
+    "820ffc843deaab498a8c4dba8780a832f35259a75cb2d1e5b03ec35e714c5c8d": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "332CO0000000057#第11条#pinned-decimal-rate",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "mechanical-audit:DEC-820ffc843dea",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "task_queue.json#820ffc843dea#coverage",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#lowest-terms@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRates.lean#decimal-rates@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree135/4085/4465/624/14@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree*@universal-Nat@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean#floor-boundaries@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "82137073aad338b585d5463515e941f747d75fc1294081acb38480633da368f3": [
       {
         "axis": "SOURCE_LOCATION",
@@ -206034,6 +207588,80 @@
         "note": "pinned needle located in exact unit span",
         "reviewer": "ci",
         "tool": "transcription_audit.py"
+      }
+    ],
+    "837d67505b1ae69e82a093b3821ddc6e2c827553a8a27860cdfc2429db8f79c9": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "325AC0000000226#第90条#pinned-20261101",
+        "note": "第90条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "mechanical-audit:PROG-837d67505b1a",
+        "note": "第90条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "task_queue.json#837d67505b1a#coverage",
+        "note": "第90条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#reduced-rates-slice-table@kernel",
+        "note": "第90条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBrackets.lean#progressiveSurcharge/withAdditional@kernel",
+        "note": "第90条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#sliceMid/pct15/20/30/10/agree@kernel",
+        "note": "第90条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#agreeSurcharge/agreeWithAdditional@universal-Nat-Nat@kernel",
+        "note": "第90条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean#50/300万円-boundaries@kernel",
+        "note": "第90条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean@kernel",
+        "note": "第90条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "8384729414ba0ed7dab99756dfe2aebc553bef32022d79787e8a9ea38ff78b2a": [
@@ -216242,6 +217870,80 @@
         "note": "enforcement date 昭和六十三年九月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "899b26b5952fba25eb5ae8868d9371e2e6a8884a5134e331377a67249c78194a": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "325AC0000000226#第45条#pinned-decimal-rate",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "mechanical-audit:DEC-899b26b5952f",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "task_queue.json#899b26b5952f#coverage",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#lowest-terms@kernel",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRates.lean#decimal-rates@kernel",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree135/4085/4465/624/14@kernel",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree*@universal-Nat@kernel",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean#floor-boundaries@kernel",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean@kernel",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "89a545acb2d7b1ba76980f5e8b43b6f92df209fca35690b209c38a6c7fed8281": [
@@ -241840,6 +243542,80 @@
         "tool": "transcription_audit.py"
       }
     ],
+    "9aa4d5d0bc9bedc6e64abae627bd891b66f559c97aba2c5cef87b6186f949649": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:18:12+00:00",
+        "evidence_ref": "340AC0000000033#第28条#pinned-20261001",
+        "note": "第28条 piecewise band; reduced-fraction independent spec; universal agreement; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:18:12+00:00",
+        "evidence_ref": "mechanical-audit:BAND-9aa4d5d0bc9b",
+        "note": "第28条 piecewise band; reduced-fraction independent spec; universal agreement; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:18:12+00:00",
+        "evidence_ref": "task_queue.json#9aa4d5d0bc9b#coverage",
+        "note": "第28条 piecewise band; reduced-fraction independent spec; universal agreement; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:18:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryBandsSpec.lean#reduced-fraction-tier-table@kernel",
+        "note": "第28条 piecewise band; reduced-fraction independent spec; universal agreement; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:18:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryBands.lean#salary/basicDeduction@kernel",
+        "note": "第28条 piecewise band; reduced-fraction independent spec; universal agreement; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:18:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryBandsSpec.lean#agreeSalary/agreeBasic@pct30/20/10@kernel",
+        "note": "第28条 piecewise band; reduced-fraction independent spec; universal agreement; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:18:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryBandsSpec.lean#agreeSalary/agreeBasic@universal-Nat@kernel",
+        "note": "第28条 piecewise band; reduced-fraction independent spec; universal agreement; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:18:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryBandsTests.lean#band-boundaries@kernel",
+        "note": "第28条 piecewise band; reduced-fraction independent spec; universal agreement; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:18:12+00:00",
+        "evidence_ref": "JapanTaxLaw/StatutoryBandsTests.lean@kernel",
+        "note": "第28条 piecewise band; reduced-fraction independent spec; universal agreement; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "9aa54b5f57240fc8dab21145882fe0e3905e29c34ca6387d033bdc33d61bf771": [
       {
         "axis": "SOURCE_LOCATION",
@@ -253400,6 +255176,80 @@
         "date": "2026-11-20T09:16:25+00:00",
         "evidence_ref": "JapanTaxLaw/GroupLossRatioTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "a0d6ef2279030ddaa62e0ec0e069022153366cbf442f4c1a77cbaece6b86e684": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "325AC0000000226#第701_61条#pinned-20261101",
+        "note": "第701_61条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "mechanical-audit:PROG-a0d6ef227903",
+        "note": "第701_61条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "task_queue.json#a0d6ef227903#coverage",
+        "note": "第701_61条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#reduced-rates-slice-table@kernel",
+        "note": "第701_61条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBrackets.lean#progressiveSurcharge/withAdditional@kernel",
+        "note": "第701_61条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#sliceMid/pct15/20/30/10/agree@kernel",
+        "note": "第701_61条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#agreeSurcharge/agreeWithAdditional@universal-Nat-Nat@kernel",
+        "note": "第701_61条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean#50/300万円-boundaries@kernel",
+        "note": "第701_61条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean@kernel",
+        "note": "第701_61条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -282708,6 +284558,80 @@
         "tool": "lake build"
       }
     ],
+    "b2b5b5488ab74a669a1c1cafc95814b0c4c90f525aafdb51e458c30e26dd2e2b": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "325AC0000000226#第71_14条#pinned-20261101",
+        "note": "第71_14条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "mechanical-audit:PROG-b2b5b5488ab7",
+        "note": "第71_14条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "task_queue.json#b2b5b5488ab7#coverage",
+        "note": "第71_14条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#reduced-rates-slice-table@kernel",
+        "note": "第71_14条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBrackets.lean#progressiveSurcharge/withAdditional@kernel",
+        "note": "第71_14条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#sliceMid/pct15/20/30/10/agree@kernel",
+        "note": "第71_14条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#agreeSurcharge/agreeWithAdditional@universal-Nat-Nat@kernel",
+        "note": "第71_14条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean#50/300万円-boundaries@kernel",
+        "note": "第71_14条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean@kernel",
+        "note": "第71_14条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "b2cb375d82e457599f5ffb0329a2c953027c4fe542f445bb212761af9d97d990": [
       {
         "axis": "SOURCE_LOCATION",
@@ -305490,6 +307414,80 @@
         "tool": "lake build"
       }
     ],
+    "c1d3f152a08e6593130e61afd5dbdb82bf06a727c55f20cda07bb033bd227a9b": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "325AC0000000226#第688条#pinned-20261101",
+        "note": "第688条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "mechanical-audit:PROG-c1d3f152a08e",
+        "note": "第688条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "task_queue.json#c1d3f152a08e#coverage",
+        "note": "第688条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#reduced-rates-slice-table@kernel",
+        "note": "第688条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBrackets.lean#progressiveSurcharge/withAdditional@kernel",
+        "note": "第688条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#sliceMid/pct15/20/30/10/agree@kernel",
+        "note": "第688条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#agreeSurcharge/agreeWithAdditional@universal-Nat-Nat@kernel",
+        "note": "第688条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean#50/300万円-boundaries@kernel",
+        "note": "第688条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean@kernel",
+        "note": "第688条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "c1d72ff57e4a9f53ea408d0ee496cf9d3bd9dd7744dad1cb18f4db8178c7f9a9": [
       {
         "axis": "SOURCE_LOCATION",
@@ -316742,6 +318740,80 @@
         "note": "unit decomposition and mechanical coverage only",
         "reviewer": "ci",
         "tool": "task_queue.py"
+      }
+    ],
+    "c9a21932077e1d564be4686ef849c13166f7b4c7bcf2d8eef9dcbdb788c9f96c": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "325AC0000000226#第594条#pinned-decimal-rate",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "mechanical-audit:DEC-c9a21932077e",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "task_queue.json#c9a21932077e#coverage",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#lowest-terms@kernel",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRates.lean#decimal-rates@kernel",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree135/4085/4465/624/14@kernel",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree*@universal-Nat@kernel",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean#floor-boundaries@kernel",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean@kernel",
+        "note": "百分の一・四 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "c9adaf253b178bf8e3e0ee9848f87c1d36aa7616f041049d7d9c7c346333cd13": [
@@ -341030,6 +343102,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "d9124fc588497488bae4b4b68fae0d519a06385f4d16ac81d897ad2448ad53f6": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "325AC0000000226#第328_11条#pinned-20261101",
+        "note": "第328_11条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "mechanical-audit:PROG-d9124fc58849",
+        "note": "第328_11条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "task_queue.json#d9124fc58849#coverage",
+        "note": "第328_11条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#reduced-rates-slice-table@kernel",
+        "note": "第328_11条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBrackets.lean#progressiveSurcharge/withAdditional@kernel",
+        "note": "第328_11条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#sliceMid/pct15/20/30/10/agree@kernel",
+        "note": "第328_11条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsSpec.lean#agreeSurcharge/agreeWithAdditional@universal-Nat-Nat@kernel",
+        "note": "第328_11条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean#50/300万円-boundaries@kernel",
+        "note": "第328_11条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:38:07+00:00",
+        "evidence_ref": "JapanTaxLaw/ProgressiveSurchargeBracketsTests.lean@kernel",
+        "note": "第328_11条 3-bracket 15/20/30% surcharge + 10% add; independent reduced-rate slice spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "d9172f2f46ee10c67ddd6050d864dbf0eb84d9179cddd85e37a48653ff443c9c": [
       {
         "axis": "SOURCE_LOCATION",
@@ -343806,6 +345952,80 @@
         "date": "2026-11-20T09:16:28+00:00",
         "evidence_ref": "JapanTaxLaw/RegistryTrustMarriageFeesTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "da708e14690112c898fcd7f1d8204041a1f4b5318248a39b0b2b34d72fd8be6d": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "332CO0000000057##pinned-decimal-rate",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "mechanical-audit:DEC-da708e146901",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "task_queue.json#da708e146901#coverage",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#lowest-terms@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRates.lean#decimal-rates@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree135/4085/4465/624/14@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree*@universal-Nat@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean#floor-boundaries@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -351592,6 +353812,80 @@
         "note": "unit decomposition and mechanical coverage only",
         "reviewer": "ci",
         "tool": "task_queue.py"
+      }
+    ],
+    "dfa115bbde8ae3f0390744b9321f85011264612273da113429d1997616fefb45": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "332CO0000000057#第11条#pinned-decimal-rate",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "mechanical-audit:DEC-dfa115bbde8a",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "task_queue.json#dfa115bbde8a#coverage",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#lowest-terms@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRates.lean#decimal-rates@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree135/4085/4465/624/14@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree*@universal-Nat@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean#floor-boundaries@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "dfa8e5fbc38dff6d41192cde6294f2f870b8cdc80b5193abfb0ccc02c0d3c202": [
@@ -393368,6 +395662,80 @@
         "note": "unit decomposition and mechanical coverage only",
         "reviewer": "ci",
         "tool": "task_queue.py"
+      }
+    ],
+    "fa90c1d15e37712ecdab9a8204b79aead901f06a265a36a08d5e9a867c56f446": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "332CO0000000057#第2条#pinned-decimal-rate",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "mechanical-audit:DEC-fa90c1d15e37",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "task_queue.json#fa90c1d15e37#coverage",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#lowest-terms@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRates.lean#decimal-rates@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree135/4085/4465/624/14@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesSpec.lean#agree*@universal-Nat@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean#floor-boundaries@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T12:48:40+00:00",
+        "evidence_ref": "JapanTaxLaw/DecimalPercentRatesTests.lean@kernel",
+        "note": "百分の一・三五 exact decimal rate; independent lowest-terms spec; scope = rate value only, surrounding formula/読替え not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "fa9b064e1d4e23de90b915b278dc99dd8a0e7dd0a794b17c2ebd6be60ede3373": [

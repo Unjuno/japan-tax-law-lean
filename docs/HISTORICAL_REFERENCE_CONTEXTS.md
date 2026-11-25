@@ -1,0 +1,100 @@
+# 附則 historical reference contexts (machine-generated)
+
+Do not hand-edit. Regenerate: `python scripts/law_audit/inventory/historical_reference_contexts.py`.
+
+For each 新/旧法 reference this ledger records whether the pinned base-law snapshot contains the defining clause (以下「X」という), and the era/date phrases in its context. This narrows the historical target but does NOT map the reference to a law-data revision. An acquired snapshot dated 2026 cannot be the historical amendment defined in a 昭和/平成 附則 and is flagged as a conflict, never as a mapping.
+
+- historical references: 87
+- with defining clause: 42
+- without defining clause: 45
+- acquired-snapshot conflicts: 6
+
+| reference | occurrences | base law | defining clauses | status | 2026 conflict |
+|---|---:|---|---:|---|---|
+| 新租税特別措置法 | 3190 | `332AC0000000026` | 64 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | YES |
+| 旧租税特別措置法 | 3052 | `332AC0000000026` | 48 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | YES |
+| 旧法人税法 | 724 | `340AC0000000034` | 30 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | YES |
+| 新法人税法 | 609 | `340AC0000000034` | 42 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | YES |
+| 新所得税法 | 403 | `340AC0000000033` | 30 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | YES |
+| 旧所得税法 | 369 | `340AC0000000033` | 40 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | YES |
+| 旧地方税法 | 187 | `325AC0000000226` | 4 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 新租税特別措置法施行令 | 175 | `332CO0000000043` | 4 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 新消費税法 | 140 | `363AC0000000108` | 2 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 新関税法 | 132 | `329AC0000000061` | 3 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 新法人税法施行令 | 109 | `340CO0000000097` | 5 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 旧租税特別措置法施行令 | 109 | `332CO0000000043` | 3 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 新相続税法 | 108 | `325AC0000000073` | 3 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 新地方税法 | 87 | `325AC0000000226` | 8 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 旧法人税法施行令 | 77 | `340CO0000000097` | 4 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 新酒税法 | 70 | `328AC0000000006` | 5 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 新国税通則法 | 63 | `337AC0000000066` | 1 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 旧所得税法施行令 | 61 | `340CO0000000096` | 2 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 新所得税法施行令 | 51 | `340CO0000000096` | 1 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 旧関税法 | 50 | `329AC0000000061` | 1 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 旧消費税法 | 45 | `363AC0000000108` | 2 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 旧厚生年金保険法 | 43 | `329AC0000000115` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新沖縄振興特別措置法 | 38 | `414AC0000000014` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧酒税法 | 33 | `328AC0000000006` | 6 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 旧相続税法 | 30 | `325AC0000000073` | 2 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 新租税特別措置法施行規則 | 28 | `332M50000040015` | 1 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 新地方交付税法 | 27 | `325AC0000000211` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新所得税法施行規則 | 21 | `340M50000040011` | 4 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 旧所得税法施行規則 | 20 | `340M50000040011` | 2 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 旧租税特別措置法施行規則 | 20 | `332M50000040015` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧農地法 | 20 | `327AC0000000229` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新地方法人税法 | 17 | `426AC0000000011` | 2 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 旧地方法人税法 | 17 | `426AC0000000011` | 1 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 新国税徴収法 | 15 | `334AC0000000147` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新法人税法施行規則 | 15 | `340M50000040012` | 2 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 新税理士法 | 12 | `326AC1000000237` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧民法 | 11 | `129AC0000000089` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧確定給付企業年金法 | 10 | `413AC0000000050` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新特定非営利活動促進法 | 9 | `410AC1000000007` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新登録免許税法 | 9 | `342AC0000000035` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧国税通則法 | 9 | `337AC0000000066` | 1 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 旧国税徴収法 | 8 | `334AC0000000147` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新地価税法 | 7 | `403AC0000000069` | 1 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 新地方税法施行規則 | 7 | `329M50000002023` | 3 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 新地方税法施行令 | 6 | `325CO0000000245` | 3 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 旧住民基本台帳法 | 6 | `342AC0000000081` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧地方税法施行令 | 6 | `325CO0000000245` | 1 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 新地方自治法 | 5 | `322AC0000000067` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新自動車重量譲与税法 | 5 | `346AC0000000090` | 1 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 新鉱山保安法 | 5 | `324AC0000000070` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧勤労者財産形成促進法 | 5 | `346AC0000000092` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧商法 | 5 | `132AC0000000048` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧沖縄振興特別措置法 | 5 | `414AC0000000014` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧法人税法施行規則 | 5 | `340M50000040012` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧鉱山保安法 | 5 | `324AC0000000070` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新公認会計士法 | 4 | `323AC0000000103` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新海上運送法 | 4 | `324AC0000000187` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新航空機燃料譲与税法 | 4 | `347AC0000000013` | 1 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 旧森林法 | 4 | `326AC1000000249` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧石油石炭税法 | 4 | `353AC0000000025` | 1 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 新航空機燃料譲与税法施行規則 | 3 | `347M50000008026` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新農地法 | 3 | `327AC0000000229` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新関税法施行令 | 3 | `329CO0000000150` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧地方揮発油税法 | 3 | `330AC0000000104` | 1 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 旧揮発油税法 | 3 | `332AC0000000055` | 1 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 旧産業競争力強化法 | 3 | `425AC0000000098` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧税理士法 | 3 | `326AC1000000237` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧酒税法施行令 | 3 | `337CO0000000097` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新消費税法施行令 | 2 | `363CO0000000360` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧印紙税法 | 2 | `342AC0000000023` | 1 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 旧消費税法施行規則 | 2 | `363M50000040053` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧都市計画法 | 2 | `343AC0000000100` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧電気事業法 | 2 | `339AC0000000170` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧電源開発促進税法 | 2 | `349AC0000000079` | 1 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |
+| 新司法書士法 | 1 | `325AC1000000197` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新国際観光旅客税法 | 1 | `430AC0000000016` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新学校教育法 | 1 | `322AC0000000026` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新宅地建物取引業法 | 1 | `327AC1000000176` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新揮発油税法 | 1 | `332AC0000000055` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新石油石炭税法 | 1 | `353AC0000000025` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新電気事業法 | 1 | `339AC0000000170` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 新電源開発促進税法 | 1 | `349AC0000000079` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧司法書士法 | 1 | `325AC1000000197` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧学校教育法 | 1 | `322AC0000000026` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧災害対策基本法 | 1 | `336AC0000000223` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧税理士法施行令 | 1 | `326CO0000000216` | 0 | DEFINING_CLAUSE_NOT_FOUND | no |
+| 旧航空機燃料税法 | 1 | `347AC0000000007` | 1 | CONTEXT_EXTRACTED_MAPPING_NOT_DONE | no |

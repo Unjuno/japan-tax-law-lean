@@ -581,3 +581,15 @@ import JapanTaxLaw.PercentageSurchargeTests
 import JapanTaxLaw.HistoricalSalaryDeduction
 import JapanTaxLaw.HistoricalSalaryDeductionSpec
 import JapanTaxLaw.HistoricalSalaryDeductionTests
+import JapanTaxLaw.StatutoryBands
+import JapanTaxLaw.StatutoryBandsSpec
+import JapanTaxLaw.StatutoryBandsTests
+import JapanTaxLaw.DisasterTaxReduction
+import JapanTaxLaw.DisasterTaxReductionSpec
+import JapanTaxLaw.DisasterTaxReductionTests
+import JapanTaxLaw.ProgressiveSurchargeBrackets
+import JapanTaxLaw.ProgressiveSurchargeBracketsSpec
+import JapanTaxLaw.ProgressiveSurchargeBracketsTests
+import JapanTaxLaw.DecimalPercentRates
+import JapanTaxLaw.DecimalPercentRatesSpec
+import JapanTaxLaw.DecimalPercentRatesTests
