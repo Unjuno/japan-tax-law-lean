@@ -61,6 +61,9 @@ import JapanTaxLaw.AutoWeightGrantRoundingTests
 import JapanTaxLaw.AviationFuelTaxAmountFloor
 import JapanTaxLaw.AviationFuelTaxAmountFloorSpec
 import JapanTaxLaw.AviationFuelTaxAmountFloorTests
+import JapanTaxLaw.AviationFuelTaxFineRange
+import JapanTaxLaw.AviationFuelTaxFineRangeSpec
+import JapanTaxLaw.AviationFuelTaxFineRangeTests
 import JapanTaxLaw.AviationFuelTaxRate
 import JapanTaxLaw.AviationFuelTaxRateSpec
 import JapanTaxLaw.AviationFuelTaxRateTests
