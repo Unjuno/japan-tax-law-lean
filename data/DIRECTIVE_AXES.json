@@ -12,43 +12,43 @@
   "axis_totals": {
     "BOUNDARY_CHECKED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 892,
-      "remaining_units": 395962
+      "achieved_units": 893,
+      "remaining_units": 395961
     },
     "NORMS_FORMALIZED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 892,
-      "remaining_units": 395962
+      "achieved_units": 893,
+      "remaining_units": 395961
     },
     "NORM_DECOMPOSED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 891,
-      "remaining_units": 395963
+      "achieved_units": 892,
+      "remaining_units": 395962
     },
     "SOURCE_ACQUIRED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 892,
-      "remaining_units": 395962
+      "achieved_units": 893,
+      "remaining_units": 395961
     },
     "SOURCE_AUDITED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 891,
-      "remaining_units": 395963
+      "achieved_units": 892,
+      "remaining_units": 395962
     },
     "SPEC_IMPL_CORRESPONDENCE": {
       "achieved_is_not_completion": true,
-      "achieved_units": 892,
-      "remaining_units": 395962
+      "achieved_units": 893,
+      "remaining_units": 395961
     },
     "STRUCTURE_IDENTIFIED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 887,
-      "remaining_units": 395967
+      "achieved_units": 888,
+      "remaining_units": 395966
     },
     "VERSION_PINNED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 892,
-      "remaining_units": 395962
+      "achieved_units": 893,
+      "remaining_units": 395961
     }
   },
   "detail_note": "Only units with substantive committed evidence are expanded; all other units take the NOT_STARTED / LEGAL_REVIEW_PENDING defaults, reproducible by regenerating build/task_queue.json with scripts/ci/task_queue.py.",
@@ -29364,6 +29364,42 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
+    "NORM|f9680ddfb79eef94bb707fd8a6ff828a5a8308d746c407b8f7663cea43f2eedc": {
+      "article": "70",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "325AC0000000226",
+      "norm_details": {
+        "amounts": [
+          "五十万円"
+        ],
+        "conditions": [
+          "場合",
+          "に該当",
+          "該当する",
+          "以下"
+        ],
+        "delegations": [],
+        "effects": [],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "325AC0000000226_20261101_508AC0000000002",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
     "NORM|f98b94090f57059084ba3d05ba274eb387be411c06689c1b1f7246a0adfb5cf0": {
       "article": "12",
       "axes": {
@@ -30287,8 +30323,8 @@
     "enforcement_dates"
   ],
   "norm_detail_counts": {
-    "amounts": 251,
-    "conditions": 710,
+    "amounts": 252,
+    "conditions": 711,
     "delegations": 170,
     "effects": 324,
     "enforcement_dates": 12,
@@ -30299,13 +30335,13 @@
   "note": "Eight technical axes are tracked separately; full technical evidence does NOT establish human legal review or whole-article coverage. COMPUTABLE_SLICE_ONLY units are never counted as whole-article norms.",
   "schema": "directive_axes/v1",
   "scope_counts": {
-    "COMPUTABLE_SLICE_ONLY": 888,
+    "COMPUTABLE_SLICE_ONLY": 889,
     "FULL_ARTICLE": 4
   },
   "technical_status_counts": {
     "BLOCKED": 2,
-    "FULLY_VERIFIED": 891,
-    "NOT_STARTED": 395960,
+    "FULLY_VERIFIED": 892,
+    "NOT_STARTED": 395959,
     "PARTIAL": 0,
     "PROVED_SCOPE": 1
   },

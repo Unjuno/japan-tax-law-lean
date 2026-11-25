@@ -136,9 +136,6 @@ import JapanTaxLaw.ClinicHours4622Tests
 import JapanTaxLaw.ClosureFilingDeadline
 import JapanTaxLaw.ClosureFilingDeadlineSpec
 import JapanTaxLaw.ClosureFilingDeadlineTests
-import JapanTaxLaw.CohabitElderlyDependentDeduction
-import JapanTaxLaw.CohabitElderlyDependentDeductionSpec
-import JapanTaxLaw.CohabitElderlyDependentDeductionTests
 import JapanTaxLaw.CohabitantReadingThresholdTwo
 import JapanTaxLaw.CohabitantReadingThresholdTwoSpec
 import JapanTaxLaw.CohabitantReadingThresholdTwoTests
@@ -1220,7 +1217,9 @@ import JapanTaxLaw.LocalTaxArt48To50DeletedRangeTests
 import JapanTaxLaw.LocalTaxArt70FineCap500k
 import JapanTaxLaw.LocalTaxArt70FineCap500kSpec
 import JapanTaxLaw.LocalTaxArt70FineCap500kTests
-
+import JapanTaxLaw.LocalTaxArt71_21FineCap500k
+import JapanTaxLaw.LocalTaxArt71_21FineCap500kSpec
+import JapanTaxLaw.LocalTaxArt71_21FineCap500kTests
 import JapanTaxLaw.LocalTaxArt734AmountTier1
 import JapanTaxLaw.LocalTaxArt734AmountTier1Spec
 import JapanTaxLaw.LocalTaxArt734AmountTier1Tests
@@ -1834,6 +1833,9 @@ import JapanTaxLaw.SpecialLand400
 import JapanTaxLaw.SpecialLand400Spec
 import JapanTaxLaw.SpecialLand400Tests
 import JapanTaxLaw.SpecialLandHoldingTax
+import JapanTaxLaw.SpecialLandHoldingTaxRate
+import JapanTaxLaw.SpecialLandHoldingTaxRateSpec
+import JapanTaxLaw.SpecialLandHoldingTaxRateTests
 import JapanTaxLaw.SpecialLandHoldingTaxSpec
 import JapanTaxLaw.SpecialLandHoldingTaxTests
 import JapanTaxLaw.SpecialMeasuresApportionment
