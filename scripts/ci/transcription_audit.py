@@ -91,6 +91,7 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    yield ("電源開発促進税法 art. 12（罰金上限＝max(五十万円,相当金額)）↔ PowerDevelopmentTaxPenalty.lean", "349AC0000000079", "article", "第十二条", ["五十万円を超え当該電源開発促進税に相当する金額以下"])
     yield ("航空機燃料税法 art. 14(1) 第四号（納付すべき税額＝二号税額−前号税額）↔ AircraftFuelTaxPayable.lean", "347AC0000000007", "article", "第十四条", ["第二号に掲げる航空機燃料税額から前号に掲げる航空機燃料税額を控除した金額"])
 
     yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
@@ -4344,6 +4345,13 @@ def checks():
            "331M50000002007",
            "file", None,
            ["第一項の都道府県又は市町村に譲与すべき額に加算し、又は当該譲与すべき額から減額すべき錯誤に係る額に千円未満の端数金額があるときは、その端数金額を控除した金額をもつて、当該錯誤にかかる額とする。"])
+
+    # DisasterTaxReliefOrderArt16ApplicationSubmissionDay.lean - NORM|cbfd2fef... (災害被害者租税減免法施行政令 art.16 REFERENCE, law 322CO0000000268)
+    # Article-kind locator; needle is the application-submission-day anchor.
+    yield ("disaster tax relief order art.16 application submission day - DisasterTaxReliefOrderArt16ApplicationSubmissionDay.lean",
+           "322CO0000000268",
+           "article", "\u7b2c\u5341\u516d\u6761",
+           ["\u540c\u9805\u306b\u898f\u5b9a\u3059\u308b\u7533\u8acb\u66f8\u306e\u63d0\u51fa\u304c\u3042\u3064\u305f\u65e5"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
