@@ -1,0 +1,2 @@
+import JapanTaxLaw.QuotaCertificateValidityPeriodSpec
+#print axioms JapanTaxLaw.QuotaCertificateValidityPeriod.agree_validity_cutoff
