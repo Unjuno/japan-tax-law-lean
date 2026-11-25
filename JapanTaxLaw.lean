@@ -136,9 +136,6 @@ import JapanTaxLaw.ClinicHours4622Tests
 import JapanTaxLaw.ClosureFilingDeadline
 import JapanTaxLaw.ClosureFilingDeadlineSpec
 import JapanTaxLaw.ClosureFilingDeadlineTests
-import JapanTaxLaw.CohabitElderlyDependentDeduction
-import JapanTaxLaw.CohabitElderlyDependentDeductionSpec
-import JapanTaxLaw.CohabitElderlyDependentDeductionTests
 import JapanTaxLaw.CohabitantReadingThresholdTwo
 import JapanTaxLaw.CohabitantReadingThresholdTwoSpec
 import JapanTaxLaw.CohabitantReadingThresholdTwoTests
@@ -1836,6 +1833,9 @@ import JapanTaxLaw.SpecialLand400
 import JapanTaxLaw.SpecialLand400Spec
 import JapanTaxLaw.SpecialLand400Tests
 import JapanTaxLaw.SpecialLandHoldingTax
+import JapanTaxLaw.SpecialLandHoldingTaxRate
+import JapanTaxLaw.SpecialLandHoldingTaxRateSpec
+import JapanTaxLaw.SpecialLandHoldingTaxRateTests
 import JapanTaxLaw.SpecialLandHoldingTaxSpec
 import JapanTaxLaw.SpecialLandHoldingTaxTests
 import JapanTaxLaw.SpecialMeasuresApportionment
