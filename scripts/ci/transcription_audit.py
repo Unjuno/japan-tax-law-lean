@@ -4455,6 +4455,12 @@ def checks():
            ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
 
 
+    # 酒税法 art. 30の2(1)(3) — TaxableQuantityResidual.lean
+    yield ("酒税法 art. 30_2（第一号数量から前号数量を控除した課税標準数量）↔ TaxableQuantityResidual.lean",
+           "328AC0000000006",
+           "file", None,
+           ["第一号に規定する課税標準たる数量からそれぞれ当該税率の適用区分ごとに前号に規定する課税標準たる数量を控除した数量（以下この項において「課税標準数量」という。）"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
