@@ -4385,6 +4385,13 @@ def checks():
            "325AC0000000073", "file", None,
            ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
 
+    # CustomsTariffArt7MutatisMutandisException.lean - NORM|1432e7d9... (関税定率法 art.7(15) EXCEPTION/READING/CONDITION, law 143AC0000000054)
+    # Article-kind locator; needle is the mutatis-mutandis-with-carveout clause.
+    yield ("customs tariff law art.7 mutatis mutandis exception - CustomsTariffArt7MutatisMutandisException.lean",
+           "143AC0000000054",
+           "article", "\u7b2c\u4e03\u6761",
+           ["\u7b2c\u4e03\u9805\u3001\u7b2c\u516b\u9805\uff08\u7b2c\u4e00\u53f7\u3092\u9664\u304f\u3002\uff09\u53ca\u3073\u7b2c\u4e5d\u9805\u306e\u898f\u5b9a\u306f\u3001\u524d\u9805\u306e\u8abf\u67fb\u304c\u958b\u59cb\u3055\u308c\u305f\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
