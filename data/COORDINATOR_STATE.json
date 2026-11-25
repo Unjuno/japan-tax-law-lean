@@ -314,6 +314,39 @@
       "unhandled_conditions": []
     },
     {
+      "article": "10",
+      "checklist": [
+        "write an independent spec FIRST (own spec* definitions, no implementation ids)",
+        "implement the pinned clause as a separate Lean module",
+        "record pinned law id / revision / scoped article and exact needle in both headers",
+        "do NOT mark legal review: it stays LEGAL_REVIEW_PENDING"
+      ],
+      "claim_owner": "",
+      "dependencies": [],
+      "enforcement_date": "2025-06-01",
+      "law_id": "332AC0000000038",
+      "legal_review": "LEGAL_REVIEW_PENDING",
+      "normative_id": "NORM|2f886a909310a1f78cd7bd2e372a1664fea11ee5a4b06a02f77527939e87f273",
+      "remaining_axes": [
+        "source_location",
+        "decomposition_audit",
+        "source_correspondence_audit",
+        "independent_spec",
+        "implementation",
+        "kernel_proof",
+        "proof_scope",
+        "boundary_proof",
+        "cross_law_proof",
+        "tests",
+        "adversarial_review"
+      ],
+      "revision": "332AC0000000038_20250601_504AC0000000068",
+      "role": "FORMALIZE",
+      "scope": "FULL_ARTICLE",
+      "status": "NOT_STARTED",
+      "unhandled_conditions": []
+    },
+    {
       "article": "2",
       "checklist": [
         "write an independent spec FIRST (own spec* definitions, no implementation ids)",
@@ -411,41 +444,6 @@
       "scope": "FULL_ARTICLE",
       "status": "NOT_STARTED",
       "unhandled_conditions": []
-    },
-    {
-      "article": "17",
-      "checklist": [
-        "write an independent spec FIRST (own spec* definitions, no implementation ids)",
-        "implement the pinned clause as a separate Lean module",
-        "record pinned law id / revision / scoped article and exact needle in both headers",
-        "do NOT mark legal review: it stays LEGAL_REVIEW_PENDING"
-      ],
-      "claim_owner": "",
-      "dependencies": [],
-      "enforcement_date": "2026-04-01",
-      "law_id": "337CO0000000227",
-      "legal_review": "LEGAL_REVIEW_PENDING",
-      "normative_id": "NORM|2da7e4fb2bc943689c28e2f220e798466cdf59910d2731aab504db45eaf69a68",
-      "remaining_axes": [
-        "source_location",
-        "decomposition_audit",
-        "source_correspondence_audit",
-        "independent_spec",
-        "implementation",
-        "kernel_proof",
-        "proof_scope",
-        "boundary_proof",
-        "cross_law_proof",
-        "tests",
-        "adversarial_review"
-      ],
-      "revision": "337CO0000000227_20260401_508CO0000000083",
-      "role": "FORMALIZE",
-      "scope": "COMPUTABLE_SLICE_ONLY",
-      "status": "NOT_STARTED",
-      "unhandled_conditions": [
-        "当該償還差益に対する源泉徴収による所得税の額に当該外国居住者等の当該割引債に係る所有期間割合を乗じて計算した金額から期間対応差益（当該割引債の償還差益に当該外国居住者等の当該割引債に係る所有期間割合を乗じて計算した金額をいう。）に百分の十の税率を乗じて計算した金額を控除した残額に相当する金額"
-      ]
     }
   ],
   "blocked": [
@@ -640,17 +638,9 @@
     {
       "id": "NORM|14f4e753c519ac33707f15a513462d5919b99d8778aab77237fc2131c73b7982",
       "reason": "BLOCKED_BY_DEPENDENCY"
-    },
-    {
-      "id": "NORM|4d0a133fda7d8a33bd581e0028f1a541a477208fb650192ceca4a480701598e9",
-      "reason": "BLOCKED_BY_DEPENDENCY"
-    },
-    {
-      "id": "NORM|cd0d4633a0ff9e5df09d6d8b8e1d9f89181a2831b377b1f253c55e5649fa6239",
-      "reason": "BLOCKED_BY_DEPENDENCY"
     }
   ],
-  "blocked_total": 51,
+  "blocked_total": 48,
   "legal_review_is_not_a_completion_gate": true,
   "legal_review_is_not_a_filter": true,
   "loop": [
@@ -676,15 +666,15 @@
       "stage": "INSPECT",
       "status_counts": {
         "BLOCKED": 2,
-        "FULLY_VERIFIED": 802,
-        "NOT_STARTED": 396049,
+        "FULLY_VERIFIED": 798,
+        "NOT_STARTED": 396053,
         "PROVED_SCOPE": 1
       }
     },
     {
-      "selectable": 396050,
+      "selectable": 396054,
       "selected": 12,
-      "skipped_dependency_or_blocker": 51,
+      "skipped_dependency_or_blocker": 48,
       "stage": "SELECT"
     },
     {
@@ -699,10 +689,10 @@
           "NORM|3f2a8da12d2428d8dec042c728a5413875a75031575be7ec79a612459ef44325",
           "NORM|7128dfb6a017d1db0d57b3a37b36cce183c850974de506050bf109b7e08a8a90",
           "NORM|177401da2045261df6446abf1263b5eb3ab6799cf18872b743a0dcfc2c7e82bc",
+          "NORM|2f886a909310a1f78cd7bd2e372a1664fea11ee5a4b06a02f77527939e87f273",
           "NORM|25fa4c2ac0e109c13793841e0bb7254f55c8710cbf2398e8ed9b048cf29ed86f",
           "NORM|06ecf4e83a75240fefb191c05f7df0f5ead383672e0052e4472472d1cde8dd3f",
-          "NORM|4d079f4f8f01db3312c78e81e458245b272c0c68499a3ea4040bab2a4c2eb644",
-          "NORM|2da7e4fb2bc943689c28e2f220e798466cdf59910d2731aab504db45eaf69a68"
+          "NORM|4d079f4f8f01db3312c78e81e458245b272c0c68499a3ea4040bab2a4c2eb644"
         ],
         "PROVE": [],
         "VERIFY": []
