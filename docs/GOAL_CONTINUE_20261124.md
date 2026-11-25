@@ -292,6 +292,29 @@ All four target units carry `kernel_proof`. L2 now has 4 pinned municipal
 ordinances (Tokyo, Osaka, Kanagawa, Yokohama). Scoped-clause-only and
 `LEGAL_REVIEW_PENDING` status is unchanged.
 
+### Ninth iteration (delegated formalization)
+
+A separate High4 formalization agent produced five units
+(`LocalTax154DisplacementOver6L`, `PassengersUpTo30`, `Population200k`,
+`CommitteeMin3`, `FourWheelUp`) with independent specs, kernel boundary tests,
+scoped needles and batch-245 review. Its temporary validation attestation was
+removed before integration; build 1953 jobs, 605 transcription checks,
+invariants 17/17. The first CI attempt failed only on stale-derived-ledger
+gates; those ledgers were regenerated. CI run `45655699335` on
+`e65446cdb6aa6096c00053808c5097ba9becf118` completed `success`;
+`data/PROOF_ATTESTATION_SCOPED_T9.json` binds 15 module hashes from committed
+blobs at that commit to that run.
+
+```
+before: FULLY_VERIFIED=811  NOT_STARTED=396038  evidence=814
+after:  FULLY_VERIFIED=839  NOT_STARTED=396010  evidence=842
+delta:  FULLY_VERIFIED=+28 NOT_STARTED=-28  evidence=+28
+progress_ledger: COUNTED; NOT_STARTED delta -28
+```
+
+All five target units carry `kernel_proof`; the wider +28 includes previously
+stale units recovered by honest regeneration. Legal review stays pending.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |
