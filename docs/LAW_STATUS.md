@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 177
+- with >=1 pinned literal check (semantic model): 178
 - with recorded human legal review: 0
 
 ## All laws
@@ -22,7 +22,7 @@ a completion flag.
 | `322CO0000000109` | 昭和二十二年政令第百九号（財産税法等による物納に因る不動産登記の特例に関する政令） | 322CO0000000109_19470627_000000000000000 | CurrentEnforced | YES | ok | 4 | YES (1) | NO |
 | `322AC0000000175` | 昭和二十二年法律第百七十五号（災害被害者に対する租税の減免、徴収猶予等に関する法律） | 322AC0000000175_20220101_503AC0000000011 | CurrentEnforced | YES | ok | 78 | YES (3) | NO |
 | `322CO0000000268` | 昭和二十二年政令第二百六十八号（災害被害者に対する租税の減免、徴収猶予等に関する法律の施 | 322CO0000000268_20251201_507CO0000000120 | CurrentEnforced | YES | ok | 113 | YES (14) | NO |
-| `325AC0000000073` | 相続税法 | 325AC0000000073_20260401_506AC0000000008 | CurrentEnforced | YES | ok | 432 | YES (37) | NO |
+| `325AC0000000073` | 相続税法 | 325AC0000000073_20260401_506AC0000000008 | CurrentEnforced | YES | ok | 432 | YES (38) | NO |
 | `325CO0000000071` | 相続税法施行令 | 325CO0000000071_20260401_506CO0000000143 | CurrentEnforced | YES | ok | 255 | YES (2) | NO |
 | `325M50000040017` | 相続税法施行規則 | 325M50000040017_20260901_506M60000040016 | CurrentEnforced | YES | ok | 163 | YES (3) | NO |
 | `325M50000040021` | 税務官署における収入官吏及び出納員並びに歳入歳出外現金出納官吏の備えるべき現金領収証書に | 325M50000040021_20260924_508M60000040059 | CurrentEnforced | YES | ok | 15 | NO (0) | NO |
@@ -81,7 +81,7 @@ a completion flag.
 | `332M50000040015` | 租税特別措置法施行規則 | 332M50000040015_20261101_507M60000040026 | CurrentEnforced | YES | ok | 1776 | YES (6) | NO |
 | `332AC0000000055` | 揮発油税法 | 332AC0000000055_20260525_506AC0000000052 | CurrentEnforced | YES | ok | 94 | YES (2) | NO |
 | `332CO0000000057` | 揮発油税法施行令 | 332CO0000000057_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 60 | YES (1) | NO |
-| `332AC0000000077` | 特別とん譲与税法 | 332AC0000000077_20010106_411AC0000000160 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
+| `332AC0000000077` | 特別とん譲与税法 | 332AC0000000077_20010106_411AC0000000160 | CurrentEnforced | YES | ok | 10 | YES (1) | NO |
 | `332M50000002021` | 特別とん譲与税法施行規則 | 332M50000002021_20010106_412M50000008044 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `333M50000040019` | アメリカ合衆国軍隊の構成員等の免税輸入物品の譲渡申告書等の様式を定める省令 | 333M50000040019_20210901_503M60000040052 | CurrentEnforced | YES | ok | 27 | NO (0) | NO |
 | `333CO0000000117` | 地方交付税法施行令 | 333CO0000000117_20010106_412CO0000000304 | CurrentEnforced | YES | ok | 10 | YES (1) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 344
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 345
