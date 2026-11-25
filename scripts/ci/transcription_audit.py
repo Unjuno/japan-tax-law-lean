@@ -4417,6 +4417,11 @@ def checks():
     yield ("地方税法 art. 72_39_2（納税猶予100万円例外）↔ LocalTaxDeferralSmallAmountException1MB.lean",
            "325AC0000000226", "file", None,
            ["その猶予に係る税額が百万円以下である場合"])
+    # 防衛特別法人税政令 art.3(6)(1) — DefenseCorpShortfallSum.lean
+    yield ("防衛特別法人税政令 第三条(6)(1)（零下回る額の合計）↔ DefenseCorpShortfallSum.lean",
+           "507CO0000000134", "article", "第三条",
+           ["他の通算法人の他の課税事業年度の調整前控除限度額が零を下回る場合のその下回る額の合計額"])
+
 
     # 地方税法 art. 22の2 — LocalTaxFalseFilingFineCap500k.lean (50万円)
     yield ("地方税法 art. 22_2（更正請求書虚偽記載の罰金上限50万円）↔ LocalTaxFalseFilingFineCap500k.lean",
