@@ -230,6 +230,9 @@ import JapanTaxLaw.CourseUnits31Tests
 import JapanTaxLaw.CrossSection15mm
 import JapanTaxLaw.CrossSection15mmSpec
 import JapanTaxLaw.CrossSection15mmTests
+import JapanTaxLaw.Customs123PeriodCeiling60Days
+import JapanTaxLaw.Customs123PeriodCeiling60DaysSpec
+import JapanTaxLaw.Customs123PeriodCeiling60DaysTests
 import JapanTaxLaw.CustomsAirCargo
 import JapanTaxLaw.CustomsAirCargoSpec
 import JapanTaxLaw.CustomsAirCargoTests
@@ -1053,6 +1056,9 @@ import JapanTaxLaw.LocalSeparateIncomeTaxRate6Tests
 import JapanTaxLaw.LocalStockTransferTaxRate5
 import JapanTaxLaw.LocalStockTransferTaxRate5Spec
 import JapanTaxLaw.LocalStockTransferTaxRate5Tests
+import JapanTaxLaw.LocalTax15PeriodCeiling2Years
+import JapanTaxLaw.LocalTax15PeriodCeiling2YearsSpec
+import JapanTaxLaw.LocalTax15PeriodCeiling2YearsTests
 import JapanTaxLaw.LocalTax34Age16Plus
 import JapanTaxLaw.LocalTax34Age16PlusSpec
 import JapanTaxLaw.LocalTax34Age16PlusTests
@@ -1456,6 +1462,12 @@ import JapanTaxLaw.RefundInterestTests
 import JapanTaxLaw.RefundRounding
 import JapanTaxLaw.RefundRoundingSpec
 import JapanTaxLaw.RefundRoundingTests
+import JapanTaxLaw.RegTax41_19_3IncomeOver10M
+import JapanTaxLaw.RegTax41_19_3IncomeOver10MSpec
+import JapanTaxLaw.RegTax41_19_3IncomeOver10MTests
+import JapanTaxLaw.RegTax41_19_3IndividualIncomeOver10M
+import JapanTaxLaw.RegTax41_19_3IndividualIncomeOver10MSpec
+import JapanTaxLaw.RegTax41_19_3IndividualIncomeOver10MTests
 import JapanTaxLaw.RegistrationCommercialTax
 import JapanTaxLaw.RegistrationCommercialTaxSpec
 import JapanTaxLaw.RegistrationCommercialTaxTable

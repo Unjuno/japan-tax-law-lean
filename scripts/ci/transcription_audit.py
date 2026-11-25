@@ -1772,6 +1772,20 @@ def checks():
            "325AC0000000226", "article", "第三十四条",
            ["\u524d\u5e74\u306e\u5408\u8a08\u6240\u5f97\u91d1\u984d\u304c\u767e\u4e8c\u5341\u4e07\u5186\u3092\u8d85\u3048\u308b\u7279\u5b9a\u89aa\u65cf"])
 
+    # Eighth batch: EXCEPTION ceilings/triggers (periods and income).
+    yield ("reg tax 41_19_3 individual income over 10M - RegTax41_19_3IndividualIncomeOver10M.lean",
+           "332AC0000000026", "article", "第四十一条の十九の三",
+           ["\u305f\u3060\u3057\u3001\u5f53\u8a72\u500b\u4eba\u306e\u305d\u306e\u5e74\u5206\u306e\u6240\u5f97\u7a0e\u306b\u4fc2\u308b\u5408\u8a08\u6240\u5f97\u91d1\u984d\u304c\u5343\u4e07\u5186\u3092\u8d85\u3048\u308b\u5834\u5408\u306b\u306f\u3001\u3053\u306e\u9650\u308a\u3067\u306a\u3044\u3002"])
+    yield ("customs 123 period ceiling 60 days - Customs123PeriodCeiling60Days.lean",
+           "329AC0000000061", "article", "第百二十三条",
+           ["\u305f\u3060\u3057\u3001\u6d88\u53bb\u3057\u306a\u3044\u3088\u3046\u6c42\u3081\u308b\u671f\u9593\u306f\u3001\u901a\u3058\u3066\u516d\u5341\u65e5\u3092\u8d85\u3048\u308b\u3053\u3068\u304c\u3067\u304d\u306a\u3044\u3002"])
+    yield ("local tax 15 period ceiling 2 years - LocalTax15PeriodCeiling2Years.lean",
+           "325AC0000000226", "article", "第十五条",
+           ["\u305f\u3060\u3057\u3001\u305d\u306e\u671f\u9593\u306f\u3001\u65e2\u306b\u305d\u306e\u8005\u306b\u3064\u304d\u5fb4\u53ce\u306e\u7336\u4e88\u3092\u3057\u305f\u671f\u9593\u3068\u5408\u308f\u305b\u3066\u4e8c\u5e74\u3092\u8d85\u3048\u308b\u3053\u3068\u304c\u3067\u304d\u306a\u3044\u3002"])
+    yield ("reg tax 41_19_3 income over 10M - RegTax41_19_3IncomeOver10M.lean",
+           "332AC0000000026", "article", "第四十一条の十九の三",
+           ["\u305f\u3060\u3057\u3001\u5f53\u8a72\u7279\u5b9a\u500b\u4eba\u306e\u305d\u306e\u5e74\u5206\u306e\u6240\u5f97\u7a0e\u306b\u4fc2\u308b\u5408\u8a08\u6240\u5f97\u91d1\u984d\u304c\u5343\u4e07\u5186\u3092\u8d85\u3048\u308b\u5834\u5408\u306b\u306f\u3001\u3053\u306e\u9650\u308a\u3067\u306a\u3044\u3002"])
+
     # LocalTaxArt734AmountTier1.lean - NORM|41efee8e... (dual amount 120k/140k yen CONDITION, law 325AC0000000226)
     # Needle is in MainProvision Article 734 (Paragraph 3, table cell, Sentence 1);
     # find_article_text(...,"第七百三十四条") returns that article (len 2046) with needle -
