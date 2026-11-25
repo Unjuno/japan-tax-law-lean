@@ -4325,6 +4325,12 @@ def checks():
            "file", None,
            ["第一項の都道府県又は市町村に譲与すべき額に加算し、又は当該譲与すべき額から減額すべき錯誤に係る額に千円未満の端数金額があるときは、その端数金額を控除した金額をもつて、当該錯誤にかかる額とする。"])
 
+    # 電源開発促進税法 art. 12(4) — PowerDevelopmentTaxFineRange.lean
+    yield ("電源開発促進税法 art. 12（税額五十万円超の罰金区間）↔ PowerDevelopmentTaxFineRange.lean",
+           "349AC0000000079",
+           "file", None,
+           ["前項の犯罪に係る販売電気に対する電源開発促進税に相当する金額が五十万円を超える場合には、情状により、同項の罰金は、五十万円を超え当該電源開発促進税に相当する金額以下とすることができる。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
