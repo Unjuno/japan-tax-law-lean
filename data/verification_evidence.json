@@ -6931,19 +6931,6 @@
       "source_location": "data/raw/414CO0000000262_20110401_423CO0000000088.law.json#LawBody[2]/MainProvision/MainProvision[0]/Article:1/Article#1/Paragraph#1/Item#1/ItemSentence/Sentence sha256=fcfc53577dfbe461896f26630df965f9dac64266a269ba4502bfe019a9bba874 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/PolyesterStapleFiberSpecsTests.lean sha256=8b26f8326855cf09160e81c5f9e6c362b577cc044f29ccda553ee607dbf90892 (47 kernel-decided examples)"
     },
-    "NORM|b88374f074e3f700d1af2082386f4ee785130b28c89694ee506265f9be72a061": {
-      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
-      "boundary_proof": "attested Tests module contains 17 kernel-decided examples covering boundary inputs",
-      "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
-      "implementation": "JapanTaxLaw/BusinessOfficeTaxRate.lean sha256=182a9fcde2610f25edd7cce7a51986759a40a13cec88c9f337bad5045d7e5adf",
-      "independent_spec": "JapanTaxLaw/BusinessOfficeTaxRateSpec.lean sha256=48f69c1e22d7a0b4192489c7af2e550f872ad782ce452c253c61fa2a50a63be7 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45479254330: commit e82151015ae29e52f89fd97aac191fc09c9727df, build/axiom job success, 3 module hashes re-verified",
-      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [25, 600, 10000] used by kernel-checked impl + independent spec",
-      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10000\": [], \"25\": [], \"600\": [\"六百\"]}; statutory rate = 1/400; needles scoped",
-      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[3]/Article:701_42/Article#701_42/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
-      "tests": "JapanTaxLaw/BusinessOfficeTaxRateTests.lean sha256=3f1a830305ed7b0cac3cf7157fe792033dc2f946877ed699f0a6d02aa0dee3c4 (17 kernel-decided examples)"
-    },
     "NORM|b8dac4c594945f29765a5766356aba21593fe593f50b272e382afceb15b5319d": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",
