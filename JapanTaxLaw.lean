@@ -1851,6 +1851,9 @@ import JapanTaxLaw.SpecialLand400
 import JapanTaxLaw.SpecialLand400Spec
 import JapanTaxLaw.SpecialLand400Tests
 import JapanTaxLaw.SpecialLandHoldingTax
+import JapanTaxLaw.SpecialLandHoldingTaxRate
+import JapanTaxLaw.SpecialLandHoldingTaxRateSpec
+import JapanTaxLaw.SpecialLandHoldingTaxRateTests
 import JapanTaxLaw.SpecialLandHoldingTaxSpec
 import JapanTaxLaw.SpecialLandHoldingTaxTests
 import JapanTaxLaw.SpecialMeasuresApportionment
