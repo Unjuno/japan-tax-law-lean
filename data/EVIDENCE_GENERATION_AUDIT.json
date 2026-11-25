@@ -6958,6 +6958,21 @@
         20
       ]
     },
+    "TwoOrMorePortMunicipalities": {
+      "adversarial_review": true,
+      "boundary_examples_found": 6,
+      "independent_spec": true,
+      "kanji_literals": [
+        "二"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 12,
+      "needles_scoped": true,
+      "scoped_article_chars": 364,
+      "spec_literals": [
+        2
+      ]
+    },
     "TwoStageVotingThreshold": {
       "adversarial_review": true,
       "boundary_examples_found": 6,
@@ -12461,6 +12476,22 @@
         "errors": [],
         "module": "ConsumptionTaxInputCredit",
         "spec_kanji_in_原文": []
+      },
+      "NORM|6d88a4e6ecbe918e329d10056884bbc867d8da77c28a12ef3c3e54354872b2e5": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 12,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "TwoOrMorePortMunicipalities",
+        "spec_kanji_in_原文": [
+          "二"
+        ]
       },
       "NORM|6e1ea8de5bf445f60e6960366df7d2777575f9d56fd73a327a45855248ec59f5": {
         "checks": {
@@ -23291,6 +23322,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle in clause + all spec numerals in scoped article: ['同項に規定する課税期間における課税売上高が五億円']; verbatim spellings found in scoped 原文 = {\"1000\": [], \"78\": []}; statutory rate = 19/20; needles scoped",
       "source_location": "data/raw/363AC0000000108_20261101_507AC0000000013.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:30/Article#30/Paragraph#2/ParagraphSentence/Sentence#1 sha256=25dccebffb6690902c117a4ab9c16e4d64db087bba6d184a10ea6aeb58ab4a82 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/ConsumptionTaxInputCreditTests.lean sha256=c50f5dda31ac5159d0c3378c554b53eed6cf0ded827bcb86c4ed114343d375b3 (15 kernel-decided examples)"
+    },
+    "NORM|6d88a4e6ecbe918e329d10056884bbc867d8da77c28a12ef3c3e54354872b2e5": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 12 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=332M50000002021_20010106_412M50000008044 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/TwoOrMorePortMunicipalities.lean sha256=0cd4695289103ea0b1724b5c0b9be400972739400288d33eb760daa216f46e61",
+      "independent_spec": "JapanTaxLaw/TwoOrMorePortMunicipalitiesSpec.lean sha256=2183fb2cfc27cd455231ec2f77832e15c3b918c215fe93c0c27b534285bf7b34 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45615668705: commit 9d3a0bd509e0d07e92e9f91fb01c79c5207093cb, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/332M50000002021_20010106_412M50000008044.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:2/Article#2/ArticleCaption sha256=2ce4744265b50bdb5b62c0380575ca4b73fc7c92ee7f5125b97f74a90b384c7c (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/TwoOrMorePortMunicipalitiesTests.lean sha256=1af750ee5a67d88bd880d79b321cd28e6f75571a03bc3d9e76c71e071f803cd3 (12 kernel-decided examples)"
     },
     "NORM|6e1ea8de5bf445f60e6960366df7d2777575f9d56fd73a327a45855248ec59f5": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
