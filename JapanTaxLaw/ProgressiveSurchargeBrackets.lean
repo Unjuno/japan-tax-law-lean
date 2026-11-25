@@ -7,7 +7,10 @@ Statutory bracket table (repeated across 17 pinned provisions of 地方税法):
   50万円以下の部分     : 15%
   50万円超300万円以下の部分 : 20%
   300万円を超える部分   : 30%
-plus the additional 10% of the tax in the cases described in 第2項/第3項.
+plus the additional 10% of the tax in the 第5項 cases. 第4項 applies the
+bracket table to the difference of cumulative amounts (after/before); the
+single-argument `progressiveSurcharge` is exact only when the before-amount is
+zero. 第1項, 第3項, 第6項 and 第8項 are NOT MODELLED.
 
 `base` is the amount to which the brackets apply (Nat 円); `tax` is the
 納入/納付すべき税額. The statutory conditions selecting 第2項/第3項 are

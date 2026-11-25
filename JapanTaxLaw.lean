@@ -602,3 +602,6 @@ import JapanTaxLaw.FloorRoundingMinimumTests
 import JapanTaxLaw.HalfSenRounding
 import JapanTaxLaw.HalfSenRoundingSpec
 import JapanTaxLaw.HalfSenRoundingTests
+import JapanTaxLaw.TenthsFractions
+import JapanTaxLaw.TenthsFractionsSpec
+import JapanTaxLaw.TenthsFractionsTests

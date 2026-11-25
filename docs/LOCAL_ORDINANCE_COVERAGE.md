@@ -11,9 +11,9 @@ NOTHING in this layer is acquired, parsed, formalized, proved or reviewed. It is
 - prefectures: 47
 - municipalities: 1747
 - local governments total: 1794
-- acquired: 5
-- not acquired: 1789
-- acquisition coverage: 0.2787%
+- acquired: 6
+- not acquired: 1788
+- acquisition coverage: 0.3344%
 
 ## Per-prefecture target counts (acquired column)
 
@@ -22,7 +22,7 @@ NOTHING in this layer is acquired, parsed, formalized, proved or reviewed. It is
 | 三重県 | 30 | 0 |
 | 京都府 | 27 | 0 |
 | 佐賀県 | 21 | 0 |
-| 兵庫県 | 42 | 0 |
+| 兵庫県 | 42 | 1 |
 | 北海道 | 186 | 1 |
 | 千葉県 | 55 | 0 |
 | 和歌山県 | 31 | 0 |
@@ -75,4 +75,5 @@ NOTHING in this layer is acquired, parsed, formalized, proved or reviewed. It is
 | LOCAL-141003 | 神奈川県横浜市 | `c61a8d62283f` | ACQUIRED_NOT_REVIEWED |
 | LOCAL-231002 | 愛知県名古屋市 | `d10051690c95` | ACQUIRED_NOT_REVIEWED |
 | LOCAL-271004 | 大阪府大阪市 | `d8941e0259c1` | ACQUIRED_NOT_REVIEWED |
+| LOCAL-281000 | 兵庫県神戸市 | `cc57f4267c9c` | ACQUIRED_NOT_REVIEWED |
 | LOCAL-401307 | 福岡県福岡市 | `58217d10bd31` | ACQUIRED_NOT_REVIEWED |
