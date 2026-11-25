@@ -12,43 +12,43 @@
   "axis_totals": {
     "BOUNDARY_CHECKED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 810,
-      "remaining_units": 396044
+      "achieved_units": 812,
+      "remaining_units": 396042
     },
     "NORMS_FORMALIZED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 810,
-      "remaining_units": 396044
+      "achieved_units": 812,
+      "remaining_units": 396042
     },
     "NORM_DECOMPOSED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 809,
-      "remaining_units": 396045
+      "achieved_units": 811,
+      "remaining_units": 396043
     },
     "SOURCE_ACQUIRED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 810,
-      "remaining_units": 396044
+      "achieved_units": 812,
+      "remaining_units": 396042
     },
     "SOURCE_AUDITED": {
+      "achieved_is_not_completion": true,
+      "achieved_units": 811,
+      "remaining_units": 396043
+    },
+    "SPEC_IMPL_CORRESPONDENCE": {
+      "achieved_is_not_completion": true,
+      "achieved_units": 812,
+      "remaining_units": 396042
+    },
+    "STRUCTURE_IDENTIFIED": {
       "achieved_is_not_completion": true,
       "achieved_units": 809,
       "remaining_units": 396045
     },
-    "SPEC_IMPL_CORRESPONDENCE": {
-      "achieved_is_not_completion": true,
-      "achieved_units": 810,
-      "remaining_units": 396044
-    },
-    "STRUCTURE_IDENTIFIED": {
-      "achieved_is_not_completion": true,
-      "achieved_units": 807,
-      "remaining_units": 396047
-    },
     "VERSION_PINNED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 810,
-      "remaining_units": 396044
+      "achieved_units": 812,
+      "remaining_units": 396042
     }
   },
   "detail_note": "Only units with substantive committed evidence are expanded; all other units take the NOT_STARTED / LEGAL_REVIEW_PENDING defaults, reproducible by regenerating build/task_queue.json with scripts/ci/task_queue.py.",
@@ -18573,6 +18573,39 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
+    "NORM|aa899a2aff6a364b1a8e0838170134762b03cd0a9655819f9a51aca918a2f697": {
+      "article": "12",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "422AC0000000008",
+      "norm_details": {
+        "amounts": [
+          "百万円"
+        ],
+        "conditions": [
+          "以下"
+        ],
+        "delegations": [],
+        "effects": [],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "422AC0000000008_20260401_507AC0000000013",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
     "NORM|aa9ef27f14cd13c9d8749bf7c1304ade758ddfc4cf59a9ca7db85e4582a4dcf5": {
       "article": "61",
       "axes": {
@@ -19918,6 +19951,39 @@
         ]
       },
       "revision": "337AC0000000066_20261101_507AC0000000013",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
+    "NORM|b88374f074e3f700d1af2082386f4ee785130b28c89694ee506265f9be72a061": {
+      "article": "701_42",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "325AC0000000226",
+      "norm_details": {
+        "amounts": [
+          "六百円"
+        ],
+        "conditions": [],
+        "delegations": [],
+        "effects": [
+          "とする"
+        ],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "325AC0000000226_20261101_508AC0000000002",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -27357,10 +27423,10 @@
     "enforcement_dates"
   ],
   "norm_detail_counts": {
-    "amounts": 222,
-    "conditions": 631,
+    "amounts": 224,
+    "conditions": 632,
     "delegations": 142,
-    "effects": 289,
+    "effects": 290,
     "enforcement_dates": 10,
     "exceptions": 131,
     "periods": 71,
@@ -27369,13 +27435,13 @@
   "note": "Eight technical axes are tracked separately; full technical evidence does NOT establish human legal review or whole-article coverage. COMPUTABLE_SLICE_ONLY units are never counted as whole-article norms.",
   "schema": "directive_axes/v1",
   "scope_counts": {
-    "COMPUTABLE_SLICE_ONLY": 807,
+    "COMPUTABLE_SLICE_ONLY": 809,
     "FULL_ARTICLE": 3
   },
   "technical_status_counts": {
     "BLOCKED": 2,
-    "FULLY_VERIFIED": 809,
-    "NOT_STARTED": 396042,
+    "FULLY_VERIFIED": 811,
+    "NOT_STARTED": 396040,
     "PARTIAL": 0,
     "PROVED_SCOPE": 1
   },
