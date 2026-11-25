@@ -912,6 +912,19 @@
       "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:25_13/Article#25_13/Paragraph#28/ParagraphSentence/Sentence#1 sha256=d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/TrustPeriod20YTests.lean sha256=0e44b6c6067b162efce6f71b05af6c806cd79901f388f41f151a49ea8c99d1ab (11 kernel-decided examples)"
     },
+    "NORM|1432e7d9fd592fd3f859fd0bb6be8bf74a4119a191bd87e0ad89bbc16a123d15": {
+      "adversarial_review": "docs/ADVERSARIAL_CUSTOMS_TARIFF_ART7_MUTATIS_MUTANDIS_EXCEPTION.md — NO FINDINGS with all 15 mandated checks independently reproduced from authoritative sources (raw law JSON, queue, INVENTORY, audit helpers), NOT from author prose, plus a programmatic cross-check (0 fails). Reproduced: raw sha256 924a01d3…86ae9c; needle unique at Art.7(15) Sentence#1 with item-1 carve-out and investigation gate; law identity Act/明治四十三年法律第五十四号/関税定率法/revision 2026-06-01 matches INVENTORY; kinds=[EXCEPTION,READING,CONDITION]; included p7/p8Other/p9 with p8Item1 excluded and applies gated on investigation flag (incorporated content / legal effect / legal correctness NOT MODELLED); needle byte-verbatim in all artifacts with 調=U+8ABF confirmed and no 8AB2/8AB3 variant; audit 621/621; all seven theorems axiom-free with no decide/simp/propext; build 2038 jobs; no dependencies/cross-law constant; LEGAL_REVIEW_PENDING. No completion claim; human legal review remains pending.",
+      "boundary_proof": "JapanTaxLaw/CustomsTariffArt7MutatisMutandisExceptionTests.lean: item1 excluded and never applies, paragraphs 7/8-other/9 apply once investigation begun, no application before investigation, Bool/Prop selector equivalence (all axiom-free)",
+      "cross_law_proof": "queue unit has no dependencies; no cross-law constant introduced. The cross-paragraph reading is expressed only within the same-law provision enumeration; no resolution beyond the 15-digit law id is claimed.",
+      "decomposition_audit": "build/task_queue.json: kinds=[EXCEPTION,READING,CONDITION] (Art.7(15) mutatis mutandis reading of paragraphs 7, 8 excluding item 1, and 9, gated on the preceding paragraph's investigation having begun), decomposed=true, exact span, unhandled_conditions=[], id unique",
+      "implementation": "JapanTaxLaw/CustomsTariffArt7MutatisMutandisException.lean sha256=30ca9bc96515d853a212801402a2fe658611c11353d862ca9888bf8d50ba0d9f (関税定率法 art.7(15) EXCEPTION/READING/CONDITION: Provision enumeration with paragraph8Item1 carve-out, included Bool selector, applies investigation gate, six boundary theorems; incorporated provisions' content NOT MODELLED; Act)",
+      "independent_spec": "JapanTaxLaw/CustomsTariffArt7MutatisMutandisExceptionSpec.lean sha256=f4a903c2fb820869b7edd31feb1ce1869c5ce81eff620f5be5c121a53b586f27 (SpecApplies Prop: investigation flag true AND provision neither excluded item 1 nor unenumerated, representationally distinct from the Bool selector; equivalence proved by exhaustive cases with no decide/simp/propext/omega; all axiom-free)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (2038 jobs); all seven unit theorems axiom-free via #print axioms probe; no sorryAx/Classical.choice/propext/decide in proofs",
+      "proof_scope": "docs/UNIT_CUSTOMS_TARIFF_ART7_MUTATIS_MUTANDIS_EXCEPTION.md (computable selection-and-gate slice of one EXCEPTION/READING/CONDITION norm unit in 関税定率法 art.7(15); incorporated provisions' content / legal effect / legal correctness NOT MODELLED)",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS customs tariff law art.7 mutatis mutandis exception; 621/621 checks passed; verbatim needle is Article 7(15) Sentence#1 and unique in whole law; article-kind locator 第七条; terms 第七項/第八項/第一号を除く/第九項/前項の調査/準用する derived programmatically from the needle with exact codepoints (7b2c 4e03 9805 / 7b2c 516b 9805 / 7b2c 4e00 53f7 3092 9664 304f / 7b2c 4e5d 9805 / 524d 9805 306e 8abf 67fb / 6e96 7528 3059 308b), never hand-typed; law identity 143AC0000000054 Act with real revision; byte-fidelity equal=True, U+6EDE=0",
+      "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[16]/Article:7/Article#7/Paragraph#15/ParagraphSentence/Sentence#1 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c (revision from INVENTORY current_revision, matched raw revision_info)",
+      "tests": "JapanTaxLaw/CustomsTariffArt7MutatisMutandisExceptionTests.lean sha256=9aff229594ac90fed5a6346af6719618ffdeae5f91aae7c23d04a2f2104469d2 (kernel-checked mutatis-mutandis selection/gate checks)"
+    },
     "NORM|14ce4ffd6f605a69d3e28533d807e97cb43e9d63e97a0d82ccb1ed981b8007b7": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",
@@ -2159,6 +2172,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"25000000\": [\"二千五百万\"], \"5000000\": [\"五百万\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/347M50000008026_20250905_507M60000008091.law.json#LawBody[2]/MainProvision/MainProvision[3]/Article:4/Article#4/Paragraph#2/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=7304e9a98c078d84b5ca2468a5e9932313ffe49e0bf90b40a75371822418b75c (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/WeightInterval5M25MTests.lean sha256=32c7cfc36c1da604e2ca228e9b0198fe49b72712fa9a3061c33333a94a97d518 (23 kernel-decided examples)"
+    },
+    "NORM|2b8b990b36a5ad3fdae16af18b92e5f9d9140d91032bbb9c6384bb34f6bb041b": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 7 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325CO0000000071_20260401_506CO0000000143 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/InheritanceTaxOrderOwnership50Threshold.lean sha256=3001760c3b852c7414439bb429685abc3b035aeac18144c9e15e745a9ea46ab1",
+      "independent_spec": "JapanTaxLaw/InheritanceTaxOrderOwnership50ThresholdSpec.lean sha256=349dd2c06d6ff9bce6fcdbf0e65f514cb2824328b6951709f3c6a4baed43aca2 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45650816640: commit 094f5691, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [50, 100] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"50\": [\"五十\"]}; statutory rate = 1/2; needles scoped",
+      "source_location": "data/raw/325CO0000000071_20260401_506CO0000000143.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:31/Article#31/Paragraph#3/ParagraphSentence/Sentence#1 sha256=d1addeab8ae8cbd7f038ac7efe6a27ea75c83d9e0fced138c3f3407442a29f04 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/InheritanceTaxOrderOwnership50ThresholdTests.lean sha256=4065584ed7eaa336fdab421d77e558d5513b83d3cca254e96379cbd4ffa4320d (7 kernel-decided examples)"
     },
     "NORM|2bab25c886c14a76b4f1deb43a867896a197dc82f0a784a80e42e549925eead3": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -6047,6 +6073,19 @@
       "source_location": "data/raw/325CO0000000245_20261101_508CO0000000083.law.json#LawBody[4]/SupplProvision/SupplProvision[60]/Article:12/Article#12/Paragraph#46/Item#2/ItemSentence/Sentence#1 sha256=9bc03b230fb0ed1039e33a1544cd53772939ee25d6d4648a386400ea269dfb17 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalSeismic120sqmTests.lean sha256=8fd8bab3ac554037e892c63a4120c0c644b760f2520cd567f01eff3e44f876a4 (11 kernel-decided examples)"
     },
+    "NORM|828cfc73aaf9f4780a33278f60922b08a75d67bf7e1503ec29aabe1fae254090": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 8 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=1; enforced revision=325CO0000000245_20261101_508CO0000000083 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/LocalBusinessTaxOrderRate77PerMilleC.lean sha256=bf6ec28563b03c160a1c2085c7ba50efc35acc773f13ff1877276178132f8269",
+      "independent_spec": "JapanTaxLaw/LocalBusinessTaxOrderRate77PerMilleCSpec.lean sha256=ea006c0ff0fe9b4798091507eeee1b92d1eeb5a9ffc2dd449eb9f1eb2cb4fb5f (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45650816640: commit 094f5691, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [77, 1000] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"1000\": [], \"77\": [\"七・七\"]}; statutory rate = 77/1000; needles scoped",
+      "source_location": "data/raw/325CO0000000245_20261101_508CO0000000083.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:35_4_5/Article#35_4_5/Paragraph#1/ParagraphSentence/Sentence#1 sha256=9bc03b230fb0ed1039e33a1544cd53772939ee25d6d4648a386400ea269dfb17 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/LocalBusinessTaxOrderRate77PerMilleCTests.lean sha256=13364406cd12d851805b12655282ffae415a8feafa9f4a22b4ffeaa8158f4158 (8 kernel-decided examples)"
+    },
     "NORM|829ffb188b2d0c5cce09b8c7c48fa1d109d86cdf1192c460ca799e6c37c9858d": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 30 kernel-decided examples covering boundary inputs",
@@ -6631,6 +6670,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"3\": [\"三\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/412CO0000000276_20260401_508CO0000000085.law.json#LawBody[2]/MainProvision/MainProvision[8]/Article:9/Article#9/Paragraph#1/ParagraphSentence/Sentence#1 sha256=e7d2da2024d3909ca5b0db031f8a2bba4e9b6e4e221e9c8d94eaa74e95a9bd18 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/MeetingQuorumOneThirdTests.lean sha256=050fc6f63fdad3fc3e03ccec31fb8b4f909b6e76072ae6c04ec64442314b1413 (23 kernel-decided examples)"
+    },
+    "NORM|8e7ac641452dd23a06be2f4e5fb5f3bbf943d12212b4c5c716791dc8707e249d": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 7 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325CO0000000071_20260401_506CO0000000143 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/InheritanceTaxOrderOwnership50Threshold.lean sha256=3001760c3b852c7414439bb429685abc3b035aeac18144c9e15e745a9ea46ab1",
+      "independent_spec": "JapanTaxLaw/InheritanceTaxOrderOwnership50ThresholdSpec.lean sha256=349dd2c06d6ff9bce6fcdbf0e65f514cb2824328b6951709f3c6a4baed43aca2 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45650816640: commit 094f5691, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [50, 100] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"50\": [\"五十\"]}; statutory rate = 1/2; needles scoped",
+      "source_location": "data/raw/325CO0000000071_20260401_506CO0000000143.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:31/Article#31/Paragraph#4/Item#2/ItemSentence/Column#1/Sentence#1 sha256=d1addeab8ae8cbd7f038ac7efe6a27ea75c83d9e0fced138c3f3407442a29f04 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/InheritanceTaxOrderOwnership50ThresholdTests.lean sha256=4065584ed7eaa336fdab421d77e558d5513b83d3cca254e96379cbd4ffa4320d (7 kernel-decided examples)"
     },
     "NORM|8e7f2e7760ab18115472d1df642a2e1050aed907df6e99450a2bfef59a875a11": {
       "adversarial_review": "docs/ADVERSARIAL_CUSTOMS_TARIFF_ART8_INVESTIGATION_DEADLINE.md — initial verdict CONCRETE FINDINGS (2 documentation/provenance defects, no H/T/C/U — all source, transcription, interpretation and Lean checks PASS): (F1) evidence flag '__ADVERSARIAL__' placeholder (reference-audit FAIL non-batch reference); (F2) adversarial doc deferred-verdict placeholder. Both reproduced and fixed: verdict recorded, flag filled, ledger regenerated. Final confirming review CONFIRMED_FIXED: both findings fully resolved, no new findings; all doc path references resolve; hashes match (impl 04a0a18f…d4e, spec 43f4b2d1…4f0, tests 83b7e082…3a6); proof unchanged (agree_within_deadline via Nat.not_lt_of_ge/Nat.le_of_not_gt, axiom-free). Core verification independently reproduced: sha256 924a01d3…e9c, needle count 1 at Article 8 ¶34 with historical kana あつた (U+3042 U+3064 U+305F) and 以内 (U+5185), law identity 関税定率法 NOT 関税法 with real revision, find_第八条 len 6919, yearCount=1 from verbatim 一年, SpecWithinDeadline contrapositive form equivalent for all Nat, no forbidden axioms, no duplicate, audit 341/341. A hand-typed 以降 (U+964D) was corrected to authoritative 以内 (U+5185) before evidence; confirmed no statutory quote contains U+964D. No legal correctness claim; human legal review remains pending.",
@@ -8139,6 +8191,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"7\": [\"七\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/337CO0000000135_20260401_507CO0000000126.law.json#LawBody[3]/MainProvision/MainProvision[10]/Article:50/Article#50/Paragraph#1/ParagraphSentence/Sentence#1 sha256=d43732150ecbf2b0e12426c5a3b0289921be919480ddda742a9650cbd13986af (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/PermitValidity7DaysTests.lean sha256=dbee354e79ac42816d169c22617953524e2908cd37db2b8f319be2f1cce3f6ae (13 kernel-decided examples)"
+    },
+    "NORM|b338babb5647936d561ccd8e4a53d660b56a474820cd86dbadcc18e7ef62686a": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 7 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325CO0000000071_20260401_506CO0000000143 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/InheritanceTaxOrderOwnership50Threshold.lean sha256=3001760c3b852c7414439bb429685abc3b035aeac18144c9e15e745a9ea46ab1",
+      "independent_spec": "JapanTaxLaw/InheritanceTaxOrderOwnership50ThresholdSpec.lean sha256=349dd2c06d6ff9bce6fcdbf0e65f514cb2824328b6951709f3c6a4baed43aca2 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45650816640: commit 094f5691, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [50, 100] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"50\": [\"五十\"]}; statutory rate = 1/2; needles scoped",
+      "source_location": "data/raw/325CO0000000071_20260401_506CO0000000143.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:31/Article#31/Paragraph#4/Item#1/ItemSentence/Column#1/Sentence#1 sha256=d1addeab8ae8cbd7f038ac7efe6a27ea75c83d9e0fced138c3f3407442a29f04 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/InheritanceTaxOrderOwnership50ThresholdTests.lean sha256=4065584ed7eaa336fdab421d77e558d5513b83d3cca254e96379cbd4ffa4320d (7 kernel-decided examples)"
     },
     "NORM|b353536f43b323118a4f2227d11c70c6644a2405210b6936f06b8645a2b60439": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -10506,6 +10571,19 @@
       "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:69_4/Article#69_4/Paragraph#2/Item#3/Subitem1#2/Subitem1Sentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/SpecialLand330Tests.lean sha256=d86bac8cd9c03983fa90b6072d98b24354c3a7c9c78e69d2b8d3f2d4e73ba239 (11 kernel-decided examples)"
     },
+    "NORM|eac22935cc0e8b038f1c8ba543529163e4625088e78fd7d5cc44d0d402f270a8": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 7 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325CO0000000071_20260401_506CO0000000143 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/InheritanceTaxOrderOwnership50Threshold.lean sha256=3001760c3b852c7414439bb429685abc3b035aeac18144c9e15e745a9ea46ab1",
+      "independent_spec": "JapanTaxLaw/InheritanceTaxOrderOwnership50ThresholdSpec.lean sha256=349dd2c06d6ff9bce6fcdbf0e65f514cb2824328b6951709f3c6a4baed43aca2 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45650816640: commit 094f5691, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [50, 100] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"50\": [\"五十\"]}; statutory rate = 1/2; needles scoped",
+      "source_location": "data/raw/325CO0000000071_20260401_506CO0000000143.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:31/Article#31/Paragraph#2/Item#2/ItemSentence/Sentence#1 sha256=d1addeab8ae8cbd7f038ac7efe6a27ea75c83d9e0fced138c3f3407442a29f04 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/InheritanceTaxOrderOwnership50ThresholdTests.lean sha256=4065584ed7eaa336fdab421d77e558d5513b83d3cca254e96379cbd4ffa4320d (7 kernel-decided examples)"
+    },
     "NORM|eaecb160a9b8c6284f0b47caab87ffc428b712cc68203e390a41bea438d97ce1": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 8 kernel-decided examples covering boundary inputs",
@@ -11052,6 +11130,19 @@
       "source_location": "data/raw/325AC0000000211_20261102_508AC0000000062.law.json#LawBody[1]/MainProvision/MainProvision[13]/Article:12/Article#12/Paragraph#3/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=151df453a55442acb1cdca91f420bc5f7b04b914b85d86b575311ff6e3a7cd95 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/PopulationAge18Tests.lean sha256=919e37d19a9a9f1a61c1e0b24e0008f0ebb53dcea0f1b48435c02d9d48caaf07 (11 kernel-decided examples)"
     },
+    "NORM|f95bdecbdb4348ae2a5d1e25dcbe60e7ea4c12212636c34e7b36b5ac2c669ff1": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 7 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325CO0000000071_20260401_506CO0000000143 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/InheritanceTaxOrderOwnership50Threshold.lean sha256=3001760c3b852c7414439bb429685abc3b035aeac18144c9e15e745a9ea46ab1",
+      "independent_spec": "JapanTaxLaw/InheritanceTaxOrderOwnership50ThresholdSpec.lean sha256=349dd2c06d6ff9bce6fcdbf0e65f514cb2824328b6951709f3c6a4baed43aca2 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45650816640: commit 094f5691, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [50, 100] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"50\": [\"五十\"]}; statutory rate = 1/2; needles scoped",
+      "source_location": "data/raw/325CO0000000071_20260401_506CO0000000143.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:31/Article#31/Paragraph#2/Item#1/ItemSentence/Sentence#1 sha256=d1addeab8ae8cbd7f038ac7efe6a27ea75c83d9e0fced138c3f3407442a29f04 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/InheritanceTaxOrderOwnership50ThresholdTests.lean sha256=4065584ed7eaa336fdab421d77e558d5513b83d3cca254e96379cbd4ffa4320d (7 kernel-decided examples)"
+    },
     "NORM|f98b94090f57059084ba3d05ba274eb387be411c06689c1b1f7246a0adfb5cf0": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",
@@ -11402,19 +11493,6 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle in clause + all spec numerals in scoped article: ['その金額が二百万円を超える場合には、二百万円']; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"100000\": [], \"10000000\": [], \"110000\": [], \"130000\": [], \"150000\": [], \"2\": [\"二\"], \"2000000\": [\"二百万\"], \"220000\": [], \"24000000\": [], \"24500000\": [], \"25000000\": [], \"260000\": [], \"290000\": [], \"300000\": [], \"330000\": [], \"380000\": [], \"4\": [], \"430000\": [], \"5\": [], \"530000\": [], \"9000000\": [], \"9500000\": []}; statutory rate = none; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:34/Article#34/Paragraph#1/Item#2/ItemSentence/Column#2/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalIncomeTaxTests.lean sha256=017a1f256a089f692a0f6f7c5971879339d07ba26a588ff0ae0a6c3d01450104 (55 kernel-decided examples)"
-    },
-    "NORM|1432e7d9fd592fd3f859fd0bb6be8bf74a4119a191bd87e0ad89bbc16a123d15": {
-      "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[16]/Article:7/Article#7/Paragraph#15/ParagraphSentence/Sentence#1 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c (revision from INVENTORY current_revision, matched raw revision_info)",
-      "decomposition_audit": "build/task_queue.json: kinds=[EXCEPTION,READING,CONDITION] (Art.7(15) mutatis mutandis reading of paragraphs 7, 8 excluding item 1, and 9, gated on the preceding paragraph's investigation having begun), decomposed=true, exact span, unhandled_conditions=[], id unique",
-      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS customs tariff law art.7 mutatis mutandis exception; 621/621 checks passed; verbatim needle is Article 7(15) Sentence#1 and unique in whole law; article-kind locator 第七条; terms 第七項/第八項/第一号を除く/第九項/前項の調査/準用する derived programmatically from the needle with exact codepoints (7b2c 4e03 9805 / 7b2c 516b 9805 / 7b2c 4e00 53f7 3092 9664 304f / 7b2c 4e5d 9805 / 524d 9805 306e 8abf 67fb / 6e96 7528 3059 308b), never hand-typed; law identity 143AC0000000054 Act with real revision; byte-fidelity equal=True, U+6EDE=0",
-      "independent_spec": "JapanTaxLaw/CustomsTariffArt7MutatisMutandisExceptionSpec.lean sha256=f4a903c2fb820869b7edd31feb1ce1869c5ce81eff620f5be5c121a53b586f27 (SpecApplies Prop: investigation flag true AND provision neither excluded item 1 nor unenumerated, representationally distinct from the Bool selector; equivalence proved by exhaustive cases with no decide/simp/propext/omega; all axiom-free)",
-      "implementation": "JapanTaxLaw/CustomsTariffArt7MutatisMutandisException.lean sha256=30ca9bc96515d853a212801402a2fe658611c11353d862ca9888bf8d50ba0d9f (関税定率法 art.7(15) EXCEPTION/READING/CONDITION: Provision enumeration with paragraph8Item1 carve-out, included Bool selector, applies investigation gate, six boundary theorems; incorporated provisions' content NOT MODELLED; Act)",
-      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (2038 jobs); all seven unit theorems axiom-free via #print axioms probe; no sorryAx/Classical.choice/propext/decide in proofs",
-      "proof_scope": "docs/UNIT_CUSTOMS_TARIFF_ART7_MUTATIS_MUTANDIS_EXCEPTION.md (computable selection-and-gate slice of one EXCEPTION/READING/CONDITION norm unit in 関税定率法 art.7(15); incorporated provisions' content / legal effect / legal correctness NOT MODELLED)",
-      "boundary_proof": "JapanTaxLaw/CustomsTariffArt7MutatisMutandisExceptionTests.lean: item1 excluded and never applies, paragraphs 7/8-other/9 apply once investigation begun, no application before investigation, Bool/Prop selector equivalence (all axiom-free)",
-      "cross_law_proof": "queue unit has no dependencies; no cross-law constant introduced. The cross-paragraph reading is expressed only within the same-law provision enumeration; no resolution beyond the 15-digit law id is claimed.",
-      "tests": "JapanTaxLaw/CustomsTariffArt7MutatisMutandisExceptionTests.lean sha256=9aff229594ac90fed5a6346af6719618ffdeae5f91aae7c23d04a2f2104469d2 (kernel-checked mutatis-mutandis selection/gate checks)",
-      "adversarial_review": "docs/ADVERSARIAL_CUSTOMS_TARIFF_ART7_MUTATIS_MUTANDIS_EXCEPTION.md — NO FINDINGS with all 15 mandated checks independently reproduced from authoritative sources (raw law JSON, queue, INVENTORY, audit helpers), NOT from author prose, plus a programmatic cross-check (0 fails). Reproduced: raw sha256 924a01d3…86ae9c; needle unique at Art.7(15) Sentence#1 with item-1 carve-out and investigation gate; law identity Act/明治四十三年法律第五十四号/関税定率法/revision 2026-06-01 matches INVENTORY; kinds=[EXCEPTION,READING,CONDITION]; included p7/p8Other/p9 with p8Item1 excluded and applies gated on investigation flag (incorporated content / legal effect / legal correctness NOT MODELLED); needle byte-verbatim in all artifacts with 調=U+8ABF confirmed and no 8AB2/8AB3 variant; audit 621/621; all seven theorems axiom-free with no decide/simp/propext; build 2038 jobs; no dependencies/cross-law constant; LEGAL_REVIEW_PENDING. No completion claim; human legal review remains pending."
     }
   }
 }
