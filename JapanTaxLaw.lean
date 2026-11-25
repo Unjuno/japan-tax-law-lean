@@ -665,6 +665,9 @@ import JapanTaxLaw.Employee300Tests
 import JapanTaxLaw.EmploymentDuration6Months
 import JapanTaxLaw.EmploymentDuration6MonthsSpec
 import JapanTaxLaw.EmploymentDuration6MonthsTests
+import JapanTaxLaw.EqualLevyIncomeRequirement
+import JapanTaxLaw.EqualLevyIncomeRequirementSpec
+import JapanTaxLaw.EqualLevyIncomeRequirementTests
 import JapanTaxLaw.ExamFee
 import JapanTaxLaw.ExamFeeSpec
 import JapanTaxLaw.ExamFeeTests
@@ -1851,6 +1854,9 @@ import JapanTaxLaw.SpecialLand400
 import JapanTaxLaw.SpecialLand400Spec
 import JapanTaxLaw.SpecialLand400Tests
 import JapanTaxLaw.SpecialLandHoldingTax
+import JapanTaxLaw.SpecialLandHoldingTaxRate
+import JapanTaxLaw.SpecialLandHoldingTaxRateSpec
+import JapanTaxLaw.SpecialLandHoldingTaxRateTests
 import JapanTaxLaw.SpecialLandHoldingTaxSpec
 import JapanTaxLaw.SpecialLandHoldingTaxTests
 import JapanTaxLaw.SpecialMeasuresApportionment
@@ -1965,6 +1971,9 @@ import JapanTaxLaw.TaxAccountantPenaltyCapTests
 import JapanTaxLaw.TaxAccountantRegDelegatedAmount
 import JapanTaxLaw.TaxAccountantRegDelegatedAmountSpec
 import JapanTaxLaw.TaxAccountantRegDelegatedAmountTests
+import JapanTaxLaw.TaxBaseRounding
+import JapanTaxLaw.TaxBaseRoundingSpec
+import JapanTaxLaw.TaxBaseRoundingTests
 import JapanTaxLaw.TaxCollectionNextBid
 import JapanTaxLaw.TaxCollectionNextBidSpec
 import JapanTaxLaw.TaxCollectionNextBidTests
