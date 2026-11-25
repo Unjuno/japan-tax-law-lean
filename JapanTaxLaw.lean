@@ -1848,6 +1848,9 @@ import JapanTaxLaw.StatutoryModel
 import JapanTaxLaw.Stay183Days
 import JapanTaxLaw.Stay183DaysSpec
 import JapanTaxLaw.Stay183DaysTests
+import JapanTaxLaw.TariffLawSupplArt1Heisei13Enforcement
+import JapanTaxLaw.TariffLawSupplArt1Heisei13EnforcementSpec
+import JapanTaxLaw.TariffLawSupplArt1Heisei13EnforcementTests
 import JapanTaxLaw.TariffQuotaAmount
 import JapanTaxLaw.TariffQuotaAmountSpec
 import JapanTaxLaw.TariffQuotaAmountTests
