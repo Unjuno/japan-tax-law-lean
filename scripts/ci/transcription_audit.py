@@ -1211,6 +1211,12 @@ def checks():
            "article", "第十条",
            ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する", "第十条"])
 
+    # 関税定率法 附則 art.1 — TariffLawSupplArt1Heisei13Enforcement.lean
+    yield ("関税定率法 附則 art.1（2条3条を除き平成13年1月6日施行）↔ TariffLawSupplArt1Heisei13Enforcement.lean",
+           "143AC0000000054",
+           "file", None,
+           ["この法律（第二条及び第三条を除く。）は、平成十三年一月六日から施行する。", "第一条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
