@@ -4422,6 +4422,15 @@ def checks():
            ["法第七十二条の七十六の政令で定める率は、百分の七・七とする。"])
 
 
+    # 相続税法 art. 68 — InheritanceTaxEvasionFineCap10M.lean (1000万円)
+    yield ("相続税法 art. 68（脱税罰金上限1000万円）↔ InheritanceTaxEvasionFineCap10M.lean",
+           "325AC0000000073", "file", None,
+           ["十年以下の拘禁刑若しくは千万円以下の罰金に処し、又はこれを併科する。"])
+    # 地方税法 art. 72の39の2 — LocalTaxDeferralSmallAmountException1MB.lean (100万円)
+    yield ("地方税法 art. 72_39_2（納税猶予100万円例外）↔ LocalTaxDeferralSmallAmountException1MB.lean",
+           "325AC0000000226", "file", None,
+           ["その猶予に係る税額が百万円以下である場合"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
