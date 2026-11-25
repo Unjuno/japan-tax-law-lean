@@ -878,10 +878,11 @@
       "blockers": [],
       "last_generated_digest": "05fce65c883134ece93125e6d41cc64429a1178c68d34c084a33ec5b7f4e8843",
       "legal_review": "LEGAL_REVIEW_PENDING",
-      "notes": "十分の七相当額; universal agreement; independent adversarial NOT done",
+      "notes": "十分の七相当額; universal agreement; independent adversarial NOT done | independent adversarial PASS (sampled unit)",
       "owner": "ci-formalize-cycle22",
       "review_evidence": [
-        "data/evidence_audits/tenths_audit.json"
+        "data/evidence_audits/tenths_audit.json",
+        "data/evidence_audits/tenths_adversarial_fail.md"
       ],
       "status": "NOT_STARTED",
       "updated_at": "2026-11-25T14:27:48+00:00"
@@ -9328,12 +9329,13 @@
       "blockers": [],
       "last_generated_digest": "f35cfd65f62b9d99008ec87362ab0eb98787d2e4e727d3ca6cd7ce7b09c00454",
       "legal_review": "LEGAL_REVIEW_PENDING",
-      "notes": "ADVERSARIAL FAIL resolved: remodelled in HalfSenRounding. 五十銭未満切捨/五十銭以上一円とする; sub-yen input in 銭; universal half-up agreement",
+      "notes": "ADVERSARIAL FAIL resolved: remodelled in HalfSenRounding. 五十銭未満切捨/五十銭以上一円とする; sub-yen input in 銭; universal half-up agreement | independent adversarial PASS (sampled unit)",
       "owner": "ci-formalize-cycle21",
       "review_evidence": [
         "data/evidence_audits/down_audit.json",
         "data/evidence_audits/floor_adversarial_fail.md",
-        "data/evidence_audits/floor_fix_resolution.md"
+        "data/evidence_audits/floor_fix_resolution.md",
+        "data/evidence_audits/tenths_adversarial_fail.md"
       ],
       "status": "NOT_STARTED",
       "updated_at": "2026-11-25T13:49:05+00:00"
@@ -10180,17 +10182,19 @@
     },
     "1639d5959edea6a590d409b8a469f4d99652f922853340ac13cfa0f7309129fe": {
       "artifacts": [
-        "JapanTaxLaw/TenthsFractions.lean",
-        "JapanTaxLaw/TenthsFractionsSpec.lean",
-        "JapanTaxLaw/TenthsFractionsTests.lean"
+        "JapanTaxLaw/FractionRates110.lean",
+        "JapanTaxLaw/FractionRates110Spec.lean",
+        "JapanTaxLaw/FractionRates110Tests.lean"
       ],
       "blockers": [],
       "last_generated_digest": "4ce3e68be93346e820e0024a2b2ab211602a6d0240dd0f0ee0e65ec972642f28",
       "legal_review": "LEGAL_REVIEW_PENDING",
-      "notes": "十分の百相当額; universal agreement; independent adversarial NOT done",
-      "owner": "ci-formalize-cycle22",
+      "notes": "百十分の百 100/110 remodelled after adversarial FAIL; no ADVERSARIAL_REVIEW axis claimed",
+      "owner": "ci-formalize-cycle24",
       "review_evidence": [
-        "data/evidence_audits/tenths_audit.json"
+        "data/evidence_audits/tenths_audit.json",
+        "data/evidence_audits/tenths_adversarial_fail.md",
+        "data/evidence_audits/tenths_110_fix_resolution.md"
       ],
       "status": "NOT_STARTED",
       "updated_at": "2026-11-25T14:27:49+00:00"
@@ -50963,12 +50967,13 @@
       "blockers": [],
       "last_generated_digest": "c3e12c178ea01542d9acfe7a3f9eaf0963b6ce21cda27919ed5665316db160a6",
       "legal_review": "LEGAL_REVIEW_PENDING",
-      "notes": "ADVERSARIAL FAIL resolved: remodelled in HalfSenRounding. 五十銭未満切捨/五十銭以上一円とする; sub-yen input in 銭; universal half-up agreement",
+      "notes": "ADVERSARIAL FAIL resolved: remodelled in HalfSenRounding. 五十銭未満切捨/五十銭以上一円とする; sub-yen input in 銭; universal half-up agreement | independent adversarial PASS (sampled unit)",
       "owner": "ci-formalize-cycle21",
       "review_evidence": [
         "data/evidence_audits/down_audit.json",
         "data/evidence_audits/floor_adversarial_fail.md",
-        "data/evidence_audits/floor_fix_resolution.md"
+        "data/evidence_audits/floor_fix_resolution.md",
+        "data/evidence_audits/tenths_adversarial_fail.md"
       ],
       "status": "NOT_STARTED",
       "updated_at": "2026-11-25T13:49:05+00:00"
@@ -101018,10 +101023,11 @@
       "blockers": [],
       "last_generated_digest": "524af26d3d055a4a757b4f8c8c194df6ab326996959fe185e58a7a0b7f755076",
       "legal_review": "LEGAL_REVIEW_PENDING",
-      "notes": "十分の二相当額; universal agreement; independent adversarial NOT done",
+      "notes": "十分の二相当額; universal agreement; independent adversarial NOT done | independent adversarial PASS (sampled unit)",
       "owner": "ci-formalize-cycle22",
       "review_evidence": [
-        "data/evidence_audits/tenths_audit.json"
+        "data/evidence_audits/tenths_audit.json",
+        "data/evidence_audits/tenths_adversarial_fail.md"
       ],
       "status": "NOT_STARTED",
       "updated_at": "2026-11-25T14:27:48+00:00"
@@ -111055,5 +111061,5 @@
       "updated_at": "2026-11-24T10:11:25+00:00"
     }
   },
-  "updated_at": "2026-11-25T14:53:42+00:00"
+  "updated_at": "2026-11-25T15:14:22+00:00"
 }

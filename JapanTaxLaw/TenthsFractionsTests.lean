@@ -15,6 +15,5 @@ example : tenths2 1_234 = specTenths2 1_234 := tenths2_agrees 1_234
 example : tenths5 1_234 = specTenths5 1_234 := tenths5_agrees 1_234
 example : tenths7 1_234 = specTenths7 1_234 := tenths7_agrees 1_234
 example : tenths9 1_234 = specTenths9 1_234 := tenths9_agrees 1_234
-example : tenths100 1_234 = specTenths100 1_234 := tenths100_agrees 1_234
 
 end JapanTaxLaw.TenthsFractions

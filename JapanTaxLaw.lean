@@ -605,3 +605,6 @@ import JapanTaxLaw.HalfSenRoundingTests
 import JapanTaxLaw.TenthsFractions
 import JapanTaxLaw.TenthsFractionsSpec
 import JapanTaxLaw.TenthsFractionsTests
+import JapanTaxLaw.FractionRates110
+import JapanTaxLaw.FractionRates110Spec
+import JapanTaxLaw.FractionRates110Tests

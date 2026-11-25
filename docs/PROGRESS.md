@@ -183,11 +183,11 @@ lake clean && lake build                                                # 再現
 | 規範単位（確定対象版） | 268,107 |
 | NOT_STARTED | 260,785 |
 | PARTIAL | 4,312 |
-| PROVED_SCOPE | 171 |
-| FULLY_VERIFIED | 2,837（約 1.06%） |
+| PROVED_SCOPE | 167 |
+| FULLY_VERIFIED | 2,841（約 1.06%） |
 | BLOCKED | 2 |
 | 未解決条件を持つ単位 | 140,289（条件延べ 162,912） |
-| 独立 ADVERSARIAL_REVIEW 軸 | 10（四捨五入 3 + 3 段階累進加算 3 + 段階控除/小数税率 4 単位；いずれも独立サブエージェントの VERDICT: PASS をサンプル単位にのみ記録。他は PROVED_SCOPE のまま） |
+| 独立 ADVERSARIAL_REVIEW 軸 | 14（四捨五入 3 + 3 段階累進 3 + 段階控除/小数税率 4 + 十分のN/五十銭 4；サンプル単位にのみ記録。他は PROVED_SCOPE） |
 | 人間による法的レビュー | 0（別軸・未実施） |
 | 再帰探索の未解決参照名 | 7,059（解決 380） |
 | 地方税条例の取得 | 6 / 1,794（札幌・横浜・名古屋・大阪・福岡・神戸；すべて `ACQUIRED_NOT_REVIEWED`） |
@@ -207,10 +207,14 @@ lake clean && lake build                                                # 再現
 `bands_decimal_adversarial.md`）。切捨てファミリでは 6/42 の原文不整合が発見され
 （`floor_adversarial_fail.md`, VERDICT: FAIL）、五百円単位を四捨五入、
 五十銭単位を銭単位の新モデルへ再形式化して矛盾を解消
-（`floor_fix_resolution.md`）。サンプル外は `PROVED_SCOPE` に留める。
+（`floor_fix_resolution.md`）。さらに十分のNファミリでも 1/13 の
+トークン化誤り（十分の百 → 実は百十分の百 = 100/110）が発見され
+（`tenths_adversarial_fail.md`）、`FractionRates110` へ再形式化
+（`tenths_110_fix_resolution.md`）。いずれも独立監査で発見された不整合を
+記録し、修正後のモデルで証明し直す循环を経た。サンプル外は `PROVED_SCOPE`。
 
 **未達（続行すべき義務）**: 未検証義務の大部分（260,785 単位）、未解決条件
-140,289 単位、165 単位分の独立 ADVERSARIAL_REVIEW、人間の法的レビュー、
+140,289 単位、161 単位分の独立 ADVERSARIAL_REVIEW、人間の法的レビュー、
 地方税条例 1,788 件、附則参照 87 件の版写像、租税条約・通達・裁判例の別層整備。
 
 **再開手順**: `git checkout fix/normative-queue-v2` →
