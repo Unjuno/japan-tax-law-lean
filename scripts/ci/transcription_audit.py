@@ -4346,6 +4346,30 @@ def checks():
            "article", "\u7b2c\u5341\u516d\u6761",
            ["\u540c\u9805\u306b\u898f\u5b9a\u3059\u308b\u7533\u8acb\u66f8\u306e\u63d0\u51fa\u304c\u3042\u3064\u305f\u65e5"])
 
+# 外国貿易日数の割合 八十パーセント超 — ForeignTradeUsageRatio80.lean
+    yield ("地方税法施行規則 art. 11_12（外国貿易日数の割合 八十パーセント超）↔ ForeignTradeUsageRatio80.lean",
+           "329M50000002023",
+           "file", None,
+           ["当該年度の初日の属する年の前年中における外国貿易のために使用された日数の全使用日数に対する割合が八十パーセントを超えるものであること。"])
+
+    # 特定共用土地の面積 家屋床面積の十倍超 — CommonLandAreaTenTimes.lean
+    yield ("地方税法施行規則 art. 15_4（特定共用土地の面積 家屋床面積の十倍超）↔ CommonLandAreaTenTimes.lean",
+           "329M50000002023",
+           "file", None,
+           ["前二項の規定は、特定共用土地の面積が当該特定共用土地に係る区分所有に係る家屋の床面積の十倍の面積を超える場合における法第三百五十二条の二第一項の規定による当該特定共用土地に係る持分の割合の補正について準用する。"])
+
+    # 消去求請期間の延長 三十日以内 — DeletionExtension30Days.lean
+    yield ("関税法 art. 123（消去求請期間の延長 三十日以内）↔ DeletionExtension30Days.lean",
+           "329AC0000000061",
+           "file", None,
+           ["前項の規定により消去しないよう求める期間については、特に必要があるときは、三十日を超えない範囲内で延長することができる。"])
+
+    # 関税額の十倍が千万円超 — CustomsFineTrigger10M10x.lean
+    yield ("関税法 art. 110（関税額の十倍が千万円超）↔ CustomsFineTrigger10M10x.lean",
+           "329AC0000000061",
+           "file", None,
+           ["前三項の犯罪に係る関税又は関税の払戻しの額の十倍が千万円を超える場合においては、情状により、前三項の罰金は、千万円を超え当該関税又は関税の払戻しの額の十倍に相当する金額以下とすることができる。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

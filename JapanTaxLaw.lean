@@ -151,6 +151,9 @@ import JapanTaxLaw.CombinedRegistrationRequestTests
 import JapanTaxLaw.CommitteeTermTwoYears
 import JapanTaxLaw.CommitteeTermTwoYearsSpec
 import JapanTaxLaw.CommitteeTermTwoYearsTests
+import JapanTaxLaw.CommonLandAreaTenTimes
+import JapanTaxLaw.CommonLandAreaTenTimesSpec
+import JapanTaxLaw.CommonLandAreaTenTimesTests
 import JapanTaxLaw.CommutingDistance95
 import JapanTaxLaw.CommutingDistance95Spec
 import JapanTaxLaw.CommutingDistance95Tests
@@ -278,6 +281,9 @@ import JapanTaxLaw.CustomsDutiableValueThresholdTests
 import JapanTaxLaw.CustomsExchangeRate
 import JapanTaxLaw.CustomsExchangeRateSpec
 import JapanTaxLaw.CustomsExchangeRateTests
+import JapanTaxLaw.CustomsFineTrigger10M10x
+import JapanTaxLaw.CustomsFineTrigger10M10xSpec
+import JapanTaxLaw.CustomsFineTrigger10M10xTests
 import JapanTaxLaw.CustomsGoods200k
 import JapanTaxLaw.CustomsGoods200kSpec
 import JapanTaxLaw.CustomsGoods200kTests
@@ -503,6 +509,9 @@ import JapanTaxLaw.DelegatedEnforcement3MTests
 import JapanTaxLaw.DelegatedEnforcement6M
 import JapanTaxLaw.DelegatedEnforcement6MSpec
 import JapanTaxLaw.DelegatedEnforcement6MTests
+import JapanTaxLaw.DeletionExtension30Days
+import JapanTaxLaw.DeletionExtension30DaysSpec
+import JapanTaxLaw.DeletionExtension30DaysTests
 import JapanTaxLaw.DeliberationQuorum
 import JapanTaxLaw.DeliberationQuorumSpec
 import JapanTaxLaw.DeliberationQuorumTests
@@ -669,6 +678,9 @@ import JapanTaxLaw.ForeignCorpResidualRateTests
 import JapanTaxLaw.ForeignDesignation
 import JapanTaxLaw.ForeignDesignationSpec
 import JapanTaxLaw.ForeignDesignationTests
+import JapanTaxLaw.ForeignTradeUsageRatio80
+import JapanTaxLaw.ForeignTradeUsageRatio80Spec
+import JapanTaxLaw.ForeignTradeUsageRatio80Tests
 import JapanTaxLaw.ForestArea650Ha
 import JapanTaxLaw.ForestArea650HaSpec
 import JapanTaxLaw.ForestArea650HaTests

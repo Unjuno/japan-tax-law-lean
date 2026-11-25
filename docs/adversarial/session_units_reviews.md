@@ -1517,3 +1517,60 @@ H/T/D/C/U record:
 - **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
 
 > **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### ForeignTradeUsageRatio80.lean — 地方税法施行規則 art. 11_12（外国貿易日数の割合 八十パーセント超）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `329M50000002023` / revision `329M50000002023_20261101_508M60000008045`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値条件を独立仕様（除算を用いない比較）として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### CommonLandAreaTenTimes.lean — 地方税法施行規則 art. 15_4（特定共用土地の面積 家屋床面積の十倍超）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `329M50000002023` / revision `329M50000002023_20261101_508M60000008045`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値条件を独立仕様（除算を用いない比較）として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### DeletionExtension30Days.lean — 関税法 art. 123（消去求請期間の延長 三十日以内）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `329AC0000000061` / revision `329AC0000000061_20260601_508AC0000000005`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値条件を独立仕様（除算を用いない比較）として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### CustomsFineTrigger10M10x.lean — 関税法 art. 110（関税額の十倍が千万円超）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `329AC0000000061` / revision `329AC0000000061_20260601_508AC0000000005`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値条件を独立仕様（除算を用いない比較）として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
