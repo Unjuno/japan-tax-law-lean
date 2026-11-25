@@ -152,6 +152,15 @@ attestations were bound from that run and the two cells were added to the
 evidence ledger and queue.
 Legal review stays `LEGAL_REVIEW_PENDING`.
 
+## 5k. Cycle-125 (2026-11-26)
+
+Two bounded modules pushed at `6a7b17ca`:
+`LocalTaxOffenseFineCap500k` (地方税法 art.27) and `LocalCapitalCeiling10M`
+(art.52 ホ, 資本金等の額千万円以下). Checks: 8/8 Lean builds, transcription
+618/618, no `sorry`. CI run `45644875727` Lean/axiom job verified green;
+scoped attestations bound from committed blobs and both cells added to the
+evidence ledger and queue. Legal review stays `LEGAL_REVIEW_PENDING`.
+
 ## 6. Resume procedure (exact)
 
 1. `git fetch origin main`; `python scripts/ci/generate_verification_evidence.py`
