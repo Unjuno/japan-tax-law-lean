@@ -4361,6 +4361,12 @@ def checks():
            ["この法律（第二条及び第三条を除く。）は、平成十三年一月六日から施行する。", "第一条"])
 
 
+    # 航空機燃料税法 art. 23(3) — AviationFuelTaxFineRange.lean
+    yield ("航空機燃料税法 art. 23（未納入額二百万円超の罰金区間）↔ AviationFuelTaxFineRange.lean",
+           "431AC0000000003",
+           "file", None,
+           ["前項の納入しなかった金額が二百万円を超える場合には、情状により、同項の罰金の額は、同項の規定にかかわらず、二百万円を超える額でその納入しなかった金額に相当する額以下の額とすることができる。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
