@@ -14,6 +14,11 @@ Classification:
 Acquisition status for every row is `NOT_PINNED` / `NOT_ACQUIRED`; the tool does
 not claim "unobtainable" (取得不能) without an actual failed fetch record.
 
+When `data/RECURSIVE_DISCOVERY_RESOLVED.json` is present, its exact-name
+`historical_version_references` (resolved against the full e-Gov law list) are
+classified instead of only the top-frequency Markdown table. This widens the
+identified backlog from 20 to 91 names without pinning or acquiring any revision.
+
 Regenerate with `python scripts/law_audit/inventory/historical_discovery.py`.
 """
 from __future__ import annotations
@@ -26,6 +31,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[3]
 INVENTORY = REPO / "data" / "INVENTORY.json"
 DISCOVERY = REPO / "docs" / "RECURSIVE_DISCOVERY.md"
+RESOLVED = REPO / "data" / "RECURSIVE_DISCOVERY_RESOLVED.json"
 OUT_JSON = REPO / "data" / "HISTORICAL_DISCOVERY.json"
 OUT_MD = REPO / "docs" / "HISTORICAL_DISCOVERY.md"
 
@@ -65,6 +71,34 @@ def parse_historical_section(text: str) -> list[dict]:
     return rows
 
 
+def resolved_historical_rows() -> list[dict]:
+    """Exact-name historical references resolved against the full e-Gov law list.
+
+    `RECURSIVE_DISCOVERY_RESOLVED.json` is a committed, offline artifact produced
+    by `recursive_discovery_resolve.py`. It resolves 新/旧 names to a base law by
+    exact/short-title/law-number matching only (fuzzy matches are deliberately
+    rejected). Using it here widens the classified subset from the top-frequency
+    Markdown table to every resolved historical reference. Nothing is pinned or
+    acquired by reading this file: the acquisition_status of every row remains
+    NOT_PINNED and no snapshot bytes are fabricated.
+    """
+    if not RESOLVED.exists():
+        return []
+    data = json.loads(RESOLVED.read_text(encoding="utf-8"))
+    out = []
+    for r in data.get("historical_version_references", []) or []:
+        name = norm(str(r.get("name", "")))
+        if not name:
+            continue
+        out.append({
+            "count": int(r.get("occurrences", 0) or 0),
+            "name": name,
+            "resolved_base_law_id": str(r.get("base_law_id", "") or ""),
+            "base_resolution": str(r.get("base_resolution", "") or ""),
+        })
+    return out
+
+
 def classify(rows: list[dict], inventory: dict) -> dict:
     titles = {norm(l.get("official_title", "")): l for l in inventory.get("laws", [])}
     # INVENTORY.json records fully-unenforced laws at the TOP level
@@ -86,7 +120,9 @@ def classify(rows: list[dict], inventory: dict) -> dict:
         name = r["name"]
         m = PREFIX_RE.match(name)
         base = norm(m.group(1)) if m else ""
-        counted.setdefault(name, {"name": name, "occurrences": 0, "base": base})
+        counted.setdefault(name, {"name": name, "occurrences": 0, "base": base,
+                                  "resolved_base_law_id": r.get("resolved_base_law_id", ""),
+                                  "base_resolution": r.get("base_resolution", "")})
         counted[name]["occurrences"] += r["count"]
 
     out = []
@@ -105,6 +141,8 @@ def classify(rows: list[dict], inventory: dict) -> dict:
             "occurrences": rec["occurrences"],
             "class": cls,
             "matched_law_id": law.get("law_id", "") if law else "",
+            "resolved_base_law_id": rec["resolved_base_law_id"],
+            "base_resolution": rec["base_resolution"],
             "acquisition_status": "NOT_PINNED",
             "snapshot_pinned": False,
             "verification_status": "IN_SCOPE_BACKLOG",
@@ -128,8 +166,16 @@ def classify(rows: list[dict], inventory: dict) -> dict:
 
 def build() -> dict:
     text = DISCOVERY.read_text(encoding="utf-8")
-    payload = classify(parse_historical_section(text),
-                       json.loads(INVENTORY.read_text(encoding="utf-8")))
+    resolved = resolved_historical_rows()
+    if resolved:
+        rows = resolved
+        row_source = ("RECURSIVE_DISCOVERY_RESOLVED.json:historical_version_references "
+                      "(exact-name resolved, offline; no revision pin performed)")
+    else:
+        rows = parse_historical_section(text)
+        row_source = "RECURSIVE_DISCOVERY.md top-frequency historical table (fallback)"
+    payload = classify(rows, json.loads(INVENTORY.read_text(encoding="utf-8")))
+    payload["row_source"] = row_source
     m = re.search(r"tax-name candidates prefixed.*?:\s*(\d+)\s*names\s*/\s*(\d+)\s*occurrences", text)
     payload["reported_by_recursive_discovery"] = {
         "names": int(m.group(1)) if m else None,
@@ -157,8 +203,8 @@ def main() -> int:
         "for them, so none is counted as acquired or verified. They remain IN",
         "SCOPE (sponsor directive 2026-11-24); this is implementation backlog,",
         "not permanent exclusion.", "",
-        f"- distinct names in the published table: {t['distinct_names']}",
-        f"- occurrences in the published table: {t['occurrences']}",
+        f"- classified historical names ({payload['row_source']}): {t['distinct_names']}",
+        f"- occurrences in the classified subset: {t['occurrences']}",
         "- reported by recursive discovery (all names, table is top-frequency only): "
         + str(payload["reported_by_recursive_discovery"]),
     ]

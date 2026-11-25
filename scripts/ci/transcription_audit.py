@@ -91,14 +91,16 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
-    # HouseholdCorrectionFloor07 — 航空機燃料譲与税法施行規則 art.4(8) 世帯数〇・七下限
-    yield ("航空機燃料譲与税法施行規則 art.4(8)（世帯数〇・七下限）↔ HouseholdCorrectionFloor07.lean",
-           "347M50000008026", "article", "第四条", ["前年度の世帯数に〇・七を乗じて得た数に満たず、かつ、当該前年度の世帯数から当該補正世帯数を控除して得た数が千を超える場合には"])
-
     yield ("航空機燃料税法 art. 14(1) 第四号（納付すべき税額＝二号税額−前号税額）↔ AircraftFuelTaxPayable.lean", "347AC0000000007", "article", "第十四条", ["第二号に掲げる航空機燃料税額から前号に掲げる航空機燃料税額を控除した金額"])
 
     yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
 
+    # TokyoAsCityDeeming.lean - NORM|1a2cafd55f792102d5682dcc811260486c83126edbf8985d8a31d64c3eddb32f
+    # 特別とん譲与税法 第六条第一項 第二文 (DEEMING 「都を市とみなして」).
+    # Needle is in MainProvision Article 第六条; revision pinned in INVENTORY.
+    yield ("特別とん譲与税法 art.6(1)（都を市とみなす）↔ TokyoAsCityDeeming.lean",
+           "332AC0000000077", "article", "第六条",
+           ["この場合においては、都を市とみなして、この法律の規定を適用する。"])
     # Restored registry checks dropped by a concurrent stale-base rewrite.
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,
@@ -1200,11 +1202,11 @@ def checks():
            "article", "第十条",
            ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する", "第十条"])
 
-    # 災害被害者租税減免法 art.7(3) — DisasterLiquorDeduction500YenFloor.lean
-    yield ("災害被害者租税減免法 art.7(3)（控除額五百円未満は控除しない）↔ DisasterLiquorDeduction500YenFloor.lean",
-           "322AC0000000175",
-           "article", "第七条",
-           ["五百円未満である場合における当該金額については、同項の控除を行わない", "第七条"])
+    # 相続税法 art.21の7 表セル — InheritanceTaxArt21_7Bracket3M4M.lean
+    yield ("相続税法 art.21の7 表（三百万円超四百万円以下）↔ InheritanceTaxArt21_7Bracket3M4M.lean",
+           "325AC0000000073",
+           "file", None,
+           ["三百万円を超え四百万円以下の金額", "第二十一条の七"])
 
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
@@ -2377,24 +2379,6 @@ def checks():
            "336M50000400035",
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
-
-    # OldIndividualAnnuityPremiumDeductionMid — cycle-118
-    yield ("OldIndividualAnnuityPremiumDeductionMid.lean",
-           "325AC0000000226",
-           "file", None,
-           ["一万五千円と当該合計額から一万五千円を控除した金額の二分の一に相当する金額との合計額", "旧個人年金保険料の金額の合計額が一万五千円を超え四万円以下である場合"])
-
-    # LocalTaxFixedAmountRounding — cycle-119
-    yield ("LocalTaxFixedAmountRounding.lean",
-           "325AC0000000226",
-           "file", None,
-           ["地方税の確定金額に百円未満の端数があるとき、又はその全額が百円未満であるときは、その端数金額又はその全額を切り捨てる", "第二十条の四の二"])
-
-    # CohabitantSpecialDisabilityDeduction — cycle-120
-    yield ("CohabitantSpecialDisabilityDeduction.lean",
-           "325AC0000000226",
-           "file", None,
-           ["当該同居特別障害者一人につき二十二万円", "第三十七条"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -4348,59 +4332,49 @@ def checks():
            "file", None,
            ["前項の納付しなかった国際観光旅客税の額が二百万円を超えるときは、情状により、同項の罰金は、二百万円を超えその納付しなかった国際観光旅客税の額に相当する金額以下とすることができる。"])
 
+    # InheritanceTaxArt13ResidualAssetDebtException.lean - NORM|e1208a4e... (相続税法 art.13(2) item3 EXCEPTION, law 325AC0000000073)
+    # Article-kind locator; needle is the residual asset debt category.
+    yield ("inheritance tax art.13 residual asset debt exception - InheritanceTaxArt13ResidualAssetDebtException.lean",
+           "325AC0000000073",
+           "article", "\u7b2c\u5341\u4e09\u6761",
+           ["\u524d\u4e8c\u53f7\u306b\u63b2\u3052\u308b\u50b5\u52d9\u3092\u9664\u304f\u307b\u304b\u3001\u305d\u306e\u8ca1\u7523\u306e\u53d6\u5f97\u3001\u7dad\u6301\u53c8\u306f\u7ba1\u7406\u306e\u305f\u3081\u306b\u751f\u3058\u305f\u50b5\u52d9"])
+
     # 地方交付税法施行令 art. 8(3) — GrantErrorRounding1000.lean
     yield ("地方交付税法施行令 art. 8（錯誤額の千円未満切捨て）↔ GrantErrorRounding1000.lean",
            "331M50000002007",
            "file", None,
            ["第一項の都道府県又は市町村に譲与すべき額に加算し、又は当該譲与すべき額から減額すべき錯誤に係る額に千円未満の端数金額があるときは、その端数金額を控除した金額をもつて、当該錯誤にかかる額とする。"])
 
-    # 電源開発促進税法 art. 12(4) — PowerDevelopmentTaxFineRange.lean
-    yield ("電源開発促進税法 art. 12（税額五十万円超の罰金区間）↔ PowerDevelopmentTaxFineRange.lean",
-           "349AC0000000079",
+    # DisasterTaxReliefOrderArt16ApplicationSubmissionDay.lean - NORM|cbfd2fef... (災害被害者租税減免法施行政令 art.16 REFERENCE, law 322CO0000000268)
+    # Article-kind locator; needle is the application-submission-day anchor.
+    yield ("disaster tax relief order art.16 application submission day - DisasterTaxReliefOrderArt16ApplicationSubmissionDay.lean",
+           "322CO0000000268",
+           "article", "\u7b2c\u5341\u516d\u6761",
+           ["\u540c\u9805\u306b\u898f\u5b9a\u3059\u308b\u7533\u8acb\u66f8\u306e\u63d0\u51fa\u304c\u3042\u3064\u305f\u65e5"])
+
+# 外国貿易日数の割合 八十パーセント超 — ForeignTradeUsageRatio80.lean
+    yield ("地方税法施行規則 art. 11_12（外国貿易日数の割合 八十パーセント超）↔ ForeignTradeUsageRatio80.lean",
+           "329M50000002023",
            "file", None,
-           ["前項の犯罪に係る販売電気に対する電源開発促進税に相当する金額が五十万円を超える場合には、情状により、同項の罰金は、五十万円を超え当該電源開発促進税に相当する金額以下とすることができる。"])
+           ["当該年度の初日の属する年の前年中における外国貿易のために使用された日数の全使用日数に対する割合が八十パーセントを超えるものであること。"])
 
-    yield ("地方税法 art. 22_2（更正請求書虚偽記載の罰金上限50万円）↔ LocalTaxFalseFilingFineCap500k.lean",
-           "325AC0000000226", "file", None,
-           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
-
-    # 相続税法 art. 70 — InheritanceTaxFalseReportFineCap500k.lean (50万円)
-    yield ("相続税法 art. 70（調書虚偽記載の罰金上限50万円）↔ InheritanceTaxFalseReportFineCap500k.lean",
-           "325AC0000000073", "file", None,
-           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
-
-    # CustomsTariffArt7MutatisMutandisException.lean - NORM|1432e7d9... (関税定率法 art.7(15) EXCEPTION/READING/CONDITION, law 143AC0000000054)
-    # Article-kind locator; needle is the mutatis-mutandis-with-carveout clause.
-    yield ("customs tariff law art.7 mutatis mutandis exception - CustomsTariffArt7MutatisMutandisException.lean",
-           "143AC0000000054",
-           "article", "\u7b2c\u4e03\u6761",
-           ["\u7b2c\u4e03\u9805\u3001\u7b2c\u516b\u9805\uff08\u7b2c\u4e00\u53f7\u3092\u9664\u304f\u3002\uff09\u53ca\u3073\u7b2c\u4e5d\u9805\u306e\u898f\u5b9a\u306f\u3001\u524d\u9805\u306e\u8abf\u67fb\u304c\u958b\u59cb\u3055\u308c\u305f\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
-
-    yield ("特別とん税法 art.10(1)（3年/50万円の上限）↔ SpecialTonnageArt10PenaltyCap.lean",
-           "332AC0000000038",
-           "article", "第十条",
-           ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する", "第十条"])
-
-    # 関税定率法 附則 art.1 — TariffLawSupplArt1Heisei13Enforcement.lean
-    yield ("関税定率法 附則 art.1（2条3条を除き平成13年1月6日施行）↔ TariffLawSupplArt1Heisei13Enforcement.lean",
-           "143AC0000000054",
+    # 特定共用土地の面積 家屋床面積の十倍超 — CommonLandAreaTenTimes.lean
+    yield ("地方税法施行規則 art. 15_4（特定共用土地の面積 家屋床面積の十倍超）↔ CommonLandAreaTenTimes.lean",
+           "329M50000002023",
            "file", None,
-           ["この法律（第二条及び第三条を除く。）は、平成十三年一月六日から施行する。", "第一条"])
+           ["前二項の規定は、特定共用土地の面積が当該特定共用土地に係る区分所有に係る家屋の床面積の十倍の面積を超える場合における法第三百五十二条の二第一項の規定による当該特定共用土地に係る持分の割合の補正について準用する。"])
 
-    # 地方税法 art. 27 — LocalTaxOffenseFineCap500k.lean (50万円)
-    yield ("地方税法 art. 27（罰金上限50万円）↔ LocalTaxOffenseFineCap500k.lean",
-           "325AC0000000226", "file", None,
-           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+    # 消去求請期間の延長 三十日以内 — DeletionExtension30Days.lean
+    yield ("関税法 art. 123（消去求請期間の延長 三十日以内）↔ DeletionExtension30Days.lean",
+           "329AC0000000061",
+           "file", None,
+           ["前項の規定により消去しないよう求める期間については、特に必要があるときは、三十日を超えない範囲内で延長することができる。"])
 
-    # 地方税法 art. 52 ホ — LocalCapitalCeiling10M.lean (1000万円)
-    yield ("地方税法 art. 52（ホ 資本金等の額1000万円以下）↔ LocalCapitalCeiling10M.lean",
-           "325AC0000000226", "file", None,
-           ["資本金等の額が千万円以下であるもの"])
-    # 地方税法 附則5の12(4) — SpecialTaxCreditCap10000.lean
-    yield ("地方税法 附則第五条の十二 第四項（特別税額控除額 一万円超分岐）↔ SpecialTaxCreditCap10000.lean",
-           "325AC0000000226", "file", None,
-           ["前項の市町村民税に係る令和七年度分特別税額控除額は、個人の住民税の所得割の額が一万円を超える場合には一万円から道府県民税特別税額控除額を控除して得た金額とし、個人の住民税の所得割の額が一万円を超えない場合には第二項第二号に掲げる額に相当する金額とする。"])
-
+    # 関税額の十倍が千万円超 — CustomsFineTrigger10M10x.lean
+    yield ("関税法 art. 110（関税額の十倍が千万円超）↔ CustomsFineTrigger10M10x.lean",
+           "329AC0000000061",
+           "file", None,
+           ["前三項の犯罪に係る関税又は関税の払戻しの額の十倍が千万円を超える場合においては、情状により、前三項の罰金は、千万円を超え当該関税又は関税の払戻しの額の十倍に相当する金額以下とすることができる。"])
 
     # 航空機燃料税法 art. 23(3) — AviationFuelTaxFineRange.lean
     yield ("航空機燃料税法 art. 23（未納入額二百万円超の罰金区間）↔ AviationFuelTaxFineRange.lean",
@@ -4408,30 +4382,37 @@ def checks():
            "file", None,
            ["前項の納入しなかった金額が二百万円を超える場合には、情状により、同項の罰金の額は、同項の規定にかかわらず、二百万円を超える額でその納入しなかった金額に相当する額以下の額とすることができる。"])
 
-    yield ("地方税法 附則第五条の十二 第四項（特別税額控除額 一万円超分岐）↔ SpecialTaxCreditCap10000.lean",
-           "325AC0000000226", "file", None,
-           ["前項の市町村民税に係る令和七年度分特別税額控除額は、個人の住民税の所得割の額が一万円を超える場合には一万円から道府県民税特別税額控除額を控除して得た金額とし、個人の住民税の所得割の額が一万円を超えない場合には第二項第二号に掲げる額に相当する金額とする。"])
+    # 災害被害者租税減免法 art.7(3) — DisasterLiquorDeduction500YenFloor.lean
+    yield ("災害被害者租税減免法 art.7(3)（控除額五百円未満は控除しない）↔ DisasterLiquorDeduction500YenFloor.lean",
+           "322AC0000000175",
+           "article", "第七条",
+           ["五百円未満である場合における当該金額については、同項の控除を行わない", "第七条"])
 
+    # 相続税法 art. 68 — InheritanceTaxEvasionFineCap10M.lean (1000万円)
+    yield ("相続税法 art. 68（脱税罰金上限1000万円）↔ InheritanceTaxEvasionFineCap10M.lean",
+           "325AC0000000073", "file", None,
+           ["十年以下の拘禁刑若しくは千万円以下の罰金に処し、又はこれを併科する。"])
+
+    # 相続税法 art. 70 — InheritanceTaxFalseReportFineCap500k.lean (50万円)
+    yield ("相続税法 art. 70（調書虚偽記載の罰金上限50万円）↔ InheritanceTaxFalseReportFineCap500k.lean",
+           "325AC0000000073", "file", None,
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
 
     # 相続税法施行令 art. 31 — InheritanceTaxOrderOwnership50Threshold.lean (>50%)
     yield ("相続税法施行令 art. 31（所有割合50%超）↔ InheritanceTaxOrderOwnership50Threshold.lean",
            "325CO0000000071", "file", None,
            ["発行済株式等の百分の五十を超える株式等が同項の個人等により所有されている場合"])
 
-
-    yield ("相続税法施行令 art. 31（所有割合50%超）↔ InheritanceTaxOrderOwnership50Threshold.lean",
-           "325CO0000000071", "file", None,
-           ["発行済株式等の百分の五十を超える株式等が同項の個人等により所有されている場合"])
     # 地方税法施行令 art. 35の4の5 — LocalBusinessTaxOrderRate77PerMilleC.lean (7.7%)
     yield ("地方税法施行令 art. 35_4_5（政令率7.7%）↔ LocalBusinessTaxOrderRate77PerMilleC.lean",
            "325CO0000000245", "file", None,
            ["法第七十二条の七十六の政令で定める率は、百分の七・七とする。"])
 
+    # 地方税法 art. 52 ホ — LocalCapitalCeiling10M.lean (1000万円)
+    yield ("地方税法 art. 52（ホ 資本金等の額1000万円以下）↔ LocalCapitalCeiling10M.lean",
+           "325AC0000000226", "file", None,
+           ["資本金等の額が千万円以下であるもの"])
 
-    # 相続税法 art. 68 — InheritanceTaxEvasionFineCap10M.lean (1000万円)
-    yield ("相続税法 art. 68（脱税罰金上限1000万円）↔ InheritanceTaxEvasionFineCap10M.lean",
-           "325AC0000000073", "file", None,
-           ["十年以下の拘禁刑若しくは千万円以下の罰金に処し、又はこれを併科する。"])
     # 地方税法 art. 72の39の2 — LocalTaxDeferralSmallAmountException1MB.lean (100万円)
     yield ("地方税法 art. 72_39_2（納税猶予100万円例外）↔ LocalTaxDeferralSmallAmountException1MB.lean",
            "325AC0000000226", "file", None,
@@ -4441,6 +4422,58 @@ def checks():
            "507CO0000000134", "article", "第三条",
            ["他の通算法人の他の課税事業年度の調整前控除限度額が零を下回る場合のその下回る額の合計額"])
 
+
+    # 地方税法 art. 22の2 — LocalTaxFalseFilingFineCap500k.lean (50万円)
+    yield ("地方税法 art. 22_2（更正請求書虚偽記載の罰金上限50万円）↔ LocalTaxFalseFilingFineCap500k.lean",
+           "325AC0000000226", "file", None,
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
+    # 地方税法 art. 27 — LocalTaxOffenseFineCap500k.lean (50万円)
+    yield ("地方税法 art. 27（罰金上限50万円）↔ LocalTaxOffenseFineCap500k.lean",
+           "325AC0000000226", "file", None,
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
+    # 電源開発促進税法 art. 12(4) — PowerDevelopmentTaxFineRange.lean
+    yield ("電源開発促進税法 art. 12（税額五十万円超の罰金区間）↔ PowerDevelopmentTaxFineRange.lean",
+           "349AC0000000079",
+           "file", None,
+           ["前項の犯罪に係る販売電気に対する電源開発促進税に相当する金額が五十万円を超える場合には、情状により、同項の罰金は、五十万円を超え当該電源開発促進税に相当する金額以下とすることができる。"])
+
+    # 地方税法 附則5の12(4) — SpecialTaxCreditCap10000.lean
+    yield ("地方税法 附則第五条の十二 第四項（特別税額控除額 一万円超分岐）↔ SpecialTaxCreditCap10000.lean",
+           "325AC0000000226", "file", None,
+           ["前項の市町村民税に係る令和七年度分特別税額控除額は、個人の住民税の所得割の額が一万円を超える場合には一万円から道府県民税特別税額控除額を控除して得た金額とし、個人の住民税の所得割の額が一万円を超えない場合には第二項第二号に掲げる額に相当する金額とする。"])
+
+    # 関税定率法 附則 art.1 — TariffLawSupplArt1Heisei13Enforcement.lean
+    yield ("関税定率法 附則 art.1（2条3条を除き平成13年1月6日施行）↔ TariffLawSupplArt1Heisei13Enforcement.lean",
+           "143AC0000000054",
+           "file", None,
+           ["この法律（第二条及び第三条を除く。）は、平成十三年一月六日から施行する。", "第一条"])
+
+    # 自動車重量譲与税法 art. 1(1) — AutoWeightGrantRate357.lean
+    yield ("自動車重量譲与税法 art. 1（収入額の千分の三百五十七）↔ AutoWeightGrantRate357.lean",
+           "346AC0000000090",
+           "file", None,
+           ["自動車重量譲与税は、自動車重量税法（昭和四十六年法律第八十九号）の規定による自動車重量税の収入額の千分の三百五十七に相当する額とし、市町村（特別区を含む。以下同じ。）及び都道府県に対して譲与するものとする。"])
+
+    yield ("地方税法 art. 70（罰金上限50万円）↔ LocalTaxArt70FineCap500k.lean",
+           "325AC0000000226", "file", None,
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
+
+    yield ("地方税法 art. 71_21（罰金上限50万円）↔ LocalTaxArt71_21FineCap500k.lean",
+           "325AC0000000226", "file", None,
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
+
+    # 地方税法 art. 51 — LocalTaxStandardRateCeiling2.lean (2%上限)
+    yield ("地方税法 art. 51（標準税率超過時2%上限）↔ LocalTaxStandardRateCeiling2.lean",
+           "325AC0000000226", "file", None,
+           ["標準税率を超える税率で課する場合においても、百分の二を超えることができない。"])
+    # 地方税法 art. 37 — LocalTaxReducedRate2or1.lean (2%/1%)
+    yield ("地方税法 art. 37（2%／指定都市1%）↔ LocalTaxReducedRate2or1.lean",
+           "325AC0000000226", "file", None,
+           ["次に掲げる金額のうちいずれか少ない金額の百分の二"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

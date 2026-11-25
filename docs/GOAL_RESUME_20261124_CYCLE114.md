@@ -161,6 +161,18 @@ Two bounded modules pushed at `6a7b17ca`:
 scoped attestations bound from committed blobs and both cells added to the
 evidence ledger and queue. Legal review stays `LEGAL_REVIEW_PENDING`.
 
+## 5l. Cycle-128 (2026-11-26)
+
+Two bounded modules pushed at `d365c382`:
+`LocalTaxArt70FineCap500k` and `LocalTaxArt71_21FineCap500k` (地方税法
+art.70 / art.71の21, inclusive 「五十万円以下」 fine caps). Checks: 8/8
+Lean builds, transcription 634/634, no `sorry`. The first CI run
+`45666627767` failed at **Install Lean toolchain** (infrastructure, not a
+proof failure); no attestation was bound from it. Resume step: bind scoped
+attestations for these two modules from the first REST/gh-verified green
+Lean job whose commit contains their blobs, then regenerate the ledgers.
+Legal review stays `LEGAL_REVIEW_PENDING`.
+
 ## 6. Resume procedure (exact)
 
 1. `git fetch origin main`; `python scripts/ci/generate_verification_evidence.py`
