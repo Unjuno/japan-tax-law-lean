@@ -1200,6 +1200,12 @@ def checks():
            "article", "第十条",
            ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する", "第十条"])
 
+    # 災害被害者租税減免法 art.7(3) — DisasterLiquorDeduction500YenFloor.lean
+    yield ("災害被害者租税減免法 art.7(3)（控除額五百円未満は控除しない）↔ DisasterLiquorDeduction500YenFloor.lean",
+           "322AC0000000175",
+           "article", "第七条",
+           ["五百円未満である場合における当該金額については、同項の控除を行わない", "第七条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
@@ -4421,6 +4427,15 @@ def checks():
            "325CO0000000245", "file", None,
            ["法第七十二条の七十六の政令で定める率は、百分の七・七とする。"])
 
+
+    # 相続税法 art. 68 — InheritanceTaxEvasionFineCap10M.lean (1000万円)
+    yield ("相続税法 art. 68（脱税罰金上限1000万円）↔ InheritanceTaxEvasionFineCap10M.lean",
+           "325AC0000000073", "file", None,
+           ["十年以下の拘禁刑若しくは千万円以下の罰金に処し、又はこれを併科する。"])
+    # 地方税法 art. 72の39の2 — LocalTaxDeferralSmallAmountException1MB.lean (100万円)
+    yield ("地方税法 art. 72_39_2（納税猶予100万円例外）↔ LocalTaxDeferralSmallAmountException1MB.lean",
+           "325AC0000000226", "file", None,
+           ["その猶予に係る税額が百万円以下である場合"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
