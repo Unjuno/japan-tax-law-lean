@@ -2396,6 +2396,12 @@ def checks():
            "file", None,
            ["当該合計額が前年の総所得金額、退職所得金額及び山林所得金額の合計額の百分の三十に相当する金額を超える場合には、当該百分の三十に相当する金額", "二千円を超える場合には、その超える金額の百分の四"])
 
+    # CohabitElderlyDependentDeduction — cycle-122
+    yield ("CohabitElderlyDependentDeduction.lean",
+           "325AC0000000226",
+           "file", None,
+           ["当該老人扶養親族一人につき十三万円", "同居直系尊属である老人扶養親族"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -4441,6 +4447,14 @@ def checks():
     yield ("災害被害者租税減免法 art.7(3)（控除額五百円未満は控除しない）↔ DisasterLiquorDeduction500YenFloor.lean",
            "322AC0000000175", "article", "第七条",
            ["五百円未満である場合における当該金額については、同項の控除を行わない", "第七条"])
+
+    # 地方税法 art. 70 / 71の21 — 50万円 fine caps
+    yield ("地方税法 art. 70（罰金上限50万円）↔ LocalTaxArt70FineCap500k.lean",
+           "325AC0000000226", "file", None,
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+    yield ("地方税法 art. 71_21（罰金上限50万円）↔ LocalTaxArt71_21FineCap500k.lean",
+           "325AC0000000226", "file", None,
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
