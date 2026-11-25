@@ -171,3 +171,44 @@ lake clean && lake build                                                # 再現
 **未達**: L3 の残り全条文・L4・L5 の全条文証明・L6・L7 統合レポート・関税定率法等のカテゴリー全体・地方税条例・改正影響（F）・全 target 法令の meaning に対する end-to-end 監査。
 
 **完成判定ではありません。** 本システムは「部分的な意味検証＋完全な構造監査＋検証範囲の記録」までの段階です。
+
+## 10. 2026-11-25 実測スナップショット（PR #208 / fix/normative-queue-v2）
+
+前節の数値は初期スナップショット時点のものです。以下は現行ブランチの永続台帳から
+再計測した値です（いずれも `python scripts/ci/task_queue.py` と
+`docs/TASK_QUEUE.md` から再現可能）。
+
+| 指標 | 実測値 |
+|---|---:|
+| 規範単位（確定対象版） | 268,107 |
+| NOT_STARTED | 260,841 |
+| PARTIAL | 4,311 |
+| PROVED_SCOPE | 126 |
+| FULLY_VERIFIED | 2,827（約 1.05%） |
+| BLOCKED | 2 |
+| 未解決条件を持つ単位 | 140,289（条件延べ 162,912） |
+| 独立 ADVERSARIAL_REVIEW 軸 | 0（サブエージェント利用不可のため未記録） |
+| 人間による法的レビュー | 0（別軸・未実施） |
+| 再帰探索の未解決参照名 | 7,059（解決 380） |
+| 地方税条例の取得 | 5 / 1,794（すべて `ACQUIRED_NOT_REVIEWED`） |
+| 附則 新/旧法参照 | 87（定義条抽出 42・未検出 45・2026 版冲突 6、写像未実施） |
+| 因果 H/T/D/C/U 記録 | 50（`data/evidence_audits/coordinator_cycle_htdcu.json`、すべて PASS） |
+
+新規に追加した実証可能な意味モデル群（いずれも独立仕様との全称対応をカーネル証明、
+`ADVERSARIAL_REVIEW` 欠如のため `FULLY_VERIFIED` ではなく `PROVED_SCOPE`）:
+所得税法 art.28/86 の 5 段階控除（2 単位）、災害減免 3 段階（1）、地方税法
+不申告加算の 3 段階累進（17）、小数税率 1.35/40.85/44.65/6.24/1.4%（12）、
+四捨五入（千円未満 72・百万円未満 1）。いずれも原文トークン・SHA-256・
+一意解決の機械監査を通過し、禁止マーカー 0。
+
+**未達（続行すべき義務）**: 未検証義務の大部分（260,841 単位）、未解決条件
+140,289 単位、独立性の欠ける ADVERSARIAL_REVIEW、人間の法的レビュー、
+地方税条例 1,789 件、附則参照 87 件の版写像、租税条約・通達・裁判例の別層整備。
+
+**再開手順**: `git checkout fix/normative-queue-v2` →
+`python scripts/ci/task_queue.py` → `python scripts/ci/task_selector.py` で
+未完了義務を選択 → SOURCE/FORMALIZE/PROVE を永続キューから割当 →
+独立監査（`record_unit_evidence.py` は `fidelity: PASS` を要求）→
+`C:\Users\user\.elan\bin\lake.exe build` →
+`python scripts/ci/run_python_gates.py`（SKIP は PASS に算入しない）→ PR 統合。
+独立性を確保できない場合は 9 軸のみを記録し `PROVED_SCOPE` に留め、完了を宣言しない。

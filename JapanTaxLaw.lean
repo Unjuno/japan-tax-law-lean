@@ -593,3 +593,6 @@ import JapanTaxLaw.ProgressiveSurchargeBracketsTests
 import JapanTaxLaw.DecimalPercentRates
 import JapanTaxLaw.DecimalPercentRatesSpec
 import JapanTaxLaw.DecimalPercentRatesTests
+import JapanTaxLaw.HalfUpRounding
+import JapanTaxLaw.HalfUpRoundingSpec
+import JapanTaxLaw.HalfUpRoundingTests
