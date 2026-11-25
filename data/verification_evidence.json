@@ -2343,17 +2343,17 @@
       "tests": "JapanTaxLaw/SpecialTonnageArt10PenaltyCapTests.lean sha256=b40f286ee425ae1b4b5a51f53442d702a00df2c82c8d74884a1e55c582077aad (8 kernel-decided examples)"
     },
     "NORM|2f9abe1626f614eaab2879239d801935a2a1b8cdbc5dde1de4f9c5925696a72b": {
-      "adversarial_review": "docs/ADVERSARIAL_INHERITANCE_TAX_RATE_BRACKET_30_50.md — independent agent re-derived sha256 (c01bb9be…043a7, 856,326 B), law identity 相続税法 Act (法律, not CabinetOrder), real revision 325AC0000000073_20260401_506AC0000000008 (INVENTORY+raw+disk), structural needle chain (Article:16, ArticleTitle 第十六条, Paragraph 1, TableStruct table cell), whole-law count 1, byte-fidelity of Lean quote and audit needle vs queue (all codepoints correct, no confusables), find_article_text claim TRUE (len 437, needle present), successor spec, universal agree_bracket via core Nat lemmas, boundary theorems. VERDICT: NO FINDINGS — all 6 areas pass; no source defect, fabricated revision, false label, unsound proof, or scope over-approximation. Reviewer did not run lake build per instruction. No claim of legal correctness. [FOLLOW-UP turn28: false 別表第一 label corrected to 第十六条の表 in all three Lean files (the law has no self-referential 別表第一, only an Article 16 TableStruct); hashes refreshed; no proof/scope change. Found during turn28 adversarial review of sibling unit.]",
-      "boundary_proof": "JapanTaxLaw/InheritanceTaxRateBracket30_50Spec.lean: lower_exclusive (30,000,000 fails — 超え strict), first_qualifying (30,000,001), upper_inclusive (50,000,000 — 以下 inclusive), above_upper (50,000,001 fails), bounds_decoded, agree_bracket (universal)",
-      "cross_law_proof": "queue unit dependencies analyzed; this Act's rate table 別表第一 is referenced from 相続税法 art.16; the rate, other brackets, base computation are NOT MODELLED; no cross-law constant claimed",
-      "decomposition_audit": "build/task_queue.json: kind=CONDITION, decomposed=true, exact span, unhandled_conditions=[], id unique",
-      "implementation": "JapanTaxLaw/InheritanceTaxRateBracket30_50.lean sha256=0c8c8ec2aa9647696edabe045587b97c7317a54e98e8124b05154293be7dcf74 (lowerBoundYen=30_000_000=三千万円 strict 超え; upperBoundYen=50_000_000=五千万円 inclusive 以下; inBracket = strict-lower ∧ inclusive-upper; Act)",
-      "independent_spec": "JapanTaxLaw/InheritanceTaxRateBracket30_50Spec.lean sha256=9257ffea87626d6c593fad655af2cebbb2ab48e60f9ef48fab8dfaeef00555ac (specInBracket = successor-based lower bound Nat.succ 30000000 ≤ x ∧ x ≤ 50000000, distinct from strict-< implementation; agree_bracket universal over all taxable values)",
-      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (653 jobs); agree_bracket universal over all taxable values; all 6 theorems axiom-free; no sorryAx/Classical.choice",
-      "proof_scope": "docs/UNIT_INHERITANCE_TAX_RATE_BRACKET_30_50.md (computable taxable-value-bracket slice of one CONDITION norm unit in 相続税法 別表第一; rate for this bracket, other brackets, base computation, deductions, rest of 別表第一, other paragraphs explicitly NOT MODELLED)",
-      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS 相続税法 第十六条 別表第一(1)（三千万円を超え五千万円以下の金額）; 201/201 checks passed; verbatim needle unique in whole pinned law; article-kind locator (find_article_text(...,'第十六条') returns article len 437 containing needle); Lean quote byte-checked against queue needle (equal=True); law identity Act (法律) 相続税法 + real revision from INVENTORY",
-      "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:16/Article#16/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7 (revision from INVENTORY current_revision, matched raw revision_info)",
-      "tests": "JapanTaxLaw/InheritanceTaxRateBracket30_50Tests.lean sha256=c391e517a71b7520b196b70f32f9227b39003d889018ce3d23262244e9661808 (kernel-decided boundary checks)"
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 14 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000073_20260401_506AC0000000008 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/InheritanceTaxBracket10M30M.lean sha256=2271d763507ba59df01502d9b5e204acd81c74a1b4048fada39df1aabefa7424",
+      "independent_spec": "JapanTaxLaw/InheritanceTaxBracket10M30MSpec.lean sha256=97ad7f08c0c825a89708f1269054dde54cedc33ef3167e43f96c1a0037b6fe87 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45641087210: commit ec2618d6, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10000000, 30000000] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10000000\": [\"千万\"], \"30000000\": [\"三千万\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:16/Article#16/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/InheritanceTaxBracket10M30MTests.lean sha256=251c38eea5e9a960b2719dd1d721c53d2fbd4fc21ae854e4ab9b394bbb389a0e (14 kernel-decided examples)"
     },
     "NORM|2fc3b6bf40def5a3865426261813fbc849be3304625e784a82e1727bd2f21bbf": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -6943,6 +6943,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"75\": [\"七十五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/325AC0000000211_20261102_508AC0000000062.law.json#LawBody[1]/MainProvision/MainProvision[13]/Article:12/Article#12/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=151df453a55442acb1cdca91f420bc5f7b04b914b85d86b575311ff6e3a7cd95 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/PopulationAge75Tests.lean sha256=9ee9a2143aeb198b2627cf3c0f554108004413587aa83061a065461d11451da9 (11 kernel-decided examples)"
+    },
+    "NORM|93b274d3db7616b01bf8ebe8da32b6a1bb33b66ca5f224d32215cd1108b0c470": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 14 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000073_20260401_506AC0000000008 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/InheritanceTaxBracket10M30M.lean sha256=2271d763507ba59df01502d9b5e204acd81c74a1b4048fada39df1aabefa7424",
+      "independent_spec": "JapanTaxLaw/InheritanceTaxBracket10M30MSpec.lean sha256=97ad7f08c0c825a89708f1269054dde54cedc33ef3167e43f96c1a0037b6fe87 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45641087210: commit ec2618d6, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10000000, 30000000] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10000000\": [\"千万\"], \"30000000\": [\"三千万\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:16/Article#16/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/InheritanceTaxBracket10M30MTests.lean sha256=251c38eea5e9a960b2719dd1d721c53d2fbd4fc21ae854e4ab9b394bbb389a0e (14 kernel-decided examples)"
     },
     "NORM|93d704aef4b124728d7de300ac48b3697d08c93462d13e800a840705d15481a1": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
