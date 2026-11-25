@@ -13,5 +13,8 @@ example : roundHalfUpMillion 500_000 = 1_000_000 := by decide
 example : roundHalfUpThousand 1_500 = specThousand 1_500 := thousand_agrees 1_500
 example : roundHalfUpThousand 1_499 = specThousand 1_499 := thousand_agrees 1_499
 example : roundHalfUpMillion 1_500_000 = specMillion 1_500_000 := million_agrees 1_500_000
+example : roundHalfUpTenThousand 4_999 = 0 := by decide
+example : roundHalfUpTenThousand 5_000 = 10_000 := by decide
+example : roundHalfUpTenThousand 5_000 = specTenThousand 5_000 := tenthousand_agrees 5_000
 
 end JapanTaxLaw.HalfUpRounding

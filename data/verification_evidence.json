@@ -2368,6 +2368,154 @@
         "tool": "lake build"
       }
     ],
+    "017a9bbc955e751ea8bc20b151bb32658478781babffb4da5ed9b2af0611dd9c": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "325AC0000000226#第8条#full-text-rounding",
+        "note": "百円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-017a9bbc955e",
+        "note": "百円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#017a9bbc955e#coverage",
+        "note": "百円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumSpec.lean#specCeilOrMinimum@kernel",
+        "note": "百円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimum.lean#ceilOrMinimum@kernel",
+        "note": "百円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumSpec.lean#agreeCeilOrMinimum@kernel",
+        "note": "百円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumSpec.lean#agreeCeilOrMinimum@universal-Nat@kernel",
+        "note": "百円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "017dce368c746e3ccf2086fe943f145593a4e4fb5e07b273bbfe8b12ed61e282": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "332CO0000000043#第40_8条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-017dce368c74",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#017dce368c74#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "01800be4e58643287413e0edeca54bed3bc46003993093f9813b5bb46310bf31": [
       {
         "axis": "SOURCE_LOCATION",
@@ -13818,6 +13966,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "08ae34acb4343a172a16b7d05f41a5491ab139d265461972995ed566d0f8e241": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "337M50000008017#第9条#full-text-rounding",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-08ae34acb434",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#08ae34acb434#coverage",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#specThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRounding.lean#roundHalfUpThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@universal-Nat@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "08b0e066e89390bc4a24083816f71ee4e584374ab180ec7c02654b847dd390bc": [
       {
         "axis": "SOURCE_LOCATION",
@@ -13896,6 +14118,80 @@
         "date": "2026-11-24T09:22:15+00:00",
         "evidence_ref": "JapanTaxLaw/RegistrationQualificationFeesP8MTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "08b34fa8a09275c70a0f927ba824a810fde0ebaeac039e08bb2b586e04ae1c7d": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "337M50000008017#第9条#full-text-rounding",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-08b34fa8a092",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#08b34fa8a092#coverage",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#specThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRounding.lean#roundHalfUpThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@universal-Nat@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -30990,6 +31286,80 @@
         "tool": "task_queue.py"
       }
     ],
+    "11d18380c5d657a9392ae2c89efd6569d43960a4e997ad69e64b0f6e686062db": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "332CO0000000043#第40_8条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-11d18380c5d6",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#11d18380c5d6#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "11d4906e57c954257770fb273e1890fddaa1b5a4d51316700f933797584376ae": [
       {
         "axis": "SOURCE_LOCATION",
@@ -44042,6 +44412,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "19fc1effcc87adee0f9f3109af2826598f45accf5c8e7c88a94a90f2f839b099": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "337M50000008017#第19_14_2条#full-text-rounding",
+        "note": "万円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-19fc1effcc87",
+        "note": "万円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#19fc1effcc87#coverage",
+        "note": "万円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#specTenThousand@kernel",
+        "note": "万円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRounding.lean#roundHalfUpTenThousand@kernel",
+        "note": "万円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeTenThousand@kernel",
+        "note": "万円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeTenThousand@universal-Nat@kernel",
+        "note": "万円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean#threshold-boundaries@kernel",
+        "note": "万円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
+        "note": "万円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "19fc8f67299dea804faf65a722bcedb4c1e428ee823c9cc04987daa154fa5c0a": [
       {
         "axis": "SOURCE_LOCATION",
@@ -49128,6 +49572,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "1d0d61a49600c12d853bde59dc5be1ee222f79ae3dba66bcdf57b3079026a2b8": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "337M50000008017#第14_9条#full-text-rounding",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-1d0d61a49600",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#1d0d61a49600#coverage",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#specThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRounding.lean#roundHalfUpThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@universal-Nat@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "1d16a94ff7154470e717a15bbe8db6e52d12e39ce1e2d6b0ad2448f0609f01ae": [
       {
         "axis": "SOURCE_LOCATION",
@@ -53978,6 +54496,88 @@
         "tool": "task_queue.py"
       }
     ],
+    "1feff767c66e3145a050b73cd1641755c8f36fee698064392a90994c0825fab7": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "337M50000008017#第19_14_2条#full-text-rounding",
+        "note": "万円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-1feff767c66e",
+        "note": "万円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#1feff767c66e#coverage",
+        "note": "万円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#specTenThousand@kernel",
+        "note": "万円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRounding.lean#roundHalfUpTenThousand@kernel",
+        "note": "万円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeTenThousand@kernel",
+        "note": "万円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeTenThousand@universal-Nat@kernel",
+        "note": "万円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean#threshold-boundaries@kernel",
+        "note": "万円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
+        "note": "万円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-25T16:29:05+00:00",
+        "evidence_ref": "data/evidence_audits/remround_adversarial.md#verdict-pass-sampled",
+        "note": "VERDICT PASS; ~90400 Python comparisons 0 mismatches; 6 sampled source phrases verified; no forbidden axioms; no statutory misread",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit"
+      }
+    ],
     "1ff3a1ffc399d5b525a5b2ac531fe3d0dbfe38f16d8ff00e356935ee78a7bfdf": [
       {
         "axis": "SOURCE_LOCATION",
@@ -57206,6 +57806,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "21c65142265e0ea503a840b70f93516824fdb1e3d5ff752d9ab85f47814e3dae": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "340CO0000000096#第319_7条#full-text-rounding",
+        "note": "一円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-21c65142265e",
+        "note": "一円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#21c65142265e#coverage",
+        "note": "一円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumSpec.lean#specCeilOrMinimum@kernel",
+        "note": "一円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimum.lean#ceilOrMinimum@kernel",
+        "note": "一円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumSpec.lean#agreeCeilOrMinimum@kernel",
+        "note": "一円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumSpec.lean#agreeCeilOrMinimum@universal-Nat@kernel",
+        "note": "一円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "一円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumTests.lean@kernel",
+        "note": "一円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "21cf0f9f2f2fbe3ef3efac91cb539f7cf8e8e99dc661f0dea32b9789249ef32c": [
       {
         "axis": "SOURCE_LOCATION",
@@ -58184,6 +58858,88 @@
         "note": "enforcement date 平成十二年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "226579a43db1a8be99f6da1cf0d407c0a837cbbe7e39f323550d7b6c8ca810ae": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "325AC0000000226#第20_4_2条#full-text-rounding",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-226579a43db1",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#226579a43db1#coverage",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-25T16:29:05+00:00",
+        "evidence_ref": "data/evidence_audits/remround_adversarial.md#verdict-pass-sampled",
+        "note": "VERDICT PASS; ~90400 Python comparisons 0 mismatches; 6 sampled source phrases verified; no forbidden axioms; no statutory misread",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit"
       }
     ],
     "226adb1df5c8d61f1e8e27050edca07cc9ca18ddd44f4a9d85310965f292082d": [
@@ -61456,6 +62212,80 @@
         "note": "enforcement date 昭和四十九年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "24ebf2171d7000f01f4ee1277f0ea824797a4e76db6dedf779e97555859bdd7e": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "332CO0000000043#第40_8条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-24ebf2171d70",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#24ebf2171d70#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "24f4e6a114db0b75e2328ce2403c91119964abd09b8f381ca6ba5c73ef35d5da": [
@@ -66136,6 +66966,80 @@
         "date": "2026-11-20T09:16:26+00:00",
         "evidence_ref": "JapanTaxLaw/RegistryQualificationFeesJ2Tests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "28137a5bb4bc4fe03715030eb2335782d89a457e1efa1e9165e5025f0bc45664": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "325AC0000000226#第3_2条#full-text-rounding",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-28137a5bb4bc",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#28137a5bb4bc#coverage",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -75636,6 +76540,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "2e28836cbbdc927d9c89de5bf8e0ca3509a3f11bbd02c819de7275743a3f75eb": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "337M50000008017#第34条#full-text-rounding",
+        "note": "千円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-2e28836cbbdc",
+        "note": "千円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#2e28836cbbdc#coverage",
+        "note": "千円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumSpec.lean#specCeilOrMinimum@kernel",
+        "note": "千円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimum.lean#ceilOrMinimum@kernel",
+        "note": "千円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumSpec.lean#agreeCeilOrMinimum@kernel",
+        "note": "千円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumSpec.lean#agreeCeilOrMinimum@universal-Nat@kernel",
+        "note": "千円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "2e449a3fd5af0f36b9ec1446f887daac95b233889a478e6b0d3aa9af73b99bed": [
       {
         "axis": "SOURCE_LOCATION",
@@ -76472,6 +77450,80 @@
         "note": "enforcement date 令和二年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "2ec45877113a45dfc74853656c7d5ebc2f5467936630590682931335eca076ea": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "325AC0000000226#第5条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-2ec45877113a",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#2ec45877113a#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "2ec8988ff7343e89867851855bb77a88e4f6c320453442b6d43203937ae43492": [
@@ -89346,6 +90398,80 @@
         "tool": "task_queue.py"
       }
     ],
+    "35a46698196b6a0ea00c617ef9790d18f38a38e3e1b7a6ec1eed5e214e30f3c4": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "325AC0000000226#第5_12条#full-text-rounding",
+        "note": "一円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-35a46698196b",
+        "note": "一円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#35a46698196b#coverage",
+        "note": "一円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumSpec.lean#specCeilOrMinimum@kernel",
+        "note": "一円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimum.lean#ceilOrMinimum@kernel",
+        "note": "一円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumSpec.lean#agreeCeilOrMinimum@kernel",
+        "note": "一円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumSpec.lean#agreeCeilOrMinimum@universal-Nat@kernel",
+        "note": "一円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "一円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumTests.lean@kernel",
+        "note": "一円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "35abd8d32a06d829c4d7641dea9fc5ab323facb2de45e8d36c7983ef48486f8f": [
       {
         "axis": "SOURCE_LOCATION",
@@ -94694,6 +95820,80 @@
         "date": "2026-11-20T09:16:25+00:00",
         "evidence_ref": "JapanTaxLaw/GroupLossRatioTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "3971b8764be8c8d93d0eee4d62857a93ff259736651c35a1dde64222f49f700b": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "337M50000008017#第9条#full-text-rounding",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-3971b8764be8",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#3971b8764be8#coverage",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#specThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRounding.lean#roundHalfUpThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@universal-Nat@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -103510,6 +104710,80 @@
         "tool": "coordinator_cycle.py"
       }
     ],
+    "3f060a58a8969272c17f782269beefc07f5188f7f183205dc03d1bca902587d7": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "340AC0000000033#第201条#full-text-rounding",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-3f060a58a896",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#3f060a58a896#coverage",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "3f093f47aa80956a1339a0cebb23586ac8fb3372c52b6fba9592121ed3440799": [
       {
         "axis": "SOURCE_LOCATION",
@@ -104420,6 +105694,80 @@
         "note": "enforcement date 昭和六十年十月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "3f616aab8ca1add8206cf5ad13a620f4a4a6d84ba90c87bf28b1d4b99a9cdd4f": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "332CO0000000043#第40_8条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-3f616aab8ca1",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#3f616aab8ca1#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "3f61e7984584c2fc634d82c41c39ffdec9ac059a6b7b1f2fb516e778e48c4b80": [
@@ -106592,6 +107940,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "40986096aecec8eaea4d5333c544268a85534e09bc6ab717dc48d81f92bc7df1": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "337M50000008017#第31条#full-text-rounding",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-40986096aece",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#40986096aece#coverage",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#specThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRounding.lean#roundHalfUpThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@universal-Nat@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "40a8f9c1c5c1d50162f058e9fb5147150cf334e9a4106ed10df54d596fa52399": [
       {
         "axis": "SOURCE_LOCATION",
@@ -107326,6 +108748,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "411d56b1ee3c8f1df7b7cb50a679419167216e841f6c73942bce91fc736983f1": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "329AC0000000061#第13条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-411d56b1ee3c",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#411d56b1ee3c#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-25T16:29:05+00:00",
+        "evidence_ref": "data/evidence_audits/remround_adversarial.md#verdict-pass-sampled",
+        "note": "VERDICT PASS; ~90400 Python comparisons 0 mismatches; 6 sampled source phrases verified; no forbidden axioms; no statutory misread",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit"
       }
     ],
     "41257b34dcedd59942a434c294979e9113fa62734fa350541dee9f175fc31d29": [
@@ -115622,6 +117126,80 @@
         "note": "unit decomposition and mechanical coverage only",
         "reviewer": "ci",
         "tool": "task_queue.py"
+      }
+    ],
+    "46644346476f5b32ceeb81783d2ba53b82cd95810f4703a8633b10294bc36041": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "329CO0000000051##full-text-rounding",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-46644346476f",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#46644346476f#coverage",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "4687c3bad14bc3b87906de967a9fdade9f146daeacf92288bf93eae3e110d052": [
@@ -127654,6 +129232,80 @@
         "date": "2026-11-20T09:16:29+00:00",
         "evidence_ref": "JapanTaxLaw/LocalIncomeTaxTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "4ddb59b0974201aba22baf31fe359ec7fa5af12cfb5bf372e9594c7c057f19de": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "407CO0000000029#第14_2条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-4ddb59b09742",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#4ddb59b09742#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -152480,6 +154132,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "5df5204588d11012cfb01013e75600b4af71057f519cba6e976272257a833fc1": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "332CO0000000043#第40_8_2条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-5df5204588d1",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#5df5204588d1#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "5e13d9c67f2123e59ed7915c79c95df484002eee1808ecdbb4eac13bb890c245": [
       {
         "axis": "SOURCE_LOCATION",
@@ -153844,6 +155570,80 @@
         "note": "penalty cap p10 (五十万円以下、一年以下拘禁刑)",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "5ec58c1c3e912022cd35434c63e2523cfcf6961977a169f323ba81a891b99ce8": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "340AC0000000033#第201条#full-text-rounding",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-5ec58c1c3e91",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#5ec58c1c3e91#coverage",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "5ec6971e8d2211f2f2a07eae16de93c4c662db716a71a9a5a5f6ff9f1a581ef6": [
@@ -164402,6 +166202,80 @@
         "tool": "transcription_audit.py"
       }
     ],
+    "64b9c045f6d4dce71578ffbf6a19a03dcc332c5974e10ddcc6f806db96634a77": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "325AC0000000226#第5_9条#full-text-rounding",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-64b9c045f6d4",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#64b9c045f6d4#coverage",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "64cc6d4524f92b2f11a629371372e6c171e1621cb007b817d1467a48426280f9": [
       {
         "axis": "SOURCE_LOCATION",
@@ -168258,6 +170132,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "676dd0120628af718dc7b6d26e949a2558dc7561e25a97f7565d55fc7e763753": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "337M50000008017#第9条#full-text-rounding",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-676dd0120628",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#676dd0120628#coverage",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#specThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRounding.lean#roundHalfUpThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@universal-Nat@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-25T16:29:05+00:00",
+        "evidence_ref": "data/evidence_audits/remround_adversarial.md#verdict-pass-sampled",
+        "note": "VERDICT PASS; ~90400 Python comparisons 0 mismatches; 6 sampled source phrases verified; no forbidden axioms; no statutory misread",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit"
       }
     ],
     "678b5ff88ded5020773c0aa559d29dd2e37a10dc7ab6c2ac55f1e493bf615f18": [
@@ -180526,6 +182482,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "6eff0f7e715f2b2d1bc2298a1c404c8d83108a68ec7eda3ab05633ef0ad195f7": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "332CO0000000043#第40_8_2条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-6eff0f7e715f",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#6eff0f7e715f#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "6f04a068347a61b21864ef63a93d4f5d2268ec13c97c1871aa11e664d45326b0": [
       {
         "axis": "SOURCE_LOCATION",
@@ -184106,6 +186136,80 @@
         "date": "2026-11-20T09:16:25+00:00",
         "evidence_ref": "JapanTaxLaw/DelinquencyTaxTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "7168275195b95c17d6db18a2acac69e42ff8b5119846d049f1d9cec34b4b5dc1": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "332CO0000000043#第40_8_2条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-7168275195b9",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#7168275195b9#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -187728,6 +189832,80 @@
         "tool": "lake build"
       }
     ],
+    "736d0b6e2c29a803f57616f5e53d9dd602b213b6fa2a9d26b2a7dd9bb7f0f3b8": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "340CO0000000096#第266_3条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-736d0b6e2c29",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#736d0b6e2c29#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "736f42634e93d63b56e5ddcae364a640e7beeb690139cf50ee383bb9beadbfe8": [
       {
         "axis": "SOURCE_LOCATION",
@@ -189502,6 +191680,80 @@
         "note": "unit decomposition and mechanical coverage only",
         "reviewer": "ci",
         "tool": "task_queue.py"
+      }
+    ],
+    "747ee3ae077dd6ef6fcf1b0274d7f60a60560420a76382786a4dacdce03861eb": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "325CO0000000245#第53_7条#full-text-rounding",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-747ee3ae077d",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#747ee3ae077d#coverage",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "747f3d57fb9b63d876317c834a8ebdcd47b48672059b97dad0024535ffc960cb": [
@@ -198030,6 +200282,80 @@
         "tool": "task_queue.py"
       }
     ],
+    "796275763473783e867ed6eaaf41866356552fe4260c92b9d462815e2e02c664": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "420M60000008116#第1条#full-text-rounding",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-796275763473",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#796275763473#coverage",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "797090db89bf5e794959ae20c5e10aecf704a1a6efd591b91e4f0afea1aeb297": [
       {
         "axis": "SOURCE_LOCATION",
@@ -203170,6 +205496,80 @@
         "note": "enforcement date 昭和六十年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "7c89f3012c4ac0d0e3a1462baf5806073deb3963a7f8ba8a1212cf0b5c446aa7": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "332CO0000000043#第40_8_2条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-7c89f3012c4a",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#7c89f3012c4a#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "7c99b4fb99e625722e08670990d91eb3ac9447c1964b2b737e3b83aa8894bed7": [
@@ -218798,6 +221198,80 @@
         "tool": "lake build"
       }
     ],
+    "8613965b4c63c8268ad70f81b8a9a78f8532eb8153ec0e541d7c5989fe9c61f7": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "325AC0000000226#第8条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-8613965b4c63",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#8613965b4c63#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "8614615f3a77f66a99c43e75ebd9c8d59f8ef449cdce2a0e95cbca56fcf728c9": [
       {
         "axis": "SOURCE_LOCATION",
@@ -224788,6 +227262,80 @@
         "date": "2026-11-25T11:34:52+00:00",
         "evidence_ref": "JapanTaxLaw/PercentageSurchargeTests.lean@kernel",
         "note": "rate 百分の十五; universal agree theorems; mechanical source audit 18/18; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "89ec93f1b25441d007a57aa334fac1539f419bc3ce056063f0ce01d14d008203": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "337M50000008017#第18条#full-text-rounding",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-89ec93f1b254",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#89ec93f1b254#coverage",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#specThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRounding.lean#roundHalfUpThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@universal-Nat@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -233308,6 +235856,80 @@
         "tool": "lake build"
       }
     ],
+    "8fc72c3ef8a0131a144fcff29f849ae38eadf0d3ddf92111075791569330feba": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "332CO0000000043#第40_8条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-8fc72c3ef8a0",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#8fc72c3ef8a0#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "8fd6f91b11e0065649cd47c5c27cad22a898307f0f953aefdac4c5afd9f530cc": [
       {
         "axis": "SOURCE_LOCATION",
@@ -239244,6 +241866,80 @@
         "tool": "transcription_audit.py"
       }
     ],
+    "936635827c37bc0377529cd6bf054c8a2382ac0edd3c8c5a8f735df2095c91e2": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "340AC0000000033#第201条#full-text-rounding",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-936635827c37",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#936635827c37#coverage",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "938c216cb9d8cf7e84be2385f86c254f1a6da86ea6f7f0837076e1e9554e464c": [
       {
         "axis": "SOURCE_LOCATION",
@@ -243992,6 +246688,80 @@
         "date": "2026-11-24T09:21:12+00:00",
         "evidence_ref": "JapanTaxLaw/SpecialGiftRateTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "9694b83defdcae48cb434ddf073f6f94846e5a4bb2830cd9bc7780f327d2945e": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "332CO0000000043#第40_8_2条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-9694b83defdc",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#9694b83defdc#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -275072,6 +277842,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "a7d5fdcbb59563924a2cdacc96afe031ff87fa98c810555cf5e4b608586968c5": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "337M50000008017#第9条#full-text-rounding",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-a7d5fdcbb595",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#a7d5fdcbb595#coverage",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#specThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRounding.lean#roundHalfUpThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@universal-Nat@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "a7e2d4b41b8fd51395384fcfb48c25fcf2c84ce131767b9e61798352b71aed46": [
       {
         "axis": "SOURCE_LOCATION",
@@ -275490,6 +278334,80 @@
         "note": "enforcement date 平成二十年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "a803ac61477ada61a7b307b7224f9c3da0fe310650f0933bd9a28861e00f5f1e": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "337M50000008017#第14_9条#full-text-rounding",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-a803ac61477a",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#a803ac61477a#coverage",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#specThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRounding.lean#roundHalfUpThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@universal-Nat@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "a80655a568b2d001803c8b4942f410e2f1b924dacf6a18bc01387383926016f2": [
@@ -289046,6 +291964,80 @@
         "tool": "lake build"
       }
     ],
+    "b070b8540be75f16fc7ac8d4e81873e85c5c766fb00cc42f0dafd31613b165ca": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "332CO0000000043#第40_8条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-b070b8540be7",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#b070b8540be7#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "b083d057d3955a9b8cfa3745a91baac80a7d9c94098a3474df89b3a31f71a212": [
       {
         "axis": "SOURCE_LOCATION",
@@ -293942,6 +296934,80 @@
         "date": "2026-11-20T09:16:25+00:00",
         "evidence_ref": "JapanTaxLaw/RegistrationQualificationFeesP8MTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "b333074e70476c11fe1aff97c1661a9978c4b697ccfb0f3f941a2dbcea6da4aa": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "337M50000008017#第9条#full-text-rounding",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-b333074e7047",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#b333074e7047#coverage",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#specThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRounding.lean#roundHalfUpThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@universal-Nat@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -311750,6 +314816,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "be8e0e575bf095623d424c923e2a6750e04c1d6fd915defd4b821ffcd2f00230": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "347CO0000000150#第10条#full-text-rounding",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-be8e0e575bf0",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#be8e0e575bf0#coverage",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "一円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "beaba89357473970c54fbfd3cdd9513de50a664ca6306f8047e6e603c6d6e921": [
       {
         "axis": "SOURCE_LOCATION",
@@ -318550,6 +321690,80 @@
         "note": "pinned needle located in exact unit span",
         "reviewer": "ci",
         "tool": "transcription_audit.py"
+      }
+    ],
+    "c31c5a0e33773221579a9d5c54257822c9f4a1d8c6294d21e3a24fbd5728b73e": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "332CO0000000043#第40_8_2条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-c31c5a0e3377",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#c31c5a0e3377#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "c323d0e88c6957e55567931dab2e5cee3e2bbb029ab786cb599576021ecbbde4": [
@@ -334560,6 +337774,80 @@
         "date": "2026-11-24T09:22:44+00:00",
         "evidence_ref": "JapanTaxLaw/RegistryQualificationFeesJ2Tests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "cdc046126d21158d00a8dd1fbcfacc52897e445f3f1811f2e9a341511077017a": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "332CO0000000043#第40_8条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-cdc046126d21",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#cdc046126d21#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -352154,6 +355442,80 @@
         "tool": "lake build"
       }
     ],
+    "d8297939619768608b94993180709b22f44c569a40abfce6bcfb82140221714a": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "337M50000008017#第9条#full-text-rounding",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-d82979396197",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#d82979396197#coverage",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#specThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRounding.lean#roundHalfUpThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@universal-Nat@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "d82e77fe195b0e6c05762a3d89bfc1dc64e5c4e9162bfd3c203931db033eccdd": [
       {
         "axis": "SOURCE_LOCATION",
@@ -363790,6 +367152,80 @@
         "tool": "lake build"
       }
     ],
+    "df384636f57a970692ade7a00cb861619f65a82aa8d767c5844206a318bcaf5c": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "337M50000008017#第12_3条#full-text-rounding",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-df384636f57a",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#df384636f57a#coverage",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#specThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRounding.lean#roundHalfUpThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@universal-Nat@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "df3bab6763e1b03da59660c80ee59e54292e6b9e591e8e7670991f5a509a16f8": [
       {
         "axis": "SOURCE_LOCATION",
@@ -367420,6 +370856,80 @@
         "tool": "lake build"
       }
     ],
+    "e1b1b03980d9e928aa61c6462e3cab99509676b0da03cbb3b3708d2ae2f008d5": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "325AC0000000226#第8条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-e1b1b03980d9",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#e1b1b03980d9#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "e1b5dd4b03ae355900e76fe9938d7d9c8c8465f8accb8c427ddd0ea6e9fae81a": [
       {
         "axis": "SOURCE_LOCATION",
@@ -368158,6 +371668,80 @@
         "note": "enforcement date 令和二年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "e2596b41bce59f8d819cda3ece15c5f9091cf8e9ffd3336ad566bcc7c91d7a86": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "332CO0000000043#第40_8_2条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-e2596b41bce5",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#e2596b41bce5#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "e2654103b944dc268916817bd9abff219f27c26f6f8655dbea84e966587dfd40": [
@@ -399426,6 +403010,80 @@
         "tool": "task_queue.py"
       }
     ],
+    "f51b3a743e2dc84c14b22e0f0d66e5830d1a5861fab0da7975fa70874f027ae8": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "325AC0000000226#第5条#full-text-rounding",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-f51b3a743e2d",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#f51b3a743e2d#coverage",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 floor; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "f5245128d9e75a4cf9672f96f977641392f6bcd5eade7798dda5a37ac65638c5": [
       {
         "axis": "SOURCE_LOCATION",
@@ -406902,6 +410560,88 @@
         "tool": "independent-adversarial"
       }
     ],
+    "fa38cd585551de267a65a8295e5faef3e617760f142ff96c8a85588078014cef": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "325AC0000000226#第5条#full-text-rounding",
+        "note": "千円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-fa38cd585551",
+        "note": "千円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#fa38cd585551#coverage",
+        "note": "千円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumSpec.lean#specCeilOrMinimum@kernel",
+        "note": "千円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimum.lean#ceilOrMinimum@kernel",
+        "note": "千円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumSpec.lean#agreeCeilOrMinimum@kernel",
+        "note": "千円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumSpec.lean#agreeCeilOrMinimum@universal-Nat@kernel",
+        "note": "千円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-25T16:29:05+00:00",
+        "evidence_ref": "data/evidence_audits/remround_adversarial.md#verdict-pass-sampled",
+        "note": "VERDICT PASS; ~90400 Python comparisons 0 mismatches; 6 sampled source phrases verified; no forbidden axioms; no statutory misread",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit"
+      }
+    ],
     "fa4972eec49fbf594977436e7b887bb50bf56f99fc7df9ad96e829c09162db11": [
       {
         "axis": "SOURCE_LOCATION",
@@ -408058,6 +411798,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "fb29b94fdd3b3e0c1159380613729f83f184c396ca4ebbf0ea9b890197ffb576": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "325AC0000000226#第8条#full-text-rounding",
+        "note": "百円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-fb29b94fdd3b",
+        "note": "百円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#fb29b94fdd3b#coverage",
+        "note": "百円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumSpec.lean#specCeilOrMinimum@kernel",
+        "note": "百円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimum.lean#ceilOrMinimum@kernel",
+        "note": "百円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumSpec.lean#agreeCeilOrMinimum@kernel",
+        "note": "百円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumSpec.lean#agreeCeilOrMinimum@universal-Nat@kernel",
+        "note": "百円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumTests.lean#threshold-boundaries@kernel",
+        "note": "百円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/CeilRoundingMinimumTests.lean@kernel",
+        "note": "百円未満の端数 ceil; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-25T16:29:05+00:00",
+        "evidence_ref": "data/evidence_audits/remround_adversarial.md#verdict-pass-sampled",
+        "note": "VERDICT PASS; ~90400 Python comparisons 0 mismatches; 6 sampled source phrases verified; no forbidden axioms; no statutory misread",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit"
       }
     ],
     "fb2a26290e860b2bf50d6f8d11e5ae516dacc26d8747e54afe64939103801286": [
@@ -414396,6 +418218,80 @@
         "date": "2026-11-25T13:20:40+00:00",
         "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
         "note": "千円未満の端数 四捨五入; independent add-half-floor spec; universal agreement; underlying amount not modelled; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "fef923927b6b00040fbaa972dd022cc4f592173d3330303e8f9750c04c78186e": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "337M50000008017#第33条#full-text-rounding",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "mechanical-audit:ROUND-fef923927b6b",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "task_queue.json#fef923927b6b#coverage",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#specThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRounding.lean#roundHalfUpThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingSpec.lean#agreeThousand@universal-Nat@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean#threshold-boundaries@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T16:20:06+00:00",
+        "evidence_ref": "JapanTaxLaw/HalfUpRoundingTests.lean@kernel",
+        "note": "千円未満の端数 halfup; direction from full provision text; independent spec; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }

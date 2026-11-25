@@ -1,10 +1,13 @@
 import JapanTaxLaw.TaxFinance
 
 /-!
-# HalfUpRounding — 73 の 四捨五入（端数処理）規定
+# HalfUpRounding — 四捨五入（端数処理）規定
 
-Most units state: 千円未満の端数があるときは、その端数を四捨五入する
-(round to the nearest 1,000 yen, halves upward). One unit uses 百万円.
+Units state 四捨五入 at thresholds 千円, 一万円 and 百万円 (round to the
+nearest threshold multiple, halves upward). The generic `roundHalfUp`
+function is shared by the associated `CeilRoundingMinimum` and
+`FloorRoundingMinimum` families; exact per-unit counts are kept in the
+durable `data/evidence_audits/` JSON ledgers rather than in this header.
 The underlying amount computation is caller-established and NOT MODELLED.
 Not legal advice.
 -/
@@ -19,6 +22,7 @@ def roundHalfUp (amount threshold : Nat) : Nat :=
 
 def roundHalfUpThousand (amount : Nat) : Nat := roundHalfUp amount 1000
 def roundHalfUpMillion (amount : Nat) : Nat := roundHalfUp amount 1_000_000
+def roundHalfUpTenThousand (amount : Nat) : Nat := roundHalfUp amount 10_000
 
 example : roundHalfUpThousand 1_499 = 1_000 := by decide
 example : roundHalfUpThousand 1_500 = 2_000 := by decide

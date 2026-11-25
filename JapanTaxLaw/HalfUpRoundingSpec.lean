@@ -46,8 +46,29 @@ theorem agreeMillion (amount : Nat) :
     rw [hq, hdecomp]
     omega
 
+theorem agreeTenThousand (amount : Nat) :
+    roundHalfUpTenThousand amount = (amount + 5_000) / 10_000 * 10_000 := by
+  unfold roundHalfUpTenThousand roundHalfUp
+  have hmod : amount % 10_000 < 10_000 := Nat.mod_lt _ (by decide)
+  have hdecomp : amount = amount / 10_000 * 10_000 + amount % 10_000 := by
+    rw [Nat.mul_comm]
+    exact (Nat.div_add_mod amount 10_000).symm
+  by_cases h : 2 * (amount % 10_000) < 10_000
+  · simp [h]
+    have hq : (amount + 5_000) / 10_000 = amount / 10_000 := by omega
+    rw [hq, hdecomp]
+    omega
+  · simp [h]
+    have hq : (amount + 5_000) / 10_000 = amount / 10_000 + 1 := by omega
+    rw [hq, hdecomp]
+    omega
+
 def specThousand (amount : Nat) := (amount + 500) / 1000 * 1000
 def specMillion (amount : Nat) := (amount + 500_000) / 1_000_000 * 1_000_000
+def specTenThousand (amount : Nat) := (amount + 5_000) / 10_000 * 10_000
+
+theorem tenthousand_agrees (amount : Nat) :
+    roundHalfUpTenThousand amount = specTenThousand amount := agreeTenThousand amount
 
 theorem thousand_agrees (amount : Nat) : roundHalfUpThousand amount = specThousand amount :=
   agreeThousand amount

@@ -611,3 +611,6 @@ import JapanTaxLaw.FractionRates110Tests
 import JapanTaxLaw.MonthProration
 import JapanTaxLaw.MonthProrationSpec
 import JapanTaxLaw.MonthProrationTests
+import JapanTaxLaw.CeilRoundingMinimum
+import JapanTaxLaw.CeilRoundingMinimumSpec
+import JapanTaxLaw.CeilRoundingMinimumTests
