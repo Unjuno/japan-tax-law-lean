@@ -6,7 +6,7 @@ verdict: **PASS** (0 MUST failures)
 
 - tools present: 4/4
 - evidence file: C:\Users\junny\.local\share\opencode\worktree\484e09\rnd-surcharge-cycle\data\verification_evidence.json
-- durable state counts: {"BLOCKED": 2, "FULLY_VERIFIED": 921, "NOT_STARTED": 5, "PROVED_SCOPE": 1}
+- durable state counts: {"BLOCKED": 2, "FULLY_VERIFIED": 925, "NOT_STARTED": 5, "PROVED_SCOPE": 1}
 
 | rule | must | H | T | D | C | U |
 |---|---|---|---|---|---|---|
@@ -16,6 +16,6 @@ verdict: **PASS** (0 MUST failures)
 | dependency_not_15digit_only | yes | Dependencies resolved by 15-digit number search only. | searched law-name/article/revision plus 15-digit handling | PASS | Parsing may be delegated to a helper. | Queue tests exercise helper behaviour. |
 | durable_ownership_and_blockers | yes | Regeneration loses owner/blocker/artifacts. | searched stripped code for owner, blocker, artifact, task_state.json, merge | PASS | State file name may differ in case. | Fields existing does not prove conflict-free assignment. |
 | skip_is_not_pass | yes | Absent required gate counted as pass. | inspected run_python_gates.py for REQUIRED_GATES and distinct required-gate handling | PASS | Optional phase gates may SKIP legitimately. | CI enforcement outside this audit. |
-| ledger_no_bare_complete | yes | Ledger reports bare COMPLETE. | scanned 266 article rows | PASS | FULLY_VERIFIED requires evidence (next rule). | Stale ledger may pass. |
+| ledger_no_bare_complete | yes | Ledger reports bare COMPLETE. | scanned 269 article rows | PASS | FULLY_VERIFIED requires evidence (next rule). | Stale ledger may pass. |
 | fully_verified_has_evidence | yes | FULLY_VERIFIED asserted without machine-produced evidence. | 0 FULLY_VERIFIED rows; evidence verification_evidence.json (3 keys) | PASS | Evidence file may be stale. | Run proof/attestation gates before trusting FULLY_VERIFIED. |
 | scope_mispin_reported | no | Needles match a different article than stated. | counted scope-candidate states | PASS | Cross-article reuse may be legitimate. | Each candidate needs confirmation. |
