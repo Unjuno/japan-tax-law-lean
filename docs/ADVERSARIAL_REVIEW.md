@@ -12668,3 +12668,118 @@ Impl `deduction(t) = 22000 + (t-32000)/4`（Money = Nat、減算は 0 saturation
 - **制約順守**: Lean モジュール・`data/*`・`scripts/*` は読み取り専用で変更なし。commit / push / merge / ブランチ切替は行っていない。一時ファイルは削除した。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・反例/全走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+### HouseholdCorrectionFloor07.lean — 航空機燃料譲与税法施行規則 art.4(8)
+
+- **pin**: law `347M50000008026`, article 第四条(8); needle「前年度の世帯数に〇・七を乗じて得た数に満たず、かつ、当該前年度の世帯数から当該補正世帯数を控除して得た数が千を超える場合には」.
+- **独立再抽出**: 原文から二つの厳密比較と置換値を再導出。独立仕様は逆方向・加法形で書き、全称定理 `agreeCorrected` が omega で照合。
+- **H/T/D**: 0.1 世帯単位・Nat。境界 差=千/千+1、〇・七境界、補正発動/非発動 PASS。
+- **C/U**: 重量・旅客数 rate 表、別表第三は NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
+## Batch DH review (2026-11-26) — 地方税法 art.34 §1 四 ハ (2)(ii)（旧個人年金保険料控除 中段 1.5万円超4万円以下）/ OldIndividualAnnuityPremiumDeductionMid.lean（cycle-118 機械的独立照合・反例探索）
+
+### DH-0. 範囲・pinned pin・方法
+
+- 対象: `JapanTaxLaw/OldIndividualAnnuityPremiumDeductionMid.lean`（Impl）と `OldIndividualAnnuityPremiumDeductionMidSpec.lean` / `OldIndividualAnnuityPremiumDeductionMidTests.lean`（独立 Spec・Tests、読み取り専用）。
+- Pin: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`（地方税法、施行 2026-11-01、改正法 508AC0000000002）。`data/raw/325AC0000000226_20261101_508AC0000000002.law.json` を独立再計算 → **12,181,725 bytes**、SHA-256 `3DD29E0078BF24E09C79436CE7B0F00FD2CFB5A5BBCB97BD4F4352971BE68D53`（`data/INVENTORY.json` の `source_sha256` / `size_bytes` と一致）。`revision_info.law_title = 地方税法`、`current_revision_status = CurrentEnforced`。
+- 原文・Lean は doc-comment / STAGING / `transcription_audit.py` の抜粋を信じず、pinned raw JSON の `law_full_text` を木走査して直接抽出した。needle は CI `checks()` に本モジュール名で登録済みの 2 本を取得し、raw に対して照合した（DH-2）。
+- 書き込みは `docs/ADVERSARIAL_REVIEW.md` のみ（二段 read-then-write: 書き込み直前に再読込し、末尾に追記、書き込み後に件数と既存セクション保持を検証）。Lean モジュール・`data/*`・`scripts/*` は読み取り専用。commit / push / merge / ブランチ切替は行わない。一時ファイルは承認済み一時ディレクトリ `C:\Users\junny\AppData\Local\Temp\opencode` に置き、検証後に削除する。
+
+### DH-1. pinned 原文からの数値独立抽出（art.34 §1 四 ハ (2)(ii)）
+
+pinned raw の `Article` ノードのうち `attr.Num = "34"` は 9 件。文言を含む 1 件から leaf を連結し、空白（半角空白・改行・U+3000）を除去して正規化した flat text は **13,009 chars**（U+3000 = 0、正規化前後で同長、doc-comment の記載と一致）。旧個人年金区分の (ii) leaf から漢数字パーサで数値を直接変換した。
+
+- (ii) leaf 逐語: `前年中に支払つた旧個人年金保険料の金額の合計額が一万五千円を超え四万円以下である場合一万五千円と当該合計額から一万五千円を控除した金額の二分の一に相当する金額との合計額`
+
+| 項目 | 原文 | 抽出値 | 意味 |
+|---|---|---:|---|
+| 下限 | 一万五千 | 15,000 | 1.5万円（「を超え」= strict） |
+| 上限 | 四万 | 40,000 | 4万円（「以下」= inclusive） |
+| base 額 | 一万五千 | 15,000 | 合計額に加える定数 |
+| 控除対象額 | 一万五千 | 15,000 | 合計額から控除する額 |
+| 分率 | 二分の一 | 1/2 | 分子 一 / 分母 二 |
+
+- 桁違い・分率誤りの排除: (ii) leaf に `千五百`(1,500) / `十五万`(150,000) / `三分之一`・`三分の一`(1/3) / `四分の一` は **ABSENT**。数値はすべて 15,000 / 40,000 / 1/2 であり、1 桁落ち・1 桁過大・分率誤りは検出されなかった。
+- 原文順: 「…一万五千円を超え四万円以下である場合一万五千円と当該合計額から一万五千円を控除した金額の二分の一に相当する金額との合計額」→ Impl `deduction(total) = 15000 + (total - 15000) / 2` に直接対応。
+- 独立クロスチェック: 上限 40,000 での値 **27,500** は、隣接する (iii) leaf の base「二万七千五百円」(= 27,500、パーサ独立変換) と一致する。
+- competing location: 同一の算式的文言は同一 art.34 内の旧生命保険料区分 (2)(ii)（needle 1 offset 2697）にも出現し、needle 2 は第314条の二にも 1 件（offset 4751）出現する。stated article（34）内にも存在し needle 2 が旧個人年金区分（offset 4774）に一意に anchor されるため **LOCATED** であり、モデル側の参照先（art.34）と矛盾しない。
+
+### DH-2. needle 健全性（CI 登録 2 本）
+
+needle 2 本は `scripts/ci/transcription_audit.py` の `checks()` に `OldIndividualAnnuityPremiumDeductionMid.lean` 名で登録済み（lines 2373–2377）。正規化は CI と同じ空白・U+3000 除去を pinned art.34 flat text に適用した。
+
+| # | needle | U+3000 | FOUND | 全文ヒット数 | art.34 内ヒット数 | art.34 offset |
+|---|---|:--:|:--:|---:|---:|---:|
+| 1 | 一万五千円と当該合計額から一万五千円を控除した金額の二分の一に相当する金額との合計額 | 0 | **FOUND** | 4 | 2 | 2697 / 4808 |
+| 2 | 旧個人年金保険料の金額の合計額が一万五千円を超え四万円以下である場合 | 0 | **FOUND** | 2 | 1 | 4774 |
+
+- **結果: U+3000 = 0、2/2 FOUND。** art.34 flat text 13,009 chars に U+3000 は存在しない。
+- needle 1 は art.34 内で 2 ヒットするが、これは旧生命保険料区分と旧個人年金区分が同一の算式文言を共有するため（DH-1 competing location）。needle 2 が旧個人年金区分を一意に特定するため登録上の不具合ではない。
+
+### DH-3. 反例検証（独立 Spec との一致）
+
+Impl `deduction(t) = 15000 + (t-15000)/2`（Money = Nat、減算は 0 saturation、除算は floor）に対し、独立 Spec `specDeduction(t) = t/2 + 7500`（Spec ファイル記載の変形に依存しない再定式）で比較した。
+
+| total | Impl | 独立Spec | 一致 |
+|---:|---:|---:|:--:|
+| 15,000（境界） | 15,000 | 15,000 | ✔ |
+| **16,000** | **15,500** | 15,500 | ✔ |
+| **25,000** | **20,000** | 20,000 | ✔ |
+| 39,999 | 27,499 | 27,499 | ✔ |
+| **40,000（上限）** | **27,500** | 27,500 | ✔ |
+
+- 課題指定の 3 反例（16,000 → 15,500 / 25,000 → 20,000 / 40,000 → 27,500）はすべて独立 Spec と一致。さらに `15000..40000` の全 **25,001 点**を走査し、**不一致 0**（CI の 6 点 `agreeOldIndividualAnnuityPremiumDeductionMid` も Lean `by decide` で true、DH-4）。
+- 等価性の理由: 15,000 は 2 で割り切れるため `t ≥ 15000` で `floor((t-15000)/2) = floor(t/2) - 7500` が成り立ち、`15000 + (t-15000)/2 = t/2 + 7500`。
+- 定義域外（`t < 15000` で Nat 減算が 0 に saturation し Impl が 15,000 を返す等、`t > 40000` の超過分）は (2)(ii) のスコープ外（BY-DESIGN B-6）。
+
+### DH-4. `#print axioms` 監査
+
+一時 Lean ファイル（`C:\Users\junny\AppData\Local\Temp\opencode\dh_axioms.lean`）で Impl 3 定義（`deduction` / `specDeduction` / `agreeOldIndividualAnnuityPremiumDeductionMid`）と、`by decide` の例題を再現した named theorem 7 本（計 **10 宣言**）に対し `lake env lean` で `#print axioms` を実行（exit code **0**）。
+
+| 監査項目 | 結果 |
+|---|---|
+| 監査宣言数 | 10 |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+| axiom-free（`does not depend on any axioms`） | **10 / 10** |
+
+- 3 定義・7 定理すべてが `does not depend on any axioms` を返し、choice / sorryAx / Quot.sound / propext の依存は 0。対象 3 ファイルに `sorry` / `admit` / `axiom` / `unsafe` / `Classical` の文字列も検出されず。検証後、一時 Lean ファイルは削除した。
+
+### DH-5. CONFIRMED / BY-DESIGN / UNRESOLVED 分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（不具合なし）** |
+| **BY-DESIGN** | **8** |
+| **UNRESOLVED** | **3** |
+
+#### CONFIRMED（0 件）
+- なし。桁違い（1,500 / 150,000）、分率誤り（1/3）、needle 不被検出、Impl/独立Spec 不一致、axiom 依存はいずれも検出されなかった。
+
+#### BY-DESIGN（8 件）
+- **B-1 中段のみのモデル**: (2)(ii)（1.5万円超4万円以下）のみ実装。他区分（1.5万以下 / 4万〜7万の `27500+(total-40000)/4` / 7万超の 35,000 cap）は **NOT MODELLED**（doc-comment 明示）。
+- **B-2 契約・判定の前提**: 「旧個人年金保険契約等」の定義、疾病・身体傷害特約付契約の除外判定は **NOT MODELLED**。`total` は旧個人年金保険料の合計額として caller が与える前提。
+- **B-3 剰余金・割戻金による払込み充て**: (i) 括弧書の控除規定は **NOT MODELLED**（doc-comment 明示）。
+- **B-4 caps / 合算**: 2.8万円 total cap、他保険料控除との合算ルールは **NOT MODELLED**。
+- **B-5 丸め表現**: 「1円未満切捨て」（原文キーワード）は Nat の床除算で表現。法的な丸め規則の詳細は pinned 文言のみからは確定できない（管理者判断として現状を維持）。
+- **B-6 定義域外の扱い**: `total < 15000` の Nat saturation、`total > 40000` の超過分は (2)(ii) の適用外で **NOT MODELLED**。impl の返値はスコープ外のため影響しない。
+- **B-7 needle 1 の共有文言 / competing location**: needle 1 は art.34 内 2 ヒット（旧生命・旧個人年金の両区分）、needle 2 は第314条の二にも 1 ヒット。いずれも原文上の事実であり、needle 2 が stated article の旧個人年金区分に anchor するため登録上の不具合ではない。
+- **B-8 独立 Spec の別定式**: `total/2+7500` への変形は、15,000 が 2 で割り切れることによる代数的等価であり、別仕様を表すものではない（DH-3）。
+
+#### UNRESOLVED（3 件）
+- **U-1 他区分・他保険料区分・2.8万円cap の法的連関**: pinned の (2)(ii) leaf のみでは、他区分や他の控除区分との合算・上限の全体的な扱いを判定できない。**人間の法律専門家レビューが必要**。
+- **U-2 丸めの法的性格**: 「二分の一に相当する金額」の端数処理が切捨てか他の丸めかは、pinned 原文のみからは一意に確定できない（モデルは Nat 床除算を採用）。**人間の法律専門家レビューが必要**。
+- **U-3 旧個人年金保険契約等の該当性・特約要件**: 契約区分・疾病身体傷害特約の判定は pinned 抜粋の定義部分に依存し、機械的照合では検証不能。**人間の法律専門家レビューが必要**。
+
+### DH-6. 最終報告（サマリ）
+
+- **CONFIRMED: 0 件 / BY-DESIGN: 8 件 / UNRESOLVED: 3 件**。不具合は検出されず。
+- **pinned 照合**: `一万五千` = 15,000 / `四万` = 40,000 / `二分の一` = 1/2（1,500 / 150,000 / 1/3 を明示除外）。raw SHA-256 は INVENTORY pin と一致、flat 13,009 chars、U+3000 = 0。上限 40,000 の 27,500 は (iii) の「二万七千五百円」と独立一致。
+- **needle**: U+3000 = 0、2/2 FOUND（全文 4 / 2 件、art.34 内 2 / 1 件、offset 2697・4808 / 4774）。
+- **反例**: 16,000 → 15,500 / 25,000 → 20,000 / 40,000 → 27,500 の 3 点すべて独立 Spec と一致。全 25,001 点の走査でも不一致 0。
+- **axiom 監査**: choice / sorryAx / Quot.sound / propext すべて **0 件**（10/10 axiom-free）。一時ファイルは削除済み。
+- **追記後レビュー件数**: 書き込み直前の再読込では既存 **110 件**（coverage ledger 正規 regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` 一致 110 件、H2 `review` 見出し 110 件）。本 DH セクション追記後は **111 件**（ledger 110 → **111 件**、H2 110 → **111 件**）となり、既存 +1 以上を満たす。書き込み後、既存セクション（書き込み直前の全バイト列）が前方一致で保持されていることを検証した。
+- **制約順守**: Lean モジュール・`data/*`・`scripts/*` は読み取り専用で変更なし。commit / push / merge / ブランチ切替は行っていない。一時ファイルは削除した。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・反例/全走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
