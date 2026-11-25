@@ -17,9 +17,9 @@ only from recorded evidence in `data/verification_evidence.json`.
 
 | status | units |
 |---|---:|
-| NOT_STARTED | 260967 |
+| NOT_STARTED | 260949 |
 | PARTIAL | 4311 |
-| PROVED_SCOPE | 0 |
+| PROVED_SCOPE | 18 |
 | FULLY_VERIFIED | 2827 |
 | BLOCKED | 2 |
 | STALE | 0 |

@@ -575,3 +575,6 @@ import JapanTaxLaw.PromulgationEffectiveTests
 import JapanTaxLaw.ReadingSubstitutions
 import JapanTaxLaw.ReadingSubstitutionsSpec
 import JapanTaxLaw.ReadingSubstitutionsTests
+import JapanTaxLaw.PercentageSurcharge
+import JapanTaxLaw.PercentageSurchargeSpec
+import JapanTaxLaw.PercentageSurchargeTests
