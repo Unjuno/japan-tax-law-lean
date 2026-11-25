@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=2271, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=2996, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=2271 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=2996 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -104,7 +104,10 @@ $ multi-reading guard relaxed for repeated source phrases under distinct provisi
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 3 / 50
 multi-reading batch pipeline: verified=3 failed=0 / verified=34 failed=0
 
-$ python -m unittest discover -s scripts/tests -t . → 184 tests, OK
+$ python scripts/ci/batch_effective_promulgation_pipeline.py --limit 2 / 80 / 150 / 150 / 150 / 200
+effective batch pipeline: verified=2/80/150/150/150/193, failed=0 in every run
+
+$ python -m unittest discover -s scripts/tests -t . → 186 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -345,7 +348,22 @@ than rejected, with the provision-based selection explicitly recorded as
 caller-established and NOT resolved. This closed 37 more units without
 weakening the direction/verbatim audits. Five parser tests were added.
 
-So 2271 units are evidence-backed FULLY_VERIFIED and 394,581 remain NOT_STARTED
+A twelfth pipeline, `scripts/ci/batch_effective_promulgation_pipeline.py`,
+covers the two simplest commencement forms (公布の日から施行する /
+公布の日の翌日から施行する, 法律 and 条例). The model records a day offset from
+a caller-established promulgation day and proves applicability from the
+effective day onward. The independent spec subtracts the promulgation day
+while the implementation adds the offset; agreement is proved for **all**
+Nat promulgation/day values, not a finite grid. The first proofs used
+`omega`/`simp`, which introduced the standard `Quot.sound` axiom and were
+rejected by the axiom gate (`BATCH_EFFECTIVE_SKIPS.json` recorded the reason);
+they were replaced by kernel-level Nat lemmas (`Nat.add_le_add_iff_left`,
+`Nat.le_sub_iff_add_le`) so the accepted theorems depend only on `propext`.
+The complex forms that couple commencement to a separate applicability date,
+and 公布の日から起算して… forms, are explicitly NOT in this guarded class.
+All 725 dependency-ready units in the class were verified.
+
+So 2996 units are evidence-backed FULLY_VERIFIED and 393,856 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
