@@ -574,6 +574,19 @@
       "source_location": "data/raw/404CO0000000089_20010106_412CO0000000307.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:2/Article#2/Paragraph#4/ParagraphSentence/Sentence sha256=e80aec82d08862cb6ae5611886e5d844624473d18936c6fd67ce9cc26ed68ab1 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/MergerMaxCapitalTests.lean sha256=6aa8c360cf07fc6e5fd0b249093180d9c9afa765cf640c32055aab6e71abab9f (28 kernel-decided examples)"
     },
+    "NORM|0b4a9ed5b8915f7c64ef1465afe249e677410bbd81c8fea36cde219317811c45": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 15 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=1; enforced revision=423AC0000000118_20111202_000000000000000 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/ReconstructionEqualLevySurcharge500.lean sha256=8ab3ec5700fca886b555c340ba929851bfddb4c9dd73289f26049ec1acd6308e",
+      "independent_spec": "JapanTaxLaw/ReconstructionEqualLevySurcharge500Spec.lean sha256=b9c255b71eca92a3e78ca1eb06acb945777d6692599793c8a9fd1e8a84b13edb (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45696380215: commit 204279c4c725c2af941265a1d9f6414008044991, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [500] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"500\": [\"五百\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/423AC0000000118_20111202_000000000000000.law.json#LawBody[1]/MainProvision/MainProvision[1]/Article:2/Article#2/Paragraph#1/ParagraphSentence/Sentence sha256=5364e5813ca89ea33d0f43056f5ceade4e351ea8e7403554cd7108a0c0bc7b42 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/ReconstructionEqualLevySurcharge500Tests.lean sha256=055c639d4964f7b36b854cc80ca24b0b1ba138822adf3dd045fdd731e283f0b8 (15 kernel-decided examples)"
+    },
     "NORM|0b733f32ad62ee9eb38946a83a200c9e305427d46b05ce7cae8d298ad38bc24b": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",

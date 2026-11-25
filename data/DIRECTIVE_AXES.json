@@ -12,43 +12,43 @@
   "axis_totals": {
     "BOUNDARY_CHECKED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 930,
-      "remaining_units": 395924
+      "achieved_units": 931,
+      "remaining_units": 395923
     },
     "NORMS_FORMALIZED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 930,
-      "remaining_units": 395924
+      "achieved_units": 931,
+      "remaining_units": 395923
     },
     "NORM_DECOMPOSED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 929,
-      "remaining_units": 395925
+      "achieved_units": 930,
+      "remaining_units": 395924
     },
     "SOURCE_ACQUIRED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 930,
-      "remaining_units": 395924
+      "achieved_units": 931,
+      "remaining_units": 395923
     },
     "SOURCE_AUDITED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 929,
-      "remaining_units": 395925
+      "achieved_units": 930,
+      "remaining_units": 395924
     },
     "SPEC_IMPL_CORRESPONDENCE": {
       "achieved_is_not_completion": true,
-      "achieved_units": 930,
-      "remaining_units": 395924
+      "achieved_units": 931,
+      "remaining_units": 395923
     },
     "STRUCTURE_IDENTIFIED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 925,
-      "remaining_units": 395929
+      "achieved_units": 926,
+      "remaining_units": 395928
     },
     "VERSION_PINNED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 930,
-      "remaining_units": 395924
+      "achieved_units": 931,
+      "remaining_units": 395923
     }
   },
   "detail_note": "Only units with substantive committed evidence are expanded; all other units take the NOT_STARTED / LEGAL_REVIEW_PENDING defaults, reproducible by regenerating build/task_queue.json with scripts/ci/task_queue.py.",
@@ -1531,6 +1531,43 @@
         "rounding": []
       },
       "revision": "404CO0000000089_20010106_412CO0000000307",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
+    "NORM|0b4a9ed5b8915f7c64ef1465afe249e677410bbd81c8fea36cde219317811c45": {
+      "article": "2",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "423AC0000000118",
+      "norm_details": {
+        "amounts": [
+          "五百円"
+        ],
+        "conditions": [
+          "限り"
+        ],
+        "delegations": [],
+        "effects": [
+          "とする"
+        ],
+        "enforcement_dates": [],
+        "exceptions": [
+          "にかかわらず"
+        ],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "423AC0000000118_20111202_000000000000000",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -31569,25 +31606,25 @@
     "enforcement_dates"
   ],
   "norm_detail_counts": {
-    "amounts": 255,
-    "conditions": 744,
+    "amounts": 256,
+    "conditions": 745,
     "delegations": 174,
-    "effects": 339,
+    "effects": 340,
     "enforcement_dates": 12,
-    "exceptions": 148,
+    "exceptions": 149,
     "periods": 79,
     "rounding": 17
   },
   "note": "Eight technical axes are tracked separately; full technical evidence does NOT establish human legal review or whole-article coverage. COMPUTABLE_SLICE_ONLY units are never counted as whole-article norms.",
   "schema": "directive_axes/v1",
   "scope_counts": {
-    "COMPUTABLE_SLICE_ONLY": 925,
+    "COMPUTABLE_SLICE_ONLY": 926,
     "FULL_ARTICLE": 5
   },
   "technical_status_counts": {
     "BLOCKED": 2,
-    "FULLY_VERIFIED": 929,
-    "NOT_STARTED": 395922,
+    "FULLY_VERIFIED": 930,
+    "NOT_STARTED": 395921,
     "PARTIAL": 0,
     "PROVED_SCOPE": 1
   },

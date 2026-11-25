@@ -7,7 +7,6 @@ supports the unit. This audit resolves each reference against the artifact.
 
 - units checked: 930
 - references resolved: 4580/4581
-
 - references UNRESOLVED: 1
 - all-complete claimable from references: False
 
