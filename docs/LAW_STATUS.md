@@ -10,7 +10,7 @@ a completion flag.
 
 - laws in ledger: 327
 - with pinned raw snapshot: 325
-- structural audit status ok: 325
+- structural audit status ok: 0
 - with >=1 pinned literal check (semantic model): 177
 - with recorded human legal review: 0
 
@@ -347,3 +347,4 @@ a completion flag.
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
 review modules seen in docs/ADVERSARIAL_REVIEW.md: 360
+

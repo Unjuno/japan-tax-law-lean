@@ -7,6 +7,7 @@ unverified units decreases. This ledger records measured deltas, not
 the count of models or theorems. It makes no completion claim.
 
 head: `c2fd82ab50bd`
+
 verdict: **COUNTED**
 
 | status | count | delta |
@@ -19,3 +20,4 @@ verdict: **COUNTED**
 
 new Lean modules since previous snapshot: 0
 NOT_STARTED reduction: 55
+
