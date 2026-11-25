@@ -1202,6 +1202,12 @@ def checks():
            "article", "第十条",
            ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する", "第十条"])
 
+    # 関税定率法 art.8(6) — CustomsTariffArt8ExtensionSixMonths.lean
+    yield ("関税定率法 art.8(6)（六月以内の延長）↔ CustomsTariffArt8ExtensionSixMonths.lean",
+           "143AC0000000054",
+           "file", None,
+           ["その期間を六月以内に限り延長することができる", "第八条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
