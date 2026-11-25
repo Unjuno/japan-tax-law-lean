@@ -2380,6 +2380,12 @@ def checks():
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
 
+    # ArrearsChargeRounding — cycle-125
+    yield ("ArrearsChargeRounding.lean",
+           "325AC0000000226",
+           "file", None,
+           ["延滞金又は加算金の額を計算する場合において、その計算の基礎となる税額に千円未満の端数があるとき、又はその税額の全額が二千円未満であるときは、その端数金額又はその全額を切り捨てる", "第二十条の四の二"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -4502,6 +4508,11 @@ def checks():
            "325AC0000000226", "file", None,
            ["次に掲げる金額のうちいずれか少ない金額の百分の二"])
 
+
+    # 地方税法 art. 314の6 — LocalInhabitantReducedRate3or4.lean (3%/4%)
+    yield ("地方税法 art. 314_6（3%／指定都市4%）↔ LocalInhabitantReducedRate3or4.lean",
+           "325AC0000000226", "file", None,
+           ["次に掲げる金額のうちいずれか少ない金額の百分の三"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

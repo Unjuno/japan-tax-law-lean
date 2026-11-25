@@ -52,6 +52,9 @@ import JapanTaxLaw.AreaMultiplierSixTwoTests
 import JapanTaxLaw.AreaThreshold2Ha
 import JapanTaxLaw.AreaThreshold2HaSpec
 import JapanTaxLaw.AreaThreshold2HaTests
+import JapanTaxLaw.ArrearsChargeRounding
+import JapanTaxLaw.ArrearsChargeRoundingSpec
+import JapanTaxLaw.ArrearsChargeRoundingTests
 import JapanTaxLaw.AuctionDepositValuation
 import JapanTaxLaw.AuctionDepositValuationSpec
 import JapanTaxLaw.AuctionDepositValuationTests
@@ -1184,6 +1187,9 @@ import JapanTaxLaw.LocalGrantTaxSharesTests
 import JapanTaxLaw.LocalIncomeTax
 import JapanTaxLaw.LocalIncomeTaxSpec
 import JapanTaxLaw.LocalIncomeTaxTests
+import JapanTaxLaw.LocalInhabitantReducedRate3or4
+import JapanTaxLaw.LocalInhabitantReducedRate3or4Spec
+import JapanTaxLaw.LocalInhabitantReducedRate3or4Tests
 import JapanTaxLaw.LocalInhabitantTax
 import JapanTaxLaw.LocalInhabitantTaxSpec
 import JapanTaxLaw.LocalInhabitantTaxTests
