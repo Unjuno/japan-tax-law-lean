@@ -7,7 +7,9 @@ Pinned source identical to the implementation module (関税法 art. 12の3(3)).
 The threshold is restated as a plain `Nat` literal read independently from
 「三百万」 and the comparison is expressed in the complementary form
 (not (amount ≤ 3,000,000)) so the spec does not reuse the implementation's
-`>` predicate. 超える is exclusive; the boundary 3,000,000 is false.
+`>` predicate. The 「百分の五」 rate ratio is restated independently as
+numerator 5 / denominator 100 (== 1/20). 超える is exclusive; the boundary
+3,000,000 is false.
 -/
 
 namespace JapanTaxLaw.CustomsUnfiledSurcharge3M
@@ -19,17 +21,24 @@ def specThreshold : Nat := 3000000
 def specExceeds (amount : Nat) : Bool :=
   if amount <= 3000000 then false else true
 
+/-- Independent restatement of 「百分の五」 = 5/100. -/
+def specReductionNumerator : Nat := 5
+def specReductionDenominator : Nat := 100
+
 example : specThreshold = 3000000 := by decide
 example : specExceeds 0 = false := by decide
 example : specExceeds 2_999_999 = false := by decide
 example : specExceeds 3_000_000 = false := by decide
 example : specExceeds 3_000_001 = true := by decide
 example : specExceeds 10_000_000 = true := by decide
+example : specReductionNumerator * 20 = specReductionDenominator := by decide
 
 /-- Kernel-decided agreement on an enumerated grid (finite, not universal). -/
 def agreeCustomsUnfiledSurcharge3M : Bool :=
   let amounts := [0, 1, 2_999_999, 3_000_000, 3_000_001, 10_000_000]
   (cumulativePaidThreshold == specThreshold) &&
+  (reductionNumerator == specReductionNumerator) &&
+  (reductionDenominator == specReductionDenominator) &&
     amounts.all fun a => exceedsThreshold a == specExceeds a
 
 example : agreeCustomsUnfiledSurcharge3M = true := by decide
