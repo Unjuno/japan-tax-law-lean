@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 178
+- with >=1 pinned literal check (semantic model): 179
 - with recorded human legal review: 0
 
 ## All laws
@@ -331,7 +331,7 @@ a completion flag.
 | `506M60000008065` | 地方団体に対して交付すべき令和六年度分の特別交付税の額の決定時期及び決定額並びに交付時期 | 506M60000008065_20240624_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `507CO0000000095` | 黒鉛電極に対して課する不当廉売関税に関する政令 | 507CO0000000095_20250703_507CO0000000240 | CurrentEnforced | YES | ok | 7 | YES (1) | NO |
 | `507M60000040013` | 黒鉛電極に対して課する不当廉売関税に関する政令第一条第一項第一号に規定する黒鉛化の工程を | 507M60000040013_20250703_507M60000040058 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
-| `507CO0000000134` | 防衛特別法人税に関する政令 | 507CO0000000134_20260401_508CO0000000105 | CurrentEnforced | YES | ok | 22 | NO (0) | NO |
+| `507CO0000000134` | 防衛特別法人税に関する政令 | 507CO0000000134_20260401_508CO0000000105 | CurrentEnforced | YES | ok | 22 | YES (1) | NO |
 | `507CO0000000135` | 所得税法等の一部を改正する法律の一部の施行に伴うたばこ税の税率の特例に関する経過措置に関 | 507CO0000000135_20260401_000000000000000 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
 | `507M60000040031` | 防衛特別法人税に関する省令 | 507M60000040031_20260414_508M60000040042 | CurrentEnforced | YES | ok | 14 | NO (0) | NO |
 | `507M60000008043` | 地方団体に対して交付すべき令和七年度分の震災復興特別交付税の額の算定方法、決定時期及び決 | 507M60000008043_20250425_000000000000000 | CurrentEnforced | YES | ok | 9 | YES (1) | NO |
