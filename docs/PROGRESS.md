@@ -181,16 +181,16 @@ lake clean && lake build                                                # 再現
 | 指標 | 実測値 |
 |---|---:|
 | 規範単位（確定対象版） | 268,107 |
-| NOT_STARTED | 260,841 |
-| PARTIAL | 4,311 |
-| PROVED_SCOPE | 126 |
-| FULLY_VERIFIED | 2,827（約 1.05%） |
+| NOT_STARTED | 260,798 |
+| PARTIAL | 4,312 |
+| PROVED_SCOPE | 165 |
+| FULLY_VERIFIED | 2,830（約 1.06%） |
 | BLOCKED | 2 |
 | 未解決条件を持つ単位 | 140,289（条件延べ 162,912） |
-| 独立 ADVERSARIAL_REVIEW 軸 | 0（サブエージェント利用不可のため未記録） |
+| 独立 ADVERSARIAL_REVIEW 軸 | 3（独立サブエージェントが四捨五入ファミリを監査し VERDICT: PASS；3 サンプル単位のみに記録、残り 70 は PROVED_SCOPE のまま） |
 | 人間による法的レビュー | 0（別軸・未実施） |
 | 再帰探索の未解決参照名 | 7,059（解決 380） |
-| 地方税条例の取得 | 5 / 1,794（すべて `ACQUIRED_NOT_REVIEWED`） |
+| 地方税条例の取得 | 5 / 1,794（札幌・横浜・名古屋・大阪・福岡；すべて `ACQUIRED_NOT_REVIEWED`） |
 | 附則 新/旧法参照 | 87（定義条抽出 42・未検出 45・2026 版冲突 6、写像未実施） |
 | 因果 H/T/D/C/U 記録 | 50（`data/evidence_audits/coordinator_cycle_htdcu.json`、すべて PASS） |
 
@@ -198,11 +198,14 @@ lake clean && lake build                                                # 再現
 `ADVERSARIAL_REVIEW` 欠如のため `FULLY_VERIFIED` ではなく `PROVED_SCOPE`）:
 所得税法 art.28/86 の 5 段階控除（2 単位）、災害減免 3 段階（1）、地方税法
 不申告加算の 3 段階累進（17）、小数税率 1.35/40.85/44.65/6.24/1.4%（12）、
-四捨五入（千円未満 72・百万円未満 1）。いずれも原文トークン・SHA-256・
-一意解決の機械監査を通過し、禁止マーカー 0。
+四捨五入（千円未満 72・百万円未満 1）、切捨て（一/百/五百/千/一万円未満 42、
+最低額ルール含む）。いずれも原文トークン・SHA-256・一意解決の機械監査を通過し、
+禁止マーカー 0。独立エージェントによる ADVERSARIAL_REVIEW は四捨五入の
+3 サンプル単位のみで PASS（`data/evidence_audits/halfup_adversarial.md`）。
+不全な独立性を理由に、他の単位は `PROVED_SCOPE` に留める。
 
-**未達（続行すべき義務）**: 未検証義務の大部分（260,841 単位）、未解決条件
-140,289 単位、独立性の欠ける ADVERSARIAL_REVIEW、人間の法的レビュー、
+**未達（続行すべき義務）**: 未検証義務の大部分（260,798 単位）、未解決条件
+140,289 単位、162 単位分の独立 ADVERSARIAL_REVIEW、人間の法的レビュー、
 地方税条例 1,789 件、附則参照 87 件の版写像、租税条約・通達・裁判例の別層整備。
 
 **再開手順**: `git checkout fix/normative-queue-v2` →
