@@ -91,6 +91,9 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # HouseholdCorrectionFloor07 — 航空機燃料譲与税法施行規則 art.4(8) 世帯数〇・七下限
+    yield ("航空機燃料譲与税法施行規則 art.4(8)（世帯数〇・七下限）↔ HouseholdCorrectionFloor07.lean",
+           "347M50000008026", "article", "第四条", ["前年度の世帯数に〇・七を乗じて得た数に満たず、かつ、当該前年度の世帯数から当該補正世帯数を控除して得た数が千を超える場合には"])
     yield ("航空機燃料税法 art. 14(1) 第四号（納付すべき税額＝二号税額−前号税額）↔ AircraftFuelTaxPayable.lean", "347AC0000000007", "article", "第十四条", ["第二号に掲げる航空機燃料税額から前号に掲げる航空機燃料税額を控除した金額"])
     yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
 
@@ -2367,6 +2370,12 @@ def checks():
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
 
+    # OldIndividualAnnuityPremiumDeductionMid — cycle-118
+    yield ("OldIndividualAnnuityPremiumDeductionMid.lean",
+           "325AC0000000226",
+           "file", None,
+           ["一万五千円と当該合計額から一万五千円を控除した金額の二分の一に相当する金額との合計額", "旧個人年金保険料の金額の合計額が一万五千円を超え四万円以下である場合"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -4330,6 +4339,27 @@ def checks():
            "349AC0000000079",
            "file", None,
            ["前項の犯罪に係る販売電気に対する電源開発促進税に相当する金額が五十万円を超える場合には、情状により、同項の罰金は、五十万円を超え当該電源開発促進税に相当する金額以下とすることができる。"])
+
+    yield ("地方税法 art. 22_2（更正請求書虚偽記載の罰金上限50万円）↔ LocalTaxFalseFilingFineCap500k.lean",
+           "325AC0000000226", "file", None,
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+    # 相続税法 art. 70 — InheritanceTaxFalseReportFineCap500k.lean (50万円)
+    yield ("相続税法 art. 70（調書虚偽記載の罰金上限50万円）↔ InheritanceTaxFalseReportFineCap500k.lean",
+           "325AC0000000073", "file", None,
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
+
+    yield ("特別とん税法 art.10(1)（3年/50万円の上限）↔ SpecialTonnageArt10PenaltyCap.lean",
+           "332AC0000000038",
+           "article", "第十条",
+           ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する", "第十条"])
+
+    # 関税定率法 附則 art.1 — TariffLawSupplArt1Heisei13Enforcement.lean
+    yield ("関税定率法 附則 art.1（2条3条を除き平成13年1月6日施行）↔ TariffLawSupplArt1Heisei13Enforcement.lean",
+           "143AC0000000054",
+           "file", None,
+           ["この法律（第二条及び第三条を除く。）は、平成十三年一月六日から施行する。", "第一条"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
