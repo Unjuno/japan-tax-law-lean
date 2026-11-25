@@ -4378,6 +4378,11 @@ def checks():
     yield ("地方税法 art. 52（ホ 資本金等の額1000万円以下）↔ LocalCapitalCeiling10M.lean",
            "325AC0000000226", "file", None,
            ["資本金等の額が千万円以下であるもの"])
+    # 地方税法 附則5の12(4) — SpecialTaxCreditCap10000.lean
+    yield ("地方税法 附則第五条の十二 第四項（特別税額控除額 一万円超分岐）↔ SpecialTaxCreditCap10000.lean",
+           "325AC0000000226", "file", None,
+           ["前項の市町村民税に係る令和七年度分特別税額控除額は、個人の住民税の所得割の額が一万円を超える場合には一万円から道府県民税特別税額控除額を控除して得た金額とし、個人の住民税の所得割の額が一万円を超えない場合には第二項第二号に掲げる額に相当する金額とする。"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
