@@ -4461,6 +4461,36 @@ def checks():
            "file", None,
            ["第一号に規定する課税標準たる数量からそれぞれ当該税率の適用区分ごとに前号に規定する課税標準たる数量を控除した数量（以下この項において「課税標準数量」という。）"])
 
+    yield ("地方税法 art. 72_39_2（納税猶予100万円例外）↔ LocalTaxDeferralSmallAmountException1MB.lean",
+           "325AC0000000226", "file", None,
+           ["その猶予に係る税額が百万円以下である場合"])
+    # 防衛特別法人税政令 art.3(6)(1) — DefenseCorpShortfallSum.lean
+    yield ("防衛特別法人税政令 第三条(6)(1)（零下回る額の合計）↔ DefenseCorpShortfallSum.lean",
+           "507CO0000000134", "article", "第三条",
+           ["他の通算法人の他の課税事業年度の調整前控除限度額が零を下回る場合のその下回る額の合計額"])
+
+
+    yield ("特別とん税法 art.10(1)（3年/50万円の上限）↔ SpecialTonnageArt10PenaltyCap.lean",
+           "332AC0000000038",
+           "article", "第十条",
+           ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する", "第十条"])
+
+    # 相続税法 art.21の7 表セル — InheritanceTaxArt21_7Bracket3M4M.lean
+    yield ("相続税法 art.21の7 表（三百万円超四百万円以下）↔ InheritanceTaxArt21_7Bracket3M4M.lean",
+           "325AC0000000073",
+           "file", None,
+           ["三百万円を超え四百万円以下の金額", "第二十一条の七"])
+
+
+    yield ("地方税法 art. 51（標準税率超過時2%上限）↔ LocalTaxStandardRateCeiling2.lean",
+           "325AC0000000226", "file", None,
+           ["標準税率を超える税率で課する場合においても、百分の二を超えることができない。"])
+    # 地方税法 art. 37 — LocalTaxReducedRate2or1.lean (2%/1%)
+    yield ("地方税法 art. 37（2%／指定都市1%）↔ LocalTaxReducedRate2or1.lean",
+           "325AC0000000226", "file", None,
+           ["次に掲げる金額のうちいずれか少ない金額の百分の二"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
