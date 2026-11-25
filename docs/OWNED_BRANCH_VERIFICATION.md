@@ -92,7 +92,9 @@ PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=2178 axes=11 unbac
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
 
-$ python -m unittest discover -s scripts/tests -t . → 167 tests, OK
+$ python scripts/ci/check_evidence_artifacts.py
+evidence artifact audit: units=2178 missing=0
+$ python -m unittest discover -s scripts/tests -t . → 170 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -302,6 +304,14 @@ multi-pair 読替え norms. Each 「A」とあるのは「B」と pair is a whol
 rewrite over an explicit finite domain, with exhaustive spec/implementation
 agreement; units with an ambiguous source phrase (two different replacements)
 are rejected. All 202 dependency-ready units in this class were verified.
+
+An independent artifact audit, `scripts/ci/check_evidence_artifacts.py`, now
+checks that every spec, implementation, test, review note and pinned source
+cited by the 2178 evidence records actually exists. It found six stale
+citations to a renamed gift-tax note; `repair_stale_evidence_citations.py`
+removed only the dead paths (no status was changed), and the audit now reports
+`units=2178 missing=0`. Three regression tests cover the parser, the stale
+name and the full-ledger check.
 
 So 2178 units are evidence-backed FULLY_VERIFIED and 394,674 remain NOT_STARTED
 on this branch; the
