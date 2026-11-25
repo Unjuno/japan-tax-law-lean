@@ -1820,6 +1820,9 @@ import JapanTaxLaw.SpecialOrderCapitalGainDeductionTests
 import JapanTaxLaw.SpecialOrderPensionMinimum
 import JapanTaxLaw.SpecialOrderPensionMinimumSpec
 import JapanTaxLaw.SpecialOrderPensionMinimumTests
+import JapanTaxLaw.SpecialTaxCreditCap10000
+import JapanTaxLaw.SpecialTaxCreditCap10000Spec
+import JapanTaxLaw.SpecialTaxCreditCap10000Tests
 import JapanTaxLaw.SpecialTonSplitRatio
 import JapanTaxLaw.SpecialTonSplitRatioSpec
 import JapanTaxLaw.SpecialTonSplitRatioTests
