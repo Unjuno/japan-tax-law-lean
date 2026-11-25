@@ -4437,6 +4437,11 @@ def checks():
            "325AC0000000226", "file", None,
            ["その猶予に係る税額が百万円以下である場合"])
 
+    # Restored registry-required check dropped by concurrent reconcile.
+    yield ("災害被害者租税減免法 art.7(3)（控除額五百円未満は控除しない）↔ DisasterLiquorDeduction500YenFloor.lean",
+           "322AC0000000175", "article", "第七条",
+           ["五百円未満である場合における当該金額については、同項の控除を行わない", "第七条"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
