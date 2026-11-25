@@ -269,6 +269,29 @@ All six target units carry `kernel_proof`. L5 now has 2 hash-pinned judgments;
 all 9 pinned auxiliary sources re-verified byte-for-byte. Scoped-clause-only
 and `LEGAL_REVIEW_PENDING` status is unchanged.
 
+### Eighth iteration (EXCEPTION kind)
+
+Four EXCEPTION units (`RegTax41_19_3IncomeOver10M`,
+`RegTax41_19_3IndividualIncomeOver10M`, `Customs123PeriodCeiling60Days`,
+`LocalTax15PeriodCeiling2Years`) were validated (build 1938 jobs, invariants
+17/17, batch-243 review). A drafted 1-year ceiling was withdrawn before
+attestation because a literal of 1 registers only two boundary categories;
+the gate was not weakened. CI run `45633511544` on
+`5b58bebbb39f732c1f643f98a92365081a1b64c6` completed `success`;
+`data/PROOF_ATTESTATION_SCOPED_T8.json` binds 12 module hashes from committed
+blobs at that commit to that run.
+
+```
+before: FULLY_VERIFIED=799  NOT_STARTED=396050  evidence=802
+after:  FULLY_VERIFIED=811  NOT_STARTED=396038  evidence=814
+delta:  FULLY_VERIFIED=+12 NOT_STARTED=-12  evidence=+12
+progress_ledger: COUNTED; NOT_STARTED delta -12; new modules 12
+```
+
+All four target units carry `kernel_proof`. L2 now has 4 pinned municipal
+ordinances (Tokyo, Osaka, Kanagawa, Yokohama). Scoped-clause-only and
+`LEGAL_REVIEW_PENDING` status is unchanged.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |
