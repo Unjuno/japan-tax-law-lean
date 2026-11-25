@@ -12,43 +12,43 @@
   "axis_totals": {
     "BOUNDARY_CHECKED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 923,
-      "remaining_units": 395931
+      "achieved_units": 925,
+      "remaining_units": 395929
     },
     "NORMS_FORMALIZED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 923,
-      "remaining_units": 395931
+      "achieved_units": 925,
+      "remaining_units": 395929
     },
     "NORM_DECOMPOSED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 922,
-      "remaining_units": 395932
+      "achieved_units": 924,
+      "remaining_units": 395930
     },
     "SOURCE_ACQUIRED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 923,
-      "remaining_units": 395931
+      "achieved_units": 925,
+      "remaining_units": 395929
     },
     "SOURCE_AUDITED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 922,
-      "remaining_units": 395932
+      "achieved_units": 924,
+      "remaining_units": 395930
     },
     "SPEC_IMPL_CORRESPONDENCE": {
       "achieved_is_not_completion": true,
-      "achieved_units": 923,
-      "remaining_units": 395931
+      "achieved_units": 925,
+      "remaining_units": 395929
     },
     "STRUCTURE_IDENTIFIED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 918,
-      "remaining_units": 395936
+      "achieved_units": 920,
+      "remaining_units": 395934
     },
     "VERSION_PINNED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 923,
-      "remaining_units": 395931
+      "achieved_units": 925,
+      "remaining_units": 395929
     }
   },
   "detail_note": "Only units with substantive committed evidence are expanded; all other units take the NOT_STARTED / LEGAL_REVIEW_PENDING defaults, reproducible by regenerating build/task_queue.json with scripts/ci/task_queue.py.",
@@ -8683,6 +8683,37 @@
         "rounding": []
       },
       "revision": "332M50000040015_20261101_507M60000040026",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
+    "NORM|3f049c7ac5a29e667cddf5a3310f6887f45eeae97b97e43ecf1ab0b0517c5adb": {
+      "article": "30_2",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "328AC0000000006",
+      "norm_details": {
+        "amounts": [],
+        "conditions": [
+          "以下"
+        ],
+        "delegations": [],
+        "effects": [],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "328AC0000000006_20260525_506AC0000000052",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -21370,7 +21401,7 @@
       },
       "revision": "507CO0000000134_20260401_508CO0000000105",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "NOT_STARTED",
+      "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
     "NORM|a927e8cea9d0ac91059f6617b135ef1a5e83d41f188005238256e33160de0894": {
@@ -26740,6 +26771,38 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
+    "NORM|da471de15b3c430f5cace0665b89d06e66fd00ff5948b3632c5a07b9c8aead44": {
+      "article": "594",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "325AC0000000226",
+      "norm_details": {
+        "amounts": [],
+        "conditions": [],
+        "delegations": [],
+        "effects": [
+          "課する",
+          "とする"
+        ],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "325AC0000000226_20261101_508AC0000000002",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
     "NORM|daa39876d7918937c5d96499e350d6397f6023e4bf131c509e554b75ec247be0": {
       "article": "23_10",
       "axes": {
@@ -31321,9 +31384,9 @@
   ],
   "norm_detail_counts": {
     "amounts": 255,
-    "conditions": 738,
+    "conditions": 739,
     "delegations": 172,
-    "effects": 335,
+    "effects": 336,
     "enforcement_dates": 12,
     "exceptions": 146,
     "periods": 75,
@@ -31332,13 +31395,13 @@
   "note": "Eight technical axes are tracked separately; full technical evidence does NOT establish human legal review or whole-article coverage. COMPUTABLE_SLICE_ONLY units are never counted as whole-article norms.",
   "schema": "directive_axes/v1",
   "scope_counts": {
-    "COMPUTABLE_SLICE_ONLY": 918,
+    "COMPUTABLE_SLICE_ONLY": 920,
     "FULL_ARTICLE": 5
   },
   "technical_status_counts": {
     "BLOCKED": 2,
-    "FULLY_VERIFIED": 921,
-    "NOT_STARTED": 395930,
+    "FULLY_VERIFIED": 924,
+    "NOT_STARTED": 395927,
     "PARTIAL": 0,
     "PROVED_SCOPE": 1
   },
