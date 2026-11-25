@@ -7607,6 +7607,19 @@
       "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:64_7/Article#64_7/Paragraph#1/Item#4/Subitem1#1/Subitem1Sentence/Sentence#1 sha256=3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/GroupLossRatioTests.lean sha256=d06c96119fb0701cf4a906904a69a9c395d0b5fd156423d19707db47cf100dab (10 kernel-decided examples)"
     },
+    "NORM|a24e7c114feecd511f243f096776d864ebb4c7d152c9db84b632aeb039991536": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 9 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=322AC0000000175_20220101_503AC0000000011 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/DisasterLiquorDeduction500YenFloor.lean sha256=e399bfaf95a52476894f30a3852a615087fbbd9c67323ee09cd828458de9d2a2",
+      "independent_spec": "JapanTaxLaw/DisasterLiquorDeduction500YenFloorSpec.lean sha256=c60114758335054515e90beb00817126b909f63f49a9e01165e4db06f8b9ff37 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45652284619: commit 7c881b98a0, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [500] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"500\": [\"五百\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/322AC0000000175_20220101_503AC0000000011.law.json#LawBody[1]/MainProvision/MainProvision[6]/Article:7/Article#7/Paragraph#3/ParagraphSentence/Sentence#1 sha256=c3bb5b0bdffbdefd2ee5f358d90ad9e0922d4c887ecb2b133aa7d613f5f4e7ef (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/DisasterLiquorDeduction500YenFloorTests.lean sha256=4698e91174b66cf951a9eada8f254ce97be78ee30712b9a8009435772c884f6a (9 kernel-decided examples)"
+    },
     "NORM|a2eb295a4b7774527f12ce4012df58b4bdbaf49bf0c0f16cb94b2090a8f27021": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",
