@@ -1310,6 +1310,9 @@ import JapanTaxLaw.NursingCareBand2_5Tests
 import JapanTaxLaw.NursingCareBand5_10
 import JapanTaxLaw.NursingCareBand5_10Spec
 import JapanTaxLaw.NursingCareBand5_10Tests
+import JapanTaxLaw.NursingCarePremiumDeductionMid
+import JapanTaxLaw.NursingCarePremiumDeductionMidSpec
+import JapanTaxLaw.NursingCarePremiumDeductionMidTests
 import JapanTaxLaw.ObligationArt15
 import JapanTaxLaw.ObligationArt15Spec
 import JapanTaxLaw.ObligationArt15Tests
