@@ -385,7 +385,15 @@ def law_full_text(law_id: str) -> str:
     return ""
 
 
-def scoped_article_text(law_id: str, article: str) -> str:
+def scoped_article_text(law_id: str, article: str, needles=None) -> str:
+    """Flat text of the Article whose Num matches `article`.
+
+    An e-Gov law can carry several articles with the same Num (main + several
+    supplementary provisions). When pinned needles are supplied, prefer the
+    matching article that actually contains them, so a clause from a
+    supplementary provision cannot be mistaken for the main article of the
+    same number (Directive §4: identify the exact clause, not just the number).
+    """
     inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
     for law in inv.get("laws", []):
         if law.get("law_id") != law_id:
@@ -397,25 +405,33 @@ def scoped_article_text(law_id: str, article: str) -> str:
         doc = json.loads(p.read_text(encoding="utf-8"))
         root = doc.get("law_full_text")
 
+        matches: list[str] = []
+
         def walk(n):
             if isinstance(n, dict):
                 # Canonicalise both labels: transcription checks cite kanji
                 # titles (第六十六条) or 72_49_14 while e-Gov uses Arabic Num.
                 if n.get("tag") == "Article" and core.article_key(
                         str((n.get("attr") or {}).get("Num", ""))) == core.article_key(article):
-                    return core.norm(core.flat(n))
+                    matches.append(core.norm(core.flat(n)))
+                    return
                 for c in n.get("children", []) or []:
-                    found = walk(c)
-                    if found:
-                        return found
+                    walk(c)
             elif isinstance(n, list):
                 for c in n:
-                    found = walk(c)
-                    if found:
-                        return found
-            return ""
+                    walk(c)
 
-        return walk(root)
+        walk(root)
+        if needles:
+            # Longest needle first: a generic article label such as 第一条
+            # appears in many provisions and must not outrank the full clause.
+            ordered = sorted((core.norm(nd) for nd in needles if core.norm(nd)),
+                             key=len, reverse=True)
+            for nd in ordered:
+                for text in matches:
+                    if nd in text:
+                        return text
+        return matches[0] if matches else ""
     return ""
 
 
@@ -627,7 +643,8 @@ def build() -> dict:
         tests_text = tests_p.read_text(encoding="utf-8") if tests_p.exists() else ""
         lits = spec_literals(spec_text)
         kanji = {int_to_kanji(v) for v in lits}
-        scoped = scoped_article_text(info["law_id"], info["article"])
+        scoped = scoped_article_text(info["law_id"], info["article"],
+                                     info.get("needles", []))
         # A transcription check may cite several articles (e.g. art. 9の22 /
         # 35の4の5) while only one is modelled. Its needles are then genuine
         # pinned bytes from more than one article. Require every needle in the

@@ -1,0 +1,32 @@
+{
+  "commit": "a2cf8542",
+  "jobs": {
+    "Build Lean project and check axioms": {
+      "conclusion": "success",
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45625439500",
+      "required_steps": [
+        "Build explicitly",
+        "No sorry/admit in adopted proofs",
+        "Axioms of key theorems",
+        "Reproducibility check 1 (clean build)",
+        "Reproducibility check 2 (clean build)"
+      ]
+    }
+  },
+  "modules": {
+    "InheritanceTaxBracket30M.lean": {
+      "sha256": "86c41b9a4b73fce251e6fa74ed8b4846cd049895da449dd35ea77ab939ca565d"
+    },
+    "InheritanceTaxBracket30MSpec.lean": {
+      "sha256": "d21e5d98a428b477f4ddccccee6f9ef81727a42cf96e35f9e02e92efd5e1a265"
+    },
+    "InheritanceTaxBracket30MTests.lean": {
+      "sha256": "5f40ae9bcabb8c7dd7618d7dac89e356250bd317ebe7707216ea7424ae0696cd"
+    }
+  },
+  "note": "Scoped attestation: this module was kernel-built at a different commit than the main attestation. scope=full_run means the whole CI run succeeded; scope=lean_job_only would cover ONLY the Lean job.",
+  "run_conclusion": "lean_job_only",
+  "schema": 1,
+  "scope": "lean_job_only",
+  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45625439500"
+}
