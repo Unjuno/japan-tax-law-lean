@@ -4390,6 +4390,15 @@ def checks():
            ["前項の市町村民税に係る令和七年度分特別税額控除額は、個人の住民税の所得割の額が一万円を超える場合には一万円から道府県民税特別税額控除額を控除して得た金額とし、個人の住民税の所得割の額が一万円を超えない場合には第二項第二号に掲げる額に相当する金額とする。"])
 
 
+    # 相続税法施行令 art. 31 — InheritanceTaxOrderOwnership50Threshold.lean (>50%)
+    yield ("相続税法施行令 art. 31（所有割合50%超）↔ InheritanceTaxOrderOwnership50Threshold.lean",
+           "325CO0000000071", "file", None,
+           ["発行済株式等の百分の五十を超える株式等が同項の個人等により所有されている場合"])
+    # 地方税法施行令 art. 35の4の5 — LocalBusinessTaxOrderRate77PerMilleC.lean (7.7%)
+    yield ("地方税法施行令 art. 35_4_5（政令率7.7%）↔ LocalBusinessTaxOrderRate77PerMilleC.lean",
+           "325CO0000000245", "file", None,
+           ["法第七十二条の七十六の政令で定める率は、百分の七・七とする。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
