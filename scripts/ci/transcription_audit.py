@@ -4354,6 +4354,13 @@ def checks():
            "law", None,
            ["\uff08\u305d\u306e\u4ed6\u306e\u7d4c\u904e\u63aa\u7f6e\u306e\u653f\u4ee4\u3078\u306e\u59d4\u4efb\uff09"])
 
+    # CustomsTariffArt9AdditionalDutyCap.lean - NORM|7cfb4589... (関税定率法 art.9(4) item1 CONDITION, law 143AC0000000054)
+    # Article-kind locator; needle is the additional-duty-cap condition.
+    yield ("customs tariff law art.9 additional duty cap - CustomsTariffArt9AdditionalDutyCap.lean",
+           "143AC0000000054",
+           "article", "\u7b2c\u4e5d\u6761",
+           ["\u5f53\u8a72\u8ca8\u7269\u306b\u3064\u304d\u3001\u5225\u8868\u306e\u7a0e\u7387\u306b\u3088\u308b\u95a2\u7a0e\u306e\u307b\u304b\u3001\u5f53\u8a72\u8f38\u5165\u3055\u308c\u308b\u8ca8\u7269\u306e\u8ab2\u7a0e\u4fa1\u683c\u3068\u540c\u984d\u4ee5\u4e0b\u306e\u95a2\u7a0e\u3092\u8ab2\u3059\u308b\u3053\u3068\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
