@@ -1346,6 +1346,9 @@ import JapanTaxLaw.OldLifePremium9kTests
 import JapanTaxLaw.OldLongTermPremium20k
 import JapanTaxLaw.OldLongTermPremium20kSpec
 import JapanTaxLaw.OldLongTermPremium20kTests
+import JapanTaxLaw.OneSenFractionTruncation
+import JapanTaxLaw.OneSenFractionTruncationSpec
+import JapanTaxLaw.OneSenFractionTruncationTests
 import JapanTaxLaw.OptionExercise12M
 import JapanTaxLaw.OptionExercise12MSpec
 import JapanTaxLaw.OptionExercise12MTests

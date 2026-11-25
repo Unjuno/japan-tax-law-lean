@@ -105,7 +105,10 @@ def checks():
     # TwoOrMorePortMunicipalities.lean - NORM|6d88a4e6... (二以上 CONDITION, law 332M50000002021)
     yield ("特別とん譲与税法施行規則 art.2(1)（二以上の開港所在市町村）↔ TwoOrMorePortMunicipalities.lean", "332M50000002021", "article", "第二条", ["（二以上の開港所在市町村の区域が一の税関の管轄区域に属する場合の譲与の基準）"])
 
-    # Restored registry checks dropped by a concurrent stale-base rewrite.
+    # OneSenFractionTruncation.lean - NORM|7a6d882c... (一銭未満端数 CONDITION, law 360M50000040001)
+    yield ("たばこ税法施行規則 art.4(2)（一銭未満端数控除）↔ OneSenFractionTruncation.lean",
+           "360M50000040001", "article", "第四条", ["前項の計算に関し、同項各号に掲げる金額に一銭未満の端数がある場合には、その端数を切り捨てるものとする。"])
+
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,
            ["事業所税の額の百分の五に相当する額とする"])
