@@ -2378,6 +2378,12 @@ def checks():
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
 
+    # NursingCarePremiumDeductionMid — cycle-116
+    yield ("NursingCarePremiumDeductionMid.lean",
+           "325AC0000000226",
+           "file", None,
+           ["二万二千円と当該合計額から三万二千円を控除した金額の四分の一に相当する金額との合計額", "三万二千円を超え五万六千円以下である場合"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -4356,6 +4362,15 @@ def checks():
            "322AC0000000175",
            "law", None,
            ["\uff08\u305d\u306e\u4ed6\u306e\u7d4c\u904e\u63aa\u7f6e\u306e\u653f\u4ee4\u3078\u306e\u59d4\u4efb\uff09"])
+
+    # 地方税法 art. 22の2 — LocalTaxFalseFilingFineCap500k.lean (50万円)
+    yield ("地方税法 art. 22_2（更正請求書虚偽記載の罰金上限50万円）↔ LocalTaxFalseFilingFineCap500k.lean",
+           "325AC0000000226", "file", None,
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+    # 相続税法 art. 70 — InheritanceTaxFalseReportFineCap500k.lean (50万円)
+    yield ("相続税法 art. 70（調書虚偽記載の罰金上限50万円）↔ InheritanceTaxFalseReportFineCap500k.lean",
+           "325AC0000000073", "file", None,
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
