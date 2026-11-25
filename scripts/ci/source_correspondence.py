@@ -75,22 +75,31 @@ def main() -> int:
     ap.add_argument("--verbatim", required=True)
     ap.add_argument("--spec", required=True)
     ap.add_argument("--impl", required=True)
+    ap.add_argument("--ignore-quoted", action="store_true",
+                    help="exclude 「…」 replacement text from numeric extraction; "
+                         "used for 読替え units whose quoted phrases are audited "
+                         "verbatim by a dedicated phrase audit")
     a = ap.parse_args()
     sf, art, verb = unquote(a.source_file), unquote(a.article), unquote(a.verbatim)
     doc = json.loads((REPO / sf).read_text(encoding="utf-8"))
     text = article_text(doc, art)
     norm = lambda s: re.sub(r"[\s\u3000]+", "", s)
     located = norm(verb) in norm(text)
+    # Quoted replacement text in a 読替え norm is not an operative numeric
+    # condition of this unit: it is the literal text to be substituted and is
+    # checked verbatim by a dedicated phrase audit. Mask it before parsing
+    # numerals so 「一年以内に」 is not misread as a quantity of one.
+    numeric_verb = re.sub(r"「[^」]*」", "", verb) if a.ignore_quoted else verb
     # Scope the amounts to THIS normative unit's verbatim sentence, not the
     # whole article (other bands are separate units with their own evidence).
-    amounts = sorted({kanji_number(m.group(1)) for m in AMOUNT_RE.finditer(verb)})
+    amounts = sorted({kanji_number(m.group(1)) for m in AMOUNT_RE.finditer(numeric_verb)})
     pct_nums = sorted({kanji_number(m.group(1)) for m in
-                       re.finditer(r"百分の([〇零一二三四五六七八九十百千]+)", verb)})
+                       re.finditer(r"百分の([〇零一二三四五六七八九十百千]+)", numeric_verb)})
     frac = sorted({(kanji_number(m.group(2)), kanji_number(m.group(1))) for m in
-                   re.finditer(r"([〇零一二三四五六七八九十百千]+)分の([〇零一二三四五六七八九十百千]+)", verb)})
+                   re.finditer(r"([〇零一二三四五六七八九十百千]+)分の([〇零一二三四五六七八九十百千]+)", numeric_verb)})
     fraction_components = [list(x) for x in frac]
     periods = sorted({kanji_number(m.group(1)) for m in
-                      re.finditer(r"([〇零一二三四五六七八九十百千]+)(?:年|月|日|回)(?:以下|以内|未満|を超える)", verb)})
+                      re.finditer(r"([〇零一二三四五六七八九十百千]+)(?:年|月|日|回)(?:以下|以内|未満|を超える)", numeric_verb)})
     # A 百分のX rate has numerator X and implicit denominator 100; a X分のY
     # fraction carries numerator Y and denominator X. Period thresholds carry
     # their own count. Require these constants in the spec/implementation.
@@ -111,6 +120,7 @@ def main() -> int:
         "amounts_in_source": amounts, "percent_numerators": pct_nums,
         "fraction_components": fraction_components, "period_values": periods,
         "constants_checked": values, "phrase_only_correspondence": phrase_only,
+        "quoted_text_ignored": bool(a.ignore_quoted),
         "missing_in_spec_or_impl": missing,
         "D": "PASS" if ok else "FAIL",
         "H": "the spec does not represent the pinned amount",

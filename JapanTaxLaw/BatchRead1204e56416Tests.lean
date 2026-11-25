@@ -1,0 +1,22 @@
+import JapanTaxLaw.BatchRead1204e56416Spec
+
+/-! Kernel-decided boundary tests over the declared phrase domain. -/
+namespace JapanTaxLaw.BatchRead1204e56416
+
+example : sourcePhraseText = "全ての構成会社等" := by rfl
+example : replacementPhraseText = "前号の共同支配会社等及び当該共同支配会社等に係る他の共同支配会社等" := by rfl
+example : applyReading Phrase.original = Phrase.replacement := by rfl
+example : applyReading Phrase.replacement = Phrase.replacement := by rfl
+example : applyReading Phrase.other = Phrase.other := by rfl
+example : applyWhen false Phrase.original = Phrase.original := by rfl
+example : applyWhen false Phrase.replacement = Phrase.replacement := by rfl
+example : applyWhen false Phrase.other = Phrase.other := by rfl
+example : applyWhen true Phrase.other = applyReading Phrase.other := triggered_matches Phrase.other
+
+example : specReading Phrase.original = applyReading Phrase.original := agree_spec_impl Phrase.original
+example : specReading Phrase.replacement = applyReading Phrase.replacement := agree_spec_impl Phrase.replacement
+example : specReading Phrase.other = applyReading Phrase.other := agree_spec_impl Phrase.other
+example : specWhen true Phrase.original = applyWhen true Phrase.original := agree_when_spec_impl true Phrase.original
+example : specWhen false Phrase.original = applyWhen false Phrase.original := agree_when_spec_impl false Phrase.original
+
+end JapanTaxLaw.BatchRead1204e56416

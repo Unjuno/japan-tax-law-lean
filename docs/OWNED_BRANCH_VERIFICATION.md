@@ -77,16 +77,19 @@ rate batch pipeline: verified=150 failed=0
 $ python scripts/ci/batch_fraction_pipeline.py --limit 100
 fraction batch pipeline: verified=100 failed=0
 $ final small pools: range +29 (1 audit failure), lower-bound +9, strict-upper +40 (7 audit failures)
+$ python scripts/ci/batch_reading_pipeline.py --limit 5 / 70 / 80
+reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74 failed=0
+(plus an initial 2 verified with 1 false-negative source-audit skip, later cleared)
 
 $ python scripts/ci/task_queue.py
-normative-unit queue: 396854 units; NOT_STARTED=395027, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=1825, BLOCKED=2
+normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=1976, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=1825 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=1976 axes=11 unbacked=0
 12/12 invariants passed
-$ python -m unittest discover -s scripts/tests -t . → 164 tests, OK
+$ python -m unittest discover -s scripts/tests -t . → 167 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -279,7 +282,19 @@ caller-established Bool (NOT resolved). Its guarded class contains only 6
 units; all 6 were verified. Failures in other batches were left NOT_STARTED
 with recorded reasons in per-pipeline skip lists.
 
-So 1825 units are evidence-backed FULLY_VERIFIED and 395,027 remain NOT_STARTED
+A ninth pipeline, `scripts/ci/batch_reading_pipeline.py`, covers 読替え norms
+of the form 「A」とあるのは、「B」と読み替える. The model records both quoted
+phrases verbatim, rewrites the whole phrase over an explicit three-constructor
+domain, and proves spec/implementation agreement exhaustively; the trigger
+(「この場合」) stays caller-established and is NOT resolved. Source fidelity is
+checked by two Lean-independent audits: the generic correspondence script
+(extended with `--ignore-quoted` so replacement text is not misread as an
+operative numeral) and a dedicated phrase audit that locates both quoted
+phrases in the pinned text and verifies their verbatim reproduction and
+direction in spec and implementation. All 151 dependency-ready units in this
+class were verified, with zero unbacked units.
+
+So 1976 units are evidence-backed FULLY_VERIFIED and 394,876 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
