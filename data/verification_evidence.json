@@ -2680,6 +2680,19 @@
       "source_location": "data/raw/322CO0000000109_19470627_000000000000000.law.json#LawBody[1]/MainProvision/MainProvision[2]/Article:3/Article#3/Paragraph#1/ParagraphSentence/Sentence sha256=9ff39f03e58b315d04fbb65246dd5a4e64cf8c6a428eae84c53bb49c530816ec (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/CombinedRegistrationRequestTests.lean sha256=1fa7b73ba8b4bf3e3a8cbad8a06924775c2c29ccd3cfab536a3f645edf6e4456 (11 kernel-decided examples)"
     },
+    "NORM|36a080d669275921c8cb3c9b8a5d85a2c8f97b10481942b0fdb7c70cc8f32e9d": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 8 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=417CO0000000035_20220401_504CO0000000135 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/QuotaCertificateValidityPeriod.lean sha256=e9db7deb356aa0905d1f77f9a4de65dc5afd1ee76309fbb9fcae3b04491d6542",
+      "independent_spec": "JapanTaxLaw/QuotaCertificateValidityPeriodSpec.lean sha256=43afd167bff0d2a6d1432a05133b67f2e959ce27582b068f5366809d47dcc8bd (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45611770782: commit 4f52726bd70a1f27645248bbb18640b7ffaa13ae, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=pinned needle(s) in clause: ['関税割当証明書の有効期間は、その交付の日からその']; constants [] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['関税割当証明書の有効期間は、その交付の日からその']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/417CO0000000035_20220401_504CO0000000135.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:2/Article#2/Paragraph#8/ParagraphSentence/Sentence#1 sha256=76ee2e11aa8228af4e9245d60ab76236e5a7aaf3949d9b3c720402db64bb5f3a (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/QuotaCertificateValidityPeriodTests.lean sha256=ed8276d7dd9a24aeffb1967303ac700984c2655a1a65f21f672ee642a6187705 (8 kernel-decided examples)"
+    },
     "NORM|36f03c973d8e2c8e25d5727dd98d42828c07a39a5e29851b3485f0fdccd7505e": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",

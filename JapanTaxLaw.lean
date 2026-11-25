@@ -1520,6 +1520,9 @@ import JapanTaxLaw.QualifiedInvoiceTaxAmountTests
 import JapanTaxLaw.QuorumOneThird
 import JapanTaxLaw.QuorumOneThirdSpec
 import JapanTaxLaw.QuorumOneThirdTests
+import JapanTaxLaw.QuotaCertificateValidityPeriod
+import JapanTaxLaw.QuotaCertificateValidityPeriodSpec
+import JapanTaxLaw.QuotaCertificateValidityPeriodTests
 import JapanTaxLaw.RankedAmountCountTen
 import JapanTaxLaw.RankedAmountCountTenSpec
 import JapanTaxLaw.RankedAmountCountTenTests
