@@ -83,12 +83,15 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=1976, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=2178, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=1976 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=2178 axes=11 unbacked=0
 12/12 invariants passed
+$ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
+multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
+
 $ python -m unittest discover -s scripts/tests -t . → 167 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
@@ -294,7 +297,13 @@ phrases in the pinned text and verifies their verbatim reproduction and
 direction in spec and implementation. All 151 dependency-ready units in this
 class were verified, with zero unbacked units.
 
-So 1976 units are evidence-backed FULLY_VERIFIED and 394,876 remain NOT_STARTED
+A tenth pipeline, `scripts/ci/batch_multi_reading_pipeline.py`, extends this to
+multi-pair 読替え norms. Each 「A」とあるのは「B」と pair is a whole-phrase
+rewrite over an explicit finite domain, with exhaustive spec/implementation
+agreement; units with an ambiguous source phrase (two different replacements)
+are rejected. All 202 dependency-ready units in this class were verified.
+
+So 2178 units are evidence-backed FULLY_VERIFIED and 394,674 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
