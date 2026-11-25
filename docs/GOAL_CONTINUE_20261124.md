@@ -315,6 +315,30 @@ progress_ledger: COUNTED; NOT_STARTED delta -28
 All five target units carry `kernel_proof`; the wider +28 includes previously
 stale units recovered by honest regeneration. Legal review stays pending.
 
+### Tenth iteration (second delegated batch)
+
+A second delegated formalization agent produced five units
+(`LocalTax72_24_7UpTo4M`, `72_25Over3Months`, `144_21TwoOrMore`,
+`20_5_2OverTwoMonths`, `311TwoOrMore`) with independent specs, kernel boundary
+tests, scoped needles and batch-247 review; its temporary attestation was
+removed before integration. Build 1968 jobs, 610 transcription checks,
+invariants 17/17. The first CI attempt failed only on stale L7 ledger drift;
+that ledger was regenerated. CI run `45681067772` on
+`45aa93a7b74a0397a9f1de48cc597c9541421c78` completed `success`;
+`data/PROOF_ATTESTATION_SCOPED_T10.json` binds 15 module hashes from committed
+blobs at that commit to that run.
+
+```
+before: FULLY_VERIFIED=839  NOT_STARTED=396010  evidence=842
+after:  FULLY_VERIFIED=860  NOT_STARTED=395989  evidence=863
+delta:  FULLY_VERIFIED=+21 NOT_STARTED=-21  evidence=+21
+progress_ledger: COUNTED; NOT_STARTED delta -21; new modules 15
+```
+
+All five target units carry `kernel_proof`. The WSL Plan-9 mount made the
+~880 MB queue write unusually slow (an environment constraint, not a logic
+failure); no duplicate generator was started. Legal review stays pending.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |
