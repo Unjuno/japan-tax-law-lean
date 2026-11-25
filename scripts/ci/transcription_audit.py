@@ -92,6 +92,7 @@ def contains(haystack: str, needle: str) -> bool:
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
     yield ("電源開発促進税法 art. 12（罰金上限＝max(五十万円,相当金額)）↔ PowerDevelopmentTaxPenalty.lean", "349AC0000000079", "article", "第十二条", ["五十万円を超え当該電源開発促進税に相当する金額以下"])
+
     yield ("航空機燃料税法 art. 14(1) 第四号（納付すべき税額＝二号税額−前号税額）↔ AircraftFuelTaxPayable.lean", "347AC0000000007", "article", "第十四条", ["第二号に掲げる航空機燃料税額から前号に掲げる航空機燃料税額を控除した金額"])
 
     yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
@@ -102,6 +103,7 @@ def checks():
     yield ("特別とん譲与税法 art.6(1)（都を市とみなす）↔ TokyoAsCityDeeming.lean",
            "332AC0000000077", "article", "第六条",
            ["この場合においては、都を市とみなして、この法律の規定を適用する。"])
+
     # TwoOrMorePortMunicipalities.lean - NORM|6d88a4e6... (二以上 CONDITION, law 332M50000002021)
     yield ("特別とん譲与税法施行規則 art.2(1)（二以上の開港所在市町村）↔ TwoOrMorePortMunicipalities.lean", "332M50000002021", "article", "第二条", ["（二以上の開港所在市町村の区域が一の税関の管轄区域に属する場合の譲与の基準）"])
 
@@ -2378,6 +2380,12 @@ def checks():
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
 
+    # NursingCarePremiumDeductionMid — cycle-116
+    yield ("NursingCarePremiumDeductionMid.lean",
+           "325AC0000000226",
+           "file", None,
+           ["二万二千円と当該合計額から三万二千円を控除した金額の四分の一に相当する金額との合計額", "三万二千円を超え五万六千円以下である場合"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -4363,6 +4371,16 @@ def checks():
            "143AC0000000054",
            "article", "\u7b2c\u4e5d\u6761",
            ["\u5f53\u8a72\u8ca8\u7269\u306b\u3064\u304d\u3001\u5225\u8868\u306e\u7a0e\u7387\u306b\u3088\u308b\u95a2\u7a0e\u306e\u307b\u304b\u3001\u5f53\u8a72\u8f38\u5165\u3055\u308c\u308b\u8ca8\u7269\u306e\u8ab2\u7a0e\u4fa1\u683c\u3068\u540c\u984d\u4ee5\u4e0b\u306e\u95a2\u7a0e\u3092\u8ab2\u3059\u308b\u3053\u3068\u3002"])
+
+    # 地方税法 art. 22の2 — LocalTaxFalseFilingFineCap500k.lean (50万円)
+    yield ("地方税法 art. 22_2（更正請求書虚偽記載の罰金上限50万円）↔ LocalTaxFalseFilingFineCap500k.lean",
+           "325AC0000000226", "file", None,
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
+    # 相続税法 art. 70 — InheritanceTaxFalseReportFineCap500k.lean (50万円)
+    yield ("相続税法 art. 70（調書虚偽記載の罰金上限50万円）↔ InheritanceTaxFalseReportFineCap500k.lean",
+           "325AC0000000073", "file", None,
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
