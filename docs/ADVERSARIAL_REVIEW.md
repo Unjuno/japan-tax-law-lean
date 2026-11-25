@@ -12456,3 +12456,13 @@ CI `checks()` の `LifeInsurancePremiumDeductionUpper.lean` エントリ（law_i
 **H/T/D/C/U** の詳細検査記録は `docs/adversarial/reviews-tokyo-as-city-deeming.md` を参照。H = raw ハッシュ・needle 一意性・循環・off-by-one の反証可能性、T = 上記実測コマンド、D = PASS（実測値付き）、C = 対立解釈（区分コードは法令数値ではない／附則別出なし）、U = F-1「この場合」の触发条件は対象外（非ブロッキング）、カーネル実行は CI attestation 待ち。
 
 法的正確性を主張するものではない。人間の法的レビューは未完了（LEGAL_REVIEW_PENDING）。
+
+## Batch BOT review (2026-11-25) — 地方税法 art.701の42
+
+### BusinessOfficeTaxRate.lean — 独立再抽出・照合
+
+- **対象**: `JapanTaxLaw/BusinessOfficeTaxRate.lean`, `JapanTaxLaw/BusinessOfficeTaxRateSpec.lean`, `JapanTaxLaw/BusinessOfficeTaxRateTests.lean`
+- **一次資料（pinned・改変禁止）**: `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`
+- **独立再抽出**: 形式化担当の数値を信じず、e-Gov JSON の MainProvision 直下の第七百一条の四十二を ArticleTitle で特定し、SHA-256 pin を再計算。原文から税率を独立抽出。
+- **照合・判定**: 六百円/㎡ → `a * 600`、百分の〇・二五 → 25/10000（0.25%）。25/1000（10倍誤り）を反例テストで排除。D=CONFIRMED（H/T/D/C/U は `scripts/ci/source_audit_business_office_tax_rate.py` の出力を参照）。
+- **限界**: 認定・課税標準・申告徴収手続・附則は NOT MODELLED。本レビューは機械的独立照合であり人間の法的レビューではない（LEGAL_REVIEW_PENDING）。
