@@ -232,19 +232,15 @@ def canonical_modules() -> dict:
     return data.get("canonical_modules", {})
 
 
-def load_attestation() -> dict:
-    data = json.loads(ATTESTATION.read_text(encoding="utf-8"))
-    if data.get("schema") != 1 or data.get("run_conclusion") != "success":
-        raise ValueError("attestation schema/conclusion invalid")
-    # Scoped attestations cover modules kernel-built at a DIFFERENT commit than
-    # the main attestation. Validate each independently; a failed/pending scoped
-    # run is ignored, never trusted as evidence.
-    # Multiple scoped attestations are allowed: each is bound to its own green
-    # CI run/commit. Validate every one independently and merge only its module
-    # hashes. A failed/pending scoped run is ignored, never trusted as evidence.
-    # A successful scoped run may refresh a hash from a stale main attestation
-    # (that is its purpose); files are processed in sorted name order so the
-    # merge is deterministic and independent of the filesystem.
+def attestation_sources() -> list[dict]:
+    """Honest attestations, in priority order: scoped first, main last.
+
+    Each entry is kept whole (commit + run + module hashes) so a module's
+    evidence can name the attestation that ACTUALLY kernel-built it. Merging
+    hashes alone would let a stale main run be credited for a module that was
+    only built in a scoped run.
+    """
+    out = []
     for scoped in sorted((REPO / "data").glob("PROOF_ATTESTATION_SCOPED*.json")):
         extra = json.loads(scoped.read_text(encoding="utf-8"))
         honest_run = (extra.get("run_conclusion") == "success"
@@ -253,8 +249,44 @@ def load_attestation() -> dict:
         if (extra.get("schema") == 1 and honest_run
                 and extra.get("jobs", {}).get("Build Lean project and check axioms", {}).get(
                     "conclusion") == "success"):
-            data.setdefault("modules", {}).update(extra.get("modules", {}))
+            out.append(extra)
+    main = json.loads(ATTESTATION.read_text(encoding="utf-8"))
+    if main.get("schema") != 1 or main.get("run_conclusion") != "success":
+        raise ValueError("attestation schema/conclusion invalid")
+    out.append(main)
+    return out
+
+
+def load_attestation() -> dict:
+    """Merged hash view (kept for backwards-compatible callers)."""
+    sources = attestation_sources()
+    data = dict(sources[-1])
+    data["modules"] = dict(data.get("modules", {}))
+    for src in sources[:-1]:
+        data["modules"].update(src.get("modules", {}))
     return data
+
+
+def module_provenance(sources: list[dict], base: str) -> dict | None:
+    """The attestation whose three module hashes match the current files.
+
+    Scoped attestations are checked first so a module built in a scoped green
+    run is credited to THAT run, not to an unrelated (possibly older) main run.
+    """
+    needed = {base + ".lean", base + "Spec.lean", base + "Tests.lean"}
+    for src in sources:
+        mods = src.get("modules", {})
+        if not needed.issubset(mods):
+            continue
+        ok = True
+        for name in needed:
+            p = REPO / "JapanTaxLaw" / name
+            if not p.exists() or blob_sha(p) != mods[name].get("sha256"):
+                ok = False
+                break
+        if ok:
+            return src
+    return None
 
 
 def kernel_attested(att: dict, base: str) -> bool:
@@ -569,6 +601,7 @@ def checks_by_module():
 
 def build() -> dict:
     att = load_attestation()
+    sources = attestation_sources()
     canonical = canonical_modules()
     review_text = REVIEW.read_text(encoding="utf-8") if REVIEW.exists() else ""
     modules = checks_by_module()
@@ -586,6 +619,9 @@ def build() -> dict:
         p = REPO / "JapanTaxLaw"
         impl_p, spec_p, tests_p = p / (base + ".lean"), p / (base + "Spec.lean"), p / (base + "Tests.lean")
         ok = kernel_attested(att, base)
+        # Name the attestation that actually built THIS module, not merely the
+        # (possibly older) main attestation whose hash was merged in.
+        prov = module_provenance(sources, base) or att
         impl_text = impl_p.read_text(encoding="utf-8") if impl_p.exists() else ""
         spec_text = spec_p.read_text(encoding="utf-8") if spec_p.exists() else ""
         tests_text = tests_p.read_text(encoding="utf-8") if tests_p.exists() else ""
@@ -670,7 +706,7 @@ def build() -> dict:
                         str(parse_statutory_rate(text)) if parse_statutory_rate(text) is not None else "none")),
                 "independent_spec": "JapanTaxLaw/%sSpec.lean sha256=%s (defines spec* without implementation constants)" % (base, h_spec),
                 "implementation": "JapanTaxLaw/%s.lean sha256=%s" % (base, h_impl),
-                "kernel_proof": "%s: commit %s, build/axiom job success, 3 module hashes re-verified" % (att["workflow_run"], att["commit"]),
+                "kernel_proof": "%s: commit %s, build/axiom job success, 3 module hashes re-verified" % (prov["workflow_run"], prov["commit"]),
                 "proof_scope": "basis=%s; constants %s used by kernel-checked impl + independent spec" % (clause_basis, sorted(lits)),
                 "boundary_proof": "attested Tests module contains %d kernel-decided examples covering boundary inputs" % n_examples,
                 "cross_law_proof": "unit dependencies=%s; enforced revision=%s resolved from INVENTORY" % (len(t.get("dependencies", [])), t.get("revision", "")),
