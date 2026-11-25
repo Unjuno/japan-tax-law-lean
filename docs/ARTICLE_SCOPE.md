@@ -106,7 +106,6 @@ never a completion gate or a semantic/legal claim.
 | `325CO0000000245` | (file-level) | 2 | 2 | PASS |
 | `325CO0000000245` | (file-level) | 2 | 7 | PASS |
 | `325CO0000000245` | (file-level) | 2 | 7 | PASS |
-| `325AC0000000226` | 第七百一条の四十二 | 2 | 2 | PASS |
 | `325AC0000000073` | (file-level) | 5 | 17 | PASS |
 | `325AC0000000073` | (file-level) | 3 | 6 | PASS |
 | `325AC0000000073` | (file-level) | 3 | 6 | PASS |
@@ -138,7 +137,6 @@ never a completion gate or a semantic/legal claim.
 | `430AC0000000016` | 第十五条 | 2 | 2 | PASS |
 | `347AC0000000007` | 第十一条 | 2 | 2 | PASS |
 | `332AC0000000055` | 第二十七条 | 9 | 10 | PASS |
-| `332AC0000000038` | 第十条 | 7 | 8 | PASS |
 | `330AC0000000104` | 第四条 | 2 | 2 | PASS |
 | `332AC0000000055` | 第九条 | 2 | 2 | PASS |
 | `143AC0000000054` | 第十四条 | 3 | 3 | PASS |
