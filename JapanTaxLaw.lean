@@ -759,6 +759,9 @@ import JapanTaxLaw.HeiseiFY6AttributionTests
 import JapanTaxLaw.HeiseiFY7Attribution
 import JapanTaxLaw.HeiseiFY7AttributionSpec
 import JapanTaxLaw.HeiseiFY7AttributionTests
+import JapanTaxLaw.HouseholdCorrectionFloor07
+import JapanTaxLaw.HouseholdCorrectionFloor07Spec
+import JapanTaxLaw.HouseholdCorrectionFloor07Tests
 import JapanTaxLaw.HousingLoanCredit
 import JapanTaxLaw.HousingLoanCreditSpec
 import JapanTaxLaw.HousingLoanCreditTests

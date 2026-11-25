@@ -12473,3 +12473,11 @@ CI `checks()` の `LifeInsurancePremiumDeductionUpper.lean` エントリ（law_i
 - **独立再抽出**: 原文の needle 照合で「三倍」という誤読を排除し、`上限 = max(五十万円, 相当金額)` を確認。独立仕様と全称定理 `agreeUpper` で照合。
 - **H/T/D**: 境界 499,999/500,000/500,001/1,000,000 PASS。
 - **C/U**: 犯罪成立要件・情状による科刑は NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
+
+### HouseholdCorrectionFloor07.lean — 航空機燃料譲与税法施行規則 art.4(8)（世帯数〇・七下限）— Batch EA5
+
+- **pin**: law `347M50000008026`, article `第四条` paragraph 8; verbatim needle「前年度の世帯数に〇・七を乗じて得た数に満たず、かつ、当該前年度の世帯数から当該補正世帯数を控除して得た数が千を超える場合には」.
+- **独立再抽出**: pinned 原文から二つの厳密比較（〇・七未満 / 千超）と置換値（〇・七×前年度世帯数）を再導出。独立仕様は比較を逆方向・加法形で書き、全称定理 `agreeCorrected` が `omega` で両者を_KERNEL_照合（有限列挙ではない）。
+- **H/T/D**: 世帯数・0.1 世帯単位・定義域 Nat。境界 差=千/千+1、〇・七ちょうど/未満、補正発動/非発動を kernel 確認。D=PASS（needle 1/1 + 全境界）。
+- **C/U**: 延べ重量・旅客数の-rate 表、別表第三の空港別率、補正前の世帯数算定は NOT MODELLED。〇・七の端数取扱いは 0.1 世帯単位のスケール表現で厳密化（丸め規則は原文に明示なし）。人間レビュー `LEGAL_REVIEW_PENDING`。
+- **判定**: BY-DESIGN。CONFIRMED 0 / UNRESOLVED 1。
