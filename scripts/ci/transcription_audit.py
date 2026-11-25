@@ -4455,6 +4455,15 @@ def checks():
            ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
 
 
+    # 地方税法 art. 51 — LocalTaxStandardRateCeiling2.lean (2%上限)
+    yield ("地方税法 art. 51（標準税率超過時2%上限）↔ LocalTaxStandardRateCeiling2.lean",
+           "325AC0000000226", "file", None,
+           ["標準税率を超える税率で課する場合においても、百分の二を超えることができない。"])
+    # 地方税法 art. 37 — LocalTaxReducedRate2or1.lean (2%/1%)
+    yield ("地方税法 art. 37（2%／指定都市1%）↔ LocalTaxReducedRate2or1.lean",
+           "325AC0000000226", "file", None,
+           ["次に掲げる金額のうちいずれか少ない金額の百分の二"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
