@@ -1068,6 +1068,9 @@ import JapanTaxLaw.LocalCapitalBand10M100MTests
 import JapanTaxLaw.LocalCapitalBand1B5B
 import JapanTaxLaw.LocalCapitalBand1B5BSpec
 import JapanTaxLaw.LocalCapitalBand1B5BTests
+import JapanTaxLaw.LocalCapitalCeiling10M
+import JapanTaxLaw.LocalCapitalCeiling10MSpec
+import JapanTaxLaw.LocalCapitalCeiling10MTests
 import JapanTaxLaw.LocalCorp24_5_100M
 import JapanTaxLaw.LocalCorp24_5_100MSpec
 import JapanTaxLaw.LocalCorp24_5_100MTests
@@ -1208,6 +1211,9 @@ import JapanTaxLaw.LocalTaxLightOilQuantityTests
 import JapanTaxLaw.LocalTaxMedicalIncomeRatio
 import JapanTaxLaw.LocalTaxMedicalIncomeRatioSpec
 import JapanTaxLaw.LocalTaxMedicalIncomeRatioTests
+import JapanTaxLaw.LocalTaxOffenseFineCap500k
+import JapanTaxLaw.LocalTaxOffenseFineCap500kSpec
+import JapanTaxLaw.LocalTaxOffenseFineCap500kTests
 import JapanTaxLaw.LocalTaxOfficeApportionment
 import JapanTaxLaw.LocalTaxOfficeApportionmentSpec
 import JapanTaxLaw.LocalTaxOfficeApportionmentTests

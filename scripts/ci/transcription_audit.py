@@ -4361,6 +4361,15 @@ def checks():
            ["この法律（第二条及び第三条を除く。）は、平成十三年一月六日から施行する。", "第一条"])
 
 
+    # 地方税法 art. 27 — LocalTaxOffenseFineCap500k.lean (50万円)
+    yield ("地方税法 art. 27（罰金上限50万円）↔ LocalTaxOffenseFineCap500k.lean",
+           "325AC0000000226", "file", None,
+           ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+    # 地方税法 art. 52 ホ — LocalCapitalCeiling10M.lean (1000万円)
+    yield ("地方税法 art. 52（ホ 資本金等の額1000万円以下）↔ LocalCapitalCeiling10M.lean",
+           "325AC0000000226", "file", None,
+           ["資本金等の額が千万円以下であるもの"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
