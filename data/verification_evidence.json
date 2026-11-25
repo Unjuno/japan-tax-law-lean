@@ -75102,6 +75102,80 @@
         "tool": "lake build"
       }
     ],
+    "2f9f2efb575064f38abff876b2c350ef4b3c9e62c5b823ab59920999d18e8ff9": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "340AC0000000033#第4条#pinned-salary-deduction",
+        "note": "base 三万円 cap 五十三万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "mechanical-audit:SALARY-2f9f2efb5750",
+        "note": "base 三万円 cap 五十三万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "task_queue.json#2f9f2efb5750#coverage",
+        "note": "base 三万円 cap 五十三万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "JapanTaxLaw/HistoricalSalaryDeductionSpec.lean@kernel",
+        "note": "base 三万円 cap 五十三万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "JapanTaxLaw/HistoricalSalaryDeduction.lean@kernel",
+        "note": "base 三万円 cap 五十三万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "JapanTaxLaw/HistoricalSalaryDeductionSpec.lean#agreeDeduction@kernel",
+        "note": "base 三万円 cap 五十三万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "JapanTaxLaw/HistoricalSalaryDeductionSpec.lean#agree/monotone@kernel",
+        "note": "base 三万円 cap 五十三万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "JapanTaxLaw/HistoricalSalaryDeductionTests.lean#boundaries",
+        "note": "base 三万円 cap 五十三万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "JapanTaxLaw/HistoricalSalaryDeductionTests.lean@kernel",
+        "note": "base 三万円 cap 五十三万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "2fa1d057e17267aa6eb3f6a6ea3fdca084cd91b94c8fac9aac2c3672ff5d7d2b": [
       {
         "axis": "SOURCE_LOCATION",
@@ -101466,6 +101540,80 @@
         "note": "enforcement date 令和七年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "3fd5bf0af810ec3e40eca5fc586aa5eb7466138160b249f9d685c66d65bab025": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "340AC0000000033#第3条#pinned-salary-deduction",
+        "note": "base 四万円 cap 六十四万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "mechanical-audit:SALARY-3fd5bf0af810",
+        "note": "base 四万円 cap 六十四万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "task_queue.json#3fd5bf0af810#coverage",
+        "note": "base 四万円 cap 六十四万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "JapanTaxLaw/HistoricalSalaryDeductionSpec.lean@kernel",
+        "note": "base 四万円 cap 六十四万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "JapanTaxLaw/HistoricalSalaryDeduction.lean@kernel",
+        "note": "base 四万円 cap 六十四万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "JapanTaxLaw/HistoricalSalaryDeductionSpec.lean#agreeDeduction@kernel",
+        "note": "base 四万円 cap 六十四万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "JapanTaxLaw/HistoricalSalaryDeductionSpec.lean#agree/monotone@kernel",
+        "note": "base 四万円 cap 六十四万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "JapanTaxLaw/HistoricalSalaryDeductionTests.lean#boundaries",
+        "note": "base 四万円 cap 六十四万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "JapanTaxLaw/HistoricalSalaryDeductionTests.lean@kernel",
+        "note": "base 四万円 cap 六十四万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "3fe26292c4f6afb51f92f882ec4386a51a7b4b62587d014ebab9011d5ffff88e": [
@@ -312984,6 +313132,80 @@
         "note": "enforcement date 平成十五年一月六日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "c75b91f298981fd8037355abae8669bb86c765e7f97dbcc12a883670aab599f7": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "340AC0000000033#第3条#pinned-salary-deduction",
+        "note": "base 十万円 cap 九十万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "mechanical-audit:SALARY-c75b91f29898",
+        "note": "base 十万円 cap 九十万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "task_queue.json#c75b91f29898#coverage",
+        "note": "base 十万円 cap 九十万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "JapanTaxLaw/HistoricalSalaryDeductionSpec.lean@kernel",
+        "note": "base 十万円 cap 九十万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "JapanTaxLaw/HistoricalSalaryDeduction.lean@kernel",
+        "note": "base 十万円 cap 九十万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "JapanTaxLaw/HistoricalSalaryDeductionSpec.lean#agreeDeduction@kernel",
+        "note": "base 十万円 cap 九十万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "JapanTaxLaw/HistoricalSalaryDeductionSpec.lean#agree/monotone@kernel",
+        "note": "base 十万円 cap 九十万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "JapanTaxLaw/HistoricalSalaryDeductionTests.lean#boundaries",
+        "note": "base 十万円 cap 九十万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-25T11:56:50+00:00",
+        "evidence_ref": "JapanTaxLaw/HistoricalSalaryDeductionTests.lean@kernel",
+        "note": "base 十万円 cap 九十万円; universal agreeDeduction; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "c7741d7e70403bdbaac48a936b0fa03dc43d493709b84a69fd472a1c5ebab804": [

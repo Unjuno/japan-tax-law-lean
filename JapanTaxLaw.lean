@@ -578,3 +578,6 @@ import JapanTaxLaw.ReadingSubstitutionsTests
 import JapanTaxLaw.PercentageSurcharge
 import JapanTaxLaw.PercentageSurchargeSpec
 import JapanTaxLaw.PercentageSurchargeTests
+import JapanTaxLaw.HistoricalSalaryDeduction
+import JapanTaxLaw.HistoricalSalaryDeductionSpec
+import JapanTaxLaw.HistoricalSalaryDeductionTests
