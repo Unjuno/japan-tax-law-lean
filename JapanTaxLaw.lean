@@ -1896,6 +1896,9 @@ import JapanTaxLaw.TobaccoRateTests
 import JapanTaxLaw.TobaccoTaxFixedAmount
 import JapanTaxLaw.TobaccoTaxFixedAmountSpec
 import JapanTaxLaw.TobaccoTaxFixedAmountTests
+import JapanTaxLaw.TokyoAsCityDeeming
+import JapanTaxLaw.TokyoAsCityDeemingSpec
+import JapanTaxLaw.TokyoAsCityDeemingTests
 import JapanTaxLaw.TonTaxOrderEnforcementDate
 import JapanTaxLaw.TonTaxOrderEnforcementDateSpec
 import JapanTaxLaw.TonTaxOrderEnforcementDateTests
