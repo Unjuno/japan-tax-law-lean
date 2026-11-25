@@ -1202,6 +1202,12 @@ def checks():
            "article", "第十条",
            ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する", "第十条"])
 
+    # 関税定率法 art.8(6) — CustomsTariffArt8ExtensionSixMonths.lean
+    yield ("関税定率法 art.8(6)（六月以内の延長）↔ CustomsTariffArt8ExtensionSixMonths.lean",
+           "143AC0000000054",
+           "file", None,
+           ["その期間を六月以内に限り延長することができる", "第八条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
@@ -2374,11 +2380,11 @@ def checks():
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
 
-    # EqualLevyIncomeRequirement — cycle-123
-    yield ("EqualLevyIncomeRequirement.lean",
+    # ArrearsChargeRounding — cycle-125
+    yield ("ArrearsChargeRounding.lean",
            "325AC0000000226",
            "file", None,
-           ["前年の合計所得金額が五百万円以下であること", "第二十三条"])
+           ["延滞金又は加算金の額を計算する場合において、その計算の基礎となる税額に千円未満の端数があるとき、又はその税額の全額が二千円未満であるときは、その端数金額又はその全額を切り捨てる", "第二十条の四の二"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -2463,6 +2469,12 @@ def checks():
            "340AC0000000033",
            "file", None,
            ["所得税の額は、公的年金等の金額から、次の各号に掲げる公的年金等の区分に応じ当該各号に定める金額を控除した残額に百分の五（第三号", "第三号又は第六号に掲げる公的年金等の当該残額が十六万二千五百円に当該公的年金等の金額に係る月数を乗じて計算した金額を超える場合におけるその超える部分の金額", "月数を乗じて計算した金額を超える場合におけるその超える部分の金額及び第七号に掲げる公的年金等の当該残額については、百分の十）の税率を乗じて計算した金額とする。", "当該公的年金等の月割額として政令で定める金額の百分の二十五に相当する金額に七万五千円を加算した金額と十万円とのいずれか多い金額", "当該申告書に当該公的年金等の受給者が障害者である旨の記載がある場合には、二万二千五百円（当該公的年金等の受給者が特別障害者である旨の記載がある場合には、三万五千円）", "当該申告書に当該公的年金等の受給者が寡婦である旨の記載がある場合には、二万二千五百円ニ当該申告書に当該公的年金等の受給者がひとり親である旨の記載がある場合には、三万円", "国家公務員共済組合法第七十四条第一号（退職等年金給付の種類）に掲げる退職年金その他の政令で定める公的年金等（以下この号及び第六号において「退職年金等」という。）の支払を受ける居住者で", "第三十五条第三項第三号（雑所得）に掲げる年金その他政令で定めるもの（第二百三条の六第一項において「確定給付企業年金等」という。）その公的年金等の金額の百分の二十五に相当する金額"])
+
+    # 地方税法 art. 594 — SpecialLandHoldingTaxRate.lean
+    yield ("地方税法 art. 594（特別土地保有税の税率: 土地 百分の一・四 = 14/1000／取得 百分の三 = 3/100）↔ SpecialLandHoldingTaxRate.lean",
+           "325AC0000000226",
+           "article", "第五百九十四条",
+           ["特別土地保有税の税率は、土地に対して課する特別土地保有税にあつては百分の一・四、土地の取得に対して課する特別土地保有税にあつては百分の三とする。"])
 
     # 地方税法 art. 596 — SpecialLandHoldingTax.lean
     yield ("地方税法 art. 596（特別土地保有税の税額: 課税標準×art.594税率−min(税額, 控除価格×1.4%/4%) — art.594税率・価格・区分は caller-established）↔ SpecialLandHoldingTax.lean",
@@ -4488,6 +4500,41 @@ def checks():
            '325AC0000000226', 'file', None,
            ['次に掲げる金額のうちいずれか少ない金額の百分の二'])
 
+
+    yield ("地方税法 art. 72_39_2（納税猶予100万円例外）↔ LocalTaxDeferralSmallAmountException1MB.lean",
+           "325AC0000000226", "file", None,
+           ["その猶予に係る税額が百万円以下である場合"])
+    # 防衛特別法人税政令 art.3(6)(1) — DefenseCorpShortfallSum.lean
+    yield ("防衛特別法人税政令 第三条(6)(1)（零下回る額の合計）↔ DefenseCorpShortfallSum.lean",
+           "507CO0000000134", "article", "第三条",
+           ["他の通算法人の他の課税事業年度の調整前控除限度額が零を下回る場合のその下回る額の合計額"])
+
+
+    yield ("特別とん税法 art.10(1)（3年/50万円の上限）↔ SpecialTonnageArt10PenaltyCap.lean",
+           "332AC0000000038",
+           "article", "第十条",
+           ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する", "第十条"])
+
+    # 相続税法 art.21の7 表セル — InheritanceTaxArt21_7Bracket3M4M.lean
+    yield ("相続税法 art.21の7 表（三百万円超四百万円以下）↔ InheritanceTaxArt21_7Bracket3M4M.lean",
+           "325AC0000000073",
+           "file", None,
+           ["三百万円を超え四百万円以下の金額", "第二十一条の七"])
+
+
+    yield ("地方税法 art. 51（標準税率超過時2%上限）↔ LocalTaxStandardRateCeiling2.lean",
+           "325AC0000000226", "file", None,
+           ["標準税率を超える税率で課する場合においても、百分の二を超えることができない。"])
+    # 地方税法 art. 37 — LocalTaxReducedRate2or1.lean (2%/1%)
+    yield ("地方税法 art. 37（2%／指定都市1%）↔ LocalTaxReducedRate2or1.lean",
+           "325AC0000000226", "file", None,
+           ["次に掲げる金額のうちいずれか少ない金額の百分の二"])
+
+
+    # 地方税法 art. 314の6 — LocalInhabitantReducedRate3or4.lean (3%/4%)
+    yield ("地方税法 art. 314_6（3%／指定都市4%）↔ LocalInhabitantReducedRate3or4.lean",
+           "325AC0000000226", "file", None,
+           ["次に掲げる金額のうちいずれか少ない金額の百分の三"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

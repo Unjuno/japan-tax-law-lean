@@ -1,0 +1,32 @@
+{
+  "commit": "bfbacc013c53fa0189842f543b128f5a33c124cd",
+  "jobs": {
+    "Build Lean project and check axioms": {
+      "conclusion": "success",
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45650876603/job/139334715444",
+      "required_steps": [
+        "Build explicitly",
+        "No sorry/admit in adopted proofs",
+        "Axioms of key theorems",
+        "Reproducibility check 1 (clean build)",
+        "Reproducibility check 2 (clean build)"
+      ]
+    }
+  },
+  "modules": {
+    "SpecialLandHoldingTaxRate.lean": {
+      "sha256": "b259b97b9dc78a331d495b6b3bb3db5b94ba2109ef9a15582178055efb4a8463"
+    },
+    "SpecialLandHoldingTaxRateSpec.lean": {
+      "sha256": "19ca75cd6197f2da82778334bbd2d44f6df67862b806adff7f33d1a57bf31bb9"
+    },
+    "SpecialLandHoldingTaxRateTests.lean": {
+      "sha256": "d87469d4953b54e5024e0e2cd3c9eb03881aa1d07bb2dbe930505f0c0ba65fce"
+    }
+  },
+  "note": "Scoped attestation: these exact module blobs were kernel-built by green CI run 45650876603 (commit bfbacc01); the audit job also succeeded. scope=lean_job_only.",
+  "run_conclusion": "lean_job_only",
+  "schema": 1,
+  "scope": "lean_job_only",
+  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45650876603"
+}

@@ -52,6 +52,9 @@ import JapanTaxLaw.AreaMultiplierSixTwoTests
 import JapanTaxLaw.AreaThreshold2Ha
 import JapanTaxLaw.AreaThreshold2HaSpec
 import JapanTaxLaw.AreaThreshold2HaTests
+import JapanTaxLaw.ArrearsChargeRounding
+import JapanTaxLaw.ArrearsChargeRoundingSpec
+import JapanTaxLaw.ArrearsChargeRoundingTests
 import JapanTaxLaw.AuctionDepositValuation
 import JapanTaxLaw.AuctionDepositValuationSpec
 import JapanTaxLaw.AuctionDepositValuationTests
@@ -440,6 +443,9 @@ import JapanTaxLaw.CustomsTariffArt8AntiDumpingDelegationTests
 import JapanTaxLaw.CustomsTariffArt8ExtensionPara20
 import JapanTaxLaw.CustomsTariffArt8ExtensionPara20Spec
 import JapanTaxLaw.CustomsTariffArt8ExtensionPara20Tests
+import JapanTaxLaw.CustomsTariffArt8ExtensionSixMonths
+import JapanTaxLaw.CustomsTariffArt8ExtensionSixMonthsSpec
+import JapanTaxLaw.CustomsTariffArt8ExtensionSixMonthsTests
 import JapanTaxLaw.CustomsTariffArt8InvestigationDeadline
 import JapanTaxLaw.CustomsTariffArt8InvestigationDeadlineSpec
 import JapanTaxLaw.CustomsTariffArt8InvestigationDeadlineTests
@@ -1181,6 +1187,9 @@ import JapanTaxLaw.LocalGrantTaxSharesTests
 import JapanTaxLaw.LocalIncomeTax
 import JapanTaxLaw.LocalIncomeTaxSpec
 import JapanTaxLaw.LocalIncomeTaxTests
+import JapanTaxLaw.LocalInhabitantReducedRate3or4
+import JapanTaxLaw.LocalInhabitantReducedRate3or4Spec
+import JapanTaxLaw.LocalInhabitantReducedRate3or4Tests
 import JapanTaxLaw.LocalInhabitantTax
 import JapanTaxLaw.LocalInhabitantTaxSpec
 import JapanTaxLaw.LocalInhabitantTaxTests
@@ -1857,6 +1866,9 @@ import JapanTaxLaw.SpecialLand400
 import JapanTaxLaw.SpecialLand400Spec
 import JapanTaxLaw.SpecialLand400Tests
 import JapanTaxLaw.SpecialLandHoldingTax
+import JapanTaxLaw.SpecialLandHoldingTaxRate
+import JapanTaxLaw.SpecialLandHoldingTaxRateSpec
+import JapanTaxLaw.SpecialLandHoldingTaxRateTests
 import JapanTaxLaw.SpecialLandHoldingTaxSpec
 import JapanTaxLaw.SpecialLandHoldingTaxTests
 import JapanTaxLaw.SpecialMeasuresApportionment
@@ -1971,6 +1983,9 @@ import JapanTaxLaw.TaxAccountantPenaltyCapTests
 import JapanTaxLaw.TaxAccountantRegDelegatedAmount
 import JapanTaxLaw.TaxAccountantRegDelegatedAmountSpec
 import JapanTaxLaw.TaxAccountantRegDelegatedAmountTests
+import JapanTaxLaw.TaxBaseRounding
+import JapanTaxLaw.TaxBaseRoundingSpec
+import JapanTaxLaw.TaxBaseRoundingTests
 import JapanTaxLaw.TaxCollectionNextBid
 import JapanTaxLaw.TaxCollectionNextBidSpec
 import JapanTaxLaw.TaxCollectionNextBidTests

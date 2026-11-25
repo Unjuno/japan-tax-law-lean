@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 266
-- presence-facts-only complete: 266
-- NOT_STARTED: 266
+- articles with explicit pin: 269
+- presence-facts-only complete: 269
+- NOT_STARTED: 269
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -154,6 +154,7 @@ source positions. Human legal review is a separate axis and is pending.
 | `329CO0000000155` | 第一条の二 | CustomsDutiableValueThreshold | YES | YES | NO | NOT_STARTED |
 | `327AC0000000111` | 第十一条 | UsForcesDutyFreePenalty | YES | YES | NO | NOT_STARTED |
 | `340AC0000000157` | 第四条 | OilGasGrantArt4Rounding | YES | YES | NO | NOT_STARTED |
+| `325AC0000000226` | 第五百九十四条 | SpecialLandHoldingTaxRate | YES | YES | YES | NOT_STARTED |
 | `143AC0000000054` | 第十条 | CustomsDamageReduction | YES | YES | YES | NOT_STARTED |
 | `143AC0000000054` | 第四条の七 | CustomsExchangeRate | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第三条の三 | CustomsSmallConsignment | YES | YES | NO | NOT_STARTED |
@@ -283,3 +284,5 @@ source positions. Human legal review is a separate axis and is pending.
 | `325AC0000000073` | 第十三条 | InheritanceTaxArt13ResidualAssetDebtException | YES | YES | NO | NOT_STARTED |
 | `322CO0000000268` | 第十六条 | DisasterTaxReliefOrderArt16ApplicationSubmissionDay | YES | YES | NO | NOT_STARTED |
 | `322AC0000000175` | 第七条 | DisasterLiquorDeduction500YenFloor | YES | YES | NO | NOT_STARTED |
+| `507CO0000000134` | 第三条 | DefenseCorpShortfallSum | YES | YES | NO | NOT_STARTED |
+| `332AC0000000038` | 第十条 | SpecialTonnageArt10PenaltyCap | YES | YES | NO | NOT_STARTED |
