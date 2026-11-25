@@ -91,6 +91,8 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    yield ("航空機燃料税法 art. 14(1) 第四号（納付すべき税額＝二号税額−前号税額）↔ AircraftFuelTaxPayable.lean", "347AC0000000007", "article", "第十四条", ["第二号に掲げる航空機燃料税額から前号に掲げる航空機燃料税額を控除した金額"])
+
     yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
 
     # Restored registry checks dropped by a concurrent stale-base rewrite.
@@ -1187,6 +1189,12 @@ def checks():
            "332AC0000000055",
            "article", "第二十七条",
            ["三倍が百万円を超える場合には、情状により、同項の罰金は、百万円を超え", "第二十七条"])
+
+    # 特別とん税法 art.10(1) — SpecialTonnageArt10PenaltyCap.lean
+    yield ("特別とん税法 art.10(1)（3年/50万円の上限）↔ SpecialTonnageArt10PenaltyCap.lean",
+           "332AC0000000038",
+           "article", "第十条",
+           ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する", "第十条"])
 
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
@@ -4318,6 +4326,12 @@ def checks():
            "325AC0000000073",
            "article", "\u7b2c\u5341\u4e09\u6761",
            ["\u524d\u4e8c\u53f7\u306b\u63b2\u3052\u308b\u50b5\u52d9\u3092\u9664\u304f\u307b\u304b\u3001\u305d\u306e\u8ca1\u7523\u306e\u53d6\u5f97\u3001\u7dad\u6301\u53c8\u306f\u7ba1\u7406\u306e\u305f\u3081\u306b\u751f\u3058\u305f\u50b5\u52d9"])
+
+    # 地方交付税法施行令 art. 8(3) — GrantErrorRounding1000.lean
+    yield ("地方交付税法施行令 art. 8（錯誤額の千円未満切捨て）↔ GrantErrorRounding1000.lean",
+           "331M50000002007",
+           "file", None,
+           ["第一項の都道府県又は市町村に譲与すべき額に加算し、又は当該譲与すべき額から減額すべき錯誤に係る額に千円未満の端数金額があるときは、その端数金額を控除した金額をもつて、当該錯誤にかかる額とする。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
