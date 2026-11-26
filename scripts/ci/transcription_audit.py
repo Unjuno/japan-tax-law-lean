@@ -91,6 +91,9 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # HeaviestRecordedWeight — 登録免許税法施行規則 art.5(2) 最重記録重量
+    yield ("登録免許税法施行規則 art.5(2)（記録重量二以上は最重のもの）↔ HeaviestRecordedWeight.lean",
+           "346CO0000000275", "article", "第五条", ["当該自動車検査証に記録される車両総重量が二以上あるときは、そのうちの最も重いものとする"])
     # HouseholdCorrectionFloor07 — 航空機燃料譲与税法施行規則 art.4(8) (registered)
     yield ("航空機燃料譲与税法施行規則 art.4(8)（世帯数〇・七下限）↔ HouseholdCorrectionFloor07.lean",
            "347M50000008026", "article", "第四条", ["前年度の世帯数に〇・七を乗じて得た数に満たず、かつ、当該前年度の世帯数から当該補正世帯数を控除して得た数が千を超える場合には"])
@@ -139,7 +142,10 @@ def checks():
     yield ("国税徴収法施行規則 art.1_6（随意契約時の公売規定準用）↔ PrivateContractPublicAuctionReading.lean",
            "337M50000040031", "article", "第一条の六", ["（随意契約により不動産を売却する場合における公売の規定の準用）"])
 
-    # Restored registry checks dropped by a concurrent stale-base rewrite.
+    # ApplicationChangeSameTreatment.lean - NORM|df91b6ee... (申請変更時も同様 CONDITION, law 329CO0000000103)
+    yield ("相互防衛援助協定臨時特例法施行令 art.4(1)（申請変更時も同様）↔ ApplicationChangeSameTreatment.lean",
+           "329CO0000000103", "article", "第四条", ["当該申請書に係る申請の内容を変更しようとする場合も、また同様とする。"])
+
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,
            ["事業所税の額の百分の五に相当する額とする"])
@@ -4853,6 +4859,15 @@ def checks():
     yield ("所得税法施行令 art. 182_2（20万円未満）↔ Below200kYen.lean",
            "340CO0000000096", "file", None,
            ["二十万円未満である場合"])
+
+    # 租税特別措置法 art. 37の3 — RateReading20To10.lean (20→10)
+    yield ("租税特別措置法 art. 37_3（20→10読み替え）↔ RateReading20To10.lean",
+           "332AC0000000026", "file", None,
+           ["第一項各号中「百分の二十」とあるのは、「百分の十」とする。"])
+    # 租税特別措置法 art. 37の3 — RateReading20To25.lean (20→25)
+    yield ("租税特別措置法 art. 37_3（20→25読み替え）↔ RateReading20To25.lean",
+           "332AC0000000026", "file", None,
+           ["第一項各号中「百分の二十」とあるのは、「百分の二十五」とする。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

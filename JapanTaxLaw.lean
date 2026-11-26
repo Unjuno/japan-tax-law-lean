@@ -49,6 +49,9 @@ import JapanTaxLaw.AntiDumpingRate952Spec
 import JapanTaxLaw.AntiDumpingRate952Tests
 import JapanTaxLaw.AntiDumpingRateSpec
 import JapanTaxLaw.AntiDumpingRateTests
+import JapanTaxLaw.ApplicationChangeSameTreatment
+import JapanTaxLaw.ApplicationChangeSameTreatmentSpec
+import JapanTaxLaw.ApplicationChangeSameTreatmentTests
 import JapanTaxLaw.AreaMultiplierSixTwo
 import JapanTaxLaw.AreaMultiplierSixTwoSpec
 import JapanTaxLaw.AreaMultiplierSixTwoTests
@@ -876,6 +879,9 @@ import JapanTaxLaw.GroupLossRatioTests
 import JapanTaxLaw.GroupRevenue100B
 import JapanTaxLaw.GroupRevenue100BSpec
 import JapanTaxLaw.GroupRevenue100BTests
+import JapanTaxLaw.HeaviestRecordedWeight
+import JapanTaxLaw.HeaviestRecordedWeightSpec
+import JapanTaxLaw.HeaviestRecordedWeightTests
 import JapanTaxLaw.HeavyOilQuotaOrderEnforcementDate
 import JapanTaxLaw.HeavyOilQuotaOrderEnforcementDateSpec
 import JapanTaxLaw.HeavyOilQuotaOrderEnforcementDateTests
@@ -1742,6 +1748,12 @@ import JapanTaxLaw.QuotaCertificateValidityPeriodTests
 import JapanTaxLaw.RankedAmountCountTen
 import JapanTaxLaw.RankedAmountCountTenSpec
 import JapanTaxLaw.RankedAmountCountTenTests
+import JapanTaxLaw.RateReading20To10
+import JapanTaxLaw.RateReading20To10Spec
+import JapanTaxLaw.RateReading20To10Tests
+import JapanTaxLaw.RateReading20To25
+import JapanTaxLaw.RateReading20To25Spec
+import JapanTaxLaw.RateReading20To25Tests
 import JapanTaxLaw.RatioCapAtOne
 import JapanTaxLaw.RatioCapAtOneSpec
 import JapanTaxLaw.RatioCapAtOneTests

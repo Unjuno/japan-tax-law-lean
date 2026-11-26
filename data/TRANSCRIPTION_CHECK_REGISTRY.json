@@ -174,6 +174,7 @@
     "GroupLossRatio",
     "HeiseiFY6Attribution",
     "HeiseiFY7Attribution",
+    "HouseholdCorrectionFloor07",
     "ImportValueCap200k",
     "IncomeAdjustmentDeduction",
     "IncomeArt205Withholding",
@@ -332,6 +333,7 @@
     "PowderCoefficientRounding",
     "PowderSakeQuantity",
     "PowerDevelopmentTaxFineRange",
+    "PowerDevelopmentTaxPenalty",
     "PowerDevelopmentTaxRate",
     "ProductionVolume6KL",
     "PropertyAcquisitionSpecialRate3",
@@ -344,6 +346,8 @@
     "QualifiedInvoiceTaxAmount",
     "QuorumOneThird",
     "RankedAmountCountTen",
+    "RateReading20To10",
+    "RateReading20To25",
     "RatioCapAtOne",
     "RawMaterialRatio",
     "ReadingSubstitutionMunicipal",
@@ -483,8 +487,7 @@
     "WeightInterval5M25M",
     "WeightTaxTransfer",
     "WidowDependentIncomeCeiling5M",
-    "PowerDevelopmentTaxPenalty",
-    "HouseholdCorrectionFloor07"
+    "HeaviestRecordedWeight"
   ],
   "note": "Modules that MUST retain a transcription audit check. A reconciliation that rewrites transcription_audit.py from a stale base and drops any of these fails the REQUIRED queue-invariant gate. Update this registry only when deliberately removing a module.",
   "schema": 1
