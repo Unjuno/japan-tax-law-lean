@@ -653,6 +653,9 @@ import JapanTaxLaw.MoneyCapTests
 import JapanTaxLaw.TariffDifferential
 import JapanTaxLaw.TariffDifferentialSpec
 import JapanTaxLaw.TariffDifferentialTests
+import JapanTaxLaw.UnusedDeduction
+import JapanTaxLaw.UnusedDeductionSpec
+import JapanTaxLaw.UnusedDeductionTests
 import JapanTaxLaw.TariffSpecificFloor
 import JapanTaxLaw.TariffSpecificFloorSpec
 import JapanTaxLaw.TariffSpecificFloorTests
