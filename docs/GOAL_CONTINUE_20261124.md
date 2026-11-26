@@ -455,6 +455,31 @@ All five target ids carry `kernel_proof` citing the correct run; the wider +68
 includes previously stale entries recovered by honest re-scoping. Legal review
 stays pending.
 
+### Seventeenth iteration (batch 261)
+
+A seventh delegated agent produced five units (`LocalTax4PrefecturalIncomeOver30M`,
+`7NoticeCountOver5`, `72_55TwoPrefectureIndividual`, `InheritanceTaxPenaltyOver5M`,
+`321_11_2DeferralWithin3Months`) with independent specs, kernel tests, scoped
+needles and batch-261 review; build 2073 jobs, transcription 645, invariants
+17/17. CI run `45852570195` on `bb64a6cdaea2db01f6c0e7948bf438f495892312`
+completed `success`; `data/PROOF_ATTESTATION_SCOPED_T17.json` binds 15 module
+hashes from committed blobs at that commit to that run.
+
+Two units initially failed because their transcription names used kanji article
+labels with paragraph annotations (`第四条(4)`, `第七条(6)3`). The article
+parser now strips the parenthetical and the 第/条 decorations before kanji
+conversion; both clauses then passed scoped correspondence.
+
+```
+before: FULLY_VERIFIED=1142 NOT_STARTED=395707 evidence=1145
+after:  FULLY_VERIFIED=1162 NOT_STARTED=395687 evidence=1165
+delta:  FULLY_VERIFIED=+20 NOT_STARTED=-20  evidence=+20
+progress_ledger: COUNTED; NOT_STARTED delta -10 (snapshot offset); new modules 15
+```
+
+All five target ids carry `kernel_proof` citing the correct run. Legal review
+stays pending.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |

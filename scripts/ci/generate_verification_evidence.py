@@ -459,11 +459,14 @@ def article_from_name(name: str) -> str:
     if not m:
         return ""
     token = m.group(1).strip("。、")
+    # Drop paragraph/item annotations: 第四条(4) -> 第四条; 第七条(6)3 -> 第七条
+    token = re.sub(r"[（(][^）)]*[）)]", "", token)
     segments = re.split(r"[の_\-]", token)
     out = []
     for seg in segments:
         if not seg:
             continue
+        seg = seg.replace("第", "").replace("条", "")
         seg = seg.translate(str.maketrans("０１２３４５６７８９", "0123456789"))
         if seg.isdigit():
             out.append(str(int(seg)))
