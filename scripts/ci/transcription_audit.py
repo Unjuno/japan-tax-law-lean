@@ -4643,6 +4643,15 @@ def checks():
            ["当該贈与前十年以内のいずれかの時においてこの法律の施行地に住所を有していたことがあるもの", "第一条の四"])
 
 
+    yield ("地方税法 art. 314_6（3%／指定都市4%）↔ LocalInhabitantReducedRate3or4.lean",
+           "325AC0000000226", "file", None,
+           ["次に掲げる金額のうちいずれか少ない金額の百分の三"])
+    # 特別とん税法施行令 art.3(1) — SpecialTonSecurityEightTen.lean
+    yield ("特別とん税法施行令 第三条(1)（特別とん税額 八分の十）↔ SpecialTonSecurityEightTen.lean",
+           "332CO0000000049", "article", "第三条",
+           ["とん税額の八分の十に相当する特別とん税額をあわせて担保しなければならない。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
