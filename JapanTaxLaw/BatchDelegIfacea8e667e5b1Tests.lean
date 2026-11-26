@@ -1,0 +1,10 @@
+import JapanTaxLaw.BatchDelegIfacea8e667e5b1Spec
+
+namespace JapanTaxLaw.BatchDelegIfacea8e667e5b1
+
+example : active ⟨true, 0⟩ = true := by decide
+example : active ⟨false, 0⟩ = false := by decide
+example : specActive ⟨true, 1⟩ = active ⟨true, 1⟩ := agree_spec_impl ⟨true, 1⟩
+example : specActive ⟨false, 1⟩ = active ⟨false, 1⟩ := agree_spec_impl ⟨false, 1⟩
+
+end JapanTaxLaw.BatchDelegIfacea8e667e5b1
