@@ -14633,3 +14633,15 @@ needle は `scripts/ci/transcription_audit.py` L2476 の cycle-133 定義をレ�
 - **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `B3F386CF4F37EBAC76CA159DB516CD3C137B961BF94CF5E1157B98E103BA28A9`・`1705616` バイト・広義レビュー件数 **`128` 件**（`^## .*review` ベース）。本セクション追記後は **`129` 件（Previous +1）**。書き込み後の再読込で件数増加・既存バイト列の前方一致・既存見出し残存（Batch G / DT / DU / DV を含む）を検証した（自己言及的なハッシュ値は本文に埋め込まない）。並行ワーストリームが件数を変動させる可能性があるため、採用した値は書き込み直前の再読込値である。
 
 > **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+### CityPlanningTaxRateCeiling03.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### LocalTaxBracket195To330.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。

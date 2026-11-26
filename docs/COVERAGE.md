@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 181 | 327 | 55.35% |
+| laws with >=1 pinned literal check | 184 | 327 | 56.27% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -35,10 +35,10 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 
 | axis | count |
 |---|---:|
-| references extracted | 476500 |
-| internal references checked | 63234 |
-| external references NOT bound to the ledger | 175186 |
-| references classified unsupported | 250043 |
+| references extracted | n/a |
+| internal references checked | n/a |
+| external references NOT bound to the ledger | n/a |
+| references classified unsupported | n/a |
 
 external_unverified references are NOT verified and are NOT silently counted
 as covered scope.
@@ -62,19 +62,19 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 678 | n/a | n/a |
-| distinct article pins | 211 | 42584 | 0.50% |
-| pinned Lean modules (cross-law) | 1210 | n/a | n/a |
+| pinned literal checks | 686 | n/a | n/a |
+| distinct article pins | 216 | 42584 | 0.51% |
+| pinned Lean modules (cross-law) | 1235 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1083 |
+| unpinned Lean modules (not counted as verified) | 1184 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
-| external references NOT bound to the ledger | 175186 |
+| external references NOT bound to the ledger | n/a |
 | related statutes discovered but not acquired (Objective §2) | 380 |
 | related statutes acquired but not parsed/modelled/reviewed | 2 |
 
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 124 |
+| adversarial review sessions recorded | 128 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -128,6 +128,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `327AC0000000111` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法律
 - `327AC0000000112` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う関税法等の臨時特例に関する法律
 - `327AC0000000119` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う地方税法の臨時特例に関する法律
+- `327CO0000000124` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う所得税法等の臨時特例に関する法律施行令
 - `327CO0000000125` 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日本国における合衆国軍隊の地位に関する協定の実施に伴う関税法等の臨時特例に関する法律施行令
 - `328AC0000000006` 酒税法
 - `328AC0000000007` 酒税の保全及び酒類業組合等に関する法律
@@ -175,6 +176,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `337M50000008017` 普通交付税に関する省令
 - `337M50000040026` 酒税法施行規則
 - `337M50000040028` 国税通則法施行規則
+- `337M50000040031` 国税徴収法施行規則
 - `339CO0000000182` 自家用自動車の一時輸入に関する通関条約の実施に伴う関税法等の特例に関する法律施行令
 - `340AC0000000033` 所得税法
 - `340AC0000000034` 法人税法
@@ -273,6 +275,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `428CO0000000196` 水酸化カリウムに対して課する不当廉売関税に関する政令
 - `429CO0000000234` 高重合度ポリエチレンテレフタレートに対して課する不当廉売関税に関する政令
 - `430AC0000000016` 国際観光旅客税法
+- `430M60000040039` 国際観光旅客税法施行規則
 - `431AC0000000003` 森林環境税及び森林環境譲与税に関する法律
 - `431AC0000000004` 特別法人事業税及び特別法人事業譲与税に関する法律
 - `431M60000008040` 森林環境税及び森林環境譲与税に関する法律施行規則
