@@ -2615,6 +2615,11 @@ def checks():
            "340AC0000000033", "article", "第八十四条の二",
            ["六十三万円からその特定親族の合計所得金額のうち八十四万一円を超える部分の金額に二を乗じた金額", "十万円の整数倍の金額から八万円を控除した金額", "百十五万円を超え百二十万円以下である特定親族"])
 
+    # 租税特別措置法施行令 art. 42の3(2)一 — RedevelopmentShareRatio.lean
+    yield ("租税特別措置法施行令 art. 42の3(2)一（持分割合 = (土地持分−旧権利持分)/土地持分、単独権利・零下回り・分母零は零）↔ RedevelopmentShareRatio.lean",
+           "332CO0000000043", "article", "第四十二条の三",
+           ["当該土地に関する権利の持分の割合から当該旧権利の持分の割合を控除した割合を当該土地に関する権利の持分の割合で除して計算した割合（当該旧権利がその者が単独で有する所有権若しくは借地権である場合又は当該控除した割合が零を下回る場合には、零）"])
+
     # 所得税法 art. 86 — IncomeBasicDeduction.lean (4-tier basic deduction)
     yield ("所得税法 art. 86（基礎控除: 合計所得2350万以下58万・2400万以下48万・2450万以下32万・2500万以下16万・2500万超0 — 境界値を smoke 確認、合計所得額は caller-established）↔ IncomeBasicDeduction.lean",
            "340AC0000000033",
@@ -4861,7 +4866,76 @@ def checks():
            "325CO0000000245",
            "file", None,
            ["当該事業の開始の日の属する年度の前年度の一日当たりの平均的な利用者の人数が十万人以上である駅若しくは停留場（以下この号において「特定駅等」という。）又は特定駅等からの距離が百キロメートル以内の駅若しくは停留場において実施される事業"])
-
+    yield ("所得税法施行令 art. 185（50%超55%以下）↔ AnnuityRatioOver50UpTo55.lean",
+           "340CO0000000096", "file", None,
+           ["相続税評価割合が百分の五十を超え百分の五十五以下の場合"])
+    yield ("関税暫定措置法 art. 7_3（平均輸入30%超）↔ AverageImportOver30Percent.lean",
+           "335AC0000000036", "file", None,
+           ["平均輸入数量が平均国内消費量に百分の三十を乗じて得た数量を超える場合"])
+    yield ("所得税法施行令 art. 182_2（20万円未満）↔ Below200kYen.lean",
+           "340CO0000000096", "file", None,
+           ["二十万円未満である場合"])
+    yield ("消費税法 art. 34（標準10%／軽減8%）↔ ConsumptionTaxRate10or8.lean",
+           "363AC0000000108", "file", None,
+           ["百分の十（当該課税資産の譲渡等が元年軽減対象資産の譲渡等である場合には、百分の八）"])
+    yield ("税関関係手数料令 art. 4（12.9万/12.8万）↔ CustomsFee129000.lean",
+           "329CO0000000164", "file", None,
+           ["十二万九千円（当該許可を受ける者が指定者である場合にあつては、十二万八千円）"])
+    yield ("税関関係手数料令 art. 2（7.6万/7.54万）↔ CustomsFee76000.lean",
+           "329CO0000000164", "file", None,
+           ["七万六千円（当該許可を受ける者が指定者である場合にあつては、七万五千四百円）"])
+    yield ("所得税法施行令 art. 133（増加償却10%未満）↔ ExtraDepreciationBelow10.lean",
+           "340CO0000000096", "file", None,
+           ["ただし、当該増加償却割合が百分の十に満たない場合は、この限りでない。"])
+    yield ("租税特別措置法 art. 40_7（外国関係法人20%以上）↔ ForeignRelatedCorpTaxRate20.lean",
+           "332AC0000000026", "file", None,
+           ["対象外国関係法人の各事業年度の租税負担割合が百分の二十以上である場合"])
+    yield ("森林環境税施行規則 art. 1_3（林野率85%以上）↔ ForestRateAtLeast85.lean",
+           "431M60000008040", "file", None,
+           ["林野率が百分の八十五以上であるもの"])
+    yield ("登録免許税法施行規則 art.5(2)（記録重量二以上は最重のもの）↔ HeaviestRecordedWeight.lean",
+           "346CO0000000275", "article", "第五条", ["当該自動車検査証に記録される車両総重量が二以上あるときは、そのうちの最も重いものとする"])
+    yield ("航空機燃料譲与税法施行規則 art.4(8)（世帯数〇・七下限）↔ HouseholdCorrectionFloor07.lean",
+           "347M50000008026", "article", "第四条", ["前年度の世帯数に〇・七を乗じて得た数に満たず、かつ、当該前年度の世帯数から当該補正世帯数を控除して得た数が千を超える場合には"])
+    yield ("所得税法施行令 art. 185（確定年金50%以下）↔ InheritedAnnuityRatioAtMost50.lean",
+           "340CO0000000096", "file", None,
+           ["相続税評価割合が百分の五十以下の確定年金"])
+    yield ("所得税法施行令 art. 185（相続税評価割合50%超）↔ InheritedAnnuityRatioOver50.lean",
+           "340CO0000000096", "file", None,
+           ["相続税評価割合が百分の五十を超える確定年金"])
+    yield ("所得税法施行令 art. 73（貸付金残額15%以下）↔ LoanBalanceRatioAtMost15.lean",
+           "340CO0000000096", "file", None,
+           ["資産総額のうちに当該貸付金の残額の合計額の占める割合が常時百分の十五以下であること。"])
+    yield ("地方税法 art.72の24の2(1)（収入保険料×24%）↔ LocalTaxInsuranceBusinessBase24Percent.lean",
+           "325AC0000000226",
+           "file", None,
+           ["収入保険料（再保険料として収入する保険料を除く。以下この項において同じ。）に百分の二十四を乗じて得た金額", "第七十二条の二十四の二"])
+    yield ("租税特別措置法施行令 art. 40_8（医療法人出資50%超）↔ MedicalCorpCapitalOver50.lean",
+           "332CO0000000043", "file", None,
+           ["当該医療法人の出資の総額の百分の五十を超える金額"])
+    yield ("半島振興法不均一課税省令 第一条(1)(1)ロ（取得価額五百万円以上）↔ PeninsulaSpecialDepreciationCostFloor5M.lean",
+           "407M50000008016", "article", "第一条",
+           ["五百万円以上のもの"])
+    yield ("電源開発促進税法 art.12（罰金上限＝max(五十万円,相当金額)）↔ PowerDevelopmentTaxPenalty.lean",
+           "349AC0000000079", "article", "第十二条", ["五十万円を超え当該電源開発促進税に相当する金額以下"])
+    yield ("租税特別措置法施行令 art. 43_2（公共施設面積10%以上）↔ PublicFacilityAreaAtLeast10.lean",
+           "332CO0000000043", "file", None,
+           ["公共施設面積割合が百分の十以上であること。"])
+    yield ("租税特別措置法 art. 37_3（20→10読み替え）↔ RateReading20To10.lean",
+           "332AC0000000026", "file", None,
+           ["第一項各号中「百分の二十」とあるのは、「百分の十」とする。"])
+    yield ("租税特別措置法 art. 37_3（20→25読み替え）↔ RateReading20To25.lean",
+           "332AC0000000026", "file", None,
+           ["第一項各号中「百分の二十」とあるのは、「百分の二十五」とする。"])
+    yield ("復興特別法人税政令 第三条(3)（一月未満端数切捨て）↔ ReconstructionCorpTaxMonthFloor.lean",
+           "424CO0000000017", "article", "第三条",
+           ["前項の月数は、暦に従って計算し、一月に満たない端数を生じたときは、これを切り捨てる。"])
+    yield ("租税特別措置法施行令 art. 33_3（準備金50-75%）↔ ReserveAccumulationOver50UpTo75.lean",
+           "332CO0000000043", "file", None,
+           ["異常危険準備金累積割合が百分の五十を超え百分の七十五以下の場合"])
+    yield ("関税暫定措置法 art. 7_4（差額75%超）↔ TriggerPriceGapOver75Percent.lean",
+           "335AC0000000036", "file", None,
+           ["発動基準価格と課税価格との差額が発動基準価格に百分の七十五を乗じて得た金額を超える場合"])
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
