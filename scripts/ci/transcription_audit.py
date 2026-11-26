@@ -4519,6 +4519,32 @@ def checks():
            ["\u524d\u9805\u306e\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u305d\u306e\u533a\u5206\u8a08\u7b97\u306e\u65b9\u6cd5\u306b\u3064\u3044\u3066\u3001\u4e8b\u52d9\u6240\u53c8\u306f\u4e8b\u696d\u6240\u6240\u5728\u5730\u306e\u9053\u5e9c\u770c\u77e5\u4e8b\uff08\u4e8c\u4ee5\u4e0a\u306e\u9053\u5e9c\u770c\u306b\u304a\u3044\u3066\u4e8b\u52d9\u6240\u53c8\u306f\u4e8b\u696d\u6240\u3092\u8a2d\u3051\u3066\u4e8b\u696d\u3092\u884c\u3046\u6cd5\u4eba\u306b\u3042\u3064\u3066\u306f\u3001\u4e3b\u305f\u308b\u4e8b\u52d9\u6240\u53c8\u306f\u4e8b\u696d\u6240\u6240\u5728\u5730\u306e\u9053\u5e9c\u770c\u77e5\u4e8b\uff09\u306e\u627f\u8a8d\u3092\u53d7\u3051\u306a\u3051\u308c\u3070\u306a\u3089\u306a\u3044\u3002"])
 
 
+    # Batch 267 — dependency-free single-threshold units (地方税法), independent spec + kernel boundary checks.
+    yield ("地方税法 art. 768(4) 委員の任期三年以内 ↔ LocalTax768CommitteeTermWithin3Years.lean",
+           "325AC0000000226",
+           "article", "第七百六十八条",
+           ["委員の任期は、三年以内において定款で定める期間とする。"])
+
+    yield ("地方税法 art. 314-2(1) 災害関連支出五万円超え控除 ↔ LocalTax314_2DisasterExpenseOver50kDeduction.lean",
+           "325AC0000000226",
+           "article", "第三百十四条の二",
+           ["損失の金額の合計額から災害関連支出の金額のうち五万円を超える部分の金額を控除した金額とイに定める金額とのいずれか低い金額"])
+
+    yield ("地方税法 art. 20-9-3(2) 更正決定等二月以内 ↔ LocalTax20_9_3CorrectionWithin2Months.lean",
+           "325AC0000000226",
+           "article", "第二十条の九の三",
+           ["その申告、更正又は決定に係る課税標準等又は税額等の計算に当たつてその申告をし、又は決定を受けた者に帰属するものとされていた所得その他課税物件が他の者に帰属するものとする当該他の者に係る地方税の更正、決定又は賦課決定があつたとき。　当該更正、決定又は賦課決定があつた日の翌日から起算して二月以内"])
+
+    yield ("地方税法 art. 72-50(3) 更正請求三月以内 ↔ LocalTax72_50CorrectionRequestWithin3Months.lean",
+           "325AC0000000226",
+           "article", "第七十二条の五十",
+           ["この場合において、正当な事由がなくて当該税務官署が当該更正の請求を受けた日から三月以内に更正をしないときは、道府県知事は、当該税務官署を監督する税務官署に更正をすべき旨を請求することができる。"])
+
+    yield ("地方税法 art. 63(2) 二以上の道府県通知 ↔ LocalTax63TwoPrefecturesNotification.lean",
+           "325AC0000000226",
+           "article", "第六十三条",
+           ["政府は、法人税に係る更正又は決定の通知をした場合には、遅滞なく、当該更正又は決定に係る所得の金額及び法人税額を当該更正又は決定に係る法人税額の課税標準の算定期間の末日における当該法人の事務所又は事業所（二以上の道府県において事務所又は事業所を有する法人にあつては、その主たる事務所又は事業所）所在地の道府県知事に通知しなければならない。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
