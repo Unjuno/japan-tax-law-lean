@@ -1250,6 +1250,12 @@ def checks():
            "file", None,
            ["五千万円を超え一億円以下の金額", "第十六条"])
 
+    # 所得税法 art.2(1) — IncomeTaxArt2Income850kOther100k.lean
+    yield ("所得税法 art.2(1)（合計所得85万円以下・他10万円以下）↔ IncomeTaxArt2Income850kOther100k.lean",
+           "340AC0000000033",
+           "article", "第二条",
+           ["合計所得金額が八十五万円以下であり、かつ、", "十万円以下であるものをいう"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
