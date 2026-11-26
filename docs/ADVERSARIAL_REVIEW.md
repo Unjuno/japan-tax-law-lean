@@ -14377,3 +14377,118 @@ needle は `docs/STAGING_MUTUAL_DEFENSE_ENFORCE.md` の 2 本をレビュー側�
 - **独立再抽出**: MainProvision 直下の第四十二条の三を ArticleTitle で特定し、第二項第一号の割合算定文言を原文から直接抽出。
 - **照合・判定**: (土地持分−旧権利持分)/土地持分、単独所有権・借地権は零、控除結果が零下回りなら零、分母零は防御的に零を確認。D=CONFIRMED。
 - **限界**: 持分の実数表現・丸め・価額・案件該当性は NOT MODELLED。機械的独立照合であり人間の法的レビューではない（LEGAL_REVIEW_PENDING）。
+## Batch DV review (2026-11-26)
+
+関税割当制度に関する政令 附則 art.1（施行日 平成3年4月1日 = 1991-04-01）/ `JapanTaxLaw/TariffQuotaSystemEnforcementDate.lean` — cycle-132 の 1 モデル独立照合（形式化担当から独立した Adversarial Review Agent による機械的照合）。
+
+### DV-0. 範囲・独立性の申告
+
+- 対象（読み取り専用・一切変更していない）: `JapanTaxLaw/TariffQuotaSystemEnforcementDate.lean`（1,715 バイト）、`...Spec.lean`（877 バイト）、`...Tests.lean`（589 バイト）。
+- 一次資料（pinned・改変禁止）: `data/raw/336CO0000000153_20260401_508CO0000000085.law.json`（121,798 バイト、SHA-256 `81BEF06A836F14B4E6F076BE5DE85026B4131C88FD2277EEA91E310676EDF27E`、law_id `336CO0000000153` / revision `336CO0000000153_20260401_508CO0000000085`）。
+- 形式化担当の STAGING に依存せず、pinned JSON の `law_full_text` をレビュー側で再帰走査し `SupplProvision` / `Article` / `Sentence` を直接再抽出した。独立 Spec（辞書順成分比較）はレビュー側で `dvSpec` として別途実装し、Lean の `decide` で照合した。
+- commit / push / merge / ブランチ切替は一切実行していない。Lean モジュールと `data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
+
+### DV-1. pinned 原文の直接抽出・照合（平成3年 = 1991 の独立的算出）
+
+- 構造的路径: `law_full_text -> LawBody -> SupplProvision[AmendLawNum=平成三年三月三〇日政令第九〇号, Extract=true] -> Article[Num=1] -> ArticleCaption（施行期日） -> ArticleTitle 第一条 -> Paragraph[Num=1] -> Sentence[Num=1, Function=main]`。
+- **原文逐語（当該 Article の flat テキスト）**: 「附則（施行期日）第一条この政令は、平成三年四月一日から施行する。ただし、第四条の規定は、平成四年一月一日から施行する。」／ main `Sentence` 単体では「この政令は、平成三年四月一日から施行する。」。
+- 日付句の独立抽出: 「**平成三年四月一日**」→ 年 = 平成 3 / 月 = 四 / 日 = 一。
+- 元号換算: 平成元年 = 1989 なので 1989 + 3 − 1 = 1988 + 3 = **1991**。実装 `heiseiToSeireki 3 = 1988 + 3 = 1991` と一致。施行日 = **1991-04-01**。`dateKey` = 1991×10000 + 4×100 + 1 = **19910401**、`enforcementDate = (1991,4,1)`、`enforcementKey = 19910401` と一致。
+- **混同の明示除外**: 平成 2 年 = 1990（1988+2）/ 平成 4 年 = 1992（1988+4）/ 昭和 64 年 = 1989（1925+64）。pinned 全文正規化走査で `昭和六十四年四月一日` は **0 件**、`平成二年四月一日` は 1 件だが**当該 art.1 外**、`平成四年四月一日` は 2 件だが**当該 art.1 外**。当該 art.1 に現れる `平成四年一月一日` は **第四条に限るただし書**の日であり、政令全体の施行日（第一条 main）ではない。西暦 1989 は昭和 64 年／平成元年の両方に対応し得るが、原文の元号ラベルは「平成三年」であり混同を明示的に除外した。
+
+| 原文（pinned） | レビュー側独立抽出 | Lean 実装 | 照合 |
+|---|---|---|---|
+| 平成三年四月一日 | 1989+3−1 = 1988+3 = 1991 / 4 / 1 | `heiseiToSeireki 3 = 1991`, `enforcementDate = (1991,4,1)` | ✅ |
+| `dateKey` = YYYYMMDD | 1991×10000+4×100+1 = 19910401 | `enforcementKey = 19910401` | ✅ |
+
+### DV-2. needle 2 本の検証
+
+needle は doc-comment の原文逐語をレビュー側で書き起こした 2 本を、pinned raw JSON に対して検索した。正規化全文 = `law_full_text` の文字列 leaf 529 個を文書順に連結し U+3000 / ASCII 空白を除去した文字列（10,201 文字）。
+
+| needle | 内容 | U+3000 数 | raw JSON リテラル | 正規化全文 | 結果 |
+|---|---|---:|---|---|---|
+| 1 | `第一条この政令は、平成三年四月一日から施行する` | 0 | MISS | FOUND (1 件) | **FOUND** |
+| 2 | `この政令は、平成三年四月一日から施行する` | 0 | FOUND (2 件) | FOUND (2 件) | **FOUND** |
+
+- → **2/2 FOUND、MISS 0（正規化照合）、両 needle の U+3000 = 0**。needle 1 は `第一条` が `ArticleTitle`、本文が `Sentence` と別ノードに格納されるため raw JSON のリテラル部分文字列としては現れない。doc-comment の「第一条 この政令は…」の空白は ASCII U+0020 であり U+3000 ではない（Lean ファイル全体の U+3000 = 0）。needle 末尾の「。」省略は部分文字列一致に影響なし。
+
+### DV-3. 反例探索と独立 Spec（辞書順成分比較）との一致
+
+独立 Spec（`...Spec.lean`）: `specInForce d = d.1 > 1991 || (d.1 == 1991 && d.2.1 > 4) || (d.1 == 1991 && d.2.1 == 4 && d.2.2 >= 1)`。レビュー側は実装定数を再利用せず `dvSpec` として独立に再実装した。
+
+| 日付 | `inForce`（実装） | `dvSpec`（独立） | dateKey | 一致 |
+|---|---|---|---:|---|
+| (1991, 3, 31) | **false** | **false** | 19910331 < 19910401 | ✅ |
+| (1991, 4, 1) | **true** | **true** | 19910401 ≥ 19910401 | ✅ |
+| (1990, 12, 31) | false | false | 19901231 | ✅ |
+| (1991, 4, 2) | true | true | 19910402 | ✅ |
+| (2000, 1, 1) | true | true | 20000101 | ✅ |
+
+- 指示された反例 2 本は実装・独立 Spec の双方で一致。`agreeTariffQuotaSystemEnforcementDate = true`（5 日）も `by decide` で確認。
+- レビュー側の広域走査: 年 1990〜2000（11）× 月 1〜12 × 日 1〜31 = **4,092 組み合わせ**（`#eval` で確認）で `inForce d == dvSpec d` を `decide` で検証（一時定理 `dv_sweep_ok`）→ **MISMATCH 0**。
+- `dvSpec` が 1991 年 4 月を `d >= 1` ですべて採用するのは原文「四月一日から施行する」と整合（4 月 1 日が境界、それ以前は not in force）。
+- **BY-DESIGN の境界（B-4）**: `dateKey` の数値符号化は、月 1〜12 / 日 1〜31 の**正規な日付成分**に限り辞書順と順序同型。非正規な日成分（例 `d = 200`）では `dvSpec (1991,3,200) = false`（辞書順では 3 月は 4 月より前）に対し `inForce (1991,3,200) = true`（`dateKey = 19910500`）と分岐する。これは暦として不正な入力領域の挙動である。
+
+### DV-4. `#print axioms` 監査
+
+- 一時 Lean ファイルはリポジトリ内に作らず、承認済み temp ディレクトリ `C:\Users\junny\AppData\Local\Temp\opencode\` に置いた。`lake env lean <tempfile>` は **exit code 0**。検証用一時ファイルはすべて削除済み。
+- 走査した **12 チェック**（モジュール 8 def: `heiseiToSeireki`, `enforcementDate`, `dateKey`, `enforcementKey`, `inForce`, `specDate`, `specInForce`, `agreeTariffQuotaSystemEnforcementDate` ＋ レビュー側 `dvSpec`, `dvYears`, `dvSweep` ＋ 一時定理 `dv_sweep_ok`）はすべて `does not depend on any axioms`。
+
+| 監査項目 | 件数 |
+|---|---:|
+| `Classical.choice` | **0** |
+| `sorryAx` | **0** |
+| `Quot.sound` | **0** |
+| `propext` | **0** |
+| axiom-free | **12/12** |
+
+### DV-5. doc-comment の出典メタデータ検証（cycle-131 の Law id 残存バグの警戒）
+
+| doc-comment 記載 | pinned 側の独立値 | 照合 |
+|---|---|---|
+| `Law id: 336CO0000000153` | `law_info.law_id = 336CO0000000153` | ✅ |
+| `Revision: 336CO0000000153_20260401_508CO0000000085` | `revision_info.law_revision_id = 336CO0000000153_20260401_508CO0000000085` | ✅ |
+| `Raw snapshot: data/raw/336CO0000000153_20260401_508CO0000000085.law.json` | 実在ファイル 121,798 バイト（SHA-256 上記） | ✅ |
+
+- **Law id 残存バグなし**: cycle-131（Batch DU）では doc-comment の Law id `327AC0000000113` が実 `law_id 329CO0000000103` と不一致だったが、本モジュールの Lean ファイルに現れる law-id 様トークンは **`336CO0000000153` のみ**で pinned 値と一致。他モデルからのコピー残存は **0 件**。
+- `data/raw/data/raw/...` のような prefix 二重は **0 件**。Raw snapshot パスは実在ファイルを指す。
+- **概念の区別**: `revision_info.amendment_enforcement_date = 2026-04-01`（令和八年政令第八十五号 = 現行改正の施行日）は、本モデルが対象とする附則 art.1 の原施行日 1991-04-01 とは別概念。Revision / Raw snapshot は pinned スナップショットの識別子であり、モデルの施行日を 2026-04-01 と誤るのは混同である（BY-DESIGN B-6）。
+
+### DV-6. CONFIRMED / BY-DESIGN / UNRESOLVED の分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0** |
+| **BY-DESIGN** | **6** |
+| **UNRESOLVED** | **2** |
+
+#### CONFIRMED（0 件）
+
+- pinned 原文の日付・needle・反例・Impl/独立 Spec・公理監査・出典メタデータのいずれにも食い違いなし。**発見ゼロを明示する。** 特に cycle-131 型の Law id 残存バグは存在しない。
+
+#### BY-DESIGN（6 件）— 未形式化の確認を含む
+
+- **B-1 附則の他条・実体規定は NOT MODELLED**: 本モデルは当該附則 art.1（第一条 main の施行日）のみ。pinned `law_full_text` 全体で **124 個の SupplProvision ブロック / 22 個の Article ノード / 134 個の Paragraph** が存在するが、形式化されているのは 1 日判定のみ。本則の実体規定も未形式化。
+- **B-2 当該 art.1 のただし書（第四条は平成四年一月一日 = 1992-01-01）は NOT MODELLED**: 同一 Article 内に main と proviso が同居する。実装 `inForce` は main の 1991-04-01 のみを返し、第四条の 1992-01-01 を表現しない。doc-comment のスコープ宣言に含まれるが、第四条の適用日を誤る危険がある点で最重要の未形式化（下記 U-1 と対応）。
+- **B-3 表記ゆれ / needle 1 の raw リテラル不在**: doc-comment の「第一条 この政令は…」の ASCII 空白と、`第一条` と本文が別 JSON ノードであることによる raw literal MISS。正規化全文照合では 2/2 FOUND。
+- **B-4 `dateKey` と辞書順の順序同型は正規日付成分に限る**: 日 ≥ 100 のような非正規入力では分岐するが、暦として不正な領域（DV-3）。
+- **B-5 附則ラベルの U+3000**: pinned の `SupplProvisionLabel` は「附　則」と U+3000 を含むが、needle 自身には U+3000 がなく照合に影響しない。
+- **B-6 元号ラベル・現行改正日の非モデル化**: モデルは西暦年の算定のみを行い「平成三年」という元号ラベルを保持しない。また `revision_info.amendment_enforcement_date = 2026-04-01` は現行改正の施行日であり、本モデルの原施行日 1991-04-01 とは別概念。
+
+#### UNRESOLVED（2 件）
+
+- **U-1 第四条ただし書の法的適用関係**: 施行日 main のみでは、第四条が 1992-01-01 から施行されるという proviso の効果（1991-04-01 〜 1991-12-31 の第四条の取扱い等）は確定不能。**人間の法律専門家による確認を要する。**
+- **U-2 元号換算の法的最終確認**: 平成元年 = 1989 という起算は外部の通則に依存し、原文には「平成三年四月一日」としか記載がない。機械的照合で 1991-04-01 を確認したが、法解釈上の最終判断は専門家に委ねる。
+
+### DV-7. 最終報告（サマリ）と二段 read-then-write 検証
+
+- **CONFIRMED 0 / BY-DESIGN 6 / UNRESOLVED 2**。出典メタデータ・原文・needle・実装・独立 Spec・公理監査の値に食い違いなし（発見ゼロ）。
+- **pinned 原文照合**: `SupplProvision[平成三年三月三〇日政令第九〇号, Extract=true] -> Article[Num=1] -> Sentence[Function=main]` から「この政令は、平成三年四月一日から施行する。」を直接抽出。平成 3 = 1989+3−1 = 1988+3 = 1991 を確認し、平成 2（1990）/ 平成 4（1992）/ 昭和 64（1989）を明示除外。
+- **needle**: 2 本とも U+3000 = 0、正規化全文で 2/2 FOUND、MISS 0。
+- **反例**: `inForce(1991,3,31)=false` / `inForce(1991,4,1)=true`。独立 Spec（辞書順）と一致。4,092 組み合わせの広域走査でも MISMATCH 0。
+- **公理**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件、12/12 axiom-free（exit code 0）。一時ファイルは削除済み。
+- **禁止操作の遵守**: commit / push / merge / ブランチ切替は一切実行していない。Lean モジュールと `data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
+- **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `36015BEFA106706FCC82C966FBD2896E986DAAE3CFE174BEF2CC18D9DA127175`・`1,704,987` バイト・広義レビュー件数 **`127` 件**（`^## .*review` ベース、H2 133 件）。本セクション追記後は **`128` 件（Previous +1）**。書き込み後の再読込で件数増加・既存バイト列の前方一致・既存見出し残存（Batch G / DT / DU を含む）を検証した（自己言及的なハッシュ値は本文に埋め込まない）。並行ワーストリームが件数を変動させる可能性があるため、採用した値は書き込み直前の再読込値である。
+
+> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+

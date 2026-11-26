@@ -142,6 +142,9 @@ def checks():
     yield ("国税徴収法施行規則 art.1_6（随意契約時の公売規定準用）↔ PrivateContractPublicAuctionReading.lean",
            "337M50000040031", "article", "第一条の六", ["（随意契約により不動産を売却する場合における公売の規定の準用）"])
 
+    # TestimonyParagraphReading.lean - NORM|4c66461b... (証言準用 READING, law 406CO0000000417)
+    yield ("緊急関税等政令 art.4(9)（証言準用）↔ TestimonyParagraphReading.lean",
+           "406CO0000000417", "article", "第四条", ["第四項から前項までの規定は、第一項前段又は第二項前段の規定によりされた証言について準用する。"])
     # ApplicationChangeSameTreatment.lean - NORM|df91b6ee... (申請変更時も同様 CONDITION, law 329CO0000000103)
     yield ("相互防衛援助協定臨時特例法施行令 art.4(1)（申請変更時も同様）↔ ApplicationChangeSameTreatment.lean",
            "329CO0000000103", "article", "第四条", ["当該申請書に係る申請の内容を変更しようとする場合も、また同様とする。"])
@@ -4841,6 +4844,11 @@ def checks():
     yield ("租税特別措置法施行令 art. 43_2（公共施設面積10%以上）↔ PublicFacilityAreaAtLeast10.lean",
            "332CO0000000043", "file", None,
            ["公共施設面積割合が百分の十以上であること。"])
+    # 半島振興法不均一課税省令 art.1(1)(1)ロ — PeninsulaSpecialDepreciationCostFloor5M.lean
+    yield ("半島振興法不均一課税省令 第一条(1)(1)ロ（取得価額五百万円以上）↔ PeninsulaSpecialDepreciationCostFloor5M.lean",
+           "407M50000008016", "article", "第一条",
+           ["五百万円以上のもの"])
+
 
     # 関税暫定措置法 art. 7の3 — AverageImportOver30Percent.lean (30%超)
     yield ("関税暫定措置法 art. 7_3（平均輸入30%超）↔ AverageImportOver30Percent.lean",
@@ -4883,6 +4891,15 @@ def checks():
            "file", None,
            ["前項第一号又は第四号から第九号までに規定する職又は事務のうち、試験の免除科目を同じくする職又は事務の二以上に従事した者に対しては、それぞれ当該職又は事務についてこれらの号に規定する年数を十年とする割合により年数を換算してこれらの職又は事務の二以上に従事した期間を通算した場合に、その期間が十年以上になるときは、その申請により、税理士試験において当該科目の試験を免除する。"])
 
+
+    # 所得税法施行令 art. 73 — LoanBalanceRatioAtMost15.lean (15%以下)
+    yield ("所得税法施行令 art. 73（貸付金残額15%以下）↔ LoanBalanceRatioAtMost15.lean",
+           "340CO0000000096", "file", None,
+           ["資産総額のうちに当該貸付金の残額の合計額の占める割合が常時百分の十五以下であること。"])
+    # 租税特別措置法 art. 40の7 — ForeignRelatedCorpTaxRate20.lean (20%以上)
+    yield ("租税特別措置法 art. 40_7（外国関係法人20%以上）↔ ForeignRelatedCorpTaxRate20.lean",
+           "332AC0000000026", "file", None,
+           ["対象外国関係法人の各事業年度の租税負担割合が百分の二十以上である場合"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
