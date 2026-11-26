@@ -22,7 +22,7 @@
         "task_class": "TREATY_ACQUISITION"
       },
       {
-        "acquisition_evidence": "NTA-SHOTOKU-KIHON-20260630 sha256=2013978892d197fe08be0c1df03e40c8db2ef29ef6fec53500b4662041b1f473, NTA-SHOTOKU-KIHON-20260331 sha256=db5966a57518ec9f8e3da4930cdf42ee7ccd936fc4e1d4d4ffc152f535362c0f",
+        "acquisition_evidence": "NTA-SHOTOKU-KIHON-20260630 sha256=2013978892d197fe08be0c1df03e40c8db2ef29ef6fec53500b4662041b1f473, NTA-SHOTOKU-KIHON-20260331 sha256=db5966a57518ec9f8e3da4930cdf42ee7ccd936fc4e1d4d4ffc152f535362c0f, NTA-SOUZOKU-KIHON-KAISEI-20250210 sha256=782aacd7ac779d7df7d071aa8324977430d0cdbfd61e6f20adfb0eb9e8fa7896",
         "formalization_evidence": "",
         "layer_id": "L4_CIRCULAR",
         "legal_review": "LEGAL_REVIEW_PENDING",
@@ -343,12 +343,31 @@
           "title_en": "Partial amendment to the Basic Income Tax Circular (2026-03-31)",
           "title_ja": "「所得税基本通達の制定について」の一部改正について（法令解釈通達）",
           "verification": "PINNED_BYTES_ONLY"
+        },
+        {
+          "bytes": 17107,
+          "document_kind": "NTA_INTERPRETATION_CIRCULAR",
+          "document_kind_note": "法令解釈通達（解釈資料レイヤー）。相続税法本文とは区別し、L4 で版付きバイト固定のみ行う。形式化・人間法的レビューは未実施。",
+          "encoding": "shift_jis",
+          "formalization_status": "NOT_MODELLED",
+          "issuer": "国税庁",
+          "layer_id": "L4_CIRCULAR",
+          "legal_review": "LEGAL_REVIEW_PENDING",
+          "local_path": "data/layers/L4_CIRCULAR/NTA-SouzokuKihon-Kaisei-20250210.html",
+          "media_type": "text/html",
+          "official_url": "https://www.nta.go.jp/law/tsutatsu/kobetsu/sozoku/kaisei/250210/01.htm",
+          "retrieved_date": "2026-11-26",
+          "sha256": "782aacd7ac779d7df7d071aa8324977430d0cdbfd61e6f20adfb0eb9e8fa7896",
+          "source_id": "NTA-SOUZOKU-KIHON-KAISEI-20250210",
+          "title_ja": "「教育用財産に対する相続税の非課税制度における幼稚園等事業経営者に係る家事充当金限度額の認定基準等について」の一部改正について（法令解釈通達）",
+          "verification": "PINNED_BYTES_ONLY",
+          "version_effective_date": "2025-02-10"
         }
       ],
       "authority": "国税庁 / 総務省",
       "auxiliary": true,
       "backlog": {
-        "acquisition_evidence": "NTA-SHOTOKU-KIHON-20260630 sha256=2013978892d197fe08be0c1df03e40c8db2ef29ef6fec53500b4662041b1f473, NTA-SHOTOKU-KIHON-20260331 sha256=db5966a57518ec9f8e3da4930cdf42ee7ccd936fc4e1d4d4ffc152f535362c0f",
+        "acquisition_evidence": "NTA-SHOTOKU-KIHON-20260630 sha256=2013978892d197fe08be0c1df03e40c8db2ef29ef6fec53500b4662041b1f473, NTA-SHOTOKU-KIHON-20260331 sha256=db5966a57518ec9f8e3da4930cdf42ee7ccd936fc4e1d4d4ffc152f535362c0f, NTA-SOUZOKU-KIHON-KAISEI-20250210 sha256=782aacd7ac779d7df7d071aa8324977430d0cdbfd61e6f20adfb0eb9e8fa7896",
         "formalization_evidence": "",
         "layer_id": "L4_CIRCULAR",
         "legal_review": "LEGAL_REVIEW_PENDING",
@@ -356,13 +375,13 @@
         "status": "PARTIAL",
         "task_class": "CIRCULAR_ACQUISITION"
       },
-      "count": 2,
-      "count_acquired": 2,
+      "count": 3,
+      "count_acquired": 3,
       "label_ja": "通達",
       "layer_id": "L4_CIRCULAR",
       "legal_nature": "行政通達（法的拘束力は条文ではなく行政内部）",
       "notes": "解釈資料レイヤーとして原文 bytes を pin 済み（形式化・人間レビュー未実施）。法源規範ではなく行政内部の取扱いとして L0 と分離。",
-      "pinned_snapshot": "NTA-SHOTOKU-KIHON-20260630, NTA-SHOTOKU-KIHON-20260331",
+      "pinned_snapshot": "NTA-SHOTOKU-KIHON-20260630, NTA-SHOTOKU-KIHON-20260331, NTA-SOUZOKU-KIHON-KAISEI-20250210",
       "scope_status": "IN_SCOPE_INTERPRETATION_BACKLOG",
       "verification_status": "PINNED_BYTES_ONLY"
     },
