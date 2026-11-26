@@ -731,6 +731,9 @@ import JapanTaxLaw.DividedCertificateIssuanceTests
 import JapanTaxLaw.DividendTaxRate
 import JapanTaxLaw.DividendTaxRateSpec
 import JapanTaxLaw.DividendTaxRateTests
+import JapanTaxLaw.DocumentAgeSixMonthCap
+import JapanTaxLaw.DocumentAgeSixMonthCapSpec
+import JapanTaxLaw.DocumentAgeSixMonthCapTests
 import JapanTaxLaw.DonationAggregateStrictLimit
 import JapanTaxLaw.DonationAggregateStrictLimitSpec
 import JapanTaxLaw.DonationAggregateStrictLimitTests

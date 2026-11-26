@@ -13,17 +13,17 @@ obligations being complete. SKIP is never counted as PASS.
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: (none)
-- current HEAD commit: 5dd3bb37675712d230909369998d0f63b1683dc8
+- current HEAD commit: 131fa9155f06a142d0aee5b9c2bda7fba15bcab9
 - results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all TECHNICAL obligations complete (human review excluded)
 
 - normative units: 396854
-- NOT_STARTED: 395729
+- NOT_STARTED: 395708
 - PARTIAL: 0
-- PROVED_SCOPE: 1
-- FULLY_VERIFIED: 1122
+- PROVED_SCOPE: 0
+- FULLY_VERIFIED: 1144
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180617
@@ -43,26 +43,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 1123 | 396854 |
-| kernel proved (CI-attested proof evidence) | 1123 | 396854 |
-| source-audited (原文 correspondence evidence) | 1123 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 1144 | 396854 |
+| kernel proved (CI-attested proof evidence) | 1144 | 396854 |
+| source-audited (原文 correspondence evidence) | 1144 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 1123 |
-| boundary_proof | 1123 |
-| cross_law_proof | 1123 |
-| decomposition_audit | 1123 |
-| implementation | 1123 |
-| independent_spec | 1123 |
-| kernel_proof | 1123 |
-| proof_scope | 1123 |
-| source_correspondence_audit | 1123 |
-| source_location | 1123 |
-| tests | 1123 |
+| adversarial_review | 1144 |
+| boundary_proof | 1144 |
+| cross_law_proof | 1144 |
+| decomposition_audit | 1144 |
+| implementation | 1144 |
+| independent_spec | 1144 |
+| kernel_proof | 1144 |
+| proof_scope | 1144 |
+| source_correspondence_audit | 1144 |
+| source_location | 1144 |
+| tests | 1144 |
 
 ## Verdict
 
