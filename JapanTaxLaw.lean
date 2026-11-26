@@ -1934,6 +1934,9 @@ import JapanTaxLaw.StampDutySpecial91
 import JapanTaxLaw.StampDutySpecial91Spec
 import JapanTaxLaw.StampDutySpecial91Tests
 import JapanTaxLaw.StampDutyTests
+import JapanTaxLaw.StampDutyThreshold100k
+import JapanTaxLaw.StampDutyThreshold100kSpec
+import JapanTaxLaw.StampDutyThreshold100kTests
 import JapanTaxLaw.StampExchangeFee
 import JapanTaxLaw.StampExchangeFeeSpec
 import JapanTaxLaw.StampExchangeFeeTests
