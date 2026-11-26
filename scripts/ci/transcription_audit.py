@@ -4827,6 +4827,13 @@ def checks():
            "332CO0000000043", "file", None,
            ["公共施設面積割合が百分の十以上であること。"])
 
+    # CustomsTariffArt9_2AllocationDelegation.lean - NORM|394bf11a... (関税定率法 art.9の2(2) DELEGATION, law 143AC0000000054)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("customs tariff law art.9_2 allocation delegation - CustomsTariffArt9_2AllocationDelegation.lean",
+           "143AC0000000054",
+           "file", None,
+           ["\u524d\u9805\u306e\u5272\u5f53\u3066\u306e\u65b9\u6cd5\u3001\u5272\u5f53\u3066\u3092\u53d7\u3051\u308b\u624b\u7d9a\u305d\u306e\u4ed6\u540c\u9805\u306e\u898f\u5b9a\u306e\u9069\u7528\u306b\u95a2\u3057\u3066\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
