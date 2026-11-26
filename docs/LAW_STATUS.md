@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 0
-- with >=1 pinned literal check (semantic model): 194
+- with >=1 pinned literal check (semantic model): 195
 - with recorded human legal review: 0
 
 ## All laws
@@ -62,7 +62,7 @@ a completion flag.
 | `329CO0000000155` | 関税定率法施行令 | 329CO0000000155_20260401_508CO0000000085 | CurrentEnforced | YES | - | 0 | YES (4) | NO |
 | `329AC0000000194` | 遺産、相続及び贈与に対する租税に関する二重課税の回避及び脱税の防止のための日本国とアメリ | 329AC0000000194_20010106_411AC0000000160 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 | `329CO0000000164` | 税関関係手数料令 | 329CO0000000164_20250401_507CO0000000141 | CurrentEnforced | YES | - | 0 | YES (4) | NO |
-| `329M50000040064` | 税関職員の身分を示す証票等の書式に関する省令 | 329M50000040064_20220401_504M60000040011 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
+| `329M50000040064` | 税関職員の身分を示す証票等の書式に関する省令 | 329M50000040064_20220401_504M60000040011 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 | `329M50000002053` | 日本国における国際連合の軍隊の地位に関する協定の実施に伴う地方税法の臨時特例に関する法律 | 329M50000002053_19600623_335M50000002035 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
 | `330AC0000000037` | 輸入品に対する内国消費税の徴収等に関する法律 | 330AC0000000037_20260401_508AC0000000012 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 | `330CO0000000100` | 輸入品に対する内国消費税の徴収等に関する法律施行令 | 330CO0000000100_20250401_506CO0000000372 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 451
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 452
