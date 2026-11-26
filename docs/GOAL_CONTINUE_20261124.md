@@ -396,6 +396,31 @@ progress_ledger: COUNTED; NOT_STARTED delta -89; new modules 15
 All five target ids carry `kernel_proof`; the wider +89 includes previously
 stale entries recovered by honest regeneration. Legal review stays pending.
 
+### Fifteenth iteration (batch 257)
+
+A fifth delegated agent produced five units (`LocalTax72_48_2TwoPrefecturesCorrection`,
+`72_78PrincipalOfficeLocation`, `314_6IncomeOver2M`, `24_5IncomeOver1_35M`,
+`314_2NewAnnuityOver56k`) with independent specs, kernel tests, scoped needles
+and batch-257 review; build 2043 jobs, transcription 635, invariants 17/17.
+`data/PROOF_ATTESTATION_SCOPED_T15.json` binds 15 module hashes from committed
+blobs at `0d9dc909e20c691ef8c5372ebaab1285ebbf6616` to green run
+`45825347686`. The attestation was first bound with `scope=lean_job_only`
+while the semantic-audit job was still running, then upgraded to `full_run`
+when that run completed `success`; no full-run success was claimed early.
+
+The evidence generator was corrected in this iteration: `kernel_proof` strings
+now cite the attestation that actually supplied each module hash, instead of
+always citing the older main-attestation run.
+
+```
+before: FULLY_VERIFIED=1049 NOT_STARTED=395800 evidence=1052
+after:  FULLY_VERIFIED=1074 NOT_STARTED=395775 evidence=1077
+delta:  FULLY_VERIFIED=+25 NOT_STARTED=-25  evidence=+25
+progress_ledger: COUNTED; NOT_STARTED delta -25; new modules 15
+```
+
+All five target ids carry `kernel_proof`. Legal review stays pending.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |

@@ -229,6 +229,11 @@ def load_attestation() -> dict:
     # A successful scoped run may refresh a hash from a stale main attestation
     # (that is its purpose); files are processed in sorted name order so the
     # merge is deterministic and independent of the filesystem.
+    # Record which attestation actually supplied each module hash, so the
+    # evidence string never cites an unrelated (older) green run.
+    provenance = {name: {"workflow_run": data.get("workflow_run", ""),
+                         "commit": data.get("commit", "")}
+                  for name in data.get("modules", {})}
     for scoped in sorted((REPO / "data").glob("PROOF_ATTESTATION_SCOPED*.json")):
         extra = json.loads(scoped.read_text(encoding="utf-8"))
         honest_run = (extra.get("run_conclusion") == "success"
@@ -237,7 +242,11 @@ def load_attestation() -> dict:
         if (extra.get("schema") == 1 and honest_run
                 and extra.get("jobs", {}).get("Build Lean project and check axioms", {}).get(
                     "conclusion") == "success"):
-            data.setdefault("modules", {}).update(extra.get("modules", {}))
+            for name, entry in extra.get("modules", {}).items():
+                data.setdefault("modules", {})[name] = entry
+                provenance[name] = {"workflow_run": extra.get("workflow_run", ""),
+                                    "commit": extra.get("commit", "")}
+    data["_module_provenance"] = provenance
     return data
 
 
@@ -643,7 +652,9 @@ def build() -> dict:
                         str(parse_statutory_rate(text)) if parse_statutory_rate(text) is not None else "none")),
                 "independent_spec": "JapanTaxLaw/%sSpec.lean sha256=%s (defines spec* without implementation constants)" % (base, h_spec),
                 "implementation": "JapanTaxLaw/%s.lean sha256=%s" % (base, h_impl),
-                "kernel_proof": "%s: commit %s, build/axiom job success, 3 module hashes re-verified" % (att["workflow_run"], att["commit"]),
+                "kernel_proof": "%s: commit %s, build/axiom job success, 3 module hashes re-verified" % (
+                    (att.get("_module_provenance", {}).get(base + ".lean") or {}).get("workflow_run") or att["workflow_run"],
+                    (att.get("_module_provenance", {}).get(base + ".lean") or {}).get("commit") or att["commit"]),
                 "proof_scope": "basis=%s; constants %s used by kernel-checked impl + independent spec" % (clause_basis, sorted(lits)),
                 "boundary_proof": "attested Tests module contains %d kernel-decided examples covering boundary inputs" % n_examples,
                 "cross_law_proof": "unit dependencies=%s; enforced revision=%s resolved from INVENTORY" % (len(t.get("dependencies", [])), t.get("revision", "")),
