@@ -91,6 +91,14 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # CustomsTerritoryCountryInclusion.lean - NORM|e0b9627e... (関税制度地域の国包含 CONDITION, law 414CO0000000116)
+    yield ("経済連携協定緊急措置政令 art.2(1)(1)（関税制度地域の国包含）↔ CustomsTerritoryCountryInclusion.lean",
+           "414CO0000000116", "article", "第二条", ["当該調査の対象となる国（固有の関税及び貿易に関する制度を有する地域を含む。以下同じ。）"])
+
+    # SubstituteMemberResidualTerm.lean - NORM|cf722af4... (補欠委員の残任期間 EXCEPTION, law 412CO0000000278)
+    yield ("国税審議会令 art.4(1) ただし書（補欠委員の残任期間）↔ SubstituteMemberResidualTerm.lean",
+           "412CO0000000278", "article", "第四条", ["ただし、補欠の委員の任期は、前任者の残任期間とする。"])
+
     # OkinawaDividedCertificateIssuance.lean - NORM|3c61e721... (沖縄分割証明書交付 CONDITION, law 347M50010000033)
     yield ("沖縄減免税割当省令 art.4(2)（分割証明書交付）↔ OkinawaDividedCertificateIssuance.lean",
            "347M50010000033", "article", "第四条", ["沖縄県知事は、前項の申請書を受理したときは、申請に係る証明書に代えて、分割した証明書を交付するものとする。"])
@@ -1283,6 +1291,12 @@ def checks():
            "342AC0000000035",
            "article", "第十七条",
            ["割合から千分の四を控除した割合とする", "第十七条"])
+
+    # 租税特別措置法施行令 附則 art.124(6) — SpecialTaxOrderArt124Rate25To8.lean
+    yield ("租税特別措置法施行令 附則 art.124(6)（千分の25→8 読替え）↔ SpecialTaxOrderArt124Rate25To8.lean",
+           "332AC0000000026",
+           "file", None,
+           ["千分の二十五」とあるのは、「千分の八", "第百二十四条"])
 
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
@@ -2515,6 +2529,18 @@ def checks():
            "410M50000040122",
            "file", None,
            ["第一条この省令は、平成十六年一月十九日から施行する", "この省令は、平成十六年一月十九日から施行する"])
+
+    # ReconstructionSpecialCorporationTaxEnforcementDate — cycle-141
+    yield ("ReconstructionSpecialCorporationTaxEnforcementDate.lean",
+           "424M60000040007",
+           "file", None,
+           ["第一条この省令は、平成二十四年四月一日から施行する", "この省令は、平成二十四年四月一日から施行する"])
+
+    # ReconstructionSpecialIncomeTaxEnforcementDate — cycle-142
+    yield ("ReconstructionSpecialIncomeTaxEnforcementDate.lean",
+           "424CO0000000016",
+           "file", None,
+           ["第一条この政令は、平成二十八年一月一日から施行する", "この政令は、平成二十八年一月一日から施行する"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -5140,6 +5166,18 @@ def checks():
            "344M50000040016",
            "file", None,
            ["一個（現に使用中のもので海外市価（外国においてその物品を購入する際に支払われた又は支払われるべき価格をいう。以下この条において同じ。）三万円以下のものに限る。次号において同じ。）"])
+    # 関税法意見申請手続規則 art.2(3)(1) — OpinionApplicantDocumentWindowThreeMonths.lean
+    yield ("関税法意見申請手続規則 第二条(3)(1)（個人 三月以内書類）↔ OpinionApplicantDocumentWindowThreeMonths.lean",
+           "418M60000400006", "article", "第二条",
+           ['意見申請者が個人である場合にあっては、申請の日前三月以内に作成された戸籍の謄本若しくは抄本又は住民票の写し'])
+
+
+    # InheritanceTaxArt6RefundReading.lean - NORM|6a9778cb... (相続税法 art.6(2) READING, law 325AC0000000073)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("inheritance tax art.6 refund reading - InheritanceTaxArt6RefundReading.lean",
+           "325AC0000000073",
+           "file", None,
+           ["\u524d\u9805\u306e\u898f\u5b9a\u306f\u3001\u5b9a\u671f\u91d1\u7d66\u4ed8\u5951\u7d04\u306b\u3064\u3044\u3066\u8fd4\u9084\u91d1\u305d\u306e\u4ed6\u3053\u308c\u306b\u6e96\u305a\u308b\u3082\u306e\u306e\u53d6\u5f97\u304c\u3042\u3064\u305f\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
 
     # 租税特別措置法施行令 art. 21の17の2(2) — PatentTransferRatio.lean
     yield ("租税特別措置法施行令 art. 21_17_2（取引数-1の割合）↔ PatentTransferRatio.lean",
@@ -5147,11 +5185,18 @@ def checks():
            "file", None,
            ["当該金額に取引数（当該特許権譲渡等取引及び当該特定特許権等に係る他の特許権譲渡等取引の数をいう。以下この号において同じ。）から一を控除した数が取引数のうちに占める割合を乗じて計算した金額"])
 
-    # 地価税法 art. 18(1) — LeaseholdLandShare.lean
+    # InheritanceTaxArt15ActualChildDeeming.lean - NORM|3a29e954... (相続税法 art.15(3) DEEMING, law 325AC0000000073)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("inheritance tax art.15 actual child deeming - InheritanceTaxArt15ActualChildDeeming.lean",
+           "325AC0000000073",
+           "file", None,
+           ["\u524d\u9805\u306e\u898f\u5b9a\u306e\u9069\u7528\u306b\u3064\u3044\u3066\u306f\u3001\u6b21\u306b\u63b2\u3052\u308b\u8005\u306f\u5b9f\u5b50\u3068\u307f\u306a\u3059\u3002"])
+
     yield ("地価税法 art. 18（底地割合による三万円計算）↔ LeaseholdLandShare.lean",
            "403AC0000000069",
            "file", None,
            ["借地権等が設定されている場合において、当該土地等が借地権等以外のもの（以下この号において「底地」という。）であるとき。　三万円に当該底地の価額が更地の価額のうちに占める割合を乗じて計算した金額"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
