@@ -277,6 +277,9 @@ import JapanTaxLaw.CorpIncome10MTests
 import JapanTaxLaw.CorpUnits31Art7
 import JapanTaxLaw.CorpUnits31Art7Spec
 import JapanTaxLaw.CorpUnits31Art7Tests
+import JapanTaxLaw.CorporateAssetFivePercent
+import JapanTaxLaw.CorporateAssetFivePercentSpec
+import JapanTaxLaw.CorporateAssetFivePercentTests
 import JapanTaxLaw.CorporateCapital100M
 import JapanTaxLaw.CorporateCapital100MSpec
 import JapanTaxLaw.CorporateCapital100MTests
@@ -1709,6 +1712,9 @@ import JapanTaxLaw.NationalTaxCommonDelegatedAmountTests
 import JapanTaxLaw.NationalTaxSmallBracket500k
 import JapanTaxLaw.NationalTaxSmallBracket500kSpec
 import JapanTaxLaw.NationalTaxSmallBracket500kTests
+import JapanTaxLaw.NetPremium50Percent
+import JapanTaxLaw.NetPremium50PercentSpec
+import JapanTaxLaw.NetPremium50PercentTests
 import JapanTaxLaw.NewAnnuityPremium80k
 import JapanTaxLaw.NewAnnuityPremium80kSpec
 import JapanTaxLaw.NewAnnuityPremium80kTests

@@ -5319,6 +5319,15 @@ def checks():
            "340CO0000000097", "file", None,
            ["当該構成員に係る前号イ及びロに掲げる割合のいずれもが百分の五以下であること。"])
 
+    # 租税特別措置法施行令 art. 33の3 — NetPremium50Percent.lean (50%算定)
+    yield ("租税特別措置法施行令 art. 33_3（正味収入保険料50%）↔ NetPremium50Percent.lean",
+           "332CO0000000043", "file", None,
+           ["正味収入保険料の百分の五十に相当する金額"])
+    # 法人税法施行令 art. 155の8 — CorporateAssetFivePercent.lean (5%算定)
+    yield ("法人税法施行令 art. 155_8（資産額5%）↔ CorporateAssetFivePercent.lean",
+           "340CO0000000097", "file", None,
+           ["有形固定資産その他の資産の額として財務省令で定める金額の百分の五に相当する金額"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
