@@ -1006,3 +1006,7 @@ JapanTaxLaw/ForeignBondInterestExemptionScopeEnforcementDateTests.lean # 同上 
 JapanTaxLaw/HanshinAwajiDisasterTaxReliefEnforcementDate.lean    # 阪神淡路大震災国税特例施行規則 施行日2002-08-01（附則 art.1）L4
 JapanTaxLaw/HanshinAwajiDisasterTaxReliefEnforcementDateSpec.lean # 同上 独立定式
 JapanTaxLaw/HanshinAwajiDisasterTaxReliefEnforcementDateTests.lean # 同上 退行テスト
+
+JapanTaxLaw/CorporationTemporarySpecialTaxEnforcementDate.lean    # 法人臨時特別税に関する省令 施行日2003-01-06（附則 art.1）L4
+JapanTaxLaw/CorporationTemporarySpecialTaxEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/CorporationTemporarySpecialTaxEnforcementDateTests.lean # 同上 退行テスト
