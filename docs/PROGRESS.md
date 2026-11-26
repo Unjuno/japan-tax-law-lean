@@ -183,11 +183,11 @@ lake clean && lake build                                                # 再現
 | 規範単位（確定対象版） | 268,107 |
 | NOT_STARTED | 260,411 |
 | PARTIAL | 4,312 |
-| PROVED_SCOPE | 532 |
-| FULLY_VERIFIED | 2,850（約 1.06%） |
+| PROVED_SCOPE | 524 |
+| FULLY_VERIFIED | 2,858（約 1.07%） |
 | BLOCKED | 2 |
 | 未解決条件を持つ単位 | 140,289（条件延べ 162,912） |
-| 独立 ADVERSARIAL_REVIEW 軸 | 23（四捨五入 3 + 3 段階累進 3 + 段階控除/小数税率 4 + 十分のN/五十銭 4 + 月数按分 3 + 端数処理 6；サンプル単位にのみ記録。他は PROVED_SCOPE） |
+| 独立 ADVERSARIAL_REVIEW 軸 | 31（四捨五入 3 + 3 段階累進 3 + 段階控除/小数税率 4 + 十分のN/五十銭 4 + 月数按分 3 + 端数処理 6 + 分数額 8；サンプル単位にのみ記録。他は PROVED_SCOPE） |
 | 人間による法的レビュー | 0（別軸・未実施） |
 | 再帰探索の未解決参照名 | 7,059（解決 380） |
 | 地方税条例の取得 | 6 / 1,794（札幌・横浜・名古屋・大阪・福岡・神戸；すべて `ACQUIRED_NOT_REVIEWED`） |
@@ -224,11 +224,12 @@ lake clean && lake build                                                # 再現
 分数の num/den が全 301 単位で逆変換されていることを発見（`fractions_adversarial_fail.md`,
 VERDICT: FAIL）。全単位を一旦 BLOCKED としてから num=分の後・den=分の前に
 修正し、証跡も訂正（`fractions_fix_resolution.md`）。算術恒等式自体は健全で、
-修正後の束縛は 301/301 検証済み。新たな監査 PASS がないため ADVERSARIAL_REVIEW
-は与えず、全単位 `PROVED_SCOPE` に留める。サンプル外も `PROVED_SCOPE`。
+修正後の束縛は 301/301 検証済み。修正後のみ独立再監査を行い PASS（`fractions_review_pass.md`、
+301/301 束縛一致・8 サンプル独立再計算 0 不一致）。ADVERSARIAL_REVIEW は
+サンプル 8 単位にのみ与え、残り 293 単位は `PROVED_SCOPE` に留める。
 
 **未達（続行すべき義務）**: 未検証義務の大部分（260,411 単位）、未解決条件
-140,289 単位、158 単位分の独立 ADVERSARIAL_REVIEW、人間の法的レビュー、
+140,289 単位、150 単位分の独立 ADVERSARIAL_REVIEW、人間の法的レビュー、
 地方税条例 1,788 件、附則参照 87 件の版写像、租税条約・通達・裁判例の別層整備。
 
 **再開手順**: `git checkout fix/normative-queue-v2` →
