@@ -54,8 +54,17 @@ def base_module(check_name: str) -> str:
 
 
 def make_full_text_reader():
-    """Return a cached reader for exact unit text reconstructed from pinned bytes."""
+    """Return a cached reader for exact unit text reconstructed from pinned bytes.
+
+    Performance note (Objective §1): the original implementation walked the
+    whole provision tree once per distinct span. Large SOURCE cycles have
+    thousands of distinct spans in the same law, so the walk dominated runtime.
+    We now build one path->node index and one full-text cache per source file /
+    provision. This changes no identifiers, spans or text — only lookup cost.
+    """
     docs: dict[str, dict] = {}
+    nodes: dict[str, dict] = {}
+    provisions: dict[tuple[str, str], str] = {}
     texts: dict[tuple[str, str], str] = {}
 
     def full_text(t: dict) -> str:
@@ -64,22 +73,25 @@ def make_full_text_reader():
         if key in texts:
             return texts[key]
         sf = t["source_file"]
-        if sf not in docs:
+        if sf not in nodes:
             p = REPO / sf
             docs[sf] = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+            index: dict = {}
+            for path, candidate in tq._walk(docs[sf].get("law_full_text") or {}):
+                # keep the FIRST match: the original loop broke on first hit
+                index.setdefault(tq._provision_path(path), candidate)
+            nodes[sf] = index
         target = tuple(t["path"].split("/"))
-        node = None
-        for path, candidate in tq._walk(docs[sf].get("law_full_text") or {}):
-            if tq._provision_path(path) == target:
-                node = candidate
-                break
+        node = nodes[sf].get(target)
         if node is None:
             texts[key] = ""
             return ""
-        segments = []
-        tq._collect(node, (), segments)
-        text = "".join(s for s, _ in segments)
-        full = text[span["norm_start"]:span["norm_end"]]
+        pkey = (sf, t["path"])
+        if pkey not in provisions:
+            segments = []
+            tq._collect(node, (), segments)
+            provisions[pkey] = "".join(s for s, _ in segments)
+        full = provisions[pkey][span["norm_start"]:span["norm_end"]]
         texts[key] = full
         return full
 

@@ -659,6 +659,9 @@ import JapanTaxLaw.UnusedDeductionTests
 import JapanTaxLaw.PeriodAllocation
 import JapanTaxLaw.PeriodAllocationSpec
 import JapanTaxLaw.PeriodAllocationTests
+import JapanTaxLaw.AmountSelection
+import JapanTaxLaw.AmountSelectionSpec
+import JapanTaxLaw.AmountSelectionTests
 import JapanTaxLaw.TariffSpecificFloor
 import JapanTaxLaw.TariffSpecificFloorSpec
 import JapanTaxLaw.TariffSpecificFloorTests
