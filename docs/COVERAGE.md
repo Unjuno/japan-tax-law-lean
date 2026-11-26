@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 187 | 327 | 57.19% |
+| laws with >=1 pinned literal check | 188 | 327 | 57.49% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -35,10 +35,10 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 
 | axis | count |
 |---|---:|
-| references extracted | n/a |
-| internal references checked | n/a |
-| external references NOT bound to the ledger | n/a |
-| references classified unsupported | n/a |
+| references extracted | 476500 |
+| internal references checked | 63234 |
+| external references NOT bound to the ledger | 175186 |
+| references classified unsupported | 250043 |
 
 external_unverified references are NOT verified and are NOT silently counted
 as covered scope.
@@ -62,19 +62,19 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 693 | n/a | n/a |
-| distinct article pins | 218 | 42584 | 0.51% |
-| pinned Lean modules (cross-law) | 1211 | n/a | n/a |
+| pinned literal checks | 694 | n/a | n/a |
+| distinct article pins | 219 | 42584 | 0.51% |
+| pinned Lean modules (cross-law) | 1212 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1088 |
+| unpinned Lean modules (not counted as verified) | 1090 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
-| external references NOT bound to the ledger | n/a |
+| external references NOT bound to the ledger | 175186 |
 | related statutes discovered but not acquired (Objective §2) | 380 |
 | related statutes acquired but not parsed/modelled/reviewed | 2 |
 
@@ -260,6 +260,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `415M60000008069` 収入印紙及び自動車重量税印紙の売りさばきに関する省令
 - `415M60000040007` 税関関係法令に係る情報通信技術を活用した行政の推進等に関する省令
 - `415M60000040071` 国税関係法令に係る情報通信技術を活用した行政の推進等に関する省令
+- `417CO0000000289` 玉軸受等に対して課する報復関税に関する政令
 - `417M60000200012` 経済連携協定に基づく農林水産省の所掌事務に係る物資の関税割当制度に関する省令
 - `418M60000008099` 納税証明書、住民票等の写し等又は印鑑登録証明書の交付の請求の受付及び引渡しの業務の公共サービス実施民間事業者における実施に関する省令
 - `420AC0000000084` 地方税等減収補てん臨時交付金に関する法律

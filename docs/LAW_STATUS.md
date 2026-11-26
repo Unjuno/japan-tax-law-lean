@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 187
+- with >=1 pinned literal check (semantic model): 188
 - with recorded human legal review: 0
 
 ## All laws
@@ -239,7 +239,7 @@ a completion flag.
 | `417CO0000000035` | 経済連携協定に基づく関税割当制度に関する政令 | 417CO0000000035_20220401_504CO0000000135 | CurrentEnforced | YES | ok | 29 | NO (0) | NO |
 | `417M60000200012` | 経済連携協定に基づく農林水産省の所掌事務に係る物資の関税割当制度に関する省令 | 417M60000200012_20260401_507M60000200056 | CurrentEnforced | YES | ok | 21 | YES (1) | NO |
 | `417M60000400008` | 経済連携協定に基づく経済産業省の所掌事務に係る物資の関税割当制度に関する省令 | 417M60000400008_20220523_504M60000400049 | CurrentEnforced | YES | ok | 15 | NO (0) | NO |
-| `417CO0000000289` | 玉軸受等に対して課する報復関税に関する政令 | 417CO0000000289_20130901_425CO0000000238 | CurrentEnforced | YES | ok | 17 | NO (0) | NO |
+| `417CO0000000289` | 玉軸受等に対して課する報復関税に関する政令 | 417CO0000000289_20130901_425CO0000000238 | CurrentEnforced | YES | ok | 17 | YES (1) | NO |
 | `417M60000040063` | 玉軸受等に対して課する報復関税に関する政令に規定する原産地の意義に関する省令 | 417M60000040063_20130901_425M60000040050 | CurrentEnforced | YES | ok | 7 | NO (0) | NO |
 | `418M60000400006` | 関税法第六十九条の四第一項の規定による経済産業大臣に対する意見の求めに係る申請手続等に関 | 418M60000400006_20201228_502M60000400092 | CurrentEnforced | YES | ok | 19 | NO (0) | NO |
 | `418M60000008099` | 納税証明書、住民票等の写し等又は印鑑登録証明書の交付の請求の受付及び引渡しの業務の公共サ | 418M60000008099_20240401_505M60000008106 | CurrentEnforced | YES | ok | 8 | YES (1) | NO |
