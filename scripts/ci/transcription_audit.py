@@ -4571,6 +4571,37 @@ def checks():
            "article", "第七百二条の四",
            ["都市計画税の税率は、百分の〇・三を超えることができない。"])
 
+
+    # Batch 271 — dependency-free single-threshold units (地方税法), independent spec + kernel boundary checks.
+    yield ("地方税法 art. 37-2(6) 指定取消し後の指定制限三年以内 ↔ LocalTax37_2DesignationBanWithin3Years.lean",
+           "325AC0000000226",
+           "article", "第三十七条の二",
+           ["総務大臣は、前項の規定により指定を取り消すときは、指定の取消しを受ける都道府県等について、三年以内の期間を定めて指定を行わない旨の決定をしなければならない。"])
+
+    # Batch 271 — dependency-free single-threshold units (地方税法), independent spec + kernel boundary checks.
+    yield ("地方税法 art. 59(2) 申出受理後三十日以内の決定 ↔ LocalTax59DecisionWithin30Days.lean",
+           "325AC0000000226",
+           "article", "第五十九条",
+           ["総務大臣は、前項の申出を受けた場合においては、その申出を受けた日から三十日以内に、その決定をしなければならない。"])
+
+    # Batch 271 — dependency-free single-threshold units (地方税法), independent spec + kernel boundary checks.
+    yield ("地方税法 art. 72-54(5) 申出受理後六十日以内の決定 ↔ LocalTax72_54DecisionWithin60Days.lean",
+           "325AC0000000226",
+           "article", "第七十二条の五十四",
+           ["前項の規定による申出に対する総務大臣の決定は、その申出を受理した日から六十日以内にしなければならない。"])
+
+    # Batch 271 — dependency-free single-threshold units (地方税法), independent spec + kernel boundary checks.
+    yield ("地方税法 art. 73-34(1) 納期限後二十日以内の督促状 ↔ LocalTax73_34DemandWithin20Days.lean",
+           "325AC0000000226",
+           "article", "第七十三条の三十四",
+           ["納税者が納期限までに不動産取得税に係る地方団体の徴収金を完納しない場合においては、道府県の徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
+
+    # Batch 271 — dependency-free single-threshold units (地方税法), independent spec + kernel boundary checks.
+    yield ("地方税法 art. 701-31(1) 人口三十万以上の市の政令指定 ↔ LocalTax701_31Population300kPlus.lean",
+           "325AC0000000226",
+           "article", "第七百一条の三十一",
+           ["イ及びロに掲げる市以外の市で人口（官報で公示された最近の国勢調査の結果による人口その他これに準ずるものとして政令で定める人口をいう。）三十万以上のもののうち政令で指定するもの"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
