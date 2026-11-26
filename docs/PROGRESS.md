@@ -183,11 +183,11 @@ lake clean && lake build                                                # 再現
 | 規範単位（確定対象版） | 268,107 |
 | NOT_STARTED | 260,300 |
 | PARTIAL | 4,312 |
-| PROVED_SCOPE | 336 |
-| FULLY_VERIFIED | 3,157（約 1.18%） |
+| PROVED_SCOPE | 249 |
+| FULLY_VERIFIED | 3,244（約 1.21%） |
 | BLOCKED | 2 |
 | 未解決条件を持つ単位 | 140,289（条件延べ 162,912） |
-| 独立 ADVERSARIAL_REVIEW 軸 | 330（サンプル 37 + 分数額 293 の全数機械監査）。全数監査は PIN ハッシュ・原文トークン・フラグメント包含・num/den 方向の 4 軸に限り、それ以外の文脈は対象外 |
+| 独立 ADVERSARIAL_REVIEW 軸 | 417（サンプル 37 + 分数額 293 + 関税従量下限 87 の全数機械監査）。全数監査は PIN ハッシュ・原文トークン・フラグメント包含・数値方向の各軸に限り、それ以外の文脈は対象外 |
 | 人間による法的レビュー | 0（別軸・未実施） |
 | 再帰探索の未解決参照名 | 7,059（解決 380） |
 | 地方税条例の取得 | 6 / 1,794（札幌・横浜・名古屋・大阪・福岡・神戸；すべて `ACQUIRED_NOT_REVIEWED`） |
@@ -235,11 +235,13 @@ ADVERSARIAL_REVIEW を記録した。監査範囲は上記 4 軸に限定され�
 さらに従量税率下限付き関税率 93 単位を、2 率の大きい方を取る独立 max 定式で
 証明（`TariffSpecificFloor`, 全称 `tariffDuty_agrees`）、独立監査も PASS
 （`tariff_adversarial.md`, 15,246 比較・不一致 0、サンプル 6 単位）。
+その後全 93 単位の機械監査も PASS（`tariff_full_coverage.md`,
+再現スクリプト `full_coverage_tariff_audit.py`）。
 さらに「端数金額を控除した金額」型の千円未満切捨て 18 単位を全文判定で
 追加（`deductrem_audit.json`）。
 
 **未達（続行すべき義務）**: 未検証義務の大部分（260,411 単位）、未解決条件
-140,289 単位、51 単位分のサンプル独立 ADVERSARIAL_REVIEW、人間の法的レビュー、
+140,289 単位、37 単位分のサンプル独立 ADVERSARIAL_REVIEW、人間の法的レビュー、
 地方税条例 1,788 件、附則参照 87 件の版写像、租税条約・通達・裁判例の別層整備。
 
 **再開手順**: `git checkout fix/normative-queue-v2` →
