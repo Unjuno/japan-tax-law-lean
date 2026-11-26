@@ -292,3 +292,29 @@ Keep `技術的検証済み / 形式化未完了 / 法的レビュー未完了` 
   human legal reviews still **0**; L2-L6 remain IN_SCOPE_BACKLOG.
 - Resume: reconcile ledger to 17/17, find green Lean/axiom jobs whose heads contain
   C151-C154 blobs, bind scoped attestations, add cells, re-derive to 17/17.
+
+
+## 13. Cycles 155-156 and operating constraint (2026-11-27)
+
+- **C155** LocalTaxBracket1800To4000 / LocalTaxBracketOver4000 (地方税法 art.37の2):
+  8/8 builds; later removed from the shared tree by a concurrent merge. No attestation claimed.
+- **C156** EnergyEfficiency105Pct / EnergyEfficiency116Pct (租税特別措置法 art.90の12 /
+  施行令 art.51の2): 8/8 builds, 744/744 transcription; attested from green run
+  45843069181 (head 67600746); 4 cells added.
+- **C151/C152/C154** attestations were bound from green runs 45838161697 and
+  45835775576; cycle-151 cells added (6).
+- C153 module files (LocalTaxBracketAtMost195, LocalTaxBracket900To1800) were
+  removed from the shared tree by concurrent merges; no attestation claimed.
+- **Operating constraint reached**: the shared working tree is concurrently rewritten
+  by other agents; checks and module files are repeatedly dropped, evidence JSON is
+  transiently malformed mid-write, and 	ask_queue.py intermittently hits Windows
+  file-lock errors. Reconciliation is therefore short-lived. All gates were restored,
+  never disabled; unsupported FULLY_VERIFIED statuses were reverted with a recorded
+  history entry.
+- Final measured state: FULLY_VERIFIED=1129, NOT_STARTED=395,723, BLOCKED=2,
+  evidence 1129, erify_queue_invariants 17/17, clean axiom probe.
+  Human legal reviews remain **0**; L2-L6 remain IN_SCOPE_BACKLOG.
+  Only scoped computable rule cells were formalized, never whole articles.
+- Resume: find green Lean/axiom jobs whose heads contain replacement C153/C155 blobs,
+  bind scoped attestations, add cells, re-derive ledgers to 17/17; continue
+  task-selector-driven cycles when the shared-tree contention subsides.

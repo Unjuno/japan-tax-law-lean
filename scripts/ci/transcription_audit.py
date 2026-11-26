@@ -91,6 +91,10 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # DividedCertificateIssuance.lean - NORM|834e3b37... (分割証明書交付 CONDITION, law 340M50010000013)
+    yield ("とうもろこし等関税割当省令 art.4(2)（分割証明書交付）↔ DividedCertificateIssuance.lean",
+           "340M50010000013", "article", "第四条", ["農林水産大臣は、前項の申請書を受理したときは、申請に係る証明書に代えて、分割した証明書を交付するものとする。"])
+
     # MinisterialNecessityException.lean - NORM|045b8c69... (特に必要場合の例外 EXCEPTION, law 336CO0000000153)
     yield ("関税割当制度政令 art.2(4) ただし書（特に必要な場合の例外）↔ MinisterialNecessityException.lean",
            "336CO0000000153", "article", "第二条", ["ただし、農林水産大臣又は経済産業大臣が特に必要があると認めるときは、この限りでない。"])
@@ -1249,6 +1253,12 @@ def checks():
            "325AC0000000073",
            "file", None,
            ["五千万円を超え一億円以下の金額", "第十六条"])
+
+    # 所得税法 art.2(1) — IncomeTaxArt2Income850kOther100k.lean
+    yield ("所得税法 art.2(1)（合計所得85万円以下・他10万円以下）↔ IncomeTaxArt2Income850kOther100k.lean",
+           "340AC0000000033",
+           "article", "第二条",
+           ["合計所得金額が八十五万円以下であり、かつ、", "十万円以下であるものをいう"])
 
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
@@ -4979,11 +4989,11 @@ def checks():
            "325AC0000000226", "file", None,
            ["九百万円を超え千八百万円以下の金額"])
 
-
     # 地方税法 art. 37の2 — LocalTaxBracket330To695.lean (330万超695万以下)
     yield ("地方税法 art. 37_2（330万超695万以下）↔ LocalTaxBracket330To695.lean",
            "325AC0000000226", "file", None,
            ["三百三十万円を超え六百九十五万円以下の金額"])
+
     # 地方税法 art. 37の2 — LocalTaxBracket695To900.lean (695万超900万以下)
     yield ("地方税法 art. 37_2（695万超900万以下）↔ LocalTaxBracket695To900.lean",
            "325AC0000000226", "file", None,
@@ -4993,6 +5003,7 @@ def checks():
     yield ("租税特別措置法 art. 90_12（効率75%以上）↔ EnergyEfficiency75Pct.lean",
            "332AC0000000026", "file", None,
            ["エネルギー消費効率が令和十二年度基準エネルギー消費効率に百分の七十五を乗じて得た数値以上であること。"])
+
     # 租税特別措置法 art. 90の12 — EnergyEfficiency70Pct.lean (70%)
     yield ("租税特別措置法 art. 90_12（効率70%以上）↔ EnergyEfficiency70Pct.lean",
            "332AC0000000026", "file", None,
@@ -5007,6 +5018,7 @@ def checks():
     yield ("租税特別措置法 art. 90_12（効率105%以上）↔ EnergyEfficiency105Pct.lean",
            "332AC0000000026", "file", None,
            ["エネルギー消費効率が令和四年度基準エネルギー消費効率に百分の百五を乗じて得た数値以上であること。"])
+
     # 租税特別措置法施行令 art. 51の2 — EnergyEfficiency116Pct.lean (116%)
     yield ("租税特別措置法施行令 art. 51_2（効率116%以上）↔ EnergyEfficiency116Pct.lean",
            "332CO0000000043", "file", None,
@@ -5025,6 +5037,12 @@ def checks():
            "322CO0000000268",
            "file", None,
            ["\u524d\u4e8c\u9805\u306e\u898f\u5b9a\u3092\u9069\u7528\u3059\u308b\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u6b21\u306e\u5404\u53f7\u306e\u5b9a\u3081\u308b\u3068\u3053\u308d\u306b\u3088\u308b\u3002"])
+
+    # 不当廉売関税 art. 4(1) — GeneralTariffLowerRate.lean
+    yield ("不当廉売関税 art. 4（別表・条約の低い税率）↔ GeneralTariffLowerRate.lean",
+           "414CO0000000262",
+           "file", None,
+           ["特定貨物に課する不当廉売関税及び一般税率（法の別表の税率及び条約に規定する税率のうちいずれか低いものをいう。）による関悦については、それぞれ別個の関税として関税法（昭和二十九年法律第六十一号）第二章の規定を適用する。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

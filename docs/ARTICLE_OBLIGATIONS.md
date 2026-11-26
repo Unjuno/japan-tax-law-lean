@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 285
-- presence-facts-only complete: 285
-- NOT_STARTED: 285
+- articles with explicit pin: 289
+- presence-facts-only complete: 289
+- NOT_STARTED: 289
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -24,6 +24,7 @@ source positions. Human legal review is a separate axis and is pending.
 | `327CO0000000124` | 第三条の二 | PrevParagraphTwoThreeReading | YES | YES | NO | NOT_STARTED |
 | `332AC0000000077` | 第六条 | TokyoAsCityDeeming | YES | YES | NO | NOT_STARTED |
 | `337M50000040031` | 第一条の六 | PrivateContractPublicAuctionReading | YES | YES | NO | NOT_STARTED |
+| `341M50000040004` | 第一条 | ApprovalRevocationSameTreatment | YES | YES | NO | NOT_STARTED |
 | `340AC0000000034` | 第六十六条 | CorporateTaxRate | YES | YES | YES | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の七 | GiftTax | YES | YES | YES | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の五 | GiftTax | YES | YES | YES | NOT_STARTED |
@@ -299,6 +300,9 @@ source positions. Human legal review is a separate axis and is pending.
 | `332CO0000000049` | 第三条 | SpecialTonSecurityEightTen | YES | YES | NO | NOT_STARTED |
 | `346CO0000000275` | 第五条 | HeaviestRecordedWeight | YES | YES | NO | NOT_STARTED |
 | `347M50000008026` | 第四条 | HouseholdCorrectionFloor07 | YES | YES | YES | NOT_STARTED |
+| `407M50000008016` | 第一条 | PeninsulaSpecialDepreciationCostFloor5M | YES | YES | NO | NOT_STARTED |
+| `349AC0000000079` | 第十二条 | PowerDevelopmentTaxPenalty | YES | YES | NO | NOT_STARTED |
+| `424CO0000000017` | 第三条 | ReconstructionCorpTaxMonthFloor | YES | YES | NO | NOT_STARTED |
 | `407M50000008016` | 第一条 | PeninsulaSpecialDepreciationCostFloor5M | YES | YES | NO | NOT_STARTED |
 | `349AC0000000079` | 第十二条 | PowerDevelopmentTaxPenalty | YES | YES | NO | NOT_STARTED |
 | `424CO0000000017` | 第三条 | ReconstructionCorpTaxMonthFloor | YES | YES | NO | NOT_STARTED |

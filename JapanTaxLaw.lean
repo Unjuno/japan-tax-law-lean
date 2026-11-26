@@ -728,6 +728,9 @@ import JapanTaxLaw.DisasterVictimRemunerationUpperBracketTests
 import JapanTaxLaw.DiscountBondRefund
 import JapanTaxLaw.DiscountBondRefundSpec
 import JapanTaxLaw.DiscountBondRefundTests
+import JapanTaxLaw.DividedCertificateIssuance
+import JapanTaxLaw.DividedCertificateIssuanceSpec
+import JapanTaxLaw.DividedCertificateIssuanceTests
 import JapanTaxLaw.DividendTaxRate
 import JapanTaxLaw.DividendTaxRateSpec
 import JapanTaxLaw.DividendTaxRateTests
@@ -894,6 +897,9 @@ import JapanTaxLaw.GasolineTransferPayableTests
 import JapanTaxLaw.GasolineTransferRounding
 import JapanTaxLaw.GasolineTransferRoundingSpec
 import JapanTaxLaw.GasolineTransferRoundingTests
+import JapanTaxLaw.GeneralTariffLowerRate
+import JapanTaxLaw.GeneralTariffLowerRateSpec
+import JapanTaxLaw.GeneralTariffLowerRateTests
 import JapanTaxLaw.GiftAddBack
 import JapanTaxLaw.GiftAddBackSpec
 import JapanTaxLaw.GiftAddBackTests
@@ -1002,6 +1008,9 @@ import JapanTaxLaw.IncomeSocialInsuranceDeductionTests
 import JapanTaxLaw.IncomeSupport380kArt2
 import JapanTaxLaw.IncomeSupport380kArt2Spec
 import JapanTaxLaw.IncomeSupport380kArt2Tests
+import JapanTaxLaw.IncomeTaxArt2Income850kOther100k
+import JapanTaxLaw.IncomeTaxArt2Income850kOther100kSpec
+import JapanTaxLaw.IncomeTaxArt2Income850kOther100kTests
 import JapanTaxLaw.IncomeTaxRevenueBracket1900k
 import JapanTaxLaw.IncomeTaxRevenueBracket1900kSpec
 import JapanTaxLaw.IncomeTaxRevenueBracket1900kTests
@@ -1185,6 +1194,9 @@ import JapanTaxLaw.InvestigationExtensionSixMonthsTests
 import JapanTaxLaw.InvestmentIncomeBelowHalf
 import JapanTaxLaw.InvestmentIncomeBelowHalfSpec
 import JapanTaxLaw.InvestmentIncomeBelowHalfTests
+import JapanTaxLaw.IslandPromotionCostFloor5M
+import JapanTaxLaw.IslandPromotionCostFloor5MSpec
+import JapanTaxLaw.IslandPromotionCostFloor5MTests
 import JapanTaxLaw.IssuanceDeadlineFifteenElapsedDays
 import JapanTaxLaw.IssuanceDeadlineFifteenElapsedDaysSpec
 import JapanTaxLaw.IssuanceDeadlineFifteenElapsedDaysTests
