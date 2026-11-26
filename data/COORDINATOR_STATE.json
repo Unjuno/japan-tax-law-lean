@@ -314,39 +314,6 @@
       "unhandled_conditions": []
     },
     {
-      "article": "32",
-      "checklist": [
-        "write an independent spec FIRST (own spec* definitions, no implementation ids)",
-        "implement the pinned clause as a separate Lean module",
-        "record pinned law id / revision / scoped article and exact needle in both headers",
-        "do NOT mark legal review: it stays LEGAL_REVIEW_PENDING"
-      ],
-      "claim_owner": "",
-      "dependencies": [],
-      "enforcement_date": "2026-04-01",
-      "law_id": "335CO0000000069",
-      "legal_review": "LEGAL_REVIEW_PENDING",
-      "normative_id": "NORM|06ecf4e83a75240fefb191c05f7df0f5ead383672e0052e4472472d1cde8dd3f",
-      "remaining_axes": [
-        "source_location",
-        "decomposition_audit",
-        "source_correspondence_audit",
-        "independent_spec",
-        "implementation",
-        "kernel_proof",
-        "proof_scope",
-        "boundary_proof",
-        "cross_law_proof",
-        "tests",
-        "adversarial_review"
-      ],
-      "revision": "335CO0000000069_20260401_508CO0000000085",
-      "role": "FORMALIZE",
-      "scope": "FULL_ARTICLE",
-      "status": "NOT_STARTED",
-      "unhandled_conditions": []
-    },
-    {
       "article": "66",
       "checklist": [
         "write an independent spec FIRST (own spec* definitions, no implementation ids)",
@@ -448,6 +415,39 @@
       "unhandled_conditions": [
         "販売代金のうちに占める当該領収をすることができなくなつた販売代金の割合を販売代金の領収をすることができなくなつた課税石油ガスの重量に乗じて得た重量につき、当該課税石油ガスを石油ガスの充てん場から移出した日において適用された石油ガス税の税率により計算した金額"
       ]
+    },
+    {
+      "article": "17",
+      "checklist": [
+        "write an independent spec FIRST (own spec* definitions, no implementation ids)",
+        "implement the pinned clause as a separate Lean module",
+        "record pinned law id / revision / scoped article and exact needle in both headers",
+        "do NOT mark legal review: it stays LEGAL_REVIEW_PENDING"
+      ],
+      "claim_owner": "",
+      "dependencies": [],
+      "enforcement_date": "2026-11-01",
+      "law_id": "342AC0000000035",
+      "legal_review": "LEGAL_REVIEW_PENDING",
+      "normative_id": "NORM|cf07e881f1d8ecf70bbd51dfc969fb103cd1a635b1ff4d9f69a8edbee11b47e8",
+      "remaining_axes": [
+        "source_location",
+        "decomposition_audit",
+        "source_correspondence_audit",
+        "independent_spec",
+        "implementation",
+        "kernel_proof",
+        "proof_scope",
+        "boundary_proof",
+        "cross_law_proof",
+        "tests",
+        "adversarial_review"
+      ],
+      "revision": "342AC0000000035_20261101_508AC0000000021",
+      "role": "FORMALIZE",
+      "scope": "FULL_ARTICLE",
+      "status": "NOT_STARTED",
+      "unhandled_conditions": []
     }
   ],
   "blocked": [
@@ -652,7 +652,7 @@
       "reason": "BLOCKED_BY_DEPENDENCY"
     }
   ],
-  "blocked_total": 67,
+  "blocked_total": 68,
   "legal_review_is_not_a_completion_gate": true,
   "legal_review_is_not_a_filter": true,
   "loop": [
@@ -678,15 +678,15 @@
       "stage": "INSPECT",
       "status_counts": {
         "BLOCKED": 2,
-        "FULLY_VERIFIED": 948,
-        "NOT_STARTED": 395903,
+        "FULLY_VERIFIED": 1032,
+        "NOT_STARTED": 395819,
         "PROVED_SCOPE": 1
       }
     },
     {
-      "selectable": 395904,
+      "selectable": 395820,
       "selected": 12,
-      "skipped_dependency_or_blocker": 67,
+      "skipped_dependency_or_blocker": 68,
       "stage": "SELECT"
     },
     {
@@ -701,10 +701,10 @@
           "NORM|7128dfb6a017d1db0d57b3a37b36cce183c850974de506050bf109b7e08a8a90",
           "NORM|177401da2045261df6446abf1263b5eb3ab6799cf18872b743a0dcfc2c7e82bc",
           "NORM|25fa4c2ac0e109c13793841e0bb7254f55c8710cbf2398e8ed9b048cf29ed86f",
-          "NORM|06ecf4e83a75240fefb191c05f7df0f5ead383672e0052e4472472d1cde8dd3f",
           "NORM|4d079f4f8f01db3312c78e81e458245b272c0c68499a3ea4040bab2a4c2eb644",
           "NORM|2da7e4fb2bc943689c28e2f220e798466cdf59910d2731aab504db45eaf69a68",
-          "NORM|fe2d863b549f87eb767896cdecbc67afc5002c4320b6ec8838c6c9b94b25c16b"
+          "NORM|fe2d863b549f87eb767896cdecbc67afc5002c4320b6ec8838c6c9b94b25c16b",
+          "NORM|cf07e881f1d8ecf70bbd51dfc969fb103cd1a635b1ff4d9f69a8edbee11b47e8"
         ],
         "PROVE": [],
         "VERIFY": []
