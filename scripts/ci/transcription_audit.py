@@ -1278,6 +1278,12 @@ def checks():
            "article", "第二条",
            ["年齢十九歳以上二十三歳未満の者をいう", "第二条"])
 
+    # 登録免許税法 art.17(2) — ShipRegistrationRateReduction4PerMille.lean
+    yield ("登録免許税法 art.17(2)（船舶本登記 千分の四控除）↔ ShipRegistrationRateReduction4PerMille.lean",
+           "342AC0000000035",
+           "article", "第十七条",
+           ["割合から千分の四を控除した割合とする", "第十七条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
