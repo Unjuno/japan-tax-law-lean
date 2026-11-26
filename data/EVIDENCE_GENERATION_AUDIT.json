@@ -2620,6 +2620,23 @@
         6
       ]
     },
+    "DomesticRealEstateRatioAtLeast50": {
+      "adversarial_review": true,
+      "boundary_examples_found": 4,
+      "independent_spec": true,
+      "kanji_literals": [
+        "五十",
+        "百"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 5,
+      "needles_scoped": true,
+      "scoped_article_chars": 5577,
+      "spec_literals": [
+        50,
+        100
+      ]
+    },
     "DonationAggregateStrictLimit": {
       "adversarial_review": false,
       "boundary_examples_found": 0,
@@ -5689,6 +5706,23 @@
         100001
       ]
     },
+    "LocalTaxBracket1800To4000": {
+      "adversarial_review": true,
+      "boundary_examples_found": 4,
+      "independent_spec": true,
+      "kanji_literals": [
+        "千八百万",
+        "四千万"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 7,
+      "needles_scoped": true,
+      "scoped_article_chars": 4573,
+      "spec_literals": [
+        18000000,
+        40000000
+      ]
+    },
     "LocalTaxBracket195To330": {
       "adversarial_review": true,
       "boundary_examples_found": 4,
@@ -5742,25 +5776,50 @@
     },
     "LocalTaxBracket900To1800": {
       "adversarial_review": true,
-      "boundary_examples_found": 0,
-      "independent_spec": false,
-      "kanji_literals": [],
+      "boundary_examples_found": 4,
+      "independent_spec": true,
+      "kanji_literals": [
+        "九百万",
+        "千八百万"
+      ],
       "kernel_attested": false,
-      "kernel_decided_examples": 0,
+      "kernel_decided_examples": 7,
       "needles_scoped": true,
       "scoped_article_chars": 4573,
-      "spec_literals": []
+      "spec_literals": [
+        9000000,
+        18000000
+      ]
     },
     "LocalTaxBracketAtMost195": {
       "adversarial_review": true,
-      "boundary_examples_found": 0,
-      "independent_spec": false,
-      "kanji_literals": [],
+      "boundary_examples_found": 4,
+      "independent_spec": true,
+      "kanji_literals": [
+        "百九十五万"
+      ],
       "kernel_attested": false,
-      "kernel_decided_examples": 0,
+      "kernel_decided_examples": 5,
       "needles_scoped": true,
       "scoped_article_chars": 4573,
-      "spec_literals": []
+      "spec_literals": [
+        1950000
+      ]
+    },
+    "LocalTaxBracketOver4000": {
+      "adversarial_review": true,
+      "boundary_examples_found": 4,
+      "independent_spec": true,
+      "kanji_literals": [
+        "四千万"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 5,
+      "needles_scoped": true,
+      "scoped_article_chars": 4573,
+      "spec_literals": [
+        40000000
+      ]
     },
     "LocalTaxCapitalOverFiveBillion": {
       "adversarial_review": false,
@@ -6715,6 +6774,23 @@
       "needles_scoped": true,
       "scoped_article_chars": 694,
       "spec_literals": []
+    },
+    "OpenSpaceRatioAtLeast20": {
+      "adversarial_review": true,
+      "boundary_examples_found": 4,
+      "independent_spec": true,
+      "kanji_literals": [
+        "二十",
+        "百"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 6,
+      "needles_scoped": true,
+      "scoped_article_chars": 10611,
+      "spec_literals": [
+        20,
+        100
+      ]
     },
     "OpinionApplicantDocumentWindowThreeMonths": {
       "adversarial_review": true,

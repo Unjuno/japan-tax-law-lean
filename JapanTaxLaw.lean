@@ -2580,6 +2580,12 @@ import JapanTaxLaw.TouristTaxTaxablePassengersTests
 import JapanTaxLaw.TrainingPeriodOneYear
 import JapanTaxLaw.TrainingPeriodOneYearSpec
 import JapanTaxLaw.TrainingPeriodOneYearTests
+import JapanTaxLaw.TransferPriceAtLeast80
+import JapanTaxLaw.TransferPriceAtLeast80Spec
+import JapanTaxLaw.TransferPriceAtLeast80Tests
+import JapanTaxLaw.TransferPriceAtMost120
+import JapanTaxLaw.TransferPriceAtMost120Spec
+import JapanTaxLaw.TransferPriceAtMost120Tests
 import JapanTaxLaw.TransitionalTariffRate
 import JapanTaxLaw.TransitionalTariffRateSpec
 import JapanTaxLaw.TransitionalTariffRateTests

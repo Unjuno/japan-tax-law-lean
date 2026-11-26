@@ -5254,6 +5254,15 @@ def checks():
            "337CO0000000227", "file", None,
            ["国内不動産の価額の合計額の占める割合が百分の五十以上である法人の株式"])
 
+    # 租税特別措置法施行令 art. 25の18の3 — TransferPriceAtMost120.lean (120%以下)
+    yield ("租税特別措置法施行令 art. 25_18_3（移転価格120%以下）↔ TransferPriceAtMost120.lean",
+           "332CO0000000043", "file", None,
+           ["当該独立企業間価格とみなされる金額が当該対価の額とした額に百分の百二十を乗じて計算した金額を超えない場合"])
+    # 租税特別措置法施行令 art. 25の18の3 — TransferPriceAtLeast80.lean (80%以上)
+    yield ("租税特別措置法施行令 art. 25_18_3（移転価格80%以上）↔ TransferPriceAtLeast80.lean",
+           "332CO0000000043", "file", None,
+           ["当該独立企業間価格とみなされる金額が当該対価の額とした額に百分の八十を乗じて計算した金額を下回らない場合"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
