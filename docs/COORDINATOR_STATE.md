@@ -6,9 +6,9 @@ Loop: INSPECT -> SELECT -> FORMALIZE -> PROVE -> CHALLENGE -> VERIFY -> COMMIT -
 
 - queue units: 396854
 <<<<<<< HEAD
-- statuses: BLOCKED=2, FULLY_VERIFIED=1104, NOT_STARTED=395747, PROVED_SCOPE=1
+- statuses: BLOCKED=2, FULLY_VERIFIED=1112, NOT_STARTED=395740
 =======
-- statuses: BLOCKED=2, FULLY_VERIFIED=1066, NOT_STARTED=395785, PROVED_SCOPE=1
+- statuses: BLOCKED=2, FULLY_VERIFIED=1111, NOT_STARTED=395741
 >>>>>>> origin/main
 - selected this iteration: 12
 - blocked by dependency/blocker: 78 (reported, not stopping the queue)
