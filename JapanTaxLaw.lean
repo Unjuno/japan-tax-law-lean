@@ -1688,6 +1688,9 @@ import JapanTaxLaw.ProvisionalTariffRateTests
 import JapanTaxLaw.PublicCorpCapital100M
 import JapanTaxLaw.PublicCorpCapital100MSpec
 import JapanTaxLaw.PublicCorpCapital100MTests
+import JapanTaxLaw.PublicFacilityAreaAtLeast10
+import JapanTaxLaw.PublicFacilityAreaAtLeast10Spec
+import JapanTaxLaw.PublicFacilityAreaAtLeast10Tests
 import JapanTaxLaw.PublicPensionWithholding
 import JapanTaxLaw.PublicPensionWithholdingSpec
 import JapanTaxLaw.PublicPensionWithholdingTests
@@ -1865,6 +1868,9 @@ import JapanTaxLaw.RequiredApplicationDocumentsTests
 import JapanTaxLaw.ReserveAccumulationAtMost25
 import JapanTaxLaw.ReserveAccumulationAtMost25Spec
 import JapanTaxLaw.ReserveAccumulationAtMost25Tests
+import JapanTaxLaw.ReserveAccumulationOver50UpTo75
+import JapanTaxLaw.ReserveAccumulationOver50UpTo75Spec
+import JapanTaxLaw.ReserveAccumulationOver50UpTo75Tests
 import JapanTaxLaw.Residency
 import JapanTaxLaw.ResidencySpec
 import JapanTaxLaw.ResidentTaxTransitionalRates

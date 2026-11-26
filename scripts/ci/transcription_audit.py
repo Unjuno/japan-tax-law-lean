@@ -4804,6 +4804,15 @@ def checks():
            "340CO0000000096", "file", None,
            ["相続税評価割合が百分の五十を超え百分の五十五以下の場合"])
 
+    # 租税特別措置法施行令 art. 33の3 — ReserveAccumulationOver50UpTo75.lean (50-75%)
+    yield ("租税特別措置法施行令 art. 33_3（準備金50-75%）↔ ReserveAccumulationOver50UpTo75.lean",
+           "332CO0000000043", "file", None,
+           ["異常危険準備金累積割合が百分の五十を超え百分の七十五以下の場合"])
+    # 租税特別措置法施行令 art. 43の2 — PublicFacilityAreaAtLeast10.lean (10%以上)
+    yield ("租税特別措置法施行令 art. 43_2（公共施設面積10%以上）↔ PublicFacilityAreaAtLeast10.lean",
+           "332CO0000000043", "file", None,
+           ["公共施設面積割合が百分の十以上であること。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
