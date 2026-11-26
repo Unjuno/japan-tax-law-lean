@@ -26,7 +26,7 @@ JAPAN = REPO / "JapanTaxLaw"
 LAKE = Path(r"C:\Users\user\.elan\bin\lake.exe")
 TEMP = Path(r"D:\CodexData\Temp\opencode\batch_fraction_scale_axioms")
 FRAC = re.compile(r"([〇零一二三四五六七八九十百千]+)分の([〇零一二三四五六七八九十百千]+)")
-NUM = re.compile(r"[〇零一二三四五六七八九十百千万億]+")
+NUM = re.compile(r"[〇零一二三四五六七八九十百千万億]+(?!条|項|号|目)")
 KANJI = {"零": 0, "〇": 0, "一": 1, "二": 2, "三": 3, "四": 4,
          "五": 5, "六": 6, "七": 7, "八": 8, "九": 9}
 UNITS = {"十": 10, "百": 100, "千": 1000}
@@ -191,9 +191,11 @@ def main() -> int:
             "independent_spec": f"JapanTaxLaw/{mod}Spec.lean sha256={sha(paths[1])}; plain-pair spec vs TaxRate impl",
             "implementation": f"JapanTaxLaw/{mod}.lean sha256={sha(paths[0])}",
             "kernel_proof": f"lake build JapanTaxLaw.{mod}Tests OK; axioms: {ax.strip().replace(chr(10), ' | ')}",
-            "proof_scope": "agree_spec_impl universal over all Nat bases; scaling only, base caller-established",
+            "proof_scope": ("agree_spec_impl universal over all Nat bases; scaling only; "
+                            "base and structural 条/項/号/目 references NOT resolved"),
             "boundary_proof": f"{mod}Tests.lean kernel-decided 0 / denominator boundaries",
-            "cross_law_proof": f"dependencies={t.get('dependencies', [])}; surrounding applicability NOT resolved",
+            "cross_law_proof": (f"dependencies={t.get('dependencies', [])}; surrounding applicability "
+                                "and structural references NOT resolved"),
             "tests": f"JapanTaxLaw/{mod}Tests.lean sha256={sha(paths[2])}",
             "adversarial_review": f"docs/BATCH_FRACTION_SCALE_REVIEW.md generated entry for {uid[:16]}",
         }
