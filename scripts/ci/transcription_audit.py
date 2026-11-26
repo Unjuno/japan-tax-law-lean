@@ -5050,6 +5050,12 @@ def checks():
            "file", None,
            ["特定貨物に課する不当廉売関税及び一般税率（法の別表の税率及び条約に規定する税率のうちいずれか低いものをいう。）による関悦については、それぞれ別個の関税として関税法（昭和二十九年法律第六十一号）第二章の規定を適用する。"])
 
+    # 国際観光旅客税法 art. 25(1) — TouristTaxPenaltyBounds.lean
+    yield ("国際観光旅客税法 art. 25（一年/五十万円の罰則上限）↔ TouristTaxPenaltyBounds.lean",
+           "430AC0000000016",
+           "file", None,
+           ["次の各号のいずれかに該当する者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

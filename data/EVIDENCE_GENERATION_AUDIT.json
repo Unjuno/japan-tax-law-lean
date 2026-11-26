@@ -8830,6 +8830,21 @@
         2000000
       ]
     },
+    "TouristTaxPenaltyBounds": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "五十万"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 6,
+      "needles_scoped": true,
+      "scoped_article_chars": 229,
+      "spec_literals": [
+        500000
+      ]
+    },
     "TouristTaxTaxablePassengers": {
       "adversarial_review": true,
       "boundary_examples_found": 3,
@@ -12741,6 +12756,22 @@
         "module": "EnforcementWithinSixMonths",
         "spec_kanji_in_原文": [
           "六"
+        ]
+      },
+      "NORM|2d2913868325c56a8cefe1373ea380c83f23b4e4ae0b951415c0facb5b02c43e": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 6,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "TouristTaxPenaltyBounds",
+        "spec_kanji_in_原文": [
+          "五十万"
         ]
       },
       "NORM|2d7d01b967d1dc879b299f28a840a5634330416f882bd84cdedcfe668c16b807": {
@@ -29327,6 +29358,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"6\": [\"六\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[780]/SupplProvision/SupplProvision[1]/Article:1/Article#1/Paragraph#1/Item#1/ItemSentence/Column#2/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/EnforcementWithinSixMonthsTests.lean sha256=70d4406d789190e17f603bc0ef521001aa5c9888de50d3341e910c049bc9f660 (11 kernel-decided examples)"
+    },
+    "NORM|2d2913868325c56a8cefe1373ea380c83f23b4e4ae0b951415c0facb5b02c43e": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 6 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=430AC0000000016_20260701_508AC0000000012 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/TouristTaxPenaltyBounds.lean sha256=f6aa45d888d8ca4dff5bc1fdc56c204ead700002507cd6fb872fda995f5f66d5",
+      "independent_spec": "JapanTaxLaw/TouristTaxPenaltyBoundsSpec.lean sha256=0f5667e3da5fc0004674ba449f07babfcede3924789748fd0c6d459d30d9f892 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45850090883: commit 904e3c3a221c0a1c1a780bfc6fbfa7ed7a721719, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [500000] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"500000\": [\"五十万\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/430AC0000000016_20260701_508AC0000000012.law.json#LawBody[2]/MainProvision/MainProvision[4]/Article:25/Article#25/Paragraph#1/ParagraphSentence/Sentence#1 sha256=486f27e35920bd186dd905d4a2269d01d9a4ecb28a2bb36514d7232276ead5ec (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/TouristTaxPenaltyBoundsTests.lean sha256=cac1bde67d2d6dccaf0da8b58af6b619f5f85565f1262e0cc4786a700c8851dc (6 kernel-decided examples)"
     },
     "NORM|2d7d01b967d1dc879b299f28a840a5634330416f882bd84cdedcfe668c16b807": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
