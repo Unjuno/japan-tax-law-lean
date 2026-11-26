@@ -650,6 +650,9 @@ import JapanTaxLaw.MoneyThresholdsTests
 import JapanTaxLaw.MoneyCap
 import JapanTaxLaw.MoneyCapSpec
 import JapanTaxLaw.MoneyCapTests
+import JapanTaxLaw.TariffDifferential
+import JapanTaxLaw.TariffDifferentialSpec
+import JapanTaxLaw.TariffDifferentialTests
 import JapanTaxLaw.TariffSpecificFloor
 import JapanTaxLaw.TariffSpecificFloorSpec
 import JapanTaxLaw.TariffSpecificFloorTests

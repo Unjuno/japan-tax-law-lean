@@ -33253,6 +33253,88 @@
         "tool": "lake build"
       }
     ],
+    "0da06423005c867220a1a138ba6de6eafadeeec89423b00ef1db7b18ce8ba4d9": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "143AC0000000054##pinned-tariff-differential",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "mechanical-audit:DIFF-0da06423005c",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "task_queue.json#0da06423005c#coverage",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#min-based-spec@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferential.lean#differential@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@universal-Nat^2@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean#band-ceiling-boundaries@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T14:29:51+00:00",
+        "evidence_ref": "data/evidence_audits/tariffdiff_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 差額 phrase, independent ceiling parse, contiguous fragment; scope = exact rate phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "0da137b39c2aee35a9679eb0c684fbfb59d0192e4e05aa1325486ab4ccdf6107": [
       {
         "axis": "SOURCE_LOCATION",
@@ -45867,6 +45949,88 @@
         "note": "enforcement date 平成二十四年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "1206f42b301c647dd171e0528c7227986e17a330d463648849e3f1ce1efae5c9": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T14:15:35+00:00",
+        "evidence_ref": "143AC0000000054##pinned-tariff-differential",
+        "note": "従価従量差額 250円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T14:15:35+00:00",
+        "evidence_ref": "mechanical-audit:DIFF-1206f42b301c",
+        "note": "従価従量差額 250円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T14:15:35+00:00",
+        "evidence_ref": "task_queue.json#1206f42b301c#coverage",
+        "note": "従価従量差額 250円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T14:15:35+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#min-based-spec@kernel",
+        "note": "従価従量差額 250円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T14:15:35+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferential.lean#differential@kernel",
+        "note": "従価従量差額 250円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T14:15:35+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@kernel",
+        "note": "従価従量差額 250円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T14:15:35+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@universal-Nat^2@kernel",
+        "note": "従価従量差額 250円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T14:15:35+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean#band-ceiling-boundaries@kernel",
+        "note": "従価従量差額 250円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T14:15:35+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean@kernel",
+        "note": "従価従量差額 250円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T14:29:51+00:00",
+        "evidence_ref": "data/evidence_audits/tariffdiff_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 差額 phrase, independent ceiling parse, contiguous fragment; scope = exact rate phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "120f463ad9829955f121628c9d0dc9d23d4547650838a53eb52bd6cc70d95b88": [
@@ -208759,6 +208923,88 @@
         "tool": "coordinator_cycle.py"
       }
     ],
+    "59765d014004d091d22d4a3d4eb57cd8177b25d9e6b5bff8676118d9cb6592b1": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "143AC0000000054##pinned-tariff-differential",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "mechanical-audit:DIFF-59765d014004",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "task_queue.json#59765d014004#coverage",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#min-based-spec@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferential.lean#differential@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@universal-Nat^2@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean#band-ceiling-boundaries@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T14:29:51+00:00",
+        "evidence_ref": "data/evidence_audits/tariffdiff_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 差額 phrase, independent ceiling parse, contiguous fragment; scope = exact rate phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "59803804d3899f5ad320b9fc7b10233c226ef53275e1db021f9ef7d204328ef5": [
       {
         "axis": "SOURCE_LOCATION",
@@ -265183,6 +265429,88 @@
         "note": "enforcement date 平成三十一年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "71ad67835865debc5996e016f437d728ca02cd17f6a160d85fc31921adcedd1f": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "143AC0000000054##pinned-tariff-differential",
+        "note": "従価従量差額 170円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "mechanical-audit:DIFF-71ad67835865",
+        "note": "従価従量差額 170円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "task_queue.json#71ad67835865#coverage",
+        "note": "従価従量差額 170円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#min-based-spec@kernel",
+        "note": "従価従量差額 170円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferential.lean#differential@kernel",
+        "note": "従価従量差額 170円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@kernel",
+        "note": "従価従量差額 170円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@universal-Nat^2@kernel",
+        "note": "従価従量差額 170円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean#band-ceiling-boundaries@kernel",
+        "note": "従価従量差額 170円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean@kernel",
+        "note": "従価従量差額 170円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T14:29:51+00:00",
+        "evidence_ref": "data/evidence_audits/tariffdiff_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 差額 phrase, independent ceiling parse, contiguous fragment; scope = exact rate phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "71ad7565f8ab861904d7ac9d8086b28a3d09b92609589f83b1d99ac71da0286d": [
@@ -331194,6 +331522,88 @@
         "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
+    "8d102d51e90228099a124060dc47d42c8d23542a871893b6735e97b5aff8c283": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "143AC0000000054##pinned-tariff-differential",
+        "note": "従価従量差額 250円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "mechanical-audit:DIFF-8d102d51e902",
+        "note": "従価従量差額 250円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "task_queue.json#8d102d51e902#coverage",
+        "note": "従価従量差額 250円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#min-based-spec@kernel",
+        "note": "従価従量差額 250円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferential.lean#differential@kernel",
+        "note": "従価従量差額 250円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@kernel",
+        "note": "従価従量差額 250円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@universal-Nat^2@kernel",
+        "note": "従価従量差額 250円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean#band-ceiling-boundaries@kernel",
+        "note": "従価従量差額 250円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean@kernel",
+        "note": "従価従量差額 250円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T14:29:51+00:00",
+        "evidence_ref": "data/evidence_audits/tariffdiff_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 差額 phrase, independent ceiling parse, contiguous fragment; scope = exact rate phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "8d10a2c0db53314b8df2ca2a67fb87906371e8bbcf2093a38aad6999e35e1e80": [
       {
         "axis": "SOURCE_LOCATION",
@@ -336020,6 +336430,88 @@
         "note": "enforcement date 平成十七年七月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "8f0e163e585c56bce77e56dc05bf95f381af86174e8017a7ec19e01a6474fff0": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "143AC0000000054##pinned-tariff-differential",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "mechanical-audit:DIFF-8f0e163e585c",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "task_queue.json#8f0e163e585c#coverage",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#min-based-spec@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferential.lean#differential@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@universal-Nat^2@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean#band-ceiling-boundaries@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T14:29:51+00:00",
+        "evidence_ref": "data/evidence_audits/tariffdiff_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 差額 phrase, independent ceiling parse, contiguous fragment; scope = exact rate phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "8f140ab5c7e43f9b21ec23e89c1a9fcee059eced60bd4e88cf8a00fb3e2af34e": [
@@ -361322,6 +361814,88 @@
         "note": "enforcement date 平成十二年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "99babaf670bbd7f388a55e0a8fdf3969837b3739327be1d24ba5db3cd17c2ca1": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T14:15:31+00:00",
+        "evidence_ref": "143AC0000000054##pinned-tariff-differential",
+        "note": "従価従量差額 490円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T14:15:31+00:00",
+        "evidence_ref": "mechanical-audit:DIFF-99babaf670bb",
+        "note": "従価従量差額 490円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T14:15:31+00:00",
+        "evidence_ref": "task_queue.json#99babaf670bb#coverage",
+        "note": "従価従量差額 490円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T14:15:31+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#min-based-spec@kernel",
+        "note": "従価従量差額 490円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T14:15:31+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferential.lean#differential@kernel",
+        "note": "従価従量差額 490円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T14:15:31+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@kernel",
+        "note": "従価従量差額 490円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T14:15:31+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@universal-Nat^2@kernel",
+        "note": "従価従量差額 490円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T14:15:31+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean#band-ceiling-boundaries@kernel",
+        "note": "従価従量差額 490円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T14:15:31+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean@kernel",
+        "note": "従価従量差額 490円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T14:29:51+00:00",
+        "evidence_ref": "data/evidence_audits/tariffdiff_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 差額 phrase, independent ceiling parse, contiguous fragment; scope = exact rate phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "99bdd54c1730fa5f364840e9927b9b802a9d70eec99de5b93b0bc91bcfc263eb": [
@@ -402404,6 +402978,88 @@
         "tool": "coordinator_cycle.py"
       }
     ],
+    "a9e9261095ee2a8d5e4eee826784d636fc2249d4430a9d8ec8ce5a2b74ab4db3": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "143AC0000000054##pinned-tariff-differential",
+        "note": "従価従量差額 170円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "mechanical-audit:DIFF-a9e9261095ee",
+        "note": "従価従量差額 170円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "task_queue.json#a9e9261095ee#coverage",
+        "note": "従価従量差額 170円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#min-based-spec@kernel",
+        "note": "従価従量差額 170円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferential.lean#differential@kernel",
+        "note": "従価従量差額 170円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@kernel",
+        "note": "従価従量差額 170円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@universal-Nat^2@kernel",
+        "note": "従価従量差額 170円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean#band-ceiling-boundaries@kernel",
+        "note": "従価従量差額 170円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean@kernel",
+        "note": "従価従量差額 170円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T14:29:51+00:00",
+        "evidence_ref": "data/evidence_audits/tariffdiff_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 差額 phrase, independent ceiling parse, contiguous fragment; scope = exact rate phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "a9ee01774e8c167952f3a547e06ccb7e736fff73599fbffc521e3ba221018c91": [
       {
         "axis": "SOURCE_LOCATION",
@@ -417855,6 +418511,88 @@
         "note": "unit decomposition and mechanical coverage only",
         "reviewer": "ci",
         "tool": "task_queue.py"
+      }
+    ],
+    "b0adaa0a03facf8db9ab8ed3414611e027b97d69aa79d4e2668d503e18c55d22": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "143AC0000000054##pinned-tariff-differential",
+        "note": "従価従量差額 180円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "mechanical-audit:DIFF-b0adaa0a03fa",
+        "note": "従価従量差額 180円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "task_queue.json#b0adaa0a03fa#coverage",
+        "note": "従価従量差額 180円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#min-based-spec@kernel",
+        "note": "従価従量差額 180円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferential.lean#differential@kernel",
+        "note": "従価従量差額 180円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@kernel",
+        "note": "従価従量差額 180円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@universal-Nat^2@kernel",
+        "note": "従価従量差額 180円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean#band-ceiling-boundaries@kernel",
+        "note": "従価従量差額 180円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean@kernel",
+        "note": "従価従量差額 180円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T14:29:51+00:00",
+        "evidence_ref": "data/evidence_audits/tariffdiff_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 差額 phrase, independent ceiling parse, contiguous fragment; scope = exact rate phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "b0affbf74979d07c7e2531c93cacfcdd816fdb05d9177f57f190832fe50ad2c6": [
@@ -447487,6 +448225,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "bcd719c7c5445a8bc81dac38d29c2a1885be339695240fce957ddb6d96710e1a": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "143AC0000000054##pinned-tariff-differential",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "mechanical-audit:DIFF-bcd719c7c544",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "task_queue.json#bcd719c7c544#coverage",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#min-based-spec@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferential.lean#differential@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@universal-Nat^2@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean#band-ceiling-boundaries@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T14:29:51+00:00",
+        "evidence_ref": "data/evidence_audits/tariffdiff_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 差額 phrase, independent ceiling parse, contiguous fragment; scope = exact rate phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "bcd85b7f76f80b7f1c958bbe5e0abc21c0cfc11c135d70099b1a41120cad6790": [
@@ -505584,6 +506404,88 @@
         "tool": "coordinator_cycle.py"
       }
     ],
+    "d646c9ad68e42741ceee870f3635a6c441fa32d8012ffd35acefcbd404109872": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "143AC0000000054##pinned-tariff-differential",
+        "note": "従価従量差額 180円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "mechanical-audit:DIFF-d646c9ad68e4",
+        "note": "従価従量差額 180円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "task_queue.json#d646c9ad68e4#coverage",
+        "note": "従価従量差額 180円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#min-based-spec@kernel",
+        "note": "従価従量差額 180円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferential.lean#differential@kernel",
+        "note": "従価従量差額 180円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@kernel",
+        "note": "従価従量差額 180円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@universal-Nat^2@kernel",
+        "note": "従価従量差額 180円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean#band-ceiling-boundaries@kernel",
+        "note": "従価従量差額 180円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T14:15:34+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean@kernel",
+        "note": "従価従量差額 180円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T14:29:51+00:00",
+        "evidence_ref": "data/evidence_audits/tariffdiff_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 差額 phrase, independent ceiling parse, contiguous fragment; scope = exact rate phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "d647594e6a0e5a3c7889c74a1c4eab52f7c3716dbfcb1cb22384f4a9dff1f14e": [
       {
         "axis": "SOURCE_LOCATION",
@@ -529705,6 +530607,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "e0bd8c9e14513e3688784b5aac9ebaacec1b128ff62dcf499224204e7b612b32": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "143AC0000000054##pinned-tariff-differential",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "mechanical-audit:DIFF-e0bd8c9e1451",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "task_queue.json#e0bd8c9e1451#coverage",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#min-based-spec@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferential.lean#differential@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@universal-Nat^2@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean#band-ceiling-boundaries@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T14:15:32+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T14:29:51+00:00",
+        "evidence_ref": "data/evidence_audits/tariffdiff_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 差額 phrase, independent ceiling parse, contiguous fragment; scope = exact rate phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "e0c72cb119e119086c2dc5843d1af0b0f6ad5c55fe672b717ad66df36c0ca99b": [
@@ -565792,6 +566776,88 @@
         "note": "unit decomposition and mechanical coverage only",
         "reviewer": "ci",
         "tool": "task_queue.py"
+      }
+    ],
+    "f06c1b3038ed4db7adb9ae2ee0b496b8b718220d80f381f227b14e14be1aaefa": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "143AC0000000054##pinned-tariff-differential",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "mechanical-audit:DIFF-f06c1b3038ed",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "task_queue.json#f06c1b3038ed#coverage",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#min-based-spec@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferential.lean#differential@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialSpec.lean#differential_agrees@universal-Nat^2@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean#band-ceiling-boundaries@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T14:15:33+00:00",
+        "evidence_ref": "JapanTaxLaw/TariffDifferentialTests.lean@kernel",
+        "note": "従価従量差額 500円 ceiling band; independent min-based spec; price/ceiling caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T14:29:51+00:00",
+        "evidence_ref": "data/evidence_audits/tariffdiff_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 差額 phrase, independent ceiling parse, contiguous fragment; scope = exact rate phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "f06e90fa675c35ba6bf530c2cd4fa13872ec97258d2e97e5afc46ec2738bff74": [

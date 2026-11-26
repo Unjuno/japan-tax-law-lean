@@ -11,13 +11,13 @@ reconstruction only, never semantic fidelity to the statute.
 ## Counts (independent axes)
 
 - normative units: 268107
-- NOT_STARTED: 249854
+- NOT_STARTED: 249841
 - PARTIAL: 14244
 - PROVED_SCOPE: 0
-- FULLY_VERIFIED: 4003
+- FULLY_VERIFIED: 4016
 - BLOCKED: 6
 - STALE: 0
-- adversarial-review evidence recorded: 14007 (separate axis)
+- adversarial-review evidence recorded: 14020 (separate axis)
 - human legal review completed: 0 (separate axis)
 - registered checks passing does NOT imply all obligations complete
 
