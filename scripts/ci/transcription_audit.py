@@ -91,6 +91,10 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # SubstituteMemberResidualTerm.lean - NORM|cf722af4... (補欠委員の残任期間 EXCEPTION, law 412CO0000000278)
+    yield ("国税審議会令 art.4(1) ただし書（補欠委員の残任期間）↔ SubstituteMemberResidualTerm.lean",
+           "412CO0000000278", "article", "第四条", ["ただし、補欠の委員の任期は、前任者の残任期間とする。"])
+
     # OkinawaDividedCertificateIssuance.lean - NORM|3c61e721... (沖縄分割証明書交付 CONDITION, law 347M50010000033)
     yield ("沖縄減免税割当省令 art.4(2)（分割証明書交付）↔ OkinawaDividedCertificateIssuance.lean",
            "347M50010000033", "article", "第四条", ["沖縄県知事は、前項の申請書を受理したときは、申請に係る証明書に代えて、分割した証明書を交付するものとする。"])
