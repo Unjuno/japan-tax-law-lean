@@ -1,0 +1,10 @@
+import JapanTaxLaw.BatchExceptbcca5d7b2bSpec
+
+namespace JapanTaxLaw.BatchExceptbcca5d7b2b
+
+example : effectApplies false = true := by rfl
+example : effectApplies true = false := by rfl
+example : specEffect false = effectApplies false := agree_spec_impl false
+example : specEffect true = effectApplies true := agree_spec_impl true
+
+end JapanTaxLaw.BatchExceptbcca5d7b2b

@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=4775, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=5212, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=4775 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=5212 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -174,7 +174,11 @@ $ python scripts/ci/batch_commencement_pipeline.py --limit 60 (x6) / 1
 commencement batch pipeline: verified=60/60/60/60/60/60/1, failed=0 in every run
 (all 844 in-class units now verified)
 
-$ python -m unittest discover -s scripts/tests -t . → 223 tests, OK
+$ exception pipeline extended to proviso form 「ただし、…この限りでない」
+$ python scripts/ci/batch_exception_pipeline.py --limit 60 (x7) / 30
+exception batch pipeline: verified=60/60/60/60/60/60/60/17, failed=0 in every run
+
+$ python -m unittest discover -s scripts/tests -t . → 224 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -535,7 +539,11 @@ The remaining 361 commencement candidates (all within the source-size guard)
 were consumed in seven more guarded runs; the class is now exhausted at 844
 verified units with zero failures.
 
-So 4775 units are evidence-backed FULLY_VERIFIED and 392,077 remain NOT_STARTED
+The exception-gate pipeline was extended to the proviso form
+「ただし、…ときは、この限りでない」, which carries the same negation semantics.
+437 more units were verified with one additional guard test.
+
+So 5212 units are evidence-backed FULLY_VERIFIED and 391,640 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is

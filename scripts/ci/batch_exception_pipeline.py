@@ -28,8 +28,8 @@ NUM = re.compile(r"[〇零一二三四五六七八九十百千万億]+")
 
 
 def select(verb: str) -> bool:
-    return ("適用しない" in verb and not NUM.search(verb)
-            and 25 <= len(verb) <= 90)
+    trigger = "適用しない" in verb or "この限りでない" in verb
+    return trigger and not NUM.search(verb) and 25 <= len(verb) <= 110
 
 
 def sha(p: Path) -> str:
