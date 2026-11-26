@@ -13497,3 +13497,20 @@ registry の `needles` 2 本を pinned JSON の生テキストおよび Article 
 - **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `4DF82F4A220596855BBC9343CE07722F23C53506030336AB9E0B0C9C218B59EB`・`1,594,029` バイト・広義レビュー件数 **118 件**（`## Batch ` 見出し 114 件 + その他の review 見出し 4 件）。本セクション追記後は **119 件（Previous +1）** へ増加。追記後のバイト数・SHA-256 は書き込み後の再読込で別途検証した（自己言及的なハッシュ値は本文に埋め込まない）。既存セクション（Batch G〜Batch DN / Batch SLHR を含む全見出し）は一切改変せず保持。再読込検証で既存 H2 数 124 → 125、先頭 `## Batch G review` と既存末尾 `## Batch DN review` の両方が残存することを確認。
 
 > **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 文字照合）・反例探索・`#print axioms` 監査であり、人間の法律専門家によるレビューではない。** 法的解釈・税率や適用範囲の final 判定は専門家の判断に委ねる。本レビューをもって法的レビュー完了とみなしてはならない。
+
+## Batch SRS review (2026-11-26) — 所得税法 art.84の2
+
+### SpecifiedRelativeSpecialDeduction.lean — 独立再抽出・照合
+
+- **対象**: `JapanTaxLaw/SpecifiedRelativeSpecialDeduction.lean`, Spec, Tests
+- **一次資料（pinned・改変禁止）**: `data/raw/340AC0000000033_20261001_507AC0000000070.law.json`（SHA-256 pin 再計算）
+- **独立再抽出**: MainProvision 直下の第八十四条の二を ArticleTitle で特定し、四区分と丸め文言を原文から直接抽出。
+- **照合・判定**: 630,000 円／(所得−840,001)×2／十万円の整数倍−八万円 の最大下界／1,150,000 超 60,000／1,200,000 超 30,000 を確認。840,001 を 841,000 とする誤記を反例で排除。D=CONFIRMED。
+- **限界**: 年齢・生計一・配偶者除外・里親委託・適用除外は NOT MODELLED。機械的独立照合であり人間の法的レビューではない（LEGAL_REVIEW_PENDING）。
+
+### TouristTaxTaxablePassengers.lean — 国際観光旅客税法施行規則 art.3(2) ホ
+
+- **pin**: law `430M60000040039`, article 第三条(2) ホ; needle「イに掲げる数からロからニまでに掲げる数の合計数を控除した数」.
+- **独立再抽出**: ホ = `i - (ro + ha + ni)` (Nat 飽和減算, 単位 人)。独立仕様は三段階減算で書き、全称定理 `agreeTaxablePassengers` が omega で照合。
+- **H/T/D**: 境界 40 / 0 / 0 (飽和) / 250 PASS; 普遍定理 3 件。
+- **C/U**: 四数の認定・ヘ税額・他条は NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
