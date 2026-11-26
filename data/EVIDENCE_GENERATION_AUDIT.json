@@ -1,4 +1,40 @@
 {
+  "_units": {
+    "NORM|42dde91d8d3ec844eff48d83130dc8faf8efb820b5d777d28d9489162a26ae9b": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 7,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "RndExcessOver12",
+      "spec_kanji_in_原文": [
+        "十二",
+        "百"
+      ]
+    },
+    "NORM|65e8bf85c0963bb2db83fb4171e6a730558b77fa71523d570d532d141953eb76": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 7,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "RndExcessOver3",
+      "spec_kanji_in_原文": [
+        "三",
+        "百"
+      ]
+    }
+  },
   "attestation_commit": "ee87c61b593013e342a82569bc6c8bc342a82ab6",
   "module_detail": {
     "AccessoryPriceFloor": {
@@ -6250,6 +6286,40 @@
       "scoped_article_chars": 1988,
       "spec_literals": [
         3000000
+      ]
+    },
+    "RndExcessOver12": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "十二",
+        "百"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 7,
+      "needles_scoped": true,
+      "scoped_article_chars": 7618,
+      "spec_literals": [
+        12,
+        100
+      ]
+    },
+    "RndExcessOver3": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "三",
+        "百"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 7,
+      "needles_scoped": true,
+      "scoped_article_chars": 7618,
+      "spec_literals": [
+        3,
+        100
       ]
     },
     "RndSurchargeRate": {
