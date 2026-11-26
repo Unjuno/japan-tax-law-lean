@@ -35,10 +35,22 @@ def _norm(s: str) -> str:
 def load_law_text(law_id: str) -> str:
     inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
     rec = next((l for l in inv["laws"] if l["law_id"] == law_id), None)
-    assert rec is not None, f"law {law_id} not in INVENTORY.json"
+    if rec is None:
+        # Separate source layer (Objective §2): an acquired non-tax related
+        # statute is pinned from its own provenance ledger, never folded into
+        # INVENTORY.  This fallback is additive; existing pins still resolve
+        # through INVENTORY above.
+        related = REPO / "data/RELATED_LAW_LEDGER.json"
+        if related.exists():
+            rel = json.loads(related.read_text(encoding="utf-8"))
+            rec = (rel.get("laws") or {}).get(law_id)
+    assert rec is not None, f"law {law_id} not in INVENTORY.json or RELATED_LAW_LEDGER.json"
     snap = rec.get("raw_snapshot")
     assert snap, f"law {law_id} has no raw snapshot"
-    path = REPO / snap["source_file"]
+    # INVENTORY stores a dict with source_file; the separate related-layer
+    # ledger stores the path directly as a string.
+    source_file = snap["source_file"] if isinstance(snap, dict) else snap
+    path = REPO / source_file
     data = json.loads(path.read_bytes())
 
     def text(node):
@@ -4885,6 +4897,12 @@ def checks():
            "332AC0000000026",
            "file", None,
            ["第一項第一号の月数は、暦に従つて計算し、十二月を超えるときは十二月とし、一月に満たない端数を生じたときはこれを一月とする。"])
+
+# NATIONAL_NON_TAX_RELATED: 地方自治法 — LocalOrdinanceTwoThirdsMajority.lean (2/3 supermajority, separate source layer)
+    yield ("地方自治法 art. 4（条例制定・改廃 出席議員の三分の二以上の同意）↔ LocalOrdinanceTwoThirdsMajority.lean",
+           "322AC0000000067",
+           "file", None,
+           ["第一項の条例を制定し又は改廃しようとするときは、当該地方公共団体の議会において出席議員の三分の二以上の者の同意がなければならない。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
