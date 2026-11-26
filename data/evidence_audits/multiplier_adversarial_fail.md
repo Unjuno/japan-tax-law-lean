@@ -28,6 +28,17 @@ dropping an item marker or splicing a tail from another article.
 U = repair requires re-decomposition of those provisions with exact offsets;
 not attempted here.
 
+## Root cause (code inspection, not a legal conclusion)
+`task_queue.py:_collect` deliberately skips `LABEL_TAGS` (ArticleTitle,
+ItemTitle, Subitem1Title, ...), then `norm_decomposer.decompose` is applied to
+the concatenation of the remaining text nodes. A unit that spans two such
+nodes therefore has a `unit.text` that is not a contiguous substring of the
+source's flattened text — exactly the observed missing 二/五 markers and
+cross-passage tails. Including label tags would restore contiguity but would
+change text and normative IDs for many units across the queue, so that broad
+policy change is deliberately NOT made for these four cases. They remain
+BLOCKED with the precise blocker rather than being silently reformatted.
+
 ## Action
 The 4 units are BLOCKED with `SOURCE_SPAN_NONCONTIGUOUS_ADVERSARIAL` and receive
 no ADVERSARIAL_REVIEW axis. The other 66 receive the full-coverage axis (their
