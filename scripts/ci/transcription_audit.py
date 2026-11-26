@@ -5337,6 +5337,11 @@ def checks():
            "332CO0000000043", "file", None,
            ["エネルギー消費効率が平成二十二年度基準エネルギー消費効率に百分の百七十三を乗じて得た数値以上であること。"])
 
+    # 租税特別措置法 art. 42の14 — SpecialMeasures20PercentAmount.lean (20%相当額)
+    yield ("租税特別措置法 art. 42_14（20%相当額）↔ SpecialMeasures20PercentAmount.lean",
+           "332AC0000000026", "file", None,
+           ["同条第一項又は第二項に規定する百分の二十に相当する金額"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
