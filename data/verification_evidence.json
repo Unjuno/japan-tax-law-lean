@@ -19281,6 +19281,19 @@
       "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:10/Article#10/Paragraph#3/Item#3/ItemSentence/Column#1/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
       "tests": "JapanTaxLaw/BatchRate19a86b5b68Tests.lean sha256=9c7472db3cd56173a148b034cc324e22c5ee88ffba2654d24f7f26f94e11f8e2"
     },
+    "NORM|63efeb68c79aa28aa0f50b71fe5521917f11d9b63ba3b4a84383a2a2f41fc81f": {
+      "adversarial_review": "docs/BATCH_DELEGATED_LIMIT_REVIEW.md generated entry for NORM|63efeb68c79",
+      "boundary_proof": "BatchDelegLimf213904f31Tests.lean kernel-decided boundary and monotonicity cases",
+      "cross_law_proof": "dependencies=[]; delegated determination NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDelegLimf213904f31.lean sha256=a49bfdc11524d920d1228b6a997b90379ab72b59ff4db73e44b7c3c22453c365",
+      "independent_spec": "JapanTaxLaw/BatchDelegLimf213904f31Spec.lean sha256=614c3bb6224c652a22ae9441e1abb5e9c3954af4f8eb79ad05133e47e1907ab7; branch spec vs decide impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDelegLimf213904f31Tests OK; axioms: 'JapanTaxLaw.BatchDelegLimf213904f31.at_limit' depends on axioms: [propext] | 'JapanTaxLaw.BatchDelegLimf213904f31.monotone' depends on axioms: [propext] | 'JapanTaxLaw.BatchDelegLimf213904f31.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "universal over Nat limit x amount; the delegated ceiling is caller-established, NOT resolved",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (phrase-only); deleg_limit_audit D=PASS: verbatim and delegated-ceiling phrase located",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[0]/Article:15_6/Article#15_6/Paragraph#3/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "tests": "JapanTaxLaw/BatchDelegLimf213904f31Tests.lean sha256=e98a66c592346aa199c7508c963d44748a8c685380eab6c2a564b06a776ccfeb"
+    },
     "NORM|641389f9723729037de62e994e4877729db38ef907ce4524b10b5f6de7e19bfe": {
       "adversarial_review": "docs/BATCH_EFFECTIVE_REVIEW.md generated entry for NORM|641389f9723",
       "boundary_proof": "BatchEffective179b90c3a5Tests.lean kernel-decided effective-day and pre-promulgation boundaries",
@@ -28004,6 +28017,19 @@
       "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[0]/Article:2/Article#2/Paragraph#1/Item#12_7_5/ItemSentence/Column#2/Sentence#1 sha256=3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342",
       "tests": "JapanTaxLaw/BatchFraction1b4097bb68Tests.lean sha256=5056cce03e0176dc07be5e230d3a030f25754acd5ab41af00390b17f79d77979"
     },
+    "NORM|920c242da8e28c665a9f2951c57c6c0ed2c3e7f5355555cc13ee803294b1c7d5": {
+      "adversarial_review": "docs/BATCH_DELEGATED_LIMIT_REVIEW.md generated entry for NORM|920c242da8e",
+      "boundary_proof": "BatchDelegLim22682a2bfcTests.lean kernel-decided boundary and monotonicity cases",
+      "cross_law_proof": "dependencies=[]; delegated determination NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDelegLim22682a2bfc.lean sha256=37af095e628f73b03ee424efe90c450d06706a7be2f20f41708447711a628868",
+      "independent_spec": "JapanTaxLaw/BatchDelegLim22682a2bfcSpec.lean sha256=5c86c7b44a27da1319d97944ff6d8e75459aae7c21730ca8ce349cfbc536f18d; branch spec vs decide impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDelegLim22682a2bfcTests OK; axioms: 'JapanTaxLaw.BatchDelegLim22682a2bfc.at_limit' depends on axioms: [propext] | 'JapanTaxLaw.BatchDelegLim22682a2bfc.monotone' depends on axioms: [propext] | 'JapanTaxLaw.BatchDelegLim22682a2bfc.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "universal over Nat limit x amount; the delegated ceiling is caller-established, NOT resolved",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (phrase-only); deleg_limit_audit D=PASS: verbatim and delegated-ceiling phrase located",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[0]/Article:15_5/Article#15_5/Paragraph#2/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "tests": "JapanTaxLaw/BatchDelegLim22682a2bfcTests.lean sha256=a41b388dac8e05a70e90b1e194b5c9405b6d3482f5c4ca942e129caf9a6c1320"
+    },
     "NORM|9215adc3c9898918a224d323a5edc956dddc39fc4dd03fd378dd2e0a761f3f84": {
       "adversarial_review": "docs/BATCH_STRICT_UPPER_REVIEW.md generated entry for NORM|9215adc3c98 (<300000000)",
       "boundary_proof": "BatchStrictUpper80cd4e7e29Tests.lean kernel-decided 299999999/300000000/300000001",
@@ -30070,6 +30096,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; fraction=[98/100]; op=gt",
       "source_location": "data/raw/340CO0000000096_20260522_508CO0000000093.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:185/Article#185/Paragraph#3/Item#4/Subitem1#13/Subitem1Sentence/Column#1/Sentence#1 sha256=9facf2e2768d602ccdbbf9891df142d3a3e7ead09033eb0634de00a4c4181392",
       "tests": "JapanTaxLaw/BatchFraction4b1ba72145Tests.lean sha256=23ef263efa2fc0452f3ecc3204278bd5a54f476aa0d547fabf02ff4922d9b758"
+    },
+    "NORM|9d1623054c092c92a701cdfaf7a736fb5e6351f639786a8e37f2ba6d887c18af": {
+      "adversarial_review": "docs/BATCH_DELEGATED_LIMIT_REVIEW.md generated entry for NORM|9d1623054c0",
+      "boundary_proof": "BatchDelegLim45ed7aceb1Tests.lean kernel-decided boundary and monotonicity cases",
+      "cross_law_proof": "dependencies=[]; delegated determination NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDelegLim45ed7aceb1.lean sha256=de2ded70bc4257ec9afa8218ce5718dbc675517bfc0870829bbf96e3a04a5c01",
+      "independent_spec": "JapanTaxLaw/BatchDelegLim45ed7aceb1Spec.lean sha256=555a1dad640fd1b10eade6fac01aa40bcdc2426994250073faed0c1fa143b3b5; branch spec vs decide impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDelegLim45ed7aceb1Tests OK; axioms: 'JapanTaxLaw.BatchDelegLim45ed7aceb1.at_limit' depends on axioms: [propext] | 'JapanTaxLaw.BatchDelegLim45ed7aceb1.monotone' depends on axioms: [propext] | 'JapanTaxLaw.BatchDelegLim45ed7aceb1.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "universal over Nat limit x amount; the delegated ceiling is caller-established, NOT resolved",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (phrase-only); deleg_limit_audit D=PASS: verbatim and delegated-ceiling phrase located",
+      "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[6]/Article:59/Article#59/Paragraph#1/ParagraphSentence/Sentence#2 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7",
+      "tests": "JapanTaxLaw/BatchDelegLim45ed7aceb1Tests.lean sha256=9e6c69b710eca6e88f3f7a268e165e08c1fb65ae6d42f1a3f08a65536d723da0"
     },
     "NORM|9d191d74d9948b681fa7d53a34ccb7848557cd4662f13e5eb2041d8eeebaf13a": {
       "adversarial_review": "docs/BATCH_EFFECTIVE_REVIEW.md generated entry for NORM|9d191d74d99",

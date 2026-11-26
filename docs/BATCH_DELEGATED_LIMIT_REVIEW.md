@@ -1,0 +1,3 @@
+- NORM|9d1623054c092c92a701cdfaf7a736fb5e6351f639786a8e37f2ba6d887c18af: delegated ceiling accepted; ceiling NOT resolved; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
+- NORM|920c242da8e28c665a9f2951c57c6c0ed2c3e7f5355555cc13ee803294b1c7d5: delegated ceiling accepted; ceiling NOT resolved; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
+- NORM|63efeb68c79aa28aa0f50b71fe5521917f11d9b63ba3b4a84383a2a2f41fc81f: delegated ceiling accepted; ceiling NOT resolved; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
