@@ -50,6 +50,24 @@
         "二十五",
         "百"
       ]
+    },
+    "NORM|dba821f7cecd1a2bb81aca7506dd4c7333566042e0187e9bcc23ba85e7acc54b": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 7,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "BlueBusinessDeductAmount",
+      "spec_kanji_in_原文": [
+        "二十",
+        "二十一万七千五百",
+        "二十二万五千"
+      ]
     }
   },
   "attestation_commit": "49d10bd9e639ce8b977904d0a2bbfd5c2aad16da",
@@ -292,17 +310,19 @@
     },
     "BlueBusinessDeductAmount": {
       "adversarial_review": true,
-      "boundary_examples_found": 0,
+      "boundary_examples_found": 4,
       "independent_spec": true,
       "kanji_literals": [
+        "二十",
         "二十一万七千五百",
         "二十二万五千"
       ],
       "kernel_attested": true,
-      "kernel_decided_examples": 6,
+      "kernel_decided_examples": 7,
       "needles_scoped": true,
       "scoped_article_chars": 1666,
       "spec_literals": [
+        20,
         217500,
         225000
       ]
