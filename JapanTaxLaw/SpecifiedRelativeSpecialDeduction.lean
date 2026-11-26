@@ -78,12 +78,13 @@ theorem no_base_841k_error : specifiedRelativeSpecialDeduction 850_001 ≠ 612_0
 
 /-- 控除額は任意の所得で 630,000 円を超えない（全分岐の到達可能範囲）。 -/
 theorem deduction_bounded (income : Money) : specifiedRelativeSpecialDeduction income ≤ 630_000 := by
-  unfold specifiedRelativeSpecialDeduction
-  split_ifs with h1 h2 h3
-  · omega
-  · omega
-  · omega
-  · omega
+  by_cases h1 : income ≤ 850_000
+  · simp [specifiedRelativeSpecialDeduction, h1]
+  · by_cases h2 : income ≤ 1_150_000
+    · simp [specifiedRelativeSpecialDeduction, h1, h2]
+    · by_cases h3 : income ≤ 1_200_000
+      · simp [specifiedRelativeSpecialDeduction, h1, h2, h3]
+      · simp [specifiedRelativeSpecialDeduction, h1, h2, h3]
 
 /-- 丸め手続は単調非増の控除額を与える： excess が増えれば round は減らない。 -/
 theorem round_mono {a b : Money} (h : a ≤ b) :
@@ -91,10 +92,13 @@ theorem round_mono {a b : Money} (h : a ≤ b) :
   unfold specialRelativeRound
   by_cases ha : a < 20_000
   · simp [ha]
-  · have hb : ¬ b < 20_000 := by omega
-    simp [ha, hb]
-    exact Nat.sub_le_sub_right
-      (Nat.mul_le_mul_right 100_000 (Nat.div_le_div_right (Nat.add_le_add_right h 80_000))) 80_000
+  · have ha' : 20_000 ≤ a := Nat.le_of_not_gt ha
+    have hb' : 20_000 ≤ b := Nat.le_trans ha' h
+    have hb : ¬ b < 20_000 := Nat.not_lt_of_ge hb'
+    rw [if_neg ha, if_neg hb]
+    apply Nat.sub_le_sub_right
+    exact Nat.mul_le_mul_right 100_000
+      (Nat.div_le_div_right (Nat.add_le_add_right h 80_000))
 
 /-- 区分 2 の控除額は excess の増加に対して単調非増。 -/
 theorem deduction_bracket2_antitone {a b : Money} (h : a ≤ b) :

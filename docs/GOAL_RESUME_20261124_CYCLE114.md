@@ -192,3 +192,35 @@ Legal review stays `LEGAL_REVIEW_PENDING`.
    layers (通達・裁判例), bind external references and historical revisions.
 
 Keep `技術的検証済み / 形式化未完了 / 法的レビュー未完了` separate in every report.
+
+
+## 7. Cycles 130-132 (2026-11-26)
+
+- **C130** LocalInhabitantReducedRate3or4 (地方税法 art.314の6, 3%/指定都市4%):
+  pushed 9126605e; Lean/axiom job of run 45698525135 confirmed green via
+  gh run view; pinned blobs matched; scoped attestation bound
+  (data/PROOF_ATTESTATION_SCOPED_C130_INHABITANT.json); 5 evidence cells added.
+- **C131** RndExcessOver3 / RndExcessOver12 (租税特別措置法 art.10, 3%/12% 超過):
+  8/8 Lean builds, transcription 651/651; pushed 26ac886a; Lean/axiom job of
+  run 45748786558 confirmed green; scoped attestations bound
+  (data/PROOF_ATTESTATION_SCOPED_C131_OVER3.json, ..._OVER12.json).
+  Evidence-cell generation via uild/gen_c131.py was still running at this write-up.
+- **C132** RndExcessOver15 / RndExcess3To15 (租税特別措置法 art.10, 15%超 and
+  3%超15%以下): 8/8 Lean builds, transcription 654/654; pushed 88090e0c;
+  CI run 45750346126 pending. No attestation bound yet.
+- Concurrent merges repeatedly dropped registered transcription checks
+  (FreshCheeseCardQualification, DefenseCorpShortfallSum, etc.); every one
+  was **restored** and the queue re-derived to 17/17 invariants - guards never disabled.
+- Measured state before C131 cells: FULLY_VERIFIED=938, NOT_STARTED=395,913,
+  BLOCKED=2, PROVED_SCOPE=1 (total 396,854); evidence 939.
+- Human legal reviews: still **0**; all units LEGAL_REVIEW_PENDING.
+  Ordinances/treaties/circulars/case law/historical revisions remain
+  IN_SCOPE_BACKLOG. Only scoped computable rule cells are claimed.
+
+### Resume procedure for C131/C132
+
+1. Confirm uild/gen_c131.py + 	ask_queue.py finish; erify_queue_invariants.py 17/17.
+2. When run 45750346126 Lean/axiom job is green, verify the C132 blobs at its
+   head commit, bind scoped attestations, add cells (uild/gen_c132.py pattern),
+   regenerate ledgers, commit and push.
+3. Restore any transcription check or umbrella import dropped by a concurrent merge.
