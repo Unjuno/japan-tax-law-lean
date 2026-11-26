@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 281
-- presence-facts-only complete: 281
-- NOT_STARTED: 281
+- articles with explicit pin: 286
+- presence-facts-only complete: 286
+- NOT_STARTED: 286
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -17,6 +17,10 @@ source positions. Human legal review is a separate axis and is pending.
 
 | law_id | article | module | presence | scoped | review | authoritative status |
 |---|---|---|---|---|---|---|
+| `347M50000008026` | 第四条 | HouseholdCorrectionFloor07 | YES | YES | YES | NOT_STARTED |
+| `349AC0000000079` | 第十二条 | PowerDevelopmentTaxPenalty | YES | YES | NO | NOT_STARTED |
+| `346CO0000000275` | 第五条 | FifthWheelGrossWeight | YES | YES | YES | NOT_STARTED |
+| `326M50000040055` | 第二十二条の三 | DoubtfulReceivableDeduction | YES | YES | YES | NOT_STARTED |
 | `347AC0000000007` | 第十四条 | AircraftFuelTaxPayable | YES | YES | NO | NOT_STARTED |
 | `346AC0000000090` | 第四条 | AutoWeightGrantRounding | YES | YES | YES | NOT_STARTED |
 | `327CO0000000124` | 第三条の二 | PrevParagraphTwoThreeReading | YES | YES | NO | NOT_STARTED |
@@ -298,3 +302,4 @@ source positions. Human legal review is a separate axis and is pending.
 | `430M60000040039` | 第三条 | TouristTaxTaxablePassengers | YES | YES | YES | NOT_STARTED |
 | `425CO0000000025` | 第七条 | TaxResearchCouncilQuorum | YES | YES | NO | NOT_STARTED |
 | `404M50000008008` | 第一条 | FreeTradeZoneReading | YES | YES | NO | NOT_STARTED |
+| `417CO0000000289` | 第五条 | SeparateTariffApplication | YES | YES | NO | NOT_STARTED |
