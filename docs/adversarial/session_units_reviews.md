@@ -1629,3 +1629,59 @@ H/T/D/C/U record:
 - **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
 
 > **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### EnforcementWithinSixMonths.lean — 地方税法 art. 1（公布の日から六月を超えない範囲内で施行）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値・期間条件を独立仕様（strict 比較）として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### EnforcementWithinNineMonths.lean — 地方税法 art. 1（公布の日から九月を超えない範囲内で施行）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値・期間条件を独立仕様（strict 比較）として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### IndustrialEquipmentCost32M.lean — 地方税法施行令 art. 54_13（工業生産設備の減価償却資産取得価額 三千二百万円超）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325CO0000000245` / revision `325CO0000000245_20261101_508CO0000000083`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値・期間条件を独立仕様（strict 比較）として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### StationDailyUsers100k.lean — 地方税法施行令 art. 11（一日当たり平均利用者数 十万人以上）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325CO0000000245` / revision `325CO0000000245_20261101_508CO0000000083`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値・期間条件を独立仕様（strict 比較）として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
