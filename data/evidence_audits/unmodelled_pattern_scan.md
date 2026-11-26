@@ -13,6 +13,15 @@ unresolved conditions, no dependencies, no evidence). Not legal advice.
 | 収入金額/課税標準額 references | 212/816 | Referential or procedural text, not an arithmetic norm. |
 | 課税標準額 + percentage in a single fragment | 0 | No instances. |
 
+Additional scans (same date):
+- 不均一課税 (161 units): almost all are formula-variable definitions
+  (符号B/C etc.) inside the local-tax equalization formula, not standalone
+  arithmetic norms. One unit states a clean 3-band 財政力指数 → multiplier
+  (0.47/0.63/0.78 → 1, 2/3, 1/3) but it is a single norm unit and the
+  companion table (別表第3の9A) is not in the unit.
+- 財政力指数 (18 units): decimal coefficients with 3-decimal 四捨五入 and
+  external stage tables; modelling would require importing those tables.
+
 These units remain `NOT_STARTED` with their original unresolved-condition
 status where applicable. They are NOT counted as verified or as progress.
 This record exists so later work does not re-run the same scans and mistake
