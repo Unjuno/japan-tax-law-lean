@@ -115,7 +115,10 @@ def checks():
     yield ("国税徴収法施行規則 art.1_6（随意契約時の公売規定準用）↔ PrivateContractPublicAuctionReading.lean",
            "337M50000040031", "article", "第一条の六", ["（随意契約により不動産を売却する場合における公売の規定の準用）"])
 
-    # Restored registry checks dropped by a concurrent stale-base rewrite.
+    # ApprovalRevocationSameTreatment.lean - NORM|09558050... (承認取消し時も同様 CONDITION, law 341M50000040004)
+    yield ("石油ガス税法施行規則 art.1(5)（承認取消し時も同様）↔ ApprovalRevocationSameTreatment.lean",
+           "341M50000040004", "article", "第一条", ["その承認を取り消す場合も、また同様とする。"])
+
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,
            ["事業所税の額の百分の五に相当する額とする"])
@@ -2423,6 +2426,12 @@ def checks():
            "325AC0000000226",
            "file", None,
            ["者が老人控除対象配偶者である場合十万円（当該納税義務者の前年の合計所得金額が九百万円を超え九百五十万円以下である場合には六万円、当該納税義務者の前年の合計所得金額が九百五十万円を超え千万円以下である場合には三万円）", "第三十七条"])
+
+    # ForeignBondInterestExemptionScopeEnforcementDate — cycle-134
+    yield ("ForeignBondInterestExemptionScopeEnforcementDate.lean",
+           "333CO0000000337",
+           "file", None,
+           ["第一条この政令は、昭和四十年四月一日から施行する", "この政令は、昭和四十年四月一日から施行する"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -4866,48 +4875,10 @@ def checks():
            "325CO0000000245",
            "file", None,
            ["当該事業の開始の日の属する年度の前年度の一日当たりの平均的な利用者の人数が十万人以上である駅若しくは停留場（以下この号において「特定駅等」という。）又は特定駅等からの距離が百キロメートル以内の駅若しくは停留場において実施される事業"])
-    yield ("所得税法施行令 art. 185（50%超55%以下）↔ AnnuityRatioOver50UpTo55.lean",
-           "340CO0000000096", "file", None,
-           ["相続税評価割合が百分の五十を超え百分の五十五以下の場合"])
-    yield ("関税暫定措置法 art. 7_3（平均輸入30%超）↔ AverageImportOver30Percent.lean",
-           "335AC0000000036", "file", None,
-           ["平均輸入数量が平均国内消費量に百分の三十を乗じて得た数量を超える場合"])
-    yield ("所得税法施行令 art. 182_2（20万円未満）↔ Below200kYen.lean",
-           "340CO0000000096", "file", None,
-           ["二十万円未満である場合"])
-    yield ("消費税法 art. 34（標準10%／軽減8%）↔ ConsumptionTaxRate10or8.lean",
-           "363AC0000000108", "file", None,
-           ["百分の十（当該課税資産の譲渡等が元年軽減対象資産の譲渡等である場合には、百分の八）"])
-    yield ("税関関係手数料令 art. 4（12.9万/12.8万）↔ CustomsFee129000.lean",
-           "329CO0000000164", "file", None,
-           ["十二万九千円（当該許可を受ける者が指定者である場合にあつては、十二万八千円）"])
-    yield ("税関関係手数料令 art. 2（7.6万/7.54万）↔ CustomsFee76000.lean",
-           "329CO0000000164", "file", None,
-           ["七万六千円（当該許可を受ける者が指定者である場合にあつては、七万五千四百円）"])
-    yield ("所得税法施行令 art. 133（増加償却10%未満）↔ ExtraDepreciationBelow10.lean",
-           "340CO0000000096", "file", None,
-           ["ただし、当該増加償却割合が百分の十に満たない場合は、この限りでない。"])
-    yield ("租税特別措置法 art. 40_7（外国関係法人20%以上）↔ ForeignRelatedCorpTaxRate20.lean",
-           "332AC0000000026", "file", None,
-           ["対象外国関係法人の各事業年度の租税負担割合が百分の二十以上である場合"])
-    yield ("森林環境税施行規則 art. 1_3（林野率85%以上）↔ ForestRateAtLeast85.lean",
-           "431M60000008040", "file", None,
-           ["林野率が百分の八十五以上であるもの"])
-    yield ("登録免許税法施行規則 art.5(2)（記録重量二以上は最重のもの）↔ HeaviestRecordedWeight.lean",
-           "346CO0000000275", "article", "第五条", ["当該自動車検査証に記録される車両総重量が二以上あるときは、そのうちの最も重いものとする"])
-    yield ("航空機燃料譲与税法施行規則 art.4(8)（世帯数〇・七下限）↔ HouseholdCorrectionFloor07.lean",
-           "347M50000008026", "article", "第四条", ["前年度の世帯数に〇・七を乗じて得た数に満たず、かつ、当該前年度の世帯数から当該補正世帯数を控除して得た数が千を超える場合には"])
-    yield ("所得税法施行令 art. 185（確定年金50%以下）↔ InheritedAnnuityRatioAtMost50.lean",
-           "340CO0000000096", "file", None,
-           ["相続税評価割合が百分の五十以下の確定年金"])
-    yield ("所得税法施行令 art. 185（相続税評価割合50%超）↔ InheritedAnnuityRatioOver50.lean",
-           "340CO0000000096", "file", None,
-           ["相続税評価割合が百分の五十を超える確定年金"])
-    yield ("所得税法施行令 art. 73（貸付金残額15%以下）↔ LoanBalanceRatioAtMost15.lean",
-           "340CO0000000096", "file", None,
-           ["資産総額のうちに当該貸付金の残額の合計額の占める割合が常時百分の十五以下であること。"])
-    yield ("地方税法 art.72の24の2(1)（収入保険料×24%）↔ LocalTaxInsuranceBusinessBase24Percent.lean",
-           "325AC0000000226",
+
+    # 揮発油税法 art. 10 — GasolineTransferPayable.lean
+    yield ("揮発油税法 art. 10（移出に係る納付すべき税額）↔ GasolineTransferPayable.lean",
+           "332AC0000000055",
            "file", None,
            ["収入保険料（再保険料として収入する保険料を除く。以下この項において同じ。）に百分の二十四を乗じて得た金額", "第七十二条の二十四の二"])
     yield ("租税特別措置法施行令 art. 40_8（医療法人出資50%超）↔ MedicalCorpCapitalOver50.lean",
