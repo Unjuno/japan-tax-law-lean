@@ -1,4 +1,41 @@
 {
+  "_units": {
+    "NORM|6b1e8c86cae2b21a37322257fbf256f06e35358b293a12e9e376661b71c16760": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 5,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "InheritedAnnuityRatioAtMost50",
+      "spec_kanji_in_原文": [
+        "五十",
+        "百"
+      ]
+    },
+    "NORM|f6ead0989f635a2370815edaac68ccd91b66ce11be826db80e2185e62021b138": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 8,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "AnnuityRatioOver50UpTo55",
+      "spec_kanji_in_原文": [
+        "五十",
+        "五十五",
+        "百"
+      ]
+    }
+  },
   "attestation_commit": "49d10bd9e639ce8b977904d0a2bbfd5c2aad16da",
   "module_detail": {
     "AccessoryPriceFloor": {
@@ -81,7 +118,7 @@
         "五十五",
         "百"
       ],
-      "kernel_attested": false,
+      "kernel_attested": true,
       "kernel_decided_examples": 8,
       "needles_scoped": true,
       "scoped_article_chars": 11839,
@@ -3869,7 +3906,7 @@
         "五十",
         "百"
       ],
-      "kernel_attested": false,
+      "kernel_attested": true,
       "kernel_decided_examples": 5,
       "needles_scoped": true,
       "scoped_article_chars": 11839,
