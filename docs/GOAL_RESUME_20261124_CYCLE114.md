@@ -267,3 +267,28 @@ Keep `技術的検証済み / 形式化未完了 / 法的レビュー未完了` 
   PROVED_SCOPE=1; evidence ~982; human legal reviews still **0**.
 - L6 check: data/raw has 705 law files but 0 laws with multiple revisions;
   L2-L6 remain genuinely unacquired IN_SCOPE_BACKLOG.
+
+
+## 12. Cycles 150-154 (2026-11-26, continued)
+
+- **C150** CustomsFee76000 / CustomsFee129000 (税関関係手数料令 art.2 / 4):
+  8/8 builds; attested from green run 45817016065 (head 1b0c7b25). No cells
+  were added: both take a Bool input, so the evidence gate finds no numeric
+  boundary categories. No cell was fabricated.
+- **C151** EnergyEfficiency75Pct / EnergyEfficiency70Pct (租税特別措置法 art.90の12):
+  initially lost in a concurrent merge; restored with 8/8 builds, 739/739
+  transcription. No attestation bound (no verified green run with those blobs).
+- **C152** CityPlanningTaxRateCeiling03 / LocalTaxBracket195To330: 8/8 builds,
+  719/719 transcription; pushed 0b681ab; pending attestation.
+- **C153** LocalTaxBracketAtMost195 / LocalTaxBracket900To1800: 8/8 builds;
+  pushed 51a0a3e then merged; pending attestation.
+- **C154** LocalTaxBracket330To695 / LocalTaxBracket695To900: 8/8 builds;
+  pushed c253cc6; pending attestation.
+- **Integrity**: an unresolved git conflict marker in scripts/ci/transcription_audit.py
+  was removed (syntax restored); dropped checks were restored from origin commits
+  (including OkinawaTaxableQuantityResidual); unsupported FULLY_VERIFIED statuses
+  were reverted with uild/fix_unbacked.py rather than weakening the gate.
+- State: FULLY_VERIFIED ~1111, NOT_STARTED ~395,741, BLOCKED=2;
+  human legal reviews still **0**; L2-L6 remain IN_SCOPE_BACKLOG.
+- Resume: reconcile ledger to 17/17, find green Lean/axiom jobs whose heads contain
+  C151-C154 blobs, bind scoped attestations, add cells, re-derive to 17/17.
