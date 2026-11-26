@@ -1913,6 +1913,9 @@ import JapanTaxLaw.SpecialTonnageArt10PenaltyCapTests
 import JapanTaxLaw.SpecialUseExemption
 import JapanTaxLaw.SpecialUseExemptionSpec
 import JapanTaxLaw.SpecialUseExemptionTests
+import JapanTaxLaw.SpecifiedRelativeSpecialDeduction
+import JapanTaxLaw.SpecifiedRelativeSpecialDeductionSpec
+import JapanTaxLaw.SpecifiedRelativeSpecialDeductionTests
 import JapanTaxLaw.SpousalGiftDeduction
 import JapanTaxLaw.SpousalGiftDeductionSpec
 import JapanTaxLaw.SpousalGiftDeductionTests
