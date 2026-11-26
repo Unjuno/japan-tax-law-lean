@@ -24,11 +24,10 @@ def specRelativeRound (excess : Money) : Money :=
   else 100_000 * ((excess + 80_000) / 100_000) - 80_000
 
 def specRelativeDeduction (income : Money) : Money :=
-  match income with
-  | i if i ≤ 850_000 => 630_000
-  | i if i ≤ 1_150_000 => 630_000 - specRelativeRound ((i - 840_001) * 2)
-  | i if i ≤ 1_200_000 => 60_000
-  | _ => 30_000
+  if income ≤ 850_000 then 630_000
+  else if income ≤ 1_150_000 then 630_000 - specRelativeRound ((income - 840_001) * 2)
+  else if income ≤ 1_200_000 then 60_000
+  else 30_000
 
 def agreeFloor : Bool := specialRelativeRound 20_000 == specRelativeRound 20_000
 def agreeMid : Bool := specialRelativeRound 619_998 == specRelativeRound 619_998
