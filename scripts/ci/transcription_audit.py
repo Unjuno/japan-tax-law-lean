@@ -4807,7 +4807,7 @@ def checks():
     yield ("地方税法 art.72の24の2(1)（収入保険料×24%）↔ LocalTaxInsuranceBusinessBase24Percent.lean",
            "325AC0000000226",
            "file", None,
-           ["収入保険料（再保険料として収入する保険料を除く。以下この項において同じ。）に百分の二十四を乗じて得た金額", "第七十二条の二十四の二"])
+           ["個人保険（第三号に規定する団体保険以外の保険をいう。次号において同じ。）のうち同号に規定する貯蓄保険以外のものにあつては、各事業年度の収入保険料（再保険料として収入する保険料を除く。以下この項において同じ。）に百分の二十四を乗じて得た金額"])
 
     # 租税特別措置法施行令 art. 40の8 — MedicalCorpCapitalOver50.lean (出資50%超)
     yield ("租税特別措置法施行令 art. 40_8（医療法人出資50%超）↔ MedicalCorpCapitalOver50.lean",
@@ -4880,7 +4880,7 @@ def checks():
     yield ("揮発油税法 art. 10（移出に係る納付すべき税額）↔ GasolineTransferPayable.lean",
            "332AC0000000055",
            "file", None,
-           ["収入保険料（再保険料として収入する保険料を除く。以下この項において同じ。）に百分の二十四を乗じて得た金額", "第七十二条の二十四の二"])
+           ["第六号に掲げる揮発油税額から前号に掲げる揮発油税額を控除した金額に相当する揮発油税額（以下「移出に係る納付すべき税額」という。）"])
     yield ("租税特別措置法施行令 art. 40_8（医療法人出資50%超）↔ MedicalCorpCapitalOver50.lean",
            "332CO0000000043", "file", None,
            ["当該医療法人の出資の総額の百分の五十を超える金額"])
@@ -4911,6 +4911,16 @@ def checks():
            "332AC0000000055",
            "file", None,
            ["第六号に掲げる揮発油税額から前号に掲げる揮発油税額を控除した金額に相当する揮発油税額（以下「移出に係る納付すべき税額」という。）"])
+    # CityPlanningTaxRateCeiling03.lean - restored registered check (dropped by concurrent merge)
+    yield ("CityPlanningTaxRateCeiling03.lean restored transcription check",
+           "325AC0000000226", "file", None,
+           ["\u90fd\u5e02\u8a08\u753b\u7a0e\u306e\u7a0e\u7387\u306f\u3001\u767e\u5206\u306e\u3007\u30fb\u4e09\u3092\u8d85\u3048\u308b\u3053\u3068\u304c\u3067\u304d\u306a\u3044\u3002"])
+
+    # LocalTaxBracket195To330.lean - restored registered check (dropped by concurrent merge)
+    yield ("LocalTaxBracket195To330.lean restored transcription check",
+           "325AC0000000226", "file", None,
+           ["\u767e\u4e5d\u5341\u4e94\u4e07\u5186\u3092\u8d85\u3048\u4e09\u767e\u4e09\u5341\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
