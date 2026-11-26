@@ -91,6 +91,18 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # OkinawaDividedCertificateIssuance.lean - NORM|3c61e721... (沖縄分割証明書交付 CONDITION, law 347M50010000033)
+    yield ("沖縄減免税割当省令 art.4(2)（分割証明書交付）↔ OkinawaDividedCertificateIssuance.lean",
+           "347M50010000033", "article", "第四条", ["沖縄県知事は、前項の申請書を受理したときは、申請に係る証明書に代えて、分割した証明書を交付するものとする。"])
+
+    # ImmediateRetaliationException.lean - NORM|191808d9... (直ちに措置をとる場合の例外 EXCEPTION, law 406CO0000000418)
+    yield ("報復関税等政令 art.2(1) ただし書（直ちに措置をとる場合の例外）↔ ImmediateRetaliationException.lean",
+           "406CO0000000418", "article", "第二条", ["ただし、報復関税等に係る措置を直ちにとる必要があると認められる場合は、この限りでない。"])
+
+    # EvidenceNonSubmissionException.lean - NORM|f7b116e1... (証拠不提出の例外 EXCEPTION, law 406CO0000000415)
+    yield ("相殺関税政令 art.7(4) ただし書（証拠不提出の例外）↔ EvidenceNonSubmissionException.lean",
+           "406CO0000000415", "article", "第七条", ["ただし、当該利害関係者が相当な期間内に当該証拠又は証言を提供しない場合は、この限りでない。"])
+
     # DividedCertificateIssuance.lean - NORM|834e3b37... (分割証明書交付 CONDITION, law 340M50010000013)
     yield ("とうもろこし等関税割当省令 art.4(2)（分割証明書交付）↔ DividedCertificateIssuance.lean",
            "340M50010000013", "article", "第四条", ["農林水産大臣は、前項の申請書を受理したときは、申請に係る証明書に代えて、分割した証明書を交付するものとする。"])
@@ -2479,6 +2491,18 @@ def checks():
            "407M50000200013",
            "file", None,
            ["第一条この省令は、平成十二年四月一日から施行する", "この省令は、平成十二年四月一日から施行する"])
+
+    # CustomsOfficerBadgeFormEnforcementDate — cycle-138
+    yield ("CustomsOfficerBadgeFormEnforcementDate.lean",
+           "329M50000040064",
+           "file", None,
+           ["第一条この省令は、昭和五十二年七月一日から施行する", "この省令は、昭和五十二年七月一日から施行する"])
+
+    # TobaccoSpecialTaxEnforcementDate — cycle-139
+    yield ("TobaccoSpecialTaxEnforcementDate.lean",
+           "410CO0000000345",
+           "file", None,
+           ["第一条この政令は、平成十年十二月一日から施行する", "この政令は、平成十年十二月一日から施行する"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -5079,6 +5103,18 @@ def checks():
            "342M50000040037",
            "file", None,
            ["組織変更をする会社の当該組織変更の直前における資産の額から負債の額を控除した額（当該控除した額がイに掲げる額以下である場合にあつては、イに掲げる額）"])
+    # 復興特別法人税省令 art.1(1)(4) — ResidualDistributionOneMonth.lean
+    yield ("復興特別法人税省令 第一条(1)(4)（残余財産分配 一月以内）↔ ResidualDistributionOneMonth.lean",
+           "424M60000040007", "article", "第一条",
+           ['当該課税事業年度が残余財産の確定の日の属する課税事業年度である場合において、当該課税事業年度終了の日の翌日から一月以内に残余財産の最後の分配又は引渡しが行われるときは、その分配又は引渡しが行われる日'])
+
+
+    # InheritanceTaxArt26_2CouncilDelegation.lean - NORM|71d63ade... (相続税法 art.26の2(5) DELEGATION, law 325AC0000000073)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("inheritance tax art.26_2 council delegation - InheritanceTaxArt26_2CouncilDelegation.lean",
+           "325AC0000000073",
+           "file", None,
+           ["\u524d\u4e8c\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u571f\u5730\u8a55\u4fa1\u5be9\u8b70\u4f1a\u306e\u7d44\u7e54\u53ca\u3073\u904b\u55b6\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
 
     # 関税定率法施行令 art. 2の4(2) — OverseasMarketPriceCeiling.lean
     yield ("関税定率法施行令 art. 2_4（海外市価三万円以下）↔ OverseasMarketPriceCeiling.lean",
