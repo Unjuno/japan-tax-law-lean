@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 191 | 327 | 58.41% |
+| laws with >=1 pinned literal check | 193 | 327 | 59.02% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 748 | n/a | n/a |
-| distinct article pins | 223 | 42584 | 0.52% |
-| pinned Lean modules (cross-law) | 1249 | n/a | n/a |
+| pinned literal checks | 753 | n/a | n/a |
+| distinct article pins | 224 | 42584 | 0.53% |
+| pinned Lean modules (cross-law) | 1256 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1218 |
+| unpinned Lean modules (not counted as verified) | 1238 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -188,6 +188,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `340CO0000000097` 法人税法施行令
 - `340M50000040011` 所得税法施行規則
 - `340M50000040012` 法人税法施行規則
+- `340M50010000013` とうもろこし等の関税割当制度に関する省令
 - `341CO0000000005` 石油ガス税法施行令
 - `341M50000008002` 石油ガス譲与税法施行規則
 - `341M50000040004` 石油ガス税法施行規則
@@ -251,6 +252,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `407M50000008016` 半島振興法第十七条の地方税の不均一課税に伴う措置が適用される場合等を定める省令
 - `407M50000008033` 大阪湾臨海地域開発整備法第十四条の地方税の不均一課税に伴う措置が適用される場合等を定める省令
 - `407M50000040012` 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行規則
+- `407M50000200013` 牛及び豚のうち純粋種の繁殖用のもの並びに無税を適用する馬の証明書の発給に関する省令
 - `408AC0000000002` 平成七年度における租税収入の減少を補うための公債の発行の特例に関する法律
 - `409AC0000000110` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律
 - `409CO0000000363` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行令

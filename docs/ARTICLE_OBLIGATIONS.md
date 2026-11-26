@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 290
-- presence-facts-only complete: 290
-- NOT_STARTED: 290
+- articles with explicit pin: 292
+- presence-facts-only complete: 292
+- NOT_STARTED: 292
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -17,6 +17,7 @@ source positions. Human legal review is a separate axis and is pending.
 
 | law_id | article | module | presence | scoped | review | authoritative status |
 |---|---|---|---|---|---|---|
+| `340M50010000013` | 第四条 | DividedCertificateIssuance | YES | YES | NO | NOT_STARTED |
 | `336CO0000000153` | 第二条 | MinisterialNecessityException | YES | YES | NO | NOT_STARTED |
 | `430M60000040039` | 第三条 | TouristTaxTaxablePassengers | YES | YES | YES | NOT_STARTED |
 | `425CO0000000025` | 第七条 | TaxResearchCouncilQuorum | YES | YES | NO | NOT_STARTED |
@@ -76,6 +77,7 @@ source positions. Human legal review is a separate axis and is pending.
 | `332AC0000000055` | 第二十七条 | GasolineTaxArt27TripleFineRange | YES | YES | NO | NOT_STARTED |
 | `332AC0000000038` | 第十条 | SpecialTonnageArt10PenaltyCap | YES | YES | NO | NOT_STARTED |
 | `340AC0000000033` | 第二条 | IncomeTaxSpouseIncomeCeiling10M | YES | YES | NO | NOT_STARTED |
+| `340AC0000000033` | 第二条 | IncomeTaxArt2Income850kOther100k | YES | YES | NO | NOT_STARTED |
 | `330AC0000000104` | 第四条 | LocalGasolineTaxRate | YES | YES | NO | NOT_STARTED |
 | `332AC0000000055` | 第九条 | GasolineTaxRate | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十四条 | CustomsSameContentLimit | YES | YES | NO | NOT_STARTED |

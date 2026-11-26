@@ -2408,6 +2408,17 @@
         50000
       ]
     },
+    "DisasterReliefOrderArt9FollowingItemsGovernance": {
+      "adversarial_review": false,
+      "boundary_examples_found": 0,
+      "independent_spec": false,
+      "kanji_literals": [],
+      "kernel_attested": false,
+      "kernel_decided_examples": 4,
+      "needles_scoped": true,
+      "scoped_article_chars": 2403,
+      "spec_literals": []
+    },
     "DisasterReliefPenalty": {
       "adversarial_review": true,
       "boundary_examples_found": 6,
@@ -3521,6 +3532,23 @@
       "scoped_article_chars": 6764,
       "spec_literals": [
         380000
+      ]
+    },
+    "IncomeTaxArt2Income850kOther100k": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "八十五万",
+        "十万"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 8,
+      "needles_scoped": true,
+      "scoped_article_chars": 6764,
+      "spec_literals": [
+        100000,
+        850000
       ]
     },
     "IncomeTaxRevenueBracket1900k": {
@@ -6455,6 +6483,17 @@
       "spec_literals": [
         12000000
       ]
+    },
+    "OrganizationChangeNetAssets": {
+      "adversarial_review": true,
+      "boundary_examples_found": 3,
+      "independent_spec": true,
+      "kanji_literals": [],
+      "kernel_attested": true,
+      "kernel_decided_examples": 6,
+      "needles_scoped": true,
+      "scoped_article_chars": 2539,
+      "spec_literals": []
     },
     "OwnershipPercent5": {
       "adversarial_review": true,
@@ -15021,6 +15060,20 @@
           "三百五十七",
           "千"
         ]
+      },
+      "NORM|4be496509f8d5142008b02da6f331d4460799214070cf2cde97be1a7707d0711": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 6,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "OrganizationChangeNetAssets",
+        "spec_kanji_in_原文": []
       },
       "NORM|4c66461b6da05db32699c67a5c83ace8dccab229a4875abc3563bcd8458ee246": {
         "checks": {
@@ -31165,6 +31218,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"1000\": [\"千\"], \"357\": [\"三百五十七\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/346AC0000000090_20260401_508AC0000000002.law.json#LawBody[1]/MainProvision/MainProvision[0]/Article:1/Article#1/Paragraph#1/ParagraphSentence/Sentence#1 sha256=fd01bc9ba3ac2d65019f7f3b6b9baed32bd5ff606a4484c2364747693cb5621f (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/AutoWeightGrantRate357Tests.lean sha256=b24fdfe7916299acc0fe9c6662dc5964813230de35c6c4b4b1ecb2c54e382590 (7 kernel-decided examples)"
+    },
+    "NORM|4be496509f8d5142008b02da6f331d4460799214070cf2cde97be1a7707d0711": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 6 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=342M50000040037_20260401_508M60000040008 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/OrganizationChangeNetAssets.lean sha256=8e1000d8f57f57101b1fd6f82a7bf6c0d973010308707625176d8490f3dcf190",
+      "independent_spec": "JapanTaxLaw/OrganizationChangeNetAssetsSpec.lean sha256=bba84bfcce58abb593d5c79915b36465f8a9ab87e9452f035720283cb4a320c9 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45858028044: commit 9c07062e9f51862a3ed6de5dc472798c301a2086, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=pinned needle(s) in clause: ['組織変更をする会社の当該組織変更の直前における資']; constants [] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['組織変更をする会社の当該組織変更の直前における資']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/342M50000040037_20260401_508M60000040008.law.json#LawBody[2]/MainProvision/MainProvision[28]/Article:12/Article#12/Paragraph#1/Item#2/Subitem1#2/Subitem2#1/Subitem2Sentence/Sentence#1 sha256=5aba6032d0ed2f0060e623e1a7bd53c2248e7b5abcb9cb2b81c21e9ff443cc16 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/OrganizationChangeNetAssetsTests.lean sha256=04818a32939b0e56c0407d37cef36c60ac0aa564d0223a2e69a03f9582627198 (6 kernel-decided examples)"
     },
     "NORM|4c66461b6da05db32699c67a5c83ace8dccab229a4875abc3563bcd8458ee246": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
