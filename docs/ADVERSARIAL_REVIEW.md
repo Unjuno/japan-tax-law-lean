@@ -14158,3 +14158,11 @@ needle は `docs/STAGING_SOFA_ENFORCE.md` に記載された 2 本をレビュ�
 - **H/T/D**: 境界 1000−300=700, 1000−1000=0, 1000−1200=0（飽和）, 0−0=0。普遍定理 3 件。D=PASS。
 - **C/U**: 債権の「取立不能のおそれ」の認定・評価日・他号は NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
 - **判定**: BY-DESIGN。CONFIRMED 0 / UNRESOLVED 1。
+
+### FifthWheelGrossWeight.lean — 登録免許税法施行規則 art.5(1)（牽引自動車の車両総重量）— Batch EA9
+
+- **pin**: law `346CO0000000275`, article 第五条(1); needle「その自動車検査証に記録される車両総重量から第五輪荷重を控除し牽けん引重量を加えた重量」.
+- **独立再抽出**: 原文から `(記録重量 − 第五輪荷重) + 牽引重量`（kg, Nat, 飽和減算を先に適用）を再導出。独立仕様は条件分岐で書き、全称定理 `agreeGrossWeight` が omega で照合。
+- **H/T/D**: 境界 10000−3000+2000=9000、10000−10000+2000=2000、10000−12000+2000=2000、0。普遍定理 3 件。D=PASS。
+- **C/U**: 第五輪荷重=最大積載量という適用要件、セミトレーラ定義、被牽引自動車の扱いは NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
+- **判定**: BY-DESIGN。CONFIRMED 0 / UNRESOLVED 1。

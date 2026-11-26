@@ -726,6 +726,9 @@ import JapanTaxLaw.ExcludedDutyFreeGoodsTests
 import JapanTaxLaw.ExplorationReserve
 import JapanTaxLaw.ExplorationReserveSpec
 import JapanTaxLaw.ExplorationReserveTests
+import JapanTaxLaw.FifthWheelGrossWeight
+import JapanTaxLaw.FifthWheelGrossWeightSpec
+import JapanTaxLaw.FifthWheelGrossWeightTests
 import JapanTaxLaw.FilingDateException
 import JapanTaxLaw.FilingDateExceptionSpec
 import JapanTaxLaw.FilingDateExceptionTests
