@@ -1244,6 +1244,12 @@ def checks():
            "file", None,
            ["有効期間が五年以内のものに限る", "第七条"])
 
+    # 相続税法 art.16 表セル — InheritanceTaxArt16Bracket50M100M.lean
+    yield ("相続税法 art.16 表（五千万円超一億円以下）↔ InheritanceTaxArt16Bracket50M100M.lean",
+           "325AC0000000073",
+           "file", None,
+           ["五千万円を超え一億円以下の金額", "第十六条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
