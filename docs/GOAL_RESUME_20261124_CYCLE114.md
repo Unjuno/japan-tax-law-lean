@@ -291,3 +291,30 @@ Keep `技術的検証済み / 形式化未完了 / 法的レビュー未完了` 
   zero errors, zero sorryAx, zero Classical.choice.
 - State: FULLY_VERIFIED=1040, NOT_STARTED=395,812, BLOCKED=2, evidence 1040;
   human legal reviews still **0**; L2-L6 remain IN_SCOPE_BACKLOG.
+
+
+## 11. Cycles 144-149 (2026-11-26, continued)
+
+- **C144** ReserveAccumulationOver50UpTo75 / PublicFacilityAreaAtLeast10
+  (租税特別措置法施行令 art.33の3 / 43の2): 8/8 builds; attested from green
+  run 45798903959 (head 6c556e0).
+- **C145** AverageImportOver30Percent / TriggerPriceGapOver75Percent
+  (関税暫定措置法 art.7の3 / 7の4): 8/8 builds; attested from green run
+  45801722141 (head 19d46a8f); 2 cells added.
+- **C146** MedicalCorpCapitalOver50 / Below200kYen: 8/8 builds; pending CI.
+- **C147** RateReading20To10 / RateReading20To25: 8/8 builds; attested from
+  green run 45805488697 (head 3a495fee); 2 cells added.
+- **C148** ConsumptionTaxRate10or8 / ForestRateAtLeast85: 8/8 builds;
+  attested from green run 45807683229 (head 6101886d); cells pending.
+- **C149** LoanBalanceRatioAtMost15 / ForeignRelatedCorpTaxRate20: 8/8 builds;
+  pushed 72c6f98b; attestation pending (GitHub REST rate limit blocked run lookup).
+- **Integrity**: two more omega/Classical.choice regressions in
+  TaxResearchCouncilQuorum and FifthWheelGrossWeight were replaced with
+  constructive Nat proofs. Full build 2386/2386; axiom probe clean
+  (0 errors, 0 sorryAx, 0 Classical.choice).
+- Concurrent merges repeatedly dropped transcription checks and umbrella imports;
+  each was restored from its originating commit, never disabled.
+- State: FULLY_VERIFIED ~1030, NOT_STARTED ~395,821, BLOCKED=2; evidence ~1031;
+  human legal reviews still **0**; L2-L6 remain IN_SCOPE_BACKLOG.
+- Resume: after REST rate limit resets, find a green Lean/axiom run whose head
+  contains C146/C149 blobs, bind scoped attestations, add cells, re-derive to 17/17.
