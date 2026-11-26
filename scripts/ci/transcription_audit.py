@@ -5050,6 +5050,13 @@ def checks():
            "file", None,
            ["特定貨物に課する不当廉売関税及び一般税率（法の別表の税率及び条約に規定する税率のうちいずれか低いものをいう。）による関悦については、それぞれ別個の関税として関税法（昭和二十九年法律第六十一号）第二章の規定を適用する。"])
 
+    # InheritanceTaxArt1_2TermDefinitionSource.lean - NORM|5535e9d6... (相続税法 art.1の2(1) DELEGATION, law 325AC0000000073)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("inheritance tax art.1_2 term definition source - InheritanceTaxArt1_2TermDefinitionSource.lean",
+           "325AC0000000073",
+           "file", None,
+           ["\u3053\u306e\u6cd5\u5f8b\u306b\u304a\u3044\u3066\u3001\u6b21\u306e\u5404\u53f7\u306b\u63b2\u3052\u308b\u7528\u8a9e\u306e\u610f\u7fa9\u306f\u3001\u5f53\u8a72\u5404\u53f7\u306b\u5b9a\u3081\u308b\u3068\u3053\u308d\u306b\u3088\u308b\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
