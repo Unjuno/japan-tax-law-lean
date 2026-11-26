@@ -177,3 +177,7 @@ lake clean && lake build                                                # 再現
 たばこ特別税に関する政令 附則 art.1 TobaccoSpecialTaxEnforcementDate.lean（施行日 平成10年12月1日=1998-12-01 — 他条・実体規定 NOT MODELLED）
 
 たばこ特別税に関する省令 附則 art.1 TobaccoSpecialTaxRuleEnforcementDate.lean（施行日 平成16年1月19日=2004-01-19 — 他条・実体規定 NOT MODELLED）
+
+復興特別法人税に関する省令 附則 art.1 ReconstructionSpecialCorporationTaxEnforcementDate.lean（施行日 平成24年4月1日=2012-04-01 — 他条・実体規定 NOT MODELLED）
+
+復興特別所得税に関する政令 附則 art.1 ReconstructionSpecialIncomeTaxEnforcementDate.lean（施行日 平成28年1月1日=2016-01-01 — 他条・実体規定 NOT MODELLED）
