@@ -142,8 +142,9 @@ def main() -> int:
     ev = json.loads(EVIDENCE.read_text(encoding="utf-8"))
     skips = json.loads(SKIPS.read_text(encoding="utf-8")) if SKIPS.exists() else {}
     done, failed = [], []
+    attempts = 0
     for t in q["tasks"]:
-        if len(done) >= a.limit:
+        if attempts >= a.limit:
             break
         uid = t.get("id", "")
         if t.get("status") != "NOT_STARTED" or uid in ev["units"] or uid in skips:
@@ -165,6 +166,7 @@ def main() -> int:
         sf = t.get("source_file", "")
         if not sf or not (REPO / sf).exists():
             continue
+        attempts += 1
         mod = "BatchPeriod" + hashlib.sha256(uid.encode()).hexdigest()[:10]
         paths = [JAPAN / f"{mod}.lean", JAPAN / f"{mod}Spec.lean", JAPAN / f"{mod}Tests.lean"]
         if a.dry_run:

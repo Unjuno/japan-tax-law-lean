@@ -1,0 +1,4 @@
+- NORM|55e13519abd6d766aecf93ee9290185b902fa9d53a6de2dfdab9f7e8fd508781: deduction template accepted; eligibility NOT resolved; T=kernel build + axiom scan + two independent audits; D=PASS; U=legal scope requires human review.
+- NORM|7670c6852af889731e97f60d2f27b22327b88154299b731d086ce3c26543d058: deduction template accepted; eligibility NOT resolved; T=kernel build + axiom scan + two independent audits; D=PASS; U=legal scope requires human review.
+- NORM|5509e62b662f62462b1463e24ba157bb6182ffc28cdd9659c0af47e8b2681411: deduction template accepted; eligibility NOT resolved; T=kernel build + axiom scan + two independent audits; D=PASS; U=legal scope requires human review.
+- NORM|74bd085f5c585f3836be0e4a6a7d8c24686479604b21bf252e8b04424e02ddf9: deduction template accepted; eligibility NOT resolved; T=kernel build + axiom scan + two independent audits; D=PASS; U=legal scope requires human review.
