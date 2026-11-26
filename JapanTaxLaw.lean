@@ -2439,6 +2439,9 @@ import JapanTaxLaw.TobaccoRatePerThousandSpec
 import JapanTaxLaw.TobaccoRatePerThousandTests
 import JapanTaxLaw.TobaccoRateSpec
 import JapanTaxLaw.TobaccoRateTests
+import JapanTaxLaw.TobaccoSpecialTaxEnforcementDate
+import JapanTaxLaw.TobaccoSpecialTaxEnforcementDateSpec
+import JapanTaxLaw.TobaccoSpecialTaxEnforcementDateTests
 import JapanTaxLaw.TobaccoTaxFixedAmount
 import JapanTaxLaw.TobaccoTaxFixedAmountSpec
 import JapanTaxLaw.TobaccoTaxFixedAmountTests
