@@ -35,10 +35,10 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 
 | axis | count |
 |---|---:|
-| references extracted | n/a |
-| internal references checked | n/a |
-| external references NOT bound to the ledger | n/a |
-| references classified unsupported | n/a |
+| references extracted | 476500 |
+| internal references checked | 63234 |
+| external references NOT bound to the ledger | 175186 |
+| references classified unsupported | 250043 |
 
 external_unverified references are NOT verified and are NOT silently counted
 as covered scope.
@@ -62,19 +62,19 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 775 | n/a | n/a |
+| pinned literal checks | 779 | n/a | n/a |
 | distinct article pins | 233 | 42584 | 0.55% |
-| pinned Lean modules (cross-law) | 1306 | n/a | n/a |
+| pinned Lean modules (cross-law) | 1312 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1299 |
+| unpinned Lean modules (not counted as verified) | 1305 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
-| external references NOT bound to the ledger | n/a |
+| external references NOT bound to the ledger | 175186 |
 | related statutes discovered but not acquired (Objective §2) | 380 |
 | related statutes acquired but not parsed/modelled/reviewed | 3 |
 
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 138 |
+| adversarial review sessions recorded | 139 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
