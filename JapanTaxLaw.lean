@@ -2026,6 +2026,9 @@ import JapanTaxLaw.ShareRatioOverHalfTests
 import JapanTaxLaw.ShareholdersUnder50
 import JapanTaxLaw.ShareholdersUnder50Spec
 import JapanTaxLaw.ShareholdersUnder50Tests
+import JapanTaxLaw.ShipProvisionalRateReduction
+import JapanTaxLaw.ShipProvisionalRateReductionSpec
+import JapanTaxLaw.ShipProvisionalRateReductionTests
 import JapanTaxLaw.ShortMeasure180Days
 import JapanTaxLaw.ShortMeasure180DaysSpec
 import JapanTaxLaw.ShortMeasure180DaysTests

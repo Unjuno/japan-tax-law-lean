@@ -91,6 +91,9 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # ShipProvisionalRateReduction — 登録免許税法 art.17(2)
+    yield ("登録免許税法 art.17(2)（船舶仮登記: 税率から千分の四を控除）↔ ShipProvisionalRateReduction.lean",
+           "342AC0000000035", "article", "第十七条", ["同号（二）の税率欄に掲げる割合から千分の四を控除した割合とする"])
     # TouristTaxTaxablePassengers — 国際観光旅客税法施行規則 art.3(2) ホ (restored)
     yield ("国際観光旅客税法施行規則 art.3(2) ホ（課税旅客数＝イ−(ロ+ハ+ニ)）↔ TouristTaxTaxablePassengers.lean",
            "430M60000040039", "article", "第三条", ["イに掲げる数からロからニまでに掲げる数の合計数を控除した数"])
