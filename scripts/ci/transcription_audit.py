@@ -1516,6 +1516,14 @@ def checks():
            "article", "第七条",
            ["\u524d\u9805\u306e\u8abf\u67fb\u306f\u3001\u7b2c\u4e8c\u5341\u4e5d\u9805\u306e\u898f\u5b9a\u306b\u3088\u308b\u8acb\u6c42\u304c\u3042\u3064\u305f\u65e5\u304b\u3089\u4e00\u5e74\u4ee5\u5185\u306b\u7d42\u4e86\u3059\u308b\u3082\u306e\u3068\u3059\u308b\u3002"])
 
+    # CustomsTariffArt7InvestigationStartDeadline.lean — NORM|30ed71fa... (art.7(7))
+    # Distinct from the art.7(31) unit above: deadline runs from the day the
+    # investigation STARTED, not from a request under 第二十九項.
+    yield ("customs tariff art.7 investigation start deadline - CustomsTariffArt7InvestigationStartDeadline.lean",
+           "143AC0000000054",
+           "article", "第七条",
+           ["前項の調査は、当該調査を開始した日から一年以内に終了するものとする。"])
+
     # 関税定率法 art. 7 — InvestigationExtensionSixMonths.lean (six-month ceiling)
     yield ("関税定率法 art. 7（調査期間の延長: 六月以内に限り延長する — 上限のみをモデル化、特別の理由の認定・元の期間・延長判断は caller-established）↔ InvestigationExtensionSixMonths.lean",
            "143AC0000000054",
