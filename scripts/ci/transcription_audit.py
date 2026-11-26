@@ -5214,6 +5214,11 @@ def checks():
            "403AC0000000069",
            "file", None,
            ["借地権等が設定されている場合において、当該土地等が借地権等以外のもの（以下この号において「底地」という。）であるとき。　三万円に当該底地の価額が更地の価額のうちに占める割合を乗じて計算した金額"])
+    # 特別法人事業税施行令 附則2(1)(1) — SpecialCorpBusinessTaxZeroFloor.lean
+    yield ("特別法人事業税施行令 附則第二条(1)(1)（零下限）↔ SpecialCorpBusinessTaxZeroFloor.lean",
+           "431CO0000000089", "file", None,
+           ['特別法人事業税に係る払込予定額から特別法人事業税に係る還付金等に相当する額を控除した額（当該額が零を下回る場合には、零とする。）'])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
