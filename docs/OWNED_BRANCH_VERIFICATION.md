@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=9342, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=11842, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=9342 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=11842 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -220,6 +220,9 @@ bulk structural-label pipeline: verified=10/500/500/500/500/500, failed=0 in eve
 (2010 structure-only units; one shared module per batch with per-unit namespaces)
 $ python scripts/ci/run_python_gates.py → 33 PASS, 0 FAIL, 0 SKIP (SKIP never PASS)
 $ python scripts/ci/completion_gate.py → Axis A green True; Axis B FULLY_VERIFIED=9342, all-complete False
+
+$ python scripts/ci/batch_structural_label_bulk.py --limit 500 x5
+bulk structural-label pipeline: verified=500 failed=0 (x5)
 
 $ python -m unittest discover -s scripts/tests -t . → 243 tests, OK
 
@@ -638,7 +641,11 @@ theorem) so a single kernel build certifies a whole batch. Per-unit evidence
 records the batch module hash and namespace; scope remains STRUCTURE ONLY with
 no legal effect formalized. 2010 units were verified this way with two tests.
 
-So 9342 units are evidence-backed FULLY_VERIFIED and 387,510 remain NOT_STARTED
+Five more bulk structure-only batches added 2500 units (no legal effect
+formalized); Axis A remained 33 PASS / 0 FAIL / 0 SKIP and Axis B remained
+all-complete False.
+
+So 11842 units are evidence-backed FULLY_VERIFIED and 385,010 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
