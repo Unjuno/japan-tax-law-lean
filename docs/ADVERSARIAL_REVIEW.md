@@ -14157,3 +14157,10 @@ needle は `docs/STAGING_SOFA_ENFORCE.md` に記載された 2 本をレビュ�
 - **独立再抽出**: `帳簿価額 = 債権額 − 回収不能見込額`（Nat 飽和減算, 円）。独立仕様は明示的条件式、全称定理 `agreeBookedAmount` が omega で照合。
 - **H/T/D**: 700 / 0 / 0（飽和）/ 0 境界 PASS; 普遍定理 3 件。
 - **C/U**: 債権認定・評価日・他号は NOT MODELLED。`LEGAL_REVIEW_PENDING`。
+
+### FifthWheelGrossWeight.lean — 登録免許税法施行規則 art.5(1)
+
+- **pin**: law `346CO0000000275`, article 第五条(1); needle「その自動車検査証に記録される車両総重量から第五輪荷重を控除し牽けん引重量を加えた重量」.
+- **独立再抽出**: `(記録重量 − 第五輪荷重) + 牽引重量` (kg, Nat)。独立仕様は条件分岐、全称定理 `agreeGrossWeight` が omega で照合。
+- **H/T/D**: 9000 / 2000 / 2000（飽和）/ 0 境界 PASS。
+- **C/U**: 適用要件・被牽引自動車は NOT MODELLED。`LEGAL_REVIEW_PENDING`。
