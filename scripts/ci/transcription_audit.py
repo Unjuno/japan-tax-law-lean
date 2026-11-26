@@ -4700,6 +4700,11 @@ def checks():
     yield ("租税特別措置法 art. 40_4（租税負担割合20%以上）↔ ForeignSubsidiaryTaxRate20.lean",
            "332AC0000000026", "file", None,
            ["各事業年度の租税負担割合が百分の二十以上であること。"])
+    # 復興特別法人税政令 art.3(3) — ReconstructionCorpTaxMonthFloor.lean
+    yield ("復興特別法人税政令 第三条(3)（一月未満端数切捨て）↔ ReconstructionCorpTaxMonthFloor.lean",
+           "424CO0000000017", "article", "第三条",
+           ["前項の月数は、暦に従って計算し、一月に満たない端数を生じたときは、これを切り捨てる。"])
+
 
     yield ("相続税法 art.1の4（贈与前十年以内の住所）↔ GiftTaxTenYearResidenceLookback.lean",
            "325AC0000000073",
