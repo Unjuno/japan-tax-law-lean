@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=3931, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=4414, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=3931 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=4414 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -165,7 +165,12 @@ $ fraction-scale guard relaxed for structural references (条/項/号/目)
 $ python scripts/ci/batch_fraction_scale_pipeline.py --limit 60
 fraction-scale batch pipeline: verified=45 failed=0
 
-$ python -m unittest discover -s scripts/tests -t . → 220 tests, OK
+$ python scripts/ci/batch_commencement_pipeline.py --limit 3 / 60 / 60 / 60 / 60 / 60 / 60 / 60
+commencement batch pipeline: verified=3/60/60/60/60/60/60/60, failed=0 in every run
+(483 verified so far; one oversized source snapshot caused a MemoryError and was
+excluded by a 50 MB size guard, remaining NOT_STARTED)
+
+$ python -m unittest discover -s scripts/tests -t . → 223 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -513,7 +518,16 @@ pipeline: 45 more units were verified with surrounding applicability recorded
 as unresolved. One parser test was updated to distinguish structural refs
 from statutory quantities.
 
-So 3931 units are evidence-backed FULLY_VERIFIED and 392,921 remain NOT_STARTED
+A twenty-first pipeline, `scripts/ci/batch_commencement_pipeline.py`, handles
+calculated commencement: (A) a delegated date bounded by an abstract period
+and (B) a fixed abstract offset after promulgation. The delegated day and the
+promulgation day are caller-established and NOT resolved; no calendar
+arithmetic is claimed. 483 units were verified in eight guarded chunks. An
+oversized pinned snapshot caused a `MemoryError` on the first long run; a
+50 MB source-size guard now excludes such units from this class (they remain
+NOT_STARTED) and hashing streams in chunks. Three selection tests were added.
+
+So 4414 units are evidence-backed FULLY_VERIFIED and 392,438 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
