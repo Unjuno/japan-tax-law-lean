@@ -94,9 +94,11 @@ def checks():
     # FifthWheelGrossWeight — 登録免許税法施行規則 art.5(1) 牽引自動車の車両総重量
     yield ("登録免許税法施行規則 art.5(1)（車両総重量＝記録重量−第五輪荷重+牽引重量）↔ FifthWheelGrossWeight.lean",
            "346CO0000000275", "article", "第五条", ["その自動車検査証に記録される車両総重量から第五輪荷重を控除し牽けん引重量を加えた重量"])
+
     # DoubtfulReceivableDeduction — 税理士法人会計帳簿省令 art.22-3(6) 取立不能債権の控除
     yield ("税理士法人会計帳簿省令 art.22の3(6)（取立不能債権の控除）↔ DoubtfulReceivableDeduction.lean",
            "326M50000040055", "article", "第二十二条の三", ["取立不能のおそれのある債権については、事業年度の末日においてその時に取り立てることができないと見込まれる額を控除しなければならない。"])
+
     # CombinedRndExcessOver4Year.lean - restored registered check (租税特別措置法 art.42の4, law 332AC0000000026)
     yield ("租税特別措置法 art.42の4（増減試験研究費割合 百分の四超）↔ CombinedRndExcessOver4Year.lean",
            "332AC0000000026", "file", None,
@@ -4706,11 +4708,11 @@ def checks():
     yield ("租税特別措置法 art. 40_4（租税負担割合20%以上）↔ ForeignSubsidiaryTaxRate20.lean",
            "332AC0000000026", "file", None,
            ["各事業年度の租税負担割合が百分の二十以上であること。"])
+
     # 復興特別法人税政令 art.3(3) — ReconstructionCorpTaxMonthFloor.lean
     yield ("復興特別法人税政令 第三条(3)（一月未満端数切捨て）↔ ReconstructionCorpTaxMonthFloor.lean",
            "424CO0000000017", "article", "第三条",
            ["前項の月数は、暦に従って計算し、一月に満たない端数を生じたときは、これを切り捨てる。"])
-
 
     yield ("相続税法 art.1の4（贈与前十年以内の住所）↔ GiftTaxTenYearResidenceLookback.lean",
            "325AC0000000073",
@@ -4782,6 +4784,16 @@ def checks():
            "332AC0000000026",
            "file", None,
            ["\u5408\u7b97\u8a66\u9a13\u7814\u7a76\u8cbb\u5272\u5408\u304c\u767e\u5206\u306e\u5341\u3092\u8d85\u3048\u308b\u4e8b\u696d\u5e74\u5ea6\uff08\uff08\uff11\uff09\u306b\u63b2\u3052\u308b\u4e8b\u696d\u5e74\u5ea6\u3092\u9664\u304f\u3002\uff09"])
+
+    # 所得税法施行令 art. 133 — ExtraDepreciationBelow10.lean (10%未満)
+    yield ("所得税法施行令 art. 133（増加償却10%未満）↔ ExtraDepreciationBelow10.lean",
+           "340CO0000000096", "file", None,
+           ["ただし、当該増加償却割合が百分の十に満たない場合は、この限りでない。"])
+
+    # 所得税法施行令 art. 185 — InheritedAnnuityRatioOver50.lean (50%超)
+    yield ("所得税法施行令 art. 185（相続税評価割合50%超）↔ InheritedAnnuityRatioOver50.lean",
+           "340CO0000000096", "file", None,
+           ["相続税評価割合が百分の五十を超える確定年金"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

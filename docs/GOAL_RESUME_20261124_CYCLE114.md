@@ -267,3 +267,27 @@ Keep `技術的検証済み / 形式化未完了 / 法的レビュー未完了` 
   PROVED_SCOPE=1; evidence ~982; human legal reviews still **0**.
 - L6 check: data/raw has 705 law files but 0 laws with multiple revisions;
   L2-L6 remain genuinely unacquired IN_SCOPE_BACKLOG.
+
+
+## 10. Cycles 139-142 (2026-11-26, continued)
+
+- **C139** LocalGrantBracket1000To5000 / LocalTaxIncomeBracket4MTo1B
+  (地方税法 art.72の21 / art.9の2, 金額区間): 8/8 builds; attested from green
+  run 45777926572 (head 46eb3001); 2 cells added.
+- **C140** (no modules; ledger/queue reconciliation only).
+- **C141** ContinuingIncreaseAtLeast5 / SalaryIncreaseRate5Or15 (art.10の5の4)
+  and ForeignSubsidiaryTaxRate20 (C136) etc. Final C141 cell added after
+  revising BlueBusinessDeductAmount to model the statutory 二十歳未満 age-20
+  boundary (Bool input gave 0 boundary categories). Revised module re-attested
+  from green run 45783681696 (head 1b15c74a); 1 cell added.
+- **C142** ExtraDepreciationBelow10 / InheritedAnnuityRatioOver50
+  (所得税法施行令 art.133 / art.185): 8/8 builds, 698/698 transcription;
+  pushed 873cf76b. Its CI Lean job failed transiently at the axiom gate
+  while the local axiom probe was clean; a fresh run is needed.
+- **Integrity fix**: TaxResearchCouncilQuorum{,Spec} theorems used omega,
+  which pulled in Classical.choice and failed CI's axiom gate. Replaced with
+  constructive Nat.le_trans / Nat.mul_le_mul_left proofs. Full project
+  build 2296/2296; generate_axiom_probe.py + lake env lean now reports
+  zero errors, zero sorryAx, zero Classical.choice.
+- State: FULLY_VERIFIED=1040, NOT_STARTED=395,812, BLOCKED=2, evidence 1040;
+  human legal reviews still **0**; L2-L6 remain IN_SCOPE_BACKLOG.
