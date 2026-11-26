@@ -5,14 +5,14 @@ Do not hand-edit. Regenerate with `python scripts/ci/coordinator.py`.
 Loop: INSPECT -> SELECT -> FORMALIZE -> PROVE -> CHALLENGE -> VERIFY -> COMMIT -> REPEAT
 
 - queue units: 396854
-- statuses: BLOCKED=2, FULLY_VERIFIED=1057, NOT_STARTED=395794, PROVED_SCOPE=1
+- statuses: BLOCKED=2, FULLY_VERIFIED=1074, NOT_STARTED=395777, PROVED_SCOPE=1
 - selected this iteration: 12
-- blocked by dependency/blocker: 68 (reported, not stopping the queue)
+- blocked by dependency/blocker: 78 (reported, not stopping the queue)
 - human legal review: LEGAL_REVIEW_PENDING, separate axis; never a filter or a formalization gate
 
 | role | assigned unit ids |
 |---|---|
-| FORMALIZE | NORM|04b6d44ade06008d19d, NORM|e78f6d9b6656ad2f410, NORM|048aa353ea02c717841, NORM|3c03970b97325aebc96, NORM|3f2a8da12d2428d8dec (+7) |
+| FORMALIZE | NORM|04b6d44ade06008d19d, NORM|e78f6d9b6656ad2f410, NORM|3c03970b97325aebc96, NORM|3f2a8da12d2428d8dec, NORM|7128dfb6a017d1db0d5 (+7) |
 | PROVE | — |
 | CHALLENGE | — |
 | VERIFY | — |
