@@ -5222,6 +5222,13 @@ def checks():
            "file", None,
            ["滞納処分費の収納済額及び滞納処分費に係る返納金（過誤納金の還付金等に係るものに限る。）の収納済額の合計額から滞納処分費に係る支払決定済額を控除した金額は、一般会計の雑収入とする。"])
 
+    # CustomsTariffArt9ExtendedPeriodReading.lean - NORM|f55c4785... (関税定率法 art.9(11) READING, law 143AC0000000054)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("customs tariff law art.9 extended period reading - CustomsTariffArt9ExtendedPeriodReading.lean",
+           "143AC0000000054",
+           "file", None,
+           ["\u7b2c\u516d\u9805\u53ca\u3073\u7b2c\u4e03\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e00\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u6307\u5b9a\u3055\u308c\u305f\u671f\u9593\u3092\u524d\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u5ef6\u9577\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
