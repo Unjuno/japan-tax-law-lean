@@ -13514,3 +13514,103 @@ registry の `needles` 2 本を pinned JSON の生テキストおよび Article 
 - **独立再抽出**: ホ = `i - (ro + ha + ni)` (Nat 飽和減算, 単位 人)。独立仕様は三段階減算で書き、全称定理 `agreeTaxablePassengers` が omega で照合。
 - **H/T/D**: 境界 40 / 0 / 0 (飽和) / 250 PASS; 普遍定理 3 件。
 - **C/U**: 四数の認定・ヘ税額・他条は NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
+## Batch DP review (2026-11-26) — 地方税法 art.20の4の2 §3 ただし書（政令で定める地方税の確定金額 一円未満切捨て）/ `CabinetOrderLocalTaxOneYenRounding.lean`（cycle-126 の1モデル、機械的独立照合・反例探索）
+
+- **レビュア役割**: 独立 Adversarial Review Agent（形式化担当から独立）。担当の STAGING／doc-comment は信じず、pinned 原文ツリー・registry／CI 定義・実装・独立 Spec を機械的に再照合した。
+- **対象（読み取り専用・変更なし）**: `JapanTaxLaw/CabinetOrderLocalTaxOneYenRounding.lean`（`roundToYen (amountYen : Money) := amountYen`）、`CabinetOrderLocalTaxOneYenRoundingSpec.lean`（独立定式 `specRound (a : Nat) := a`）、`CabinetOrderLocalTaxOneYenRoundingTests.lean`。
+- **一次資料（pinned・改変禁止）**: `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`（12,181,725 バイト、SHA-256 `3DD29E0078BF24E09C79436CE7B0F00FD2CFB5A5BBCB97BD4F4352971BE68D53`、law id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`）。
+- **needle 出所**: `docs/STAGING_ONEYEN_ROUND.md` の JSON ブロックをパースして取得（ハードコードせずステージング定義自体を検証）。`scripts/ci/transcription_audit.py` の cycle-126 エントリ（行 2389–2393）と 2 本とも完全一致。
+- **書き込み対象は本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ**。commit / push / merge / ブランチ切替は行わず、Lean モジュール・`data/*` は読み取り専用。
+
+### DP-1. pinned 原文から「一円未満」＝ 1 円を直接独立抽出（十円／百円の桁違いを明示除外）
+
+- JSON ツリーを直接辿り `law_full_text → Law[1] → LawBody[2] → MainProvision[0] → Chapter[14] → Section[5]` の `Article attr.Num = 20_4_2`（ArticleTitle `第二十条の四の二`）を特定。§3（`Paragraph Num=3`）の `Sentence Function=proviso` 本文を逐語抽出した（実装値・doc-comment を根拠にしない）。
+- pinned §3 ただし書 逐語（**78 文字、U+3000 = 0、U+3001 は 4 個**）:
+  - `ただし、政令で定める地方税の確定金額については、その額に一円未満の端数があるとき、又はその全額が一円未満であるときは、その端数金額又はその全額を切り捨てる。`
+- **数値の独立読解**: 当該 proviso に正規表現 `([一二三四五六七八九十百千万]+)円未満` を適用すると **`['一', '一']` の 2 回**（「一円未満の端数があるとき」／「全額が一円未満であるとき」）。抽出語 `一` を自前の漢数字パーサで評価した結果は **1**（＝ 1 円）。したがって原文の閾値は **一円未満 = 1 円** であり、`roundToYen` の「整数円入力では 1 円未満端数は存在しない＝恒等」という bounded L4 モデルと整合する。
+- **桁違いの明示除外**: 同 proviso 内で `百円` = **0 回**、`十円` = **0 回**、`千円` = **0 回**、`二円` = **0 回**、アラビア数字 `100` = **0 回**。`百円`（＝100）は同じ §3 の**本文**(main)「地方税の確定金額に百円未満の端数があるとき…」に現れるが、それはただし書の対象外の別ルール。`千円`（＝1,000）は §1・§2・§5・§6 に、`二千円`（＝2,000）は §2 に現れる。ゆえに **100 円／1,000 円／2,000 円をこの proviso の閾値と読替えることは原文照合で棄却される**。
+- doc-comment の文字数申告も独立再計算して一致: ArticleCaption 16 + ArticleTitle 8 + ParagraphNum 8 + 全 14 Sentence の 1,086 = **1,118 chars**、U+3000 = **0**（「flat/normalized leaf text 1118 chars」は記事全体の平坦化 leaf text を指し、上記 §3 proviso 78 文字とは文字数定義が異なる）。
+- **恒等対応の妥当性**: `TaxFinance.lean:29` の `abbrev Money := Nat`（非負整数・単位 円）を確認。整数円入力には 1 円未満の端数も「全額が 1 円未満」の正の値も表現されず（取り得る最小は 0 と 1）、`a ↦ a` は原文の切捨て操作を Nat 上で忠実に実現する。0 円（＝全額が一円未満）は 0 へ、1 円以上はそのままへ写る。
+
+### DP-2. needle 2 本の U+3000 = 0 と 2/2 FOUND 検証
+
+| # | needle | 長さ | U+3000 | U+3001(、) | pinned JSON 生テキスト | Article 20_4_2 内 | 備考 |
+|---:|---|---:|---:|---:|:---:|:---:|---|
+| 1 | `ただし、政令で定める地方税の確定金額については、その額に一円未満の端数があるとき、又はその全額が一円未満であるときは、その端数金額又はその全額を切り捨てる` | 77 | **0** | 4 | 1 回 FOUND | **1 回 FOUND** | §3 proviso 本文（末尾の `。` を除く）と**完全一致**（`needle == proviso[:-1]` を mechaniacally 確認）。 |
+| 2 | `第二十条の四の二` | 8 | **0** | 0 | 10 回 FOUND | **1 回 FOUND** | ArticleTitle。他条の参照箇所で raw 全体には 10 回現れるが、Article 20_4_2 内は 1 回。 |
+
+- **FOUND 2/2 / MISS 0**。両 needle とも U+3000（全角スペース）は **0 個**。needle 1 は U+3001（全角読点）を 4 個含むが全角スペースではないため条件に影響しない。pinned 原文の flat/normalized leaf と完全一致し、改行・全角スペースの挿入は無い。
+- 2 本の needle リテラルは `transcription_audit.py::checks()` の cycle-126 エントリにもそのまま存在し、STAGING との間に食い違いはない。
+
+### DP-3. 反例探索 — `roundToYen` と独立 Spec の一致
+
+- 実装: `roundToYen (amountYen : Money) := amountYen`（`Money = Nat`）。独立 Spec: `specRound (a : Nat) := a`（別モジュールの別定式）。
+- `lake env lean --stdin` による `#eval` 実行結果（exit code **0**）:
+
+| 入力 a | `roundToYen a` | `specRound a` | 一致 | 根拠 |
+|---:|---:|---:|:---:|---|
+| **0** | **0** | **0** | ✅ | 「全額が一円未満」→ 0 |
+| **1** | **1** | **1** | ✅ | 1 円以上は端数なし |
+| **12345** | **12345** | **12345** | ✅ | 整数円入力に 1 円未満端数は存在しない |
+
+- 追加確認: `agreeCabinetOrderLocalTaxOneYenRounding = true`（`[0,1,2,99,100,12345,1000000]` の 7 点、`by decide` でカーネル決定）。レビュー側でも同一グリッドで `roundToYen a == specRound a` を再評価し全点 `true`。
+- **桁違い反例の排除**: もし閾値を 100／1,000 と誤読して `a / 100 * 100` や `a / 1000 * 1000` を採れば `a=12345` で 12,300／12,000 となり独立 Spec（12,345）と食い違う。実装は恒等なのでこの反例は成立せず、DP-1 の「一円 = 1」読解と整合。**不一致（CONFIRMED）は 0 件。**
+
+### DP-4. `#print axioms` による公理依存監査
+
+- 一時 Lean ファイルを作らず `lake env lean --stdin` に `CabinetOrderLocalTaxOneYenRoundingSpec` の import をパイプし、3 宣言へ `#print axioms` を実行（exit code **0**）。無名 `example` は import 時に `by decide` で検証済み。
+
+| 監査対象 | 出力 |
+|---|---|
+| `JapanTaxLaw.CabinetOrderLocalTaxOneYenRounding.roundToYen` | does not depend on any axioms |
+| `JapanTaxLaw.CabinetOrderLocalTaxOneYenRounding.specRound` | does not depend on any axioms |
+| `JapanTaxLaw.CabinetOrderLocalTaxOneYenRounding.agreeCabinetOrderLocalTaxOneYenRounding` | does not depend on any axioms |
+
+| 公理 | 依存回数 |
+|---|---:|
+| `Classical.choice` | **0 回** |
+| `sorryAx` | **0 回** |
+| `Quot.sound` | **0 回** |
+| `propext` | **0 回** |
+| axiom-free | **3/3 すべて** |
+
+- 3 モジュールのソース文字列走査でも `sorry` / `admit` / `axiom` / `unsafe` / `Classical` / `choice` / `propext` / `Quot.sound` は **計 0 回**（`by decide` は 8 回、すべてカーネル決定）。stdin 入力のため一時 Lean ファイルは作成していない。
+
+### DP-5. CONFIRMED / BY-DESIGN / UNRESOLVED 分類
+
+| 分類 | 件数 |
+|---|---:|
+| CONFIRMED（実装不具合・原文との不一致） | **0** |
+| BY-DESIGN（明示的 NOT MODELLED / 設計上） | **5** |
+| UNRESOLVED（人間の法律専門家レビューが必要） | **3** |
+
+#### CONFIRMED（0 件）
+
+- 数値誤り（十円／百円／千円）、needle 不一致（U+3000 混入・MISS）、Impl/独立 Spec 不一致、公理依存はいずれも検出されず。**是正を要求する実装上の不具合は存在しない（発見ゼロを明示し、欠陥件数を手柄にしない）。**
+
+#### BY-DESIGN（5 件）
+
+- **B-1 「政令で定める地方税」の範囲・政令内容の未形式化**: pinned proviso は適用対象を「政令で定める地方税」に限定するが、どの地方税が該当するか、政令の具体的content は本文スナップショットに無い。impl は対象判定述語を持たず、doc-comment（19–20 行）が **NOT MODELLED** と明記。caller-established の境界として妥当（法的効果の確定は U-1 で保留）。
+- **B-2 §3 本文（百円未満切捨て）の未形式化**: 同 §3 の main「地方税の確定金額に百円未満の端数があるとき、又はその全額が百円未満であるときは、その端数金額又はその全額を切り捨てる。」はただし書とは別ルール（100 円）。独立モデル `LocalTaxFixedAmountRounding.lean`（cycle-119 / Batch DI でレビュー済み）に委譲され、本モジュール対象外。**100 円を proviso に混入させない根拠ともなる。**
+- **B-3 §1（千円）・§2（延滞金／加算金 千円・二千円）の未形式化**: 別条項として `TaxBaseRounding.lean`（cycle-124 / Batch DN）および `ArrearsChargeRounding.lean`（cycle-125 / Batch DO）に委譲済み。各々レビュー済みで、本モジュールの 1 円とは閾値が異なる。
+- **B-4 §4〜§9 の未形式化**: §4 滞納処分費（百円）、§5 延滞金・加算金の確定金額（百円／千円）、§6 分割納付の端数合算（千円）、§7 還付加算金への準用（読替え）、§8 個人の市町村民税等のみなし・特別徴収の読替（「千円」→「百円」）、§9 国民健康保険税の読替は pinned 原文に実在するが、いずれもスコープ外（NOT MODELLED）として明示済み。取りこぼしではない。
+- **B-5 入力単位・算定は caller-established**: `Money = Nat`（非負整数・円）を前提とし、与えられた `amountYen` への恒等対応のみを実装。税額の算出・通貨未満端数の表現・該当性判定は行わない（doc-comment の「本モデルは法的レビューを提供しない」と整合）。
+
+#### UNRESOLVED（3 件）
+
+- **U-1 政令で定める地方税の具体的範囲・政令の内容**: 「政令で定める」とあるだけで、当該政令の条文は pinned 地方税法本文スナップショットに含まれない。したがって対象地方税の確定は mechanical 照合では不能で、**人間の法律専門家による別途政令確認**を要する（B-1 の未形式化は設計上妥当だが法的効果は保留）。
+- **U-2 1 円未満端数の発生段階と通貨単位の扱い**: 原文は確定金額に 1 円未満の端数が生じ得ることを前提とするが、`Money = Nat` は端部を表現できない。より細かい単位（銭／厘等）でモデル化すべきか、あるいは caller が丸め済みの整数円を渡す前提でよいかは pinned 原文のみでは決定不能。**専門家判断を要する。**
+- **U-3 §3 本文（百円）との適用境界・§8 みなし規定の相互作用**: どの確定金額に proviso（1 円）を適用し本文（100 円）を適用しないか、また §8 の「一の地方税とみなす」扱いと政令除外がどう交差するかは、原文文言のみでは確定しない。機械的照合の対象外。
+
+### DP-6. 最終報告（サマリ）
+
+- **CONFIRMED 0 件 / BY-DESIGN 5 件 / UNRESOLVED 3 件**。不具合（是正要求）は検出されず。
+- **pinned 原文照合**: Article 20_4_2 §3 proviso（78 文字・U+3000 = 0）から `一円未満` を 2 回直接抽出し、漢数字 `一` を **1 円** と独立評価。**百円／十円／千円の桁違いを明示除外**。記事全体 1,118 chars も独立再計算で一致。
+- **needle**: 2/2 FOUND、MISS 0、両方 U+3000 = 0（needle 1 は U+3001 を 4 個だが影響なし）。needle 1 は proviso 本文と末尾 `。` 以外で完全一致。
+- **反例**: `roundToYen(0)=0`、`(1)=1`、`(12345)=12345` で Impl = 独立 Spec。`agreeCabinetOrderLocalTaxOneYenRounding = true`。桁違いモデル（`/100*100`, `/1000*1000`）は反例で棄却。整数円入力に 1 円未満端数なしという恒等対応の妥当性を確認。
+- **公理**: choice / sorryAx / Quot.sound / propext すべて **0 回**、3/3 axiom-free（exit code 0）。一時 Lean ファイルなし（stdin）。
+- **禁止操作の遵守**: commit / push / merge / ブランチ切替は **一切実行していない**。Lean モジュールおよび `data/*` は読み取り専用とし、書き込みは `docs/ADVERSARIAL_REVIEW.md` のみ。
+- **一時ファイル**: 検証用 Python スクリプト・結果ファイルは `C:/Users/junny/AppData/Local/Temp/opencode/` に作成し、**すべて削除済み**（リポジトリ内には生成していない）。
+- **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `0C31E01D8EB61C593FC166F3B837945B1F54729419E6A098A6F8208D38A37BD8`・`1620178` バイト・広義レビュー件数 **`120` 件**（`^## .*review` ベース）。本セクション追記後は **`121` 件**（Previous +1）へ増加。追記後のバイト数・SHA-256 は書き込み後の再読込で別途検証した（自己言及的なハッシュ値は本文に埋め込まない）。既存セクション（Batch G〜Batch DO / Batch SRS を含む書き込み直前の全バイト列）は前方一致で保持されていることを書き込み後に検証した。
+
+> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 文字照合・境界反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。

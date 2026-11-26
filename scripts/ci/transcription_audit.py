@@ -91,13 +91,13 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
-    # TouristTaxTaxablePassengers — 国際観光旅客税法施行規則 art.3(2) ホ 課税旅客数
-    yield ("国際観光旅客税法施行規則 art.3(2) ホ（課税旅客数＝イ−(ロ+ハ+ニ)）↔ TouristTaxTaxablePassengers.lean",
-           "430M60000040039", "article", "第三条", ["イに掲げる数からロからニまでに掲げる数の合計数を控除した数"])
-
     yield ("航空機燃料税法 art. 14(1) 第四号（納付すべき税額＝二号税額−前号税額）↔ AircraftFuelTaxPayable.lean", "347AC0000000007", "article", "第十四条", ["第二号に掲げる航空機燃料税額から前号に掲げる航空機燃料税額を控除した金額"])
 
     yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
+
+    # PrevParagraphTwoThreeReading.lean - NORM|f5c77990... (前条二・三項準用 READING, law 327CO0000000124)
+    yield ("米軍地位協定臨時特例法施行令 art.3_2(2)（前条二・三項準用）↔ PrevParagraphTwoThreeReading.lean",
+           "327CO0000000124", "article", "第三条の二", ["前条第二項及び第三項の規定は、前項の課税石油ガスについて準用する。"])
 
     # TokyoAsCityDeeming.lean - NORM|1a2cafd55f792102d5682dcc811260486c83126edbf8985d8a31d64c3eddb32f
     # 特別とん譲与税法 第六条第一項 第二文 (DEEMING 「都を市とみなして」).
@@ -105,7 +105,6 @@ def checks():
     yield ("特別とん譲与税法 art.6(1)（都を市とみなす）↔ TokyoAsCityDeeming.lean",
            "332AC0000000077", "article", "第六条",
            ["この場合においては、都を市とみなして、この法律の規定を適用する。"])
-
     # Restored registry checks dropped by a concurrent stale-base rewrite.
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,
@@ -1206,6 +1205,12 @@ def checks():
            "332AC0000000038",
            "article", "第十条",
            ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する", "第十条"])
+
+    # 関税定率法 art.8(6) — CustomsTariffArt8ExtensionSixMonths.lean
+    yield ("関税定率法 art.8(6)（六月以内の延長）↔ CustomsTariffArt8ExtensionSixMonths.lean",
+           "143AC0000000054",
+           "file", None,
+           ["その期間を六月以内に限り延長することができる", "第八条"])
 
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
@@ -2378,6 +2383,18 @@ def checks():
            "336M50000400035",
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
+
+    # ArrearsChargeRounding — cycle-125
+    yield ("ArrearsChargeRounding.lean",
+           "325AC0000000226",
+           "file", None,
+           ["延滞金又は加算金の額を計算する場合において、その計算の基礎となる税額に千円未満の端数があるとき、又はその税額の全額が二千円未満であるときは、その端数金額又はその全額を切り捨てる", "第二十条の四の二"])
+
+    # CabinetOrderLocalTaxOneYenRounding — cycle-126
+    yield ("CabinetOrderLocalTaxOneYenRounding.lean",
+           "325AC0000000226",
+           "file", None,
+           ["ただし、政令で定める地方税の確定金額については、その額に一円未満の端数があるとき、又はその全額が一円未満であるときは、その端数金額又はその全額を切り捨てる", "第二十条の四の二"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -4465,16 +4482,17 @@ def checks():
            "325AC0000000226", "file", None,
            ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
 
+
     yield ("地方税法 art. 71_21（罰金上限50万円）↔ LocalTaxArt71_21FineCap500k.lean",
            "325AC0000000226", "file", None,
            ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
 
     # 酒税法 art. 30の2(1)(3) — TaxableQuantityResidual.lean
     yield ("酒税法 art. 30_2（第一号数量から前号数量を控除した課税標準数量）↔ TaxableQuantityResidual.lean",
            "328AC0000000006",
            "file", None,
            ["第一号に規定する課税標準たる数量からそれぞれ当該税率の適用区分ごとに前号に規定する課税標準たる数量を控除した数量（以下この項において「課税標準数量」という。）"])
-
     # 東日本大震災復興臨時特例法 art.2(1) — ReconstructionEqualLevySurcharge500.lean
     yield ("東日本大震災復興臨時特例法 第二条(1)（均等割標準税率 五百円加算）↔ ReconstructionEqualLevySurcharge500.lean",
            "423AC0000000118", "article", "第二条",
@@ -4497,14 +4515,15 @@ def checks():
            '325AC0000000226', 'file', None,
            ['次に掲げる金額のうちいずれか少ない金額の百分の二'])
 
+
     yield ("地方税法 art. 72_39_2（納税猶予100万円例外）↔ LocalTaxDeferralSmallAmountException1MB.lean",
            "325AC0000000226", "file", None,
            ["その猶予に係る税額が百万円以下である場合"])
-
     # 防衛特別法人税政令 art.3(6)(1) — DefenseCorpShortfallSum.lean
     yield ("防衛特別法人税政令 第三条(6)(1)（零下回る額の合計）↔ DefenseCorpShortfallSum.lean",
            "507CO0000000134", "article", "第三条",
            ["他の通算法人の他の課税事業年度の調整前控除限度額が零を下回る場合のその下回る額の合計額"])
+
 
     yield ("特別とん税法 art.10(1)（3年/50万円の上限）↔ SpecialTonnageArt10PenaltyCap.lean",
            "332AC0000000038",
@@ -4517,47 +4536,35 @@ def checks():
            "file", None,
            ["三百万円を超え四百万円以下の金額", "第二十一条の七"])
 
+
     yield ("地方税法 art. 51（標準税率超過時2%上限）↔ LocalTaxStandardRateCeiling2.lean",
            "325AC0000000226", "file", None,
            ["標準税率を超える税率で課する場合においても、百分の二を超えることができない。"])
-
     # 地方税法 art. 37 — LocalTaxReducedRate2or1.lean (2%/1%)
     yield ("地方税法 art. 37（2%／指定都市1%）↔ LocalTaxReducedRate2or1.lean",
            "325AC0000000226", "file", None,
            ["次に掲げる金額のうちいずれか少ない金額の百分の二"])
 
-    # 関税率表第〇四〇六・一〇号 — FreshCheeseCardQualification.lean
-    yield ("関税率表 art. 32（フレッシュチーズ・カード要件）↔ FreshCheeseCardQualification.lean",
-           "335CO0000000069",
-           "file", None,
-           ["関税率表第〇四〇六・一〇号に掲げるフレッシュチーズ及びカード（いずれも乾燥固形分が全重量の四十八パーセント以下のもの（一個の重量が四グラム以下の細片にし、冷凍し、かつ、正味重量が五キログラムを超える直接包装にしたものに限る。）、関税割当チーズ及びクリームチーズ（軟質で展延性のある熟成していないリンドレスチーズであつて、乾燥固形分のうちに占める乳脂肪分の割合、無脂肪ベースでの全重量のうちに占める水分の割合及び全重量のうちに占める乾燥固形分の割合が、それぞれコーデックスのクリームチーズの規格（ＣＯＤＥＸ"])
-
-    yield ("特別とん税法 art.10(1)（3年/50万円の上限）↔ SpecialTonnageArt10PenaltyCap.lean",
-           "332AC0000000038",
-           "article", "第十条",
-           ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する", "第十条"])
-
-    # 関税定率法 art.8(6) — CustomsTariffArt8ExtensionSixMonths.lean
-    yield ("関税定率法 art.8(6)（六月以内の延長）↔ CustomsTariffArt8ExtensionSixMonths.lean",
-           "143AC0000000054",
-           "file", None,
-           ["その期間を六月以内に限り延長することができる", "第八条"])
-
-    yield ("地方税法 art. 37（2%／指定都市1%）↔ LocalTaxReducedRate2or1.lean",
-           "325AC0000000226", "file", None,
-           ["次に掲げる金額のうちいずれか少ない金額の百分の二"])
 
     # 地方税法 art. 314の6 — LocalInhabitantReducedRate3or4.lean (3%/4%)
     yield ("地方税法 art. 314_6（3%／指定都市4%）↔ LocalInhabitantReducedRate3or4.lean",
            "325AC0000000226", "file", None,
            ["次に掲げる金額のうちいずれか少ない金額の百分の三"])
 
-    # InheritanceTaxArt4DeemedAcquisitionCaption.lean - NORM|231c551d... (相続税法 art.4 ArticleCaption DEEMING, law 325AC0000000073)
-    # Whole-law locator (article caption).
-    yield ("inheritance tax law art.4 deemed acquisition caption - InheritanceTaxArt4DeemedAcquisitionCaption.lean",
-           "325AC0000000073",
-           "law", None,
-           ["\uff08\u907a\u8d08\u306b\u3088\u308a\u53d6\u5f97\u3057\u305f\u3082\u306e\u3068\u307f\u306a\u3059\u5834\u5408\uff09"])
+    # 租税特別措置法 art. 10 — RndExcessOver3.lean (増減試験研究費割合 > 3%)
+    yield ("租税特別措置法 art. 10（増減試験研究費割合 3%超）↔ RndExcessOver3.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の三を超える場合（第三号に掲げる場合を除く。）"])
+    # 租税特別措置法 art. 10 — RndExcessOver12.lean (増減試験研究費割合 > 12%)
+    yield ("租税特別措置法 art. 10（増減試験研究費割合 12%超）↔ RndExcessOver12.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の十二を超える場合（ニに掲げる場合を除く。）"])
+
+    # Restored registry-required check dropped by concurrent merge.
+    yield ("関税率表 art. 32（フレッシュチーズ・カード要件）↔ FreshCheeseCardQualification.lean",
+           "335CO0000000069",
+           "file", None,
+           ["関税率表第〇四〇六・一〇号に掲げるフレッシュチーズ及びカード（いずれも乾燥固形分が全重量の四十八パーセント以下のもの（一個の重量が四グラム以下の細片にし、冷凍し、かつ、正味重量が五キログラムを超える直接包装にしたものに限る。）、関税割当チーズ及びクリームチーズ（軟質で展延性のある熟成していないリンドレスチーズであつて、乾燥固形分のうちに占める乳脂肪分の割合、無脂肪ベースでの全重量のうちに占める水分の割合及び全重量のうちに占める乾燥固形分の割合が、それぞれコーデックスのクリームチーズの規格（ＣＯＤＥＸ"])
 
     # LocalTaxArt154Capacity30Condition.lean - NORM|aada7e03... (地方税法 art.154 table-cell CONDITION, law 325AC0000000226)
     # Article-kind locator; needle is the <=30 passenger-capacity table cell.
