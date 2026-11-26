@@ -4862,6 +4862,26 @@ def checks():
            "file", None,
            ["当該事業の開始の日の属する年度の前年度の一日当たりの平均的な利用者の人数が十万人以上である駅若しくは停留場（以下この号において「特定駅等」という。）又は特定駅等からの距離が百キロメートル以内の駅若しくは停留場において実施される事業"])
 
+    # 必要事項の政令委任 art. 2 — CabinetOrderMattersDelegation.lean
+    yield ("必要事項の政令委任 第二条（前二項の読替的参照）↔ CabinetOrderMattersDelegation.lean (cabinet-order delegation)",
+           "422AC1000000049",
+           "article", "第二条",
+           ["前二項の規定の適用に関し必要な事項は、政令で定める。"])
+
+
+    # 特別法人事業譲与税法 art. 31(5)(4) — ExcessFinanceGrant75Cap.lean
+    yield ("特別法人事業譲与税法 art. 31（十一月分75%と財源超過額上限）↔ ExcessFinanceGrant75Cap.lean",
+           "431AC0000000004",
+           "file", None,
+           ["財源超過団体における十一月の譲与時期に係る基準各譲与時期特別法人事業譲与税額の百分の七十五に相当する額（当該額に当該財源超過団体に係る五月分財源超過団体譲与制限額及び八月分財源超過団体譲与制限額の合算額を加えた額が財源超過額を超える場合には、当該財源超過額から当該合算額を控除した額とする。）をいう。"])
+
+    # 相続税法 art.1の4 — GiftTaxTenYearResidenceLookback.lean
+    yield ("相続税法 art.1の4（贈与前十年以内の住所）↔ GiftTaxTenYearResidenceLookback.lean",
+           "325AC0000000073",
+           "file", None,
+           ["当該贈与前十年以内のいずれかの時においてこの法律の施行地に住所を有していたことがあるもの", "第一条の四"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
