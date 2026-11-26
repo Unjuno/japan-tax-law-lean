@@ -14,25 +14,18 @@ namespace JapanTaxLaw.TaxResearchCouncilQuorum
 
 theorem quorumMonotone (present present' total : Nat) :
     present <= present' → quorumMet present total → quorumMet present' total := by
-  unfold quorumMet
-  intro hle hq
-  constructor
-  · exact hq.1
-  · exact Nat.le_trans hq.2 (Nat.mul_le_mul_left 3 hle)
+  unfold quorumMet; intro hle hq
+  exact ⟨hq.1, Nat.le_trans hq.2 (Nat.mul_le_mul_left 3 hle)⟩
 
 theorem notQuorumWhenZeroPresent (total : Nat) : 0 < total → ¬ quorumMet 0 total := by
-  unfold quorumMet
-  intro hpos hq
-  have hzero : total = 0 := Nat.eq_zero_of_le_zero (by simpa using hq.2)
-  rw [hzero] at hpos
-  exact Nat.lt_irrefl 0 hpos
+  unfold quorumMet; intro hpos hq
+  have hzero : total ≤ 0 := by simpa using hq.2
+  exact (Nat.not_lt_of_ge hzero) hpos
 
 theorem allPresentSuffices (total : Nat) : 0 < total → quorumMet total total := by
-  unfold quorumMet
-  intro hpos
-  constructor
-  · exact hpos
-  · have h13 : 1 <= 3 := by decide
-    exact Nat.le_trans (Nat.le_refl total) (by simpa using Nat.mul_le_mul_right total h13)
+  unfold quorumMet; intro hpos
+  exact ⟨hpos, by
+    have h : 1 * total ≤ 3 * total := Nat.mul_le_mul_right total (by decide : 1 ≤ 3)
+    simpa using h⟩
 
 end JapanTaxLaw.TaxResearchCouncilQuorum
