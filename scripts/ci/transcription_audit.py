@@ -5192,6 +5192,13 @@ def checks():
            "file", None,
            ["\u524d\u9805\u306e\u898f\u5b9a\u306e\u9069\u7528\u306b\u3064\u3044\u3066\u306f\u3001\u6b21\u306b\u63b2\u3052\u308b\u8005\u306f\u5b9f\u5b50\u3068\u307f\u306a\u3059\u3002"])
 
+    # SpecialMeasuresArt70_6_6PresumedHeirCondition.lean - NORM|293a349f... (租税特別措置法 art.70の6の6(2) PRESUMPTION, law 332AC0000000026)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("special measures art.70_6_6 presumed heir condition - SpecialMeasuresArt70_6_6PresumedHeirCondition.lean",
+           "332AC0000000026",
+           "file", None,
+           ["\u5f53\u8a72\u500b\u4eba\u304c\u3001\u5f53\u8a72\u76f8\u7d9a\u306e\u958b\u59cb\u306e\u76f4\u524d\u306b\u304a\u3044\u3066\u3001\u5f53\u8a72\u88ab\u76f8\u7d9a\u4eba\u306e\u63a8\u5b9a\u76f8\u7d9a\u4eba\u3067\u3042\u308b\u3053\u3068\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
