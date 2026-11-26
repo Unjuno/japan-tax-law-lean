@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 196 | 327 | 59.94% |
+| laws with >=1 pinned literal check | 197 | 327 | 60.24% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -35,10 +35,10 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 
 | axis | count |
 |---|---:|
-| references extracted | n/a |
-| internal references checked | n/a |
-| external references NOT bound to the ledger | n/a |
-| references classified unsupported | n/a |
+| references extracted | 476500 |
+| internal references checked | 63234 |
+| external references NOT bound to the ledger | 175186 |
+| references classified unsupported | 250043 |
 
 external_unverified references are NOT verified and are NOT silently counted
 as covered scope.
@@ -62,7 +62,7 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 758 | n/a | n/a |
+| pinned literal checks | 759 | n/a | n/a |
 | distinct article pins | 227 | 42584 | 0.53% |
 | pinned Lean modules (cross-law) | 1280 | n/a | n/a |
 
@@ -74,7 +74,7 @@ and must never be merged into the 'laws in ledger' completion rate.
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
-| external references NOT bound to the ledger | n/a |
+| external references NOT bound to the ledger | 175186 |
 | related statutes discovered but not acquired (Objective §2) | 380 |
 | related statutes acquired but not parsed/modelled/reviewed | 3 |
 
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 124 |
+| adversarial review sessions recorded | 134 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -147,6 +147,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `329CO0000000164` 税関関係手数料令
 - `329M50000002023` 地方税法施行規則
 - `329M50000040039` 国税収納金整理資金事務取扱規則
+- `329M50000040064` 税関職員の身分を示す証票等の書式に関する省令
 - `330AC0000000037` 輸入品に対する内国消費税の徴収等に関する法律
 - `330AC0000000104` 地方揮発油税法
 - `330AC0000000113` 地方揮発油譲与税法
