@@ -2466,6 +2466,12 @@ def checks():
            "file", None,
            ["第一条この政令は、昭和六十四年四月一日から施行する", "この政令は、昭和六十四年四月一日から施行する"])
 
+    # TariffQuotaSystemEnforcementDate — cycle-132
+    yield ("TariffQuotaSystemEnforcementDate.lean",
+           "336CO0000000153",
+           "file", None,
+           ["第一条この政令は、平成三年四月一日から施行する", "この政令は、平成三年四月一日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -4877,6 +4883,15 @@ def checks():
     yield ("森林環境税施行規則 art. 1_3（林野率85%以上）↔ ForestRateAtLeast85.lean",
            "431M60000008040", "file", None,
            ["林野率が百分の八十五以上であるもの"])
+
+    # 所得税法施行令 art. 73 — LoanBalanceRatioAtMost15.lean (15%以下)
+    yield ("所得税法施行令 art. 73（貸付金残額15%以下）↔ LoanBalanceRatioAtMost15.lean",
+           "340CO0000000096", "file", None,
+           ["資産総額のうちに当該貸付金の残額の合計額の占める割合が常時百分の十五以下であること。"])
+    # 租税特別措置法 art. 40の7 — ForeignRelatedCorpTaxRate20.lean (20%以上)
+    yield ("租税特別措置法 art. 40_7（外国関係法人20%以上）↔ ForeignRelatedCorpTaxRate20.lean",
+           "332AC0000000026", "file", None,
+           ["対象外国関係法人の各事業年度の租税負担割合が百分の二十以上である場合"])
 
     yield ("税理士法 art. 8（二以上職務の従事期間通算）↔ TaxAccountantExamExemption.lean",
            "326AC1000000237",
