@@ -1,4 +1,0 @@
-import JapanTaxLaw.TaxAccountantExamFeeScheduleSpec
-import JapanTaxLaw.CommonLandAreaTenTimesSpec
-#print axioms JapanTaxLaw.TaxAccountantExamFeeScheduleSpec.agree_thm
-#print axioms JapanTaxLaw.CommonLandAreaTenTimesSpec.agree_thm

@@ -1,5 +1,0 @@
-import JapanTaxLaw.TaxResearchCouncilQuorum
-import JapanTaxLaw.TaxResearchCouncilQuorumSpec
-#print axioms JapanTaxLaw.TaxResearchCouncilQuorum.quorumMonotone
-#print axioms JapanTaxLaw.TaxResearchCouncilQuorum.allPresentSuffices
-#print axioms JapanTaxLaw.TaxResearchCouncilQuorum.agreeQuorum
