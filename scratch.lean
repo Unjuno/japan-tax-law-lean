@@ -1,2 +1,0 @@
-import JapanTaxLaw.ConsumptionTaxReformEnforcementDateReiwa2Spec
-#print axioms JapanTaxLaw.ConsumptionTaxReformEnforcementDateReiwa2.agree_enforcement_date
