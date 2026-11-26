@@ -1014,3 +1014,7 @@ JapanTaxLaw/CorporationTemporarySpecialTaxEnforcementDateTests.lean # 同上 退
 JapanTaxLaw/PurebredLivestockCertificateEnforcementDate.lean    # 純粋種繁殖用牛豚・無税馬証明書に関する省令 施行日2000-04-01（附則 art.1）L4
 JapanTaxLaw/PurebredLivestockCertificateEnforcementDateSpec.lean # 同上 独立定式
 JapanTaxLaw/PurebredLivestockCertificateEnforcementDateTests.lean # 同上 退行テスト
+
+JapanTaxLaw/CustomsOfficerBadgeFormEnforcementDate.lean    # 税関職員の身分を示す証票等の書式に関する省令 施行日1977-07-01（附則 art.1）L4
+JapanTaxLaw/CustomsOfficerBadgeFormEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/CustomsOfficerBadgeFormEnforcementDateTests.lean # 同上 退行テスト

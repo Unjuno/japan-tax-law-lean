@@ -179,3 +179,5 @@ lake clean && lake build                                                # 再現
 法人臨時特別税に関する省令 附則 art.1 CorporationTemporarySpecialTaxEnforcementDate.lean（施行日 平成15年1月6日=2003-01-06 — 他条・実体規定 NOT MODELLED）
 
 純粋種繁殖用牛豚・無税馬証明書に関する省令 附則 art.1 PurebredLivestockCertificateEnforcementDate.lean（施行日 平成12年4月1日=2000-04-01 — 他条・実体規定 NOT MODELLED）
+
+税関職員の身分を示す証票等の書式に関する省令 附則 art.1 CustomsOfficerBadgeFormEnforcementDate.lean（施行日 昭和52年7月1日=1977-07-01 — 他条・実体規定 NOT MODELLED）
