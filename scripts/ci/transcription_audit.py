@@ -5310,6 +5310,15 @@ def checks():
            "340M50000040011", "file", None,
            ["令第三百五十二条の二第二項第四号に規定する財務省令で定める割合は、百分の九十とする。"])
 
+    # 租税特別措置法施行令 art. 39の17 — ForeignBankShareOver50.lean (50%超)
+    yield ("租税特別措置法施行令 art. 39_17（持株50%超）↔ ForeignBankShareOver50.lean",
+           "332CO0000000043", "file", None,
+           ["発行済株式等の百分の五十を超える数又は金額の株式等を有するもの"])
+    # 法人税法施行令 art. 155の32 — MemberRatiosAtMost5.lean (両割合5%以下)
+    yield ("法人税法施行令 art. 155_32（両割合5%以下）↔ MemberRatiosAtMost5.lean",
+           "340CO0000000097", "file", None,
+           ["当該構成員に係る前号イ及びロに掲げる割合のいずれもが百分の五以下であること。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

@@ -873,6 +873,9 @@ import JapanTaxLaw.FootAndMouthDiseaseResponseEnforcementDateTests
 import JapanTaxLaw.ForeignAssetPenaltyCap
 import JapanTaxLaw.ForeignAssetPenaltyCapSpec
 import JapanTaxLaw.ForeignAssetPenaltyCapTests
+import JapanTaxLaw.ForeignBankShareOver50
+import JapanTaxLaw.ForeignBankShareOver50Spec
+import JapanTaxLaw.ForeignBankShareOver50Tests
 import JapanTaxLaw.ForeignBondInterestExemptionScopeEnforcementDate
 import JapanTaxLaw.ForeignBondInterestExemptionScopeEnforcementDateSpec
 import JapanTaxLaw.ForeignBondInterestExemptionScopeEnforcementDateTests
@@ -1670,6 +1673,9 @@ import JapanTaxLaw.MedicalExpenseDeductionTests
 import JapanTaxLaw.MeetingQuorumOneThird
 import JapanTaxLaw.MeetingQuorumOneThirdSpec
 import JapanTaxLaw.MeetingQuorumOneThirdTests
+import JapanTaxLaw.MemberRatiosAtMost5
+import JapanTaxLaw.MemberRatiosAtMost5Spec
+import JapanTaxLaw.MemberRatiosAtMost5Tests
 import JapanTaxLaw.Members500k
 import JapanTaxLaw.Members500kSpec
 import JapanTaxLaw.Members500kTests
