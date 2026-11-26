@@ -617,3 +617,6 @@ import JapanTaxLaw.CeilRoundingMinimumTests
 import JapanTaxLaw.FractionAmounts
 import JapanTaxLaw.FractionAmountsSpec
 import JapanTaxLaw.FractionAmountsTests
+import JapanTaxLaw.TariffSpecificFloor
+import JapanTaxLaw.TariffSpecificFloorSpec
+import JapanTaxLaw.TariffSpecificFloorTests

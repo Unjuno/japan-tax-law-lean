@@ -181,9 +181,9 @@ lake clean && lake build                                                # 再現
 | 指標 | 実測値 |
 |---|---:|
 | 規範単位（確定対象版） | 268,107 |
-| NOT_STARTED | 260,411 |
+| NOT_STARTED | 260,318 |
 | PARTIAL | 4,312 |
-| PROVED_SCOPE | 524 |
+| PROVED_SCOPE | 617 |
 | FULLY_VERIFIED | 2,858（約 1.07%） |
 | BLOCKED | 2 |
 | 未解決条件を持つ単位 | 140,289（条件延べ 162,912） |
@@ -227,6 +227,8 @@ VERDICT: FAIL）。全単位を一旦 BLOCKED としてから num=分の後・de
 修正後の束縛は 301/301 検証済み。修正後のみ独立再監査を行い PASS（`fractions_review_pass.md`、
 301/301 束縛一致・8 サンプル独立再計算 0 不一致）。ADVERSARIAL_REVIEW は
 サンプル 8 単位にのみ与え、残り 293 単位は `PROVED_SCOPE` に留める。
+さらに従量税率下限付き関税率 93 単位を、2 率の大きい方を取る独立 max 定式で
+証明（`TariffSpecificFloor`, 全称 `tariffDuty_agrees`）。
 
 **未達（続行すべき義務）**: 未検証義務の大部分（260,411 単位）、未解決条件
 140,289 単位、150 単位分の独立 ADVERSARIAL_REVIEW、人間の法的レビュー、
