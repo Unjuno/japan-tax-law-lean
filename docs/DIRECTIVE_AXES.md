@@ -17,7 +17,11 @@ Eight technical axes are tracked separately; full technical evidence does NOT es
 | NORMS_FORMALIZED | 1033 | 395821 |
 | SPEC_IMPL_CORRESPONDENCE | 1033 | 395821 |
 | BOUNDARY_CHECKED | 1033 | 395821 |
+<<<<<<< HEAD
 | SOURCE_AUDITED | 1033 | 395821 |
+=======
+| SOURCE_AUDITED | 1032 | 395822 |
+>>>>>>> origin/main
 
 ## Normative detail categories recorded separately
 

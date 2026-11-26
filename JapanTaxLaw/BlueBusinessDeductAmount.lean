@@ -7,20 +7,22 @@ Sources (pinned): law `340AC0000000033`, revision `340AC0000000033_20261001_507A
 raw `data/raw/340AC0000000033_20261001_507AC0000000070.law.json`.
 原文逐語: 「二十二万五千円（当該青色事業専従者の年齢が二十歳未満である場合には、
 二十一万七千五百円）」
-Computation（金額の選択のみ。入力は年齢が20未満かどうか）:
-  amount(under20) = if under20 then 217_500 else 225_000
+Computation（金額と年齢境界の選択のみ。入力は年齢（歳））:
+  amount(age) = if age < 20 then 217_500 else 225_000（「未満」なので 20 は通常額）
 Scope: 専従者要件・所得計算は NOT MODELLED。法的レビューを提供しない。
 -/
 
 namespace JapanTaxLaw.BlueBusinessDeductAmount
 
+def ageThreshold : Nat := 20
 def standardYen : Nat := 225_000
 def under20Yen : Nat := 217_500
 
-def amount (under20 : Bool) : Nat :=
-  if under20 then under20Yen else standardYen
+def amount (age : Nat) : Nat :=
+  if age < ageThreshold then under20Yen else standardYen
 
-example : amount false = 225_000 := by decide
-example : amount true = 217_500 := by decide
+example : amount 19 = 217_500 := by decide
+example : amount 20 = 225_000 := by decide
+example : amount 21 = 225_000 := by decide
 
 end JapanTaxLaw.BlueBusinessDeductAmount
