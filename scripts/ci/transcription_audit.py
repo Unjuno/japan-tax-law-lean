@@ -2469,6 +2469,12 @@ def checks():
            "file", None,
            ["第一条この政令は、昭和六十四年四月一日から施行する", "この政令は、昭和六十四年四月一日から施行する"])
 
+    # CountervailingDutyEnforcementDate — cycle-133
+    yield ("CountervailingDutyEnforcementDate.lean",
+           "406CO0000000415",
+           "file", None,
+           ["第一条この政令は、平成十三年一月六日から施行する", "この政令は、平成十三年一月六日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -4900,6 +4906,15 @@ def checks():
     yield ("租税特別措置法 art. 40_7（外国関係法人20%以上）↔ ForeignRelatedCorpTaxRate20.lean",
            "332AC0000000026", "file", None,
            ["対象外国関係法人の各事業年度の租税負担割合が百分の二十以上である場合"])
+
+    # 税関関係手数料令 art. 2 — CustomsFee76000.lean (7.6万/7.54万)
+    yield ("税関関係手数料令 art. 2（7.6万/7.54万）↔ CustomsFee76000.lean",
+           "329CO0000000164", "file", None,
+           ["七万六千円（当該許可を受ける者が指定者である場合にあつては、七万五千四百円）"])
+    # 税関関係手数料令 art. 4 — CustomsFee129000.lean (12.9万/12.8万)
+    yield ("税関関係手数料令 art. 4（12.9万/12.8万）↔ CustomsFee129000.lean",
+           "329CO0000000164", "file", None,
+           ["十二万九千円（当該許可を受ける者が指定者である場合にあつては、十二万八千円）"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
