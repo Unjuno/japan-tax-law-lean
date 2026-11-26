@@ -998,3 +998,11 @@ python -m unittest scripts.tests.test_revision_impact # 8 テスト（実リポ�
 ## コントリビュート
 
 貢献方法と検証基準は [CONTRIBUTING.md](CONTRIBUTING.md) を参照してください。コードは MIT ライセンスです。法的助言の提供を目的としません。
+
+JapanTaxLaw/TariffQuotaSystemEnforcementDate.lean    # 関税割当制度に関する政令 施行日1991-04-01（附則 art.1）L4
+JapanTaxLaw/TariffQuotaSystemEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/TariffQuotaSystemEnforcementDateTests.lean # 同上 退行テスト
+
+JapanTaxLaw/CountervailingDutyEnforcementDate.lean    # 相殺関税に関する政令 施行日2001-01-06（附則 art.1）L4
+JapanTaxLaw/CountervailingDutyEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/CountervailingDutyEnforcementDateTests.lean # 同上 退行テスト

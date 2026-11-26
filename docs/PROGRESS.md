@@ -171,3 +171,7 @@ lake clean && lake build                                                # 再現
 **未達**: L3 の残り全条文・L4・L5 の全条文証明・L6・L7 統合レポート・関税定率法等のカテゴリー全体・地方税条例・改正影響（F）・全 target 法令の meaning に対する end-to-end 監査。
 
 **完成判定ではありません。** 本システムは「部分的な意味検証＋完全な構造監査＋検証範囲の記録」までの段階です。
+
+関税割当制度に関する政令 附則 art.1 TariffQuotaSystemEnforcementDate.lean（施行日 平成3年4月1日=1991-04-01 — 他条・実体規定 NOT MODELLED）
+
+相殺関税に関する政令 附則 art.1 CountervailingDutyEnforcementDate.lean（施行日 平成13年1月6日=2001-01-06 — 他条・実体規定 NOT MODELLED）
