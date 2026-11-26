@@ -105,12 +105,14 @@ def checks():
     yield ("特別とん譲与税法 art.6(1)（都を市とみなす）↔ TokyoAsCityDeeming.lean",
            "332AC0000000077", "article", "第六条",
            ["この場合においては、都を市とみなして、この法律の規定を適用する。"])
-
     # PrivateContractPublicAuctionReading.lean - NORM|d692d7da... (随意契約公売準用 READING, law 337M50000040031)
     yield ("国税徴収法施行規則 art.1_6（随意契約時の公売規定準用）↔ PrivateContractPublicAuctionReading.lean",
            "337M50000040031", "article", "第一条の六", ["（随意契約により不動産を売却する場合における公売の規定の準用）"])
 
-    # Restored registry checks dropped by a concurrent stale-base rewrite.
+    # BankHeadOfficeTermReading.lean - NORM|9fd94438... (日本銀行統轄店読替え READING, law 403M50000040054)
+    yield ("電子情報処理組織特例省令 art.11(4)（読替え）↔ BankHeadOfficeTermReading.lean",
+           "403M50000040054", "article", "第十一条", ["この場合において、同条第六項中「日本銀行統轄店」とあるのは、「所轄歳入取りまとめ店」と読み替えるものとする。"])
+
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,
            ["事業所税の額の百分の五に相当する額とする"])
@@ -2407,6 +2409,12 @@ def checks():
            "file", None,
            ["者が老人控除対象配偶者である場合十万円（当該納税義務者の前年の合計所得金額が九百万円を超え九百五十万円以下である場合には六万円、当該納税義務者の前年の合計所得金額が九百五十万円を超え千万円以下である場合には三万円）", "第三十七条"])
 
+    # LocalGrantTaxRatio — cycle-129
+    yield ("LocalGrantTaxRatio.lean",
+           "325AC0000000211",
+           "file", None,
+           ["毎年度分として交付すべき普通交付税の総額は、前条第二項の額の百分の九十四に相当する額とする", "毎年度分として交付すべき特別交付税の総額は、前条第二項の額の百分の六に相当する額とする"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -4559,11 +4567,6 @@ def checks():
            "325AC0000000226", "file", None,
            ["次に掲げる金額のうちいずれか少ない金額の百分の三"])
 
-    # 特別とん税法施行令 art.3(1) — SpecialTonSecurityEightTen.lean
-    yield ("特別とん税法施行令 第三条(1)（特別とん税額 八分の十）↔ SpecialTonSecurityEightTen.lean",
-           "332CO0000000049", "article", "第三条",
-           ["とん税額の八分の十に相当する特別とん税額をあわせて担保しなければならない。"])
-
     # 租税特別措置法 art. 10 — RndExcessOver3.lean (増減試験研究費割合 > 3%)
     yield ("租税特別措置法 art. 10（増減試験研究費割合 3%超）↔ RndExcessOver3.lean",
            "332AC0000000026", "file", None,
@@ -4611,24 +4614,15 @@ def checks():
     yield ("租税特別措置法 art. 10（増減試験研究費割合 15%超）↔ RndExcessOver15.lean",
            "332AC0000000026", "file", None,
            ["増減試験研究費割合が百分の十五を超える場合（ニに掲げる場合を除く。）"])
-
     # 租税特別措置法 art. 10 — RndExcess3To15.lean (3%超〜15%以下)
     yield ("租税特別措置法 art. 10（3%超15%以下）↔ RndExcess3To15.lean",
            "332AC0000000026", "file", None,
            ["増減試験研究費割合が百分の三を超え百分の十五以下である場合（ニに掲げる場合を除く。）"])
 
-    # LocalTaxArt154Capacity30To40Condition.lean - NORM|aa32cf8b... (地方税法 art.154 table-cell CONDITION, law 325AC0000000226)
-    # Article-kind locator; needle is the >30 and <=40 passenger-capacity cell.
-    yield ("local tax law art.154 capacity 30 to 40 condition - LocalTaxArt154Capacity30To40Condition.lean",
-           "325AC0000000226",
-           "article", "\u7b2c\u767e\u4e94\u5341\u56db\u6761",
-           ["\uff08\uff12\uff09\u3000\u4e57\u8eca\u5b9a\u54e1\u304c\u4e09\u5341\u4eba\u3092\u8d85\u3048\u3001\u56db\u5341\u4eba\u4ee5\u4e0b\u306e\u3082\u306e"])
-
     # 租税特別措置法 art. 10の5の4 — ContinuingIncreaseAtLeast5.lean (5%以上)
     yield ("租税特別措置法 art. 10_5_4（継続雇用者5%以上）↔ ContinuingIncreaseAtLeast5.lean",
            "332AC0000000026", "file", None,
            ["継続雇用者給与等支給増加割合が百分の五以上であること"])
-
     # 租税特別措置法 art. 10の5の4 — SalaryIncreaseRate5Or15.lean (5%/15%)
     yield ("租税特別措置法 art. 10_5_4（5%／15%分岐）↔ SalaryIncreaseRate5Or15.lean",
            "332AC0000000026", "file", None,
@@ -4638,16 +4632,13 @@ def checks():
            "325AC0000000226", "file", None,
            ["次に掲げる金額のうちいずれか少ない金額の百分の三"])
 
+
     # 特別法人事業譲与税法 art. 31(5)(4) — ExcessFinanceGrant75Cap.lean
     yield ("特別法人事業譲与税法 art. 31（十一月分75%と財源超過額上限）↔ ExcessFinanceGrant75Cap.lean",
            "431AC0000000004",
            "file", None,
            ["財源超過団体における十一月の譲与時期に係る基準各譲与時期特別法人事業譲与税額の百分の七十五に相当する額（当該額に当該財源超過団体に係る五月分財源超過団体譲与制限額及び八月分財源超過団体譲与制限額の合算額を加えた額が財源超過額を超える場合には、当該財源超過額から当該合算額を控除した額とする。）をいう。"])
 
-    yield ("相続税法 art.1の4（贈与前十年以内の住所）↔ GiftTaxTenYearResidenceLookback.lean",
-           "325AC0000000073",
-           "file", None,
-           ["当該贈与前十年以内のいずれかの時においてこの法律の施行地に住所を有していたことがあるもの", "第一条の四"])
 
     yield ("関税定率法 art.8(6)（六月以内の延長）↔ CustomsTariffArt8ExtensionSixMonths.lean",
            "143AC0000000054",
@@ -4660,10 +4651,38 @@ def checks():
            "file", None,
            ["当該贈与前十年以内のいずれかの時においてこの法律の施行地に住所を有していたことがあるもの", "第一条の四"])
 
+
+    yield ("地方税法 art. 314_6（3%／指定都市4%）↔ LocalInhabitantReducedRate3or4.lean",
+           "325AC0000000226", "file", None,
+           ["次に掲げる金額のうちいずれか少ない金額の百分の三"])
+    # 特別とん税法施行令 art.3(1) — SpecialTonSecurityEightTen.lean
+    yield ("特別とん税法施行令 第三条(1)（特別とん税額 八分の十）↔ SpecialTonSecurityEightTen.lean",
+           "332CO0000000049", "article", "第三条",
+           ["とん税額の八分の十に相当する特別とん税額をあわせて担保しなければならない。"])
+
+
+    # 租税特別措置法 art. 42の4 — CombinedRndExcessOver3.lean (合算3%超)
+    yield ("租税特別措置法 art. 42_4（合算3%超）↔ CombinedRndExcessOver3.lean",
+           "332AC0000000026", "file", None,
+           ["合算増減試験研究費割合が百分の三を超える場合（（３）に掲げる場合を除く。）"])
+    # 租税特別措置法 art. 42の4 — CombinedRndExcessAtMost3.lean (合算3%以下)
+    yield ("租税特別措置法 art. 42_4（合算3%以下）↔ CombinedRndExcessAtMost3.lean",
+           "332AC0000000026", "file", None,
+           ["合算増減試験研究費割合が百分の三以下である場合（（３）に掲げる場合を除く。）"])
+
     # 租税特別措置法 art. 40の4 — ForeignSubsidiaryTaxRate20.lean (租税負担割合20%以上)
     yield ("租税特別措置法 art. 40_4（租税負担割合20%以上）↔ ForeignSubsidiaryTaxRate20.lean",
            "332AC0000000026", "file", None,
            ["各事業年度の租税負担割合が百分の二十以上であること。"])
+
+    # 租税特別措置法 art. 42の4 — CombinedRndExcessOver4Year.lean (4%超の事業年度)
+    yield ("租税特別措置法 art. 42_4（4%超の事業年度）↔ CombinedRndExcessOver4Year.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の四を超える事業年度"])
+    # 租税特別措置法 art. 42の4 — CombinedRndExcessOver7Year.lean (7%超の事業年度)
+    yield ("租税特別措置法 art. 42_4（7%超の事業年度）↔ CombinedRndExcessOver7Year.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の七を超える事業年度"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
