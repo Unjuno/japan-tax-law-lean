@@ -14768,3 +14768,14 @@ needle は `scripts/ci/transcription_audit.py` L2431 の cycle-134 定義をレ�
 照合: 独立仕様の境界定数と境界例をカーネル決定で照合。
 判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
 
+### LocalTaxBracket330To695.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の境界定数と境界例をカーネル決定で照合。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### LocalTaxBracket695To900.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の境界定数と境界例をカーネル決定で照合。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
