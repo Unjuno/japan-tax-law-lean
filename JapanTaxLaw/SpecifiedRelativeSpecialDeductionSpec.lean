@@ -20,13 +20,12 @@ namespace JapanTaxLaw
 open JapanTaxLaw.TaxFinance
 
 def specRelativeRound (excess : Money) : Money :=
-  if excess < 20_000 then 0
+  if excess < 2 * 10_000 then 0
   else 100_000 * ((excess + 80_000) / 100_000) - 80_000
 
 def specRelativeDeduction (income : Money) : Money :=
   if income ≤ 850_000 then 630_000
-  else if income ≤ 1_150_000 then
-    630_000 - specRelativeRound ((income - 840_001) * 2)
+  else if income ≤ 1_150_000 then 630_000 - specRelativeRound ((income - 840_001) * 2)
   else if income ≤ 1_200_000 then 60_000
   else 30_000
 
