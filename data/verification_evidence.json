@@ -48239,6 +48239,16 @@
         "tool": "independent-adversarial"
       }
     ],
+    "1783e49ee74e0c5a8995671f1007aed7d6586a5ea0fb1576eb1a6789dd68e1e0": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T10:21:54+00:00",
+        "evidence_ref": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#AppdxTable:AppdxTable/TableStruct:0016/Table:0000/TableRow:0000#0-49",
+        "note": "pinned bytes, exact structural path, offsets and hash",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      }
+    ],
     "1789a87e9ceedfad8b09243f84d9c8d05fe7d7941fd1103abc2c3e1e34c1f9bb": [
       {
         "axis": "SOURCE_LOCATION",
@@ -55095,6 +55105,16 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "1b0ea07c4bf9d737d99372825888eb7c3c9838cdb52b442bca37885ef9c0ee13": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T10:21:54+00:00",
+        "evidence_ref": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#AppdxTable:AppdxTable/TableStruct:0015/Table:0000/TableRow:0055#0-9",
+        "note": "pinned bytes, exact structural path, offsets and hash",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
       }
     ],
     "1b0ec26d46b4fe6f520e1f5d031dfffdf8c3f7ac93cadb81968a0202cf6cc34e": [
@@ -190148,6 +190168,88 @@
         "tool": "coordinator_cycle.py"
       }
     ],
+    "62f9b4add8538edf7fb3a4be61bafeadbaeae4f22b5f68bc8082bac081b8917b": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "332AC0000000026#第70_3_2条#pinned-fixed-deduction",
+        "note": "定額控除 から百十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "mechanical-audit:FIXED-62f9b4add853",
+        "note": "定額控除 から百十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "task_queue.json#62f9b4add853#coverage",
+        "note": "定額控除 から百十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#min-based-spec@kernel",
+        "note": "定額控除 から百十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductions.lean#fixedDeduction@kernel",
+        "note": "定額控除 から百十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#fixedDeduction_agrees@kernel",
+        "note": "定額控除 から百十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#fixedDeduction_agrees@universal-Nat^2@kernel",
+        "note": "定額控除 から百十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsTests.lean#equal/below-boundaries@kernel",
+        "note": "定額控除 から百十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsTests.lean@kernel",
+        "note": "定額控除 から百十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T10:37:10+00:00",
+        "evidence_ref": "data/evidence_audits/fixed_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, からX円を控除 phrase, kanji parse, contiguous fragment; scope = exact deduction phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "6300d13dd8876506d43264316b6bb16db38dc3afc19e9714784afe808d2fd53e": [
       {
         "axis": "SOURCE_LOCATION",
@@ -229409,6 +229511,88 @@
         "tool": "coordinator_cycle.py"
       }
     ],
+    "77041431dcdc356599f435488abbc05ebafab91b7a8c9695823f7a6c41062204": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "340AC0000000033#第35条#pinned-fixed-deduction",
+        "note": "定額控除 から五十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "mechanical-audit:FIXED-77041431dcdc",
+        "note": "定額控除 から五十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "task_queue.json#77041431dcdc#coverage",
+        "note": "定額控除 から五十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#min-based-spec@kernel",
+        "note": "定額控除 から五十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductions.lean#fixedDeduction@kernel",
+        "note": "定額控除 から五十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#fixedDeduction_agrees@kernel",
+        "note": "定額控除 から五十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#fixedDeduction_agrees@universal-Nat^2@kernel",
+        "note": "定額控除 から五十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsTests.lean#equal/below-boundaries@kernel",
+        "note": "定額控除 から五十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsTests.lean@kernel",
+        "note": "定額控除 から五十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T10:37:10+00:00",
+        "evidence_ref": "data/evidence_audits/fixed_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, からX円を控除 phrase, kanji parse, contiguous fragment; scope = exact deduction phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "7706fc2e898d9f9a22e3e1b093be26af4f4673994dda2f43a9e60c79459e9777": [
       {
         "axis": "SOURCE_LOCATION",
@@ -234483,6 +234667,88 @@
         "note": "enforcement date 昭和三十二年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "7990d3d28bd250a538cf00eb773deecb25a2457f710c55b2c806eb8a917dc17a": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "340AC0000000033#第3条#pinned-fixed-deduction",
+        "note": "定額控除 から十四万五千円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "mechanical-audit:FIXED-7990d3d28bd2",
+        "note": "定額控除 から十四万五千円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "task_queue.json#7990d3d28bd2#coverage",
+        "note": "定額控除 から十四万五千円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#min-based-spec@kernel",
+        "note": "定額控除 から十四万五千円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductions.lean#fixedDeduction@kernel",
+        "note": "定額控除 から十四万五千円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#fixedDeduction_agrees@kernel",
+        "note": "定額控除 から十四万五千円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#fixedDeduction_agrees@universal-Nat^2@kernel",
+        "note": "定額控除 から十四万五千円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsTests.lean#equal/below-boundaries@kernel",
+        "note": "定額控除 から十四万五千円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsTests.lean@kernel",
+        "note": "定額控除 から十四万五千円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T10:37:10+00:00",
+        "evidence_ref": "data/evidence_audits/fixed_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, からX円を控除 phrase, kanji parse, contiguous fragment; scope = exact deduction phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "799667ca4ff3477166dc535fa66a46ae41784efde317c8d0b4e6d705feab6a9f": [
@@ -278342,6 +278608,16 @@
         "note": "FULL-COVERAGE PASS: pinned SHA, exact token, fragment containment and num/den direction all verified for this unit; scope = exact fraction phrase",
         "reviewer": "ci",
         "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
+    "90db054fff68982e60a263222e98ecfa8e6ce427bfaa62be7baa170858ef732b": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T10:21:54+00:00",
+        "evidence_ref": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#AppdxTable:AppdxTable/TableStruct:0016/Table:0000/TableRow:0000#49-307",
+        "note": "pinned bytes, exact structural path, offsets and hash",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
       }
     ],
     "90e20ddbd2a2be4395abda4dd6315c9233ab2c0b0dd4668c6c8810167a3feee7": [
@@ -365964,6 +366240,88 @@
         "tool": "independent-adversarial"
       }
     ],
+    "bc93fd5e1b95fdd6b3e1c290ada608f0a9fb9af7c019a762d54b41678a0480bc": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "325AC0000000073#第21_11_2条#pinned-fixed-deduction",
+        "note": "定額控除 から六十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "mechanical-audit:FIXED-bc93fd5e1b95",
+        "note": "定額控除 から六十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "task_queue.json#bc93fd5e1b95#coverage",
+        "note": "定額控除 から六十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#min-based-spec@kernel",
+        "note": "定額控除 から六十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductions.lean#fixedDeduction@kernel",
+        "note": "定額控除 から六十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#fixedDeduction_agrees@kernel",
+        "note": "定額控除 から六十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#fixedDeduction_agrees@universal-Nat^2@kernel",
+        "note": "定額控除 から六十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsTests.lean#equal/below-boundaries@kernel",
+        "note": "定額控除 から六十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsTests.lean@kernel",
+        "note": "定額控除 から六十万円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T10:37:10+00:00",
+        "evidence_ref": "data/evidence_audits/fixed_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, からX円を控除 phrase, kanji parse, contiguous fragment; scope = exact deduction phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "bc96c9f238315b309cbe10309d11682a5e92833d5534fc27d6c0d0332044db0c": [
       {
         "axis": "SOURCE_LOCATION",
@@ -366924,6 +367282,88 @@
         "note": "unit decomposition and mechanical coverage only",
         "reviewer": "ci",
         "tool": "task_queue.py"
+      }
+    ],
+    "bd5ef05dde5684a219eb243d919f36d273ccacde22326ad105e470e0dd3961c6": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "340CO0000000096#第134条#pinned-fixed-deduction",
+        "note": "定額控除 から一円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "mechanical-audit:FIXED-bd5ef05dde56",
+        "note": "定額控除 から一円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "task_queue.json#bd5ef05dde56#coverage",
+        "note": "定額控除 から一円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#min-based-spec@kernel",
+        "note": "定額控除 から一円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductions.lean#fixedDeduction@kernel",
+        "note": "定額控除 から一円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#fixedDeduction_agrees@kernel",
+        "note": "定額控除 から一円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#fixedDeduction_agrees@universal-Nat^2@kernel",
+        "note": "定額控除 から一円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsTests.lean#equal/below-boundaries@kernel",
+        "note": "定額控除 から一円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsTests.lean@kernel",
+        "note": "定額控除 から一円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T10:37:10+00:00",
+        "evidence_ref": "data/evidence_audits/fixed_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, からX円を控除 phrase, kanji parse, contiguous fragment; scope = exact deduction phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "bd5f0f1f735cdb83acb92175580351ad65d8cfff9f41f9f91710d59dae2fe676": [
@@ -393736,6 +394176,88 @@
         "tool": "independent-adversarial"
       }
     ],
+    "cc40e2beede51690ee1b4426e3b8cbe873a26d750e5144502a3b8e1653c8b621": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "332CO0000000043#第26_28_3条#pinned-fixed-deduction",
+        "note": "定額控除 から二千円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "mechanical-audit:FIXED-cc40e2beede5",
+        "note": "定額控除 から二千円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "task_queue.json#cc40e2beede5#coverage",
+        "note": "定額控除 から二千円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#min-based-spec@kernel",
+        "note": "定額控除 から二千円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductions.lean#fixedDeduction@kernel",
+        "note": "定額控除 から二千円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#fixedDeduction_agrees@kernel",
+        "note": "定額控除 から二千円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#fixedDeduction_agrees@universal-Nat^2@kernel",
+        "note": "定額控除 から二千円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsTests.lean#equal/below-boundaries@kernel",
+        "note": "定額控除 から二千円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsTests.lean@kernel",
+        "note": "定額控除 から二千円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T10:37:10+00:00",
+        "evidence_ref": "data/evidence_audits/fixed_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, からX円を控除 phrase, kanji parse, contiguous fragment; scope = exact deduction phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "cc46ac4cef9503973dc4e698ba34ebc355a3be10253b28d0a84d1d04553988e0": [
       {
         "axis": "SOURCE_LOCATION",
@@ -419630,6 +420152,88 @@
         "note": "unit decomposition and mechanical coverage only",
         "reviewer": "ci",
         "tool": "task_queue.py"
+      }
+    ],
+    "d992f4e0b9bf449c2a70d5e0121d0760ee356ca590eaf4e1fd873f261bb9077b": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "340CO0000000097#第61条#pinned-fixed-deduction",
+        "note": "定額控除 から一円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "mechanical-audit:FIXED-d992f4e0b9bf",
+        "note": "定額控除 から一円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "task_queue.json#d992f4e0b9bf#coverage",
+        "note": "定額控除 から一円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#min-based-spec@kernel",
+        "note": "定額控除 から一円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductions.lean#fixedDeduction@kernel",
+        "note": "定額控除 から一円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#fixedDeduction_agrees@kernel",
+        "note": "定額控除 から一円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsSpec.lean#fixedDeduction_agrees@universal-Nat^2@kernel",
+        "note": "定額控除 から一円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsTests.lean#equal/below-boundaries@kernel",
+        "note": "定額控除 から一円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T10:27:18+00:00",
+        "evidence_ref": "JapanTaxLaw/FixedDeductionsTests.lean@kernel",
+        "note": "定額控除 から一円を控除; independent min-based spec; base definition NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T10:37:10+00:00",
+        "evidence_ref": "data/evidence_audits/fixed_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, からX円を控除 phrase, kanji parse, contiguous fragment; scope = exact deduction phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "d994588a33f057ce33dd6fe05ff7a4fcc41882f31c8de14ecfb018ddfadf1738": [
