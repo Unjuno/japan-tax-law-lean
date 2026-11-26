@@ -4559,6 +4559,13 @@ def checks():
            "law", None,
            ["\uff08\u907a\u8d08\u306b\u3088\u308a\u53d6\u5f97\u3057\u305f\u3082\u306e\u3068\u307f\u306a\u3059\u5834\u5408\uff09"])
 
+    # LocalTaxArt154Capacity30Condition.lean - NORM|aada7e03... (地方税法 art.154 table-cell CONDITION, law 325AC0000000226)
+    # Article-kind locator; needle is the <=30 passenger-capacity table cell.
+    yield ("local tax law art.154 capacity 30 condition - LocalTaxArt154Capacity30Condition.lean",
+           "325AC0000000226",
+           "article", "\u7b2c\u767e\u4e94\u5341\u56db\u6761",
+           ["\uff08\uff11\uff09\u3000\u4e57\u8eca\u5b9a\u54e1\u304c\u4e09\u5341\u4eba\u4ee5\u4e0b\u306e\u3082\u306e"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
