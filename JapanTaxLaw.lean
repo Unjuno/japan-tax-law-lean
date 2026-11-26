@@ -1763,6 +1763,9 @@ import JapanTaxLaw.OwnershipPercent5Tests
 import JapanTaxLaw.PassengerCapacity
 import JapanTaxLaw.PassengerCapacitySpec
 import JapanTaxLaw.PassengerCapacityTests
+import JapanTaxLaw.PatentTransferRatio
+import JapanTaxLaw.PatentTransferRatioSpec
+import JapanTaxLaw.PatentTransferRatioTests
 import JapanTaxLaw.PaymentCeiling
 import JapanTaxLaw.PaymentCeilingSpec
 import JapanTaxLaw.PaymentCeilingTests
@@ -2349,6 +2352,9 @@ import JapanTaxLaw.StatutoryModel
 import JapanTaxLaw.Stay183Days
 import JapanTaxLaw.Stay183DaysSpec
 import JapanTaxLaw.Stay183DaysTests
+import JapanTaxLaw.SubstituteMemberResidualTerm
+import JapanTaxLaw.SubstituteMemberResidualTermSpec
+import JapanTaxLaw.SubstituteMemberResidualTermTests
 import JapanTaxLaw.TariffLawSupplArt1Heisei13Enforcement
 import JapanTaxLaw.TariffLawSupplArt1Heisei13EnforcementSpec
 import JapanTaxLaw.TariffLawSupplArt1Heisei13EnforcementTests

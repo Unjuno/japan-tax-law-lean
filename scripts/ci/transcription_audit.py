@@ -91,6 +91,10 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # SubstituteMemberResidualTerm.lean - NORM|cf722af4... (補欠委員の残任期間 EXCEPTION, law 412CO0000000278)
+    yield ("国税審議会令 art.4(1) ただし書（補欠委員の残任期間）↔ SubstituteMemberResidualTerm.lean",
+           "412CO0000000278", "article", "第四条", ["ただし、補欠の委員の任期は、前任者の残任期間とする。"])
+
     # OkinawaDividedCertificateIssuance.lean - NORM|3c61e721... (沖縄分割証明書交付 CONDITION, law 347M50010000033)
     yield ("沖縄減免税割当省令 art.4(2)（分割証明書交付）↔ OkinawaDividedCertificateIssuance.lean",
            "347M50010000033", "article", "第四条", ["沖縄県知事は、前項の申請書を受理したときは、申請に係る証明書に代えて、分割した証明書を交付するものとする。"])
@@ -5147,6 +5151,12 @@ def checks():
            "325AC0000000073",
            "file", None,
            ["\u524d\u9805\u306e\u898f\u5b9a\u306f\u3001\u5b9a\u671f\u91d1\u7d66\u4ed8\u5951\u7d04\u306b\u3064\u3044\u3066\u8fd4\u9084\u91d1\u305d\u306e\u4ed6\u3053\u308c\u306b\u6e96\u305a\u308b\u3082\u306e\u306e\u53d6\u5f97\u304c\u3042\u3064\u305f\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
+    # 租税特別措置法施行令 art. 21の17の2(2) — PatentTransferRatio.lean
+    yield ("租税特別措置法施行令 art. 21_17_2（取引数-1の割合）↔ PatentTransferRatio.lean",
+           "332M50000040015",
+           "file", None,
+           ["当該金額に取引数（当該特許権譲渡等取引及び当該特定特許権等に係る他の特許権譲渡等取引の数をいう。以下この号において同じ。）から一を控除した数が取引数のうちに占める割合を乗じて計算した金額"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
