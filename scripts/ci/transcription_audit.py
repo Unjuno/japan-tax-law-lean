@@ -5172,11 +5172,11 @@ def checks():
            "344M50000040016",
            "file", None,
            ["一個（現に使用中のもので海外市価（外国においてその物品を購入する際に支払われた又は支払われるべき価格をいう。以下この条において同じ。）三万円以下のものに限る。次号において同じ。）"])
+
     # 関税法意見申請手続規則 art.2(3)(1) — OpinionApplicantDocumentWindowThreeMonths.lean
     yield ("関税法意見申請手続規則 第二条(3)(1)（個人 三月以内書類）↔ OpinionApplicantDocumentWindowThreeMonths.lean",
            "418M60000400006", "article", "第二条",
            ['意見申請者が個人である場合にあっては、申請の日前三月以内に作成された戸籍の謄本若しくは抄本又は住民票の写し'])
-
 
     # InheritanceTaxArt6RefundReading.lean - NORM|6a9778cb... (相続税法 art.6(2) READING, law 325AC0000000073)
     # Whole-law locator; needle is unique in the pinned act.
@@ -5190,11 +5190,11 @@ def checks():
            "332M50000040015",
            "file", None,
            ["当該金額に取引数（当該特許権譲渡等取引及び当該特定特許権等に係る他の特許権譲渡等取引の数をいう。以下この号において同じ。）から一を控除した数が取引数のうちに占める割合を乗じて計算した金額"])
+
     # 半島振興法施行令 art.4(1)(2) — OneYearConstructionStartWindow.lean
     yield ("半島振興法施行令 第四条(1)(2)（一年以内建設着手）↔ OneYearConstructionStartWindow.lean",
            "407M50000008012", "article", "第四条",
            ['土地については、その取得の日の翌日から起算して一年以内に当該土地を敷地とする当該家屋の建設の着手があった場合における当該土地に限る。'])
-
 
     # InheritanceTaxArt15ActualChildDeeming.lean - NORM|3a29e954... (相続税法 art.15(3) DEEMING, law 325AC0000000073)
     # Whole-law locator; needle is unique in the pinned act.
@@ -5203,11 +5203,17 @@ def checks():
            "file", None,
            ["\u524d\u9805\u306e\u898f\u5b9a\u306e\u9069\u7528\u306b\u3064\u3044\u3066\u306f\u3001\u6b21\u306b\u63b2\u3052\u308b\u8005\u306f\u5b9f\u5b50\u3068\u307f\u306a\u3059\u3002"])
 
+    # SpecialMeasuresArt70_6_6PresumedHeirCondition.lean - NORM|293a349f... (租税特別措置法 art.70の6の6(2) PRESUMPTION, law 332AC0000000026)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("special measures art.70_6_6 presumed heir condition - SpecialMeasuresArt70_6_6PresumedHeirCondition.lean",
+           "332AC0000000026",
+           "file", None,
+           ["\u5f53\u8a72\u500b\u4eba\u304c\u3001\u5f53\u8a72\u76f8\u7d9a\u306e\u958b\u59cb\u306e\u76f4\u524d\u306b\u304a\u3044\u3066\u3001\u5f53\u8a72\u88ab\u76f8\u7d9a\u4eba\u306e\u63a8\u5b9a\u76f8\u7d9a\u4eba\u3067\u3042\u308b\u3053\u3068\u3002"])
+
     yield ("地価税法 art. 18（底地割合による三万円計算）↔ LeaseholdLandShare.lean",
            "403AC0000000069",
            "file", None,
            ["借地権等が設定されている場合において、当該土地等が借地権等以外のもの（以下この号において「底地」という。）であるとき。　三万円に当該底地の価額が更地の価額のうちに占める割合を乗じて計算した金額"])
-
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
