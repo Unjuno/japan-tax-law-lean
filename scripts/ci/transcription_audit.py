@@ -91,6 +91,10 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # OkinawaDividedCertificateIssuance.lean - NORM|3c61e721... (沖縄分割証明書交付 CONDITION, law 347M50010000033)
+    yield ("沖縄減免税割当省令 art.4(2)（分割証明書交付）↔ OkinawaDividedCertificateIssuance.lean",
+           "347M50010000033", "article", "第四条", ["沖縄県知事は、前項の申請書を受理したときは、申請に係る証明書に代えて、分割した証明書を交付するものとする。"])
+
     # ImmediateRetaliationException.lean - NORM|191808d9... (直ちに措置をとる場合の例外 EXCEPTION, law 406CO0000000418)
     yield ("報復関税等政令 art.2(1) ただし書（直ちに措置をとる場合の例外）↔ ImmediateRetaliationException.lean",
            "406CO0000000418", "article", "第二条", ["ただし、報復関税等に係る措置を直ちにとる必要があると認められる場合は、この限りでない。"])

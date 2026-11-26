@@ -1697,6 +1697,9 @@ import JapanTaxLaw.OkinawaArt19Bracket600k1MTests
 import JapanTaxLaw.OkinawaArt19Bracket8M10M
 import JapanTaxLaw.OkinawaArt19Bracket8M10MSpec
 import JapanTaxLaw.OkinawaArt19Bracket8M10MTests
+import JapanTaxLaw.OkinawaDividedCertificateIssuance
+import JapanTaxLaw.OkinawaDividedCertificateIssuanceSpec
+import JapanTaxLaw.OkinawaDividedCertificateIssuanceTests
 import JapanTaxLaw.OkinawaEquip500k
 import JapanTaxLaw.OkinawaEquip500kSpec
 import JapanTaxLaw.OkinawaEquip500kTests
