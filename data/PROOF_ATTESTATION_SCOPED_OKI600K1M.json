@@ -1,9 +1,9 @@
 {
-  "commit": "e6b1bcf8834d4c4368e021f25662ba2e296fa9b6",
+  "commit": "ced460b9",
   "jobs": {
     "Build Lean project and check axioms": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45806613417",
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45812399316",
       "required_steps": [
         "Build explicitly",
         "No sorry/admit in adopted proofs",
@@ -14,19 +14,19 @@
     }
   },
   "modules": {
-    "PeninsulaSpecialDepreciationCostFloor5M.lean": {
-      "sha256": "576a4e5c575b97bc50e44c4ba92b58bffadf58743185155b5e85472a79ccc1af"
+    "OkinawaArt19Bracket600k1M.lean": {
+      "sha256": "a4fea987948af59f86068cac79f7733fa33733bcb03a863e8927205abcef9394"
     },
-    "PeninsulaSpecialDepreciationCostFloor5MSpec.lean": {
-      "sha256": "6f5c14fbb192904ae6bfe07350c30d1d6248a4cef5d32dc6c4f411f1a0891f2d"
+    "OkinawaArt19Bracket600k1MSpec.lean": {
+      "sha256": "375c50046eb16dc855f8548cb376ff792cde763bb9fee461387e14d6cf02430f"
     },
-    "PeninsulaSpecialDepreciationCostFloor5MTests.lean": {
-      "sha256": "4736ba5239383f44426334836a9ecd6f2b39e61fdec50269c148dcff8215f127"
+    "OkinawaArt19Bracket600k1MTests.lean": {
+      "sha256": "a4ea3623adabec64328ac2c1809860cfe2b69cb16dab64d37530eb58371dbc02"
     }
   },
   "note": "Scoped attestation: this module was kernel-built at a different commit than the main attestation. scope=full_run means the whole CI run succeeded; scope=lean_job_only would cover ONLY the Lean job.",
   "run_conclusion": "lean_job_only",
   "schema": 1,
   "scope": "lean_job_only",
-  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45806613417"
+  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45812399316"
 }

@@ -18,5 +18,7 @@ example : redevelopmentShareRatio 50 80 false = 0 := by decide
 example : redevelopmentShareRatio 0 80 false = 0 := by decide
 example : redevelopmentShareRatio 100 101 false = 0 := by decide
 example : redevelopmentShareRatio 999 333 false = 0 := by decide
+example : redevelopmentShareRatio 10 0 false = 1 := by decide
+example : redevelopmentShareRatio 1 1 false = 0 := by decide
 
 end JapanTaxLaw
