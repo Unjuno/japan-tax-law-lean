@@ -1780,9 +1780,15 @@ import JapanTaxLaw.RetirementResidual3MTests
 import JapanTaxLaw.RiceContentThreshold
 import JapanTaxLaw.RiceContentThresholdSpec
 import JapanTaxLaw.RiceContentThresholdTests
+import JapanTaxLaw.RndExcess3To15
+import JapanTaxLaw.RndExcess3To15Spec
+import JapanTaxLaw.RndExcess3To15Tests
 import JapanTaxLaw.RndExcessOver12
 import JapanTaxLaw.RndExcessOver12Spec
 import JapanTaxLaw.RndExcessOver12Tests
+import JapanTaxLaw.RndExcessOver15
+import JapanTaxLaw.RndExcessOver15Spec
+import JapanTaxLaw.RndExcessOver15Tests
 import JapanTaxLaw.RndExcessOver3
 import JapanTaxLaw.RndExcessOver3Spec
 import JapanTaxLaw.RndExcessOver3Tests
