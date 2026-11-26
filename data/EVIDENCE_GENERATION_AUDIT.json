@@ -1183,6 +1183,21 @@
       "scoped_article_chars": 5989,
       "spec_literals": []
     },
+    "CustomsReportPenaltyCeiling50k": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "五万"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 10,
+      "needles_scoped": true,
+      "scoped_article_chars": 81,
+      "spec_literals": [
+        50000
+      ]
+    },
     "CustomsRetaliatoryDuty": {
       "adversarial_review": true,
       "boundary_examples_found": 3,
@@ -2395,7 +2410,7 @@
         "二十",
         "百"
       ],
-      "kernel_attested": true,
+      "kernel_attested": false,
       "kernel_decided_examples": 6,
       "needles_scoped": true,
       "scoped_article_chars": 14541,
@@ -18203,6 +18218,22 @@
         "module": "GroupLossRatio",
         "spec_kanji_in_原文": []
       },
+      "NORM|ae8b530680be9ae5d40132a633d74e5344942744ac431625de51d3ac6196dbd1": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 10,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "CustomsReportPenaltyCeiling50k",
+        "spec_kanji_in_原文": [
+          "五万"
+        ]
+      },
       "NORM|aeb1e954f592a40d8ccd518472649846df6ffa559fcc38bbb1ec5202007ab642": {
         "checks": {
           "cross_law": true,
@@ -30851,6 +30882,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['特定損金算入限度額']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
       "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:64_7/Article#64_7/Paragraph#9/Item#7/ItemSentence/Sentence#1 sha256=3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/GroupLossRatioTests.lean sha256=d06c96119fb0701cf4a906904a69a9c395d0b5fd156423d19707db47cf100dab (10 kernel-decided examples)"
+    },
+    "NORM|ae8b530680be9ae5d40132a633d74e5344942744ac431625de51d3ac6196dbd1": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 10 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=1; enforced revision=339AC0000000101_20010106_411AC0000000160 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/CustomsReportPenaltyCeiling50k.lean sha256=a0320424ee6fbe5960936959ec27709c49c37029945ad8917576fbc6071dd120",
+      "independent_spec": "JapanTaxLaw/CustomsReportPenaltyCeiling50kSpec.lean sha256=f49f160e2b8855e3069aabcd52dc1a3b8cb4061e61b5711d1a35efa3a761610c (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45746021957: commit 40d8f2398e4839505258ede53bfc451389b7b659, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [50000] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"50000\": [\"五万\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/339AC0000000101_20010106_411AC0000000160.law.json#LawBody[1]/MainProvision/MainProvision[11]/Article:12/Article#12/Paragraph#1/ParagraphSentence/Sentence sha256=dd2cb1411a27157f3e8d2fa8bb639a742839672b31d61f9d99916092ee7013b7 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/CustomsReportPenaltyCeiling50kTests.lean sha256=68b6115a6d0ca6237dc42e3b39331ade4f7ecd68115d167706963d0ea0dcb57e (10 kernel-decided examples)"
     },
     "NORM|aeb1e954f592a40d8ccd518472649846df6ffa559fcc38bbb1ec5202007ab642": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
