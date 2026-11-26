@@ -5328,6 +5328,15 @@ def checks():
            "340CO0000000097", "file", None,
            ["有形固定資産その他の資産の額として財務省令で定める金額の百分の五に相当する金額"])
 
+    # 地方税法施行令 art. 15 — CityPlanningTaxBase5Percent.lean (都市計画税5%)
+    yield ("地方税法施行令 art. 15（都市計画税課税標準5%）↔ CityPlanningTaxBase5Percent.lean",
+           "325CO0000000245", "file", None,
+           ["都市計画税の課税標準となるべき価格に、百分の五を乗じて得た額"])
+    # 租税特別措置法施行令 art. 51の2 — EnergyEfficiency173Pct.lean (173%)
+    yield ("租税特別措置法施行令 art. 51_2（効率173%以上）↔ EnergyEfficiency173Pct.lean",
+           "332CO0000000043", "file", None,
+           ["エネルギー消費効率が平成二十二年度基準エネルギー消費効率に百分の百七十三を乗じて得た数値以上であること。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
