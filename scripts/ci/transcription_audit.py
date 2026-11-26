@@ -2560,6 +2560,11 @@ def checks():
            "file", None,
            ["居住者が、各年において、自己又は自己と生計を一にする配偶者その他の親族の負担すべき社会保険料を支払つた場合又は給与から控除される場合には、その支払つた金額又はその控除される金額を、その居住者のその年分の総所得金額、退職所得金額又は山林所得金額から控除する。", "前項に規定する社会保険料とは、次に掲げるものその他これらに準ずるもので政令で定めるもの（第九条第一項第七号（在勤手当の非課税）に掲げる給与に係るものを除く。）をいう。", "一健康保険法（大正十一年法律第七十号）の規定により被保険者として負担する健康保険の保険料", "五国民年金法の規定により被保険者として負担する国民年金の保険料及び国民年金基金の加入員として負担する掛金"])
 
+    # 所得税法 art. 84の2 — SpecifiedRelativeSpecialDeduction.lean
+    yield ("所得税法 art. 84の2（特定親族特別控除: 630k / (所得−840,001)×2 を十万段階で丸め / 1,150k超60k / 1,200k超30k）↔ SpecifiedRelativeSpecialDeduction.lean",
+           "340AC0000000033", "article", "第八十四条の二",
+           ["六十三万円からその特定親族の合計所得金額のうち八十四万一円を超える部分の金額に二を乗じた金額", "十万円の整数倍の金額から八万円を控除した金額", "百十五万円を超え百二十万円以下である特定親族"])
+
     # 所得税法 art. 86 — IncomeBasicDeduction.lean (4-tier basic deduction)
     yield ("所得税法 art. 86（基礎控除: 合計所得2350万以下58万・2400万以下48万・2450万以下32万・2500万以下16万・2500万超0 — 境界値を smoke 確認、合計所得額は caller-established）↔ IncomeBasicDeduction.lean",
            "340AC0000000033",
@@ -4466,6 +4471,28 @@ def checks():
            "328AC0000000006",
            "file", None,
            ["第一号に規定する課税標準たる数量からそれぞれ当該税率の適用区分ごとに前号に規定する課税標準たる数量を控除した数量（以下この項において「課税標準数量」という。）"])
+    # 東日本大震災復興臨時特例法 art.2(1) — ReconstructionEqualLevySurcharge500.lean
+    yield ("東日本大震災復興臨時特例法 第二条(1)（均等割標準税率 五百円加算）↔ ReconstructionEqualLevySurcharge500.lean",
+           "423AC0000000118", "article", "第二条",
+           ["平成二十六年度から平成三十五年度までの各年度分の個人の道府県民税に限り、均等割の標準税率は、地方税法第三十八条の規定にかかわらず、同条に規定する額に五百円を加算した額とする。"])
+
+    # Restored registered checks dropped by a concurrent main merge.
+    yield ('相続税法 art.21の7 表（三百万円超四百万円以下）↔ InheritanceTaxArt21_7Bracket3M4M.lean',
+           '325AC0000000073', 'file', None,
+           ['三百万円を超え四百万円以下の金額', '第二十一条の七'])
+
+    yield ('防衛特別法人税政令 第三条(6)(1)（零下回る額の合計）↔ DefenseCorpShortfallSum.lean',
+           '507CO0000000134', 'article', '第三条',
+           ['他の通算法人の他の課税事業年度の調整前控除限度額が零を下回る場合のその下回る額の合計額'])
+
+    yield ('地方税法 art. 51（標準税率超過時2%上限）↔ LocalTaxStandardRateCeiling2.lean',
+           '325AC0000000226', 'file', None,
+           ['標準税率を超える税率で課する場合においても、百分の二を超えることができない。'])
+
+    yield ('地方税法 art. 37（2%／指定都市1%）↔ LocalTaxReducedRate2or1.lean',
+           '325AC0000000226', 'file', None,
+           ['次に掲げる金額のうちいずれか少ない金額の百分の二'])
+
 
     yield ("地方税法 art. 72_39_2（納税猶予100万円例外）↔ LocalTaxDeferralSmallAmountException1MB.lean",
            "325AC0000000226", "file", None,
