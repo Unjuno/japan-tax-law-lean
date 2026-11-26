@@ -1457,6 +1457,9 @@ import JapanTaxLaw.LocalObligorTests
 import JapanTaxLaw.LocalPrivilege
 import JapanTaxLaw.LocalPrivilegeSpec
 import JapanTaxLaw.LocalPrivilegeTests
+import JapanTaxLaw.LocalRoadTaxPenaltyBounds
+import JapanTaxLaw.LocalRoadTaxPenaltyBoundsSpec
+import JapanTaxLaw.LocalRoadTaxPenaltyBoundsTests
 import JapanTaxLaw.LocalSeismic120sqm
 import JapanTaxLaw.LocalSeismic120sqmSpec
 import JapanTaxLaw.LocalSeismic120sqmTests

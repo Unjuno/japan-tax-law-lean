@@ -5204,6 +5204,12 @@ def checks():
            "file", None,
            ["滞納処分費の収納済額及び滞納処分費に係る返納金（過誤納金の還付金等に係るものに限る。）の収納済額の合計額から滞納処分費に係る支払決定済額を控除した金額は、一般会計の雑収入とする。"])
 
+    # 地方道路税法 art. 15(1) — LocalRoadTaxPenaltyBounds.lean
+    yield ("地方道路税法 art. 15（十年/百万円の罰則上限）↔ LocalRoadTaxPenaltyBounds.lean",
+           "330AC0000000104",
+           "file", None,
+           ["次の各号のいずれかに該当する者は、十年以下の拘禁刑若しくは百万円以下の罰金に処し、又はこれを併科する。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
