@@ -5116,6 +5116,12 @@ def checks():
            "file", None,
            ["\u524d\u4e8c\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u571f\u5730\u8a55\u4fa1\u5be9\u8b70\u4f1a\u306e\u7d44\u7e54\u53ca\u3073\u904b\u55b6\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
 
+    # 関税定率法施行令 art. 2の4(2) — OverseasMarketPriceCeiling.lean
+    yield ("関税定率法施行令 art. 2_4（海外市価三万円以下）↔ OverseasMarketPriceCeiling.lean",
+           "344M50000040016",
+           "file", None,
+           ["一個（現に使用中のもので海外市価（外国においてその物品を購入する際に支払われた又は支払われるべき価格をいう。以下この条において同じ。）三万円以下のものに限る。次号において同じ。）"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
