@@ -785,6 +785,9 @@ import JapanTaxLaw.EnforcementWithinSixMonthsTests
 import JapanTaxLaw.EqualLevyIncomeRequirement
 import JapanTaxLaw.EqualLevyIncomeRequirementSpec
 import JapanTaxLaw.EqualLevyIncomeRequirementTests
+import JapanTaxLaw.EvidenceNonSubmissionException
+import JapanTaxLaw.EvidenceNonSubmissionExceptionSpec
+import JapanTaxLaw.EvidenceNonSubmissionExceptionTests
 import JapanTaxLaw.ExamFee
 import JapanTaxLaw.ExamFeeSpec
 import JapanTaxLaw.ExamFeeTests
