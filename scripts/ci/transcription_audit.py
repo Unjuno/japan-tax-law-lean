@@ -5150,6 +5150,13 @@ def checks():
            ['意見申請者が個人である場合にあっては、申請の日前三月以内に作成された戸籍の謄本若しくは抄本又は住民票の写し'])
 
 
+    # InheritanceTaxArt6RefundReading.lean - NORM|6a9778cb... (相続税法 art.6(2) READING, law 325AC0000000073)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("inheritance tax art.6 refund reading - InheritanceTaxArt6RefundReading.lean",
+           "325AC0000000073",
+           "file", None,
+           ["\u524d\u9805\u306e\u898f\u5b9a\u306f\u3001\u5b9a\u671f\u91d1\u7d66\u4ed8\u5951\u7d04\u306b\u3064\u3044\u3066\u8fd4\u9084\u91d1\u305d\u306e\u4ed6\u3053\u308c\u306b\u6e96\u305a\u308b\u3082\u306e\u306e\u53d6\u5f97\u304c\u3042\u3064\u305f\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
     # 租税特別措置法施行令 art. 21の17の2(2) — PatentTransferRatio.lean
     yield ("租税特別措置法施行令 art. 21_17_2（取引数-1の割合）↔ PatentTransferRatio.lean",
            "332M50000040015",
