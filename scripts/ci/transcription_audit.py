@@ -4503,6 +4503,29 @@ def checks():
            "file", None,
            ["関税率表第〇四〇六・一〇号に掲げるフレッシュチーズ及びカード（いずれも乾燥固形分が全重量の四十八パーセント以下のもの（一個の重量が四グラム以下の細片にし、冷凍し、かつ、正味重量が五キログラムを超える直接包装にしたものに限る。）、関税割当チーズ及びクリームチーズ（軟質で展延性のある熟成していないリンドレスチーズであつて、乾燥固形分のうちに占める乳脂肪分の割合、無脂肪ベースでの全重量のうちに占める水分の割合及び全重量のうちに占める乾燥固形分の割合が、それぞれコーデックスのクリームチーズの規格（ＣＯＤＥＸ"])
 
+    yield ("特別とん税法 art.10(1)（3年/50万円の上限）↔ SpecialTonnageArt10PenaltyCap.lean",
+           "332AC0000000038",
+           "article", "第十条",
+           ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する", "第十条"])
+
+    # 関税定率法 art.8(6) — CustomsTariffArt8ExtensionSixMonths.lean
+    yield ("関税定率法 art.8(6)（六月以内の延長）↔ CustomsTariffArt8ExtensionSixMonths.lean",
+           "143AC0000000054",
+           "file", None,
+           ["その期間を六月以内に限り延長することができる", "第八条"])
+
+
+    yield ("地方税法 art. 37（2%／指定都市1%）↔ LocalTaxReducedRate2or1.lean",
+           "325AC0000000226", "file", None,
+           ["次に掲げる金額のうちいずれか少ない金額の百分の二"])
+
+
+    # 地方税法 art. 314の6 — LocalInhabitantReducedRate3or4.lean (3%/4%)
+    yield ("地方税法 art. 314_6（3%／指定都市4%）↔ LocalInhabitantReducedRate3or4.lean",
+           "325AC0000000226", "file", None,
+           ["次に掲げる金額のうちいずれか少ない金額の百分の三"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
