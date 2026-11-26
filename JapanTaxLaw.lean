@@ -620,6 +620,9 @@ import JapanTaxLaw.FractionAmountsTests
 import JapanTaxLaw.PerPersonDeduction
 import JapanTaxLaw.PerPersonDeductionSpec
 import JapanTaxLaw.PerPersonDeductionTests
+import JapanTaxLaw.PermilleAmounts
+import JapanTaxLaw.PermilleAmountsSpec
+import JapanTaxLaw.PermilleAmountsTests
 import JapanTaxLaw.TariffSpecificFloor
 import JapanTaxLaw.TariffSpecificFloorSpec
 import JapanTaxLaw.TariffSpecificFloorTests
