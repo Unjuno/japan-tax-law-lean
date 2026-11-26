@@ -1216,6 +1216,12 @@ def checks():
            "file", None,
            ["その期間を六月以内に限り延長することができる", "第八条"])
 
+    # 所得税法 art.2(1) — IncomeTaxSpouseIncomeCeiling10M.lean
+    yield ("所得税法 art.2(1)（同一生計配偶者 合計所得千万円以下）↔ IncomeTaxSpouseIncomeCeiling10M.lean",
+           "340AC0000000033",
+           "article", "第二条",
+           ["合計所得金額が千万円以下である居住者の配偶者をいう", "第二条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
