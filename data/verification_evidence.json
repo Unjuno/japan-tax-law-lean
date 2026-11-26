@@ -12253,6 +12253,88 @@
         "tool": "lake build"
       }
     ],
+    "066db83362f20b9c9b5497d46f317e3310f7b6fabd31182d06d13205de3e111f": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "340AC0000000033#第76条#pinned-life-band",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "mechanical-audit:LIFE-066db83362f2",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "task_queue.json#066db83362f2#coverage",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "JapanTaxLaw/LifePremiumDeductionSpec.lean#min-slice-form@kernel",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "JapanTaxLaw/LifePremiumDeduction.lean#deduction@kernel",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "JapanTaxLaw/LifePremiumDeductionSpec.lean#agreeDeduction@kernel",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "JapanTaxLaw/LifePremiumDeductionSpec.lean#agreeDeduction@universal-Nat@kernel",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "JapanTaxLaw/LifePremiumDeductionTests.lean#2万/4万/8万-boundaries@kernel",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "JapanTaxLaw/LifePremiumDeductionTests.lean@kernel",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T08:11:10+00:00",
+        "evidence_ref": "data/evidence_audits/life_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 4 bands + 1/2,1/4 rates in full text, 66667-value arithmetic sweep 0 mismatches",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "06735b24a369b3df40b669e40182f84d2b2dd39d4e373199efa1373c954556fa": [
       {
         "axis": "SOURCE_LOCATION",
@@ -131805,6 +131887,88 @@
         "note": "enforcement date 昭和六十三年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "4812183719cded1dd131ad27414a764584ae8d7cade1a7e6a346241a5476a5cd": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "340AC0000000033#第76条#pinned-life-band",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "mechanical-audit:LIFE-4812183719cd",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "task_queue.json#4812183719cd#coverage",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "JapanTaxLaw/LifePremiumDeductionSpec.lean#min-slice-form@kernel",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "JapanTaxLaw/LifePremiumDeduction.lean#deduction@kernel",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "JapanTaxLaw/LifePremiumDeductionSpec.lean#agreeDeduction@kernel",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "JapanTaxLaw/LifePremiumDeductionSpec.lean#agreeDeduction@universal-Nat@kernel",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "JapanTaxLaw/LifePremiumDeductionTests.lean#2万/4万/8万-boundaries@kernel",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "JapanTaxLaw/LifePremiumDeductionTests.lean@kernel",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T08:11:10+00:00",
+        "evidence_ref": "data/evidence_audits/life_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 4 bands + 1/2,1/4 rates in full text, 66667-value arithmetic sweep 0 mismatches",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "48136e34c8b39db2b5a69374ca9ff92da929e56c9842cfcc2ea45416b3ff8043": [
@@ -322036,6 +322200,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "aff22f5f4917e8ade4ec8b580c18d82b3fb9b5899fcf6ce2cdd7696efa932819": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "340AC0000000033#第76条#pinned-life-band",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "mechanical-audit:LIFE-aff22f5f4917",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "task_queue.json#aff22f5f4917#coverage",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "JapanTaxLaw/LifePremiumDeductionSpec.lean#min-slice-form@kernel",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "JapanTaxLaw/LifePremiumDeduction.lean#deduction@kernel",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "JapanTaxLaw/LifePremiumDeductionSpec.lean#agreeDeduction@kernel",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "JapanTaxLaw/LifePremiumDeductionSpec.lean#agreeDeduction@universal-Nat@kernel",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "JapanTaxLaw/LifePremiumDeductionTests.lean#2万/4万/8万-boundaries@kernel",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T08:02:37+00:00",
+        "evidence_ref": "JapanTaxLaw/LifePremiumDeductionTests.lean@kernel",
+        "note": "4-band 生命保険料控除 2万/4万/8万; independent min-slice spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T08:11:10+00:00",
+        "evidence_ref": "data/evidence_audits/life_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 4 bands + 1/2,1/4 rates in full text, 66667-value arithmetic sweep 0 mismatches",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "aff6c838a1497265a1ee2bc02893ecd1b1e505430353c89ffaf080daea819275": [
