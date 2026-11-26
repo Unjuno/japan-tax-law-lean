@@ -2418,6 +2418,12 @@ def checks():
            "file", None,
            ["者が老人控除対象配偶者である場合十万円（当該納税義務者の前年の合計所得金額が九百万円を超え九百五十万円以下である場合には六万円、当該納税義務者の前年の合計所得金額が九百五十万円を超え千万円以下である場合には三万円）", "第三十七条"])
 
+    # SofAgreementSpecialTaxEnforcementDate — cycle-130
+    yield ("SofAgreementSpecialTaxEnforcementDate.lean",
+           "327AC0000000113",
+           "file", None,
+           ["第一条この法律は、昭和六十年四月一日から施行する", "この法律は、昭和六十年四月一日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
