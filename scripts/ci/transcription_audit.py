@@ -1298,6 +1298,12 @@ def checks():
            "file", None,
            ["千分の二十五」とあるのは、「千分の八", "第百二十四条"])
 
+    # 租税特別措置法施行令 art.80(3) — SpecialTaxOrderArt80CapitalFeeFloor75k.lean
+    yield ("租税特別措置法施行令 art.80(3)（資本金×千分の三・五・7.5万円下限）↔ SpecialTaxOrderArt80CapitalFeeFloor75k.lean",
+           "332AC0000000026",
+           "file", None,
+           ["資本金の額に千分の三・五を乗じて計算した金額", "七万五千円に満たない場合"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
