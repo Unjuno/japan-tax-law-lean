@@ -689,6 +689,9 @@ import JapanTaxLaw.ExamFeeTests
 import JapanTaxLaw.ExcellentLandTransferSpecialTax
 import JapanTaxLaw.ExcellentLandTransferSpecialTaxSpec
 import JapanTaxLaw.ExcellentLandTransferSpecialTaxTests
+import JapanTaxLaw.ExcessFinanceGrant75Cap
+import JapanTaxLaw.ExcessFinanceGrant75CapSpec
+import JapanTaxLaw.ExcessFinanceGrant75CapTests
 import JapanTaxLaw.Excluded
 import JapanTaxLaw.ExcludedDutyFreeGoods
 import JapanTaxLaw.ExcludedDutyFreeGoodsSpec
@@ -785,6 +788,9 @@ import JapanTaxLaw.GiftTaxSettlementBasicDeduction600k
 import JapanTaxLaw.GiftTaxSettlementBasicDeduction600kSpec
 import JapanTaxLaw.GiftTaxSettlementBasicDeduction600kTests
 import JapanTaxLaw.GiftTaxSpec
+import JapanTaxLaw.GiftTaxTenYearResidenceLookback
+import JapanTaxLaw.GiftTaxTenYearResidenceLookbackSpec
+import JapanTaxLaw.GiftTaxTenYearResidenceLookbackTests
 import JapanTaxLaw.GiftTaxTests
 import JapanTaxLaw.GolfCourseUseTaxStandardRate
 import JapanTaxLaw.GolfCourseUseTaxStandardRateSpec
