@@ -4607,6 +4607,13 @@ def checks():
            "332AC0000000026", "file", None,
            ["増減試験研究費割合が百分の三を超え百分の十五以下である場合（ニに掲げる場合を除く。）"])
 
+    # LocalTaxArt154Capacity30To40Condition.lean - NORM|aa32cf8b... (地方税法 art.154 table-cell CONDITION, law 325AC0000000226)
+    # Article-kind locator; needle is the >30 and <=40 passenger-capacity cell.
+    yield ("local tax law art.154 capacity 30 to 40 condition - LocalTaxArt154Capacity30To40Condition.lean",
+           "325AC0000000226",
+           "article", "\u7b2c\u767e\u4e94\u5341\u56db\u6761",
+           ["\uff08\uff12\uff09\u3000\u4e57\u8eca\u5b9a\u54e1\u304c\u4e09\u5341\u4eba\u3092\u8d85\u3048\u3001\u56db\u5341\u4eba\u4ee5\u4e0b\u306e\u3082\u306e"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
