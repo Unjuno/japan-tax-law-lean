@@ -91,6 +91,10 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # EvidenceNonSubmissionException.lean - NORM|f7b116e1... (証拠不提出の例外 EXCEPTION, law 406CO0000000415)
+    yield ("相殺関税政令 art.7(4) ただし書（証拠不提出の例外）↔ EvidenceNonSubmissionException.lean",
+           "406CO0000000415", "article", "第七条", ["ただし、当該利害関係者が相当な期間内に当該証拠又は証言を提供しない場合は、この限りでない。"])
+
     # DividedCertificateIssuance.lean - NORM|834e3b37... (分割証明書交付 CONDITION, law 340M50010000013)
     yield ("とうもろこし等関税割当省令 art.4(2)（分割証明書交付）↔ DividedCertificateIssuance.lean",
            "340M50010000013", "article", "第四条", ["農林水産大臣は、前項の申請書を受理したときは、申請に係る証明書に代えて、分割した証明書を交付するものとする。"])
@@ -2473,6 +2477,12 @@ def checks():
            "407M50000200013",
            "file", None,
            ["第一条この省令は、平成十二年四月一日から施行する", "この省令は、平成十二年四月一日から施行する"])
+
+    # CustomsOfficerBadgeFormEnforcementDate — cycle-138
+    yield ("CustomsOfficerBadgeFormEnforcementDate.lean",
+           "329M50000040064",
+           "file", None,
+           ["第一条この省令は、昭和五十二年七月一日から施行する", "この省令は、昭和五十二年七月一日から施行する"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -5056,6 +5066,36 @@ def checks():
            "325AC0000000073",
            "file", None,
            ["\u3053\u306e\u6cd5\u5f8b\u306b\u304a\u3044\u3066\u3001\u6b21\u306e\u5404\u53f7\u306b\u63b2\u3052\u308b\u7528\u8a9e\u306e\u610f\u7fa9\u306f\u3001\u5f53\u8a72\u5404\u53f7\u306b\u5b9a\u3081\u308b\u3068\u3053\u308d\u306b\u3088\u308b\u3002"])
+
+    # 国際観光旅客税法 art. 25(1) — TouristTaxPenaltyBounds.lean
+    yield ("国際観光旅客税法 art. 25（一年/五十万円の罰則上限）↔ TouristTaxPenaltyBounds.lean",
+           "430AC0000000016",
+           "file", None,
+           ["次の各号のいずれかに該当する者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
+# 雇入れ日の年齢 五十五歳以上六十五歳未満 — EmploymentSubsidyAge55to65.lean
+    yield ("地方税法施行規則 art. 24_2（雇入れ日の年齢 五十五歳以上六十五歳未満）↔ EmploymentSubsidyAge55to65.lean",
+           "329M50000002023",
+           "file", None,
+           ["政令第五十六条の十七の二第三号に掲げる者で同号に掲げる雇用奨励金の支給に係る雇入れの日において年齢五十五歳以上六十五歳未満のもの"])
+
+    # 一日当たり片道断面輸送量 一万人以上十五万人未満 — RailPassengerVolume10k150k.lean
+    yield ("地方税法施行規則 art. 6（一日当たり片道断面輸送量 一万人以上十五万人未満）↔ RailPassengerVolume10k150k.lean",
+           "329M50000002023",
+           "file", None,
+           ["一日当たりの片道断面輸送量が一万人以上十五万人未満の線区（旅客鉄道株式会社及び日本貨物鉄道株式会社に関する法律の一部を改正する法律（平成十三年法律第六十一号）附則第二条第一項第一号に掲げる者が事業の用に供する線区を除く。次号において同じ。）"])
+
+    # 貨物価額五千万円超 かつ 入出港隻数十一隻超 — CustomsPortDesignationValueShips.lean
+    yield ("関税法施行令 art. 1（貨物価額五千万円超 かつ 入出港隻数十一隻超）↔ CustomsPortDesignationValueShips.lean",
+           "329CO0000000150",
+           "file", None,
+           ["一年を通じて当該開港において輸出され、又は輸入された貨物の価額の合計額が五千万円を超え、かつ、外国貿易船の入港隻数及び出港隻数の合計数が十一隻を超えることが引き続き二年なかつたとき。"])
+
+    # 月数 十二月超は十二月・一月未満端数は一月 — TaxCreditMonthCap12RoundUp.lean
+    yield ("租税特別措置法 art. 8_5（月数 十二月超は十二月・一月未満端数は一月）↔ TaxCreditMonthCap12RoundUp.lean",
+           "332AC0000000026",
+           "file", None,
+           ["第一項第一号の月数は、暦に従つて計算し、十二月を超えるときは十二月とし、一月に満たない端数を生じたときはこれを一月とする。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
