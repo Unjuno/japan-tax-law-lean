@@ -847,6 +847,19 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:144_33/Article#144_33/Paragraph#6/Item#1/ItemSentence/Column#2/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
       "tests": "JapanTaxLaw/BatchThresholdLE152adee2c0Tests.lean sha256=caff449166e445c5b9064b2a4868e077d840d1bd0091767d64af8348edcaabc9"
     },
+    "NORM|04461a9adcbee34c89bf52581d40d2b1762461ab3fac7b16de6d304fd797ee0e": {
+      "adversarial_review": "docs/BATCH_DEEMING_REVIEW.md generated entry for NORM|04461a9adcb",
+      "boundary_proof": "BatchDeemc654495c0aTests.lean exhaustive Bool x Bool boundary cases",
+      "cross_law_proof": "dependencies=[]; cross-provision conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDeemc654495c0a.lean sha256=4e97a65ae7014fcb4d71a12f2d09984189e8257874e03a019207baba4b02dbea",
+      "independent_spec": "JapanTaxLaw/BatchDeemc654495c0aSpec.lean sha256=f659c2b6d731f7ee2aebf918f6c25e166de97fcf18d3c3ba835919c9d2db0a1b; deadline-guard spec vs conjunction impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDeemc654495c0aTests OK; axioms: 'JapanTaxLaw.BatchDeemc654495c0a.no_decision_if_deemed' depends on axioms: [propext] | 'JapanTaxLaw.BatchDeemc654495c0a.agree_spec_impl' does not depend on any axioms",
+      "proof_scope": "universal over both caller-established Bools; exclusivity and deadline necessity proved; the decision and deadline themselves are NOT resolved",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; deeming_audit D=PASS: verbatim located and period count matches",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[357]/SupplProvision/SupplProvision[42]/Article:55/Article#55/Paragraph#10/Item#2/ItemSentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/BatchDeemc654495c0aTests.lean sha256=42f4bc7407196b9c3b5ba2c0c93ac56e83637042abf4ba26d00e39e15ac931a5"
+    },
     "NORM|045a94cc44cefa8420d637352ccfbb61123e9dd326c646c28298bb640c33cbc6": {
       "adversarial_review": "docs/BATCH_READING_REVIEW.md generated entry for NORM|045a94cc44c",
       "boundary_proof": "BatchRead1c028e9ee1Tests.lean kernel-decided original/replacement/other + untriggered identity + verbatim phrase constants",
@@ -7048,6 +7061,19 @@
       "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[30]/Article:17/Article#17/Paragraph#5/ParagraphSentence/Sentence#2 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c",
       "tests": "JapanTaxLaw/BatchRead6c1e206744Tests.lean sha256=92970d54b6bfdc933dea7cb30982c18c29feb097900d19744820d48fa255d7e5"
     },
+    "NORM|23c4baa645757ac5444a5e76c550739f00017779f6fe08e3e925eb8d410556f0": {
+      "adversarial_review": "docs/BATCH_DEEMING_REVIEW.md generated entry for NORM|23c4baa6457",
+      "boundary_proof": "BatchDeem6c50ac8559Tests.lean exhaustive Bool x Bool boundary cases",
+      "cross_law_proof": "dependencies=[]; cross-provision conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDeem6c50ac8559.lean sha256=2257d6555c0a6b865244e1890df5bf9b16263ef500d9211b50bbe7a994036dff",
+      "independent_spec": "JapanTaxLaw/BatchDeem6c50ac8559Spec.lean sha256=09752803b8df9df75b9ccce2387937e60a348531f4ce2d0358ff543144f40753; deadline-guard spec vs conjunction impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDeem6c50ac8559Tests OK; axioms: 'JapanTaxLaw.BatchDeem6c50ac8559.no_decision_if_deemed' depends on axioms: [propext] | 'JapanTaxLaw.BatchDeem6c50ac8559.agree_spec_impl' does not depend on any axioms",
+      "proof_scope": "universal over both caller-established Bools; exclusivity and deadline necessity proved; the decision and deadline themselves are NOT resolved",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; deeming_audit D=PASS: verbatim located and period count matches",
+      "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:46/Article#46/Paragraph#11/ParagraphSentence/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7",
+      "tests": "JapanTaxLaw/BatchDeem6c50ac8559Tests.lean sha256=9463b80354123be1df35a5490631742ba3b98d3d92dc3902698c39aa249a7e7f"
+    },
     "NORM|23d251253d3d6ab3f9f6fec2b264e0793bef65ba733f0e1194108aecbe04e51d": {
       "adversarial_review": "docs/BATCH_THRESHOLD_REVIEW.md generated entry for NORM|23d251253d3 (le 15000)",
       "boundary_proof": "BatchThresholdLE97ad8031a6Tests.lean kernel-decided 0/15000/15001",
@@ -11468,6 +11494,19 @@
       "source_location": "data/raw/332M50000040015_20261101_507M60000040026.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:18_20/Article#18_20/Paragraph#4/Item#7/ItemSentence/Sentence#1 sha256=2e5d3e585b99e15ffb030c8b6fa0dcc6ccf7cc9532924fa5b6438a68cc05767c",
       "tests": "JapanTaxLaw/BatchRate9dd7a26722Tests.lean sha256=4a87cf1da55112a4d06c714f30fc0dd3e2af2fd82c676d48be4ad4442cdb61c3"
     },
+    "NORM|3d5e56c819c7bc6cd8240937e81fbb61754d9061082f202ed3dc91d90912e78c": {
+      "adversarial_review": "docs/BATCH_DEEMING_REVIEW.md generated entry for NORM|3d5e56c819c",
+      "boundary_proof": "BatchDeemde311fdb03Tests.lean exhaustive Bool x Bool boundary cases",
+      "cross_law_proof": "dependencies=[]; cross-provision conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDeemde311fdb03.lean sha256=b5e4782547a8a337d68619ff8861a1d59317104f92c2ac1d34d4acb4914d4701",
+      "independent_spec": "JapanTaxLaw/BatchDeemde311fdb03Spec.lean sha256=f4ebe267aee86eedf21c321986434d475d13e515f64767343fcd18f48d3bbf8e; deadline-guard spec vs conjunction impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDeemde311fdb03Tests OK; axioms: 'JapanTaxLaw.BatchDeemde311fdb03.no_decision_if_deemed' depends on axioms: [propext] | 'JapanTaxLaw.BatchDeemde311fdb03.agree_spec_impl' does not depend on any axioms",
+      "proof_scope": "universal over both caller-established Bools; exclusivity and deadline necessity proved; the decision and deadline themselves are NOT resolved",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; deeming_audit D=PASS: verbatim located and period count matches",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:70_6_7/Article#70_6_7/Paragraph#5/Item#2/ItemSentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/BatchDeemde311fdb03Tests.lean sha256=1bc81ae6847a9525e5065e59fddadb5127056ecc7f82ad34d23c87d5159a7df5"
+    },
     "NORM|3d6bb44a3407632245f02aff3de0ece2badce89aa0d92808efa88c768cfbb968": {
       "adversarial_review": "docs/BATCH_EFFECTIVE_REVIEW.md generated entry for NORM|3d6bb44a340",
       "boundary_proof": "BatchEffective59bd25047fTests.lean kernel-decided effective-day and pre-promulgation boundaries",
@@ -14354,6 +14393,19 @@
       "source_location": "data/raw/325CO0000000245_20261101_508CO0000000083.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:35_4_6/Article#35_4_6/ArticleCaption sha256=9bc03b230fb0ed1039e33a1544cd53772939ee25d6d4648a386400ea269dfb17 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/StandardRateExcessRatioTests.lean sha256=f3c78382e2b7b8966f371aa977af0fabe04d20bdf82324b4413aa7674e540f6a (15 kernel-decided examples)"
     },
+    "NORM|4c5986f56bd0f402605952784857e8c75cd2f056319e3c27cb2e1714f5619799": {
+      "adversarial_review": "docs/BATCH_DEEMING_REVIEW.md generated entry for NORM|4c5986f56bd",
+      "boundary_proof": "BatchDeem56d31ecc73Tests.lean exhaustive Bool x Bool boundary cases",
+      "cross_law_proof": "dependencies=[]; cross-provision conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDeem56d31ecc73.lean sha256=9f245f96628b7b46474508b4dcd28e48766bad0f2985a8e8f6980d936016eaab",
+      "independent_spec": "JapanTaxLaw/BatchDeem56d31ecc73Spec.lean sha256=c7b5577a9e99006127bc966492151aab3bafe33d9191523991607159d51921af; deadline-guard spec vs conjunction impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDeem56d31ecc73Tests OK; axioms: 'JapanTaxLaw.BatchDeem56d31ecc73.no_decision_if_deemed' depends on axioms: [propext] | 'JapanTaxLaw.BatchDeem56d31ecc73.agree_spec_impl' does not depend on any axioms",
+      "proof_scope": "universal over both caller-established Bools; exclusivity and deadline necessity proved; the decision and deadline themselves are NOT resolved",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; deeming_audit D=PASS: verbatim located and period count matches",
+      "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:39/Article#39/Paragraph#28/ParagraphSentence/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7",
+      "tests": "JapanTaxLaw/BatchDeem56d31ecc73Tests.lean sha256=4a39176acb59096a3de575d8f0f1ee6208a9afec85efa8da36e6124e18d64a50"
+    },
     "NORM|4c7b4dcbc67ed7f80529716791aef3f05f4c9a493a6a3f3c05b26600e19b80ef": {
       "adversarial_review": "docs/BATCH_EFFECTIVE_REVIEW.md generated entry for NORM|4c7b4dcbc67",
       "boundary_proof": "BatchEffective4b9f7b2aa7Tests.lean kernel-decided effective-day and pre-promulgation boundaries",
@@ -15679,6 +15731,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; threshold=1000000 yen; op=le",
       "source_location": "data/raw/340M50000040011_20261001_507M60000040018.law.json#LawBody[3]/MainProvision/MainProvision[4]/Article:87/Article#87/Paragraph#3/Item#2/ItemSentence/Sentence#1 sha256=8721699516ac82025eea0430429b197da1e58afe195debe1fb441dfea14eacf5",
       "tests": "JapanTaxLaw/BatchThresholdLE384eb2ef55Tests.lean sha256=7215220f2f58294ea568ad5947c0791bc5de8477486a4609215773db20b97e83"
+    },
+    "NORM|528639b602461ac59b1a2e546a4525a41f01b191b9465bb0d914fe304ac2258f": {
+      "adversarial_review": "docs/BATCH_DEEMING_REVIEW.md generated entry for NORM|528639b6024",
+      "boundary_proof": "BatchDeem739d0a1085Tests.lean exhaustive Bool x Bool boundary cases",
+      "cross_law_proof": "dependencies=[]; cross-provision conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDeem739d0a1085.lean sha256=d203bb983a5eebfe5074c8af2bdcfbd456c65c352765a793bdf0b7019344fd94",
+      "independent_spec": "JapanTaxLaw/BatchDeem739d0a1085Spec.lean sha256=70b023e8314000a9634a38b145ff9e30c7599c2c8c13d4a123576082ec5295e2; deadline-guard spec vs conjunction impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDeem739d0a1085Tests OK; axioms: 'JapanTaxLaw.BatchDeem739d0a1085.no_decision_if_deemed' depends on axioms: [propext] | 'JapanTaxLaw.BatchDeem739d0a1085.agree_spec_impl' does not depend on any axioms",
+      "proof_scope": "universal over both caller-established Bools; exclusivity and deadline necessity proved; the decision and deadline themselves are NOT resolved",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; deeming_audit D=PASS: verbatim located and period count matches",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:70_6_8/Article#70_6_8/Paragraph#5/Item#2/ItemSentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/BatchDeem739d0a1085Tests.lean sha256=b1e2e85b147a22b126659402ef137958df7b541baa2f9746e4932821f2afa281"
     },
     "NORM|529b36f92316e69d6bf761c5cece2a87d756bbc4462bdc7cf6abf439532fae21": {
       "adversarial_review": "docs/BATCH_EFFECTIVE_REVIEW.md generated entry for NORM|529b36f9231",
@@ -17578,6 +17643,19 @@
       "source_location": "data/raw/337AC0000000066_20261101_507AC0000000013.law.json#LawBody[82]/SupplProvision/SupplProvision[1]/Article:1/Article#1/Paragraph#1/ParagraphSentence/Sentence#1 sha256=6f8b43e168652d228066cda3389a3bf6823900a9268e6bf97297cb6b25189dee",
       "tests": "JapanTaxLaw/BatchEffective876e40ac24Tests.lean sha256=1e4f08ba6924fd48e8ff22adc149aceb623e2b6c2ad6ba8c30e0d51be4646042"
     },
+    "NORM|5bb522b10f10d32c9d787803847ad9eaf1aeef66b6669fa3b1ff5172a6a3505b": {
+      "adversarial_review": "docs/BATCH_DEEMING_REVIEW.md generated entry for NORM|5bb522b10f1",
+      "boundary_proof": "BatchDeem94a02b67ecTests.lean exhaustive Bool x Bool boundary cases",
+      "cross_law_proof": "dependencies=[]; cross-provision conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDeem94a02b67ec.lean sha256=ef0ab6e5cdeb14aa6526f0070fae3e776c00d6f283c9d31d932213c413513391",
+      "independent_spec": "JapanTaxLaw/BatchDeem94a02b67ecSpec.lean sha256=2c13631d5fd8d56a2c9546297f33ba2e2604fa2f4206d1b59966fc6cc444c18e; deadline-guard spec vs conjunction impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDeem94a02b67ecTests OK; axioms: 'JapanTaxLaw.BatchDeem94a02b67ec.no_decision_if_deemed' depends on axioms: [propext] | 'JapanTaxLaw.BatchDeem94a02b67ec.agree_spec_impl' does not depend on any axioms",
+      "proof_scope": "universal over both caller-established Bools; exclusivity and deadline necessity proved; the decision and deadline themselves are NOT resolved",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; deeming_audit D=PASS: verbatim located and period count matches",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:70_6_7/Article#70_6_7/Paragraph#4/Item#2/ItemSentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/BatchDeem94a02b67ecTests.lean sha256=bd19e85968e1cdfc0da7c051add10d6ef32d783015fd46ecba2873a625334faa"
+    },
     "NORM|5bd07aca14db1c17b21ad181a2957e7665cc91e34a91651661b811413cb0a110": {
       "adversarial_review": "docs/BATCH_PERIOD_REVIEW.md generated entry for NORM|5bd07aca14d (2月 le)",
       "boundary_proof": "BatchPeriod4ab7529889Tests.lean kernel-decided boundary points",
@@ -18422,6 +18500,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; bounds=[9500000,10000000] yen",
       "source_location": "data/raw/340AC0000000033_20261001_507AC0000000070.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:83/Article#83/Paragraph#1/Item#3/ItemSentence/Column#1/Sentence#1 sha256=94c4a7ad83726cde60787967ed4e959585ad0af9279d25db9aa02264b3fe606b",
       "tests": "JapanTaxLaw/BatchRangeb042110fe3Tests.lean sha256=74f0587cd2f1042e2b84e7c0cbaa6b851cce73f4ba1a52a3d0e3d38bd389bfe0"
+    },
+    "NORM|5ff6caf2366bb7b8c54b0771ece93e9b03aa8552d11736d3fed9b011b8954257": {
+      "adversarial_review": "docs/BATCH_DEEMING_REVIEW.md generated entry for NORM|5ff6caf2366",
+      "boundary_proof": "BatchDeem8afeec7493Tests.lean exhaustive Bool x Bool boundary cases",
+      "cross_law_proof": "dependencies=[]; cross-provision conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDeem8afeec7493.lean sha256=6e557990b84adda5e31b6c6c20f6ffe176e6f7ab28081d61c5d2323a8de1d353",
+      "independent_spec": "JapanTaxLaw/BatchDeem8afeec7493Spec.lean sha256=b3b3de7a7aefb632aaa614e5472284d6192c7eaf37dc4438e128959faa8791bc; deadline-guard spec vs conjunction impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDeem8afeec7493Tests OK; axioms: 'JapanTaxLaw.BatchDeem8afeec7493.no_decision_if_deemed' depends on axioms: [propext] | 'JapanTaxLaw.BatchDeem8afeec7493.agree_spec_impl' does not depend on any axioms",
+      "proof_scope": "universal over both caller-established Bools; exclusivity and deadline necessity proved; the decision and deadline themselves are NOT resolved",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; deeming_audit D=PASS: verbatim located and period count matches",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:70_4/Article#70_4/Paragraph#15/Item#2/ItemSentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/BatchDeem8afeec7493Tests.lean sha256=a910293f26e4fe76798447492058b007a011fc3d0de494f427a9c9d72243f57a"
     },
     "NORM|6012cdcebd7df9018c086c2a3ceacd5d36da97362049913bf2131aaa2654adac": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md Batch P: independent pinned re-extraction, H/T/D/C/U recorded",
@@ -20866,6 +20957,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; bounds=[24000000,24500000] yen",
       "source_location": "data/raw/340AC0000000033_20261001_507AC0000000070.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:86/Article#86/Paragraph#1/Item#3/ItemSentence/Column#1/Sentence#1 sha256=94c4a7ad83726cde60787967ed4e959585ad0af9279d25db9aa02264b3fe606b",
       "tests": "JapanTaxLaw/BatchRange566144cfb5Tests.lean sha256=511df6690e436a214c8167de866d9db3cdb3cd7140e2481c6f97667ffc90507c"
+    },
+    "NORM|6db42e59afb13f3e5d431d98a5a768af1b92d1d0b5871cb40d3edb459dd20344": {
+      "adversarial_review": "docs/BATCH_DEEMING_REVIEW.md generated entry for NORM|6db42e59afb",
+      "boundary_proof": "BatchDeem3515b73e39Tests.lean exhaustive Bool x Bool boundary cases",
+      "cross_law_proof": "dependencies=[]; cross-provision conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDeem3515b73e39.lean sha256=80fd69d83abf8cd501177a22962364bf9bd2d9fa640c87956dc8fba697f1a55f",
+      "independent_spec": "JapanTaxLaw/BatchDeem3515b73e39Spec.lean sha256=472fa56cb28c237d5f57986515cb9e16440073bc88af3c6f931486b2aad29cb6; deadline-guard spec vs conjunction impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDeem3515b73e39Tests OK; axioms: 'JapanTaxLaw.BatchDeem3515b73e39.no_decision_if_deemed' depends on axioms: [propext] | 'JapanTaxLaw.BatchDeem3515b73e39.agree_spec_impl' does not depend on any axioms",
+      "proof_scope": "universal over both caller-established Bools; exclusivity and deadline necessity proved; the decision and deadline themselves are NOT resolved",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; deeming_audit D=PASS: verbatim located and period count matches",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:70_6/Article#70_6/Paragraph#22/Item#2/ItemSentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/BatchDeem3515b73e39Tests.lean sha256=ac42548b11c87a6d160c8dd0e69ec40c17c1e5c5988a461afaa550e4f3e9f6fb"
     },
     "NORM|6db6fa8700dcf43c04fd561a86cd452ba190c841c9bbb6061ed508caf6ebe8b2": {
       "adversarial_review": "docs/BATCH_THRESHOLD_REVIEW.md generated entry for NORM|6db6fa8700d (le 10000000)",
@@ -25937,6 +26041,19 @@
       "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:40_8/Article#40_8/Paragraph#7/Item#6/Subitem1#1/Subitem1Sentence/Sentence#1 sha256=d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d",
       "tests": "JapanTaxLaw/BatchRate839bcc96d7Tests.lean sha256=f799af1d518c2098e5b816fe6d504613aa93bc58ecca1f88fd90d4f3381109a4"
     },
+    "NORM|8a5e1d6ee14c9d04fa34c5dade324de08a7231ea516e1962e8267870a320c020": {
+      "adversarial_review": "docs/BATCH_DEEMING_REVIEW.md generated entry for NORM|8a5e1d6ee14",
+      "boundary_proof": "BatchDeemdd7a421048Tests.lean exhaustive Bool x Bool boundary cases",
+      "cross_law_proof": "dependencies=[]; cross-provision conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDeemdd7a421048.lean sha256=6622057803ad6e947b9591cbd715c45f8fdf414655c076758357c0883d596362",
+      "independent_spec": "JapanTaxLaw/BatchDeemdd7a421048Spec.lean sha256=a6c94b66f4d7c1b8fe8727f37cfe5229fcb4a80f3fd7690b2627f184ac560842; deadline-guard spec vs conjunction impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDeemdd7a421048Tests OK; axioms: 'JapanTaxLaw.BatchDeemdd7a421048.no_decision_if_deemed' depends on axioms: [propext] | 'JapanTaxLaw.BatchDeemdd7a421048.agree_spec_impl' does not depend on any axioms",
+      "proof_scope": "universal over both caller-established Bools; exclusivity and deadline necessity proved; the decision and deadline themselves are NOT resolved",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; deeming_audit D=PASS: verbatim located and period count matches",
+      "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:42/Article#42/Paragraph#31/ParagraphSentence/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7",
+      "tests": "JapanTaxLaw/BatchDeemdd7a421048Tests.lean sha256=c9603b4fc24f7a332915f1b0199141d41167a1d17af26678fc281fa3f9432e0a"
+    },
     "NORM|8a65d7dd0c4401219ff38cb0d17b11bf78dc51f19fd27be46fa730cf8a6e6c50": {
       "adversarial_review": "docs/BATCH_EFFECTIVE_REVIEW.md generated entry for NORM|8a65d7dd0c4",
       "boundary_proof": "BatchEffective423a3c7c0eTests.lean kernel-decided effective-day and pre-promulgation boundaries",
@@ -27080,6 +27197,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (--ignore-quoted); phrase_audit D=PASS: every quoted pair located in pinned text, reproduced verbatim in spec+impl with correct direction",
       "source_location": "data/raw/329AC0000000061_20260601_508AC0000000005.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:12_2/Article#12_2/Paragraph#6/ParagraphSentence/Sentence#2 sha256=1701272a2e4eaf434b6d953026c340efa4e15b2ca952fc941eeeb676d32204ea",
       "tests": "JapanTaxLaw/BatchMultiReadf9067d1095Tests.lean sha256=d0d84cc118c8ae3a541da765377d757c4fc61cd91373d71b3336923a6a616066"
+    },
+    "NORM|8ff5b8a9e24c922db7fbd8b7aef909a4ae3a0be588ed0e7ca184ccd0dd7e2cb6": {
+      "adversarial_review": "docs/BATCH_DEEMING_REVIEW.md generated entry for NORM|8ff5b8a9e24",
+      "boundary_proof": "BatchDeemcdeae320cdTests.lean exhaustive Bool x Bool boundary cases",
+      "cross_law_proof": "dependencies=[]; cross-provision conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDeemcdeae320cd.lean sha256=84fddaf480ec878973ee08b2942e07190a792724d8f58b788eddaeddb91b5390",
+      "independent_spec": "JapanTaxLaw/BatchDeemcdeae320cdSpec.lean sha256=99ad0bed042734a551f790feb1f348ffdb2b20549d28f9581c2929970b30fbc0; deadline-guard spec vs conjunction impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDeemcdeae320cdTests OK; axioms: 'JapanTaxLaw.BatchDeemcdeae320cd.no_decision_if_deemed' depends on axioms: [propext] | 'JapanTaxLaw.BatchDeemcdeae320cd.agree_spec_impl' does not depend on any axioms",
+      "proof_scope": "universal over both caller-established Bools; exclusivity and deadline necessity proved; the decision and deadline themselves are NOT resolved",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; deeming_audit D=PASS: verbatim located and period count matches",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:70_4/Article#70_4/Paragraph#18/Item#2/ItemSentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/BatchDeemcdeae320cdTests.lean sha256=bc671b315ac5711a8405ababe6524728603da35a4fc81f712419c4bf8930e8aa"
     },
     "NORM|900f87bddf9e8b0f43f44cfa47c8b059500ccff52bcfeae3362864a120f3abab": {
       "adversarial_review": "docs/BATCH_RATE_REVIEW.md generated entry for NORM|900f87bddf9 (95%)",
@@ -38989,6 +39119,19 @@
       "source_location": "data/raw/340AC0000000033_20261001_507AC0000000070.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:132/Article#132/Paragraph#1/Item#3/ItemSentence/Sentence#1 sha256=94c4a7ad83726cde60787967ed4e959585ad0af9279d25db9aa02264b3fe606b",
       "tests": "JapanTaxLaw/BatchThresholdGT910f703e5cTests.lean sha256=90ce450ac7c3f20f36b5d3955db92a3c5c57fb79d7ec72d64d1db0212fb4426f"
     },
+    "NORM|cfb8fed4721e1eb542bb75d849cfa49aa581e518e656cda2537daa4accf526fb": {
+      "adversarial_review": "docs/BATCH_DEEMING_REVIEW.md generated entry for NORM|cfb8fed4721",
+      "boundary_proof": "BatchDeemd62bc3e814Tests.lean exhaustive Bool x Bool boundary cases",
+      "cross_law_proof": "dependencies=[]; cross-provision conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDeemd62bc3e814.lean sha256=61542869f9cd0f72740f9b4b601057ca587666fd72a47b1c876cbc0753aeed43",
+      "independent_spec": "JapanTaxLaw/BatchDeemd62bc3e814Spec.lean sha256=bfb20edcda23ecfb5f10b22afd6c7cb63d62e54c382e4a13520539243638fbdb; deadline-guard spec vs conjunction impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDeemd62bc3e814Tests OK; axioms: 'JapanTaxLaw.BatchDeemd62bc3e814.no_decision_if_deemed' depends on axioms: [propext] | 'JapanTaxLaw.BatchDeemd62bc3e814.agree_spec_impl' does not depend on any axioms",
+      "proof_scope": "universal over both caller-established Bools; exclusivity and deadline necessity proved; the decision and deadline themselves are NOT resolved",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; deeming_audit D=PASS: verbatim located and period count matches",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:70_6_10/Article#70_6_10/Paragraph#5/Item#2/ItemSentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/BatchDeemd62bc3e814Tests.lean sha256=6ee53bd0da7f3ae1020b24432881fa03ef46c8ecd8eb0479a3e4fdc5e8a5891b"
+    },
     "NORM|cfc2dddbedeb6a4108507631f46bddc38fa741aad068d46b3079c19473870d4b": {
       "adversarial_review": "docs/BATCH_THRESHOLD_REVIEW.md generated entry for NORM|cfc2dddbede (le 500000)",
       "boundary_proof": "BatchThresholdLEd4d9b3245dTests.lean kernel-decided 0/500000/500001",
@@ -47074,6 +47217,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; threshold=200000 yen; op=le",
       "source_location": "data/raw/337AC0000000066_20261101_507AC0000000013.law.json#LawBody[2]/MainProvision/MainProvision[11]/Article:126/Article#126/Paragraph#1/ParagraphSentence/Sentence#1 sha256=6f8b43e168652d228066cda3389a3bf6823900a9268e6bf97297cb6b25189dee",
       "tests": "JapanTaxLaw/BatchThresholdLE4bdf3766dcTests.lean sha256=cdef2db67b22f615d564abe603e7027b94418f2876e9cbb8c0db084f0d74278e"
+    },
+    "NORM|fb6067439bfc4d490b14903981150845750e5a0d155720d42d35c07dde6c2e9b": {
+      "adversarial_review": "docs/BATCH_DEEMING_REVIEW.md generated entry for NORM|fb6067439bf",
+      "boundary_proof": "BatchDeemc9e2d482ccTests.lean exhaustive Bool x Bool boundary cases",
+      "cross_law_proof": "dependencies=[]; cross-provision conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDeemc9e2d482cc.lean sha256=ea97297aac29ee65719b99e8e7398a3f275ad22c56c5eed7c2276b0d5fc20142",
+      "independent_spec": "JapanTaxLaw/BatchDeemc9e2d482ccSpec.lean sha256=96780e9b1a0d4c8b599a3b0c56ddb80142723f9ffd665262933f567680d38757; deadline-guard spec vs conjunction impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDeemc9e2d482ccTests OK; axioms: 'JapanTaxLaw.BatchDeemc9e2d482cc.no_decision_if_deemed' depends on axioms: [propext] | 'JapanTaxLaw.BatchDeemc9e2d482cc.agree_spec_impl' does not depend on any axioms",
+      "proof_scope": "universal over both caller-established Bools; exclusivity and deadline necessity proved; the decision and deadline themselves are NOT resolved",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; deeming_audit D=PASS: verbatim located and period count matches",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[234]/SupplProvision/SupplProvision[37]/Article:36/Article#36/Paragraph#6/Item#2/ItemSentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/BatchDeemc9e2d482ccTests.lean sha256=a0b37641caa2238c33e4d54f234ac1475ed03023b42243830656c1f66d678a9f"
     },
     "NORM|fb721e1c624a9108946cb4e382cd326db840a49f77fc40b3221a95b801ad2125": {
       "adversarial_review": "docs/BATCH_MULTI_READING_REVIEW.md generated entry for NORM|fb721e1c624",
