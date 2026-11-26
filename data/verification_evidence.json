@@ -4847,6 +4847,80 @@
         "tool": "lake build"
       }
     ],
+    "027b5cd3ba8c29d8dab560c1b52efaceca926bd9132a7130f07e96980aae3460": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "325CO0000000245#第35_4_7条#full-text-rounding",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "mechanical-audit:DEDUCTREM-027b5cd3ba8c",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "task_queue.json#027b5cd3ba8c#coverage",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees/floorAt_monotone@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat-Nat@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100-boundaries@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "027f2cba9d97fcb1df7bdc07aa4dfaccd029ee1be93118992a02cfbe0cd53559": [
       {
         "axis": "SOURCE_LOCATION",
@@ -5153,6 +5227,80 @@
         "note": "enforcement date 昭和五十八年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "02db65b4d4cd8cce4e299f419352f16975a3719a99a6be8fb225e53265e9e3a8": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "331M50000002007#第8条#full-text-rounding",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "mechanical-audit:DEDUCTREM-02db65b4d4cd",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "task_queue.json#02db65b4d4cd#coverage",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees/floorAt_monotone@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat-Nat@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100-boundaries@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "02e6381752dfeb2cfa953afad25ede7c1f06ead5aa105aaaa9f34fe7044ff2b8": [
@@ -13078,6 +13226,80 @@
         "date": "2026-11-20T09:16:28+00:00",
         "evidence_ref": "JapanTaxLaw/SpecialLandHoldingTaxTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "074520dead7fe53b5ce1e6040760dc484983b6cde24f3e4e83a724de86556b22": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "325CO0000000245#第35_21条#full-text-rounding",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "mechanical-audit:DEDUCTREM-074520dead7f",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "task_queue.json#074520dead7f#coverage",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees/floorAt_monotone@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat-Nat@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100-boundaries@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -44263,6 +44485,80 @@
         "tool": "task_queue.py"
       }
     ],
+    "17931b1712a8f486d0074c4d9cf5fb958d11ccf65edf639ec5003fbfa3be24cc": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "329M50000002023#第3条#full-text-rounding",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "mechanical-audit:DEDUCTREM-17931b1712a8",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "task_queue.json#17931b1712a8#coverage",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees/floorAt_monotone@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat-Nat@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100-boundaries@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "17b00e33c28687a9edd798f0d1efe7d9e2658612e7106db805a903ab0fe0aff6": [
       {
         "axis": "SOURCE_LOCATION",
@@ -46450,6 +46746,80 @@
         "date": "2026-11-20T09:16:24+00:00",
         "evidence_ref": "JapanTaxLaw/RegistrationQualificationFeesP5HTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "1923b4846d83b4912f1f41f5cb4351f87c0c3b48d5112c7bee45e37baec05f94": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "341M50000008002#第5条#full-text-rounding",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "mechanical-audit:DEDUCTREM-1923b4846d83",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "task_queue.json#1923b4846d83#coverage",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees/floorAt_monotone@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat-Nat@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100-boundaries@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -58724,6 +59094,80 @@
         "date": "2026-11-20T09:16:25+00:00",
         "evidence_ref": "JapanTaxLaw/CorpAssetCompressionSpec.lean#agree*@kernel",
         "note": "compiled spec correspondence theorem",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "1fccae2ab241b4199b00674a5bf7350bb6695ff02b0b602ea3edc957178a4bf9": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "325CO0000000245#第9_15条#full-text-rounding",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "mechanical-audit:DEDUCTREM-1fccae2ab241",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "task_queue.json#1fccae2ab241#coverage",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees/floorAt_monotone@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat-Nat@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100-boundaries@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -90465,6 +90909,80 @@
         "tool": "transcription_audit.py"
       }
     ],
+    "3263f4b065b5cfd311bc147830f3aad09588046656a84797aac1edcff6b938e6": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "325CO0000000245#第2条#full-text-rounding",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "mechanical-audit:DEDUCTREM-3263f4b065b5",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "task_queue.json#3263f4b065b5#coverage",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees/floorAt_monotone@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat-Nat@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100-boundaries@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "327375674b6f6ec0554ec9e6d00e944835204d10d88b77447e1aaa1edef3293c": [
       {
         "axis": "SOURCE_LOCATION",
@@ -97790,6 +98308,80 @@
         "date": "2026-11-24T09:21:12+00:00",
         "evidence_ref": "JapanTaxLaw/SpecialGiftRateTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "35fa2a5505e22bed09a02eef4e479171d731ff3048a9084cb552a6857a88b058": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "325CO0000000245#第9_14_2条#full-text-rounding",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "mechanical-audit:DEDUCTREM-35fa2a5505e2",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "task_queue.json#35fa2a5505e2#coverage",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees/floorAt_monotone@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat-Nat@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100-boundaries@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -113139,6 +113731,80 @@
         "date": "2026-11-20T09:16:28+00:00",
         "evidence_ref": "JapanTaxLaw/IncomeArt213WithholdingTests.lean@kernel",
         "note": "compiled in successful kernel build",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
+    "3f527c40ec78c56d165f6423f84eb7987ac284a16034e16c8f445720f7cd50f6": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "329M50000002023#第4条#full-text-rounding",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "mechanical-audit:DEDUCTREM-3f527c40ec78",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "task_queue.json#3f527c40ec78#coverage",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees/floorAt_monotone@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat-Nat@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100-boundaries@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
         "reviewer": "ci",
         "tool": "lake build"
       }
@@ -167554,6 +168220,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "5f0cf08b6d413fbc0bdc5ff9759cc2cb14161518c56775ade70aa4ad1144899c": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "431AC0000000003#第31条#full-text-rounding",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "mechanical-audit:DEDUCTREM-5f0cf08b6d41",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "task_queue.json#5f0cf08b6d41#coverage",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees/floorAt_monotone@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat-Nat@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100-boundaries@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "5f290926dc43a9f41e08b93f78ec4d24e46ceddac9a47cafb6e0f379c0c2198b": [
       {
         "axis": "SOURCE_LOCATION",
@@ -176883,6 +177623,80 @@
         "note": "unit decomposition and mechanical coverage only",
         "reviewer": "ci",
         "tool": "task_queue.py"
+      }
+    ],
+    "63fdd1befec2f9e531c83e31cc7b68326c826f28421674b811fa4a6822b4b50e": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "325CO0000000245#第9_19条#full-text-rounding",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "mechanical-audit:DEDUCTREM-63fdd1befec2",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "task_queue.json#63fdd1befec2#coverage",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees/floorAt_monotone@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat-Nat@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100-boundaries@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "63fe9c663ad02fc6e3ec02e3da0d37b7171c4c22fdc8c2f19ff2a676970301e7": [
@@ -213380,6 +214194,80 @@
         "tool": "lake build"
       }
     ],
+    "7869d9d752470df440bb923509b121f08f1a840076f5dcd9645f3c3c37478df1": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "347M50000008026#第6条#full-text-rounding",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "mechanical-audit:DEDUCTREM-7869d9d75247",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "task_queue.json#7869d9d75247#coverage",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees/floorAt_monotone@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat-Nat@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100-boundaries@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "786aa75ff47e8ec2d48a60328f59e622f5fb5814bea3fb3f7dda44ddcd106ad4": [
       {
         "axis": "SOURCE_LOCATION",
@@ -225247,6 +226135,80 @@
         "note": "independent alternative-path source check",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "7f7846354fcf449b987ec2ab8acc69b3be56f9cee328107f4baa91e5cc79c46c": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "346AC0000000090#第4条#full-text-rounding",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "mechanical-audit:DEDUCTREM-7f7846354fcf",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "task_queue.json#7f7846354fcf#coverage",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees/floorAt_monotone@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat-Nat@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100-boundaries@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "7f7dd25bd28e40e7b2416c6ec35ec5b0a93f4b9cbb8eb4c9f80020c7d5f38d9f": [
@@ -327028,6 +327990,80 @@
         "tool": "lake build"
       }
     ],
+    "b7b1f907144816a2562134aa2bec8b562ce747c9ecdd584e918594e65e1c8ed3": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "325CO0000000245#第9_23条#full-text-rounding",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "mechanical-audit:DEDUCTREM-b7b1f9071448",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "task_queue.json#b7b1f9071448#coverage",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees/floorAt_monotone@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat-Nat@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100-boundaries@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "b7b27cb614fd7c9471d2a0fd1ee6475a9b8f93c66c01bc1ef8fd01f31de4d8b9": [
       {
         "axis": "SOURCE_LOCATION",
@@ -352105,6 +353141,80 @@
         "tool": "task_queue.py"
       }
     ],
+    "c6c5fe483bbe28071988c0cd4bb7420e8e1c7c3bccc424447d551cc576de2b34": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "340AC0000000157#第4条#full-text-rounding",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "mechanical-audit:DEDUCTREM-c6c5fe483bbe",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "task_queue.json#c6c5fe483bbe#coverage",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees/floorAt_monotone@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat-Nat@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100-boundaries@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "c6e0d618c3d0bffff19bfec956da4481e912fbfe0dbf338e92270746ce7d3b7c": [
       {
         "axis": "SOURCE_LOCATION",
@@ -353143,6 +354253,80 @@
         "note": "unit decomposition and mechanical coverage only",
         "reviewer": "ci",
         "tool": "task_queue.py"
+      }
+    ],
+    "c7a0f6bf5aa31708d0a0f96de87e938da6038eb89d28e264d6ad5356adba0f16": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "325CO0000000245#第5_2条#full-text-rounding",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "mechanical-audit:DEDUCTREM-c7a0f6bf5aa3",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "task_queue.json#c7a0f6bf5aa3#coverage",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees/floorAt_monotone@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat-Nat@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100-boundaries@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "c7a7a17a25e250549839f293834e9b0f77eb7cfe7f9dd7c69b958a14c1c81595": [
@@ -358683,6 +359867,80 @@
         "tool": "independent-adversarial"
       }
     ],
+    "ca6f0df2b4b3e93acbe428c13e833f9c6723d561784597536deb9893685f6fe1": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "346M50000008013#第5条#full-text-rounding",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "mechanical-audit:DEDUCTREM-ca6f0df2b4b3",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "task_queue.json#ca6f0df2b4b3#coverage",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees/floorAt_monotone@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat-Nat@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100-boundaries@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "ca74046e5f75055284c840134337df127c3974fd5318ee657211fc8638f8b878": [
       {
         "axis": "SOURCE_LOCATION",
@@ -359033,6 +360291,80 @@
         "note": "enforcement date 昭和二十八年三月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "ca91b5880103196537914fcc3e559663b9e38284e8ca9ddb130457a2674c5230": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "325CO0000000245#第35_19条#full-text-rounding",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "mechanical-audit:DEDUCTREM-ca91b5880103",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "task_queue.json#ca91b5880103#coverage",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#specFloorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimum.lean#floorAt@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees/floorAt_monotone@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumSpec.lean#floorAt_agrees@universal-Nat-Nat@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean#99/100-boundaries@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T03:47:58+00:00",
+        "evidence_ref": "JapanTaxLaw/FloorRoundingMinimumTests.lean@kernel",
+        "note": "千円未満の端数金額を控除した金額 = floorAt(a,1000); direction from full text; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
       }
     ],
     "ca95ca5edadeb106e05e2bd7437913f6e488cf816c01bceffe42b3932215fa0d": [
