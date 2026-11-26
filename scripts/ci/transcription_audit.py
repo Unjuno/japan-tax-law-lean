@@ -91,6 +91,10 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # OkinawaDividedCertificateIssuance.lean - NORM|3c61e721... (沖縄分割証明書交付 CONDITION, law 347M50010000033)
+    yield ("沖縄減免税割当省令 art.4(2)（分割証明書交付）↔ OkinawaDividedCertificateIssuance.lean",
+           "347M50010000033", "article", "第四条", ["沖縄県知事は、前項の申請書を受理したときは、申請に係る証明書に代えて、分割した証明書を交付するものとする。"])
+
     # ImmediateRetaliationException.lean - NORM|191808d9... (直ちに措置をとる場合の例外 EXCEPTION, law 406CO0000000418)
     yield ("報復関税等政令 art.2(1) ただし書（直ちに措置をとる場合の例外）↔ ImmediateRetaliationException.lean",
            "406CO0000000418", "article", "第二条", ["ただし、報復関税等に係る措置を直ちにとる必要があると認められる場合は、この限りでない。"])
@@ -2493,6 +2497,12 @@ def checks():
            "329M50000040064",
            "file", None,
            ["第一条この省令は、昭和五十二年七月一日から施行する", "この省令は、昭和五十二年七月一日から施行する"])
+
+    # TobaccoSpecialTaxEnforcementDate — cycle-139
+    yield ("TobaccoSpecialTaxEnforcementDate.lean",
+           "410CO0000000345",
+           "file", None,
+           ["第一条この政令は、平成十年十二月一日から施行する", "この政令は、平成十年十二月一日から施行する"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -5105,6 +5115,12 @@ def checks():
            "325AC0000000073",
            "file", None,
            ["\u524d\u4e8c\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u571f\u5730\u8a55\u4fa1\u5be9\u8b70\u4f1a\u306e\u7d44\u7e54\u53ca\u3073\u904b\u55b6\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
+
+    # 関税定率法施行令 art. 2の4(2) — OverseasMarketPriceCeiling.lean
+    yield ("関税定率法施行令 art. 2_4（海外市価三万円以下）↔ OverseasMarketPriceCeiling.lean",
+           "344M50000040016",
+           "file", None,
+           ["一個（現に使用中のもので海外市価（外国においてその物品を購入する際に支払われた又は支払われるべき価格をいう。以下この条において同じ。）三万円以下のものに限る。次号において同じ。）"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

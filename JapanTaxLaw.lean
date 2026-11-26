@@ -1700,6 +1700,9 @@ import JapanTaxLaw.OkinawaArt19Bracket600k1MTests
 import JapanTaxLaw.OkinawaArt19Bracket8M10M
 import JapanTaxLaw.OkinawaArt19Bracket8M10MSpec
 import JapanTaxLaw.OkinawaArt19Bracket8M10MTests
+import JapanTaxLaw.OkinawaDividedCertificateIssuance
+import JapanTaxLaw.OkinawaDividedCertificateIssuanceSpec
+import JapanTaxLaw.OkinawaDividedCertificateIssuanceTests
 import JapanTaxLaw.OkinawaEquip500k
 import JapanTaxLaw.OkinawaEquip500kSpec
 import JapanTaxLaw.OkinawaEquip500kTests
@@ -1745,6 +1748,9 @@ import JapanTaxLaw.OptionExercise12MTests
 import JapanTaxLaw.OrganizationChangeNetAssets
 import JapanTaxLaw.OrganizationChangeNetAssetsSpec
 import JapanTaxLaw.OrganizationChangeNetAssetsTests
+import JapanTaxLaw.OverseasMarketPriceCeiling
+import JapanTaxLaw.OverseasMarketPriceCeilingSpec
+import JapanTaxLaw.OverseasMarketPriceCeilingTests
 import JapanTaxLaw.OwnershipPercent5
 import JapanTaxLaw.OwnershipPercent5Spec
 import JapanTaxLaw.OwnershipPercent5Tests
@@ -2439,6 +2445,9 @@ import JapanTaxLaw.TobaccoRatePerThousandSpec
 import JapanTaxLaw.TobaccoRatePerThousandTests
 import JapanTaxLaw.TobaccoRateSpec
 import JapanTaxLaw.TobaccoRateTests
+import JapanTaxLaw.TobaccoSpecialTaxEnforcementDate
+import JapanTaxLaw.TobaccoSpecialTaxEnforcementDateSpec
+import JapanTaxLaw.TobaccoSpecialTaxEnforcementDateTests
 import JapanTaxLaw.TobaccoTaxFixedAmount
 import JapanTaxLaw.TobaccoTaxFixedAmountSpec
 import JapanTaxLaw.TobaccoTaxFixedAmountTests
