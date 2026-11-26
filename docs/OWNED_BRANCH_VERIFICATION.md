@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=3629, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=3666, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=3629 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=3666 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -138,7 +138,11 @@ $ reading guard extended to 「A」とあるのを「B」として/と読み替�
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 10 / 20
 multi-reading batch pipeline: verified=2 failed=0 / verified=10 failed=0
 
-$ python -m unittest discover -s scripts/tests -t . → 200 tests, OK
+$ python scripts/ci/batch_fraction_scale_pipeline.py --limit 2 / 50
+fraction-scale batch pipeline: verified=2 failed=0 / verified=35 failed=1
+(the one failure is 四百分の二百, already skip-listed in the rate pipeline; stays NOT_STARTED)
+
+$ python -m unittest discover -s scripts/tests -t . → 203 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -442,7 +446,15 @@ The same reading pipeline was extended once more to the 「A」とあるのを�
 として / と読み替えた forms (past-tense read-as). 12 more units were verified
 under unchanged proof, axiom and source-audit gates.
 
-So 3629 units are evidence-backed FULLY_VERIFIED and 393,223 remain NOT_STARTED
+A fifteenth pipeline, `scripts/ci/batch_fraction_scale_pipeline.py`, handles
+single-fraction scaling norms (X分のY) with a general denominator: numerator Y
+and denominator X are modelled as a TaxRate and matched against a plain-pair
+spec universally over all Nat bases. The Lean-independent audit checks both
+components against the pinned text. 37 units were verified; the known
+四百分の二百 unit remains NOT_STARTED with recorded skips in both the rate and
+fraction-scale ledgers. Three parser tests were added.
+
+So 3666 units are evidence-backed FULLY_VERIFIED and 393,186 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
