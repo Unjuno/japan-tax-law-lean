@@ -183,3 +183,5 @@ lake clean && lake build                                                # 再現
 復興特別所得税に関する政令 附則 art.1 ReconstructionSpecialIncomeTaxEnforcementDate.lean（施行日 平成28年1月1日=2016-01-01 — 他条・実体規定 NOT MODELLED）
 
 口蹄疫に起因する事態への対応に関する政令 附則 art.1 FootAndMouthDiseaseResponseEnforcementDate.lean（施行日 令和4年4月1日=2022-04-01 — 他条・実体規定 NOT MODELLED）
+
+地方法人税法施行規則 附則 art.1 LocalCorporationTaxRuleEnforcementDate.lean（施行日 平成26年10月1日=2014-10-01 — 他条・実体規定 NOT MODELLED）
