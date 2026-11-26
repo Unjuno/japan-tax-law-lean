@@ -82,6 +82,9 @@ import JapanTaxLaw.BankHeadOfficeTermReadingTests
 import JapanTaxLaw.BasicDeductionIncome23M50
 import JapanTaxLaw.BasicDeductionIncome23M50Spec
 import JapanTaxLaw.BasicDeductionIncome23M50Tests
+import JapanTaxLaw.BlueBusinessDeductAmount
+import JapanTaxLaw.BlueBusinessDeductAmountSpec
+import JapanTaxLaw.BlueBusinessDeductAmountTests
 import JapanTaxLaw.BondRevenueFiscalYear
 import JapanTaxLaw.BondRevenueFiscalYearSpec
 import JapanTaxLaw.BondRevenueFiscalYearTests
@@ -1826,6 +1829,9 @@ import JapanTaxLaw.RemittanceReportLimitTests
 import JapanTaxLaw.RequiredApplicationDocuments
 import JapanTaxLaw.RequiredApplicationDocumentsSpec
 import JapanTaxLaw.RequiredApplicationDocumentsTests
+import JapanTaxLaw.ReserveAccumulationAtMost25
+import JapanTaxLaw.ReserveAccumulationAtMost25Spec
+import JapanTaxLaw.ReserveAccumulationAtMost25Tests
 import JapanTaxLaw.Residency
 import JapanTaxLaw.ResidencySpec
 import JapanTaxLaw.ResidentTaxTransitionalRates
