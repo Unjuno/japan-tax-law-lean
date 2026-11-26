@@ -2452,6 +2452,12 @@ def checks():
            "file", None,
            ["第一条この省令は、平成十四年八月一日から施行する", "この省令は、平成十四年八月一日から施行する"])
 
+    # CorporationTemporarySpecialTaxEnforcementDate — cycle-136
+    yield ("CorporationTemporarySpecialTaxEnforcementDate.lean",
+           "403M50000040006",
+           "file", None,
+           ["第一条この省令は、平成十五年一月六日から施行する", "この省令は、平成十五年一月六日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -4996,6 +5002,15 @@ def checks():
            "347M50000040042",
            "file", None,
            ["第一号の数量から前号の数量を控除した数量（以下この項において「課税標準数量」という。）"])
+
+    # 租税特別措置法 art. 90の12 — EnergyEfficiency105Pct.lean (105%)
+    yield ("租税特別措置法 art. 90_12（効率105%以上）↔ EnergyEfficiency105Pct.lean",
+           "332AC0000000026", "file", None,
+           ["エネルギー消費効率が令和四年度基準エネルギー消費効率に百分の百五を乗じて得た数値以上であること。"])
+    # 租税特別措置法施行令 art. 51の2 — EnergyEfficiency116Pct.lean (116%)
+    yield ("租税特別措置法施行令 art. 51_2（効率116%以上）↔ EnergyEfficiency116Pct.lean",
+           "332CO0000000043", "file", None,
+           ["エネルギー消費効率が令和二年度基準エネルギー消費効率に百分の百十六を乗じて得た数値以上であること。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
