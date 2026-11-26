@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 0
-- with >=1 pinned literal check (semantic model): 188
+- with >=1 pinned literal check (semantic model): 189
 - with recorded human legal review: 0
 
 ## All laws
@@ -28,7 +28,7 @@ a completion flag.
 | `325M50000040021` | 税務官署における収入官吏及び出納員並びに歳入歳出外現金出納官吏の備えるべき現金領収証書に | 325M50000040021_20260924_508M60000040059 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
 | `325M50000040022` | 相続税の物納財産収納後の手続等に関する省令 | 325M50000040022_20210401_503M60000040030 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 | `325AC0000000211` | 地方交付税法 | 325AC0000000211_20261102_508AC0000000062 | CurrentEnforced | YES | - | 0 | YES (6) | NO |
-| `325AC0000000226` | 地方税法 | 325AC0000000226_20261101_508AC0000000002 | CurrentEnforced | YES | - | 0 | YES (88) | NO |
+| `325AC0000000226` | 地方税法 | 325AC0000000226_20261101_508AC0000000002 | CurrentEnforced | YES | - | 0 | YES (92) | NO |
 | `325CO0000000245` | 地方税法施行令 | 325CO0000000245_20261101_508CO0000000083 | CurrentEnforced | YES | - | 0 | YES (21) | NO |
 | `326AC1000000145` | 納税貯蓄組合法 | 326AC1000000145_20211122_503AC0000000046 | CurrentEnforced | YES | - | 0 | YES (3) | NO |
 | `326CO0000000099` | 納税貯蓄組合法施行令 | 326CO0000000099_20191216_501CO0000000183 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
@@ -203,7 +203,7 @@ a completion flag.
 | `407AC0000000011` | 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律 | 407AC0000000011_20200401_502AC0000000008 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 | `407CO0000000029` | 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行令 | 407CO0000000029_20110101_422CO0000000058 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 | `407M50000200013` | 牛及び豚のうち純粋種の繁殖用のもの並びに無税を適用する馬の証明書の発給に関する省令 | 407M50000200013_20201221_502M60000200083 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
-| `407M50000040012` | 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行規則 | 407M50000040012_20090401_421M60000040020 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
+| `407M50000040012` | 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行規則 | 407M50000040012_20090401_421M60000040020 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 | `407M50000200018` | 関税暫定措置法施行令第二条第一項又は第二項の証明書の発給に関する省令 | 407M50000200018_20201221_502M60000200083 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
 | `407M50000008012` | 特定農山村地域における農林業等の活性化のための基盤整備の促進に関する法律第十六条の地方税 | 407M50000008012_20050401_417M60000008064 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
 | `407M50000008013` | 水源地域対策特別措置法第十三条の固定資産税の不均一課税に伴う措置が適用される場合等を定め | 407M50000008013_20190401_431M60000008044 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 441
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 443
