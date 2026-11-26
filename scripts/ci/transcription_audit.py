@@ -91,6 +91,9 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # DoubtfulReceivableDeduction — 税理士法人会計帳簿省令 art.22-3(6) 取立不能債権の控除
+    yield ("税理士法人会計帳簿省令 art.22の3(6)（取立不能債権の控除）↔ DoubtfulReceivableDeduction.lean",
+           "326M50000040055", "article", "第二十二条の三", ["取立不能のおそれのある債権については、事業年度の末日においてその時に取り立てることができないと見込まれる額を控除しなければならない。"])
     # CombinedRndExcessOver4Year.lean - restored registered check (租税特別措置法 art.42の4, law 332AC0000000026)
     yield ("租税特別措置法 art.42の4（増減試験研究費割合 百分の四超）↔ CombinedRndExcessOver4Year.lean",
            "332AC0000000026", "file", None,
