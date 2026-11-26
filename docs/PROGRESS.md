@@ -183,11 +183,11 @@ lake clean && lake build                                                # 再現
 | 規範単位（確定対象版） | 268,107 |
 | NOT_STARTED | 260,318 |
 | PARTIAL | 4,312 |
-| PROVED_SCOPE | 617 |
-| FULLY_VERIFIED | 2,858（約 1.07%） |
+| PROVED_SCOPE | 611 |
+| FULLY_VERIFIED | 2,864（約 1.07%） |
 | BLOCKED | 2 |
 | 未解決条件を持つ単位 | 140,289（条件延べ 162,912） |
-| 独立 ADVERSARIAL_REVIEW 軸 | 31（四捨五入 3 + 3 段階累進 3 + 段階控除/小数税率 4 + 十分のN/五十銭 4 + 月数按分 3 + 端数処理 6 + 分数額 8；サンプル単位にのみ記録。他は PROVED_SCOPE） |
+| 独立 ADVERSARIAL_REVIEW 軸 | 37（四捨五入 3 + 3 段階累進 3 + 段階控除/小数税率 4 + 十分のN/五十銭 4 + 月数按分 3 + 端数処理 6 + 分数額 8 + 関税従量下限 6；サンプル単位にのみ記録。他は PROVED_SCOPE） |
 | 人間による法的レビュー | 0（別軸・未実施） |
 | 再帰探索の未解決参照名 | 7,059（解決 380） |
 | 地方税条例の取得 | 6 / 1,794（札幌・横浜・名古屋・大阪・福岡・神戸；すべて `ACQUIRED_NOT_REVIEWED`） |
@@ -228,10 +228,11 @@ VERDICT: FAIL）。全単位を一旦 BLOCKED としてから num=分の後・de
 301/301 束縛一致・8 サンプル独立再計算 0 不一致）。ADVERSARIAL_REVIEW は
 サンプル 8 単位にのみ与え、残り 293 単位は `PROVED_SCOPE` に留める。
 さらに従量税率下限付き関税率 93 単位を、2 率の大きい方を取る独立 max 定式で
-証明（`TariffSpecificFloor`, 全称 `tariffDuty_agrees`）。
+証明（`TariffSpecificFloor`, 全称 `tariffDuty_agrees`）、独立監査も PASS
+（`tariff_adversarial.md`, 15,246 比較・不一致 0、サンプル 6 単位）。
 
 **未達（続行すべき義務）**: 未検証義務の大部分（260,411 単位）、未解決条件
-140,289 単位、150 単位分の独立 ADVERSARIAL_REVIEW、人間の法的レビュー、
+140,289 単位、144 単位分の独立 ADVERSARIAL_REVIEW、人間の法的レビュー、
 地方税条例 1,788 件、附則参照 87 件の版写像、租税条約・通達・裁判例の別層整備。
 
 **再開手順**: `git checkout fix/normative-queue-v2` →
