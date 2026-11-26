@@ -22,7 +22,7 @@
         "task_class": "TREATY_ACQUISITION"
       },
       {
-        "acquisition_evidence": "NTA-SHOTOKU-KIHON-20260630 sha256=2013978892d197fe08be0c1df03e40c8db2ef29ef6fec53500b4662041b1f473, NTA-SHOTOKU-KIHON-20260331 sha256=db5966a57518ec9f8e3da4930cdf42ee7ccd936fc4e1d4d4ffc152f535362c0f, NTA-SOUZOKU-KIHON-KAISEI-20250210 sha256=782aacd7ac779d7df7d071aa8324977430d0cdbfd61e6f20adfb0eb9e8fa7896, NTA-CORPORATE-TAX-BASIC-KAISEI-20111221 sha256=1d47a4a87ff6097e0bfaaa30a29d1076e9566511f626f6ffa98848d2babe262d",
+        "acquisition_evidence": "NTA-SHOTOKU-KIHON-20260630 sha256=2013978892d197fe08be0c1df03e40c8db2ef29ef6fec53500b4662041b1f473, NTA-SHOTOKU-KIHON-20260331 sha256=db5966a57518ec9f8e3da4930cdf42ee7ccd936fc4e1d4d4ffc152f535362c0f, NTA-SOUZOKU-KIHON-KAISEI-20250210 sha256=782aacd7ac779d7df7d071aa8324977430d0cdbfd61e6f20adfb0eb9e8fa7896, NTA-CORPORATE-TAX-BASIC-KAISEI-20111221 sha256=1d47a4a87ff6097e0bfaaa30a29d1076e9566511f626f6ffa98848d2babe262d, NTA-SHOUHI-BASIC-KAISEI-20260401 sha256=2ca4552ca4334c9ab88f2f508f5ada3522a633c89972b81ffcccaf61fecb5a81",
         "formalization_evidence": "",
         "layer_id": "L4_CIRCULAR",
         "legal_review": "LEGAL_REVIEW_PENDING",
@@ -421,12 +421,31 @@
           "title_ja": "法人税基本通達等の一部改正について（法令解釈通達）",
           "verification": "PINNED_BYTES_ONLY",
           "version_effective_date": "2011-12-21"
+        },
+        {
+          "bytes": 6017,
+          "document_kind": "NTA_INTERPRETATION_CIRCULAR",
+          "document_kind_note": "法令解釈通達（解釈資料レイヤー）。消費税法本文とは区別し、L4 で版付きバイト固定のみ行う。形式化・人間法的レビューは未実施。",
+          "encoding": "shift_jis",
+          "formalization_status": "NOT_MODELLED",
+          "issuer": "国税庁",
+          "layer_id": "L4_CIRCULAR",
+          "legal_review": "LEGAL_REVIEW_PENDING",
+          "local_path": "data/layers/L4_CIRCULAR/NTA-ShohiBasic-Kaisei-20260401.html",
+          "media_type": "text/html",
+          "official_url": "https://www.nta.go.jp/law/tsutatsu/kihon/shohi/kaisei/0026003-067/index.htm",
+          "retrieved_date": "2026-11-27",
+          "sha256": "2ca4552ca4334c9ab88f2f508f5ada3522a633c89972b81ffcccaf61fecb5a81",
+          "source_id": "NTA-SHOUHI-BASIC-KAISEI-20260401",
+          "title_ja": "消費税法基本通達の一部改正について（法令解釈通達）",
+          "verification": "PINNED_BYTES_ONLY",
+          "version_effective_date": "2026-04-01"
         }
       ],
       "authority": "国税庁 / 総務省",
       "auxiliary": true,
       "backlog": {
-        "acquisition_evidence": "NTA-SHOTOKU-KIHON-20260630 sha256=2013978892d197fe08be0c1df03e40c8db2ef29ef6fec53500b4662041b1f473, NTA-SHOTOKU-KIHON-20260331 sha256=db5966a57518ec9f8e3da4930cdf42ee7ccd936fc4e1d4d4ffc152f535362c0f, NTA-SOUZOKU-KIHON-KAISEI-20250210 sha256=782aacd7ac779d7df7d071aa8324977430d0cdbfd61e6f20adfb0eb9e8fa7896, NTA-CORPORATE-TAX-BASIC-KAISEI-20111221 sha256=1d47a4a87ff6097e0bfaaa30a29d1076e9566511f626f6ffa98848d2babe262d",
+        "acquisition_evidence": "NTA-SHOTOKU-KIHON-20260630 sha256=2013978892d197fe08be0c1df03e40c8db2ef29ef6fec53500b4662041b1f473, NTA-SHOTOKU-KIHON-20260331 sha256=db5966a57518ec9f8e3da4930cdf42ee7ccd936fc4e1d4d4ffc152f535362c0f, NTA-SOUZOKU-KIHON-KAISEI-20250210 sha256=782aacd7ac779d7df7d071aa8324977430d0cdbfd61e6f20adfb0eb9e8fa7896, NTA-CORPORATE-TAX-BASIC-KAISEI-20111221 sha256=1d47a4a87ff6097e0bfaaa30a29d1076e9566511f626f6ffa98848d2babe262d, NTA-SHOUHI-BASIC-KAISEI-20260401 sha256=2ca4552ca4334c9ab88f2f508f5ada3522a633c89972b81ffcccaf61fecb5a81",
         "formalization_evidence": "",
         "layer_id": "L4_CIRCULAR",
         "legal_review": "LEGAL_REVIEW_PENDING",
@@ -434,13 +453,13 @@
         "status": "PARTIAL",
         "task_class": "CIRCULAR_ACQUISITION"
       },
-      "count": 4,
-      "count_acquired": 4,
+      "count": 5,
+      "count_acquired": 5,
       "label_ja": "通達",
       "layer_id": "L4_CIRCULAR",
       "legal_nature": "行政通達（法的拘束力は条文ではなく行政内部）",
       "notes": "解釈資料レイヤーとして原文 bytes を pin 済み（形式化・人間レビュー未実施）。法源規範ではなく行政内部の取扱いとして L0 と分離。",
-      "pinned_snapshot": "NTA-SHOTOKU-KIHON-20260630, NTA-SHOTOKU-KIHON-20260331, NTA-SOUZOKU-KIHON-KAISEI-20250210, NTA-CORPORATE-TAX-BASIC-KAISEI-20111221",
+      "pinned_snapshot": "NTA-SHOTOKU-KIHON-20260630, NTA-SHOTOKU-KIHON-20260331, NTA-SOUZOKU-KIHON-KAISEI-20250210, NTA-CORPORATE-TAX-BASIC-KAISEI-20111221, NTA-SHOUHI-BASIC-KAISEI-20260401",
       "scope_status": "IN_SCOPE_INTERPRETATION_BACKLOG",
       "verification_status": "PINNED_BYTES_ONLY"
     },
@@ -573,10 +592,10 @@
   "tool": "scripts/ci/source_layers.py",
   "verification_pipeline": {
     "blocked_units": 2,
-    "fully_verified_units": 1168,
+    "fully_verified_units": 1203,
     "human_legal_reviews": 0,
     "normative_units_total": 396854,
-    "not_started_units": 395681,
+    "not_started_units": 395646,
     "note": "Separate denominators; unknown (None) means the input is absent, never zero.",
     "proved_scope_units": 3
   }
