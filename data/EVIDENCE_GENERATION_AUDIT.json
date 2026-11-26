@@ -2278,6 +2278,17 @@
         30
       ]
     },
+    "DelinquencyCostNet": {
+      "adversarial_review": true,
+      "boundary_examples_found": 3,
+      "independent_spec": true,
+      "kanji_literals": [],
+      "kernel_attested": true,
+      "kernel_decided_examples": 6,
+      "needles_scoped": true,
+      "scoped_article_chars": 769,
+      "spec_literals": []
+    },
     "DelinquencyTax": {
       "adversarial_review": true,
       "boundary_examples_found": 3,
@@ -14882,6 +14893,20 @@
           "十二",
           "百"
         ]
+      },
+      "NORM|430e94d648017dcbea837b0f4a3edd6e3c20e5d00a1451c39d898a61bbb9cc61": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 6,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "DelinquencyCostNet",
+        "spec_kanji_in_原文": []
       },
       "NORM|431bcb71793d5f15b7ae958323517c7989beb4bacaebdf4348755f87839c448a": {
         "checks": {
@@ -31794,6 +31819,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"12\": [\"十二\"]}; statutory rate = 3/25; needles scoped",
       "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:10/Article#10/Paragraph#2/Item#1/Subitem1#1/Subitem1Sentence/Column#1/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/RndExcess0To12Tests.lean sha256=6cf4672dda87f9ec2af7dd81c0b72a19b8bf358f2f59723bb04f036d24cd6833 (7 kernel-decided examples)"
+    },
+    "NORM|430e94d648017dcbea837b0f4a3edd6e3c20e5d00a1451c39d898a61bbb9cc61": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 6 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=329CO0000000051_20260401_508CO0000000085 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/DelinquencyCostNet.lean sha256=f01a104ddd4552a558c6f64afd25afc2419c6fba4ac073e25d0f3626f63df0ad",
+      "independent_spec": "JapanTaxLaw/DelinquencyCostNetSpec.lean sha256=eabb989c73d5752f14b191205e2af92f690aceb0185322c959a5546e4b87f77e (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45892375773: commit 54aea94496d548f3b62af933006d3e7ecab9d5c7, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=pinned needle(s) in clause: ['滞納処分費の収納済額及び滞納処分費に係る返納金（']; constants [] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['滞納処分費の収納済額及び滞納処分費に係る返納金（']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/329CO0000000051_20260401_508CO0000000085.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:22/Article#22/Paragraph#1/Item#2/ItemSentence/Sentence#1 sha256=fff3c8a427069a3671749a9058ce571842ddbca91ebb5cf5babe6b70593f412f (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/DelinquencyCostNetTests.lean sha256=07c55b5af23a25fbaac09469e554dec7f294f119584b1a8d0d3ff651ae8b1f4d (6 kernel-decided examples)"
     },
     "NORM|431bcb71793d5f15b7ae958323517c7989beb4bacaebdf4348755f87839c448a": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
