@@ -25,6 +25,9 @@ import JapanTaxLaw.AmamiCurrencyConversionTests
 import JapanTaxLaw.AmamiInvestmentThreshold
 import JapanTaxLaw.AmamiInvestmentThresholdSpec
 import JapanTaxLaw.AmamiInvestmentThresholdTests
+import JapanTaxLaw.AnnuityRatioOver50UpTo55
+import JapanTaxLaw.AnnuityRatioOver50UpTo55Spec
+import JapanTaxLaw.AnnuityRatioOver50UpTo55Tests
 import JapanTaxLaw.AntennaPowerCeiling
 import JapanTaxLaw.AntennaPowerCeilingSpec
 import JapanTaxLaw.AntennaPowerCeilingTests
@@ -317,6 +320,9 @@ import JapanTaxLaw.CustomsDomesticValueTests
 import JapanTaxLaw.CustomsDutiableValueThreshold
 import JapanTaxLaw.CustomsDutiableValueThresholdSpec
 import JapanTaxLaw.CustomsDutiableValueThresholdTests
+import JapanTaxLaw.CustomsExcessPortion3M
+import JapanTaxLaw.CustomsExcessPortion3MSpec
+import JapanTaxLaw.CustomsExcessPortion3MTests
 import JapanTaxLaw.CustomsExchangeRate
 import JapanTaxLaw.CustomsExchangeRateSpec
 import JapanTaxLaw.CustomsExchangeRateTests
@@ -1062,6 +1068,9 @@ import JapanTaxLaw.InheritanceTaxRateBracket30_50Spec
 import JapanTaxLaw.InheritanceTaxRateBracket30_50Tests
 import JapanTaxLaw.InheritanceTaxSpec
 import JapanTaxLaw.InheritanceTaxTests
+import JapanTaxLaw.InheritedAnnuityRatioAtMost50
+import JapanTaxLaw.InheritedAnnuityRatioAtMost50Spec
+import JapanTaxLaw.InheritedAnnuityRatioAtMost50Tests
 import JapanTaxLaw.InheritedAnnuityRatioOver50
 import JapanTaxLaw.InheritedAnnuityRatioOver50Spec
 import JapanTaxLaw.InheritedAnnuityRatioOver50Tests
