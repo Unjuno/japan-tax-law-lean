@@ -332,6 +332,9 @@ import JapanTaxLaw.CustomsSameContentLimitTests
 import JapanTaxLaw.CustomsSimilarGoods
 import JapanTaxLaw.CustomsSimilarGoodsSpec
 import JapanTaxLaw.CustomsSimilarGoodsTests
+import JapanTaxLaw.CustomsSmallBracket500k
+import JapanTaxLaw.CustomsSmallBracket500kSpec
+import JapanTaxLaw.CustomsSmallBracket500kTests
 import JapanTaxLaw.CustomsSmallConsignment
 import JapanTaxLaw.CustomsSmallConsignmentCap
 import JapanTaxLaw.CustomsSmallConsignmentCapSpec
