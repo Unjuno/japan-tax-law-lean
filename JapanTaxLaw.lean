@@ -1214,6 +1214,9 @@ import JapanTaxLaw.TermAliasNormsTests
 import JapanTaxLaw.DelegatedSpecificationNorms
 import JapanTaxLaw.DelegatedSpecificationNormsSpec
 import JapanTaxLaw.DelegatedSpecificationNormsTests
+import JapanTaxLaw.CorpDerivativeRatio121_2
+import JapanTaxLaw.CorpDerivativeRatio121_2Spec
+import JapanTaxLaw.CorpDerivativeRatio121_2Tests
 import JapanTaxLaw.DateSelectionNorms
 import JapanTaxLaw.DateSelectionNormsSpec
 import JapanTaxLaw.DateSelectionNormsTests
