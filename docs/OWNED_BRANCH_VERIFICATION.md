@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=3245, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=3445, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=3245 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=3445 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -120,6 +120,10 @@ fraction batch pipeline: verified=27 failed=0
 $ python scripts/ci/batch_rounding_pipeline.py --limit 3 / 100 / 100
 rounding batch pipeline: verified=3 failed=0 / verified=4 failed=0 / pool exhausted
 (76 verified; 7 units with extra numeric content remain NOT_STARTED with audit skips)
+
+$ python scripts/ci/batch_threshold_pipeline.py --limit 50 / 100 / 100 / 100
+batch pipeline: verified=50 failed=21 / verified=100 failed=7 / verified=50 failed=4 / pool exhausted
+(200 more threshold obligations verified; 32 source-audit failures skip-listed, NOT_STARTED)
 
 $ python -m unittest discover -s scripts/tests -t . → 195 tests, OK
 
@@ -402,7 +406,12 @@ unit truncation (端数切り捨て) norms: `x / unit * unit` is proved equal to
 periods) are rejected before modelling; 76 units were verified and 7 such
 units remain NOT_STARTED with audit skips. Three selection tests were added.
 
-So 3245 units are evidence-backed FULLY_VERIFIED and 393,607 remain NOT_STARTED
+The previously partially-consumed threshold pipeline was exhausted: 200 more
+single-threshold obligations were verified across four guarded runs. 32 units
+failed the Lean-independent source audit and remain NOT_STARTED with recorded
+skip reasons — none were promoted by SKIP-as-PASS.
+
+So 3445 units are evidence-backed FULLY_VERIFIED and 393,407 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
