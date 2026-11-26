@@ -91,41 +91,12 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
-    # HeaviestRecordedWeight — 登録免許税法施行規則 art.5(2) 最重記録重量
-    yield ("登録免許税法施行規則 art.5(2)（記録重量二以上は最重のもの）↔ HeaviestRecordedWeight.lean",
-           "346CO0000000275", "article", "第五条", ["当該自動車検査証に記録される車両総重量が二以上あるときは、そのうちの最も重いものとする"])
-
-    # HouseholdCorrectionFloor07 — 航空機燃料譲与税法施行規則 art.4(8) (registered)
-    yield ("航空機燃料譲与税法施行規則 art.4(8)（世帯数〇・七下限）↔ HouseholdCorrectionFloor07.lean",
-           "347M50000008026", "article", "第四条", ["前年度の世帯数に〇・七を乗じて得た数に満たず、かつ、当該前年度の世帯数から当該補正世帯数を控除して得た数が千を超える場合には"])
-
-    # PowerDevelopmentTaxPenalty — 電源開発促進税法 art.12(4) 罰金上限 (registered)
-    yield ("電源開発促進税法 art.12（罰金上限＝max(五十万円,相当金額)）↔ PowerDevelopmentTaxPenalty.lean",
-           "349AC0000000079", "article", "第十二条", ["五十万円を超え当該電源開発促進税に相当する金額以下"])
-
-    # FifthWheelGrossWeight — 登録免許税法施行規則 art.5(1) 牽引自動車の車両総重量
-    yield ("登録免許税法施行規則 art.5(1)（車両総重量＝記録重量−第五輪荷重+牽引重量）↔ FifthWheelGrossWeight.lean",
-           "346CO0000000275", "article", "第五条", ["その自動車検査証に記録される車両総重量から第五輪荷重を控除し牽けん引重量を加えた重量"])
-
-    # DoubtfulReceivableDeduction — 税理士法人会計帳簿省令 art.22-3(6) 取立不能債権の控除
-    yield ("税理士法人会計帳簿省令 art.22の3(6)（取立不能債権の控除）↔ DoubtfulReceivableDeduction.lean",
-           "326M50000040055", "article", "第二十二条の三", ["取立不能のおそれのある債権については、事業年度の末日においてその時に取り立てることができないと見込まれる額を控除しなければならない。"])
-
-    # CombinedRndExcessOver4Year.lean - restored registered check (租税特別措置法 art.42の4, law 332AC0000000026)
-    yield ("租税特別措置法 art.42の4（増減試験研究費割合 百分の四超）↔ CombinedRndExcessOver4Year.lean",
-           "332AC0000000026", "file", None,
-           ["\u5897\u6e1b\u8a66\u9a13\u7814\u7a76\u8cbb\u5272\u5408\u304c\u767e\u5206\u306e\u56db\u3092\u8d85\u3048\u308b\u4e8b\u696d\u5e74\u5ea6"])
-
-    # CombinedRndExcessOver7Year.lean - restored registered check (租税特別措置法 art.42の4, law 332AC0000000026)
-    yield ("租税特別措置法 art.42の4（増減試験研究費割合 百分の七超）↔ CombinedRndExcessOver7Year.lean",
-           "332AC0000000026", "file", None,
-           ["\u5897\u6e1b\u8a66\u9a13\u7814\u7a76\u8cbb\u5272\u5408\u304c\u767e\u5206\u306e\u4e03\u3092\u8d85\u3048\u308b\u4e8b\u696d\u5e74\u5ea6"])
-
-    # ForeignSubsidiaryTaxRate20.lean - restored registered check (租税特別措置法 art.40の4, law 332AC0000000026)
-    yield ("租税特別措置法 art.40の4（租税負担割合 百分の二十以上）↔ ForeignSubsidiaryTaxRate20.lean",
-           "332AC0000000026", "file", None,
-           ["\u5bfe\u8c61\u5916\u56fd\u95a2\u4fc2\u4f1a\u793e\u306e\u5404\u4e8b\u696d\u5e74\u5ea6\u306e\u79df\u7a0e\u8ca0\u62c5\u5272\u5408\u304c\u767e\u5206\u306e\u4e8c\u5341\u4ee5\u4e0a\u3067\u3042\u308b\u5834\u5408"])
-
+    # TouristTaxTaxablePassengers — 国際観光旅客税法施行規則 art.3(2) ホ (restored)
+    yield ("国際観光旅客税法施行規則 art.3(2) ホ（課税旅客数＝イ−(ロ+ハ+ニ)）↔ TouristTaxTaxablePassengers.lean",
+           "430M60000040039", "article", "第三条", ["イに掲げる数からロからニまでに掲げる数の合計数を控除した数"])
+    # TaxResearchCouncilQuorum — 税制調査会組織規則 art.7 §1 定足数
+    yield ("税制調査会組織規則 art.7（委員の三分の一以上の出席）↔ TaxResearchCouncilQuorum.lean",
+           "425CO0000000025", "article", "第七条", ["調査会は、委員の三分の一以上が出席しなければ、会議を開き、議決することができない。"])
     yield ("航空機燃料税法 art. 14(1) 第四号（納付すべき税額＝二号税額−前号税額）↔ AircraftFuelTaxPayable.lean", "347AC0000000007", "article", "第十四条", ["第二号に掲げる航空機燃料税額から前号に掲げる航空機燃料税額を控除した金額"])
 
     yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
@@ -140,7 +111,6 @@ def checks():
     yield ("特別とん譲与税法 art.6(1)（都を市とみなす）↔ TokyoAsCityDeeming.lean",
            "332AC0000000077", "article", "第六条",
            ["この場合においては、都を市とみなして、この法律の規定を適用する。"])
-
     # PrivateContractPublicAuctionReading.lean - NORM|d692d7da... (随意契約公売準用 READING, law 337M50000040031)
     yield ("国税徴収法施行規則 art.1_6（随意契約時の公売規定準用）↔ PrivateContractPublicAuctionReading.lean",
            "337M50000040031", "article", "第一条の六", ["（随意契約により不動産を売却する場合における公売の規定の準用）"])
@@ -4653,7 +4623,6 @@ def checks():
     yield ("租税特別措置法 art. 10（増減試験研究費割合 15%超）↔ RndExcessOver15.lean",
            "332AC0000000026", "file", None,
            ["増減試験研究費割合が百分の十五を超える場合（ニに掲げる場合を除く。）"])
-
     # 租税特別措置法 art. 10 — RndExcess3To15.lean (3%超〜15%以下)
     yield ("租税特別措置法 art. 10（3%超15%以下）↔ RndExcess3To15.lean",
            "332AC0000000026", "file", None,
@@ -4663,7 +4632,6 @@ def checks():
     yield ("租税特別措置法 art. 10_5_4（継続雇用者5%以上）↔ ContinuingIncreaseAtLeast5.lean",
            "332AC0000000026", "file", None,
            ["継続雇用者給与等支給増加割合が百分の五以上であること"])
-
     # 租税特別措置法 art. 10の5の4 — SalaryIncreaseRate5Or15.lean (5%/15%)
     yield ("租税特別措置法 art. 10_5_4（5%／15%分岐）↔ SalaryIncreaseRate5Or15.lean",
            "332AC0000000026", "file", None,
@@ -4673,11 +4641,13 @@ def checks():
            "325AC0000000226", "file", None,
            ["次に掲げる金額のうちいずれか少ない金額の百分の三"])
 
+
     # 特別法人事業譲与税法 art. 31(5)(4) — ExcessFinanceGrant75Cap.lean
     yield ("特別法人事業譲与税法 art. 31（十一月分75%と財源超過額上限）↔ ExcessFinanceGrant75Cap.lean",
            "431AC0000000004",
            "file", None,
            ["財源超過団体における十一月の譲与時期に係る基準各譲与時期特別法人事業譲与税額の百分の七十五に相当する額（当該額に当該財源超過団体に係る五月分財源超過団体譲与制限額及び八月分財源超過団体譲与制限額の合算額を加えた額が財源超過額を超える場合には、当該財源超過額から当該合算額を控除した額とする。）をいう。"])
+
 
     yield ("関税定率法 art.8(6)（六月以内の延長）↔ CustomsTariffArt8ExtensionSixMonths.lean",
            "143AC0000000054",
@@ -4690,40 +4660,31 @@ def checks():
            "file", None,
            ["当該贈与前十年以内のいずれかの時においてこの法律の施行地に住所を有していたことがあるもの", "第一条の四"])
 
+
     yield ("地方税法 art. 314_6（3%／指定都市4%）↔ LocalInhabitantReducedRate3or4.lean",
            "325AC0000000226", "file", None,
            ["次に掲げる金額のうちいずれか少ない金額の百分の三"])
-
     # 特別とん税法施行令 art.3(1) — SpecialTonSecurityEightTen.lean
     yield ("特別とん税法施行令 第三条(1)（特別とん税額 八分の十）↔ SpecialTonSecurityEightTen.lean",
            "332CO0000000049", "article", "第三条",
            ["とん税額の八分の十に相当する特別とん税額をあわせて担保しなければならない。"])
 
+
     yield ("相続税法 art.1の4（贈与前十年以内の住所）↔ GiftTaxTenYearResidenceLookback.lean",
            "325AC0000000073",
            "file", None,
-           ["\u5f53\u8a72\u8d08\u4e0e\u524d\u5341\u5e74\u4ee5\u5185\u306e\u3044\u305a\u308c\u304b\u306e\u6642\u306b\u304a\u3044\u3066\u3053\u306e\u6cd5\u5f8b\u306e\u65bd\u884c\u5730\u306b\u4f4f\u6240\u3092\u6709\u3057\u3066\u3044\u305f\u3053\u3068\u304c\u3042\u308b\u3082\u306e"])
-
-    # 租税特別措置法 art. 42の4 — CombinedRndExcessOver3.lean (合算3%超)
-    yield ("租税特別措置法 art. 42_4（合算3%超）↔ CombinedRndExcessOver3.lean",
-           "332AC0000000026", "file", None,
-           ["合算増減試験研究費割合が百分の三を超える場合（（３）に掲げる場合を除く。）"])
-
-    # 租税特別措置法 art. 42の4 — CombinedRndExcessAtMost3.lean (合算3%以下)
-    yield ("租税特別措置法 art. 42_4（合算3%以下）↔ CombinedRndExcessAtMost3.lean",
-           "332AC0000000026", "file", None,
-           ["合算増減試験研究費割合が百分の三以下である場合（（３）に掲げる場合を除く。）"])
+           ["当該贈与前十年以内のいずれかの時においてこの法律の施行地に住所を有していたことがあるもの", "第一条の四"])
 
     # 租税特別措置法 art. 40の4 — ForeignSubsidiaryTaxRate20.lean (租税負担割合20%以上)
     yield ("租税特別措置法 art. 40_4（租税負担割合20%以上）↔ ForeignSubsidiaryTaxRate20.lean",
            "332AC0000000026", "file", None,
            ["各事業年度の租税負担割合が百分の二十以上であること。"])
 
+
     # 地方税法 art. 72の21 — LocalGrantBracket1000To5000.lean (千億〜五千億)
     yield ("地方税法 art. 72_21（千億超五千億以下）↔ LocalGrantBracket1000To5000.lean",
            "325AC0000000226", "file", None,
            ["千億円を超え五千億円以下の金額"])
-
     # 地方税法 art. 9の2 — LocalTaxIncomeBracket4MTo1B.lean (四百万〜十億)
     yield ("地方税法 art. 9_2（四百万超十億以下）↔ LocalTaxIncomeBracket4MTo1B.lean",
            "325AC0000000226", "file", None,
@@ -4733,7 +4694,6 @@ def checks():
     yield ("租税特別措置法 art. 42_4（合算3%超）↔ CombinedRndExcessOver3.lean",
            "332AC0000000026", "file", None,
            ["合算増減試験研究費割合が百分の三を超える場合（（３）に掲げる場合を除く。）"])
-
     # 租税特別措置法 art. 42の4 — CombinedRndExcessAtMost3.lean (合算3%以下)
     yield ("租税特別措置法 art. 42_4（合算3%以下）↔ CombinedRndExcessAtMost3.lean",
            "332AC0000000026", "file", None,
@@ -4743,7 +4703,6 @@ def checks():
     yield ("租税特別措置法 art. 42_4（4%超の事業年度）↔ CombinedRndExcessOver4Year.lean",
            "332AC0000000026", "file", None,
            ["増減試験研究費割合が百分の四を超える事業年度"])
-
     # 租税特別措置法 art. 42の4 — CombinedRndExcessOver7Year.lean (7%超の事業年度)
     yield ("租税特別措置法 art. 42_4（7%超の事業年度）↔ CombinedRndExcessOver7Year.lean",
            "332AC0000000026", "file", None,
@@ -4753,201 +4712,10 @@ def checks():
     yield ("所得税法 art. 3（青色事業専従者22.5万/21.75万）↔ BlueBusinessDeductAmount.lean",
            "340AC0000000033", "file", None,
            ["二十二万五千円（当該青色事業専従者の年齢が二十歳未満である場合には、二十一万七千五百円）"])
-
     # 租税特別措置法施行令 art. 33の3 — ReserveAccumulationAtMost25.lean (25%以下)
     yield ("租税特別措置法施行令 art. 33_3（準備金25%以下）↔ ReserveAccumulationAtMost25.lean",
            "332CO0000000043", "file", None,
            ["異常危険準備金累積割合が百分の二十五以下の場合"])
-
-    # LocalTaxEnforcementArt4AnnualAmount350To700.lean - NORM|0a52a897... (地方税法施行規則 art.4 supplementary table cell CONDITION, law 329M50000002023)
-    # Whole-law locator; needle is unique in the pinned ordinance.
-    yield ("local tax enforcement rules art.4 annual amount 350 to 700 condition - LocalTaxEnforcementArt4AnnualAmount350To700.lean",
-           "329M50000002023",
-           "file", None,
-           ["\u5e74\uff13\uff15\uff10\u4e07\u5186\u3092\u8d85\u3048\u5e74\uff17\uff10\uff10\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d\u3000\uff08\uff08\uff12\uff12\uff09\uff09"])
-
-    # SpecialMeasuresArt42_4CombinedRatioOver10Exception.lean - NORM|54d5aca7... (租税特別措置法 art.42_4 EXCEPTION, law 332AC0000000026)
-    # Whole-law locator; needle is unique in the pinned act.
-    yield ("special measures art.42_4 combined ratio over 10 exception - SpecialMeasuresArt42_4CombinedRatioOver10Exception.lean",
-           "332AC0000000026",
-           "file", None,
-           ["\u5408\u7b97\u8a66\u9a13\u7814\u7a76\u8cbb\u5272\u5408\u304c\u767e\u5206\u306e\u5341\u3092\u8d85\u3048\u308b\u4e8b\u696d\u5e74\u5ea6\uff08\uff08\uff11\uff09\u306b\u63b2\u3052\u308b\u4e8b\u696d\u5e74\u5ea6\u3092\u9664\u304f\u3002\uff09"])
-
-    # 所得税法施行令 art. 133 — ExtraDepreciationBelow10.lean (10%未満)
-    yield ("所得税法施行令 art. 133（増加償却10%未満）↔ ExtraDepreciationBelow10.lean",
-           "340CO0000000096", "file", None,
-           ["ただし、当該増加償却割合が百分の十に満たない場合は、この限りでない。"])
-
-    # 所得税法施行令 art. 185 — InheritedAnnuityRatioOver50.lean (50%超)
-    yield ("所得税法施行令 art. 185（相続税評価割合50%超）↔ InheritedAnnuityRatioOver50.lean",
-           "340CO0000000096", "file", None,
-           ["相続税評価割合が百分の五十を超える確定年金"])
-
-    # 所得税法施行令 art. 185 — InheritedAnnuityRatioAtMost50.lean (50%以下)
-    yield ("所得税法施行令 art. 185（確定年金50%以下）↔ InheritedAnnuityRatioAtMost50.lean",
-           "340CO0000000096", "file", None,
-           ["相続税評価割合が百分の五十以下の確定年金"])
-
-    # 所得税法施行令 art. 185 — AnnuityRatioOver50UpTo55.lean (50%超55%以下)
-    yield ("所得税法施行令 art. 185（50%超55%以下）↔ AnnuityRatioOver50UpTo55.lean",
-           "340CO0000000096", "file", None,
-           ["相続税評価割合が百分の五十を超え百分の五十五以下の場合"])
-
-    # 租税特別措置法施行令 art. 33の3 — ReserveAccumulationOver50UpTo75.lean (50-75%)
-    yield ("租税特別措置法施行令 art. 33_3（準備金50-75%）↔ ReserveAccumulationOver50UpTo75.lean",
-           "332CO0000000043", "file", None,
-           ["異常危険準備金累積割合が百分の五十を超え百分の七十五以下の場合"])
-
-    # 租税特別措置法施行令 art. 43の2 — PublicFacilityAreaAtLeast10.lean (10%以上)
-    yield ("租税特別措置法施行令 art. 43_2（公共施設面積10%以上）↔ PublicFacilityAreaAtLeast10.lean",
-           "332CO0000000043", "file", None,
-           ["公共施設面積割合が百分の十以上であること。"])
-
-    # 半島振興法不均一課税省令 art.1(1)(1)ロ — PeninsulaSpecialDepreciationCostFloor5M.lean
-    yield ("半島振興法不均一課税省令 第一条(1)(1)ロ（取得価額五百万円以上）↔ PeninsulaSpecialDepreciationCostFloor5M.lean",
-           "407M50000008016", "article", "第一条",
-           ["五百万円以上のもの"])
-
-    # 関税暫定措置法 art. 7の3 — AverageImportOver30Percent.lean (30%超)
-    yield ("関税暫定措置法 art. 7_3（平均輸入30%超）↔ AverageImportOver30Percent.lean",
-           "335AC0000000036", "file", None,
-           ["平均輸入数量が平均国内消費量に百分の三十を乗じて得た数量を超える場合"])
-
-    # 関税暫定措置法 art. 7の4 — TriggerPriceGapOver75Percent.lean (75%超)
-    yield ("関税暫定措置法 art. 7_4（差額75%超）↔ TriggerPriceGapOver75Percent.lean",
-           "335AC0000000036", "file", None,
-           ["発動基準価格と課税価格との差額が発動基準価格に百分の七十五を乗じて得た金額を超える場合"])
-
-    # 租税特別措置法施行令 art. 40の8 — MedicalCorpCapitalOver50.lean (出資50%超)
-    yield ("租税特別措置法施行令 art. 40_8（医療法人出資50%超）↔ MedicalCorpCapitalOver50.lean",
-           "332CO0000000043", "file", None,
-           ["当該医療法人の出資の総額の百分の五十を超える金額"])
-
-    # 所得税法施行令 art. 182の2 — Below200kYen.lean (20万円未満)
-    yield ("所得税法施行令 art. 182_2（20万円未満）↔ Below200kYen.lean",
-           "340CO0000000096", "file", None,
-           ["二十万円未満である場合"])
-
-    # 租税特別措置法 art. 37の3 — RateReading20To10.lean (20→10)
-    yield ("租税特別措置法 art. 37_3（20→10読み替え）↔ RateReading20To10.lean",
-           "332AC0000000026", "file", None,
-           ["第一項各号中「百分の二十」とあるのは、「百分の十」とする。"])
-
-    # 租税特別措置法 art. 37の3 — RateReading20To25.lean (20→25)
-    yield ("租税特別措置法 art. 37_3（20→25読み替え）↔ RateReading20To25.lean",
-           "332AC0000000026", "file", None,
-           ["第一項各号中「百分の二十」とあるのは、「百分の二十五」とする。"])
-
-    # 消費税法 art. 34 — ConsumptionTaxRate10or8.lean (10%/8%)
-    yield ("消費税法 art. 34（標準10%／軽減8%）↔ ConsumptionTaxRate10or8.lean",
-           "363AC0000000108", "file", None,
-           ["百分の十（当該課税資産の譲渡等が元年軽減対象資産の譲渡等である場合には、百分の八）"])
-
-    # 森林環境税施行規則 art. 1の3 — ForestRateAtLeast85.lean (85%以上)
-    yield ("森林環境税施行規則 art. 1_3（林野率85%以上）↔ ForestRateAtLeast85.lean",
-           "431M60000008040", "file", None,
-           ["林野率が百分の八十五以上であるもの"])
-
-    yield ("税理士法 art. 8（二以上職務の従事期間通算）↔ TaxAccountantExamExemption.lean",
-           "326AC1000000237",
-           "file", None,
-           ["\u524d\u9805\u7b2c\u4e00\u53f7\u53c8\u306f\u7b2c\u56db\u53f7\u304b\u3089\u7b2c\u4e5d\u53f7\u307e\u3067\u306b\u898f\u5b9a\u3059\u308b\u8077\u53c8\u306f\u4e8b\u52d9\u306e\u3046\u3061\u3001\u8a66\u9a13\u306e\u514d\u9664\u79d1\u76ee\u3092\u540c\u3058\u304f\u3059\u308b\u8077\u53c8\u306f\u4e8b\u52d9\u306e\u4e8c\u4ee5\u4e0a\u306b\u5f93\u4e8b\u3057\u305f\u8005\u306b\u5bfe\u3057\u3066\u306f\u3001\u305d\u308c\u305e\u308c\u5f53\u8a72\u8077\u53c8\u306f\u4e8b\u52d9\u306b\u3064\u3044\u3066\u3053\u308c\u3089\u306e\u53f7\u306b\u898f\u5b9a\u3059\u308b\u5e74\u6570\u3092\u5341\u5e74\u3068\u3059\u308b\u5272\u5408\u306b\u3088\u308a\u5e74\u6570\u3092\u63db\u7b97\u3057\u3066\u3053\u308c\u3089\u306e\u8077\u53c8\u306f\u4e8b\u52d9\u306e\u4e8c\u4ee5\u4e0a\u306b\u5f93\u4e8b\u3057\u305f\u671f\u9593\u3092\u901a\u7b97\u3057\u305f\u5834\u5408\u306b\u3001\u305d\u306e\u671f\u9593\u304c\u5341\u5e74\u4ee5\u4e0a\u306b\u306a\u308b\u3068\u304d\u306f\u3001\u305d\u306e\u7533\u8acb\u306b\u3088\u308a\u3001\u7a0e\u7406\u58eb\u8a66\u9a13\u306b\u304a\u3044\u3066\u5f53\u8a72\u79d1\u76ee\u306e\u8a66\u9a13\u3092\u514d\u9664\u3059\u308b\u3002"])
-
-    # SpecialMeasuresArt42_4CombinedRatioOver10Exception.lean - NORM|54d5aca7... (租税特別措置法 art.42_4 EXCEPTION, law 332AC0000000026)
-    # Whole-law locator; needle is unique in the pinned act.
-    yield ("special measures art.42_4 combined ratio over 10 exception - SpecialMeasuresArt42_4CombinedRatioOver10Exception.lean",
-           "332AC0000000026",
-           "file", None,
-           ["\u5408\u7b97\u8a66\u9a13\u7814\u7a76\u8cbb\u5272\u5408\u304c\u767e\u5206\u306e\u5341\u3092\u8d85\u3048\u308b\u4e8b\u696d\u5e74\u5ea6\uff08\uff08\uff11\uff09\u306b\u63b2\u3052\u308b\u4e8b\u696d\u5e74\u5ea6\u3092\u9664\u304f\u3002\uff09"])
-
-    # 所得税法施行令 art. 133 — ExtraDepreciationBelow10.lean (10%未満)
-    yield ("所得税法施行令 art. 133（増加償却10%未満）↔ ExtraDepreciationBelow10.lean",
-           "340CO0000000096", "file", None,
-           ["ただし、当該増加償却割合が百分の十に満たない場合は、この限りでない。"])
-
-    # 所得税法施行令 art. 185 — InheritedAnnuityRatioOver50.lean (50%超)
-    yield ("所得税法施行令 art. 185（相続税評価割合50%超）↔ InheritedAnnuityRatioOver50.lean",
-           "340CO0000000096", "file", None,
-           ["相続税評価割合が百分の五十を超える確定年金"])
-
-    # 所得税法施行令 art. 185 — InheritedAnnuityRatioAtMost50.lean (50%以下)
-    yield ("所得税法施行令 art. 185（確定年金50%以下）↔ InheritedAnnuityRatioAtMost50.lean",
-           "340CO0000000096", "file", None,
-           ["相続税評価割合が百分の五十以下の確定年金"])
-
-    # 所得税法施行令 art. 185 — AnnuityRatioOver50UpTo55.lean (50%超55%以下)
-    yield ("所得税法施行令 art. 185（50%超55%以下）↔ AnnuityRatioOver50UpTo55.lean",
-           "340CO0000000096", "file", None,
-           ["相続税評価割合が百分の五十を超え百分の五十五以下の場合"])
-
-    # 租税特別措置法施行令 art. 33の3 — ReserveAccumulationOver50UpTo75.lean (50-75%)
-    yield ("租税特別措置法施行令 art. 33_3（準備金50-75%）↔ ReserveAccumulationOver50UpTo75.lean",
-           "332CO0000000043", "file", None,
-           ["異常危険準備金累積割合が百分の五十を超え百分の七十五以下の場合"])
-
-    # 租税特別措置法施行令 art. 43の2 — PublicFacilityAreaAtLeast10.lean (10%以上)
-    yield ("租税特別措置法施行令 art. 43_2（公共施設面積10%以上）↔ PublicFacilityAreaAtLeast10.lean",
-           "332CO0000000043", "file", None,
-           ["公共施設面積割合が百分の十以上であること。"])
-
-    # CustomsTariffArt9_2AllocationDelegation.lean - NORM|394bf11a... (関税定率法 art.9の2(2) DELEGATION, law 143AC0000000054)
-    # Whole-law locator; needle is unique in the pinned act.
-    yield ("customs tariff law art.9_2 allocation delegation - CustomsTariffArt9_2AllocationDelegation.lean",
-           "143AC0000000054",
-           "file", None,
-           ["\u524d\u9805\u306e\u5272\u5f53\u3066\u306e\u65b9\u6cd5\u3001\u5272\u5f53\u3066\u3092\u53d7\u3051\u308b\u624b\u7d9a\u305d\u306e\u4ed6\u540c\u9805\u306e\u898f\u5b9a\u306e\u9069\u7528\u306b\u95a2\u3057\u3066\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
-
-    # 関税暫定措置法 art. 7の3 — AverageImportOver30Percent.lean (30%超)
-    yield ("関税暫定措置法 art. 7_3（平均輸入30%超）↔ AverageImportOver30Percent.lean",
-           "335AC0000000036", "file", None,
-           ["平均輸入数量が平均国内消費量に百分の三十を乗じて得た数量を超える場合"])
-
-    # 関税暫定措置法 art. 7の4 — TriggerPriceGapOver75Percent.lean (75%超)
-    yield ("関税暫定措置法 art. 7_4（差額75%超）↔ TriggerPriceGapOver75Percent.lean",
-           "335AC0000000036", "file", None,
-           ["発動基準価格と課税価格との差額が発動基準価格に百分の七十五を乗じて得た金額を超える場合"])
-
-    # 租税特別措置法施行令 art. 40の8 — MedicalCorpCapitalOver50.lean (出資50%超)
-    yield ("租税特別措置法施行令 art. 40_8（医療法人出資50%超）↔ MedicalCorpCapitalOver50.lean",
-           "332CO0000000043", "file", None,
-           ["当該医療法人の出資の総額の百分の五十を超える金額"])
-
-    # 所得税法施行令 art. 182の2 — Below200kYen.lean (20万円未満)
-    yield ("所得税法施行令 art. 182_2（20万円未満）↔ Below200kYen.lean",
-           "340CO0000000096", "file", None,
-           ["二十万円未満である場合"])
-
-    # 租税特別措置法 art. 37の3 — RateReading20To10.lean (20→10)
-    yield ("租税特別措置法 art. 37_3（20→10読み替え）↔ RateReading20To10.lean",
-           "332AC0000000026", "file", None,
-           ["第一項各号中「百分の二十」とあるのは、「百分の十」とする。"])
-
-    # 租税特別措置法 art. 37の3 — RateReading20To25.lean (20→25)
-    yield ("租税特別措置法 art. 37_3（20→25読み替え）↔ RateReading20To25.lean",
-           "332AC0000000026", "file", None,
-           ["第一項各号中「百分の二十」とあるのは、「百分の二十五」とする。"])
-
-    # 消費税法 art. 34 — ConsumptionTaxRate10or8.lean (10%/8%)
-    yield ("消費税法 art. 34（標準10%／軽減8%）↔ ConsumptionTaxRate10or8.lean",
-           "363AC0000000108", "file", None,
-           ["百分の十（当該課税資産の譲渡等が元年軽減対象資産の譲渡等である場合には、百分の八）"])
-
-    # 森林環境税施行規則 art. 1の3 — ForestRateAtLeast85.lean (85%以上)
-    yield ("森林環境税施行規則 art. 1_3（林野率85%以上）↔ ForestRateAtLeast85.lean",
-           "431M60000008040", "file", None,
-           ["林野率が百分の八十五以上であるもの"])
-
-    # ShipProvisionalRateReduction — 登録免許税法 art.17(2)
-    yield ("登録免許税法 art.17(2)（船舶仮登記: 税率から千分の四を控除）↔ ShipProvisionalRateReduction.lean",
-           "342AC0000000035", "article", "第十七条", ["同号（二）の税率欄に掲げる割合から千分の四を控除した割合とする"])
-
-    # TouristTaxTaxablePassengers — 国際観光旅客税法施行規則 art.3(2) ホ (restored)
-    yield ("国際観光旅客税法施行規則 art.3(2) ホ（課税旅客数＝イ−(ロ+ハ+ニ)）↔ TouristTaxTaxablePassengers.lean",
-           "430M60000040039", "article", "第三条", ["イに掲げる数からロからニまでに掲げる数の合計数を控除した数"])
-
-    # TaxResearchCouncilQuorum — 税制調査会組織規則 art.7 §1 定足数
-    yield ("税制調査会組織規則 art.7（委員の三分の一以上の出席）↔ TaxResearchCouncilQuorum.lean",
-           "425CO0000000025", "article", "第七条", ["調査会は、委員の三分の一以上が出席しなければ、会議を開き、議決することができない。"])
 
     # 税理士法 art. 8(2) — TaxAccountantExamExemption.lean
     yield ("税理士法 art. 8（二以上職務の従事期間通算）↔ TaxAccountantExamExemption.lean",
@@ -4955,58 +4723,144 @@ def checks():
            "file", None,
            ["前項第一号又は第四号から第九号までに規定する職又は事務のうち、試験の免除科目を同じくする職又は事務の二以上に従事した者に対しては、それぞれ当該職又は事務についてこれらの号に規定する年数を十年とする割合により年数を換算してこれらの職又は事務の二以上に従事した期間を通算した場合に、その期間が十年以上になるときは、その申請により、税理士試験において当該科目の試験を免除する。"])
 
-    # LocalTaxInsuranceBusinessBase24Percent.lean - restored registered check (dropped by concurrent merge)
-    yield ("LocalTaxInsuranceBusinessBase24Percent.lean restored transcription check",
-           "325AC0000000226", "file", None,
-           ["\u500b\u4eba\u4fdd\u967a\uff08\u7b2c\u4e09\u53f7\u306b\u898f\u5b9a\u3059\u308b\u56e3\u4f53\u4fdd\u967a\u4ee5\u5916\u306e\u4fdd\u967a\u3092\u3044\u3046\u3002\u6b21\u53f7\u306b\u304a\u3044\u3066\u540c\u3058\u3002\uff09\u306e\u3046\u3061\u540c\u53f7\u306b\u898f\u5b9a\u3059\u308b\u8caf\u84c4\u4fdd\u967a\u4ee5\u5916\u306e\u3082\u306e\u306b\u3042\u3064\u3066\u306f\u3001\u5404\u4e8b\u696d\u5e74\u5ea6\u306e\u53ce\u5165\u4fdd\u967a\u6599\uff08\u518d\u4fdd\u967a\u6599\u3068\u3057\u3066\u53ce\u5165\u3059\u308b\u4fdd\u967a\u6599\u3092\u9664\u304f\u3002\u4ee5\u4e0b\u3053\u306e\u9805\u306b\u304a\u3044\u3066\u540c\u3058\u3002\uff09\u306b\u767e\u5206\u306e\u4e8c\u5341\u56db\u3092\u4e57\u3058\u3066\u5f97\u305f\u91d1\u984d"])
-
-    # ReconstructionCorpTaxMonthFloor.lean - restored registered check (dropped by concurrent merge)
-    yield ("ReconstructionCorpTaxMonthFloor.lean restored transcription check",
-           "424CO0000000017", "file", None,
-           ["\u524d\u9805\u306e\u6708\u6570\u306f\u3001\u66a6\u306b\u5f93\u3063\u3066\u8a08\u7b97\u3057\u3001\u4e00\u6708\u306b\u6e80\u305f\u306a\u3044\u7aef\u6570\u3092\u751f\u3058\u305f\u3068\u304d\u306f\u3001\u3053\u308c\u3092\u5207\u308a\u6368\u3066\u308b\u3002"])
-
-    # LocalTaxEnforcementArt4AnnualAmount350.lean - NORM|c8d9f6f7... (地方税法施行規則 art.4 supplementary table cell CONDITION, law 329M50000002023)
-    # Whole-law locator; needle is unique in the pinned ordinance.
-    yield ("local tax enforcement rules art.4 annual amount 350 condition - LocalTaxEnforcementArt4AnnualAmount350.lean",
-           "329M50000002023",
-           "file", None,
-           ["\u5e74\uff13\uff15\uff10\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d\u3000\uff08\uff08\uff12\uff11\uff09\uff09"])
-
-    # 復興特別法人税政令 art.3(3) — ReconstructionCorpTaxMonthFloor.lean
-    yield ("復興特別法人税政令 第三条(3)（一月未満端数切捨て）↔ ReconstructionCorpTaxMonthFloor.lean",
-           "424CO0000000017", "article", "第三条",
-           ["前項の月数は、暦に従って計算し、一月に満たない端数を生じたときは、これを切り捨てる。"])
-
-    yield ("相続税法 art.1の4（贈与前十年以内の住所）↔ GiftTaxTenYearResidenceLookback.lean",
-           "325AC0000000073",
-           "file", None,
-           ["当該贈与前十年以内のいずれかの時においてこの法律の施行地に住所を有していたことがあるもの", "第一条の四"])
-
-    # 所得税法施行令 art. 73 — LoanBalanceRatioAtMost15.lean (15%以下)
-    yield ("所得税法施行令 art. 73（貸付金残額15%以下）↔ LoanBalanceRatioAtMost15.lean",
+    # 所得税法施行令 art. 185 — AnnuityRatioOver50UpTo55.lean (50%超55%以下)
+    yield ("所得税法施行令 art. 185（50%超55%以下）↔ AnnuityRatioOver50UpTo55.lean",
            "340CO0000000096", "file", None,
-           ["資産総額のうちに当該貸付金の残額の合計額の占める割合が常時百分の十五以下であること。"])
+           ["相続税評価割合が百分の五十を超え百分の五十五以下の場合"])
+
+    # 関税暫定措置法 art. 7の3 — AverageImportOver30Percent.lean (30%超)
+    yield ("関税暫定措置法 art. 7_3（平均輸入30%超）↔ AverageImportOver30Percent.lean",
+           "335AC0000000036", "file", None,
+           ["平均輸入数量が平均国内消費量に百分の三十を乗じて得た数量を超える場合"])
+
+    # 所得税法施行令 art. 182の2 — Below200kYen.lean (20万円未満)
+    yield ("所得税法施行令 art. 182_2（20万円未満）↔ Below200kYen.lean",
+           "340CO0000000096", "file", None,
+           ["二十万円未満である場合"])
+
+    # 消費税法 art. 34 — ConsumptionTaxRate10or8.lean (10%/8%)
+    yield ("消費税法 art. 34（標準10%／軽減8%）↔ ConsumptionTaxRate10or8.lean",
+           "363AC0000000108", "file", None,
+           ["百分の十（当該課税資産の譲渡等が元年軽減対象資産の譲渡等である場合には、百分の八）"])
+
+    # 税関関係手数料令 art. 4 — CustomsFee129000.lean (12.9万/12.8万)
+    yield ("税関関係手数料令 art. 4（12.9万/12.8万）↔ CustomsFee129000.lean",
+           "329CO0000000164", "file", None,
+           ["十二万九千円（当該許可を受ける者が指定者である場合にあつては、十二万八千円）"])
+
+    # 税関関係手数料令 art. 2 — CustomsFee76000.lean (7.6万/7.54万)
+    yield ("税関関係手数料令 art. 2（7.6万/7.54万）↔ CustomsFee76000.lean",
+           "329CO0000000164", "file", None,
+           ["七万六千円（当該許可を受ける者が指定者である場合にあつては、七万五千四百円）"])
+
+    # 所得税法施行令 art. 133 — ExtraDepreciationBelow10.lean (10%未満)
+    yield ("所得税法施行令 art. 133（増加償却10%未満）↔ ExtraDepreciationBelow10.lean",
+           "340CO0000000096", "file", None,
+           ["ただし、当該増加償却割合が百分の十に満たない場合は、この限りでない。"])
 
     # 租税特別措置法 art. 40の7 — ForeignRelatedCorpTaxRate20.lean (20%以上)
     yield ("租税特別措置法 art. 40_7（外国関係法人20%以上）↔ ForeignRelatedCorpTaxRate20.lean",
            "332AC0000000026", "file", None,
            ["対象外国関係法人の各事業年度の租税負担割合が百分の二十以上である場合"])
 
-    # 税理士法 art. 8(2) — TaxAccountantExamExemption.lean
-    yield ("税理士法 art. 8（二以上職務の従事期間通算）↔ TaxAccountantExamExemption.lean",
-           "326AC1000000237",
+    # 森林環境税施行規則 art. 1の3 — ForestRateAtLeast85.lean (85%以上)
+    yield ("森林環境税施行規則 art. 1_3（林野率85%以上）↔ ForestRateAtLeast85.lean",
+           "431M60000008040", "file", None,
+           ["林野率が百分の八十五以上であるもの"])
+
+    yield ("登録免許税法施行規則 art.5(2)（記録重量二以上は最重のもの）↔ HeaviestRecordedWeight.lean",
+           "346CO0000000275", "article", "第五条", ["当該自動車検査証に記録される車両総重量が二以上あるときは、そのうちの最も重いものとする"])
+
+    yield ("航空機燃料譲与税法施行規則 art.4(8)（世帯数〇・七下限）↔ HouseholdCorrectionFloor07.lean",
+           "347M50000008026", "article", "第四条", ["前年度の世帯数に〇・七を乗じて得た数に満たず、かつ、当該前年度の世帯数から当該補正世帯数を控除して得た数が千を超える場合には"])
+
+    # 所得税法施行令 art. 185 — InheritedAnnuityRatioAtMost50.lean (50%以下)
+    yield ("所得税法施行令 art. 185（確定年金50%以下）↔ InheritedAnnuityRatioAtMost50.lean",
+           "340CO0000000096", "file", None,
+           ["相続税評価割合が百分の五十以下の確定年金"])
+
+    # 所得税法施行令 art. 185 — InheritedAnnuityRatioOver50.lean (50%超)
+    yield ("所得税法施行令 art. 185（相続税評価割合50%超）↔ InheritedAnnuityRatioOver50.lean",
+           "340CO0000000096", "file", None,
+           ["相続税評価割合が百分の五十を超える確定年金"])
+
+    # 所得税法施行令 art. 73 — LoanBalanceRatioAtMost15.lean (15%以下)
+    yield ("所得税法施行令 art. 73（貸付金残額15%以下）↔ LoanBalanceRatioAtMost15.lean",
+           "340CO0000000096", "file", None,
+           ["資産総額のうちに当該貸付金の残額の合計額の占める割合が常時百分の十五以下であること。"])
+
+    # 地方税法 art.72の24の2(1) — LocalTaxInsuranceBusinessBase24Percent.lean
+    yield ("地方税法 art.72の24の2(1)（収入保険料×24%）↔ LocalTaxInsuranceBusinessBase24Percent.lean",
+           "325AC0000000226",
            "file", None,
-           ["\u524d\u9805\u7b2c\u4e00\u53f7\u53c8\u306f\u7b2c\u56db\u53f7\u304b\u3089\u7b2c\u4e5d\u53f7\u307e\u3067\u306b\u898f\u5b9a\u3059\u308b\u8077\u53c8\u306f\u4e8b\u52d9\u306e\u3046\u3061\u3001\u8a66\u9a13\u306e\u514d\u9664\u79d1\u76ee\u3092\u540c\u3058\u304f\u3059\u308b\u8077\u53c8\u306f\u4e8b\u52d9\u306e\u4e8c\u4ee5\u4e0a\u306b\u5f93\u4e8b\u3057\u305f\u8005\u306b\u5bfe\u3057\u3066\u306f\u3001\u305d\u308c\u305e\u308c\u5f53\u8a72\u8077\u53c8\u306f\u4e8b\u52d9\u306b\u3064\u3044\u3066\u3053\u308c\u3089\u306e\u53f7\u306b\u898f\u5b9a\u3059\u308b\u5e74\u6570\u3092\u5341\u5e74\u3068\u3059\u308b\u5272\u5408\u306b\u3088\u308a\u5e74\u6570\u3092\u63db\u7b97\u3057\u3066\u3053\u308c\u3089\u306e\u8077\u53c8\u306f\u4e8b\u52d9\u306e\u4e8c\u4ee5\u4e0a\u306b\u5f93\u4e8b\u3057\u305f\u671f\u9593\u3092\u901a\u7b97\u3057\u305f\u5834\u5408\u306b\u3001\u305d\u306e\u671f\u9593\u304c\u5341\u5e74\u4ee5\u4e0a\u306b\u306a\u308b\u3068\u304d\u306f\u3001\u305d\u306e\u7533\u8acb\u306b\u3088\u308a\u3001\u7a0e\u7406\u58eb\u8a66\u9a13\u306b\u304a\u3044\u3066\u5f53\u8a72\u79d1\u76ee\u306e\u8a66\u9a13\u3092\u514d\u9664\u3059\u308b\u3002"])
+           ["収入保険料（再保険料として収入する保険料を除く。以下この項において同じ。）に百分の二十四を乗じて得た金額", "第七十二条の二十四の二"])
 
-    # CustomsFee129000.lean - restored registered check (dropped by concurrent merge)
-    yield ("CustomsFee129000.lean restored transcription check",
-           "329CO0000000164", "file", None,
-           ["\u5341\u4e8c\u4e07\u4e5d\u5343\u5186\uff08\u5f53\u8a72\u8a31\u53ef\u3092\u53d7\u3051\u308b\u8005\u304c\u6307\u5b9a\u8005\u3067\u3042\u308b\u5834\u5408\u306b\u3042\u3064\u3066\u306f\u3001\u5341\u4e8c\u4e07\u516b\u5343\u5186\uff09"])
+    # 租税特別措置法施行令 art. 40の8 — MedicalCorpCapitalOver50.lean (出資50%超)
+    yield ("租税特別措置法施行令 art. 40_8（医療法人出資50%超）↔ MedicalCorpCapitalOver50.lean",
+           "332CO0000000043", "file", None,
+           ["当該医療法人の出資の総額の百分の五十を超える金額"])
 
-    # CustomsFee76000.lean - restored registered check (dropped by concurrent merge)
-    yield ("CustomsFee76000.lean restored transcription check",
-           "329CO0000000164", "file", None,
-           ["\u4e03\u4e07\u516d\u5343\u5186\uff08\u5f53\u8a72\u8a31\u53ef\u3092\u53d7\u3051\u308b\u8005\u304c\u6307\u5b9a\u8005\u3067\u3042\u308b\u5834\u5408\u306b\u3042\u3064\u3066\u306f\u3001\u4e03\u4e07\u4e94\u5343\u56db\u767e\u5186\uff09"])
+    # 半島振興法不均一課税省令 art.1(1)(1)ロ — PeninsulaSpecialDepreciationCostFloor5M.lean
+    yield ("半島振興法不均一課税省令 第一条(1)(1)ロ（取得価額五百万円以上）↔ PeninsulaSpecialDepreciationCostFloor5M.lean",
+           "407M50000008016", "article", "第一条",
+           ["五百万円以上のもの"])
+
+    yield ("電源開発促進税法 art.12（罰金上限＝max(五十万円,相当金額)）↔ PowerDevelopmentTaxPenalty.lean",
+           "349AC0000000079", "article", "第十二条", ["五十万円を超え当該電源開発促進税に相当する金額以下"])
+
+    # 租税特別措置法施行令 art. 43の2 — PublicFacilityAreaAtLeast10.lean (10%以上)
+    yield ("租税特別措置法施行令 art. 43_2（公共施設面積10%以上）↔ PublicFacilityAreaAtLeast10.lean",
+           "332CO0000000043", "file", None,
+           ["公共施設面積割合が百分の十以上であること。"])
+
+    # 租税特別措置法 art. 37の3 — RateReading20To10.lean (20→10)
+    yield ("租税特別措置法 art. 37_3（20→10読み替え）↔ RateReading20To10.lean",
+           "332AC0000000026", "file", None,
+           ["第一項各号中「百分の二十」とあるのは、「百分の十」とする。"])
+
+    # 租税特別措置法 art. 37の3 — RateReading20To25.lean (20→25)
+    yield ("租税特別措置法 art. 37_3（20→25読み替え）↔ RateReading20To25.lean",
+           "332AC0000000026", "file", None,
+           ["第一項各号中「百分の二十」とあるのは、「百分の二十五」とする。"])
+
+    # 復興特別法人税政令 art.3(3) — ReconstructionCorpTaxMonthFloor.lean
+    yield ("復興特別法人税政令 第三条(3)（一月未満端数切捨て）↔ ReconstructionCorpTaxMonthFloor.lean",
+           "424CO0000000017", "article", "第三条",
+           ["前項の月数は、暦に従って計算し、一月に満たない端数を生じたときは、これを切り捨てる。"])
+
+    # 租税特別措置法施行令 art. 33の3 — ReserveAccumulationOver50UpTo75.lean (50-75%)
+    yield ("租税特別措置法施行令 art. 33_3（準備金50-75%）↔ ReserveAccumulationOver50UpTo75.lean",
+           "332CO0000000043", "file", None,
+           ["異常危険準備金累積割合が百分の五十を超え百分の七十五以下の場合"])
+
+    # 関税暫定措置法 art. 7の4 — TriggerPriceGapOver75Percent.lean (75%超)
+    yield ("関税暫定措置法 art. 7_4（差額75%超）↔ TriggerPriceGapOver75Percent.lean",
+           "335AC0000000036", "file", None,
+           ["発動基準価格と課税価格との差額が発動基準価格に百分の七十五を乗じて得た金額を超える場合"])
+
+# 公布の日から六月を超えない範囲内で施行 — EnforcementWithinSixMonths.lean
+    yield ("地方税法 art. 1（公布の日から六月を超えない範囲内で施行）↔ EnforcementWithinSixMonths.lean",
+           "325AC0000000226",
+           "file", None,
+           ["ただし、附則第二十一条から第五十五条までの規定は、公布の日から起算して六月を超えない範囲内において政令で定める日から施行する。"])
+
+    # 公布の日から九月を超えない範囲内で施行 — EnforcementWithinNineMonths.lean
+    yield ("地方税法 art. 1（公布の日から九月を超えない範囲内で施行）↔ EnforcementWithinNineMonths.lean",
+           "325AC0000000226",
+           "file", None,
+           ["ただし、附則第十三条から第二十四条までの規定は、公布の日から起算して九月を超えない範囲内において政令で定める日から施行する。"])
+
+    # 工業生産設備の減価償却資産取得価額 三千二百万円超 — IndustrialEquipmentCost32M.lean
+    yield ("地方税法施行令 art. 54_13（工業生産設備の減価償却資産取得価額 三千二百万円超）↔ IndustrialEquipmentCost32M.lean",
+           "325CO0000000245",
+           "file", None,
+           ["一の工業生産設備で、これを構成する減価償却資産の取得価額の合計額が三千二百万円を超えるもの"])
+
+    # 一日当たり平均利用者数 十万人以上 — StationDailyUsers100k.lean
+    yield ("地方税法施行令 art. 11（一日当たり平均利用者数 十万人以上）↔ StationDailyUsers100k.lean",
+           "325CO0000000245",
+           "file", None,
+           ["当該事業の開始の日の属する年度の前年度の一日当たりの平均的な利用者の人数が十万人以上である駅若しくは停留場（以下この号において「特定駅等」という。）又は特定駅等からの距離が百キロメートル以内の駅若しくは停留場において実施される事業"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
