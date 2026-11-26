@@ -4318,6 +4318,19 @@
       "source_location": "data/raw/340AC0000000033_20261001_507AC0000000070.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:76/Article#76/Paragraph#3/Item#2/Subitem1#2/Subitem1Sentence/Column#1/Sentence#1 sha256=94c4a7ad83726cde60787967ed4e959585ad0af9279d25db9aa02264b3fe606b",
       "tests": "JapanTaxLaw/BatchRange9910bf9074Tests.lean sha256=e0d59fcfa109e0714e369db8ca185aa4fa2fa8db254dbd0053fb27cc87455f01"
     },
+    "NORM|15fbca0248aecccfa76dba4aa9907f0c8743881da3da3856b433a5d21f1fa7dc": {
+      "adversarial_review": "docs/BATCH_MULTI_READING_REVIEW.md generated entry for NORM|15fbca0248a",
+      "boundary_proof": "BatchMultiRead02dca2b9abTests.lean kernel-decided per-pair original/replacement plus other and untriggered identity",
+      "cross_law_proof": "dependencies=[]; trigger and target-provision selection for repeated source phrases caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMultiRead02dca2b9ab.lean sha256=b487be2309f45d857d7d840a3a039ff082267d57a7d1d4ed0e06fbf8ec869484",
+      "independent_spec": "JapanTaxLaw/BatchMultiRead02dca2b9abSpec.lean sha256=c0fcace6eb6c3a1c4f0648caf04e852a5d0cd505f2b301ff66cc8d8cbee6732f; equality-chain spec vs pattern-match impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMultiRead02dca2b9abTests OK; axioms: 'JapanTaxLaw.BatchMultiRead02dca2b9ab.leaves_other' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead02dca2b9ab.agree_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead02dca2b9ab.agree_when_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead02dca2b9ab.untriggered_identity' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl and agree_when_spec_impl exhaustive over all 7 constructors of the declared phrase domain and both trigger values; whole-phrase rewrite only; quoted numeric content is not re-derived",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (--ignore-quoted); phrase_audit D=PASS: every quoted pair located in pinned text, reproduced verbatim in spec+impl with correct direction",
+      "source_location": "data/raw/340CO0000000097_20261001_507CO0000000121.law.json#LawBody[3]/MainProvision/MainProvision[0]/Article:4_3/Article#4_3/Paragraph#14/Item#2/ItemSentence/Sentence#1 sha256=92bab730d90617c1a1439ba19ba8f79041368febf3840c919103689cfcd90fe6",
+      "tests": "JapanTaxLaw/BatchMultiRead02dca2b9abTests.lean sha256=68763f5c42406cd2d69ef2c24dce2479f1198c511715c333852fa9440b13522d"
+    },
     "NORM|161a762ac888e3d87491bc8e68e37ecbf7c64d79d1c99513527f9225c5033292": {
       "adversarial_review": "docs/BATCH_THRESHOLD_REVIEW.md generated entry for NORM|161a762ac88 (gt 56000)",
       "boundary_proof": "BatchThresholdGT5534ab7475Tests.lean kernel-decided 0/56000/56001",
@@ -6606,6 +6619,19 @@
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[2]/Article:42/Article#42/Paragraph#1/Item#1/Subitem1#1/List/ListSentence/Sentence#1 sha256=c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98",
       "tests": "JapanTaxLaw/BatchMultiReadb283f0cee8Tests.lean sha256=875eff5ae2a23752a04ea361f4f2abc99c80d4e217b274d74431f23f8f31b640"
     },
+    "NORM|2247cb1510e8bd677e782d8035fb4d7d74089f367f5ed9010f4d7cb10100fc87": {
+      "adversarial_review": "docs/BATCH_MULTI_READING_REVIEW.md generated entry for NORM|2247cb1510e",
+      "boundary_proof": "BatchMultiRead0c8a5b5badTests.lean kernel-decided per-pair original/replacement plus other and untriggered identity",
+      "cross_law_proof": "dependencies=[]; trigger and target-provision selection for repeated source phrases caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMultiRead0c8a5b5bad.lean sha256=6b0f2be9a2495609c48f7fb982fa854a80f2edfd37a03c1951ebf465a0d6669e",
+      "independent_spec": "JapanTaxLaw/BatchMultiRead0c8a5b5badSpec.lean sha256=b06e9016df10af28a50b6e6703f6b473cd87803df06af4b69e83ab83f6d7af29; equality-chain spec vs pattern-match impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMultiRead0c8a5b5badTests OK; axioms: 'JapanTaxLaw.BatchMultiRead0c8a5b5bad.leaves_other' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead0c8a5b5bad.agree_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead0c8a5b5bad.agree_when_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead0c8a5b5bad.untriggered_identity' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl and agree_when_spec_impl exhaustive over all 7 constructors of the declared phrase domain and both trigger values; whole-phrase rewrite only; quoted numeric content is not re-derived",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (--ignore-quoted); phrase_audit D=PASS: every quoted pair located in pinned text, reproduced verbatim in spec+impl with correct direction",
+      "source_location": "data/raw/340CO0000000097_20261001_507CO0000000121.law.json#LawBody[3]/MainProvision/MainProvision[0]/Article:4_3/Article#4_3/Paragraph#7/Item#2/ItemSentence/Sentence#1 sha256=92bab730d90617c1a1439ba19ba8f79041368febf3840c919103689cfcd90fe6",
+      "tests": "JapanTaxLaw/BatchMultiRead0c8a5b5badTests.lean sha256=b6d98571a34ae49c511fd97b5103a8ac6f4c6abd392b36e3b199680aad5330b0"
+    },
     "NORM|224f379a87ba1d80dbfa846a2924b0f75216dd199c2bcc53a0d51b3d428e0293": {
       "adversarial_review": "docs/BATCH_RATE_REVIEW.md generated entry for NORM|224f379a87b (5%)",
       "boundary_proof": "BatchRate12cd405defTests.lean kernel-decided bases 0/100/1000",
@@ -6683,6 +6709,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (phrase-only, no numeral); commencement_audit D=PASS: verbatim located in pinned article and offset matches 公布の日 / 公布の日の翌日 wording",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[119]/SupplProvision/SupplProvision[1]/Article:1/Article#1/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
       "tests": "JapanTaxLaw/BatchEffectivee6f3eec766Tests.lean sha256=52b5af2bd45abe9b5bcb134a694e583132ca375555b8464d2bfa3c30ccb7ea63"
+    },
+    "NORM|22e345992ece65c1359065eb82a25d482b80d86a31777b75356eabb4e065ac74": {
+      "adversarial_review": "docs/BATCH_MULTI_READING_REVIEW.md generated entry for NORM|22e345992ec",
+      "boundary_proof": "BatchMultiRead7e071a82e2Tests.lean kernel-decided per-pair original/replacement plus other and untriggered identity",
+      "cross_law_proof": "dependencies=[]; trigger and target-provision selection for repeated source phrases caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMultiRead7e071a82e2.lean sha256=ce1d034c43689442807da9cf3776037b9df001fb0fc2ed9a64b0259b8bd59d1b",
+      "independent_spec": "JapanTaxLaw/BatchMultiRead7e071a82e2Spec.lean sha256=1a2cf4a24a60b916d59355119698ac95b042019457d7bbc035505cb90c08ee9b; equality-chain spec vs pattern-match impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMultiRead7e071a82e2Tests OK; axioms: 'JapanTaxLaw.BatchMultiRead7e071a82e2.leaves_other' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead7e071a82e2.agree_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead7e071a82e2.agree_when_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead7e071a82e2.untriggered_identity' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl and agree_when_spec_impl exhaustive over all 3 constructors of the declared phrase domain and both trigger values; whole-phrase rewrite only; quoted numeric content is not re-derived",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (--ignore-quoted); phrase_audit D=PASS: every quoted pair located in pinned text, reproduced verbatim in spec+impl with correct direction",
+      "source_location": "data/raw/340M50000040012_20261001_505M60000040013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:38_28/Article#38_28/Paragraph#14/ParagraphSentence/Sentence#1 sha256=ae40e395af88ba819be06f9ec266b7a1c09ee87150ed9db59c3d3b86abae96d8",
+      "tests": "JapanTaxLaw/BatchMultiRead7e071a82e2Tests.lean sha256=e087eaab723a09ef5f815b7c919a5efd82f758fee4463994172022ba3d02f69c"
     },
     "NORM|22e37178003b6e87a4f63ca20a20529b619f46d1c92b65f491993c8fd8ebf8be": {
       "adversarial_review": "docs/BATCH_EFFECTIVE_REVIEW.md generated entry for NORM|22e37178003",
@@ -15147,6 +15186,19 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:478/Article#478/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
       "tests": "JapanTaxLaw/BatchThresholdLE3187c4f605Tests.lean sha256=453114eb27fe8158003b1f283879074ced4849633a64a42b9a194fb2cdab3e73"
     },
+    "NORM|51445a44ec3fc47ff8efd81d04afc3622473b8badfd49bb682b7d92769acb4aa": {
+      "adversarial_review": "docs/BATCH_MULTI_READING_REVIEW.md generated entry for NORM|51445a44ec3",
+      "boundary_proof": "BatchMultiRead072af2aed4Tests.lean kernel-decided per-pair original/replacement plus other and untriggered identity",
+      "cross_law_proof": "dependencies=[]; trigger and target-provision selection for repeated source phrases caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMultiRead072af2aed4.lean sha256=a6b08d06e1593ad4e1cc942bbc6c562e7599986e7d8f4ca8e5234a9314723657",
+      "independent_spec": "JapanTaxLaw/BatchMultiRead072af2aed4Spec.lean sha256=506aea76764bb29799074f90a7b95dd4183b2017a26e90cc247e2f03b42e3006; equality-chain spec vs pattern-match impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMultiRead072af2aed4Tests OK; axioms: 'JapanTaxLaw.BatchMultiRead072af2aed4.leaves_other' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead072af2aed4.agree_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead072af2aed4.agree_when_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead072af2aed4.untriggered_identity' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl and agree_when_spec_impl exhaustive over all 3 constructors of the declared phrase domain and both trigger values; whole-phrase rewrite only; quoted numeric content is not re-derived",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (--ignore-quoted); phrase_audit D=PASS: every quoted pair located in pinned text, reproduced verbatim in spec+impl with correct direction",
+      "source_location": "data/raw/340CO0000000097_20261001_507CO0000000121.law.json#LawBody[3]/MainProvision/MainProvision[0]/Article:4_3/Article#4_3/Paragraph#23/Item#2/Subitem1#5/Subitem1Sentence/Sentence#1 sha256=92bab730d90617c1a1439ba19ba8f79041368febf3840c919103689cfcd90fe6",
+      "tests": "JapanTaxLaw/BatchMultiRead072af2aed4Tests.lean sha256=d93193f94a0ed0cac14cbb45711c26c4873d589f69dc5eef3323f68c7a2ff1ee"
+    },
     "NORM|514e73cb33ef5bd17e70d94866a2964a0fb883e309f9018f30052196fa66b1c3": {
       "adversarial_review": "docs/BATCH_EFFECTIVE_REVIEW.md generated entry for NORM|514e73cb33e",
       "boundary_proof": "BatchEffective4501c5ed5cTests.lean kernel-decided effective-day and pre-promulgation boundaries",
@@ -20711,6 +20763,19 @@
       "source_location": "data/raw/340CO0000000096_20260522_508CO0000000093.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:71_2/Article#71_2/Paragraph#1/Item#1/Subitem1#1/Subitem1Sentence/Column#1/Sentence#1 sha256=9facf2e2768d602ccdbbf9891df142d3a3e7ead09033eb0634de00a4c4181392",
       "tests": "JapanTaxLaw/BatchThresholdLEf010da4289Tests.lean sha256=6006a80dc57cf34e7993c06a66cba90a91af18c1ff83118021b8405da7535cbe"
     },
+    "NORM|6fc2756f70c8e250295cf84c1f2b474661397ddd0ccbfa7d312dcc47cea3523d": {
+      "adversarial_review": "docs/BATCH_MULTI_READING_REVIEW.md generated entry for NORM|6fc2756f70c",
+      "boundary_proof": "BatchMultiRead8f53f87204Tests.lean kernel-decided per-pair original/replacement plus other and untriggered identity",
+      "cross_law_proof": "dependencies=[]; trigger and target-provision selection for repeated source phrases caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMultiRead8f53f87204.lean sha256=fd8dc06960737c558017230829427dce63ac3b931c4421491f4efdba527c4e5f",
+      "independent_spec": "JapanTaxLaw/BatchMultiRead8f53f87204Spec.lean sha256=55a5177fef116f6824afa6edd5d87adb6c8e18b9f10cb4c08cda9c852792822f; equality-chain spec vs pattern-match impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMultiRead8f53f87204Tests OK; axioms: 'JapanTaxLaw.BatchMultiRead8f53f87204.leaves_other' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead8f53f87204.agree_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead8f53f87204.agree_when_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead8f53f87204.untriggered_identity' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl and agree_when_spec_impl exhaustive over all 3 constructors of the declared phrase domain and both trigger values; whole-phrase rewrite only; quoted numeric content is not re-derived",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (--ignore-quoted); phrase_audit D=PASS: every quoted pair located in pinned text, reproduced verbatim in spec+impl with correct direction",
+      "source_location": "data/raw/340CO0000000097_20261001_507CO0000000121.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:139_2/Article#139_2/Paragraph#3/ParagraphSentence/Sentence#1 sha256=92bab730d90617c1a1439ba19ba8f79041368febf3840c919103689cfcd90fe6",
+      "tests": "JapanTaxLaw/BatchMultiRead8f53f87204Tests.lean sha256=535dd092a404399efc49b3f896baa21074795c04939f296e74562195b82da754"
+    },
     "NORM|6fea74743aca3042f6cc13b94ddfba3775cd8187b59af515b5f29c0aff417227": {
       "adversarial_review": "docs/BATCH_FRACTION_REVIEW.md generated entry for NORM|6fea74743ac (1/2 gt)",
       "boundary_proof": "BatchFraction8796e210f4Tests.lean kernel-decided 0/1/2 over denominator 2",
@@ -23830,6 +23895,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; threshold=1000000 yen; op=le",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_39_2/Article#72_39_2/Paragraph#2/ParagraphSentence/Sentence#2 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
       "tests": "JapanTaxLaw/BatchThresholdLE2f17faa7b3Tests.lean sha256=8b9a525e218f251bc148e8d86ab2927338a25f09c52bd36cf8fe831ee915a739"
+    },
+    "NORM|80841d29cc6049be759c8459c57c5fe567599c7040409f0a3dacf07fe35b5215": {
+      "adversarial_review": "docs/BATCH_MULTI_READING_REVIEW.md generated entry for NORM|80841d29cc6",
+      "boundary_proof": "BatchMultiReadbffa9634f8Tests.lean kernel-decided per-pair original/replacement plus other and untriggered identity",
+      "cross_law_proof": "dependencies=[]; trigger and target-provision selection for repeated source phrases caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMultiReadbffa9634f8.lean sha256=c89d0424b8af18c86cbc76d43e4198898f38575a1d2be3c20b7897feb9e01e34",
+      "independent_spec": "JapanTaxLaw/BatchMultiReadbffa9634f8Spec.lean sha256=b9f04a43d07fb053d3eda5b5c82d2077719dfbab311a67f9c4b661380e91a88b; equality-chain spec vs pattern-match impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMultiReadbffa9634f8Tests OK; axioms: 'JapanTaxLaw.BatchMultiReadbffa9634f8.leaves_other' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiReadbffa9634f8.agree_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiReadbffa9634f8.agree_when_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiReadbffa9634f8.untriggered_identity' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl and agree_when_spec_impl exhaustive over all 3 constructors of the declared phrase domain and both trigger values; whole-phrase rewrite only; quoted numeric content is not re-derived",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (--ignore-quoted); phrase_audit D=PASS: every quoted pair located in pinned text, reproduced verbatim in spec+impl with correct direction",
+      "source_location": "data/raw/340M50000040012_20261001_505M60000040013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:38_32/Article#38_32/Paragraph#5/ParagraphSentence/Sentence#1 sha256=ae40e395af88ba819be06f9ec266b7a1c09ee87150ed9db59c3d3b86abae96d8",
+      "tests": "JapanTaxLaw/BatchMultiReadbffa9634f8Tests.lean sha256=5fa3987662b87a0668be2bb562985a5170bb028076bddefafacd651a066c592a"
     },
     "NORM|8097facd39f365757cf42aec24bf400250881d106bb2a5149a44805ecb58613f": {
       "adversarial_review": "docs/BATCH_FRACTION_REVIEW.md generated entry for NORM|8097facd39f (30/100 le)",
@@ -32138,6 +32216,19 @@
       "source_location": "data/raw/340AC0000000033_20261001_507AC0000000070.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:86/Article#86/Paragraph#1/Item#4/ItemSentence/Column#1/Sentence#1 sha256=94c4a7ad83726cde60787967ed4e959585ad0af9279d25db9aa02264b3fe606b",
       "tests": "JapanTaxLaw/BatchRange1f528bb0c3Tests.lean sha256=145b952af0c6c5b39caa0412bcf5862544f86850501c265ec44b811761d9f24a"
     },
+    "NORM|b0d6aa89ad165cdf15e08888c1e4a96858bcdc695ac4014f4fde9a0fc75a3f52": {
+      "adversarial_review": "docs/BATCH_MULTI_READING_REVIEW.md generated entry for NORM|b0d6aa89ad1",
+      "boundary_proof": "BatchMultiReade155c8097fTests.lean kernel-decided per-pair original/replacement plus other and untriggered identity",
+      "cross_law_proof": "dependencies=[]; trigger and target-provision selection for repeated source phrases caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMultiReade155c8097f.lean sha256=7bd3267f26224f54ab46133a47a2f08aa0fe8675323e47660c72e54475b34750",
+      "independent_spec": "JapanTaxLaw/BatchMultiReade155c8097fSpec.lean sha256=6aebbb4e7974a1d6441a8de7e295621e81d6b68d0b0572a52d017a8f6999c56a; equality-chain spec vs pattern-match impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMultiReade155c8097fTests OK; axioms: 'JapanTaxLaw.BatchMultiReade155c8097f.leaves_other' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiReade155c8097f.agree_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiReade155c8097f.agree_when_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiReade155c8097f.untriggered_identity' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl and agree_when_spec_impl exhaustive over all 3 constructors of the declared phrase domain and both trigger values; whole-phrase rewrite only; quoted numeric content is not re-derived",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (--ignore-quoted); phrase_audit D=PASS: every quoted pair located in pinned text, reproduced verbatim in spec+impl with correct direction",
+      "source_location": "data/raw/340CO0000000097_20261001_507CO0000000121.law.json#LawBody[3]/MainProvision/MainProvision[0]/Article:4_3/Article#4_3/Paragraph#21/Item#6/ItemSentence/Sentence#1 sha256=92bab730d90617c1a1439ba19ba8f79041368febf3840c919103689cfcd90fe6",
+      "tests": "JapanTaxLaw/BatchMultiReade155c8097fTests.lean sha256=751097a4ff506f431513e15882ed091f474826ecc388d51e5018b9d61b67c14b"
+    },
     "NORM|b0df6aef4d7d37f887aa42d8a9df6abad324059fdaed2fd3636a8ef9bbe69af6": {
       "adversarial_review": "docs/BATCH_THRESHOLD_REVIEW.md generated entry for NORM|b0df6aef4d7 (gt 100000)",
       "boundary_proof": "BatchThresholdGT83837d2346Tests.lean kernel-decided 0/100000/100001",
@@ -38391,6 +38482,19 @@
       "source_location": "data/raw/340AC0000000033_20261001_507AC0000000070.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:190/Article#190/Paragraph#1/ParagraphSentence/Sentence#1 sha256=94c4a7ad83726cde60787967ed4e959585ad0af9279d25db9aa02264b3fe606b",
       "tests": "JapanTaxLaw/BatchThresholdLEbb05468d85Tests.lean sha256=67e546ed27603cf1ab685fc7d1a91ca82c1fcd3083952897d737fcfeabf1051e"
     },
+    "NORM|d00cbab5e342ece4baf08556808ac76e98e5919191f9163aba9e280279b558f1": {
+      "adversarial_review": "docs/BATCH_MULTI_READING_REVIEW.md generated entry for NORM|d00cbab5e34",
+      "boundary_proof": "BatchMultiReade1a2498a96Tests.lean kernel-decided per-pair original/replacement plus other and untriggered identity",
+      "cross_law_proof": "dependencies=[]; trigger and target-provision selection for repeated source phrases caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMultiReade1a2498a96.lean sha256=921736edfc3a570c58fb3666154064777736071d65f0bf10b1df664295835a90",
+      "independent_spec": "JapanTaxLaw/BatchMultiReade1a2498a96Spec.lean sha256=7fd48280dd298f458eb62a8344158eb49c9a5df6cde92683c762eb9db59c0c23; equality-chain spec vs pattern-match impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMultiReade1a2498a96Tests OK; axioms: 'JapanTaxLaw.BatchMultiReade1a2498a96.leaves_other' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiReade1a2498a96.agree_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiReade1a2498a96.agree_when_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiReade1a2498a96.untriggered_identity' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl and agree_when_spec_impl exhaustive over all 5 constructors of the declared phrase domain and both trigger values; whole-phrase rewrite only; quoted numeric content is not re-derived",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (--ignore-quoted); phrase_audit D=PASS: every quoted pair located in pinned text, reproduced verbatim in spec+impl with correct direction",
+      "source_location": "data/raw/340M50000040012_20261001_505M60000040013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:38_29/Article#38_29/Paragraph#9/Item#5/ItemSentence/Column#2/Sentence#1 sha256=ae40e395af88ba819be06f9ec266b7a1c09ee87150ed9db59c3d3b86abae96d8",
+      "tests": "JapanTaxLaw/BatchMultiReade1a2498a96Tests.lean sha256=6130c2ad70594e1693362fd9b8c68cede5fd94bc32c55c17aecb4f6b58118d61"
+    },
     "NORM|d01d3438556ccd25dc60887c036e017c20ec525b39a15ada6898e40073497e82": {
       "adversarial_review": "docs/BATCH_EFFECTIVE_REVIEW.md generated entry for NORM|d01d3438556",
       "boundary_proof": "BatchEffectivea5fd8dba50Tests.lean kernel-decided effective-day and pre-promulgation boundaries",
@@ -39287,6 +39391,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; period=[3月]; op=le",
       "source_location": "data/raw/340AC0000000156_20260525_506AC0000000052.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:12/Article#12/Paragraph#3/Item#1/ItemSentence/Column#1/Sentence#1 sha256=537d080b0297f777c2ef10a5b7439b00c09cb6dfe1c28c40fdfeac346f36f153",
       "tests": "JapanTaxLaw/BatchPeriodcbbb5765e2Tests.lean sha256=9260f3eb3f0021757b82a74c66065f93b57c1569f84718f16458d5c70089f5af"
+    },
+    "NORM|d539fadb464f149beee5b66efd88febccdd0e096087d829cbaab3fbd35bcc410": {
+      "adversarial_review": "docs/BATCH_MULTI_READING_REVIEW.md generated entry for NORM|d539fadb464",
+      "boundary_proof": "BatchMultiRead79706e501eTests.lean kernel-decided per-pair original/replacement plus other and untriggered identity",
+      "cross_law_proof": "dependencies=[]; trigger and target-provision selection for repeated source phrases caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMultiRead79706e501e.lean sha256=47713881334220698b8e73823b8ed08ae7274710b801dd4481468c28c4b30580",
+      "independent_spec": "JapanTaxLaw/BatchMultiRead79706e501eSpec.lean sha256=9cf1277da877b7e3c4bba93bf81bf125d10f2c3a83f2525c5585e6dd2d76808a; equality-chain spec vs pattern-match impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMultiRead79706e501eTests OK; axioms: 'JapanTaxLaw.BatchMultiRead79706e501e.leaves_other' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead79706e501e.agree_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead79706e501e.agree_when_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead79706e501e.untriggered_identity' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl and agree_when_spec_impl exhaustive over all 9 constructors of the declared phrase domain and both trigger values; whole-phrase rewrite only; quoted numeric content is not re-derived",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (--ignore-quoted); phrase_audit D=PASS: every quoted pair located in pinned text, reproduced verbatim in spec+impl with correct direction",
+      "source_location": "data/raw/340M50000040011_20261001_507M60000040018.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:40_17/Article#40_17/Paragraph#1/Item#6/ItemSentence/Sentence#1 sha256=8721699516ac82025eea0430429b197da1e58afe195debe1fb441dfea14eacf5",
+      "tests": "JapanTaxLaw/BatchMultiRead79706e501eTests.lean sha256=74f4a4986fc39022f7b7620e20d52b5842f0af340399e3128ad4b12c3b16db03"
     },
     "NORM|d53f9d63efdb541fbc777a5c5bcdc32ac1d9c82690e14e2f4c4bd8d87e6e122d": {
       "adversarial_review": "docs/BATCH_THRESHOLD_REVIEW.md generated entry for NORM|d53f9d63efd (le 12000)",
@@ -42070,6 +42187,19 @@
       "source_location": "data/raw/407CO0000000029_20110101_422CO0000000058.law.json#LawBody[17]/SupplProvision/SupplProvision[3]/Article:3/Article#3/Paragraph#2/Item#4/Subitem1#5/Subitem2#1/Subitem2Sentence/Column#1/Sentence sha256=8cc12128db2332ce354b4cfa48b167f6911c61af813bdc7974e832081097b7f4",
       "tests": "JapanTaxLaw/BatchThresholdLE905c2f38acTests.lean sha256=40943517110db33cefa78c735e4956c3a646c2ac78292e2a274e0fe141109605"
     },
+    "NORM|e4d7be7d9cb8396d409b0952eda87fcc652b903e7bcdc65656a9d62c1e09f61d": {
+      "adversarial_review": "docs/BATCH_MULTI_READING_REVIEW.md generated entry for NORM|e4d7be7d9cb",
+      "boundary_proof": "BatchMultiRead6e3cdbce36Tests.lean kernel-decided per-pair original/replacement plus other and untriggered identity",
+      "cross_law_proof": "dependencies=[]; trigger and target-provision selection for repeated source phrases caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMultiRead6e3cdbce36.lean sha256=013e4f7cf1eb037649639b578994469e48a17c58e1df4f4a14a1a5a0e230a454",
+      "independent_spec": "JapanTaxLaw/BatchMultiRead6e3cdbce36Spec.lean sha256=8856383f001010305c6b35a228c20354712a37cd9bd083c163098974ddeeed87; equality-chain spec vs pattern-match impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMultiRead6e3cdbce36Tests OK; axioms: 'JapanTaxLaw.BatchMultiRead6e3cdbce36.leaves_other' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead6e3cdbce36.agree_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead6e3cdbce36.agree_when_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead6e3cdbce36.untriggered_identity' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl and agree_when_spec_impl exhaustive over all 9 constructors of the declared phrase domain and both trigger values; whole-phrase rewrite only; quoted numeric content is not re-derived",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (--ignore-quoted); phrase_audit D=PASS: every quoted pair located in pinned text, reproduced verbatim in spec+impl with correct direction",
+      "source_location": "data/raw/340M50000040012_20261001_505M60000040013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:29_2/Article#29_2/Paragraph#1/Item#6/ItemSentence/Sentence#1 sha256=ae40e395af88ba819be06f9ec266b7a1c09ee87150ed9db59c3d3b86abae96d8",
+      "tests": "JapanTaxLaw/BatchMultiRead6e3cdbce36Tests.lean sha256=7eebf3b52e462f1a3e8a54d04d6cb10c32b45315cdabe6489ab0ad9aaf75fdef"
+    },
     "NORM|e4e60e6ee9332c47a2df3a0f7b18c498805ce7dfdf1ca63ef2ff5166b4fd6995": {
       "adversarial_review": "docs/BATCH_EFFECTIVE_REVIEW.md generated entry for NORM|e4e60e6ee93",
       "boundary_proof": "BatchEffectiveafec44b190Tests.lean kernel-decided effective-day and pre-promulgation boundaries",
@@ -43902,6 +44032,32 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; percent_numerators=[10]; constants=[10,100]",
       "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:40_4/Article#40_4/Paragraph#1/Item#1/ItemSentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
       "tests": "JapanTaxLaw/BatchRateffa4b271f6Tests.lean sha256=42a62b2af95719ae844825c5e8cccce999a1122f6a9ea655c524c45165d34282"
+    },
+    "NORM|ee1d45eb376f87f8ab7b94716f7bed19f201164eaf952ac0d3dcbcc8560f9d02": {
+      "adversarial_review": "docs/BATCH_MULTI_READING_REVIEW.md generated entry for NORM|ee1d45eb376",
+      "boundary_proof": "BatchMultiReadc6e286243fTests.lean kernel-decided per-pair original/replacement plus other and untriggered identity",
+      "cross_law_proof": "dependencies=[]; trigger and target-provision selection for repeated source phrases caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMultiReadc6e286243f.lean sha256=5a558e393392c1ac32a6930d53986ae958f7efb1e6b531692b2a6105b826b6d0",
+      "independent_spec": "JapanTaxLaw/BatchMultiReadc6e286243fSpec.lean sha256=da9ee76f4ad01512b2f6e66482fb14eaed801a788860261363267c06f443f9c3; equality-chain spec vs pattern-match impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMultiReadc6e286243fTests OK; axioms: 'JapanTaxLaw.BatchMultiReadc6e286243f.leaves_other' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiReadc6e286243f.agree_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiReadc6e286243f.agree_when_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiReadc6e286243f.untriggered_identity' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl and agree_when_spec_impl exhaustive over all 5 constructors of the declared phrase domain and both trigger values; whole-phrase rewrite only; quoted numeric content is not re-derived",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (--ignore-quoted); phrase_audit D=PASS: every quoted pair located in pinned text, reproduced verbatim in spec+impl with correct direction",
+      "source_location": "data/raw/340CO0000000097_20261001_507CO0000000121.law.json#LawBody[3]/MainProvision/MainProvision[0]/Article:4_3/Article#4_3/Paragraph#23/Item#1/Subitem1#2/Subitem1Sentence/Sentence#1 sha256=92bab730d90617c1a1439ba19ba8f79041368febf3840c919103689cfcd90fe6",
+      "tests": "JapanTaxLaw/BatchMultiReadc6e286243fTests.lean sha256=fd0fcb5e6354b3c96292b3ce5f8a1cb8259e93eef283d933be8d50797232cc8b"
+    },
+    "NORM|ee1d7465e34cd799ce0fa3c031ec14390f9c43892e6b9b87addc2338bc8d6026": {
+      "adversarial_review": "docs/BATCH_MULTI_READING_REVIEW.md generated entry for NORM|ee1d7465e34",
+      "boundary_proof": "BatchMultiRead9e484254d9Tests.lean kernel-decided per-pair original/replacement plus other and untriggered identity",
+      "cross_law_proof": "dependencies=[]; trigger and target-provision selection for repeated source phrases caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMultiRead9e484254d9.lean sha256=3161bc4b391f9c11b7ec1c8434319641997a7a731c8ed2f3c9a23dd353fd66a2",
+      "independent_spec": "JapanTaxLaw/BatchMultiRead9e484254d9Spec.lean sha256=6f12712641e03a65c4a07e017f57695f01f229a0cf232a005ddd62991282715e; equality-chain spec vs pattern-match impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMultiRead9e484254d9Tests OK; axioms: 'JapanTaxLaw.BatchMultiRead9e484254d9.leaves_other' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead9e484254d9.agree_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead9e484254d9.agree_when_spec_impl' depends on axioms: [propext] | 'JapanTaxLaw.BatchMultiRead9e484254d9.untriggered_identity' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl and agree_when_spec_impl exhaustive over all 3 constructors of the declared phrase domain and both trigger values; whole-phrase rewrite only; quoted numeric content is not re-derived",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (--ignore-quoted); phrase_audit D=PASS: every quoted pair located in pinned text, reproduced verbatim in spec+impl with correct direction",
+      "source_location": "data/raw/363CO0000000360_20261101_507CO0000000125.law.json#LawBody[3]/MainProvision/MainProvision[0]/Article:24/Article#24/Paragraph#3/ParagraphSentence/Sentence#1 sha256=a3896a4aaf3adaec7b6def573abd2df6b2449d5455e2481d92f658340ff99a9b",
+      "tests": "JapanTaxLaw/BatchMultiRead9e484254d9Tests.lean sha256=27c9e421db60409f57961b04b0a433733819d489d06c3851fc494caa07795429"
     },
     "NORM|ee3ebaced326261d1c5b1434e9234109fead9087f649f963ec2edfa935b7ea2d": {
       "adversarial_review": "docs/BATCH_MULTI_READING_REVIEW.md generated entry for NORM|ee3ebaced32",

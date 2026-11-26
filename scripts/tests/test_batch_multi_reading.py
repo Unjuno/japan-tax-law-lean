@@ -23,6 +23,12 @@ class TestMultiReadingPairs(unittest.TestCase):
         self.assertEqual(pairs_of("同項中「甲」とあるのは「乙」と定める。"),
                          [("甲", "乙")])
 
+    def test_ni_toshite_form(self):
+        self.assertEqual(pairs_of("第六号中「外国法人」とあるのを「内国法人」として同号の規定を適用する。"),
+                         [("外国法人", "内国法人")])
+        self.assertEqual(pairs_of("「甲」とあるのを「乙」と読み替えた場合。"),
+                         [("甲", "乙")])
+
     def test_identical_pair_rejected(self):
         self.assertEqual(pairs_of("「甲」とあるのは「甲」と読み替える。"), [])
 

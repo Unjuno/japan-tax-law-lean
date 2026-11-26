@@ -30,7 +30,7 @@ SKIPS = REPO / "data" / "BATCH_MULTI_READING_SKIPS.json"
 JAPAN = REPO / "JapanTaxLaw"
 LAKE = Path(r"C:\Users\user\.elan\bin\lake.exe")
 TEMP = Path(r"D:\CodexData\Temp\opencode\batch_multi_reading_axioms")
-PAT = re.compile(r"「([^」]{1,80})」とあるのは、?「([^」]{1,80})」と")
+PAT = re.compile(r"「([^」]{1,80})」とある(?:のは|のを)、?「([^」]{1,80})」と")
 HOSTILE = re.compile(r'["\\\r\n]')
 
 
@@ -46,7 +46,7 @@ def pairs_of(verb: str) -> list[tuple[str, str]]:
     pairs = PAT.findall(verb)
     # 「A」とあるのは「B」とする / と定める are read-as substitutions too.
     # と読み替える is the explicit form handled in earlier batches.
-    if not pairs or not any(k in verb for k in ("読み替える", "とする", "と定める")):
+    if not pairs or not any(k in verb for k in ("読み替え", "とする", "と定める", "として")):
         return []
     # A source phrase may recur under different target provisions with
     # different replacements. Each pair gets its own constructor, so the

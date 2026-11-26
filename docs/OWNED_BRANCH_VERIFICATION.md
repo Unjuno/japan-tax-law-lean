@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=3617, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=3629, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=3617 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=3629 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -134,7 +134,11 @@ $ multi-reading guard extended to 「A」とあるのは「B」とする / と�
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 20
 multi-reading batch pipeline: verified=13 failed=0
 
-$ python -m unittest discover -s scripts/tests -t . → 199 tests, OK
+$ reading guard extended to 「A」とあるのを「B」として/と読み替えた forms
+$ python scripts/ci/batch_multi_reading_pipeline.py --limit 10 / 20
+multi-reading batch pipeline: verified=2 failed=0 / verified=10 failed=0
+
+$ python -m unittest discover -s scripts/tests -t . → 200 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -434,7 +438,11 @@ The multi-pair reading pipeline was extended to the 「A」とあるのは「B�
 units were verified and a regression test distinguishes these forms from
 unrelated verbs.
 
-So 3617 units are evidence-backed FULLY_VERIFIED and 393,235 remain NOT_STARTED
+The same reading pipeline was extended once more to the 「A」とあるのを「B」
+として / と読み替えた forms (past-tense read-as). 12 more units were verified
+under unchanged proof, axiom and source-audit gates.
+
+So 3629 units are evidence-backed FULLY_VERIFIED and 393,223 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
