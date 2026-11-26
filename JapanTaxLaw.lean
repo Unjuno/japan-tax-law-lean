@@ -311,6 +311,9 @@ import JapanTaxLaw.CustomsProcedureRatesTests
 import JapanTaxLaw.CustomsReadingSubstitution
 import JapanTaxLaw.CustomsReadingSubstitutionSpec
 import JapanTaxLaw.CustomsReadingSubstitutionTests
+import JapanTaxLaw.CustomsReportPenaltyCeiling50k
+import JapanTaxLaw.CustomsReportPenaltyCeiling50kSpec
+import JapanTaxLaw.CustomsReportPenaltyCeiling50kTests
 import JapanTaxLaw.CustomsRetaliatoryDuty
 import JapanTaxLaw.CustomsRetaliatoryDutySpec
 import JapanTaxLaw.CustomsRetaliatoryDutyTests
@@ -2159,6 +2162,3 @@ import JapanTaxLaw.WidowDependentIncomeCeiling5MTests
 import JapanTaxLaw.WirePitch165nm
 import JapanTaxLaw.WirePitch165nmSpec
 import JapanTaxLaw.WirePitch165nmTests
-import JapanTaxLaw.CustomsReportPenaltyCeiling50k
-import JapanTaxLaw.CustomsReportPenaltyCeiling50kSpec
-import JapanTaxLaw.CustomsReportPenaltyCeiling50kTests
