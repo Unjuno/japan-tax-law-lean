@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=3142, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=3169, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=3142 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=3169 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -113,6 +113,9 @@ rate batch pipeline: verified=3 / 59 (1 source-audit failure skip-listed) / 71
 
 $ python scripts/ci/batch_decimal_rate_pipeline.py --limit 2 / 20
 decimal-rate batch pipeline: verified=2 failed=0 / verified=10 failed=0
+
+$ python scripts/ci/batch_fraction_pipeline.py --limit 30
+fraction batch pipeline: verified=27 failed=0
 
 $ python -m unittest discover -s scripts/tests -t . → 192 tests, OK
 
@@ -385,7 +388,10 @@ as 14/1000 (not 1/100). A dedicated Lean-independent audit verifies both kanji
 components and the computed numerator in spec and implementation. All 12
 dependency-ready units in this class were verified, with four parser tests.
 
-So 3142 units are evidence-backed FULLY_VERIFIED and 393,710 remain NOT_STARTED
+A final guarded run of the existing fraction pipeline closed 27 more
+integer-fraction obligations with zero failures.
+
+So 3169 units are evidence-backed FULLY_VERIFIED and 393,683 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
