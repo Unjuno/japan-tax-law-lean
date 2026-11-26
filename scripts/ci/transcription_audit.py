@@ -2560,6 +2560,12 @@ def checks():
            "file", None,
            ["第一条この省令は、平成二十六年十月一日から施行する", "この省令は、平成二十六年十月一日から施行する"])
 
+    # SpecialCorporationBusinessTaxEnforcementDate — cycle-145
+    yield ("SpecialCorporationBusinessTaxEnforcementDate.lean",
+           "431CO0000000089",
+           "file", None,
+           ["第一条この政令は、平成三十一年十月一日から施行する", "この政令は、平成三十一年十月一日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",

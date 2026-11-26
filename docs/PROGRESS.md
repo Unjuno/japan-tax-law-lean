@@ -185,3 +185,5 @@ lake clean && lake build                                                # 再現
 口蹄疫に起因する事態への対応に関する政令 附則 art.1 FootAndMouthDiseaseResponseEnforcementDate.lean（施行日 令和4年4月1日=2022-04-01 — 他条・実体規定 NOT MODELLED）
 
 地方法人税法施行規則 附則 art.1 LocalCorporationTaxRuleEnforcementDate.lean（施行日 平成26年10月1日=2014-10-01 — 他条・実体規定 NOT MODELLED）
+
+特別法人事業税及び特別法人事業譲与税に関する法律施行令 附則 art.1 SpecialCorporationBusinessTaxEnforcementDate.lean（施行日 平成31年10月1日=2019-10-01 — 他条・実体規定 NOT MODELLED）

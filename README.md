@@ -1026,3 +1026,7 @@ JapanTaxLaw/FootAndMouthDiseaseResponseEnforcementDateTests.lean # 同上 退行
 JapanTaxLaw/LocalCorporationTaxRuleEnforcementDate.lean    # 地方法人税法施行規則 施行日2014-10-01（附則 art.1）L4
 JapanTaxLaw/LocalCorporationTaxRuleEnforcementDateSpec.lean # 同上 独立定式
 JapanTaxLaw/LocalCorporationTaxRuleEnforcementDateTests.lean # 同上 退行テスト
+
+JapanTaxLaw/SpecialCorporationBusinessTaxEnforcementDate.lean    # 特別法人事業税及び特別法人事業譲与税に関する法律施行令 施行日2019-10-01（附則 art.1）L4
+JapanTaxLaw/SpecialCorporationBusinessTaxEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/SpecialCorporationBusinessTaxEnforcementDateTests.lean # 同上 退行テスト

@@ -15776,3 +15776,15 @@ needle は `scripts/ci/transcription_audit.py` L2443 の cycle-135 定義をレ�
 
 > **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲（特に附則他条、本則の実体規定、および対象附則ブロックの選択）の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
 - **追記内容の SHA-256（本行を除く追記本文）**: `c402d5f07908654538cd3b3a925bc16aaec87ea82d21e2335890331f927bda21`
+
+### LocalTaxBracket1800To4000.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の境界定数と境界例をカーネル決定で照合。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### LocalTaxBracketOver4000.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の境界定数と境界例をカーネル決定で照合。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
