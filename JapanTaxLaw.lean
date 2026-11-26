@@ -2400,6 +2400,9 @@ import JapanTaxLaw.TonnageTaxTests
 import JapanTaxLaw.TouristTaxFineRange
 import JapanTaxLaw.TouristTaxFineRangeSpec
 import JapanTaxLaw.TouristTaxFineRangeTests
+import JapanTaxLaw.TouristTaxPenaltyBounds
+import JapanTaxLaw.TouristTaxPenaltyBoundsSpec
+import JapanTaxLaw.TouristTaxPenaltyBoundsTests
 import JapanTaxLaw.TouristTaxTaxablePassengers
 import JapanTaxLaw.TouristTaxTaxablePassengersSpec
 import JapanTaxLaw.TouristTaxTaxablePassengersTests
