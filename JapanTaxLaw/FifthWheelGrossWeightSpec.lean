@@ -1,8 +1,8 @@
 import JapanTaxLaw.FifthWheelGrossWeight
 
 /-! Independent spec: explicit case split on whether the fifth-wheel load is
-deductible, written before the towing weight is added. The only bridge is the
-universal kernel-checked omega theorem `agreeGrossWeight`. -/
+deductible, written before the towing weight is added. The bridge is a
+constructive case analysis on `fifthWheel <= recorded`. -/
 namespace JapanTaxLaw.FifthWheelGrossWeight
 
 @[reducible] def specGrossWeight (recorded fifthWheel towing : Nat) : Nat :=
@@ -13,8 +13,8 @@ theorem agreeGrossWeight (recorded fifthWheel towing : Nat) :
   unfold specGrossWeight grossWeight
   by_cases h : fifthWheel <= recorded
   · simp [h]
-  · have hgt : recorded < fifthWheel := Nat.lt_of_not_ge h
-    simp [h]
-    omega
+  · have hle : recorded <= fifthWheel := Nat.le_of_lt (Nat.lt_of_not_ge h)
+    have hz : recorded - fifthWheel = 0 := Nat.sub_eq_zero_of_le hle
+    simp [h, hz]
 
 end JapanTaxLaw.FifthWheelGrossWeight
