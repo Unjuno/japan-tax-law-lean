@@ -1260,6 +1260,12 @@ def checks():
            "article", "第二条",
            ["合計所得金額が八十五万円以下であり、かつ、", "十万円以下であるものをいう"])
 
+    # 所得税法 art.2(1) — IncomeTaxArt2DependentAge19To23.lean
+    yield ("所得税法 art.2(1)（扶養親族 19歳以上23歳未満）↔ IncomeTaxArt2DependentAge19To23.lean",
+           "340AC0000000033",
+           "article", "第二条",
+           ["年齢十九歳以上二十三歳未満の者をいう", "第二条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
@@ -5049,6 +5055,11 @@ def checks():
            "414CO0000000262",
            "file", None,
            ["特定貨物に課する不当廉売関税及び一般税率（法の別表の税率及び条約に規定する税率のうちいずれか低いものをいう。）による関悦については、それぞれ別個の関税として関税法（昭和二十九年法律第六十一号）第二章の規定を適用する。"])
+    # 国外送金等調書施行規則 art.4(4)(3)ハ — DocumentAgeSixMonthCap.lean
+    yield ("国外送金等調書施行規則 第四条(4)(3)ハ（提示日前六月以内作成）↔ DocumentAgeSixMonthCap.lean",
+           "409M50000040096", "article", "第四条",
+           ['官公署から発行され、又は発給された書類その他これらに類するもの（金融機関の営業所等の長に提示する日前六月以内に作成されたもの（有効期間又は有効期限のあるものにあっては、金融機関の営業所等の長に提示する日において有効なもの）に限り、法人番号通知書、法人番号印刷書類並びにイ及びロに掲げる書類を除く。）'])
+
 
     # InheritanceTaxArt1_2TermDefinitionSource.lean - NORM|5535e9d6... (相続税法 art.1の2(1) DELEGATION, law 325AC0000000073)
     # Whole-law locator; needle is unique in the pinned act.
