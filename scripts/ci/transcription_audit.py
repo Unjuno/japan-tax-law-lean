@@ -1252,6 +1252,12 @@ def checks():
            "article", "第二条",
            ["合計所得金額が千万円以下である居住者の配偶者をいう", "第二条"])
 
+    # 地方税法 art.72の24の2(1) — LocalTaxInsuranceBusinessBase24Percent.lean
+    yield ("地方税法 art.72の24の2(1)（収入保険料×24%）↔ LocalTaxInsuranceBusinessBase24Percent.lean",
+           "325AC0000000226",
+           "file", None,
+           ["収入保険料（再保険料として収入する保険料を除く。以下この項において同じ。）に百分の二十四を乗じて得た金額", "第七十二条の二十四の二"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
@@ -2644,6 +2650,11 @@ def checks():
     yield ("所得税法 art. 84の2（特定親族特別控除: 630k / (所得−840,001)×2 を十万段階で丸め / 1,150k超60k / 1,200k超30k）↔ SpecifiedRelativeSpecialDeduction.lean",
            "340AC0000000033", "article", "第八十四条の二",
            ["六十三万円からその特定親族の合計所得金額のうち八十四万一円を超える部分の金額に二を乗じた金額", "十万円の整数倍の金額から八万円を控除した金額", "百十五万円を超え百二十万円以下である特定親族"])
+
+    # 租税特別措置法施行令 art. 42の3(2)一 — RedevelopmentShareRatio.lean
+    yield ("租税特別措置法施行令 art. 42の3(2)一（持分割合 = (土地持分−旧権利持分)/土地持分、単独権利・零下回り・分母零は零）↔ RedevelopmentShareRatio.lean",
+           "332CO0000000043", "article", "第四十二条の三",
+           ["当該土地に関する権利の持分の割合から当該旧権利の持分の割合を控除した割合を当該土地に関する権利の持分の割合で除して計算した割合（当該旧権利がその者が単独で有する所有権若しくは借地権である場合又は当該控除した割合が零を下回る場合には、零）"])
 
     # 所得税法 art. 86 — IncomeBasicDeduction.lean (4-tier basic deduction)
     yield ("所得税法 art. 86（基礎控除: 合計所得2350万以下58万・2400万以下48万・2450万以下32万・2500万以下16万・2500万超0 — 境界値を smoke 確認、合計所得額は caller-established）↔ IncomeBasicDeduction.lean",
