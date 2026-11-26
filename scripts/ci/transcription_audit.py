@@ -4795,6 +4795,13 @@ def checks():
            "340CO0000000096", "file", None,
            ["相続税評価割合が百分の五十を超える確定年金"])
 
+    # DisasterReliefSupplArt1DelegatedEnforcementDate.lean - NORM|ad366359... (災害被害者租税減免法 附則 art.1 DELEGATION, law 322AC0000000175)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("disaster relief act supplementary art.1 delegated enforcement date - DisasterReliefSupplArt1DelegatedEnforcementDate.lean",
+           "322AC0000000175",
+           "file", None,
+           ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u516c\u5e03\u306e\u65e5\u304b\u3089\u8d77\u7b97\u3057\u3066\u4e00\u5e74\u3092\u8d85\u3048\u306a\u3044\u7bc4\u56f2\u5185\u306b\u304a\u3044\u3066\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
