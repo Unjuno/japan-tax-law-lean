@@ -18,7 +18,7 @@ Computation（原文逐語から導出、施行日の算定のみ）:
   inForce(d) = dateKey(d) >= 19981201
 
 Scope / NOT MODELLED:
-  - 附則の他条（経過措置等）・省令の実体規定（たばこ特別税の税率・申告等）は NOT MODELLED。
+  - 附則の他条（経過措置等）・政令の実体規定（たばこ特別税の税率・申告等）は NOT MODELLED。
 本モデルは法的レビューを提供しない。
 -/
 
