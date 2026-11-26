@@ -1,0 +1,5 @@
+- batch BulkStructLbl99617c382f: 10 structural labels; shared module with per-unit namespaces; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS (structure scope only).
+- batch BulkStructLblfee9dfacfb: 500 structural labels; shared module with per-unit namespaces; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS (structure scope only).
+- batch BulkStructLbl9be67d179a: 500 structural labels; shared module with per-unit namespaces; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS (structure scope only).
+- batch BulkStructLblc7fa6877d3: 500 structural labels; shared module with per-unit namespaces; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS (structure scope only).
+- batch BulkStructLbl421a839735: 500 structural labels; shared module with per-unit namespaces; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS (structure scope only).

@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=7332, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=9342, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=7332 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=9342 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -215,7 +215,13 @@ $ python scripts/ci/completion_gate.py
 Axis A: PASS=33 FAIL=0 SKIP=0 required-SKIP=0 → registered checks all green: True
 Axis B: FULLY_VERIFIED=7332 / 396854; all-complete claimable: False
 
-$ python -m unittest discover -s scripts/tests -t . → 241 tests, OK
+$ python scripts/ci/batch_structural_label_bulk.py --limit 10 / 500 x5
+bulk structural-label pipeline: verified=10/500/500/500/500/500, failed=0 in every run
+(2010 structure-only units; one shared module per batch with per-unit namespaces)
+$ python scripts/ci/run_python_gates.py → 33 PASS, 0 FAIL, 0 SKIP (SKIP never PASS)
+$ python scripts/ci/completion_gate.py → Axis A green True; Axis B FULLY_VERIFIED=9342, all-complete False
+
+$ python -m unittest discover -s scripts/tests -t . → 243 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -626,7 +632,13 @@ Two more structure-only batches added 200 units (no legal effect formalized).
 
 Two more structure-only batches added 200 units (no legal effect formalized).
 
-So 7332 units are evidence-backed FULLY_VERIFIED and 389,520 remain NOT_STARTED
+A bulk variant, `scripts/ci/batch_structural_label_bulk.py`, packs 500 units
+into one Lean module (one namespace per unit, each with its own `labelCode` and
+theorem) so a single kernel build certifies a whole batch. Per-unit evidence
+records the batch module hash and namespace; scope remains STRUCTURE ONLY with
+no legal effect formalized. 2010 units were verified this way with two tests.
+
+So 9342 units are evidence-backed FULLY_VERIFIED and 387,510 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
