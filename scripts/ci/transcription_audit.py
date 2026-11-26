@@ -4911,6 +4911,24 @@ def checks():
            "332AC0000000055",
            "file", None,
            ["第六号に掲げる揮発油税額から前号に掲げる揮発油税額を控除した金額に相当する揮発油税額（以下「移出に係る納付すべき税額」という。）"])
+    # 地方税法 art. 702の4 — CityPlanningTaxRateCeiling03.lean (0.3%上限)
+    yield ("地方税法 art. 702_4（都市計画税0.3%上限）↔ CityPlanningTaxRateCeiling03.lean",
+           "325AC0000000226", "file", None,
+           ["都市計画税の税率は、百分の〇・三を超えることができない。"])
+    # 地方税法 art. 37の2 — LocalTaxBracket195To330.lean (195万超330万以下)
+    yield ("地方税法 art. 37_2（195万超330万以下）↔ LocalTaxBracket195To330.lean",
+           "325AC0000000226", "file", None,
+           ["百九十五万円を超え三百三十万円以下の金額"])
+
+    # 地方税法 art. 37の2 — LocalTaxBracketAtMost195.lean (195万以下)
+    yield ("地方税法 art. 37_2（195万以下）↔ LocalTaxBracketAtMost195.lean",
+           "325AC0000000226", "file", None,
+           ["百九十五万円以下の金額"])
+    # 地方税法 art. 37の2 — LocalTaxBracket900To1800.lean (900万超1800万以下)
+    yield ("地方税法 art. 37_2（900万超1800万以下）↔ LocalTaxBracket900To1800.lean",
+           "325AC0000000226", "file", None,
+           ["九百万円を超え千八百万円以下の金額"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
