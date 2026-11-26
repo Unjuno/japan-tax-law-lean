@@ -1228,6 +1228,12 @@ def checks():
            "article", "第二条",
            ["合計所得金額が千万円以下である居住者の配偶者をいう", "第二条"])
 
+    # 関税定率法 art.7(9) — CustomsTariffUndertakingValidity5Years.lean
+    yield ("関税定率法 art.7(9)（約束の有効期間五年以内）↔ CustomsTariffUndertakingValidity5Years.lean",
+           "143AC0000000054",
+           "file", None,
+           ["有効期間が五年以内のものに限る", "第七条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
