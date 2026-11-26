@@ -4867,6 +4867,12 @@ def checks():
            "file", None,
            ["当該事業の開始の日の属する年度の前年度の一日当たりの平均的な利用者の人数が十万人以上である駅若しくは停留場（以下この号において「特定駅等」という。）又は特定駅等からの距離が百キロメートル以内の駅若しくは停留場において実施される事業"])
 
+    # 揮発油税法 art. 10 — GasolineTransferPayable.lean
+    yield ("揮発油税法 art. 10（移出に係る納付すべき税額）↔ GasolineTransferPayable.lean",
+           "332AC0000000055",
+           "file", None,
+           ["第六号に掲げる揮発油税額から前号に掲げる揮発油税額を控除した金額に相当する揮発油税額（以下「移出に係る納付すべき税額」という。）"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
