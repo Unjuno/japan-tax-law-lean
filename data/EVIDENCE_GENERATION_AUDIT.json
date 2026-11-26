@@ -1,4 +1,40 @@
 {
+  "_units": {
+    "NORM|4ac298be5ef443f3b2640ec47009e6e626594d5e5ff753d46a67af78861136a3": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 7,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "AverageImportOver30Percent",
+      "spec_kanji_in_原文": [
+        "三十",
+        "百"
+      ]
+    },
+    "NORM|cea135942e206032d51763ccbc79547000dcff5c6b6fa740fa9cf9a3a8dd0114": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 7,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "TriggerPriceGapOver75Percent",
+      "spec_kanji_in_原文": [
+        "七十五",
+        "百"
+      ]
+    }
+  },
   "attestation_commit": "49d10bd9e639ce8b977904d0a2bbfd5c2aad16da",
   "module_detail": {
     "AccessoryPriceFloor": {
@@ -193,7 +229,7 @@
         "三十",
         "百"
       ],
-      "kernel_attested": false,
+      "kernel_attested": true,
       "kernel_decided_examples": 7,
       "needles_scoped": true,
       "scoped_article_chars": 5470,
@@ -8338,7 +8374,7 @@
         "七十五",
         "百"
       ],
-      "kernel_attested": false,
+      "kernel_attested": true,
       "kernel_decided_examples": 7,
       "needles_scoped": true,
       "scoped_article_chars": 1026,

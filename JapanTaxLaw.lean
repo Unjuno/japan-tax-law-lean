@@ -224,6 +224,9 @@ import JapanTaxLaw.ConsumptionTaxInputCredit
 import JapanTaxLaw.ConsumptionTaxInputCreditSpec
 import JapanTaxLaw.ConsumptionTaxInputCreditTests
 import JapanTaxLaw.ConsumptionTaxRate
+import JapanTaxLaw.ConsumptionTaxRate10or8
+import JapanTaxLaw.ConsumptionTaxRate10or8Spec
+import JapanTaxLaw.ConsumptionTaxRate10or8Tests
 import JapanTaxLaw.ConsumptionTaxRateSpec
 import JapanTaxLaw.ConsumptionTaxRateTests
 import JapanTaxLaw.ConsumptionTaxRateThreePercent
@@ -798,6 +801,9 @@ import JapanTaxLaw.ForestAreaRoundingTests
 import JapanTaxLaw.ForestGrantRounding
 import JapanTaxLaw.ForestGrantRoundingSpec
 import JapanTaxLaw.ForestGrantRoundingTests
+import JapanTaxLaw.ForestRateAtLeast85
+import JapanTaxLaw.ForestRateAtLeast85Spec
+import JapanTaxLaw.ForestRateAtLeast85Tests
 import JapanTaxLaw.ForestTaxEligibilityException
 import JapanTaxLaw.ForestTaxEligibilityExceptionSpec
 import JapanTaxLaw.ForestTaxEligibilityExceptionTests

@@ -4863,6 +4863,15 @@ def checks():
            "332AC0000000026", "file", None,
            ["第一項各号中「百分の二十」とあるのは、「百分の二十五」とする。"])
 
+    # 消費税法 art. 34 — ConsumptionTaxRate10or8.lean (10%/8%)
+    yield ("消費税法 art. 34（標準10%／軽減8%）↔ ConsumptionTaxRate10or8.lean",
+           "363AC0000000108", "file", None,
+           ["百分の十（当該課税資産の譲渡等が元年軽減対象資産の譲渡等である場合には、百分の八）"])
+    # 森林環境税施行規則 art. 1の3 — ForestRateAtLeast85.lean (85%以上)
+    yield ("森林環境税施行規則 art. 1_3（林野率85%以上）↔ ForestRateAtLeast85.lean",
+           "431M60000008040", "file", None,
+           ["林野率が百分の八十五以上であるもの"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
