@@ -317,6 +317,9 @@ import JapanTaxLaw.CustomsDomesticValueTests
 import JapanTaxLaw.CustomsDutiableValueThreshold
 import JapanTaxLaw.CustomsDutiableValueThresholdSpec
 import JapanTaxLaw.CustomsDutiableValueThresholdTests
+import JapanTaxLaw.CustomsExcessPortion3M
+import JapanTaxLaw.CustomsExcessPortion3MSpec
+import JapanTaxLaw.CustomsExcessPortion3MTests
 import JapanTaxLaw.CustomsExchangeRate
 import JapanTaxLaw.CustomsExchangeRateSpec
 import JapanTaxLaw.CustomsExchangeRateTests
