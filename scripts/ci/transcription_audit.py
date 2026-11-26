@@ -91,6 +91,9 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # HeaviestRecordedWeight — 登録免許税法施行規則 art.5(2) 最重記録重量
+    yield ("登録免許税法施行規則 art.5(2)（記録重量二以上は最重のもの）↔ HeaviestRecordedWeight.lean",
+           "346CO0000000275", "article", "第五条", ["当該自動車検査証に記録される車両総重量が二以上あるときは、そのうちの最も重いものとする"])
     # HouseholdCorrectionFloor07 — 航空機燃料譲与税法施行規則 art.4(8) (registered)
     yield ("航空機燃料譲与税法施行規則 art.4(8)（世帯数〇・七下限）↔ HouseholdCorrectionFloor07.lean",
            "347M50000008026", "article", "第四条", ["前年度の世帯数に〇・七を乗じて得た数に満たず、かつ、当該前年度の世帯数から当該補正世帯数を控除して得た数が千を超える場合には"])
@@ -139,7 +142,10 @@ def checks():
     yield ("国税徴収法施行規則 art.1_6（随意契約時の公売規定準用）↔ PrivateContractPublicAuctionReading.lean",
            "337M50000040031", "article", "第一条の六", ["（随意契約により不動産を売却する場合における公売の規定の準用）"])
 
-    # Restored registry checks dropped by a concurrent stale-base rewrite.
+    # ApplicationChangeSameTreatment.lean - NORM|df91b6ee... (申請変更時も同様 CONDITION, law 329CO0000000103)
+    yield ("相互防衛援助協定臨時特例法施行令 art.4(1)（申請変更時も同様）↔ ApplicationChangeSameTreatment.lean",
+           "329CO0000000103", "article", "第四条", ["当該申請書に係る申請の内容を変更しようとする場合も、また同様とする。"])
+
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,
            ["事業所税の額の百分の五に相当する額とする"])
@@ -2651,6 +2657,11 @@ def checks():
            "340AC0000000033", "article", "第八十四条の二",
            ["六十三万円からその特定親族の合計所得金額のうち八十四万一円を超える部分の金額に二を乗じた金額", "十万円の整数倍の金額から八万円を控除した金額", "百十五万円を超え百二十万円以下である特定親族"])
 
+    # 租税特別措置法施行令 art. 42の3(2)一 — RedevelopmentShareRatio.lean
+    yield ("租税特別措置法施行令 art. 42の3(2)一（持分割合 = (土地持分−旧権利持分)/土地持分、単独権利・零下回り・分母零は零）↔ RedevelopmentShareRatio.lean",
+           "332CO0000000043", "article", "第四十二条の三",
+           ["当該土地に関する権利の持分の割合から当該旧権利の持分の割合を控除した割合を当該土地に関する権利の持分の割合で除して計算した割合（当該旧権利がその者が単独で有する所有権若しくは借地権である場合又は当該控除した割合が零を下回る場合には、零）"])
+
     # 所得税法 art. 86 — IncomeBasicDeduction.lean (4-tier basic deduction)
     yield ("所得税法 art. 86（基礎控除: 合計所得2350万以下58万・2400万以下48万・2450万以下32万・2500万以下16万・2500万超0 — 境界値を smoke 確認、合計所得額は caller-established）↔ IncomeBasicDeduction.lean",
            "340AC0000000033",
@@ -4848,6 +4859,24 @@ def checks():
     yield ("所得税法施行令 art. 182_2（20万円未満）↔ Below200kYen.lean",
            "340CO0000000096", "file", None,
            ["二十万円未満である場合"])
+
+    # 租税特別措置法 art. 37の3 — RateReading20To10.lean (20→10)
+    yield ("租税特別措置法 art. 37_3（20→10読み替え）↔ RateReading20To10.lean",
+           "332AC0000000026", "file", None,
+           ["第一項各号中「百分の二十」とあるのは、「百分の十」とする。"])
+    # 租税特別措置法 art. 37の3 — RateReading20To25.lean (20→25)
+    yield ("租税特別措置法 art. 37_3（20→25読み替え）↔ RateReading20To25.lean",
+           "332AC0000000026", "file", None,
+           ["第一項各号中「百分の二十」とあるのは、「百分の二十五」とする。"])
+
+    # 消費税法 art. 34 — ConsumptionTaxRate10or8.lean (10%/8%)
+    yield ("消費税法 art. 34（標準10%／軽減8%）↔ ConsumptionTaxRate10or8.lean",
+           "363AC0000000108", "file", None,
+           ["百分の十（当該課税資産の譲渡等が元年軽減対象資産の譲渡等である場合には、百分の八）"])
+    # 森林環境税施行規則 art. 1の3 — ForestRateAtLeast85.lean (85%以上)
+    yield ("森林環境税施行規則 art. 1_3（林野率85%以上）↔ ForestRateAtLeast85.lean",
+           "431M60000008040", "file", None,
+           ["林野率が百分の八十五以上であるもの"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
