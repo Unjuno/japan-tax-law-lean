@@ -777,6 +777,9 @@ import JapanTaxLaw.FreeCarePatientBand2_5Tests
 import JapanTaxLaw.FreeCarePatientBand5_10
 import JapanTaxLaw.FreeCarePatientBand5_10Spec
 import JapanTaxLaw.FreeCarePatientBand5_10Tests
+import JapanTaxLaw.FreeTradeZoneReading
+import JapanTaxLaw.FreeTradeZoneReadingSpec
+import JapanTaxLaw.FreeTradeZoneReadingTests
 import JapanTaxLaw.FreshCheeseCardQualification
 import JapanTaxLaw.FreshCheeseCardQualificationSpec
 import JapanTaxLaw.FreshCheeseCardQualificationTests
@@ -900,6 +903,9 @@ import JapanTaxLaw.IncomeSupport380kArt2Tests
 import JapanTaxLaw.IncomeTaxRevenueBracket1900k
 import JapanTaxLaw.IncomeTaxRevenueBracket1900kSpec
 import JapanTaxLaw.IncomeTaxRevenueBracket1900kTests
+import JapanTaxLaw.IncomeTaxSpouseIncomeCeiling10M
+import JapanTaxLaw.IncomeTaxSpouseIncomeCeiling10MSpec
+import JapanTaxLaw.IncomeTaxSpouseIncomeCeiling10MTests
 import JapanTaxLaw.IncomeWithholdingRates
 import JapanTaxLaw.IncomeWithholdingRatesSpec
 import JapanTaxLaw.IncomeWithholdingRatesTests
@@ -1182,6 +1188,12 @@ import JapanTaxLaw.LocalCorp24_5_100MTests
 import JapanTaxLaw.LocalCorpCapital100M
 import JapanTaxLaw.LocalCorpCapital100MSpec
 import JapanTaxLaw.LocalCorpCapital100MTests
+import JapanTaxLaw.LocalCorpCapital10M100MEmployees50
+import JapanTaxLaw.LocalCorpCapital10M100MEmployees50Spec
+import JapanTaxLaw.LocalCorpCapital10M100MEmployees50Tests
+import JapanTaxLaw.LocalCorpCapital10MEmployees50Plus
+import JapanTaxLaw.LocalCorpCapital10MEmployees50PlusSpec
+import JapanTaxLaw.LocalCorpCapital10MEmployees50PlusTests
 import JapanTaxLaw.LocalCorpMaxCapital
 import JapanTaxLaw.LocalCorpMaxCapitalSpec
 import JapanTaxLaw.LocalCorpMaxCapitalTests
@@ -1223,6 +1235,9 @@ import JapanTaxLaw.LocalGasolineTaxRateTests
 import JapanTaxLaw.LocalGradation256
 import JapanTaxLaw.LocalGradation256Spec
 import JapanTaxLaw.LocalGradation256Tests
+import JapanTaxLaw.LocalGrantBracket1000To5000
+import JapanTaxLaw.LocalGrantBracket1000To5000Spec
+import JapanTaxLaw.LocalGrantBracket1000To5000Tests
 import JapanTaxLaw.LocalGrantRevenueBase
 import JapanTaxLaw.LocalGrantRevenueBaseSpec
 import JapanTaxLaw.LocalGrantRevenueBaseTests
@@ -1328,6 +1343,9 @@ import JapanTaxLaw.LocalTaxFalseFilingFineCap500kTests
 import JapanTaxLaw.LocalTaxFixedAmountRounding
 import JapanTaxLaw.LocalTaxFixedAmountRoundingSpec
 import JapanTaxLaw.LocalTaxFixedAmountRoundingTests
+import JapanTaxLaw.LocalTaxIncomeBracket4MTo1B
+import JapanTaxLaw.LocalTaxIncomeBracket4MTo1BSpec
+import JapanTaxLaw.LocalTaxIncomeBracket4MTo1BTests
 import JapanTaxLaw.LocalTaxIncomeBracket4_8
 import JapanTaxLaw.LocalTaxIncomeBracket4_8Spec
 import JapanTaxLaw.LocalTaxIncomeBracket4_8Tests
@@ -1379,6 +1397,12 @@ import JapanTaxLaw.LocalTaxVehicleSnowRateTests
 import JapanTaxLaw.LocalTobaccoTaxRate
 import JapanTaxLaw.LocalTobaccoTaxRateSpec
 import JapanTaxLaw.LocalTobaccoTaxRateTests
+import JapanTaxLaw.LocalTruckTonnage29500Rate4700
+import JapanTaxLaw.LocalTruckTonnage29500Rate4700Spec
+import JapanTaxLaw.LocalTruckTonnage29500Rate4700Tests
+import JapanTaxLaw.LocalTruckTonnage40500Rate6300
+import JapanTaxLaw.LocalTruckTonnage40500Rate6300Spec
+import JapanTaxLaw.LocalTruckTonnage40500Rate6300Tests
 import JapanTaxLaw.LongTermGainSpecialMeasure
 import JapanTaxLaw.LongTermGainSpecialMeasureSpec
 import JapanTaxLaw.LongTermGainSpecialMeasureTests
@@ -2110,6 +2134,9 @@ import JapanTaxLaw.TaxNoticeDeadlineTests
 import JapanTaxLaw.TaxProcedure
 import JapanTaxLaw.TaxProcedureSpec
 import JapanTaxLaw.TaxProcedureTests
+import JapanTaxLaw.TaxResearchCouncilQuorum
+import JapanTaxLaw.TaxResearchCouncilQuorumSpec
+import JapanTaxLaw.TaxResearchCouncilQuorumTests
 import JapanTaxLaw.TaxRounding
 import JapanTaxLaw.TaxRoundingSpec
 import JapanTaxLaw.TaxRoundingTests
