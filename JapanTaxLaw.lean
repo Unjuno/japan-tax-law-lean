@@ -632,6 +632,9 @@ import JapanTaxLaw.ThresholdDeductionsTests
 import JapanTaxLaw.DecimalMultipliers
 import JapanTaxLaw.DecimalMultipliersSpec
 import JapanTaxLaw.DecimalMultipliersTests
+import JapanTaxLaw.SenSpecificDuty
+import JapanTaxLaw.SenSpecificDutySpec
+import JapanTaxLaw.SenSpecificDutyTests
 import JapanTaxLaw.TariffSpecificFloor
 import JapanTaxLaw.TariffSpecificFloorSpec
 import JapanTaxLaw.TariffSpecificFloorTests
