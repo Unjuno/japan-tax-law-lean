@@ -28,18 +28,19 @@ theorem atTowingFloor (recorded fifthWheel towing : Nat) :
     fifthWheel >= recorded → grossWeight recorded fifthWheel towing = towing := by
   unfold grossWeight
   intro h
-  omega
+  rw [Nat.sub_eq_zero_of_le h]
+  simp
 
 theorem monotoneInTowing (recorded fifthWheel towing towing' : Nat) :
     towing <= towing' → grossWeight recorded fifthWheel towing <= grossWeight recorded fifthWheel towing' := by
   unfold grossWeight
   intro h
-  omega
+  exact Nat.add_le_add_left h (recorded - fifthWheel)
 
 theorem monotoneInRecorded (recorded recorded' fifthWheel towing : Nat) :
     recorded <= recorded' → grossWeight recorded fifthWheel towing <= grossWeight recorded' fifthWheel towing := by
   unfold grossWeight
   intro h
-  omega
+  exact Nat.add_le_add_right (Nat.sub_le_sub_right h fifthWheel) towing
 
 end JapanTaxLaw.FifthWheelGrossWeight
