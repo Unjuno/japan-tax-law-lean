@@ -1,41 +1,4 @@
 {
-  "_units": {
-    "NORM|6b1e8c86cae2b21a37322257fbf256f06e35358b293a12e9e376661b71c16760": {
-      "checks": {
-        "cross_law": true,
-        "independent_spec": true,
-        "kernel_attested": true,
-        "kernel_decided_examples": 5,
-        "needles_scoped": true,
-        "source_location": true
-      },
-      "derived_status": "FULLY_VERIFIED",
-      "errors": [],
-      "module": "InheritedAnnuityRatioAtMost50",
-      "spec_kanji_in_原文": [
-        "五十",
-        "百"
-      ]
-    },
-    "NORM|f6ead0989f635a2370815edaac68ccd91b66ce11be826db80e2185e62021b138": {
-      "checks": {
-        "cross_law": true,
-        "independent_spec": true,
-        "kernel_attested": true,
-        "kernel_decided_examples": 8,
-        "needles_scoped": true,
-        "source_location": true
-      },
-      "derived_status": "FULLY_VERIFIED",
-      "errors": [],
-      "module": "AnnuityRatioOver50UpTo55",
-      "spec_kanji_in_原文": [
-        "五十",
-        "五十五",
-        "百"
-      ]
-    }
-  },
   "attestation_commit": "49d10bd9e639ce8b977904d0a2bbfd5c2aad16da",
   "module_detail": {
     "AccessoryPriceFloor": {
@@ -6323,6 +6286,23 @@
         100000000
       ]
     },
+    "PublicFacilityAreaAtLeast10": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "十",
+        "百"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 6,
+      "needles_scoped": true,
+      "scoped_article_chars": 783,
+      "spec_literals": [
+        10,
+        100
+      ]
+    },
     "PublicPensionWithholding": {
       "adversarial_review": true,
       "boundary_examples_found": 5,
@@ -6599,6 +6579,25 @@
       "scoped_article_chars": 1378,
       "spec_literals": [
         25,
+        100
+      ]
+    },
+    "ReserveAccumulationOver50UpTo75": {
+      "adversarial_review": true,
+      "boundary_examples_found": 4,
+      "independent_spec": true,
+      "kanji_literals": [
+        "七十五",
+        "五十",
+        "百"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 8,
+      "needles_scoped": true,
+      "scoped_article_chars": 1378,
+      "spec_literals": [
+        50,
+        75,
         100
       ]
     },
@@ -15691,7 +15690,7 @@
         },
         "derived_status": "FULLY_VERIFIED",
         "errors": [],
-        "module": "InheritedAnnuityRatioOver50",
+        "module": "InheritedAnnuityRatioAtMost50",
         "spec_kanji_in_原文": [
           "五十",
           "百"
@@ -15777,7 +15776,7 @@
         },
         "derived_status": "FULLY_VERIFIED",
         "errors": [],
-        "module": "InheritedAnnuityRatioOver50",
+        "module": "InheritedAnnuityRatioAtMost50",
         "spec_kanji_in_原文": [
           "五十",
           "百"
@@ -16427,7 +16426,7 @@
         },
         "derived_status": "FULLY_VERIFIED",
         "errors": [],
-        "module": "InheritedAnnuityRatioOver50",
+        "module": "InheritedAnnuityRatioAtMost50",
         "spec_kanji_in_原文": [
           "五十",
           "百"
@@ -17567,7 +17566,7 @@
         },
         "derived_status": "FULLY_VERIFIED",
         "errors": [],
-        "module": "InheritedAnnuityRatioOver50",
+        "module": "InheritedAnnuityRatioAtMost50",
         "spec_kanji_in_原文": [
           "五十",
           "百"
@@ -18891,6 +18890,24 @@
         "errors": [],
         "module": "BankHeadOfficeTermReading",
         "spec_kanji_in_原文": []
+      },
+      "NORM|a08890a0c5fe5f68697f1f14dac22010fe6e1cc21083fe248599739d6895518e": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 8,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "AnnuityRatioOver50UpTo55",
+        "spec_kanji_in_原文": [
+          "五十",
+          "五十五",
+          "百"
+        ]
       },
       "NORM|a0dca77c1c94aac86a0e5b18c84fba635ef5bc6d527fa842b41ccc6917dcdc73": {
         "checks": {
@@ -23766,15 +23783,16 @@
           "cross_law": true,
           "independent_spec": true,
           "kernel_attested": true,
-          "kernel_decided_examples": 5,
+          "kernel_decided_examples": 8,
           "needles_scoped": true,
           "source_location": true
         },
         "derived_status": "FULLY_VERIFIED",
         "errors": [],
-        "module": "InheritedAnnuityRatioOver50",
+        "module": "AnnuityRatioOver50UpTo55",
         "spec_kanji_in_原文": [
           "五十",
+          "五十五",
           "百"
         ]
       },
@@ -30090,13 +30108,13 @@
       "boundary_proof": "attested Tests module contains 5 kernel-decided examples covering boundary inputs",
       "cross_law_proof": "unit dependencies=0; enforced revision=340CO0000000096_20260522_508CO0000000093 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
-      "implementation": "JapanTaxLaw/InheritedAnnuityRatioOver50.lean sha256=710157a4b2a8c914a397a2755d85de7da7d5215018b830bcb7f3f05e62fb9025",
-      "independent_spec": "JapanTaxLaw/InheritedAnnuityRatioOver50Spec.lean sha256=34b6354b190647b589301caa2d8982a89ef859bd6974887e283a615017314c56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45788813055: commit ac037288, build/axiom job success, 3 module hashes re-verified",
+      "implementation": "JapanTaxLaw/InheritedAnnuityRatioAtMost50.lean sha256=b9215c49a645e822f7ec6cc124cf498b37f864cc9093c75f50c9a66bef4657f1",
+      "independent_spec": "JapanTaxLaw/InheritedAnnuityRatioAtMost50Spec.lean sha256=5abb90ca8783c96dae818e613313954c60002d1e1e7e0062c2d7bbc78e50fdad (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45793720355: commit 81ca093c, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [50, 100] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"50\": [\"五十\"]}; statutory rate = 1/2; needles scoped",
       "source_location": "data/raw/340CO0000000096_20260522_508CO0000000093.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:185/Article#185/Paragraph#2/Item#1/Subitem1#2/Subitem1Sentence/Column#1/Sentence#1 sha256=9facf2e2768d602ccdbbf9891df142d3a3e7ead09033eb0634de00a4c4181392 (verbatim unit text located in scoped article)",
-      "tests": "JapanTaxLaw/InheritedAnnuityRatioOver50Tests.lean sha256=e8d913b32d3daf4d530fea4bffcdb216cab8bcea0f8d3e7bbb887f059a88ae2a (5 kernel-decided examples)"
+      "tests": "JapanTaxLaw/InheritedAnnuityRatioAtMost50Tests.lean sha256=a75d143d08192005191b3882ef42392697b97b632fa4f4d44ef7bd8207e1a7f1 (5 kernel-decided examples)"
     },
     "NORM|6b74303bd4b600c76fb9fb5a65c58a99cd1683049455f252d0b7095a468c3cf8": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -30155,13 +30173,13 @@
       "boundary_proof": "attested Tests module contains 5 kernel-decided examples covering boundary inputs",
       "cross_law_proof": "unit dependencies=0; enforced revision=340CO0000000096_20260522_508CO0000000093 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
-      "implementation": "JapanTaxLaw/InheritedAnnuityRatioOver50.lean sha256=710157a4b2a8c914a397a2755d85de7da7d5215018b830bcb7f3f05e62fb9025",
-      "independent_spec": "JapanTaxLaw/InheritedAnnuityRatioOver50Spec.lean sha256=34b6354b190647b589301caa2d8982a89ef859bd6974887e283a615017314c56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45788813055: commit ac037288, build/axiom job success, 3 module hashes re-verified",
+      "implementation": "JapanTaxLaw/InheritedAnnuityRatioAtMost50.lean sha256=b9215c49a645e822f7ec6cc124cf498b37f864cc9093c75f50c9a66bef4657f1",
+      "independent_spec": "JapanTaxLaw/InheritedAnnuityRatioAtMost50Spec.lean sha256=5abb90ca8783c96dae818e613313954c60002d1e1e7e0062c2d7bbc78e50fdad (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45793720355: commit 81ca093c, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [50, 100] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"50\": [\"五十\"]}; statutory rate = 1/2; needles scoped",
       "source_location": "data/raw/340CO0000000096_20260522_508CO0000000093.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:185/Article#185/Paragraph#2/Item#1/Subitem1#1/Subitem1Sentence/Column#1/Sentence#1 sha256=9facf2e2768d602ccdbbf9891df142d3a3e7ead09033eb0634de00a4c4181392 (verbatim unit text located in scoped article)",
-      "tests": "JapanTaxLaw/InheritedAnnuityRatioOver50Tests.lean sha256=e8d913b32d3daf4d530fea4bffcdb216cab8bcea0f8d3e7bbb887f059a88ae2a (5 kernel-decided examples)"
+      "tests": "JapanTaxLaw/InheritedAnnuityRatioAtMost50Tests.lean sha256=a75d143d08192005191b3882ef42392697b97b632fa4f4d44ef7bd8207e1a7f1 (5 kernel-decided examples)"
     },
     "NORM|6cc6edf6e957ff9d99298418f0e474decfa5c4f7bda2ed2222c6edc737535b15": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -30688,13 +30706,13 @@
       "boundary_proof": "attested Tests module contains 5 kernel-decided examples covering boundary inputs",
       "cross_law_proof": "unit dependencies=0; enforced revision=340CO0000000096_20260522_508CO0000000093 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
-      "implementation": "JapanTaxLaw/InheritedAnnuityRatioOver50.lean sha256=710157a4b2a8c914a397a2755d85de7da7d5215018b830bcb7f3f05e62fb9025",
-      "independent_spec": "JapanTaxLaw/InheritedAnnuityRatioOver50Spec.lean sha256=34b6354b190647b589301caa2d8982a89ef859bd6974887e283a615017314c56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45788813055: commit ac037288, build/axiom job success, 3 module hashes re-verified",
+      "implementation": "JapanTaxLaw/InheritedAnnuityRatioAtMost50.lean sha256=b9215c49a645e822f7ec6cc124cf498b37f864cc9093c75f50c9a66bef4657f1",
+      "independent_spec": "JapanTaxLaw/InheritedAnnuityRatioAtMost50Spec.lean sha256=5abb90ca8783c96dae818e613313954c60002d1e1e7e0062c2d7bbc78e50fdad (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45793720355: commit 81ca093c, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [50, 100] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"50\": [\"五十\"]}; statutory rate = 1/2; needles scoped",
       "source_location": "data/raw/340CO0000000096_20260522_508CO0000000093.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:185/Article#185/Paragraph#2/Item#2/Subitem1#1/Subitem1Sentence/Column#1/Sentence#1 sha256=9facf2e2768d602ccdbbf9891df142d3a3e7ead09033eb0634de00a4c4181392 (verbatim unit text located in scoped article)",
-      "tests": "JapanTaxLaw/InheritedAnnuityRatioOver50Tests.lean sha256=e8d913b32d3daf4d530fea4bffcdb216cab8bcea0f8d3e7bbb887f059a88ae2a (5 kernel-decided examples)"
+      "tests": "JapanTaxLaw/InheritedAnnuityRatioAtMost50Tests.lean sha256=a75d143d08192005191b3882ef42392697b97b632fa4f4d44ef7bd8207e1a7f1 (5 kernel-decided examples)"
     },
     "NORM|7ad4bd2c2491460ddfddc4cf486a3f14e5d327ee265c5435e097fb7417198ff4": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -31611,13 +31629,13 @@
       "boundary_proof": "attested Tests module contains 5 kernel-decided examples covering boundary inputs",
       "cross_law_proof": "unit dependencies=0; enforced revision=340CO0000000096_20260522_508CO0000000093 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
-      "implementation": "JapanTaxLaw/InheritedAnnuityRatioOver50.lean sha256=710157a4b2a8c914a397a2755d85de7da7d5215018b830bcb7f3f05e62fb9025",
-      "independent_spec": "JapanTaxLaw/InheritedAnnuityRatioOver50Spec.lean sha256=34b6354b190647b589301caa2d8982a89ef859bd6974887e283a615017314c56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45788813055: commit ac037288, build/axiom job success, 3 module hashes re-verified",
+      "implementation": "JapanTaxLaw/InheritedAnnuityRatioAtMost50.lean sha256=b9215c49a645e822f7ec6cc124cf498b37f864cc9093c75f50c9a66bef4657f1",
+      "independent_spec": "JapanTaxLaw/InheritedAnnuityRatioAtMost50Spec.lean sha256=5abb90ca8783c96dae818e613313954c60002d1e1e7e0062c2d7bbc78e50fdad (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45793720355: commit 81ca093c, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [50, 100] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"50\": [\"五十\"]}; statutory rate = 1/2; needles scoped",
       "source_location": "data/raw/340CO0000000096_20260522_508CO0000000093.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:185/Article#185/Paragraph#2/Item#2/Subitem1#2/Subitem1Sentence/Column#1/Sentence#1 sha256=9facf2e2768d602ccdbbf9891df142d3a3e7ead09033eb0634de00a4c4181392 (verbatim unit text located in scoped article)",
-      "tests": "JapanTaxLaw/InheritedAnnuityRatioOver50Tests.lean sha256=e8d913b32d3daf4d530fea4bffcdb216cab8bcea0f8d3e7bbb887f059a88ae2a (5 kernel-decided examples)"
+      "tests": "JapanTaxLaw/InheritedAnnuityRatioAtMost50Tests.lean sha256=a75d143d08192005191b3882ef42392697b97b632fa4f4d44ef7bd8207e1a7f1 (5 kernel-decided examples)"
     },
     "NORM|8c5e41394048462ccb3344e2738db3c7c408069cf42d9fa7b3a032e4a7929c0f": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -32684,6 +32702,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['この場合において、同条第六項中「日本銀行統轄店」']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
       "source_location": "data/raw/403M50000040054_20260924_508M60000040059.law.json#LawBody[2]/MainProvision/MainProvision[11]/Article:11/Article#11/Paragraph#4/ParagraphSentence/Sentence#2 sha256=d975b5d18cdd9dd0f21fbb598e8704186e1cff3779ed1b9cacfd04df5c42fe41 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/BankHeadOfficeTermReadingTests.lean sha256=e3bd996a63fa34091c7c0a547100bf3f4ff8ce74632167a110615987180644ae (9 kernel-decided examples)"
+    },
+    "NORM|a08890a0c5fe5f68697f1f14dac22010fe6e1cc21083fe248599739d6895518e": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 8 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=340CO0000000096_20260522_508CO0000000093 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/AnnuityRatioOver50UpTo55.lean sha256=b925bb790515f5136e4066cd596b5db1209911ff1d898bfc7ef8081178b68f47",
+      "independent_spec": "JapanTaxLaw/AnnuityRatioOver50UpTo55Spec.lean sha256=81539652afe1d53b35c93424381ca5ec9b2d4470055baae794846d246b6baf35 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45793720355: commit 81ca093c, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [50, 55, 100] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"50\": [\"五十\"], \"55\": [\"五十五\"]}; statutory rate = 11/20; needles scoped",
+      "source_location": "data/raw/340CO0000000096_20260522_508CO0000000093.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:185/Article#185/Paragraph#3/Item#4/Subitem1#2/Subitem1Sentence/Column#1/Sentence#1 sha256=9facf2e2768d602ccdbbf9891df142d3a3e7ead09033eb0634de00a4c4181392 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/AnnuityRatioOver50UpTo55Tests.lean sha256=bffd0d286622ee2c744ab5a9fed32eeca943f49b524dadd7a84ecffec9c211e5 (8 kernel-decided examples)"
     },
     "NORM|a0dca77c1c94aac86a0e5b18c84fba635ef5bc6d527fa842b41ccc6917dcdc73": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -36639,16 +36670,16 @@
     },
     "NORM|f6ead0989f635a2370815edaac68ccd91b66ce11be826db80e2185e62021b138": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
-      "boundary_proof": "attested Tests module contains 5 kernel-decided examples covering boundary inputs",
+      "boundary_proof": "attested Tests module contains 8 kernel-decided examples covering boundary inputs",
       "cross_law_proof": "unit dependencies=0; enforced revision=340CO0000000096_20260522_508CO0000000093 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
-      "implementation": "JapanTaxLaw/InheritedAnnuityRatioOver50.lean sha256=710157a4b2a8c914a397a2755d85de7da7d5215018b830bcb7f3f05e62fb9025",
-      "independent_spec": "JapanTaxLaw/InheritedAnnuityRatioOver50Spec.lean sha256=34b6354b190647b589301caa2d8982a89ef859bd6974887e283a615017314c56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45788813055: commit ac037288, build/axiom job success, 3 module hashes re-verified",
-      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [50, 100] used by kernel-checked impl + independent spec",
-      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"50\": [\"五十\"]}; statutory rate = 1/2; needles scoped",
+      "implementation": "JapanTaxLaw/AnnuityRatioOver50UpTo55.lean sha256=b925bb790515f5136e4066cd596b5db1209911ff1d898bfc7ef8081178b68f47",
+      "independent_spec": "JapanTaxLaw/AnnuityRatioOver50UpTo55Spec.lean sha256=81539652afe1d53b35c93424381ca5ec9b2d4470055baae794846d246b6baf35 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45793720355: commit 81ca093c, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [50, 55, 100] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"50\": [\"五十\"], \"55\": [\"五十五\"]}; statutory rate = 1/2; needles scoped",
       "source_location": "data/raw/340CO0000000096_20260522_508CO0000000093.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:185/Article#185/Paragraph#3/Item#4/Subitem1#1/Subitem1Sentence/Column#1/Sentence#1 sha256=9facf2e2768d602ccdbbf9891df142d3a3e7ead09033eb0634de00a4c4181392 (verbatim unit text located in scoped article)",
-      "tests": "JapanTaxLaw/InheritedAnnuityRatioOver50Tests.lean sha256=e8d913b32d3daf4d530fea4bffcdb216cab8bcea0f8d3e7bbb887f059a88ae2a (5 kernel-decided examples)"
+      "tests": "JapanTaxLaw/AnnuityRatioOver50UpTo55Tests.lean sha256=bffd0d286622ee2c744ab5a9fed32eeca943f49b524dadd7a84ecffec9c211e5 (8 kernel-decided examples)"
     },
     "NORM|f79f66127069e731ff4b6c31ea8ee8655ceba2615c78f3e2b6301bdeb515173e": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",

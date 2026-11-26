@@ -4813,6 +4813,15 @@ def checks():
            "332CO0000000043", "file", None,
            ["公共施設面積割合が百分の十以上であること。"])
 
+    # 関税暫定措置法 art. 7の3 — AverageImportOver30Percent.lean (30%超)
+    yield ("関税暫定措置法 art. 7_3（平均輸入30%超）↔ AverageImportOver30Percent.lean",
+           "335AC0000000036", "file", None,
+           ["平均輸入数量が平均国内消費量に百分の三十を乗じて得た数量を超える場合"])
+    # 関税暫定措置法 art. 7の4 — TriggerPriceGapOver75Percent.lean (75%超)
+    yield ("関税暫定措置法 art. 7_4（差額75%超）↔ TriggerPriceGapOver75Percent.lean",
+           "335AC0000000036", "file", None,
+           ["発動基準価格と課税価格との差額が発動基準価格に百分の七十五を乗じて得た金額を超える場合"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

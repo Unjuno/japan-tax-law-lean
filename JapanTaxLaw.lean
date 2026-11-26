@@ -67,6 +67,9 @@ import JapanTaxLaw.AutoWeightGrantRate357Tests
 import JapanTaxLaw.AutoWeightGrantRounding
 import JapanTaxLaw.AutoWeightGrantRoundingSpec
 import JapanTaxLaw.AutoWeightGrantRoundingTests
+import JapanTaxLaw.AverageImportOver30Percent
+import JapanTaxLaw.AverageImportOver30PercentSpec
+import JapanTaxLaw.AverageImportOver30PercentTests
 import JapanTaxLaw.AviationFuelTaxAmountFloor
 import JapanTaxLaw.AviationFuelTaxAmountFloorSpec
 import JapanTaxLaw.AviationFuelTaxAmountFloorTests
@@ -2274,6 +2277,9 @@ import JapanTaxLaw.TreatyDeductionTests
 import JapanTaxLaw.TrialPeriod14Days
 import JapanTaxLaw.TrialPeriod14DaysSpec
 import JapanTaxLaw.TrialPeriod14DaysTests
+import JapanTaxLaw.TriggerPriceGapOver75Percent
+import JapanTaxLaw.TriggerPriceGapOver75PercentSpec
+import JapanTaxLaw.TriggerPriceGapOver75PercentTests
 import JapanTaxLaw.TrustPensionReserve
 import JapanTaxLaw.TrustPensionReserveSpec
 import JapanTaxLaw.TrustPensionReserveTests
