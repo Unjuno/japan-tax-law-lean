@@ -1292,6 +1292,12 @@ def checks():
            "article", "第十七条",
            ["割合から千分の四を控除した割合とする", "第十七条"])
 
+    # 租税特別措置法施行令 附則 art.124(6) — SpecialTaxOrderArt124Rate25To8.lean
+    yield ("租税特別措置法施行令 附則 art.124(6)（千分の25→8 読替え）↔ SpecialTaxOrderArt124Rate25To8.lean",
+           "332AC0000000026",
+           "file", None,
+           ["千分の二十五」とあるのは、「千分の八", "第百二十四条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
