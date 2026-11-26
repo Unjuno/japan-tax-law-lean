@@ -4560,6 +4560,119 @@ def checks():
            "file", None,
            ["四万五百円に最大積載量が八トンを超える部分一トンまでごとに六千三百円を加算した額"])
 
+    # 租税特別措置法 art. 42の4 — CombinedRndExcessAtMost3.lean (合算3%以下)
+    yield ("租税特別措置法 art. 42_4（合算3%以下）↔ CombinedRndExcessAtMost3.lean",
+           "332AC0000000026", "file", None,
+           ["合算増減試験研究費割合が百分の三以下である場合（（３）に掲げる場合を除く。）"])
+
+    # 租税特別措置法 art. 42の4 — CombinedRndExcessOver3.lean (合算3%超)
+    yield ("租税特別措置法 art. 42_4（合算3%超）↔ CombinedRndExcessOver3.lean",
+           "332AC0000000026", "file", None,
+           ["合算増減試験研究費割合が百分の三を超える場合（（３）に掲げる場合を除く。）"])
+
+    # 租税特別措置法 art. 42の4 — CombinedRndExcessOver4Year.lean (4%超の事業年度)
+    yield ("租税特別措置法 art. 42_4（4%超の事業年度）↔ CombinedRndExcessOver4Year.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の四を超える事業年度"])
+
+    # 租税特別措置法 art. 42の4 — CombinedRndExcessOver7Year.lean (7%超の事業年度)
+    yield ("租税特別措置法 art. 42_4（7%超の事業年度）↔ CombinedRndExcessOver7Year.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の七を超える事業年度"])
+
+    # 租税特別措置法 art. 10の5の4 — ContinuingIncreaseAtLeast5.lean (5%以上)
+    yield ("租税特別措置法 art. 10_5_4（継続雇用者5%以上）↔ ContinuingIncreaseAtLeast5.lean",
+           "332AC0000000026", "file", None,
+           ["継続雇用者給与等支給増加割合が百分の五以上であること"])
+
+    # 特別法人事業譲与税法 art. 31(5)(4) — ExcessFinanceGrant75Cap.lean
+    yield ("特別法人事業譲与税法 art. 31（十一月分75%と財源超過額上限）↔ ExcessFinanceGrant75Cap.lean",
+           "431AC0000000004",
+           "file", None,
+           ["財源超過団体における十一月の譲与時期に係る基準各譲与時期特別法人事業譲与税額の百分の七十五に相当する額（当該額に当該財源超過団体に係る五月分財源超過団体譲与制限額及び八月分財源超過団体譲与制限額の合算額を加えた額が財源超過額を超える場合には、当該財源超過額から当該合算額を控除した額とする。）をいう。"])
+
+    # 租税特別措置法 art. 40の4 — ForeignSubsidiaryTaxRate20.lean (租税負担割合20%以上)
+    yield ("租税特別措置法 art. 40_4（租税負担割合20%以上）↔ ForeignSubsidiaryTaxRate20.lean",
+           "332AC0000000026", "file", None,
+           ["各事業年度の租税負担割合が百分の二十以上であること。"])
+
+    yield ("関税率表 art. 32（フレッシュチーズ・カード要件）↔ FreshCheeseCardQualification.lean",
+           "335CO0000000069",
+           "file", None,
+           ["関税率表第〇四〇六・一〇号に掲げるフレッシュチーズ及びカード（いずれも乾燥固形分が全重量の四十八パーセント以下のもの（一個の重量が四グラム以下の細片にし、冷凍し、かつ、正味重量が五キログラムを超える直接包装にしたものに限る。）、関税割当チーズ及びクリームチーズ（軟質で展延性のある熟成していないリンドレスチーズであつて、乾燥固形分のうちに占める乳脂肪分の割合、無脂肪ベースでの全重量のうちに占める水分の割合及び全重量のうちに占める乾燥固形分の割合が、それぞれコーデックスのクリームチーズの規格（ＣＯＤＥＸ"])
+
+    # 相続税法 art.1の4 — GiftTaxTenYearResidenceLookback.lean
+    yield ("相続税法 art.1の4（贈与前十年以内の住所）↔ GiftTaxTenYearResidenceLookback.lean",
+           "325AC0000000073",
+           "file", None,
+           ["当該贈与前十年以内のいずれかの時においてこの法律の施行地に住所を有していたことがあるもの", "第一条の四"])
+
+    # 所得税法 art.2(1) — IncomeTaxSpouseIncomeCeiling10M.lean
+    yield ("所得税法 art.2(1)（同一生計配偶者 合計所得千万円以下）↔ IncomeTaxSpouseIncomeCeiling10M.lean",
+           "340AC0000000033",
+           "article", "第二条",
+           ["合計所得金額が千万円以下である居住者の配偶者をいう", "第二条"])
+
+    # 地方税法 art. 72の21 — LocalGrantBracket1000To5000.lean (千億〜五千億)
+    yield ("地方税法 art. 72_21（千億超五千億以下）↔ LocalGrantBracket1000To5000.lean",
+           "325AC0000000226", "file", None,
+           ["千億円を超え五千億円以下の金額"])
+
+    # 地方税法 art. 9の2 — LocalTaxIncomeBracket4MTo1B.lean (四百万〜十億)
+    yield ("地方税法 art. 9_2（四百万超十億以下）↔ LocalTaxIncomeBracket4MTo1B.lean",
+           "325AC0000000226", "file", None,
+           ["各事業年度の所得のうち年四百万円を超え年十億円以下の金額"])
+
+    # 租税特別措置法 art. 10 — RndExcess0To12.lean (零以上12%以下)
+    yield ("租税特別措置法 art. 10（零以上12%以下）↔ RndExcess0To12.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が零以上であり百分の十二以下である場合（ニに掲げる場合を除く。）"])
+
+    # 租税特別措置法 art. 10 — RndExcess3To15.lean (3%超〜15%以下)
+    yield ("租税特別措置法 art. 10（3%超15%以下）↔ RndExcess3To15.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の三を超え百分の十五以下である場合（ニに掲げる場合を除く。）"])
+
+    # 租税特別措置法 art. 10 — RndExcessAtMost3.lean (3%以下)
+    yield ("租税特別措置法 art. 10（増減試験研究費割合 3%以下）↔ RndExcessAtMost3.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の三以下である場合（次号に掲げる場合を除く。）"])
+
+    # 租税特別措置法 art. 10 — RndExcessOver12.lean (増減試験研究費割合 > 12%)
+    yield ("租税特別措置法 art. 10（増減試験研究費割合 12%超）↔ RndExcessOver12.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の十二を超える場合（ニに掲げる場合を除く。）"])
+
+    # 租税特別措置法 art. 10 — RndExcessOver15.lean (増減試験研究費割合 > 15%)
+    yield ("租税特別措置法 art. 10（増減試験研究費割合 15%超）↔ RndExcessOver15.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の十五を超える場合（ニに掲げる場合を除く。）"])
+
+    # 租税特別措置法 art. 10 — RndExcessOver3.lean (増減試験研究費割合 > 3%)
+    yield ("租税特別措置法 art. 10（増減試験研究費割合 3%超）↔ RndExcessOver3.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の三を超える場合（第三号に掲げる場合を除く。）"])
+
+    # 租税特別措置法 art. 10 — RndExcessOver4Year.lean (4%超の年分)
+    yield ("租税特別措置法 art. 10（4%超の年分）↔ RndExcessOver4Year.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の四を超える年分"])
+
+    # 租税特別措置法 art. 10 — RndExcessOver7Year.lean (7%超の年分)
+    yield ("租税特別措置法 art. 10（7%超の年分）↔ RndExcessOver7Year.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の七を超える年分"])
+
+    # 租税特別措置法 art. 10の5の4 — SalaryIncreaseRate5Or15.lean (5%/15%)
+    yield ("租税特別措置法 art. 10_5_4（5%／15%分岐）↔ SalaryIncreaseRate5Or15.lean",
+           "332AC0000000026", "file", None,
+           ["百分の五（継続雇用者給与等支給増加割合が百分の六以上である場合には、百分の十五）"])
+
+    # 特別とん税法施行令 art.3(1) — SpecialTonSecurityEightTen.lean
+    yield ("特別とん税法施行令 第三条(1)（特別とん税額 八分の十）↔ SpecialTonSecurityEightTen.lean",
+           "332CO0000000049", "article", "第三条",
+           ["とん税額の八分の十に相当する特別とん税額をあわせて担保しなければならない。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
