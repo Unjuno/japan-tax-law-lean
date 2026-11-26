@@ -2278,6 +2278,9 @@ import JapanTaxLaw.TaxationPeriodTests
 import JapanTaxLaw.Taxpayer
 import JapanTaxLaw.TaxpayerSpec
 import JapanTaxLaw.TaxpayerTests
+import JapanTaxLaw.TestimonyParagraphReading
+import JapanTaxLaw.TestimonyParagraphReadingSpec
+import JapanTaxLaw.TestimonyParagraphReadingTests
 import JapanTaxLaw.Tests
 import JapanTaxLaw.TestsCommon
 import JapanTaxLaw.ThousandYenTruncation

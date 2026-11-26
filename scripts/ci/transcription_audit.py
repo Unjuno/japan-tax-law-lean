@@ -145,6 +145,9 @@ def checks():
     yield ("国税徴収法施行規則 art.1_6（随意契約時の公売規定準用）↔ PrivateContractPublicAuctionReading.lean",
            "337M50000040031", "article", "第一条の六", ["（随意契約により不動産を売却する場合における公売の規定の準用）"])
 
+    # TestimonyParagraphReading.lean - NORM|4c66461b... (証言準用 READING, law 406CO0000000417)
+    yield ("緊急関税等政令 art.4(9)（証言準用）↔ TestimonyParagraphReading.lean",
+           "406CO0000000417", "article", "第四条", ["第四項から前項までの規定は、第一項前段又は第二項前段の規定によりされた証言について準用する。"])
     # ApplicationChangeSameTreatment.lean - NORM|df91b6ee... (申請変更時も同様 CONDITION, law 329CO0000000103)
     yield ("相互防衛援助協定臨時特例法施行令 art.4(1)（申請変更時も同様）↔ ApplicationChangeSameTreatment.lean",
            "329CO0000000103", "article", "第四条", ["当該申請書に係る申請の内容を変更しようとする場合も、また同様とする。"])
