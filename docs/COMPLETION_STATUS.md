@@ -7,23 +7,23 @@ obligations being complete. SKIP is never counted as PASS.
 
 ## Axis A — registered checks (last recorded gate run)
 
-- results file available: False
-- PASS: 0
-- FAIL: 0
+- results file available: True
+- PASS: 46
+- FAIL: 8
 - SKIP: 0
 - required gates SKIPped: 0
-- gate results commit: (none)
-- current HEAD commit: 9f9ca743f90108a20211707df4164c8bc69d8b18
+- gate results commit: df408f02b412fbf521647d933c14347977415c06
+- current HEAD commit: b5db304a6bdba2e18422a571f7e84ad34aeae0cd
 - results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all TECHNICAL obligations complete (human review excluded)
 
 - normative units: 396854
-- NOT_STARTED: 395669
+- NOT_STARTED: 395661
 - PARTIAL: 0
 - PROVED_SCOPE: 0
-- FULLY_VERIFIED: 1183
+- FULLY_VERIFIED: 1191
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180617
@@ -43,26 +43,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 1183 | 396854 |
-| kernel proved (CI-attested proof evidence) | 1183 | 396854 |
-| source-audited (原文 correspondence evidence) | 1183 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 1191 | 396854 |
+| kernel proved (CI-attested proof evidence) | 1191 | 396854 |
+| source-audited (原文 correspondence evidence) | 1191 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 1183 |
-| boundary_proof | 1183 |
-| cross_law_proof | 1183 |
-| decomposition_audit | 1183 |
-| implementation | 1183 |
-| independent_spec | 1183 |
-| kernel_proof | 1183 |
-| proof_scope | 1183 |
-| source_correspondence_audit | 1183 |
-| source_location | 1183 |
-| tests | 1183 |
+| adversarial_review | 1191 |
+| boundary_proof | 1191 |
+| cross_law_proof | 1191 |
+| decomposition_audit | 1191 |
+| implementation | 1191 |
+| independent_spec | 1191 |
+| kernel_proof | 1191 |
+| proof_scope | 1191 |
+| source_correspondence_audit | 1191 |
+| source_location | 1191 |
+| tests | 1191 |
 
 ## Verdict
 

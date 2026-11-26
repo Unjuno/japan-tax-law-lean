@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 205 | 327 | 62.69% |
+| laws with >=1 pinned literal check | 207 | 327 | 63.30% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -35,10 +35,10 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 
 | axis | count |
 |---|---:|
-| references extracted | n/a |
-| internal references checked | n/a |
-| external references NOT bound to the ledger | n/a |
-| references classified unsupported | n/a |
+| references extracted | 476500 |
+| internal references checked | 63234 |
+| external references NOT bound to the ledger | 175186 |
+| references classified unsupported | 250043 |
 
 external_unverified references are NOT verified and are NOT silently counted
 as covered scope.
@@ -62,19 +62,19 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 775 | n/a | n/a |
-| distinct article pins | 233 | 42584 | 0.55% |
-| pinned Lean modules (cross-law) | 1306 | n/a | n/a |
+| pinned literal checks | 780 | n/a | n/a |
+| distinct article pins | 234 | 42584 | 0.55% |
+| pinned Lean modules (cross-law) | 1194 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1299 |
+| unpinned Lean modules (not counted as verified) | 1039 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
-| external references NOT bound to the ledger | n/a |
+| external references NOT bound to the ledger | 175186 |
 | related statutes discovered but not acquired (Objective §2) | 380 |
 | related statutes acquired but not parsed/modelled/reviewed | 3 |
 
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 138 |
+| adversarial review sessions recorded | 139 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -253,6 +253,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `406CO0000000418` 報復関税等に関する政令
 - `407AC0000000011` 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律
 - `407CO0000000029` 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行令
+- `407M50000008012` 特定農山村地域における農林業等の活性化のための基盤整備の促進に関する法律第十六条の地方税の不均一課税に伴う措置が適用される場合等を定める省令
 - `407M50000008016` 半島振興法第十七条の地方税の不均一課税に伴う措置が適用される場合等を定める省令
 - `407M50000008033` 大阪湾臨海地域開発整備法第十四条の地方税の不均一課税に伴う措置が適用される場合等を定める省令
 - `407M50000040012` 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行規則
@@ -281,6 +282,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `420AC0000000084` 地方税等減収補てん臨時交付金に関する法律
 - `420M60000008116` 地方税等減収補てん臨時交付金に関する省令
 - `422AC1000000050` 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての所得税及び法人税の臨時特例に関する法律
+- `422CO0000000222` 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての所得税及び法人税の臨時特例に関する法律施行令
 - `422M60000040022` 租税特別措置の適用状況の透明化等に関する法律施行規則
 - `422M60000040052` 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての所得税及び法人税の臨時特例に関する法律施行規則
 - `423AC0000000029` 東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律
