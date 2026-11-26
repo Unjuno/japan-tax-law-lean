@@ -13,7 +13,6 @@
 
 ---
 
-
 ## Batch G review (2026-11-18)
 
 ### 1. 独立抽出した fee 一覧（原文 → 抽出値 → Lean def）
@@ -3797,6 +3796,7 @@ run 後に削除、repo には残していない。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・数値／算術の独立抽出と再計算・needle の直接検証・整数式の反例走査・`#print axioms` 公理監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって人間の法的レビューを完了したものとはみなさない。
 
+
 ## Batch Z review (2026-11-20)
 
 対象: `JapanTaxLaw/CustomsStorageFee.lean`（関税法施行令 art.70の3／法 329CO0000000150）と対応 `CustomsStorageFeeSpec.lean` / `CustomsStorageFeeTests.lean`。一次資料: `data/raw/329CO0000000150_20260701_508CO0000000217.law.json` の `Article[Num=70_3]`（pinned、改変せず）。coordinator 要約・STAGING の数値は信じず、pinned JSON を Python で直接 parse して独立抽出した。
@@ -4652,7 +4652,6 @@ coordinator 要約・STAGING を経由せず、pinned 原文の文字列から�
 - 残る UNRESOLVED（U-AF1 基礎控除額の算定基礎、U-AF2 二倍引き上げの法的効果の範囲）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・算術の独立抽出と再計算・needle の `.find()` 検証・境界値走査・`#print axioms` 公理監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって人間の法的レビューを完了したものとはみなさない。
-
 ## Batch AG review (2026-11-20)
 
 ### AG-0. 範囲・独立性の申告
@@ -4978,7 +4977,6 @@ STAGING の needle テキストを信じず、`scripts/ci/transcription_audit.py
 - **C**: 「端数」の扱いは原文上「一単位として数える」と読むのが自然だが、行政実務の weighing 丸め規則は別途政令・通達に委任され、本モデルは射程外。
 - **U**: 車両区分・税率・有効期間・臨時検査の〇・五乗じは caller-established で未形式化。
 - **判定**: **BY-DESIGN**。CONFIRMED 0 件。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
-
 ## Batch AJ review (2026-11-21)
 
 対象: cycle-26/27/28/29/30/31 の 6 モデル（`DutyFreeTransfer` / `SavingsDepositInterest` / `PowderSakeQuantity` / `TobaccoRate` / `StampExchangeFee` / `RemittanceReportLimit`）。coordinator 要約・STAGING を信じず、`data/raw/*.law.json` の pinned 原文から Python で直接・独立に漢数字を算数へ変換して抽出し、Lean 定数・needle・境界・公理を照合した。CI `checks()` の needle 実文字列は `scripts/ci/transcription_audit.py` から直接読み出し、自前正規化した pinned 原文に対して検証した（STAGING の记载は未使用）。
@@ -5069,7 +5067,6 @@ STAGING の needle テキストを信じず、`scripts/ci/transcription_audit.py
 - **CONFIRMED（ドキュメント表記のみ・非意味的）= 1 件**: 5 モデル（SavingsDepositInterest / PowderSakeQuantity / TobaccoRate / StampExchangeFee / RemittanceReportLimit）の header `Raw snapshot:` が `data/raw/data/raw/…` と二重になっており、実在する正規パスは `data/raw/…`（DutyFreeTransfer は正しい単一パス）。law_id・revision・文字数・needle・定数はすべて正しく、計算・証明・pin 完全性への影響なし。修正は Lean モジュール側のため本レビューでは変更せず報告のみ。
 
 > 本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。解析用一時ファイルはすべて削除済み。Lean モジュール / `data/*.json` / `scripts/*.py` は読み取り専用で一切変更せず、commit / push / merge / ブランチ切替は行っていない。
-
 ## Batch AK review (2026-11-21) — 関税法施行令 art.40 / TravelerExemptionLimit.lean（cycle-33 独立照合）
 
 - **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。coordinator 要約・STAGING は信じず、pinned `data/raw/*.law.json` から直接・独立に抽出して照合した。
@@ -5175,6 +5172,7 @@ STAGING の needle テキストを信じず、`scripts/ci/transcription_audit.py
 - 残る U-1 は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合であり、人間の法律専門家によるレビューを称するものではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
+
 
 ## Batch AL review (2026-11-21) — 登録免許税法施行令 art.26 / 石油ガス譲与税法 art.1（cycle-34/35 独立照合）
 
@@ -5868,6 +5866,7 @@ STAGING の needle テキストを信じず、`scripts/ci/transcription_audit.py
 
 > **本レビューは機械的独立照合であり、人間の法律専門家によるレビューを称するものではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
 
+
 ## Batch AR review (2026-11-22)
 
 - **レビュー日**: 2026-11-22
@@ -5978,7 +5977,6 @@ raw JSON の `law_full_text` を走査し `Num: "8"` の `Article` を 1 件同�
 - 一時ファイル（Windows temp 配下の probe / verify Python 3 本・axioms Lean 1 本・本スクリプト）は削除済み。
 
 > **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。** 法的妥当性・適用関係の最終判断は人間に委ねる。本レビューをもって法的レビューが完了したとみなしてはならない。一時ファイルは削除済み。
-
 ## Batch AS review (2026-11-22)
 
 - **レビュー日**: 2026-11-22
@@ -6087,7 +6085,6 @@ pinned art.4 の text-leaf 連結（生・正規化とも 55 文字、U+3000 = 0
 - 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / Spec / Tests / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。一時ファイル（検証 Python 3 本・出力 1 本・axioms Lean 1 本）は削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・漢数字の独立抽出・needle `.find()` 検証・境界値の kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。一時ファイルは削除済み。
-
 ## Batch AT review (2026-11-22)
 
 - **レビュー日**: 2026-11-22
@@ -6445,7 +6442,6 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 - 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・自前日本語数字パーサ・needle 自前正規化検証・端点値 kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
 ## Batch AW review (2026-11-22) — 不当廉売関税率政令 art.2 / AntiDumpingRate694.lean（cycle-52 独立原文照合）
 
 - **レビュア役割**: Adversarial Review Agent（形式化担当から完全に独立）。coordinator 要約・STAGING・CI 監査結果は信じず、pinned 原文 JSON を直接再 parse し、日本語数字を自前パーサで Arabic 変換し、needle は自前正規化原文で検証した。
@@ -6570,6 +6566,7 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 - 書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール / `data/*` は読み取り専用。commit / push / merge / ブランチ切替は行っていない（既存の他エージェントによる無関係な変更は触れていない）。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・自前日本語数字パーサ・needle 自前正規化検証・端点値 kernel-decide 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
 
 ## Batch AX review (2026-11-22) — 関税割当数量省令 art.5 / TariffQuotaAmount.lean（cycle-53 独立原文照合）
 
@@ -7290,6 +7287,7 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・漢数字の自前 Arabic 変換・needle 自前正規化検証・カーネル `by decide` 走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
 
+
 ## Batch BD review (2026-11-22) — 不当廉売関税率政令 art.2 / AntiDumpingRate952.lean (95.2%) · cycle-59 独立照合
 
 - **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。担当の STAGING（`STAGING_ANTIDUMP952.md`）／doc-comment／coordinator 要約は**信じず**、pinned 原文から直接・独立に再抽出して照合した。
@@ -7379,7 +7377,6 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 - Lean モジュール / `data/*` は読み取り専用を遵守。commit / push / merge / ブランチ切替なし。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 実文字列照合・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
 ## Batch BE review (2026-11-22) — 不当廉売関税率政令 art.2 / AntiDumpingRate372.lean (37.2%) · cycle-60 独立照合
 
 - **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。担当の STAGING／doc-comment／coordinator 要約は**信じず**、pinned 原文から直接・独立に再抽出して照合した。
@@ -8096,6 +8093,7 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 
 > **本レビューは機械的独立照合（pinned 原文 parse・指定区分抽出・needle 実文字列照合・反例評価・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューが完了したとみなしてはならない。一時ファイルは削除済み。
 
+
 ## Batch BM review (2026-11-22)
 
 - **対象**: 関税法施行規則 art.1の11（納付受託者の指定に係る公示事項） / `JapanTaxLaw/PublicityMatter.lean`（cycle-68）。補助 `PublicityMatterSpec.lean` / `PublicityMatterTests.lean` も照合に使用（読み取りのみ）。
@@ -8277,6 +8275,7 @@ doc-comment の `Scope / NOT MODELLED` と pinned 原文を突き合わせ、以
 - Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。commit / push / merge / ブランチ切替なし。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・市町村区分抽出・needle 実文字列照合・反例評価・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューが完了したとみなしてはならない。一時ファイルは削除済み。
+
 
 ## Batch BO review (2026-11-22) — 関税定率法施行令 art.2 / CarnetImportGoods.lean（cycle-70 独立原文照合）
 
@@ -8688,7 +8687,6 @@ CI の実文字列は `scripts/ci/transcription_audit.py` の `checks()` cycle-7
 - Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。commit / push / merge / ブランチ切替は行っていない。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・期限抽出・needle 健全性・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
 ## Batch BS review (2026-11-22)
 
 - **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。担当者の STAGING／doc-comment／CI `checks()` の申告を**信じず**、pinned raw JSON を自前の再帰 walker で直接走査した機械的独立照合。commit / push / merge / ブランチ切替は行っていない。
@@ -8898,7 +8896,6 @@ CI の実文字列は `scripts/ci/transcription_audit.py` の `checks()` cycle-7
 - Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。commit / push / merge / ブランチ切替は行っていない。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・期限数値抽出・needle 健全性・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
 ## Batch BU review (2026-11-23)
 
 - **レビュア役割**: Adversarial Review Agent（形式化担当および上位セッションから独立）。形式化担当の STAGING／doc-comment を信じず、pinned 原文バイトから直接再抽出した機械的照合を持って判定した。
@@ -9192,7 +9189,6 @@ CI `checks()` の cycle-78 エントリ（`scripts/ci/transcription_audit.py` �
 - Lean モジュール / `data/*` / `scripts/*` は読み取り専用を遵守。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。commit / push / merge / ブランチ切替は行っていない。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・桁違い／率／境界の数値抽出・needle 健全性・境界値走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
 ## Batch BX review (2026-11-23) — 震災復興特別交付税省令 art.2 §1 / NonUniformRateCap.lean（cycle-79 独立原文照合）
 
 - **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。担当者の STAGING／doc-comment の主張を信じず、pinned の JSON バイトから自前で再抽出した結果をもって判定した。
@@ -9412,7 +9408,6 @@ Python で Lean と同一の整数式 `base * 5 // 100` を再計算し、指定
 - 残る UNRESOLVED（U-Y1 端数処理の法的正当性、U-Y2 課税標準・申告手続の未形式化の法的十分性）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・漢数字変換による税率照合・needle の `.find()` 検証・integer 式の反例走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
 ## Batch BZ review (2026-11-23) — 地方税法 art.73の15 / RealPropertyAcquisitionTaxRate.lean（cycle-82 独立原文照合）
 
 ### BZ-0. 範囲・独立性の申告
@@ -9531,7 +9526,6 @@ Python で Lean と同一の整数式 `base * 4 // 100` を再計算し、指定
 - 残る UNRESOLVED（U-Z1 端数処理の法的正当性、U-Z2 標準税率と条例別税率の関係・課税標準・申告手続の未形式化の法的十分性）は pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文の直接 parse・漢数字変換による税率照合・needle の `.find()` 検証・integer 式の反例走査・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
 ## Batch CA review (2026-11-23) — 自動車重量譲与税法施行規則 art.3の2 / CarCountReferenceDate.lean（cycle-84 独立原文照合）
 
 ### CA-0. 範囲・独立性の申告
@@ -10576,7 +10570,6 @@ pinned 原文の独立抽出（§5 一 イ/ロ/ハ と 100/70/69 境界）、nee
 - **CONFIRMED 0 / BY-DESIGN 6 / UNRESOLVED 4**。発見ゼロ。売上割合の平均値の算定方法・基準日・§5 二以降は未形式化（BY-DESIGN B-CJ1 / UNRESOLVED U-CJ1〜U-CJ4）。
 - 追記後レビュー件数 **86**（既存 85 件は全件保持、Batch AH〜CI を含む）。追記は `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替なし。一時ファイル（抽出・検証・公理監査スクリプト）は削除済み。
 - **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。
-
 ## Batch CK review (2026-11-23) — 震災復興特別交付税 算定方法 art.2 / PopulationDensityBracket.lean（cycle-94 独立照合・反例探索）
 
 **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。
@@ -10949,6 +10942,7 @@ pinned 第二条（正規化 42,596 chars）には本モデルが扱う公共下
 - 追記後レビュー件数 **91**（既存 90 件は全件保持、Batch AH〜CN を含む）。追記は `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用、commit / push / merge / ブランチ切替なし。一時ファイル（抽出・正規化・検証・公理監査・追記スクリプト）は削除済み。
 - **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。
 
+
 ## Batch CP review (2026-11-24) — 相続税物納財産収納後の手続等に関する省令 附則 art.1（施行日）/ PropertyInKindEnforcementDate.lean（cycle-99 機械的独立照合・反例探索）
 
 **本レビューは機械的独立照合であり、人間の法律専門家レビューではない。** 法的判断・最終的な正しさは専門家による確認を要する。本レビューをもって法的レビューを完了したものとはみなさない。
@@ -11241,6 +11235,7 @@ pinned 附則（17 ブロック）には本モデルが扱う平成15年施行�
 
 > **本レビューは機械的独立照合（pinned 原文 parse・元号換算・needle 健全性・境界値走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
 
+
 ## Batch CU review (2026-11-24) — 航空機燃料譲与税法施行令 附則 art.1（施行日）/ AircraftFuelGrantTaxOrderEnforcementDate.lean（cycle-104 機械的独立照合・反例探索）
 
 ### CU-0. 範囲・独立性の申告
@@ -11325,7 +11320,6 @@ pinned 附則（17 ブロック）には本モデルが扱う平成15年施行�
 - **Lean モジュール変更**: なし。`data/*` も読み取り専用。commit / push / merge / ブランチ切替は行っていない。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・元号換算・needle 健全性・境界値走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
 ## Batch CV review (2026-11-24) — 重油粗油関税割当制度省令 附則 art.1（施行日）/ HeavyOilQuotaOrderEnforcementDate.lean（cycle-105 機械的独立照合・反例探索）
 
 ### CV-0. 範囲・独立性の申告
@@ -11426,7 +11420,6 @@ pinned 附則（17 ブロック）には本モデルが扱う平成15年施行�
 - 残る UNRESOLVED（U-1 未形式化範囲の法的十分性、U-2 最新改正附則との関係）はいずれも pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・元号換算・needle 健全性・境界値走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
 ## Batch CW review (2026-11-24) — アメリカ合衆国軍隊等が行う免税軽油の引取りの手続に関する総理府令 附則 art.1（施行日）/ DutyFreeLightOilOrderEnforcementDate.lean（cycle-106 機械的独立照合・反例探索）
 
 ### CW-0. 範囲・独立性の申告
@@ -11627,6 +11620,7 @@ pinned 附則（17 ブロック）には本モデルが扱う平成15年施行�
 - 残る UNRESOLVED（U-1 未形式化範囲の法的十分性、U-2 本 revision の改正附則との関係）はいずれも pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・元号換算・needle 健全性・境界値走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
 
 ## Batch CY review (2026-11-24) — 国際復興開発銀行等外資受入特別措置政令 附則 art.1（施行日）/ ForeignCapitalSpecialOrderEnforcementDate.lean（cycle-108 機械的独立照合・反例探索）
 
@@ -11838,7 +11832,6 @@ pinned 附則（17 ブロック）には本モデルが扱う平成15年施行�
 - 残る UNRESOLVED（U-1 未形式化範囲の法的十分性、U-2 端数処理の法的根拠）はいずれも pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・率の漢数字抽出・needle 健全性・反例/拡張走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
 ## Batch DA review (2026-11-24) — 地方税法 art.34 §2（医療費控除の多段計算: 5% / 10万円 cap / 200万円 cap）/ MedicalExpenseDeduction.lean（cycle-110 機械的独立照合・反例探索）
 
 ### DA-0. 範囲・独立性の申告
@@ -11962,7 +11955,6 @@ pinned 附則（17 ブロック）には本モデルが扱う平成15年施行�
 - **C（対立解釈）**: 国税通則法 art.118（課税標準の千円未満切捨て）との同一性は別条文・別税目であり、ここでは art.4 のみを根拠とする。前二条の譲与額算定は未形式化。
 - **U（不確かさ）**: 端数処理の規定が前二条の算定途中にも及ぶかは原文から確定せず、未対応条件として保持。
 - **判定**: **BY-DESIGN**。CONFIRMED 0 / UNRESOLVED 1（前二条の算定・附則）。人間レビューは `LEGAL_REVIEW_PENDING`。
-
 ## Batch DB review (2026-11-24) — 地方税法 art.34 §1 四 イ (ii)（新生命保険料控除 中段 1.2万円超3.2万円以下）/ LifeInsurancePremiumDeduction.lean（cycle-111 機械的独立照合・反例探索）
 
 ### DB-0. 範囲・独立性の申告
@@ -12077,7 +12069,6 @@ pinned 附則（17 ブロック）には本モデルが扱う平成15年施行�
 - 残る UNRESOLVED（U-1 未形式化範囲の法的十分性、U-2 端数処理の法的根拠、U-3 政令委任の解釈）はいずれも pinned 原文のみでは解けない判断であり、**人間の法律専門家によるレビューを要する**。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・反例/全走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
 ## Batch DC review (2026-11-24) — 地方税法 art.34 §1 四 イ (iii)（新生命保険料控除 上段 3.2万円超5.6万円以下）/ LifeInsurancePremiumDeductionUpper.lean（cycle-112 機械的独立照合・反例探索）
 
 ### DC-0. 範囲・独立性の申告
@@ -12314,6 +12305,8 @@ CI `checks()` の `LifeInsurancePremiumDeductionUpper.lean` エントリ（law_i
 
 > **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・反例/走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
 
+
+
 ## Batch AH review (2026-11-24) — six-month investigation extension
 
 ### InvestigationExtensionSixMonths.lean
@@ -12334,7 +12327,6 @@ CI `checks()` の `LifeInsurancePremiumDeductionUpper.lean` エントリ（law_i
 - **独立再抽出**: pinned 原文から 1,000 円未満の端数控除を再導出。独立仕様 `x - x % 1000` と実装 `x / 1000 * 1000` の対応を全称定理 `agreeRound` でカーネル検証。
 - **H/T/D**: 単位 1,000 円、定義域 Nat、needle 1/1、境界 0/999/1000/1001/1999/2000 PASS。
 - **C/U**: 石油ガス譲与税法 art.4 は別法源。前三条の算定・附則は未形式化。人間レビュー `LEGAL_REVIEW_PENDING`。
-
 ## Batch DE review (2026-11-25) — 地方税法 art.34 §1 四 ロ (ii)（旧生命保険料控除 中段: 1.5万円超4万円以下、15000+(total-15000)/2、上限40000で27500）/ OldLifeInsurancePremiumDeductionMid.lean（cycle-115 機械的独立照合・反例探索）
 
 ### DE-0. 範囲・独立性の申告
@@ -12683,7 +12675,6 @@ Impl `deduction(t) = 22000 + (t-32000)/4`（Money = Nat、減算は 0 saturation
 - **独立再抽出**: 原文から二つの厳密比較と置換値を再導出。独立仕様は逆方向・加法形で書き、全称定理 `agreeCorrected` が omega で照合。
 - **H/T/D**: 0.1 世帯単位・Nat。境界 差=千/千+1、〇・七境界、補正発動/非発動 PASS。
 - **C/U**: 重量・旅客数 rate 表、別表第三は NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
-
 ## Batch DH review (2026-11-26) — 地方税法 art.34 §1 四 ハ (2)(ii)（旧個人年金保険料控除 中段 1.5万円超4万円以下）/ OldIndividualAnnuityPremiumDeductionMid.lean（cycle-118 機械的独立照合・反例探索）
 
 ### DH-0. 範囲・pinned pin・方法
@@ -12792,7 +12783,6 @@ Impl `deduction(t) = 15000 + (t-15000)/2`（Money = Nat、減算は 0 saturation
 - **制約順守**: Lean モジュール・`data/*`・`scripts/*` は読み取り専用で変更なし。commit / push / merge / ブランチ切替は行っていない。一時ファイルは削除した。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・反例/全走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
 ## Batch DI review (2026-11-26) — 地方税法 art.20の4の2 §3（地方税確定金額の百円未満切捨て）/ LocalTaxFixedAmountRounding.lean（cycle-119 機械的独立照合・反例探索）
 
 ### DI-0. 範囲・pinned pin・方法
@@ -12899,7 +12889,6 @@ Impl `roundDownToHundred(a) = (a / 100) * 100`（Nat）に対し、独立 Spec `
 - **制約順守**: Lean モジュール・`data/*`・`scripts/*` は読み取り専用で変更なし（作業ツリーの他エージェントによる無関係な変更には触れていない）。commit / push / merge / ブランチ切替は行っていない。一時ファイルは削除した。
 
 > **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle の `.find()` 検証・反例/全走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
 ## Batch DJ review (2026-11-26)
 
 - 対象: `JapanTaxLaw/CohabitantSpecialDisabilityDeduction.lean`（地方税法 art.37 §1 の表 第(2)行 / 同居特別障害者控除、一人 22 万円）。law id `325AC0000000226`、revision `325AC0000000226_20261101_508AC0000000002`、pinned 原文 `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`。
@@ -13008,7 +12997,6 @@ pinned JSON を構造体としてではなく生文字列として走査し、`"
 - **規約遵守**: commit / push / merge / ブランチ切替は行わず、Lean モジュール・`data/*`・`scripts/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文の直接抽出・needle の `.find()` 相当検査・代表点での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。法的な最終判断・解釈は専門家レビューに委ねる。本レビューをもって法的レビューを完了したものとはみなさない。**
-
 ## Batch DK review (2026-11-26)
 
 対象: `JapanTaxLaw/DonationTaxCredit.lean` / `DonationTaxCreditSpec.lean` / `DonationTaxCreditTests.lean` — 地方税法 art.37の2 §1（寄附金税額控除）、law id `325AC0000000226`、revision `325AC0000000226_20261101_508AC0000000002`（cycle-121 の1モデル）。独立 Adversarial Review Agent による機械的照合。
@@ -13107,7 +13095,6 @@ pinned JSON を構造体としてではなく生文字列として走査し、`"
 - **規約遵守**: commit / push / merge / ブランチ切替は行わず、Lean モジュール・`data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文の直接抽出・needle の `.find()` 相当検査・代表点での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。法的な最終判断・解釈は専門家レビューに委ねる。本レビューをもって法的レビューを完了したものとはみなさない。**
-
 ## Batch DL review (2026-11-26) — 地方税法 art.37 §1(9)（同居直系尊属の老人扶養親族控除 一人13万円）/ `CohabitElderlyDependentDeduction.lean`（cycle-122 の1モデル）
 
 対象: `JapanTaxLaw/CohabitElderlyDependentDeduction.lean` / `CohabitElderlyDependentDeductionSpec.lean` / `CohabitElderlyDependentDeductionTests.lean` — 地方税法 art.37 §1 第9号、law id `325AC0000000226`、revision `325AC0000000226_20261101_508AC0000000002`。独立 Adversarial Review Agent による pinned 原文照合・反例探索（機械的独立照合）。
@@ -13201,7 +13188,6 @@ pinned JSON を構造体としてではなく生文字列として走査し、`"
 - **規約遵守**: commit / push / merge / ブランチ切替は行わず、Lean モジュール・`data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文からの直接抽出・needle の部分文字列検査・代表点での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。法的な最終判断・解釈は専門家レビューに委ねる。本レビューをもって法的レビューを完了したものとはみなさない。**
-
 ## Batch DM review (2026-11-26) — 地方税法 art.23 §1 第11号 イ（２）／第12号 イ（２）（前年の合計所得金額が五百万円以下であること）/ `EqualLevyIncomeRequirement.lean`（cycle-123 の1モデル）
 
 対象: `JapanTaxLaw/EqualLevyIncomeRequirement.lean` / `EqualLevyIncomeRequirementSpec.lean` / `EqualLevyIncomeRequirementTests.lean` — 地方税法 art.23 §1、law id `325AC0000000226`、revision `325AC0000000226_20261101_508AC0000000002`。独立 Adversarial Review Agent による pinned 原文照合・反例探索（機械的独立照合）。
@@ -13314,7 +13300,6 @@ pinned JSON を構造体としてではなく生文字列として走査し、`"
 - **独立再抽出**: MainProvision 直下の第五百九十四条を ArticleTitle で特定し、原文から税率を独立抽出。SHA-256 pin を再計算。
 - **照合・判定**: 百分の一・四 → 14/1000（1.4%）、百分の三 → 3/100。14/100（10倍誤り）を反例テストで排除。D=CONFIRMED。
 - **限界**: 課税標準・該当性・免除・附則は NOT MODELLED。機械的独立照合であり人間の法的レビューではない（LEGAL_REVIEW_PENDING）。
-
 ## Batch DN review (2026-11-26) — 地方税法 art.20の4の2 §1（課税標準額の千円未満切捨て）/ `TaxBaseRounding.lean`（cycle-124 の1モデル）
 
 - **レビュア役割**: 独立 Adversarial Review Agent（形式化担当から独立）。担当の STAGING／doc-comment は信じず、pinned 原文・registry・実装・Spec を機械的に再照合した。
@@ -13415,7 +13400,6 @@ registry の `needles` 2 本を pinned JSON の生テキストおよび Article 
 - **件数・保持**: 書き込み直前に再読込した広義レビュー件数は **117 件**（SHA-256 `241D2C851B1C7FA26FDF739D6949AC60B073A627342C28FF9889B682F97FF84C`、1,594,460 バイト）。本セクション追記後は **118 件**（既存 +1）。既存セクション（Batch G〜DM・SLHR を含む書き込み直前の全バイト列）は前方一致で保持されていることを書き込み後に検証した。
 
 > **本レビューは機械的独立照合（pinned 原文の直接抽出・needle の部分文字列検査・境界反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
 ## Batch DO review (2026-11-26) — 地方税法 art.20の4の2 §2（延滞金・加算金の計算基礎税額の端数処理）/ `ArrearsChargeRounding.lean`（cycle-125 の1モデル、機械的独立照合・反例探索）
 
 ### DO-1. pinned 原文から 2 数値を直接独立抽出（千円＝1000 / 二千円＝2000、桁違い明示除外）
@@ -13530,7 +13514,6 @@ registry の `needles` 2 本を pinned JSON の生テキストおよび Article 
 - **独立再抽出**: ホ = `i - (ro + ha + ni)` (Nat 飽和減算, 単位 人)。独立仕様は三段階減算で書き、全称定理 `agreeTaxablePassengers` が omega で照合。
 - **H/T/D**: 境界 40 / 0 / 0 (飽和) / 250 PASS; 普遍定理 3 件。
 - **C/U**: 四数の認定・ヘ税額・他条は NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
-
 ## Batch DP review (2026-11-26) — 地方税法 art.20の4の2 §3 ただし書（政令で定める地方税の確定金額 一円未満切捨て）/ `CabinetOrderLocalTaxOneYenRounding.lean`（cycle-126 の1モデル、機械的独立照合・反例探索）
 
 - **レビュア役割**: 独立 Adversarial Review Agent（形式化担当から独立）。担当の STAGING／doc-comment は信じず、pinned 原文ツリー・registry／CI 定義・実装・独立 Spec を機械的に再照合した。
@@ -13823,7 +13806,6 @@ needle はタスク提示の原文引用からレビュー側が書き起こし�
 独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
 照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
 判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
 ## Batch DR review (2026-11-26) — 国連軍地位協定実施法 附則 art.1（施行日）/ `UnForcesStatusAgreementEnforcementDate.lean`（cycle-128）
 
 ### DR-0. 範囲・独立性の申告
@@ -14049,1029 +14031,5 @@ needle はタスク提示の原文引用からレビュー側が書き起こし�
 - **公理**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件、9/9 axiom-free（exit code 0）。リポジトリ内に一時 Lean ファイルは作成せず、temp の検証ファイルは削除済み。
 - **禁止操作の遵守**: commit / push / merge / ブランチ切替は一切実行していない。Lean モジュールと `data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
 - **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `A560160AA4B119C7865A54D985F6A254513CA2314D8241F44B98476EAE59D39D`・`1,662,362` バイト・広義レビュー件数 **123 件**（`^## .*review` ベース、H2 129 件、DS 見出し 0 件）。本セクション追記後は **124 件（Previous +1）** へ増加するはずであり、書き込み後の再読込で件数・既存バイト列の前方一致・既存見出し残存を検証する（自己言及的なハッシュ値は本文に埋め込まない）。並行ワーストリームが件数を変動させる可能性があるため、採用した値は書き込み直前の再読込値である。
-
-> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
-### BlueBusinessDeductAmount.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### ReserveAccumulationAtMost25.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
----
-
-## Batch DT review (2026-11-26)
-
-日米安全保障条約第六条に基づく関税法等の特例法 附則 art.1（施行日 昭和六十年四月一日 = 1985-04-01）/ `SofAgreementSpecialTaxEnforcementDate.lean` — cycle-130 の 1 モデル独立照合。
-
-### DT-0. 範囲・独立性の申告
-
-- 対象: `JapanTaxLaw/SofAgreementSpecialTaxEnforcementDate.lean`（本文 47 行）と `...Spec.lean`（23 行） / `...Tests.lean`（16 行）。いずれも読み取り専用で、本レビューでは一切変更していない。形式化担当とは独立した Adversarial Review Agent による cycle-130 の照合。
-- 一次資料（pinned・改変禁止）: `data/raw/327AC0000000113_20260401_508AC0000000012.law.json`（law_id `327AC0000000113` / revision `327AC0000000113_20260401_508AC0000000012`、21,641 バイト、SHA-256 `BB30245B6C74180D4F0F4B4187DC07D41893717BED1506BF82CB545ADAC8434A`）。doc-comment の `data/raw/data/raw/...` は prefix 二重の表記ゆれ（下記 B-2）。
-- `docs/STAGING_SOFA_ENFORCE.md` の needle は参照したがその記載は信じず、pinned JSON の `law_full_text` を PowerShell で再帰走査して施行日文を直接再抽出した。独立 Spec（辞書順成分比較）は `...Spec.lean` の定式をレビュー側で別に確認し、さらにレビュー側の広域走査で照合した。
-- commit / push / merge / ブランチ切替は一切実行していない。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
-
-### DT-1. pinned 原文の直接抽出・照合（昭和60年 = 1985 の独立的算出）
-
-- 構造的路径: `law_full_text -> LawBody -> SupplProvision[AmendLawNum=昭和五九年八月一〇日法律第七一号, Extract=true] -> Article[Num=1] -> ArticleTitle 第一条 -> Paragraph[Num=1] -> Sentence[Num=1]`
-- **原文逐語**: 「この法律は、昭和六十年四月一日から施行する。」（Caption は「（施行期日）」）
-- 日付句の独立抽出: 「**昭和六十年四月一日**」→ 年 = 昭和 60 / 月 = 四 / 日 = 一。
-- 元号換算: 昭和元年 = 1926 なので 1926 + 60 − 1 = **1985**。実装 `showaToSeireki 60 = 1925 + 60 = 1985` と一致。施行日 = **1985-04-01**。
-- **混同の明示除外**: 昭和 59 年 = 1984、昭和 61 年 = 1986 であり、いずれも原文の施行日ではない。pinned JSON 全 leaf 走査で `昭和五十九年四月一日` / `昭和六十一年四月一日` は **0 件**。附則の `AmendLawNum` に現れる「昭和五九年八月一〇日法律第七一号」は**改正法律の制定年**であって施行日ではない（混同注意）。
-
-| 原文（pinned） | レビュー側独立抽出 | Lean 実装 | 照合 |
-|---|---|---|---|
-| 昭和六十年四月一日 | 1926+60−1 = 1985 / 4 / 1 | `showaToSeireki 60 = 1985`, `enforcementDate = (1985,4,1)` | ✅ |
-| `dateKey` = YYYYMMDD | 1985×10000+4×100+1 = 19850401 | `enforcementKey = 19850401` | ✅ |
-
-### DT-2. needle 2 本の検証
-
-needle は `docs/STAGING_SOFA_ENFORCE.md` に記載された 2 本をレビュー側で書き起こし、pinned raw JSON に対して検索した。
-
-| needle | 内容 | U+3000 数 | raw JSON リテラル | 正規化全文 | 結果 |
-|---|---|---:|---|---|---|
-| 1 | `第一条この法律は、昭和六十年四月一日から施行する` | 0 | MISS | FOUND | **FOUND** |
-| 2 | `この法律は、昭和六十年四月一日から施行する` | 0 | FOUND | FOUND | **FOUND** |
-
-- 正規化全文 = `law_full_text` の文字列 leaf を文書順に連結し U+3000 / ASCII 空白を除去した文字列（2,628 文字）。needle 1 は `第一条` が `ArticleTitle`、本文が `Sentence` と別ノードに格納されているため raw JSON のリテラル部分文字列としては現れないが、正規化全文では「則（施行期日）第一条この法律は、昭和六十年四月一日から施行する。（…」として**一致 1 件**。needle 2 は raw JSON リテラルでも一致 1 件。
-- → **2/2 FOUND、MISS 0、両 needle の U+3000 = 0**。needle 末尾の「。」省略は部分文字列一致に影響なし（下記 B-3）。
-
-### DT-3. 反例探索と独立 Spec（辞書順成分比較）との一致
-
-独立 Spec（`...Spec.lean`）: `specInForce d = d.1 > 1985 || (d.1 == 1985 && d.2.1 > 4) || (d.1 == 1985 && d.2.1 == 4 && d.2.2 >= 1)` — 年→月→日の辞書順成分比較。
-
-| 日付 | `inForce`（実装） | `specInForce`（独立） | dateKey | 一致 |
-|---|---|---|---:|---|
-| (1985, 3, 31) | **false** | **false** | 19850331 < 19850401 | ✅ |
-| (1985, 4, 1) | **true** | **true** | 19850401 ≥ 19850401 | ✅ |
-| (1984, 12, 31) | false | false | 19841231 | ✅ |
-| (1985, 4, 2) | true | true | 19850402 | ✅ |
-| (1986, 1, 1) | true | true | 19860101 | ✅ |
-
-- 指示された反例 2 本は実装・独立 Spec の双方で一致。`agreeSofAgreementSpecialTaxEnforcementDate = true`（5 日）も `by decide` で確認。
-- レビュー側の広域走査: 年 1980〜1990（11）× 月 1〜12 × 日 1〜31 = **4,092 組み合わせ**で `inForce d == specInForce d` を `decide` で検証（一時定理 `sweep_valid`、axiom-free）→ **MISMATCH 0**。
-- `specInForce` が 1985 年 4 月を `d >= 1` ですべて採用するのは原文「四月一日から施行する」と整合（4 月 1 日が境界、それ以前は not in force）。
-- **BY-DESIGN の境界（B-4）**: `dateKey` の数値符号化は、月 1〜12 / 日 1〜31 の**正規な日付成分**に限り辞書順と順序同型。非正規な日成分（例 `d = 200`）では `specInForce (1985,3,200) = false`（辞書順では 3 月は 4 月より前）に対し `inForce (1985,3,200) = true`（`dateKey = 19850500`）と分岐する。これは暦として不正な入力領域の挙動であり、原文との矛盾ではない。
-
-### DT-4. `#print axioms` 監査
-
-- 一時 Lean ファイルはリポジトリ内に作らず、承認済み temp ディレクトリ `C:\Users\junny\AppData\Local\Temp\opencode\` に置いた。`lake env lean <tempfile>` は **exit code 0**。検証用一時ファイルはすべて削除済み。
-- 走査した **14 チェック**（モジュール 7 def: `showaToSeireki`, `enforcementDate`, `dateKey`, `enforcementKey`, `inForce`, `specInForce`, `agreeSofAgreementSpecialTaxEnforcementDate` ＋ 反例再現 6 定理 `dt_showa`, `dt_date`, `dt_key`, `dt_before`, `dt_on`, `dt_agree` ＋ 広域走査 `sweep_valid`）はすべて `"does not depend on any axioms"`。
-
-| 監査項目 | 件数 |
-|---|---:|
-| `Classical.choice` | **0** |
-| `sorryAx` | **0** |
-| `Quot.sound` | **0** |
-| `propext` | **0** |
-| axiom-free | **14/14** |
-
-### DT-5. CONFIRMED / BY-DESIGN / UNRESOLVED の分類
-
-| 分類 | 件数 |
-|---|---:|
-| **CONFIRMED** | **0** |
-| **BY-DESIGN** | **5** |
-| **UNRESOLVED** | **2** |
-
-#### CONFIRMED（0 件）
-
-- pinned 原文の日付・needle・反例・Impl/独立 Spec・公理監査のいずれにも食い違いなし。**発見ゼロを明示する。**
-
-#### BY-DESIGN（5 件）— 未形式化の確認を含む
-
-- **B-1 附則の他条・実体規定は NOT MODELLED**: 本モデルは附則 art.1（施行期日）のみ。附則 art.10 以降の経過措置（例: たばこ事業法・塩専売法の違反事件に関する効力規定）および本則の実体規定（国税通則法等の臨時特例）は一切形式化していない。doc-comment が明示するスコープ境界であり、反映漏れではない。
-- **B-2 表記ゆれ**: doc-comment の `data/raw/data/raw/...` は prefix 二重（実在ファイルは `data/raw/...`）。モデル値・照合結果に影響なし。
-- **B-3 needle 1 の raw JSON リテラル不在**: `第一条` と本文が別 JSON ノードのため部分文字列としては現れないが、プロジェクトの正規化全文照合では 2/2 FOUND。末尾「。」省略も部分文字列一致に影響なし。
-- **B-4 `dateKey` と辞書順の順序同型は正規日付成分に限る**: 日 ≥ 100 のような非正規入力では分岐するが、暦として不正な領域（DT-3）。
-- **B-5 附則ラベルの U+3000**: pinned の `SupplProvisionLabel` は「附　則」と U+3000 を含むが、needle 自身には U+3000 がなく照合に影響しない。
-
-#### UNRESOLVED（2 件）
-
-- **U-1 未形式化部分の法的適用関係**: 施行日のみでは、経過措置・実体規定の実際の適用関係（施行前に生じた事案の取扱い等）は確定不能。**人間の法律専門家による確認を要する。**
-- **U-2 元号換算の法的最終確認**: 昭和元年 = 1926 という起算は外部の通則に依存し、原文には「昭和六十年四月一日」としか記載がない。機械的照合で 1985-04-01 を確認したが、法解釈上の最終判断は専門家に委ねる。
-
-### DT-6. 最終報告（サマリ）
-
-- **CONFIRMED 0 / BY-DESIGN 5 / UNRESOLVED 2**。原文・needle・実装・独立 Spec の食い違いなし。
-- **pinned 原文照合**: `SupplProvision -> Article[Num=1]` の `Sentence` から「この法律は、昭和六十年四月一日から施行する。」を直接抽出。昭和 60 = 1926+60−1 = 1985 を確認し、昭和 59（1984）/ 昭和 61（1986）を明示除外。
-- **needle**: 2 本とも U+3000 = 0、正規化全文で 2/2 FOUND、MISS 0。
-- **反例**: `inForce(1985,3,31)=false` / `inForce(1985,4,1)=true`。独立 Spec（辞書順）と一致。4,092 組み合わせの広域走査でも MISMATCH 0。
-- **公理**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件、14/14 axiom-free（exit code 0）。一時ファイルは削除済み。
-- **禁止操作の遵守**: commit / push / merge / ブランチ切替は一切実行していない。Lean モジュールと `data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
-- **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `32ACDF70E2F7967E1F2E45813284208B50DC1F666248F1E7B158EFB0776542FF`・`1673356` バイト・広義レビュー件数 **1 件**（`^## .*review` ベース）。本セクション追記後は **2 件（Previous +1）** へ増加するはずであり、書き込み後の再読込で件数・既存バイト列の前方一致・既存見出し残存を検証する（自己言及的なハッシュ値は本文に埋め込まない）。並行ワーストリームが件数を変動させる可能性があるため、採用した値は書き込み直前の再読込値である。
-
-> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
-### DoubtfulReceivableDeduction.lean — 税理士法人会計帳簿省令 art.22-3(6)
-
-- **pin**: law `326M50000040055`, article 第二十二条の三(6); needle「取立不能のおそれのある債権については、事業年度の末日においてその時に取り立てることができないと見込まれる額を控除しなければならない。」
-- **独立再抽出**: `帳簿価額 = 債権額 − 回収不能見込額`（Nat 飽和減算, 円）。独立仕様は明示的条件式、全称定理 `agreeBookedAmount` が omega で照合。
-- **H/T/D**: 700 / 0 / 0（飽和）/ 0 境界 PASS; 普遍定理 3 件。
-- **C/U**: 債権認定・評価日・他号は NOT MODELLED。`LEGAL_REVIEW_PENDING`。
-
-### FifthWheelGrossWeight.lean — 登録免許税法施行規則 art.5(1)
-
-- **pin**: law `346CO0000000275`, article 第五条(1); needle「その自動車検査証に記録される車両総重量から第五輪荷重を控除し牽けん引重量を加えた重量」.
-- **独立再抽出**: `(記録重量 − 第五輪荷重) + 牽引重量` (kg, Nat)。独立仕様は条件分岐、全称定理 `agreeGrossWeight` が omega で照合。
-- **H/T/D**: 9000 / 2000 / 2000（飽和）/ 0 境界 PASS。
-- **C/U**: 適用要件・被牽引自動車は NOT MODELLED。`LEGAL_REVIEW_PENDING`。
-
-### ExtraDepreciationBelow10.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### InheritedAnnuityRatioOver50.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### InheritedAnnuityRatioAtMost50.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### AnnuityRatioOver50UpTo55.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### ReserveAccumulationOver50UpTo75.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### PublicFacilityAreaAtLeast10.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### AverageImportOver30Percent.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様（交差乗算）の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### TriggerPriceGapOver75Percent.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様（交差乗算）の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### MedicalCorpCapitalOver50.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### Below200kYen.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### RateReading20To10.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様（分母100を揃えた比較）の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### RateReading20To25.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様（分母100を揃えた比較）の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### ConsumptionTaxRate10or8.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### ForestRateAtLeast85.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-
----
-
-## Batch DU review (2026-11-26)
-
-日米相互防衛援助協定実施政令 附則 art.1（施行日 昭和六十四年四月一日 = 1989-04-01）/ `JapanTaxLaw/MutualDefenseAidAgreementEnforcementDate.lean` — cycle-131 の 1 モデル独立照合（形式化担当から独立した Adversarial Review Agent による機械的照合）。
-
-### DU-0. 範囲・独立性の申告
-
-- 対象（読み取り専用・一切変更していない）: `JapanTaxLaw/MutualDefenseAidAgreementEnforcementDate.lean`（1,761 バイト）、`...Spec.lean`（925 バイト）、`...Tests.lean`（622 バイト）。
-- 一次資料（pinned・改変禁止）: `data/raw/329CO0000000103_20250401_507CO0000000006.law.json`（law_id `329CO0000000103` / revision `329CO0000000103_20250401_507CO0000000006`、41,361 バイト、SHA-256 `97EC731308D1674E6D6014594F7C3BEFBAF5CCB438081C2BA8C018DEAEEA1563`、表題「日本国とアメリカ合衆国との間の相互防衛援助協定の実施に伴う関税法等の臨時特例に関する法律施行令」）。
-- `docs/STAGING_MUTUAL_DEFENSE_ENFORCE.md` の needle は参照したがその記載は信じず、pinned JSON の `law_full_text` をレビュー側で再帰走査して施行日文を直接再抽出した。独立 Spec（辞書順成分比較）はレビュー側で Python にて別途実装し、さらに Lean 側の広域走査でも照合した。
-- commit / push / merge / ブランチ切替は一切実行していない。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュールと `data/*` は読み取り専用。
-
-### DU-1. pinned 原文の直接抽出・照合（昭和64年 = 1989 の独立的算出）
-
-- 構造的路径: `law_full_text -> LawBody -> SupplProvision[AmendLawNum=昭和六三年一二月三〇日政令第三六一号, Extract=true, label=附　則] -> Article[Num=1] -> ArticleCaption（施行期日） -> ArticleTitle 第一条 -> Paragraph[Num=1] -> Sentence[Num=1]`。当該 `SupplProvision` は pinned 全文に 1 件のみ。
-- **原文逐語（当該 Article の flat テキスト）**: 「（施行期日）第一条この政令は、昭和六十四年四月一日から施行する。」／ `Sentence` 単体では「この政令は、昭和六十四年四月一日から施行する。」（当該 art.1 にただし書なし）。
-- 日付句の独立抽出: 正規化テキストへ正規表現 `昭和([一二三四五六七八九十]+)年([一二三四五六七八九十]+)月([一二三四五六七八九十]+)日` を適用し「**昭和六十四年四月一日**」を 1 件抽出。漢数字を自前換算して (64, 4, 1) を得た（pinned 全文で `昭和六十四年四月一日` は 1 件のみ）。
-- 元号換算: 昭和元年 = 1926 なので 1926 + 64 − 1 = **1989**。実装 `showaToSeireki 64 = 1925 + 64 = 1989` と一致。施行日 = **1989-04-01**。`dateKey` = 1989×10000 + 4×100 + 1 = **19890401**、`enforcementDate = (1989,4,1)`、`enforcementKey = 19890401` と一致。
-
-| 原文（pinned） | レビュー側独立抽出 | Lean 実装 | 照合 |
-|---|---|---|---|
-| 昭和六十四年四月一日 | 1926+64−1 = 1989 / 4 / 1 | `showaToSeireki 64 = 1989`, `enforcementDate = (1989,4,1)` | ✅ |
-| `dateKey` = YYYYMMDD | 1989×10000+4×100+1 = 19890401 | `enforcementKey = 19890401` | ✅ |
-
-- **混同の明示除外**: 昭和 63 年 = 1988（`1925+63`）、昭和 65 年は存在せず **昭和 64 年が昭和最後の年**（1989-01-07 まで）。平成元年も西暦 1989 だが元号ラベルは異なる。pinned 全文走査で `昭和六十三年四月一日` / `平成元年四月一日` / `昭和六十年四月一日` はいずれも **0 件**、原文は「昭和六十四年四月一日」と明記。西暦値は平成元年としても 1989 となるため元号混同が西暦日付を変えることはないが、モデルは元号ラベルを保持しない（下記 B-6）。
-
-### DU-2. needle 2 本の検証
-
-needle は `docs/STAGING_MUTUAL_DEFENSE_ENFORCE.md` の 2 本をレビュー側で書き起こし、pinned raw JSON に対して検索した。正規化全文 = `law_full_text` の文字列 leaf を文書順に連結し U+3000 / ASCII 空白を除去した文字列（5,657 文字）。
-
-| needle | 内容 | U+3000 数 | raw JSON リテラル | 正規化全文 | 正規化 art.1 | 結果 |
-|---|---|---:|---|---|---|---|
-| 1 | `第一条この政令は、昭和六十四年四月一日から施行する` | 0 | MISS | FOUND | FOUND | **FOUND** |
-| 2 | `この政令は、昭和六十四年四月一日から施行する` | 0 | FOUND | FOUND | FOUND | **FOUND** |
-
-- → **2/2 FOUND、MISS 0（正規化照合）、両 needle の U+3000 = 0**。needle 1 は `第一条` が `ArticleTitle`、本文が `Sentence` と別ノードに格納されるため raw JSON のリテラル部分文字列としては現れないが、プロジェクトの `flat` + `norm` 照合では「則（施行期日）第一条この政令は、昭和六十四年四月一日から施行する。（…」として一致 1 件。needle 末尾の「。」省略は部分文字列一致に影響なし。
-
-### DU-3. 反例探索と独立 Spec（辞書順成分比較）との一致
-
-独立 Spec（`...Spec.lean`）: `specInForce d = d.1 > 1989 || (d.1 == 1989 && d.2.1 > 4) || (d.1 == 1989 && d.2.1 == 4 && d.2.2 >= 1)` — 年→月→日の辞書順成分比較。レビュー側はこれを Python で `(y,m,d) >= (1989,4,1)` として独立に再実装した。
-
-| 日付 | `inForce`（実装） | 独立 Spec（辞書順） | dateKey | 一致 |
-|---|---|---|---:|---|
-| (1989, 3, 31) | **false** | **false** | 19890331 < 19890401 | ✅ |
-| (1989, 4, 1) | **true** | **true** | 19890401 ≥ 19890401 | ✅ |
-| (1988, 12, 31) | false | false | 19881231 | ✅ |
-| (1989, 4, 2) | true | true | 19890402 | ✅ |
-| (1990, 1, 1) | true | true | 19900101 | ✅ |
-
-- 指示された反例 2 本は実装・独立 Spec の双方で一致。`agreeMutualDefenseAidAgreementEnforcementDate = true`（5 日）も `by decide` で確認。
-- レビュー側の広域走査: 年 1980〜2000（21）× 月 1〜12 × 日 1〜31 = **7,812 組み合わせ**で実装と独立 Spec を比較し **MISMATCH 0**（Python 再実装）。Lean 側も一時定理 `du_sweep`（`decide`）で全 7,812 組み合わせの一致を確認、axiom-free。
-- `specInForce` が 1989 年 4 月を `d >= 1` ですべて採用するのは原文「四月一日から施行する」と整合（4 月 1 日が境界、それ以前は not in force）。
-- **BY-DESIGN の境界（B-4）**: `dateKey` の数値符号化は、月 1〜12 / 日 1〜31 の**正規な日付成分**に限り辞書順と順序同型。非正規な日成分（例 `d = 200`）では独立 Spec `specInForce (1989,3,200) = false`（辞書順では 3 月は 4 月より前）に対し `inForce (1989,3,200) = true`（`dateKey = 19890500`）と分岐する。これは暦として不正な入力領域の挙動であり、原文との矛盾ではない。
-
-### DU-4. `#print axioms` 監査
-
-- 一時 Lean ファイルはリポジトリ内に作らず、承認済み temp ディレクトリ `C:\Users\junny\AppData\Local\Temp\opencode\` に置いた。`lake env lean <tempfile>` は **exit code 0**。検証用一時ファイルはすべて削除済み。
-- 走査した **15 チェック**（モジュール 8 def: `showaToSeireki`, `enforcementDate`, `dateKey`, `enforcementKey`, `inForce`, `specDate`, `specInForce`, `agreeMutualDefenseAidAgreementEnforcementDate` ＋ 反例/境界再現の命名定理 6 本 `du_t1`〜`du_t6` ＋ 広域走査 `du_sweep`）はすべて `"does not depend on any axioms"`。
-
-| 監査項目 | 件数 |
-|---|---:|
-| `Classical.choice` | **0** |
-| `sorryAx` | **0** |
-| `Quot.sound` | **0** |
-| `propext` | **0** |
-| axiom-free | **15/15** |
-
-### DU-5. CONFIRMED / BY-DESIGN / UNRESOLVED の分類
-
-| 分類 | 件数 |
-|---|---:|
-| **CONFIRMED** | **1** |
-| **BY-DESIGN** | **6** |
-| **UNRESOLVED** | **2** |
-
-#### CONFIRMED（1 件）
-
-- **C-1 ヘッダの law_id 誤記**: 対象モジュールの doc-comment は `Law id: 327AC0000000113` と記載するが、pinned `law_info.law_id` / revision `329CO0000000103_...` / `docs/STAGING_MUTUAL_DEFENSE_ENFORCE.md` は一致して **`329CO0000000103`** である。`327AC0000000113` は cycle-130 の `SofAgreementSpecialTaxEnforcementDate.lean`（日米安全保障条約第六条特例法）の law_id であり、コピー残存と判定。数値モデル・原文照合・反例・公理監査には影響しないが、出典メタデータの誤記として形式化担当の修正を要する。
-
-#### BY-DESIGN（6 件）— 未形式化の確認を含む
-
-- **B-1 附則の他条・実体規定は NOT MODELLED**: 本モデルは当該附則 art.1（施行期日）のみ。同じ `SupplProvision` には **art.8（経過措置）** が存在し、pinned `law_full_text` 全体では **21 個の Article ノード / 21 個の SupplProvision ブロック**が存在するが、形式化されているのは art.1 の施行日判定のみ。本則の実体規定（関税法等の臨時特例）も未形式化。doc-comment が明示するスコープ境界であり、反映漏れではない。
-- **B-2 表記ゆれ**: doc-comment の `data/raw/data/raw/...` は prefix 二重（実在ファイルは `data/raw/...`）。モデル値・照合結果に影響なし。
-- **B-3 needle 1 の raw JSON リテラル不在**: `第一条` と本文が別 JSON ノードのため部分文字列としては現れないが、プロジェクトの正規化全文照合では 2/2 FOUND。needle 末尾「。」省略も部分文字列一致に影響なし。doc-comment の「第一条 この政令は…」の空白挿入も正規化で吸収される。
-- **B-4 `dateKey` と辞書順の順序同型は正規日付成分に限る**: 日 ≥ 100 のような非正規入力では分岐するが、暦として不正な領域（DU-3）。
-- **B-5 附則ラベルの U+3000**: pinned の `SupplProvisionLabel` は「附　則」と U+3000 を含むが、needle 自身には U+3000 がなく照合に影響しない。
-- **B-6 元号ラベル・現行改正日の非モデル化**: モデルは西暦年の算定のみを行い「昭和六十四年」という元号ラベルを保持しない。また `revision_info.amendment_enforcement_date` は 2025-04-01 で、これは現行改正の施行日であり附則 art.1 の原施行日 1989-04-01 とは別概念（本レビューのスコープは後者）。
-
-#### UNRESOLVED（2 件）
-
-- **U-1 未形式化部分の法的適用関係**: 施行日のみでは、附則 art.8 の経過措置・本則の実体規定の実際の適用関係（施行前に生じた事案の取扱い等）は確定不能。**人間の法律専門家による確認を要する。**
-- **U-2 元号換算の法的最終確認**: 昭和元年 = 1926 という起算は外部の通則に依存し、原文には「昭和六十四年四月一日」としか記載がない。さらに昭和 64 年は 1989-01-07 までで、1989-04-01 は元号上は平成元年となる。機械的照合では西暦 1989-04-01 を確認したが、法解釈上の最終判断は専門家に委ねる。
-
-### DU-6. 最終報告（サマリ）
-
-- **CONFIRMED 1 / BY-DESIGN 6 / UNRESOLVED 2**。C-1 は出典メタデータの誤記であり、原文・needle・反例・Impl/独立 Spec・公理監査の値には食い違いなし。
-- **pinned 原文照合**: `SupplProvision[昭和六三年一二月三〇日政令第三六一号, Extract=true] -> Article[Num=1] -> Sentence` から「この政令は、昭和六十四年四月一日から施行する。」を直接抽出。昭和 64 = 1926+64−1 = 1989 を確認し、昭和 63（1988）/ 平成元年（元号ラベル別）を明示除外。
-- **needle**: 2 本とも U+3000 = 0、正規化全文・正規化 art.1 で 2/2 FOUND、MISS 0。
-- **反例**: `inForce(1989,3,31)=false` / `inForce(1989,4,1)=true`。独立 Spec（辞書順）と一致。7,812 組み合わせの広域走査でも MISMATCH 0。
-- **公理**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件、15/15 axiom-free（exit code 0）。一時ファイルは削除済み。
-- **禁止操作の遵守**: commit / push / merge / ブランチ切替は一切実行していない。Lean モジュールと `data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
-- **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `30C25EF31B9739138789E06D8741B78C3799DFC3851008A021C8DCDD30408E4C`・`1675480` バイト・広義レビュー件数 **`125` 件**（`^## .*review` ベース）。本セクション追記後は **`126` 件（Previous +1）**。書き込み後の再読込で件数増加・既存バイト列の前方一致・既存見出し残存を検証した（自己言及的なハッシュ値は本文に埋め込まない）。並行ワーストリームが件数を変動させる可能性があるため、採用した値は書き込み直前の再読込値である。
-
-> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
-### LoanBalanceRatioAtMost15.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### ForeignRelatedCorpTaxRate20.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-## Batch RSR review (2026-11-26) — 租税特別措置法施行令 art.42の3(2)一
-
-### RedevelopmentShareRatio.lean — 独立再抽出・照合
-
-- **対象**: `JapanTaxLaw/RedevelopmentShareRatio.lean`, Spec, Tests
-- **一次資料（pinned・改変禁止）**: `data/raw/332CO0000000043_20261101_507CO0000000127.law.json`（SHA-256 pin 再計算）
-- **独立再抽出**: MainProvision 直下の第四十二条の三を ArticleTitle で特定し、第二項第一号の割合算定文言を原文から直接抽出。
-- **照合・判定**: (土地持分−旧権利持分)/土地持分、単独所有権・借地権は零、控除結果が零下回りなら零、分母零は防御的に零を確認。D=CONFIRMED。
-- **限界**: 持分の実数表現・丸め・価額・案件該当性は NOT MODELLED。機械的独立照合であり人間の法的レビューではない（LEGAL_REVIEW_PENDING）。
-
-## Batch DV review (2026-11-26)
-
-関税割当制度に関する政令 附則 art.1（施行日 平成3年4月1日 = 1991-04-01）/ `JapanTaxLaw/TariffQuotaSystemEnforcementDate.lean` — cycle-132 の 1 モデル独立照合（形式化担当から独立した Adversarial Review Agent による機械的照合）。
-
-### DV-0. 範囲・独立性の申告
-
-- 対象（読み取り専用・一切変更していない）: `JapanTaxLaw/TariffQuotaSystemEnforcementDate.lean`（1,715 バイト）、`...Spec.lean`（877 バイト）、`...Tests.lean`（589 バイト）。
-- 一次資料（pinned・改変禁止）: `data/raw/336CO0000000153_20260401_508CO0000000085.law.json`（121,798 バイト、SHA-256 `81BEF06A836F14B4E6F076BE5DE85026B4131C88FD2277EEA91E310676EDF27E`、law_id `336CO0000000153` / revision `336CO0000000153_20260401_508CO0000000085`）。
-- 形式化担当の STAGING に依存せず、pinned JSON の `law_full_text` をレビュー側で再帰走査し `SupplProvision` / `Article` / `Sentence` を直接再抽出した。独立 Spec（辞書順成分比較）はレビュー側で `dvSpec` として別途実装し、Lean の `decide` で照合した。
-- commit / push / merge / ブランチ切替は一切実行していない。Lean モジュールと `data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
-
-### DV-1. pinned 原文の直接抽出・照合（平成3年 = 1991 の独立的算出）
-
-- 構造的路径: `law_full_text -> LawBody -> SupplProvision[AmendLawNum=平成三年三月三〇日政令第九〇号, Extract=true] -> Article[Num=1] -> ArticleCaption（施行期日） -> ArticleTitle 第一条 -> Paragraph[Num=1] -> Sentence[Num=1, Function=main]`。
-- **原文逐語（当該 Article の flat テキスト）**: 「附則（施行期日）第一条この政令は、平成三年四月一日から施行する。ただし、第四条の規定は、平成四年一月一日から施行する。」／ main `Sentence` 単体では「この政令は、平成三年四月一日から施行する。」。
-- 日付句の独立抽出: 「**平成三年四月一日**」→ 年 = 平成 3 / 月 = 四 / 日 = 一。
-- 元号換算: 平成元年 = 1989 なので 1989 + 3 − 1 = 1988 + 3 = **1991**。実装 `heiseiToSeireki 3 = 1988 + 3 = 1991` と一致。施行日 = **1991-04-01**。`dateKey` = 1991×10000 + 4×100 + 1 = **19910401**、`enforcementDate = (1991,4,1)`、`enforcementKey = 19910401` と一致。
-- **混同の明示除外**: 平成 2 年 = 1990（1988+2）/ 平成 4 年 = 1992（1988+4）/ 昭和 64 年 = 1989（1925+64）。pinned 全文正規化走査で `昭和六十四年四月一日` は **0 件**、`平成二年四月一日` は 1 件だが**当該 art.1 外**、`平成四年四月一日` は 2 件だが**当該 art.1 外**。当該 art.1 に現れる `平成四年一月一日` は **第四条に限るただし書**の日であり、政令全体の施行日（第一条 main）ではない。西暦 1989 は昭和 64 年／平成元年の両方に対応し得るが、原文の元号ラベルは「平成三年」であり混同を明示的に除外した。
-
-| 原文（pinned） | レビュー側独立抽出 | Lean 実装 | 照合 |
-|---|---|---|---|
-| 平成三年四月一日 | 1989+3−1 = 1988+3 = 1991 / 4 / 1 | `heiseiToSeireki 3 = 1991`, `enforcementDate = (1991,4,1)` | ✅ |
-| `dateKey` = YYYYMMDD | 1991×10000+4×100+1 = 19910401 | `enforcementKey = 19910401` | ✅ |
-
-### DV-2. needle 2 本の検証
-
-needle は doc-comment の原文逐語をレビュー側で書き起こした 2 本を、pinned raw JSON に対して検索した。正規化全文 = `law_full_text` の文字列 leaf 529 個を文書順に連結し U+3000 / ASCII 空白を除去した文字列（10,201 文字）。
-
-| needle | 内容 | U+3000 数 | raw JSON リテラル | 正規化全文 | 結果 |
-|---|---|---:|---|---|---|
-| 1 | `第一条この政令は、平成三年四月一日から施行する` | 0 | MISS | FOUND (1 件) | **FOUND** |
-| 2 | `この政令は、平成三年四月一日から施行する` | 0 | FOUND (2 件) | FOUND (2 件) | **FOUND** |
-
-- → **2/2 FOUND、MISS 0（正規化照合）、両 needle の U+3000 = 0**。needle 1 は `第一条` が `ArticleTitle`、本文が `Sentence` と別ノードに格納されるため raw JSON のリテラル部分文字列としては現れない。doc-comment の「第一条 この政令は…」の空白は ASCII U+0020 であり U+3000 ではない（Lean ファイル全体の U+3000 = 0）。needle 末尾の「。」省略は部分文字列一致に影響なし。
-
-### DV-3. 反例探索と独立 Spec（辞書順成分比較）との一致
-
-独立 Spec（`...Spec.lean`）: `specInForce d = d.1 > 1991 || (d.1 == 1991 && d.2.1 > 4) || (d.1 == 1991 && d.2.1 == 4 && d.2.2 >= 1)`。レビュー側は実装定数を再利用せず `dvSpec` として独立に再実装した。
-
-| 日付 | `inForce`（実装） | `dvSpec`（独立） | dateKey | 一致 |
-|---|---|---|---:|---|
-| (1991, 3, 31) | **false** | **false** | 19910331 < 19910401 | ✅ |
-| (1991, 4, 1) | **true** | **true** | 19910401 ≥ 19910401 | ✅ |
-| (1990, 12, 31) | false | false | 19901231 | ✅ |
-| (1991, 4, 2) | true | true | 19910402 | ✅ |
-| (2000, 1, 1) | true | true | 20000101 | ✅ |
-
-- 指示された反例 2 本は実装・独立 Spec の双方で一致。`agreeTariffQuotaSystemEnforcementDate = true`（5 日）も `by decide` で確認。
-- レビュー側の広域走査: 年 1990〜2000（11）× 月 1〜12 × 日 1〜31 = **4,092 組み合わせ**（`#eval` で確認）で `inForce d == dvSpec d` を `decide` で検証（一時定理 `dv_sweep_ok`）→ **MISMATCH 0**。
-- `dvSpec` が 1991 年 4 月を `d >= 1` ですべて採用するのは原文「四月一日から施行する」と整合（4 月 1 日が境界、それ以前は not in force）。
-- **BY-DESIGN の境界（B-4）**: `dateKey` の数値符号化は、月 1〜12 / 日 1〜31 の**正規な日付成分**に限り辞書順と順序同型。非正規な日成分（例 `d = 200`）では `dvSpec (1991,3,200) = false`（辞書順では 3 月は 4 月より前）に対し `inForce (1991,3,200) = true`（`dateKey = 19910500`）と分岐する。これは暦として不正な入力領域の挙動である。
-
-### DV-4. `#print axioms` 監査
-
-- 一時 Lean ファイルはリポジトリ内に作らず、承認済み temp ディレクトリ `C:\Users\junny\AppData\Local\Temp\opencode\` に置いた。`lake env lean <tempfile>` は **exit code 0**。検証用一時ファイルはすべて削除済み。
-- 走査した **12 チェック**（モジュール 8 def: `heiseiToSeireki`, `enforcementDate`, `dateKey`, `enforcementKey`, `inForce`, `specDate`, `specInForce`, `agreeTariffQuotaSystemEnforcementDate` ＋ レビュー側 `dvSpec`, `dvYears`, `dvSweep` ＋ 一時定理 `dv_sweep_ok`）はすべて `does not depend on any axioms`。
-
-| 監査項目 | 件数 |
-|---|---:|
-| `Classical.choice` | **0** |
-| `sorryAx` | **0** |
-| `Quot.sound` | **0** |
-| `propext` | **0** |
-| axiom-free | **12/12** |
-
-### DV-5. doc-comment の出典メタデータ検証（cycle-131 の Law id 残存バグの警戒）
-
-| doc-comment 記載 | pinned 側の独立値 | 照合 |
-|---|---|---|
-| `Law id: 336CO0000000153` | `law_info.law_id = 336CO0000000153` | ✅ |
-| `Revision: 336CO0000000153_20260401_508CO0000000085` | `revision_info.law_revision_id = 336CO0000000153_20260401_508CO0000000085` | ✅ |
-| `Raw snapshot: data/raw/336CO0000000153_20260401_508CO0000000085.law.json` | 実在ファイル 121,798 バイト（SHA-256 上記） | ✅ |
-
-- **Law id 残存バグなし**: cycle-131（Batch DU）では doc-comment の Law id `327AC0000000113` が実 `law_id 329CO0000000103` と不一致だったが、本モジュールの Lean ファイルに現れる law-id 様トークンは **`336CO0000000153` のみ**で pinned 値と一致。他モデルからのコピー残存は **0 件**。
-- `data/raw/data/raw/...` のような prefix 二重は **0 件**。Raw snapshot パスは実在ファイルを指す。
-- **概念の区別**: `revision_info.amendment_enforcement_date = 2026-04-01`（令和八年政令第八十五号 = 現行改正の施行日）は、本モデルが対象とする附則 art.1 の原施行日 1991-04-01 とは別概念。Revision / Raw snapshot は pinned スナップショットの識別子であり、モデルの施行日を 2026-04-01 と誤るのは混同である（BY-DESIGN B-6）。
-
-### DV-6. CONFIRMED / BY-DESIGN / UNRESOLVED の分類
-
-| 分類 | 件数 |
-|---|---:|
-| **CONFIRMED** | **0** |
-| **BY-DESIGN** | **6** |
-| **UNRESOLVED** | **2** |
-
-#### CONFIRMED（0 件）
-
-- pinned 原文の日付・needle・反例・Impl/独立 Spec・公理監査・出典メタデータのいずれにも食い違いなし。**発見ゼロを明示する。** 特に cycle-131 型の Law id 残存バグは存在しない。
-
-#### BY-DESIGN（6 件）— 未形式化の確認を含む
-
-- **B-1 附則の他条・実体規定は NOT MODELLED**: 本モデルは当該附則 art.1（第一条 main の施行日）のみ。pinned `law_full_text` 全体で **124 個の SupplProvision ブロック / 22 個の Article ノード / 134 個の Paragraph** が存在するが、形式化されているのは 1 日判定のみ。本則の実体規定も未形式化。
-- **B-2 当該 art.1 のただし書（第四条は平成四年一月一日 = 1992-01-01）は NOT MODELLED**: 同一 Article 内に main と proviso が同居する。実装 `inForce` は main の 1991-04-01 のみを返し、第四条の 1992-01-01 を表現しない。doc-comment のスコープ宣言に含まれるが、第四条の適用日を誤る危険がある点で最重要の未形式化（下記 U-1 と対応）。
-- **B-3 表記ゆれ / needle 1 の raw リテラル不在**: doc-comment の「第一条 この政令は…」の ASCII 空白と、`第一条` と本文が別 JSON ノードであることによる raw literal MISS。正規化全文照合では 2/2 FOUND。
-- **B-4 `dateKey` と辞書順の順序同型は正規日付成分に限る**: 日 ≥ 100 のような非正規入力では分岐するが、暦として不正な領域（DV-3）。
-- **B-5 附則ラベルの U+3000**: pinned の `SupplProvisionLabel` は「附　則」と U+3000 を含むが、needle 自身には U+3000 がなく照合に影響しない。
-- **B-6 元号ラベル・現行改正日の非モデル化**: モデルは西暦年の算定のみを行い「平成三年」という元号ラベルを保持しない。また `revision_info.amendment_enforcement_date = 2026-04-01` は現行改正の施行日であり、本モデルの原施行日 1991-04-01 とは別概念。
-
-#### UNRESOLVED（2 件）
-
-- **U-1 第四条ただし書の法的適用関係**: 施行日 main のみでは、第四条が 1992-01-01 から施行されるという proviso の効果（1991-04-01 〜 1991-12-31 の第四条の取扱い等）は確定不能。**人間の法律専門家による確認を要する。**
-- **U-2 元号換算の法的最終確認**: 平成元年 = 1989 という起算は外部の通則に依存し、原文には「平成三年四月一日」としか記載がない。機械的照合で 1991-04-01 を確認したが、法解釈上の最終判断は専門家に委ねる。
-
-### DV-7. 最終報告（サマリ）と二段 read-then-write 検証
-
-- **CONFIRMED 0 / BY-DESIGN 6 / UNRESOLVED 2**。出典メタデータ・原文・needle・実装・独立 Spec・公理監査の値に食い違いなし（発見ゼロ）。
-- **pinned 原文照合**: `SupplProvision[平成三年三月三〇日政令第九〇号, Extract=true] -> Article[Num=1] -> Sentence[Function=main]` から「この政令は、平成三年四月一日から施行する。」を直接抽出。平成 3 = 1989+3−1 = 1988+3 = 1991 を確認し、平成 2（1990）/ 平成 4（1992）/ 昭和 64（1989）を明示除外。
-- **needle**: 2 本とも U+3000 = 0、正規化全文で 2/2 FOUND、MISS 0。
-- **反例**: `inForce(1991,3,31)=false` / `inForce(1991,4,1)=true`。独立 Spec（辞書順）と一致。4,092 組み合わせの広域走査でも MISMATCH 0。
-- **公理**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件、12/12 axiom-free（exit code 0）。一時ファイルは削除済み。
-- **禁止操作の遵守**: commit / push / merge / ブランチ切替は一切実行していない。Lean モジュールと `data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
-- **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `36015BEFA106706FCC82C966FBD2896E986DAAE3CFE174BEF2CC18D9DA127175`・`1,704,987` バイト・広義レビュー件数 **`127` 件**（`^## .*review` ベース、H2 133 件）。本セクション追記後は **`128` 件（Previous +1）**。書き込み後の再読込で件数増加・既存バイト列の前方一致・既存見出し残存（Batch G / DT / DU を含む）を検証した（自己言及的なハッシュ値は本文に埋め込まない）。並行ワーストリームが件数を変動させる可能性があるため、採用した値は書き込み直前の再読込値である。
-
-> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
-### CustomsFee76000.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の二金額と各分岐の一致をカーネル決定で確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### CustomsFee129000.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の二金額と各分岐の一致をカーネル決定で確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-## Batch DW review (2026-11-26) — 相殺関税に関する政令 附則 art.1（施行日 平成13年1月6日 = 2001-01-06）/ `CountervailingDutyEnforcementDate.lean`（cycle-133 の1モデル）
-
-### DW-0. 範囲・独立性の申告
-
-- 対象（読み取り専用・一切変更していない）: `JapanTaxLaw/CountervailingDutyEnforcementDate.lean`（1,846 バイト）、`JapanTaxLaw/CountervailingDutyEnforcementDateSpec.lean`（881 バイト）、`JapanTaxLaw/CountervailingDutyEnforcementDateTests.lean`（594 バイト）。
-- 一次資料（pinned・改変禁止）: `data/raw/406CO0000000415_20171008_428CO0000000240.law.json`（67,960 バイト、SHA-256 `3B0D6B8A73C3766B709C75F15A533014005C94DEBF0ED23F737BA3AD4F972E8A`、law_id `406CO0000000415` / revision `406CO0000000415_20171008_428CO0000000240`）。
-- needle 2 本の定義は `scripts/ci/transcription_audit.py` L2472-2476（`# CountervailingDutyEnforcementDate — cycle-133`）に独立確認。形式化担当の STAGING / doc-comment は信じず、pinned JSON の `law_full_text` をレビュー側で再帰走査して原文を直接再抽出した。独立 Spec は実装定数を再利用せずレビュー側で `dwSpec`（成分比較）として別途実装。
-- commit / push / merge / ブランチ切替は一切実行していない。Lean モジュールと `data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
-
-### DW-1. pinned 原文の直接抽出・照合（平成13年 = 2001 の独立的算出）
-
-- 構造的路径: `law_full_text -> LawBody -> SupplProvision[AmendLawNum=平成一二年六月七日政令第三〇七号, Extract=true, label=附　則] -> Article[Num=1] -> ArticleCaption（施行期日） -> ArticleTitle 第一条 -> Paragraph[Num=1] -> ParagraphSentence/Sentence`。当該 `Sentence` は pinned 全文に **1 件のみ**（「平成十三年一月六日」の文字列ヒットも 1 件）。
-- **原文逐語（当該 Article の text leaf 連結）**: 「附　則（施行期日）第一条この政令は、平成十三年一月六日から施行する。」／ `Sentence` 単体では「**この政令は、平成十三年一月六日から施行する。**」。正規化後は「附則（施行期日）第一条この政令は、平成十三年一月六日から施行する。」で、doc-comment の引用「第一条 この政令は、平成十三年一月六日から施行する。」と差は空白（U+0020 / U+3000）の除去のみ。
-- 日付句の独立抽出: 「**平成十三年一月六日**」→ 年 = 平成 13 / 月 = 一 / 日 = 六。
-- 元号換算: 平成元年 = 1989 なので 1989 + 13 − 1 = 1988 + 13 = **2001**。実装 `heiseiToSeireki 13 = 1988 + 13 = 2001` と一致。施行日 = **2001-01-06**。`dateKey` = 2001×10000 + 1×100 + 6 = **20010106**、`enforcementDate = (2001,1,6)`、`enforcementKey = 20010106` と一致。
-- **混同の明示除外**: 平成 12 年 = 1988+12 = **2000**（Lean `dw_t10` でカーネル確認）／平成 14 年 = 1988+14 = **2002**（同 `dw_t11`）／1 月 5 日は境界前で `inForce = false`／1 月 7 日は境界後で `inForce = true` だが**施行日自体ではない**。pinned の他附則には「関税定率法等の一部を改正する法律の施行の日」「平成十六年四月一日」(2004-04-01)「平成二十一年四月一日」(2009-04-01)「平成二十八年五月一日」(2016-05-01)「平成二十九年四月一日」(2017-04-01) があり、いずれも本モデルの 2001-01-06 とは別。2001-01-06 は中央省庁再編の施行日として知られるが、本レビューはあくまで pinned 文字列と算術の機械的照合であり歴史的評価は行わない。
-
-| 原文（pinned） | レビュー側独立抽出 | Lean 実装 | 照合 |
-|---|---|---|---|
-| 平成十三年一月六日 | 1989+13−1 = 1988+13 = 2001 / 1 / 6 | `heiseiToSeireki 13 = 2001`, `enforcementDate = (2001,1,6)` | ✅ |
-| `dateKey` = YYYYMMDD | 2001×10000+1×100+6 = 20010106 | `enforcementKey = 20010106` | ✅ |
-
-### DW-2. needle 2 本の検証
-
-needle は `scripts/ci/transcription_audit.py` L2476 の cycle-133 定義をレビュー側で確認した 2 本。正規化全文 = `law_full_text` の text leaf 278 個（`attr` / `tag` を除外）を文書順に連結し U+3000 / ASCII 空白を除去した文字列（11,460 文字）。
-
-| needle | 内容 | U+3000 数 | raw JSON リテラル | 正規化全文 | 結果 |
-|---|---|---:|---|---|---|
-| 1 | `第一条この政令は、平成十三年一月六日から施行する` | 0 | MISS | FOUND (1 件) | **FOUND** |
-| 2 | `この政令は、平成十三年一月六日から施行する` | 0 | FOUND (text leaf 1 件) | FOUND (1 件) | **FOUND** |
-
-- → **2/2 FOUND、MISS 0（正規化照合）、両 needle の U+3000 = 0**。needle 1 は `第一条` が `ArticleTitle`、本文が `Sentence` と別ノードに格納されるため raw JSON のリテラル部分文字列としては現れないが、正規化連結では「…第一条この政令は、平成十三年一月六日から施行する。」として一致 1 件。needle 末尾「。」省略は部分文字列一致に影響なし。doc-comment の「第一条 この政令は…」の空白は ASCII U+0020 であり U+3000 ではない（対象 Lean ファイル全体の U+3000 = **0**）。
-
-### DW-3. 反例探索と独立 Spec（辞書順成分比較）との一致
-
-独立 Spec（`...Spec.lean`）: `specInForce d = d.1 > 2001 || (d.1 == 2001 && d.2.1 > 1) || (d.1 == 2001 && d.2.1 == 1 && d.2.2 >= 6)`。レビュー側は実装の `dateKey` を再利用せず `dwSpec`（年→月→日の成分比較を命題 `=`/`>=` で再記述）として独立に再実装した。
-
-| 日付 | `inForce`（実装） | `specInForce`（独立 Spec） | `dwSpec`（レビュー側） | dateKey | 一致 |
-|---|---|---|---|---:|---|
-| (2001, 1, 5) | **false** | **false** | **false** | 20010105 < 20010106 | ✅ |
-| (2001, 1, 6) | **true** | **true** | **true** | 20010106 ≥ 20010106 | ✅ |
-| (2001, 1, 7) | **true** | **true** | **true** | 20010107 | ✅ |
-| (2000, 12, 31) | false | false | false | 20001231 | ✅ |
-| (2002, 1, 1) | true | true | true | 20020101 | ✅ |
-
-- `agreeCountervailingDutyEnforcementDate = true`（1980/2001-01-05/06/07/2010 の 5 日）も `by decide` で確認。
-- レビュー側の広域走査: 年 **1999〜2003（5）× 月 1〜12 × 日 1〜31 = 1,860 組み合わせ**で `inForce d == dwSpec d` を比較。一時 Lean ファイルの `#eval dwSweep` は **0**、名前付き定理 `dw_sweep`（`by decide`, `maxRecDepth` 引き上げ）もカーネルで確認 → **MISMATCH 0**。
-- **BY-DESIGN の境界（B-4）**: `dateKey` の数値符号化は月 1〜12 / 日 1〜31 の**正規な日付成分**に限り辞書順と順序同型。非正規入力 `(2001, 0, 200)` では `#eval` が `(true, false)` を返し、`inForce = true` / `dwSpec = false` と分岐（定理 `dw_invalid` も axiom-free）。暦として不正な領域の挙動であり原文との矛盾ではない。
-
-### DW-4. `#print axioms` 監査（`lake env lean`、exit code 0）
-
-- 一時 Lean ファイルはリポジトリ内に作らず、承認済み temp ディレクトリ `C:\Users\junny\AppData\Local\Temp\opencode\` に置いた。`lake env lean <tempfile>` は **exit code 0**、エラー 0。検証用一時ファイルはすべて削除済み。
-- 走査した **23 チェック** — モジュール 8 def（`heiseiToSeireki`, `enforcementDate`, `dateKey`, `enforcementKey`, `inForce`, `specDate`, `specInForce`, `agreeCountervailingDutyEnforcementDate`）＋ レビュー側 `dwSpec` / `dwSweep` ＋ 命名定理 `dw_t1`〜`dw_t11`、`dw_sweep`、`dw_invalid` — はすべて `does not depend on any axioms`。
-
-| 監査項目 | 件数 |
-|---|---:|
-| `Classical.choice` | **0** |
-| `sorryAx` | **0** |
-| `Quot.sound` | **0** |
-| `propext` | **0** |
-| axiom-free | **23/23** |
-
-### DW-5. doc-comment の出典メタデータ検証（cycle-131 型のコピー残存・二重 prefix の警戒）
-
-| doc-comment 記載 | pinned 側の独立値 | 照合 |
-|---|---|---|
-| `Law id: 406CO0000000415` | `law_info.law_id = 406CO0000000415` | ✅ |
-| `Revision: 406CO0000000415_20171008_428CO0000000240` | `revision_info.law_revision_id = 406CO0000000415_20171008_428CO0000000240` | ✅ |
-| `Raw snapshot: data/raw/406CO0000000415_20171008_428CO0000000240.law.json` | 実在ファイル 67,960 バイト（SHA-256 上記） | ✅ |
-
-- **Law id 残存バグなし**: 対象 Lean ファイルに現れる law-id 様トークンは `406CO0000000415`（Law id 行・Revision 行・Raw snapshot パス）のみで pinned 値と一致。cycle-131（Batch DU）で見られた `327AC0000000113` 型の他モデル残存、および `329CO0000000103` 型の取り違えは **0 件**。`data/raw/data/raw/...` のような prefix 二重も **0 件**。`sorry` / `admit` / `axiom` / `unsafe` / `Classical.choice` / `Quot.sound` / `propext` の実使用もコード部に **0 件**。
-- **概念の区別**: `revision_info.amendment_enforcement_date = 2017-10-08`（平成二十八年政令第二百四十号による現行改正の施行日、Revision id の `20171008` も同値）は、本モデルが対象とする附則 art.1 の**原施行日 2001-01-06** とは別概念。両者を混同して `enforcementKey` を 20171008 とするのは誤り（下記 B-6）。
-
-### DW-6. CONFIRMED / BY-DESIGN / UNRESOLVED の分類
-
-| 分類 | 件数 |
-|---|---:|
-| **CONFIRMED** | **0** |
-| **BY-DESIGN** | **6** |
-| **UNRESOLVED** | **2** |
-
-#### CONFIRMED（0 件）
-
-- pinned 原文の日付・needle・反例・Impl/独立 Spec・公理監査・出典メタデータのいずれにも食い違いなし。**発見ゼロを明示する。** 特に cycle-131 型の Law id 残存バグは存在しない。
-
-#### BY-DESIGN（6 件）— 未形式化の確認を含む
-
-- **B-1 附則の他条・実体規定は NOT MODELLED**: 本モデルは当該附則 art.1（施行期日）の 1 日判定のみ。pinned `law_full_text` 全体で **7 個の SupplProvision ブロック / 21 個の Article ノード**が存在し、他の附則（原制定の「関税定率法等の一部を改正する法律の施行の日」、2004-04-01、2009-04-01、2016-05-01、2017-04-01）および本則の実体規定（定義・本邦の産業・申請手続・調査・証拠閲覧・約束・還付・諮問等／相殺関税率そのもの）は未形式化。
-- **B-2 中央省庁再編に伴う組織・権限移管の法的効果は NOT MODELLED**: 2001-01-06 という日付値のみを扱い、施行に伴う官庁の改組・権限承継の法的効果は表現しない（doc-comment が明示）。
-- **B-3 表記ゆれ / needle 1 の raw リテラル不在**: doc-comment の「第一条 この政令は…」の ASCII 空白と、`第一条` と本文が別 JSON ノードであることによる raw literal MISS。正規化全文照合では 2/2 FOUND、needle の U+3000 = 0。
-- **B-4 `dateKey` と辞書順の順序同型は正規日付成分に限る**: `(2001,0,200)` のような非正規入力では分岐するが、暦として不正な領域（DW-3）。
-- **B-5 附則ラベルの U+3000**: pinned の `SupplProvisionLabel` は「附　則」と U+3000 を含むが、needle 自身には U+3000 がなく照合に影響しない。
-- **B-6 元号ラベル・現行改正日の非モデル化**: モデルは西暦年の算定のみを行い「平成十三年」という元号ラベルを保持しない。また `revision_info.amendment_enforcement_date = 2017-10-08` は現行改正の施行日であり、本モデルの原施行日 2001-01-06 とは別概念。
-
-#### UNRESOLVED（2 件）
-
-- **U-1 未形式化部分の法的適用関係**: 施行日のみでは、附則の他条・経過措置、本則の実体規定（相殺関税率・手続）、および中央省庁再編に伴う組織移管の法的効果の実際の適用関係（施行前に生じた事案の取扱い等）は確定不能。**人間の法律専門家による確認を要する。**
-- **U-2 元号換算の法的最終確認**: 平成元年 = 1989 という起算は外部の通則に依存し、原文には「平成十三年一月六日」としか記載がない。機械的照合で 2001-01-06 を確認したが、法解釈上の最終判断は専門家に委ねる。
-
-### DW-7. 最終報告（サマリ）と二段 read-then-write 検証
-
-- **CONFIRMED 0 / BY-DESIGN 6 / UNRESOLVED 2**。出典メタデータ・原文・needle・実装・独立 Spec・公理監査の値に食い違いなし（発見ゼロ）。
-- **pinned 原文照合**: `SupplProvision[平成一二年六月七日政令第三〇七号, Extract=true] -> Article[Num=1] -> Sentence` から「この政令は、平成十三年一月六日から施行する。」を直接抽出。平成 13 = 1989+13−1 = 1988+13 = 2001 を確認し、平成 12（2000）/ 平成 14（2002）/ 1 月 5 日・1 月 7 日を明示除外。
-- **needle**: 2 本とも U+3000 = 0、正規化全文で 2/2 FOUND、MISS 0。
-- **反例**: `inForce(2001,1,5)=false` / `inForce(2001,1,6)=true` / `inForce(2001,1,7)=true`。独立 Spec `specInForce` およびレビュー側 `dwSpec` と一致。1,860 組み合わせ（1999〜2003）の広域走査でも MISMATCH 0。
-- **公理**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件、23/23 axiom-free（exit code 0）。一時ファイルは削除済み。
-- **禁止操作の遵守**: commit / push / merge / ブランチ切替は一切実行していない。Lean モジュールと `data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
-- **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `B3F386CF4F37EBAC76CA159DB516CD3C137B961BF94CF5E1157B98E103BA28A9`・`1705616` バイト・広義レビュー件数 **`128` 件**（`^## .*review` ベース）。本セクション追記後は **`129` 件（Previous +1）**。書き込み後の再読込で件数増加・既存バイト列の前方一致・既存見出し残存（Batch G / DT / DU / DV を含む）を検証した（自己言及的なハッシュ値は本文に埋め込まない）。並行ワーストリームが件数を変動させる可能性があるため、採用した値は書き込み直前の再読込値である。
-
-> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
-### CityPlanningTaxRateCeiling03.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### LocalTaxBracket195To330.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-## Batch DX review (2026-11-26) — 外貨債利子非課税適用除外者範囲政令 附則 art.1（施行日 昭和40年4月1日 = 1965-04-01）/ `ForeignBondInterestExemptionScopeEnforcementDate.lean`（cycle-134 の1モデル）
-
-### DX-0. 範囲・独立性の申告
-
-- 対象（読み取り専用・一切変更していない）: `JapanTaxLaw/ForeignBondInterestExemptionScopeEnforcementDate.lean`（1,830 バイト）、`JapanTaxLaw/ForeignBondInterestExemptionScopeEnforcementDateSpec.lean`（973 バイト）、`JapanTaxLaw/ForeignBondInterestExemptionScopeEnforcementDateTests.lean`（654 バイト）。
-- 一次資料（pinned・改変禁止）: `data/raw/333CO0000000337_20171001_429CO0000000106.law.json`（29,474 バイト、SHA-256 `6C109D2CFD922774A42559B1EE00B71375A8A241D10F6C422398ABB32EC3A356`、law_id `333CO0000000337` / revision `333CO0000000337_20171001_429CO0000000106`）。INVENTORY.json L2511-2545 の pin と一致。
-- needle 2 本の定義は `scripts/ci/transcription_audit.py` L2427-2431（`# ForeignBondInterestExemptionScopeEnforcementDate — cycle-134`）に独立確認。形式化担当の STAGING / doc-comment は信じず、pinned JSON の `law_full_text` をレビュー側で再帰走査して原文を直接再抽出した。独立 Spec は実装定数を再利用せずレビュー側で `dxSpec`（成分比較の入れ子 if 表現）として別途実装。
-- commit / push / merge / ブランチ切替は一切実行していない。Lean モジュールと `data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
-
-### DX-1. pinned 原文の直接抽出・照合（昭和40年 = 1965 の独立的算出）
-
-- 構造的路径: `law_full_text -> LawBody -> SupplProvision -> Article[Num=1] -> ArticleCaption（施行期日） -> ArticleTitle 第一条 -> Paragraph -> ParagraphSentence/Sentence`。当該 `Sentence` の text leaf は **22 文字**。「昭和四十年四月一日」の文字列ヒットは pinned 全文で **1 件のみ**。
-- **原文逐語**: 「附　則（施行期日）第一条この政令は、昭和四十年四月一日から施行する。」／ `Sentence` 単体では「**この政令は、昭和四十年四月一日から施行する。**」。正規化後は「第一条この政令は、昭和四十年四月一日から施行する。」で、doc-comment の引用「第一条 この政令は、昭和四十年四月一日から施行する。」と差は空白（U+0020 / U+3000）の除去のみ。
-- 日付句の独立抽出: 「**昭和四十年四月一日**」→ 年 = 昭和 40 / 月 = 四 / 日 = 一。
-- 元号換算: 昭和元年 = 1926 なので 1926 + 40 − 1 = **1925 + 40 = 1965**。実装 `showaToSeireki 40 = 1925 + 40 = 1965` と一致。施行日 = **1965-04-01**。`dateKey` = 1965×10000 + 4×100 + 1 = **19650401**、`enforcementDate = (1965,4,1)`、`enforcementKey = 19650401` と一致。
-- **混同の明示除外**: 昭和 39 年 = 1925+39 = **1964**／昭和 41 年 = 1925+41 = **1966**（いずれも pinned 全文に「昭和三十九年」「昭和四十一年」は **0 件**）。3 月 31 日・4 月 2 日も原文には現れず（「三月三十一日」「四月二日」ともに **0 件**）、反例探索の**境界入力**であって施行日自体ではない。pinned の他附則には「昭和三十七年四月一日」(1962-04-01)、「平成二十六年四月一日」(2014-04-01)、「平成二十七年四月一日」(2015-04-01、2 件)、「平成二十九年四月一日」(2017-04-01)、「公布の日から施行する」(2 件) があり、いずれも本モデルの原施行日 1965-04-01 とは別。
-
-| 原文（pinned） | レビュー側独立抽出 | Lean 実装 | 照合 |
-|---|---|---|---|
-| 昭和四十年四月一日 | 1926+40−1 = 1925+40 = 1965 / 4 / 1 | `showaToSeireki 40 = 1965`, `enforcementDate = (1965,4,1)` | ✅ |
-| `dateKey` = YYYYMMDD | 1965×10000+4×100+1 = 19650401 | `enforcementKey = 19650401` | ✅ |
-
-### DX-2. needle 2 本の検証
-
-needle は `scripts/ci/transcription_audit.py` L2431 の cycle-134 定義をレビュー側で確認した 2 本。正規化全文 = `law_full_text` の text leaf を文書順に連結し U+3000 / ASCII 空白を除去した文字列で照合した。
-
-| needle | 内容 | U+3000 数 | raw JSON リテラル | 正規化全文 | 結果 |
-|---|---|---:|---|---|---|
-| 1 | `第一条この政令は、昭和四十年四月一日から施行する` | 0 | MISS（0 件） | FOUND（1 件） | **FOUND** |
-| 2 | `この政令は、昭和四十年四月一日から施行する` | 0 | FOUND（1 件） | FOUND（1 件） | **FOUND** |
-
-- → **2/2 FOUND、MISS 0（正規化照合）、両 needle の U+3000 = 0**。needle 1 は `第一条` が `ArticleTitle`、本文が `Sentence` と別ノードに格納されるため raw JSON のリテラル部分文字列としては現れないが、正規化連結では一致 1 件。needle 末尾「。」省略は部分文字列一致に影響なし。対象 3 Lean ファイル全体の U+3000 = **0**。
-
-### DX-3. 反例探索と独立 Spec（辞書順成分比較）との一致
-
-独立 Spec（`...Spec.lean`）: `specInForce d = d.1 > 1965 || (d.1 == 1965 && d.2.1 > 4) || (d.1 == 1965 && d.2.1 == 4 && d.2.2 >= 1)`。レビュー側は実装の `dateKey` も module の `specInForce` も再利用せず `dxSpec`（年→月→日の入れ子 if 比較）として独立に再実装した。
-
-| 日付 | `inForce`（実装） | `specInForce`（独立 Spec） | `dxSpec`（レビュー側） | dateKey | 一致 |
-|---|---|---|---|---|---|
-| (1965, 3, 31) | **false** | **false** | **false** | 19650331 < 19650401 | ✅ |
-| (1965, 4, 1) | **true** | **true** | **true** | 19650401 ≥ 19650401 | ✅ |
-| (1965, 4, 2) | **true** | **true** | **true** | 19650402 | ✅ |
-| (1964, 12, 31) | false | false | false | 19641231 | ✅ |
-| (1966, 1, 1) | true | true | true | 19660101 | ✅ |
-
-- `agreeForeignBondInterestExemptionScopeEnforcementDate = true`（1950 / 1965-03-31 / 1965-04-01 / 1965-04-02 / 1980 の 5 日）も `by decide` で確認。
-- レビュー側の広域走査: 年 **1963〜1967（5）× 月 1〜12 × 日 1〜31 = 1,860 組み合わせ**で `inForce d == dxSpec d` を比較。一時 Lean ファイルの `#eval dxMismatch` は **0**、名前付き定理 `dx_sweep`（`by decide`、`maxRecDepth` / `maxHeartbeats` 引き上げ）もカーネルで確認 → **MISMATCH 0**。Independent Python 走査でも 1,860 組み合わせ MISMATCH 0。
-- **BY-DESIGN の境界**: `dateKey` の数値符号化は月 1〜12 / 日 1〜31 の正規な日付成分に限り辞書順と順序同型。非正規入力は暦として不正な領域であり、原文との矛盾ではない。
-
-### DX-4. `#print axioms` 監査（`lake env lean`、exit code 0）
-
-- 一時 Lean ファイルはリポジトリ内に作らず、承認済み temp ディレクトリ `C:\Users\junny\AppData\Local\Temp\opencode\` に置いた。`lake env lean <tempfile>` は両ファイルとも **exit code 0**、エラー 0。検証用一時ファイルはすべて削除済み。
-- 走査した **21 チェック** — モジュール 8 def（`showaToSeireki`, `enforcementDate`, `dateKey`, `enforcementKey`, `inForce`, `specDate`, `specInForce`, `agreeForeignBondInterestExemptionScopeEnforcementDate`）＋ レビュー側 `dxSpec` / 命名定理 `t_showa`〜`t_agree`（7 件）＋ `dx_before` / `dx_on` / `dx_after` / `dx_agree` / `dx_sweep`（5 件）＋ `dxMismatchAt` を除く `dxSpec` を含む — はすべて `does not depend on any axioms`。
-
-| 監査項目 | 件数 |
-|---|---:|
-| `Classical.choice` | **0** |
-| `sorryAx` | **0** |
-| `Quot.sound` | **0** |
-| `propext` | **0** |
-| axiom-free | **21/21** |
-
-### DX-5. doc-comment の出典メタデータ検証（cycle-131 型のコピー残存・二重 prefix の警戒）
-
-| doc-comment 記載 | pinned 側の独立値 | 照合 |
-|---|---|---|
-| `Law id: 333CO0000000337` | `law_info.law_id = 333CO0000000337` | ✅ |
-| `Revision: 333CO0000000337_20171001_429CO0000000106` | `revision_info.law_revision_id = 333CO0000000337_20171001_429CO0000000106` | ✅ |
-| `Raw snapshot: data/raw/333CO0000000337_20171001_429CO0000000106.law.json` | 実在ファイル 29,474 バイト（SHA-256 上記、INVENTORY `source_file` 一致） | ✅ |
-
-- **Law id 残存バグなし**: 対象 3 Lean ファイルに現れる law-id 様トークンは `333CO0000000337` のみで pinned 値と一致。cycle-131（Batch DU）で見られた `327AC0000000113` 型の他モデル残存、および他 law-id の取り違えは **0 件**。`data/raw/data/raw/...` のような prefix 二重も **0 件**。`sorry` / `admit` / `axiom` / `unsafe` / `Classical.choice` / `Quot.sound` / `propext` の実使用もコード部に **0 件**。
-- **概念の区別**: `revision_info.amendment_enforcement_date = 2017-10-01`（平成二十九年政令第百六号による**現行改正**の施行日、Revision id の `20171001` も同値）は、本モデルが対象とする附則 art.1 の**原施行日 1965-04-01** とは別概念。両者を混同して `enforcementKey` を 20171001 とするのは誤り（下記 B-6）。
-
-### DX-6. CONFIRMED / BY-DESIGN / UNRESOLVED の分類
-
-| 分類 | 件数 |
-|---|---:|
-| **CONFIRMED** | **0** |
-| **BY-DESIGN** | **6** |
-| **UNRESOLVED** | **2** |
-
-#### CONFIRMED（0 件）
-
-- pinned 原文の日付・needle・反例・Impl/独立 Spec・公理監査・出典メタデータのいずれにも食い違いなし。**発見ゼロを明示する。** 特に cycle-131 型の Law id 残存バグは存在しない。
-
-#### BY-DESIGN（6 件）— 未形式化の確認を含む
-
-- **B-1 附則の他条・実体規定は NOT MODELLED**: 本モデルは当該附則 art.1（施行期日）の 1 日判定のみ。pinned `law_full_text` 全体で **8 個の SupplProvision ブロック / 6 個の Article ノード**が存在し、他の附則（例: art.9 の経過規定、2014-04-01 / 2015-04-01 / 2017-04-01 の施行期日）および本則の実体規定（**適用を受けない者の範囲**そのもの、定義・手続等）は未形式化（doc-comment が明示）。
-- **B-2 経過措置の法的効果は NOT MODELLED**: 1965-04-01 という日付値のみを扱い、施行に伴う経過措置・適用関係の法的効果は表現しない。
-- **B-3 表記ゆれ / needle 1 の raw リテラル不在**: doc-comment の「第一条 この政令は…」の空白と、`第一条` と本文が別 JSON ノードであることによる raw literal MISS。正規化全文照合では 2/2 FOUND、needle の U+3000 = 0。
-- **B-4 `dateKey` と辞書順の順序同型は正規日付成分に限る**: 月 0 / 日 32 等の非正規入力では分岐し得るが、暦として不正な領域（DX-3）。
-- **B-5 附則ラベルの U+3000**: pinned の附則ラベルは「附　則」と U+3000 を含むが、needle 自身には U+3000 がなく照合に影響しない。
-- **B-6 元号ラベル・現行改正日の非モデル化**: モデルは西暦年の算定のみを行い「昭和四十年」という元号ラベルを保持しない。また `revision_info.amendment_enforcement_date = 2017-10-01` は現行改正の施行日であり、本モデルの原施行日 1965-04-01 とは別概念。
-
-#### UNRESOLVED（2 件）
-
-- **U-1 未形式化部分の法的適用関係**: 施行日のみでは、附則の他条・経過措置、本則の実体規定（**適用を受けない者の範囲**）の実際の適用関係（施行前に支払を受けるべき利子の取扱い等）は確定不能。**人間の法律専門家による確認を要する。**
-- **U-2 元号換算の法的最終確認**: 昭和元年 = 1926 という起算は外部の通則に依存し、原文には「昭和四十年四月一日」としか記載がない。機械的照合で 1965-04-01 を確認したが、法解釈上の最終判断は専門家に委ねる。
-
-### DX-7. 最終報告（サマリ）と二段 read-then-write 検証
-
-- **CONFIRMED 0 / BY-DESIGN 6 / UNRESOLVED 2**。出典メタデータ・原文・needle・実装・独立 Spec・公理監査の値に食い違いなし（発見ゼロ）。
-- **pinned 原文照合**: `SupplProvision -> Article[Num=1] -> Sentence` から「この政令は、昭和四十年四月一日から施行する。」を直接抽出。昭和 40 = 1926+40−1 = 1925+40 = 1965 を確認し、昭和 39（1964）/ 昭和 41（1966）/ 3 月 31 日・4 月 2 日を明示除外。
-- **needle**: 2 本とも U+3000 = 0、正規化全文で 2/2 FOUND、MISS 0。
-- **反例**: `inForce(1965,3,31)=false` / `inForce(1965,4,1)=true` / `inForce(1965,4,2)=true`。独立 Spec `specInForce` およびレビュー側 `dxSpec` と一致。1,860 組み合わせ（1963〜1967）の広域走査でも MISMATCH 0（`#eval` 0 とカーネル定理 `dx_sweep` の双方で確認）。
-- **公理**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件、21/21 axiom-free（exit code 0）。一時ファイルは削除済み。
-- **禁止操作の遵守**: commit / push / merge / ブランチ切替は一切実行していない。Lean モジュールと `data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
-- **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `C5B6DA77F21F2A78E8A7233E4AC94EEE5956D57EA9829ADD63CC48BCD0B9E113`・`1720507` バイト・広義レビュー件数 **`129` 件**（`^## .*review` ベース、1 回目読込と同一）。本セクション追記後は **`130` 件（Previous +1）**。書き込み後の再読込で件数増加・既存バイト列の前方一致・既存見出し残存（Batch G / DT / DU / DV / DW を含む）を検証した（自己言及的なハッシュ値は本文に埋め込まない）。並行ワーストリームが件数を変動させる可能性があるため、採用した値は書き込み直前の再読込値である。
-
-> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
-### LocalTaxBracketAtMost195.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の境界定数と境界例をカーネル決定で照合。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### LocalTaxBracket900To1800.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の境界定数と境界例をカーネル決定で照合。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### LocalTaxBracket330To695.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の境界定数と境界例をカーネル決定で照合。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### LocalTaxBracket695To900.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様の境界定数と境界例をカーネル決定で照合。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### EnergyEfficiency75Pct.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様（交差乗算）の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### EnergyEfficiency70Pct.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様（交差乗算）の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-
-## Batch DY review (2026-11-26) — 阪神・淡路大震災被災者等に係る国税関係法律の臨時特例に関する法律施行規則 附則 art.1（施行日 平成14年8月1日 = 2002-08-01）/ `HanshinAwajiDisasterTaxReliefEnforcementDate.lean`（cycle-135 の1モデル）
-
-### DY-0. 範囲・独立性の申告
-
-- 対象（読み取り専用・一切変更していない）: `JapanTaxLaw/HanshinAwajiDisasterTaxReliefEnforcementDate.lean`（1,808 バイト）、`JapanTaxLaw/HanshinAwajiDisasterTaxReliefEnforcementDateSpec.lean`（949 バイト）、`JapanTaxLaw/HanshinAwajiDisasterTaxReliefEnforcementDateTests.lean`（639 バイト）。
-- 一次資料（pinned・改変禁止）: `data/raw/407M50000040012_20090401_421M60000040020.law.json`（172,638 バイト、SHA-256 `BED7307E02570350DE269E46A52D446A59DC3AA99E366F1E0B3B72146CEFA45F`、law_id `407M50000040012` / revision `407M50000040012_20090401_421M60000040020`）。INVENTORY.json L6889–6909 の `current_revision` / `raw_snapshot` pin と一致。
-- needle 2 本の定義は `scripts/ci/transcription_audit.py` L2439–2443（`# HanshinAwajiDisasterTaxReliefEnforcementDate — cycle-135`）に独立確認。形式化担当の STAGING / doc-comment は信じず、レビュー側で pinned JSON の `law_full_text` を再帰走査して原文を直接再抽出した。独立 Spec は実装の `dateKey` も module の `specInForce` も再利用せず、レビュー側で `dySpec`（年→月→日の入れ子 if 比較）として別途実装した。
-- commit / push / merge / ブランチ切替は一切実行していない（ブランチ `main` のまま）。Lean モジュール・Spec・Tests・`data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
-
-### DY-1. pinned 原文の直接抽出・照合（平成14年 = 2002 の独立的算出）
-
-- 構造的路径: `law_full_text -> LawBody -> SupplProvision[15]`（`attr.AmendLawNum = 平成一四年八月一日財務省令第四六号`）`-> Article[Num=1] -> ArticleCaption（施行期日） -> ArticleTitle 第一条 -> Paragraph -> ParagraphSentence/Sentence`。当該 `Sentence` の text leaf は **22 文字**の「**この省令は、平成十四年八月一日から施行する。**」。`LawBody` 直下には `SupplProvision` が **17 ブロック**、`Article` ノードが **28 個**存在するが、日付句「平成十四年八月一日」の text leaf ヒットは **1 件のみ**（一意）。
-- **原文逐語（附則）**: 「附　則（施行期日）第一条この省令は、平成十四年八月一日から施行する。」／ `Sentence` 単体では「**この省令は、平成十四年八月一日から施行する。**」。doc-comment の引用「第一条 この省令は、平成十四年八月一日から施行する。」との差は空白（U+0020 / U+3000）の除去のみ。
-- 日付句の独立抽出: 「**平成十四年八月一日**」→ 年 = 平成 14 / 月 = 八 / 日 = 一。
-- 元号換算: 平成元年 = 1989 なので 1989 + 14 − 1 = **1988 + 14 = 2002**。実装 `heiseiToSeireki 14 = 1988 + 14 = 2002` と一致。施行日 = **2002-08-01**。`dateKey` = 2002×10000 + 8×100 + 1 = **20020801**、`enforcementDate = (2002, 8, 1)`、`enforcementKey = 20020801`、`inForce(d) = dateKey d >= 20020801` と一致。
-- **混同の明示除外**: 平成 13 年 = 1988+13 = **2001**／平成 15 年 = 1988+15 = **2003** は pinned 全文に文字列として存在するが、いずれも**別の附則ブロック**の日付（idx 13「平成十三年一月六日」=2001-01-06、idx 14「平成十三年四月一日」=2001-04-01、idx 15 **art.2** の「平成十五年三月三十一日」=2003-03-31、idx 16「平成十五年四月一日」=2003-04-01）であり、対象 art.1 の施行日ではない。対象 art.1 の `Sentence` には「平成十三年」「平成十五年」は**存在しない**。「七月三十一日」「八月二日」は pinned 全文で **0 件**であり、反例探索の**境界入力**であって施行日自体ではない。さらに idx 14 の但書「同年三月三十一日」（=2001-03-31、当該改正の第十条・第十一条に限る）および idx 20「平成二十一年四月一日」（=2009-04-01、現行 revision の施行日）も、本モデルの原施行日 2002-08-01 とは別（下記 B-6 / DY-5）。
-
-| 原文（pinned） | レビュー側独立抽出 | Lean 実装 | 照合 |
-|---|---|---|---|
-| 平成十四年八月一日 | 1989+14−1 = 1988+14 = 2002 / 8 / 1 | `heiseiToSeireki 14 = 2002`, `enforcementDate = (2002,8,1)` | ✅ |
-| `dateKey` = YYYYMMDD | 2002×10000+8×100+1 = 20020801 | `enforcementKey = 20020801` | ✅ |
-
-### DY-2. needle 2 本の検証
-
-needle は `scripts/ci/transcription_audit.py` L2443 の cycle-135 定義をレビュー側で確認した 2 本。正規化全文 = `law_full_text` の text leaf を文書順に連結し `re.sub(r"[\s　]+", "", …)`（脚本の `_norm` と同一）で照合した。
-
-| needle | 内容 | U+3000 数 | raw JSON リテラル | 正規化全文 | 結果 |
-|---|---|---:|---|---|---|
-| 1 | `第一条この省令は、平成十四年八月一日から施行する` | 0 | MISS（0 件） | FOUND（1 件） | **FOUND** |
-| 2 | `この省令は、平成十四年八月一日から施行する` | 0 | FOUND（1 件） | FOUND（1 件） | **FOUND** |
-
-- → **2/2 FOUND、MISS 0（正規化照合）、両 needle の U+3000 = 0**。needle 1 は `第一条` が `ArticleTitle`、本文が `Sentence` と別ノードに格納されるため raw JSON のリテラル部分文字列としては現れないが、正規化連結では一致 1 件。needle 末尾「。」省略は部分文字列一致に影響なし。対象 3 Lean ファイル全体の U+3000 = **0**（main / Spec / Tests すべて 0）。
-
-### DY-3. 反例探索と独立 Spec（辞書順成分比較）との一致
-
-独立 Spec（`...Spec.lean`）: `specInForce d = decide (d.1 > 2002) || (d.1 == 2002 && decide (d.2.1 > 8)) || (d.1 == 2002 && d.2.1 == 8 && decide (d.2.2 >= 1))`。レビュー側は実装の `dateKey` も module の `specInForce` も再利用せず `dySpec`（`if d.1 > 2002 then true else if d.1 < 2002 then false else if d.2.1 > 8 then true else if d.2.1 < 8 then false else decide (d.2.2 >= 1)`）として独立に再実装した。
-
-| 日付 | `inForce`（実装） | `specInForce`（独立 Spec） | `dySpec`（レビュー側） | dateKey | 一致 |
-|---|---|---|---|---|---|
-| (2002, 7, 31) | **false** | **false** | **false** | 20020731 < 20020801 | ✅ |
-| (2002, 8, 1) | **true** | **true** | **true** | 20020801 ≥ 20020801 | ✅ |
-| (2002, 8, 2) | **true** | **true** | **true** | 20020802 | ✅ |
-| (2001, 12, 31) | false | false | false | 20011231 | ✅ |
-| (2003, 1, 1) | true | true | true | 20030101 | ✅ |
-
-- `agreeHanshinAwajiDisasterTaxReliefEnforcementDate = true`（1990 / 2002-07-31 / 2002-08-01 / 2002-08-02 / 2010 の 5 日）も `by decide` で確認。
-- レビュー側の広域走査: 年 **2000〜2004（5）× 月 1〜12 × 日 1〜31 = 1,860 組み合わせ**で `inForce d == dySpec d` を比較。`#eval dyCombos.length` = **1860**、`#eval dyMismatch` = **0**、名前付き `example : dyMismatch = 0` および `example : dyCombos.length = 1860`（`by decide`、`maxRecDepth` / `maxHeartbeats` 引き上げ）もカーネルで確認 → **MISMATCH 0**。
-- **BY-DESIGN の境界**: `dateKey` の数値符号化は月 1〜12 / 日 1〜31 の正規な日付成分に限り辞書順と順序同型。非正規入力は暦として不正な領域であり、原文との矛盾ではない。
-
-### DY-4. `#print axioms` 監査（`lake env lean`、exit code 0）
-
-- 一時 Lean ファイルはリポジトリ内に作らず、承認済み temp ディレクトリ `C:\Users\junny\AppData\Local\Temp\opencode\` に置いた。`lake env lean <tempfile>` は **exit code 0**、エラー 0。検証用一時ファイルはすべて削除済み。
-- 走査した **10 チェック** — モジュール 5 def（`heiseiToSeireki`, `enforcementDate`, `dateKey`, `enforcementKey`, `inForce`）＋ Spec 3 def（`specDate`, `specInForce`, `agreeHanshinAwajiDisasterTaxReliefEnforcementDate`）＋ レビュー側 `dySpec` / `dyMismatchAt` — はすべて `does not depend on any axioms`。匿名 `example` は全て `by decide` であり、公理依存を持たない。
-
-| 監査項目 | 件数 |
-|---|---:|
-| `Classical.choice` | **0** |
-| `sorryAx` | **0** |
-| `Quot.sound` | **0** |
-| `propext` | **0** |
-| axiom-free | **10/10** |
-
-### DY-5. doc-comment の出典メタデータ検証（cycle-131 型のコピー残存・二重 prefix の警戒）
-
-| doc-comment 記載 | pinned 側の独立値 | 照合 |
-|---|---|---|
-| `Law id: 407M50000040012` | `law_info.law_id = 407M50000040012` | ✅ |
-| `Revision: 407M50000040012_20090401_421M60000040020` | `revision_info.law_revision_id = 407M50000040012_20090401_421M60000040020` | ✅ |
-| `Raw snapshot: data/raw/407M50000040012_20090401_421M60000040020.law.json` | 実在ファイル 172,638 バイト（SHA-256 上記、INVENTORY `source_sha256` 一致） | ✅ |
-
-- **Law id 残存バグなし**: 対象 3 Lean ファイルに現れる law-id 様トークンは `407M50000040012` のみで pinned 値と一致。cycle-131（Batch DU）で見られた `327AC0000000113` 型の他モデル残存、および cycle-134 の `333CO0000000337` の取り違えは **0 件**。`data/raw/data/raw/...` のような prefix 二重も **0 件**。`sorry` / `admit` / `axiom` / `unsafe` / `Classical.choice` / `Quot.sound` / `propext` の実使用も 3 ファイル全体で **0 件**。
-- **概念の区別**: `revision_info.amendment_enforcement_date = 2009-04-01`（平成二十一年財務省令第二十号による**現行改正**の施行日、Revision id の `20090401` も同値、pinned 附則 idx 20「平成二十一年四月一日」と一致）は、本モデルが対象とする附則 art.1 の**原施行日 2002-08-01**（平成一四年八月一日）とは別概念。doc-comment 中の `20090401` の 2 出現はいずれも Revision id / Raw snapshot パスの一部分であり、施行日算出には使われていない。`enforcementKey` を 20090401 とするのは誤り（下記 B-6）。
-
-### DY-6. CONFIRMED / BY-DESIGN / UNRESOLVED の分類
-
-| 分類 | 件数 |
-|---|---:|
-| **CONFIRMED** | **0** |
-| **BY-DESIGN** | **6** |
-| **UNRESOLVED** | **2** |
-
-#### CONFIRMED（0 件）
-
-- pinned 原文の日付・needle・反例・Impl/独立 Spec・公理監査・出典メタデータのいずれにも食い違いなし。**発見ゼロを明示する。** 欠陥件数を手柄にしない。特に cycle-131 型の Law id 残存バグは存在しない。
-
-#### BY-DESIGN（6 件）— 未形式化の確認を含む
-
-- **B-1 附則の他条は NOT MODELLED**: 本モデルは対象の附則 art.1（施行期日）の 1 日判定のみ。pinned `law_full_text` 全体で **17 個の SupplProvision ブロック / 28 個の Article ノード**が存在し、同一附則ブロックの **art.2（法人税法施行規則等の一部改正に伴う経過措置の原則）**、ならびに他 16 ブロックの施行期日・経過措置（例: 2001-01-06 / 2001-04-01 / 2003-04-01 / 2009-04-01）は未形式化（doc-comment が明示）。
-- **B-2 省令の実体規定は NOT MODELLED**: 本則の震災特例の適用要件・定義・手続等は形式化されていない。dateKey による施行日判定のみを扱う。
-- **B-3 表記ゆれ / needle 1 の raw リテラル不在**: doc-comment の「第一条 この省令は…」の空白と、`第一条` と本文が別 JSON ノードであることによる raw literal MISS。正規化全文照合では 2/2 FOUND、needle の U+3000 = 0。
-- **B-4 `dateKey` と辞書順の順序同型は正規日付成分に限る**: 月 0 / 日 32 等の非正規入力では分岐し得るが、暦として不正な領域（DY-3）。
-- **B-5 附則ラベルの U+3000**: pinned の附則ラベルは「附　則」と U+3000 を含むが、needle 自身には U+3000 がなく照合に影響しない。
-- **B-6 元号ラベル・現行改正日の非モデル化**: モデルは西暦年の算定のみを行い「平成十四年」という元号ラベルを保持しない。また `revision_info.amendment_enforcement_date = 2009-04-01` は現行改正の施行日であり、本モデルの原施行日 2002-08-01 とは別概念（DY-5）。
-
-#### UNRESOLVED（2 件）
-
-- **U-1 未形式化部分の法的適用関係**: 施行日のみでは、附則 art.2・他条の経過措置、本則の実体規定（震災特例の適用要件等）の実際の適用関係は確定不能。**人間の法律専門家による確認を要する。**
-- **U-2 元号換算の法的最終確認**: 平成元年 = 1989 という起算は外部の通則に依存し、原文には「平成十四年八月一日」としか記載がない。機械的照合で 2002-08-01 を確認したが、法解釈上の最終判断は専門家に委ねる。
-
-### DY-7. 最終報告（サマリ）と二段 read-then-write 検証
-
-- **CONFIRMED 0 / BY-DESIGN 6 / UNRESOLVED 2**。出典メタデータ・原文・needle・実装・独立 Spec・公理監査の値に食い違いなし（発見ゼロ）。
-- **pinned 原文照合**: `SupplProvision[15] -> Article[Num=1] -> Sentence` から「この省令は、平成十四年八月一日から施行する。」を直接抽出。平成 14 = 1989+14−1 = 1988+14 = 2002 を確認し、平成 13（2001）/ 平成 15（2003）/ 七月三十一日・八月二日を明示除外。
-- **needle**: 2 本とも U+3000 = 0、正規化全文で 2/2 FOUND、MISS 0。
-- **反例**: `inForce(2002,7,31)=false` / `inForce(2002,8,1)=true` / `inForce(2002,8,2)=true`。独立 Spec `specInForce` およびレビュー側 `dySpec` と一致。1,860 組み合わせ（2000〜2004）の広域走査でも MISMATCH 0（`#eval` 0 とカーネル決定の双方で確認）。
-- **公理**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件、10/10 axiom-free（exit code 0）。一時ファイルは削除済み。
-- **禁止操作の遵守**: commit / push / merge / ブランチ切替は一切実行していない。Lean モジュールと `data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
-- **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `85C9E6CDE26F302FE2F89C462A0CF48C206393E00F610212451260634C60139F`・`1736830` バイト・広義レビュー件数 **`130` 件**（`^## .*review` ベース、1 回目読込と同一）。本セクション追記後は **`131` 件（Previous +1）**。書き込み後の再読込で件数増加・既存バイト列の前方一致・既存見出し残存（Batch G / DT / DU / DV / DW / DX を含む）を検証した（自己言及的なハッシュ値は本文に埋め込まない）。並行ワーストリームが件数を変動させる可能性があるため、採用した値は書き込み直前の再読込値である。
-
-> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
-### EnergyEfficiency105Pct.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様（交差乗算）の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-### EnergyEfficiency116Pct.lean
-
-独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
-照合: 独立仕様（交差乗算）の定数・境界例と照合し、カーネル決定で一致を確認。
-判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
-
-## Batch DZ review (2026-11-27) — 法人臨時特別税に関する省令 附則 art.1（施行日 平成15年1月6日 = 2003-01-06）/ `CorporationTemporarySpecialTaxEnforcementDate.lean`（cycle-136 の1モデル、機械的独立照合・反例探索）
-
-### DZ-1. pinned 原文の直接独立抽出と照合
-
-- **pinned source**: `data/raw/403M50000040006_20030106_414M60000040072.law.json`（17,387 バイト、SHA-256 `A5FB0B2A99D87BB072243EAAE58B255248607B220D671BEFE6B427D1846BB38F`）。`law_info.law_id = 403M50000040006`、`revision_info.law_revision_id = 403M50000040006_20030106_414M60000040072`、`law_title = 法人臨時特別税に関する省令`、`amendment_enforcement_date = 2003-01-06`、`amendment_law_id = 414M60000040072`。
-- **独立抽出**: JSON を直接パースし `law_full_text` を走査した。附則（SupplProvision）の `Article[Num=1]` は `ArticleCaption=（施行期日）` / `ArticleTitle=第一条` / `Sentence=この省令は、平成十五年一月六日から施行する。`。`core.flat` + `core.norm` による scoped 文本は `（施行期日）第一条この省令は、平成十五年一月六日から施行する。`（該当 1 件、本則 art.1 は needle を含まない）。doc-comment の逐語「第一条 この省令は、平成十五年一月六日から施行する。」（U+3000 を 1 個含む）は、正規化後に pinned 抽出と完全一致。
-- **元号換算**: 平成元年 = 1989 を起算として `1989 + 15 − 1 = 1988 + 15 = 2003`。Impl の `heiseiToSeireki 15 = 2003`、`enforcementDate = (2003,1,6)`、`enforcementKey = dateKey (2003,1,6) = 20030106` を、Spec / Tests も import した Lean セッションで `by decide` 例ごと再確認（一度も再実装せず独立抽出値と照合）。
-- **混同の明示除外**: 平成14年 = 1988+14 = 2002、平成16年 = 1988+16 = 2004 は **いずれも本施行日ではない**。pinned 原文で `平成十四年一月六日` / `平成十六年一月六日` / `平成十五年一月五日` / `平成十五年一月七日` の出現は **すべて 0 回**（U+3000 正規化後も 0）。`平成十四年` は `amendment_law_num = 平成十四年財務省令第七十二号`（改正省令番号）にのみ現れ、附則 art.1 の施行日文言とは別概念。2003-01-06 は平成15年の年始（1月6日）であり、1月5日・7日との境界は DZ-3 で明示的に検証した。
-
-### DZ-2. needle 2 本の検証（U+3000 = 0 / 2-of-2 FOUND）
-
-- needle 定義は `scripts/ci/transcription_audit.py:2455-2459`（cycle-136）の 2 本:
-  1. `第一条この省令は、平成十五年一月六日から施行する`
-  2. `この省令は、平成十五年一月六日から施行する`
-- 両 needle の **U+3000 出現数は 0 / 0**。
-- プロジェクトの照合経路（`core.flat` で JSON 文字列リーフを連結 → `core.norm` で空白除去）で **2/2 FOUND**（MISS 0）。補足: 生 JSON バイト列に対する部分文字列検索では needle 1 は MISS となる（`第一条` が `ArticleTitle`、`この省令は…` が `Sentence` の別ノードのため）。これはプロジェクト既定の平坦化経路では問題にならず、B-3 として BY-DESIGN に分類する。
-- 両 needle は附則 art.1 の scoped 文本に命中し、本則 art.1（定義条）には命中しない。scoped 上の誤配置は 0 件。
-
-### DZ-3. 反例探索と独立 Spec との一致
-
-- 境界反例: `inForce (2003,1,5) = false`、`inForce (2003,1,6) = true`、`inForce (2003,1,7) = true`。独立 Spec `specInForce` もそれぞれ `false / true / true` で **一致**。`agreeCorporationTemporarySpecialTaxEnforcementDate = true`（`by decide`）。
-- 広域走査: 2001〜2005 年の `5 年 × 12 月 × 31 日 = 1,860` 組み合わせで `inForce` と `specInForce` を比較し、**MISMATCH 0**。追加で `(2002,12,31)=false` / `(2004,1,1)=true` も一致。
-- **Spec の日境界 `d.2.2 >= 6` は正しい**: cycle-135 の Spec は `>= 1`（平成14年8月1日用）だったが、cycle-136 では `>= 6` に正しく移植されており、「境界 1 の取り残し」バグは存在しない。`enforcementKey = 20030106` と `dateKey (2003,1,6)` の境界値も一致。
-- BY-DESIGN 注記: `dateKey` の順序同型は正規日付成分（1≤月≤12, 1≤日≤31）に限り、暦として不正な Nat（例: 月 0 かつ日 ≥ 106）では辞書順 Spec と分岐し得るが、レビュー範囲外。
-
-### DZ-4. `#print axioms` による公理監査
-
-- `lake env lean` で 3 モジュール（Impl / Spec / Tests）を import し、7 定義（`heiseiToSeireki`, `enforcementDate`, `dateKey`, `enforcementKey`, `inForce`, `specInForce`, `agreeCorporationTemporarySpecialTaxEnforcementDate`）に `#print axioms` を適用。
-- 結果は 7/7 とも `'…' does not depend on any axioms`（exit code 0）。`Classical.choice` / `sorryAx` / `Quot.sound` / `propext` の依存は **すべて 0 件**。import 時に全 `by decide` 例も型チェック済み。
-
-### DZ-5. doc-comment の出典メタデータ検証（cycle-131 型コピー残存・二重 prefix の警戒）
-
-| doc-comment 記載 | pinned 側の独立値 | 照合 |
-|---|---|---|
-| `Law id: 403M50000040006` | `law_info.law_id = 403M50000040006` | ✅ |
-| `Revision: 403M50000040006_20030106_414M60000040072` | `revision_info.law_revision_id = 403M50000040006_20030106_414M60000040072` | ✅ |
-| `Raw snapshot: data/raw/403M50000040006_20030106_414M60000040072.law.json` | 実在ファイル 17,387 バイト（SHA-256 上記） | ✅ |
-
-- 3 つの Lean ファイルに現れる law-id 様トークンは `403M50000040006` のみ。cycle-131 型の他モデル残存（`407M50000040012` / `333CO0000000337` 等）および `data/raw/data/raw/...` の二重 prefix は **0 件**。
-- **CONFIRMED（記述のみ 1 件）**: Impl doc-comment 16 行目が `平成 14 年 = 1988 + 15 = 2003（平成元年 = 1989、1989+15-1=2003）` となっており、年ラベル `14` が 1 年ずれている（正しくは `平成 15 年`）。cycle-135 の `HanshinAwajiDisasterTaxReliefEnforcementDate.lean:16` は `平成 14 年 = 1988 + 14 = 2002` であり、cycle-136 への移植時に算出式側（15 / 2003）だけ更新しラベルを更新し忘れた **コピー残存** と特定できる。算術・`enforcementDate`・`inForce` ・Spec・テストはすべて正しく、形式意味への影響はない（doc-comment のみの瑕疵）。
-
-### DZ-6. CONFIRMED / BY-DESIGN / UNRESOLVED の分類
-
-| 分類 | 件数 |
-|---|---:|
-| **CONFIRMED** | **1**（DZ-5 の doc-comment 年ラベルずれ、記述のみ） |
-| **BY-DESIGN** | **6** |
-| **UNRESOLVED** | **2** |
-
-#### CONFIRMED（1 件）
-
-- **C-1 doc-comment の元号ラベル**: `平成 14 年 = 1988 + 15 = 2003` → `平成 15 年 = ...` が正しい。cycle-135 からのコピー残存。実装・Spec・テスト・pinned 照合には影響なし。
-
-#### BY-DESIGN（6 件）— 未形式化の確認を含む
-
-- **B-1 附則の他条は NOT MODELLED**: 附則 art.1（施行期日）の 1 日判定のみ。pinned の附則には art.1 のほかに複数の施行期日・経過措置（平成3年4月1日 / 平成3年7月10日 / 平成4年7月1日 / 平成4年7月10日（ただし書） / 平成13年1月6日 等）が存在するが未形式化。
-- **B-2 省令の実体規定は NOT MODELLED**: 本則 art.1〜4（定義・納税地・申告書等の実体規定、法人臨時特別税の税率・申告等）は形式化されていない。
-- **B-3 needle 1 の生 JSON リテラル不在**: `第一条` と本文が別 JSON ノードであるため生バイト部分文字列では MISS となるが、プロジェクト既定の `flat`+`norm` 経路で 2/2 FOUND。needle 自身の U+3000 = 0。
-- **B-4 `dateKey` と辞書順の順序同型は正規日付成分に限る**（DZ-3）。
-- **B-5 元号ラベルの非保持**: モデルは西暦年の算定のみを行い「平成十五年」という元号ラベル自体をデータとして保持しない（DZ-5 の C-1 はコメント Side の瑕疵）。
-- **B-6 改正省令番号と施行日の別概念**: `平成十四年財務省令第七十二号` / `amendment_promulgate_date = 2002-12-27` は改正の公布情報であり、附則 art.1 の原施行日 2003-01-06 とは別概念。
-
-#### UNRESOLVED（2 件）
-
-- **U-1 未形式化部分の法的適用関係**: 施行日のみでは、附則他条の経過措置や本則の実体規定（税率・申告等）の実際の適用関係は確定不能。**人間の法律専門家による確認を要する。**
-- **U-2 元号換算の法的最終確認**: 平成元年 = 1989 という起算は外部の通則に依存し、原文には「平成十五年一月六日」としか記載がない。機械的照合で 2003-01-06 を確認したが、法解釈上の最終判断は専門家に委ねる。
-
-### DZ-7. 最終報告（サマリ）と二段 read-then-write 検証
-
-- **CONFIRMED 1 / BY-DESIGN 6 / UNRESOLVED 2**。うち CONFIRMED は doc-comment の年ラベルのみで、pinned 原文・needle・反例・Impl/独立 Spec・公理監査・出典メタデータの値には食い違いなし。
-- **pinned 原文照合**: `SupplProvision → Article[Num=1] → Sentence` から「この省令は、平成十五年一月六日から施行する。」を直接抽出。1989+15−1 = 1988+15 = 2003 を確認し、平成14（2002）/ 平成16（2004）、1月5日・1月7日を明示除外。
-- **needle**: 2 本とも U+3000 = 0、`flat`+`norm` で 2/2 FOUND、MISS 0。
-- **反例**: `inForce(2003,1,5)=false` / `(2003,1,6)=true` / `(2003,1,7)=true`。独立 Spec と一致。1,860 組み合わせ（2001〜2005）で MISMATCH 0。Spec の `d.2.2 >= 6` 境界を確認。
-- **公理**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件、7/7 axiom-free（exit code 0）。
-- **禁止操作の遵守**: commit / push / merge / ブランチ切替は一切実行していない。Lean モジュールと `data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
-- **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `8AD2E3E3425C917D57103CD885560ADE0EB2DF849D6A8E5C1DF475C9B169309A`・`1753100` バイト・広義レビュー件数 **`131` 件**（`^## .*review` ベース）。本セクション追記後は **`132` 件（Previous +1）**。書き込み後の再読込で件数増加・既存バイト列の前方一致・既存見出し残存（Batch G / DT / DU / DV / DW / DX / DY を含む）を検証した（検証結果は本セクション末尾の追記で確定）。
-
-> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
-
-## Batch EA review (2026-11-27) — 牛及び豚のうち純粋種の繁殖用のもの並びに無税を適用する馬の証明書の発給に関する省令 附則 art.1（施行日 平成12年4月1日 = 2000-04-01）/ `PurebredLivestockCertificateEnforcementDate.lean`（cycle-137 の1モデル、機械的独立照合・反例探索）
-
-### EA-1. pinned 原文の直接独立抽出と照合
-
-- **pinned source**: `data/raw/407M50000200013_20201221_502M60000200083.law.json`（17,284 バイト、SHA-256 `f4a21874627517470e79c0f94998bd59899872fe8c47ae7f037407ae8b835f39`）。`law_info.law_id = 407M50000200013`、`revision_info.law_revision_id = 407M50000200013_20201221_502M60000200083`、`law_title = 牛及び豚のうち純粋種の繁殖用のもの並びに無税を適用する馬の証明書の発給に関する省令`、`law_num = 平成七年農林水産省令第十三号`、`promulgation_date = 1995-03-20`、`amendment_enforcement_date = 2020-12-21`、`amendment_law_id = 502M60000200083`。
-- **独立抽出**: JSON を直接パースし `law_full_text` を走査した。`LawBody` 配下に 6 個の `SupplProvision` があり、その第 3 ブロックが対象。`ArticleCaption=（施行期日）` / `ArticleTitle=第一条` / `ParagraphSentence/Sentence=この省令は、平成十二年四月一日から施行する。` を直接抽出。平坦化文本は `（施行期日）第一条この省令は、平成十二年四月一日から施行する。`。doc-comment の逐語「第一条 この省令は、平成十二年四月一日から施行する。」は間に U+3000 を 1 個含むが、正規化後は pinned 抽出と完全一致。
-- **元号換算**: 平成元年 = 1989 を起算として `1989 + 12 − 1 = 1988 + 12 = 2000`。Impl の `heiseiToSeireki 12 = 2000`、`enforcementDate = (2000,4,1)`、`enforcementKey = dateKey (2000,4,1) = 20000401` を、Spec / Tests も import した Lean セッションで `by decide` 例ごと再確認（独立抽出値と照合）。
-- **混同の明示除外**: 平成11年 = 1988+11 = 1999、平成13年 = 1988+13 = 2001 は **いずれも本施行日ではない**。pinned 平坦化文本で `平成十二年四月一日` の出現は **1 回のみ**（一意）、`平成十三年` と `四月二日`（4/2）は **0 回**。`平成十一年三月三十一日` と `三月三十一日`（3/31）は 2 回現れるが、いずれも第 2 附則の旧様式使用期限の経過措置であり施行日ではない。さらに `令和元年七月一日`（2019-07-01, 第4附則）、`令和二年十月一日`（2020-10-01, 第5附則）、`公布の日から施行する`（第2・第6附則）は別改正による施行日で、本モデルの対象外。3月31日・4月2日・平成11年・平成13年の混入は 0 件。
-
-### EA-2. needle 2 本の検証（U+3000 = 0 / 2-of-2 FOUND）
-
-- needle 定義は `scripts/ci/transcription_audit.py:2471-2475`（cycle-137）の 2 本、`data/ARTICLE_SCOPE_POSITIONS.json` の当該 check も同一:
-  1. `第一条この省令は、平成十二年四月一日から施行する`
-  2. `この省令は、平成十二年四月一日から施行する`
-- 両 needle の **U+3000 出現数は 0 / 0**。
-- プロジェクトの照合経路（`flat` で JSON 文字列リーフを連結 → `norm` で空白除去）で **2/2 FOUND（MISS 0）**。`ARTICLE_SCOPE_POSITIONS.json` の `unit_hits` は `SupplProvision/Article/1`: 2、`SupplProvision/Paragraph/1`: 1、`D=PASS`、`competing_locations=[]`。
-- 補足: 生 JSON バイト列への部分文字列検索では needle 1 は MISS（`第一条` が `ArticleTitle`、本文が `Sentence` の別ノードのため）、needle 2 は FOUND。これはプロジェクト既定の `flat`+`norm` 経路では問題にならず BY-DESIGN に分類（cycle-136 の DZ B-3 と同型）。scoped 上の誤配置は 0 件。
-
-### EA-3. 反例探索と独立 Spec との一致（月・日境界の移植検証）
-
-- 境界反例: `inForce (2000,3,31) = false`、`inForce (2000,4,1) = true`、`inForce (2000,4,2) = true`。独立 Spec `specInForce` もそれぞれ `false / true / true` で **一致**。`agreePurebredLivestockCertificateEnforcementDate = true`（`by decide`、import 時に型チェック済み）。
-- 広域走査: 1998〜2002 年の全日（2000 年は閏年、実暦日数合計 **1,826** 日）で `inForce` と `specInForce` を比較し、**MISMATCH 0**。追加で `(1999,12,31)=false` / `(2000,1,1)=false` / `(2001,1,1)=true` も一致。
-- **cycle-136 → cycle-137 の境界更新は正常（残置バグなし）**: cycle-136 Spec は `specDate=(2003,1,6)`、`d.1>2003` / `d.2.1>1` / `d.2.1==1` / `d.2.2>=6`。cycle-137 Spec は `specDate=(2000,4,1)`、`d.1>2000` / `d.2.1>4` / `d.2.1==4` / `d.2.2>=1`。年・月境界値（4 / ==4）・日境界（>=1）の 4 トークンすべてが更新され、`2003` / `>1` / `==1` / `>=6` の残置は **0 件**。cycle-136 で警戒された「日境界 >=6 の取り残し」、および逆方向の「>=1 の取り残し」は存在しない。`enforcementKey = 20000401` と `dateKey (2000,4,1)` の境界値も一致。
-- BY-DESIGN 注記: `dateKey` の順序同型は正規日付成分（1≤月≤12, 1≤日≤31）に限り、暦として不正な Nat（例: 月 0）では辞書順 Spec と分岐し得るが、レビュー範囲外。
-
-### EA-4. `#print axioms` による公理監査
-
-- `lake env lean` で 3 モジュール（Impl / Spec / Tests）を import し、8 定義（`heiseiToSeireki`, `enforcementDate`, `dateKey`, `enforcementKey`, `inForce`, `specDate`, `specInForce`, `agreePurebredLivestockCertificateEnforcementDate`）に `#print axioms` を適用。
-- 結果は 8/8 とも `'…' does not depend on any axioms`（**exit code 0**）。`Classical.choice` / `Classical.decEq` / `sorryAx` / `Quot.sound` / `propext` の依存は **すべて 0 件**。import 時に全 `by decide` 例も型チェック済み。
-- 注記: Lean の `example` は環境に永続的な名前を持たないため `#print axioms` は名前付き定義へ適用した（DZ と同方式）。
-
-### EA-5. doc-comment の出典メタデータ検証（cycle-136 コピー残存の厳密検査）
-
-| doc-comment 記載 | pinned 側の独立値 | 照合 |
-|---|---|---|
-| `Law id: 407M50000200013` | `law_info.law_id = 407M50000200013` | ✅ |
-| `Revision: 407M50000200013_20201221_502M60000200083` | `revision_info.law_revision_id = 407M50000200013_20201221_502M60000200083` | ✅ |
-| `Raw snapshot: data/raw/407M50000200013_20201221_502M60000200083.law.json` | 実在ファイル 17,284 バイト（SHA-256 上記） | ✅ |
-
-- 3 つの Lean ファイルに現れる law-id 様トークンは `407M50000200013` のみで、cycle-136 の `403M50000040006` 等の混入は 0 件。`data/raw/data/raw/...` の二重 prefix も 0 件。
-- **年ラベル・計算式はすべて正しい**: Impl 16 行目 `平成 12 年 = 1988 + 12 = 2000（平成元年 = 1989、1989+12-1=2000）`、17 行目 `enforcementDate = (2000, 4, 1)`、18 行目 `inForce(d) = dateKey(d) >= 20000401`、31 行目 `施行日 = 平成12年4月1日 = 2000-04-01`。Tests 6 行目 `平成12年=2000、施行日 2000-04-01`。README 1014 行目 / `docs/PROGRESS.md` 181 行目も `2000-04-01`。cycle-136 由来の `2003` / `20030106` / `1988 + 15` / `平成十五年` は 3 モジュール内に **0 件**。
-- **CONFIRMED（記述のみ 1 件）**: Impl doc-comment 21 行目の Scope 行が cycle-136 `CorporationTemporarySpecialTaxEnforcementDate.lean:21` と **逐語同一** の `省令の実体規定（臨時特別税の税率・申告等）は NOT MODELLED。` を含んでいる。本省令の実体規定は `第一条（証明書の交付申請）` / `第二条（証明書の発給）` / `第三条（関係機関への証明書写しの送付）` および別記様式第一号・第二号であり、「臨時特別税の税率・申告」は cycle-136（法人臨時特別税）固有の記述である。cycle-135 は `（特例適用要件等）` と自モデルに合わせて書いており、cycle-137 のみがコピー残存と特定できる。形式意味・pinned 照合・needle・Spec・テストへの影響はなし（doc-comment の説明文のみの瑕疵）。
-
-### EA-6. CONFIRMED / BY-DESIGN / UNRESOLVED の分類
-
-| 分類 | 件数 |
-|---|---:|
-| **CONFIRMED** | **1**（EA-5 の doc-comment 説明文の cycle-136 残存、記述のみ） |
-| **BY-DESIGN** | **6** |
-| **UNRESOLVED** | **2** |
-
-#### CONFIRMED（1 件）
-
-- **C-1 doc-comment Scope 行のコピー残存**: `省令の実体規定（臨時特別税の税率・申告等）は NOT MODELLED。` → 本省令では `証明書の交付申請・発給・写し送付等` とすべきところ、cycle-136 の説明文が残存。実装・Spec・テスト・pinned 原文照合には影響なし。
-
-#### BY-DESIGN（6 件）— 未形式化の確認を含む
-
-- **B-1 附則の他条は NOT MODELLED**: 附則 art.1（施行期日）の 1 日判定のみ。pinned には他に第1附則（平成七年四月一日 = 1995-04-01、旧省令廃止・経過措置）、第2附則（公布の日、平成十一年三月三十一日までの旧様式経過）、第4附則（令和元年七月一日 = 2019-07-01、経過措置）、第5附則（令和二年十月一日 = 2020-10-01）、第6附則（公布の日、旧様式経過措置）が存在するが未形式化。
-- **B-2 省令の実体規定は NOT MODELLED**: 本則 art.1（証明書交付申請書二通・血統証明書面）、art.2（発給／不適当通知／書類提出要求／受理日から20日または輸入検疫証明書交付日の遅い日まで）、art.3（家畜登録機関等への写し送付）、別記様式第一号・第二号は形式化されていない。
-- **B-3 needle 1 の生 JSON リテラル不在**: `第一条` と本文が別 JSON ノードのため生バイト部分文字列では MISS となるが、プロジェクト既定の `flat`+`norm` 経路で 2/2 FOUND。needle 自身の U+3000 = 0。
-- **B-4 `dateKey` と辞書順の順序同型は正規日付成分に限る**（EA-3）。
-- **B-5 元号ラベルの非保持**: モデルは西暦年の算定のみを行い「平成十二年」という元号ラベル自体をデータとして保持しない（C-1 はコメント側の瑕疵）。
-- **B-6 複数の附則施行日の別概念**: 平成十二年四月一日（原施行日）と令和元年七月一日・令和二年十月一日・公布の日（各改正の施行日）、および `amendment_enforcement_date = 2020-12-21`（最新改正の施行日情報）は別概念。本モデルは指定された 2000-04-01 のみを対象とする。
-
-#### UNRESOLVED（2 件）
-
-- **U-1 未形式化部分の法的適用関係**: 施行日のみでは、附則他条の経過措置や本則の実体規定（証明書の交付申請・発給・写し送付等）の実際の適用関係は確定不能。**人間の法律専門家による確認を要する。**
-- **U-2 元号換算の法的最終確認**: 平成元年 = 1989 という起算は外部の通則に依存し、原文には「平成十二年四月一日」としか記載がない。機械的照合で 2000-04-01 を確認したが、法解釈上の最終判断は専門家に委ねる。
-
-### EA-7. 最終報告（サマリ）と二段 read-then-write 検証
-
-- **CONFIRMED 1 / BY-DESIGN 6 / UNRESOLVED 2**。うち CONFIRMED は doc-comment の説明文のみで、pinned 原文・needle・反例・Impl/独立 Spec・公理監査・出典メタデータの値には食い違いなし。
-- **pinned 原文照合**: 第 3 附則 `SupplProvision → Article[第一条] → Sentence` から「この省令は、平成十二年四月一日から施行する。」を直接抽出。1989+12−1 = 1988+12 = 2000 を確認し、平成11（1999）・平成13（2001）、3月31日・4月2日を明示除外（平成十二年四月一日は全文で 1 回のみ）。
-- **needle**: 2 本とも U+3000 = 0、`flat`+`norm` で 2/2 FOUND、MISS 0。
-- **反例**: `inForce(2000,3,31)=false` / `(2000,4,1)=true` / `(2000,4,2)=true`。独立 Spec と一致。1,826 組み合わせ（1998〜2002）で MISMATCH 0。cycle-136 からの年・月・日境界の更新（2003→2000, >1→>4, ==1→==4, >=6→>=1）を確認し残置バグなし。
-- **公理**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件、8/8 axiom-free（exit code 0）。
-- **禁止操作の遵守**: commit / push / merge / ブランチ切替は一切実行していない。Lean モジュールと `data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ（一時ファイルは削除済み）。
-- **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `4600e1886efc17266d17fd5ba2d02b039934dccc4a2fb22db6fa1edfa017f65b`・`1764251` バイト・広義レビュー件数 **`132` 件**（`^## .*review` ベース）。本セクション追記後は **`133` 件（Previous +1）**。書き込み後の再読込で件数増加・既存バイト列の前方一致・既存見出し残存（Batch G / DT / DU / DV / DW / DX / DY / DZ を含む）を検証した（検証結果は本セクション末尾の追記で確定）。
 
 > **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。

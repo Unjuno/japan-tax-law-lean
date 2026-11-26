@@ -91,10 +91,6 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
-    # EvidenceNonSubmissionException.lean - NORM|f7b116e1... (証拠不提出の例外 EXCEPTION, law 406CO0000000415)
-    yield ("相殺関税政令 art.7(4) ただし書（証拠不提出の例外）↔ EvidenceNonSubmissionException.lean",
-           "406CO0000000415", "article", "第七条", ["ただし、当該利害関係者が相当な期間内に当該証拠又は証言を提供しない場合は、この限りでない。"])
-
     # DividedCertificateIssuance.lean - NORM|834e3b37... (分割証明書交付 CONDITION, law 340M50010000013)
     yield ("とうもろこし等関税割当省令 art.4(2)（分割証明書交付）↔ DividedCertificateIssuance.lean",
            "340M50010000013", "article", "第四条", ["農林水産大臣は、前項の申請書を受理したときは、申請に係る証明書に代えて、分割した証明書を交付するものとする。"])
@@ -2477,12 +2473,6 @@ def checks():
            "407M50000200013",
            "file", None,
            ["第一条この省令は、平成十二年四月一日から施行する", "この省令は、平成十二年四月一日から施行する"])
-
-    # CustomsOfficerBadgeFormEnforcementDate — cycle-138
-    yield ("CustomsOfficerBadgeFormEnforcementDate.lean",
-           "329M50000040064",
-           "file", None,
-           ["第一条この省令は、昭和五十二年七月一日から施行する", "この省令は、昭和五十二年七月一日から施行する"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -5059,12 +5049,23 @@ def checks():
            "414CO0000000262",
            "file", None,
            ["特定貨物に課する不当廉売関税及び一般税率（法の別表の税率及び条約に規定する税率のうちいずれか低いものをいう。）による関悦については、それぞれ別個の関税として関税法（昭和二十九年法律第六十一号）第二章の規定を適用する。"])
+    # 国外送金等調書施行規則 art.4(4)(3)ハ — DocumentAgeSixMonthCap.lean
+    yield ("国外送金等調書施行規則 第四条(4)(3)ハ（提示日前六月以内作成）↔ DocumentAgeSixMonthCap.lean",
+           "409M50000040096", "article", "第四条",
+           ['官公署から発行され、又は発給された書類その他これらに類するもの（金融機関の営業所等の長に提示する日前六月以内に作成されたもの（有効期間又は有効期限のあるものにあっては、金融機関の営業所等の長に提示する日において有効なもの）に限り、法人番号通知書、法人番号印刷書類並びにイ及びロに掲げる書類を除く。）'])
+
 
     # 国際観光旅客税法 art. 25(1) — TouristTaxPenaltyBounds.lean
     yield ("国際観光旅客税法 art. 25（一年/五十万円の罰則上限）↔ TouristTaxPenaltyBounds.lean",
            "430AC0000000016",
            "file", None,
            ["次の各号のいずれかに該当する者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
+    # 法人税法施行令 art. 12(1) — OrganizationChangeNetAssets.lean
+    yield ("法人税法施行令 art. 12（組織変更会社の純資産額）↔ OrganizationChangeNetAssets.lean",
+           "342M50000040037",
+           "file", None,
+           ["組織変更をする会社の当該組織変更の直前における資産の額から負債の額を控除した額（当該控除した額がイに掲げる額以下である場合にあつては、イに掲げる額）"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
