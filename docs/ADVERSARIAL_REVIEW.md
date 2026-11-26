@@ -13922,3 +13922,10 @@ needle はタスク提示の原文引用からレビュー側が書き起こし�
 独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
 照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
 判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### TaxResearchCouncilQuorum.lean — 税制調査会組織規則 art.7 §1（定足数）
+
+- **pin**: law `425CO0000000025`, article 第七条; needle「調査会は、委員の三分の一以上が出席しなければ、会議を開き、議決することができない。」
+- **独立再抽出**: `0 < total ∧ 3 × present >= total`。独立仕様は乗法順序を入れ替え、全称定理 `agreeQuorum` が omega で照合。
+- **H/T/D**: 1/3, 2/6, 5/5 PASS; 0/3, 1/4, 0/0 FAIL。
+- **C/U**: 過半数・可否同数・会議手続は NOT MODELLED。`LEGAL_REVIEW_PENDING`。
