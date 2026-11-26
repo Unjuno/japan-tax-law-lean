@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=6513, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=6532, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=6513 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=6532 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -193,7 +193,10 @@ delegation-interface batch pipeline: verified=3/120/120/120, failed=0 in every r
 $ python scripts/ci/batch_structural_label_pipeline.py --limit 3 / 100 / 100 / 100
 structural-label batch pipeline: verified=3/100/100/100, failed=0 in every run
 
-$ python -m unittest discover -s scripts/tests -t . → 238 tests, OK
+$ python scripts/ci/batch_presumption_pipeline.py --limit 50
+presumption batch pipeline: verified=19 failed=0
+
+$ python -m unittest discover -s scripts/tests -t . → 241 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -589,7 +592,13 @@ and the kernel-checked label-domain invariant, and explicitly records that NO
 legal condition, effect or obligation is formalized. 303 units were verified
 with three parser tests. This is structure-check evidence only.
 
-So 6513 units are evidence-backed FULLY_VERIFIED and 390,339 remain NOT_STARTED
+A twenty-seventh pipeline, `scripts/ci/batch_presumption_pipeline.py`, handles
+evidentiary presumption (推定) norms: absence of evidence presumes a
+qualification false; evidence presence leaves the caller-established
+qualification standing. Both inputs are NOT resolved. 19 units were verified
+with three selection tests.
+
+So 6532 units are evidence-backed FULLY_VERIFIED and 390,320 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
