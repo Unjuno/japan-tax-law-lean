@@ -1213,6 +1213,12 @@ def checks():
            "file", None,
            ["その期間を六月以内に限り延長することができる", "第八条"])
 
+    # 相続税法 art.1の4 — GiftTaxTenYearResidenceLookback.lean
+    yield ("相続税法 art.1の4（贈与前十年以内の住所）↔ GiftTaxTenYearResidenceLookback.lean",
+           "325AC0000000073",
+           "file", None,
+           ["当該贈与前十年以内のいずれかの時においてこの法律の施行地に住所を有していたことがあるもの", "第一条の四"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
