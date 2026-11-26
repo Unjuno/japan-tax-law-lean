@@ -55,6 +55,9 @@ import JapanTaxLaw.AreaThreshold2HaTests
 import JapanTaxLaw.ArrearsChargeRounding
 import JapanTaxLaw.ArrearsChargeRoundingSpec
 import JapanTaxLaw.ArrearsChargeRoundingTests
+import JapanTaxLaw.AtaCarnetReportPenaltyCeiling50k
+import JapanTaxLaw.AtaCarnetReportPenaltyCeiling50kSpec
+import JapanTaxLaw.AtaCarnetReportPenaltyCeiling50kTests
 import JapanTaxLaw.AuctionDepositValuation
 import JapanTaxLaw.AuctionDepositValuationSpec
 import JapanTaxLaw.AuctionDepositValuationTests
@@ -2318,6 +2321,3 @@ import JapanTaxLaw.WidowDependentIncomeCeiling5MTests
 import JapanTaxLaw.WirePitch165nm
 import JapanTaxLaw.WirePitch165nmSpec
 import JapanTaxLaw.WirePitch165nmTests
-import JapanTaxLaw.AtaCarnetReportPenaltyCeiling50k
-import JapanTaxLaw.AtaCarnetReportPenaltyCeiling50kSpec
-import JapanTaxLaw.AtaCarnetReportPenaltyCeiling50kTests
