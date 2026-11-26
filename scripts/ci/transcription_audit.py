@@ -4663,6 +4663,34 @@ def checks():
            ["各事業年度の租税負担割合が百分の二十以上であること。"])
 
 
+    yield ("租税特別措置法 art. 42_4（合算3%超）↔ CombinedRndExcessOver3.lean",
+           "332AC0000000026", "file", None,
+           ["合算増減試験研究費割合が百分の三を超える場合（（３）に掲げる場合を除く。）"])
+    # 租税特別措置法 art. 42の4 — CombinedRndExcessAtMost3.lean (合算3%以下)
+    yield ("租税特別措置法 art. 42_4（合算3%以下）↔ CombinedRndExcessAtMost3.lean",
+           "332AC0000000026", "file", None,
+           ["合算増減試験研究費割合が百分の三以下である場合（（３）に掲げる場合を除く。）"])
+
+
+    yield ("租税特別措置法 art. 40_4（租税負担割合20%以上）↔ ForeignSubsidiaryTaxRate20.lean",
+           "332AC0000000026", "file", None,
+           ["各事業年度の租税負担割合が百分の二十以上であること。"])
+
+    # 租税特別措置法 art. 42の4 — CombinedRndExcessOver4Year.lean (4%超の事業年度)
+    yield ("租税特別措置法 art. 42_4（4%超の事業年度）↔ CombinedRndExcessOver4Year.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の四を超える事業年度"])
+
+
+    yield ("租税特別措置法 art. 42_4（4%超の事業年度）↔ CombinedRndExcessOver4Year.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の四を超える事業年度"])
+    # 租税特別措置法 art. 42の4 — CombinedRndExcessOver7Year.lean (7%超の事業年度)
+    yield ("租税特別措置法 art. 42_4（7%超の事業年度）↔ CombinedRndExcessOver7Year.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の七を超える事業年度"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
