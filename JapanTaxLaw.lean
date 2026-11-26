@@ -629,6 +629,9 @@ import JapanTaxLaw.LifePremiumDeductionTests
 import JapanTaxLaw.ThresholdDeductions
 import JapanTaxLaw.ThresholdDeductionsSpec
 import JapanTaxLaw.ThresholdDeductionsTests
+import JapanTaxLaw.DecimalMultipliers
+import JapanTaxLaw.DecimalMultipliersSpec
+import JapanTaxLaw.DecimalMultipliersTests
 import JapanTaxLaw.TariffSpecificFloor
 import JapanTaxLaw.TariffSpecificFloorSpec
 import JapanTaxLaw.TariffSpecificFloorTests
