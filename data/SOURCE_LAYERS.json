@@ -31,7 +31,7 @@
         "task_class": "CIRCULAR_ACQUISITION"
       },
       {
-        "acquisition_evidence": "SC-SHOWA37-WITHHOLDING-19620228 sha256=e94fb889ff8fed33886d5e96bba96290f3802b59a37cec3b1cec06575c2907f8, SC-HEISEI23-LONGTERM-LOSS-20110922 sha256=70fa7aec87216d934d89217020cfafbe9bdac8d22ba800484e4dec24c0c9513e, SC-2026-0623-R6GYO-HI-160-INCOME-TAX sha256=0aed390ab0d9f76484d65ec341d690fdee50e6d5a4c943357023f1b06e1880fe, TOKYO-HC-20231213-R5GYO-KO-62-INHERITANCE-TAX sha256=b5e9848dcfeb5587122c570c888a253c8cfc0242df6ddb6642a1a39b0985dd9c",
+        "acquisition_evidence": "SC-SHOWA37-WITHHOLDING-19620228 sha256=e94fb889ff8fed33886d5e96bba96290f3802b59a37cec3b1cec06575c2907f8, SC-HEISEI23-LONGTERM-LOSS-20110922 sha256=70fa7aec87216d934d89217020cfafbe9bdac8d22ba800484e4dec24c0c9513e, SC-2026-0623-R6GYO-HI-160-INCOME-TAX sha256=0aed390ab0d9f76484d65ec341d690fdee50e6d5a4c943357023f1b06e1880fe, TOKYO-HC-20231213-R5GYO-KO-62-INHERITANCE-TAX sha256=b5e9848dcfeb5587122c570c888a253c8cfc0242df6ddb6642a1a39b0985dd9c, TOKYO-DC-20211012-R1GYO-U-648-INCOME-TAX sha256=f44271b2e16db01c3384431e13e248084e04f2f72b0d27abb4ffa506cf5216f1",
         "formalization_evidence": "",
         "layer_id": "L5_CASELAW",
         "legal_review": "LEGAL_REVIEW_PENDING",
@@ -541,12 +541,31 @@
           "source_id": "TOKYO-HC-20231213-R5GYO-KO-62-INHERITANCE-TAX",
           "title_ja": "令和5年（行コ）第62号 相続税更正処分等取消請求控訴事件（原審・東京地方裁判所令和元年（行ウ）第490号）",
           "verification": "PINNED_BYTES_ONLY"
+        },
+        {
+          "bytes": 263184,
+          "case_number": "令和元年（行ウ）第648号",
+          "court": "東京地方裁判所",
+          "decision_date": "2021-10-12",
+          "document_kind": "DISTRICT_COURT_JUDGMENT",
+          "document_kind_note": "裁判例（解釈資料レイヤー）。租税法本文とは区別し、L5 で版付きバイト固定のみ行う。形式化・人間法的レビューは未実施。",
+          "formalization_status": "NOT_MODELLED",
+          "layer_id": "L5_CASELAW",
+          "legal_review": "LEGAL_REVIEW_PENDING",
+          "local_path": "data/layers/L5_CASELAW/TokyoDC_20211012_IncomeTaxCorrection_R1GyoU648.pdf",
+          "media_type": "application/pdf",
+          "official_url": "https://www.courts.go.jp/assets/hanrei/hanrei-pdf-90962.pdf",
+          "retrieved_date": "2026-11-27",
+          "sha256": "f44271b2e16db01c3384431e13e248084e04f2f72b0d27abb4ffa506cf5216f1",
+          "source_id": "TOKYO-DC-20211012-R1GYO-U-648-INCOME-TAX",
+          "title_ja": "令和元年（行ウ）第648号 所得税及び復興特別所得税の更正処分等取消請求事件",
+          "verification": "PINNED_BYTES_ONLY"
         }
       ],
       "authority": "裁判所",
       "auxiliary": true,
       "backlog": {
-        "acquisition_evidence": "SC-SHOWA37-WITHHOLDING-19620228 sha256=e94fb889ff8fed33886d5e96bba96290f3802b59a37cec3b1cec06575c2907f8, SC-HEISEI23-LONGTERM-LOSS-20110922 sha256=70fa7aec87216d934d89217020cfafbe9bdac8d22ba800484e4dec24c0c9513e, SC-2026-0623-R6GYO-HI-160-INCOME-TAX sha256=0aed390ab0d9f76484d65ec341d690fdee50e6d5a4c943357023f1b06e1880fe, TOKYO-HC-20231213-R5GYO-KO-62-INHERITANCE-TAX sha256=b5e9848dcfeb5587122c570c888a253c8cfc0242df6ddb6642a1a39b0985dd9c",
+        "acquisition_evidence": "SC-SHOWA37-WITHHOLDING-19620228 sha256=e94fb889ff8fed33886d5e96bba96290f3802b59a37cec3b1cec06575c2907f8, SC-HEISEI23-LONGTERM-LOSS-20110922 sha256=70fa7aec87216d934d89217020cfafbe9bdac8d22ba800484e4dec24c0c9513e, SC-2026-0623-R6GYO-HI-160-INCOME-TAX sha256=0aed390ab0d9f76484d65ec341d690fdee50e6d5a4c943357023f1b06e1880fe, TOKYO-HC-20231213-R5GYO-KO-62-INHERITANCE-TAX sha256=b5e9848dcfeb5587122c570c888a253c8cfc0242df6ddb6642a1a39b0985dd9c, TOKYO-DC-20211012-R1GYO-U-648-INCOME-TAX sha256=f44271b2e16db01c3384431e13e248084e04f2f72b0d27abb4ffa506cf5216f1",
         "formalization_evidence": "",
         "layer_id": "L5_CASELAW",
         "legal_review": "LEGAL_REVIEW_PENDING",
@@ -554,13 +573,13 @@
         "status": "PARTIAL",
         "task_class": "CASELAW_ACQUISITION"
       },
-      "count": 4,
-      "count_acquired": 4,
+      "count": 5,
+      "count_acquired": 5,
       "label_ja": "裁判例",
       "layer_id": "L5_CASELAW",
       "legal_nature": "判決・裁定（法源ではなく判断例）",
       "notes": "判断例として原文 bytes を pin 済み（法源ではなく解釈資料、形式化・レビュー未実施）。規範そのものとは混ぜない。",
-      "pinned_snapshot": "SC-SHOWA37-WITHHOLDING-19620228, SC-HEISEI23-LONGTERM-LOSS-20110922, SC-2026-0623-R6GYO-HI-160-INCOME-TAX, TOKYO-HC-20231213-R5GYO-KO-62-INHERITANCE-TAX",
+      "pinned_snapshot": "SC-SHOWA37-WITHHOLDING-19620228, SC-HEISEI23-LONGTERM-LOSS-20110922, SC-2026-0623-R6GYO-HI-160-INCOME-TAX, TOKYO-HC-20231213-R5GYO-KO-62-INHERITANCE-TAX, TOKYO-DC-20211012-R1GYO-U-648-INCOME-TAX",
       "scope_status": "IN_SCOPE_INTERPRETATION_BACKLOG",
       "verification_status": "PINNED_BYTES_ONLY"
     },
@@ -592,10 +611,10 @@
   "tool": "scripts/ci/source_layers.py",
   "verification_pipeline": {
     "blocked_units": 2,
-    "fully_verified_units": 1203,
+    "fully_verified_units": 1214,
     "human_legal_reviews": 0,
     "normative_units_total": 396854,
-    "not_started_units": 395646,
+    "not_started_units": 395635,
     "note": "Separate denominators; unknown (None) means the input is absent, never zero.",
     "proved_scope_units": 3
   }
