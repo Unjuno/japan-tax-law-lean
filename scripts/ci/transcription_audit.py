@@ -91,6 +91,10 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # DividedCertificateIssuance.lean - NORM|834e3b37... (分割証明書交付 CONDITION, law 340M50010000013)
+    yield ("とうもろこし等関税割当省令 art.4(2)（分割証明書交付）↔ DividedCertificateIssuance.lean",
+           "340M50010000013", "article", "第四条", ["農林水産大臣は、前項の申請書を受理したときは、申請に係る証明書に代えて、分割した証明書を交付するものとする。"])
+
     # MinisterialNecessityException.lean - NORM|045b8c69... (特に必要場合の例外 EXCEPTION, law 336CO0000000153)
     yield ("関税割当制度政令 art.2(4) ただし書（特に必要な場合の例外）↔ MinisterialNecessityException.lean",
            "336CO0000000153", "article", "第二条", ["ただし、農林水産大臣又は経済産業大臣が特に必要があると認めるときは、この限りでない。"])
