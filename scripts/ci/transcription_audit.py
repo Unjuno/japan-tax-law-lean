@@ -91,6 +91,14 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # ImmediateRetaliationException.lean - NORM|191808d9... (直ちに措置をとる場合の例外 EXCEPTION, law 406CO0000000418)
+    yield ("報復関税等政令 art.2(1) ただし書（直ちに措置をとる場合の例外）↔ ImmediateRetaliationException.lean",
+           "406CO0000000418", "article", "第二条", ["ただし、報復関税等に係る措置を直ちにとる必要があると認められる場合は、この限りでない。"])
+
+    # EvidenceNonSubmissionException.lean - NORM|f7b116e1... (証拠不提出の例外 EXCEPTION, law 406CO0000000415)
+    yield ("相殺関税政令 art.7(4) ただし書（証拠不提出の例外）↔ EvidenceNonSubmissionException.lean",
+           "406CO0000000415", "article", "第七条", ["ただし、当該利害関係者が相当な期間内に当該証拠又は証言を提供しない場合は、この限りでない。"])
+
     # DividedCertificateIssuance.lean - NORM|834e3b37... (分割証明書交付 CONDITION, law 340M50010000013)
     yield ("とうもろこし等関税割当省令 art.4(2)（分割証明書交付）↔ DividedCertificateIssuance.lean",
            "340M50010000013", "article", "第四条", ["農林水産大臣は、前項の申請書を受理したときは、申請に係る証明書に代えて、分割した証明書を交付するものとする。"])
@@ -1259,6 +1267,12 @@ def checks():
            "340AC0000000033",
            "article", "第二条",
            ["合計所得金額が八十五万円以下であり、かつ、", "十万円以下であるものをいう"])
+
+    # 所得税法 art.2(1) — IncomeTaxArt2DependentAge19To23.lean
+    yield ("所得税法 art.2(1)（扶養親族 19歳以上23歳未満）↔ IncomeTaxArt2DependentAge19To23.lean",
+           "340AC0000000033",
+           "article", "第二条",
+           ["年齢十九歳以上二十三歳未満の者をいう", "第二条"])
 
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
@@ -2473,6 +2487,12 @@ def checks():
            "407M50000200013",
            "file", None,
            ["第一条この省令は、平成十二年四月一日から施行する", "この省令は、平成十二年四月一日から施行する"])
+
+    # CustomsOfficerBadgeFormEnforcementDate — cycle-138
+    yield ("CustomsOfficerBadgeFormEnforcementDate.lean",
+           "329M50000040064",
+           "file", None,
+           ["第一条この省令は、昭和五十二年七月一日から施行する", "この省令は、昭和五十二年七月一日から施行する"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -5054,6 +5074,13 @@ def checks():
            "409M50000040096", "article", "第四条",
            ['官公署から発行され、又は発給された書類その他これらに類するもの（金融機関の営業所等の長に提示する日前六月以内に作成されたもの（有効期間又は有効期限のあるものにあっては、金融機関の営業所等の長に提示する日において有効なもの）に限り、法人番号通知書、法人番号印刷書類並びにイ及びロに掲げる書類を除く。）'])
 
+
+    # InheritanceTaxArt1_2TermDefinitionSource.lean - NORM|5535e9d6... (相続税法 art.1の2(1) DELEGATION, law 325AC0000000073)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("inheritance tax art.1_2 term definition source - InheritanceTaxArt1_2TermDefinitionSource.lean",
+           "325AC0000000073",
+           "file", None,
+           ["\u3053\u306e\u6cd5\u5f8b\u306b\u304a\u3044\u3066\u3001\u6b21\u306e\u5404\u53f7\u306b\u63b2\u3052\u308b\u7528\u8a9e\u306e\u610f\u7fa9\u306f\u3001\u5f53\u8a72\u5404\u53f7\u306b\u5b9a\u3081\u308b\u3068\u3053\u308d\u306b\u3088\u308b\u3002"])
 
     # 国際観光旅客税法 art. 25(1) — TouristTaxPenaltyBounds.lean
     yield ("国際観光旅客税法 art. 25（一年/五十万円の罰則上限）↔ TouristTaxPenaltyBounds.lean",
