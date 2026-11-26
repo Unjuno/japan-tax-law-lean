@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": false,
-  "checks": 4719,
+  "checks": 4773,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -1970,6 +1970,61 @@
       "detail": "run=45463588568 attested_run=45463588568 conclusion=success job=True",
       "reference": "https://api.github.com/repos/Unjuno/japan-tax-law-lean/actions/runs/45463588568: commit 8816a8d163a7f4011c5889f76bc062a1",
       "unit_id": "NORM|0822940e035b60fb6cff3cfec88a56ce2088b441802379a18d7444f8b34a3f16"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "unit_id": "NORM|0855d7106371effdfbc11202c1135d6011f72614c0cf24c1a0dc58593b8adc21"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookback.lean",
+      "unit_id": "NORM|0855d7106371effdfbc11202c1135d6011f72614c0cf24c1a0dc58593b8adc21"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackSpec.lean",
+      "unit_id": "NORM|0855d7106371effdfbc11202c1135d6011f72614c0cf24c1a0dc58593b8adc21"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackTests.lean",
+      "unit_id": "NORM|0855d7106371effdfbc11202c1135d6011f72614c0cf24c1a0dc58593b8adc21"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "kernel_proof",
+      "detail": "run=45751087008 attested_run=45751087008 conclusion=lean_job_only job=True",
+      "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45751087008: commit 4ad2f59a, build/axiom job success, 3 modul",
+      "unit_id": "NORM|0855d7106371effdfbc11202c1135d6011f72614c0cf24c1a0dc58593b8adc21"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -5797,6 +5852,61 @@
       "axis": "adversarial_review",
       "detail": "non-batch reference",
       "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "unit_id": "NORM|19956582f14138a1bb0d24a34d954b4e90b7520abe0f94c00719511b00fed21e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookback.lean",
+      "unit_id": "NORM|19956582f14138a1bb0d24a34d954b4e90b7520abe0f94c00719511b00fed21e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackSpec.lean",
+      "unit_id": "NORM|19956582f14138a1bb0d24a34d954b4e90b7520abe0f94c00719511b00fed21e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackTests.lean",
+      "unit_id": "NORM|19956582f14138a1bb0d24a34d954b4e90b7520abe0f94c00719511b00fed21e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "kernel_proof",
+      "detail": "run=45751087008 attested_run=45751087008 conclusion=lean_job_only job=True",
+      "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45751087008: commit 4ad2f59a, build/axiom job success, 3 modul",
+      "unit_id": "NORM|19956582f14138a1bb0d24a34d954b4e90b7520abe0f94c00719511b00fed21e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "unit_id": "NORM|19a50c3b2fde0301ee91a4ff6721dfdb5ad2e345d36daff312ec865f8b356edb"
     },
     {
@@ -7668,6 +7778,61 @@
       "detail": "run=45473747773 attested_run=45473747773 conclusion=lean_job_only job=True",
       "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45473747773: commit fff1f95d, build/axiom job success, 3 modul",
       "unit_id": "NORM|207c8267ab9373479a1be38c9b58d841e33440ad50b11a4afab6eda6b3d58eed"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "unit_id": "NORM|207e4ac9c1cedc8241715c6e59f627b4b6f584ee55cc5a8fb3eb6f26930c08a4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookback.lean",
+      "unit_id": "NORM|207e4ac9c1cedc8241715c6e59f627b4b6f584ee55cc5a8fb3eb6f26930c08a4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackSpec.lean",
+      "unit_id": "NORM|207e4ac9c1cedc8241715c6e59f627b4b6f584ee55cc5a8fb3eb6f26930c08a4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackTests.lean",
+      "unit_id": "NORM|207e4ac9c1cedc8241715c6e59f627b4b6f584ee55cc5a8fb3eb6f26930c08a4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "kernel_proof",
+      "detail": "run=45751087008 attested_run=45751087008 conclusion=lean_job_only job=True",
+      "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45751087008: commit 4ad2f59a, build/axiom job success, 3 modul",
+      "unit_id": "NORM|207e4ac9c1cedc8241715c6e59f627b4b6f584ee55cc5a8fb3eb6f26930c08a4"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -14356,6 +14521,61 @@
       "detail": "run=45463588568 attested_run=45463588568 conclusion=success job=True",
       "reference": "https://api.github.com/repos/Unjuno/japan-tax-law-lean/actions/runs/45463588568: commit 8816a8d163a7f4011c5889f76bc062a1",
       "unit_id": "NORM|3f91b3254b098693d1d5b623e504af50a1e749b1865312a8059f9425687af05d"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "unit_id": "NORM|3fbb839cacc301748f1108b2b7af783f2ab5b75f361f61d1fc1c38c451c9285f"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookback.lean",
+      "unit_id": "NORM|3fbb839cacc301748f1108b2b7af783f2ab5b75f361f61d1fc1c38c451c9285f"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackSpec.lean",
+      "unit_id": "NORM|3fbb839cacc301748f1108b2b7af783f2ab5b75f361f61d1fc1c38c451c9285f"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackTests.lean",
+      "unit_id": "NORM|3fbb839cacc301748f1108b2b7af783f2ab5b75f361f61d1fc1c38c451c9285f"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "kernel_proof",
+      "detail": "run=45751087008 attested_run=45751087008 conclusion=lean_job_only job=True",
+      "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45751087008: commit 4ad2f59a, build/axiom job success, 3 modul",
+      "unit_id": "NORM|3fbb839cacc301748f1108b2b7af783f2ab5b75f361f61d1fc1c38c451c9285f"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -22847,6 +23067,61 @@
       "axis": "adversarial_review",
       "detail": "non-batch reference",
       "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "unit_id": "NORM|69b3151a7eebcbadf1d22b92eb91daa4eefb70a8898548c55a8654fcf9a27a47"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookback.lean",
+      "unit_id": "NORM|69b3151a7eebcbadf1d22b92eb91daa4eefb70a8898548c55a8654fcf9a27a47"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackSpec.lean",
+      "unit_id": "NORM|69b3151a7eebcbadf1d22b92eb91daa4eefb70a8898548c55a8654fcf9a27a47"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackTests.lean",
+      "unit_id": "NORM|69b3151a7eebcbadf1d22b92eb91daa4eefb70a8898548c55a8654fcf9a27a47"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "kernel_proof",
+      "detail": "run=45751087008 attested_run=45751087008 conclusion=lean_job_only job=True",
+      "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45751087008: commit 4ad2f59a, build/axiom job success, 3 modul",
+      "unit_id": "NORM|69b3151a7eebcbadf1d22b92eb91daa4eefb70a8898548c55a8654fcf9a27a47"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "unit_id": "NORM|69bb7c420bf7131ca8357b0452e17c4b20065a290e4acf0844d12f2a574bd284"
     },
     {
@@ -25785,6 +26060,61 @@
       "detail": "run=45463588568 attested_run=45463588568 conclusion=success job=True",
       "reference": "https://api.github.com/repos/Unjuno/japan-tax-law-lean/actions/runs/45463588568: commit 8816a8d163a7f4011c5889f76bc062a1",
       "unit_id": "NORM|7ba796706788559d098393e282a1800729a2fc825e2bf8d2282f864f7d90d8e7"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "unit_id": "NORM|7bed072a3a4e0ce2394ed7c8fb38ee66e7ddc85cb55d45d356db8f5d1207ffc4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookback.lean",
+      "unit_id": "NORM|7bed072a3a4e0ce2394ed7c8fb38ee66e7ddc85cb55d45d356db8f5d1207ffc4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackSpec.lean",
+      "unit_id": "NORM|7bed072a3a4e0ce2394ed7c8fb38ee66e7ddc85cb55d45d356db8f5d1207ffc4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackTests.lean",
+      "unit_id": "NORM|7bed072a3a4e0ce2394ed7c8fb38ee66e7ddc85cb55d45d356db8f5d1207ffc4"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "kernel_proof",
+      "detail": "run=45751087008 attested_run=45751087008 conclusion=lean_job_only job=True",
+      "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45751087008: commit 4ad2f59a, build/axiom job success, 3 modul",
+      "unit_id": "NORM|7bed072a3a4e0ce2394ed7c8fb38ee66e7ddc85cb55d45d356db8f5d1207ffc4"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -32022,6 +32352,61 @@
       "detail": "run=45495223826 attested_run=45495223826 conclusion=success job=True",
       "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45495223826: commit 8b7328fb861471c2a17c9283b99b717867efb97d, ",
       "unit_id": "NORM|95dcd5f64d88ca18665e123a55b5ef216816748735fa407006e5cf9302bb339e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "unit_id": "NORM|95f9a5d195fc662a0a985b9459c91074ef4fc8f284e8716df377829b30018261"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookback.lean",
+      "unit_id": "NORM|95f9a5d195fc662a0a985b9459c91074ef4fc8f284e8716df377829b30018261"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackSpec.lean",
+      "unit_id": "NORM|95f9a5d195fc662a0a985b9459c91074ef4fc8f284e8716df377829b30018261"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackTests.lean",
+      "unit_id": "NORM|95f9a5d195fc662a0a985b9459c91074ef4fc8f284e8716df377829b30018261"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "kernel_proof",
+      "detail": "run=45751087008 attested_run=45751087008 conclusion=lean_job_only job=True",
+      "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45751087008: commit 4ad2f59a, build/axiom job success, 3 modul",
+      "unit_id": "NORM|95f9a5d195fc662a0a985b9459c91074ef4fc8f284e8716df377829b30018261"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -39754,6 +40139,61 @@
       "axis": "adversarial_review",
       "detail": "non-batch reference",
       "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "unit_id": "NORM|c2601e1c98458089ceebcaa5fbb7c95ae6d2c3903fc39f6dd66b5acc4e08404e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookback.lean",
+      "unit_id": "NORM|c2601e1c98458089ceebcaa5fbb7c95ae6d2c3903fc39f6dd66b5acc4e08404e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackSpec.lean",
+      "unit_id": "NORM|c2601e1c98458089ceebcaa5fbb7c95ae6d2c3903fc39f6dd66b5acc4e08404e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackTests.lean",
+      "unit_id": "NORM|c2601e1c98458089ceebcaa5fbb7c95ae6d2c3903fc39f6dd66b5acc4e08404e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "kernel_proof",
+      "detail": "run=45751087008 attested_run=45751087008 conclusion=lean_job_only job=True",
+      "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45751087008: commit 4ad2f59a, build/axiom job success, 3 modul",
+      "unit_id": "NORM|c2601e1c98458089ceebcaa5fbb7c95ae6d2c3903fc39f6dd66b5acc4e08404e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "unit_id": "NORM|c28dd15ef90a6a45f29e507ac04f2db91f8a1d3cf14931c56406da5109227dc4"
     },
     {
@@ -41867,6 +42307,61 @@
       "detail": "run=45463588568 attested_run=45463588568 conclusion=success job=True",
       "reference": "https://api.github.com/repos/Unjuno/japan-tax-law-lean/actions/runs/45463588568: commit 8816a8d163a7f4011c5889f76bc062a1",
       "unit_id": "NORM|cd7b49e92ea9456d79de9e233a50a4abca25142fcfcef6c4ed5808a5d9986a3c"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "unit_id": "NORM|cdae4cae1db7c796981608a16c56c32d0a9bd39094c9231343423ac719345ccd"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookback.lean",
+      "unit_id": "NORM|cdae4cae1db7c796981608a16c56c32d0a9bd39094c9231343423ac719345ccd"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackSpec.lean",
+      "unit_id": "NORM|cdae4cae1db7c796981608a16c56c32d0a9bd39094c9231343423ac719345ccd"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackTests.lean",
+      "unit_id": "NORM|cdae4cae1db7c796981608a16c56c32d0a9bd39094c9231343423ac719345ccd"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "kernel_proof",
+      "detail": "run=45751087008 attested_run=45751087008 conclusion=lean_job_only job=True",
+      "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45751087008: commit 4ad2f59a, build/axiom job success, 3 modul",
+      "unit_id": "NORM|cdae4cae1db7c796981608a16c56c32d0a9bd39094c9231343423ac719345ccd"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -47300,6 +47795,61 @@
       "axis": "adversarial_review",
       "detail": "non-batch reference",
       "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "unit_id": "NORM|e9c4873a634aca065a1205ffe82b8fb7b6c1e63ac3d698ca01d6cbaba1485c4b"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookback.lean",
+      "unit_id": "NORM|e9c4873a634aca065a1205ffe82b8fb7b6c1e63ac3d698ca01d6cbaba1485c4b"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackSpec.lean",
+      "unit_id": "NORM|e9c4873a634aca065a1205ffe82b8fb7b6c1e63ac3d698ca01d6cbaba1485c4b"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/GiftTaxTenYearResidenceLookbackTests.lean",
+      "unit_id": "NORM|e9c4873a634aca065a1205ffe82b8fb7b6c1e63ac3d698ca01d6cbaba1485c4b"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "kernel_proof",
+      "detail": "run=45751087008 attested_run=45751087008 conclusion=lean_job_only job=True",
+      "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45751087008: commit 4ad2f59a, build/axiom job success, 3 modul",
+      "unit_id": "NORM|e9c4873a634aca065a1205ffe82b8fb7b6c1e63ac3d698ca01d6cbaba1485c4b"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "unit_id": "NORM|e9c6d803d554ee91446388da2d04c0d3dec037e92250de26d401e489a303e3e4"
     },
     {
@@ -51910,11 +52460,55 @@
       "detail": "run=45463588568 attested_run=45463588568 conclusion=success job=True",
       "reference": "https://api.github.com/repos/Unjuno/japan-tax-law-lean/actions/runs/45463588568: commit 8816a8d163a7f4011c5889f76bc062a1",
       "unit_id": "NORM|fff89ad304c83b401e45afc8fa865f356060ed7292f4a5afd6848aa8d0a0431e"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_LOCAL_TAX_ART154_CAPACITY_30_TO_40_CONDITION.md — NO FINDINGS with all 15 mandated checks independently",
+      "unit_id": "NORM|aa32cf8b9a6339adb0c07216fe43e73857aaea91f64393d2c754d5883c44b9bb"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt154Capacity30To40Condition.lean",
+      "unit_id": "NORM|aa32cf8b9a6339adb0c07216fe43e73857aaea91f64393d2c754d5883c44b9bb"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt154Capacity30To40ConditionSpec.lean",
+      "unit_id": "NORM|aa32cf8b9a6339adb0c07216fe43e73857aaea91f64393d2c754d5883c44b9bb"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt154Capacity30To40ConditionTests.lean",
+      "unit_id": "NORM|aa32cf8b9a6339adb0c07216fe43e73857aaea91f64393d2c754d5883c44b9bb"
     }
   ],
-  "resolved": 4718,
+  "resolved": 4772,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 958,
+  "units_checked": 969,
   "unresolved": 1
 }
