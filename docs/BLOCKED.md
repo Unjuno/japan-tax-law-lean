@@ -33,8 +33,8 @@ delegation / reference / amendment discovery continues (see docs/RECURSIVE_DISCO
 ## Recorded unresolved items (not completion blockers by themselves)
 
 - unresolved (unenforced) laws in ledger: 2 — {'law_id': '508CO0000000106', 'status': 'fully_unenforced'}, {'law_id': '508M60000040027', 'status': 'fully_unenforced'}
-- independent review sessions: 130
-- review-level UNRESOLVED markers: 514 (require human legal judgement; not implementation defects)
+- independent review sessions: 131
+- review-level UNRESOLVED markers: 516 (require human legal judgement; not implementation defects)
 - historical-version references (Phase F): 795 names / 12977 occurrences — historical revisions not pinned to e-Gov snapshots
 - verified anomalies: ? (means no independent legal review has established a defect)
 
