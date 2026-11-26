@@ -374,6 +374,28 @@ progress_ledger: COUNTED; NOT_STARTED delta -39; new modules 15
 
 All five target ids carry `kernel_proof`. Legal review stays pending.
 
+### Fourteenth iteration (batch 255)
+
+A fourth delegated agent produced five units (`LocalTax53TwoPrefecturesNotice`,
+`72_48TwoAllocationBases`, `72_49_16TwoPrefecturesApproval`,
+`321_4TwoSpecialCollectors`, `389TwoMunicipalitiesMovable`) with independent
+specs, kernel tests, scoped needles and batch-255 review; build 2028 jobs,
+transcription 630, invariants 17/17, temp attestation removed. GitHub API rate
+limit (HTTP 403) temporarily blocked CI monitoring; after reset both runs for
+`8933814749423ec5eec773705c39662338e5e19d` reported `success`.
+`data/PROOF_ATTESTATION_SCOPED_T14.json` binds 15 module hashes from committed
+blobs at that commit to run `45810595166`.
+
+```
+before: FULLY_VERIFIED=960  NOT_STARTED=395889  evidence=963
+after:  FULLY_VERIFIED=1049 NOT_STARTED=395800  evidence=1052
+delta:  FULLY_VERIFIED=+89 NOT_STARTED=-89  evidence=+89
+progress_ledger: COUNTED; NOT_STARTED delta -89; new modules 15
+```
+
+All five target ids carry `kernel_proof`; the wider +89 includes previously
+stale entries recovered by honest regeneration. Legal review stays pending.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |
