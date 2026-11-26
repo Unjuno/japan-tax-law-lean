@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 0
-- with >=1 pinned literal check (semantic model): 184
+- with >=1 pinned literal check (semantic model): 185
 - with recorded human legal review: 0
 
 ## All laws
@@ -191,7 +191,7 @@ a completion flag.
 | `403M50000040054` | 電子情報処理組織を使用して処理する場合における国税等の徴収関係事務等の取扱いの特例に関す | 403M50000040054_20260924_508M60000040059 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
 | `404AC0000000015` | 法人特別税法 | 404AC0000000015_20010401_413AC0000000006 | CurrentEnforced | YES | - | 0 | YES (4) | NO |
 | `404CO0000000089` | 法人特別税法施行令 | 404CO0000000089_20010106_412CO0000000307 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
-| `404M50000008008` | 沖縄振興開発特別措置法第十五条等の地方税の課税免除又は不均一課税に伴う措置が適用される場 | 404M50000008008_20020301_414M60000008019 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
+| `404M50000008008` | 沖縄振興開発特別措置法第十五条等の地方税の課税免除又は不均一課税に伴う措置が適用される場 | 404M50000008008_20020301_414M60000008019 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 | `404M50000040015` | 法人特別税法施行規則 | 404M50000040015_20030106_414M60000040072 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
 | `405M50000008001` | 離島振興法第二十条の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省 | 405M50000008001_20250401_507M60000008028 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 | `406AC0000000028` | 平成六年分所得税の特別減税の実施等のための公債の発行の特例に関する法律 | 406AC0000000028_19940401_000000000000000 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
