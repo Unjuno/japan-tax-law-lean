@@ -19,6 +19,9 @@ import JapanTaxLaw.AircraftScopeTests
 import JapanTaxLaw.AlcoholDegree45
 import JapanTaxLaw.AlcoholDegree45Spec
 import JapanTaxLaw.AlcoholDegree45Tests
+import JapanTaxLaw.AmamiCostFloor5M
+import JapanTaxLaw.AmamiCostFloor5MSpec
+import JapanTaxLaw.AmamiCostFloor5MTests
 import JapanTaxLaw.AmamiCurrencyConversion
 import JapanTaxLaw.AmamiCurrencyConversionSpec
 import JapanTaxLaw.AmamiCurrencyConversionTests
