@@ -2196,9 +2196,6 @@ import JapanTaxLaw.TariffQuotaAmountTests
 import JapanTaxLaw.TariffQuotaSystemEnforcementDate
 import JapanTaxLaw.TariffQuotaSystemEnforcementDateSpec
 import JapanTaxLaw.TariffQuotaSystemEnforcementDateTests
-import JapanTaxLaw.TestimonyParagraphReading
-import JapanTaxLaw.TestimonyParagraphReadingSpec
-import JapanTaxLaw.TestimonyParagraphReadingTests
 import JapanTaxLaw.TaxAccountantBalanceSheetUnits
 import JapanTaxLaw.TaxAccountantBalanceSheetUnitsSpec
 import JapanTaxLaw.TaxAccountantBalanceSheetUnitsTests
@@ -2278,6 +2275,9 @@ import JapanTaxLaw.TaxationPeriodTests
 import JapanTaxLaw.Taxpayer
 import JapanTaxLaw.TaxpayerSpec
 import JapanTaxLaw.TaxpayerTests
+import JapanTaxLaw.TestimonyParagraphReading
+import JapanTaxLaw.TestimonyParagraphReadingSpec
+import JapanTaxLaw.TestimonyParagraphReadingTests
 import JapanTaxLaw.Tests
 import JapanTaxLaw.TestsCommon
 import JapanTaxLaw.ThousandYenTruncation
