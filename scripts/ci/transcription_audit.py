@@ -5192,6 +5192,12 @@ def checks():
            "file", None,
            ["\u524d\u9805\u306e\u898f\u5b9a\u306e\u9069\u7528\u306b\u3064\u3044\u3066\u306f\u3001\u6b21\u306b\u63b2\u3052\u308b\u8005\u306f\u5b9f\u5b50\u3068\u307f\u306a\u3059\u3002"])
 
+    yield ("地価税法 art. 18（底地割合による三万円計算）↔ LeaseholdLandShare.lean",
+           "403AC0000000069",
+           "file", None,
+           ["借地権等が設定されている場合において、当該土地等が借地権等以外のもの（以下この号において「底地」という。）であるとき。　三万円に当該底地の価額が更地の価額のうちに占める割合を乗じて計算した金額"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

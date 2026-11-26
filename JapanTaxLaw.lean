@@ -1269,6 +1269,9 @@ import JapanTaxLaw.LandValueTaxBasicDeductionTests
 import JapanTaxLaw.LandValueTaxRate
 import JapanTaxLaw.LandValueTaxRateSpec
 import JapanTaxLaw.LandValueTaxRateTests
+import JapanTaxLaw.LeaseholdLandShare
+import JapanTaxLaw.LeaseholdLandShareSpec
+import JapanTaxLaw.LeaseholdLandShareTests
 import JapanTaxLaw.LegalRatePresentValue
 import JapanTaxLaw.LegalRatePresentValueSpec
 import JapanTaxLaw.LegalRatePresentValueTests
