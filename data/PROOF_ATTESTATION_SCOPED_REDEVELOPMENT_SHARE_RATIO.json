@@ -1,0 +1,32 @@
+{
+  "commit": "2ccac5480296e47b1ef5c1b867c28c3145aecb3d",
+  "jobs": {
+    "Build Lean project and check axioms": {
+      "conclusion": "success",
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45824416960/job/139924775739",
+      "required_steps": [
+        "Build explicitly",
+        "No sorry/admit in adopted proofs",
+        "Axioms of key theorems",
+        "Reproducibility check 1 (clean build)",
+        "Reproducibility check 2 (clean build)"
+      ]
+    }
+  },
+  "modules": {
+    "RedevelopmentShareRatio.lean": {
+      "sha256": "1ccf2875288f2dd67b62c0a1a5ca534fcbab4527b96b9fab46f7fb0e9ef3e7f2"
+    },
+    "RedevelopmentShareRatioSpec.lean": {
+      "sha256": "1a4fed710994b4008ec43ea12f3f9a5a83dc451175adbafd3647a015e21f70a8"
+    },
+    "RedevelopmentShareRatioTests.lean": {
+      "sha256": "4539ae27c2f45c5dbfc5af5f30fe9e16cec5b14750cc3a305ed4ed633ef6f0be"
+    }
+  },
+  "note": "Scoped attestation: these exact module blobs were kernel-built by CI run 45824416960 (commit 2ccac548). The Build Lean project and check axioms job succeeded; scope=lean_job_only attests ONLY the Lean job, with no audit or completion claim.",
+  "run_conclusion": "lean_job_only",
+  "schema": 1,
+  "scope": "lean_job_only",
+  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45824416960"
+}
