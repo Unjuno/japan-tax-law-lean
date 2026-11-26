@@ -13934,3 +13934,102 @@ needle はタスク提示の原文引用からレビュー側が書き起こし�
 独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
 照合: 独立仕様の境界定数と境界例を照合し、カーネル決定で一致を確認。
 判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+## Batch DS review (2026-11-26)
+
+地方交付税法 art.6の2 §2-3（普通交付税 94%・特別交付税 6%）/ `LocalGrantTaxRatio.lean` — cycle-129 の 1 モデル独立照合。
+
+### DS-0. 範囲・独立性の申告
+
+- 対象: `JapanTaxLaw/LocalGrantTaxRatio.lean`（本文 40 行）と `...Spec.lean` / `...Tests.lean`。いずれも読み取り専用で、本レビューでは一切変更していない。形式化担当とは独立した Adversarial Review Agent による cycle-129 の照合。
+- 一次資料（pinned・改変禁止）: `data/raw/325AC0000000211_20261102_508AC0000000062.law.json`（law_id `325AC0000000211` / revision `325AC0000000211_20261102_508AC0000000062`、raw 1,309,191 バイト、SHA-256 `151df453a55442acb1cdca91f420bc5f7b04b914b85d86b575311ff6e3a7cd95`）。doc-comment の `data/raw/data/raw/...` は prefix 二重の表記ゆれ（下記 B-4）。
+- 形式化担当の doc-comment / STAGING の数値は信じず、pinned JSON の `law_full_text` を Python で再帰走査して 2 文を直接再抽出した。独立 Spec（`base*47/50`, `base*3/50`）はレビュー側で別定式として確認し、`Spec.lean` は補助確認に留めた。
+- commit / push / merge / ブランチ切替は一切実行していない。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
+
+### DS-1. pinned 原文の直接抽出・照合（94% / 6% の独立的算出）
+
+- 構造的路径: `law_full_text -> Law[Num=211] -> LawBody -> MainProvision -> Article[Num=6_2] -> Paragraph[Num=2] -> ParagraphSentence -> Sentence[Num=1]`
+  - **原文逐語**: 「毎年度分として交付すべき普通交付税の総額は、前条第二項の額の百分の九十四に相当する額とする。」
+- 構造的路径: 同 `Article[Num=6_2] -> Paragraph[Num=3] -> ParagraphSentence -> Sentence[Num=1]`
+  - **原文逐語**: 「毎年度分として交付すべき特別交付税の総額は、前条第二項の額の百分の六に相当する額とする。」
+- レビュー側独立算出: 漢数字「百分の九十四」→ **94/100**、「百分の六」→ **6/100**。両文の基準はいずれも「前条第二項の額」で同一。合計 **94 + 6 = 100（100%）** を確認。
+- **桁違いの明示除外**: pinned JSON の全 leaf 走査で `9.4` / `9．4` / `九・四` / `九四‰` / `94‰` / `９４` / `0.6` / `0．6` / `六‰` / `9.4%` / `0.6%` はすべて **0 件**。両文にも ASCII/全角数字・小数点・中点は存在しない。したがって 9.4%・94‰・0.6% への読み替えは原文上存在しない。
+
+| 原文（pinned） | レビュー側独立抽出 | Lean 実装 | 照合 |
+|---|---|---|---|
+| 百分の九十四（§2） | 94/100 | `ordinary base = base * 94 / 100` | ✅ |
+| 百分の六（§3） | 6/100 | `special base = base * 6 / 100` | ✅ |
+| 94 + 6 | 100% | `ordinary 100000 + special 100000 = 100000` | ✅ |
+
+### DS-2. needle 2 本の検証
+
+needle はタスク提示の原文引用からレビュー側が書き起こし、pinned raw JSON の文字列に対して検索した。
+
+| needle | 内容 | U+3000 数 | 結果 |
+|---|---|---:|---|
+| 1 | `毎年度分として交付すべき普通交付税の総額は、前条第二項の額の百分の九十四に相当する額とする` | 0 | **FOUND**（一致 1 件） |
+| 2 | `毎年度分として交付すべき特別交付税の総額は、前条第二項の額の百分の六に相当する額とする` | 0 | **FOUND**（一致 1 件） |
+
+→ **2/2 FOUND、MISS 0、両 needle の U+3000 = 0**。pinned 文 leaf は末尾に「。」を含むが needle は部分文字列であり 2/2 一致。STAGING の needle も末尾「。」を省略しているが照合に影響なし（B-5）。
+
+### DS-3. 反例探索と独立 Spec との一致
+
+レビュー側が別に定式した `specOrdinary b = b * 47 / 50` / `specSpecial b = b * 3 / 50` で比較した（47/50 = 94/100、3/50 = 6/100 を独立確認）。
+
+| 基準額 `base` | `ordinary`（実装） | `specOrdinary`（独立） | `special`（実装） | `specSpecial`（独立） | 合計 | 一致 |
+|---:|---:|---:|---:|---:|---:|---|
+| **100000** | **94000** | 94000 | **6000** | 6000 | **100000** = `base` | ✅ |
+
+- 指示された反例 `ordinary 100000 = 94000` / `special 100000 = 6000` / 合計 `= 100000` は独立 Spec と一致。Lean 側は `by decide` のカーネル決定、レビュー側は Python で `100000*94//100` 等を独立計算して一致を確認した。
+- 補助確認: `agreeLocalGrantTaxRatio = true`（`b ∈ {0, 1, 50, 100, 100000, 1000000}` で Impl == Spec）も `by decide` で確認。
+- 境界観察（BY-DESIGN B-2）: `base * 94 / 100` は Nat 整数除法のため端数切り捨て。一般に `ordinary b + special b = b` は `b` が 100 で割り切れるときのみ成立する（例: `b = 99` → 93 + 5 = 98、`b = 101` → 94 + 6 = 100）。実装は合計等式を `b = 100000` のみで主張しており、一般等式は主張していない。
+
+### DS-4. `#print axioms` 監査
+
+- 一時 Lean ファイルはリポジトリ内に作らず、承認済み temp ディレクトリに置いた。`lake env lean <tempfile>` は **exit code 0**。検証用一時ファイルはすべて削除済み。
+- 走査した **9 宣言**（`ordinary`, `special`, `specOrdinary`, `specSpecial`, `agreeLocalGrantTaxRatio`, および指示反例を再現した `dsOrd`, `dsSpe`, `dsSum`, `dsAgree`）はすべて `"does not depend on any axioms"`。
+
+| 監査項目 | 件数 |
+|---|---:|
+| `Classical.choice` | **0** |
+| `sorryAx` | **0** |
+| `Quot.sound` | **0** |
+| `propext` | **0** |
+| axiom-free | **9/9** |
+
+### DS-5. CONFIRMED / BY-DESIGN / UNRESOLVED の分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0** |
+| **BY-DESIGN** | **5** |
+| **UNRESOLVED** | **2** |
+
+#### CONFIRMED（0 件）
+
+- 原文 2 率・needle・反例・Impl/独立 Spec・公理監査のいずれにも食い違いなし。**発見ゼロを明示する。**
+
+#### BY-DESIGN（5 件）— 未形式化の確認を含む
+
+- **B-1 基準額の算定は NOT MODELLED**: 前条第二項の額（基準財政需要額 − 基準財政収入額）の算定は対象外（doc-comment 明記）。
+- **B-2 端数処理は NOT MODELLED**: Nat 整数除法の切り捨てにより、合計 = `base` は `base` が 100 で割り切れる場合のみ成立（DS-3 参照）。円未満端数の法的処理は形式化していない。
+- **B-3 交付手続・偏重是正は NOT MODELLED**: 交付の実際の手続・特別交付税の偏重是正の調整は対象外（doc-comment 明記）。
+- **B-4 表記ゆれ**: doc-comment の `data/raw/data/raw/...` は prefix 二重（実在ファイルは `data/raw/...`）。モデル値・照合結果に影響なし。
+- **B-5 needle の末尾句点**: STAGING の needle は末尾「。」を省略、pinned 文 leaf は「。」を含む。部分文字列一致は 2/2 で影響なし。
+
+#### UNRESOLVED（2 件）
+
+- **U-1 基準額・端数処理の法的取扱い**: 前条第二項の額の定義・円未満端数の処理は art.6の2 §2-3 の pinned 原文のみでは確定不能。**人間の法律専門家による確認を要する。**
+- **U-2 他条文との適用関係**: 偏重是正の調整・交付手続等との相互関係の法的妥当性は pinned 原文のみでは決定不能。法的レビューは LEGAL_REVIEW_PENDING。
+
+### DS-6. 最終報告（サマリ）
+
+- **CONFIRMED 0 / BY-DESIGN 5 / UNRESOLVED 2**。原文・needle・実装・独立 Spec の食い違いなし。
+- **pinned 原文照合**: `Article[Num=6_2]` の `Paragraph[Num=2]` / `[Num=3]` の文 leaf から 2 率を直接抽出。94% / 6% を確認し、9.4%・94‰・0.6% を全 leaf 走査で明示除外。合計 100%。
+- **needle**: 2/2 FOUND、MISS 0、両方 U+3000 = 0。
+- **反例**: `ordinary 100000 = 94000` / `special 100000 = 6000` / 合計 `= 100000`。独立 Spec（`base*47/50`, `base*3/50`）と一致。`agreeLocalGrantTaxRatio = true` も確認。
+- **公理**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件、9/9 axiom-free（exit code 0）。リポジトリ内に一時 Lean ファイルは作成せず、temp の検証ファイルは削除済み。
+- **禁止操作の遵守**: commit / push / merge / ブランチ切替は一切実行していない。Lean モジュールと `data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
+- **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `A560160AA4B119C7865A54D985F6A254513CA2314D8241F44B98476EAE59D39D`・`1,662,362` バイト・広義レビュー件数 **123 件**（`^## .*review` ベース、H2 129 件、DS 見出し 0 件）。本セクション追記後は **124 件（Previous +1）** へ増加するはずであり、書き込み後の再読込で件数・既存バイト列の前方一致・既存見出し残存を検証する（自己言及的なハッシュ値は本文に埋め込まない）。並行ワーストリームが件数を変動させる可能性があるため、採用した値は書き込み直前の再読込値である。
+
+> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
