@@ -3395,6 +3395,19 @@
       "source_location": "data/raw/351M50000008035_20260316_508M60000008025.law.json#LawBody[3]/SupplProvision/SupplProvision[7]/Article:7/Article#7/Paragraph#5/Item#22/ItemSentence/Sentence#2 sha256=dd1d65ba025c78a9ca36f4edde3c47bda5ffb2a7b57e7a6238a222dd951bd938",
       "tests": "JapanTaxLaw/BatchRead65f4ce1dc7Tests.lean sha256=275c7d5a738f529b3318892edaeb78d70fca82731241489f1c9cdeba5ff4ad76"
     },
+    "NORM|11a976a70d22d7d441d40f3e17a7829f224a1d60728fdb280d62f68839bddff4": {
+      "adversarial_review": "docs/BATCH_ROUNDUP_REVIEW.md generated entry for NORM|11a976a70d2",
+      "boundary_proof": "BatchRoundUp469275895cTests.lean kernel-decided 0 / below-unit / at-unit / above-unit boundaries",
+      "cross_law_proof": "dependencies=[]; surrounding calculation NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchRoundUp469275895c.lean sha256=6502b47ba5a37581e185977a3d5b511b5060468435e321f53c722a16677645f4",
+      "independent_spec": "JapanTaxLaw/BatchRoundUp469275895cSpec.lean sha256=b03b38c2805a399e5f4d3d9e3cf474121043bbf8d08f50027633e28956d1ffee; successor-quotient spec vs remainder-add impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchRoundUp469275895cTests OK; axioms: 'JapanTaxLaw.BatchRoundUp469275895c.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat amounts; round-up only",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; roundup_audit D=PASS: verbatim located in pinned article and unit constant matches the single 円 threshold",
+      "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[297]/Article:16_4_4/Article#16_4_4/Paragraph#2/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e",
+      "tests": "JapanTaxLaw/BatchRoundUp469275895cTests.lean sha256=783d9bdb1f0ed19fd246c8afbc687cc37b3ce5af9cd803a875fb423e4796b229"
+    },
     "NORM|11c7c3cfec63edcfd1464fdcdc6d3573ce74b244b9ee9107806da57c497b093e": {
       "adversarial_review": "docs/BATCH_FRACTION_REVIEW.md generated entry for NORM|11c7c3cfec6 (1/2 ge)",
       "boundary_proof": "BatchFractiond6aeea9886Tests.lean kernel-decided 0/1/2 over denominator 2",
@@ -4278,6 +4291,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; period=[6月]; op=le",
       "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[16]/Article:7/Article#7/Paragraph#7/ParagraphSentence/Sentence#2 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c",
       "tests": "JapanTaxLaw/BatchPeriod04c13b3e77Tests.lean sha256=3d0a08ff89dae1b9b8aa3600d86f2416430a70402363b16aec21cf16146d9246"
+    },
+    "NORM|158519699b82f696e90e28c3c4d2e20bebb23f30ade83ce7aa35fd0bd9fbea66": {
+      "adversarial_review": "docs/BATCH_ROUNDUP_REVIEW.md generated entry for NORM|158519699b8",
+      "boundary_proof": "BatchRoundUp56bb40d33aTests.lean kernel-decided 0 / below-unit / at-unit / above-unit boundaries",
+      "cross_law_proof": "dependencies=[]; surrounding calculation NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchRoundUp56bb40d33a.lean sha256=a35f821ae60a04f2080432ed5f076388df3c7f3f9843ea68ca7500404f222cf3",
+      "independent_spec": "JapanTaxLaw/BatchRoundUp56bb40d33aSpec.lean sha256=c3511baae0a488a5e4f620bac73ae6629325198f044e5529b22261cc78fc2b96; successor-quotient spec vs remainder-add impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchRoundUp56bb40d33aTests OK; axioms: 'JapanTaxLaw.BatchRoundUp56bb40d33a.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat amounts; round-up only",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; roundup_audit D=PASS: verbatim located in pinned article and unit constant matches the single 円 threshold",
+      "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:40_8/Article#40_8/Paragraph#29/ParagraphSentence/Sentence#2 sha256=d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d",
+      "tests": "JapanTaxLaw/BatchRoundUp56bb40d33aTests.lean sha256=9839c524cf6122fca3d80c3025c53791324ae5ea0eea46c46a00882b57836b9d"
     },
     "NORM|158b7f76c17910ad8d46776773644d1c41610aca618ba155735577e7e6f557c2": {
       "adversarial_review": "docs/BATCH_PERIOD_REVIEW.md generated entry for NORM|158b7f76c17 (2年 le)",
@@ -6878,6 +6904,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (phrase-only, no numeral); commencement_audit D=PASS: verbatim located in pinned article and offset matches 公布の日 / 公布の日の翌日 wording",
       "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[393]/SupplProvision/SupplProvision[1]/Article:1/Article#1/Paragraph#1/ParagraphSentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
       "tests": "JapanTaxLaw/BatchEffective055e3e4958Tests.lean sha256=84d1281351e29ef226d86752230cce595d6223196a8971778f90a8ab478b2f8a"
+    },
+    "NORM|23182908135aa78e433a7a80849e9f1c4b73d8db07db51b790a891a0b634d12b": {
+      "adversarial_review": "docs/BATCH_ROUNDUP_REVIEW.md generated entry for NORM|23182908135",
+      "boundary_proof": "BatchRoundUp34cf76492eTests.lean kernel-decided 0 / below-unit / at-unit / above-unit boundaries",
+      "cross_law_proof": "dependencies=[]; surrounding calculation NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchRoundUp34cf76492e.lean sha256=33ebd07f842d4e3f422cde9aac7fb7d9dcbe6c6715a50484b82846d16004a8e6",
+      "independent_spec": "JapanTaxLaw/BatchRoundUp34cf76492eSpec.lean sha256=3aaf99ac1214f80b8acec273ec5bfda136a0adc216d23377badae72e2d6690eb; successor-quotient spec vs remainder-add impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchRoundUp34cf76492eTests OK; axioms: 'JapanTaxLaw.BatchRoundUp34cf76492e.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat amounts; round-up only",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; roundup_audit D=PASS: verbatim located in pinned article and unit constant matches the single 円 threshold",
+      "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:40_8_2/Article#40_8_2/Paragraph#35/ParagraphSentence/Sentence#2 sha256=d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d",
+      "tests": "JapanTaxLaw/BatchRoundUp34cf76492eTests.lean sha256=356704794cdaf966b5c11c90a7191c1dbc9ee54143b23d76028ee094eb3fd89e"
     },
     "NORM|2331ff1f5807551da7133df90f9e7424e5015d2c8339b14fb40f4d105d961d25": {
       "adversarial_review": "docs/BATCH_FRACTION_SCALE_REVIEW.md generated entry for NORM|2331ff1f580",
@@ -21542,6 +21581,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; strict_upper=[200000] yen",
       "source_location": "data/raw/340CO0000000096_20260522_508CO0000000093.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:182_2/Article#182_2/Paragraph#2/Item#3/ItemSentence/Sentence#1 sha256=9facf2e2768d602ccdbbf9891df142d3a3e7ead09033eb0634de00a4c4181392",
       "tests": "JapanTaxLaw/BatchStrictUpperdb91aa3a00Tests.lean sha256=88a36f70ae1f453290f6ed3fc62c32e8cc3b44f08756de60afe9b9f17d3ded7c"
+    },
+    "NORM|71dddb6700bf45d8eb18da694b3bfb722c14a84c34e5335649a37b4d2776fa2f": {
+      "adversarial_review": "docs/BATCH_ROUNDUP_REVIEW.md generated entry for NORM|71dddb6700b",
+      "boundary_proof": "BatchRoundUp1504db2b40Tests.lean kernel-decided 0 / below-unit / at-unit / above-unit boundaries",
+      "cross_law_proof": "dependencies=[]; surrounding calculation NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchRoundUp1504db2b40.lean sha256=0ba8303616a057a6d208d69a62be447c16027cdf2107ac9e8cd3705d13f301b7",
+      "independent_spec": "JapanTaxLaw/BatchRoundUp1504db2b40Spec.lean sha256=7895a3f51d850d2c75ab891447c2160bb8e0823e776391982168f4ce4975f28a; successor-quotient spec vs remainder-add impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchRoundUp1504db2b40Tests OK; axioms: 'JapanTaxLaw.BatchRoundUp1504db2b40.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat amounts; round-up only",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; roundup_audit D=PASS: verbatim located in pinned article and unit constant matches the single 円 threshold",
+      "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:40_8/Article#40_8/Paragraph#30/ParagraphSentence/Sentence#2 sha256=d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d",
+      "tests": "JapanTaxLaw/BatchRoundUp1504db2b40Tests.lean sha256=a75de140994c4a32478a339760e57e95bf7d38eec4b21a8c85519db57abe85d2"
     },
     "NORM|71e2327681a3f038836deb8590692026049d850dfd9d80d7c9d316762885c3bb": {
       "adversarial_review": "docs/BATCH_RATE_REVIEW.md generated entry for NORM|71e2327681a (60%)",
@@ -45332,6 +45384,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; threshold=200000 yen; op=le",
       "source_location": "data/raw/329CO0000000150_20260701_508CO0000000217.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:61/Article#61/Paragraph#1/Item#2/Subitem1#1/Subitem1Sentence/Sentence#1 sha256=d0cb666639a6a62af17c1525c09c86c22b9e639b97e45fc7dbe8ace41f2eb166",
       "tests": "JapanTaxLaw/BatchThresholdLE5d8e234322Tests.lean sha256=a939db7cd9fd86ce7f2f3a1beb3a2b44635c3f1f13f8c45c0540aaeb1b33d2ee"
+    },
+    "NORM|f2232b53034d853bac77b767847284ba5b944700e916567c31d31facad63f9de": {
+      "adversarial_review": "docs/BATCH_ROUNDUP_REVIEW.md generated entry for NORM|f2232b53034",
+      "boundary_proof": "BatchRoundUp99959fad20Tests.lean kernel-decided 0 / below-unit / at-unit / above-unit boundaries",
+      "cross_law_proof": "dependencies=[]; surrounding calculation NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchRoundUp99959fad20.lean sha256=97d8add6c633b414f0f008ad06f7ea02cfec856789cfa90e84418501d040ce85",
+      "independent_spec": "JapanTaxLaw/BatchRoundUp99959fad20Spec.lean sha256=f2e9029dfe6859166ded396b1c652d1aeec4bc7625510446ce0bd678190ee59d; successor-quotient spec vs remainder-add impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchRoundUp99959fad20Tests OK; axioms: 'JapanTaxLaw.BatchRoundUp99959fad20.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat amounts; round-up only",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; roundup_audit D=PASS: verbatim located in pinned article and unit constant matches the single 円 threshold",
+      "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:40_8_2/Article#40_8_2/Paragraph#36/ParagraphSentence/Sentence#2 sha256=d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d",
+      "tests": "JapanTaxLaw/BatchRoundUp99959fad20Tests.lean sha256=c9cea634e24d64b3c85f166ff0cda63f27dce862314ed90f98f14092c7abd469"
     },
     "NORM|f22e8ab967bb9e07213de7342278d3dcbc0fc23f7a57230f7cbe1516473bcc32": {
       "adversarial_review": "docs/BATCH_EFFECTIVE_REVIEW.md generated entry for NORM|f22e8ab967b",
