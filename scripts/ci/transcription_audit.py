@@ -5147,6 +5147,12 @@ def checks():
            "file", None,
            ["当該金額に取引数（当該特許権譲渡等取引及び当該特定特許権等に係る他の特許権譲渡等取引の数をいう。以下この号において同じ。）から一を控除した数が取引数のうちに占める割合を乗じて計算した金額"])
 
+    # 地価税法 art. 18(1) — LeaseholdLandShare.lean
+    yield ("地価税法 art. 18（底地割合による三万円計算）↔ LeaseholdLandShare.lean",
+           "403AC0000000069",
+           "file", None,
+           ["借地権等が設定されている場合において、当該土地等が借地権等以外のもの（以下この号において「底地」という。）であるとき。　三万円に当該底地の価額が更地の価額のうちに占める割合を乗じて計算した金額"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
