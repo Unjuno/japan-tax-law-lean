@@ -91,6 +91,10 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # CustomsTerritoryCountryInclusion.lean - NORM|e0b9627e... (関税制度地域の国包含 CONDITION, law 414CO0000000116)
+    yield ("経済連携協定緊急措置政令 art.2(1)(1)（関税制度地域の国包含）↔ CustomsTerritoryCountryInclusion.lean",
+           "414CO0000000116", "article", "第二条", ["当該調査の対象となる国（固有の関税及び貿易に関する制度を有する地域を含む。以下同じ。）"])
+
     # SubstituteMemberResidualTerm.lean - NORM|cf722af4... (補欠委員の残任期間 EXCEPTION, law 412CO0000000278)
     yield ("国税審議会令 art.4(1) ただし書（補欠委員の残任期間）↔ SubstituteMemberResidualTerm.lean",
            "412CO0000000278", "article", "第四条", ["ただし、補欠の委員の任期は、前任者の残任期間とする。"])
@@ -1287,6 +1291,12 @@ def checks():
            "342AC0000000035",
            "article", "第十七条",
            ["割合から千分の四を控除した割合とする", "第十七条"])
+
+    # 租税特別措置法施行令 附則 art.124(6) — SpecialTaxOrderArt124Rate25To8.lean
+    yield ("租税特別措置法施行令 附則 art.124(6)（千分の25→8 読替え）↔ SpecialTaxOrderArt124Rate25To8.lean",
+           "332AC0000000026",
+           "file", None,
+           ["千分の二十五」とあるのは、「千分の八", "第百二十四条"])
 
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
@@ -2519,6 +2529,24 @@ def checks():
            "410M50000040122",
            "file", None,
            ["第一条この省令は、平成十六年一月十九日から施行する", "この省令は、平成十六年一月十九日から施行する"])
+
+    # ReconstructionSpecialCorporationTaxEnforcementDate — cycle-141
+    yield ("ReconstructionSpecialCorporationTaxEnforcementDate.lean",
+           "424M60000040007",
+           "file", None,
+           ["第一条この省令は、平成二十四年四月一日から施行する", "この省令は、平成二十四年四月一日から施行する"])
+
+    # ReconstructionSpecialIncomeTaxEnforcementDate — cycle-142
+    yield ("ReconstructionSpecialIncomeTaxEnforcementDate.lean",
+           "424CO0000000016",
+           "file", None,
+           ["第一条この政令は、平成二十八年一月一日から施行する", "この政令は、平成二十八年一月一日から施行する"])
+
+    # FootAndMouthDiseaseResponseEnforcementDate — cycle-143
+    yield ("FootAndMouthDiseaseResponseEnforcementDate.lean",
+           "422CO0000000222",
+           "file", None,
+           ["第一条この政令は、令和四年四月一日から施行する", "この政令は、令和四年四月一日から施行する"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -5166,6 +5194,19 @@ def checks():
     yield ("半島振興法施行令 第四条(1)(2)（一年以内建設着手）↔ OneYearConstructionStartWindow.lean",
            "407M50000008012", "article", "第四条",
            ['土地については、その取得の日の翌日から起算して一年以内に当該土地を敷地とする当該家屋の建設の着手があった場合における当該土地に限る。'])
+
+
+    # InheritanceTaxArt15ActualChildDeeming.lean - NORM|3a29e954... (相続税法 art.15(3) DEEMING, law 325AC0000000073)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("inheritance tax art.15 actual child deeming - InheritanceTaxArt15ActualChildDeeming.lean",
+           "325AC0000000073",
+           "file", None,
+           ["\u524d\u9805\u306e\u898f\u5b9a\u306e\u9069\u7528\u306b\u3064\u3044\u3066\u306f\u3001\u6b21\u306b\u63b2\u3052\u308b\u8005\u306f\u5b9f\u5b50\u3068\u307f\u306a\u3059\u3002"])
+
+    yield ("地価税法 art. 18（底地割合による三万円計算）↔ LeaseholdLandShare.lean",
+           "403AC0000000069",
+           "file", None,
+           ["借地権等が設定されている場合において、当該土地等が借地権等以外のもの（以下この号において「底地」という。）であるとき。　三万円に当該底地の価額が更地の価額のうちに占める割合を乗じて計算した金額"])
 
 
 def main() -> int:
