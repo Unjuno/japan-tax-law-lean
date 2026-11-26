@@ -5287,6 +5287,15 @@ def checks():
            "332AC0000000026", "file", None,
            ["五千万円を超え八千万円以下の金額"])
 
+    # 租税特別措置法施行規則 art. 12 — SpecialMeasuresRate50.lean (50%)
+    yield ("租税特別措置法施行規則 art. 12（割合50%）↔ SpecialMeasuresRate50.lean",
+           "332M50000040015", "file", None,
+           ["法第三十条第四項に規定する割合は、百分の五十とする。"])
+    # 租税特別措置法施行規則 art. 19の5 — SpecialMeasuresRate90.lean (90%)
+    yield ("租税特別措置法施行規則 art. 19_5（割合90%）↔ SpecialMeasuresRate90.lean",
+           "332M50000040015", "file", None,
+           ["法第四十一条の十二の二第六項第一号ニに規定する財務省令で定める割合は、百分の九十とする。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
