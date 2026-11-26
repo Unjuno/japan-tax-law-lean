@@ -1,0 +1,2 @@
+import JapanTaxLaw.UsForcesTreatyEnforcementDateReiwa8Spec
+#print axioms JapanTaxLaw.UsForcesTreatyEnforcementDateReiwa8.agree_enforcement_date
