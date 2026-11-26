@@ -5066,6 +5066,30 @@ def checks():
            "file", None,
            ["次の各号のいずれかに該当する者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
 
+# 雇入れ日の年齢 五十五歳以上六十五歳未満 — EmploymentSubsidyAge55to65.lean
+    yield ("地方税法施行規則 art. 24_2（雇入れ日の年齢 五十五歳以上六十五歳未満）↔ EmploymentSubsidyAge55to65.lean",
+           "329M50000002023",
+           "file", None,
+           ["政令第五十六条の十七の二第三号に掲げる者で同号に掲げる雇用奨励金の支給に係る雇入れの日において年齢五十五歳以上六十五歳未満のもの"])
+
+    # 一日当たり片道断面輸送量 一万人以上十五万人未満 — RailPassengerVolume10k150k.lean
+    yield ("地方税法施行規則 art. 6（一日当たり片道断面輸送量 一万人以上十五万人未満）↔ RailPassengerVolume10k150k.lean",
+           "329M50000002023",
+           "file", None,
+           ["一日当たりの片道断面輸送量が一万人以上十五万人未満の線区（旅客鉄道株式会社及び日本貨物鉄道株式会社に関する法律の一部を改正する法律（平成十三年法律第六十一号）附則第二条第一項第一号に掲げる者が事業の用に供する線区を除く。次号において同じ。）"])
+
+    # 貨物価額五千万円超 かつ 入出港隻数十一隻超 — CustomsPortDesignationValueShips.lean
+    yield ("関税法施行令 art. 1（貨物価額五千万円超 かつ 入出港隻数十一隻超）↔ CustomsPortDesignationValueShips.lean",
+           "329CO0000000150",
+           "file", None,
+           ["一年を通じて当該開港において輸出され、又は輸入された貨物の価額の合計額が五千万円を超え、かつ、外国貿易船の入港隻数及び出港隻数の合計数が十一隻を超えることが引き続き二年なかつたとき。"])
+
+    # 月数 十二月超は十二月・一月未満端数は一月 — TaxCreditMonthCap12RoundUp.lean
+    yield ("租税特別措置法 art. 8_5（月数 十二月超は十二月・一月未満端数は一月）↔ TaxCreditMonthCap12RoundUp.lean",
+           "332AC0000000026",
+           "file", None,
+           ["第一項第一号の月数は、暦に従つて計算し、十二月を超えるときは十二月とし、一月に満たない端数を生じたときはこれを一月とする。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
