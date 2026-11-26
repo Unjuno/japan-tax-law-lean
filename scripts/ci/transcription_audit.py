@@ -1278,6 +1278,12 @@ def checks():
            "article", "第二条",
            ["年齢十九歳以上二十三歳未満の者をいう", "第二条"])
 
+    # 登録免許税法 art.17(2) — ShipRegistrationRateReduction4PerMille.lean
+    yield ("登録免許税法 art.17(2)（船舶本登記 千分の四控除）↔ ShipRegistrationRateReduction4PerMille.lean",
+           "342AC0000000035",
+           "article", "第十七条",
+           ["割合から千分の四を控除した割合とする", "第十七条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
@@ -2503,6 +2509,12 @@ def checks():
            "410CO0000000345",
            "file", None,
            ["第一条この政令は、平成十年十二月一日から施行する", "この政令は、平成十年十二月一日から施行する"])
+
+    # TobaccoSpecialTaxRuleEnforcementDate — cycle-140
+    yield ("TobaccoSpecialTaxRuleEnforcementDate.lean",
+           "410M50000040122",
+           "file", None,
+           ["第一条この省令は、平成十六年一月十九日から施行する", "この省令は、平成十六年一月十九日から施行する"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -5079,11 +5091,11 @@ def checks():
            "414CO0000000262",
            "file", None,
            ["特定貨物に課する不当廉売関税及び一般税率（法の別表の税率及び条約に規定する税率のうちいずれか低いものをいう。）による関悦については、それぞれ別個の関税として関税法（昭和二十九年法律第六十一号）第二章の規定を適用する。"])
+
     # 国外送金等調書施行規則 art.4(4)(3)ハ — DocumentAgeSixMonthCap.lean
     yield ("国外送金等調書施行規則 第四条(4)(3)ハ（提示日前六月以内作成）↔ DocumentAgeSixMonthCap.lean",
            "409M50000040096", "article", "第四条",
            ['官公署から発行され、又は発給された書類その他これらに類するもの（金融機関の営業所等の長に提示する日前六月以内に作成されたもの（有効期間又は有効期限のあるものにあっては、金融機関の営業所等の長に提示する日において有効なもの）に限り、法人番号通知書、法人番号印刷書類並びにイ及びロに掲げる書類を除く。）'])
-
 
     # InheritanceTaxArt1_2TermDefinitionSource.lean - NORM|5535e9d6... (相続税法 art.1の2(1) DELEGATION, law 325AC0000000073)
     # Whole-law locator; needle is unique in the pinned act.
@@ -5103,11 +5115,11 @@ def checks():
            "342M50000040037",
            "file", None,
            ["組織変更をする会社の当該組織変更の直前における資産の額から負債の額を控除した額（当該控除した額がイに掲げる額以下である場合にあつては、イに掲げる額）"])
+
     # 復興特別法人税省令 art.1(1)(4) — ResidualDistributionOneMonth.lean
     yield ("復興特別法人税省令 第一条(1)(4)（残余財産分配 一月以内）↔ ResidualDistributionOneMonth.lean",
            "424M60000040007", "article", "第一条",
            ['当該課税事業年度が残余財産の確定の日の属する課税事業年度である場合において、当該課税事業年度終了の日の翌日から一月以内に残余財産の最後の分配又は引渡しが行われるときは、その分配又は引渡しが行われる日'])
-
 
     # InheritanceTaxArt26_2CouncilDelegation.lean - NORM|71d63ade... (相続税法 art.26の2(5) DELEGATION, law 325AC0000000073)
     # Whole-law locator; needle is unique in the pinned act.
@@ -5115,6 +5127,13 @@ def checks():
            "325AC0000000073",
            "file", None,
            ["\u524d\u4e8c\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u571f\u5730\u8a55\u4fa1\u5be9\u8b70\u4f1a\u306e\u7d44\u7e54\u53ca\u3073\u904b\u55b6\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
+
+    # CustomsTariffArt15Item3_2FriendshipDonationException.lean - NORM|d011e614... (関税定率法 art.15(1) item3の2 EXCEPTION, law 143AC0000000054)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("customs tariff law art.15 item3_2 friendship donation exception - CustomsTariffArt15Item3_2FriendshipDonationException.lean",
+           "143AC0000000054",
+           "file", None,
+           ["\u524d\u4e09\u53f7\u306b\u8a72\u5f53\u3059\u308b\u3082\u306e\u3092\u9664\u304d\u3001\u56fd\u969b\u89aa\u5584\u306e\u305f\u3081\u3001\u56fd\u53c8\u306f\u5730\u65b9\u516c\u5171\u56e3\u4f53\u306b\u305d\u306e\u7528\u306b\u4f9b\u3059\u308b\u3082\u306e\u3068\u3057\u3066\u5bc4\u8d08\u3055\u308c\u308b\u7269\u54c1"])
 
     # 関税定率法施行令 art. 2の4(2) — OverseasMarketPriceCeiling.lean
     yield ("関税定率法施行令 art. 2_4（海外市価三万円以下）↔ OverseasMarketPriceCeiling.lean",

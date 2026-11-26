@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 298
-- presence-facts-only complete: 298
-- NOT_STARTED: 298
+- articles with explicit pin: 296
+- presence-facts-only complete: 296
+- NOT_STARTED: 296
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -17,7 +17,6 @@ source positions. Human legal review is a separate axis and is pending.
 
 | law_id | article | module | presence | scoped | review | authoritative status |
 |---|---|---|---|---|---|---|
-| `347M50010000033` | 第四条 | OkinawaDividedCertificateIssuance | YES | YES | NO | NOT_STARTED |
 | `406CO0000000418` | 第二条 | ImmediateRetaliationException | YES | YES | NO | NOT_STARTED |
 | `406CO0000000415` | 第七条 | EvidenceNonSubmissionException | YES | YES | NO | NOT_STARTED |
 | `340M50010000013` | 第四条 | DividedCertificateIssuance | YES | YES | NO | NOT_STARTED |
@@ -314,4 +313,3 @@ source positions. Human legal review is a separate axis and is pending.
 | `349AC0000000079` | 第十二条 | PowerDevelopmentTaxPenalty | YES | YES | NO | NOT_STARTED |
 | `424CO0000000017` | 第三条 | ReconstructionCorpTaxMonthFloor | YES | YES | NO | NOT_STARTED |
 | `409M50000040096` | 第四条 | DocumentAgeSixMonthCap | YES | YES | NO | NOT_STARTED |
-| `424M60000040007` | 第一条 | ResidualDistributionOneMonth | YES | YES | NO | NOT_STARTED |
