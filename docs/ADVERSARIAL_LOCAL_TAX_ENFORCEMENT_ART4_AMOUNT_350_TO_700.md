@@ -1,0 +1,30 @@
+# Independent adversarial review — 地方税法施行規則 附則 第四条 CONDITION (350-700)
+
+Unit: `NORM|0a52a8975d92d2968ed4d24f279f8b5e8e432b8486f46e012d95bd6d5f5186de`
+Verbatim source text: 「年３５０万円を超え年７００万円以下の金額　（（２２））」 (codepoints verified below; injected from the queue/authoritative source, not hand-typed).
+
+## Verdict: NO FINDINGS
+
+All 15 mandated checks were reproduced independently against the pinned raw JSON, the queue record, the audit script and the kernel. No wrong-codepoint CJK string, stale `300To700` identifier, invented label/rate, or unsound proof was found.
+
+## Reproduced checks
+
+1. **Raw SHA256**: `data/raw/329M50000002023_20261101_508M60000008045.law.json` hashes to `5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e` (exact match to mandate and to queue `source_sha256`).
+2. **Needle uniqueness / location**: needle occurs exactly once in the law (raw byte count 1; whitespace-normalised count 1). Tree walk locates it at `law_full_text/children[1]/children[79]/children[4]/children[3]/children[1]/children[0]/children[1]/children[0]/children[0]/children[2]/children[0]/children[0]/children[0]`, i.e. `LawBody[79]/SupplProvision/SupplProvision[4]/Article:4/Article#4/Paragraph#2/ParagraphSentence/Sentence#1/QuoteStruct/TableStruct/Table/TableRow/TableColumn/Sentence#1`. Confirmed tags/attrs along the path: `LawBody → SupplProvision → Article(Num=4) → Paragraph(Num=2) → ParagraphSentence → Sentence(Num=1) → QuoteStruct → TableStruct → Table → TableRow → TableColumn → Sentence(Num=1)`. The same Article 4(2) contains a *different* band `年３００万円を超え年６００万円以下の金額　（（２２））` in the `とする` replacement clause, and adjacent rows `年３５０万円以下…` / `年７００万円を超える金額…`; this triangulates the pinned band as **>350 (strict), ≤700 (inclusive)** and confirms the model's boundary semantics. The 300/600 neighbour is not the pinned needle and is not used.
+3. **source_path exact + copied**: queue `source_path` matches impl line 14 and unit doc line 9 verbatim.
+4. **Law identity**: `data/INVENTORY.json` laws[33] = law_id `329M50000002023`, `地方税法施行規則`, `昭和二十九年総理府令第二十三号`, `MinisterialOrdinance`, current revision `329M50000002023_20261101_508M60000008045`; matches impl docstring and queue.
+5. **Queue metadata** (`build/task_queue.json`, task[95230]): `kind=CONDITION`, `kinds=[CONDITION]`, `unhandled_conditions=[]`, `dependencies=[]`, `id=unit_id=normative_id` = the reviewed unit, `decomposed=true`, `legal_review=LEGAL_REVIEW_PENDING`, `status=NOT_STARTED`, `completion_claim=false`, `evidence={}`. The empty evidence / NOT_STARTED bookkeeping is expected at review time and is not a completion claim.
+6. **Source fidelity / codepoints**: needle occurs exactly once in impl, spec, tests, unit doc (and this review). Dump of the quote in each file gives `5E74 FF13 FF15 FF10 4E07 5186 3092 8D85 3048 5E74 FF17 FF10 FF10 4E07 5186 4EE5 4E0B 306E 91D1 984D 3000 FF08 FF08 FF12 FF12 FF09 FF09` — lower `３５０` (FF13 FF15 FF10), upper `７００` (FF17 FF10 FF10), ideographic space U+3000, double-fullwidth parentheses/label. No halfwidth/ASCII digits inside the CJK quote. Model: `lowerBound=350`, `upperBound=700`, `withinInterval = 350 < a ∧ a ≤ 700`; four boundary theorems + two bound-equality theorems match `を超え` (strict) and `以下` (inclusive).
+7. **No stale 300To700**: `300To700` / `AnnualAmount300` count is 0 across all final artifacts (`LocalTaxEnforcementArt4AnnualAmount350To700*.lean`, both docs, `transcription_audit.py`, `JapanTaxLaw.lean`). A scratch rename script `_rename184.py` (another agent's, not touched) records the earlier 300→350 correction; it left no stale identifier in the final files.
+8. **Audit**: name `local tax enforcement rules art.4 annual amount 350 to 700 condition - LocalTaxEnforcementArt4AnnualAmount350To700.lean` occurs once; escaped literal at `transcription_audit.py:4771` decodes byte-for-byte to the needle; locator is `("329M50000002023","file",None)` → whole-law flattened text (`load_law_text`), not an article slice. Full run: `transcription audit: 694/694 checks passed` (694 PASS lines, 0 FAIL), including this check.
+9. **Imports**: `JapanTaxLaw.lean:1343/1344/1345` each contain exactly one `import JapanTaxLaw.LocalTaxEnforcementArt4AnnualAmount350To700{,Spec,Tests}`.
+10. **Proof hygiene**: no `sorry`, `admit`, `axiom`, `Classical.choice`, `simp`, `propext`, `omega` in any proof body (only docstring mentions). Proofs use `rfl`, `unfold`, `constructor <;> decide`, `intro`, `exact` with Nat lemmas.
+11. **Axioms**: `set PATH=C:\Users\user\.elan\bin;%PATH% && lake env lean _ax_adv.lean` with `#print axioms` for all seven theorems (`lower_bound_is_source`, `upper_bound_is_source`, `lower_plus_one_qualifies`, `upper_qualifies`, `lower_rejected`, `above_upper_rejected`, `interval_spec_agreement`) — each printed `does not depend on any axioms`.
+12. **Independent spec**: `SpecWithinInterval a := ¬ a ≤ lowerBound ∧ ¬ upperBound < a` is representationally distinct from `withinInterval`; equivalence `interval_spec_agreement` uses exactly `Nat.not_le_of_gt`, `Nat.not_lt_of_ge`, `Nat.lt_of_not_ge`, `Nat.le_of_not_gt` (Spec.lean lines 30–35) plus concrete `decide` reductions in the impl boundary theorems.
+13. **Build**: full `lake build` → `Build completed successfully (2305 jobs)`, 0 errors (79 pre-existing linter warnings in unrelated modules such as `TwoStageVotingThreshold.lean`).
+14. **Scope / dependencies**: only imports `JapanTaxLaw.TaxFinance` (impl) and the impl module (spec); no cross-law constant, no rate or row label introduced. Docstrings and unit doc explicitly mark the appended `（（２２））` label, table structure and legal correctness as **NOT MODELLED** — the label is quoted in the verbatim needle but never modelled.
+15. **Completion discipline**: `LEGAL_REVIEW_PENDING` in queue and unit doc; no completion claim (`completion_claim=false`); adversarial verdict recorded here.
+
+## Reviewer note
+
+The unit under review still exists after this review (all three Lean modules, both docs, the audit entry and the three umbrella imports were verified present). No evidence JSON, Lean module, audit script, umbrella or pre-existing documentation was modified by this reviewer.

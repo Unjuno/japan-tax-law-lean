@@ -4763,6 +4763,13 @@ def checks():
            "332CO0000000043", "file", None,
            ["異常危険準備金累積割合が百分の二十五以下の場合"])
 
+    # LocalTaxEnforcementArt4AnnualAmount350To700.lean - NORM|0a52a897... (地方税法施行規則 art.4 supplementary table cell CONDITION, law 329M50000002023)
+    # Whole-law locator; needle is unique in the pinned ordinance.
+    yield ("local tax enforcement rules art.4 annual amount 350 to 700 condition - LocalTaxEnforcementArt4AnnualAmount350To700.lean",
+           "329M50000002023",
+           "file", None,
+           ["\u5e74\uff13\uff15\uff10\u4e07\u5186\u3092\u8d85\u3048\u5e74\uff17\uff10\uff10\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d\u3000\uff08\uff08\uff12\uff12\uff09\uff09"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
