@@ -777,6 +777,9 @@ import JapanTaxLaw.FreeCarePatientBand2_5Tests
 import JapanTaxLaw.FreeCarePatientBand5_10
 import JapanTaxLaw.FreeCarePatientBand5_10Spec
 import JapanTaxLaw.FreeCarePatientBand5_10Tests
+import JapanTaxLaw.FreeTradeZoneReading
+import JapanTaxLaw.FreeTradeZoneReadingSpec
+import JapanTaxLaw.FreeTradeZoneReadingTests
 import JapanTaxLaw.FreshCheeseCardQualification
 import JapanTaxLaw.FreshCheeseCardQualificationSpec
 import JapanTaxLaw.FreshCheeseCardQualificationTests

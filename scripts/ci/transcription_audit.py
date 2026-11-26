@@ -4712,6 +4712,7 @@ def checks():
     yield ("地方税法 art. 72_21（千億超五千億以下）↔ LocalGrantBracket1000To5000.lean",
            "325AC0000000226", "file", None,
            ["千億円を超え五千億円以下の金額"])
+
     # 地方税法 art. 9の2 — LocalTaxIncomeBracket4MTo1B.lean (四百万〜十億)
     yield ("地方税法 art. 9_2（四百万超十億以下）↔ LocalTaxIncomeBracket4MTo1B.lean",
            "325AC0000000226", "file", None,
@@ -4721,6 +4722,7 @@ def checks():
     yield ("租税特別措置法 art. 42_4（合算3%超）↔ CombinedRndExcessOver3.lean",
            "332AC0000000026", "file", None,
            ["合算増減試験研究費割合が百分の三を超える場合（（３）に掲げる場合を除く。）"])
+
     # 租税特別措置法 art. 42の4 — CombinedRndExcessAtMost3.lean (合算3%以下)
     yield ("租税特別措置法 art. 42_4（合算3%以下）↔ CombinedRndExcessAtMost3.lean",
            "332AC0000000026", "file", None,
@@ -4730,10 +4732,15 @@ def checks():
     yield ("租税特別措置法 art. 42_4（4%超の事業年度）↔ CombinedRndExcessOver4Year.lean",
            "332AC0000000026", "file", None,
            ["増減試験研究費割合が百分の四を超える事業年度"])
+
     # 租税特別措置法 art. 42の4 — CombinedRndExcessOver7Year.lean (7%超の事業年度)
     yield ("租税特別措置法 art. 42_4（7%超の事業年度）↔ CombinedRndExcessOver7Year.lean",
            "332AC0000000026", "file", None,
            ["増減試験研究費割合が百分の七を超える事業年度"])
+
+    # FreeTradeZoneReading.lean - NORM|1ee9f2af... (自由貿易地域等準用 READING, law 404M50000008008)
+    yield ("沖縄地方税課税免除省令 art.1(2)（自由貿易地域等準用）↔ FreeTradeZoneReading.lean",
+           "404M50000008008", "article", "第一条", ["前項の規定は、自由貿易地域及び特別自由貿易地域について準用する。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
