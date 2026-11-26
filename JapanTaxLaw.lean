@@ -876,6 +876,9 @@ import JapanTaxLaw.GroupLossRatioTests
 import JapanTaxLaw.GroupRevenue100B
 import JapanTaxLaw.GroupRevenue100BSpec
 import JapanTaxLaw.GroupRevenue100BTests
+import JapanTaxLaw.HeaviestRecordedWeight
+import JapanTaxLaw.HeaviestRecordedWeightSpec
+import JapanTaxLaw.HeaviestRecordedWeightTests
 import JapanTaxLaw.HeavyOilQuotaOrderEnforcementDate
 import JapanTaxLaw.HeavyOilQuotaOrderEnforcementDateSpec
 import JapanTaxLaw.HeavyOilQuotaOrderEnforcementDateTests
