@@ -1,0 +1,8 @@
+- NORM|c09cfcb72ead229a595c8584c9afc193294340bc781014050493c5905f7c1594: misc-threshold template accepted; surrounding conditions NOT resolved; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
+- NORM|94ea87cfe61a7639ab45802c946693b3cc1722b7c840b447a4533048629e7dfb: misc-threshold template accepted; surrounding conditions NOT resolved; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
+- NORM|e9b2521e3769be75bda425b0150207f1cb007a4f13f89b1ecfe0ee0292623ad0: misc-threshold template accepted; surrounding conditions NOT resolved; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
+- NORM|5f6c93d212d0491ede8b927307532f66bac553e3dbb762fb182523dd67b32d4b: misc-threshold template accepted; surrounding conditions NOT resolved; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
+- NORM|6c3e84dbe9f00f49f4e2d579304a415dc5ab311ae304304b718ed273242b33e8: misc-threshold template accepted; surrounding conditions NOT resolved; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
+- NORM|a86e537bd2995176d98cce22d3fc33d194eed582759b55950d7e653994cfb887: misc-threshold template accepted; surrounding conditions NOT resolved; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
+- NORM|0ee7260e3275555530ff1aff811ad508aac708d56234db99132173e36c2120fe: misc-threshold template accepted; surrounding conditions NOT resolved; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
+- NORM|02607ffb6926bb3ab6a46393d11be0e02567934ce44a43636d018a20425e58d9: misc-threshold template accepted; surrounding conditions NOT resolved; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.

@@ -522,6 +522,19 @@
       "source_location": "data/raw/407AC0000000011_20200401_502AC0000000008.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:21/Article#21/Paragraph#8/ParagraphSentence/Sentence#2 sha256=54186b4775a45c718d9b2288aafea520e72f3f2d79e817732045781122359c6a",
       "tests": "JapanTaxLaw/BatchReadc9012def4eTests.lean sha256=093767f1598e38dc332a5c8440ca8ae1c56c548dd445f0f43756092b2986094f"
     },
+    "NORM|02607ffb6926bb3ab6a46393d11be0e02567934ce44a43636d018a20425e58d9": {
+      "adversarial_review": "docs/BATCH_MISC_THRESHOLD_REVIEW.md generated entry for NORM|02607ffb692",
+      "boundary_proof": "BatchMiscTh14b0581b2cTests.lean kernel-decided boundary cases",
+      "cross_law_proof": "dependencies=[]; surrounding conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMiscTh14b0581b2c.lean sha256=9e037696b815c143fd4842e0377e2251ff980cc71a4e19c5a1e8d4c59959c31d",
+      "independent_spec": "JapanTaxLaw/BatchMiscTh14b0581b2cSpec.lean sha256=8b580855d5a0d13895379b85eac45e8098f911b3a695be53043947b76332ee3a; two-branch spec vs decide impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMiscTh14b0581b2cTests OK; axioms: 'JapanTaxLaw.BatchMiscTh14b0581b2c.boundary_true' depends on axioms: [propext] | 'JapanTaxLaw.BatchMiscTh14b0581b2c.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat amounts; op=lt",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; threshold_audit D=PASS: verbatim located and limit matches",
+      "source_location": "data/raw/340CO0000000097_20261001_507CO0000000121.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:131_17/Article#131_17/Paragraph#3/Item#3/ItemSentence/Sentence#1 sha256=92bab730d90617c1a1439ba19ba8f79041368febf3840c919103689cfcd90fe6",
+      "tests": "JapanTaxLaw/BatchMiscTh14b0581b2cTests.lean sha256=b827d8da2e9ed6dba39f38f903f8ef0df3c6b75f4e75281a8730fec7bdbf1654"
+    },
     "NORM|02674f5efa1333de29d4b10ac459019371aba4dc09874492bcddd1bcd66b8d1c": {
       "adversarial_review": "docs/BATCH_EFFECTIVE_REVIEW.md generated entry for NORM|02674f5efa1",
       "boundary_proof": "BatchEffective5380282455Tests.lean kernel-decided effective-day and pre-promulgation boundaries",
@@ -2887,6 +2900,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; fraction components (denominator, numerator) checked against pinned text and model constants",
       "source_location": "data/raw/347M50000008026_20250905_507M60000008091.law.json#LawBody[2]/MainProvision/MainProvision[0]/Article:1/Article#1/Paragraph#4/ParagraphSentence/Sentence#2 sha256=7304e9a98c078d84b5ca2468a5e9932313ffe49e0bf90b40a75371822418b75c",
       "tests": "JapanTaxLaw/BatchFracScale3212eb3255Tests.lean sha256=101a898675bc20c5a5c9742369fd0da70622408e5618384a9bd86292b0d83539"
+    },
+    "NORM|0ee7260e3275555530ff1aff811ad508aac708d56234db99132173e36c2120fe": {
+      "adversarial_review": "docs/BATCH_MISC_THRESHOLD_REVIEW.md generated entry for NORM|0ee7260e327",
+      "boundary_proof": "BatchMiscTh058d888d87Tests.lean kernel-decided boundary cases",
+      "cross_law_proof": "dependencies=[]; surrounding conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMiscTh058d888d87.lean sha256=fa6fd208049fde407286f9985d9477d8fbc15a3b3a83a31531db0d18b364a36e",
+      "independent_spec": "JapanTaxLaw/BatchMiscTh058d888d87Spec.lean sha256=bf07ea2f630c8bd8f63d9bfade354d10bd22a4ea4751d3514c7f130b1d8a3263; two-branch spec vs decide impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMiscTh058d888d87Tests OK; axioms: 'JapanTaxLaw.BatchMiscTh058d888d87.boundary_true' depends on axioms: [propext] | 'JapanTaxLaw.BatchMiscTh058d888d87.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat amounts; op=lt",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; threshold_audit D=PASS: verbatim located and limit matches",
+      "source_location": "data/raw/340CO0000000097_20261001_507CO0000000121.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:131_15/Article#131_15/Paragraph#1/Item#4/ItemSentence/Sentence#1 sha256=92bab730d90617c1a1439ba19ba8f79041368febf3840c919103689cfcd90fe6",
+      "tests": "JapanTaxLaw/BatchMiscTh058d888d87Tests.lean sha256=8cb5041d88d5fef814495f939bd6b3e96629f2ef67c1300c8fcdc144557acbe5"
     },
     "NORM|0efe8383eea6b7ab6bd8c0afb98ea804a92f280210be21e88d7e9f52a2a88888": {
       "adversarial_review": "docs/BATCH_THRESHOLD_REVIEW.md generated entry for NORM|0efe8383eea (gt 28000)",
@@ -18306,6 +18332,19 @@
       "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:26/Article#26/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
       "tests": "JapanTaxLaw/BatchThresholdLE50c7e30817Tests.lean sha256=66b05d264f762c9b83cbe41353c463498c26bb91c1726ec40529a2dd5a963b1d"
     },
+    "NORM|5f6c93d212d0491ede8b927307532f66bac553e3dbb762fb182523dd67b32d4b": {
+      "adversarial_review": "docs/BATCH_MISC_THRESHOLD_REVIEW.md generated entry for NORM|5f6c93d212d",
+      "boundary_proof": "BatchMiscTh56ddcbc63bTests.lean kernel-decided boundary cases",
+      "cross_law_proof": "dependencies=[]; surrounding conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMiscTh56ddcbc63b.lean sha256=2295a4abe19796378aec5c9cfb436871357fd625235fa48a9457143801626030",
+      "independent_spec": "JapanTaxLaw/BatchMiscTh56ddcbc63bSpec.lean sha256=17f7fe30580356f3e33f8e894ed5903f6face28c06cdc681d452c60efa2b23c8; two-branch spec vs decide impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMiscTh56ddcbc63bTests OK; axioms: 'JapanTaxLaw.BatchMiscTh56ddcbc63b.boundary_true' depends on axioms: [propext] | 'JapanTaxLaw.BatchMiscTh56ddcbc63b.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat amounts; op=lt",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; threshold_audit D=PASS: verbatim located and limit matches",
+      "source_location": "data/raw/340CO0000000097_20261001_507CO0000000121.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:112/Article#112/Paragraph#6/Item#3/Subitem1#1/Subitem1Sentence/Sentence#1 sha256=92bab730d90617c1a1439ba19ba8f79041368febf3840c919103689cfcd90fe6",
+      "tests": "JapanTaxLaw/BatchMiscTh56ddcbc63bTests.lean sha256=4837b382bde449de1322e7160e75175edfc4f13ea7a073fcc32a36dd33796ea4"
+    },
     "NORM|5f99bf7a968ccac0ca19b0ae313bf2db67527e30f67aeced113471467aaf2ec8": {
       "adversarial_review": "docs/BATCH_FRACTION_REVIEW.md generated entry for NORM|5f99bf7a968 (1/10 le)",
       "boundary_proof": "BatchFractionc1aa30245cTests.lean kernel-decided 0/1/2 over denominator 10",
@@ -20593,6 +20632,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (--ignore-quoted); phrase_audit D=PASS: every quoted pair located in pinned text, reproduced verbatim in spec+impl with correct direction",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:72_29/Article#72_29/Paragraph#4/ParagraphSentence/Sentence#2 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
       "tests": "JapanTaxLaw/BatchMultiRead053e207772Tests.lean sha256=1602a4eec8f98ebfc8e27c0fd330bbd7593288faf6bf97a9632ec32f75f9d951"
+    },
+    "NORM|6c3e84dbe9f00f49f4e2d579304a415dc5ab311ae304304b718ed273242b33e8": {
+      "adversarial_review": "docs/BATCH_MISC_THRESHOLD_REVIEW.md generated entry for NORM|6c3e84dbe9f",
+      "boundary_proof": "BatchMiscTh503b1a7d55Tests.lean kernel-decided boundary cases",
+      "cross_law_proof": "dependencies=[]; surrounding conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMiscTh503b1a7d55.lean sha256=e3031364db108f896f0d9c7b7ee71debcf4adfeb4046f281c7d098bccfefdf25",
+      "independent_spec": "JapanTaxLaw/BatchMiscTh503b1a7d55Spec.lean sha256=362e42fea7b94e587c74d287677e91a5c43a43c5d6d3599538017a4ea423f41c; two-branch spec vs decide impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMiscTh503b1a7d55Tests OK; axioms: 'JapanTaxLaw.BatchMiscTh503b1a7d55.boundary_true' depends on axioms: [propext] | 'JapanTaxLaw.BatchMiscTh503b1a7d55.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat amounts; op=lt",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; threshold_audit D=PASS: verbatim located and limit matches",
+      "source_location": "data/raw/340CO0000000097_20261001_507CO0000000121.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:123_8/Article#123_8/Paragraph#3/Item#3/Subitem1#1/Subitem1Sentence/Sentence#1 sha256=92bab730d90617c1a1439ba19ba8f79041368febf3840c919103689cfcd90fe6",
+      "tests": "JapanTaxLaw/BatchMiscTh503b1a7d55Tests.lean sha256=a0fe5e95ee0264763fe9b13ee98978b003a15e976e3910357118d1ae3dca6292"
     },
     "NORM|6c5c18645acc6e8331825154f87495e39748624f15c71c64d5383e0b1bbc5a36": {
       "adversarial_review": "docs/BATCH_THRESHOLD_REVIEW.md generated entry for NORM|6c5c18645ac (le 3600000)",
@@ -27913,6 +27965,19 @@
       "source_location": "data/raw/329AC0000000061_20260601_508AC0000000005.law.json#LawBody[3]/MainProvision/MainProvision[11]/Article:115_2/Article#115_2/Paragraph#1/ParagraphSentence/Sentence#1 sha256=1701272a2e4eaf434b6d953026c340efa4e15b2ca952fc941eeeb676d32204ea",
       "tests": "JapanTaxLaw/BatchThresholdLE648eb5d9f3Tests.lean sha256=364cf4e02769859f81d87511963b531d8ae33abd865cae369308ebbce6dbcd0c"
     },
+    "NORM|94ea87cfe61a7639ab45802c946693b3cc1722b7c840b447a4533048629e7dfb": {
+      "adversarial_review": "docs/BATCH_MISC_THRESHOLD_REVIEW.md generated entry for NORM|94ea87cfe61",
+      "boundary_proof": "BatchMiscThe4ba29de39Tests.lean kernel-decided boundary cases",
+      "cross_law_proof": "dependencies=[]; surrounding conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMiscThe4ba29de39.lean sha256=fcd2ddeeb919eac564aa8ab440c9a4db36b2549003f0862c33cffdd9dadcd189",
+      "independent_spec": "JapanTaxLaw/BatchMiscThe4ba29de39Spec.lean sha256=2351d7f89ea185f900daf86212421cf596866132d8f9d0f935efb34992d61b54; two-branch spec vs decide impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMiscThe4ba29de39Tests OK; axioms: 'JapanTaxLaw.BatchMiscThe4ba29de39.boundary_true' depends on axioms: [propext] | 'JapanTaxLaw.BatchMiscThe4ba29de39.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat amounts; op=le",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; threshold_audit D=PASS: verbatim located and limit matches",
+      "source_location": "data/raw/329CO0000000155_20260401_508CO0000000085.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:13_6/Article#13_6/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=7f76960b6510a6bd086c236c7d7facf5e47cb276f24a3f4a705c0c0aa8e15d01",
+      "tests": "JapanTaxLaw/BatchMiscThe4ba29de39Tests.lean sha256=f6674dec4571df99c82b782f69bc2cf6a089cf90d0c00d57f4068723058d7509"
+    },
     "NORM|94f9d5a1bbe0da972630ff7df6a7d89568e6ea6386e3bef63e754919b4392065": {
       "adversarial_review": "docs/BATCH_PERIOD_REVIEW.md generated entry for NORM|94f9d5a1bbe (2月 le)",
       "boundary_proof": "BatchPeriod50c30870d2Tests.lean kernel-decided boundary points",
@@ -31448,6 +31513,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; percent_numerators=[50]; constants=[50,100]",
       "source_location": "data/raw/332M50000040015_20261101_507M60000040026.law.json#LawBody[4]/MainProvision/MainProvision[2]/Article:22_11/Article#22_11/Paragraph#30/Item#1/Subitem1#4/Subitem1Sentence/Sentence#1 sha256=2e5d3e585b99e15ffb030c8b6fa0dcc6ccf7cc9532924fa5b6438a68cc05767c",
       "tests": "JapanTaxLaw/BatchRate3f9ca87ceeTests.lean sha256=727b11ca29521c720b53119cb553c73c73753f65871b8f25fff2fcc0d0b0a114"
+    },
+    "NORM|a86e537bd2995176d98cce22d3fc33d194eed582759b55950d7e653994cfb887": {
+      "adversarial_review": "docs/BATCH_MISC_THRESHOLD_REVIEW.md generated entry for NORM|a86e537bd29",
+      "boundary_proof": "BatchMiscTha01c71add0Tests.lean kernel-decided boundary cases",
+      "cross_law_proof": "dependencies=[]; surrounding conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMiscTha01c71add0.lean sha256=16036efeba05a86477638e71e60bbf26815b1eb4c9a21e433186d080377368eb",
+      "independent_spec": "JapanTaxLaw/BatchMiscTha01c71add0Spec.lean sha256=c6626f874f059c825bddc6532cfc0e3a33815cb0e13d6dbe8f2954ccd1fad39c; two-branch spec vs decide impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMiscTha01c71add0Tests OK; axioms: 'JapanTaxLaw.BatchMiscTha01c71add0.boundary_true' depends on axioms: [propext] | 'JapanTaxLaw.BatchMiscTha01c71add0.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat amounts; op=lt",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; threshold_audit D=PASS: verbatim located and limit matches",
+      "source_location": "data/raw/340CO0000000097_20261001_507CO0000000121.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:123_11/Article#123_11/Paragraph#1/Item#4/ItemSentence/Sentence#1 sha256=92bab730d90617c1a1439ba19ba8f79041368febf3840c919103689cfcd90fe6",
+      "tests": "JapanTaxLaw/BatchMiscTha01c71add0Tests.lean sha256=2272806e350ac85805fc457793d6a1484812e0d53bb36eb5279171f1a63fb310"
     },
     "NORM|a8dad4132899b776e51aea172bc21d455290b5f49e590f60e2460b3e2cb1f032": {
       "adversarial_review": "docs/BATCH_READING_REVIEW.md generated entry for NORM|a8dad413289",
@@ -35686,6 +35764,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; threshold=12000 yen; op=le",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:314_2/Article#314_2/Paragraph#1/Item#5/Subitem1#2/Subitem2#1/Subitem2Sentence/Column#1/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
       "tests": "JapanTaxLaw/BatchThresholdLEaee084e0b1Tests.lean sha256=b2f37bc3d75df44f0b5027472a6992098736f33922028772fd95598899585cbc"
+    },
+    "NORM|c09cfcb72ead229a595c8584c9afc193294340bc781014050493c5905f7c1594": {
+      "adversarial_review": "docs/BATCH_MISC_THRESHOLD_REVIEW.md generated entry for NORM|c09cfcb72ea",
+      "boundary_proof": "BatchMiscTh5d2780ddcdTests.lean kernel-decided boundary cases",
+      "cross_law_proof": "dependencies=[]; surrounding conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMiscTh5d2780ddcd.lean sha256=1e1f36f7937df4c416032ca0d97640b6103a73f34254b6457ca374d298d9b403",
+      "independent_spec": "JapanTaxLaw/BatchMiscTh5d2780ddcdSpec.lean sha256=9d1131fe406e7359d7a86d5bb97ac1118a1c93511771f7ce56ec214f54179519; two-branch spec vs decide impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMiscTh5d2780ddcdTests OK; axioms: 'JapanTaxLaw.BatchMiscTh5d2780ddcd.boundary_true' depends on axioms: [propext] | 'JapanTaxLaw.BatchMiscTh5d2780ddcd.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat amounts; op=lt",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; threshold_audit D=PASS: verbatim located and limit matches",
+      "source_location": "data/raw/329CO0000000150_20260701_508CO0000000217.law.json#LawBody[3]/MainProvision/MainProvision[7]/Article:74/Article#74/Paragraph#2/ParagraphSentence/Sentence#2 sha256=d0cb666639a6a62af17c1525c09c86c22b9e639b97e45fc7dbe8ace41f2eb166",
+      "tests": "JapanTaxLaw/BatchMiscTh5d2780ddcdTests.lean sha256=7878daa2cfe1b2c2226caef45596da779e488b2e33baa1bb5665f8033d534179"
     },
     "NORM|c09fcf57a1c33eba790042d0912be51129316fc199db38b1acfce8ea50c45e3b": {
       "adversarial_review": "docs/BATCH_MULTI_READING_REVIEW.md generated entry for NORM|c09fcf57a1c",
@@ -43694,6 +43785,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; threshold=3000000 yen; op=gt",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:74_23/Article#74_23/Paragraph#4/Item#3/ItemSentence/Column#1/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
       "tests": "JapanTaxLaw/BatchThresholdGTc6710bdd31Tests.lean sha256=62a81ade0e80e6d76144af27197efbdbfc0ab9e3d2c966edda5f0874f803404c"
+    },
+    "NORM|e9b2521e3769be75bda425b0150207f1cb007a4f13f89b1ecfe0ee0292623ad0": {
+      "adversarial_review": "docs/BATCH_MISC_THRESHOLD_REVIEW.md generated entry for NORM|e9b2521e376",
+      "boundary_proof": "BatchMiscTh44d95d7618Tests.lean kernel-decided boundary cases",
+      "cross_law_proof": "dependencies=[]; surrounding conditions NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchMiscTh44d95d7618.lean sha256=14e1438829b37668306827418257adb98137f3ee91844d961aab75cfdc736231",
+      "independent_spec": "JapanTaxLaw/BatchMiscTh44d95d7618Spec.lean sha256=a6564c61244203845c42300087d3c4d7247fb2703ed951e1c1a9d8e4e4fdb77e; two-branch spec vs decide impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchMiscTh44d95d7618Tests OK; axioms: 'JapanTaxLaw.BatchMiscTh44d95d7618.boundary_true' depends on axioms: [propext] | 'JapanTaxLaw.BatchMiscTh44d95d7618.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat amounts; op=le",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; threshold_audit D=PASS: verbatim located and limit matches",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:29_2/Article#29_2/Paragraph#1/Item#2/ItemSentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
+      "tests": "JapanTaxLaw/BatchMiscTh44d95d7618Tests.lean sha256=37e7ebd3357ca2c9936445c6d18dca07ad1f7cbb2ed6c59875d0d58386bbb31c"
     },
     "NORM|e9b25c324881b3b0fca31436899c8a8db88c7146f706f23e1a1af241c254ba55": {
       "adversarial_review": "docs/BATCH_THRESHOLD_REVIEW.md generated entry for NORM|e9b25c32488 (le 1000000)",
