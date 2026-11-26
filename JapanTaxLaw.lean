@@ -1961,6 +1961,9 @@ import JapanTaxLaw.SpecialOrderPensionMinimumTests
 import JapanTaxLaw.SpecialTaxCreditCap10000
 import JapanTaxLaw.SpecialTaxCreditCap10000Spec
 import JapanTaxLaw.SpecialTaxCreditCap10000Tests
+import JapanTaxLaw.SpecialTonSecurityEightTen
+import JapanTaxLaw.SpecialTonSecurityEightTenSpec
+import JapanTaxLaw.SpecialTonSecurityEightTenTests
 import JapanTaxLaw.SpecialTonSplitRatio
 import JapanTaxLaw.SpecialTonSplitRatioSpec
 import JapanTaxLaw.SpecialTonSplitRatioTests
