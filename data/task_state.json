@@ -1157,12 +1157,17 @@
           "event": "status_changed",
           "from": "NOT_STARTED",
           "to": "FULLY_VERIFIED"
+        },
+        {
+          "event": "status_changed",
+          "from": "FULLY_VERIFIED",
+          "to": "NOT_STARTED"
         }
       ],
       "legal_review": "LEGAL_REVIEW_PENDING",
       "owner": "",
       "source_digest": "b64be40dba650308d9f0ae478e89539b412c4f0a4fac981b6c770d3f1e1f121a",
-      "status": "FULLY_VERIFIED",
+      "status": "NOT_STARTED",
       "unhandled_conditions": [],
       "unit_id": "NORM|06ecf4e83a75240fefb191c05f7df0f5ead383672e0052e4472472d1cde8dd3f"
     },
@@ -13815,12 +13820,17 @@
           "event": "status_changed",
           "from": "NOT_STARTED",
           "to": "FULLY_VERIFIED"
+        },
+        {
+          "event": "status_changed",
+          "from": "FULLY_VERIFIED",
+          "to": "NOT_STARTED"
         }
       ],
       "legal_review": "LEGAL_REVIEW_PENDING",
       "owner": "",
       "source_digest": "b64be40dba650308d9f0ae478e89539b412c4f0a4fac981b6c770d3f1e1f121a",
-      "status": "FULLY_VERIFIED",
+      "status": "NOT_STARTED",
       "unhandled_conditions": [],
       "unit_id": "NORM|5b7dbb8435441b5f227093f2932957a5ea27b0d71a5f3aaed53e322c30d3a7e1"
     },
@@ -25897,6 +25907,44 @@
       "status": "FULLY_VERIFIED",
       "unhandled_conditions": [],
       "unit_id": "NORM|b0c4076cb76531279a0938faab15afb035acd50dbb7a146392df6a13e7d5a5ef"
+    },
+    "NORM|b0df6aef4d7d37f887aa42d8a9df6abad324059fdaed2fd3636a8ef9bbe69af6": {
+      "artifacts": {
+        "adversarial_review": "",
+        "implementation": "",
+        "kernel_proof": "",
+        "source_audit": "",
+        "source_pin": "",
+        "spec": "",
+        "tests": ""
+      },
+      "blockers": [],
+      "evidence": {
+        "adversarial_review": "",
+        "boundary_proof": "",
+        "cross_law_proof": "",
+        "decomposition_audit": "",
+        "implementation": "",
+        "independent_spec": "",
+        "kernel_proof": "",
+        "proof_scope": "",
+        "source_correspondence_audit": "",
+        "source_location": "",
+        "tests": ""
+      },
+      "history": [
+        {
+          "event": "status_changed",
+          "from": "NOT_STARTED",
+          "to": "FULLY_VERIFIED"
+        }
+      ],
+      "legal_review": "LEGAL_REVIEW_PENDING",
+      "owner": "",
+      "source_digest": "263fcdcbc229a04485b175191cb18f248a9f3e756f3c55fa8e27206ecfc8d02f",
+      "status": "FULLY_VERIFIED",
+      "unhandled_conditions": [],
+      "unit_id": "NORM|b0df6aef4d7d37f887aa42d8a9df6abad324059fdaed2fd3636a8ef9bbe69af6"
     },
     "NORM|b1205ae8e34e33e5eb033f777a1d300a8ed02d6ab4559197f05f4f1865d23df2": {
       "artifacts": {
