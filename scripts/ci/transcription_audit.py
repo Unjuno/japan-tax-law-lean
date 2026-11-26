@@ -91,6 +91,10 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # MinisterialNecessityException.lean - NORM|045b8c69... (特に必要場合の例外 EXCEPTION, law 336CO0000000153)
+    yield ("関税割当制度政令 art.2(4) ただし書（特に必要な場合の例外）↔ MinisterialNecessityException.lean",
+           "336CO0000000153", "article", "第二条", ["ただし、農林水産大臣又は経済産業大臣が特に必要があると認めるときは、この限りでない。"])
+
     # TouristTaxTaxablePassengers — 国際観光旅客税法施行規則 art.3(2) ホ (restored)
     yield ("国際観光旅客税法施行規則 art.3(2) ホ（課税旅客数＝イ−(ロ+ハ+ニ)）↔ TouristTaxTaxablePassengers.lean",
            "430M60000040039", "article", "第三条", ["イに掲げる数からロからニまでに掲げる数の合計数を控除した数"])
@@ -4963,6 +4967,7 @@ def checks():
            "325AC0000000226", "file", None,
            ["九百万円を超え千八百万円以下の金額"])
 
+
     # 地方税法 art. 37の2 — LocalTaxBracket330To695.lean (330万超695万以下)
     yield ("地方税法 art. 37_2（330万超695万以下）↔ LocalTaxBracket330To695.lean",
            "325AC0000000226", "file", None,
@@ -4971,6 +4976,15 @@ def checks():
     yield ("地方税法 art. 37_2（695万超900万以下）↔ LocalTaxBracket695To900.lean",
            "325AC0000000226", "file", None,
            ["六百九十五万円を超え九百万円以下の金額"])
+
+    # 租税特別措置法 art. 90の12 — EnergyEfficiency75Pct.lean (75%)
+    yield ("租税特別措置法 art. 90_12（効率75%以上）↔ EnergyEfficiency75Pct.lean",
+           "332AC0000000026", "file", None,
+           ["エネルギー消費効率が令和十二年度基準エネルギー消費効率に百分の七十五を乗じて得た数値以上であること。"])
+    # 租税特別措置法 art. 90の12 — EnergyEfficiency70Pct.lean (70%)
+    yield ("租税特別措置法 art. 90_12（効率70%以上）↔ EnergyEfficiency70Pct.lean",
+           "332AC0000000026", "file", None,
+           ["エネルギー消費効率が令和十二年度基準エネルギー消費効率に百分の七十を乗じて得た数値以上であること。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

@@ -752,6 +752,12 @@ import JapanTaxLaw.Employee300Tests
 import JapanTaxLaw.EmploymentDuration6Months
 import JapanTaxLaw.EmploymentDuration6MonthsSpec
 import JapanTaxLaw.EmploymentDuration6MonthsTests
+import JapanTaxLaw.EnergyEfficiency70Pct
+import JapanTaxLaw.EnergyEfficiency70PctSpec
+import JapanTaxLaw.EnergyEfficiency70PctTests
+import JapanTaxLaw.EnergyEfficiency75Pct
+import JapanTaxLaw.EnergyEfficiency75PctSpec
+import JapanTaxLaw.EnergyEfficiency75PctTests
 import JapanTaxLaw.EnforcementWithinNineMonths
 import JapanTaxLaw.EnforcementWithinNineMonthsSpec
 import JapanTaxLaw.EnforcementWithinNineMonthsTests
@@ -1550,6 +1556,9 @@ import JapanTaxLaw.MergerGrantFiscalWindowTests
 import JapanTaxLaw.MergerMaxCapital
 import JapanTaxLaw.MergerMaxCapitalSpec
 import JapanTaxLaw.MergerMaxCapitalTests
+import JapanTaxLaw.MinisterialNecessityException
+import JapanTaxLaw.MinisterialNecessityExceptionSpec
+import JapanTaxLaw.MinisterialNecessityExceptionTests
 import JapanTaxLaw.MonthCountExclusiveBand
 import JapanTaxLaw.MonthCountExclusiveBandSpec
 import JapanTaxLaw.MonthCountExclusiveBandTests
@@ -1643,6 +1652,9 @@ import JapanTaxLaw.OkinawaExamPassTests
 import JapanTaxLaw.OkinawaShochu1300kL
 import JapanTaxLaw.OkinawaShochu1300kLSpec
 import JapanTaxLaw.OkinawaShochu1300kLTests
+import JapanTaxLaw.OkinawaTaxableQuantityResidual
+import JapanTaxLaw.OkinawaTaxableQuantityResidualSpec
+import JapanTaxLaw.OkinawaTaxableQuantityResidualTests
 import JapanTaxLaw.OldAgePensionAnnualAmountCeiling
 import JapanTaxLaw.OldAgePensionAnnualAmountCeilingSpec
 import JapanTaxLaw.OldAgePensionAnnualAmountCeilingTests
