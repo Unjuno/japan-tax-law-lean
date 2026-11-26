@@ -181,8 +181,8 @@ lake clean && lake build                                                # 再現
 | 指標 | 実測値 |
 |---|---:|
 | 規範単位（確定対象版） | 268,107 |
-| NOT_STARTED | 258,115 |
-| PARTIAL | 6,244 |
+| NOT_STARTED | 255,118 |
+| PARTIAL | 9,241 |
 | PROVED_SCOPE | 0 |
 | FULLY_VERIFIED | 3,742（約 1.40%） |
 | BLOCKED | 6 |
@@ -261,6 +261,8 @@ PARTIAL 4,312 → 4,741。これは SOURCE 軸の進展であり、形式化・�
 さらに 2,000 単位の SOURCE 監査を実施し H/T/D/C/U を記録
 （`coordinator_cycle_htdcu_2000.json`）。NOT_STARTED 259,708 → 258,211、
 PARTIAL 4,744 → 6,241。これらは仍未形式化・未証明。
+さらに 3,000 単位（`coordinator_cycle_htdcu_3000.json`）を追加。
+NOT_STARTED 258,115 → 255,118、PARTIAL 6,244 → 9,241。
 その後「一人につきX円」型 8 単位を PerPersonDeduction で形式化し
 （`base + count*amount`、全称 `base_eq_amount`/`commute`/`monotone_count`、
 ビルド 611 jobs・エラー 0）、全数機械監査も PASS。さらに小数千分率 6 単位を
