@@ -6,25 +6,18 @@ A whole-text numeric match is NOT article-level verification. This is a
 source-fidelity diagnostic (D=PASS means needle in stated article only),
 never a completion gate or a semantic/legal claim.
 
-- checks with article/table-cell scoped needles: 721
+- checks with article/table-cell scoped needles: 717
 - checks with no scoped unit: 0
 
 | law_id | stated article | needle hits | scoped positions | D |
 |---|---|---:|---:|---|
-| `346CO0000000275` | 第五条 | 2 | 2 | PASS |
-| `347M50000008026` | 第四条 | 2 | 2 | PASS |
-| `349AC0000000079` | 第十二条 | 2 | 2 | PASS |
-| `346CO0000000275` | 第五条 | 2 | 2 | PASS |
-| `326M50000040055` | 第二十二条の三 | 2 | 2 | PASS |
-| `332AC0000000026` | (file-level) | 5 | 5 | PASS |
-| `332AC0000000026` | (file-level) | 5 | 5 | PASS |
-| `332AC0000000026` | (file-level) | 6 | 6 | PASS |
+| `430M60000040039` | 第三条 | 3 | 3 | PASS |
+| `425CO0000000025` | 第七条 | 2 | 2 | PASS |
 | `347AC0000000007` | 第十四条 | 3 | 3 | PASS |
 | `346AC0000000090` | 第四条 | 2 | 2 | PASS |
 | `327CO0000000124` | 第三条の二 | 2 | 2 | PASS |
 | `332AC0000000077` | 第六条 | 2 | 2 | PASS |
 | `337M50000040031` | 第一条の六 | 1 | 1 | PASS |
-| `329CO0000000103` | 第四条 | 2 | 2 | PASS |
 | `329M50000002023` | (file-level) | 2 | 2 | PASS |
 | `325AC0000000226` | (file-level) | 4 | 4 | PASS |
 | `325AC0000000226` | (file-level) | 4 | 4 | PASS |
@@ -152,7 +145,7 @@ never a completion gate or a semantic/legal claim.
 | `332AC0000000038` | 第十条 | 7 | 8 | PASS |
 | `143AC0000000054` | (file-level) | 37 | 40 | PASS |
 | `340AC0000000033` | 第二条 | 531 | 533 | PASS |
-| `325AC0000000226` | (file-level) | 34 | 35 | PASS |
+| `143AC0000000054` | (file-level) | 32 | 33 | PASS |
 | `330AC0000000104` | 第四条 | 2 | 2 | PASS |
 | `332AC0000000055` | 第九条 | 2 | 2 | PASS |
 | `143AC0000000054` | 第十四条 | 3 | 3 | PASS |
@@ -308,9 +301,7 @@ never a completion gate or a semantic/legal claim.
 | `325AC0000000226` | (file-level) | 20 | 21 | PASS |
 | `325AC0000000226` | (file-level) | 20 | 21 | PASS |
 | `325AC0000000226` | (file-level) | 419 | 420 | PASS |
-| `327AC0000000113` | (file-level) | 2 | 3 | PASS |
-| `329CO0000000103` | (file-level) | 2 | 3 | PASS |
-| `336CO0000000153` | (file-level) | 3 | 4 | PASS |
+| `333CO0000000337` | (file-level) | 2 | 3 | PASS |
 | `340AC0000000033` | (file-level) | 4 | 16 | PASS |
 | `332CO0000000043` | (file-level) | 4 | 10 | PASS |
 | `337M50000008017` | (file-level) | 2 | 8 | PASS |
@@ -697,38 +688,43 @@ never a completion gate or a semantic/legal claim.
 | `325AC0000000073` | (file-level) | 34 | 35 | PASS |
 | `325AC0000000226` | (file-level) | 3 | 3 | PASS |
 | `332CO0000000049` | 第三条 | 2 | 2 | PASS |
-| `329M50000002023` | (file-level) | 3 | 3 | PASS |
-| `332AC0000000026` | (file-level) | 3 | 3 | PASS |
-| `332AC0000000026` | (file-level) | 3 | 3 | PASS |
-| `332AC0000000026` | (file-level) | 12 | 12 | PASS |
-| `424CO0000000017` | 第三条 | 2 | 2 | PASS |
 | `325AC0000000073` | (file-level) | 34 | 35 | PASS |
-| `430M60000040039` | 第三条 | 3 | 3 | PASS |
-| `425CO0000000025` | 第七条 | 2 | 2 | PASS |
+| `332AC0000000026` | (file-level) | 12 | 12 | PASS |
 | `325AC0000000226` | (file-level) | 6 | 6 | PASS |
 | `325AC0000000226` | (file-level) | 3 | 3 | PASS |
 | `332AC0000000026` | (file-level) | 3 | 3 | PASS |
 | `332AC0000000026` | (file-level) | 3 | 3 | PASS |
 | `332AC0000000026` | (file-level) | 5 | 5 | PASS |
 | `332AC0000000026` | (file-level) | 5 | 5 | PASS |
-| `404M50000008008` | 第一条 | 2 | 2 | PASS |
 | `340AC0000000033` | (file-level) | 3 | 3 | PASS |
 | `332CO0000000043` | (file-level) | 3 | 3 | PASS |
-| `329M50000002023` | (file-level) | 3 | 3 | PASS |
-| `332AC0000000026` | (file-level) | 3 | 3 | PASS |
-| `340CO0000000096` | (file-level) | 2 | 2 | PASS |
+| `326AC1000000237` | (file-level) | 2 | 2 | PASS |
 | `340CO0000000096` | (file-level) | 3 | 3 | PASS |
-| `340CO0000000096` | (file-level) | 3 | 3 | PASS |
-| `340CO0000000096` | (file-level) | 3 | 3 | PASS |
-| `332CO0000000043` | (file-level) | 3 | 3 | PASS |
-| `332CO0000000043` | (file-level) | 9 | 9 | PASS |
 | `335AC0000000036` | (file-level) | 3 | 3 | PASS |
-| `335AC0000000036` | (file-level) | 3 | 3 | PASS |
-| `332CO0000000043` | (file-level) | 6 | 6 | PASS |
 | `340CO0000000096` | (file-level) | 3 | 3 | PASS |
-| `332AC0000000026` | (file-level) | 3 | 3 | PASS |
-| `332AC0000000026` | (file-level) | 3 | 3 | PASS |
 | `363AC0000000108` | (file-level) | 3 | 3 | PASS |
-| `431M60000008040` | (file-level) | 3 | 3 | PASS |
-| `340CO0000000096` | (file-level) | 3 | 3 | PASS |
+| `329CO0000000164` | (file-level) | 3 | 3 | PASS |
+| `329CO0000000164` | (file-level) | 3 | 3 | PASS |
+| `340CO0000000096` | (file-level) | 2 | 2 | PASS |
 | `332AC0000000026` | (file-level) | 6 | 6 | PASS |
+| `431M60000008040` | (file-level) | 3 | 3 | PASS |
+| `346CO0000000275` | 第五条 | 2 | 2 | PASS |
+| `347M50000008026` | 第四条 | 2 | 2 | PASS |
+| `340CO0000000096` | (file-level) | 3 | 3 | PASS |
+| `340CO0000000096` | (file-level) | 3 | 3 | PASS |
+| `340CO0000000096` | (file-level) | 3 | 3 | PASS |
+| `325AC0000000226` | (file-level) | 34 | 35 | PASS |
+| `332CO0000000043` | (file-level) | 6 | 6 | PASS |
+| `407M50000008016` | 第一条 | 3 | 3 | PASS |
+| `349AC0000000079` | 第十二条 | 2 | 2 | PASS |
+| `332CO0000000043` | (file-level) | 9 | 9 | PASS |
+| `332AC0000000026` | (file-level) | 3 | 3 | PASS |
+| `332AC0000000026` | (file-level) | 3 | 3 | PASS |
+| `424CO0000000017` | 第三条 | 2 | 2 | PASS |
+| `332CO0000000043` | (file-level) | 3 | 3 | PASS |
+| `335AC0000000036` | (file-level) | 3 | 3 | PASS |
+| `325AC0000000226` | (file-level) | 2 | 2 | PASS |
+| `325AC0000000226` | (file-level) | 2 | 2 | PASS |
+| `325CO0000000245` | (file-level) | 3 | 3 | PASS |
+| `325CO0000000245` | (file-level) | 3 | 3 | PASS |
+| `332AC0000000055` | (file-level) | 3 | 3 | PASS |
