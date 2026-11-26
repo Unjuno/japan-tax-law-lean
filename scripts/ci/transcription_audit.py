@@ -4633,6 +4633,36 @@ def checks():
            "file", None,
            ["新型コロナウイルス感染症及びそのまん延防止のための措置の影響により当該中小事業者等の事業収入割合が百分の七十以下となる場合（前号に掲げる場合を除く。）"])
 
+    # Batch 275 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("相続税法 art. 49 請求後二月以内の開示 ↔ InheritanceTax49DisclosureWithin2Months.lean",
+           "325AC0000000073",
+           "article", "第四十九条",
+           ["第一項の請求があつた場合には、税務署長は、当該請求をした者に対し、当該請求後二月以内に同項の開示をしなければならない。"])
+
+    # Batch 275 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("相続税法 art. 68 千万円を超える罰金加重 ↔ InheritanceTax68PenaltyOver10M.lean",
+           "325AC0000000073",
+           "article", "第六十八条",
+           ["前項の免れた相続税額又は贈与税額が千万円を超えるときは、情状により、同項の罰金は、千万円を超えその免れた相続税額又は贈与税額に相当する金額以下とすることができる。"])
+
+    # Batch 275 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 166 納期限後二十日以内の督促 ↔ LocalTax166DemandWithin20Days.lean",
+           "325AC0000000226",
+           "article", "第百六十六条",
+           ["納税者が納期限までに自動車税に係る地方団体の徴収金を完納しない場合には、道府県の徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
+
+    # Batch 275 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 321_15 申出から三十日以内の決定 ↔ LocalTax321_15DecisionWithin30Days.lean",
+           "325AC0000000226",
+           "article", "第三百二十一条の十五",
+           ["道府県知事又は総務大臣は、前項の申出を受けた場合においては、その申出を受けた日から三十日以内に、その決定をしなければならない。"])
+
+    # Batch 275 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 382 十日以内の登記通知 ↔ LocalTax382RegistryNoticeWithin10Days.lean",
+           "325AC0000000226",
+           "article", "第三百八十二条",
+           ["登記所は、土地又は建物の表示に関する登記をしたときは、十日以内に、その旨その他総務省令で定める事項を当該土地又は家屋の所在地の市町村長に通知しなければならない。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
