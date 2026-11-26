@@ -1,0 +1,10 @@
+- NORM|d44674660a439705deb2b28e8a69d31d1c35fc132c39666a2486e1ba2c58b6c9: list-wise reading accepted; whole-token scope, no overlap priority; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
+- NORM|5e593338874b5203f7b42a4dc7c45da30a110a76ea1fd3f0005f6b93cc2cbff5: list-wise reading accepted; whole-token scope, no overlap priority; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
+- NORM|786034edf8377817a3d709e350d823332115baa9e27dbf73e38733a65c2a00ab: list-wise reading accepted; whole-token scope, no overlap priority; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
+- NORM|b34876828038579f5b8c8ea7283f0d28ef61d82c8014e2f0a032229e37166999: list-wise reading accepted; whole-token scope, no overlap priority; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
+- NORM|a1c9a6cf8c5b58f0315f5ad3c1e764c517fb9a4beb764b0f109bc53e9c0c278a: list-wise reading accepted; whole-token scope, no overlap priority; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
+- NORM|d44674660a439705deb2b28e8a69d31d1c35fc132c39666a2486e1ba2c58b6c9: list-wise reading accepted; whole-token scope, no overlap priority; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
+- NORM|5e593338874b5203f7b42a4dc7c45da30a110a76ea1fd3f0005f6b93cc2cbff5: list-wise reading accepted; whole-token scope, no overlap priority; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
+- NORM|786034edf8377817a3d709e350d823332115baa9e27dbf73e38733a65c2a00ab: list-wise reading accepted; whole-token scope, no overlap priority; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
+- NORM|b34876828038579f5b8c8ea7283f0d28ef61d82c8014e2f0a032229e37166999: list-wise reading accepted; whole-token scope, no overlap priority; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
+- NORM|a1c9a6cf8c5b58f0315f5ad3c1e764c517fb9a4beb764b0f109bc53e9c0c278a: list-wise reading accepted; whole-token scope, no overlap priority; T=kernel build + axiom scan + two audits; D=PASS; U=human review separate.
