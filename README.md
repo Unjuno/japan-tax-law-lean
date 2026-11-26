@@ -1010,3 +1010,7 @@ JapanTaxLaw/HanshinAwajiDisasterTaxReliefEnforcementDateTests.lean # 同上 退�
 JapanTaxLaw/CorporationTemporarySpecialTaxEnforcementDate.lean    # 法人臨時特別税に関する省令 施行日2003-01-06（附則 art.1）L4
 JapanTaxLaw/CorporationTemporarySpecialTaxEnforcementDateSpec.lean # 同上 独立定式
 JapanTaxLaw/CorporationTemporarySpecialTaxEnforcementDateTests.lean # 同上 退行テスト
+
+JapanTaxLaw/PurebredLivestockCertificateEnforcementDate.lean    # 純粋種繁殖用牛豚・無税馬証明書に関する省令 施行日2000-04-01（附則 art.1）L4
+JapanTaxLaw/PurebredLivestockCertificateEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/PurebredLivestockCertificateEnforcementDateTests.lean # 同上 退行テスト
