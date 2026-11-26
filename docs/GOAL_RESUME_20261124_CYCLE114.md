@@ -146,10 +146,31 @@ Two bounded modules pushed at `f93f990d`:
 618/618, no `sorry`. Their CI run `45491532407` failed at
 **Install Lean toolchain** (not a proof failure); a rerun of the failed job
 also failed at the same step, and other concurrent runs showed the same
-toolchain-install failure. Therefore NO scoped attestation is bound for
-cycle-124 and its cells are deliberately NOT in the evidence ledger. Resume
-step: rerun the Lean job once the toolchain service recovers, then bind
-attestations from the committed blobs at `f93f990d` and regenerate the ledgers.
+toolchain-install failure. However a later gh-verified green Lean job (run `45634025256`, head
+`cb8eab772d04`) contains the same committed module blobs, so scoped
+attestations were bound from that run and the two cells were added to the
+evidence ledger and queue.
+Legal review stays `LEGAL_REVIEW_PENDING`.
+
+## 5k. Cycle-125 (2026-11-26)
+
+Two bounded modules pushed at `6a7b17ca`:
+`LocalTaxOffenseFineCap500k` (地方税法 art.27) and `LocalCapitalCeiling10M`
+(art.52 ホ, 資本金等の額千万円以下). Checks: 8/8 Lean builds, transcription
+618/618, no `sorry`. CI run `45644875727` Lean/axiom job verified green;
+scoped attestations bound from committed blobs and both cells added to the
+evidence ledger and queue. Legal review stays `LEGAL_REVIEW_PENDING`.
+
+## 5l. Cycle-128 (2026-11-26)
+
+Two bounded modules pushed at `d365c382`:
+`LocalTaxArt70FineCap500k` and `LocalTaxArt71_21FineCap500k` (地方税法
+art.70 / art.71の21, inclusive 「五十万円以下」 fine caps). Checks: 8/8
+Lean builds, transcription 634/634, no `sorry`. The first CI run
+`45666627767` failed at **Install Lean toolchain** (infrastructure, not a
+proof failure); no attestation was bound from it. Resume step: bind scoped
+attestations for these two modules from the first REST/gh-verified green
+Lean job whose commit contains their blobs, then regenerate the ledgers.
 Legal review stays `LEGAL_REVIEW_PENDING`.
 
 ## 6. Resume procedure (exact)

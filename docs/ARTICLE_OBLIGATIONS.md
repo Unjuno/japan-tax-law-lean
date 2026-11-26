@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 262
-- presence-facts-only complete: 262
-- NOT_STARTED: 262
+- articles with explicit pin: 271
+- presence-facts-only complete: 271
+- NOT_STARTED: 271
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -17,8 +17,9 @@ source positions. Human legal review is a separate axis and is pending.
 
 | law_id | article | module | presence | scoped | review | authoritative status |
 |---|---|---|---|---|---|---|
-| `347AC0000000007` | 第十四条 | AircraftFuelTaxPayable | YES | YES | YES | NOT_STARTED |
+| `347AC0000000007` | 第十四条 | AircraftFuelTaxPayable | YES | YES | NO | NOT_STARTED |
 | `346AC0000000090` | 第四条 | AutoWeightGrantRounding | YES | YES | YES | NOT_STARTED |
+| `332AC0000000077` | 第六条 | TokyoAsCityDeeming | YES | YES | NO | NOT_STARTED |
 | `340AC0000000034` | 第六十六条 | CorporateTaxRate | YES | YES | YES | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の七 | GiftTax | YES | YES | YES | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の五 | GiftTax | YES | YES | YES | NOT_STARTED |
@@ -153,6 +154,7 @@ source positions. Human legal review is a separate axis and is pending.
 | `329CO0000000155` | 第一条の二 | CustomsDutiableValueThreshold | YES | YES | NO | NOT_STARTED |
 | `327AC0000000111` | 第十一条 | UsForcesDutyFreePenalty | YES | YES | NO | NOT_STARTED |
 | `340AC0000000157` | 第四条 | OilGasGrantArt4Rounding | YES | YES | NO | NOT_STARTED |
+| `325AC0000000226` | 第五百九十四条 | SpecialLandHoldingTaxRate | YES | YES | YES | NOT_STARTED |
 | `143AC0000000054` | 第十条 | CustomsDamageReduction | YES | YES | YES | NOT_STARTED |
 | `143AC0000000054` | 第四条の七 | CustomsExchangeRate | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第三条の三 | CustomsSmallConsignment | YES | YES | NO | NOT_STARTED |
@@ -279,3 +281,10 @@ source positions. Human legal review is a separate axis and is pending.
 | `426CO0000000139` | 第六条 | FilingDateException | YES | YES | NO | NOT_STARTED |
 | `325AC0000000073` | 第二十五条 | InheritanceTaxArt25LumpSumPremiumCondition | YES | YES | NO | NOT_STARTED |
 | `325AC0000000073` | 第六十七条 | InheritanceTaxArt67LocalSurchargeProhibition | YES | YES | NO | NOT_STARTED |
+| `325AC0000000073` | 第十三条 | InheritanceTaxArt13ResidualAssetDebtException | YES | YES | NO | NOT_STARTED |
+| `322CO0000000268` | 第十六条 | DisasterTaxReliefOrderArt16ApplicationSubmissionDay | YES | YES | NO | NOT_STARTED |
+| `322AC0000000175` | 第七条 | DisasterLiquorDeduction500YenFloor | YES | YES | NO | NOT_STARTED |
+| `423AC0000000118` | 第二条 | ReconstructionEqualLevySurcharge500 | YES | YES | NO | NOT_STARTED |
+| `507CO0000000134` | 第三条 | DefenseCorpShortfallSum | YES | YES | NO | NOT_STARTED |
+| `507CO0000000134` | 第三条 | DefenseCorpShortfallSum | YES | YES | NO | NOT_STARTED |
+| `332AC0000000038` | 第十条 | SpecialTonnageArt10PenaltyCap | YES | YES | NO | NOT_STARTED |

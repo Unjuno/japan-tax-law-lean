@@ -12562,3 +12562,1055 @@ needle 2 本を手打ちせず、`scripts/ci/transcription_audit.py` の `checks
 
 > **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・反例/全走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
 
+## Batch DG review (2026-11-25) — 地方税法 art.34 §1 四 ハ (iii)（新個人年金保険料控除 上段 3.2万円超5.6万円以下）/ NewIndividualAnnuityPremiumDeductionUpper.lean（cycle-117 機械的独立照合・反例探索）
+
+### DG-0. 範囲・pinned pin・方法
+
+- 対象: `JapanTaxLaw/NewIndividualAnnuityPremiumDeductionUpper.lean`（Impl）と `NewIndividualAnnuityPremiumDeductionUpperSpec.lean` / `NewIndividualAnnuityPremiumDeductionUpperTests.lean`（独立 Spec・Tests、読み取り専用）。
+- Pin: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`（地方税法、施行 2026-11-01、改正法 508AC0000000002）。`data/raw/325AC0000000226_20261101_508AC0000000002.law.json` を独立再計算 → 12,181,725 bytes、SHA-256 `3DD29E0078BF24E09C79436CE7B0F00FD2CFB5A5BBCB97BD4F4352971BE68D53`（`data/INVENTORY.json` の `source_sha256` と一致）。`revision_info.law_title = 地方税法`、`current_revision_status = CurrentEnforced`。
+- 原文・Lean は doc-comment / `STAGING_ANNUITY_UP.md` / `transcription_audit.py` を信じず、pinned raw JSON の `law_full_text` を木走査して直接抽出した。needle は CI `checks()` に登録済みの 2 本を STAGING 経由で取得し、raw に対して照合した（詳細 DG-2）。
+- 書き込みは `docs/ADVERSARIAL_REVIEW.md` のみ（二段 read-then-write: 書き込み直前に再読込し、末尾に追記、書き込み後に件数と既存セクション保持を検証）。Lean モジュール・`data/*`・`scripts/*` は読み取り専用。commit / push / merge / ブランチ切替は行わない。一時ファイルは承認済み一時ディレクトリに置き、検証後に削除する。
+
+### DG-1. pinned 原文からの数値独立抽出（art.34 §1 四 ハ (iii)）
+
+pinned raw の `Article` ノードのうち `attr.Num = "34"`（9 件中、当該文言を含むのは 1 件）から leaf を連結し、空白（半角空白・改行・U+3000）を除去して正規化した flat text は **13,009 chars**（U+3000 = 0、doc-comment の記載と一致）。当該 (iii) leaf から漢数字パーサで数値を直接変換した:
+
+| 項目 | 原文 | 抽出値 | 意味 |
+|---|---|---:|---|
+| 下限 | 三万二千 | 32,000 | 3.2万円（「を超え」= strict） |
+| 上限 | 五万六千 | 56,000 | 5.6万円（「以下」= inclusive） |
+| base 額 | 二万二千 | 22,000 | 2.2万円 |
+| 控除対象額 | 三万二千 | 32,000 | 合計額から控除する額 |
+| 分率 | 四分の一 | 1/4 | 分子 一 / 分母 四 |
+
+- 桁違いの排除: (iii) leaf に `三千二百`(3,200) / `五千六百`(5,600) / `二千二百`(2,200) / `二分の一`(1/2) は **ABSENT**。数値はすべて 32,000 / 56,000 / 22,000 / 1/4 であり、1 桁落ち・分率誤りは検出されなかった。
+- 原文順: 「三万二千円を超え五万六千円以下である場合二万二千円と当該合計額から三万二千円を控除した金額の四分の一に相当する金額との合計額」→ `deduction(total) = 22000 + (total - 32000) / 4` に直接対応。
+- competing location: 同一文言は `Article attr.Num = "314_2"`（`（所得控除）第三百十四条の二`）にも 1 件出現する。stated article（34）にも 1 件存在するため **LOCATED** であり、whole-text-only の誤検出ではない。モデル側の参照先（art.34）と矛盾しない。
+
+### DG-2. needle 健全性（CI 登録 2 本）
+
+needle 2 本は `scripts/ci/transcription_audit.py` の `checks()` に `NewIndividualAnnuityPremiumDeductionUpper.lean` 名で登録済み（lines 2399–2402）で、`docs/STAGING_ANNUITY_UP.md` の記載と同一。正規化は CI と同じ空白・U+3000 除去を pinned art.34 flat text に適用した。
+
+| # | needle | U+3000 | FOUND | 全文ヒット数 | art.34 内ヒット数 | art.34 offset |
+|---|---|:--:|:--:|---:|---:|---:|
+| 1 | 新個人年金保険料の金額の合計額が三万二千円を超え五万六千円以下である場合二万二千円と当該合計額から三万二千円を控除した金額の四分の一に相当する金額との合計額 | 0 | **FOUND** | 2 | 1 | 4367 |
+| 2 | 第三十四条 | 0 | **FOUND** | 480 | 1 | 6 |
+
+- **結果: U+3000 = 0、2/2 FOUND。** art.34 flat text 13,009 chars に U+3000 は存在しない（raw leaf と normalized が同長）。
+- needle 2 は汎用文字列（全文 480 件）だが、needle 1（固有の 78 文字節）と併用することで art.34 に一意に anchor される。両 needle が同一文言を含むため art.34 内では各 1 件。
+
+### DG-3. 反例検証（独立 Spec との一致）
+
+Impl `deduction(t) = 22000 + (t-32000)/4`（Money = Nat、減算は 0 saturation、除算は floor）に対し、独立 Spec `specDeduction(t) = t/4 + 14000`（記載済み変形に依存しない再定式）で比較した。
+
+| total | Impl | 独立Spec | 一致 |
+|---:|---:|---:|:--:|
+| 32,000（境界） | 22,000 | 22,000 | ✔ |
+| 32,001 | 22,000 | 22,000 | ✔ |
+| **36,000** | **23,000** | 23,000 | ✔ |
+| **40,000** | **24,000** | 24,000 | ✔ |
+| 55,999 | 27,999 | 27,999 | ✔ |
+| **56,000（上限）** | **28,000** | 28,000 | ✔ |
+
+- 課題指定の 3 反例 (36,000 → 23,000 / 40,000 → 24,000 / 56,000 → 28,000) はすべて独立 Spec と一致。さらに `32000..56000` の全 24,001 点を走査し、**不一致 0**（CI の 6 点 `agreeNewIndividualAnnuityPremiumDeductionUpper` も Lean `by decide` で true）。
+- 等価性の理由: 32,000 は 4 で割り切れるため `floor((t-32000)/4) = floor(t/4) - 8000`（t ≥ 32000）が成り立ち、`22000 + (t-32000)/4 = t/4 + 14000`。
+- 定義域外（`t < 32000` で Nat 減算が 0 に saturation し Impl が 22,000 を返す等、`t > 56000` の超過分）は (iii) のスコープ外（BY-DESIGN B-6）。
+
+### DG-4. `#print axioms` 監査
+
+一時 Lean ファイル（`C:\Users\junny\AppData\Local\Temp\opencode\dg_axioms_examples.lean`）で Impl 3 定義（`deduction` / `specDeduction` / `agreeNewIndividualAnnuityPremiumDeductionUpper`）と、`by decide` の例題を再現した named theorem 7 本（計 10 宣言）に対し `lake env lean` で `#print axioms` を実行（exit code 0）。
+
+| 監査項目 | 結果 |
+|---|---|
+| 監査宣言数 | 10 |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+| axiom-free（`does not depend on any axioms`） | **10 / 10** |
+
+- 3 定義・7 定理すべてが `does not depend on any axioms` を返し、choice / sorryAx / Quot.sound / propext の依存は 0。対象 3 ファイルに `sorry` / `admit` / `axiom` / `unsafe` / `Classical` の文字列も検出されず。検証後、一時 Lean ファイルは削除した。
+
+### DG-5. CONFIRMED / BY-DESIGN / UNRESOLVED 分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（不具合なし）** |
+| **BY-DESIGN** | **8** |
+| **UNRESOLVED** | **3** |
+
+#### CONFIRMED（0 件）
+- なし。桁違い（3,200 / 5,600 / 2,200）、分率誤り（1/2）、needle 不被検出、実装/独立Spec 不一致、axiom 依存はいずれも検出されなかった。
+
+#### BY-DESIGN（8 件）
+- **B-1 上段のみのモデル**: (iii)（3.2万円超5.6万円以下）のみ実装。他区分（1.2万以下 / 1.2〜3.2万の `12000+(total-12000)/2` / 5.6万超の 28,000 cap）は **NOT MODELLED**（doc-comment 明示）。
+- **B-2 契約・判定の前提**: 「新個人年金保険契約等」の定義、生存死亡部分の判定は **NOT MODELLED**。`total` は合計額として caller が与える前提。
+- **B-3 caps / 合算**: 7万円 cap、他保険料控除との合算ルールは **NOT MODELLED**。
+- **B-4 独立 Spec の別定式**: `total/4+14000` への変形は、32,000 が 4 で割り切れることによる代数的等価であり、別仕様を表すものではない（DG-3）。
+- **B-5 丸め表現**: 「1円未満切捨て」は Nat の床除算で表現。法的な丸め規則の詳細は pinned 文言のみからは確定できない（管理者判断として現状を維持）。
+- **B-6 定義域外の扱い**: `total < 32000` の Nat saturation、`total > 56000` の超過分は (iii) の適用外で **NOT MODELLED**。impl の返値はスコープ外のため影響しない。
+- **B-7 needle 2 の汎用性**: 「第三十四条」は全文 480 件の汎用文字列。needle 1 との併用で art.34 に anchor されており、登録上の不具合ではない。
+- **B-8 competing location**: 同一文言が第314条の二にも出現するのは原文上の事実であり、stated article（34）にも存在するためモデル側の参照は妥当。
+
+#### UNRESOLVED（3 件）
+- **U-1 他区分・他保険料区分・7万円cap の法的連関**: pinned の (iii) leaf のみでは、他区分や他の控除区分との合算・上限の全体的な扱いを判定できない。**人間の法律専門家レビューが必要**。
+- **U-2 丸めの法的性格**: 「四分の一に相当する金額」の端数処理が切捨てか他の丸めかは、pinned 原文のみからは一意に確定できない（モデルは Nat 床除算を採用）。**人間の法律専門家レビューが必要**。
+- **U-3 生存死亡部分・契約要件の法的判定**: 契約区分や生存死亡部分の判定は pinned 抜粋に含まれず、機械的照合では検証不能。**人間の法律専門家レビューが必要**。
+
+### DG-6. 最終報告（サマリ）
+
+- **CONFIRMED: 0 件 / BY-DESIGN: 8 件 / UNRESOLVED: 3 件**。不具合は検出されず。
+- **pinned 照合**: `三万二千` = 32,000 / `五万六千` = 56,000 / `二万二千` = 22,000 / `四分の一` = 1/4（3,200 / 5,600 / 2,200 / 1/2 を明示除外）。raw SHA-256 は INVENTORY pin と一致、flat 13,009 chars、U+3000 = 0。
+- **needle**: U+3000 = 0、2/2 FOUND（全文 2 / 480 件、art.34 内 1 / 1 件、offset 4367 / 6）。
+- **反例**: 36,000 → 23,000 / 40,000 → 24,000 / 56,000 → 28,000 の 3 点すべて独立 Spec と一致。全 24,001 点の走査でも不一致 0。
+- **axiom 監査**: choice / sorryAx / Quot.sound / propext すべて **0 件**（10/10 axiom-free）。一時ファイルは削除済み。
+- **追記後レビュー件数**: 書き込み直前の再読込では既存 **109 件**（coverage ledger 正規表現一致 109 件、H2 `review` 見出し 109 件）。本 DG セクション追記後は **110 件**（ledger 一致 109 → **110 件**、H2 `review` 見出し 109 → **110 件**）となり、既存 +1 以上を満たす。書き込み後に既存セクション（Batch DF を含む書き込み直前の全バイト列）が前方一致で保持されていることを検証した。
+- **制約順守**: Lean モジュール・`data/*`・`scripts/*` は読み取り専用で変更なし。commit / push / merge / ブランチ切替は行っていない。一時ファイルは削除した。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・反例/全走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+### HouseholdCorrectionFloor07.lean — 航空機燃料譲与税法施行規則 art.4(8)
+
+- **pin**: law `347M50000008026`, article 第四条(8); needle「前年度の世帯数に〇・七を乗じて得た数に満たず、かつ、当該前年度の世帯数から当該補正世帯数を控除して得た数が千を超える場合には」.
+- **独立再抽出**: 原文から二つの厳密比較と置換値を再導出。独立仕様は逆方向・加法形で書き、全称定理 `agreeCorrected` が omega で照合。
+- **H/T/D**: 0.1 世帯単位・Nat。境界 差=千/千+1、〇・七境界、補正発動/非発動 PASS。
+- **C/U**: 重量・旅客数 rate 表、別表第三は NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
+## Batch DH review (2026-11-26) — 地方税法 art.34 §1 四 ハ (2)(ii)（旧個人年金保険料控除 中段 1.5万円超4万円以下）/ OldIndividualAnnuityPremiumDeductionMid.lean（cycle-118 機械的独立照合・反例探索）
+
+### DH-0. 範囲・pinned pin・方法
+
+- 対象: `JapanTaxLaw/OldIndividualAnnuityPremiumDeductionMid.lean`（Impl）と `OldIndividualAnnuityPremiumDeductionMidSpec.lean` / `OldIndividualAnnuityPremiumDeductionMidTests.lean`（独立 Spec・Tests、読み取り専用）。
+- Pin: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`（地方税法、施行 2026-11-01、改正法 508AC0000000002）。`data/raw/325AC0000000226_20261101_508AC0000000002.law.json` を独立再計算 → **12,181,725 bytes**、SHA-256 `3DD29E0078BF24E09C79436CE7B0F00FD2CFB5A5BBCB97BD4F4352971BE68D53`（`data/INVENTORY.json` の `source_sha256` / `size_bytes` と一致）。`revision_info.law_title = 地方税法`、`current_revision_status = CurrentEnforced`。
+- 原文・Lean は doc-comment / STAGING / `transcription_audit.py` の抜粋を信じず、pinned raw JSON の `law_full_text` を木走査して直接抽出した。needle は CI `checks()` に本モジュール名で登録済みの 2 本を取得し、raw に対して照合した（DH-2）。
+- 書き込みは `docs/ADVERSARIAL_REVIEW.md` のみ（二段 read-then-write: 書き込み直前に再読込し、末尾に追記、書き込み後に件数と既存セクション保持を検証）。Lean モジュール・`data/*`・`scripts/*` は読み取り専用。commit / push / merge / ブランチ切替は行わない。一時ファイルは承認済み一時ディレクトリ `C:\Users\junny\AppData\Local\Temp\opencode` に置き、検証後に削除する。
+
+### DH-1. pinned 原文からの数値独立抽出（art.34 §1 四 ハ (2)(ii)）
+
+pinned raw の `Article` ノードのうち `attr.Num = "34"` は 9 件。文言を含む 1 件から leaf を連結し、空白（半角空白・改行・U+3000）を除去して正規化した flat text は **13,009 chars**（U+3000 = 0、正規化前後で同長、doc-comment の記載と一致）。旧個人年金区分の (ii) leaf から漢数字パーサで数値を直接変換した。
+
+- (ii) leaf 逐語: `前年中に支払つた旧個人年金保険料の金額の合計額が一万五千円を超え四万円以下である場合一万五千円と当該合計額から一万五千円を控除した金額の二分の一に相当する金額との合計額`
+
+| 項目 | 原文 | 抽出値 | 意味 |
+|---|---|---:|---|
+| 下限 | 一万五千 | 15,000 | 1.5万円（「を超え」= strict） |
+| 上限 | 四万 | 40,000 | 4万円（「以下」= inclusive） |
+| base 額 | 一万五千 | 15,000 | 合計額に加える定数 |
+| 控除対象額 | 一万五千 | 15,000 | 合計額から控除する額 |
+| 分率 | 二分の一 | 1/2 | 分子 一 / 分母 二 |
+
+- 桁違い・分率誤りの排除: (ii) leaf に `千五百`(1,500) / `十五万`(150,000) / `三分之一`・`三分の一`(1/3) / `四分の一` は **ABSENT**。数値はすべて 15,000 / 40,000 / 1/2 であり、1 桁落ち・1 桁過大・分率誤りは検出されなかった。
+- 原文順: 「…一万五千円を超え四万円以下である場合一万五千円と当該合計額から一万五千円を控除した金額の二分の一に相当する金額との合計額」→ Impl `deduction(total) = 15000 + (total - 15000) / 2` に直接対応。
+- 独立クロスチェック: 上限 40,000 での値 **27,500** は、隣接する (iii) leaf の base「二万七千五百円」(= 27,500、パーサ独立変換) と一致する。
+- competing location: 同一の算式的文言は同一 art.34 内の旧生命保険料区分 (2)(ii)（needle 1 offset 2697）にも出現し、needle 2 は第314条の二にも 1 件（offset 4751）出現する。stated article（34）内にも存在し needle 2 が旧個人年金区分（offset 4774）に一意に anchor されるため **LOCATED** であり、モデル側の参照先（art.34）と矛盾しない。
+
+### DH-2. needle 健全性（CI 登録 2 本）
+
+needle 2 本は `scripts/ci/transcription_audit.py` の `checks()` に `OldIndividualAnnuityPremiumDeductionMid.lean` 名で登録済み（lines 2373–2377）。正規化は CI と同じ空白・U+3000 除去を pinned art.34 flat text に適用した。
+
+| # | needle | U+3000 | FOUND | 全文ヒット数 | art.34 内ヒット数 | art.34 offset |
+|---|---|:--:|:--:|---:|---:|---:|
+| 1 | 一万五千円と当該合計額から一万五千円を控除した金額の二分の一に相当する金額との合計額 | 0 | **FOUND** | 4 | 2 | 2697 / 4808 |
+| 2 | 旧個人年金保険料の金額の合計額が一万五千円を超え四万円以下である場合 | 0 | **FOUND** | 2 | 1 | 4774 |
+
+- **結果: U+3000 = 0、2/2 FOUND。** art.34 flat text 13,009 chars に U+3000 は存在しない。
+- needle 1 は art.34 内で 2 ヒットするが、これは旧生命保険料区分と旧個人年金区分が同一の算式文言を共有するため（DH-1 competing location）。needle 2 が旧個人年金区分を一意に特定するため登録上の不具合ではない。
+
+### DH-3. 反例検証（独立 Spec との一致）
+
+Impl `deduction(t) = 15000 + (t-15000)/2`（Money = Nat、減算は 0 saturation、除算は floor）に対し、独立 Spec `specDeduction(t) = t/2 + 7500`（Spec ファイル記載の変形に依存しない再定式）で比較した。
+
+| total | Impl | 独立Spec | 一致 |
+|---:|---:|---:|:--:|
+| 15,000（境界） | 15,000 | 15,000 | ✔ |
+| **16,000** | **15,500** | 15,500 | ✔ |
+| **25,000** | **20,000** | 20,000 | ✔ |
+| 39,999 | 27,499 | 27,499 | ✔ |
+| **40,000（上限）** | **27,500** | 27,500 | ✔ |
+
+- 課題指定の 3 反例（16,000 → 15,500 / 25,000 → 20,000 / 40,000 → 27,500）はすべて独立 Spec と一致。さらに `15000..40000` の全 **25,001 点**を走査し、**不一致 0**（CI の 6 点 `agreeOldIndividualAnnuityPremiumDeductionMid` も Lean `by decide` で true、DH-4）。
+- 等価性の理由: 15,000 は 2 で割り切れるため `t ≥ 15000` で `floor((t-15000)/2) = floor(t/2) - 7500` が成り立ち、`15000 + (t-15000)/2 = t/2 + 7500`。
+- 定義域外（`t < 15000` で Nat 減算が 0 に saturation し Impl が 15,000 を返す等、`t > 40000` の超過分）は (2)(ii) のスコープ外（BY-DESIGN B-6）。
+
+### DH-4. `#print axioms` 監査
+
+一時 Lean ファイル（`C:\Users\junny\AppData\Local\Temp\opencode\dh_axioms.lean`）で Impl 3 定義（`deduction` / `specDeduction` / `agreeOldIndividualAnnuityPremiumDeductionMid`）と、`by decide` の例題を再現した named theorem 7 本（計 **10 宣言**）に対し `lake env lean` で `#print axioms` を実行（exit code **0**）。
+
+| 監査項目 | 結果 |
+|---|---|
+| 監査宣言数 | 10 |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+| axiom-free（`does not depend on any axioms`） | **10 / 10** |
+
+- 3 定義・7 定理すべてが `does not depend on any axioms` を返し、choice / sorryAx / Quot.sound / propext の依存は 0。対象 3 ファイルに `sorry` / `admit` / `axiom` / `unsafe` / `Classical` の文字列も検出されず。検証後、一時 Lean ファイルは削除した。
+
+### DH-5. CONFIRMED / BY-DESIGN / UNRESOLVED 分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（不具合なし）** |
+| **BY-DESIGN** | **8** |
+| **UNRESOLVED** | **3** |
+
+#### CONFIRMED（0 件）
+- なし。桁違い（1,500 / 150,000）、分率誤り（1/3）、needle 不被検出、Impl/独立Spec 不一致、axiom 依存はいずれも検出されなかった。
+
+#### BY-DESIGN（8 件）
+- **B-1 中段のみのモデル**: (2)(ii)（1.5万円超4万円以下）のみ実装。他区分（1.5万以下 / 4万〜7万の `27500+(total-40000)/4` / 7万超の 35,000 cap）は **NOT MODELLED**（doc-comment 明示）。
+- **B-2 契約・判定の前提**: 「旧個人年金保険契約等」の定義、疾病・身体傷害特約付契約の除外判定は **NOT MODELLED**。`total` は旧個人年金保険料の合計額として caller が与える前提。
+- **B-3 剰余金・割戻金による払込み充て**: (i) 括弧書の控除規定は **NOT MODELLED**（doc-comment 明示）。
+- **B-4 caps / 合算**: 2.8万円 total cap、他保険料控除との合算ルールは **NOT MODELLED**。
+- **B-5 丸め表現**: 「1円未満切捨て」（原文キーワード）は Nat の床除算で表現。法的な丸め規則の詳細は pinned 文言のみからは確定できない（管理者判断として現状を維持）。
+- **B-6 定義域外の扱い**: `total < 15000` の Nat saturation、`total > 40000` の超過分は (2)(ii) の適用外で **NOT MODELLED**。impl の返値はスコープ外のため影響しない。
+- **B-7 needle 1 の共有文言 / competing location**: needle 1 は art.34 内 2 ヒット（旧生命・旧個人年金の両区分）、needle 2 は第314条の二にも 1 ヒット。いずれも原文上の事実であり、needle 2 が stated article の旧個人年金区分に anchor するため登録上の不具合ではない。
+- **B-8 独立 Spec の別定式**: `total/2+7500` への変形は、15,000 が 2 で割り切れることによる代数的等価であり、別仕様を表すものではない（DH-3）。
+
+#### UNRESOLVED（3 件）
+- **U-1 他区分・他保険料区分・2.8万円cap の法的連関**: pinned の (2)(ii) leaf のみでは、他区分や他の控除区分との合算・上限の全体的な扱いを判定できない。**人間の法律専門家レビューが必要**。
+- **U-2 丸めの法的性格**: 「二分の一に相当する金額」の端数処理が切捨てか他の丸めかは、pinned 原文のみからは一意に確定できない（モデルは Nat 床除算を採用）。**人間の法律専門家レビューが必要**。
+- **U-3 旧個人年金保険契約等の該当性・特約要件**: 契約区分・疾病身体傷害特約の判定は pinned 抜粋の定義部分に依存し、機械的照合では検証不能。**人間の法律専門家レビューが必要**。
+
+### DH-6. 最終報告（サマリ）
+
+- **CONFIRMED: 0 件 / BY-DESIGN: 8 件 / UNRESOLVED: 3 件**。不具合は検出されず。
+- **pinned 照合**: `一万五千` = 15,000 / `四万` = 40,000 / `二分の一` = 1/2（1,500 / 150,000 / 1/3 を明示除外）。raw SHA-256 は INVENTORY pin と一致、flat 13,009 chars、U+3000 = 0。上限 40,000 の 27,500 は (iii) の「二万七千五百円」と独立一致。
+- **needle**: U+3000 = 0、2/2 FOUND（全文 4 / 2 件、art.34 内 2 / 1 件、offset 2697・4808 / 4774）。
+- **反例**: 16,000 → 15,500 / 25,000 → 20,000 / 40,000 → 27,500 の 3 点すべて独立 Spec と一致。全 25,001 点の走査でも不一致 0。
+- **axiom 監査**: choice / sorryAx / Quot.sound / propext すべて **0 件**（10/10 axiom-free）。一時ファイルは削除済み。
+- **追記後レビュー件数**: 書き込み直前の再読込では既存 **110 件**（coverage ledger 正規 regex `^## (?:Batch [A-Z]|Art\.\d+|国税徴収法|Article-pinned)[^\n]*review` 一致 110 件、H2 `review` 見出し 110 件）。本 DH セクション追記後は **111 件**（ledger 110 → **111 件**、H2 110 → **111 件**）となり、既存 +1 以上を満たす。書き込み後、既存セクション（書き込み直前の全バイト列）が前方一致で保持されていることを検証した。
+- **制約順守**: Lean モジュール・`data/*`・`scripts/*` は読み取り専用で変更なし。commit / push / merge / ブランチ切替は行っていない。一時ファイルは削除した。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle 健全性・反例/全走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+## Batch DI review (2026-11-26) — 地方税法 art.20の4の2 §3（地方税確定金額の百円未満切捨て）/ LocalTaxFixedAmountRounding.lean（cycle-119 機械的独立照合・反例探索）
+
+### DI-0. 範囲・pinned pin・方法
+
+- 対象: `JapanTaxLaw/LocalTaxFixedAmountRounding.lean`（Impl）と `LocalTaxFixedAmountRoundingSpec.lean` / `LocalTaxFixedAmountRoundingTests.lean`（独立 Spec・Tests）。いずれも**読み取り専用・本レビューで変更していない**。
+- Pin: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`（地方税法、改正法 508AC0000000002）。pinned raw `data/raw/325AC0000000226_20261101_508AC0000000002.law.json` を独立再計算 → **12,181,725 bytes**、SHA-256 `3DD29E0078BF24E09C79436CE7B0F00FD2CFB5A5BBCB97BD4F4352971BE68D53`。`data/INVENTORY.json` の `size_bytes` / `source_sha256` と**完全一致**。`law_info.law_id` / `revision_info.law_revision_id` も pin どおり、`current_revision_status = CurrentEnforced`、`law_title = 地方税法`。
+- 原文・ needle は Impl の doc-comment / STAGING / CI の抜粋を**信じず**、pinned raw JSON の `law_full_text` を木走査して直接再抽出した。needle は CI `checks()` に本モジュール名で実際に登録された文字列を import して取得した（DI-2）。
+- 書き込みは `docs/ADVERSARIAL_REVIEW.md` のみ（二段 read-then-write: 書き込み直前に再読込し末尾に追記、書き込み後に件数と既存バイト列の保持を検証）。Lean モジュール・`data/*`・`scripts/*` は読み取り専用。commit / push / merge / ブランチ切替は行わない。一時ファイルは承認済み一時ディレクトリ `C:\Users\junny\AppData\Local\Temp\opencode` に置き、検証後に削除する。
+
+### DI-1. pinned 原文からの「百円未満」= 100 円の独立抽出（art.20の4の2 §3）
+
+pinned raw の `Article` ノードのうち `ArticleTitle = 第二十条の四の二`（`attr.Num = 20_4_2`）は **1 件**。leaf を連結した flat text は **1,118 chars** で、U+3000 = **0**（Impl doc-comment の「1118 chars / Needles contain no U+3000」と独立一致）。当該 `Article` は `Paragraph` を 9 個（Num 1〜9）を持ち、対象はそのうち **Num = 3** の leaf のみである。
+
+- §3 leaf 逐語: `３地方税の確定金額に百円未満の端数があるとき、又はその全額が百円未満であるときは、その端数金額又はその全額を切り捨てる。ただし、政令で定める地方税の確定金額については、その額に一円未満の端数があるとき、又はその全額が一円未満であるときは、その端数金額又はその全額を切り捨てる。`
+
+| 項目 | 原文（§3 主文） | 独立抽出値 | 意味 |
+|---|---|---:|---|
+| 対象 | 地方税の確定金額 | — | 確定金額が算術の入力 |
+| 端数単位 | 百円未満 | **100 円** | 漢数字 `百` を直接抽出 |
+| 全額が[]であるとき | 全額が百円未満 | **100 円** | 同上（2 回目も `百`） |
+| 処理 | 切り捨てる | floor | 端数金額／全額を捨てる |
+
+- **桁違いの明示除外**: §3 主文における「円未満」直前の漢数字は `百`・`百` の **2 回のみ**（正規表現で独立抽出）。「十円未満」（10 円）は当該 `Article` 全体で **0 件**。「千円未満」は当該 `Article` 内に 7 回存在するが、その offset は §1（49/69）、§2（162/186）、§5（451）、§6（551/576）であり、**§3 leaf には 0 回**。すなわち十円（10）/ 千円（1,000）への桁違いは §3 について**明示的に除外**され、単位は 100 円と確定した。
+- **「切り捨てる」の意味**: 原文は「その端数金額又はその全額を**切り捨てる**」であり、端数（100 円未満）または全額（100 円未満のとき）を捨てて 100 円単位に揃える=floor である。§3 主文中に `切り上げ` / `四捨五入` は **0 回**。Impl の `roundDownToHundred(amount) = amount / 100 * 100`（Money = Nat、床除算）はこの原文定式に直接対応する。
+- located: 対象文は正規化 article 内で **count = 1**（offset 217）、needle 1 と同一文字列。よって原文上の位置は一意に確定している。
+
+### DI-2. needle 健全性（CI 登録 2 本、2/2 FOUND）
+
+needle 2 本は `scripts/ci/transcription_audit.py` の `checks()` に `LocalTaxFixedAmountRounding.lean` 名で登録されたもの（lines 2381–2385）を直接 import して取得。正規化は CI と同一の `re.sub(r"[\s\u3000]+", "", …)` を pinned 全文（正規化後 **2,355,516 chars**）に適用した。
+
+| # | needle | U+3000 | `.find()` | 全文ヒット数 | FOUND |
+|---|---|:--:|---:|---:|:--:|
+| 1 | 地方税の確定金額に百円未満の端数があるとき、又はその全額が百円未満であるときは、その端数金額又はその全額を切り捨てる | 0 | 67415 | **1**（一意） | **FOUND** |
+| 2 | 第二十条の四の二 | 0 | 67214 | 10（他条からの相互参照を含む） | **FOUND** |
+
+- **結果: U+3000 = 0（2 本合計 0）、2/2 FOUND、MISS 0。**
+- needle 2 は条名文字列のため全文で 10 回ヒットするが、needle 1 が一意（count 1、§3 主文に anchor）であり、両 needle とも条見出し直後に隣接して存在する（67214 → 67415）。登録上の不具合ではない。
+
+### DI-3. 反例検証（独立 Spec との一致）
+
+Impl `roundDownToHundred(a) = (a / 100) * 100`（Nat）に対し、独立 Spec `specRound(a) = a - a % 100`（`LocalTaxFixedAmountRoundingSpec.lean` 記載の定式に依存せず再計算）で比較した。
+
+| amount | Impl `a/100*100` | 独立Spec `a-a%100` | 一致 |
+|---:|---:|---:|:--:|
+| 0 | 0 | 0 | ✔ |
+| 1 | 0 | 0 | ✔ |
+| **99** | **0** | 0 | ✔ |
+| **100** | **100** | 100 | ✔ |
+| 101 | 100 | 100 | ✔ |
+| 999 | 900 | 900 | ✔ |
+| **12345** | **12300** | 12300 | ✔ |
+| 100000 | 100000 | 100000 | ✔ |
+
+- 課題指定の 3 反例 **99 → 0 / 100 → 100 / 12345 → 12300** はすべて独立 Spec と一致。さらに **0..20000 の全 20,001 点**を走査し、**不一致 0**（Spec の `agreeLocalTaxFixedAmountRounding` も 8 点で `by decide` = true、DI-4）。
+- 等価性の理由: Nat では `a = (a / 100) * 100 + a % 100` が成り立ち、`a ≥ a % 100` なので減算は saturation せず `a - a % 100 = (a / 100) * 100`。よって Impl と独立 Spec は全定義域で代数的に同値（境界 100 で 100 を返す点も確認済み）。
+
+### DI-4. `#print axioms` 監査
+
+一時 Lean ファイル（`C:\Users\junny\AppData\Local\Temp\opencode\di_axioms.lean`）で Impl / Spec / Tests の名前付き 3 定義（`roundDownToHundred` / `specRound` / `agreeLocalTaxFixedAmountRounding`）と、`by decide` 例題を再現した named theorem 7 本（計 **10 宣言**）に対し `lake env lean` で `#print axioms` を実行（exit code **0**）。
+
+| 監査項目 | 結果 |
+|---|---|
+| 監査宣言数 | 10 |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+| axiom-free（`does not depend on any axioms`） | **10 / 10** |
+
+- 3 定義・7 定理すべてが `does not depend on any axioms` を返し、choice / sorryAx / Quot.sound / propext の依存は 0。対象 3 ファイルに `sorry` / `admit` / `axiom` / `unsafe` / `Classical` / `choice` / `propext` / `Quot.sound` の文字列も検出されず。検証後、一時 Lean ファイルは削除した。
+
+### DI-5. CONFIRMED / BY-DESIGN / UNRESOLVED 分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（不具合なし）** |
+| **BY-DESIGN** | **7** |
+| **UNRESOLVED** | **2** |
+
+#### CONFIRMED（0 件）
+- なし。桁違い（10 円 / 1,000 円）、`百` → 100 の読違い、needle 不被検出、Impl/独立 Spec 不一致、axiom 依存はいずれも検出されなかった。
+
+#### BY-DESIGN（7 件）
+- **B-1 第1項（課税標準額の千円未満切捨て）は NOT MODELLED**: pinned §1 は「地方税の課税標準額を計算する場合…千円未満…切り捨てる」。本モデルは §3（確定金額）のみを対象とし、Impl doc-comment の `Scope / NOT MODELLED` に明示済み。桁違いではなくスコープ差である（DI-1 の §1 offset 49/69）。
+- **B-2 第2項（延滞金／加算金の計算）は NOT MODELLED**: pinned §2 は「延滞金又は加算金の額を計算する場合…千円未満…切り捨てる」。doc-comment に明示済み。
+- **B-3 「政令で定める地方税」の適用除外は NOT MODELLED**: pinned §3 ただし書は政令で定める地方税の確定金額について「一円未満」の切捨てを規定（§1 にも同趣旨のただし書あり）。Impl は常に 100 円単位へ切り捨て、政令指定税を分岐しない。doc-comment で `NOT MODELLED` と申告済みであり、隠れた欠落ではない。
+- **B-4 確定金額は caller-established**: `amount` は「地方税の確定金額」として呼び出し側が与える入力。確定金額そのものの算定・課税標準・税額の決定は本モデルの範囲外。
+- **B-5 Nat floor による表現**: Money = Nat（非負）の床除算で「切り捨てる」を表現。原文に切捨てが明記されているため原文忠実であり、DI-3 の全点一致を確認済み。
+- **B-6 他項（§4〜§9）は NOT MODELLED**: §4 滞納処分費の百円未満、§5 延滞金・加算金確定金額の千円未満、§6 分割金額の千円未満の最初の納期限への合算、§7 還付加算金への準用、§8「一の地方税とみなす」特例、§9 特別徴収国民健康保険税の読替えは、いずれも §3 の独立した規定として対象外。
+- **B-7 needle 2 の全文ヒット数 10**: 条名文字列は他条の相互参照にも出現するが、needle 1 が一意に §3 へ anchor されるため、needle 登録の健全性は維持されている（DI-2）。
+
+#### UNRESOLVED（2 件）
+- **U-1 政令除外の法的取扱い**: pinned §3 ただし書は「政令で定める地方税」を 1 円未満切捨てに別扱いするが、pinned 原文（法律）のみではどの地方税が政令で定められるかを確定できない。NOT MODELLED の申告はあるが、この扱いで法的に足りるかは **人間の法律専門家レビューを要する**。
+- **U-2 他項との連関（みなし・分割納付・還付加算金）の扱い**: §8 は個人市町村民税＋道府県民税＋森林環境税、固定資産税＋都市計画税を「それぞれ一の地方税とみなす」と定め、§6 は分割金額の端数を最初の納期限に合算すると定める。これらが §3 の確定金額の切捨て単位・適用順序に及ぼす影響は pinned 条文のみでは決定できず、**人間の法律専門家レビューを要する**（金額計算の一致には影響しない）。
+
+### DI-6. 最終報告（サマリ）
+
+- **CONFIRMED: 0 件 / BY-DESIGN: 7 件 / UNRESOLVED: 2 件**。不具合は検出されず。
+- **pinned 照合**: `百円未満` = **100 円**を §3 leaf から直接抽出（「十円未満」0 件、§3 内の「千円未満」0 件を明示除外）。raw SHA-256 は INVENTORY pin と一致、flat 1,118 chars、U+3000 = 0。切捨ては 100 円単位 floor であり Impl 定式と一致。
+- **needle**: U+3000 = 0、**2/2 FOUND**（needle 1 count 1 / offset 67415、needle 2 count 10 / offset 67214、MISS 0）。
+- **反例**: 99 → 0 / 100 → 100 / 12345 → 12300 の 3 点すべて独立 Spec と一致。全 20,001 点の走査でも不一致 0。
+- **axiom 監査**: choice / sorryAx / Quot.sound / propext すべて **0 件**（10/10 axiom-free、exit code 0）。一時ファイルは削除済み。
+- **追記後レビュー件数**: 書き込み直前の再読込では既存 **111 件**（H2 `review` 見出し 111 件、末尾は Batch DH / cycle-118）。本 DI セクション追記後は **112 件**（既存 +1）となり、既存 +1 以上を満たす。書き込み後、書き込み直前の全バイト列が前方一致で保持されていることを検証した。
+- **制約順守**: Lean モジュール・`data/*`・`scripts/*` は読み取り専用で変更なし（作業ツリーの他エージェントによる無関係な変更には触れていない）。commit / push / merge / ブランチ切替は行っていない。一時ファイルは削除した。
+
+> **本レビューは機械的独立照合（pinned 原文 parse・漢数字抽出・needle の `.find()` 検証・反例/全走査・独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+## Batch DJ review (2026-11-26)
+
+- 対象: `JapanTaxLaw/CohabitantSpecialDisabilityDeduction.lean`（地方税法 art.37 §1 の表 第(2)行 / 同居特別障害者控除、一人 22 万円）。law id `325AC0000000226`、revision `325AC0000000226_20261101_508AC0000000002`、pinned 原文 `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`。
+- 独立 Adversarial Review: 形式化担当とは独立に cycle-120 の 1 モデルを pinned 原文照合・反例探索した。commit / push / merge / ブランチ切替は行っていない。Lean モジュール・`data/*` は読み取り専用。
+
+### DJ-1. pinned 原文からの独立抽出照合（二十二万円 = 220000）
+
+pinned JSON を構造体としてではなく生文字列として走査し、`"tag":"Article","attr":{"Num":"37"}` → `ArticleTitle=第三十七条` → `Paragraph Num=1` → `Item Num=1` → `Subitem1 Num=1` → `TableStruct` の `TableRow` 第(2)行を直接確認した。
+
+| 項目 | 独立抽出結果 |
+|---|---|
+| 上欄 leaf（区分） | （２）　同居特別障害者である同一生計配偶者又は扶養親族を有する所得割の納税義務者 |
+| 下欄 leaf（原文逐語） | 当該同居特別障害者一人につき二十二万円 |
+| 数量 | 二十二万円 = 22 × 10,000 = **220,000 円** |
+| 単位語 | **一人につき**（per person）を leaf 内に確認 |
+| 実装 | `def deduction (count : Nat) : Money := 220000 * count` — 一致 |
+| 独立 Spec | `def specDeduction (n : Nat) : Nat := n * 220000` — 一致 |
+
+桁違いの明示除外:
+
+- 2.2 万 = 22,000 円（原文 `二万二千円`）は本行ではなく生命保険料控除等・他条の金額（pinned 全文に 10 件、例: offset 361649 / 1378417 / 2988900 ほか）であり、同居特別障害者の一人額ではない → **除外**。
+- 220 万 = 2,200,000 円（原文 `二百二十万円`）は附則の読替規定（offset 5379145 / 5380095）にのみ出現し、本行ではない → **除外**。
+- exact needle `当該同居特別障害者一人につき二十二万円` の出現は 2 件（offset 403939 = art.37 側、offset 1638748 = art.314 の六側）。art.37 §1 の当該 row 下欄は `二十二万円` のみで、`二万二千円` も `二百二十万円` も含まない。
+
+同一表の他区分（原文逐語。いずれも NOT MODELLED であることの確認）:
+
+- （ｉ）当該障害者一人につき一万円 = 10,000 円
+- （ｉｉ）当該障害者が特別障害者である場合　当該特別障害者一人につき十万円 = 100,000 円
+- （２）当該同居特別障害者一人につき二十二万円 = 220,000 円 ← 本モデルの対象
+
+### DJ-2. needle 2 本の検証（U+3000 = 0 / 2/2 FOUND）
+
+| needle | U+3000 数 | FOUND | pinned 内一致数 | 先頭 offset |
+|---|---:|---|---:|---:|
+| 当該同居特別障害者一人につき二十二万円 | 0 | ✅ | 2 | 403939 |
+| 第三十七条 | 0 | ✅ | 426 | 309834 |
+
+- FOUND **2/2**、MISS **0**。両 needle に全角空白 U+3000 は含まれない（各 0 個）。
+- needle 1 の 2 件は art.37（offset 403939）と art.314 の六（offset 1638748）の同名表行。対象を art.37 §1 側に固定したため、他条の同名文言との混同はない。
+
+### DJ-3. 反例探索（Impl vs 独立 Spec）
+
+`Money = Nat` の単純乗算なので全自然数で `220000 * n = n * 220000`（Nat 乗法の可換性）だが、機械的に代表点を照合した。
+
+| count | Impl `deduction` | 独立 Spec `count*220000` | 一致 |
+|---:|---:|---:|---|
+| 0 | 0 | 0 | ✅ |
+| 1 | 220000 | 220000 | ✅ |
+| 2 | 440000 | 440000 | ✅ |
+| 3 | 660000 | 660000 | ✅ |
+| 10 | 2200000 | 2200000 | ✅ |
+
+- Spec モジュールの `agreeCohabitantSpecialDisabilityDeduction`（`[0,1,2,3,10].all fun n => deduction n == specDeduction n`）は `by decide` = `true` を確認。Tests モジュールの 0/1/2 の smoke も同一値。
+- 反例（不一致点）は **0 件**。もし 22000（2.2 万）や 2200000（220 万）を返す実装なら 1 人目で不一致となるが、実装は 220000 を返す。
+
+### DJ-4. `#print axioms` 監査
+
+一時 Lean ファイル（`C:\Users\junny\AppData\Local\Temp\opencode\axioms_dj.lean`）から `lake env lean` で `#print axioms` を実行し、exit code **0** を確認。Impl / Spec / Tests の名前付き宣言 3 本と、同じ `by decide` 証明を複製した named theorem 6 本（計 9 本の異なる宣言、うち `deduction` は再確認で 2 回、合計 10 回の実行）を検査した。
+
+| 検査項目 | 結果 |
+|---|---|
+| `#print axioms` 実行回数 | 10（異なる宣言 9 本） |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+| axiom-free（`does not depend on any axioms`） | **10 / 10 実行**（9 / 9 宣言） |
+
+- 検査宣言: `CohabitantSpecialDisabilityDeduction.deduction`, `.specDeduction`, `.agreeCohabitantSpecialDisabilityDeduction`, `DJ.deduction0`, `DJ.deduction1`, `DJ.deduction2`, `DJ.spec1`, `DJ.spec2`, `DJ.agree`。
+- 3 モジュールのソースに `sorry` / `admit` / `axiom` / `unsafe` / `Classical` / `choice` / `propext` / `Quot.sound` の文字列は **0 件**。一時 Lean ファイルは削除済み。
+
+### DJ-5. CONFIRMED / BY-DESIGN / UNRESOLVED 分類
+
+| 分類 | 件数 |
+|---|---:|
+| CONFIRMED（不一致・誤り） | **0** |
+| BY-DESIGN（明示的 NOT MODELLED / 設計上） | **6** |
+| UNRESOLVED（人間の法律専門家レビューが必要） | **2** |
+
+#### CONFIRMED（0 件）
+
+- なし。桁違い、needle 不整合、Impl/独立 Spec 不一致、axiom 依存はいずれも検出されなかった。
+
+#### BY-DESIGN（6 件）
+
+- **B-1 認定・定義**: 「同居特別障害者」の定義・認定（同居を常況とする要件等）は NOT MODELLED。Impl doc-comment に明記済み。
+- **B-2 他区分・特別障害者 10 万円**: 同表（ｉｉ）の `十万円` は対象外で NOT MODELLED。
+- **B-3 他区分・障害者 1 万円**: 同表（ｉ）の `一万円` は対象外で NOT MODELLED。
+- **B-4 所得制限**: §1 の `前年の合計所得金額が二千五百万円以下` および `合計課税所得金額が二百万円以下` の各制限は NOT MODELLED。
+- **B-5 調整控除の計算構造**: 5 万円＋表金額の加算、百分の二／指定都市百分の一、他の所得控除との通算は NOT MODELLED（本モデルは定額 22 万円/人 のみを扱う）。
+- **B-6 金額の単位・前提**: `Money = Nat`（円・非負整数）で、円未満の丸めや実額調整は扱わない。`count` は caller が確定させる前提。
+
+#### UNRESOLVED（2 件）
+
+- **U-1 認定要件の法解釈**: 「同居を常況としている者」等の適用範囲は pinned 原文の文言のみでは確定できず、人間の法律専門家による解釈が必要（機械的照合の限界）。
+- **U-2 調整控除構造と実額への影響**: 所得制限・他控除との通算・他区分との併用が実際の控除額に与える影響は本 L4 モデルの範囲外で、pinned 文言の機械的照合だけでは解決しない。人間のレビューを要する。
+
+### DJ-6. 最終報告（サマリ）
+
+- **CONFIRMED 0 件 / BY-DESIGN 6 件 / UNRESOLVED 2 件**。不一致（誤り）は検出されず。
+- **pinned 照合**: 原文 leaf `当該同居特別障害者一人につき二十二万円` を直接抽出し、`一人につき` を確認。`二十二万円 = 220000`。2.2 万／220 万は他条の出現として明示除外。
+- **needle**: 各 U+3000 = 0、**2/2 FOUND**、MISS 0。
+- **反例**: 0, 1, 2（＋3, 10）で Impl = 独立 Spec = `count*220000`、不一致 0。
+- **axiom**: choice / sorryAx / Quot.sound / propext すべて **0 件**（10/10 実行が axiom-free、exit code 0）。
+- **レビュー件数**: 書き込み前 **112 件**（直近 DI セクションの記録に準拠。並行ワーストリームで変動し得る）、本 DJ セクション追記後 **113 件**（既存 +1）。書き込み直前にファイルを再読込し（SHA-256 `e9e3c1c11657bacf3d477d96623d3c65059f4404237fe250eea15d5a02d1c356`、1,540,980 バイト、H2 見出し 118、Batch 見出し 108、DI 見出し 1、DJ 見出し 0）記録した。追記後に既存バイト列が前方一致で保持されていることを検証済み。
+- **規約遵守**: commit / push / merge / ブランチ切替は行わず、Lean モジュール・`data/*`・`scripts/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
+
+> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle の `.find()` 相当検査・代表点での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。法的な最終判断・解釈は専門家レビューに委ねる。本レビューをもって法的レビューを完了したものとはみなさない。**
+## Batch DK review (2026-11-26)
+
+対象: `JapanTaxLaw/DonationTaxCredit.lean` / `DonationTaxCreditSpec.lean` / `DonationTaxCreditTests.lean` — 地方税法 art.37の2 §1（寄附金税額控除）、law id `325AC0000000226`、revision `325AC0000000226_20261101_508AC0000000002`（cycle-121 の1モデル）。独立 Adversarial Review Agent による機械的照合。
+
+### DK-1. pinned 原文から3数値を直接独立抽出（桁違いの明示除外）
+
+- pinned 原文: `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`（`law_title`: `地方税法`、`law_revision_id`: 上記）。needle 位置 `firstIndex=408465` 付近の `ParagraphSentence / Sentence(Num=1)` の leaf 本文（364 文字）を直接抽出した。
+- 抽出した当該文（逐語）:
+  「道府県は、所得割の納税義務者が、前年中に次に掲げる寄附金を支出し、当該寄附金の額の合計額（当該合計額が前年の総所得金額、退職所得金額及び山林所得金額の合計額の百分の三十に相当する金額を超える場合には、当該百分の三十に相当する金額）が二千円を超える場合には、その超える金額の百分の四（当該納税義務者が指定都市の区域内に住所を有する場合には、百分の二）に相当する金額（……特例控除額を加算した金額。……）を当該納税義務者の第三十五条及び前条の規定を適用した場合の所得割の額から控除するものとする。」
+
+| 原文の数値 | 出現回数（当該文内） | 意味 | 実装 (`credit`) | 照合 |
+|---|---:|---|---|---|
+| `百分の三十` | 2 | 30% 上限 | `totalIncome * 30 / 100` | ✅ |
+| `二千円` | 2 | 2,000 円 Control | `capped > 2000` | ✅ |
+| `百分の四` | 2 | 4% | `excess * 4 / 100` | ✅ |
+| `百分の二` | 2 | 指定都市 2% | `excess * 2 / 100` | ✅ |
+
+- **桁違いの明示除外**: `百分の三`（3%）は当該文内で `百分の三十` の部分文字列として 2 回出現するのみで、単独の 3% 率は 0 回（negative lookahead `百分の三(?!十)` = **0**）。`二百円`（200 円）= **0 回**、`百分の四十`（40%）= **0 回**。したがって **3% / 200 円 / 40% はすべて明示的に除外**され、30% / 2,000 円 / 4%・2% が原文の数値として確定した。pinned 原文全体での記号出现数は他条を含むため参考に留め、当該文内の计数を採用した。
+
+### DK-2. needle 2 本の検証（U+3000 = 0 / 2/2 FOUND）
+
+`docs/STAGING_DONATION_CREDIT.md` の `needles`（`law_id`: `325AC0000000226`）を pinned 原文に対して `.Contains()` 相当で検査。
+
+| needle | 文字数 | U+3000 数 | FOUND | pinned 出現回数 | firstIndex |
+|---|---:|---:|---|---:|---:|
+| `当該合計額が…当該百分の三十に相当する金額` | 69 | 0 | ✅ | 2 | 408465 |
+| `二千円を超える場合には、その超える金額の百分の四` | 24 | 0 | ✅ | 1 | 408536 |
+
+- **FOUND 2/2、MISS 0**。両 needle とも U+3000 を含まない（合計 0 個）。needle 1 は art.37の2 §1 本文と特例寄附金節の 2 箇所に一致するが、いずれも同一の 30% 上限句であり対象条の誤同定ではない。
+
+### DK-3. 反例探索（Impl vs 独立 Spec）
+
+- 実装: `credit(d,inc,city) =` `cap=inc*30/100` → `capped = if d>cap then cap else d` → `excess = if capped>2000 then capped-2000 else 0` → `if city then excess*2/100 else excess*4/100`。
+- 独立 Spec: `specCredit(d,inc,city) =` `capped = min d (inc*30/100)` → `e = if 2000<capped then capped-2000 else 0` → `if city then e/50 else e/25`（min/max と整数除算による別定式）。
+
+| 入力 `(d, inc, city)` | Impl `credit` | 独立 Spec `specCredit` | 一致 |
+|---|---:|---:|---|
+| `(10000, 100000, false)` | **320** | **320** | ✅ |
+| `(10000, 100000, true)` | **160** | **160** | ✅ |
+| `(2000, 100000, false)` | **0** | **0** | ✅ |
+| `(100000, 100000, false)` | 1120 | 1120 | ✅（30% cap の確認） |
+
+- 検算: `100000*30/100=30000` → `min(10000,30000)=10000` → `10000-2000=8000` → `8000*4/100=320`／指定都市 `8000*2/100=160`。`d=2000` は `excess=0` で 0。
+- Spec モジュールの `agreeDonationTaxCredit`（6 点: `(0,100000,false)`, `(2000,100000,false)`, `(10000,100000,false)`, `(10000,100000,true)`, `(100000,100000,false)`, `(50000,200000,false)`）は `by decide` = `true` を確認。Tests モジュールの 3 smoke も impl と同値。
+- 代数的にも `if d>cap then cap else d = min d cap`、`capped>2000 = 2000<capped`、自然数で `e*4/100 = e/25` かつ `e*2/100 = e/50` なので両定式は全入力で同値。**反例（不一致点）は 0 件**。
+
+### DK-4. `#print axioms` 監査
+
+一時 Lean ファイル（`C:\Users\junny\AppData\Local\Temp\opencode\axioms_dk.lean`）から `lake env lean` を実行し、exit code **0** を確認。`#print axioms` を 10 回実行（Impl / Spec の名前付き宣言 3 本 + `by decide` 証明を複製した named theorem 7 本）。
+
+| 検査項目 | 結果 |
+|---|---|
+| `#print axioms` 実行回数 | 10（すべて `does not depend on any axioms`） |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+| axiom-free | **10 / 10 実行** |
+
+- 検査宣言: `DonationTaxCredit.credit`, `.specCredit`, `.agreeDonationTaxCredit`, `DK.dk_credit1..4`, `DK.dk_spec1`, `DK.dk_spec2`, `DK.dk_agree`。
+- 3 モジュールのソースに `sorry` / `admit` / `axiom` / `unsafe` / `Classical` / `choice` / `propext` / `Quot.sound` の文字列は **0 件**。一時 Lean ファイルは削除済み。
+
+### DK-5. CONFIRMED / BY-DESIGN / UNRESOLVED 分類
+
+| 分類 | 件数 |
+|---|---:|
+| CONFIRMED（不一致・誤り） | **0** |
+| BY-DESIGN（明示的 NOT MODELLED / 設計上） | **6** |
+| UNRESOLVED（人間の法律専門家レビューが必要） | **2** |
+
+#### CONFIRMED（0 件）
+
+- なし。桁違い、needle 不整合、Impl/独立 Spec の不一致、axiom 依存はいずれも検出されなかった。
+
+#### BY-DESIGN（6 件）
+
+- **B-1 特例寄附金の加算**: 原文の「特例控除対象寄附金……特例控除額を加算した金額」は **NOT MODELLED**。Impl doc-comment に明記済み。
+- **B-2 所得割上限**: 原文「第三十五条及び前条の規定を適用した場合の所得割の額から控除する」の所得割額の算定・控除額の上限適用は **NOT MODELLED**。本モデルは控除額のみを返す。
+- **B-3 寄附金の定義**: 原文「次に掲げる寄附金」（Item 列挙）による定義・該当性判定は **NOT MODELLED**。
+- **B-4 指定都市の認定**: 「指定都市の区域内に住所を有する場合」の認定は **NOT MODELLED**。`designatedCity : Bool` は caller が確定させる前提。
+- **B-5 総所得金額等の算定**: 「前年の総所得金額、退職所得金額及び山林所得金額の合計額」の算定は **NOT MODELLED**。`totalIncome : Money` は caller が確定させる前提。
+- **B-6 金額の単位・端数**: `Money = Nat`（円・非負整数）で、円未満の丸めや実額調整は扱わない。
+
+#### UNRESOLVED（2 件）
+
+- **U-1 特例控除額・所得割上限の実務計算**: 加算される特例控除額の算定と所得割額による上限適用が実際の控除額に与える影響は pinned 文言の機械的照合だけでは確定できず、人間の法律専門家によるレビューが必要。
+- **U-2 寄附金該当性と指定都市認定の法解釈**: 「次に掲げる寄附金」への該当判定・指定都市の区域内住所の認定は原文の文言のみでは確定できず、専門家解釈を要する（機械照合の限界）。
+
+### DK-6. 最終報告（サマリ）
+
+- **CONFIRMED 0 件 / BY-DESIGN 6 件 / UNRESOLVED 2 件**。不一致（誤り）は検出されず。
+- **pinned 照合**: art.37の2 §1 の leaf 本文を直接抽出し、`百分の三十`（30%）, `二千円`（2,000 円）, `百分の四`（4%）, `百分の二`（指定都市 2%）を確認。桁違いの 3% / 200 円 / 40% は当該文内で 0 回（3% は 30% の部分文字列のみ）として明示除外。
+- **needle**: 各 U+3000 = 0、**2/2 FOUND**、MISS 0。
+- **反例**: `(10000,100000,false)=320`, `(10000,100000,true)=160`, `(2000,100000,false)=0`（＋`(100000,100000,false)=1120`）で Impl = 独立 Spec、不一致 0。
+- **axiom**: choice / sorryAx / Quot.sound / propext すべて **0 件**（10/10 実行が axiom-free、exit code 0）。
+- **規約遵守**: commit / push / merge / ブランチ切替は行わず、Lean モジュール・`data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
+
+> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle の `.find()` 相当検査・代表点での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。法的な最終判断・解釈は専門家レビューに委ねる。本レビューをもって法的レビューを完了したものとはみなさない。**
+## Batch DL review (2026-11-26) — 地方税法 art.37 §1(9)（同居直系尊属の老人扶養親族控除 一人13万円）/ `CohabitElderlyDependentDeduction.lean`（cycle-122 の1モデル）
+
+対象: `JapanTaxLaw/CohabitElderlyDependentDeduction.lean` / `CohabitElderlyDependentDeductionSpec.lean` / `CohabitElderlyDependentDeductionTests.lean` — 地方税法 art.37 §1 第9号、law id `325AC0000000226`、revision `325AC0000000226_20261101_508AC0000000002`。独立 Adversarial Review Agent による pinned 原文照合・反例探索（機械的独立照合）。
+
+### DL-1. pinned 原文から「十三万円」を直接独立抽出（桁違いの明示除外）
+
+- pinned 原文: `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`（`law_full_text` の `LawBody > MainProvision > Chapter Num=2 > Section Num=1 > Subsection Num=2 > Article Num=37 > Paragraph Num=1 > Item > TableStruct > Table > TableRow`）。同一の行が `Article Num=314_6 §1`（市町村民税側）にも 1 回出現し、pinned 全体で needle は 2 回一致（対象条の誤同定ではない）。
+- 当該 `TableRow` の 2 列を逐語抽出:
+  - col0（行ラベル）: 「（９）　同居直系尊属である老人扶養親族を有する所得割の納税義務者」
+  - col1（金額）: 「当該老人扶養親族一人につき十三万円」
+- 数値の独立読解: 漢数字 `十三` = 十(10) + 三(3) = **13**、`万` = **10,000** → 13 × 10,000 = **130,000 円**。impl `deduction(count) = 130000 * count` および独立 Spec `count * 130000` と一致。「**一人につき**」が同 leaf に逐語存在するため、人数 `count` による倍数化も原文どおり。
+- **桁違いの明示除外**: 当該 leaf 内の出現数は `十三万円` = **1**、`百三十万円`（130万 = 1,300,000）= **0**、`一万三千円`（1.3万 = 13,000）= **0**、ASCII `130000` = **0**。pinned 全体では `百三十万円` = 16、`一万三千円` = 1、`百三十三万円` = 4 が他条（所得上限等）に存在するが、いずれも当該 leaf ではなく、**1.3万 / 130万 は明示的に除外**。原文が漢数字表記であるため ASCII `130000` が 0 回なのは表記差であり不一致ではない。
+
+### DL-2. needle 2 本の検証（U+3000 = 0 / 2/2 FOUND）
+
+`docs/STAGING_COHABIT_ELDERLY.md` の `needles`（`law_id`: `325AC0000000226`）を pinned 原文に対して部分文字列一致で検査。
+
+| needle | U+3000 数 | FOUND | pinned 出現回数 | 備考 |
+|---|---:|---|---:|---|
+| `当該老人扶養親族一人につき十三万円` | **0** | ✅ | 2 | art.37 §1(9) と art.314_6 §1(9) の同一金額行 |
+| `同居直系尊属である老人扶養親族` | **0** | ✅ | 4 | art.37 §1(8) の「除く」節・(9) 行ラベル、および art.314_6 側の同 2 箇所 |
+
+- **FOUND 2/2、MISS 0**。両 needle とも U+3000 を **0 個**含む（合計 0）。行ラベル 「（９）　同居…」には U+3000 が 1 個あるが needle 側に含まれないため条件は成立。
+- needle 2 は item(8) の除外節にも一致するが、needle 1（金額行）と行を共有する item(9) が対象であり、誤同定ではない。
+
+### DL-3. 反例探索（Impl vs 独立 Spec）
+
+- 実装: `deduction (count : Nat) : Money := 130000 * count`
+- 独立 Spec（別モジュールの別定式）: `specDeduction (n : Nat) : Nat := n * 130000`
+
+| 入力 `count` | Impl `deduction` | 独立 Spec `specDeduction` | 一致 |
+|---:|---:|---:|---|
+| **0** | **0** | **0** | ✅ |
+| **1** | **130000** | **130000** | ✅ |
+| **2** | **260000** | **260000** | ✅ |
+
+- Lean 上で独立に再導出した named theorem `dl_deduction0/1/2`, `dl_spec0/1/2` はすべて `by decide` で通り（exit code 0）、数値は上表のとおり。`agreeCohabitElderlyDependentDeduction`（`[0,1,2,3,10]` で `deduction n == specDeduction n`）も `by decide` = `true` を確認。
+- Nat の乗法は可換なので `130000 * count = count * 130000` は全入力で成り立ち、**代表点だけでなく代数的にも不一致 0 件**。反例は検出されなかった。
+- 機械的注意点: Spec ファイルはファイル名が `...Spec.lean` だが namespace は `JapanTaxLaw.CohabitElderlyDependentDeduction`（impl と同一）。`#print axioms` の名前解決では `...Spec.specDeduction` は未知識別子となる（監査時の一時エラーは修正済み、最終実行は exit 0）。
+
+### DL-4. `#print axioms` 監査
+
+一時 Lean ファイル（`C:\Users\junny\AppData\Local\Temp\opencode\axioms_dl.lean`）から `lake env lean` を実行し、**exit code 0** を確認。`#print axioms` を **10 回**実行（Impl / Spec の名前付き宣言 3 本 + `by decide` 証明を複製した named theorem 7 本）。
+
+| 検査項目 | 結果 |
+|---|---|
+| `#print axioms` 実行回数 | 10（すべて `does not depend on any axioms`） |
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+| axiom-free | **10 / 10 実行** |
+
+- 検査宣言: `deduction`, `specDeduction`, `agreeCohabitElderlyDependentDeduction`, `dl_deduction0/1/2`, `dl_spec0/1/2`, `dl_agree`。
+- 3 モジュールのソースに `sorry` / `admit` / `axiom` / `unsafe` / `Classical` / `choice` / `propext` / `Quot.sound` の文字列は **0 件**。一時ファイルは削除済み。
+
+### DL-5. CONFIRMED / BY-DESIGN / UNRESOLVED 分類
+
+| 分類 | 件数 |
+|---|---:|
+| CONFIRMED（不一致・誤り） | **0** |
+| BY-DESIGN（明示的 NOT MODELLED / 設計上） | **6** |
+| UNRESOLVED（人間の法律専門家レビューが必要） | **3** |
+
+#### CONFIRMED（0 件）
+
+- なし。桁違い（1.3万/130万）、needle 不整合、Impl/独立 Spec の不一致、axiom 依存はいずれも検出されなかった。
+
+#### BY-DESIGN（6 件）
+
+- **B-1 認定の未形式化**: 「同居直系尊属」「老人扶養親族」の定義・該当性判定は **NOT MODELLED**（Impl doc-comment 明記）。pinned では art.37 §1(9) の行ラベルおよび art.34 §4 の「同居を常況としている者」で規定されるが、判定ロジックは存在しない。
+- **B-2 他区分の未形式化**: 一般/特定/老人の扶養親族区分は **NOT MODELLED**。`deduction` は区分を入力に持たず、`count` のみ。Impl doc-comment の「一般5万/特定18万/老人10万」は pinned に出現 0 回の例示であり、pinned art.37 §1(11) の実額は `三十三万円` / `四十五万円` / `三十八万円`（33万/45万/38万）で異なるが、いずれも形式化されていないため計算への影響はない（参照 UNRESOLVED U-3）。
+- **B-3 所得制限の未形式化**: 「合計課税所得金額による制限」は **NOT MODELLED**（Impl doc-comment 明記）。pinned 他条の所得上限句は本モデルに反映されない。
+- **B-4 通算・上限適用の未形式化**: 他の所得控除との通算、所得割額による控除上限の適用は **NOT MODELLED**。本モデルは定額控除額のみを返す。
+- **B-5 art.34 §4 の 45万円ルールの未形式化**: 同居直系尊属に係る「第一項第十一号の金額は、四十五万円とする」（`Article Num=34 > Paragraph Num=4`）は **NOT MODELLED**。本モデルは art.37 §1(9) の加算額 13万円/人のみを対象とする。
+- **B-6 単位・端数**: `Money = Nat`（円・非負整数）。円未満の丸めや実額調整は扱わない。
+
+#### UNRESOLVED（3 件）
+
+- **U-1 合計控除額の実務計算**: item(9) の 13万円が item(11) の 38万/45万と通算された場合の実務上の控除額（例えば同居直系尊属 1 人あたりの合計）は、pinned 文言の機械的照合だけでは確定できず、人間の法律専門家によるレビューが必要。
+- **U-2 認定・所得制限の法解釈**: 「同居直系尊属」「老人扶養親族」の該当性判定（同居の常況等）および所得制限の実務適用は原文の文言のみでは確定できず、専門家解釈を要する（機械照合の限界）。
+- **U-3 doc-comment の例示金額**: Impl doc-comment の他区分例「一般5万/特定18万/老人10万」は pinned 原文に出現せず、art.37 §1(11) の実額（33万/45万/38万）とも一致しない。形式化には影響しないが、将来の拡張前に出典を確認する専門家レビューが必要。
+
+### DL-6. 最終報告（サマリ）
+
+- **CONFIRMED 0 件 / BY-DESIGN 6 件 / UNRESOLVED 3 件**。不一致（誤り）は検出されず。
+- **pinned 照合**: art.37 §1(9) の `TableRow` を直接抽出し、行ラベル「（９）　同居直系尊属である老人扶養親族を有する所得割の納税義務者」と金額「当該老人扶養親族一人につき十三万円」を確認。`十三万円` = 13 × 10,000 = **130,000**、「一人につき」を逐語確認。1.3万（一万三千円）/ 130万（百三十万円）は当該 leaf で 0 回として明示除外。
+- **needle**: 各 U+3000 = 0、**2/2 FOUND**、MISS 0。
+- **反例**: `deduction(0)=0`, `deduction(1)=130000`, `deduction(2)=260000` が独立 Spec と一致、`agree... = true`。不一致 0。
+- **axiom**: choice / sorryAx / Quot.sound / propext すべて **0 件**（10/10 実行が axiom-free、exit code 0）。
+- **規約遵守**: commit / push / merge / ブランチ切替は行わず、Lean モジュール・`data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。一時ファイルは削除済み。
+
+> **本レビューは機械的独立照合（pinned 原文からの直接抽出・needle の部分文字列検査・代表点での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。法的な最終判断・解釈は専門家レビューに委ねる。本レビューをもって法的レビューを完了したものとはみなさない。**
+## Batch DM review (2026-11-26) — 地方税法 art.23 §1 第11号 イ（２）／第12号 イ（２）（前年の合計所得金額が五百万円以下であること）/ `EqualLevyIncomeRequirement.lean`（cycle-123 の1モデル）
+
+対象: `JapanTaxLaw/EqualLevyIncomeRequirement.lean` / `EqualLevyIncomeRequirementSpec.lean` / `EqualLevyIncomeRequirementTests.lean` — 地方税法 art.23 §1、law id `325AC0000000226`、revision `325AC0000000226_20261101_508AC0000000002`。独立 Adversarial Review Agent による pinned 原文照合・反例探索（機械的独立照合）。
+
+### DM-1. pinned 原文から「五百万円」を直接独立抽出（桁違いの明示除外）
+
+- pinned 原文: `data/raw/325AC0000000226_20261101_508AC0000000002.law.json` の `law_full_text` を直接辿り、`LawBody > MainProvision > Chapter Num=2 > Section Num=1 > Subsection Num=1 > Article Num=23 > Paragraph Num=1 > Item Num=11（寡婦）> Subitem1 Num=1（イ）> Subitem2 Num=2（（２））` の leaf 本文を逐語抽出:
+  - `前年の合計所得金額が五百万円以下であること。`
+  - 同一文は同 §1 の `Item Num=12（ひとり親）> Subitem1 Num=1（イ）> Subitem2 Num=2` にも 1 回出現（pinned 全体では art.23 側 2 回 + art.292 §1 側 2 回 = 4 回）。`（２）` は別ノード `Subitem2Title` のラベルであり、モジュール doc-comment の逐語「（２）前年の合計所得金額が五百万円以下であること。」は leaf 本文とラベルの結合として確認できた。
+- 数値の独立読解: 漢数字 `五百万` を桁ごとに分解すると `五` = 5、`百万` = 1,000,000 → 5 × 1,000,000 = **5,000,000 円**。独立に実装した漢数字パーサで抽出語 `五百万` を評価した結果も **5000000** で、impl `prevIncome <= 5000000` および独立 Spec `Nat.ble i 5000000` と一致。
+- **桁違いの明示除外**: 当該 leaf 内で `五十万`（50万 = 500,000）は **0 回**、`五千万`（5000万 = 50,000,000）は **0 回**、`未満` は **0 回**、ASCII `5000000` は **0 回**（原文は漢数字表記）。pinned 全体でも `五十万円以下であること` = 0 回、`五千万円以下であること` = 0 回。よって 50万／5000万 の読違いを明示的に除外する。
+- **「以下」の包含的確認**: 原文は `以下`（`未満` ではない）であり、境界値 5,000,000 円を含む。impl の `<=` と独立 Spec の `Nat.ble` はいずれも包含的で、後述 DM-3 の境界反例 `5000000 = true` がこれを裏付ける。
+
+### DM-2. needle 2 本の検証（U+3000 = 0 / 2/2 FOUND）
+
+`data/ARTICLE_SCOPE_POSITIONS.json` の `EqualLevyIncomeRequirement.lean` エントリ（law_id `325AC0000000226`）に登録された 2 本を、pinned JSON の生テキストおよび `Article Num=23` のフラット本文（8,258 文字）に対して部分文字列一致で検査。
+
+| needle | U+3000 数 | FOUND | Article 23 フラット本文での一致 | 備考 |
+|---|---:|---|---:|---|
+| `前年の合計所得金額が五百万円以下であること` | **0** | ✅ | 2（offset 4426 / 4656） | registry の `raw_offsets` [4426, 4656] と完全一致。Item 11 と Item 12 |
+| `第二十三条` | **0** | ✅ | 2（offset 16 / 4893） | 条見出し `ArticleTitle` 等。registry の `raw_offsets` [16, 4893] と完全一致 |
+
+- **FOUND 2/2、MISS 0**。両 needle の U+3000 は各 **0 個**（合計 0）。`（２）` ラベルや行途中の全角スペースは needle に含まれないため条件は成立。
+- registry の `unit_hits` は `MainProvision/Article/23` = 2/2、`MainProvision/Paragraph/1` = 2/2、`D: PASS`、`H: needle occurs in the stated article of the pinned source`。`sufficient_for_completion: false` であり、機械照合のみで法的結論を出さない設計になっている。
+- 同一 needle は art.292 §1（市町村民税側）にも 2 回一致するが、対象は art.23 側であり、registry が `MainProvision/Article/23` で 2/2 を捕捉している点で誤同定ではない（市町村民税側は NOT MODELLED、DM-5 B-4）。
+
+### DM-3. 反例探索（Impl vs 独立 Spec）
+
+- 実装: `meetsIncomeRequirement (prevIncome : Money) : Bool := prevIncome <= 5000000`
+- 独立 Spec（別モジュールの別定式）: `specMeets (i : Nat) : Bool := Nat.ble i 5000000`
+- `agreeEqualLevyIncomeRequirement` は `[0, 1, 4999999, 5000000, 5000001, 10000000]` で `meetsIncomeRequirement i == specMeets i` を比較する。
+
+| 入力 `prevIncome` | Impl | 独立 Spec | 一致 | 備考 |
+|---:|---|---|---|---|
+| 0 | true | true | ✅ | 境界下限 |
+| 1 | true | true | ✅ | |
+| 4999999 | true | true | ✅ | 5,000,000 未満 |
+| **5000000** | **true** | **true** | ✅ | **境界値（ちょうど 5,000,000 円は「以下」なので可）** |
+| **5000001** | **false** | **false** | ✅ | **境界の 1 円超（反例候補）** |
+| 10000000 | false | false | ✅ | |
+
+- `lake env lean --stdin` で `#eval` を実行し、`meetsIncomeRequirement 5000000 = true` / `5000001 = false`、`specMeets 5000000 = true` / `5000001 = false` を直接確認（exit code 0）。
+- 上記 6 点すべてで `by decide` の equality 例が通り、`agreeEqualLevyIncomeRequirement = true` も `by decide` で確認。**不一致（反例）0 件**。
+- 注意: `meetsIncomeRequirement` と `specMeets` は同じ namespace `JapanTaxLaw.EqualLevyIncomeRequirement` に属する別々の `def` であり、同一个定数の再掲ではない（独立定式としての比較）。
+
+### DM-4. `#print axioms` 監査
+
+一時ファイルを作らず `lake env lean --stdin` にパイプして `#print axioms` を **3 回**実行し、いずれも `does not depend on any axioms` を確認（exit code 0）。
+
+| 検査宣言 | 結果 |
+|---|---|
+| `JapanTaxLaw.EqualLevyIncomeRequirement.meetsIncomeRequirement` | does not depend on any axioms |
+| `JapanTaxLaw.EqualLevyIncomeRequirement.specMeets` | does not depend on any axioms |
+| `JapanTaxLaw.EqualLevyIncomeRequirement.agreeEqualLevyIncomeRequirement` | does not depend on any axioms |
+
+| 検査項目 | 結果 |
+|---|---|
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+| axiom-free | **3 / 3 実行** |
+
+- 3 モジュールのソースに `sorry` / `admit` / `axiom` / `unsafe` / `Classical` / `choice` / `propext` / `Quot.sound` の文字列は **0 件**。stdin 入力を用いたため一時ファイルは作成しておらず、削除対象もない。
+
+### DM-5. CONFIRMED / BY-DESIGN / UNRESOLVED 分類
+
+| 分類 | 件数 |
+|---|---:|
+| CONFIRMED（不一致・誤り） | **0** |
+| BY-DESIGN（明示的 NOT MODELLED / 設計上） | **6** |
+| UNRESOLVED（人間の法律専門家レビューが必要） | **3** |
+
+#### CONFIRMED（0 件）
+
+- なし。桁違い（50万/5000万）、needle 不整合、Impl/独立 Spec の不一致、axiom 依存はいずれも検出されなかった。
+
+#### BY-DESIGN（6 件）
+
+- **B-1 他の要件の未形式化**: 同一の `Subitem2` 群の（１）「扶養親族を有すること。」および（３）「その者と事実上婚姻関係と同様の事情にあると認められる者として総務省令で定めるものがいないこと。」は **NOT MODELLED**（Impl doc-comment 明記）。pinned で逐語確認済み。
+- **B-2 合計所得金額の算定の未形式化**: art.23 §1 `Item Num=13（合計所得金額）` は「第三十二条第八項及び第九項の規定による控除前の同条第一項の総所得金額、退職所得金額及び山林所得金額の合計額をいう。」と定義するが、本モデルは `prevIncome` を入力として受け取るのみで算定ロジックは **NOT MODELLED**。
+- **B-3 均等割適用効果の未形式化**: 均等割の非課税／課税の判定・税額計算・`（２）` 要件と他要件の AND 結合は **NOT MODELLED**。本モデルは所得要件の真偽のみを返す。
+- **B-4 市町村民税側の未形式化**: 同一文は art.292 §1（市町村民税、Item 11/12）にも出現するが、Impl doc-comment のとおり **NOT MODELLED**。
+- **B-5 寡婦／ひとり親の認定の未形式化**: 当該文は art.23 §1 の「寡婦」「ひとり親」の定義内にあり、ステータス該当性判定自体は **NOT MODELLED**（所得要件のみを切り出した bounded モデル）。
+- **B-6 単位・範囲**: `Money = Nat`（円・非負整数）。負の所得・円未満の端数等は扱わない。
+
+#### UNRESOLVED（3 件）
+
+- **U-1 均等割非課税の実務判定**: （１）（２）（３）の各要件を満たすかどうかの総合判定は原文の機械照合だけでは確定できず、人間の法律専門家によるレビューが必要。
+- **U-2 合計所得金額の算定実務**: 控除前の総所得金額等を実際に算定する手続は本モデル外であり、専門家解釈を要する。
+- **U-3 条文上の位置と趣旨の接続**: 当該文は寡婦／ひとり親の定義（art.23 §1 Item 11/12）に置かれており、モジュール見出しが「道府県民税 均等割 Non-Taxable の所得要件」とする上位趣旨との法解釈上の接続は、機械抽出では文の位置までしか確認できず専門家レビューが必要。
+
+### DM-6. 最終報告（サマリ）
+
+- **CONFIRMED 0 件 / BY-DESIGN 6 件 / UNRESOLVED 3 件**。不一致（誤り）は検出されず。
+- **pinned 照合**: art.23 §1 Item 11/12 の leaf から `前年の合計所得金額が五百万円以下であること。` を直接抽出。`五百万` = 5 × 1,000,000 = **5,000,000 円**、50万／5000万 は当該 leaf で 0 回として明示除外。`以下` は包含的（境界 5,000,000 可）を確認。
+- **needle**: 各 U+3000 = 0、**2/2 FOUND**、MISS 0（offset も registry と一致）。
+- **反例**: `(5000000)=true`, `(5000001)=false` が Impl = 独立 Spec、`agreeEqualLevyIncomeRequirement = true`。不一致 0。
+- **axiom**: choice / sorryAx / Quot.sound / propext すべて **0 件**（3/3 実行が axiom-free、exit code 0）。
+- **規約遵守**: commit / push / merge / ブランチ切替は行わず、Lean モジュール・`data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。stdin 入力のため一時ファイルは作成せず（削除対象なし）。
+
+> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle の部分文字列検査・境界反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。法的な最終判断・解釈は専門家レビューに委ねる。本レビューをもって法的レビューを完了したものとはみなさない。**
+
+## Batch SLHR review (2026-11-25) — 地方税法 art.594
+
+### SpecialLandHoldingTaxRate.lean — 独立再抽出・照合
+
+- **対象**: `JapanTaxLaw/SpecialLandHoldingTaxRate.lean`, Spec, Tests
+- **一次資料（pinned）**: `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`
+- **独立再抽出**: MainProvision 直下の第五百九十四条を ArticleTitle で特定し、原文から税率を独立抽出。SHA-256 pin を再計算。
+- **照合・判定**: 百分の一・四 → 14/1000（1.4%）、百分の三 → 3/100。14/100（10倍誤り）を反例テストで排除。D=CONFIRMED。
+- **限界**: 課税標準・該当性・免除・附則は NOT MODELLED。機械的独立照合であり人間の法的レビューではない（LEGAL_REVIEW_PENDING）。
+## Batch DN review (2026-11-26) — 地方税法 art.20の4の2 §1（課税標準額の千円未満切捨て）/ `TaxBaseRounding.lean`（cycle-124 の1モデル）
+
+- **レビュア役割**: 独立 Adversarial Review Agent（形式化担当から独立）。担当の STAGING／doc-comment は信じず、pinned 原文・registry・実装・Spec を機械的に再照合した。
+- **対象（読み取り専用・変更なし）**: `JapanTaxLaw/TaxBaseRounding.lean`（`roundDownToThousand (amount : Money) := amount / 1000 * 1000`）、`TaxBaseRoundingSpec.lean`（独立定式 `specRound a := a - a % 1000`）、`TaxBaseRoundingTests.lean`。
+- **一次資料（pinned・改変禁止）**: `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`（law id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`）。
+- **needle 出所**: `data/ARTICLE_SCOPE_POSITIONS.json` の `TaxBaseRounding.lean` エントリおよび `scripts/ci/transcription_audit.py` の cycle-124 エントリ（2 本とも両者で一致）。
+- **書き込み対象は本ファイルのみ**。commit / push / merge / ブランチ切替は行わず、Lean モジュール・`data/*` は読み取り専用。
+
+### DN-1. pinned 原文から「千円未満」= 1,000 円を直接独立抽出（桁違いの明示除外）
+
+- pinned JSON を直接辿り `law_full_text.children[1].children[2].children[0].children[14].children[5]`（`Article attr.Num = 20_4_2`、ArticleTitle = `第二十条の四の二`）を特定。§1（`Paragraph Num=1`）の `Sentence Function=main` 本文を逐語抽出した:
+  - `地方税の課税標準額を計算する場合において、その額に千円未満の端数があるとき、又はその全額が千円未満であるときは、その端数金額又はその全額を切り捨てる。`
+  - 同じ §1 の `Sentence Function=proviso`: `ただし、政令で定める地方税については、この限りでない。`
+- **数値の独立読解**: 本文を正規表現 `([漢数字]+)円未満` で走査すると `千円未満` が **2 回**（「端数があるとき」／「全額が…とき」）。抽出語 `千` を自前の漢数字パーサで評価した結果は **1,000**。impl の `/ 1000` および独立 Spec の `% 1000` と一致。
+- **桁違いの明示除外**: §1 main 文中の `百円未満` = **0 回**、`一万円未満`（＝`万円` 表記） = **0 回**、アラビア数字 `1000` = **0 回**（原文は漢数字「千」）。よって「百円（100）」「一万円（10,000）」の読違いを明示的に除外する。なお「百円」は第3項以降（第3・4・5項等、Article 20_4_2 全体で 8 回）に出現するが §1 には 0 回、10,000 円相当の「万円」は当該条文全体で **0 回**。
+- doc-comment の文字数申告も再計算して一致を確認: ArticleCaption 16 + ArticleTitle 8 + ParagraphNum 8 + 全 Sentence 1,086 = **1,118 chars**、U+3000 = **0**（「flat/normalized leaf text 1118 chars」は article 全体の平坦化 text を指す）。
+
+### DN-2. needle 2 本の検証（U+3000 = 0 / 2/2 FOUND）
+
+registry の `needles` 2 本を pinned JSON の生テキストおよび Article 20_4_2 の平坦本文（1,667 文字、U+3000 = 0）に対して部分文字列一致で検査。
+
+| # | needle | 長さ | U+3000 | U+3001 | raw JSON 一致 | Article 20_4_2 平坦本文一致 | 備考 |
+|---:|---|---:|---:|---:|---:|---:|---|
+| 1 | `地方税の課税標準額を計算する場合において、その額に千円未満の端数があるとき、又はその全額が千円未満であるときは、その端数金額又はその全額を切り捨てる` | 74 | **0** | 3 | 1 回 | **1 回 FOUND** | §1 main 本文（末尾の `。` を除いた形）。registry `raw_offsets = [24]` と整合 |
+| 2 | `第二十条の四の二` | 8 | **0** | 0 | 10 回 | **1 回 FOUND** | ArticleTitle。registry `raw_offsets = [16]` と整合 |
+
+- **FOUND 2/2、MISS 0**。各 needle の U+3000 はともに **0 個**（合計 0）。全角読点 U+3001 は 3 個含まれるが、これは「全角スペース」ではないため条件に影響しない。
+- registry の `unit_hits` は `MainProvision/Article/20_4_2` = **2/2**、`MainProvision/Paragraph/1` = 1/1。`D: PASS`、`H: needle occurs in the stated article of the pinned source`、`sufficient_for_completion: false`（機械照合のみで法的結論を出さない設計）。
+- 2 本の needle リテラルは `transcription_audit.py::checks()` の cycle-124 エントリにもそのまま存在し、registry との間に食い違いはない。
+
+### DN-3. 反例探索（Impl vs 独立 Spec）
+
+- `TaxFinance.lean` の `abbrev Money := Nat`（行 29）を確認。Nat 除算は切り捨てであり、`a / 1000 * 1000 = a - a % 1000`（`Nat.div_add_mod`）が成り立つ。したがって impl と独立 Spec は同一の値を返す（同一定数の再掲ではなく別モジュールの別定式）。
+- Spec の `agreeTaxBaseRounding` は `[0, 1, 999, 1000, 1001, 12345, 123456, 1000000]` で比較し `by decide` で `true`。レビュー側でも独立に Python で `a//1000*1000` と `a - a%1000` をグリッド `[0, 1, 999, 1000, 1001, 12345, 123456, 1000000, 1999999, 2000000]` で比較し、全点一致。
+
+| 入力 | Impl `amount/1000*1000` | 独立 Spec `amount - amount%1000` | 一致 | 備考 |
+|---:|---:|---:|:---:|---|
+| **999** | **0** | **0** | ✅ | 千円未満の全額切捨て境界（反例候補） |
+| **1000** | **1000** | **1000** | ✅ | ちょうど千円（境界） |
+| **123456** | **123000** | **123000** | ✅ | 端数 456 円の切捨て |
+
+- 3 指定ケースすべてで独立 Spec と一致。**不一致（反例）0 件**。桁違い（100 で割る／10000 で割る）なら 999→900→0, 123456→123400/120000 等となり Spec と食い違うが、impl は 1000 を使用しているためその反例は成立しない。
+
+### DN-4. `#print axioms` 監査
+
+- 一時ファイルを作らず `lake env lean --stdin` にパイプして 3 宣言へ `#print axioms` を実行（exit code **0**）。監査対象は `roundDownToThousand` / `specRound` / `agreeTaxBaseRounding`（無名 `example` は import 時に `by decide` で検証済み）。
+
+| 検査宣言 | 結果 |
+|---|---|
+| `JapanTaxLaw.TaxBaseRounding.roundDownToThousand` | does not depend on any axioms |
+| `JapanTaxLaw.TaxBaseRounding.specRound` | does not depend on any axioms |
+| `JapanTaxLaw.TaxBaseRounding.agreeTaxBaseRounding` | does not depend on any axioms |
+
+| 検査項目 | 結果 |
+|---|---:|
+| `Classical.choice` | **0 件** |
+| `sorryAx` | **0 件** |
+| `Quot.sound` | **0 件** |
+| `propext` | **0 件** |
+| axiom-free | **3 / 3 実行** |
+
+- 3 モジュールのソース文字列走査でも `sorry` / `admit` / `axiom` / `unsafe` / `Classical` / `choice` / `propext` / `Quot.sound` はすべて **0 件**。stdin 入力のため一時ファイルは作成しておらず、削除対象もない。
+
+### DN-5. CONFIRMED / BY-DESIGN / UNRESOLVED 分類
+
+| 分類 | 件数 |
+|---|---:|
+| CONFIRMED（不一致・誤り） | **0** |
+| BY-DESIGN（明示的 NOT MODELLED / 設計上） | **5** |
+| UNRESOLVED（人間の法律専門家レビューが必要） | **3** |
+
+#### CONFIRMED（0 件）
+
+- 桁違い（100/10,000）、needle 不整合（U+3000 混入・MISS）、Impl/独立 Spec の不一致、axiom 依存はいずれも検出されなかった。**発見ゼロを明示し、欠陥件数を手柄にしない。**
+
+#### BY-DESIGN（5 件）
+
+- **B-1 第2項（延滞金・加算金）の未形式化**: pinned 原文 §2 は「延滞金又は加算金の額を計算する場合において、その計算の基礎となる税額に千円未満の端数があるとき、又はその税額の全額が二千円未満であるときは、その端数金額又はその全額を切り捨てる。」を持つ。本モデルは §1 のみを対象とし、doc-comment に **NOT MODELLED** と明記済み（境界 2,000 円を含む点も未反映だが、申告済みのスコープ外）。
+- **B-2 第3項（確定金額の百円未満切捨て）の未形式化**: pinned 原文 §3 は「地方税の確定金額に百円未満の端数があるとき、又はその全額が百円未満であるときは、その端数金額又はその全額を切り捨てる。」（ただし書で政令で定める地方税の確定金額は一円未満切捨て）を持つ。本モデルは課税標準額のみを扱い、第3項は **NOT MODELLED** と明記済み。**100 円（百円）は §3 の数値であり §1 の 1,000 円と混同しない。**
+- **B-3 政令除外（§1 ただし書）の未形式化**: §1 proviso「ただし、政令で定める地方税については、この限りでない。」は pinned 原文に実在するが、impl は例外判定を持たず、doc-comment に **NOT MODELLED** と明記済み。caller-established の境界として妥当。
+- **B-4 第4項〜第8項の未形式化**: §4（滞納処分費の百円未満）、§5（延滞金・加算金の確定金額 百円未満／千円未満）、§6（分割納付の千円未満）、§7（返付加算金への準用）、§8（個人の市町村民税・道府県民税等への適用）も pinned 原文に存在するが、すべてスコープ外（NOT MODELLED）。取りこぼしではなく明示された境界。
+- **B-5 課税標準額の算定は caller-established / 単位は円・非neg**: `Money = Nat`。本モデルは与えられた `amount` への端数処理のみを行い、課税標準額そのものの算定・該当性・税額計算は行わない（doc-comment の「本モデルは法的レビューを提供しない」と整合）。
+
+#### UNRESOLVED（3 件）
+
+- **U-1 政令で定める地方税の具体的範囲**: どの地方税が §1 ただし書の適用除外に該当するかは、pinned 原文（地方税法本文）だけでは決定できず、別途の政令確認と**人間の法律専門家によるレビュー**を要する（B-3 の未形式化は設計として妥当だが、法的効果の確定は保留）。
+- **U-2 §2・§3 をモデル化すべきかというスコープ判断**: 「課税標準額の千円未満切捨て」を切り出した本モデルの範囲で第2項・第3項を除外する判断は機械的には申告済みだが、実務上どの端数規定を組み合わせるべきかは pinned 原文のみでは解けず専門家判断を要する。
+- **U-3 端数処理の適用タイミング**: 「課税標準額を計算する場合において」という文言から、算定のどの段階で切捨てるか（中間値か最終値か）は機械抽出では確定不能。impl は `amount` に直接適用する設計だが、法的妥当性の最終判断は専門家に委ねる。
+
+### DN-6. 最終報告（サマリ）
+
+- **CONFIRMED 0 件 / BY-DESIGN 5 件 / UNRESOLVED 3 件**。不一致（誤り）は検出されず。
+- **pinned 照合**: Article 20_4_2 §1 main から `千円未満` を 2 回直接抽出し、漢数字 `千` を **1,000 円** と独立評価。百円・一万円の桁違いを明示除外。1,118 chars / U+3000 = 0 の doc-comment 申告も再計算一致。
+- **needle**: 2 本とも U+3000 = **0**、Article 20_4_2 内で **2/2 FOUND**、MISS 0（registry の offset ・ `D: PASS` と整合）。
+- **反例**: `(999)=0`、`(1000)=1000`、`(123456)=123000` が Impl = 独立 Spec。グリッド 10 点すべて一致、`agreeTaxBaseRounding = true`。
+- **axiom**: choice / sorryAx / Quot.sound / propext すべて **0 件**（3/3 実行が axiom-free、exit code 0）。
+- **規約遵守**: commit / push / merge / ブランチ切替は行わず、Lean モジュール・`data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。stdin 入力のため一時ファイルは作成せず（削除対象なし）。
+- **件数・保持**: 書き込み直前に再読込した広義レビュー件数は **117 件**（SHA-256 `241D2C851B1C7FA26FDF739D6949AC60B073A627342C28FF9889B682F97FF84C`、1,594,460 バイト）。本セクション追記後は **118 件**（既存 +1）。既存セクション（Batch G〜DM・SLHR を含む書き込み直前の全バイト列）は前方一致で保持されていることを書き込み後に検証した。
+
+> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle の部分文字列検査・境界反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・解釈の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+## Batch DO review (2026-11-26) — 地方税法 art.20の4の2 §2（延滞金・加算金の計算基礎税額の端数処理）/ `ArrearsChargeRounding.lean`（cycle-125 の1モデル、機械的独立照合・反例探索）
+
+### DO-1. pinned 原文から 2 数値を直接独立抽出（千円＝1000 / 二千円＝2000、桁違い明示除外）
+
+- 照合対象: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`（地方税法、施行日 2026-11-01）。原文スナップショット `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`（12,181,725 バイト）を Python で JSON 解析し、`law_full_text/Law[226]/LawBody/MainProvision/Chapter[1]/Section[14]/Article[20_4_2]/Paragraph[2]/ParagraphSentence/Sentence[1]` を直接取り出した（実装値や doc-comment を根拠にしない独立抽出）。
+- pinned §2 逐語（89 文字、U+3000 = 0）: 「延滞金又は加算金の額を計算する場合において、その計算の基礎となる税額に千円未満の端数があるとき、又はその税額の全額が二千円未満であるときは、その端数金額又はその全額を切り捨てる。」
+- §2 leaf に正規表現 `[一二三四五六七八九十百千万]+円` を適用した結果、円単位トークンは **`['千円', '二千円']` の 2 個のみ**。
+  - **千円 = 1,000** … 「千円未満の端数」→ 1,000 円未満の端数を切り捨てる。
+  - **二千円 = 2,000** … 「全額が二千円未満」→ 2,000 円未満なら全額を切り捨てる。
+- 桁違いの明示除外: **百円（100）** は §2 に存在しない（同一条文の §1・§3・§4・§5・§8 等に現れる値であり、§2 の閾値ではない）。**二万円（20,000）** は Article 20_4_2 全体にも存在しない。したがって 100/100 や 20,000 を閾値とする読替えは原文照合で棄却される。
+- 境界の確認: 「〜未満」は厳密小なり。1999 < 2000 → 0、2000 は < 2000 でないため全額切捨て対象外（2000 → 2000）。実装定数 `2000` / `1000` と独立抽出値は完全一致し、off-by-one は無い。
+
+### DO-2. needle 2 本の U+3000 = 0 と 2/2 FOUND 検証
+
+- needle は `docs/STAGING_ARREARS_ROUND.md`（cycle-125）の JSON ブロックを **パースして取得**（ハードコードせず、ステージング定義そのものを検証）。
+
+| # | needle | U+3000 | U+3001(、) | 原文全体 FOUND | Article 20_4_2 内 FOUND | 備考 |
+|---:|---|---:|---:|:---:|:---:|---|
+| 1 | `延滞金又は加算金の額を計算する場合において、その計算の基礎となる税額に千円未満の端数があるとき、又はその税額の全額が二千円未満であるときは、その端数金額又はその全額を切り捨てる` | **0** | 3 | ✅ | ✅ | §2 本文（末尾の `。` を除く）。doc-comment の 1118 chars 表記は文字数定義が異なるが本文は一致。 |
+| 2 | `第二十条の四の二` | **0** | 0 | ✅ | ✅ | ArticleTitle。漢字表記一致。 |
+
+- **FOUND 2/2 / MISS 0**。両 needle とも U+3000（全角スペース）は **0 個**。needle 1 は U+3001（読点）を 3 個含むが全角スペースではないため照合に影響しない。pinned 原文の flat/normalized leaf と完全一致し、改行・全角スペースの挿入は無い。
+
+### DO-3. 反例探索 — `baseTax` と独立 Spec の一致
+
+- 実装: `baseTax (taxTotal : Money) := if taxTotal < 2000 then 0 else taxTotal / 1000 * 1000`（`Money = Nat` は `TaxFinance.lean:29` で確認）。
+- 独立 Spec: `specBase (t : Nat) := if t < 2000 then 0 else t - t % 1000`（`ArrearsChargeRoundingSpec.lean:11`、実装とは別定式）。
+- `lake env lean` による `#eval` 実行結果（exit code 0）:
+
+| 入力 t | `baseTax t` | `specBase t` | 一致 | 根拠 |
+|---:|---:|---:|:---:|---|
+| **1999** | **0** | **0** | ✅ | 2,000 未満 → 全額切捨て |
+| **2000** | **2000** | **2000** | ✅ | 境界値は切捨て対象外 |
+| **12345** | **12000** | **12000** | ✅ | 1,000 未満端数 345 を切捨て |
+| 0 | 0 | 0 | ✅ | 下限境界 |
+
+- 追加確認: `agreeArrearsChargeRounding = true`（8 点比較）、さらに独立に `List.range 200001`（0..200,000 の全値）で `baseTax t == specBase t` を走査し **true**。境界近傍 2000..2004 は両者とも 2000。
+- 理論的整合: `Nat.div_add_mod` により `a / 1000 * 1000 = a - a % 1000`（Nat は非負）。よって実装と独立 Spec は全 Nat で同値であり、**不一致（CONFIRMED）は 0 件**。
+
+### DO-4. `#print axioms` による公理依存監査
+
+- 一時 Lean ファイル（temp フォルダ）から `ArrearsChargeRounding` と `ArrearsChargeRoundingSpec` を import し、`lake env lean` で 3 定義に `#print axioms` を実行（exit code 0）。
+
+| 監査対象 | 出力 |
+|---|---|
+| `JapanTaxLaw.ArrearsChargeRounding.baseTax` | does not depend on any axioms |
+| `JapanTaxLaw.ArrearsChargeRounding.specBase` | does not depend on any axioms |
+| `JapanTaxLaw.ArrearsChargeRounding.agreeArrearsChargeRounding` | does not depend on any axioms |
+
+| 公理 | 依存回数 |
+|---|---:|
+| `Classical.choice` | **0 回** |
+| `sorryAx` | **0 回** |
+| `Quot.sound` | **0 回** |
+| `propext` | **0 回** |
+| axiom-free | **3/3 すべて** |
+
+- 3 モジュール（`ArrearsChargeRounding.lean` / `ArrearsChargeRoundingSpec.lean` / `ArrearsChargeRoundingTests.lean`）のソース走査でも `sorry` / `admit` / `axiom` / `unsafe` / `Classical` / `choice` / `propext` / `Quot.sound` は **計 0 回**。
+
+### DO-5. CONFIRMED / BY-DESIGN / UNRESOLVED 分類
+
+| 分類 | 件数 |
+|---|---:|
+| CONFIRMED（実装不具合・原文との不一致） | **0** |
+| BY-DESIGN（明示的 NOT MODELLED / 設計上） | **5** |
+| UNRESOLVED（人間レビュー必要） | **3** |
+
+#### CONFIRMED（0 件）
+
+- 数値誤り（100/20,000）、needle 不一致（U+3000 混入・MISS）、Impl/独立 Spec 不一致、公理依存はすべて検出されず。**是正を要求する実装上の不具合は存在しない。**
+
+#### BY-DESIGN（5 件）
+
+- **B-1 延滞金・加算金の税率・算定期間の未形式化**: 税率や算定期間は §2 原文に記載が無く、本モジュールの doc-comment（21-22 行）で **NOT MODELLED** と明記。本モデルは計算基礎税額の丸めのみを扱う。
+- **B-2 第1項（課税標準額の千円未満切捨て）の未形式化**: pinned §1 は「地方税の課税標準額を計算する場合…千円未満…」で、§2 の「税額・二千円未満」とは別条項。独立モデル `TaxBaseRounding.lean`（cycle-124 / Batch DN でレビュー済み）に委譲され、本モジュール対象外。
+- **B-3 第3項（地方税確定金額の百円未満切捨て）の未形式化**: pinned §3 は「百円未満」であり、§2 の 1,000/2,000 とは異なる閾値。独立モデル `LocalTaxFixedAmountRounding.lean`（cycle-119 / Batch DI でレビュー済み）に委譲。§2 に 100 を混入させない根拠ともなる。
+- **B-4 §4〜§9 の未形式化**: 滞納処分費・延滞金確定金額（百円/千円）・分割納付の端数合算・還付加算金への準用（§7 の読替）・個人市町村民税等のみなし（§8）・特別徴収の読替（§8/§9）は pinned 原文に存在するが、いずれもスコープ外（NOT MODELLED）として明示済み。
+- **B-5 計算基礎税額の算出は caller-established**: `Money = Nat`（非負整数）を前提とし、与えられた `taxTotal` への丸めのみを実装。税額の算出・符号処理・端数発生段階の判定は行わない（doc-comment の「本モデルは法的レビューを提供しない」と整合）。
+
+#### UNRESOLVED（3 件）
+
+- **U-1 税率・算定期間の具体的数値**: 地方税法の他条・政令に依存し、pinned §2 単体では決定不能。**人間の法律専門家による他条横断確認が必要**。
+- **U-2 §1/§2/§3 の適用境界**: 「どの税額に §2（税額・2,000 未満）を適用し、§1（課税標準額・1,000 未満）/§3（確定金額・100 未満）を適用しないか」は原文の文言のみでは確定しない。実務上の取扱い含め専門家判断を要する。
+- **U-3 §7 読替えと基数算出タイミング**: 還付加算金への準用時の「税額」→「過誤納金…」読替、および課税標準額→税額→確定金額のどの段階で丸めるかの最終判定は、本機械的照合の対象外。
+
+### DO-6. 最終報告（サマリ）
+
+- **CONFIRMED 0 件 / BY-DESIGN 5 件 / UNRESOLVED 3 件**。不具合（是正要求）は検出されず。
+- **pinned 原文照合**: Article 20_4_2 §2 leaf 89 文字・U+3000 = 0 を直接解析し、円単位トークン `['千円','二千円']` から **1,000 / 2,000** を独立抽出。**百円(100)・二万円(20,000) は §2 に無く明示除外**。
+- **needle**: 2/2 FOUND、MISS 0、両方 U+3000 = 0（U+3001 は 3 個だが影響なし）。
+- **反例**: `(1999)=0`, `(2000)=2000`, `(12345)=12000` で Impl = 独立 Spec。0..200,000 全値走査も一致、`agreeArrearsChargeRounding = true`。
+- **公理**: choice / sorryAx / Quot.sound / propext すべて **0 回**、3/3 axiom-free（exit code 0）。
+- **禁止操作の遵守**: commit / push / merge / ブランチ切替は **一切実行していない**。Lean モジュールおよび `data/*` は読み取り専用とし、書き込みは `docs/ADVERSARIAL_REVIEW.md` のみ。
+- **一時ファイル**: 検証用の Python/Lean 一時ファイルは `C:/Users/junny/AppData/Local/Temp/opencode/` に作成し、**すべて削除済み**（stdin 入力の併用によりリポジトリ内には生成していない）。
+- **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `4DF82F4A220596855BBC9343CE07722F23C53506030336AB9E0B0C9C218B59EB`・`1,594,029` バイト・広義レビュー件数 **118 件**（`## Batch ` 見出し 114 件 + その他の review 見出し 4 件）。本セクション追記後は **119 件（Previous +1）** へ増加。追記後のバイト数・SHA-256 は書き込み後の再読込で別途検証した（自己言及的なハッシュ値は本文に埋め込まない）。既存セクション（Batch G〜Batch DN / Batch SLHR を含む全見出し）は一切改変せず保持。再読込検証で既存 H2 数 124 → 125、先頭 `## Batch G review` と既存末尾 `## Batch DN review` の両方が残存することを確認。
+
+> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 文字照合）・反例探索・`#print axioms` 監査であり、人間の法律専門家によるレビューではない。** 法的解釈・税率や適用範囲の final 判定は専門家の判断に委ねる。本レビューをもって法的レビュー完了とみなしてはならない。
+
+## Batch SRS review (2026-11-26) — 所得税法 art.84の2
+
+### SpecifiedRelativeSpecialDeduction.lean — 独立再抽出・照合
+
+- **対象**: `JapanTaxLaw/SpecifiedRelativeSpecialDeduction.lean`, Spec, Tests
+- **一次資料（pinned・改変禁止）**: `data/raw/340AC0000000033_20261001_507AC0000000070.law.json`（SHA-256 pin 再計算）
+- **独立再抽出**: MainProvision 直下の第八十四条の二を ArticleTitle で特定し、四区分と丸め文言を原文から直接抽出。
+- **照合・判定**: 630,000 円／(所得−840,001)×2／十万円の整数倍−八万円 の最大下界／1,150,000 超 60,000／1,200,000 超 30,000 を確認。840,001 を 841,000 とする誤記を反例で排除。D=CONFIRMED。
+- **限界**: 年齢・生計一・配偶者除外・里親委託・適用除外は NOT MODELLED。機械的独立照合であり人間の法的レビューではない（LEGAL_REVIEW_PENDING）。
+
+### TouristTaxTaxablePassengers.lean — 国際観光旅客税法施行規則 art.3(2) ホ
+
+- **pin**: law `430M60000040039`, article 第三条(2) ホ; needle「イに掲げる数からロからニまでに掲げる数の合計数を控除した数」.
+- **独立再抽出**: ホ = `i - (ro + ha + ni)` (Nat 飽和減算, 単位 人)。独立仕様は三段階減算で書き、全称定理 `agreeTaxablePassengers` が omega で照合。
+- **H/T/D**: 境界 40 / 0 / 0 (飽和) / 250 PASS; 普遍定理 3 件。
+- **C/U**: 四数の認定・ヘ税額・他条は NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
+## Batch DP review (2026-11-26) — 地方税法 art.20の4の2 §3 ただし書（政令で定める地方税の確定金額 一円未満切捨て）/ `CabinetOrderLocalTaxOneYenRounding.lean`（cycle-126 の1モデル、機械的独立照合・反例探索）
+
+- **レビュア役割**: 独立 Adversarial Review Agent（形式化担当から独立）。担当の STAGING／doc-comment は信じず、pinned 原文ツリー・registry／CI 定義・実装・独立 Spec を機械的に再照合した。
+- **対象（読み取り専用・変更なし）**: `JapanTaxLaw/CabinetOrderLocalTaxOneYenRounding.lean`（`roundToYen (amountYen : Money) := amountYen`）、`CabinetOrderLocalTaxOneYenRoundingSpec.lean`（独立定式 `specRound (a : Nat) := a`）、`CabinetOrderLocalTaxOneYenRoundingTests.lean`。
+- **一次資料（pinned・改変禁止）**: `data/raw/325AC0000000226_20261101_508AC0000000002.law.json`（12,181,725 バイト、SHA-256 `3DD29E0078BF24E09C79436CE7B0F00FD2CFB5A5BBCB97BD4F4352971BE68D53`、law id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`）。
+- **needle 出所**: `docs/STAGING_ONEYEN_ROUND.md` の JSON ブロックをパースして取得（ハードコードせずステージング定義自体を検証）。`scripts/ci/transcription_audit.py` の cycle-126 エントリ（行 2389–2393）と 2 本とも完全一致。
+- **書き込み対象は本ファイル `docs/ADVERSARIAL_REVIEW.md` のみ**。commit / push / merge / ブランチ切替は行わず、Lean モジュール・`data/*` は読み取り専用。
+
+### DP-1. pinned 原文から「一円未満」＝ 1 円を直接独立抽出（十円／百円の桁違いを明示除外）
+
+- JSON ツリーを直接辿り `law_full_text → Law[1] → LawBody[2] → MainProvision[0] → Chapter[14] → Section[5]` の `Article attr.Num = 20_4_2`（ArticleTitle `第二十条の四の二`）を特定。§3（`Paragraph Num=3`）の `Sentence Function=proviso` 本文を逐語抽出した（実装値・doc-comment を根拠にしない）。
+- pinned §3 ただし書 逐語（**78 文字、U+3000 = 0、U+3001 は 4 個**）:
+  - `ただし、政令で定める地方税の確定金額については、その額に一円未満の端数があるとき、又はその全額が一円未満であるときは、その端数金額又はその全額を切り捨てる。`
+- **数値の独立読解**: 当該 proviso に正規表現 `([一二三四五六七八九十百千万]+)円未満` を適用すると **`['一', '一']` の 2 回**（「一円未満の端数があるとき」／「全額が一円未満であるとき」）。抽出語 `一` を自前の漢数字パーサで評価した結果は **1**（＝ 1 円）。したがって原文の閾値は **一円未満 = 1 円** であり、`roundToYen` の「整数円入力では 1 円未満端数は存在しない＝恒等」という bounded L4 モデルと整合する。
+- **桁違いの明示除外**: 同 proviso 内で `百円` = **0 回**、`十円` = **0 回**、`千円` = **0 回**、`二円` = **0 回**、アラビア数字 `100` = **0 回**。`百円`（＝100）は同じ §3 の**本文**(main)「地方税の確定金額に百円未満の端数があるとき…」に現れるが、それはただし書の対象外の別ルール。`千円`（＝1,000）は §1・§2・§5・§6 に、`二千円`（＝2,000）は §2 に現れる。ゆえに **100 円／1,000 円／2,000 円をこの proviso の閾値と読替えることは原文照合で棄却される**。
+- doc-comment の文字数申告も独立再計算して一致: ArticleCaption 16 + ArticleTitle 8 + ParagraphNum 8 + 全 14 Sentence の 1,086 = **1,118 chars**、U+3000 = **0**（「flat/normalized leaf text 1118 chars」は記事全体の平坦化 leaf text を指し、上記 §3 proviso 78 文字とは文字数定義が異なる）。
+- **恒等対応の妥当性**: `TaxFinance.lean:29` の `abbrev Money := Nat`（非負整数・単位 円）を確認。整数円入力には 1 円未満の端数も「全額が 1 円未満」の正の値も表現されず（取り得る最小は 0 と 1）、`a ↦ a` は原文の切捨て操作を Nat 上で忠実に実現する。0 円（＝全額が一円未満）は 0 へ、1 円以上はそのままへ写る。
+
+### DP-2. needle 2 本の U+3000 = 0 と 2/2 FOUND 検証
+
+| # | needle | 長さ | U+3000 | U+3001(、) | pinned JSON 生テキスト | Article 20_4_2 内 | 備考 |
+|---:|---|---:|---:|---:|:---:|:---:|---|
+| 1 | `ただし、政令で定める地方税の確定金額については、その額に一円未満の端数があるとき、又はその全額が一円未満であるときは、その端数金額又はその全額を切り捨てる` | 77 | **0** | 4 | 1 回 FOUND | **1 回 FOUND** | §3 proviso 本文（末尾の `。` を除く）と**完全一致**（`needle == proviso[:-1]` を mechaniacally 確認）。 |
+| 2 | `第二十条の四の二` | 8 | **0** | 0 | 10 回 FOUND | **1 回 FOUND** | ArticleTitle。他条の参照箇所で raw 全体には 10 回現れるが、Article 20_4_2 内は 1 回。 |
+
+- **FOUND 2/2 / MISS 0**。両 needle とも U+3000（全角スペース）は **0 個**。needle 1 は U+3001（全角読点）を 4 個含むが全角スペースではないため条件に影響しない。pinned 原文の flat/normalized leaf と完全一致し、改行・全角スペースの挿入は無い。
+- 2 本の needle リテラルは `transcription_audit.py::checks()` の cycle-126 エントリにもそのまま存在し、STAGING との間に食い違いはない。
+
+### DP-3. 反例探索 — `roundToYen` と独立 Spec の一致
+
+- 実装: `roundToYen (amountYen : Money) := amountYen`（`Money = Nat`）。独立 Spec: `specRound (a : Nat) := a`（別モジュールの別定式）。
+- `lake env lean --stdin` による `#eval` 実行結果（exit code **0**）:
+
+| 入力 a | `roundToYen a` | `specRound a` | 一致 | 根拠 |
+|---:|---:|---:|:---:|---|
+| **0** | **0** | **0** | ✅ | 「全額が一円未満」→ 0 |
+| **1** | **1** | **1** | ✅ | 1 円以上は端数なし |
+| **12345** | **12345** | **12345** | ✅ | 整数円入力に 1 円未満端数は存在しない |
+
+- 追加確認: `agreeCabinetOrderLocalTaxOneYenRounding = true`（`[0,1,2,99,100,12345,1000000]` の 7 点、`by decide` でカーネル決定）。レビュー側でも同一グリッドで `roundToYen a == specRound a` を再評価し全点 `true`。
+- **桁違い反例の排除**: もし閾値を 100／1,000 と誤読して `a / 100 * 100` や `a / 1000 * 1000` を採れば `a=12345` で 12,300／12,000 となり独立 Spec（12,345）と食い違う。実装は恒等なのでこの反例は成立せず、DP-1 の「一円 = 1」読解と整合。**不一致（CONFIRMED）は 0 件。**
+
+### DP-4. `#print axioms` による公理依存監査
+
+- 一時 Lean ファイルを作らず `lake env lean --stdin` に `CabinetOrderLocalTaxOneYenRoundingSpec` の import をパイプし、3 宣言へ `#print axioms` を実行（exit code **0**）。無名 `example` は import 時に `by decide` で検証済み。
+
+| 監査対象 | 出力 |
+|---|---|
+| `JapanTaxLaw.CabinetOrderLocalTaxOneYenRounding.roundToYen` | does not depend on any axioms |
+| `JapanTaxLaw.CabinetOrderLocalTaxOneYenRounding.specRound` | does not depend on any axioms |
+| `JapanTaxLaw.CabinetOrderLocalTaxOneYenRounding.agreeCabinetOrderLocalTaxOneYenRounding` | does not depend on any axioms |
+
+| 公理 | 依存回数 |
+|---|---:|
+| `Classical.choice` | **0 回** |
+| `sorryAx` | **0 回** |
+| `Quot.sound` | **0 回** |
+| `propext` | **0 回** |
+| axiom-free | **3/3 すべて** |
+
+- 3 モジュールのソース文字列走査でも `sorry` / `admit` / `axiom` / `unsafe` / `Classical` / `choice` / `propext` / `Quot.sound` は **計 0 回**（`by decide` は 8 回、すべてカーネル決定）。stdin 入力のため一時 Lean ファイルは作成していない。
+
+### DP-5. CONFIRMED / BY-DESIGN / UNRESOLVED 分類
+
+| 分類 | 件数 |
+|---|---:|
+| CONFIRMED（実装不具合・原文との不一致） | **0** |
+| BY-DESIGN（明示的 NOT MODELLED / 設計上） | **5** |
+| UNRESOLVED（人間の法律専門家レビューが必要） | **3** |
+
+#### CONFIRMED（0 件）
+
+- 数値誤り（十円／百円／千円）、needle 不一致（U+3000 混入・MISS）、Impl/独立 Spec 不一致、公理依存はいずれも検出されず。**是正を要求する実装上の不具合は存在しない（発見ゼロを明示し、欠陥件数を手柄にしない）。**
+
+#### BY-DESIGN（5 件）
+
+- **B-1 「政令で定める地方税」の範囲・政令内容の未形式化**: pinned proviso は適用対象を「政令で定める地方税」に限定するが、どの地方税が該当するか、政令の具体的content は本文スナップショットに無い。impl は対象判定述語を持たず、doc-comment（19–20 行）が **NOT MODELLED** と明記。caller-established の境界として妥当（法的効果の確定は U-1 で保留）。
+- **B-2 §3 本文（百円未満切捨て）の未形式化**: 同 §3 の main「地方税の確定金額に百円未満の端数があるとき、又はその全額が百円未満であるときは、その端数金額又はその全額を切り捨てる。」はただし書とは別ルール（100 円）。独立モデル `LocalTaxFixedAmountRounding.lean`（cycle-119 / Batch DI でレビュー済み）に委譲され、本モジュール対象外。**100 円を proviso に混入させない根拠ともなる。**
+- **B-3 §1（千円）・§2（延滞金／加算金 千円・二千円）の未形式化**: 別条項として `TaxBaseRounding.lean`（cycle-124 / Batch DN）および `ArrearsChargeRounding.lean`（cycle-125 / Batch DO）に委譲済み。各々レビュー済みで、本モジュールの 1 円とは閾値が異なる。
+- **B-4 §4〜§9 の未形式化**: §4 滞納処分費（百円）、§5 延滞金・加算金の確定金額（百円／千円）、§6 分割納付の端数合算（千円）、§7 還付加算金への準用（読替え）、§8 個人の市町村民税等のみなし・特別徴収の読替（「千円」→「百円」）、§9 国民健康保険税の読替は pinned 原文に実在するが、いずれもスコープ外（NOT MODELLED）として明示済み。取りこぼしではない。
+- **B-5 入力単位・算定は caller-established**: `Money = Nat`（非負整数・円）を前提とし、与えられた `amountYen` への恒等対応のみを実装。税額の算出・通貨未満端数の表現・該当性判定は行わない（doc-comment の「本モデルは法的レビューを提供しない」と整合）。
+
+#### UNRESOLVED（3 件）
+
+- **U-1 政令で定める地方税の具体的範囲・政令の内容**: 「政令で定める」とあるだけで、当該政令の条文は pinned 地方税法本文スナップショットに含まれない。したがって対象地方税の確定は mechanical 照合では不能で、**人間の法律専門家による別途政令確認**を要する（B-1 の未形式化は設計上妥当だが法的効果は保留）。
+- **U-2 1 円未満端数の発生段階と通貨単位の扱い**: 原文は確定金額に 1 円未満の端数が生じ得ることを前提とするが、`Money = Nat` は端部を表現できない。より細かい単位（銭／厘等）でモデル化すべきか、あるいは caller が丸め済みの整数円を渡す前提でよいかは pinned 原文のみでは決定不能。**専門家判断を要する。**
+- **U-3 §3 本文（百円）との適用境界・§8 みなし規定の相互作用**: どの確定金額に proviso（1 円）を適用し本文（100 円）を適用しないか、また §8 の「一の地方税とみなす」扱いと政令除外がどう交差するかは、原文文言のみでは確定しない。機械的照合の対象外。
+
+### DP-6. 最終報告（サマリ）
+
+- **CONFIRMED 0 件 / BY-DESIGN 5 件 / UNRESOLVED 3 件**。不具合（是正要求）は検出されず。
+- **pinned 原文照合**: Article 20_4_2 §3 proviso（78 文字・U+3000 = 0）から `一円未満` を 2 回直接抽出し、漢数字 `一` を **1 円** と独立評価。**百円／十円／千円の桁違いを明示除外**。記事全体 1,118 chars も独立再計算で一致。
+- **needle**: 2/2 FOUND、MISS 0、両方 U+3000 = 0（needle 1 は U+3001 を 4 個だが影響なし）。needle 1 は proviso 本文と末尾 `。` 以外で完全一致。
+- **反例**: `roundToYen(0)=0`、`(1)=1`、`(12345)=12345` で Impl = 独立 Spec。`agreeCabinetOrderLocalTaxOneYenRounding = true`。桁違いモデル（`/100*100`, `/1000*1000`）は反例で棄却。整数円入力に 1 円未満端数なしという恒等対応の妥当性を確認。
+- **公理**: choice / sorryAx / Quot.sound / propext すべて **0 回**、3/3 axiom-free（exit code 0）。一時 Lean ファイルなし（stdin）。
+- **禁止操作の遵守**: commit / push / merge / ブランチ切替は **一切実行していない**。Lean モジュールおよび `data/*` は読み取り専用とし、書き込みは `docs/ADVERSARIAL_REVIEW.md` のみ。
+- **一時ファイル**: 検証用 Python スクリプト・結果ファイルは `C:/Users/junny/AppData/Local/Temp/opencode/` に作成し、**すべて削除済み**（リポジトリ内には生成していない）。
+- **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `0C31E01D8EB61C593FC166F3B837945B1F54729419E6A098A6F8208D38A37BD8`・`1620178` バイト・広義レビュー件数 **`120` 件**（`^## .*review` ベース）。本セクション追記後は **`121` 件**（Previous +1）へ増加。追記後のバイト数・SHA-256 は書き込み後の再読込で別途検証した（自己言及的なハッシュ値は本文に埋め込まない）。既存セクション（Batch G〜Batch DO / Batch SRS を含む書き込み直前の全バイト列）は前方一致で保持されていることを書き込み後に検証した。
+
+> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 文字照合・境界反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
