@@ -208,6 +208,9 @@ import JapanTaxLaw.ConsumptionTaxableBaseTests
 import JapanTaxLaw.ContainerSpec
 import JapanTaxLaw.ContainerSpecSpec
 import JapanTaxLaw.ContainerSpecTests
+import JapanTaxLaw.ContinuingIncreaseAtLeast5
+import JapanTaxLaw.ContinuingIncreaseAtLeast5Spec
+import JapanTaxLaw.ContinuingIncreaseAtLeast5Tests
 import JapanTaxLaw.CorpActor
 import JapanTaxLaw.CorpActorSpec
 import JapanTaxLaw.CorpActorTests
@@ -686,6 +689,9 @@ import JapanTaxLaw.ExamFeeTests
 import JapanTaxLaw.ExcellentLandTransferSpecialTax
 import JapanTaxLaw.ExcellentLandTransferSpecialTaxSpec
 import JapanTaxLaw.ExcellentLandTransferSpecialTaxTests
+import JapanTaxLaw.ExcessFinanceGrant75Cap
+import JapanTaxLaw.ExcessFinanceGrant75CapSpec
+import JapanTaxLaw.ExcessFinanceGrant75CapTests
 import JapanTaxLaw.Excluded
 import JapanTaxLaw.ExcludedDutyFreeGoods
 import JapanTaxLaw.ExcludedDutyFreeGoodsSpec
@@ -782,6 +788,9 @@ import JapanTaxLaw.GiftTaxSettlementBasicDeduction600k
 import JapanTaxLaw.GiftTaxSettlementBasicDeduction600kSpec
 import JapanTaxLaw.GiftTaxSettlementBasicDeduction600kTests
 import JapanTaxLaw.GiftTaxSpec
+import JapanTaxLaw.GiftTaxTenYearResidenceLookback
+import JapanTaxLaw.GiftTaxTenYearResidenceLookbackSpec
+import JapanTaxLaw.GiftTaxTenYearResidenceLookbackTests
 import JapanTaxLaw.GiftTaxTests
 import JapanTaxLaw.GolfCourseUseTaxStandardRate
 import JapanTaxLaw.GolfCourseUseTaxStandardRateSpec
@@ -1241,6 +1250,9 @@ import JapanTaxLaw.LocalTaxArt144_33FineTier2Tests
 import JapanTaxLaw.LocalTaxArt144_33FineTier3
 import JapanTaxLaw.LocalTaxArt144_33FineTier3Spec
 import JapanTaxLaw.LocalTaxArt144_33FineTier3Tests
+import JapanTaxLaw.LocalTaxArt154Capacity30Condition
+import JapanTaxLaw.LocalTaxArt154Capacity30ConditionSpec
+import JapanTaxLaw.LocalTaxArt154Capacity30ConditionTests
 import JapanTaxLaw.LocalTaxArt154FreightTonSurcharge
 import JapanTaxLaw.LocalTaxArt154FreightTonSurchargeSpec
 import JapanTaxLaw.LocalTaxArt154FreightTonSurchargeTests
@@ -1807,6 +1819,12 @@ import JapanTaxLaw.RndExcessOver15Tests
 import JapanTaxLaw.RndExcessOver3
 import JapanTaxLaw.RndExcessOver3Spec
 import JapanTaxLaw.RndExcessOver3Tests
+import JapanTaxLaw.RndExcessOver4Year
+import JapanTaxLaw.RndExcessOver4YearSpec
+import JapanTaxLaw.RndExcessOver4YearTests
+import JapanTaxLaw.RndExcessOver7Year
+import JapanTaxLaw.RndExcessOver7YearSpec
+import JapanTaxLaw.RndExcessOver7YearTests
 import JapanTaxLaw.RndSurchargeRate
 import JapanTaxLaw.RndSurchargeRateSpec
 import JapanTaxLaw.RndSurchargeRateTests
@@ -1822,6 +1840,9 @@ import JapanTaxLaw.RoadWidthThresholdTests
 import JapanTaxLaw.SCFVPenaltyCeiling
 import JapanTaxLaw.SCFVPenaltyCeilingSpec
 import JapanTaxLaw.SCFVPenaltyCeilingTests
+import JapanTaxLaw.SalaryIncreaseRate5Or15
+import JapanTaxLaw.SalaryIncreaseRate5Or15Spec
+import JapanTaxLaw.SalaryIncreaseRate5Or15Tests
 import JapanTaxLaw.SalaryTotal300k
 import JapanTaxLaw.SalaryTotal300kSpec
 import JapanTaxLaw.SalaryTotal300kTests
