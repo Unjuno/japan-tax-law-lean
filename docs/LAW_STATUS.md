@@ -109,7 +109,7 @@ a completion flag.
 | `340AC0000000033` | 所得税法 | 340AC0000000033_20261001_507AC0000000070 | CurrentEnforced | YES | - | 0 | YES (29) | NO |
 | `340AC0000000034` | 法人税法 | 340AC0000000034_20261001_508AC0000000012 | CurrentEnforced | YES | - | 0 | YES (11) | NO |
 | `340CO0000000084` | 国際復興開発銀行等からの外資の受入に関する特別措置に関する法律に基づく債券の利子の非課税 | 340CO0000000084_20171001_429CO0000000106 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
-| `340CO0000000096` | 所得税法施行令 | 340CO0000000096_20260522_508CO0000000093 | CurrentEnforced | YES | - | 0 | YES (7) | NO |
+| `340CO0000000096` | 所得税法施行令 | 340CO0000000096_20260522_508CO0000000093 | CurrentEnforced | YES | - | 0 | YES (9) | NO |
 | `340CO0000000097` | 法人税法施行令 | 340CO0000000097_20261001_507CO0000000121 | CurrentEnforced | YES | - | 0 | YES (7) | NO |
 | `340M50000040011` | 所得税法施行規則 | 340M50000040011_20261001_507M60000040018 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 | `340M50000040012` | 法人税法施行規則 | 340M50000040012_20261001_505M60000040013 | CurrentEnforced | YES | - | 0 | YES (4) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 412
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 414
