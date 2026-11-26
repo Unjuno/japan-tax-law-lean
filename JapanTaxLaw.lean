@@ -1733,6 +1733,12 @@ import JapanTaxLaw.QuotaCertificateValidityPeriodTests
 import JapanTaxLaw.RankedAmountCountTen
 import JapanTaxLaw.RankedAmountCountTenSpec
 import JapanTaxLaw.RankedAmountCountTenTests
+import JapanTaxLaw.RateReading20To10
+import JapanTaxLaw.RateReading20To10Spec
+import JapanTaxLaw.RateReading20To10Tests
+import JapanTaxLaw.RateReading20To25
+import JapanTaxLaw.RateReading20To25Spec
+import JapanTaxLaw.RateReading20To25Tests
 import JapanTaxLaw.RatioCapAtOne
 import JapanTaxLaw.RatioCapAtOneSpec
 import JapanTaxLaw.RatioCapAtOneTests
