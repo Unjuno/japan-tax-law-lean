@@ -662,6 +662,9 @@ import JapanTaxLaw.DutyFreeLightOilOrderEnforcementDateTests
 import JapanTaxLaw.DutyFreeTransfer
 import JapanTaxLaw.DutyFreeTransferSpec
 import JapanTaxLaw.DutyFreeTransferTests
+import JapanTaxLaw.ElderlySpouseDeduction
+import JapanTaxLaw.ElderlySpouseDeductionSpec
+import JapanTaxLaw.ElderlySpouseDeductionTests
 import JapanTaxLaw.ElectronicSystemDesignation
 import JapanTaxLaw.ElectronicSystemDesignationSpec
 import JapanTaxLaw.ElectronicSystemDesignationTests
@@ -1780,9 +1783,15 @@ import JapanTaxLaw.RetirementResidual3MTests
 import JapanTaxLaw.RiceContentThreshold
 import JapanTaxLaw.RiceContentThresholdSpec
 import JapanTaxLaw.RiceContentThresholdTests
+import JapanTaxLaw.RndExcess0To12
+import JapanTaxLaw.RndExcess0To12Spec
+import JapanTaxLaw.RndExcess0To12Tests
 import JapanTaxLaw.RndExcess3To15
 import JapanTaxLaw.RndExcess3To15Spec
 import JapanTaxLaw.RndExcess3To15Tests
+import JapanTaxLaw.RndExcessAtMost3
+import JapanTaxLaw.RndExcessAtMost3Spec
+import JapanTaxLaw.RndExcessAtMost3Tests
 import JapanTaxLaw.RndExcessOver12
 import JapanTaxLaw.RndExcessOver12Spec
 import JapanTaxLaw.RndExcessOver12Tests
