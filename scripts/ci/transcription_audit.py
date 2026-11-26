@@ -91,6 +91,12 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # HouseholdCorrectionFloor07 — 航空機燃料譲与税法施行規則 art.4(8) (registered)
+    yield ("航空機燃料譲与税法施行規則 art.4(8)（世帯数〇・七下限）↔ HouseholdCorrectionFloor07.lean",
+           "347M50000008026", "article", "第四条", ["前年度の世帯数に〇・七を乗じて得た数に満たず、かつ、当該前年度の世帯数から当該補正世帯数を控除して得た数が千を超える場合には"])
+    # PowerDevelopmentTaxPenalty — 電源開発促進税法 art.12(4) 罰金上限 (registered)
+    yield ("電源開発促進税法 art.12（罰金上限＝max(五十万円,相当金額)）↔ PowerDevelopmentTaxPenalty.lean",
+           "349AC0000000079", "article", "第十二条", ["五十万円を超え当該電源開発促進税に相当する金額以下"])
     # FifthWheelGrossWeight — 登録免許税法施行規則 art.5(1) 牽引自動車の車両総重量
     yield ("登録免許税法施行規則 art.5(1)（車両総重量＝記録重量−第五輪荷重+牽引重量）↔ FifthWheelGrossWeight.lean",
            "346CO0000000275", "article", "第五条", ["その自動車検査証に記録される車両総重量から第五輪荷重を控除し牽けん引重量を加えた重量"])
@@ -1245,6 +1251,12 @@ def checks():
            "340AC0000000033",
            "article", "第二条",
            ["合計所得金額が千万円以下である居住者の配偶者をいう", "第二条"])
+
+    # 地方税法 art.72の24の2(1) — LocalTaxInsuranceBusinessBase24Percent.lean
+    yield ("地方税法 art.72の24の2(1)（収入保険料×24%）↔ LocalTaxInsuranceBusinessBase24Percent.lean",
+           "325AC0000000226",
+           "file", None,
+           ["収入保険料（再保険料として収入する保険料を除く。以下この項において同じ。）に百分の二十四を乗じて得た金額", "第七十二条の二十四の二"])
 
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
@@ -2442,6 +2454,12 @@ def checks():
            "file", None,
            ["第一条この法律は、昭和六十年四月一日から施行する", "この法律は、昭和六十年四月一日から施行する"])
 
+    # MutualDefenseAidAgreementEnforcementDate — cycle-131
+    yield ("MutualDefenseAidAgreementEnforcementDate.lean",
+           "329CO0000000103",
+           "file", None,
+           ["第一条この政令は、昭和六十四年四月一日から施行する", "この政令は、昭和六十四年四月一日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2632,6 +2650,11 @@ def checks():
     yield ("所得税法 art. 84の2（特定親族特別控除: 630k / (所得−840,001)×2 を十万段階で丸め / 1,150k超60k / 1,200k超30k）↔ SpecifiedRelativeSpecialDeduction.lean",
            "340AC0000000033", "article", "第八十四条の二",
            ["六十三万円からその特定親族の合計所得金額のうち八十四万一円を超える部分の金額に二を乗じた金額", "十万円の整数倍の金額から八万円を控除した金額", "百十五万円を超え百二十万円以下である特定親族"])
+
+    # 租税特別措置法施行令 art. 42の3(2)一 — RedevelopmentShareRatio.lean
+    yield ("租税特別措置法施行令 art. 42の3(2)一（持分割合 = (土地持分−旧権利持分)/土地持分、単独権利・零下回り・分母零は零）↔ RedevelopmentShareRatio.lean",
+           "332CO0000000043", "article", "第四十二条の三",
+           ["当該土地に関する権利の持分の割合から当該旧権利の持分の割合を控除した割合を当該土地に関する権利の持分の割合で除して計算した割合（当該旧権利がその者が単独で有する所有権若しくは借地権である場合又は当該控除した割合が零を下回る場合には、零）"])
 
     # 所得税法 art. 86 — IncomeBasicDeduction.lean (4-tier basic deduction)
     yield ("所得税法 art. 86（基礎控除: 合計所得2350万以下58万・2400万以下48万・2450万以下32万・2500万以下16万・2500万超0 — 境界値を smoke 確認、合計所得額は caller-established）↔ IncomeBasicDeduction.lean",
@@ -4821,6 +4844,15 @@ def checks():
     yield ("関税暫定措置法 art. 7_4（差額75%超）↔ TriggerPriceGapOver75Percent.lean",
            "335AC0000000036", "file", None,
            ["発動基準価格と課税価格との差額が発動基準価格に百分の七十五を乗じて得た金額を超える場合"])
+
+    # 租税特別措置法施行令 art. 40の8 — MedicalCorpCapitalOver50.lean (出資50%超)
+    yield ("租税特別措置法施行令 art. 40_8（医療法人出資50%超）↔ MedicalCorpCapitalOver50.lean",
+           "332CO0000000043", "file", None,
+           ["当該医療法人の出資の総額の百分の五十を超える金額"])
+    # 所得税法施行令 art. 182の2 — Below200kYen.lean (20万円未満)
+    yield ("所得税法施行令 art. 182_2（20万円未満）↔ Below200kYen.lean",
+           "340CO0000000096", "file", None,
+           ["二十万円未満である場合"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
