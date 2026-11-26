@@ -13,28 +13,17 @@ obligations being complete. SKIP is never counted as PASS.
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: (none)
-<<<<<<< HEAD
-- current HEAD commit: 34391123ed5023371e1665712089e5bed9526618
-=======
-- current HEAD commit: 09c69d85196f5a2849b18118367c878d2b6b0796
->>>>>>> origin/main
+- current HEAD commit: 3b01aee09c9bebe9e9b4d32a593bc1b0a31cfaaa
 - results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all TECHNICAL obligations complete (human review excluded)
 
 - normative units: 396854
-<<<<<<< HEAD
-- NOT_STARTED: 395740
+- NOT_STARTED: 395742
 - PARTIAL: 0
-- PROVED_SCOPE: 0
-- FULLY_VERIFIED: 1112
-=======
-- NOT_STARTED: 395741
-- PARTIAL: 0
-- PROVED_SCOPE: 0
-- FULLY_VERIFIED: 1111
->>>>>>> origin/main
+- PROVED_SCOPE: 1
+- FULLY_VERIFIED: 1109
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180617
@@ -54,46 +43,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-<<<<<<< HEAD
-| partially formalized (spec / impl / tests evidence) | 1112 | 396854 |
-| kernel proved (CI-attested proof evidence) | 1112 | 396854 |
-| source-audited (原文 correspondence evidence) | 1112 | 396854 |
-=======
-| partially formalized (spec / impl / tests evidence) | 1111 | 396854 |
-| kernel proved (CI-attested proof evidence) | 1111 | 396854 |
-| source-audited (原文 correspondence evidence) | 1111 | 396854 |
->>>>>>> origin/main
+| partially formalized (spec / impl / tests evidence) | 1110 | 396854 |
+| kernel proved (CI-attested proof evidence) | 1110 | 396854 |
+| source-audited (原文 correspondence evidence) | 1110 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-<<<<<<< HEAD
-| adversarial_review | 1112 |
-| boundary_proof | 1112 |
-| cross_law_proof | 1112 |
-| decomposition_audit | 1112 |
-| implementation | 1112 |
-| independent_spec | 1112 |
-| kernel_proof | 1112 |
-| proof_scope | 1112 |
-| source_correspondence_audit | 1112 |
-| source_location | 1112 |
-| tests | 1112 |
-=======
-| adversarial_review | 1111 |
-| boundary_proof | 1111 |
-| cross_law_proof | 1111 |
-| decomposition_audit | 1111 |
-| implementation | 1111 |
-| independent_spec | 1111 |
-| kernel_proof | 1111 |
-| proof_scope | 1111 |
-| source_correspondence_audit | 1111 |
-| source_location | 1111 |
-| tests | 1111 |
->>>>>>> origin/main
+| adversarial_review | 1110 |
+| boundary_proof | 1110 |
+| cross_law_proof | 1110 |
+| decomposition_audit | 1110 |
+| implementation | 1110 |
+| independent_spec | 1110 |
+| kernel_proof | 1110 |
+| proof_scope | 1110 |
+| source_correspondence_audit | 1110 |
+| source_location | 1110 |
+| tests | 1110 |
 
 ## Verdict
 
