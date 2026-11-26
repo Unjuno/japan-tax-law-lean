@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=3751, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=3886, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=3751 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=3886 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -157,7 +157,11 @@ exception batch pipeline: verified=3 failed=0 / verified=54 failed=0
 $ python scripts/ci/batch_delegated_limit_pipeline.py --limit 10
 delegated-limit batch pipeline: verified=3 failed=0
 
-$ python -m unittest discover -s scripts/tests -t . → 217 tests, OK
+$ rate guard relaxed: structural 条/項/号/目 refs no longer treated as statutory quantities
+$ python scripts/ci/batch_rate_pipeline.py --limit 50 / 50 / 50
+rate batch pipeline: verified=50/50/35, failed=0 in every run
+
+$ python -m unittest discover -s scripts/tests -t . → 219 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -494,7 +498,13 @@ delegated monetary ceilings (政令/省令で定める額以下) with the ceilin
 caller-established and NOT resolved; universal comparison and monotonicity
 are kernel-proved. 3 units were verified with two selection tests.
 
-So 3751 units are evidence-backed FULLY_VERIFIED and 393,101 remain NOT_STARTED
+The integer-rate guard was refined: numerals belonging to structural
+references (第X条 / 第Y項 / 第Z号 / 第W目) are no longer mistaken for statutory
+quantities such as amounts or periods. Such references are recorded as
+caller-established and NOT resolved in the evidence. Bare statutory numerals
+are still rejected. 135 more rate units were verified with two tests.
+
+So 3886 units are evidence-backed FULLY_VERIFIED and 392,966 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is

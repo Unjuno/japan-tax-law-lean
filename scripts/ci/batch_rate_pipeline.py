@@ -34,7 +34,10 @@ DECIMAL_PCT_RE = re.compile(r"百分の[〇零一二三四五六七八九十百�
 # 「四百分の二百」 is a 200/400 fraction, not a 200/100 rate. PCT_RE would
 # otherwise match the 「百分の二百」 substring and silently mis-state the law.
 NON_HUNDRED_DENOM_RE = re.compile(r"[〇零一二三四五六七八九十千万億]+百分の")
-OTHER_NUM_RE = re.compile(r"([〇零一二三四五六七八九十百千万億]+)(円|年|月|日|回|号|条|項)")
+# Structural references (第X条 / 第Y項 / 第Z号 / 第W目) identify provisions;
+# they are recorded as unresolved dependencies, not statutory quantities.
+# Other bare numerals remain excluded from this guarded class.
+BARE_NUM_RE = re.compile(r"[〇零一二三四五六七八九十百千万億]+(?!条|項|号|目)")
 
 
 def kanji_number(s: str) -> int:
@@ -156,8 +159,7 @@ def main() -> int:
             continue
         # Exclude norms that also carry other statutory literals: they need
         # a dedicated model (e.g. tiered rates, penalty caps).
-        others = OTHER_NUM_RE.findall(verb)
-        if others:
+        if BARE_NUM_RE.search(PCT_RE.sub("", verb)):
             continue
         try:
             n = kanji_number(pcts[0])
@@ -213,9 +215,11 @@ def main() -> int:
             "independent_spec": f"JapanTaxLaw/{mod}Spec.lean sha256={sha(paths[1])}; specFraction=({n},100) without TaxRate",
             "implementation": f"JapanTaxLaw/{mod}.lean sha256={sha(paths[0])}",
             "kernel_proof": f"lake build JapanTaxLaw.{mod}Tests OK; axioms: {ax.strip().replace(chr(10), ' | ')}",
-            "proof_scope": f"agree_spec_impl universal over all Nat bases; {n}% rate only",
+            "proof_scope": (f"agree_spec_impl universal over all Nat bases; {n}% rate only; "
+                            "surrounding applicability conditions NOT resolved"),
             "boundary_proof": f"{mod}Tests.lean kernel-decided bases 0/100/1000",
-            "cross_law_proof": f"dependencies={t.get('dependencies', [])}",
+            "cross_law_proof": (f"dependencies={t.get('dependencies', [])}; structural 条/項/号/目 "
+                                "references in the unit are caller-established, NOT resolved"),
             "tests": f"JapanTaxLaw/{mod}Tests.lean sha256={sha(paths[2])}",
             "adversarial_review": f"docs/BATCH_RATE_REVIEW.md generated entry for {uid[:16]} ({n}%)",
         }
