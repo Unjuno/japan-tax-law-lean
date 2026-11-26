@@ -220,8 +220,12 @@ lake clean && lake build                                                # 再現
 この 52 単位バッチも独立監査 PASS（約 90,400 比較・不一致 0、サンプル 6 単位、
 `remround_adversarial.md`）。さらに汎用の N分のM 相当額 301 単位
 （50 種類の分数）を、商×分子＋端数×分子/分母という分割定式の独立仕様で
-証明（`FractionAmounts`, 全称 `fracAmount_eq_decomposition`）。
-サンプル外は `PROVED_SCOPE`。
+証明（`FractionAmounts`, 全称 `fracAmount_eq_decomposition`）。ただし独立監査で
+分数の num/den が全 301 単位で逆変換されていることを発見（`fractions_adversarial_fail.md`,
+VERDICT: FAIL）。全単位を一旦 BLOCKED としてから num=分の後・den=分の前に
+修正し、証跡も訂正（`fractions_fix_resolution.md`）。算術恒等式自体は健全で、
+修正後の束縛は 301/301 検証済み。新たな監査 PASS がないため ADVERSARIAL_REVIEW
+は与えず、全単位 `PROVED_SCOPE` に留める。サンプル外も `PROVED_SCOPE`。
 
 **未達（続行すべき義務）**: 未検証義務の大部分（260,411 単位）、未解決条件
 140,289 単位、158 単位分の独立 ADVERSARIAL_REVIEW、人間の法的レビュー、
