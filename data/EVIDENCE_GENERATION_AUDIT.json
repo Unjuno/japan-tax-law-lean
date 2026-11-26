@@ -1,4 +1,42 @@
 {
+  "_units": {
+    "NORM|5de000c56114db06f52d1a708dd8aa5949e382c2ca53f4a245917cb9ae3c801a": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 8,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "RateReading20To25",
+      "spec_kanji_in_原文": [
+        "二十",
+        "二十五",
+        "百"
+      ]
+    },
+    "NORM|e244aa8884ce6f799e038246bb236125e7894c05ed781dea77614ed2fd737034": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 8,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "RateReading20To10",
+      "spec_kanji_in_原文": [
+        "二十",
+        "十",
+        "百"
+      ]
+    }
+  },
   "attestation_commit": "49d10bd9e639ce8b977904d0a2bbfd5c2aad16da",
   "module_detail": {
     "AccessoryPriceFloor": {
@@ -6508,6 +6546,44 @@
       "scoped_article_chars": 740,
       "spec_literals": [
         10
+      ]
+    },
+    "RateReading20To10": {
+      "adversarial_review": true,
+      "boundary_examples_found": 6,
+      "independent_spec": true,
+      "kanji_literals": [
+        "二十",
+        "十",
+        "百"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 8,
+      "needles_scoped": true,
+      "scoped_article_chars": 1452,
+      "spec_literals": [
+        10,
+        20,
+        100
+      ]
+    },
+    "RateReading20To25": {
+      "adversarial_review": true,
+      "boundary_examples_found": 6,
+      "independent_spec": true,
+      "kanji_literals": [
+        "二十",
+        "二十五",
+        "百"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 8,
+      "needles_scoped": true,
+      "scoped_article_chars": 1452,
+      "spec_literals": [
+        20,
+        25,
+        100
       ]
     },
     "RatioCapAtOne": {
