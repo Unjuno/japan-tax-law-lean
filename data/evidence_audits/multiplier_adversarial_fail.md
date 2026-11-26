@@ -39,6 +39,18 @@ change text and normative IDs for many units across the queue, so that broad
 policy change is deliberately NOT made for these four cases. They remain
 BLOCKED with the precise blocker rather than being silently reformatted.
 
+### Repair attempt measured and reverted (do not repeat blindly)
+Removing ItemTitle/Subitem1Title/... from `LABEL_TAGS` in `task_queue.py` and
+regenerating WAS tried: unit count stayed 268,107, but 33,202 normative IDs
+changed, BLOCKED rose 6 → 1,161, and FULLY_VERIFIED fell 3,578 → 3,206 because
+evidence keys no longer matched. A stable-key migration by
+(law_id, path, norm_start, norm_end) could only recover 166,955 of 268,107
+units (offsets shift when labels are included). The change was reverted and
+the backups restored; the deterministic projection returned to
+`NOT_STARTED 259,779 / FULLY_VERIFIED 3,578 / BLOCKED 6`. A correct repair
+must preserve IDs (e.g. add a contiguity flag without altering `unit.text`)
+or migrate evidence by a genuinely invariant key.
+
 ## Action
 The 4 units are BLOCKED with `SOURCE_SPAN_NONCONTIGUOUS_ADVERSARIAL` and receive
 no ADVERSARIAL_REVIEW axis. The other 66 receive the full-coverage axis (their
