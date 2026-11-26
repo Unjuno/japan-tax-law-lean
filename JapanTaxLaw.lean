@@ -1856,6 +1856,9 @@ import JapanTaxLaw.QualifiedInvoiceTaxAmountTests
 import JapanTaxLaw.QuorumOneThird
 import JapanTaxLaw.QuorumOneThirdSpec
 import JapanTaxLaw.QuorumOneThirdTests
+import JapanTaxLaw.QuotaApplicationCopyCountOne
+import JapanTaxLaw.QuotaApplicationCopyCountOneSpec
+import JapanTaxLaw.QuotaApplicationCopyCountOneTests
 import JapanTaxLaw.QuotaCertificateValidityPeriod
 import JapanTaxLaw.QuotaCertificateValidityPeriodSpec
 import JapanTaxLaw.QuotaCertificateValidityPeriodTests
@@ -2507,6 +2510,3 @@ import JapanTaxLaw.WidowDependentIncomeCeiling5MTests
 import JapanTaxLaw.WirePitch165nm
 import JapanTaxLaw.WirePitch165nmSpec
 import JapanTaxLaw.WirePitch165nmTests
-import JapanTaxLaw.QuotaApplicationCopyCountOne
-import JapanTaxLaw.QuotaApplicationCopyCountOneSpec
-import JapanTaxLaw.QuotaApplicationCopyCountOneTests
