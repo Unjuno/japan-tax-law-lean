@@ -1,0 +1,26 @@
+{
+  "commit": "8816a8d163a7f4011c5889f76bc062a1e8eec724",
+  "jobs": {
+    "Build Lean project and check axioms": {
+      "conclusion": "success",
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45463588568"
+    }
+  },
+  "modules": {
+    "FilingDateException.lean": {
+      "sha256": "ee648b3fae0c27f675af219df7109d4a8bc1a3b68d7fa47c9f9bf091e9d5e557"
+    },
+    "FilingDateExceptionSpec.lean": {
+      "sha256": "fa09d38f184b92519e3f1e24c7907380a2c6d8480e695caddf2cb634e2f05dfe"
+    },
+    "FilingDateExceptionTests.lean": {
+      "sha256": "a8aa03c59e9675f07c8f506fe3192ee62c89754b065ac5b0cffeadb4c7621e58"
+    }
+  },
+  "note": "Additional scoped attestation: 3 FilingDateException modules kernel-built at CI-green 8816a8d1; separate file avoids rebind-merge races.",
+  "run_conclusion": "success",
+  "schema": 1,
+  "scope": "lean_job_only",
+  "tool": "scripts/ci/make_scoped_attestation.py",
+  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45463588568"
+}
