@@ -732,6 +732,9 @@ import JapanTaxLaw.ForeignCorpResidualRateTests
 import JapanTaxLaw.ForeignDesignation
 import JapanTaxLaw.ForeignDesignationSpec
 import JapanTaxLaw.ForeignDesignationTests
+import JapanTaxLaw.ForeignSubsidiaryTaxRate20
+import JapanTaxLaw.ForeignSubsidiaryTaxRate20Spec
+import JapanTaxLaw.ForeignSubsidiaryTaxRate20Tests
 import JapanTaxLaw.ForeignTradeUsageRatio80
 import JapanTaxLaw.ForeignTradeUsageRatio80Spec
 import JapanTaxLaw.ForeignTradeUsageRatio80Tests

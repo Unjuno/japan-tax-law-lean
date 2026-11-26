@@ -13728,3 +13728,69 @@ needle はタスク提示の原文引用からレビュー側が書き起こし�
 - **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `5C1B7743270309C59891D9B50B18A52D818CFFE3BEF77E7168199950533F5388`・`1621343` バイト・広義レビュー件数 121 件（`^## .*review` ベース）。本セクション追記後は 122 件（Previous +1）へ増加。追記後の既存バイト列は前方一致で保持されていることを書き込み後の再読込で検証した（自己言及的なハッシュ値は本文に埋め込まない）。
 
 > **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・境界反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+### RndExcessOver3.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### RndExcessOver12.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### RndExcessOver15.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### RndExcess3To15.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### RndExcessAtMost3.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### RndExcess0To12.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### RndExcessOver4Year.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### RndExcessOver7Year.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### ContinuingIncreaseAtLeast5.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### SalaryIncreaseRate5Or15.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### ForeignSubsidiaryTaxRate20.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
