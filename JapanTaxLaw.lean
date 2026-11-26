@@ -76,6 +76,9 @@ import JapanTaxLaw.AviationFuelTaxRateTests
 import JapanTaxLaw.AviationFuelThousandRoundDown
 import JapanTaxLaw.AviationFuelThousandRoundDownSpec
 import JapanTaxLaw.AviationFuelThousandRoundDownTests
+import JapanTaxLaw.BankHeadOfficeTermReading
+import JapanTaxLaw.BankHeadOfficeTermReadingSpec
+import JapanTaxLaw.BankHeadOfficeTermReadingTests
 import JapanTaxLaw.BasicDeductionIncome23M50
 import JapanTaxLaw.BasicDeductionIncome23M50Spec
 import JapanTaxLaw.BasicDeductionIncome23M50Tests
@@ -166,6 +169,12 @@ import JapanTaxLaw.CombinableRecordItemsTwoTests
 import JapanTaxLaw.CombinedRegistrationRequest
 import JapanTaxLaw.CombinedRegistrationRequestSpec
 import JapanTaxLaw.CombinedRegistrationRequestTests
+import JapanTaxLaw.CombinedRndExcessAtMost3
+import JapanTaxLaw.CombinedRndExcessAtMost3Spec
+import JapanTaxLaw.CombinedRndExcessAtMost3Tests
+import JapanTaxLaw.CombinedRndExcessOver3
+import JapanTaxLaw.CombinedRndExcessOver3Spec
+import JapanTaxLaw.CombinedRndExcessOver3Tests
 import JapanTaxLaw.CommitteeTermTwoYears
 import JapanTaxLaw.CommitteeTermTwoYearsSpec
 import JapanTaxLaw.CommitteeTermTwoYearsTests
@@ -326,6 +335,9 @@ import JapanTaxLaw.CustomsSameContentLimitTests
 import JapanTaxLaw.CustomsSimilarGoods
 import JapanTaxLaw.CustomsSimilarGoodsSpec
 import JapanTaxLaw.CustomsSimilarGoodsTests
+import JapanTaxLaw.CustomsSmallBracket500k
+import JapanTaxLaw.CustomsSmallBracket500kSpec
+import JapanTaxLaw.CustomsSmallBracket500kTests
 import JapanTaxLaw.CustomsSmallConsignment
 import JapanTaxLaw.CustomsSmallConsignmentCap
 import JapanTaxLaw.CustomsSmallConsignmentCapSpec
