@@ -573,6 +573,34 @@ progress_ledger: COUNTED; NOT_STARTED delta -7; new modules 15
 All five target ids carry `kernel_proof` citing the correct run. Legal review
 stays pending.
 
+### Twenty-second iteration (batch 271)
+
+A twelfth delegated agent produced five units (`LocalTax37_2DesignationBanWithin3Years`,
+`59DecisionWithin30Days`, `72_54DecisionWithin60Days`, `73_34DemandWithin20Days`,
+`701_31Population300kPlus`) with independent specs, kernel tests, scoped needles
+and batch-271 review; build 2148 jobs, transcription 670, invariants 17/17.
+Every id passed mandatory generator-gate pre-validation (verifiable kind, no
+unhandled conditions, clause correspondence, scoped anchoring, coverage
+exact/unique, source path).
+
+The first CI run on `9a0293f8` failed three generated-ledger regeneration gates
+because the batch-271 commit added 15 modules without refreshing LAW_STATUS,
+COVERAGE and L7. Those ledgers were regenerated (`5606eb87`) and CI was re-run;
+run `45893480411` on `5606eb8710c32522bee58d0e4208e70384c17fcd` completed
+`success`. `data/PROOF_ATTESTATION_SCOPED_T22.json` binds 15 module hashes from
+committed blobs at that commit to that green run — no attestation was bound to
+the failed run.
+
+```
+before: FULLY_VERIFIED=1203 NOT_STARTED=395646 evidence=1206
+after:  FULLY_VERIFIED=1214 NOT_STARTED=395635 evidence=1217
+delta:  FULLY_VERIFIED=+11 NOT_STARTED=-11  evidence=+11
+progress_ledger: COUNTED; NOT_STARTED delta -11; new modules 15
+```
+
+All five target ids carry `kernel_proof` citing the correct run. Legal review
+stays pending.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |
