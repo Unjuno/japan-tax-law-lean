@@ -94,6 +94,7 @@ def checks():
     # TouristTaxTaxablePassengers — 国際観光旅客税法施行規則 art.3(2) ホ 課税旅客数
     yield ("国際観光旅客税法施行規則 art.3(2) ホ（課税旅客数＝イ−(ロ+ハ+ニ)）↔ TouristTaxTaxablePassengers.lean",
            "430M60000040039", "article", "第三条", ["イに掲げる数からロからニまでに掲げる数の合計数を控除した数"])
+
     yield ("航空機燃料税法 art. 14(1) 第四号（納付すべき税額＝二号税額−前号税額）↔ AircraftFuelTaxPayable.lean", "347AC0000000007", "article", "第十四条", ["第二号に掲げる航空機燃料税額から前号に掲げる航空機燃料税額を控除した金額"])
 
     yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
@@ -104,6 +105,7 @@ def checks():
     yield ("特別とん譲与税法 art.6(1)（都を市とみなす）↔ TokyoAsCityDeeming.lean",
            "332AC0000000077", "article", "第六条",
            ["この場合においては、都を市とみなして、この法律の規定を適用する。"])
+
     # Restored registry checks dropped by a concurrent stale-base rewrite.
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,
@@ -4463,17 +4465,16 @@ def checks():
            "325AC0000000226", "file", None,
            ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
 
-
     yield ("地方税法 art. 71_21（罰金上限50万円）↔ LocalTaxArt71_21FineCap500k.lean",
            "325AC0000000226", "file", None,
            ["一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
-
 
     # 酒税法 art. 30の2(1)(3) — TaxableQuantityResidual.lean
     yield ("酒税法 art. 30_2（第一号数量から前号数量を控除した課税標準数量）↔ TaxableQuantityResidual.lean",
            "328AC0000000006",
            "file", None,
            ["第一号に規定する課税標準たる数量からそれぞれ当該税率の適用区分ごとに前号に規定する課税標準たる数量を控除した数量（以下この項において「課税標準数量」という。）"])
+
     # 東日本大震災復興臨時特例法 art.2(1) — ReconstructionEqualLevySurcharge500.lean
     yield ("東日本大震災復興臨時特例法 第二条(1)（均等割標準税率 五百円加算）↔ ReconstructionEqualLevySurcharge500.lean",
            "423AC0000000118", "article", "第二条",
@@ -4496,15 +4497,14 @@ def checks():
            '325AC0000000226', 'file', None,
            ['次に掲げる金額のうちいずれか少ない金額の百分の二'])
 
-
     yield ("地方税法 art. 72_39_2（納税猶予100万円例外）↔ LocalTaxDeferralSmallAmountException1MB.lean",
            "325AC0000000226", "file", None,
            ["その猶予に係る税額が百万円以下である場合"])
+
     # 防衛特別法人税政令 art.3(6)(1) — DefenseCorpShortfallSum.lean
     yield ("防衛特別法人税政令 第三条(6)(1)（零下回る額の合計）↔ DefenseCorpShortfallSum.lean",
            "507CO0000000134", "article", "第三条",
            ["他の通算法人の他の課税事業年度の調整前控除限度額が零を下回る場合のその下回る額の合計額"])
-
 
     yield ("特別とん税法 art.10(1)（3年/50万円の上限）↔ SpecialTonnageArt10PenaltyCap.lean",
            "332AC0000000038",
@@ -4517,15 +4517,14 @@ def checks():
            "file", None,
            ["三百万円を超え四百万円以下の金額", "第二十一条の七"])
 
-
     yield ("地方税法 art. 51（標準税率超過時2%上限）↔ LocalTaxStandardRateCeiling2.lean",
            "325AC0000000226", "file", None,
            ["標準税率を超える税率で課する場合においても、百分の二を超えることができない。"])
+
     # 地方税法 art. 37 — LocalTaxReducedRate2or1.lean (2%/1%)
     yield ("地方税法 art. 37（2%／指定都市1%）↔ LocalTaxReducedRate2or1.lean",
            "325AC0000000226", "file", None,
            ["次に掲げる金額のうちいずれか少ない金額の百分の二"])
-
 
     # 関税率表第〇四〇六・一〇号 — FreshCheeseCardQualification.lean
     yield ("関税率表 art. 32（フレッシュチーズ・カード要件）↔ FreshCheeseCardQualification.lean",
@@ -4544,17 +4543,21 @@ def checks():
            "file", None,
            ["その期間を六月以内に限り延長することができる", "第八条"])
 
-
     yield ("地方税法 art. 37（2%／指定都市1%）↔ LocalTaxReducedRate2or1.lean",
            "325AC0000000226", "file", None,
            ["次に掲げる金額のうちいずれか少ない金額の百分の二"])
-
 
     # 地方税法 art. 314の6 — LocalInhabitantReducedRate3or4.lean (3%/4%)
     yield ("地方税法 art. 314_6（3%／指定都市4%）↔ LocalInhabitantReducedRate3or4.lean",
            "325AC0000000226", "file", None,
            ["次に掲げる金額のうちいずれか少ない金額の百分の三"])
 
+    # InheritanceTaxArt4DeemedAcquisitionCaption.lean - NORM|231c551d... (相続税法 art.4 ArticleCaption DEEMING, law 325AC0000000073)
+    # Whole-law locator (article caption).
+    yield ("inheritance tax law art.4 deemed acquisition caption - InheritanceTaxArt4DeemedAcquisitionCaption.lean",
+           "325AC0000000073",
+           "law", None,
+           ["\uff08\u907a\u8d08\u306b\u3088\u308a\u53d6\u5f97\u3057\u305f\u3082\u306e\u3068\u307f\u306a\u3059\u5834\u5408\uff09"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
