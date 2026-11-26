@@ -2424,6 +2424,12 @@ def checks():
            "file", None,
            ["者が老人控除対象配偶者である場合十万円（当該納税義務者の前年の合計所得金額が九百万円を超え九百五十万円以下である場合には六万円、当該納税義務者の前年の合計所得金額が九百五十万円を超え千万円以下である場合には三万円）", "第三十七条"])
 
+    # ForeignBondInterestExemptionScopeEnforcementDate — cycle-134
+    yield ("ForeignBondInterestExemptionScopeEnforcementDate.lean",
+           "333CO0000000337",
+           "file", None,
+           ["第一条この政令は、昭和四十年四月一日から施行する", "この政令は、昭和四十年四月一日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -4872,6 +4878,15 @@ def checks():
            "332AC0000000055",
            "file", None,
            ["第六号に掲げる揮発油税額から前号に掲げる揮発油税額を控除した金額に相当する揮発油税額（以下「移出に係る納付すべき税額」という。）"])
+
+    # 地方税法 art. 702の4 — CityPlanningTaxRateCeiling03.lean (0.3%上限)
+    yield ("地方税法 art. 702_4（都市計画税0.3%上限）↔ CityPlanningTaxRateCeiling03.lean",
+           "325AC0000000226", "file", None,
+           ["都市計画税の税率は、百分の〇・三を超えることができない。"])
+    # 地方税法 art. 37の2 — LocalTaxBracket195To330.lean (195万超330万以下)
+    yield ("地方税法 art. 37_2（195万超330万以下）↔ LocalTaxBracket195To330.lean",
+           "325AC0000000226", "file", None,
+           ["百九十五万円を超え三百三十万円以下の金額"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
