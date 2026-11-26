@@ -2572,6 +2572,12 @@ def checks():
            "file", None,
            ["第一条この省令は、平成三十年一月一日から施行する", "この省令は、平成三十年一月一日から施行する"])
 
+    # ManganeseDioxideAntiDumpingDutyEnforcementDate — cycle-147
+    yield ("ManganeseDioxideAntiDumpingDutyEnforcementDate.lean",
+           "420CO0000000196",
+           "file", None,
+           ["第一条この政令は、平成二十三年四月一日から施行する", "この政令は、平成二十三年四月一日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -5271,6 +5277,15 @@ def checks():
     yield ("租税特別措置法 art. 10_2（特別試験研究費控除20%）↔ SpecialRndDeduction20Percent.lean",
            "332AC0000000026", "file", None,
            ["控除対象特別試験研究費の額のうち前二号に規定する政令で定める金額以外の金額の百分の二十に相当する金額"])
+
+    # 租税特別措置法施行令 art. 51の2 — EnergyEfficiency110Pct.lean (110%)
+    yield ("租税特別措置法施行令 art. 51_2（効率110%以上）↔ EnergyEfficiency110Pct.lean",
+           "332CO0000000043", "file", None,
+           ["エネルギー消費効率が平成二十七年度基準エネルギー消費効率に百分の百十を乗じて得た数値以上であること。"])
+    # 租税特別措置法 art. 87 — SpecialMeasuresBracket50To80M.lean (5000万超8000万以下)
+    yield ("租税特別措置法 art. 87（5000万超8000万以下）↔ SpecialMeasuresBracket50To80M.lean",
+           "332AC0000000026", "file", None,
+           ["五千万円を超え八千万円以下の金額"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

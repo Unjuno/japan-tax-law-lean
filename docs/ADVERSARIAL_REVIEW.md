@@ -16025,3 +16025,15 @@ CI と同一の `text()`（JSON ノードの `children` のみ再帰連結）＋
 - **二段 read-then-write と検証**: 書き込み直前に再読込した状態の SHA-256 `A1ECE6DBEAB0D8AB29FA9ED87CF2FDA6165B0E5AE82F92A645EBD76BCAE1249B` / バイト数 `1,921,617` / 広義レビュー件数（`^## .*review` ベース = **141**）/ EI・EH・EG・EF・EE・ED・EC・EB・EA・DZ・DY・DX・DW・DV・DU・DT・Batch G の各存在と EJ の不在を確認し、その状態に本セクションのみを追記した。追記後は **142 件（Previous +1）** へ増加し、書き込み後の再読込で既存バイト列の前方一致・既存見出し残存を検証した（自己言及的なハッシュ値は本文に埋め込まない）。レビュー中に並行ワーストリームが `###` 見出しを追記したため、採用した値は書き込み直前の再読込値である。
 
 > **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲（特に原制定附則と改正附則の関係、本則の実体規定、附則他条）の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+### EnergyEfficiency110Pct.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### SpecialMeasuresBracket50To80M.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。

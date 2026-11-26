@@ -1034,3 +1034,7 @@ JapanTaxLaw/SpecialCorporationBusinessTaxEnforcementDateTests.lean # 同上 退�
 JapanTaxLaw/ForeignResidentReciprocityTaxEnforcementDate.lean    # 外国居住者等の所得に対する相互主義による所得税等の非課税等に関する省令 施行日2018-01-01（附則 art.1）L4
 JapanTaxLaw/ForeignResidentReciprocityTaxEnforcementDateSpec.lean # 同上 独立定式
 JapanTaxLaw/ForeignResidentReciprocityTaxEnforcementDateTests.lean # 同上 退行テスト
+
+JapanTaxLaw/ManganeseDioxideAntiDumpingDutyEnforcementDate.lean    # 電解二酸化マンガンに対して課する不当廉売関税に関する政令 施行日2011-04-01（附則 art.1）L4
+JapanTaxLaw/ManganeseDioxideAntiDumpingDutyEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/ManganeseDioxideAntiDumpingDutyEnforcementDateTests.lean # 同上 退行テスト
