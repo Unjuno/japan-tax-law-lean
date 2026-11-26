@@ -638,6 +638,9 @@ import JapanTaxLaw.SenSpecificDutyTests
 import JapanTaxLaw.FixedDeductions
 import JapanTaxLaw.FixedDeductionsSpec
 import JapanTaxLaw.FixedDeductionsTests
+import JapanTaxLaw.FiscalIndexMultiplier
+import JapanTaxLaw.FiscalIndexMultiplierSpec
+import JapanTaxLaw.FiscalIndexMultiplierTests
 import JapanTaxLaw.TariffSpecificFloor
 import JapanTaxLaw.TariffSpecificFloorSpec
 import JapanTaxLaw.TariffSpecificFloorTests

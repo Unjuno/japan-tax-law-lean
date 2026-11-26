@@ -332979,6 +332979,88 @@
         "tool": "independent-adversarial"
       }
     ],
+    "abb6aa4c7af1f2a641b0c4745db00bb9ad51217dc1f22a5fff51599ff2592db4": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T11:02:27+00:00",
+        "evidence_ref": "337M50000008017#第42条#pinned-fiscal-index",
+        "note": "財政力指数 0.47/0.63/0.78 3-band multiplier; independent tier-lookup spec; index>=0.78 OUT OF SCOPE; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T11:02:27+00:00",
+        "evidence_ref": "mechanical-audit:FISCAL-abb6aa4c7af1",
+        "note": "財政力指数 0.47/0.63/0.78 3-band multiplier; independent tier-lookup spec; index>=0.78 OUT OF SCOPE; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T11:02:27+00:00",
+        "evidence_ref": "task_queue.json#abb6aa4c7af1#coverage",
+        "note": "財政力指数 0.47/0.63/0.78 3-band multiplier; independent tier-lookup spec; index>=0.78 OUT OF SCOPE; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T11:02:27+00:00",
+        "evidence_ref": "JapanTaxLaw/FiscalIndexMultiplierSpec.lean#tier-lookup-spec@kernel",
+        "note": "財政力指数 0.47/0.63/0.78 3-band multiplier; independent tier-lookup spec; index>=0.78 OUT OF SCOPE; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T11:02:27+00:00",
+        "evidence_ref": "JapanTaxLaw/FiscalIndexMultiplier.lean#multiplier@kernel",
+        "note": "財政力指数 0.47/0.63/0.78 3-band multiplier; independent tier-lookup spec; index>=0.78 OUT OF SCOPE; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T11:02:27+00:00",
+        "evidence_ref": "JapanTaxLaw/FiscalIndexMultiplierSpec.lean#multiplier_agrees/multiplier_denominator_pos@kernel",
+        "note": "財政力指数 0.47/0.63/0.78 3-band multiplier; independent tier-lookup spec; index>=0.78 OUT OF SCOPE; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T11:02:27+00:00",
+        "evidence_ref": "JapanTaxLaw/FiscalIndexMultiplierSpec.lean#multiplier_agrees@universal-Nat@kernel",
+        "note": "財政力指数 0.47/0.63/0.78 3-band multiplier; independent tier-lookup spec; index>=0.78 OUT OF SCOPE; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T11:02:27+00:00",
+        "evidence_ref": "JapanTaxLaw/FiscalIndexMultiplierTests.lean#0.47/0.63/0.78-boundaries@kernel",
+        "note": "財政力指数 0.47/0.63/0.78 3-band multiplier; independent tier-lookup spec; index>=0.78 OUT OF SCOPE; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T11:02:27+00:00",
+        "evidence_ref": "JapanTaxLaw/FiscalIndexMultiplierTests.lean@kernel",
+        "note": "財政力指数 0.47/0.63/0.78 3-band multiplier; independent tier-lookup spec; index>=0.78 OUT OF SCOPE; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T11:13:29+00:00",
+        "evidence_ref": "data/evidence_audits/fiscal_multiplier_full_coverage.md#verdict-pass-5-5",
+        "note": "FULL-COVERAGE PASS: pinned SHA, all 6 statutory tokens, contiguous fragment, independent band parse matching Lean; >=0.78 out of scope",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit"
+      }
+    ],
     "abbb92ccca6b896f6ecd880b637c9463dd4ee810e3b080a7f56371d4f5e443fd": [
       {
         "axis": "SOURCE_LOCATION",
