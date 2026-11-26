@@ -4936,6 +4936,10 @@ def checks():
     yield ("関税暫定措置法 art. 7_4（差額75%超）↔ TriggerPriceGapOver75Percent.lean",
            "335AC0000000036", "file", None,
            ["発動基準価格と課税価格との差額が発動基準価格に百分の七十五を乗じて得た金額を超える場合"])
+    yield ("揮発油税法 art. 10（移出に係る納付すべき税額）↔ GasolineTransferPayable.lean",
+           "332AC0000000055",
+           "file", None,
+           ["第六号に掲げる揮発油税額から前号に掲げる揮発油税額を控除した金額に相当する揮発油税額（以下「移出に係る納付すべき税額」という。）"])
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
