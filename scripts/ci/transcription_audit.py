@@ -115,7 +115,10 @@ def checks():
     yield ("国税徴収法施行規則 art.1_6（随意契約時の公売規定準用）↔ PrivateContractPublicAuctionReading.lean",
            "337M50000040031", "article", "第一条の六", ["（随意契約により不動産を売却する場合における公売の規定の準用）"])
 
-    # Restored registry checks dropped by a concurrent stale-base rewrite.
+    # ApprovalRevocationSameTreatment.lean - NORM|09558050... (承認取消し時も同様 CONDITION, law 341M50000040004)
+    yield ("石油ガス税法施行規則 art.1(5)（承認取消し時も同様）↔ ApprovalRevocationSameTreatment.lean",
+           "341M50000040004", "article", "第一条", ["その承認を取り消す場合も、また同様とする。"])
+
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,
            ["事業所税の額の百分の五に相当する額とする"])
