@@ -115,7 +115,10 @@ def checks():
     yield ("国税徴収法施行規則 art.1_6（随意契約時の公売規定準用）↔ PrivateContractPublicAuctionReading.lean",
            "337M50000040031", "article", "第一条の六", ["（随意契約により不動産を売却する場合における公売の規定の準用）"])
 
-    # Restored registry checks dropped by a concurrent stale-base rewrite.
+    # TestimonyParagraphReading.lean - NORM|4c66461b... (証言準用 READING, law 406CO0000000417)
+    yield ("緊急関税等政令 art.4(9)（証言準用）↔ TestimonyParagraphReading.lean",
+           "406CO0000000417", "article", "第四条", ["第四項から前項までの規定は、第一項前段又は第二項前段の規定によりされた証言について準用する。"])
+
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,
            ["事業所税の額の百分の五に相当する額とする"])
