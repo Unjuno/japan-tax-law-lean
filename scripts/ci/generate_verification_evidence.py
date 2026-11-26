@@ -177,7 +177,13 @@ def source_literals_verified(lits: set[int], text: str) -> bool:
     if rate is not None:
         pairs = {(a, b) for a in lits for b in lits if b and Fraction(a, b) == rate}
         if not pairs:
-            return False
+            # A single-literal spec may legitimately express just the percentage
+            # numeral of a 「百分のN」 ceiling (e.g. N=2 「百分の二を超えること
+            # ができない」). Accept only that exact N/100 rate with the verbatim
+            # kanji spelling in this clause; a wrong rate or numeral still fails.
+            single = [v for v in lits if v and Fraction(v, 100) == rate
+                      and any(x in text for x in kanji_variants(v))]
+            return bool(single)
         used = {v for pair in pairs for v in pair}
         return all(any(x in text for x in kanji_variants(v)) for v in (lits - used))
     found = {v for v in lits if any(x in text for x in kanji_variants(v))}
@@ -275,7 +281,9 @@ def spec_literals(spec_text: str) -> set[int]:
     """
     body = strip_comments(spec_text)
     cut = len(body)
-    for marker in ("example", "def agree"):
+    # Theorem proofs contain field projections such as `h.1` / `h.2`; those
+    # digits are NOT statutory literals and must never enter the numeral set.
+    for marker in ("example", "def agree", "theorem "):
         i = body.find(marker)
         if 0 <= i < cut:
             cut = i
@@ -346,7 +354,15 @@ def law_full_text(law_id: str) -> str:
     return ""
 
 
-def scoped_article_text(law_id: str, article: str) -> str:
+def scoped_article_text(law_id: str, article: str, anchors: list[str] | None = None) -> str:
+    """Return the text of ONE article with the given Num.
+
+    A law may contain several articles with the same Num (main provision plus
+    supplementary provisions). When pinned needles are supplied, select the
+    occurrence that actually contains one of them; this scopes verification to
+    the corresponding article instance rather than to an arbitrary same-numbered
+    article. Fall back to the first occurrence only when no anchor matches.
+    """
     inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
     for law in inv.get("laws", []):
         if law.get("law_id") != law_id:
@@ -357,14 +373,21 @@ def scoped_article_text(law_id: str, article: str) -> str:
             return ""
         doc = json.loads(p.read_text(encoding="utf-8"))
         root = doc.get("law_full_text")
+        want = [core.norm(a) for a in (anchors or []) if core.norm(a)]
+        fallback = ""
 
         def walk(n):
+            nonlocal fallback
             if isinstance(n, dict):
                 # Canonicalise both labels: transcription checks cite kanji
                 # titles (第六十六条) or 72_49_14 while e-Gov uses Arabic Num.
                 if n.get("tag") == "Article" and core.article_key(
                         str((n.get("attr") or {}).get("Num", ""))) == core.article_key(article):
-                    return core.norm(core.flat(n))
+                    text = core.norm(core.flat(n))
+                    if not want or any(a in text for a in want):
+                        return text
+                    if not fallback:
+                        fallback = text
                 for c in n.get("children", []) or []:
                     found = walk(c)
                     if found:
@@ -376,7 +399,7 @@ def scoped_article_text(law_id: str, article: str) -> str:
                         return found
             return ""
 
-        return walk(root)
+        return walk(root) or fallback
     return ""
 
 
@@ -578,7 +601,7 @@ def build() -> dict:
         tests_text = tests_p.read_text(encoding="utf-8") if tests_p.exists() else ""
         lits = spec_literals(spec_text)
         kanji = {int_to_kanji(v) for v in lits}
-        scoped = scoped_article_text(info["law_id"], info["article"])
+        scoped = scoped_article_text(info["law_id"], info["article"], info.get("needles", []))
         # A transcription check may cite several articles (e.g. art. 9の22 /
         # 35の4の5) while only one is modelled. Its needles are then genuine
         # pinned bytes from more than one article. Require every needle in the

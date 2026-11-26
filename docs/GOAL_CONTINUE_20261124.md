@@ -421,6 +421,40 @@ progress_ledger: COUNTED; NOT_STARTED delta -25; new modules 15
 
 All five target ids carry `kernel_proof`. Legal review stays pending.
 
+### Sixteenth iteration (batch 259)
+
+A sixth delegated agent produced five units (`LocalTax28TwoAdjustmentParts`,
+`51StandardRateCeiling2`, `7_2IncomeOver9M`, `72_24_7IncomeOver8M`,
+`9_2Band4MTo1B`) with independent specs, kernel tests, scoped needles and
+batch-259 review; build 2058 jobs, transcription 640, invariants 17/17.
+CI run `45837967771` on `ceb1342edf1b4602a9d735066976dfcd084a91ae` completed
+`success`; `data/PROOF_ATTESTATION_SCOPED_T16.json` binds 15 module hashes from
+committed blobs at that commit to that run.
+
+Three of the five units initially failed the evidence gate. Diagnosis and
+repair (without weakening any gate):
+
+- `spec_literals` was reading `h.1` / `h.2` theorem-proof field projections as
+  statutory numerals; it now stops at the first `theorem ` / `example` marker.
+- A single-literal spec for a 「百分のN」 ceiling (`amount ≤ 2`) did not satisfy
+  the rate-ratio matcher; it is now accepted only when `N/100` is exactly the
+  clause rate and the kanji spelling occurs verbatim in that clause.
+- `scoped_article_text` returned the first article with a given `Num`, missing
+  supplementary provisions; it now selects the same-`Num` occurrence carrying
+  the pinned needle, so the unit text is checked in the corresponding article
+  instance rather than an arbitrary same-numbered article.
+
+```
+before: FULLY_VERIFIED=1074 NOT_STARTED=395775 evidence=1077
+after:  FULLY_VERIFIED=1142 NOT_STARTED=395707 evidence=1145
+delta:  FULLY_VERIFIED=+68 NOT_STARTED=-68  evidence=+68
+progress_ledger: COUNTED; NOT_STARTED delta -68; new modules 15
+```
+
+All five target ids carry `kernel_proof` citing the correct run; the wider +68
+includes previously stale entries recovered by honest re-scoping. Legal review
+stays pending.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |
