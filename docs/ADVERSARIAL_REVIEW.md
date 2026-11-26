@@ -15175,3 +15175,103 @@ needle は `scripts/ci/transcription_audit.py` L2443 の cycle-135 定義をレ�
 - **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `0ac014991813c5442570931f9c12f3cd0d15f0c04d65dfb89fc7ce5379f07351`・`1778021` バイト・広義レビュー件数 **`133` 件**（`^## .*review` ベース、末尾見出し = Batch EA）。本セクション追記後は **`134` 件（Previous +1）**。書き込み後の再読込で、広義件数 134・既存バイト列の前方一致（先頭 1,778,021 バイト同一）・既存見出し残存（Batch G / DT / DU / DV / DW / DX / DY / DZ / EA を含む）を確認した。
 
 > **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+## Batch EC review (2026-11-27) — たばこ特別税に関する政令 附則 art.1（施行日 平成10年12月1日 = 1998-12-01）/ `TobaccoSpecialTaxEnforcementDate.lean`（cycle-139 1モデル）
+
+- **レビュア役割**: Adversarial Review Agent（形式化担当から独立）。担当者の申告および EB / EA / DZ の結論は信じず、pinned raw JSON の自前再帰走査、CI と同一の `flat`+`norm` 経路、Lean kernel（`by decide` / `#eval`）、`#print axioms` を各々独立に再実行した。**本レビューは機械的独立照合であり、人間の法律専門家レビューではない。**
+- **対象モジュール（読み取り専用・変更していない）**: `JapanTaxLaw/TobaccoSpecialTaxEnforcementDate.lean` / `JapanTaxLaw/TobaccoSpecialTaxEnforcementDateSpec.lean` / `JapanTaxLaw/TobaccoSpecialTaxEnforcementDateTests.lean`。
+- **pinned source**: `data/raw/410CO0000000345_20241001_506CO0000000147.law.json`（62,167 バイト、自前計算 SHA-256 `C469A9AA9726C52E41D01B91DD630C58EB73BED045C53013AC6B66BBFBF8B214`。INVENTORY の `raw_snapshot.source_sha256` = 同値 / `size_bytes` = 62167 と一致）。`law_info.law_id = 410CO0000000345`、`law_type = CabinetOrder`、`law_num = 平成十年政令第三百四十五号`、`revision_info.law_revision_id = 410CO0000000345_20241001_506CO0000000147`、`law_title = たばこ特別税に関する政令`、`current_revision_status = CurrentEnforced`、`promulgation_date = 1998-10-28`。`revision_info.amendment_enforcement_date = 2024-10-01` は現行 revision の改正情報であり、本モデルの施行日ではない。
+- **禁止操作**: commit / push / merge / ブランチ切替は一切実行していない。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。Lean モジュール・`data/*` は読み取り専用。監査用一時ファイルは削除済み。
+
+### EC-1. pinned 原文の直接独立抽出と照合
+
+- `law_full_text` を自前再帰走査し `SupplProvision`（附則）**14 ブロック**を列挙。施行日文言を持つ対象は **index 0**（最初の附則、`（施行期日）`）。構造は `Article[Num=1]` / `ArticleTitle=第一条` / `ParagraphSentence/Sentence=この政令は、平成十年十二月一日から施行する。` で、scoped 文本は **`附　則（施行期日）第一条この政令は、平成十年十二月一日から施行する。（手持品課税に係る申告等）第二条…`**。doc-comment 13 行目の「第一条 この政令は、平成十年十二月一日から施行する。」は U+3000 **1 個**の差のみで正規化後完全一致。
+- children-only flatten + `re.sub(r"[\s\u3000]+","",…)` 正規化で `第一条この政令は、平成十年十二月一日から施行する。` / `この政令は、平成十年十二月一日から施行する。` / `平成十年十二月一日` はいずれも **count = 1**（verbatim-unique）。
+- **元号換算の独立確認**: 平成元年 = 1989 → `1989 + 10 − 1 = 1988 + 10 = 1998`。Lean 上で `heiseiToSeireki 9 = 1997` / `10 = 1998` / `11 = 1999` を `#eval` し、前後年の off-by-one がないことを確認。`enforcementDate = (1998, 12, 1)`、`dateKey = 19981201`、`inForce(d) = dateKey d >= 19981201` は原文逐語から一意に導かれる。
+- **混同の明示除外**: 正規化全文で `平成九年十二月一日` = **0**、`平成十一年十二月一日` = **0**、`平成十年十一月三十日` = **0**、`平成十年十二月二日` = **0**（平成9=1997 / 平成11=1999、11月30日・12月2日はいずれも原文に存在せず、モデル境界値としてのみ使用）。同じ pinned の後続附則には平成11年4月1日 / 平成15年4月1日 / 平成18年4月1日 / 平成20年10月1日 / 平成21年4月1日 / 平成22年10月1日 / 平成27年7月1日 / 平成29年4月1日 / 平成30年10月1日 / 令和2年4月1日 / 令和6年10月1日 等の**別改正の施行日**が存在するが、本モデルの 1998-12-01 とは別概念（下記 B-1 / B-7）。
+
+### EC-2. needle 2 本の検証（U+3000 = 0 / 2-of-2 FOUND）
+
+- `scripts/ci/transcription_audit.py::checks()` の **cycle-139 エントリ**（2497〜2501 行目、`# TobaccoSpecialTaxEnforcementDate — cycle-139`）から 2 本を独立に抽出して検証:
+  1. `第一条この政令は、平成十年十二月一日から施行する`
+  2. `この政令は、平成十年十二月一日から施行する`
+- 両 needle の **U+3000 出現数 = 0 / 0**。CI 同一の `flat`+`norm` 経路で **2/2 FOUND（MISS 0）**、各 `flatn_count = 1`。needle 1 は `ArticleTitle=第一条` と `Sentence` にまたがるが children-only 連結では連続する。
+- 補足（BY-DESIGN B-3）: 生 JSON バイト列への部分文字列検索では needle 1 は **MISS**、needle 2 は **FOUND**（`第一条` と本文が別ノード）。cycle-139 エントリは `checks()` に**登録済み**であり、EB で指摘された cycle-138 の未登録状態とは異なる。
+
+### EC-3. 反例探索と独立 Spec との一致（cycle-138 からの移植検証）
+
+| 入力 d | dateKey | inForce | リポジトリ specInForce | レビュー側独立 spec | 一致 |
+|---|---:|---|---|---|---|
+| (1998, 11, 30) | 19981130 | false | false | false | ✅ |
+| (1998, 12, 1) | 19981201 | true | true | true | ✅ |
+| (1998, 12, 2) | 19981202 | true | true | true | ✅ |
+| (1997, 12, 1) | 19971201 | false | false | false | ✅ |
+| (1999, 1, 1) | 19990101 | true | true | true | ✅ |
+
+- すべて `lake env lean` 上の `#eval` / `by decide`（**exit code 0**）で kernel 確認。レビュー側独立 Spec は `Nat × Nat × Nat` の辞書順成分比較を自前実装（`d.1 > 1998` / `< 1998` / `d.2.1 > 12` / `< 12` / `d.2.2 >= 1`）し、リポジトリ `specInForce` とも別定式として照合。
+- **広域走査**: 1996〜2000 年の `5 年 × 12 月 × 31 日 = 1,860` 組み合わせで `inForce` と (1) レビュー側独立 Spec、(2) リポジトリ `specInForce` を比較し、いずれも **MISMATCH 0**。Lean 側の自前グリッド検証も **true**、`agreeTobaccoSpecialTaxEnforcementDate = true`。
+- **月境界の確認**: 月は 1〜12 が最大なので有効暦日域で `d.2.1 > 12` は**常に false**（デッド分岐）。実質的な判定は `d.1 == 1998 && d.2.1 == 12 && d.2.2 >= 1` であり、1998-12-01 を包含する。`>=1` は 12月1日に対して正しく、更新不要。
+- **cycle-138 → cycle-139 の定数・境界更新は正常**: cycle-138 Spec は `specDate=(1977,7,1)` / `d.1>1977` / `d.2.1>7` / `d.2.1==7`（Impl 元号定数 `1925`）。cycle-139 Spec は `specDate=(1998,12,1)` / `d.1>1998` / `d.2.1>12` / `d.2.1==12` / `d.2.2>=1`、Impl 元号定数は `1988`。**`1977` / `1925` / `>7` / `==7` の残置は 3 モジュール中所有 0 件**。DZ（2003-01-06）・EA（2000-04-01）由来の年ラベル残置（`2003` / `20030106` / `2000-04-01` / `1988 + 12` / `1988 + 15`）も 0 件。cycle-138/139 構築時に報告されやすい元号定数・月日・年ラベルの残置バグは本ファイルには存在しない。
+- BY-DESIGN 注記: `dateKey` の順序同型は正規日付成分（1≤月≤12, 1≤日≤31）に限り、不正な Nat（例: 月 0、日 101）では辞書順 Spec と分岐し得るが、doc-comment が `dateKey` を暦日の Nat キー符号化と定義しておりモデル対象外。
+
+### EC-4. `#print axioms` による公理監査
+
+- 一時 Lean ファイル（repo 外の承認済み一時ディレクトリ）から 3 モジュールを import し、名前付き **8 定義**（`heiseiToSeireki`, `enforcementDate`, `dateKey`, `enforcementKey`, `inForce`, `specDate`, `specInForce`, `agreeTobaccoSpecialTaxEnforcementDate`）およびレビュー側の独立検証定義 2 本（`ecMySpec`, `ecGrid`）の計 **10 宣言**に `#print axioms` を適用（`lake env lean`、exit code **0**）。
+- 結果は **10/10 とも `'…' does not depend on any axioms`**。`Classical.choice` / `sorryAx` / `Quot.sound` / `propext` の依存は **すべて 0 件**。import 時に全 `example := by decide` も型チェック済み。監査後、一時ファイルは削除済み。
+
+### EC-5. doc-comment の出典メタデータと cycle-138 コピー残存の厳密検査
+
+| doc-comment 記載 | pinned 側の独立値 | 照合 |
+|---|---|---|
+| `Law id: 410CO0000000345` | `law_info.law_id = 410CO0000000345` | ✅ |
+| `Revision: 410CO0000000345_20241001_506CO0000000147` | `revision_info.law_revision_id` と一致 | ✅ |
+| `Raw snapshot: data/raw/410CO0000000345_20241001_506CO0000000147.law.json` | 実在ファイル（62,167 バイト、SHA-256 上記 / INVENTORY 一致） | ✅ |
+
+- **年ラベル・計算式・説明文はいずれも正しい**: Impl 16 行目 `平成 10 年 = 1988 + 10 = 1998（平成元年 = 1989、1989+10-1=1998）`、17 行目 `enforcementDate = (1998, 12, 1)`、18 行目 `inForce(d) = dateKey(d) >= 19981201`、31 行目 `施行日 = 平成10年12月1日 = 1998-12-01`。Tests 6 行目 `平成10年=1998、施行日 1998-12-01。`。Spec 冒頭の pin も law / revision とも一致。`data/raw/data/raw/...` の二重 prefix や他 law-id トークンの混入は 0 件。
+- **Scope 行の必須文言は存在**: Impl 21 行目 `  - 附則の他条（経過措置等）・省令の実体規定（たばこ特別税の税率・申告等）は NOT MODELLED。`。指定された `たばこ特別税の税率・申告等` を含む。ただし法種別ラベル `省令` は pinned が `CabinetOrder`（政令）である点と整合しない（下記 U-3）。
+- **cycle-138（1977-07-01）由来の日付・年ラベル残存は検出されず**: 3 モジュールを走査し、`1977-07-01` / `19770701` / `1977` / `昭和52年` / `昭和五十二年` / `1925 + 52` / `2003-01-06` / `2000-04-01` / `1988 + 12` / `1988 + 15` / `証票の様式` / `純粋種` / `証明書の交付申請` / `臨時特別税` / `2001-01-06` / `2002-08-01` / `1965-04-01` の出現は**すべて 0 件**。→ **CONFIRMED（日付・年ラベル・計算式のコピー残存）= 0 件**。
+- **README / PROGRESS は同期済み**: `README.md` 1006〜1008 行目に `TobaccoSpecialTaxEnforcementDate.lean # たばこ特別税に関する政令 施行日1998-12-01（附則 art.1）L4` および Spec/Tests の行、`docs/PROGRESS.md` 177 行目に `…（施行日 平成10年12月1日=1998-12-01 — 他条・実体規定 NOT MODELLED）` を確認。両ファイルに `1977-07-01` / `昭和52年` が各 1 件存在するが、いずれも **README 1002 行目 / PROGRESS 175 行目の cycle-138 モジュール（`CustomsOfficerBadgeFormEnforcementDate.lean`）自身の行**であり、cycle-139 の行への誤混入ではない（明示除外）。
+- **CI `checks()` は cycle-139 登録済み**: `transcription_audit.py` 2497〜2501 行目に本モジュールのエントリと 2 needle が存在（EC-2 参照）。
+
+### EC-6. CONFIRMED / BY-DESIGN / UNRESOLVED の分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **8** |
+| **UNRESOLVED** | **3** |
+
+> **発見ゼロ（CONFIRMED = 0）を明示する。** 原文逐語・元号換算・needle・境界値・独立 Spec・公理監査・日付/年ラベルのコピー残存のいずれにも食い違いを検出しなかった（法種別ラベルのみ U-3 として保留）。
+
+#### CONFIRMED（0 件）
+
+- pinned の「平成十年十二月一日」と `heiseiToSeireki 10 = 1998` / `enforcementDate = (1998,12,1)` / `enforcementKey = 19981201` は一致。平成9/11、11月30日・12月2日への混同、cycle-137/138 由来の日付・年ラベル残存、公理依存はいずれも検出なし。
+
+#### BY-DESIGN（8 件）— 未形式化の確認を含む
+
+- **B-1 附則の他条は NOT MODELLED**: 附則 art.1（施行期日）の 1 日判定のみ。同じ pinned の附則には **art.2（手持品課税に係る申告等）**、**art.3（災害があった場合のたばこ税の控除等に関する経過措置）**、および後続 11 ブロックの別改正施行日（1999-04-01 等）が存在するが未形式化（Scope 行に明示）。
+- **B-2 本則の実体規定は NOT MODELLED**: 本則 art.1（定義）/ art.2（控除又は還付を受けようとするたばこ特別税額に関する書類）/ art.3（担保の提供）/ art.4（国税通則法等の適用の特例）/ art.5（たばこ税法施行令等の適用の特例）は形式化されていない。Scope 行の `たばこ特別税の税率・申告等` は未形式化範囲の表示であり、税率・申告手続のモデルではない。
+- **B-3 needle 1 の生 JSON リテラル不在**: 生バイトでは MISS だが `flat`+`norm` で 2/2 FOUND。cycle-139 エントリは `checks()` に登録済みで、モデル値に影響なし。
+- **B-4 `dateKey` = YYYYMMDD と施行日当日を含む `>=`**: 原文「十二月一日**から**施行する」から一意に導かれるモデル規約で、独立 Spec と有効暦日域で同値。不正日はドメイン外。
+- **B-5 元号ラベルの非保持**: 西暦年の算定のみを行い「平成十年」という元号ラベルをデータとして保持しない。
+- **B-6 cycle-138 からの元号定数・境界の移植**: 1925 → 1988、1977 → 1998、>7/==7 → >12/==12 が正しく更新済み。`>=1` は両者で同一のため変更不要。
+- **B-7 別概念の日付**: 公布日 1998-10-28、現行 revision の `amendment_enforcement_date = 2024-10-01`、附則 art.1 以外の施行日（1999-04-01 等）は、本モデルが対象とする附則 art.1 の 1998-12-01 とは別概念。
+- **B-8 `d.2.1 > 12` のデッド分岐**: 月は 1〜12 が最大のため有効暦日域では常に false。辞書順定式の完全性のため残置されており、境界判定は `==12 && d.2.2 >= 1` が担う（値の誤りではない）。
+
+#### UNRESOLVED（3 件）
+
+- **U-1 未形式化部分の法的適用関係と元号換算の法的最終確認**: 施行日のみでは附則 art.2/art.3 や他改正施行日の経過措置・本則の実体規定の実際の適用関係は確定不能。また平成元年 = 1989 という起算は外部の通則に依存し、原文には「平成十年十二月一日」としか記載がない。**人間の法律専門家による確認を要する。**
+- **U-2 未形式化範囲の取捨選択**: B-1 / B-2 のどこまでをモデル化するかは形式化担当のスコープ判断であり、本レビューでは保留（モデル値の誤りではない）。
+- **U-3 Scope 行の法種別ラベル「省令」**: pinned は `law_type = CabinetOrder`（政令）だが Scope 行は `省令の実体規定（…）` と記載。同型テンプレートは cycle-136（`省令の実体規定（臨時特別税の税率・申告等）`）にも見られ、1977-07-01 由来の日付残存ではない。別法「たばこ特別税に関する省令」(410M50000040122) を指す意図もあり得るため、修正要否は担当判断として保留。**モデル値・原文章合には影響なし。**
+
+### EC-7. 最終報告（サマリ）と二段 read-then-write 検証
+
+- **CONFIRMED 0 / BY-DESIGN 8 / UNRESOLVED 3**。原文・needle・反例・Impl/独立 Spec・公理監査・出典メタデータの値に食い違いなし。
+- **pinned 原文照合**: 14 ブロックの附則のうち index 0 の `SupplProvision → Article[Num=1] → Sentence` から「この政令は、平成十年十二月一日から施行する。」を直接抽出（count = 1）。1989+10−1 = 1988+10 = 1998 を確認し、平成9（1997）/ 平成11（1999）、11月30日・12月2日を明示除外。月12が年内最大のため `>12` は常に false である点も確認。
+- **needle**: 2 本とも U+3000 = 0、`flat`+`norm` で 2/2 FOUND、MISS 0。cycle-139 エントリは `checks()` 登録済み。
+- **反例**: `inForce(1998,11,30)=false` / `(1998,12,1)=true` / `(1998,12,2)=true`。リポジトリ Spec とレビュー側独立 Spec の両方と一致。1,860 組み合わせ（1996〜2000）で MISMATCH 0。cycle-138 からの年・月境界の更新（1977→1998, >7/==7, >12/==12）と元号定数 1925→1988 を確認し残置バグなし。
+- **公理**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件、10/10 axiom-free（exit code 0）。
+- **禁止操作の遵守**: commit / push / merge / ブランチ切替は一切実行していない。Lean モジュール・`data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ（一時ファイルは削除済み）。
+- **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `f1ae7d88f501eff9e9e54de5fa84347f49078d6fd71cdc0bdc470510b1c145ee`・`1,794,760` バイト・広義レビュー件数 **`134` 件**（`^## .*review` ベース、末尾見出し = Batch EB / 行 15082）。本セクション追記後は **`135` 件（Previous +1）**。書き込み後の再読込で、広義件数 135・既存バイト列の前方一致（先頭 1,794,760 バイト同一）・既存見出し残存（Batch G / DT / DU / DV / DW / DX / DY / DZ / EA / EB を含む）を確認した。
+
+> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。

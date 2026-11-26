@@ -1002,3 +1002,7 @@ python -m unittest scripts.tests.test_revision_impact # 8 テスト（実リポ�
 JapanTaxLaw/CustomsOfficerBadgeFormEnforcementDate.lean    # 税関職員証票等書式省令 施行日1977-07-01（附則 art.1）L4
 JapanTaxLaw/CustomsOfficerBadgeFormEnforcementDateSpec.lean # 同上 独立定式
 JapanTaxLaw/CustomsOfficerBadgeFormEnforcementDateTests.lean # 同上 退行テスト
+
+JapanTaxLaw/TobaccoSpecialTaxEnforcementDate.lean    # たばこ特別税に関する政令 施行日1998-12-01（附則 art.1）L4
+JapanTaxLaw/TobaccoSpecialTaxEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/TobaccoSpecialTaxEnforcementDateTests.lean # 同上 退行テスト
