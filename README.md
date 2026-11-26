@@ -1010,3 +1010,7 @@ JapanTaxLaw/TobaccoSpecialTaxEnforcementDateTests.lean # 同上 退行テスト
 JapanTaxLaw/TobaccoSpecialTaxRuleEnforcementDate.lean    # たばこ特別税に関する省令 施行日2004-01-19（附則 art.1）L4
 JapanTaxLaw/TobaccoSpecialTaxRuleEnforcementDateSpec.lean # 同上 独立定式
 JapanTaxLaw/TobaccoSpecialTaxRuleEnforcementDateTests.lean # 同上 退行テスト
+
+JapanTaxLaw/ReconstructionSpecialCorporationTaxEnforcementDate.lean    # 復興特別法人税に関する省令 施行日2012-04-01（附則 art.1）L4
+JapanTaxLaw/ReconstructionSpecialCorporationTaxEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/ReconstructionSpecialCorporationTaxEnforcementDateTests.lean # 同上 退行テスト
