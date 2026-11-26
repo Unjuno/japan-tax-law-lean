@@ -5163,6 +5163,13 @@ def checks():
            "file", None,
            ["当該金額に取引数（当該特許権譲渡等取引及び当該特定特許権等に係る他の特許権譲渡等取引の数をいう。以下この号において同じ。）から一を控除した数が取引数のうちに占める割合を乗じて計算した金額"])
 
+    # InheritanceTaxArt15ActualChildDeeming.lean - NORM|3a29e954... (相続税法 art.15(3) DEEMING, law 325AC0000000073)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("inheritance tax art.15 actual child deeming - InheritanceTaxArt15ActualChildDeeming.lean",
+           "325AC0000000073",
+           "file", None,
+           ["\u524d\u9805\u306e\u898f\u5b9a\u306e\u9069\u7528\u306b\u3064\u3044\u3066\u306f\u3001\u6b21\u306b\u63b2\u3052\u308b\u8005\u306f\u5b9f\u5b50\u3068\u307f\u306a\u3059\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
