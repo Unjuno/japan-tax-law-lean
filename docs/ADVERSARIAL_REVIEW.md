@@ -13728,3 +13728,308 @@ needle はタスク提示の原文引用からレビュー側が書き起こし�
 - **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `5C1B7743270309C59891D9B50B18A52D818CFFE3BEF77E7168199950533F5388`・`1621343` バイト・広義レビュー件数 121 件（`^## .*review` ベース）。本セクション追記後は 122 件（Previous +1）へ増加。追記後の既存バイト列は前方一致で保持されていることを書き込み後の再読込で検証した（自己言及的なハッシュ値は本文に埋め込まない）。
 
 > **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・境界反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+### RndExcessOver3.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### RndExcessOver12.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### RndExcessOver15.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### RndExcess3To15.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### RndExcessAtMost3.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### RndExcess0To12.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### RndExcessOver4Year.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### RndExcessOver7Year.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### ContinuingIncreaseAtLeast5.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### SalaryIncreaseRate5Or15.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### ForeignSubsidiaryTaxRate20.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### CombinedRndExcessOver3.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### CombinedRndExcessAtMost3.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+## Batch DR review (2026-11-26) — 国連軍地位協定実施法 附則 art.1（施行日）/ `UnForcesStatusAgreementEnforcementDate.lean`（cycle-128）
+
+### DR-0. 範囲・独立性の申告
+
+- 対象: `JapanTaxLaw/UnForcesStatusAgreementEnforcementDate.lean`（本文 47 行）と `...Spec.lean` / `...Tests.lean`。いずれも読み取り専用で、本レビューでは一切変更していない。形式化担当とは独立した Adversarial Review Agent による cycle-128 の 1 モデル照合。
+- 一次資料（pinned・改変禁止）: `data/raw/329AC0000000188_20260401_508AC0000000002.law.json`（law_id `329AC0000000188` / revision `329AC0000000188_20260401_508AC0000000002`、raw SHA-256 `0b656810c359c5f15abac674f5dce950efb361000335fcc70ae8926b9ef71361`）。ファイル名は `data/raw/` 直下であり、本文 doc-comment の `data/raw/data/raw/...` は prefix 二重の表記ゆれ（下記 B-4）。
+- 形式化担当の doc-comment / STAGING の数値は信じず、pinned JSON の `law_full_text` を Python で再帰走査して原文を直接再抽出した。独立 Spec はレビュー側で別定式（辞書順成分比較 `myInForce`）を書き起こして比較し、`Spec.lean` は補助確認に留めた。
+- commit / push / merge / ブランチ切替は一切実行していない。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
+
+### DR-1. pinned 原文の直接抽出・照合（昭和35年独立的算定）
+
+- 構造的路径: `law_full_text.children[1]`（`LawBody`）.`children[5]` = `SupplProvision`（attr `AmendLawNum = 昭和三五年六月三〇日法律第一一三号`, `Extract = true`）→ `children[1]` = `Article`（attr `Num = 1`）→ `children[2]` = `Paragraph`（`Num = 1`）→ `ParagraphSentence` leaf:
+  - **原文逐語**: 「この法律は、昭和三十五年七月一日から施行する。」
+- 漢数字の日付「**昭和三十五年七月一日**」を当該 leaf から直接抽出。pinned JSON 全体で同文字列は **1 回**のみ出現（他に「昭和三十五年」も 1 回）。
+- 元号算定（レビュー側で独立計算）: 昭和元年 = 1926 なので **1926 + 35 − 1 = 1960**。実装の `showaToSeireki 35 = 1925 + 35 = 1960` と一致。
+- **昭和34年/36年との混同を明示除外**: pinned JSON 全文で `昭和三十四年` = 0 件、`昭和三十六年` = 0 件、`1959` = 0 件、`1961` = 0 件。したがって 1959/1961 への 1 年ずれは存在しない。
+- doc-comment の「第一条 この法律は、昭和三十五年七月一日から施行する。」は、`Article Num=1` というラベルと文 leaf を人間読解用に空白連結した表記であり、空白入りの文字列が raw JSON にそのまま存在するわけではない（BY-DESIGN B-4 参照）。文 leaf 自体は逐語一致。
+
+| 原文（pinned） | レビュー側独立抽出 | Lean 実装 | 照合 |
+|---|---|---|---|
+| 昭和三十五年七月一日 | 1926+35−1 = **1960-07-01** | `showaToSeireki 35 = 1960`, `enforcementDate = (1960, 7, 1)` | ✅ |
+| 「…七月一日から施行する」 | 施行日 19600701（当日を含む） | `enforcementKey = 19600701`, `dateKey d >= enforcementKey` | ✅ |
+| 昭和三十四年 / 昭和三十六年 | 1959 / 1961（不使用） | 当該値はコード中に不在 | ✅（混同なし） |
+
+- 本則・附則の全体走査では、附則には他にも多条（本則に付随する附則「国連軍協定の効力発生の日から施行し…」、昭和33年・昭和38年・平成・令和の各改正附則）が存在する。1960-07-01 の文は `Extract = true` の改正附則由来である点を明示（B-5 / U-1）。
+
+### DR-2. needle 2 本の検証
+
+needle はタスク提示の原文引用からレビュー側が書き起こし、pinned raw JSON 文字列に対して検索した。
+
+| needle | 内容 | U+3000 数 | 結果 |
+|---|---|---:|---|
+| 1 | `昭和三十五年七月一日` | 0 | **FOUND**（一致 1 件） |
+| 2 | `この法律は、昭和三十五年七月一日から施行する。` | 0 | **FOUND**（一致 1 件） |
+
+→ **2/2 FOUND、MISS 0、両 needle の U+3000 = 0**。（参考: 空白入りの完全引用「第一条 この法律は、…。」は raw 文字列としては FOUND でない。構造上の `Article Num=1` と文 leaf の連結表記であるため。）
+
+### DR-3. 反例探索と独立 Spec（辞書順成分比較）との一致
+
+レビュー側が別に書いた辞書順成分比較 `myInForce`（`y>1960 → true` / `y<1960 → false` / `m>7 → true` / `m<7 → false` / 同月は `d>=1`）で `inForce` と比較した。
+
+| 日付 `(year, month, day)` | `inForce`（実装） | `myInForce`（独立 Spec） | 一致 |
+|---|---|---|---|
+| `(1960, 6, 30)` | `false` | `false` | ✅（施行前日） |
+| **`(1960, 7, 1)`** | **`true`** | **`true`** | ✅（施行日当日から） |
+| `(1960, 7, 2)` | `true` | `true` | ✅ |
+| `(1950, 1, 1)` | `false` | `false` | ✅ |
+| `(2000, 1, 1)` | `true` | `true` | ✅ |
+
+- 指示された 2 反例 `(1960,6,30)=false` / `(1960,7,1)=true` は独立 Spec と一致。
+- 年 1959/1960/1961 × 月 1〜12 × 日 1〜31 の **1,116 点**グリッドで `inForce d == myInForce d` を Lean カーネル `by decide` で検証し、不一致 **0**。`agreeUnForcesStatusAgreementEnforcementDate = true` も確認したが、独立根拠は `myInForce` 側である。
+- `dateKey` の `YYYYMMDD = Y*10000 + M*100 + D` は月・日が 2 桁範囲のとき辞書順と同値。`19600631 < 19600701` かつ `19600701 >= 19600701` を確認し、6/30 と 7/1 の境界反転は数値符号化由来ではなく原文の「七月一日から」に忠実。
+
+### DR-4. `#print axioms` 監査
+
+- 一時 Lean ファイルはリポジトリ内に作らず、`lake env lean --stdin` で 3 モジュールを import（**exit code 0**）。検証用一時ファイルは承認済み temp ディレクトリに置き、すべて削除済み。
+- 走査した **10 宣言**（`showaToSeireki`, `enforcementDate`, `dateKey`, `enforcementKey`, `inForce`, レビュー側 `myInForce`, `grid`, `specDate`, `specInForce`, `agreeUnForcesStatusAgreementEnforcementDate`）はすべて `"does not depend on any axioms"`。
+
+| 監査項目 | 件数 |
+|---|---:|
+| `Classical.choice` | **0** |
+| `sorryAx` | **0** |
+| `Quot.sound` | **0** |
+| `propext` | **0** |
+| axiom-free | **10/10** |
+
+- 3 ファイルのソース走査で `sorry` / `admit` / `axiom` / `unsafe` / `Classical` / `choice` / `propext` / `Quot.sound` は **一致 0 件**（`by decide` のみ）。公理監査は合格。
+
+### DR-5. CONFIRMED / BY-DESIGN / UNRESOLVED の分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0** |
+| **BY-DESIGN** | **5** |
+| **UNRESOLVED** | **2** |
+
+#### CONFIRMED（0 件）
+
+- 原文・日付算定・needle・反例・Impl/独立 Spec・公理監査のいずれにも食い違いなし。**発見ゼロを明示する。**
+
+#### BY-DESIGN（5 件）— 未形式化の確認を含む
+
+- **B-1 日付入力は caller-established**: `Nat × Nat × Nat` で与えられた成分を `YYYYMMDD` に符号化するのみ。暦としての妥当性（月 1〜12、日 1〜31、閏年）判定や不正日付の除外は行わない設計。doc-comment に法的レビュー非提供の旨を明記。
+- **B-2 施行日当日を含む (`>=`)**: 原文「七月一日から施行する」に忠実であり、境界を `>` としないのは意図的な設計。
+- **B-3 附則の他条・法律の実体規定は NOT MODELLED**: doc-comment の `Scope / NOT MODELLED` に明記。本モデルは施行日の算定のみを扱い、経過措置等や本則の実体規定（地方税法の特例の中身）は対象外。
+- **B-4 表記ゆれ（raw snapshot パス・引用の空白）**: doc-comment の `data/raw/data/raw/...` は prefix 二重の表記ゆれ（実在ファイルは `data/raw/...`）。また doc-comment の「第一条 この法律は、…。」は `Article Num=1` と文 leaf の連結表記で、raw JSON に空白入りでそのまま存在しない。いずれもモデル値・照合結果に影響しない。
+- **B-5 1960-07-01 文の出所**: 当該文は `SupplProvision`（`AmendLawNum = 昭和三五年六月三〇日法律第一一三号`, `Extract = true`）配下の `Article Num=1` に存在する。pinned された现行統合テキスト内の原文として照合したが、1954 年制定時の本来の附則そのものではない点を明示（法的な優先関係は U-1）。
+
+#### UNRESOLVED（2 件）
+
+- **U-1 本則附則と抽出附則の関係**: 本則に付随する附則は「国連軍協定の効力発生の日から施行し…」と定め、1960-07-01 は改正法（昭和35年法律第113号）の抽出附則に見える。両者の優先・適用関係（実際の施行日がいずれか）は pinned 原文のみでは決定不能。**人間の法律専門家による確認を要する**。
+- **U-2 未形式化部分の法適用上の影響**: 附則他条（経過措置等）・実体規定を NOT MODELLED とする判断は設計として明示済み（B-3）だが、他条との関連で施行日の解釈が変わるかどうかは pinned 原文のみでは確定できない。法的妥当性は保留。
+
+### DR-6. 最終報告（サマリ）
+
+- **CONFIRMED 0 / BY-DESIGN 5 / UNRESOLVED 2**。原文・needle・実装・独立 Spec の食い違いなし。
+- **pinned 原文照合**: `law_full_text.children[1].children[5].children[1].children[2]` の文 leaf から「昭和三十五年七月一日」を直接抽出。1926+35−1=1960 を独立確認し、昭和34/36年（1959/1961）の混同を明示除外。
+- **needle**: 2/2 FOUND、MISS 0、両方 U+3000 = 0。
+- **反例**: `inForce(1960,6,30)=false` / `inForce(1960,7,1)=true`。独立 Spec（辞書順成分比較）と 1,116 点グリッドで不一致 0。
+- **公理**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件、10/10 axiom-free（exit code 0）。リポジトリ内に一時 Lean ファイルは作成せず、temp の検証ファイルは削除済み。
+- **禁止操作の遵守**: commit / push / merge / ブランチ切替は一切実行していない。Lean モジュールと `data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
+- **二段 read-then-write と検証**: 書き込み直前に再読込した状態の SHA-256 / バイト数 / 広義レビュー件数（`^## .*review` ベース）を確認し、その状態に本セクションのみを追記した。追記後は件数が Previous + 1 に増加し、既存バイト列が前方一致で保持されることを書き込み後の再読込で検証した（自己言及的なハッシュ値は本文に埋め込まない）。並行ワーストリームが件数を変動させる可能性があるため、採用した値は書き込み直前の再読込値である。
+
+> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・境界反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+### CombinedRndExcessOver4Year.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### CombinedRndExcessOver7Year.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### LocalGrantBracket1000To5000.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の境界定数と境界例を照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### LocalTaxIncomeBracket4MTo1B.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の境界定数と境界例を照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+## Batch DS review (2026-11-26)
+
+地方交付税法 art.6の2 §2-3（普通交付税 94%・特別交付税 6%）/ `LocalGrantTaxRatio.lean` — cycle-129 の 1 モデル独立照合。
+
+### DS-0. 範囲・独立性の申告
+
+- 対象: `JapanTaxLaw/LocalGrantTaxRatio.lean`（本文 40 行）と `...Spec.lean` / `...Tests.lean`。いずれも読み取り専用で、本レビューでは一切変更していない。形式化担当とは独立した Adversarial Review Agent による cycle-129 の照合。
+- 一次資料（pinned・改変禁止）: `data/raw/325AC0000000211_20261102_508AC0000000062.law.json`（law_id `325AC0000000211` / revision `325AC0000000211_20261102_508AC0000000062`、raw 1,309,191 バイト、SHA-256 `151df453a55442acb1cdca91f420bc5f7b04b914b85d86b575311ff6e3a7cd95`）。doc-comment の `data/raw/data/raw/...` は prefix 二重の表記ゆれ（下記 B-4）。
+- 形式化担当の doc-comment / STAGING の数値は信じず、pinned JSON の `law_full_text` を Python で再帰走査して 2 文を直接再抽出した。独立 Spec（`base*47/50`, `base*3/50`）はレビュー側で別定式として確認し、`Spec.lean` は補助確認に留めた。
+- commit / push / merge / ブランチ切替は一切実行していない。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
+
+### DS-1. pinned 原文の直接抽出・照合（94% / 6% の独立的算出）
+
+- 構造的路径: `law_full_text -> Law[Num=211] -> LawBody -> MainProvision -> Article[Num=6_2] -> Paragraph[Num=2] -> ParagraphSentence -> Sentence[Num=1]`
+  - **原文逐語**: 「毎年度分として交付すべき普通交付税の総額は、前条第二項の額の百分の九十四に相当する額とする。」
+- 構造的路径: 同 `Article[Num=6_2] -> Paragraph[Num=3] -> ParagraphSentence -> Sentence[Num=1]`
+  - **原文逐語**: 「毎年度分として交付すべき特別交付税の総額は、前条第二項の額の百分の六に相当する額とする。」
+- レビュー側独立算出: 漢数字「百分の九十四」→ **94/100**、「百分の六」→ **6/100**。両文の基準はいずれも「前条第二項の額」で同一。合計 **94 + 6 = 100（100%）** を確認。
+- **桁違いの明示除外**: pinned JSON の全 leaf 走査で `9.4` / `9．4` / `九・四` / `九四‰` / `94‰` / `９４` / `0.6` / `0．6` / `六‰` / `9.4%` / `0.6%` はすべて **0 件**。両文にも ASCII/全角数字・小数点・中点は存在しない。したがって 9.4%・94‰・0.6% への読み替えは原文上存在しない。
+
+| 原文（pinned） | レビュー側独立抽出 | Lean 実装 | 照合 |
+|---|---|---|---|
+| 百分の九十四（§2） | 94/100 | `ordinary base = base * 94 / 100` | ✅ |
+| 百分の六（§3） | 6/100 | `special base = base * 6 / 100` | ✅ |
+| 94 + 6 | 100% | `ordinary 100000 + special 100000 = 100000` | ✅ |
+
+### DS-2. needle 2 本の検証
+
+needle はタスク提示の原文引用からレビュー側が書き起こし、pinned raw JSON の文字列に対して検索した。
+
+| needle | 内容 | U+3000 数 | 結果 |
+|---|---|---:|---|
+| 1 | `毎年度分として交付すべき普通交付税の総額は、前条第二項の額の百分の九十四に相当する額とする` | 0 | **FOUND**（一致 1 件） |
+| 2 | `毎年度分として交付すべき特別交付税の総額は、前条第二項の額の百分の六に相当する額とする` | 0 | **FOUND**（一致 1 件） |
+
+→ **2/2 FOUND、MISS 0、両 needle の U+3000 = 0**。pinned 文 leaf は末尾に「。」を含むが needle は部分文字列であり 2/2 一致。STAGING の needle も末尾「。」を省略しているが照合に影響なし（B-5）。
+
+### DS-3. 反例探索と独立 Spec との一致
+
+レビュー側が別に定式した `specOrdinary b = b * 47 / 50` / `specSpecial b = b * 3 / 50` で比較した（47/50 = 94/100、3/50 = 6/100 を独立確認）。
+
+| 基準額 `base` | `ordinary`（実装） | `specOrdinary`（独立） | `special`（実装） | `specSpecial`（独立） | 合計 | 一致 |
+|---:|---:|---:|---:|---:|---:|---|
+| **100000** | **94000** | 94000 | **6000** | 6000 | **100000** = `base` | ✅ |
+
+- 指示された反例 `ordinary 100000 = 94000` / `special 100000 = 6000` / 合計 `= 100000` は独立 Spec と一致。Lean 側は `by decide` のカーネル決定、レビュー側は Python で `100000*94//100` 等を独立計算して一致を確認した。
+- 補助確認: `agreeLocalGrantTaxRatio = true`（`b ∈ {0, 1, 50, 100, 100000, 1000000}` で Impl == Spec）も `by decide` で確認。
+- 境界観察（BY-DESIGN B-2）: `base * 94 / 100` は Nat 整数除法のため端数切り捨て。一般に `ordinary b + special b = b` は `b` が 100 で割り切れるときのみ成立する（例: `b = 99` → 93 + 5 = 98、`b = 101` → 94 + 6 = 100）。実装は合計等式を `b = 100000` のみで主張しており、一般等式は主張していない。
+
+### DS-4. `#print axioms` 監査
+
+- 一時 Lean ファイルはリポジトリ内に作らず、承認済み temp ディレクトリに置いた。`lake env lean <tempfile>` は **exit code 0**。検証用一時ファイルはすべて削除済み。
+- 走査した **9 宣言**（`ordinary`, `special`, `specOrdinary`, `specSpecial`, `agreeLocalGrantTaxRatio`, および指示反例を再現した `dsOrd`, `dsSpe`, `dsSum`, `dsAgree`）はすべて `"does not depend on any axioms"`。
+
+| 監査項目 | 件数 |
+|---|---:|
+| `Classical.choice` | **0** |
+| `sorryAx` | **0** |
+| `Quot.sound` | **0** |
+| `propext` | **0** |
+| axiom-free | **9/9** |
+
+### DS-5. CONFIRMED / BY-DESIGN / UNRESOLVED の分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0** |
+| **BY-DESIGN** | **5** |
+| **UNRESOLVED** | **2** |
+
+#### CONFIRMED（0 件）
+
+- 原文 2 率・needle・反例・Impl/独立 Spec・公理監査のいずれにも食い違いなし。**発見ゼロを明示する。**
+
+#### BY-DESIGN（5 件）— 未形式化の確認を含む
+
+- **B-1 基準額の算定は NOT MODELLED**: 前条第二項の額（基準財政需要額 − 基準財政収入額）の算定は対象外（doc-comment 明記）。
+- **B-2 端数処理は NOT MODELLED**: Nat 整数除法の切り捨てにより、合計 = `base` は `base` が 100 で割り切れる場合のみ成立（DS-3 参照）。円未満端数の法的処理は形式化していない。
+- **B-3 交付手続・偏重是正は NOT MODELLED**: 交付の実際の手続・特別交付税の偏重是正の調整は対象外（doc-comment 明記）。
+- **B-4 表記ゆれ**: doc-comment の `data/raw/data/raw/...` は prefix 二重（実在ファイルは `data/raw/...`）。モデル値・照合結果に影響なし。
+- **B-5 needle の末尾句点**: STAGING の needle は末尾「。」を省略、pinned 文 leaf は「。」を含む。部分文字列一致は 2/2 で影響なし。
+
+#### UNRESOLVED（2 件）
+
+- **U-1 基準額・端数処理の法的取扱い**: 前条第二項の額の定義・円未満端数の処理は art.6の2 §2-3 の pinned 原文のみでは確定不能。**人間の法律専門家による確認を要する。**
+- **U-2 他条文との適用関係**: 偏重是正の調整・交付手続等との相互関係の法的妥当性は pinned 原文のみでは決定不能。法的レビューは LEGAL_REVIEW_PENDING。
+
+### DS-6. 最終報告（サマリ）
+
+- **CONFIRMED 0 / BY-DESIGN 5 / UNRESOLVED 2**。原文・needle・実装・独立 Spec の食い違いなし。
+- **pinned 原文照合**: `Article[Num=6_2]` の `Paragraph[Num=2]` / `[Num=3]` の文 leaf から 2 率を直接抽出。94% / 6% を確認し、9.4%・94‰・0.6% を全 leaf 走査で明示除外。合計 100%。
+- **needle**: 2/2 FOUND、MISS 0、両方 U+3000 = 0。
+- **反例**: `ordinary 100000 = 94000` / `special 100000 = 6000` / 合計 `= 100000`。独立 Spec（`base*47/50`, `base*3/50`）と一致。`agreeLocalGrantTaxRatio = true` も確認。
+- **公理**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件、9/9 axiom-free（exit code 0）。リポジトリ内に一時 Lean ファイルは作成せず、temp の検証ファイルは削除済み。
+- **禁止操作の遵守**: commit / push / merge / ブランチ切替は一切実行していない。Lean モジュールと `data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
+- **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `A560160AA4B119C7865A54D985F6A254513CA2314D8241F44B98476EAE59D39D`・`1,662,362` バイト・広義レビュー件数 **123 件**（`^## .*review` ベース、H2 129 件、DS 見出し 0 件）。本セクション追記後は **124 件（Previous +1）** へ増加するはずであり、書き込み後の再読込で件数・既存バイト列の前方一致・既存見出し残存を検証する（自己言及的なハッシュ値は本文に埋め込まない）。並行ワーストリームが件数を変動させる可能性があるため、採用した値は書き込み直前の再読込値である。
+
+> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。

@@ -224,3 +224,46 @@ Keep `技術的検証済み / 形式化未完了 / 法的レビュー未完了` 
    head commit, bind scoped attestations, add cells (uild/gen_c132.py pattern),
    regenerate ledgers, commit and push.
 3. Restore any transcription check or umbrella import dropped by a concurrent merge.
+
+
+## 8. Cycles 133-136 (2026-11-26, continued)
+
+- **C133** RndExcessAtMost3 / RndExcess0To12 (租税特別措置法 art.10, 3%以下 / 0-12%):
+  8/8 Lean builds, 655/655 transcription; attested from green run 45752050519
+  (head 3036813, 12/12 pinned blobs matched); cells present in evidence.
+- **C134** RndExcessOver4Year / RndExcessOver7Year (art.10, 4%/7%超の年分):
+  8/8 builds; attested from the same green run. Cells were initially blocked because
+  the canonical docs/ADVERSARIAL_REVIEW.md lacked module sections
+  (dversarial_review=false); sections were integrated and re-generation started.
+- **C135** ContinuingIncreaseAtLeast5 / SalaryIncreaseRate5Or15 (art.10の5の4):
+  8/8 builds, 664/664 transcription; pushed e18ee65; CI run 45754597611
+  pending. No attestation bound yet.
+- **C136** ForeignSubsidiaryTaxRate20 (art.40の4 ほか, 20%以上): 5/5 builds,
+  669/669 transcription; pushed d006bef2; unattested.
+- Recurring concurrent-merge damage: dropped checks (FreshCheeseCardQualification,
+  ExcessFinanceGrant75Cap, GiftTaxTenYearResidenceLookback, C132 art.10 checks)
+  were each restored from origin commits; guards never disabled.
+- udit_evidence_references.py: 4772/4773 references resolved; the single
+  unresolved one is a pre-existing __ADVERSARIAL__ placeholder on another
+  workstream's unit. No fabricated review was added to hide it.
+- State at last push: FULLY_VERIFIED ~957, NOT_STARTED ~395,894, BLOCKED=2,
+  LEGAL_REVIEW_PENDING for all; L2-L6 layers still IN_SCOPE_BACKLOG.
+
+
+## 9. Cycles 137-138 (2026-11-26, continued)
+
+- **C137** CombinedRndExcessOver3 / CombinedRndExcessAtMost3 (租税特別措置法 art.42の4,
+  合算3%超/以下): 8/8 Lean builds, 676/676 transcription; attested from green run
+  45760770492 (head cdcf1e29, 6/6 pinned blobs matched); cells generating.
+- **C138** CombinedRndExcessOver4Year / CombinedRndExcessOver7Year (art.42の4,
+  4%/7%超の事業年度): 8/8 builds, 677/677 transcription; pushed 5435d84;
+  CI run 45763268528 pending. No attestation bound yet.
+- **C136** ForeignSubsidiaryTaxRate20 (art.40の4ほか, 20%以上): attested from green
+  run 45757883670; 1 cell added; its transcription check was dropped by a
+  concurrent merge and restored twice without disabling the guard.
+- Recurring damage from concurrent merges (dropped checks, stale ledgers) was
+  repaired each time; erify_queue_invariants.py re-derived to 17/17 after every push.
+- Measured state ~ FULLY_VERIFIED=979, NOT_STARTED=395,872, BLOCKED=2,
+  PROVED_SCOPE=1; evidence ~982; human legal reviews still **0**.
+- L6 check: data/raw has 705 law files but 0 laws with multiple revisions;
+  L2-L6 remain genuinely unacquired IN_SCOPE_BACKLOG.

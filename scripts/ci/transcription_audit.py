@@ -91,6 +91,12 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # TouristTaxTaxablePassengers — 国際観光旅客税法施行規則 art.3(2) ホ (restored)
+    yield ("国際観光旅客税法施行規則 art.3(2) ホ（課税旅客数＝イ−(ロ+ハ+ニ)）↔ TouristTaxTaxablePassengers.lean",
+           "430M60000040039", "article", "第三条", ["イに掲げる数からロからニまでに掲げる数の合計数を控除した数"])
+    # TaxResearchCouncilQuorum — 税制調査会組織規則 art.7 §1 定足数
+    yield ("税制調査会組織規則 art.7（委員の三分の一以上の出席）↔ TaxResearchCouncilQuorum.lean",
+           "425CO0000000025", "article", "第七条", ["調査会は、委員の三分の一以上が出席しなければ、会議を開き、議決することができない。"])
     yield ("航空機燃料税法 art. 14(1) 第四号（納付すべき税額＝二号税額−前号税額）↔ AircraftFuelTaxPayable.lean", "347AC0000000007", "article", "第十四条", ["第二号に掲げる航空機燃料税額から前号に掲げる航空機燃料税額を控除した金額"])
 
     yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
@@ -1215,6 +1221,12 @@ def checks():
            "143AC0000000054",
            "file", None,
            ["その期間を六月以内に限り延長することができる", "第八条"])
+
+    # 所得税法 art.2(1) — IncomeTaxSpouseIncomeCeiling10M.lean
+    yield ("所得税法 art.2(1)（同一生計配偶者 合計所得千万円以下）↔ IncomeTaxSpouseIncomeCeiling10M.lean",
+           "340AC0000000033",
+           "article", "第二条",
+           ["合計所得金額が千万円以下である居住者の配偶者をいう", "第二条"])
 
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
@@ -4557,11 +4569,6 @@ def checks():
     yield ("地方税法 art. 314_6（3%／指定都市4%）↔ LocalInhabitantReducedRate3or4.lean",
            "325AC0000000226", "file", None,
            ["次に掲げる金額のうちいずれか少ない金額の百分の三"])
-    # 特別とん税法施行令 art.3(1) — SpecialTonSecurityEightTen.lean
-    yield ("特別とん税法施行令 第三条(1)（特別とん税額 八分の十）↔ SpecialTonSecurityEightTen.lean",
-           "332CO0000000049", "article", "第三条",
-           ["とん税額の八分の十に相当する特別とん税額をあわせて担保しなければならない。"])
-
 
     # 租税特別措置法 art. 10 — RndExcessOver3.lean (増減試験研究費割合 > 3%)
     yield ("租税特別措置法 art. 10（増減試験研究費割合 3%超）↔ RndExcessOver3.lean",
@@ -4624,22 +4631,76 @@ def checks():
            "332AC0000000026", "file", None,
            ["百分の五（継続雇用者給与等支給増加割合が百分の六以上である場合には、百分の十五）"])
 
-    # Restored registry-required checks dropped by concurrent merge.
+    yield ("地方税法 art. 314_6（3%／指定都市4%）↔ LocalInhabitantReducedRate3or4.lean",
+           "325AC0000000226", "file", None,
+           ["次に掲げる金額のうちいずれか少ない金額の百分の三"])
+
+
+    # 特別法人事業譲与税法 art. 31(5)(4) — ExcessFinanceGrant75Cap.lean
     yield ("特別法人事業譲与税法 art. 31（十一月分75%と財源超過額上限）↔ ExcessFinanceGrant75Cap.lean",
            "431AC0000000004",
            "file", None,
            ["財源超過団体における十一月の譲与時期に係る基準各譲与時期特別法人事業譲与税額の百分の七十五に相当する額（当該額に当該財源超過団体に係る五月分財源超過団体譲与制限額及び八月分財源超過団体譲与制限額の合算額を加えた額が財源超過額を超える場合には、当該財源超過額から当該合算額を控除した額とする。）をいう。"])
+
+
+    yield ("関税定率法 art.8(6)（六月以内の延長）↔ CustomsTariffArt8ExtensionSixMonths.lean",
+           "143AC0000000054",
+           "file", None,
+           ["その期間を六月以内に限り延長することができる", "第八条"])
+
+    # 相続税法 art.1の4 — GiftTaxTenYearResidenceLookback.lean
     yield ("相続税法 art.1の4（贈与前十年以内の住所）↔ GiftTaxTenYearResidenceLookback.lean",
            "325AC0000000073",
            "file", None,
            ["当該贈与前十年以内のいずれかの時においてこの法律の施行地に住所を有していたことがあるもの", "第一条の四"])
 
-    # 特定貨物 art. 5 — SeparateTariffApplication.lean
-    yield ("特定貨物 第五条（一般関税・報復関税の別個適用）↔ SeparateTariffApplication.lean (parallel separate tariffs)",
-           "417CO0000000289",
-           "article", "第五条",
-           ["特定貨物に課する一般関税及び報復関税については、それぞれ別個の関税として関税法第二章の規定を適用する。"])
 
+    yield ("地方税法 art. 314_6（3%／指定都市4%）↔ LocalInhabitantReducedRate3or4.lean",
+           "325AC0000000226", "file", None,
+           ["次に掲げる金額のうちいずれか少ない金額の百分の三"])
+    # 特別とん税法施行令 art.3(1) — SpecialTonSecurityEightTen.lean
+    yield ("特別とん税法施行令 第三条(1)（特別とん税額 八分の十）↔ SpecialTonSecurityEightTen.lean",
+           "332CO0000000049", "article", "第三条",
+           ["とん税額の八分の十に相当する特別とん税額をあわせて担保しなければならない。"])
+
+
+    yield ("相続税法 art.1の4（贈与前十年以内の住所）↔ GiftTaxTenYearResidenceLookback.lean",
+           "325AC0000000073",
+           "file", None,
+           ["当該贈与前十年以内のいずれかの時においてこの法律の施行地に住所を有していたことがあるもの", "第一条の四"])
+
+    # 租税特別措置法 art. 40の4 — ForeignSubsidiaryTaxRate20.lean (租税負担割合20%以上)
+    yield ("租税特別措置法 art. 40_4（租税負担割合20%以上）↔ ForeignSubsidiaryTaxRate20.lean",
+           "332AC0000000026", "file", None,
+           ["各事業年度の租税負担割合が百分の二十以上であること。"])
+
+
+    # 地方税法 art. 72の21 — LocalGrantBracket1000To5000.lean (千億〜五千億)
+    yield ("地方税法 art. 72_21（千億超五千億以下）↔ LocalGrantBracket1000To5000.lean",
+           "325AC0000000226", "file", None,
+           ["千億円を超え五千億円以下の金額"])
+    # 地方税法 art. 9の2 — LocalTaxIncomeBracket4MTo1B.lean (四百万〜十億)
+    yield ("地方税法 art. 9_2（四百万超十億以下）↔ LocalTaxIncomeBracket4MTo1B.lean",
+           "325AC0000000226", "file", None,
+           ["各事業年度の所得のうち年四百万円を超え年十億円以下の金額"])
+
+    # 租税特別措置法 art. 42の4 — CombinedRndExcessOver3.lean (合算3%超)
+    yield ("租税特別措置法 art. 42_4（合算3%超）↔ CombinedRndExcessOver3.lean",
+           "332AC0000000026", "file", None,
+           ["合算増減試験研究費割合が百分の三を超える場合（（３）に掲げる場合を除く。）"])
+    # 租税特別措置法 art. 42の4 — CombinedRndExcessAtMost3.lean (合算3%以下)
+    yield ("租税特別措置法 art. 42_4（合算3%以下）↔ CombinedRndExcessAtMost3.lean",
+           "332AC0000000026", "file", None,
+           ["合算増減試験研究費割合が百分の三以下である場合（（３）に掲げる場合を除く。）"])
+
+    # 租税特別措置法 art. 42の4 — CombinedRndExcessOver4Year.lean (4%超の事業年度)
+    yield ("租税特別措置法 art. 42_4（4%超の事業年度）↔ CombinedRndExcessOver4Year.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の四を超える事業年度"])
+    # 租税特別措置法 art. 42の4 — CombinedRndExcessOver7Year.lean (7%超の事業年度)
+    yield ("租税特別措置法 art. 42_4（7%超の事業年度）↔ CombinedRndExcessOver7Year.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の七を超える事業年度"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
