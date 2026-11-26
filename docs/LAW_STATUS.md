@@ -11,8 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 0
-- with >=1 pinned literal check (semantic model): 200
-
+- with >=1 pinned literal check (semantic model): 201
 - with recorded human legal review: 0
 
 ## All laws
@@ -126,7 +125,7 @@ a completion flag.
 | `342AC0000000023` | 印紙税法 | 342AC0000000023_20261001_507AC0000000070 | CurrentEnforced | YES | - | 0 | YES (4) | NO |
 | `342CO0000000108` | 印紙税法施行令 | 342CO0000000108_20250401_507CO0000000006 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 | `342M50000040019` | 印紙税法施行規則 | 342M50000040019_20010106_412M50000040069 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
-| `342AC0000000035` | 登録免許税法 | 342AC0000000035_20261101_508AC0000000021 | CurrentEnforced | YES | - | 0 | YES (34) | NO |
+| `342AC0000000035` | 登録免許税法 | 342AC0000000035_20261101_508AC0000000021 | CurrentEnforced | YES | - | 0 | YES (35) | NO |
 | `342CO0000000146` | 登録免許税法施行令 | 342CO0000000146_20261001_507CO0000000124 | CurrentEnforced | YES | - | 0 | YES (5) | NO |
 | `342M50000040037` | 登録免許税法施行規則 | 342M50000040037_20260401_508M60000040008 | CurrentEnforced | YES | - | 0 | YES (2) | NO |
 | `344M50000040016` | 関税定率法施行規則 | 344M50000040016_20260401_508M60000040016 | CurrentEnforced | YES | - | 0 | YES (2) | NO |
@@ -220,7 +219,7 @@ a completion flag.
 | `410M50000040118` | 特別合併により新会社が受ける登記の登録免許税の免税を受けるための手続に関する省令 | 410M50000040118_19981023_000000000000000 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
 | `410M50000040119` | 承継銀行等が取得した不動産に関する権利の移転登記の登録免許税の免税を受けるための手続に関 | 410M50000040119_20140306_426M60000040011 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
 | `410CO0000000345` | たばこ特別税に関する政令 | 410CO0000000345_20241001_506CO0000000147 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
-| `410M50000040122` | たばこ特別税に関する省令 | 410M50000040122_20150401_427M60000040039 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
+| `410M50000040122` | たばこ特別税に関する省令 | 410M50000040122_20150401_427M60000040039 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 | `411M50000008014` | 奄美群島振興開発特別措置法第三十八条の地方税の課税免除又は不均一課税に伴う措置が適用され | 411M50000008014_20240401_506M60000008035 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 | `412CO0000000276` | 関税・外国為替等審議会令 | 412CO0000000276_20260401_508CO0000000085 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 | `412CO0000000277` | 関税等不服審査会令 | 412CO0000000277_20160401_428CO0000000168 | CurrentEnforced | YES | - | 0 | YES (2) | NO |
@@ -347,5 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 458
-
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 461
