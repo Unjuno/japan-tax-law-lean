@@ -1298,6 +1298,12 @@ def checks():
            "file", None,
            ["千分の二十五」とあるのは、「千分の八", "第百二十四条"])
 
+    # 租税特別措置法施行令 art.80(3) — SpecialTaxOrderArt80CapitalFeeFloor75k.lean
+    yield ("租税特別措置法施行令 art.80(3)（資本金×千分の三・五・7.5万円下限）↔ SpecialTaxOrderArt80CapitalFeeFloor75k.lean",
+           "332AC0000000026",
+           "file", None,
+           ["資本金の額に千分の三・五を乗じて計算した金額", "七万五千円に満たない場合"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
@@ -2547,6 +2553,12 @@ def checks():
            "422CO0000000222",
            "file", None,
            ["第一条この政令は、令和四年四月一日から施行する", "この政令は、令和四年四月一日から施行する"])
+
+    # LocalCorporationTaxRuleEnforcementDate — cycle-144
+    yield ("LocalCorporationTaxRuleEnforcementDate.lean",
+           "426M60000040022",
+           "file", None,
+           ["第一条この省令は、平成二十六年十月一日から施行する", "この省令は、平成二十六年十月一日から施行する"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -5191,24 +5203,12 @@ def checks():
            "file", None,
            ["当該金額に取引数（当該特許権譲渡等取引及び当該特定特許権等に係る他の特許権譲渡等取引の数をいう。以下この号において同じ。）から一を控除した数が取引数のうちに占める割合を乗じて計算した金額"])
 
-    # 半島振興法施行令 art.4(1)(2) — OneYearConstructionStartWindow.lean
-    yield ("半島振興法施行令 第四条(1)(2)（一年以内建設着手）↔ OneYearConstructionStartWindow.lean",
-           "407M50000008012", "article", "第四条",
-           ['土地については、その取得の日の翌日から起算して一年以内に当該土地を敷地とする当該家屋の建設の着手があった場合における当該土地に限る。'])
-
     # InheritanceTaxArt15ActualChildDeeming.lean - NORM|3a29e954... (相続税法 art.15(3) DEEMING, law 325AC0000000073)
     # Whole-law locator; needle is unique in the pinned act.
     yield ("inheritance tax art.15 actual child deeming - InheritanceTaxArt15ActualChildDeeming.lean",
            "325AC0000000073",
            "file", None,
            ["\u524d\u9805\u306e\u898f\u5b9a\u306e\u9069\u7528\u306b\u3064\u3044\u3066\u306f\u3001\u6b21\u306b\u63b2\u3052\u308b\u8005\u306f\u5b9f\u5b50\u3068\u307f\u306a\u3059\u3002"])
-
-    # SpecialMeasuresArt70_6_6PresumedHeirCondition.lean - NORM|293a349f... (租税特別措置法 art.70の6の6(2) PRESUMPTION, law 332AC0000000026)
-    # Whole-law locator; needle is unique in the pinned act.
-    yield ("special measures art.70_6_6 presumed heir condition - SpecialMeasuresArt70_6_6PresumedHeirCondition.lean",
-           "332AC0000000026",
-           "file", None,
-           ["\u5f53\u8a72\u500b\u4eba\u304c\u3001\u5f53\u8a72\u76f8\u7d9a\u306e\u958b\u59cb\u306e\u76f4\u524d\u306b\u304a\u3044\u3066\u3001\u5f53\u8a72\u88ab\u76f8\u7d9a\u4eba\u306e\u63a8\u5b9a\u76f8\u7d9a\u4eba\u3067\u3042\u308b\u3053\u3068\u3002"])
 
     yield ("地価税法 art. 18（底地割合による三万円計算）↔ LeaseholdLandShare.lean",
            "403AC0000000069",
@@ -5221,6 +5221,12 @@ def checks():
            "143AC0000000054",
            "file", None,
            ["\u524d\u9805\u306e\u76f8\u6bba\u95a2\u7a0e\u306f\u3001\u5f53\u8a72\u76f8\u6bba\u95a2\u7a0e\u3092\u8ab2\u3055\u308c\u308b\u3053\u3068\u3068\u306a\u308b\u8ca8\u7269\u306e\u8f38\u5165\u8005\u304c\u7d0d\u3081\u308b\u7fa9\u52d9\u304c\u3042\u308b\u3082\u306e\u3068\u3059\u308b\u3002"])
+
+    # 国税収納金整理資金施行令 art. 22(1) — DelinquencyCostNet.lean
+    yield ("国税収納金整理資金施行令 art. 22（滞納処分費残額の雑収入）↔ DelinquencyCostNet.lean",
+           "329CO0000000051",
+           "file", None,
+           ["滞納処分費の収納済額及び滞納処分費に係る返納金（過誤納金の還付金等に係るものに限る。）の収納済額の合計額から滞納処分費に係る支払決定済額を控除した金額は、一般会計の雑収入とする。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

@@ -1022,3 +1022,7 @@ JapanTaxLaw/ReconstructionSpecialIncomeTaxEnforcementDateTests.lean # 同上 退
 JapanTaxLaw/FootAndMouthDiseaseResponseEnforcementDate.lean    # 口蹄疫に起因する事態への対応に関する政令 施行日2022-04-01（附則 art.1）L4
 JapanTaxLaw/FootAndMouthDiseaseResponseEnforcementDateSpec.lean # 同上 独立定式
 JapanTaxLaw/FootAndMouthDiseaseResponseEnforcementDateTests.lean # 同上 退行テスト
+
+JapanTaxLaw/LocalCorporationTaxRuleEnforcementDate.lean    # 地方法人税法施行規則 施行日2014-10-01（附則 art.1）L4
+JapanTaxLaw/LocalCorporationTaxRuleEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/LocalCorporationTaxRuleEnforcementDateTests.lean # 同上 退行テスト
