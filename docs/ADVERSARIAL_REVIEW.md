@@ -13806,3 +13806,107 @@ needle はタスク提示の原文引用からレビュー側が書き起こし�
 独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
 照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
 判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+## Batch DR review (2026-11-26) — 国連軍地位協定実施法 附則 art.1（施行日）/ `UnForcesStatusAgreementEnforcementDate.lean`（cycle-128）
+
+### DR-0. 範囲・独立性の申告
+
+- 対象: `JapanTaxLaw/UnForcesStatusAgreementEnforcementDate.lean`（本文 47 行）と `...Spec.lean` / `...Tests.lean`。いずれも読み取り専用で、本レビューでは一切変更していない。形式化担当とは独立した Adversarial Review Agent による cycle-128 の 1 モデル照合。
+- 一次資料（pinned・改変禁止）: `data/raw/329AC0000000188_20260401_508AC0000000002.law.json`（law_id `329AC0000000188` / revision `329AC0000000188_20260401_508AC0000000002`、raw SHA-256 `0b656810c359c5f15abac674f5dce950efb361000335fcc70ae8926b9ef71361`）。ファイル名は `data/raw/` 直下であり、本文 doc-comment の `data/raw/data/raw/...` は prefix 二重の表記ゆれ（下記 B-4）。
+- 形式化担当の doc-comment / STAGING の数値は信じず、pinned JSON の `law_full_text` を Python で再帰走査して原文を直接再抽出した。独立 Spec はレビュー側で別定式（辞書順成分比較 `myInForce`）を書き起こして比較し、`Spec.lean` は補助確認に留めた。
+- commit / push / merge / ブランチ切替は一切実行していない。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
+
+### DR-1. pinned 原文の直接抽出・照合（昭和35年独立的算定）
+
+- 構造的路径: `law_full_text.children[1]`（`LawBody`）.`children[5]` = `SupplProvision`（attr `AmendLawNum = 昭和三五年六月三〇日法律第一一三号`, `Extract = true`）→ `children[1]` = `Article`（attr `Num = 1`）→ `children[2]` = `Paragraph`（`Num = 1`）→ `ParagraphSentence` leaf:
+  - **原文逐語**: 「この法律は、昭和三十五年七月一日から施行する。」
+- 漢数字の日付「**昭和三十五年七月一日**」を当該 leaf から直接抽出。pinned JSON 全体で同文字列は **1 回**のみ出現（他に「昭和三十五年」も 1 回）。
+- 元号算定（レビュー側で独立計算）: 昭和元年 = 1926 なので **1926 + 35 − 1 = 1960**。実装の `showaToSeireki 35 = 1925 + 35 = 1960` と一致。
+- **昭和34年/36年との混同を明示除外**: pinned JSON 全文で `昭和三十四年` = 0 件、`昭和三十六年` = 0 件、`1959` = 0 件、`1961` = 0 件。したがって 1959/1961 への 1 年ずれは存在しない。
+- doc-comment の「第一条 この法律は、昭和三十五年七月一日から施行する。」は、`Article Num=1` というラベルと文 leaf を人間読解用に空白連結した表記であり、空白入りの文字列が raw JSON にそのまま存在するわけではない（BY-DESIGN B-4 参照）。文 leaf 自体は逐語一致。
+
+| 原文（pinned） | レビュー側独立抽出 | Lean 実装 | 照合 |
+|---|---|---|---|
+| 昭和三十五年七月一日 | 1926+35−1 = **1960-07-01** | `showaToSeireki 35 = 1960`, `enforcementDate = (1960, 7, 1)` | ✅ |
+| 「…七月一日から施行する」 | 施行日 19600701（当日を含む） | `enforcementKey = 19600701`, `dateKey d >= enforcementKey` | ✅ |
+| 昭和三十四年 / 昭和三十六年 | 1959 / 1961（不使用） | 当該値はコード中に不在 | ✅（混同なし） |
+
+- 本則・附則の全体走査では、附則には他にも多条（本則に付随する附則「国連軍協定の効力発生の日から施行し…」、昭和33年・昭和38年・平成・令和の各改正附則）が存在する。1960-07-01 の文は `Extract = true` の改正附則由来である点を明示（B-5 / U-1）。
+
+### DR-2. needle 2 本の検証
+
+needle はタスク提示の原文引用からレビュー側が書き起こし、pinned raw JSON 文字列に対して検索した。
+
+| needle | 内容 | U+3000 数 | 結果 |
+|---|---|---:|---|
+| 1 | `昭和三十五年七月一日` | 0 | **FOUND**（一致 1 件） |
+| 2 | `この法律は、昭和三十五年七月一日から施行する。` | 0 | **FOUND**（一致 1 件） |
+
+→ **2/2 FOUND、MISS 0、両 needle の U+3000 = 0**。（参考: 空白入りの完全引用「第一条 この法律は、…。」は raw 文字列としては FOUND でない。構造上の `Article Num=1` と文 leaf の連結表記であるため。）
+
+### DR-3. 反例探索と独立 Spec（辞書順成分比較）との一致
+
+レビュー側が別に書いた辞書順成分比較 `myInForce`（`y>1960 → true` / `y<1960 → false` / `m>7 → true` / `m<7 → false` / 同月は `d>=1`）で `inForce` と比較した。
+
+| 日付 `(year, month, day)` | `inForce`（実装） | `myInForce`（独立 Spec） | 一致 |
+|---|---|---|---|
+| `(1960, 6, 30)` | `false` | `false` | ✅（施行前日） |
+| **`(1960, 7, 1)`** | **`true`** | **`true`** | ✅（施行日当日から） |
+| `(1960, 7, 2)` | `true` | `true` | ✅ |
+| `(1950, 1, 1)` | `false` | `false` | ✅ |
+| `(2000, 1, 1)` | `true` | `true` | ✅ |
+
+- 指示された 2 反例 `(1960,6,30)=false` / `(1960,7,1)=true` は独立 Spec と一致。
+- 年 1959/1960/1961 × 月 1〜12 × 日 1〜31 の **1,116 点**グリッドで `inForce d == myInForce d` を Lean カーネル `by decide` で検証し、不一致 **0**。`agreeUnForcesStatusAgreementEnforcementDate = true` も確認したが、独立根拠は `myInForce` 側である。
+- `dateKey` の `YYYYMMDD = Y*10000 + M*100 + D` は月・日が 2 桁範囲のとき辞書順と同値。`19600631 < 19600701` かつ `19600701 >= 19600701` を確認し、6/30 と 7/1 の境界反転は数値符号化由来ではなく原文の「七月一日から」に忠実。
+
+### DR-4. `#print axioms` 監査
+
+- 一時 Lean ファイルはリポジトリ内に作らず、`lake env lean --stdin` で 3 モジュールを import（**exit code 0**）。検証用一時ファイルは承認済み temp ディレクトリに置き、すべて削除済み。
+- 走査した **10 宣言**（`showaToSeireki`, `enforcementDate`, `dateKey`, `enforcementKey`, `inForce`, レビュー側 `myInForce`, `grid`, `specDate`, `specInForce`, `agreeUnForcesStatusAgreementEnforcementDate`）はすべて `"does not depend on any axioms"`。
+
+| 監査項目 | 件数 |
+|---|---:|
+| `Classical.choice` | **0** |
+| `sorryAx` | **0** |
+| `Quot.sound` | **0** |
+| `propext` | **0** |
+| axiom-free | **10/10** |
+
+- 3 ファイルのソース走査で `sorry` / `admit` / `axiom` / `unsafe` / `Classical` / `choice` / `propext` / `Quot.sound` は **一致 0 件**（`by decide` のみ）。公理監査は合格。
+
+### DR-5. CONFIRMED / BY-DESIGN / UNRESOLVED の分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0** |
+| **BY-DESIGN** | **5** |
+| **UNRESOLVED** | **2** |
+
+#### CONFIRMED（0 件）
+
+- 原文・日付算定・needle・反例・Impl/独立 Spec・公理監査のいずれにも食い違いなし。**発見ゼロを明示する。**
+
+#### BY-DESIGN（5 件）— 未形式化の確認を含む
+
+- **B-1 日付入力は caller-established**: `Nat × Nat × Nat` で与えられた成分を `YYYYMMDD` に符号化するのみ。暦としての妥当性（月 1〜12、日 1〜31、閏年）判定や不正日付の除外は行わない設計。doc-comment に法的レビュー非提供の旨を明記。
+- **B-2 施行日当日を含む (`>=`)**: 原文「七月一日から施行する」に忠実であり、境界を `>` としないのは意図的な設計。
+- **B-3 附則の他条・法律の実体規定は NOT MODELLED**: doc-comment の `Scope / NOT MODELLED` に明記。本モデルは施行日の算定のみを扱い、経過措置等や本則の実体規定（地方税法の特例の中身）は対象外。
+- **B-4 表記ゆれ（raw snapshot パス・引用の空白）**: doc-comment の `data/raw/data/raw/...` は prefix 二重の表記ゆれ（実在ファイルは `data/raw/...`）。また doc-comment の「第一条 この法律は、…。」は `Article Num=1` と文 leaf の連結表記で、raw JSON に空白入りでそのまま存在しない。いずれもモデル値・照合結果に影響しない。
+- **B-5 1960-07-01 文の出所**: 当該文は `SupplProvision`（`AmendLawNum = 昭和三五年六月三〇日法律第一一三号`, `Extract = true`）配下の `Article Num=1` に存在する。pinned された现行統合テキスト内の原文として照合したが、1954 年制定時の本来の附則そのものではない点を明示（法的な優先関係は U-1）。
+
+#### UNRESOLVED（2 件）
+
+- **U-1 本則附則と抽出附則の関係**: 本則に付随する附則は「国連軍協定の効力発生の日から施行し…」と定め、1960-07-01 は改正法（昭和35年法律第113号）の抽出附則に見える。両者の優先・適用関係（実際の施行日がいずれか）は pinned 原文のみでは決定不能。**人間の法律専門家による確認を要する**。
+- **U-2 未形式化部分の法適用上の影響**: 附則他条（経過措置等）・実体規定を NOT MODELLED とする判断は設計として明示済み（B-3）だが、他条との関連で施行日の解釈が変わるかどうかは pinned 原文のみでは確定できない。法的妥当性は保留。
+
+### DR-6. 最終報告（サマリ）
+
+- **CONFIRMED 0 / BY-DESIGN 5 / UNRESOLVED 2**。原文・needle・実装・独立 Spec の食い違いなし。
+- **pinned 原文照合**: `law_full_text.children[1].children[5].children[1].children[2]` の文 leaf から「昭和三十五年七月一日」を直接抽出。1926+35−1=1960 を独立確認し、昭和34/36年（1959/1961）の混同を明示除外。
+- **needle**: 2/2 FOUND、MISS 0、両方 U+3000 = 0。
+- **反例**: `inForce(1960,6,30)=false` / `inForce(1960,7,1)=true`。独立 Spec（辞書順成分比較）と 1,116 点グリッドで不一致 0。
+- **公理**: `Classical.choice` / `sorryAx` / `Quot.sound` / `propext` すべて 0 件、10/10 axiom-free（exit code 0）。リポジトリ内に一時 Lean ファイルは作成せず、temp の検証ファイルは削除済み。
+- **禁止操作の遵守**: commit / push / merge / ブランチ切替は一切実行していない。Lean モジュールと `data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。
+- **二段 read-then-write と検証**: 書き込み直前に再読込した状態の SHA-256 / バイト数 / 広義レビュー件数（`^## .*review` ベース）を確認し、その状態に本セクションのみを追記した。追記後は件数が Previous + 1 に増加し、既存バイト列が前方一致で保持されることを書き込み後の再読込で検証した（自己言及的なハッシュ値は本文に埋め込まない）。並行ワーストリームが件数を変動させる可能性があるため、採用した値は書き込み直前の再読込値である。
+
+> **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・境界反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
