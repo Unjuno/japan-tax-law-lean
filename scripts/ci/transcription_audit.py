@@ -95,6 +95,10 @@ def checks():
 
     yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
 
+    # PrevParagraphTwoThreeReading.lean - NORM|f5c77990... (前条二・三項準用 READING, law 327CO0000000124)
+    yield ("米軍地位協定臨時特例法施行令 art.3_2(2)（前条二・三項準用）↔ PrevParagraphTwoThreeReading.lean",
+           "327CO0000000124", "article", "第三条の二", ["前条第二項及び第三項の規定は、前項の課税石油ガスについて準用する。"])
+
     # TokyoAsCityDeeming.lean - NORM|1a2cafd55f792102d5682dcc811260486c83126edbf8985d8a31d64c3eddb32f
     # 特別とん譲与税法 第六条第一項 第二文 (DEEMING 「都を市とみなして」).
     # Needle is in MainProvision Article 第六条; revision pinned in INVENTORY.
@@ -2583,6 +2587,11 @@ def checks():
            "340AC0000000033",
            "file", None,
            ["居住者が、各年において、自己又は自己と生計を一にする配偶者その他の親族の負担すべき社会保険料を支払つた場合又は給与から控除される場合には、その支払つた金額又はその控除される金額を、その居住者のその年分の総所得金額、退職所得金額又は山林所得金額から控除する。", "前項に規定する社会保険料とは、次に掲げるものその他これらに準ずるもので政令で定めるもの（第九条第一項第七号（在勤手当の非課税）に掲げる給与に係るものを除く。）をいう。", "一健康保険法（大正十一年法律第七十号）の規定により被保険者として負担する健康保険の保険料", "五国民年金法の規定により被保険者として負担する国民年金の保険料及び国民年金基金の加入員として負担する掛金"])
+
+    # 所得税法 art. 84の2 — SpecifiedRelativeSpecialDeduction.lean
+    yield ("所得税法 art. 84の2（特定親族特別控除: 630k / (所得−840,001)×2 を十万段階で丸め / 1,150k超60k / 1,200k超30k）↔ SpecifiedRelativeSpecialDeduction.lean",
+           "340AC0000000033", "article", "第八十四条の二",
+           ["六十三万円からその特定親族の合計所得金額のうち八十四万一円を超える部分の金額に二を乗じた金額", "十万円の整数倍の金額から八万円を控除した金額", "百十五万円を超え百二十万円以下である特定親族"])
 
     # 所得税法 art. 86 — IncomeBasicDeduction.lean (4-tier basic deduction)
     yield ("所得税法 art. 86（基礎控除: 合計所得2350万以下58万・2400万以下48万・2450万以下32万・2500万以下16万・2500万超0 — 境界値を smoke 確認、合計所得額は caller-established）↔ IncomeBasicDeduction.lean",
