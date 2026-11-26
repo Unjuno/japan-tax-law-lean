@@ -91,6 +91,14 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # ImmediateRetaliationException.lean - NORM|191808d9... (直ちに措置をとる場合の例外 EXCEPTION, law 406CO0000000418)
+    yield ("報復関税等政令 art.2(1) ただし書（直ちに措置をとる場合の例外）↔ ImmediateRetaliationException.lean",
+           "406CO0000000418", "article", "第二条", ["ただし、報復関税等に係る措置を直ちにとる必要があると認められる場合は、この限りでない。"])
+
+    # EvidenceNonSubmissionException.lean - NORM|f7b116e1... (証拠不提出の例外 EXCEPTION, law 406CO0000000415)
+    yield ("相殺関税政令 art.7(4) ただし書（証拠不提出の例外）↔ EvidenceNonSubmissionException.lean",
+           "406CO0000000415", "article", "第七条", ["ただし、当該利害関係者が相当な期間内に当該証拠又は証言を提供しない場合は、この限りでない。"])
+
     # DividedCertificateIssuance.lean - NORM|834e3b37... (分割証明書交付 CONDITION, law 340M50010000013)
     yield ("とうもろこし等関税割当省令 art.4(2)（分割証明書交付）↔ DividedCertificateIssuance.lean",
            "340M50010000013", "article", "第四条", ["農林水産大臣は、前項の申請書を受理したときは、申請に係る証明書に代えて、分割した証明書を交付するものとする。"])
