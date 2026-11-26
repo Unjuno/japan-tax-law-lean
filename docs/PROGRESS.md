@@ -171,9 +171,3 @@ lake clean && lake build                                                # 再現
 **未達**: L3 の残り全条文・L4・L5 の全条文証明・L6・L7 統合レポート・関税定率法等のカテゴリー全体・地方税条例・改正影響（F）・全 target 法令の meaning に対する end-to-end 監査。
 
 **完成判定ではありません。** 本システムは「部分的な意味検証＋完全な構造監査＋検証範囲の記録」までの段階です。
-
-外貨債利子非課税適用除外者範囲政令 附則 art.1 ForeignBondInterestExemptionScopeEnforcementDate.lean（施行日 昭和40年4月1日=1965-04-01 — 他条・実体規定 NOT MODELLED）
-
-阪神・淡路大震災被災者国税特例施行規則 附則 art.1 HanshinAwajiDisasterTaxReliefEnforcementDate.lean（施行日 平成14年8月1日=2002-08-01 — 他条・実体規定 NOT MODELLED）
-
-法人臨時特別税に関する省令 附則 art.1 CorporationTemporarySpecialTaxEnforcementDate.lean（施行日 平成15年1月6日=2003-01-06 — 他条・実体規定 NOT MODELLED）

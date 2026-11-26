@@ -1685,3 +1685,59 @@ H/T/D/C/U record:
 - **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
 
 > **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### EmploymentSubsidyAge55to65.lean — 地方税法施行規則 art. 24_2（雇入れ日の年齢 五十五歳以上六十五歳未満）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `329M50000002023` / revision `329M50000002023_20261101_508M60000008045`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値条件・丸め処理を独立仕様（strict 比較・min/max）として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### RailPassengerVolume10k150k.lean — 地方税法施行規則 art. 6（一日当たり片道断面輸送量 一万人以上十五万人未満）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `329M50000002023` / revision `329M50000002023_20261101_508M60000008045`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値条件・丸め処理を独立仕様（strict 比較・min/max）として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### CustomsPortDesignationValueShips.lean — 関税法施行令 art. 1（貨物価額五千万円超 かつ 入出港隻数十一隻超）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `329CO0000000150` / revision `329CO0000000150_20260701_508CO0000000217`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値条件・丸め処理を独立仕様（strict 比較・min/max）として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### TaxCreditMonthCap12RoundUp.lean — 租税特別措置法 art. 8_5（月数 十二月超は十二月・一月未満端数は一月）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `332AC0000000026` / revision `332AC0000000026_20261101_507AC0000000013`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の数値条件・丸め処理を独立仕様（strict 比較・min/max）として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
