@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 290
-- presence-facts-only complete: 290
-- NOT_STARTED: 290
+- articles with explicit pin: 284
+- presence-facts-only complete: 284
+- NOT_STARTED: 284
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -17,7 +17,6 @@ source positions. Human legal review is a separate axis and is pending.
 
 | law_id | article | module | presence | scoped | review | authoritative status |
 |---|---|---|---|---|---|---|
-| `336CO0000000153` | 第二条 | MinisterialNecessityException | YES | YES | NO | NOT_STARTED |
 | `430M60000040039` | 第三条 | TouristTaxTaxablePassengers | YES | YES | YES | NOT_STARTED |
 | `425CO0000000025` | 第七条 | TaxResearchCouncilQuorum | YES | YES | NO | NOT_STARTED |
 | `347AC0000000007` | 第十四条 | AircraftFuelTaxPayable | YES | YES | NO | NOT_STARTED |
@@ -25,7 +24,6 @@ source positions. Human legal review is a separate axis and is pending.
 | `327CO0000000124` | 第三条の二 | PrevParagraphTwoThreeReading | YES | YES | NO | NOT_STARTED |
 | `332AC0000000077` | 第六条 | TokyoAsCityDeeming | YES | YES | NO | NOT_STARTED |
 | `337M50000040031` | 第一条の六 | PrivateContractPublicAuctionReading | YES | YES | NO | NOT_STARTED |
-| `341M50000040004` | 第一条 | ApprovalRevocationSameTreatment | YES | YES | NO | NOT_STARTED |
 | `340AC0000000034` | 第六十六条 | CorporateTaxRate | YES | YES | YES | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の七 | GiftTax | YES | YES | YES | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の五 | GiftTax | YES | YES | YES | NOT_STARTED |
@@ -163,7 +161,6 @@ source positions. Human legal review is a separate axis and is pending.
 | `340AC0000000157` | 第四条 | OilGasGrantArt4Rounding | YES | YES | NO | NOT_STARTED |
 | `325AC0000000226` | 第五百九十四条 | SpecialLandHoldingTaxRate | YES | YES | YES | NOT_STARTED |
 | `340AC0000000033` | 第八十四条の二 | SpecifiedRelativeSpecialDeduction | YES | YES | YES | NOT_STARTED |
-| `332CO0000000043` | 第四十二条の三 | RedevelopmentShareRatio | YES | YES | YES | NOT_STARTED |
 | `143AC0000000054` | 第十条 | CustomsDamageReduction | YES | YES | YES | NOT_STARTED |
 | `143AC0000000054` | 第四条の七 | CustomsExchangeRate | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第三条の三 | CustomsSmallConsignment | YES | YES | NO | NOT_STARTED |
@@ -301,9 +298,6 @@ source positions. Human legal review is a separate axis and is pending.
 | `332CO0000000049` | 第三条 | SpecialTonSecurityEightTen | YES | YES | NO | NOT_STARTED |
 | `346CO0000000275` | 第五条 | HeaviestRecordedWeight | YES | YES | NO | NOT_STARTED |
 | `347M50000008026` | 第四条 | HouseholdCorrectionFloor07 | YES | YES | YES | NOT_STARTED |
-| `407M50000008016` | 第一条 | PeninsulaSpecialDepreciationCostFloor5M | YES | YES | NO | NOT_STARTED |
-| `349AC0000000079` | 第十二条 | PowerDevelopmentTaxPenalty | YES | YES | NO | NOT_STARTED |
-| `424CO0000000017` | 第三条 | ReconstructionCorpTaxMonthFloor | YES | YES | NO | NOT_STARTED |
 | `407M50000008016` | 第一条 | PeninsulaSpecialDepreciationCostFloor5M | YES | YES | NO | NOT_STARTED |
 | `349AC0000000079` | 第十二条 | PowerDevelopmentTaxPenalty | YES | YES | NO | NOT_STARTED |
 | `424CO0000000017` | 第三条 | ReconstructionCorpTaxMonthFloor | YES | YES | NO | NOT_STARTED |

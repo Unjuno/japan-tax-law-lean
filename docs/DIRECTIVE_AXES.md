@@ -5,19 +5,34 @@ Do not hand-edit. Regenerate with `python scripts/ci/directive_axes.py`.
 Eight technical axes are tracked separately; full technical evidence does NOT establish human legal review or whole-article coverage. COMPUTABLE_SLICE_ONLY units are never counted as whole-article norms.
 
 - normative units: 396854
-- expanded units (with committed evidence): 1146
+<<<<<<< HEAD
+- expanded units (with committed evidence): 1150
+=======
+- expanded units (with committed evidence): 1089
+>>>>>>> origin/main
 - independent human legal review axis: `LEGAL_REVIEW_PENDING` (never auto-satisfied)
 
 | axis | achieved units | remaining units |
 |---|---:|---:|
-| SOURCE_ACQUIRED | 1146 | 395708 |
-| VERSION_PINNED | 1146 | 395708 |
-| STRUCTURE_IDENTIFIED | 1139 | 395715 |
-| NORM_DECOMPOSED | 1145 | 395709 |
-| NORMS_FORMALIZED | 1146 | 395708 |
-| SPEC_IMPL_CORRESPONDENCE | 1146 | 395708 |
-| BOUNDARY_CHECKED | 1146 | 395708 |
-| SOURCE_AUDITED | 1146 | 395708 |
+<<<<<<< HEAD
+| SOURCE_ACQUIRED | 1150 | 395704 |
+| VERSION_PINNED | 1150 | 395704 |
+| STRUCTURE_IDENTIFIED | 1143 | 395711 |
+| NORM_DECOMPOSED | 1149 | 395705 |
+| NORMS_FORMALIZED | 1150 | 395704 |
+| SPEC_IMPL_CORRESPONDENCE | 1150 | 395704 |
+| BOUNDARY_CHECKED | 1150 | 395704 |
+| SOURCE_AUDITED | 1150 | 395704 |
+=======
+| SOURCE_ACQUIRED | 1089 | 395765 |
+| VERSION_PINNED | 1089 | 395765 |
+| STRUCTURE_IDENTIFIED | 1083 | 395771 |
+| NORM_DECOMPOSED | 1088 | 395766 |
+| NORMS_FORMALIZED | 1089 | 395765 |
+| SPEC_IMPL_CORRESPONDENCE | 1089 | 395765 |
+| BOUNDARY_CHECKED | 1089 | 395765 |
+| SOURCE_AUDITED | 1088 | 395766 |
+>>>>>>> origin/main
 
 ## Normative detail categories recorded separately
 
@@ -25,13 +40,23 @@ Conditions, exceptions, effects, delegations, periods, amounts,
 rounding and enforcement dates are recorded in independent fields
 (data/DIRECTIVE_AXES.json), never merged into one generic blob.
 
-- conditions: 936 units
-- exceptions: 196 units
-- effects: 382 units
-- delegations: 199 units
-- periods: 102 units
-- amounts: 307 units
+<<<<<<< HEAD
+- conditions: 940 units
+- exceptions: 197 units
+- effects: 383 units
+- delegations: 200 units
+- periods: 103 units
+- amounts: 308 units
 - rounding: 28 units
+=======
+- conditions: 887 units
+- exceptions: 193 units
+- effects: 372 units
+- delegations: 195 units
+- periods: 101 units
+- amounts: 301 units
+- rounding: 29 units
+>>>>>>> origin/main
 - enforcement_dates: 16 units
 
 ## Reading this ledger
