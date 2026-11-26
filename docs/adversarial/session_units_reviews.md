@@ -1573,3 +1573,60 @@ H/T/D/C/U record:
 - **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
 
 > **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### LocalCorpCapital10MEmployees50Plus.lean — 地方税法 art. 312（資本金千万円以下 かつ 従業者五十人超）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の複合数値条件・算定式を独立仕様（strict 比較・飽和減算）として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### LocalCorpCapital10M100MEmployees50.lean — 地方税法 art. 312（資本金千万円超一億円以下 かつ 従業者五十人以下）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の複合数値条件・算定式を独立仕様（strict 比較・飽和減算）として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### LocalTruckTonnage29500Rate4700.lean — 地方税法 art. 154（二万九千五百円＋八トン超一トンごとに四千七百円）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の複合数値条件・算定式を独立仕様（strict 比較・飽和減算）として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### LocalTruckTonnage40500Rate6300.lean — 地方税法 art. 154（四万五百円＋八トン超一トンごとに六千三百円）
+
+H/T/D/C/U record:
+
+- **pin**: law_id `325AC0000000226` / revision `325AC0000000226_20261101_508AC0000000002`; needle 1/1 FOUND verbatim-unique in the pinned law.
+- **H**: 原文の複合数値条件・算定式を独立仕様（strict 比較・飽和減算）として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 適用区分・他条項は本スライスの射程外（caller-established）。
+- **U**: 端数・定義・認定は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+

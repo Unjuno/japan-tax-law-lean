@@ -4536,6 +4536,30 @@ def checks():
            "325AC0000000226", "file", None,
            ["次に掲げる金額のうちいずれか少ない金額の百分の三"])
 
+# 資本金千万円以下 かつ 従業者五十人超 — LocalCorpCapital10MEmployees50Plus.lean
+    yield ("地方税法 art. 312（資本金千万円以下 かつ 従業者五十人超）↔ LocalCorpCapital10MEmployees50Plus.lean",
+           "325AC0000000226",
+           "file", None,
+           ["二　資本金等の額を有する法人で資本金等の額が千万円以下であるもののうち、従業者数の合計数が五十人を超えるもの"])
+
+    # 資本金千万円超一億円以下 かつ 従業者五十人以下 — LocalCorpCapital10M100MEmployees50.lean
+    yield ("地方税法 art. 312（資本金千万円超一億円以下 かつ 従業者五十人以下）↔ LocalCorpCapital10M100MEmployees50.lean",
+           "325AC0000000226",
+           "file", None,
+           ["三　資本金等の額を有する法人で資本金等の額が千万円を超え一億円以下であるもののうち、従業者数の合計数が五十人以下であるもの"])
+
+    # 二万九千五百円＋八トン超一トンごとに四千七百円 — LocalTruckTonnage29500Rate4700.lean
+    yield ("地方税法 art. 154（二万九千五百円＋八トン超一トンごとに四千七百円）↔ LocalTruckTonnage29500Rate4700.lean",
+           "325AC0000000226",
+           "file", None,
+           ["二万九千五百円に最大積載量が八トンを超える部分一トンまでごとに四千七百円を加算した額"])
+
+    # 四万五百円＋八トン超一トンごとに六千三百円 — LocalTruckTonnage40500Rate6300.lean
+    yield ("地方税法 art. 154（四万五百円＋八トン超一トンごとに六千三百円）↔ LocalTruckTonnage40500Rate6300.lean",
+           "325AC0000000226",
+           "file", None,
+           ["四万五百円に最大積載量が八トンを超える部分一トンまでごとに六千三百円を加算した額"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
