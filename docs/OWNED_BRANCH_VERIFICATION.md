@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=5334, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=5847, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=5334 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=5847 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -184,7 +184,10 @@ same-treatment batch pipeline: verified=3 failed=0 / verified=114 failed=0
 $ python scripts/ci/batch_list_reading_pipeline.py --limit 20
 list-reading batch pipeline: verified=5 failed=0
 
-$ python -m unittest discover -s scripts/tests -t . → 229 tests, OK
+$ python scripts/ci/batch_mutatis_mutandis_pipeline.py --limit 3 / 70 (x8) / 70
+mutatis-mutandis batch pipeline: verified=3 / 70x8 / 20, failed=0 in every run
+
+$ python -m unittest discover -s scripts/tests -t . → 231 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -560,7 +563,12 @@ list-wise reading substitution: 「A1」、「A2」…とあるのは、それ�
 no substring or overlap-priority semantics is claimed. 5 units were verified
 with three parser tests.
 
-So 5334 units are evidence-backed FULLY_VERIFIED and 391,518 remain NOT_STARTED
+A twenty-fourth pipeline, `scripts/ci/batch_mutatis_mutandis_pipeline.py`,
+handles 「…の規定は…について準用する」 reference norms: applicability requires
+both a caller-established target-case match and the referenced rule's effect,
+neither of which is resolved. 513 units were verified with two tests.
+
+So 5847 units are evidence-backed FULLY_VERIFIED and 391,005 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is

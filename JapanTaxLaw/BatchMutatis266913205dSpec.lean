@@ -1,0 +1,12 @@
+import JapanTaxLaw.BatchMutatis266913205d
+
+/-! Independent branch-form spec over the two caller-established Bools. -/
+namespace JapanTaxLaw.BatchMutatis266913205d
+
+def specApplies (t r : Bool) : Bool :=
+  if t then r else false
+
+theorem agree_spec_impl (t r : Bool) : specApplies t r = appliesVia t r := by
+  cases t <;> cases r <;> rfl
+
+end JapanTaxLaw.BatchMutatis266913205d
