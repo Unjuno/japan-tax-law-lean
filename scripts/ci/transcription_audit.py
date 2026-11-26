@@ -91,6 +91,10 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # CustomsTerritoryCountryInclusion.lean - NORM|e0b9627e... (関税制度地域の国包含 CONDITION, law 414CO0000000116)
+    yield ("経済連携協定緊急措置政令 art.2(1)(1)（関税制度地域の国包含）↔ CustomsTerritoryCountryInclusion.lean",
+           "414CO0000000116", "article", "第二条", ["当該調査の対象となる国（固有の関税及び貿易に関する制度を有する地域を含む。以下同じ。）"])
+
     # SubstituteMemberResidualTerm.lean - NORM|cf722af4... (補欠委員の残任期間 EXCEPTION, law 412CO0000000278)
     yield ("国税審議会令 art.4(1) ただし書（補欠委員の残任期間）↔ SubstituteMemberResidualTerm.lean",
            "412CO0000000278", "article", "第四条", ["ただし、補欠の委員の任期は、前任者の残任期間とする。"])
