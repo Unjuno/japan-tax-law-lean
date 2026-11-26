@@ -31,7 +31,7 @@
         "task_class": "CIRCULAR_ACQUISITION"
       },
       {
-        "acquisition_evidence": "SC-SHOWA37-WITHHOLDING-19620228 sha256=e94fb889ff8fed33886d5e96bba96290f3802b59a37cec3b1cec06575c2907f8, SC-HEISEI23-LONGTERM-LOSS-20110922 sha256=70fa7aec87216d934d89217020cfafbe9bdac8d22ba800484e4dec24c0c9513e",
+        "acquisition_evidence": "SC-SHOWA37-WITHHOLDING-19620228 sha256=e94fb889ff8fed33886d5e96bba96290f3802b59a37cec3b1cec06575c2907f8, SC-HEISEI23-LONGTERM-LOSS-20110922 sha256=70fa7aec87216d934d89217020cfafbe9bdac8d22ba800484e4dec24c0c9513e, SC-2026-0623-R6GYO-HI-160-INCOME-TAX sha256=0aed390ab0d9f76484d65ec341d690fdee50e6d5a4c943357023f1b06e1880fe",
         "formalization_evidence": "",
         "layer_id": "L5_CASELAW",
         "legal_review": "LEGAL_REVIEW_PENDING",
@@ -425,12 +425,31 @@
           "source_id": "SC-HEISEI23-LONGTERM-LOSS-20110922",
           "title_ja": "最高裁判所判決 平成23年（行ヒ）第104号 所得税更正処分取消請求事件（長期譲渡所得の損益通算廃止と遡及立法）",
           "verification": "PINNED_BYTES_ONLY"
+        },
+        {
+          "bytes": 218615,
+          "case_number": "令和6年（行ヒ）第160号",
+          "court": "最高裁判所第三小法廷",
+          "decision_date": "2026-06-23",
+          "document_kind": "SUPREME_COURT_JUDGMENT",
+          "document_kind_note": "裁判例（解釈資料レイヤー）。租税法本文とは区別し、L5 で版付きバイト固定のみ行う。形式化・人間法的レビューは未実施。",
+          "formalization_status": "NOT_MODELLED",
+          "layer_id": "L5_CASELAW",
+          "legal_review": "LEGAL_REVIEW_PENDING",
+          "local_path": "data/layers/L5_CASELAW/SC_2024_IncomeTaxCorrection_R6GyoHi160.pdf",
+          "media_type": "application/pdf",
+          "official_url": "https://www.courts.go.jp/assets/hanrei/hanrei-pdf-96536.pdf",
+          "retrieved_date": "2026-11-26",
+          "sha256": "0aed390ab0d9f76484d65ec341d690fdee50e6d5a4c943357023f1b06e1880fe",
+          "source_id": "SC-2026-0623-R6GYO-HI-160-INCOME-TAX",
+          "title_ja": "令和6年（行ヒ）第160号 所得税更正処分取消等請求事件",
+          "verification": "PINNED_BYTES_ONLY"
         }
       ],
       "authority": "裁判所",
       "auxiliary": true,
       "backlog": {
-        "acquisition_evidence": "SC-SHOWA37-WITHHOLDING-19620228 sha256=e94fb889ff8fed33886d5e96bba96290f3802b59a37cec3b1cec06575c2907f8, SC-HEISEI23-LONGTERM-LOSS-20110922 sha256=70fa7aec87216d934d89217020cfafbe9bdac8d22ba800484e4dec24c0c9513e",
+        "acquisition_evidence": "SC-SHOWA37-WITHHOLDING-19620228 sha256=e94fb889ff8fed33886d5e96bba96290f3802b59a37cec3b1cec06575c2907f8, SC-HEISEI23-LONGTERM-LOSS-20110922 sha256=70fa7aec87216d934d89217020cfafbe9bdac8d22ba800484e4dec24c0c9513e, SC-2026-0623-R6GYO-HI-160-INCOME-TAX sha256=0aed390ab0d9f76484d65ec341d690fdee50e6d5a4c943357023f1b06e1880fe",
         "formalization_evidence": "",
         "layer_id": "L5_CASELAW",
         "legal_review": "LEGAL_REVIEW_PENDING",
@@ -438,13 +457,13 @@
         "status": "PARTIAL",
         "task_class": "CASELAW_ACQUISITION"
       },
-      "count": 2,
-      "count_acquired": 2,
+      "count": 3,
+      "count_acquired": 3,
       "label_ja": "裁判例",
       "layer_id": "L5_CASELAW",
       "legal_nature": "判決・裁定（法源ではなく判断例）",
       "notes": "判断例として原文 bytes を pin 済み（法源ではなく解釈資料、形式化・レビュー未実施）。規範そのものとは混ぜない。",
-      "pinned_snapshot": "SC-SHOWA37-WITHHOLDING-19620228, SC-HEISEI23-LONGTERM-LOSS-20110922",
+      "pinned_snapshot": "SC-SHOWA37-WITHHOLDING-19620228, SC-HEISEI23-LONGTERM-LOSS-20110922, SC-2026-0623-R6GYO-HI-160-INCOME-TAX",
       "scope_status": "IN_SCOPE_INTERPRETATION_BACKLOG",
       "verification_status": "PINNED_BYTES_ONLY"
     },
