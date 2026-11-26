@@ -95,6 +95,10 @@ def checks():
 
     yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
 
+    # PrevParagraphTwoThreeReading.lean - NORM|f5c77990... (前条二・三項準用 READING, law 327CO0000000124)
+    yield ("米軍地位協定臨時特例法施行令 art.3_2(2)（前条二・三項準用）↔ PrevParagraphTwoThreeReading.lean",
+           "327CO0000000124", "article", "第三条の二", ["前条第二項及び第三項の規定は、前項の課税石油ガスについて準用する。"])
+
     # TokyoAsCityDeeming.lean - NORM|1a2cafd55f792102d5682dcc811260486c83126edbf8985d8a31d64c3eddb32f
     # 特別とん譲与税法 第六条第一項 第二文 (DEEMING 「都を市とみなして」).
     # Needle is in MainProvision Article 第六条; revision pinned in INVENTORY.

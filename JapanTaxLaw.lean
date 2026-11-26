@@ -1565,6 +1565,9 @@ import JapanTaxLaw.PrescribedPeriodWithinFourMonthsTests
 import JapanTaxLaw.PrescribedTimesTwo
 import JapanTaxLaw.PrescribedTimesTwoSpec
 import JapanTaxLaw.PrescribedTimesTwoTests
+import JapanTaxLaw.PrevParagraphTwoThreeReading
+import JapanTaxLaw.PrevParagraphTwoThreeReadingSpec
+import JapanTaxLaw.PrevParagraphTwoThreeReadingTests
 import JapanTaxLaw.ProductionVolume6KL
 import JapanTaxLaw.ProductionVolume6KLSpec
 import JapanTaxLaw.ProductionVolume6KLTests
