@@ -181,8 +181,8 @@ lake clean && lake build                                                # 再現
 | 指標 | 実測値 |
 |---|---:|
 | 規範単位（確定対象版） | 268,107 |
-| NOT_STARTED | 260,300 |
-| PARTIAL | 4,312 |
+| NOT_STARTED | 259,871 |
+| PARTIAL | 4,741 |
 | PROVED_SCOPE | 0 |
 | FULLY_VERIFIED | 3,493（約 1.30%） |
 | BLOCKED | 2 |
@@ -254,7 +254,10 @@ TRANSITIONAL へ分類された。独立監査で 465/465 が原文 PIN と一�
 projection_digest の不整合 42 件は正しい digest で更新し、不当な BLOCKED を
 除去した（証跡は既存のまま）。残る 2 件のみ実質 BLOCKED。PROVED_SCOPE は 0 になったが、
 これは未検証義務（NOT_STARTED 260,300／未解決条件 139,841）の減少を意味せず、
-完了判定ではない。
+完了判定ではない。さらに永続セレクタで 500 単位に SOURCE 監査を割当て、
+原文スパンの SHA/_PREFIX/ダイジェスト照合と H/T/D/C/U を記録
+（`coordinator_cycle_htdcu_500.json`）。NOT_STARTED 260,300 → 259,871、
+PARTIAL 4,312 → 4,741。これは SOURCE 軸の進展であり、形式化・証明の進展ではない。
 さらに「端数金額を控除した金額」型の千円未満切捨て 18 単位を全文判定で
 追加（`deductrem_audit.json`）。
 
