@@ -6642,6 +6642,17 @@
         5
       ]
     },
+    "PatentTransferRatio": {
+      "adversarial_review": true,
+      "boundary_examples_found": 3,
+      "independent_spec": true,
+      "kanji_literals": [],
+      "kernel_attested": true,
+      "kernel_decided_examples": 6,
+      "needles_scoped": true,
+      "scoped_article_chars": 8696,
+      "spec_literals": []
+    },
     "PenaltyCap50k": {
       "adversarial_review": true,
       "boundary_examples_found": 6,
@@ -15617,6 +15628,20 @@
         "spec_kanji_in_原文": [
           "三十万"
         ]
+      },
+      "NORM|4eac22eb12ef2a7a84f5379a5e149609fa458fcb98279c2c09fc0f7a9a53e4ed": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 6,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "PatentTransferRatio",
+        "spec_kanji_in_原文": []
       },
       "NORM|4f195d89f9680887f6fc242b5c650e698e59ac3641fb96e9456dfb0fe64ca93b": {
         "checks": {
@@ -32208,6 +32233,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"300000\": [\"三十万\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/326AC1000000237_20251001_505AC0000000053.law.json#LawBody[2]/MainProvision/MainProvision[8]/Article:65/Article#65/Paragraph#1/ParagraphSentence/Sentence#1 sha256=46d956e2c48954577ec3479c5e8c83a2a2ff913860a2ba6b2eea327f3107916f (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/TaxAccountantFine300kTests.lean sha256=47fe951b3cc38df96d39991867371aed210d6f9d1df767424c636d1ce1b9eb19 (11 kernel-decided examples)"
+    },
+    "NORM|4eac22eb12ef2a7a84f5379a5e149609fa458fcb98279c2c09fc0f7a9a53e4ed": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 6 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=332M50000040015_20261101_507M60000040026 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/PatentTransferRatio.lean sha256=48b011ff702bf4e9fa0234e82237065b4308f202cb060c94f2a58f9bdb091798",
+      "independent_spec": "JapanTaxLaw/PatentTransferRatioSpec.lean sha256=502617a3bdad56561740a94c18880cb22346385477ecd4c96204fa21b93b0d39 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45877370105: commit 14c7e63a32455ceb4c8b60440d0dd466f5726c31, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=pinned needle(s) in clause: ['当該金額に取引数（当該特許権譲渡等取引及び当該特']; constants [] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['当該金額に取引数（当該特許権譲渡等取引及び当該特']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/332M50000040015_20261101_507M60000040026.law.json#LawBody[4]/MainProvision/MainProvision[2]/Article:21_17_2/Article#21_17_2/Paragraph#2/Item#1/ItemSentence/Column#2/Sentence#1 sha256=2e5d3e585b99e15ffb030c8b6fa0dcc6ccf7cc9532924fa5b6438a68cc05767c (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/PatentTransferRatioTests.lean sha256=6eee101c1c83fc7af221385348c951c21b6693fb9b08189891f433159b1f1b28 (6 kernel-decided examples)"
     },
     "NORM|4f195d89f9680887f6fc242b5c650e698e59ac3641fb96e9456dfb0fe64ca93b": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
