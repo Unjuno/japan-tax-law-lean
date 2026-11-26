@@ -91,6 +91,10 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # FreeTradeZoneReading.lean - NORM|1ee9f2af... (自由貿易地域等準用 READING, law 404M50000008008)
+    yield ("沖縄地方税課税免除省令 art.1(2)（自由貿易地域等準用）↔ FreeTradeZoneReading.lean",
+           "404M50000008008", "article", "第一条", ["前項の規定は、自由貿易地域及び特別自由貿易地域について準用する。"])
+
     yield ("航空機燃料税法 art. 14(1) 第四号（納付すべき税額＝二号税額−前号税額）↔ AircraftFuelTaxPayable.lean", "347AC0000000007", "article", "第十四条", ["第二号に掲げる航空機燃料税額から前号に掲げる航空機燃料税額を控除した金額"])
 
     yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
