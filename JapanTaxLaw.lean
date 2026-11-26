@@ -984,6 +984,9 @@ import JapanTaxLaw.HouseholdCorrectionFloor07Tests
 import JapanTaxLaw.HousingLoanCredit
 import JapanTaxLaw.HousingLoanCreditSpec
 import JapanTaxLaw.HousingLoanCreditTests
+import JapanTaxLaw.ImmediateRetaliationException
+import JapanTaxLaw.ImmediateRetaliationExceptionSpec
+import JapanTaxLaw.ImmediateRetaliationExceptionTests
 import JapanTaxLaw.ImportValueCap200k
 import JapanTaxLaw.ImportValueCap200kSpec
 import JapanTaxLaw.ImportValueCap200kTests
