@@ -153,3 +153,54 @@ Investigated reducing the 175,186 `references_external_unverified` count:
   with per-file SHA-256 verification against the provenance ledger (0 mismatches;
   1 skip where the enforced revision advanced). 380/381 discovered laws now have
   verified raw bytes on disk, enabling future parse/decompose work.
+
+## Resume addendum — 2026-11-26 (integration drift, two unmerged model PRs)
+
+Measured merged main `86fcbefc`: 396,854 normative units; FULLY_VERIFIED=1057;
+NOT_STARTED=395,794; PROVED_SCOPE=1; BLOCKED=2. Gates: 8/8 qa, 17/17 invariants
+(locally after restoring dropped checks), 717/717 transcription, 25/25 evidence.
+
+### Unmerged work (all artifacts on GitHub, nothing claimed as verified on main)
+
+- PR #764 `formalize/separate-tariff-application` (SeparateTariffApplication.lean,
+  3 units). CI green on `2bd958f6` / `5f92b76f` / `9e662076` / `dd70489e`;
+  each green run was followed by a concurrent main rewrite, causing merge
+  conflicts and ledger-regeneration gate failures. Latest branch head `5f981fec`.
+- PR #832 `formalize/cabinet-order-matters-delegation`
+  (CabinetOrderMattersDelegation.lean, 3 units, CI run `45827914144` FAILED:
+  7 regeneration gates — L7, law-status, directive-axes, coordinator,
+  source-layers, coverage, blocked). Head `e47f5e15`. A minimal PR with no
+  ledger changes is NOT sufficient: adding Lean modules changes module counts,
+  so coverage/source-layer/L7 ledgers must be regenerated.
+- Branch `fix/restore-2-checks-final` head `746b3bbb`: restores transcription
+  checks dropped by concurrent rewrites; not merged.
+
+### Root cause (competing hypotheses)
+
+1. Concurrent workstream rewrites `main` (umbrella, transcription checks and
+   registry, generated ledgers) every few minutes, faster than a ~20-30 min CI
+   run can finish. Each green PR head is stale by merge time.
+2. The guard `registered transcription checks retained` compares checks against
+   the registry, but the concurrent workstream edits BOTH, so dropping a check
+   from both is invisible to the guard.
+3. `progress_ledger.py` stores a snapshot keyed by HEAD, so a generated ledger
+   committed with commit X is stale when CI checks out X (self-referential).
+
+### Exact resume procedure (do not weaken gates)
+
+1. Rebase the PR branch onto current `origin/main`; resolve conflicts keeping
+   the new Lean modules, check, registry entry and umbrella import.
+2. Run the FULL generator list in `scripts/ci/run_python_gates.py` order
+   (NOT a subset) repeatedly until no file changes between runs (fixed point).
+   Local PC needs >60 min per pass; allow a multi-hour timeout.
+3. Commit regenerated ledgers; push; dispatch CI; verify green via REST with
+   `gh run view` (REST rate limit 403 may require waiting or GraphQL).
+4. Merge immediately after green; then create a SEPARATE scoped attestation
+   file `data/PROOF_ATTESTATION_SCOPED_<MODEL>.json` from the green commit's
+   git blobs (helper: `_mkscoped.py`). Never rewrite the contended main scoped
+   attestation — PR #758 proved the separate-file approach merges.
+5. Regenerate ledgers again on merged main; re-measure.
+
+FilingDateException is already in the evidence ledger via PR #758's separate
+scoped attestation. SeparateTariffApplication and CabinetOrderMattersDelegation
+are NOT attested on main and must NOT be counted as progress.
