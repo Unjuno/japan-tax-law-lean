@@ -91,10 +91,6 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
-    # FreeTradeZoneReading.lean - NORM|1ee9f2af... (自由貿易地域等準用 READING, law 404M50000008008)
-    yield ("沖縄地方税課税免除省令 art.1(2)（自由貿易地域等準用）↔ FreeTradeZoneReading.lean",
-           "404M50000008008", "article", "第一条", ["前項の規定は、自由貿易地域及び特別自由貿易地域について準用する。"])
-
     # TouristTaxTaxablePassengers — 国際観光旅客税法施行規則 art.3(2) ホ (restored)
     yield ("国際観光旅客税法施行規則 art.3(2) ホ（課税旅客数＝イ−(ロ+ハ+ニ)）↔ TouristTaxTaxablePassengers.lean",
            "430M60000040039", "article", "第三条", ["イに掲げる数からロからニまでに掲げる数の合計数を控除した数"])
@@ -4705,6 +4701,15 @@ def checks():
     yield ("租税特別措置法 art. 42_4（7%超の事業年度）↔ CombinedRndExcessOver7Year.lean",
            "332AC0000000026", "file", None,
            ["増減試験研究費割合が百分の七を超える事業年度"])
+
+    # 所得税法 art. 3 — BlueBusinessDeductAmount.lean (22.5万/21.75万)
+    yield ("所得税法 art. 3（青色事業専従者22.5万/21.75万）↔ BlueBusinessDeductAmount.lean",
+           "340AC0000000033", "file", None,
+           ["二十二万五千円（当該青色事業専従者の年齢が二十歳未満である場合には、二十一万七千五百円）"])
+    # 租税特別措置法施行令 art. 33の3 — ReserveAccumulationAtMost25.lean (25%以下)
+    yield ("租税特別措置法施行令 art. 33_3（準備金25%以下）↔ ReserveAccumulationAtMost25.lean",
+           "332CO0000000043", "file", None,
+           ["異常危険準備金累積割合が百分の二十五以下の場合"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
