@@ -1122,6 +1122,9 @@ import JapanTaxLaw.InvestigationExtensionSixMonthsTests
 import JapanTaxLaw.InvestmentIncomeBelowHalf
 import JapanTaxLaw.InvestmentIncomeBelowHalfSpec
 import JapanTaxLaw.InvestmentIncomeBelowHalfTests
+import JapanTaxLaw.IssuanceDeadlineFifteenElapsedDays
+import JapanTaxLaw.IssuanceDeadlineFifteenElapsedDaysSpec
+import JapanTaxLaw.IssuanceDeadlineFifteenElapsedDaysTests
 import JapanTaxLaw.JointHeirDeclarationThreshold
 import JapanTaxLaw.JointHeirDeclarationThresholdSpec
 import JapanTaxLaw.JointHeirDeclarationThresholdTests
@@ -2196,9 +2199,6 @@ import JapanTaxLaw.TariffQuotaAmountTests
 import JapanTaxLaw.TariffQuotaSystemEnforcementDate
 import JapanTaxLaw.TariffQuotaSystemEnforcementDateSpec
 import JapanTaxLaw.TariffQuotaSystemEnforcementDateTests
-import JapanTaxLaw.TestimonyParagraphReading
-import JapanTaxLaw.TestimonyParagraphReadingSpec
-import JapanTaxLaw.TestimonyParagraphReadingTests
 import JapanTaxLaw.TaxAccountantBalanceSheetUnits
 import JapanTaxLaw.TaxAccountantBalanceSheetUnitsSpec
 import JapanTaxLaw.TaxAccountantBalanceSheetUnitsTests
@@ -2278,6 +2278,9 @@ import JapanTaxLaw.TaxationPeriodTests
 import JapanTaxLaw.Taxpayer
 import JapanTaxLaw.TaxpayerSpec
 import JapanTaxLaw.TaxpayerTests
+import JapanTaxLaw.TestimonyParagraphReading
+import JapanTaxLaw.TestimonyParagraphReadingSpec
+import JapanTaxLaw.TestimonyParagraphReadingTests
 import JapanTaxLaw.Tests
 import JapanTaxLaw.TestsCommon
 import JapanTaxLaw.ThousandYenTruncation

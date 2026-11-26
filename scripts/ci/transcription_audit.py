@@ -4900,6 +4900,11 @@ def checks():
     yield ("租税特別措置法 art. 40_7（外国関係法人20%以上）↔ ForeignRelatedCorpTaxRate20.lean",
            "332AC0000000026", "file", None,
            ["対象外国関係法人の各事業年度の租税負担割合が百分の二十以上である場合"])
+    # 関税暫定措置法証明書発給省令 art.2(4) — IssuanceDeadlineFifteenElapsedDays.lean
+    yield ("関税暫定措置法証明書発給省令 第二条(4)（十五日経過日までに交付）↔ IssuanceDeadlineFifteenElapsedDays.lean",
+           "407M50000200018", "article", "第二条",
+           ["受理した日から起算して十五日を経過した日までに"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
