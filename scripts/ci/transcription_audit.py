@@ -5094,6 +5094,13 @@ def checks():
            "file", None,
            ["組織変更をする会社の当該組織変更の直前における資産の額から負債の額を控除した額（当該控除した額がイに掲げる額以下である場合にあつては、イに掲げる額）"])
 
+    # InheritanceTaxArt26_2CouncilDelegation.lean - NORM|71d63ade... (相続税法 art.26の2(5) DELEGATION, law 325AC0000000073)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("inheritance tax art.26_2 council delegation - InheritanceTaxArt26_2CouncilDelegation.lean",
+           "325AC0000000073",
+           "file", None,
+           ["\u524d\u4e8c\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u571f\u5730\u8a55\u4fa1\u5be9\u8b70\u4f1a\u306e\u7d44\u7e54\u53ca\u3073\u904b\u55b6\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
