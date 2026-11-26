@@ -2113,6 +2113,9 @@ import JapanTaxLaw.TaxNoticeDeadlineTests
 import JapanTaxLaw.TaxProcedure
 import JapanTaxLaw.TaxProcedureSpec
 import JapanTaxLaw.TaxProcedureTests
+import JapanTaxLaw.TaxResearchCouncilQuorum
+import JapanTaxLaw.TaxResearchCouncilQuorumSpec
+import JapanTaxLaw.TaxResearchCouncilQuorumTests
 import JapanTaxLaw.TaxRounding
 import JapanTaxLaw.TaxRoundingSpec
 import JapanTaxLaw.TaxRoundingTests
