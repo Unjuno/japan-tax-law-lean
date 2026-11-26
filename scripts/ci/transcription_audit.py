@@ -4997,6 +4997,15 @@ def checks():
            "file", None,
            ["第一号の数量から前号の数量を控除した数量（以下この項において「課税標準数量」という。）"])
 
+    # 租税特別措置法 art. 90の12 — EnergyEfficiency105Pct.lean (105%)
+    yield ("租税特別措置法 art. 90_12（効率105%以上）↔ EnergyEfficiency105Pct.lean",
+           "332AC0000000026", "file", None,
+           ["エネルギー消費効率が令和四年度基準エネルギー消費効率に百分の百五を乗じて得た数値以上であること。"])
+    # 租税特別措置法施行令 art. 51の2 — EnergyEfficiency116Pct.lean (116%)
+    yield ("租税特別措置法施行令 art. 51_2（効率116%以上）↔ EnergyEfficiency116Pct.lean",
+           "332CO0000000043", "file", None,
+           ["エネルギー消費効率が令和二年度基準エネルギー消費効率に百分の百十六を乗じて得た数値以上であること。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
