@@ -4776,6 +4776,13 @@ def checks():
            "file", None,
            ["\u5e74\uff13\uff15\uff10\u4e07\u5186\u3092\u8d85\u3048\u5e74\uff17\uff10\uff10\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d\u3000\uff08\uff08\uff12\uff12\uff09\uff09"])
 
+    # SpecialMeasuresArt42_4CombinedRatioOver10Exception.lean - NORM|54d5aca7... (租税特別措置法 art.42_4 EXCEPTION, law 332AC0000000026)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("special measures art.42_4 combined ratio over 10 exception - SpecialMeasuresArt42_4CombinedRatioOver10Exception.lean",
+           "332AC0000000026",
+           "file", None,
+           ["\u5408\u7b97\u8a66\u9a13\u7814\u7a76\u8cbb\u5272\u5408\u304c\u767e\u5206\u306e\u5341\u3092\u8d85\u3048\u308b\u4e8b\u696d\u5e74\u5ea6\uff08\uff08\uff11\uff09\u306b\u63b2\u3052\u308b\u4e8b\u696d\u5e74\u5ea6\u3092\u9664\u304f\u3002\uff09"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
