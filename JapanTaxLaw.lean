@@ -1757,6 +1757,9 @@ import JapanTaxLaw.OwnershipPercent5Tests
 import JapanTaxLaw.PassengerCapacity
 import JapanTaxLaw.PassengerCapacitySpec
 import JapanTaxLaw.PassengerCapacityTests
+import JapanTaxLaw.PatentTransferRatio
+import JapanTaxLaw.PatentTransferRatioSpec
+import JapanTaxLaw.PatentTransferRatioTests
 import JapanTaxLaw.PaymentCeiling
 import JapanTaxLaw.PaymentCeilingSpec
 import JapanTaxLaw.PaymentCeilingTests
