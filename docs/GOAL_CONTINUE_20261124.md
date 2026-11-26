@@ -501,6 +501,33 @@ progress_ledger: COUNTED; NOT_STARTED delta -16; new modules 15
 All five target ids carry `kernel_proof` citing the correct run. Legal review
 stays pending.
 
+### Nineteenth iteration (batch 265)
+
+A ninth delegated agent produced five units (`LocalTax9_2IncomeOver4M`,
+`314_2DisasterExpenseCeiling50k`, `InheritanceTax3RetirementAllowanceWithin3Years`,
+`144_9OpinionWithin2Months`, `72_24_5TwoPrefectures`) with independent specs,
+kernel tests, scoped needles and batch-265 review; build 2103 jobs,
+transcription 655, invariants 17/17. CI run `45870345768` on
+`b624ed2136863e4d741fec847c8e87a2258ba5af` completed `success`;
+`data/PROOF_ATTESTATION_SCOPED_T19.json` binds 15 module hashes from committed
+blobs at that commit to that run.
+
+The initially selected 相続税法 art. 49 unit was UNRESOLVED with an unhandled
+condition and was replaced before commitment by an art. 3(1) 三年以内 unit that
+passed mandatory generator-gate pre-validation (verifiable kind, no unhandled
+conditions, clause correspondence, scoped anchoring, coverage exact/unique,
+source path). No same-numeral-only match was accepted.
+
+```
+before: FULLY_VERIFIED=1168 NOT_STARTED=395681 evidence=1171
+after:  FULLY_VERIFIED=1184 NOT_STARTED=395665 evidence=1187
+delta:  FULLY_VERIFIED=+16 NOT_STARTED=-16  evidence=+16
+progress_ledger: COUNTED; NOT_STARTED delta -16; new modules 15
+```
+
+All five target ids carry `kernel_proof` citing the correct run. Legal review
+stays pending.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |
