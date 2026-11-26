@@ -40,3 +40,16 @@ mappings, and the 6 date intersections remain candidates only.
 
 Action: this probe is recorded as a negative result and no status in
 `HISTORICAL_REFERENCE_CONTEXTS.md` is upgraded.
+
+## Follow-up: amendment-law identity is also non-discriminative here
+Attempted to identify the amendment act for the 新地方法人税法 candidates:
+- direct `law_data/{amendment_law_id}` returned HTTP 404 for all three
+  2020-04-01 candidates (the API needs a law *revision* id, not a law id);
+- the pinned revision metadata shows candidates on the same enforcement date
+  with the same amendment-law title (所得税法等の一部を改正する法律), so
+  neither title nor date distinguishes them;
+- fetching the amendment law's article 3 and matching it against the defining
+  clause remains the defensible route, but requires a law_id→revision lookup
+  that is not part of the current pin set.
+
+No mapping is claimed; 87 references remain at 0 mappings.
