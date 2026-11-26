@@ -2488,6 +2488,12 @@ def checks():
            "file", None,
            ["第一条この省令は、平成十二年四月一日から施行する", "この省令は、平成十二年四月一日から施行する"])
 
+    # CustomsOfficerBadgeFormEnforcementDate — cycle-138
+    yield ("CustomsOfficerBadgeFormEnforcementDate.lean",
+           "329M50000040064",
+           "file", None,
+           ["第一条この省令は、昭和五十二年七月一日から施行する", "この省令は、昭和五十二年七月一日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
