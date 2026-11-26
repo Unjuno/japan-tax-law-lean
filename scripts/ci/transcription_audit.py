@@ -4673,6 +4673,30 @@ def checks():
            "332CO0000000049", "article", "第三条",
            ["とん税額の八分の十に相当する特別とん税額をあわせて担保しなければならない。"])
 
+# 公布の日から六月を超えない範囲内で施行 — EnforcementWithinSixMonths.lean
+    yield ("地方税法 art. 1（公布の日から六月を超えない範囲内で施行）↔ EnforcementWithinSixMonths.lean",
+           "325AC0000000226",
+           "file", None,
+           ["ただし、附則第二十一条から第五十五条までの規定は、公布の日から起算して六月を超えない範囲内において政令で定める日から施行する。"])
+
+    # 公布の日から九月を超えない範囲内で施行 — EnforcementWithinNineMonths.lean
+    yield ("地方税法 art. 1（公布の日から九月を超えない範囲内で施行）↔ EnforcementWithinNineMonths.lean",
+           "325AC0000000226",
+           "file", None,
+           ["ただし、附則第十三条から第二十四条までの規定は、公布の日から起算して九月を超えない範囲内において政令で定める日から施行する。"])
+
+    # 工業生産設備の減価償却資産取得価額 三千二百万円超 — IndustrialEquipmentCost32M.lean
+    yield ("地方税法施行令 art. 54_13（工業生産設備の減価償却資産取得価額 三千二百万円超）↔ IndustrialEquipmentCost32M.lean",
+           "325CO0000000245",
+           "file", None,
+           ["一の工業生産設備で、これを構成する減価償却資産の取得価額の合計額が三千二百万円を超えるもの"])
+
+    # 一日当たり平均利用者数 十万人以上 — StationDailyUsers100k.lean
+    yield ("地方税法施行令 art. 11（一日当たり平均利用者数 十万人以上）↔ StationDailyUsers100k.lean",
+           "325CO0000000245",
+           "file", None,
+           ["当該事業の開始の日の属する年度の前年度の一日当たりの平均的な利用者の人数が十万人以上である駅若しくは停留場（以下この号において「特定駅等」という。）又は特定駅等からの距離が百キロメートル以内の駅若しくは停留場において実施される事業"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
