@@ -5080,6 +5080,12 @@ def checks():
            "file", None,
            ["組織変更をする会社の当該組織変更の直前における資産の額から負債の額を控除した額（当該控除した額がイに掲げる額以下である場合にあつては、イに掲げる額）"])
 
+    # 関税定率法施行令 art. 2の4(2) — OverseasMarketPriceCeiling.lean
+    yield ("関税定率法施行令 art. 2_4（海外市価三万円以下）↔ OverseasMarketPriceCeiling.lean",
+           "344M50000040016",
+           "file", None,
+           ["一個（現に使用中のもので海外市価（外国においてその物品を購入する際に支払われた又は支払われるべき価格をいう。以下この条において同じ。）三万円以下のものに限る。次号において同じ。）"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
