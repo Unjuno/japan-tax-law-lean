@@ -103,6 +103,9 @@ import JapanTaxLaw.BusinessOwnerDeductionTests
 import JapanTaxLaw.BusinessTaxCollectionCostRate5
 import JapanTaxLaw.BusinessTaxCollectionCostRate5Spec
 import JapanTaxLaw.BusinessTaxCollectionCostRate5Tests
+import JapanTaxLaw.CabinetOrderLocalTaxOneYenRounding
+import JapanTaxLaw.CabinetOrderLocalTaxOneYenRoundingSpec
+import JapanTaxLaw.CabinetOrderLocalTaxOneYenRoundingTests
 import JapanTaxLaw.CapitalExceed100M
 import JapanTaxLaw.CapitalExceed100MSpec
 import JapanTaxLaw.CapitalExceed100MTests
@@ -952,6 +955,9 @@ import JapanTaxLaw.InheritanceTaxArt25LumpSumPremiumConditionTests
 import JapanTaxLaw.InheritanceTaxArt3DeemedAcquisition
 import JapanTaxLaw.InheritanceTaxArt3DeemedAcquisitionSpec
 import JapanTaxLaw.InheritanceTaxArt3DeemedAcquisitionTests
+import JapanTaxLaw.InheritanceTaxArt4DeemedAcquisitionCaption
+import JapanTaxLaw.InheritanceTaxArt4DeemedAcquisitionCaptionSpec
+import JapanTaxLaw.InheritanceTaxArt4DeemedAcquisitionCaptionTests
 import JapanTaxLaw.InheritanceTaxArt56And57Ref
 import JapanTaxLaw.InheritanceTaxArt56And57RefSpec
 import JapanTaxLaw.InheritanceTaxArt56And57RefTests
@@ -1774,6 +1780,12 @@ import JapanTaxLaw.RetirementResidual3MTests
 import JapanTaxLaw.RiceContentThreshold
 import JapanTaxLaw.RiceContentThresholdSpec
 import JapanTaxLaw.RiceContentThresholdTests
+import JapanTaxLaw.RndExcessOver12
+import JapanTaxLaw.RndExcessOver12Spec
+import JapanTaxLaw.RndExcessOver12Tests
+import JapanTaxLaw.RndExcessOver3
+import JapanTaxLaw.RndExcessOver3Spec
+import JapanTaxLaw.RndExcessOver3Tests
 import JapanTaxLaw.RndSurchargeRate
 import JapanTaxLaw.RndSurchargeRateSpec
 import JapanTaxLaw.RndSurchargeRateTests
@@ -1943,6 +1955,9 @@ import JapanTaxLaw.StampDutySpecial91
 import JapanTaxLaw.StampDutySpecial91Spec
 import JapanTaxLaw.StampDutySpecial91Tests
 import JapanTaxLaw.StampDutyTests
+import JapanTaxLaw.StampDutyThreshold100k
+import JapanTaxLaw.StampDutyThreshold100kSpec
+import JapanTaxLaw.StampDutyThreshold100kTests
 import JapanTaxLaw.StampExchangeFee
 import JapanTaxLaw.StampExchangeFeeSpec
 import JapanTaxLaw.StampExchangeFeeTests
@@ -2079,6 +2094,9 @@ import JapanTaxLaw.TonnageTaxTests
 import JapanTaxLaw.TouristTaxFineRange
 import JapanTaxLaw.TouristTaxFineRangeSpec
 import JapanTaxLaw.TouristTaxFineRangeTests
+import JapanTaxLaw.TouristTaxTaxablePassengers
+import JapanTaxLaw.TouristTaxTaxablePassengersSpec
+import JapanTaxLaw.TouristTaxTaxablePassengersTests
 import JapanTaxLaw.TrainingPeriodOneYear
 import JapanTaxLaw.TrainingPeriodOneYearSpec
 import JapanTaxLaw.TrainingPeriodOneYearTests
