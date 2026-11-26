@@ -4684,6 +4684,15 @@ def checks():
            "332AC0000000026", "file", None,
            ["増減試験研究費割合が百分の七を超える事業年度"])
 
+    # 地方税法 art. 72の21 — LocalGrantBracket1000To5000.lean (千億〜五千億)
+    yield ("地方税法 art. 72_21（千億超五千億以下）↔ LocalGrantBracket1000To5000.lean",
+           "325AC0000000226", "file", None,
+           ["千億円を超え五千億円以下の金額"])
+    # 地方税法 art. 9の2 — LocalTaxIncomeBracket4MTo1B.lean (四百万〜十億)
+    yield ("地方税法 art. 9_2（四百万超十億以下）↔ LocalTaxIncomeBracket4MTo1B.lean",
+           "325AC0000000226", "file", None,
+           ["各事業年度の所得のうち年四百万円を超え年十億円以下の金額"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
