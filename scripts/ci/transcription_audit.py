@@ -5162,6 +5162,11 @@ def checks():
            "332M50000040015",
            "file", None,
            ["当該金額に取引数（当該特許権譲渡等取引及び当該特定特許権等に係る他の特許権譲渡等取引の数をいう。以下この号において同じ。）から一を控除した数が取引数のうちに占める割合を乗じて計算した金額"])
+    # 半島振興法施行令 art.4(1)(2) — OneYearConstructionStartWindow.lean
+    yield ("半島振興法施行令 第四条(1)(2)（一年以内建設着手）↔ OneYearConstructionStartWindow.lean",
+           "407M50000008012", "article", "第四条",
+           ['土地については、その取得の日の翌日から起算して一年以内に当該土地を敷地とする当該家屋の建設の着手があった場合における当該土地に限る。'])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
