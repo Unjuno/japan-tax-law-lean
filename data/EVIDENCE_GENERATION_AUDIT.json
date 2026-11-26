@@ -1,4 +1,41 @@
 {
+  "_units": {
+    "NORM|0d9cd80cd3496979b0de1dd76ec0f8b17bb602ced532054eb9b54f19a8794fe7": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 9,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "RndExcess3To15",
+      "spec_kanji_in_原文": [
+        "三",
+        "十五",
+        "百"
+      ]
+    },
+    "NORM|19c586773f02861671540621e22b12ad0105e487695542bd6d320fe92b45cac8": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 7,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "RndExcessOver15",
+      "spec_kanji_in_原文": [
+        "十五",
+        "百"
+      ]
+    }
+  },
   "attestation_commit": "ee87c61b593013e342a82569bc6c8bc342a82ab6",
   "module_detail": {
     "AccessoryPriceFloor": {
@@ -6286,6 +6323,25 @@
         100
       ]
     },
+    "RndExcess3To15": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "三",
+        "十五",
+        "百"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 9,
+      "needles_scoped": true,
+      "scoped_article_chars": 7618,
+      "spec_literals": [
+        3,
+        15,
+        100
+      ]
+    },
     "RndExcessAtMost3": {
       "adversarial_review": true,
       "boundary_examples_found": 5,
@@ -6317,6 +6373,23 @@
       "scoped_article_chars": 7618,
       "spec_literals": [
         12,
+        100
+      ]
+    },
+    "RndExcessOver15": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "十五",
+        "百"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 7,
+      "needles_scoped": true,
+      "scoped_article_chars": 7618,
+      "spec_literals": [
+        15,
         100
       ]
     },

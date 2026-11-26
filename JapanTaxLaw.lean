@@ -208,6 +208,9 @@ import JapanTaxLaw.ConsumptionTaxableBaseTests
 import JapanTaxLaw.ContainerSpec
 import JapanTaxLaw.ContainerSpecSpec
 import JapanTaxLaw.ContainerSpecTests
+import JapanTaxLaw.ContinuingIncreaseAtLeast5
+import JapanTaxLaw.ContinuingIncreaseAtLeast5Spec
+import JapanTaxLaw.ContinuingIncreaseAtLeast5Tests
 import JapanTaxLaw.CorpActor
 import JapanTaxLaw.CorpActorSpec
 import JapanTaxLaw.CorpActorTests
@@ -1828,6 +1831,9 @@ import JapanTaxLaw.RoadWidthThresholdTests
 import JapanTaxLaw.SCFVPenaltyCeiling
 import JapanTaxLaw.SCFVPenaltyCeilingSpec
 import JapanTaxLaw.SCFVPenaltyCeilingTests
+import JapanTaxLaw.SalaryIncreaseRate5Or15
+import JapanTaxLaw.SalaryIncreaseRate5Or15Spec
+import JapanTaxLaw.SalaryIncreaseRate5Or15Tests
 import JapanTaxLaw.SalaryTotal300k
 import JapanTaxLaw.SalaryTotal300kSpec
 import JapanTaxLaw.SalaryTotal300kTests

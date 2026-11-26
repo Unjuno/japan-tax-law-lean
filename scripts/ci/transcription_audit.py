@@ -4607,6 +4607,15 @@ def checks():
            "332AC0000000026", "file", None,
            ["増減試験研究費割合が百分の三を超え百分の十五以下である場合（ニに掲げる場合を除く。）"])
 
+    # 租税特別措置法 art. 10の5の4 — ContinuingIncreaseAtLeast5.lean (5%以上)
+    yield ("租税特別措置法 art. 10_5_4（継続雇用者5%以上）↔ ContinuingIncreaseAtLeast5.lean",
+           "332AC0000000026", "file", None,
+           ["継続雇用者給与等支給増加割合が百分の五以上であること"])
+    # 租税特別措置法 art. 10の5の4 — SalaryIncreaseRate5Or15.lean (5%/15%)
+    yield ("租税特別措置法 art. 10_5_4（5%／15%分岐）↔ SalaryIncreaseRate5Or15.lean",
+           "332AC0000000026", "file", None,
+           ["百分の五（継続雇用者給与等支給増加割合が百分の六以上である場合には、百分の十五）"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
