@@ -14174,3 +14174,11 @@ needle は `docs/STAGING_SOFA_ENFORCE.md` に記載された 2 本をレビュ�
 - **H/T/D**: 単位 kg・Nat。境界 10000/9000 → 10000、9000/10000 → 10000、0/0 → 0。普遍定理 3 件。D=PASS。
 - **C/U**: 記録重量の認定・§1/§3/§4 は NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
 - **判定**: BY-DESIGN。CONFIRMED 0 / UNRESOLVED 1。
+
+### ShipProvisionalRateReduction.lean — 登録免許税法 art.17(2)（船舶仮登記の税率減額）— Batch EA11
+
+- **pin**: law `342AC0000000035`, article 第十七条(2); needle「同号（二）の税率欄に掲げる割合から千分の四を控除した割合とする」.
+- **独立再抽出**: 税率（千分率）= 別表の割合 − 4（Saturation）。独立仕様は `base - min base 4` で書き、全称定理 `agreeReducedRate` が omega で照合（Classical.choice なし）。
+- **H/T/D**: 4→0, 10→6, 0→0, 3→0。普遍定理 3 件。D=PASS。
+- **C/U**: 仮登記の認定・税基・他項は NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
+- **判定**: BY-DESIGN。CONFIRMED 0 / UNRESOLVED 1。

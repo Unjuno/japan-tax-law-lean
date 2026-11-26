@@ -1,0 +1,2 @@
+import JapanTaxLaw.ShipProvisionalRateReductionSpec
+#print axioms JapanTaxLaw.ShipProvisionalRateReduction.agreeReducedRate
