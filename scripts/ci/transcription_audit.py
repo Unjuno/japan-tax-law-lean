@@ -4776,6 +4776,15 @@ def checks():
            "file", None,
            ["\u5e74\uff13\uff15\uff10\u4e07\u5186\u3092\u8d85\u3048\u5e74\uff17\uff10\uff10\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d\u3000\uff08\uff08\uff12\uff12\uff09\uff09"])
 
+    # 所得税法施行令 art. 133 — ExtraDepreciationBelow10.lean (10%未満)
+    yield ("所得税法施行令 art. 133（増加償却10%未満）↔ ExtraDepreciationBelow10.lean",
+           "340CO0000000096", "file", None,
+           ["ただし、当該増加償却割合が百分の十に満たない場合は、この限りでない。"])
+    # 所得税法施行令 art. 185 — InheritedAnnuityRatioOver50.lean (50%超)
+    yield ("所得税法施行令 art. 185（相続税評価割合50%超）↔ InheritedAnnuityRatioOver50.lean",
+           "340CO0000000096", "file", None,
+           ["相続税評価割合が百分の五十を超える確定年金"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

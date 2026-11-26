@@ -14164,3 +14164,15 @@ needle は `docs/STAGING_SOFA_ENFORCE.md` に記載された 2 本をレビュ�
 - **独立再抽出**: `(記録重量 − 第五輪荷重) + 牽引重量` (kg, Nat)。独立仕様は条件分岐、全称定理 `agreeGrossWeight` が omega で照合。
 - **H/T/D**: 9000 / 2000 / 2000（飽和）/ 0 境界 PASS。
 - **C/U**: 適用要件・被牽引自動車は NOT MODELLED。`LEGAL_REVIEW_PENDING`。
+
+### ExtraDepreciationBelow10.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### InheritedAnnuityRatioOver50.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。

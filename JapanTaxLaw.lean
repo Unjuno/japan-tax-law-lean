@@ -726,6 +726,9 @@ import JapanTaxLaw.ExcludedDutyFreeGoodsTests
 import JapanTaxLaw.ExplorationReserve
 import JapanTaxLaw.ExplorationReserveSpec
 import JapanTaxLaw.ExplorationReserveTests
+import JapanTaxLaw.ExtraDepreciationBelow10
+import JapanTaxLaw.ExtraDepreciationBelow10Spec
+import JapanTaxLaw.ExtraDepreciationBelow10Tests
 import JapanTaxLaw.FifthWheelGrossWeight
 import JapanTaxLaw.FifthWheelGrossWeightSpec
 import JapanTaxLaw.FifthWheelGrossWeightTests
@@ -1056,6 +1059,9 @@ import JapanTaxLaw.InheritanceTaxRateBracket30_50Spec
 import JapanTaxLaw.InheritanceTaxRateBracket30_50Tests
 import JapanTaxLaw.InheritanceTaxSpec
 import JapanTaxLaw.InheritanceTaxTests
+import JapanTaxLaw.InheritedAnnuityRatioOver50
+import JapanTaxLaw.InheritedAnnuityRatioOver50Spec
+import JapanTaxLaw.InheritedAnnuityRatioOver50Tests
 import JapanTaxLaw.InheritedPropertyTransferGain
 import JapanTaxLaw.InheritedPropertyTransferGainSpec
 import JapanTaxLaw.InheritedPropertyTransferGainTests
