@@ -95,6 +95,10 @@ def checks():
 
     yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
 
+    # PrevParagraphTwoThreeReading.lean - NORM|f5c77990... (前条二・三項準用 READING, law 327CO0000000124)
+    yield ("米軍地位協定臨時特例法施行令 art.3_2(2)（前条二・三項準用）↔ PrevParagraphTwoThreeReading.lean",
+           "327CO0000000124", "article", "第三条の二", ["前条第二項及び第三項の規定は、前項の課税石油ガスについて準用する。"])
+
     # TokyoAsCityDeeming.lean - NORM|1a2cafd55f792102d5682dcc811260486c83126edbf8985d8a31d64c3eddb32f
     # 特別とん譲与税法 第六条第一項 第二文 (DEEMING 「都を市とみなして」).
     # Needle is in MainProvision Article 第六条; revision pinned in INVENTORY.
@@ -2392,6 +2396,12 @@ def checks():
            "file", None,
            ["延滞金又は加算金の額を計算する場合において、その計算の基礎となる税額に千円未満の端数があるとき、又はその税額の全額が二千円未満であるときは、その端数金額又はその全額を切り捨てる", "第二十条の四の二"])
 
+    # CabinetOrderLocalTaxOneYenRounding — cycle-126
+    yield ("CabinetOrderLocalTaxOneYenRounding.lean",
+           "325AC0000000226",
+           "file", None,
+           ["ただし、政令で定める地方税の確定金額については、その額に一円未満の端数があるとき、又はその全額が一円未満であるときは、その端数金額又はその全額を切り捨てる", "第二十条の四の二"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2577,6 +2587,11 @@ def checks():
            "340AC0000000033",
            "file", None,
            ["居住者が、各年において、自己又は自己と生計を一にする配偶者その他の親族の負担すべき社会保険料を支払つた場合又は給与から控除される場合には、その支払つた金額又はその控除される金額を、その居住者のその年分の総所得金額、退職所得金額又は山林所得金額から控除する。", "前項に規定する社会保険料とは、次に掲げるものその他これらに準ずるもので政令で定めるもの（第九条第一項第七号（在勤手当の非課税）に掲げる給与に係るものを除く。）をいう。", "一健康保険法（大正十一年法律第七十号）の規定により被保険者として負担する健康保険の保険料", "五国民年金法の規定により被保険者として負担する国民年金の保険料及び国民年金基金の加入員として負担する掛金"])
+
+    # 所得税法 art. 84の2 — SpecifiedRelativeSpecialDeduction.lean
+    yield ("所得税法 art. 84の2（特定親族特別控除: 630k / (所得−840,001)×2 を十万段階で丸め / 1,150k超60k / 1,200k超30k）↔ SpecifiedRelativeSpecialDeduction.lean",
+           "340AC0000000033", "article", "第八十四条の二",
+           ["六十三万円からその特定親族の合計所得金額のうち八十四万一円を超える部分の金額に二を乗じた金額", "十万円の整数倍の金額から八万円を控除した金額", "百十五万円を超え百二十万円以下である特定親族"])
 
     # 所得税法 art. 86 — IncomeBasicDeduction.lean (4-tier basic deduction)
     yield ("所得税法 art. 86（基礎控除: 合計所得2350万以下58万・2400万以下48万・2450万以下32万・2500万以下16万・2500万超0 — 境界値を smoke 確認、合計所得額は caller-established）↔ IncomeBasicDeduction.lean",
@@ -4484,6 +4499,28 @@ def checks():
            "328AC0000000006",
            "file", None,
            ["第一号に規定する課税標準たる数量からそれぞれ当該税率の適用区分ごとに前号に規定する課税標準たる数量を控除した数量（以下この項において「課税標準数量」という。）"])
+    # 東日本大震災復興臨時特例法 art.2(1) — ReconstructionEqualLevySurcharge500.lean
+    yield ("東日本大震災復興臨時特例法 第二条(1)（均等割標準税率 五百円加算）↔ ReconstructionEqualLevySurcharge500.lean",
+           "423AC0000000118", "article", "第二条",
+           ["平成二十六年度から平成三十五年度までの各年度分の個人の道府県民税に限り、均等割の標準税率は、地方税法第三十八条の規定にかかわらず、同条に規定する額に五百円を加算した額とする。"])
+
+    # Restored registered checks dropped by a concurrent main merge.
+    yield ('相続税法 art.21の7 表（三百万円超四百万円以下）↔ InheritanceTaxArt21_7Bracket3M4M.lean',
+           '325AC0000000073', 'file', None,
+           ['三百万円を超え四百万円以下の金額', '第二十一条の七'])
+
+    yield ('防衛特別法人税政令 第三条(6)(1)（零下回る額の合計）↔ DefenseCorpShortfallSum.lean',
+           '507CO0000000134', 'article', '第三条',
+           ['他の通算法人の他の課税事業年度の調整前控除限度額が零を下回る場合のその下回る額の合計額'])
+
+    yield ('地方税法 art. 51（標準税率超過時2%上限）↔ LocalTaxStandardRateCeiling2.lean',
+           '325AC0000000226', 'file', None,
+           ['標準税率を超える税率で課する場合においても、百分の二を超えることができない。'])
+
+    yield ('地方税法 art. 37（2%／指定都市1%）↔ LocalTaxReducedRate2or1.lean',
+           '325AC0000000226', 'file', None,
+           ['次に掲げる金額のうちいずれか少ない金額の百分の二'])
+
 
     yield ("地方税法 art. 72_39_2（納税猶予100万円例外）↔ LocalTaxDeferralSmallAmountException1MB.lean",
            "325AC0000000226", "file", None,
@@ -4519,6 +4556,21 @@ def checks():
     yield ("地方税法 art. 314_6（3%／指定都市4%）↔ LocalInhabitantReducedRate3or4.lean",
            "325AC0000000226", "file", None,
            ["次に掲げる金額のうちいずれか少ない金額の百分の三"])
+
+    # 租税特別措置法 art. 10 — RndExcessOver3.lean (増減試験研究費割合 > 3%)
+    yield ("租税特別措置法 art. 10（増減試験研究費割合 3%超）↔ RndExcessOver3.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の三を超える場合（第三号に掲げる場合を除く。）"])
+    # 租税特別措置法 art. 10 — RndExcessOver12.lean (増減試験研究費割合 > 12%)
+    yield ("租税特別措置法 art. 10（増減試験研究費割合 12%超）↔ RndExcessOver12.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の十二を超える場合（ニに掲げる場合を除く。）"])
+
+    # Restored registry-required check dropped by concurrent merge.
+    yield ("関税率表 art. 32（フレッシュチーズ・カード要件）↔ FreshCheeseCardQualification.lean",
+           "335CO0000000069",
+           "file", None,
+           ["関税率表第〇四〇六・一〇号に掲げるフレッシュチーズ及びカード（いずれも乾燥固形分が全重量の四十八パーセント以下のもの（一個の重量が四グラム以下の細片にし、冷凍し、かつ、正味重量が五キログラムを超える直接包装にしたものに限る。）、関税割当チーズ及びクリームチーズ（軟質で展延性のある熟成していないリンドレスチーズであつて、乾燥固形分のうちに占める乳脂肪分の割合、無脂肪ベースでの全重量のうちに占める水分の割合及び全重量のうちに占める乾燥固形分の割合が、それぞれコーデックスのクリームチーズの規格（ＣＯＤＥＸ"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
