@@ -900,6 +900,9 @@ import JapanTaxLaw.IncomeSupport380kArt2Tests
 import JapanTaxLaw.IncomeTaxRevenueBracket1900k
 import JapanTaxLaw.IncomeTaxRevenueBracket1900kSpec
 import JapanTaxLaw.IncomeTaxRevenueBracket1900kTests
+import JapanTaxLaw.IncomeTaxSpouseIncomeCeiling10M
+import JapanTaxLaw.IncomeTaxSpouseIncomeCeiling10MSpec
+import JapanTaxLaw.IncomeTaxSpouseIncomeCeiling10MTests
 import JapanTaxLaw.IncomeWithholdingRates
 import JapanTaxLaw.IncomeWithholdingRatesSpec
 import JapanTaxLaw.IncomeWithholdingRatesTests
@@ -2116,6 +2119,9 @@ import JapanTaxLaw.TaxNoticeDeadlineTests
 import JapanTaxLaw.TaxProcedure
 import JapanTaxLaw.TaxProcedureSpec
 import JapanTaxLaw.TaxProcedureTests
+import JapanTaxLaw.TaxResearchCouncilQuorum
+import JapanTaxLaw.TaxResearchCouncilQuorumSpec
+import JapanTaxLaw.TaxResearchCouncilQuorumTests
 import JapanTaxLaw.TaxRounding
 import JapanTaxLaw.TaxRoundingSpec
 import JapanTaxLaw.TaxRoundingTests
