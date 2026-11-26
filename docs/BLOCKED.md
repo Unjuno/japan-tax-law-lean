@@ -9,9 +9,9 @@ these axes are pending. No completion claim is made from green CI or hashes.
 
 ## Independent human legal review — LEGAL_REVIEW_PENDING (not a gate)
 
-- L7 candidates: 3438
+- L7 candidates: ?
 - candidates with recorded reviewer: 0
-- candidates still awaiting review: 3438
+- candidates still awaiting review: ?
 
 A qualified Japanese tax lawyer must record `reviewer` / `review_date` per
 row in docs/L7_CANDIDATES_UNREVIEWED.csv before a FINAL legal determination.
@@ -36,7 +36,7 @@ delegation / reference / amendment discovery continues (see docs/RECURSIVE_DISCO
 - independent review sessions: 128
 - review-level UNRESOLVED markers: 510 (require human legal judgement; not implementation defects)
 - historical-version references (Phase F): 795 names / 12977 occurrences — historical revisions not pinned to e-Gov snapshots
-- verified anomalies: 0 (means no independent legal review has established a defect)
+- verified anomalies: ? (means no independent legal review has established a defect)
 
 ## Repo state is saved and resumable
 
