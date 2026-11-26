@@ -109,10 +109,7 @@ def checks():
     yield ("国税徴収法施行規則 art.1_6（随意契約時の公売規定準用）↔ PrivateContractPublicAuctionReading.lean",
            "337M50000040031", "article", "第一条の六", ["（随意契約により不動産を売却する場合における公売の規定の準用）"])
 
-    # BankHeadOfficeTermReading.lean - NORM|9fd94438... (日本銀行統轄店読替え READING, law 403M50000040054)
-    yield ("電子情報処理組織特例省令 art.11(4)（読替え）↔ BankHeadOfficeTermReading.lean",
-           "403M50000040054", "article", "第十一条", ["この場合において、同条第六項中「日本銀行統轄店」とあるのは、「所轄歳入取りまとめ店」と読み替えるものとする。"])
-
+    # Restored registry checks dropped by a concurrent stale-base rewrite.
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,
            ["事業所税の額の百分の五に相当する額とする"])
@@ -1218,6 +1215,12 @@ def checks():
            "143AC0000000054",
            "file", None,
            ["その期間を六月以内に限り延長することができる", "第八条"])
+
+    # 所得税法 art.2(1) — IncomeTaxSpouseIncomeCeiling10M.lean
+    yield ("所得税法 art.2(1)（同一生計配偶者 合計所得千万円以下）↔ IncomeTaxSpouseIncomeCeiling10M.lean",
+           "340AC0000000033",
+           "article", "第二条",
+           ["合計所得金額が千万円以下である居住者の配偶者をいう", "第二条"])
 
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
@@ -4655,19 +4658,16 @@ def checks():
            ["とん税額の八分の十に相当する特別とん税額をあわせて担保しなければならない。"])
 
 
-    # 租税特別措置法 art. 42の4 — CombinedRndExcessOver3.lean (合算3%超)
-    yield ("租税特別措置法 art. 42_4（合算3%超）↔ CombinedRndExcessOver3.lean",
-           "332AC0000000026", "file", None,
-           ["合算増減試験研究費割合が百分の三を超える場合（（３）に掲げる場合を除く。）"])
-    # 租税特別措置法 art. 42の4 — CombinedRndExcessAtMost3.lean (合算3%以下)
-    yield ("租税特別措置法 art. 42_4（合算3%以下）↔ CombinedRndExcessAtMost3.lean",
-           "332AC0000000026", "file", None,
-           ["合算増減試験研究費割合が百分の三以下である場合（（３）に掲げる場合を除く。）"])
+    yield ("相続税法 art.1の4（贈与前十年以内の住所）↔ GiftTaxTenYearResidenceLookback.lean",
+           "325AC0000000073",
+           "file", None,
+           ["当該贈与前十年以内のいずれかの時においてこの法律の施行地に住所を有していたことがあるもの", "第一条の四"])
 
     # 租税特別措置法 art. 40の4 — ForeignSubsidiaryTaxRate20.lean (租税負担割合20%以上)
     yield ("租税特別措置法 art. 40_4（租税負担割合20%以上）↔ ForeignSubsidiaryTaxRate20.lean",
            "332AC0000000026", "file", None,
            ["各事業年度の租税負担割合が百分の二十以上であること。"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
