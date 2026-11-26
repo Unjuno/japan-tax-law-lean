@@ -2541,6 +2541,9 @@ import JapanTaxLaw.UsForcesDeemedForeignGoodsTests
 import JapanTaxLaw.UsForcesDutyFreePenalty
 import JapanTaxLaw.UsForcesDutyFreePenaltySpec
 import JapanTaxLaw.UsForcesDutyFreePenaltyTests
+import JapanTaxLaw.UsForcesTreatyEnforcementDateReiwa8
+import JapanTaxLaw.UsForcesTreatyEnforcementDateReiwa8Spec
+import JapanTaxLaw.UsForcesTreatyEnforcementDateReiwa8Tests
 import JapanTaxLaw.VehicleWeightUnit
 import JapanTaxLaw.VehicleWeightUnitSpec
 import JapanTaxLaw.VehicleWeightUnitTests
@@ -2564,6 +2567,3 @@ import JapanTaxLaw.WidowDependentIncomeCeiling5MTests
 import JapanTaxLaw.WirePitch165nm
 import JapanTaxLaw.WirePitch165nmSpec
 import JapanTaxLaw.WirePitch165nmTests
-import JapanTaxLaw.UsForcesTreatyEnforcementDateReiwa8
-import JapanTaxLaw.UsForcesTreatyEnforcementDateReiwa8Spec
-import JapanTaxLaw.UsForcesTreatyEnforcementDateReiwa8Tests
