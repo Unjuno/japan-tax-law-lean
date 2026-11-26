@@ -4661,6 +4661,11 @@ def checks():
            "332AC0000000026", "file", None,
            ["合算増減試験研究費割合が百分の三以下である場合（（３）に掲げる場合を除く。）"])
 
+    # 租税特別措置法 art. 40の4 — ForeignSubsidiaryTaxRate20.lean (租税負担割合20%以上)
+    yield ("租税特別措置法 art. 40_4（租税負担割合20%以上）↔ ForeignSubsidiaryTaxRate20.lean",
+           "332AC0000000026", "file", None,
+           ["各事業年度の租税負担割合が百分の二十以上であること。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
