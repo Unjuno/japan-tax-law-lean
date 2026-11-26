@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=5212, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=5329, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=5212 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=5329 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -178,7 +178,10 @@ $ exception pipeline extended to proviso form 「ただし、…この限りで�
 $ python scripts/ci/batch_exception_pipeline.py --limit 60 (x7) / 30
 exception batch pipeline: verified=60/60/60/60/60/60/60/17, failed=0 in every run
 
-$ python -m unittest discover -s scripts/tests -t . → 224 tests, OK
+$ python scripts/ci/batch_same_treatment_pipeline.py --limit 3 / 130
+same-treatment batch pipeline: verified=3 failed=0 / verified=114 failed=0
+
+$ python -m unittest discover -s scripts/tests -t . → 226 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -543,7 +546,12 @@ The exception-gate pipeline was extended to the proviso form
 「ただし、…ときは、この限りでない」, which carries the same negation semantics.
 437 more units were verified with one additional guard test.
 
-So 5212 units are evidence-backed FULLY_VERIFIED and 391,640 remain NOT_STARTED
+A twenty-second pipeline, `scripts/ci/batch_same_treatment_pipeline.py`, handles
+「…同様とする」 extension norms: the base treatment and the extension trigger
+are caller-established and NOT resolved, and only the dispatch structure is
+proved exhaustively over Bool x Bool. 117 units were verified with two tests.
+
+So 5329 units are evidence-backed FULLY_VERIFIED and 391,523 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
