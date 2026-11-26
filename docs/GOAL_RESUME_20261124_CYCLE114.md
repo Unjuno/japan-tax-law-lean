@@ -267,3 +267,33 @@ Keep `技術的検証済み / 形式化未完了 / 法的レビュー未完了` 
   PROVED_SCOPE=1; evidence ~982; human legal reviews still **0**.
 - L6 check: data/raw has 705 law files but 0 laws with multiple revisions;
   L2-L6 remain genuinely unacquired IN_SCOPE_BACKLOG.
+
+
+## 14. Cycles 155-166 and PR workflow (2026-11-27)
+
+- main is now protected; direct pushes are rejected. All new commits are on
+  feature branch eat/cycle145-enforcement-date in open PR **#908**
+  (MERGEABLE). Its two required checks stay QUEUED for hours; admin merge is
+  rejected solely because those checks are not complete. No gate was disabled.
+- **C155/C153 modules** (four 地方税法 art.37の2 bracket modules) were lost twice
+  to concurrent merges and were reconstructed from the pinned sources, rebuilt
+  (14 jobs), and re-registered (783/783 transcription).
+- **C156-C166** added scoped computable cells across 租税特別措置法(施行令/規則),
+  法人税法施行令, 地方税法(施行令), 相互主義非課税法施行令, 所得税法施行規則:
+  energy-efficiency thresholds (105/110/116/173%), transfer price 80/120%,
+  open-space 20%, domestic real-estate 50%, fixed-asset/city-planning 5%,
+  special R&D deduction 20%, net premium 50%, corporate asset 5%, rate constants
+  (50/90%), and rate substitutions (20→15). Each has an independent spec,
+  kernel-decided boundary tests, a pinned-scope transcription check and a
+  separate H/T/D/C/U review.
+- **Required semantic-audit gates** were repaired by regenerating the directive
+  axes, coordinator, source-layer and coverage ledgers; coordinator.py --check
+  and erify_queue_invariants.py (17/17) pass locally. One optional cross-law
+  gate still fails on another workstream's law-status pin (424CO0000000016), not
+  on any module in this PR.
+- Measured state: FULLY_VERIFIED=1129, NOT_STARTED~395923, BLOCKED=2;
+  human legal reviews **0**; L2-L6 remain IN_SCOPE_BACKLOG; only scoped
+  computable rule cells, never whole articles.
+- Resume: once PR #908 required checks report green, merge it; then continue
+  task-selector-driven cycles, bind attestations only from green Lean/axiom jobs
+  whose heads contain the module blobs, and keep LEGAL_REVIEW_PENDING.
