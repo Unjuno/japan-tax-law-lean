@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 0
-- with >=1 pinned literal check (semantic model): 193
+- with >=1 pinned literal check (semantic model): 194
 - with recorded human legal review: 0
 
 ## All laws
@@ -196,7 +196,7 @@ a completion flag.
 | `405M50000008001` | 離島振興法第二十条の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省 | 405M50000008001_20250401_507M60000008028 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 | `406AC0000000028` | 平成六年分所得税の特別減税の実施等のための公債の発行の特例に関する法律 | 406AC0000000028_19940401_000000000000000 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
 | `406AC0000000108` | 所得税法及び消費税法の一部を改正する法律の施行等による租税収入の減少を補うための平成六年 | 406AC0000000108_20070401_419AC0000000023 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
-| `406CO0000000415` | 相殺関税に関する政令 | 406CO0000000415_20171008_428CO0000000240 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
+| `406CO0000000415` | 相殺関税に関する政令 | 406CO0000000415_20171008_428CO0000000240 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
 | `406CO0000000416` | 不当廉売関税等に関する政令 | 406CO0000000416_20260401_508CO0000000085 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
 | `406CO0000000417` | 緊急関税等に関する政令 | 406CO0000000417_20090401_421CO0000000110 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
 | `406CO0000000418` | 報復関税等に関する政令 | 406CO0000000418_20010106_412CO0000000307 | CurrentEnforced | YES | - | 0 | NO (0) | NO |

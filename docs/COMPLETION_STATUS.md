@@ -13,17 +13,17 @@ obligations being complete. SKIP is never counted as PASS.
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: (none)
-- current HEAD commit: 1be2f9ba38f56e190b0b8aedce0d18dea64e747e
+- current HEAD commit: 098cf67f452fb946773bca665f8d308b4017b692
 - results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all TECHNICAL obligations complete (human review excluded)
 
 - normative units: 396854
-- NOT_STARTED: 395704
+- NOT_STARTED: 395703
 - PARTIAL: 0
 - PROVED_SCOPE: 0
-- FULLY_VERIFIED: 1148
+- FULLY_VERIFIED: 1149
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180617
@@ -43,26 +43,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 1148 | 396854 |
-| kernel proved (CI-attested proof evidence) | 1148 | 396854 |
-| source-audited (原文 correspondence evidence) | 1148 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 1149 | 396854 |
+| kernel proved (CI-attested proof evidence) | 1149 | 396854 |
+| source-audited (原文 correspondence evidence) | 1149 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 1148 |
-| boundary_proof | 1148 |
-| cross_law_proof | 1148 |
-| decomposition_audit | 1148 |
-| implementation | 1148 |
-| independent_spec | 1148 |
-| kernel_proof | 1148 |
-| proof_scope | 1148 |
-| source_correspondence_audit | 1148 |
-| source_location | 1148 |
-| tests | 1148 |
+| adversarial_review | 1149 |
+| boundary_proof | 1149 |
+| cross_law_proof | 1149 |
+| decomposition_audit | 1149 |
+| implementation | 1149 |
+| independent_spec | 1149 |
+| kernel_proof | 1149 |
+| proof_scope | 1149 |
+| source_correspondence_audit | 1149 |
+| source_location | 1149 |
+| tests | 1149 |
 
 ## Verdict
 
