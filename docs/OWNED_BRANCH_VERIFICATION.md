@@ -208,6 +208,13 @@ structural-label batch pipeline: verified=100 failed=0 / verified=100 failed=0
 $ python scripts/ci/batch_structural_label_pipeline.py --limit 100 / 100
 structural-label batch pipeline: verified=100 failed=0 / verified=100 failed=0
 
+$ python scripts/ci/run_python_gates.py
+all present gates passed (33 ran, 0 honestly skipped; SKIP is never PASS)
+(two deterministic regeneration gates were refreshed with --write, then re-run green)
+$ python scripts/ci/completion_gate.py
+Axis A: PASS=33 FAIL=0 SKIP=0 required-SKIP=0 → registered checks all green: True
+Axis B: FULLY_VERIFIED=7332 / 396854; all-complete claimable: False
+
 $ python -m unittest discover -s scripts/tests -t . → 241 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
