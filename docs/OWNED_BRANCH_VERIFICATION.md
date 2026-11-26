@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=3130, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=3142, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=3130 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=3142 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -111,7 +111,10 @@ $ rate pipeline guard relaxed for rates <=1% and >=100%; decimal/non-100 denomin
 $ python scripts/ci/batch_rate_pipeline.py --limit 3 / 60 / 100
 rate batch pipeline: verified=3 / 59 (1 source-audit failure skip-listed) / 71
 
-$ python -m unittest discover -s scripts/tests -t . → 188 tests, OK
+$ python scripts/ci/batch_decimal_rate_pipeline.py --limit 2 / 20
+decimal-rate batch pipeline: verified=2 failed=0 / verified=10 failed=0
+
+$ python -m unittest discover -s scripts/tests -t . → 192 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -376,7 +379,13 @@ the substring parser but correctly rejected by the Lean-independent source
 audit; its unit stayed NOT_STARTED with a recorded skip reason, never PASS.
 Two regression tests cover both guards.
 
-So 3130 units are evidence-backed FULLY_VERIFIED and 393,722 remain NOT_STARTED
+A thirteenth pipeline, `scripts/ci/batch_decimal_rate_pipeline.py`, handles
+decimal 百分のX・Y rates that the integer pipeline rejects: 一・四 is modelled
+as 14/1000 (not 1/100). A dedicated Lean-independent audit verifies both kanji
+components and the computed numerator in spec and implementation. All 12
+dependency-ready units in this class were verified, with four parser tests.
+
+So 3142 units are evidence-backed FULLY_VERIFIED and 393,710 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is

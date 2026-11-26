@@ -4552,6 +4552,19 @@
       "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:25_16/Article#25_16/Paragraph#2/ParagraphSentence/Sentence#1 sha256=d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/InheritedPropertyTransferGainTests.lean sha256=4b99c0d14afdc2f65b45d5618a1a54d49c781acf56b6556a3703dfb7997464da (19 kernel-decided examples)"
     },
+    "NORM|1993a5bbb0f6d23f786c50f92b2f92bed6fa1662ff91fdc14dddef84ed1d5fb8": {
+      "adversarial_review": "docs/BATCH_DECIMAL_RATE_REVIEW.md generated entry for NORM|1993a5bbb0f",
+      "boundary_proof": "BatchDecRatef7c8902b41Tests.lean kernel-decided 0 / denominator boundaries",
+      "cross_law_proof": "dependencies=[]; base caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDecRatef7c8902b41.lean sha256=543c04a1d4b512a9337a5baed872d90385a48e00f83e585a4117031c8e151876",
+      "independent_spec": "JapanTaxLaw/BatchDecRatef7c8902b41Spec.lean sha256=9735fa0d472d07a334508a4033dccdd1bfcc5debd4cad55c295e5ec5d2d19e74; plain-pair spec vs TaxRate impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDecRatef7c8902b41Tests OK; axioms: 'JapanTaxLaw.BatchDecRatef7c8902b41.rate_components' does not depend on any axioms | 'JapanTaxLaw.BatchDecRatef7c8902b41.at_1000' does not depend on any axioms | 'JapanTaxLaw.BatchDecRatef7c8902b41.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat bases; rate application only",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; decimal_audit D=PASS: numerator 10*X+Y checked against both quoted kanji components",
+      "source_location": "data/raw/404AC0000000015_20010401_413AC0000000006.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:10/Article#10/Paragraph#1/ParagraphSentence/Sentence sha256=603e33a8712eb9db5652935ae8d8fd793bcee4a2b5ed6fe513d2686435ffa5b8",
+      "tests": "JapanTaxLaw/BatchDecRatef7c8902b41Tests.lean sha256=a8c1106ac4c916a996d4e5a3161afdb23437dd51926aa466302d48a2dba3efaa"
+    },
     "NORM|19976396f25451168dba942ecbcf46ece825e70d1a26b2f9afc14de9f0aa603d": {
       "adversarial_review": "docs/BATCH_THRESHOLD_REVIEW.md generated entry for NORM|19976396f25 (le 300000)",
       "boundary_proof": "BatchThresholdLE744a4eebd7Tests.lean kernel-decided 0/300000/300001",
@@ -5955,6 +5968,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; percent_numerators=[5]; constants=[5,100]",
       "source_location": "data/raw/337M50000040026_20250401_507M60000040034.law.json#LawBody[2]/MainProvision/MainProvision[23]/Article:13/Article#13/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#3 sha256=f1c174e67a74d3a56ba5a9214c71700ae6f92569e111042476ec67dc01d41612",
       "tests": "JapanTaxLaw/BatchRate12cd405defTests.lean sha256=8dd0072d8227947dfe0cc6eb75c8bcd68cdbffe547cee6f7c42409435ff0468a"
+    },
+    "NORM|2271338d00a1c1c6c7ed5d1ddfb7cb1406ec6dd8b1d9ba4982bd0449068f58c0": {
+      "adversarial_review": "docs/BATCH_DECIMAL_RATE_REVIEW.md generated entry for NORM|2271338d00a",
+      "boundary_proof": "BatchDecRatec18c49328cTests.lean kernel-decided 0 / denominator boundaries",
+      "cross_law_proof": "dependencies=[]; base caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDecRatec18c49328c.lean sha256=f428620f56ef3c747af75d51780886a0cc01df3228ab656f02cdddceaee59a37",
+      "independent_spec": "JapanTaxLaw/BatchDecRatec18c49328cSpec.lean sha256=8015609ff3d6fd6154b9fed59af4f0c7ebfe821d4ac3d205a4230abf803c3e76; plain-pair spec vs TaxRate impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDecRatec18c49328cTests OK; axioms: 'JapanTaxLaw.BatchDecRatec18c49328c.rate_components' does not depend on any axioms | 'JapanTaxLaw.BatchDecRatec18c49328c.at_1000' does not depend on any axioms | 'JapanTaxLaw.BatchDecRatec18c49328c.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat bases; rate application only",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; decimal_audit D=PASS: numerator 10*X+Y checked against both quoted kanji components",
+      "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:145_4/Article#145_4/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342",
+      "tests": "JapanTaxLaw/BatchDecRatec18c49328cTests.lean sha256=8142d8a056bdc921fa85cadc024eb24b284b106506990ca6266e8dcf4cb86c12"
     },
     "NORM|227cf0ede3fa7b0356cfe37be6d69c400ae7664993aa5d19db6d22a064918c88": {
       "adversarial_review": "docs/BATCH_RATE_REVIEW.md generated entry for NORM|227cf0ede3f (3%)",
@@ -8231,6 +8257,19 @@
       "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[193]/SupplProvision/SupplProvision[1]/Article:1/Article#1/Paragraph#1/ParagraphSentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
       "tests": "JapanTaxLaw/BatchEffective4797fa2983Tests.lean sha256=a4a3353fa543e75890007498d7daa95ce7c306ef6a2c61e719deb6b441f76edc"
     },
+    "NORM|31d2c12c2ef195619ff915b7906ae6d5e513ae81f85c8f4ec4a0f686cbd8b0ac": {
+      "adversarial_review": "docs/BATCH_DECIMAL_RATE_REVIEW.md generated entry for NORM|31d2c12c2ef",
+      "boundary_proof": "BatchDecRate64d97e7bb8Tests.lean kernel-decided 0 / denominator boundaries",
+      "cross_law_proof": "dependencies=[]; base caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDecRate64d97e7bb8.lean sha256=001cb4682cc496bade25aa563027f8d65533f46d9f0ffd3cd74d3a38ac9ccde3",
+      "independent_spec": "JapanTaxLaw/BatchDecRate64d97e7bb8Spec.lean sha256=871cdb3193f515fda856d2008dfc0da6ab51b7a32da267bd2cb932111d573f28; plain-pair spec vs TaxRate impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDecRate64d97e7bb8Tests OK; axioms: 'JapanTaxLaw.BatchDecRate64d97e7bb8.rate_components' does not depend on any axioms | 'JapanTaxLaw.BatchDecRate64d97e7bb8.at_1000' does not depend on any axioms | 'JapanTaxLaw.BatchDecRate64d97e7bb8.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat bases; rate application only",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; decimal_audit D=PASS: numerator 10*X+Y checked against both quoted kanji components",
+      "source_location": "data/raw/426AC0000000011_20260401_507AC0000000013.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:10/Article#10/Paragraph#1/ParagraphSentence/Sentence#1 sha256=263518e159c906bc45a83fe41ed57b5816387363e03d97e2697da5ef71c14ed2",
+      "tests": "JapanTaxLaw/BatchDecRate64d97e7bb8Tests.lean sha256=0a43dda92fdc814803c995e771e0ee1db2dd13148430ae26ded9e529ac81f9b4"
+    },
     "NORM|31f227a3eab45830cbe0b028f449a86b2bf5bc7b21ee7e5207bef347d393b250": {
       "adversarial_review": "docs/BATCH_READING_REVIEW.md generated entry for NORM|31f227a3eab",
       "boundary_proof": "BatchReadeca23ce827Tests.lean kernel-decided original/replacement/other + untriggered identity + verbatim phrase constants",
@@ -8672,6 +8711,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; strict_upper=[100] yen",
       "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:40_7/Article#40_7/Paragraph#66/ParagraphSentence/Sentence#2 sha256=d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d",
       "tests": "JapanTaxLaw/BatchStrictUppere450892f5eTests.lean sha256=0e104e8427faf6204f1a1b743bf0e2513eaf8914ac0f94c07421f4878d19616a"
+    },
+    "NORM|351b6b6a28b43107941ea3f69b0df64dbc2951a4787af20c25bcb2d34c19965e": {
+      "adversarial_review": "docs/BATCH_DECIMAL_RATE_REVIEW.md generated entry for NORM|351b6b6a28b",
+      "boundary_proof": "BatchDecRateb3a698ea3bTests.lean kernel-decided 0 / denominator boundaries",
+      "cross_law_proof": "dependencies=[]; base caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDecRateb3a698ea3b.lean sha256=f1dd95b2d2a5e920609cab412c4782d45e45d820cfc37ae8027368143423c12b",
+      "independent_spec": "JapanTaxLaw/BatchDecRateb3a698ea3bSpec.lean sha256=4c68e3de7ba347e08a600bfac4a8bce2bc5738a63f11a9761824c863667b5f51; plain-pair spec vs TaxRate impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDecRateb3a698ea3bTests OK; axioms: 'JapanTaxLaw.BatchDecRateb3a698ea3b.rate_components' does not depend on any axioms | 'JapanTaxLaw.BatchDecRateb3a698ea3b.at_1000' does not depend on any axioms | 'JapanTaxLaw.BatchDecRateb3a698ea3b.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat bases; rate application only",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; decimal_audit D=PASS: numerator 10*X+Y checked against both quoted kanji components",
+      "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:143/Article#143/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342",
+      "tests": "JapanTaxLaw/BatchDecRateb3a698ea3bTests.lean sha256=f732980b7a080c75e211cb94d6a12aa510c7c8efd6caf45d982c966c5274277a"
     },
     "NORM|3531994c92779a13720c6fdcb22e05c417e0c08934750aa97724cc2b443dd025": {
       "adversarial_review": "docs/BATCH_THRESHOLD_REVIEW.md generated entry for NORM|3531994c927 (le 1000000)",
@@ -13483,6 +13535,19 @@
       "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:21/Article#21/Paragraph#3/Item#2/ItemSentence/Sentence#1 sha256=d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d",
       "tests": "JapanTaxLaw/BatchFractionc46d5ac01aTests.lean sha256=5208e0b688d28b045756c2f8c299b6dd9fcd7828c7f1d57cf170dda6a096afe7"
     },
+    "NORM|527e14a2adf493f075ab9d9790a1ab1517f633697dad5d7e5186b94b48442153": {
+      "adversarial_review": "docs/BATCH_DECIMAL_RATE_REVIEW.md generated entry for NORM|527e14a2adf",
+      "boundary_proof": "BatchDecRate3881d5b38eTests.lean kernel-decided 0 / denominator boundaries",
+      "cross_law_proof": "dependencies=[]; base caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDecRate3881d5b38e.lean sha256=cf2654c2a089fb736425a4a2cfb416512eeb9fbbce9a77c00f9b4127be3e3f04",
+      "independent_spec": "JapanTaxLaw/BatchDecRate3881d5b38eSpec.lean sha256=ce5d5540211a1adc843ab0f79fe32aba88a8d65bf824ef076686a9ad5c2a669b; plain-pair spec vs TaxRate impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDecRate3881d5b38eTests OK; axioms: 'JapanTaxLaw.BatchDecRate3881d5b38e.rate_components' does not depend on any axioms | 'JapanTaxLaw.BatchDecRate3881d5b38e.at_1000' does not depend on any axioms | 'JapanTaxLaw.BatchDecRate3881d5b38e.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat bases; rate application only",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; decimal_audit D=PASS: numerator 10*X+Y checked against both quoted kanji components",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:350/Article#350/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "tests": "JapanTaxLaw/BatchDecRate3881d5b38eTests.lean sha256=59041ed6d5bdd228a82c63bd681f79ad3833b78aa6ed9b5d1c2c3fa877f0bf17"
+    },
     "NORM|529b36f92316e69d6bf761c5cece2a87d756bbc4462bdc7cf6abf439532fae21": {
       "adversarial_review": "docs/BATCH_EFFECTIVE_REVIEW.md generated entry for NORM|529b36f9231",
       "boundary_proof": "BatchEffectiveefe70e4e77Tests.lean kernel-decided effective-day and pre-promulgation boundaries",
@@ -15862,6 +15927,19 @@
       "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:70_2/Article#70_2/Paragraph#2/Item#4/Subitem1#1/Subitem1Sentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
       "tests": "JapanTaxLaw/BatchLowerc0ee70e81aTests.lean sha256=b84b00fe3934d99805b51719eb04484c7a59ad294c02d62869d4fe7f2be87add"
     },
+    "NORM|613be4d8bef33fe5d2c621621c64736ab7ee69976859cd2769fda43748cbda16": {
+      "adversarial_review": "docs/BATCH_DECIMAL_RATE_REVIEW.md generated entry for NORM|613be4d8bef",
+      "boundary_proof": "BatchDecRatedfa948e0b4Tests.lean kernel-decided 0 / denominator boundaries",
+      "cross_law_proof": "dependencies=[]; base caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDecRatedfa948e0b4.lean sha256=6b4bef62292fba234cae889b75fc04ce6630c08213e78035424f78db96cc5c12",
+      "independent_spec": "JapanTaxLaw/BatchDecRatedfa948e0b4Spec.lean sha256=fe240ca564d2ee5c35e83fe7765844ddbe5ffbfb3554fc3f2e1b8150aca9cab0; plain-pair spec vs TaxRate impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDecRatedfa948e0b4Tests OK; axioms: 'JapanTaxLaw.BatchDecRatedfa948e0b4.rate_components' does not depend on any axioms | 'JapanTaxLaw.BatchDecRatedfa948e0b4.at_1000' does not depend on any axioms | 'JapanTaxLaw.BatchDecRatedfa948e0b4.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat bases; rate application only",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; decimal_audit D=PASS: numerator 10*X+Y checked against both quoted kanji components",
+      "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:82_21/Article#82_21/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342",
+      "tests": "JapanTaxLaw/BatchDecRatedfa948e0b4Tests.lean sha256=f28d419e79961ff2e79c8b223dddf67ab28d0aa1cb8dde424ec396b1a6e17225"
+    },
     "NORM|6165b92ac0f22e92c478baa188ccfc9d1bcac0b5cceb14bbfd1eed17527ced29": {
       "adversarial_review": "docs/BATCH_READING_REVIEW.md generated entry for NORM|6165b92ac0f",
       "boundary_proof": "BatchRead7d13f6d91dTests.lean kernel-decided original/replacement/other + untriggered identity + verbatim phrase constants",
@@ -16849,6 +16927,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; lower_bound=[1000000000] yen",
       "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:42_13/Article#42_13/Paragraph#5/Item#1/Subitem1#1/Subitem1Sentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee",
       "tests": "JapanTaxLaw/BatchLower771a0d2b50Tests.lean sha256=399bf8fd0eaaa69c51984ea0e4e823fa3ddc76049360702d9330f74ab9098e81"
+    },
+    "NORM|67ea8a7c79b54ea8947bd7226809cd7c8249db61036dc8558d6d21d946f7de6c": {
+      "adversarial_review": "docs/BATCH_DECIMAL_RATE_REVIEW.md generated entry for NORM|67ea8a7c79b",
+      "boundary_proof": "BatchDecRatedb5b062835Tests.lean kernel-decided 0 / denominator boundaries",
+      "cross_law_proof": "dependencies=[]; base caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDecRatedb5b062835.lean sha256=fd2315698b5a6c4d954d3d2b19e5d1af29e2a01e6b16b5339e8b01e32411f16f",
+      "independent_spec": "JapanTaxLaw/BatchDecRatedb5b062835Spec.lean sha256=08d8823ae096463a89eda841cae673a930e1323efb96b8b82f89ef945c9979a8; plain-pair spec vs TaxRate impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDecRatedb5b062835Tests OK; axioms: 'JapanTaxLaw.BatchDecRatedb5b062835.rate_components' does not depend on any axioms | 'JapanTaxLaw.BatchDecRatedb5b062835.at_1000' does not depend on any axioms | 'JapanTaxLaw.BatchDecRatedb5b062835.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat bases; rate application only",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; decimal_audit D=PASS: numerator 10*X+Y checked against both quoted kanji components",
+      "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[2]/Article:145_8/Article#145_8/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342",
+      "tests": "JapanTaxLaw/BatchDecRatedb5b062835Tests.lean sha256=85f7e82703132d67e1d353d825b755759da8c40fa0ce51a4122d1781a606cc33"
     },
     "NORM|67f7fe9fc62e12e7343489da571cf618f003f5f99be7b6f09312cae7b320b138": {
       "adversarial_review": "docs/BATCH_RATE_REVIEW.md generated entry for NORM|67f7fe9fc62 (35%)",
@@ -18956,6 +19047,19 @@
       "source_location": "data/raw/407CO0000000029_20110101_422CO0000000058.law.json#LawBody[17]/SupplProvision/SupplProvision[3]/Article:3/Article#3/Paragraph#2/Item#6/Subitem1#6/Subitem2#2/Subitem3#1/Subitem3Sentence/Column#1/Sentence sha256=8cc12128db2332ce354b4cfa48b167f6911c61af813bdc7974e832081097b7f4",
       "tests": "JapanTaxLaw/BatchLowerbb3a235011Tests.lean sha256=7d1dd68731e5f3f60da7bc735a6d677a0c3b3bcdcb28c9d2c7ea9241bf44cc11"
     },
+    "NORM|75633e8b2eee6c27b43362daa4866541ae6e389b8704b563d61898bb31de7141": {
+      "adversarial_review": "docs/BATCH_DECIMAL_RATE_REVIEW.md generated entry for NORM|75633e8b2ee",
+      "boundary_proof": "BatchDecRatead3911b91aTests.lean kernel-decided 0 / denominator boundaries",
+      "cross_law_proof": "dependencies=[]; base caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDecRatead3911b91a.lean sha256=ecc296eef2eee528723eb47fef7354fa7742eae1f5966de03b9d242197b050b8",
+      "independent_spec": "JapanTaxLaw/BatchDecRatead3911b91aSpec.lean sha256=5747bfbb4b40005aa674ea2097a01be04d3fd003606696fcecfc47f9b3cbab3c; plain-pair spec vs TaxRate impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDecRatead3911b91aTests OK; axioms: 'JapanTaxLaw.BatchDecRatead3911b91a.rate_components' does not depend on any axioms | 'JapanTaxLaw.BatchDecRatead3911b91a.at_1000' does not depend on any axioms | 'JapanTaxLaw.BatchDecRatead3911b91a.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat bases; rate application only",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; decimal_audit D=PASS: numerator 10*X+Y checked against both quoted kanji components",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[4]/Article:741/Article#741/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "tests": "JapanTaxLaw/BatchDecRatead3911b91aTests.lean sha256=8337cdbefa48babbd7cb4a802f9ce95f8ef6c91e0e8d15382da08b5bc7341225"
+    },
     "NORM|757833559d3485ee59a2b2ba2fe43572563f6d8754538ea91e57753baa31d5f0": {
       "adversarial_review": "docs/BATCH_THRESHOLD_REVIEW.md generated entry for NORM|757833559d3 (le 5000000)",
       "boundary_proof": "BatchThresholdLE8e7025a774Tests.lean kernel-decided 0/5000000/5000001",
@@ -20619,6 +20723,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; strict_upper=[1000] yen",
       "source_location": "data/raw/337M50000008017_20260724_508M60000008092.law.json#LawBody[4]/MainProvision/MainProvision[1]/Article:9/Article#9/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#304 sha256=c2a411e7dbb3b65f6d41cef894263fdd6c384ad7789f9242d29917139632ad98",
       "tests": "JapanTaxLaw/BatchStrictUpper4f2c361a0cTests.lean sha256=2645bd681ffcd536b331d50da967b948054cd47a4fd42598901804e321f7ee97"
+    },
+    "NORM|8003e4a83c6f0d9ee15f1d9566ccd182a4c6319bfc84c919e3b0af5b7caff076": {
+      "adversarial_review": "docs/BATCH_DECIMAL_RATE_REVIEW.md generated entry for NORM|8003e4a83c6",
+      "boundary_proof": "BatchDecRatebf9309e345Tests.lean kernel-decided 0 / denominator boundaries",
+      "cross_law_proof": "dependencies=[]; base caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDecRatebf9309e345.lean sha256=e82f798f9ff92076e6161c3f42e1323b19a121cac22d4a9b19e052a9ae6aa465",
+      "independent_spec": "JapanTaxLaw/BatchDecRatebf9309e345Spec.lean sha256=49ff4ab7b98f4d0e7b15c79e11c5604f8999cd5823a5e9f95a9b17edd58491d4; plain-pair spec vs TaxRate impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDecRatebf9309e345Tests OK; axioms: 'JapanTaxLaw.BatchDecRatebf9309e345.rate_components' does not depend on any axioms | 'JapanTaxLaw.BatchDecRatebf9309e345.at_1000' does not depend on any axioms | 'JapanTaxLaw.BatchDecRatebf9309e345.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat bases; rate application only",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; decimal_audit D=PASS: numerator 10*X+Y checked against both quoted kanji components",
+      "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:82_13/Article#82_13/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342",
+      "tests": "JapanTaxLaw/BatchDecRatebf9309e345Tests.lean sha256=3c461fbf8a12ba790670ee114a789bfb65764aba02bff72250069be53b103ae4"
     },
     "NORM|8021b84bc92d2f5970e19a79431c680144005087f48f46c5570c8e70b21073dd": {
       "adversarial_review": "docs/BATCH_PERIOD_REVIEW.md generated entry for NORM|8021b84bc92 (5日 le)",
@@ -30097,6 +30214,19 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[3]/Article:715/Article#715/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
       "tests": "JapanTaxLaw/BatchThresholdLE8ea399e226Tests.lean sha256=4c5a702923ca7081ce52cd8985b8f2aa7a817ef9f6ab1db26e6387d382afd00b"
     },
+    "NORM|bd21112adbd4c11ce1eab7b3047d2190416c6163ac975b12a7bccff529579dfb": {
+      "adversarial_review": "docs/BATCH_DECIMAL_RATE_REVIEW.md generated entry for NORM|bd21112adbd",
+      "boundary_proof": "BatchDecRated7b70f4ff3Tests.lean kernel-decided 0 / denominator boundaries",
+      "cross_law_proof": "dependencies=[]; base caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDecRated7b70f4ff3.lean sha256=7d1b716aebb15332e8c762aa26d0f346b959340474a1a00c7b8b7cf302b5a6a5",
+      "independent_spec": "JapanTaxLaw/BatchDecRated7b70f4ff3Spec.lean sha256=8f7fe4881bd0b8cd27c245110c020fa6b0055ba537fe4c368ed154108d1a16ac; plain-pair spec vs TaxRate impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDecRated7b70f4ff3Tests OK; axioms: 'JapanTaxLaw.BatchDecRated7b70f4ff3.rate_components' does not depend on any axioms | 'JapanTaxLaw.BatchDecRated7b70f4ff3.at_1000' does not depend on any axioms | 'JapanTaxLaw.BatchDecRated7b70f4ff3.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat bases; rate application only",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; decimal_audit D=PASS: numerator 10*X+Y checked against both quoted kanji components",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[3]/Article:702_4/Article#702_4/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "tests": "JapanTaxLaw/BatchDecRated7b70f4ff3Tests.lean sha256=2dc279574d2a6a82482abe079ec4ea3643c4668f740bf8b70196a4410ad203c5"
+    },
     "NORM|bd4957b6862c8f2eddc27d8663ed2675a86f9af919f50b46833b3889ac822a46": {
       "adversarial_review": "docs/BATCH_FRACTION_REVIEW.md generated entry for NORM|bd4957b6862 (80/100 le)",
       "boundary_proof": "BatchFraction87c131f77bTests.lean kernel-decided 0/1/2 over denominator 100",
@@ -34530,6 +34660,19 @@
       "source_location": "data/raw/340M50000040012_20261001_505M60000040013.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:38_16/Article#38_16/Paragraph#12/ParagraphSentence/Sentence#2 sha256=ae40e395af88ba819be06f9ec266b7a1c09ee87150ed9db59c3d3b86abae96d8",
       "tests": "JapanTaxLaw/BatchReade5f3a7f328Tests.lean sha256=a7856ead78126dbd5a37c3cab4a803e237dbfa8108f30fad0e7d6811e9ef9692"
     },
+    "NORM|d7da8e940a3fc3c2232879c04a1b858241d811528cdcfd4c929e12a63a5f7580": {
+      "adversarial_review": "docs/BATCH_DECIMAL_RATE_REVIEW.md generated entry for NORM|d7da8e940a3",
+      "boundary_proof": "BatchDecRatee6b60c5c49Tests.lean kernel-decided 0 / denominator boundaries",
+      "cross_law_proof": "dependencies=[]; base caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDecRatee6b60c5c49.lean sha256=fe5c4f4604080b9bb2bc1cff3fc9b60b8cca939ebdb297e7241fa7f0b3e602e0",
+      "independent_spec": "JapanTaxLaw/BatchDecRatee6b60c5c49Spec.lean sha256=f382d2b667102fcc8f15f75154f461b30ebef71e746a0a46fb50bc6550d985c4; plain-pair spec vs TaxRate impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDecRatee6b60c5c49Tests OK; axioms: 'JapanTaxLaw.BatchDecRatee6b60c5c49.rate_components' does not depend on any axioms | 'JapanTaxLaw.BatchDecRatee6b60c5c49.at_1000' does not depend on any axioms | 'JapanTaxLaw.BatchDecRatee6b60c5c49.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat bases; rate application only",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; decimal_audit D=PASS: numerator 10*X+Y checked against both quoted kanji components",
+      "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:82_5/Article#82_5/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342",
+      "tests": "JapanTaxLaw/BatchDecRatee6b60c5c49Tests.lean sha256=bbc3b66372253aa006b60f9196e5e51a728f743e1a5240ec5aa0f112d6bd7378"
+    },
     "NORM|d7f644857d723ea3b0ad87cbc38bc3308dbf321165772eb7179923c2ef66f630": {
       "adversarial_review": "docs/BATCH_EFFECTIVE_REVIEW.md generated entry for NORM|d7f644857d7",
       "boundary_proof": "BatchEffective66955cb0edTests.lean kernel-decided effective-day and pre-promulgation boundaries",
@@ -36596,6 +36739,19 @@
       "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS (phrase-only, no numeral); commencement_audit D=PASS: verbatim located in pinned article and offset matches 公布の日 / 公布の日の翌日 wording",
       "source_location": "data/raw/363AC0000000108_20261101_507AC0000000013.law.json#LawBody[89]/SupplProvision/SupplProvision[1]/Article:1/Article#1/Paragraph#1/ParagraphSentence/Sentence#1 sha256=25dccebffb6690902c117a4ab9c16e4d64db087bba6d184a10ea6aeb58ab4a82",
       "tests": "JapanTaxLaw/BatchEffective2cfbd85bd8Tests.lean sha256=1a95dff81190adf4b98bf11185741b48f3b5f75a1c73f729d9ba667cae20955a"
+    },
+    "NORM|e58df8c4422669c4165e1bb80d8ded8b8e48f9aaa161dc1e9f418b023f6abe3f": {
+      "adversarial_review": "docs/BATCH_DECIMAL_RATE_REVIEW.md generated entry for NORM|e58df8c4422",
+      "boundary_proof": "BatchDecRatee5c4392eb9Tests.lean kernel-decided 0 / denominator boundaries",
+      "cross_law_proof": "dependencies=[]; base caller-established, NOT resolved",
+      "decomposition_audit": "coverage exact=True unique_ids=True",
+      "implementation": "JapanTaxLaw/BatchDecRatee5c4392eb9.lean sha256=6cf5f1835924d162769b891bdad74d4d95259ad9d0adf0c473e317aaf0b0d929",
+      "independent_spec": "JapanTaxLaw/BatchDecRatee5c4392eb9Spec.lean sha256=836ecd619985ecc18f06a8a69ad36d73ba8bf92ed6829d6a7fbcfc03f41cc920; plain-pair spec vs TaxRate impl",
+      "kernel_proof": "lake build JapanTaxLaw.BatchDecRatee5c4392eb9Tests OK; axioms: 'JapanTaxLaw.BatchDecRatee5c4392eb9.rate_components' does not depend on any axioms | 'JapanTaxLaw.BatchDecRatee5c4392eb9.at_1000' does not depend on any axioms | 'JapanTaxLaw.BatchDecRatee5c4392eb9.agree_spec_impl' depends on axioms: [propext]",
+      "proof_scope": "agree_spec_impl universal over all Nat bases; rate application only",
+      "source_correspondence_audit": "scripts/ci/source_correspondence.py D=PASS; decimal_audit D=PASS: numerator 10*X+Y checked against both quoted kanji components",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:623/Article#623/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53",
+      "tests": "JapanTaxLaw/BatchDecRatee5c4392eb9Tests.lean sha256=e89dd024a8a276ffd63dc018ae5a7e773e1abb5cc7898d54e684a5c9e4a706b8"
     },
     "NORM|e5901cd9949530d6ca0621d388acfc206ee85b849989c8add58cea80cb36f127": {
       "adversarial_review": "docs/BATCH_LOWER_REVIEW.md generated entry for NORM|e5901cd9949 (>=5000000)",
