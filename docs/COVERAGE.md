@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 205 | 327 | 62.69% |
+| laws with >=1 pinned literal check | 207 | 327 | 63.30% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 775 | n/a | n/a |
+| pinned literal checks | 781 | n/a | n/a |
 | distinct article pins | 233 | 42584 | 0.55% |
-| pinned Lean modules (cross-law) | 1306 | n/a | n/a |
+| pinned Lean modules (cross-law) | 1321 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1299 |
+| unpinned Lean modules (not counted as verified) | 1317 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -87,7 +87,7 @@ evidence of absence of defects.
 
 | axis | count |
 |---|---:|
-| adversarial review sessions recorded | 138 |
+| adversarial review sessions recorded | 140 |
 
 These are machine-based independent cross-checks by a separate review
 agent, NOT human legal review and NOT a count of fully reviewed articles.
@@ -281,6 +281,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `420AC0000000084` 地方税等減収補てん臨時交付金に関する法律
 - `420M60000008116` 地方税等減収補てん臨時交付金に関する省令
 - `422AC1000000050` 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての所得税及び法人税の臨時特例に関する法律
+- `422CO0000000222` 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての所得税及び法人税の臨時特例に関する法律施行令
 - `422M60000040022` 租税特別措置の適用状況の透明化等に関する法律施行規則
 - `422M60000040052` 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての所得税及び法人税の臨時特例に関する法律施行規則
 - `423AC0000000029` 東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律
@@ -293,6 +294,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `426AC0000000011` 地方法人税法
 - `426CO0000000139` 地方法人税法施行令
 - `426CO0000000415` トルエンジイソシアナートに対して課する不当廉売関税に関する政令
+- `426M60000040022` 地方法人税法施行規則
 - `428CO0000000196` 水酸化カリウムに対して課する不当廉売関税に関する政令
 - `429CO0000000234` 高重合度ポリエチレンテレフタレートに対して課する不当廉売関税に関する政令
 - `430AC0000000016` 国際観光旅客税法
