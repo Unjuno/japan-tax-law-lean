@@ -12,43 +12,43 @@
   "axis_totals": {
     "BOUNDARY_CHECKED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 1097,
-      "remaining_units": 395757
+      "achieved_units": 1099,
+      "remaining_units": 395755
     },
     "NORMS_FORMALIZED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 1097,
-      "remaining_units": 395757
+      "achieved_units": 1099,
+      "remaining_units": 395755
     },
     "NORM_DECOMPOSED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 1096,
-      "remaining_units": 395758
+      "achieved_units": 1098,
+      "remaining_units": 395756
     },
     "SOURCE_ACQUIRED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 1097,
-      "remaining_units": 395757
+      "achieved_units": 1099,
+      "remaining_units": 395755
     },
     "SOURCE_AUDITED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 1096,
-      "remaining_units": 395758
+      "achieved_units": 1099,
+      "remaining_units": 395755
     },
     "SPEC_IMPL_CORRESPONDENCE": {
       "achieved_is_not_completion": true,
-      "achieved_units": 1097,
-      "remaining_units": 395757
+      "achieved_units": 1099,
+      "remaining_units": 395755
     },
     "STRUCTURE_IDENTIFIED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 1091,
-      "remaining_units": 395763
+      "achieved_units": 1093,
+      "remaining_units": 395761
     },
     "VERSION_PINNED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 1097,
-      "remaining_units": 395757
+      "achieved_units": 1099,
+      "remaining_units": 395755
     }
   },
   "detail_note": "Only units with substantive committed evidence are expanded; all other units take the NOT_STARTED / LEGAL_REVIEW_PENDING defaults, reproducible by regenerating build/task_queue.json with scripts/ci/task_queue.py.",
@@ -13913,6 +13913,37 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
+    "NORM|5535e9d60fcc528b55dc71a8ebb602f33891361f92b80dab7ad53701dca864dd": {
+      "article": "1_2",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "325AC0000000073",
+      "norm_details": {
+        "amounts": [],
+        "conditions": [],
+        "delegations": [
+          "定めるところによる"
+        ],
+        "effects": [],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "325AC0000000073_20260401_506AC0000000008",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
     "NORM|554b972131e5cd44f32fdaa7268e49041b54fa3a6ee014d0eedfa7734831ab1b": {
       "article": "11",
       "axes": {
@@ -17139,7 +17170,7 @@
         "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
         "NORM_DECOMPOSED": "DECOMPOSED",
         "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "NOT_STARTED",
+        "SOURCE_AUDITED": "AUDITED",
         "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
         "STRUCTURE_IDENTIFIED": "IDENTIFIED",
         "VERSION_PINNED": "PINNED"
@@ -17166,7 +17197,7 @@
       },
       "revision": "325M50000040017_20260901_506M60000040016",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "PROVED_SCOPE",
+      "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
     "NORM|6ba3944fe146fbed2f5b066e9b0514d9d6c465d4039202e14e8aaecfb68d4662": {
@@ -30594,6 +30625,39 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
+    "NORM|d0cb856a57842506990aec41a0c757458ed28f8db7c4057f954c919440bd54f0": {
+      "article": "9",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "322CO0000000268",
+      "norm_details": {
+        "amounts": [],
+        "conditions": [
+          "場合"
+        ],
+        "delegations": [
+          "定めるところによる"
+        ],
+        "effects": [],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "322CO0000000268_20251201_507CO0000000120",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
     "NORM|d0cf98134851f92a247937113b649e63b19967f04296f03953fa4f2f69e82b95": {
       "article": "52",
       "axes": {
@@ -37307,8 +37371,8 @@
   ],
   "norm_detail_counts": {
     "amounts": 305,
-    "conditions": 893,
-    "delegations": 193,
+    "conditions": 894,
+    "delegations": 195,
     "effects": 377,
     "enforcement_dates": 15,
     "exceptions": 193,
@@ -37318,15 +37382,15 @@
   "note": "Eight technical axes are tracked separately; full technical evidence does NOT establish human legal review or whole-article coverage. COMPUTABLE_SLICE_ONLY units are never counted as whole-article norms.",
   "schema": "directive_axes/v1",
   "scope_counts": {
-    "COMPUTABLE_SLICE_ONLY": 1091,
+    "COMPUTABLE_SLICE_ONLY": 1093,
     "FULL_ARTICLE": 6
   },
   "technical_status_counts": {
     "BLOCKED": 2,
-    "FULLY_VERIFIED": 1096,
-    "NOT_STARTED": 395755,
+    "FULLY_VERIFIED": 1099,
+    "NOT_STARTED": 395753,
     "PARTIAL": 0,
-    "PROVED_SCOPE": 1
+    "PROVED_SCOPE": 0
   },
   "tool": "scripts/ci/directive_axes.py",
   "units_total": 396854

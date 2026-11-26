@@ -13,17 +13,17 @@ obligations being complete. SKIP is never counted as PASS.
 - SKIP: 0
 - required gates SKIPped: 0
 - gate results commit: (none)
-- current HEAD commit: 13b53158ea80ea51e52955f8912c36d70fe3914d
+- current HEAD commit: 025b0ab04854421ffdf055edff718b1218023499
 - results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all TECHNICAL obligations complete (human review excluded)
 
 - normative units: 396854
-- NOT_STARTED: 395755
+- NOT_STARTED: 395753
 - PARTIAL: 0
-- PROVED_SCOPE: 1
-- FULLY_VERIFIED: 1096
+- PROVED_SCOPE: 0
+- FULLY_VERIFIED: 1099
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180617
@@ -43,26 +43,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 1097 | 396854 |
-| kernel proved (CI-attested proof evidence) | 1097 | 396854 |
-| source-audited (原文 correspondence evidence) | 1097 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 1099 | 396854 |
+| kernel proved (CI-attested proof evidence) | 1099 | 396854 |
+| source-audited (原文 correspondence evidence) | 1099 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 1097 |
-| boundary_proof | 1097 |
-| cross_law_proof | 1097 |
-| decomposition_audit | 1097 |
-| implementation | 1097 |
-| independent_spec | 1097 |
-| kernel_proof | 1097 |
-| proof_scope | 1097 |
-| source_correspondence_audit | 1097 |
-| source_location | 1097 |
-| tests | 1097 |
+| adversarial_review | 1099 |
+| boundary_proof | 1099 |
+| cross_law_proof | 1099 |
+| decomposition_audit | 1099 |
+| implementation | 1099 |
+| independent_spec | 1099 |
+| kernel_proof | 1099 |
+| proof_scope | 1099 |
+| source_correspondence_audit | 1099 |
+| source_location | 1099 |
+| tests | 1099 |
 
 ## Verdict
 
