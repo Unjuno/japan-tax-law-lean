@@ -1238,6 +1238,12 @@ def checks():
            "article", "第二条",
            ["合計所得金額が千万円以下である居住者の配偶者をいう", "第二条"])
 
+    # 地方税法 art.72の24の2(1) — LocalTaxInsuranceBusinessBase24Percent.lean
+    yield ("地方税法 art.72の24の2(1)（収入保険料×24%）↔ LocalTaxInsuranceBusinessBase24Percent.lean",
+           "325AC0000000226",
+           "file", None,
+           ["収入保険料（再保険料として収入する保険料を除く。以下この項において同じ。）に百分の二十四を乗じて得た金額", "第七十二条の二十四の二"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
