@@ -1841,6 +1841,9 @@ import JapanTaxLaw.PublicSaleGuaranteeDepositTests
 import JapanTaxLaw.PublicityMatter
 import JapanTaxLaw.PublicityMatterSpec
 import JapanTaxLaw.PublicityMatterTests
+import JapanTaxLaw.PurebredLivestockCertificateEnforcementDate
+import JapanTaxLaw.PurebredLivestockCertificateEnforcementDateSpec
+import JapanTaxLaw.PurebredLivestockCertificateEnforcementDateTests
 import JapanTaxLaw.QuakeFloor50sqm
 import JapanTaxLaw.QuakeFloor50sqmSpec
 import JapanTaxLaw.QuakeFloor50sqmTests
