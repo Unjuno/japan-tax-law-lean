@@ -4795,6 +4795,15 @@ def checks():
            "340CO0000000096", "file", None,
            ["相続税評価割合が百分の五十を超える確定年金"])
 
+    # 所得税法施行令 art. 185 — InheritedAnnuityRatioAtMost50.lean (50%以下)
+    yield ("所得税法施行令 art. 185（確定年金50%以下）↔ InheritedAnnuityRatioAtMost50.lean",
+           "340CO0000000096", "file", None,
+           ["相続税評価割合が百分の五十以下の確定年金"])
+    # 所得税法施行令 art. 185 — AnnuityRatioOver50UpTo55.lean (50%超55%以下)
+    yield ("所得税法施行令 art. 185（50%超55%以下）↔ AnnuityRatioOver50UpTo55.lean",
+           "340CO0000000096", "file", None,
+           ["相続税評価割合が百分の五十を超え百分の五十五以下の場合"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
