@@ -5,7 +5,7 @@ Do not hand-edit. Regenerate with `python scripts/ci/coordinator.py`.
 Loop: INSPECT -> SELECT -> FORMALIZE -> PROVE -> CHALLENGE -> VERIFY -> COMMIT -> REPEAT
 
 - queue units: 396854
-- statuses: BLOCKED=2, FULLY_VERIFIED=932, NOT_STARTED=395919, PROVED_SCOPE=1
+- statuses: BLOCKED=2, FULLY_VERIFIED=960, NOT_STARTED=395891, PROVED_SCOPE=1
 - selected this iteration: 12
 - blocked by dependency/blocker: 69 (reported, not stopping the queue)
 - human legal review: LEGAL_REVIEW_PENDING, separate axis; never a filter or a formalization gate
