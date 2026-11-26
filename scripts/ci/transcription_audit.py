@@ -91,6 +91,12 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # HouseholdCorrectionFloor07 — 航空機燃料譲与税法施行規則 art.4(8) (restored)
+    yield ("航空機燃料譲与税法施行規則 art.4(8)（世帯数〇・七下限）↔ HouseholdCorrectionFloor07.lean",
+           "347M50000008026", "article", "第四条", ["前年度の世帯数に〇・七を乗じて得た数に満たず、かつ、当該前年度の世帯数から当該補正世帯数を控除して得た数が千を超える場合には"])
+    # PowerDevelopmentTaxPenalty — 電源開発促進税法 art.12(4) 罰金上限 (restored)
+    yield ("電源開発促進税法 art.12（罰金上限＝max(五十万円,相当金額)）↔ PowerDevelopmentTaxPenalty.lean",
+           "349AC0000000079", "article", "第十二条", ["五十万円を超え当該電源開発促進税に相当する金額以下"])
     # FifthWheelGrossWeight — 登録免許税法施行規則 art.5(1) 牽引自動車の車両総重量
     yield ("登録免許税法施行規則 art.5(1)（車両総重量＝記録重量−第五輪荷重+牽引重量）↔ FifthWheelGrossWeight.lean",
            "346CO0000000275", "article", "第五条", ["その自動車検査証に記録される車両総重量から第五輪荷重を控除し牽けん引重量を加えた重量"])
@@ -4795,14 +4801,31 @@ def checks():
            "340CO0000000096", "file", None,
            ["相続税評価割合が百分の五十を超える確定年金"])
 
+    # DisasterReliefSupplArt1DelegatedEnforcementDate.lean - NORM|ad366359... (災害被害者租税減免法 附則 art.1 DELEGATION, law 322AC0000000175)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("disaster relief act supplementary art.1 delegated enforcement date - DisasterReliefSupplArt1DelegatedEnforcementDate.lean",
+           "322AC0000000175",
+           "file", None,
+           ["\u3053\u306e\u6cd5\u5f8b\u306f\u3001\u516c\u5e03\u306e\u65e5\u304b\u3089\u8d77\u7b97\u3057\u3066\u4e00\u5e74\u3092\u8d85\u3048\u306a\u3044\u7bc4\u56f2\u5185\u306b\u304a\u3044\u3066\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u65e5\u304b\u3089\u65bd\u884c\u3059\u308b\u3002"])
+
     # 所得税法施行令 art. 185 — InheritedAnnuityRatioAtMost50.lean (50%以下)
     yield ("所得税法施行令 art. 185（確定年金50%以下）↔ InheritedAnnuityRatioAtMost50.lean",
            "340CO0000000096", "file", None,
            ["相続税評価割合が百分の五十以下の確定年金"])
+
     # 所得税法施行令 art. 185 — AnnuityRatioOver50UpTo55.lean (50%超55%以下)
     yield ("所得税法施行令 art. 185（50%超55%以下）↔ AnnuityRatioOver50UpTo55.lean",
            "340CO0000000096", "file", None,
            ["相続税評価割合が百分の五十を超え百分の五十五以下の場合"])
+
+    # 租税特別措置法施行令 art. 33の3 — ReserveAccumulationOver50UpTo75.lean (50-75%)
+    yield ("租税特別措置法施行令 art. 33_3（準備金50-75%）↔ ReserveAccumulationOver50UpTo75.lean",
+           "332CO0000000043", "file", None,
+           ["異常危険準備金累積割合が百分の五十を超え百分の七十五以下の場合"])
+    # 租税特別措置法施行令 art. 43の2 — PublicFacilityAreaAtLeast10.lean (10%以上)
+    yield ("租税特別措置法施行令 art. 43_2（公共施設面積10%以上）↔ PublicFacilityAreaAtLeast10.lean",
+           "332CO0000000043", "file", None,
+           ["公共施設面積割合が百分の十以上であること。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
