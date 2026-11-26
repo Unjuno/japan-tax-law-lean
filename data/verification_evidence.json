@@ -58227,6 +58227,16 @@
         "tool": "independent-adversarial"
       }
     ],
+    "1e8e4d3de7cdcec4091236a77d736ae24dcf9ffbc633c7347568cdb7b73fc14b": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T06:42:23+00:00",
+        "evidence_ref": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#AppdxTable:AppdxTable/TableStruct:0001/Table:0000/TableRow:0003#0-18",
+        "note": "pinned bytes, exact structural path, offsets and hash",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
+      }
+    ],
     "1e97cb5ab686ad78db912c2c9cd72138d2e3512e9f0e5fd6c33d8f3e52c6459a": [
       {
         "axis": "SOURCE_LOCATION",
@@ -85819,6 +85829,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "2f19655091dfd046820c7408805969613211fb2ca76f869ff2d633c7eb9271ff": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "325AC0000000226#第314_6条#pinned-perperson",
+        "note": "一人につき五万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "mechanical-audit:PER-2f19655091df",
+        "note": "一人につき五万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "task_queue.json#2f19655091df#coverage",
+        "note": "一人につき五万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#regrouped-count-form@kernel",
+        "note": "一人につき五万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeduction.lean#perPersonDeduction@kernel",
+        "note": "一人につき五万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#base_eq_amount/commute/monotone_count@kernel",
+        "note": "一人につき五万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#theorems@universal-Nat^3@kernel",
+        "note": "一人につき五万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionTests.lean#0/1-person-boundaries@kernel",
+        "note": "一人につき五万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionTests.lean@kernel",
+        "note": "一人につき五万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T07:03:22+00:00",
+        "evidence_ref": "data/evidence_audits/perperson_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 一人につき phrase, verbatim token and fragment containment verified; scope = exact phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "2f1b7a375f99442869c3b77d5b213c9694ac74dc04dd4ea3ebd9ea7b3bb452b6": [
@@ -126563,6 +126655,16 @@
         "note": "enforcement date 平成十三年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "452b5088d12c50f55f1a8f409fd7200471dcb6eca82632cf268ad5deef158211": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T06:42:23+00:00",
+        "evidence_ref": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#AppdxTable:AppdxTable/TableStruct:0001/Table:0000/TableRow:0005#0-19",
+        "note": "pinned bytes, exact structural path, offsets and hash",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
       }
     ],
     "452d35dac08a1d4e2deae4f1d344465f539a4d2a4cd8cac4dd646c4e17466792": [
@@ -239036,6 +239138,88 @@
         "tool": "independent-adversarial"
       }
     ],
+    "838b155b21cc8dadc237d429365abf6392384c0a9d907da884868904e64079b9": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "325AC0000000226#第5_8条#pinned-perperson",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "mechanical-audit:PER-838b155b21cc",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "task_queue.json#838b155b21cc#coverage",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#regrouped-count-form@kernel",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeduction.lean#perPersonDeduction@kernel",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#base_eq_amount/commute/monotone_count@kernel",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#theorems@universal-Nat^3@kernel",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionTests.lean#0/1-person-boundaries@kernel",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionTests.lean@kernel",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T07:03:22+00:00",
+        "evidence_ref": "data/evidence_audits/perperson_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 一人につき phrase, verbatim token and fragment containment verified; scope = exact phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "839b0d9a9770ae56253b795657c639d76c4ef96c9a1a0b744110201ca0413eb5": [
       {
         "axis": "SOURCE_LOCATION",
@@ -252216,6 +252400,16 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "8aaea4eb9ba221020ed568c96c3f9e15d86a7c941ce6c94c8a39c397cbafe5b6": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T06:42:23+00:00",
+        "evidence_ref": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#AppdxTable:AppdxTable/TableStruct:0001/Table:0000/TableRow:0004#0-17",
+        "note": "pinned bytes, exact structural path, offsets and hash",
+        "reviewer": "ci",
+        "tool": "coordinator_cycle.py"
       }
     ],
     "8ac1fd190322e5398b1fb92794c88fd2b15b7f50ba7f2ed556ae88df4effde40": [
@@ -281628,6 +281822,88 @@
         "tool": "transcription_audit.py"
       }
     ],
+    "9b7e7d633bd62681956b99d0450cabdd68ad3ce77ee274d96eb4032ccc17018b": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "334CO0000000329#第34条#pinned-perperson",
+        "note": "一人につき四万八千円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "mechanical-audit:PER-9b7e7d633bd6",
+        "note": "一人につき四万八千円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "task_queue.json#9b7e7d633bd6#coverage",
+        "note": "一人につき四万八千円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#regrouped-count-form@kernel",
+        "note": "一人につき四万八千円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeduction.lean#perPersonDeduction@kernel",
+        "note": "一人につき四万八千円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#base_eq_amount/commute/monotone_count@kernel",
+        "note": "一人につき四万八千円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#theorems@universal-Nat^3@kernel",
+        "note": "一人につき四万八千円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionTests.lean#0/1-person-boundaries@kernel",
+        "note": "一人につき四万八千円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionTests.lean@kernel",
+        "note": "一人につき四万八千円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T07:03:22+00:00",
+        "evidence_ref": "data/evidence_audits/perperson_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 一人につき phrase, verbatim token and fragment containment verified; scope = exact phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "9b90c6a3fed704a97e48962a71a9cd7113b63f3e2377bf2737cc5131cd664e77": [
       {
         "axis": "SOURCE_LOCATION",
@@ -307039,6 +307315,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "a7f72250314b6c155cd7b4ce181f738d8079b7d145cd26a47dbc36b801ec9067": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "325AC0000000226#第5_8条#pinned-perperson",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "mechanical-audit:PER-a7f72250314b",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "task_queue.json#a7f72250314b#coverage",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#regrouped-count-form@kernel",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeduction.lean#perPersonDeduction@kernel",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#base_eq_amount/commute/monotone_count@kernel",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#theorems@universal-Nat^3@kernel",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionTests.lean#0/1-person-boundaries@kernel",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionTests.lean@kernel",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T07:03:22+00:00",
+        "evidence_ref": "data/evidence_audits/perperson_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 一人につき phrase, verbatim token and fragment containment verified; scope = exact phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "a7f9f8e972924a07c4d673469e2e399569ed3a0bae4efa481ba011f10fdb1c40": [
@@ -334237,6 +334595,88 @@
         "tool": "lake build"
       }
     ],
+    "b703301444bea253b5f30ec6fceafb2bd4e5ce27ff8ca9a30a57948a5d5a20fb": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "332AC0000000026#第41_3_3条#pinned-perperson",
+        "note": "一人につき三万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "mechanical-audit:PER-b703301444be",
+        "note": "一人につき三万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "task_queue.json#b703301444be#coverage",
+        "note": "一人につき三万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#regrouped-count-form@kernel",
+        "note": "一人につき三万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeduction.lean#perPersonDeduction@kernel",
+        "note": "一人につき三万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#base_eq_amount/commute/monotone_count@kernel",
+        "note": "一人につき三万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#theorems@universal-Nat^3@kernel",
+        "note": "一人につき三万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionTests.lean#0/1-person-boundaries@kernel",
+        "note": "一人につき三万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionTests.lean@kernel",
+        "note": "一人につき三万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T07:03:22+00:00",
+        "evidence_ref": "data/evidence_audits/perperson_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 一人につき phrase, verbatim token and fragment containment verified; scope = exact phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "b706e68c98adbe0488516c73ed45cc598fb72425d9d7275994178e413e3e2435": [
       {
         "axis": "SOURCE_LOCATION",
@@ -343260,6 +343700,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "bb7a799ca15881cc606946b778048ed7c10870781f1d53cefc001c3cc4bd034c": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "325AC0000000226#第37条#pinned-perperson",
+        "note": "一人につき五万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "mechanical-audit:PER-bb7a799ca158",
+        "note": "一人につき五万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "task_queue.json#bb7a799ca158#coverage",
+        "note": "一人につき五万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#regrouped-count-form@kernel",
+        "note": "一人につき五万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeduction.lean#perPersonDeduction@kernel",
+        "note": "一人につき五万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#base_eq_amount/commute/monotone_count@kernel",
+        "note": "一人につき五万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#theorems@universal-Nat^3@kernel",
+        "note": "一人につき五万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionTests.lean#0/1-person-boundaries@kernel",
+        "note": "一人につき五万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionTests.lean@kernel",
+        "note": "一人につき五万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T07:03:22+00:00",
+        "evidence_ref": "data/evidence_audits/perperson_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 一人につき phrase, verbatim token and fragment containment verified; scope = exact phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "bb7b5934ca20187d06f2625ee815c51e12bb90784c72e79f845e7086265bb968": [
@@ -382625,6 +383147,88 @@
         "tool": "lake build"
       }
     ],
+    "d247ee9638b65aa5ff9278d97de33a54c2ad75402d7fb2e8b0ed828f8a061268": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "340AC0000000033#第79条#pinned-perperson",
+        "note": "一人につき二十七万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "mechanical-audit:PER-d247ee9638b6",
+        "note": "一人につき二十七万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "task_queue.json#d247ee9638b6#coverage",
+        "note": "一人につき二十七万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#regrouped-count-form@kernel",
+        "note": "一人につき二十七万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeduction.lean#perPersonDeduction@kernel",
+        "note": "一人につき二十七万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#base_eq_amount/commute/monotone_count@kernel",
+        "note": "一人につき二十七万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#theorems@universal-Nat^3@kernel",
+        "note": "一人につき二十七万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionTests.lean#0/1-person-boundaries@kernel",
+        "note": "一人につき二十七万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionTests.lean@kernel",
+        "note": "一人につき二十七万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T07:03:22+00:00",
+        "evidence_ref": "data/evidence_audits/perperson_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 一人につき phrase, verbatim token and fragment containment verified; scope = exact phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "d254a5ae10d6f8aa3850119eb97d0f85ca6b78be2f3e0291d192d043db59e450": [
       {
         "axis": "SOURCE_LOCATION",
@@ -406396,6 +407000,88 @@
         "note": "unit decomposition and mechanical coverage only",
         "reviewer": "ci",
         "tool": "task_queue.py"
+      }
+    ],
+    "df9e536f2ca5c6ee999b700ed9c3ac3da70ba703b9d2005090dd6367f37fe062": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "325AC0000000226#第5_8条#pinned-perperson",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "mechanical-audit:PER-df9e536f2ca5",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "task_queue.json#df9e536f2ca5#coverage",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#regrouped-count-form@kernel",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeduction.lean#perPersonDeduction@kernel",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#base_eq_amount/commute/monotone_count@kernel",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionSpec.lean#theorems@universal-Nat^3@kernel",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionTests.lean#0/1-person-boundaries@kernel",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T06:50:02+00:00",
+        "evidence_ref": "JapanTaxLaw/PerPersonDeductionTests.lean@kernel",
+        "note": "一人につき一万円 per-person addition; independent regrouped count form; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T07:03:22+00:00",
+        "evidence_ref": "data/evidence_audits/perperson_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, 一人につき phrase, verbatim token and fragment containment verified; scope = exact phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "dfa115bbde8ae3f0390744b9321f85011264612273da113429d1997616fefb45": [
