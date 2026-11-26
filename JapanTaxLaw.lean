@@ -752,6 +752,12 @@ import JapanTaxLaw.Employee300Tests
 import JapanTaxLaw.EmploymentDuration6Months
 import JapanTaxLaw.EmploymentDuration6MonthsSpec
 import JapanTaxLaw.EmploymentDuration6MonthsTests
+import JapanTaxLaw.EnergyEfficiency70Pct
+import JapanTaxLaw.EnergyEfficiency70PctSpec
+import JapanTaxLaw.EnergyEfficiency70PctTests
+import JapanTaxLaw.EnergyEfficiency75Pct
+import JapanTaxLaw.EnergyEfficiency75PctSpec
+import JapanTaxLaw.EnergyEfficiency75PctTests
 import JapanTaxLaw.EnforcementWithinNineMonths
 import JapanTaxLaw.EnforcementWithinNineMonthsSpec
 import JapanTaxLaw.EnforcementWithinNineMonthsTests

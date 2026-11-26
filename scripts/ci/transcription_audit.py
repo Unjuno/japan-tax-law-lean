@@ -4973,6 +4973,15 @@ def checks():
            "325AC0000000226", "file", None,
            ["六百九十五万円を超え九百万円以下の金額"])
 
+    # 租税特別措置法 art. 90の12 — EnergyEfficiency75Pct.lean (75%)
+    yield ("租税特別措置法 art. 90_12（効率75%以上）↔ EnergyEfficiency75Pct.lean",
+           "332AC0000000026", "file", None,
+           ["エネルギー消費効率が令和十二年度基準エネルギー消費効率に百分の七十五を乗じて得た数値以上であること。"])
+    # 租税特別措置法 art. 90の12 — EnergyEfficiency70Pct.lean (70%)
+    yield ("租税特別措置法 art. 90_12（効率70%以上）↔ EnergyEfficiency70Pct.lean",
+           "332AC0000000026", "file", None,
+           ["エネルギー消費効率が令和十二年度基準エネルギー消費効率に百分の七十を乗じて得た数値以上であること。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
