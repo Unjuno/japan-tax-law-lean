@@ -14356,9 +14356,24 @@ needle は `docs/STAGING_MUTUAL_DEFENSE_ENFORCE.md` の 2 本をレビュー側�
 
 > **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
 
-### ShipProvisionalRateReduction.lean — 登録免許税法 art.17(2)
+### LoanBalanceRatioAtMost15.lean
 
-- **pin**: law `342AC0000000035`, article 第十七条(2); needle「同号（二）の税率欄に掲げる割合から千分の四を控除した割合とする」.
-- **独立再抽出**: 軽減後税率 = 別表割合 − 4（千分率, Nat）。独立仕様は `base - min base 4`、全称定理 `agreeReducedRate` が omega で照合。
-- **H/T/D**: 4→0, 10→6, 0→0, 3→0; 普遍定理 3 件。D=PASS。
-- **C/U**: 仮登記認定・税基・他項は NOT MODELLED。`LEGAL_REVIEW_PENDING`。
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### ForeignRelatedCorpTaxRate20.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+## Batch RSR review (2026-11-26) — 租税特別措置法施行令 art.42の3(2)一
+
+### RedevelopmentShareRatio.lean — 独立再抽出・照合
+
+- **対象**: `JapanTaxLaw/RedevelopmentShareRatio.lean`, Spec, Tests
+- **一次資料（pinned・改変禁止）**: `data/raw/332CO0000000043_20261101_507CO0000000127.law.json`（SHA-256 pin 再計算）
+- **独立再抽出**: MainProvision 直下の第四十二条の三を ArticleTitle で特定し、第二項第一号の割合算定文言を原文から直接抽出。
+- **照合・判定**: (土地持分−旧権利持分)/土地持分、単独所有権・借地権は零、控除結果が零下回りなら零、分母零は防御的に零を確認。D=CONFIRMED。
+- **限界**: 持分の実数表現・丸め・価額・案件該当性は NOT MODELLED。機械的独立照合であり人間の法的レビューではない（LEGAL_REVIEW_PENDING）。
