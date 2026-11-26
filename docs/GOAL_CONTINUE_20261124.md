@@ -339,6 +339,21 @@ All five target units carry `kernel_proof`. The WSL Plan-9 mount made the
 ~880 MB queue write unusually slow (an environment constraint, not a logic
 failure); no duplicate generator was started. Legal review stays pending.
 
+### Eleventh and twelfth iterations (delegated batches 249 and 251)
+
+Two more delegated agents produced five units each (249: `InheritanceTaxArt21_11_2TwoGiftors`, `LocalTax72_2_2ThreePrefectures`, `72_54TwoPrefectures`, `154LoadUpTo8Tons`, `72_26FiscalYearOver6Months`; 251: `InheritanceTax68PenaltyTo10Years`, `LocalTax154LoadOver8Tons`, `314_2PensionOver7Man`, `321_13TwoMunicipalities`, `72_38_2DeferralCeiling6Years`). Both attested from committed blobs to green runs `45750869176` (`07b6ae05`, T11) and `45758973561` (`1c7daa0c`, T12). Builds 1983/1998 jobs, transcription 615/620, invariants 17/17, temp attestations removed.
+
+```
+before: FULLY_VERIFIED=860  NOT_STARTED=396010  evidence=863
+after:  FULLY_VERIFIED=921  NOT_STARTED=395928  evidence=924
+delta:  FULLY_VERIFIED=+61 NOT_STARTED=-61  evidence=+61
+progress_ledger: COUNTED; NOT_STARTED delta -61; new modules 30
+```
+
+The +61 includes both batches' units plus previously stale entries recovered
+by honest regeneration. All ten target ids carry `kernel_proof`. Legal review
+stays `LEGAL_REVIEW_PENDING`.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |
