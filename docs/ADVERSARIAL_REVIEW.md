@@ -16161,3 +16161,9 @@ CI と同一の `text()`（JSON ノードの `children` のみ再帰連結）＋
 - **二段 read-then-write と検証**: 書き込み直前に再読込した状態の SHA-256 `8ebb3bfaa391104ea0c4e791c315ac0de991e06f2fcdf44fd8285a0fd94ebca2` / バイト数 `1,940,042` / 広義レビュー件数（`^## .*review` ベース = **142**）/ Batch EJ・Batch EI・Batch EH・Batch EG・Batch EF・Batch EE・Batch ED・Batch EC・Batch EB・Batch EA・Batch DZ・Batch DY・Batch DX・Batch DW・Batch DV・Batch DU・Batch DT・Batch G の各存在と Batch EK の不在を確認し、その状態に本セクションのみを追記した。追記後は **143 件（Previous +1）** へ増加し、書き込み後の再読込で既存バイト列の前方一致・既存見出し残存を検証した（自己言及的なハッシュ値は本文に埋め込まない）。レビュー中に並行ワーストリームが `###` 見出しを追記したため、採用した値は書き込み直前の再読込値である。
 
 > **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲（特に改正履歴上の施行日の選択、本則の実体規定、附則他条）の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+### IncomeRegulationRate90.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の割合定数とカーネル決定の一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。

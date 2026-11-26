@@ -5305,6 +5305,11 @@ def checks():
            "337CO0000000227", "file", None,
            ["法第十五条第十九項第二号に規定する政令で定める税率は、百分の八・五とする。"])
 
+    # 所得税法施行規則 art. 90の2 — IncomeRegulationRate90.lean (90%)
+    yield ("所得税法施行規則 art. 90_2（割合90%）↔ IncomeRegulationRate90.lean",
+           "340M50000040011", "file", None,
+           ["令第三百五十二条の二第二項第四号に規定する財務省令で定める割合は、百分の九十とする。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
