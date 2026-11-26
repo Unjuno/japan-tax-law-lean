@@ -725,6 +725,9 @@ import JapanTaxLaw.DisasterVictimRemunerationUpperBracketTests
 import JapanTaxLaw.DiscountBondRefund
 import JapanTaxLaw.DiscountBondRefundSpec
 import JapanTaxLaw.DiscountBondRefundTests
+import JapanTaxLaw.DividedCertificateIssuance
+import JapanTaxLaw.DividedCertificateIssuanceSpec
+import JapanTaxLaw.DividedCertificateIssuanceTests
 import JapanTaxLaw.DividendTaxRate
 import JapanTaxLaw.DividendTaxRateSpec
 import JapanTaxLaw.DividendTaxRateTests
