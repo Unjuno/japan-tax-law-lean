@@ -6,8 +6,8 @@ A whole-text numeric match is NOT article-level verification. This is a
 source-fidelity diagnostic (D=PASS means needle in stated article only),
 never a completion gate or a semantic/legal claim.
 
-- checks with article/table-cell scoped needles: 717
-- checks with no scoped unit: 0
+- checks with article/table-cell scoped needles: 732
+- checks with no scoped unit: 1
 
 | law_id | stated article | needle hits | scoped positions | D |
 |---|---|---:|---:|---|
@@ -18,6 +18,7 @@ never a completion gate or a semantic/legal claim.
 | `327CO0000000124` | 第三条の二 | 2 | 2 | PASS |
 | `332AC0000000077` | 第六条 | 2 | 2 | PASS |
 | `337M50000040031` | 第一条の六 | 1 | 1 | PASS |
+| `341M50000040004` | 第一条 | 2 | 2 | PASS |
 | `329M50000002023` | (file-level) | 2 | 2 | PASS |
 | `325AC0000000226` | (file-level) | 4 | 4 | PASS |
 | `325AC0000000226` | (file-level) | 4 | 4 | PASS |
@@ -302,6 +303,7 @@ never a completion gate or a semantic/legal claim.
 | `325AC0000000226` | (file-level) | 20 | 21 | PASS |
 | `325AC0000000226` | (file-level) | 419 | 420 | PASS |
 | `333CO0000000337` | (file-level) | 2 | 3 | PASS |
+| `407M50000040012` | (file-level) | 2 | 3 | PASS |
 | `340AC0000000033` | (file-level) | 4 | 16 | PASS |
 | `332CO0000000043` | (file-level) | 4 | 10 | PASS |
 | `337M50000008017` | (file-level) | 2 | 8 | PASS |
@@ -727,4 +729,18 @@ never a completion gate or a semantic/legal claim.
 | `325AC0000000226` | (file-level) | 2 | 2 | PASS |
 | `325CO0000000245` | (file-level) | 3 | 3 | PASS |
 | `325CO0000000245` | (file-level) | 3 | 3 | PASS |
+| `332AC0000000055` | (file-level) | 0 | 0 | FAIL |
+| `332CO0000000043` | (file-level) | 6 | 6 | PASS |
+| `407M50000008016` | 第一条 | 3 | 3 | PASS |
+| `349AC0000000079` | 第十二条 | 2 | 2 | PASS |
+| `332CO0000000043` | (file-level) | 9 | 9 | PASS |
+| `332AC0000000026` | (file-level) | 3 | 3 | PASS |
+| `332AC0000000026` | (file-level) | 3 | 3 | PASS |
+| `424CO0000000017` | 第三条 | 2 | 2 | PASS |
+| `332CO0000000043` | (file-level) | 3 | 3 | PASS |
+| `335AC0000000036` | (file-level) | 3 | 3 | PASS |
 | `332AC0000000055` | (file-level) | 3 | 3 | PASS |
+| `325AC0000000226` | (file-level) | 2 | 2 | PASS |
+| `325AC0000000226` | (file-level) | 16 | 16 | PASS |
+| `325AC0000000226` | (file-level) | 20 | 20 | PASS |
+| `325AC0000000226` | (file-level) | 11 | 11 | PASS |
