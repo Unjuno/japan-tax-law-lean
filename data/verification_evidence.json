@@ -734,6 +734,88 @@
         "tool": "independent-adversarial"
       }
     ],
+    "004e7d5d2457681012092131cf1ed1dada1ebb9b0c3766f2b4cd82a16a052bbf": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "325AC0000000226#第718_3条#pinned-period-division",
+        "note": "期間数/人数による割算 係る特別徴収対象年金給付の支払の回数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-004e7d5d2457",
+        "note": "期間数/人数による割算 係る特別徴収対象年金給付の支払の回数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "task_queue.json#004e7d5d2457#coverage",
+        "note": "期間数/人数による割算 係る特別徴収対象年金給付の支払の回数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 係る特別徴収対象年金給付の支払の回数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 係る特別徴収対象年金給付の支払の回数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 係る特別徴収対象年金給付の支払の回数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 係る特別徴収対象年金給付の支払の回数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 係る特別徴収対象年金給付の支払の回数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 係る特別徴収対象年金給付の支払の回数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "005008295d037d60faf4edda575a7084edb3d662f7cefa2f4d3b4b81743ec0a9": [
       {
         "axis": "SOURCE_LOCATION",
@@ -7337,6 +7419,88 @@
         "note": "pinned needle located in exact unit span",
         "reviewer": "ci",
         "tool": "transcription_audit.py"
+      }
+    ],
+    "02fe9451650757bf67f86e5f89330ce8646807c35b1c5d9eadf80f845147994f": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "329M50000002023#第6条#pinned-period-division",
+        "note": "期間数/人数による割算 を前事業年度の月数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-02fe94516507",
+        "note": "期間数/人数による割算 を前事業年度の月数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "task_queue.json#02fe94516507#coverage",
+        "note": "期間数/人数による割算 を前事業年度の月数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 を前事業年度の月数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 を前事業年度の月数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 を前事業年度の月数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 を前事業年度の月数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 を前事業年度の月数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 を前事業年度の月数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "0303d5b5bc4a59ec281589b75add7d271da3440af7b1d2a805dc6e011ecc7cc4": [
@@ -60119,6 +60283,88 @@
         "tool": "coordinator_cycle.py"
       }
     ],
+    "182615b37fbed4accd0c0a7a08b68e46141ef87b863fd437291b9717cde328df": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "325AC0000000226#第9条#pinned-period-division",
+        "note": "期間数/人数による割算 を同年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-182615b37fbe",
+        "note": "期間数/人数による割算 を同年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "task_queue.json#182615b37fbe#coverage",
+        "note": "期間数/人数による割算 を同年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 を同年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 を同年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 を同年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 を同年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 を同年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 を同年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "1827dc9c7d7bb6cabdabe1c7b2ca13ba2ac66fa82cd00293eb35c24fe6413e8e": [
       {
         "axis": "SOURCE_LOCATION",
@@ -75822,6 +76068,88 @@
         "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
+    "1ee44892ab080865255501d98f0672ebe51932145f2fe9c4cf8651f2d0ede836": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "325CO0000000245#第48_9_15条#pinned-period-division",
+        "note": "期間数/人数による割算 係る特別徴収対象年金給付の支払の回数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-1ee44892ab08",
+        "note": "期間数/人数による割算 係る特別徴収対象年金給付の支払の回数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "task_queue.json#1ee44892ab08#coverage",
+        "note": "期間数/人数による割算 係る特別徴収対象年金給付の支払の回数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 係る特別徴収対象年金給付の支払の回数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 係る特別徴収対象年金給付の支払の回数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 係る特別徴収対象年金給付の支払の回数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 係る特別徴収対象年金給付の支払の回数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 係る特別徴収対象年金給付の支払の回数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 係る特別徴収対象年金給付の支払の回数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "1ee68eb9de9bcb185dbe741f90e92659087c6c635243b87af8936204552dcd87": [
       {
         "axis": "SOURCE_LOCATION",
@@ -84296,6 +84624,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "22a85f2b708a22b304d5df9d45fa66c0a981130be33f28e45fcd1eab10f9ccac": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "325AC0000000226#第368条#pinned-period-division",
+        "note": "期間数/人数による割算 額をその決定があつた日までの納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-22a85f2b708a",
+        "note": "期間数/人数による割算 額をその決定があつた日までの納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "task_queue.json#22a85f2b708a#coverage",
+        "note": "期間数/人数による割算 額をその決定があつた日までの納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 額をその決定があつた日までの納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 額をその決定があつた日までの納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 額をその決定があつた日までの納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 額をその決定があつた日までの納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 額をその決定があつた日までの納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 額をその決定があつた日までの納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "22ac8ab97bca656ee95be0b4fdce825ab648718ab20028fea27d62580d1dceb4": [
@@ -136774,6 +137184,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "39de83e9f1eb4570b80cad1596b2ae4a838ef7a7216705b6b55177d1253144dc": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "325AC0000000226#第72_26条#pinned-period-division",
+        "note": "期間数/人数による割算 計額を当該事業年度の前事業年度の月数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-39de83e9f1eb",
+        "note": "期間数/人数による割算 計額を当該事業年度の前事業年度の月数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "task_queue.json#39de83e9f1eb#coverage",
+        "note": "期間数/人数による割算 計額を当該事業年度の前事業年度の月数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 計額を当該事業年度の前事業年度の月数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 計額を当該事業年度の前事業年度の月数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 計額を当該事業年度の前事業年度の月数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 計額を当該事業年度の前事業年度の月数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 計額を当該事業年度の前事業年度の月数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 計額を当該事業年度の前事業年度の月数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "39e7aef48872e5d00cf250ecfa56f5bc599950fda2084abdf9b72803d83e26a1": [
@@ -194334,6 +194826,88 @@
         "tool": "coordinator_cycle.py"
       }
     ],
+    "51df3b78a5e7c4d6946ab7a88856a2989e0e7265edd78e3051faf4b6f01864a1": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "325AC0000000226#第7条#pinned-period-division",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-51df3b78a5e7",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "task_queue.json#51df3b78a5e7#coverage",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "51e0d085af732f34d8ef6b68fadc73da18731045ad34ec0eb003c4286923635f": [
       {
         "axis": "SOURCE_LOCATION",
@@ -211932,6 +212506,88 @@
         "tool": "lake build"
       }
     ],
+    "5a15503816fe405b8834265f28ac736d4521039f91aed67bc5ccf4b55efb9695": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "325AC0000000226#第9条#pinned-period-division",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-5a15503816fe",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "task_queue.json#5a15503816fe#coverage",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "5a20c6d0e4f8eb780f99439797e9690f09ad332171c45283b3fd86158c106cd9": [
       {
         "axis": "SOURCE_LOCATION",
@@ -221722,6 +222378,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "5ec8fb050d487dcc729323e5d749de733a41be2b5d081c11e448fbd0849f47a5": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "325AC0000000226#第72_49_12条#pinned-period-division",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-5ec8fb050d48",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "task_queue.json#5ec8fb050d48#coverage",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "5ed294e31b7b271f8afbc96e2b9142595cf121322afa94db5320e7b443b7121b": [
@@ -239961,6 +240699,88 @@
         "note": "enforcement date 昭和四十一年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "66319bd60337227ace48e4109cd0bad3cdfb11143ec16914362b87b8a57dc686": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "342CO0000000108#第24条#pinned-period-division",
+        "note": "期間数/人数による割算 の総口数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-66319bd60337",
+        "note": "期間数/人数による割算 の総口数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "task_queue.json#66319bd60337#coverage",
+        "note": "期間数/人数による割算 の総口数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 の総口数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 の総口数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 の総口数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 の総口数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 の総口数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 の総口数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "663211e8702d5355deeb012bc546a900b8868023d42bc360b13335c5742b1356": [
@@ -270639,6 +271459,88 @@
         "tool": "coordinator_cycle.py"
       }
     ],
+    "72da8fcfb8402793279586a187ec7234f84fcfa2a5667861a1006499b9361857": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "325AC0000000226#第14条#pinned-period-division",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-72da8fcfb840",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "task_queue.json#72da8fcfb840#coverage",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "72dddbe3b6625d0d87a7c897353cf8f8b61fd4679026e661270d4a85f3acc374": [
       {
         "axis": "SOURCE_LOCATION",
@@ -273155,6 +274057,88 @@
         "note": "enforcement date 平成二十三年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "73c88125ab0620fe3a4f44889aa34005f946ad4586d566e7553ab73734f008d1": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "325AC0000000226#第32条#pinned-period-division",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-73c88125ab06",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "task_queue.json#73c88125ab06#coverage",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "73cb41f4100fed9f57adefaa266cf095fce4354f9bd44814a43506382b91d69a": [
@@ -279336,6 +280320,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "76403dd575a40977dc48b4fbb505e5c38ad6c262c1114e0652ccef3946a287ec": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "340CO0000000097#第69条#pinned-period-division",
+        "note": "期間数/人数による割算 の総数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-76403dd575a4",
+        "note": "期間数/人数による割算 の総数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "task_queue.json#76403dd575a4#coverage",
+        "note": "期間数/人数による割算 の総数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 の総数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 の総数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 の総数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 の総数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 の総数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 の総数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "764485a6e730bd104eeaf52db3fb73194efcb1f1a933ed575c087fb79f6c9f3b": [
@@ -342980,6 +344046,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "90faa17957cf587af65492633efb1a2972a79882c31b332ae8db0eaa945f4dd0": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "325AC0000000226#第12条#pinned-period-division",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-90faa17957cf",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "task_queue.json#90faa17957cf#coverage",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "90fcd0c5e0c1a29adef92f46c19775087b8f5d30fc3e4435280acdf00cdb0f85": [
@@ -433425,6 +434573,88 @@
         "tool": "coordinator_cycle.py"
       }
     ],
+    "b57867514fcf4378cdf1bc2ed612084ac223e88dbcb70cbd0b263f0a0b95dfef": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "325AC0000000226#第364条#pinned-period-division",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-b57867514fcf",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "task_queue.json#b57867514fcf#coverage",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "b57a9197f68354e873d27bc1b795cd05abbffc9ef3f34ff243f23fe645cf47cf": [
       {
         "axis": "SOURCE_LOCATION",
@@ -435300,6 +436530,88 @@
         "note": "pinned needle located in exact unit span",
         "reviewer": "ci",
         "tool": "transcription_audit.py"
+      }
+    ],
+    "b64ff0d0842b47a688428ad569c8ba6263af86c905147c206aebed542ca77e01": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "325AC0000000226#第10条#pinned-period-division",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-b64ff0d0842b",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "task_queue.json#b64ff0d0842b#coverage",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "b650c8f165ad080ef9f859c0303ada9778ab04c426320e7c64600116cace7d9e": [
@@ -471711,6 +473023,88 @@
         "tool": "coordinator_cycle.py"
       }
     ],
+    "c5f68c13630f867b662ddcc46a45b5dd74cd1770765d53744d5e6c47f9fa73b9": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "325AC0000000226#第11条#pinned-period-division",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-c5f68c13630f",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "task_queue.json#c5f68c13630f#coverage",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "c5f6b402bcc836eba3446af3558ba1feeea3ab04930b4437c194c0e83a42a34b": [
       {
         "axis": "SOURCE_LOCATION",
@@ -489753,6 +491147,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "cdd5793d84d5859ea04b916af1cf573f26c5c6bf94c28b3a7c6dc00c7babedbe": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "325AC0000000226#第12条#pinned-period-division",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-cdd5793d84d5",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "task_queue.json#cdd5793d84d5#coverage",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:07+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "cdd9e8acb5a851242345c65ba8c9564b9484cd9e3bc434e84c469869cb83ab26": [
@@ -527362,6 +528838,88 @@
         "tool": "coordinator_cycle.py"
       }
     ],
+    "dd13553220e914c717a2534d08420d9c04052051385854efd3ce5b068f54634f": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "325AC0000000226#第321_2条#pinned-period-division",
+        "note": "期間数/人数による割算 額をその決定があつた日までの納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-dd13553220e9",
+        "note": "期間数/人数による割算 額をその決定があつた日までの納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "task_queue.json#dd13553220e9#coverage",
+        "note": "期間数/人数による割算 額をその決定があつた日までの納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 額をその決定があつた日までの納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 額をその決定があつた日までの納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 額をその決定があつた日までの納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 額をその決定があつた日までの納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 額をその決定があつた日までの納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:05+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 額をその決定があつた日までの納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "dd24dda0d96a9a4bb4f473fba84d3c25873a05a4b1113d8158dad56966c8fc1d": [
       {
         "axis": "SOURCE_LOCATION",
@@ -560496,6 +562054,88 @@
         "note": "enforcement date 昭和四十一年四月一日; era/year/month/day pinned",
         "reviewer": "ci",
         "tool": "independent-adversarial"
+      }
+    ],
+    "eb6dbec84c60ffd6040f9b2bfa711b83e6123816d6983cc0b76ac5ee26b29350": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "325AC0000000226#第11条#pinned-period-division",
+        "note": "期間数/人数による割算 当該額を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-eb6dbec84c60",
+        "note": "期間数/人数による割算 当該額を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "task_queue.json#eb6dbec84c60#coverage",
+        "note": "期間数/人数による割算 当該額を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 当該額を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 当該額を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 当該額を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 当該額を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 当該額を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:06+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 当該額を当該年度の納期の数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "eb742fa8f79ef5029d66bfe7b4746a37d20c560ef710bcc99e6d9c4eea61e52d": [
@@ -603790,6 +605430,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "fe2f6e16dffbe7ff89b3ab12d65bff3a877c5ee413e9769f9a4174a45992fa72": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "325AC0000000226#第313条#pinned-period-division",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "mechanical-audit:PERDIV-fe2f6e16dffb",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "task_queue.json#fe2f6e16dffb#coverage",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#relational-bounds-uniqueness@kernel",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocation.lean#perUnit@kernel",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#perUnit_satisfies/perUnit_unique@kernel",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationSpec.lean#uniqueness@universal-Nat^2-positive-count@kernel",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean#quotient-boundaries@kernel",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T15:14:04+00:00",
+        "evidence_ref": "JapanTaxLaw/PeriodAllocationTests.lean@kernel",
+        "note": "期間数/人数による割算 を事業専従者の数に一を加えた数; quotient with unique relational spec (count>0); amount/count and rounding NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T15:27:01+00:00",
+        "evidence_ref": "data/evidence_audits/period_adversarial_result.md#full-coverage-pass",
+        "note": "FULL-COVERAGE PASS: pinned SHA, で除して得た verbatim, contiguous fragment, count divisor (not rate), independent relational spec with uniqueness; no legal advice",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "fe32644d65b281b935e3cde677f1eeacc61d893908ae16778904f4a77f916e19": [
