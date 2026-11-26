@@ -145,13 +145,7 @@ def checks():
     yield ("国税徴収法施行規則 art.1_6（随意契約時の公売規定準用）↔ PrivateContractPublicAuctionReading.lean",
            "337M50000040031", "article", "第一条の六", ["（随意契約により不動産を売却する場合における公売の規定の準用）"])
 
-    # TestimonyParagraphReading.lean - NORM|4c66461b... (証言準用 READING, law 406CO0000000417)
-    yield ("緊急関税等政令 art.4(9)（証言準用）↔ TestimonyParagraphReading.lean",
-           "406CO0000000417", "article", "第四条", ["第四項から前項までの規定は、第一項前段又は第二項前段の規定によりされた証言について準用する。"])
-    # ApplicationChangeSameTreatment.lean - NORM|df91b6ee... (申請変更時も同様 CONDITION, law 329CO0000000103)
-    yield ("相互防衛援助協定臨時特例法施行令 art.4(1)（申請変更時も同様）↔ ApplicationChangeSameTreatment.lean",
-           "329CO0000000103", "article", "第四条", ["当該申請書に係る申請の内容を変更しようとする場合も、また同様とする。"])
-
+    # Restored registry checks dropped by a concurrent stale-base rewrite.
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,
            ["事業所税の額の百分の五に相当する額とする"])
@@ -1264,11 +1258,11 @@ def checks():
            "article", "第二条",
            ["合計所得金額が千万円以下である居住者の配偶者をいう", "第二条"])
 
-    # 地方税法 art.72の24の2(1) — LocalTaxInsuranceBusinessBase24Percent.lean
-    yield ("地方税法 art.72の24の2(1)（収入保険料×24%）↔ LocalTaxInsuranceBusinessBase24Percent.lean",
-           "325AC0000000226",
+    # 関税定率法 art.7(9) — CustomsTariffUndertakingValidity5Years.lean
+    yield ("関税定率法 art.7(9)（約束の有効期間五年以内）↔ CustomsTariffUndertakingValidity5Years.lean",
+           "143AC0000000054",
            "file", None,
-           ["収入保険料（再保険料として収入する保険料を除く。以下この項において同じ。）に百分の二十四を乗じて得た金額", "第七十二条の二十四の二"])
+           ["有効期間が五年以内のものに限る", "第七条"])
 
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
@@ -2460,18 +2454,6 @@ def checks():
            "file", None,
            ["者が老人控除対象配偶者である場合十万円（当該納税義務者の前年の合計所得金額が九百万円を超え九百五十万円以下である場合には六万円、当該納税義務者の前年の合計所得金額が九百五十万円を超え千万円以下である場合には三万円）", "第三十七条"])
 
-    # SofAgreementSpecialTaxEnforcementDate — cycle-130
-    yield ("SofAgreementSpecialTaxEnforcementDate.lean",
-           "327AC0000000113",
-           "file", None,
-           ["第一条この法律は、昭和六十年四月一日から施行する", "この法律は、昭和六十年四月一日から施行する"])
-
-    # MutualDefenseAidAgreementEnforcementDate — cycle-131
-    yield ("MutualDefenseAidAgreementEnforcementDate.lean",
-           "329CO0000000103",
-           "file", None,
-           ["第一条この政令は、昭和六十四年四月一日から施行する", "この政令は、昭和六十四年四月一日から施行する"])
-
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2662,11 +2644,6 @@ def checks():
     yield ("所得税法 art. 84の2（特定親族特別控除: 630k / (所得−840,001)×2 を十万段階で丸め / 1,150k超60k / 1,200k超30k）↔ SpecifiedRelativeSpecialDeduction.lean",
            "340AC0000000033", "article", "第八十四条の二",
            ["六十三万円からその特定親族の合計所得金額のうち八十四万一円を超える部分の金額に二を乗じた金額", "十万円の整数倍の金額から八万円を控除した金額", "百十五万円を超え百二十万円以下である特定親族"])
-
-    # 租税特別措置法施行令 art. 42の3(2)一 — RedevelopmentShareRatio.lean
-    yield ("租税特別措置法施行令 art. 42の3(2)一（持分割合 = (土地持分−旧権利持分)/土地持分、単独権利・零下回り・分母零は零）↔ RedevelopmentShareRatio.lean",
-           "332CO0000000043", "article", "第四十二条の三",
-           ["当該土地に関する権利の持分の割合から当該旧権利の持分の割合を控除した割合を当該土地に関する権利の持分の割合で除して計算した割合（当該旧権利がその者が単独で有する所有権若しくは借地権である場合又は当該控除した割合が零を下回る場合には、零）"])
 
     # 所得税法 art. 86 — IncomeBasicDeduction.lean (4-tier basic deduction)
     yield ("所得税法 art. 86（基礎控除: 合計所得2350万以下58万・2400万以下48万・2450万以下32万・2500万以下16万・2500万超0 — 境界値を smoke 確認、合計所得額は caller-established）↔ IncomeBasicDeduction.lean",
@@ -4772,10 +4749,6 @@ def checks():
            "332AC0000000026", "file", None,
            ["増減試験研究費割合が百分の七を超える事業年度"])
 
-    # FreeTradeZoneReading.lean - NORM|1ee9f2af... (自由貿易地域等準用 READING, law 404M50000008008)
-    yield ("沖縄地方税課税免除省令 art.1(2)（自由貿易地域等準用）↔ FreeTradeZoneReading.lean",
-           "404M50000008008", "article", "第一条", ["前項の規定は、自由貿易地域及び特別自由貿易地域について準用する。"])
-
     # 所得税法 art. 3 — BlueBusinessDeductAmount.lean (22.5万/21.75万)
     yield ("所得税法 art. 3（青色事業専従者22.5万/21.75万）↔ BlueBusinessDeductAmount.lean",
            "340AC0000000033", "file", None,
@@ -5018,6 +4991,22 @@ def checks():
     yield ("租税特別措置法 art. 40_7（外国関係法人20%以上）↔ ForeignRelatedCorpTaxRate20.lean",
            "332AC0000000026", "file", None,
            ["対象外国関係法人の各事業年度の租税負担割合が百分の二十以上である場合"])
+
+    # 税理士法 art. 8(2) — TaxAccountantExamExemption.lean
+    yield ("税理士法 art. 8（二以上職務の従事期間通算）↔ TaxAccountantExamExemption.lean",
+           "326AC1000000237",
+           "file", None,
+           ["\u524d\u9805\u7b2c\u4e00\u53f7\u53c8\u306f\u7b2c\u56db\u53f7\u304b\u3089\u7b2c\u4e5d\u53f7\u307e\u3067\u306b\u898f\u5b9a\u3059\u308b\u8077\u53c8\u306f\u4e8b\u52d9\u306e\u3046\u3061\u3001\u8a66\u9a13\u306e\u514d\u9664\u79d1\u76ee\u3092\u540c\u3058\u304f\u3059\u308b\u8077\u53c8\u306f\u4e8b\u52d9\u306e\u4e8c\u4ee5\u4e0a\u306b\u5f93\u4e8b\u3057\u305f\u8005\u306b\u5bfe\u3057\u3066\u306f\u3001\u305d\u308c\u305e\u308c\u5f53\u8a72\u8077\u53c8\u306f\u4e8b\u52d9\u306b\u3064\u3044\u3066\u3053\u308c\u3089\u306e\u53f7\u306b\u898f\u5b9a\u3059\u308b\u5e74\u6570\u3092\u5341\u5e74\u3068\u3059\u308b\u5272\u5408\u306b\u3088\u308a\u5e74\u6570\u3092\u63db\u7b97\u3057\u3066\u3053\u308c\u3089\u306e\u8077\u53c8\u306f\u4e8b\u52d9\u306e\u4e8c\u4ee5\u4e0a\u306b\u5f93\u4e8b\u3057\u305f\u671f\u9593\u3092\u901a\u7b97\u3057\u305f\u5834\u5408\u306b\u3001\u305d\u306e\u671f\u9593\u304c\u5341\u5e74\u4ee5\u4e0a\u306b\u306a\u308b\u3068\u304d\u306f\u3001\u305d\u306e\u7533\u8acb\u306b\u3088\u308a\u3001\u7a0e\u7406\u58eb\u8a66\u9a13\u306b\u304a\u3044\u3066\u5f53\u8a72\u79d1\u76ee\u306e\u8a66\u9a13\u3092\u514d\u9664\u3059\u308b\u3002"])
+
+    # CustomsFee129000.lean - restored registered check (dropped by concurrent merge)
+    yield ("CustomsFee129000.lean restored transcription check",
+           "329CO0000000164", "file", None,
+           ["\u5341\u4e8c\u4e07\u4e5d\u5343\u5186\uff08\u5f53\u8a72\u8a31\u53ef\u3092\u53d7\u3051\u308b\u8005\u304c\u6307\u5b9a\u8005\u3067\u3042\u308b\u5834\u5408\u306b\u3042\u3064\u3066\u306f\u3001\u5341\u4e8c\u4e07\u516b\u5343\u5186\uff09"])
+
+    # CustomsFee76000.lean - restored registered check (dropped by concurrent merge)
+    yield ("CustomsFee76000.lean restored transcription check",
+           "329CO0000000164", "file", None,
+           ["\u4e03\u4e07\u516d\u5343\u5186\uff08\u5f53\u8a72\u8a31\u53ef\u3092\u53d7\u3051\u308b\u8005\u304c\u6307\u5b9a\u8005\u3067\u3042\u308b\u5834\u5408\u306b\u3042\u3064\u3066\u306f\u3001\u4e03\u4e07\u4e94\u5343\u56db\u767e\u5186\uff09"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
