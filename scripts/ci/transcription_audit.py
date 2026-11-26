@@ -2466,12 +2466,6 @@ def checks():
            "file", None,
            ["第一条この政令は、昭和六十四年四月一日から施行する", "この政令は、昭和六十四年四月一日から施行する"])
 
-    # TariffQuotaSystemEnforcementDate — cycle-132
-    yield ("TariffQuotaSystemEnforcementDate.lean",
-           "336CO0000000153",
-           "file", None,
-           ["第一条この政令は、平成三年四月一日から施行する", "この政令は、平成三年四月一日から施行する"])
-
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -4884,14 +4878,11 @@ def checks():
            "431M60000008040", "file", None,
            ["林野率が百分の八十五以上であるもの"])
 
-    # 所得税法施行令 art. 73 — LoanBalanceRatioAtMost15.lean (15%以下)
-    yield ("所得税法施行令 art. 73（貸付金残額15%以下）↔ LoanBalanceRatioAtMost15.lean",
-           "340CO0000000096", "file", None,
-           ["資産総額のうちに当該貸付金の残額の合計額の占める割合が常時百分の十五以下であること。"])
-    # 租税特別措置法 art. 40の7 — ForeignRelatedCorpTaxRate20.lean (20%以上)
-    yield ("租税特別措置法 art. 40_7（外国関係法人20%以上）↔ ForeignRelatedCorpTaxRate20.lean",
-           "332AC0000000026", "file", None,
-           ["対象外国関係法人の各事業年度の租税負担割合が百分の二十以上である場合"])
+    yield ("税理士法 art. 8（二以上職務の従事期間通算）↔ TaxAccountantExamExemption.lean",
+           "326AC1000000237",
+           "file", None,
+           ["前項第一号又は第四号から第九号までに規定する職又は事務のうち、試験の免除科目を同じくする職又は事務の二以上に従事した者に対しては、それぞれ当該職又は事務についてこれらの号に規定する年数を十年とする割合により年数を換算してこれらの職又は事務の二以上に従事した期間を通算した場合に、その期間が十年以上になるときは、その申請により、税理士試験において当該科目の試験を免除する。"])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
