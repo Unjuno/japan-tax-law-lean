@@ -354,6 +354,26 @@ The +61 includes both batches' units plus previously stale entries recovered
 by honest regeneration. All ten target ids carry `kernel_proof`. Legal review
 stays `LEGAL_REVIEW_PENDING`.
 
+### Thirteenth iteration (batch 253)
+
+A third delegated agent produced five units (`LocalTax57TwoPrefecturesResidentsTax`,
+`34TenYearsInsurancePayments`, `72_25Over4Months`,
+`321_14TwoMunicipalitiesEmployeeCount`, `58TwoPrefecturesEmployeeCount`) with
+independent specs, kernel tests, scoped needles and batch-253 review; build
+2013 jobs, transcription 625, invariants 17/17, temp attestation removed.
+CI run `45769932933` on `b14d718507c83b962712e6f47ab6038f874de8ed` completed
+`success`; `data/PROOF_ATTESTATION_SCOPED_T13.json` binds 15 module hashes from
+committed blobs at that commit to that run.
+
+```
+before: FULLY_VERIFIED=921  NOT_STARTED=395928  evidence=924
+after:  FULLY_VERIFIED=960  NOT_STARTED=395889  evidence=963
+delta:  FULLY_VERIFIED=+39 NOT_STARTED=-39  evidence=+39
+progress_ledger: COUNTED; NOT_STARTED delta -39; new modules 15
+```
+
+All five target ids carry `kernel_proof`. Legal review stays pending.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |
