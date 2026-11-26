@@ -5019,6 +5019,12 @@ def checks():
            "file", None,
            ["\u5de6\u306e\u5404\u53f7\u306b\u63b2\u3052\u308b\u8ca8\u7269\u3067\u8f38\u5165\u3055\u308c\u308b\u3082\u306e\u306b\u3064\u3044\u3066\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3068\u3053\u308d\u306b\u3088\u308a\u3001\u305d\u306e\u95a2\u7a0e\u3092\u514d\u9664\u3059\u308b\u3002"])
 
+    # 不当廉売関税 art. 4(1) — GeneralTariffLowerRate.lean
+    yield ("不当廉売関税 art. 4（別表・条約の低い税率）↔ GeneralTariffLowerRate.lean",
+           "414CO0000000262",
+           "file", None,
+           ["特定貨物に課する不当廉売関税及び一般税率（法の別表の税率及び条約に規定する税率のうちいずれか低いものをいう。）による関悦については、それぞれ別個の関税として関税法（昭和二十九年法律第六十一号）第二章の規定を適用する。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
