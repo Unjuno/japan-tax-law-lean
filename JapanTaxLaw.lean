@@ -858,6 +858,9 @@ import JapanTaxLaw.GasolineTaxCombinationTests
 import JapanTaxLaw.GasolineTaxRate
 import JapanTaxLaw.GasolineTaxRateSpec
 import JapanTaxLaw.GasolineTaxRateTests
+import JapanTaxLaw.GasolineTransferPayable
+import JapanTaxLaw.GasolineTransferPayableSpec
+import JapanTaxLaw.GasolineTransferPayableTests
 import JapanTaxLaw.GasolineTransferRounding
 import JapanTaxLaw.GasolineTransferRoundingSpec
 import JapanTaxLaw.GasolineTransferRoundingTests
