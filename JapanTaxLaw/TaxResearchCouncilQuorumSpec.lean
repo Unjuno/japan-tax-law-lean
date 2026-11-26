@@ -8,6 +8,11 @@ namespace JapanTaxLaw.TaxResearchCouncilQuorum
   total >= 1 ∧ present * 3 >= total
 
 theorem agreeQuorum (present total : Nat) : specQuorum present total ↔ quorumMet present total := by
-  unfold specQuorum quorumMet; omega
+  unfold specQuorum quorumMet
+  constructor
+  · intro h
+    exact ⟨(Nat.succ_le_iff).mp h.1, by simpa [Nat.mul_comm] using h.2⟩
+  · intro hq
+    exact ⟨(Nat.succ_le_iff).mpr hq.1, by simpa [Nat.mul_comm] using hq.2⟩
 
 end JapanTaxLaw.TaxResearchCouncilQuorum
