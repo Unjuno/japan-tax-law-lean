@@ -4989,11 +4989,11 @@ def checks():
            "325AC0000000226", "file", None,
            ["九百万円を超え千八百万円以下の金額"])
 
-
     # 地方税法 art. 37の2 — LocalTaxBracket330To695.lean (330万超695万以下)
     yield ("地方税法 art. 37_2（330万超695万以下）↔ LocalTaxBracket330To695.lean",
            "325AC0000000226", "file", None,
            ["三百三十万円を超え六百九十五万円以下の金額"])
+
     # 地方税法 art. 37の2 — LocalTaxBracket695To900.lean (695万超900万以下)
     yield ("地方税法 art. 37_2（695万超900万以下）↔ LocalTaxBracket695To900.lean",
            "325AC0000000226", "file", None,
@@ -5003,6 +5003,7 @@ def checks():
     yield ("租税特別措置法 art. 90_12（効率75%以上）↔ EnergyEfficiency75Pct.lean",
            "332AC0000000026", "file", None,
            ["エネルギー消費効率が令和十二年度基準エネルギー消費効率に百分の七十五を乗じて得た数値以上であること。"])
+
     # 租税特別措置法 art. 90の12 — EnergyEfficiency70Pct.lean (70%)
     yield ("租税特別措置法 art. 90_12（効率70%以上）↔ EnergyEfficiency70Pct.lean",
            "332AC0000000026", "file", None,
@@ -5017,6 +5018,7 @@ def checks():
     yield ("租税特別措置法 art. 90_12（効率105%以上）↔ EnergyEfficiency105Pct.lean",
            "332AC0000000026", "file", None,
            ["エネルギー消費効率が令和四年度基準エネルギー消費効率に百分の百五を乗じて得た数値以上であること。"])
+
     # 租税特別措置法施行令 art. 51の2 — EnergyEfficiency116Pct.lean (116%)
     yield ("租税特別措置法施行令 art. 51_2（効率116%以上）↔ EnergyEfficiency116Pct.lean",
            "332CO0000000043", "file", None,
@@ -5028,6 +5030,13 @@ def checks():
            "143AC0000000054",
            "file", None,
            ["\u5de6\u306e\u5404\u53f7\u306b\u63b2\u3052\u308b\u8ca8\u7269\u3067\u8f38\u5165\u3055\u308c\u308b\u3082\u306e\u306b\u3064\u3044\u3066\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3068\u3053\u308d\u306b\u3088\u308a\u3001\u305d\u306e\u95a2\u7a0e\u3092\u514d\u9664\u3059\u308b\u3002"])
+
+    # DisasterReliefOrderArt9FollowingItemsGovernance.lean - NORM|d0cb856a... (災害政令 art.9(3) DELEGATION, law 322CO0000000268)
+    # Whole-law locator; needle is unique in the pinned ordinance.
+    yield ("disaster relief order art.9 following-items governance - DisasterReliefOrderArt9FollowingItemsGovernance.lean",
+           "322CO0000000268",
+           "file", None,
+           ["\u524d\u4e8c\u9805\u306e\u898f\u5b9a\u3092\u9069\u7528\u3059\u308b\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u6b21\u306e\u5404\u53f7\u306e\u5b9a\u3081\u308b\u3068\u3053\u308d\u306b\u3088\u308b\u3002"])
 
     # 不当廉売関税 art. 4(1) — GeneralTariffLowerRate.lean
     yield ("不当廉売関税 art. 4（別表・条約の低い税率）↔ GeneralTariffLowerRate.lean",
