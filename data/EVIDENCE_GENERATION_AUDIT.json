@@ -1,41 +1,5 @@
 {
-  "_units": {
-    "NORM|0f7dc8112c72d0f2a29424d82e093522718a00a0c5dc268f44b98f4559ad5b38": {
-      "checks": {
-        "cross_law": true,
-        "independent_spec": true,
-        "kernel_attested": true,
-        "kernel_decided_examples": 6,
-        "needles_scoped": true,
-        "source_location": true
-      },
-      "derived_status": "FULLY_VERIFIED",
-      "errors": [],
-      "module": "CombinedRndExcessOver4Year",
-      "spec_kanji_in_原文": [
-        "四",
-        "百"
-      ]
-    },
-    "NORM|c7a4b079992374e2db09e2535ebeb90b4920e53b68f2872d7fbb5dde82dee8b6": {
-      "checks": {
-        "cross_law": true,
-        "independent_spec": true,
-        "kernel_attested": true,
-        "kernel_decided_examples": 7,
-        "needles_scoped": true,
-        "source_location": true
-      },
-      "derived_status": "FULLY_VERIFIED",
-      "errors": [],
-      "module": "CombinedRndExcessOver7Year",
-      "spec_kanji_in_原文": [
-        "七",
-        "百"
-      ]
-    }
-  },
-  "attestation_commit": "ee87c61b593013e342a82569bc6c8bc342a82ab6",
+  "attestation_commit": "49d10bd9e639ce8b977904d0a2bbfd5c2aad16da",
   "module_detail": {
     "AccessoryPriceFloor": {
       "adversarial_review": true,
@@ -271,6 +235,23 @@
       "scoped_article_chars": 284,
       "spec_literals": [
         23500000
+      ]
+    },
+    "BlueBusinessDeductAmount": {
+      "adversarial_review": true,
+      "boundary_examples_found": 0,
+      "independent_spec": true,
+      "kanji_literals": [
+        "二十一万七千五百",
+        "二十二万五千"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 6,
+      "needles_scoped": true,
+      "scoped_article_chars": 1666,
+      "spec_literals": [
+        217500,
+        225000
       ]
     },
     "BondRevenueFiscalYear": {
@@ -4324,7 +4305,7 @@
       "kanji_literals": [
         "千万"
       ],
-      "kernel_attested": false,
+      "kernel_attested": true,
       "kernel_decided_examples": 6,
       "needles_scoped": true,
       "scoped_article_chars": 1793,
@@ -4906,7 +4887,7 @@
       "kanji_literals": [
         "五十万"
       ],
-      "kernel_attested": false,
+      "kernel_attested": true,
       "kernel_decided_examples": 6,
       "needles_scoped": true,
       "scoped_article_chars": 653,
@@ -5155,7 +5136,7 @@
       "kanji_literals": [
         "五十万"
       ],
-      "kernel_attested": false,
+      "kernel_attested": true,
       "kernel_decided_examples": 6,
       "needles_scoped": true,
       "scoped_article_chars": 871,
@@ -5252,7 +5233,7 @@
         "五十",
         "百"
       ],
-      "kernel_attested": false,
+      "kernel_attested": true,
       "kernel_decided_examples": 7,
       "needles_scoped": true,
       "scoped_article_chars": 1746,
@@ -5285,7 +5266,7 @@
       "kanji_literals": [
         "二"
       ],
-      "kernel_attested": false,
+      "kernel_attested": true,
       "kernel_decided_examples": 6,
       "needles_scoped": true,
       "scoped_article_chars": 127,
@@ -6405,6 +6386,23 @@
       "needles_scoped": true,
       "scoped_article_chars": 506,
       "spec_literals": []
+    },
+    "ReserveAccumulationAtMost25": {
+      "adversarial_review": true,
+      "boundary_examples_found": 4,
+      "independent_spec": true,
+      "kanji_literals": [
+        "二十五",
+        "百"
+      ],
+      "kernel_attested": false,
+      "kernel_decided_examples": 6,
+      "needles_scoped": true,
+      "scoped_article_chars": 1378,
+      "spec_literals": [
+        25,
+        100
+      ]
     },
     "ResidentTaxTransitionalRates": {
       "adversarial_review": true,
@@ -8315,6 +8313,22 @@
           "七十"
         ]
       },
+      "NORM|018f9cb69c1cc3f231a5e164da145f480f1456d005c3f5b095281308d5ffdd74": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 6,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "LocalCapitalCeiling10M",
+        "spec_kanji_in_原文": [
+          "千万"
+        ]
+      },
       "NORM|01bc5d0ea84e476f03587df6fefe7b5d0069de50a81e0b28bc26e8be03771418": {
         "checks": {
           "cross_law": true,
@@ -8348,6 +8362,23 @@
         "module": "PermitValidity7Days",
         "spec_kanji_in_原文": [
           "七"
+        ]
+      },
+      "NORM|025a90513e240acd0592bbbc157f613885384ffe85942baec68dc76520fed7c9": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 7,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "LocalTaxReducedRate2or1",
+        "spec_kanji_in_原文": [
+          "五十",
+          "百"
         ]
       },
       "NORM|02ab521337cec67919553bb73761a7271f0394ebc358968d111d7ce2f4df55e7": {
@@ -9687,6 +9718,23 @@
         "module": "ProductionVolume6KL",
         "spec_kanji_in_原文": [
           "六"
+        ]
+      },
+      "NORM|162561b034561fb75f94ee871c8c92e47a8bc45b6f322924610d241b5dcd2ea8": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 7,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "LocalTaxReducedRate2or1",
+        "spec_kanji_in_原文": [
+          "五十",
+          "百"
         ]
       },
       "NORM|1628e49893fa4120f37f794984e233b7d3f8427e4585c18d6aef01ff80c81228": {
@@ -12926,6 +12974,22 @@
           "七十"
         ]
       },
+      "NORM|470e97ebf30081b578e686022c45fcbf887094d51fb696f15d9ceebbaa50630c": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 6,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "LocalTaxArt71_21FineCap500k",
+        "spec_kanji_in_原文": [
+          "五十万"
+        ]
+      },
       "NORM|4743edceaf69a92548eb50228077b23d1b78c62bfa317f696f7769d4858b8df1": {
         "checks": {
           "cross_law": true,
@@ -13006,6 +13070,22 @@
         "module": "CommonLandAreaTenTimes",
         "spec_kanji_in_原文": [
           "十"
+        ]
+      },
+      "NORM|47870cf520e1aaea9319e84caef449b43cffea6b069d75479fc7b94140a5edd1": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 6,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "LocalTaxOffenseFineCap500k",
+        "spec_kanji_in_原文": [
+          "五十万"
         ]
       },
       "NORM|47fbd77bd185a7be7766acd35947e2f4f580c5aeae7ea2b171b140041f6475be": {
@@ -14566,6 +14646,23 @@
           "十"
         ]
       },
+      "NORM|62f3414f7682d8b84c47db16d54b6a74919ed728151516d94fdc947557767756": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 7,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "LocalTaxReducedRate2or1",
+        "spec_kanji_in_原文": [
+          "五十",
+          "百"
+        ]
+      },
       "NORM|62f4ac31b306135ccecb6f7ee905aa16788ff4f2deefa4fe50b1351e9ee5f04a": {
         "checks": {
           "cross_law": true,
@@ -14735,6 +14832,23 @@
         "module": "MergerMaxCapital",
         "spec_kanji_in_原文": [
           "二"
+        ]
+      },
+      "NORM|655c1a458885dfa06af3e4b6115155e03f59552f6f62bf7f5772b82d79424835": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 7,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "LocalTaxReducedRate2or1",
+        "spec_kanji_in_原文": [
+          "五十",
+          "百"
         ]
       },
       "NORM|6596e10f8373f31c699a203dde8dea6687d091f69290db3a7ca46a96eb8c51f7": {
@@ -20656,15 +20770,14 @@
           "cross_law": true,
           "independent_spec": true,
           "kernel_attested": true,
-          "kernel_decided_examples": 14,
+          "kernel_decided_examples": 6,
           "needles_scoped": true,
           "source_location": true
         },
         "derived_status": "FULLY_VERIFIED",
         "errors": [],
-        "module": "LocalCapitalBand10M100M",
+        "module": "LocalCapitalCeiling10M",
         "spec_kanji_in_原文": [
-          "一億",
           "千万"
         ]
       },
@@ -23455,7 +23568,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#1/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -23473,6 +23586,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"70\": [\"七十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/332M50000040015_20261101_507M60000040026.law.json#LawBody[4]/MainProvision/MainProvision[3]/Article:23_10/Article#23_10/Paragraph#23/Item#5/ItemSentence/Sentence#1 sha256=2e5d3e585b99e15ffb030c8b6fa0dcc6ccf7cc9532924fa5b6438a68cc05767c (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/DeceasedUnder70Tests.lean sha256=7e0ff9d03663ad7a80a71e322a1fdf313eeb0c1a5a746e08d56f86e0e52cbabc (11 kernel-decided examples)"
+    },
+    "NORM|018f9cb69c1cc3f231a5e164da145f480f1456d005c3f5b095281308d5ffdd74": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 6 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/LocalCapitalCeiling10M.lean sha256=a301c940afc0793a63c3dc5f3c66b20e84f7a663b606d07a845a1fd7e14cdedc",
+      "independent_spec": "JapanTaxLaw/LocalCapitalCeiling10MSpec.lean sha256=d9c76627fdd6eda90f379e92ccf74ea98e85a7b4a1224ca6fde53730087b1411 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10000000] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10000000\": [\"千万\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:52/Article#52/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#6 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/LocalCapitalCeiling10MTests.lean sha256=7503cd624ab5d10dccf435acec9fc1eaa51f6b2069ba84fbe6df731717b26982 (6 kernel-decided examples)"
     },
     "NORM|01bc5d0ea84e476f03587df6fefe7b5d0069de50a81e0b28bc26e8be03771418": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -23499,6 +23625,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"7\": [\"七\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/337CO0000000135_20260401_507CO0000000126.law.json#LawBody[3]/MainProvision/MainProvision[10]/Article:50/Article#50/Paragraph#1/Item#6/ItemSentence/Sentence#1 sha256=d43732150ecbf2b0e12426c5a3b0289921be919480ddda742a9650cbd13986af (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/PermitValidity7DaysTests.lean sha256=dbee354e79ac42816d169c22617953524e2908cd37db2b8f319be2f1cce3f6ae (13 kernel-decided examples)"
+    },
+    "NORM|025a90513e240acd0592bbbc157f613885384ffe85942baec68dc76520fed7c9": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 7 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/LocalTaxReducedRate2or1.lean sha256=354eaac9cf59871226d65b10e7c3a15d84d9916945fc430d9bafecdbb78bf907",
+      "independent_spec": "JapanTaxLaw/LocalTaxReducedRate2or1Spec.lean sha256=c277d4cc756196c3a16fd0571d5ffc84ce26245336bef3e545f7822b167355ef (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [50, 100] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"50\": [\"五十\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:37/Article#37/Paragraph#1/Item#1/Subitem1#1/TableStruct/Table/TableRow/TableColumn/Sentence#2 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/LocalTaxReducedRate2or1Tests.lean sha256=de478d8034bd10bbce49b571c96a626394986a2d4d62d4680b9371d46c87e45e (7 kernel-decided examples)"
     },
     "NORM|02ab521337cec67919553bb73761a7271f0394ebc358968d111d7ce2f4df55e7": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -23962,7 +24101,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#4/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -24001,7 +24140,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#6/TableStruct/Table/TableRow/TableColumn/Sentence#3 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -24566,6 +24705,19 @@
       "source_location": "data/raw/337CO0000000097_20250401_507CO0000000006.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:12_2/Article#12_2/Paragraph#1/Item#4/ItemSentence/Sentence#1 sha256=a0eb9311f04b00c430c604f8426cbafa48007530dfad8cdbd44f8ccb80d5879d (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/ProductionVolume6KLTests.lean sha256=ca0439ef496426faa37219d226786f282e09043f4bcd1f93d3a51c89230189a0 (19 kernel-decided examples)"
     },
+    "NORM|162561b034561fb75f94ee871c8c92e47a8bc45b6f322924610d241b5dcd2ea8": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 7 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/LocalTaxReducedRate2or1.lean sha256=354eaac9cf59871226d65b10e7c3a15d84d9916945fc430d9bafecdbb78bf907",
+      "independent_spec": "JapanTaxLaw/LocalTaxReducedRate2or1Spec.lean sha256=c277d4cc756196c3a16fd0571d5ffc84ce26245336bef3e545f7822b167355ef (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [50, 100] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"50\": [\"五十\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:37/Article#37/Paragraph#1/Item#1/Subitem1#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/LocalTaxReducedRate2or1Tests.lean sha256=de478d8034bd10bbce49b571c96a626394986a2d4d62d4680b9371d46c87e45e (7 kernel-decided examples)"
+    },
     "NORM|1628e49893fa4120f37f794984e233b7d3f8427e4585c18d6aef01ff80c81228": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",
@@ -24690,7 +24842,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand2_5.lean sha256=cf5584d81d386a1ecb79ebf879abb12c73d90d0c2240b885282b5cb9d699279d",
       "independent_spec": "JapanTaxLaw/NursingCareBand2_5Spec.lean sha256=6db12e940a14406ea2e7dd2a4c269a958352db6d18ff45e2a2c5aa57a21e0b56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2, 5] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/Paragraph#4/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -24768,7 +24920,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand2_5.lean sha256=cf5584d81d386a1ecb79ebf879abb12c73d90d0c2240b885282b5cb9d699279d",
       "independent_spec": "JapanTaxLaw/NursingCareBand2_5Spec.lean sha256=6db12e940a14406ea2e7dd2a4c269a958352db6d18ff45e2a2c5aa57a21e0b56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2, 5] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/Paragraph#7/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -24963,7 +25115,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#6/TableStruct/Table/TableRow/TableColumn/Sentence#2 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -25080,7 +25232,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#9/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -25275,7 +25427,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#10/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -25301,7 +25453,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/DeletionExtension30Days.lean sha256=728049e5bd6ddaf890a5c4aee0f732c3a633817372254925f705e3c5d32fe6ef",
       "independent_spec": "JapanTaxLaw/DeletionExtension30DaysSpec.lean sha256=573dc2897ef46c14661796061773d00cf28d573fb6a92986797c1d67a589a666 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [30] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"30\": [\"三十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329AC0000000061_20260601_508AC0000000005.law.json#LawBody[3]/MainProvision/MainProvision[12]/Article:123/Article#123/Paragraph#1/ParagraphSentence/Sentence#1 sha256=1701272a2e4eaf434b6d953026c340efa4e15b2ca952fc941eeeb676d32204ea (verbatim unit text located in scoped article)",
@@ -25379,7 +25531,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#2/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -25613,7 +25765,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand2_5.lean sha256=cf5584d81d386a1ecb79ebf879abb12c73d90d0c2240b885282b5cb9d699279d",
       "independent_spec": "JapanTaxLaw/NursingCareBand2_5Spec.lean sha256=6db12e940a14406ea2e7dd2a4c269a958352db6d18ff45e2a2c5aa57a21e0b56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2, 5] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/Paragraph#10/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -26120,7 +26272,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#5/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -26497,7 +26649,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CustomsFineTrigger10M10x.lean sha256=8abb14ae61492019e8b2b64d595ca03321f3d85349d08d686f41432c16f9decd",
       "independent_spec": "JapanTaxLaw/CustomsFineTrigger10M10xSpec.lean sha256=e3b3bfac1c9f8afadddb53ce7eb4ae11f04ce5fb922100719fd011fecd88f10b (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10, 10000000] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"], \"10000000\": [\"千万\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329AC0000000061_20260601_508AC0000000005.law.json#LawBody[3]/MainProvision/MainProvision[11]/Article:110/Article#110/Paragraph#1/ParagraphSentence/Sentence#1 sha256=1701272a2e4eaf434b6d953026c340efa4e15b2ca952fc941eeeb676d32204ea (verbatim unit text located in scoped article)",
@@ -26575,7 +26727,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand2_5.lean sha256=cf5584d81d386a1ecb79ebf879abb12c73d90d0c2240b885282b5cb9d699279d",
       "independent_spec": "JapanTaxLaw/NursingCareBand2_5Spec.lean sha256=6db12e940a14406ea2e7dd2a4c269a958352db6d18ff45e2a2c5aa57a21e0b56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2, 5] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/Paragraph#3/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -26913,7 +27065,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand2_5.lean sha256=cf5584d81d386a1ecb79ebf879abb12c73d90d0c2240b885282b5cb9d699279d",
       "independent_spec": "JapanTaxLaw/NursingCareBand2_5Spec.lean sha256=6db12e940a14406ea2e7dd2a4c269a958352db6d18ff45e2a2c5aa57a21e0b56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2, 5] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/Paragraph#9/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -27179,6 +27331,19 @@
       "source_location": "data/raw/332M50000040015_20261101_507M60000040026.law.json#LawBody[4]/MainProvision/MainProvision[3]/Article:23_10/Article#23_10/Paragraph#25/Item#6/ItemSentence/Sentence#1 sha256=2e5d3e585b99e15ffb030c8b6fa0dcc6ccf7cc9532924fa5b6438a68cc05767c (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/DeceasedUnder70Tests.lean sha256=7e0ff9d03663ad7a80a71e322a1fdf313eeb0c1a5a746e08d56f86e0e52cbabc (11 kernel-decided examples)"
     },
+    "NORM|470e97ebf30081b578e686022c45fcbf887094d51fb696f15d9ceebbaa50630c": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 6 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/LocalTaxArt71_21FineCap500k.lean sha256=718d762e989feb54afdee7684398d39e5e3ee6ff7a5567bb53d052d39f247b64",
+      "independent_spec": "JapanTaxLaw/LocalTaxArt71_21FineCap500kSpec.lean sha256=639f55277071b3a0214bac0d9c1465541cfd9c397c510801f0cc04f7d2d3ecc8 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [500000] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"500000\": [\"五十万\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:71_21/Article#71_21/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/LocalTaxArt71_21FineCap500kTests.lean sha256=fd6da336a91eafcaa4b6334639778a661460e5e20dc65aee9082118f3d28a97c (6 kernel-decided examples)"
+    },
     "NORM|4743edceaf69a92548eb50228077b23d1b78c62bfa317f696f7769d4858b8df1": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 7 kernel-decided examples covering boundary inputs",
@@ -27238,11 +27403,24 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#10/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/CommonLandAreaTenTimesTests.lean sha256=1fdccb88e236ef2891bf6604415e0c697893c22eb33533d64c37cd1318bc7404 (12 kernel-decided examples)"
+    },
+    "NORM|47870cf520e1aaea9319e84caef449b43cffea6b069d75479fc7b94140a5edd1": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 6 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/LocalTaxOffenseFineCap500k.lean sha256=eb291cb451e81d7ba07de73b62646f9c06008d82b620e8fbb2e74531fda5fc68",
+      "independent_spec": "JapanTaxLaw/LocalTaxOffenseFineCap500kSpec.lean sha256=d0282784a3cb81ad44608910959fdb8e58393cfd5badcfe957292ff7282f3686 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [500000] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"500000\": [\"五十万\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:27/Article#27/Paragraph#1/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/LocalTaxOffenseFineCap500kTests.lean sha256=acb1aa45ae78c7f1e6fc4ba532406a6a25592f35319c030faed3e905ce9c8660 (6 kernel-decided examples)"
     },
     "NORM|47fbd77bd185a7be7766acd35947e2f4f580c5aeae7ea2b171b140041f6475be": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -27316,7 +27494,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#10/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -28005,7 +28183,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#5/Item#1/ItemSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -28044,7 +28222,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand2_5.lean sha256=cf5584d81d386a1ecb79ebf879abb12c73d90d0c2240b885282b5cb9d699279d",
       "independent_spec": "JapanTaxLaw/NursingCareBand2_5Spec.lean sha256=6db12e940a14406ea2e7dd2a4c269a958352db6d18ff45e2a2c5aa57a21e0b56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2, 5] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/Paragraph#2/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -28486,11 +28664,24 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#10/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/CommonLandAreaTenTimesTests.lean sha256=1fdccb88e236ef2891bf6604415e0c697893c22eb33533d64c37cd1318bc7404 (12 kernel-decided examples)"
+    },
+    "NORM|62f3414f7682d8b84c47db16d54b6a74919ed728151516d94fdc947557767756": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 7 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/LocalTaxReducedRate2or1.lean sha256=354eaac9cf59871226d65b10e7c3a15d84d9916945fc430d9bafecdbb78bf907",
+      "independent_spec": "JapanTaxLaw/LocalTaxReducedRate2or1Spec.lean sha256=c277d4cc756196c3a16fd0571d5ffc84ce26245336bef3e545f7822b167355ef (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [50, 100] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"50\": [\"五十\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:37/Article#37/Paragraph#1/Item#1/Subitem1#1/TableStruct/Table/TableRow/TableColumn/Sentence#2 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/LocalTaxReducedRate2or1Tests.lean sha256=de478d8034bd10bbce49b571c96a626394986a2d4d62d4680b9371d46c87e45e (7 kernel-decided examples)"
     },
     "NORM|62f4ac31b306135ccecb6f7ee905aa16788ff4f2deefa4fe50b1351e9ee5f04a": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -28551,7 +28742,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#6/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -28635,6 +28826,19 @@
       "source_location": "data/raw/404CO0000000089_20010106_412CO0000000307.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:2/Article#2/Paragraph#3/ParagraphSentence/Sentence sha256=e80aec82d08862cb6ae5611886e5d844624473d18936c6fd67ce9cc26ed68ab1 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/MergerMaxCapitalTests.lean sha256=6aa8c360cf07fc6e5fd0b249093180d9c9afa765cf640c32055aab6e71abab9f (28 kernel-decided examples)"
     },
+    "NORM|655c1a458885dfa06af3e4b6115155e03f59552f6f62bf7f5772b82d79424835": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 7 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/LocalTaxReducedRate2or1.lean sha256=354eaac9cf59871226d65b10e7c3a15d84d9916945fc430d9bafecdbb78bf907",
+      "independent_spec": "JapanTaxLaw/LocalTaxReducedRate2or1Spec.lean sha256=c277d4cc756196c3a16fd0571d5ffc84ce26245336bef3e545f7822b167355ef (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [50, 100] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"50\": [\"五十\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:37/Article#37/Paragraph#1/Item#1/Subitem1#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/LocalTaxReducedRate2or1Tests.lean sha256=de478d8034bd10bbce49b571c96a626394986a2d4d62d4680b9371d46c87e45e (7 kernel-decided examples)"
+    },
     "NORM|6596e10f8373f31c699a203dde8dea6687d091f69290db3a7ca46a96eb8c51f7": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 30 kernel-decided examples covering boundary inputs",
@@ -28694,7 +28898,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand2_5.lean sha256=cf5584d81d386a1ecb79ebf879abb12c73d90d0c2240b885282b5cb9d699279d",
       "independent_spec": "JapanTaxLaw/NursingCareBand2_5Spec.lean sha256=6db12e940a14406ea2e7dd2a4c269a958352db6d18ff45e2a2c5aa57a21e0b56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2, 5] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/Paragraph#1/Item#3/ItemSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -29409,7 +29613,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand2_5.lean sha256=cf5584d81d386a1ecb79ebf879abb12c73d90d0c2240b885282b5cb9d699279d",
       "independent_spec": "JapanTaxLaw/NursingCareBand2_5Spec.lean sha256=6db12e940a14406ea2e7dd2a4c269a958352db6d18ff45e2a2c5aa57a21e0b56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2, 5] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/Paragraph#11/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -29773,7 +29977,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand2_5.lean sha256=cf5584d81d386a1ecb79ebf879abb12c73d90d0c2240b885282b5cb9d699279d",
       "independent_spec": "JapanTaxLaw/NursingCareBand2_5Spec.lean sha256=6db12e940a14406ea2e7dd2a4c269a958352db6d18ff45e2a2c5aa57a21e0b56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2, 5] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/Paragraph#14/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -30072,7 +30276,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#5/Item#2/ItemSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -30189,7 +30393,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand2_5.lean sha256=cf5584d81d386a1ecb79ebf879abb12c73d90d0c2240b885282b5cb9d699279d",
       "independent_spec": "JapanTaxLaw/NursingCareBand2_5Spec.lean sha256=6db12e940a14406ea2e7dd2a4c269a958352db6d18ff45e2a2c5aa57a21e0b56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2, 5] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/Paragraph#6/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -30397,7 +30601,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand2_5.lean sha256=cf5584d81d386a1ecb79ebf879abb12c73d90d0c2240b885282b5cb9d699279d",
       "independent_spec": "JapanTaxLaw/NursingCareBand2_5Spec.lean sha256=6db12e940a14406ea2e7dd2a4c269a958352db6d18ff45e2a2c5aa57a21e0b56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2, 5] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/Paragraph#13/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -30592,7 +30796,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#8/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -30995,7 +31199,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#1/Item#1/ItemSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -31190,7 +31394,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#10/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -31255,7 +31459,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#10/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -31372,7 +31576,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand2_5.lean sha256=cf5584d81d386a1ecb79ebf879abb12c73d90d0c2240b885282b5cb9d699279d",
       "independent_spec": "JapanTaxLaw/NursingCareBand2_5Spec.lean sha256=6db12e940a14406ea2e7dd2a4c269a958352db6d18ff45e2a2c5aa57a21e0b56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2, 5] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/Paragraph#16/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -31463,7 +31667,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#1/Item#2/ItemSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -32659,7 +32863,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/DeletionExtension30Days.lean sha256=728049e5bd6ddaf890a5c4aee0f732c3a633817372254925f705e3c5d32fe6ef",
       "independent_spec": "JapanTaxLaw/DeletionExtension30DaysSpec.lean sha256=573dc2897ef46c14661796061773d00cf28d573fb6a92986797c1d67a589a666 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [30] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"30\": [\"三十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329AC0000000061_20260601_508AC0000000005.law.json#LawBody[3]/MainProvision/MainProvision[12]/Article:123/Article#123/Paragraph#2/ParagraphSentence/Sentence#1 sha256=1701272a2e4eaf434b6d953026c340efa4e15b2ca952fc941eeeb676d32204ea (verbatim unit text located in scoped article)",
@@ -33010,7 +33214,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/ArticleCaption sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -33049,7 +33253,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand2_5.lean sha256=cf5584d81d386a1ecb79ebf879abb12c73d90d0c2240b885282b5cb9d699279d",
       "independent_spec": "JapanTaxLaw/NursingCareBand2_5Spec.lean sha256=6db12e940a14406ea2e7dd2a4c269a958352db6d18ff45e2a2c5aa57a21e0b56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2, 5] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/Paragraph#12/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -33361,7 +33565,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/AutoWeightGrantRounding.lean sha256=9b0513e0f8d48f331e03d62af4cdbf38d0ba7bebea5816a245498d91b17efd7e",
       "independent_spec": "JapanTaxLaw/AutoWeightGrantRoundingSpec.lean sha256=f420f144ed42262467ba83d2f63fa5849481e0ebfd2e4dc9f53c4a4064bc5bb5 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [1000] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"1000\": [\"千\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/346AC0000000090_20260401_508AC0000000002.law.json#LawBody[1]/MainProvision/MainProvision[4]/Article:4/Article#4/Paragraph#1/ParagraphSentence/Sentence#1 sha256=fd01bc9ba3ac2d65019f7f3b6b9baed32bd5ff606a4484c2364747693cb5621f (verbatim unit text located in scoped article)",
@@ -33434,16 +33638,16 @@
     },
     "NORM|d0cf98134851f92a247937113b649e63b19967f04296f03953fa4f2f69e82b95": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
-      "boundary_proof": "attested Tests module contains 14 kernel-decided examples covering boundary inputs",
+      "boundary_proof": "attested Tests module contains 6 kernel-decided examples covering boundary inputs",
       "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
-      "implementation": "JapanTaxLaw/LocalCapitalBand10M100M.lean sha256=3c467e1b7694b4702ed0af9caacea030a29e11a464827fb2119178c90ade6eb1",
-      "independent_spec": "JapanTaxLaw/LocalCapitalBand10M100MSpec.lean sha256=c9b28c6f84d9a0b7b64e1d231cac901c8fb6d947ccb5f3fee91307ff15d3edd8 (defines spec* without implementation constants)",
-      "kernel_proof": "https://api.github.com/repos/Unjuno/japan-tax-law-lean/actions/runs/45463588568: commit 8816a8d163a7f4011c5889f76bc062a1e8eec724, build/axiom job success, 3 module hashes re-verified",
-      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10000000, 100000000] used by kernel-checked impl + independent spec",
-      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10000000\": [\"千万\"], \"100000000\": [\"一億\"]}; statutory rate = none; needles scoped",
+      "implementation": "JapanTaxLaw/LocalCapitalCeiling10M.lean sha256=a301c940afc0793a63c3dc5f3c66b20e84f7a663b606d07a845a1fd7e14cdedc",
+      "independent_spec": "JapanTaxLaw/LocalCapitalCeiling10MSpec.lean sha256=d9c76627fdd6eda90f379e92ccf74ea98e85a7b4a1224ca6fde53730087b1411 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10000000] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10000000\": [\"千万\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:52/Article#52/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
-      "tests": "JapanTaxLaw/LocalCapitalBand10M100MTests.lean sha256=dee6a8f662ae9ff7f9891bc719726c7675789e4dbe452b61d32ebcf3dfc7d33b (14 kernel-decided examples)"
+      "tests": "JapanTaxLaw/LocalCapitalCeiling10MTests.lean sha256=7503cd624ab5d10dccf435acec9fc1eaa51f6b2069ba84fbe6df731717b26982 (6 kernel-decided examples)"
     },
     "NORM|d0ed6ef693acfc5db06eba815f8ba2f8c882e64187bb000adb6ec56d9f585522": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -34167,7 +34371,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand2_5.lean sha256=cf5584d81d386a1ecb79ebf879abb12c73d90d0c2240b885282b5cb9d699279d",
       "independent_spec": "JapanTaxLaw/NursingCareBand2_5Spec.lean sha256=6db12e940a14406ea2e7dd2a4c269a958352db6d18ff45e2a2c5aa57a21e0b56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2, 5] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/Paragraph#15/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -34193,7 +34397,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand2_5.lean sha256=cf5584d81d386a1ecb79ebf879abb12c73d90d0c2240b885282b5cb9d699279d",
       "independent_spec": "JapanTaxLaw/NursingCareBand2_5Spec.lean sha256=6db12e940a14406ea2e7dd2a4c269a958352db6d18ff45e2a2c5aa57a21e0b56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2, 5] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/Paragraph#1/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -34453,7 +34657,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand2_5.lean sha256=cf5584d81d386a1ecb79ebf879abb12c73d90d0c2240b885282b5cb9d699279d",
       "independent_spec": "JapanTaxLaw/NursingCareBand2_5Spec.lean sha256=6db12e940a14406ea2e7dd2a4c269a958352db6d18ff45e2a2c5aa57a21e0b56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2, 5] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/Paragraph#8/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -34583,7 +34787,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand2_5.lean sha256=cf5584d81d386a1ecb79ebf879abb12c73d90d0c2240b885282b5cb9d699279d",
       "independent_spec": "JapanTaxLaw/NursingCareBand2_5Spec.lean sha256=6db12e940a14406ea2e7dd2a4c269a958352db6d18ff45e2a2c5aa57a21e0b56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2, 5] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/Paragraph#1/Item#2/ItemSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -34635,7 +34839,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#10/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -34765,7 +34969,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand2_5.lean sha256=cf5584d81d386a1ecb79ebf879abb12c73d90d0c2240b885282b5cb9d699279d",
       "independent_spec": "JapanTaxLaw/NursingCareBand2_5Spec.lean sha256=6db12e940a14406ea2e7dd2a4c269a958352db6d18ff45e2a2c5aa57a21e0b56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2, 5] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/Paragraph#6/Item#1/ItemSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -35064,7 +35268,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand2_5.lean sha256=cf5584d81d386a1ecb79ebf879abb12c73d90d0c2240b885282b5cb9d699279d",
       "independent_spec": "JapanTaxLaw/NursingCareBand2_5Spec.lean sha256=6db12e940a14406ea2e7dd2a4c269a958352db6d18ff45e2a2c5aa57a21e0b56 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [2, 5] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/Paragraph#5/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -35090,7 +35294,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CustomsFineTrigger10M10x.lean sha256=8abb14ae61492019e8b2b64d595ca03321f3d85349d08d686f41432c16f9decd",
       "independent_spec": "JapanTaxLaw/CustomsFineTrigger10M10xSpec.lean sha256=e3b3bfac1c9f8afadddb53ce7eb4ae11f04ce5fb922100719fd011fecd88f10b (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10, 10000000] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"], \"10000000\": [\"千万\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329AC0000000061_20260601_508AC0000000005.law.json#LawBody[3]/MainProvision/MainProvision[11]/Article:110/Article#110/Paragraph#4/ParagraphSentence/Sentence#1 sha256=1701272a2e4eaf434b6d953026c340efa4e15b2ca952fc941eeeb676d32204ea (verbatim unit text located in scoped article)",
@@ -35129,7 +35333,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#7/ParagraphSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -35194,7 +35398,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/ForeignTradeUsageRatio80.lean sha256=16fb924ef0de6e59d3981cbe4795ac00aeca6c31c56e6fa64a52007412de3726",
       "independent_spec": "JapanTaxLaw/ForeignTradeUsageRatio80Spec.lean sha256=fc7cae239f5f6f846ea8d82cc8243b46ce4a552d102746b1729fa09861e8a57d (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [80] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"80\": [\"八十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[252]/Article:11_12/Article#11_12/Paragraph#1/Item#2/ItemSentence/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -35207,7 +35411,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#2/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -35311,7 +35515,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/NursingCareBand5_10.lean sha256=cfe82e09d555d77c766b5d1aab82f095a36150ac9aa785a44f8f3f3f5ba9b956",
       "independent_spec": "JapanTaxLaw/NursingCareBand5_10Spec.lean sha256=b87945f9873ae375e280e324bc1ffebb1999393eb6f7d5b2a4727f6e8806d2c5 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [5, 10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[221]/Article:10_7_3/Article#10_7_3/ArticleCaption sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
@@ -35467,7 +35671,7 @@
       "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
       "implementation": "JapanTaxLaw/CommonLandAreaTenTimes.lean sha256=c2249c785bc6352d2ef09e3c0de79f3e6edc865f252487250e74a5b7bf08f632",
       "independent_spec": "JapanTaxLaw/CommonLandAreaTenTimesSpec.lean sha256=dd53d919d73976fd80080cb6af8e5c58cb99362597f724eb78e58331921750ba (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45649333780: commit ee87c61b593013e342a82569bc6c8bc342a82ab6, build/axiom job success, 3 module hashes re-verified",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45752849843: commit 49d10bd9e639ce8b977904d0a2bbfd5c2aad16da, build/axiom job success, 3 module hashes re-verified",
       "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10] used by kernel-checked impl + independent spec",
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[269]/Article:15_4/Article#15_4/Paragraph#10/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
