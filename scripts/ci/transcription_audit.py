@@ -2433,6 +2433,12 @@ def checks():
            "file", None,
            ["第一条この政令は、昭和四十年四月一日から施行する", "この政令は、昭和四十年四月一日から施行する"])
 
+    # HanshinAwajiDisasterTaxReliefEnforcementDate — cycle-135
+    yield ("HanshinAwajiDisasterTaxReliefEnforcementDate.lean",
+           "407M50000040012",
+           "file", None,
+           ["第一条この省令は、平成十四年八月一日から施行する", "この省令は、平成十四年八月一日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -4928,6 +4934,15 @@ def checks():
     yield ("地方税法 art. 37_2（900万超1800万以下）↔ LocalTaxBracket900To1800.lean",
            "325AC0000000226", "file", None,
            ["九百万円を超え千八百万円以下の金額"])
+
+    # 地方税法 art. 37の2 — LocalTaxBracket330To695.lean (330万超695万以下)
+    yield ("地方税法 art. 37_2（330万超695万以下）↔ LocalTaxBracket330To695.lean",
+           "325AC0000000226", "file", None,
+           ["三百三十万円を超え六百九十五万円以下の金額"])
+    # 地方税法 art. 37の2 — LocalTaxBracket695To900.lean (695万超900万以下)
+    yield ("地方税法 art. 37_2（695万超900万以下）↔ LocalTaxBracket695To900.lean",
+           "325AC0000000226", "file", None,
+           ["六百九十五万円を超え九百万円以下の金額"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
