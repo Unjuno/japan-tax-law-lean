@@ -103,6 +103,9 @@ import JapanTaxLaw.BusinessOwnerDeductionTests
 import JapanTaxLaw.BusinessTaxCollectionCostRate5
 import JapanTaxLaw.BusinessTaxCollectionCostRate5Spec
 import JapanTaxLaw.BusinessTaxCollectionCostRate5Tests
+import JapanTaxLaw.CabinetOrderLocalTaxOneYenRounding
+import JapanTaxLaw.CabinetOrderLocalTaxOneYenRoundingSpec
+import JapanTaxLaw.CabinetOrderLocalTaxOneYenRoundingTests
 import JapanTaxLaw.CapitalExceed100M
 import JapanTaxLaw.CapitalExceed100MSpec
 import JapanTaxLaw.CapitalExceed100MTests
@@ -1771,6 +1774,12 @@ import JapanTaxLaw.RetirementResidual3MTests
 import JapanTaxLaw.RiceContentThreshold
 import JapanTaxLaw.RiceContentThresholdSpec
 import JapanTaxLaw.RiceContentThresholdTests
+import JapanTaxLaw.RndExcessOver12
+import JapanTaxLaw.RndExcessOver12Spec
+import JapanTaxLaw.RndExcessOver12Tests
+import JapanTaxLaw.RndExcessOver3
+import JapanTaxLaw.RndExcessOver3Spec
+import JapanTaxLaw.RndExcessOver3Tests
 import JapanTaxLaw.RndSurchargeRate
 import JapanTaxLaw.RndSurchargeRateSpec
 import JapanTaxLaw.RndSurchargeRateTests
