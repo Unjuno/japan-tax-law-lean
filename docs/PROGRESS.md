@@ -181,9 +181,9 @@ lake clean && lake build                                                # 再現
 | 指標 | 実測値 |
 |---|---:|
 | 規範単位（確定対象版） | 268,107 |
-| NOT_STARTED | 260,712 |
+| NOT_STARTED | 260,411 |
 | PARTIAL | 4,312 |
-| PROVED_SCOPE | 231 |
+| PROVED_SCOPE | 532 |
 | FULLY_VERIFIED | 2,850（約 1.06%） |
 | BLOCKED | 2 |
 | 未解決条件を持つ単位 | 140,289（条件延べ 162,912） |
@@ -218,9 +218,12 @@ lake clean && lake build                                                # 再現
 全文から方向（切捨/切上/四捨五入）を判定して既存 3 ファミリへ割当て
 （`remround_audit.json`）。五百円・五十銭の誤分類単位は除外済み。
 この 52 単位バッチも独立監査 PASS（約 90,400 比較・不一致 0、サンプル 6 単位、
-`remround_adversarial.md`）。サンプル外は `PROVED_SCOPE`。
+`remround_adversarial.md`）。さらに汎用の N分のM 相当額 301 単位
+（50 種類の分数）を、商×分子＋端数×分子/分母という分割定式の独立仕様で
+証明（`FractionAmounts`, 全称 `fracAmount_eq_decomposition`）。
+サンプル外は `PROVED_SCOPE`。
 
-**未達（続行すべき義務）**: 未検証義務の大部分（260,712 単位）、未解決条件
+**未達（続行すべき義務）**: 未検証義務の大部分（260,411 単位）、未解決条件
 140,289 単位、158 単位分の独立 ADVERSARIAL_REVIEW、人間の法的レビュー、
 地方税条例 1,788 件、附則参照 87 件の版写像、租税条約・通達・裁判例の別層整備。
 
