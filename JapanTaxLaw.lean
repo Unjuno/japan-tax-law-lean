@@ -175,6 +175,12 @@ import JapanTaxLaw.CombinedRndExcessAtMost3Tests
 import JapanTaxLaw.CombinedRndExcessOver3
 import JapanTaxLaw.CombinedRndExcessOver3Spec
 import JapanTaxLaw.CombinedRndExcessOver3Tests
+import JapanTaxLaw.CombinedRndExcessOver4Year
+import JapanTaxLaw.CombinedRndExcessOver4YearSpec
+import JapanTaxLaw.CombinedRndExcessOver4YearTests
+import JapanTaxLaw.CombinedRndExcessOver7Year
+import JapanTaxLaw.CombinedRndExcessOver7YearSpec
+import JapanTaxLaw.CombinedRndExcessOver7YearTests
 import JapanTaxLaw.CommitteeTermTwoYears
 import JapanTaxLaw.CommitteeTermTwoYearsSpec
 import JapanTaxLaw.CommitteeTermTwoYearsTests
@@ -1217,6 +1223,9 @@ import JapanTaxLaw.LocalGradation256Tests
 import JapanTaxLaw.LocalGrantRevenueBase
 import JapanTaxLaw.LocalGrantRevenueBaseSpec
 import JapanTaxLaw.LocalGrantRevenueBaseTests
+import JapanTaxLaw.LocalGrantTaxRatio
+import JapanTaxLaw.LocalGrantTaxRatioSpec
+import JapanTaxLaw.LocalGrantTaxRatioTests
 import JapanTaxLaw.LocalGrantTaxShares
 import JapanTaxLaw.LocalGrantTaxSharesSpec
 import JapanTaxLaw.LocalGrantTaxSharesTests

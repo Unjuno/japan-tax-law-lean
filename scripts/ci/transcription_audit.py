@@ -2409,6 +2409,12 @@ def checks():
            "file", None,
            ["者が老人控除対象配偶者である場合十万円（当該納税義務者の前年の合計所得金額が九百万円を超え九百五十万円以下である場合には六万円、当該納税義務者の前年の合計所得金額が九百五十万円を超え千万円以下である場合には三万円）", "第三十七条"])
 
+    # LocalGrantTaxRatio — cycle-129
+    yield ("LocalGrantTaxRatio.lean",
+           "325AC0000000211",
+           "file", None,
+           ["毎年度分として交付すべき普通交付税の総額は、前条第二項の額の百分の九十四に相当する額とする", "毎年度分として交付すべき特別交付税の総額は、前条第二項の額の百分の六に相当する額とする"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -4668,6 +4674,15 @@ def checks():
     yield ("租税特別措置法 art. 40_4（租税負担割合20%以上）↔ ForeignSubsidiaryTaxRate20.lean",
            "332AC0000000026", "file", None,
            ["各事業年度の租税負担割合が百分の二十以上であること。"])
+
+    # 租税特別措置法 art. 42の4 — CombinedRndExcessOver4Year.lean (4%超の事業年度)
+    yield ("租税特別措置法 art. 42_4（4%超の事業年度）↔ CombinedRndExcessOver4Year.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の四を超える事業年度"])
+    # 租税特別措置法 art. 42の4 — CombinedRndExcessOver7Year.lean (7%超の事業年度)
+    yield ("租税特別措置法 art. 42_4（7%超の事業年度）↔ CombinedRndExcessOver7Year.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の七を超える事業年度"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
