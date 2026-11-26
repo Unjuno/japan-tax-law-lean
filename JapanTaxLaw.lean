@@ -638,6 +638,9 @@ import JapanTaxLaw.DeletionExtension30DaysTests
 import JapanTaxLaw.DeliberationQuorum
 import JapanTaxLaw.DeliberationQuorumSpec
 import JapanTaxLaw.DeliberationQuorumTests
+import JapanTaxLaw.DelinquencyCostNet
+import JapanTaxLaw.DelinquencyCostNetSpec
+import JapanTaxLaw.DelinquencyCostNetTests
 import JapanTaxLaw.DelinquencyTax
 import JapanTaxLaw.DelinquencyTaxSpec
 import JapanTaxLaw.DelinquencyTaxTests
