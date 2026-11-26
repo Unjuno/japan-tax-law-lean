@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 296
-- presence-facts-only complete: 296
-- NOT_STARTED: 296
+- articles with explicit pin: 299
+- presence-facts-only complete: 299
+- NOT_STARTED: 299
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -17,6 +17,7 @@ source positions. Human legal review is a separate axis and is pending.
 
 | law_id | article | module | presence | scoped | review | authoritative status |
 |---|---|---|---|---|---|---|
+| `347M50010000033` | 第四条 | OkinawaDividedCertificateIssuance | YES | YES | NO | NOT_STARTED |
 | `406CO0000000418` | 第二条 | ImmediateRetaliationException | YES | YES | NO | NOT_STARTED |
 | `406CO0000000415` | 第七条 | EvidenceNonSubmissionException | YES | YES | NO | NOT_STARTED |
 | `340M50010000013` | 第四条 | DividedCertificateIssuance | YES | YES | NO | NOT_STARTED |
@@ -81,6 +82,7 @@ source positions. Human legal review is a separate axis and is pending.
 | `340AC0000000033` | 第二条 | IncomeTaxSpouseIncomeCeiling10M | YES | YES | NO | NOT_STARTED |
 | `340AC0000000033` | 第二条 | IncomeTaxArt2Income850kOther100k | YES | YES | NO | NOT_STARTED |
 | `340AC0000000033` | 第二条 | IncomeTaxArt2DependentAge19To23 | YES | YES | NO | NOT_STARTED |
+| `342AC0000000035` | 第十七条 | ShipRegistrationRateReduction4PerMille | YES | YES | NO | NOT_STARTED |
 | `330AC0000000104` | 第四条 | LocalGasolineTaxRate | YES | YES | NO | NOT_STARTED |
 | `332AC0000000055` | 第九条 | GasolineTaxRate | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十四条 | CustomsSameContentLimit | YES | YES | NO | NOT_STARTED |
@@ -313,3 +315,4 @@ source positions. Human legal review is a separate axis and is pending.
 | `349AC0000000079` | 第十二条 | PowerDevelopmentTaxPenalty | YES | YES | NO | NOT_STARTED |
 | `424CO0000000017` | 第三条 | ReconstructionCorpTaxMonthFloor | YES | YES | NO | NOT_STARTED |
 | `409M50000040096` | 第四条 | DocumentAgeSixMonthCap | YES | YES | NO | NOT_STARTED |
+| `424M60000040007` | 第一条 | ResidualDistributionOneMonth | YES | YES | NO | NOT_STARTED |
