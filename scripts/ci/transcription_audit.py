@@ -4841,6 +4841,11 @@ def checks():
     yield ("租税特別措置法施行令 art. 43_2（公共施設面積10%以上）↔ PublicFacilityAreaAtLeast10.lean",
            "332CO0000000043", "file", None,
            ["公共施設面積割合が百分の十以上であること。"])
+    # 半島振興法不均一課税省令 art.1(1)(1)ロ — PeninsulaSpecialDepreciationCostFloor5M.lean
+    yield ("半島振興法不均一課税省令 第一条(1)(1)ロ（取得価額五百万円以上）↔ PeninsulaSpecialDepreciationCostFloor5M.lean",
+           "407M50000008016", "article", "第一条",
+           ["五百万円以上のもの"])
+
 
     # 関税暫定措置法 art. 7の3 — AverageImportOver30Percent.lean (30%超)
     yield ("関税暫定措置法 art. 7_3（平均輸入30%超）↔ AverageImportOver30Percent.lean",
