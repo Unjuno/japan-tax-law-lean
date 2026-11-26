@@ -8,6 +8,7 @@ the count of models or theorems. It makes no completion claim.
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 head: `e226841353c7`
 =======
 head: `382d93a4222d`
@@ -15,10 +16,14 @@ head: `382d93a4222d`
 =======
 head: `a4ab3dfee891`
 >>>>>>> origin/main
+=======
+head: `49d10bd9e639`
+>>>>>>> origin/main
 verdict: **COUNTED**
 
 | status | count | delta |
 |---|---:|---:|
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 | NOT_STARTED | 395873 | -8 |
@@ -34,11 +39,15 @@ NOT_STARTED reduction: 8
 =======
 | NOT_STARTED | 395863 | -3 |
 >>>>>>> origin/main
+=======
+| NOT_STARTED | 395903 | -18 |
+>>>>>>> origin/main
 | PARTIAL | 0 | +0 |
 | PROVED_SCOPE | 1 | +0 |
-| FULLY_VERIFIED | 988 | +3 |
+| FULLY_VERIFIED | 948 | +18 |
 | BLOCKED | 2 | +0 |
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 new Lean modules since previous snapshot: 33
 NOT_STARTED reduction: 15
@@ -46,4 +55,8 @@ NOT_STARTED reduction: 15
 =======
 new Lean modules since previous snapshot: 24
 NOT_STARTED reduction: 3
+>>>>>>> origin/main
+=======
+new Lean modules since previous snapshot: 0
+NOT_STARTED reduction: 18
 >>>>>>> origin/main
