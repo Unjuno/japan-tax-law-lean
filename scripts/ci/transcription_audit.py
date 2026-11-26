@@ -4536,6 +4536,13 @@ def checks():
            "325AC0000000226", "file", None,
            ["次に掲げる金額のうちいずれか少ない金額の百分の三"])
 
+    # InheritanceTaxArt4DeemedAcquisitionCaption.lean - NORM|231c551d... (相続税法 art.4 ArticleCaption DEEMING, law 325AC0000000073)
+    # Whole-law locator (article caption).
+    yield ("inheritance tax law art.4 deemed acquisition caption - InheritanceTaxArt4DeemedAcquisitionCaption.lean",
+           "325AC0000000073",
+           "law", None,
+           ["\uff08\u907a\u8d08\u306b\u3088\u308a\u53d6\u5f97\u3057\u305f\u3082\u306e\u3068\u307f\u306a\u3059\u5834\u5408\uff09"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
