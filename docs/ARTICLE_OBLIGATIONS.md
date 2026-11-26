@@ -12,10 +12,10 @@ reconstruction only, never semantic fidelity to the statute.
 
 - normative units: 268107
 - NOT_STARTED: 260300
-- PARTIAL: 4279
-- PROVED_SCOPE: 78
-- FULLY_VERIFIED: 3406
-- BLOCKED: 44
+- PARTIAL: 4312
+- PROVED_SCOPE: 32
+- FULLY_VERIFIED: 3461
+- BLOCKED: 2
 - STALE: 0
 - adversarial-review evidence recorded: 3519 (separate axis)
 - human legal review completed: 0 (separate axis)
