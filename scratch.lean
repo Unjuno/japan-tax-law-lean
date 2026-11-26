@@ -1,0 +1,2 @@
+import JapanTaxLaw.CustomsItExceptionPromptEffectiveSpec
+#print axioms JapanTaxLaw.CustomsItExceptionPromptEffective.agree_prompt_delay

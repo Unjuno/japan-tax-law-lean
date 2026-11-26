@@ -2618,3 +2618,6 @@ import JapanTaxLaw.WidowDependentIncomeCeiling5MTests
 import JapanTaxLaw.WirePitch165nm
 import JapanTaxLaw.WirePitch165nmSpec
 import JapanTaxLaw.WirePitch165nmTests
+import JapanTaxLaw.CustomsItExceptionPromptEffective
+import JapanTaxLaw.CustomsItExceptionPromptEffectiveSpec
+import JapanTaxLaw.CustomsItExceptionPromptEffectiveTests
