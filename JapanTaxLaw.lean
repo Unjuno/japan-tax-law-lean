@@ -49,6 +49,9 @@ import JapanTaxLaw.AntiDumpingRate952Spec
 import JapanTaxLaw.AntiDumpingRate952Tests
 import JapanTaxLaw.AntiDumpingRateSpec
 import JapanTaxLaw.AntiDumpingRateTests
+import JapanTaxLaw.ApplicationChangeSameTreatment
+import JapanTaxLaw.ApplicationChangeSameTreatmentSpec
+import JapanTaxLaw.ApplicationChangeSameTreatmentTests
 import JapanTaxLaw.AreaMultiplierSixTwo
 import JapanTaxLaw.AreaMultiplierSixTwoSpec
 import JapanTaxLaw.AreaMultiplierSixTwoTests
