@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 180
+- with >=1 pinned literal check (semantic model): 181
 - with recorded human legal review: 0
 
 ## All laws
@@ -299,12 +299,12 @@ a completion flag.
 | `429CO0000000324` | 炭素鋼製突合せ溶接式継手に対して課する不当廉売関税に関する政令 | 429CO0000000324_20180331_430CO0000000121 | CurrentEnforced | YES | ok | 7 | NO (0) | NO |
 | `430AC0000000016` | 国際観光旅客税法 | 430AC0000000016_20260701_508AC0000000012 | CurrentEnforced | YES | ok | 41 | YES (2) | NO |
 | `430CO0000000161` | 国際観光旅客税法施行令 | 430CO0000000161_20190107_000000000000000 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
-| `430M60000040039` | 国際観光旅客税法施行規則 | 430M60000040039_20250401_507M60000040024 | CurrentEnforced | YES | ok | 9 | NO (0) | NO |
+| `430M60000040039` | 国際観光旅客税法施行規則 | 430M60000040039_20250401_507M60000040024 | CurrentEnforced | YES | ok | 9 | YES (1) | NO |
 | `430M60000200048` | 関税暫定措置法施行令第三十二条第二項第二号の農林水産省令で定める方法を定める省令 | 430M60000200048_20181230_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `431AC0000000001` | 平成三十年度分として交付すべき地方交付税の総額の特例に関する法律 | 431AC0000000001_20190214_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `431M60000008007` | 平成三十年度分の地方交付税の交付時期及び交付額の特例に関する省令 | 431M60000008007_20190214_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `431AC0000000003` | 森林環境税及び森林環境譲与税に関する法律 | 431AC0000000003_20260401_508AC0000000002 | CurrentEnforced | YES | ok | 67 | YES (3) | NO |
-| `431AC0000000004` | 特別法人事業税及び特別法人事業譲与税に関する法律 | 431AC0000000004_20260401_508AC0000000002 | CurrentEnforced | YES | ok | 66 | YES (2) | NO |
+| `431AC0000000004` | 特別法人事業税及び特別法人事業譲与税に関する法律 | 431AC0000000004_20260401_508AC0000000002 | CurrentEnforced | YES | ok | 66 | YES (1) | NO |
 | `431CO0000000089` | 特別法人事業税及び特別法人事業譲与税に関する法律施行令 | 431CO0000000089_20240401_506CO0000000012 | CurrentEnforced | YES | ok | 19 | NO (0) | NO |
 | `431M60000008040` | 森林環境税及び森林環境譲与税に関する法律施行規則 | 431M60000008040_20261021_508M60000008119 | CurrentEnforced | YES | ok | 21 | YES (1) | NO |
 | `431M60000008041` | 特別法人事業税及び特別法人事業譲与税に関する法律施行規則 | 431M60000008041_20261021_508M60000008119 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 381
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 382
