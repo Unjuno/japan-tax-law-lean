@@ -641,6 +641,9 @@ import JapanTaxLaw.FixedDeductionsTests
 import JapanTaxLaw.FiscalIndexMultiplier
 import JapanTaxLaw.FiscalIndexMultiplierSpec
 import JapanTaxLaw.FiscalIndexMultiplierTests
+import JapanTaxLaw.ProportionalAllocation
+import JapanTaxLaw.ProportionalAllocationSpec
+import JapanTaxLaw.ProportionalAllocationTests
 import JapanTaxLaw.TariffSpecificFloor
 import JapanTaxLaw.TariffSpecificFloorSpec
 import JapanTaxLaw.TariffSpecificFloorTests
