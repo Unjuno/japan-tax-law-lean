@@ -644,6 +644,12 @@ import JapanTaxLaw.FiscalIndexMultiplierTests
 import JapanTaxLaw.ProportionalAllocation
 import JapanTaxLaw.ProportionalAllocationSpec
 import JapanTaxLaw.ProportionalAllocationTests
+import JapanTaxLaw.MoneyThresholds
+import JapanTaxLaw.MoneyThresholdsSpec
+import JapanTaxLaw.MoneyThresholdsTests
+import JapanTaxLaw.MoneyCap
+import JapanTaxLaw.MoneyCapSpec
+import JapanTaxLaw.MoneyCapTests
 import JapanTaxLaw.TariffSpecificFloor
 import JapanTaxLaw.TariffSpecificFloorSpec
 import JapanTaxLaw.TariffSpecificFloorTests
