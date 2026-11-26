@@ -1,0 +1,2 @@
+import JapanTaxLaw.FifthWheelGrossWeightSpec
+#print axioms JapanTaxLaw.FifthWheelGrossWeight.agreeGrossWeight

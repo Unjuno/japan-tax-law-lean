@@ -1,0 +1,10 @@
+import JapanTaxLaw.TouristTaxTaxablePassengersSpec
+import JapanTaxLaw.HouseholdCorrectionFloor07Spec
+import JapanTaxLaw.TaxResearchCouncilQuorumSpec
+import JapanTaxLaw.DoubtfulReceivableDeductionSpec
+import JapanTaxLaw.FifthWheelGrossWeightSpec
+#print axioms JapanTaxLaw.TouristTaxTaxablePassengers.agreeTaxablePassengers
+#print axioms JapanTaxLaw.HouseholdCorrectionFloor07.agreeCorrected
+#print axioms JapanTaxLaw.TaxResearchCouncilQuorum.agreeQuorum
+#print axioms JapanTaxLaw.DoubtfulReceivableDeduction.agreeBookedAmount
+#print axioms JapanTaxLaw.FifthWheelGrossWeight.agreeGrossWeight

@@ -14166,3 +14166,11 @@ needle は `docs/STAGING_SOFA_ENFORCE.md` に記載された 2 本をレビュ�
 - **H/T/D**: 境界 10000−3000+2000=9000、10000−10000+2000=2000、10000−12000+2000=2000、0。普遍定理 3 件。D=PASS。
 - **C/U**: 第五輪荷重=最大積載量という適用要件、セミトレーラ定義、被牽引自動車の扱いは NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
 - **判定**: BY-DESIGN。CONFIRMED 0 / UNRESOLVED 1。
+
+### HeaviestRecordedWeight.lean — 登録免許税法施行規則 art.5(2)（最重記録重量）— Batch EA10
+
+- **pin**: law `346CO0000000275`, article 第五条(2); needle「当該自動車検査証に記録される車両総重量が二以上あるときは、そのうちの最も重いものとする」.
+- **独立再抽出**: 二つの記録重量のうち大きい方を採る (`max a b`)。独立仕様は `a + b - min a b` とし、全称定理 `agreeHeaviest` が omega で照合（条件式を使わないため Classical.choice を導入しない）。
+- **H/T/D**: 単位 kg・Nat。境界 10000/9000 → 10000、9000/10000 → 10000、0/0 → 0。普遍定理 3 件。D=PASS。
+- **C/U**: 記録重量の認定・§1/§3/§4 は NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
+- **判定**: BY-DESIGN。CONFIRMED 0 / UNRESOLVED 1。

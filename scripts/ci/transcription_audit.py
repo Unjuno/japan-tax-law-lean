@@ -91,6 +91,9 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # HeaviestRecordedWeight — 登録免許税法施行規則 art.5(2) 最重記録重量
+    yield ("登録免許税法施行規則 art.5(2)（記録重量二以上は最重のもの）↔ HeaviestRecordedWeight.lean",
+           "346CO0000000275", "article", "第五条", ["当該自動車検査証に記録される車両総重量が二以上あるときは、そのうちの最も重いものとする"])
     # FifthWheelGrossWeight — 登録免許税法施行規則 art.5(1) 牽引自動車の車両総重量
     yield ("登録免許税法施行規則 art.5(1)（車両総重量＝記録重量−第五輪荷重+牽引重量）↔ FifthWheelGrossWeight.lean",
            "346CO0000000275", "article", "第五条", ["その自動車検査証に記録される車両総重量から第五輪荷重を控除し牽けん引重量を加えた重量"])

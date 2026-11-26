@@ -1,0 +1,2 @@
+import JapanTaxLaw.HeaviestRecordedWeightSpec
+#print axioms JapanTaxLaw.HeaviestRecordedWeight.agreeHeaviest
