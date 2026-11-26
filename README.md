@@ -1030,3 +1030,7 @@ JapanTaxLaw/LocalCorporationTaxRuleEnforcementDateTests.lean # 同上 退行テ�
 JapanTaxLaw/SpecialCorporationBusinessTaxEnforcementDate.lean    # 特別法人事業税及び特別法人事業譲与税に関する法律施行令 施行日2019-10-01（附則 art.1）L4
 JapanTaxLaw/SpecialCorporationBusinessTaxEnforcementDateSpec.lean # 同上 独立定式
 JapanTaxLaw/SpecialCorporationBusinessTaxEnforcementDateTests.lean # 同上 退行テスト
+
+JapanTaxLaw/ForeignResidentReciprocityTaxEnforcementDate.lean    # 外国居住者等の所得に対する相互主義による所得税等の非課税等に関する省令 施行日2018-01-01（附則 art.1）L4
+JapanTaxLaw/ForeignResidentReciprocityTaxEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/ForeignResidentReciprocityTaxEnforcementDateTests.lean # 同上 退行テスト

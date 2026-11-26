@@ -2566,6 +2566,12 @@ def checks():
            "file", None,
            ["第一条この政令は、平成三十一年十月一日から施行する", "この政令は、平成三十一年十月一日から施行する"])
 
+    # ForeignResidentReciprocityTaxEnforcementDate — cycle-146
+    yield ("ForeignResidentReciprocityTaxEnforcementDate.lean",
+           "428M60000048005",
+           "file", None,
+           ["第一条この省令は、平成三十年一月一日から施行する", "この省令は、平成三十年一月一日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -5238,6 +5244,15 @@ def checks():
     yield ("特定貨物 第五条（一般関税・報復関税の別個適用）↔ SeparateTariffApplication.lean (parallel separate tariffs)",
            "417CO0000000289", "article", "第五条",
            ["特定貨物に課する一般関税及び報復関税については、それぞれ別個の関税として関税法第二章の規定を適用する。"])
+
+    # 租税特別措置法施行令 art. 22の8 — OpenSpaceRatioAtLeast20.lean (20%以上)
+    yield ("租税特別措置法施行令 art. 22_8（開放空地20%以上）↔ OpenSpaceRatioAtLeast20.lean",
+           "332CO0000000043", "file", None,
+           ["日常一般に開放された空地の部分の面積の当該敷地の面積に対する割合が百分の二十以上であること。"])
+    # 相互主義非課税法施行令 art. 7 — DomesticRealEstateRatioAtLeast50.lean (50%以上)
+    yield ("相互主義非課税法施行令 art. 7（国内不動産50%以上）↔ DomesticRealEstateRatioAtLeast50.lean",
+           "337CO0000000227", "file", None,
+           ["国内不動産の価額の合計額の占める割合が百分の五十以上である法人の株式"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

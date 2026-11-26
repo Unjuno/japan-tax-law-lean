@@ -15887,3 +15887,15 @@ needle は `scripts/ci/transcription_audit.py` L2443 の cycle-135 定義をレ�
 
 > **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲（特に附則他条、本則の実体規定、および 2019-10-01 が令和元年の暦日であることと制定時元号文言との区別）の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
 - **追記内容の SHA-256（本行を除く追記本文）**: `ff47ff5e1599e78876154064aaab64051e92bef13013a845b72fa0f403119a73`
+
+### OpenSpaceRatioAtLeast20.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### DomesticRealEstateRatioAtLeast50.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
