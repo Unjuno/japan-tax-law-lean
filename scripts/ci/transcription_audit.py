@@ -5296,6 +5296,15 @@ def checks():
            "332M50000040015", "file", None,
            ["法第四十一条の十二の二第六項第一号ニに規定する財務省令で定める割合は、百分の九十とする。"])
 
+    # 租税特別措置法 art. 8の2 — PrivateFundRate20To15.lean (20%→15%)
+    yield ("租税特別措置法 art. 8_2（私募公社債20→15%）↔ PrivateFundRate20To15.lean",
+           "332AC0000000026", "file", None,
+           ["これらの規定に規定する百分の二十の税率は、百分の十五の税率とする。"])
+    # 相互主義非課税法施行令 art. 14 — ReciprocityRate85PerMille.lean (8.5%)
+    yield ("相互主義非課税法施行令 art. 14（税率8.5%）↔ ReciprocityRate85PerMille.lean",
+           "337CO0000000227", "file", None,
+           ["法第十五条第十九項第二号に規定する政令で定める税率は、百分の八・五とする。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
