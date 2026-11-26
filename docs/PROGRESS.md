@@ -177,3 +177,5 @@ lake clean && lake build                                                # 再現
 阪神・淡路大震災被災者国税特例施行規則 附則 art.1 HanshinAwajiDisasterTaxReliefEnforcementDate.lean（施行日 平成14年8月1日=2002-08-01 — 他条・実体規定 NOT MODELLED）
 
 法人臨時特別税に関する省令 附則 art.1 CorporationTemporarySpecialTaxEnforcementDate.lean（施行日 平成15年1月6日=2003-01-06 — 他条・実体規定 NOT MODELLED）
+
+純粋種繁殖用牛豚・無税馬証明書に関する省令 附則 art.1 PurebredLivestockCertificateEnforcementDate.lean（施行日 平成12年4月1日=2000-04-01 — 他条・実体規定 NOT MODELLED）
