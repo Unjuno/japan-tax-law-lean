@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 186 | 327 | 56.88% |
+| laws with >=1 pinned literal check | 194 | 327 | 59.33% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -52,7 +52,7 @@ as covered scope.
 | related statutes resolved to official law ids, NOT in ledger | 380 |
 | reference names aliased to laws already in ledger | 0 |
 | unresolved reference names (uncertainty retained) | 7053 |
-| related statutes ACQUIRED in separate layer (not in ledger) | 2 |
+| related statutes ACQUIRED in separate layer (not in ledger) | 3 |
 
 Discovered law ids are NOT added to INVENTORY, NOT acquired, NOT parsed,
 NOT formalised and NOT reviewed. They are a separate discovery denominator
@@ -62,21 +62,21 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 718 | n/a | n/a |
-| distinct article pins | 220 | 42584 | 0.52% |
-| pinned Lean modules (cross-law) | 1245 | n/a | n/a |
+| pinned literal checks | 757 | n/a | n/a |
+| distinct article pins | 225 | 42584 | 0.53% |
+| pinned Lean modules (cross-law) | 1278 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1201 |
+| unpinned Lean modules (not counted as verified) | 1267 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
 | external references NOT bound to the ledger | 175186 |
 | related statutes discovered but not acquired (Objective §2) | 380 |
-| related statutes acquired but not parsed/modelled/reviewed | 2 |
+| related statutes acquired but not parsed/modelled/reviewed | 3 |
 
 An unpinned module, an unreviewed candidate, an unbound reference and an
 unenforced law are NOT counted as verified or completed. verified-anomaly = 0
@@ -163,10 +163,12 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `332CO0000000057` 揮発油税法施行令
 - `332M50000040015` 租税特別措置法施行規則
 - `333CO0000000117` 地方交付税法施行令
+- `333CO0000000337` 産業投資特別会計の貸付の財源に充てるための外貨債の発行に関する法律に基く外貨債の利子の非課税等に関する規定の適用を受けない者の範囲を定める政令
 - `334AC0000000147` 国税徴収法
 - `334CO0000000329` 国税徴収法施行令
 - `335AC0000000036` 関税暫定措置法
 - `335CO0000000069` 関税暫定措置法施行令
+- `336CO0000000153` 関税割当制度に関する政令
 - `336M50000400035` 重油及び粗油等の関税割当制度に関する省令
 - `337AC0000000066` 国税通則法
 - `337AC0000000144` 外国居住者等の所得に対する相互主義による所得税等の非課税等に関する法律
@@ -186,8 +188,10 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `340CO0000000097` 法人税法施行令
 - `340M50000040011` 所得税法施行規則
 - `340M50000040012` 法人税法施行規則
+- `340M50010000013` とうもろこし等の関税割当制度に関する省令
 - `341CO0000000005` 石油ガス税法施行令
 - `341M50000008002` 石油ガス譲与税法施行規則
+- `341M50000040004` 石油ガス税法施行規則
 - `341M50000040055` 関税法施行規則
 - `342AC0000000023` 印紙税法
 - `342AC0000000035` 登録免許税法
@@ -238,6 +242,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `403AC0000000069` 地価税法
 - `403CO0000000035` 法人臨時特別税に関する政令
 - `403CO0000000174` 地価税法施行令
+- `403M50000040006` 法人臨時特別税に関する省令
 - `404AC0000000015` 法人特別税法
 - `404CO0000000089` 法人特別税法施行令
 - `405M50000008001` 離島振興法第二十条の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令
@@ -246,9 +251,12 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `407CO0000000029` 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行令
 - `407M50000008016` 半島振興法第十七条の地方税の不均一課税に伴う措置が適用される場合等を定める省令
 - `407M50000008033` 大阪湾臨海地域開発整備法第十四条の地方税の不均一課税に伴う措置が適用される場合等を定める省令
+- `407M50000040012` 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行規則
+- `407M50000200013` 牛及び豚のうち純粋種の繁殖用のもの並びに無税を適用する馬の証明書の発給に関する省令
 - `408AC0000000002` 平成七年度における租税収入の減少を補うための公債の発行の特例に関する法律
 - `409AC0000000110` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律
 - `409CO0000000363` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行令
+- `409M50000040096` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行規則
 - `410AC0000000025` 電子計算機を使用して作成する国税関係帳簿書類の保存方法等の特例に関する法律
 - `410M50000040043` 電子計算機を使用して作成する国税関係帳簿書類の保存方法等の特例に関する法律施行規則
 - `411M50000008014` 奄美群島振興開発特別措置法第三十八条の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令
