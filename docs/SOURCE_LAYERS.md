@@ -24,9 +24,10 @@ layer is never folded into the statutory ledger.
 ## Obligation counts (separate denominators)
 
 - normative_units_total: 396854
-- fully_verified_units: 948
+- fully_verified_units: 1020
 - proved_scope_units: 1
-- not_started_units: 395903
+- not_started_units: 395831
+
 - blocked_units: 2
 - human_legal_reviews: 0
 
