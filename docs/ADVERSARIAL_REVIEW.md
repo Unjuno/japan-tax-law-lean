@@ -13497,3 +13497,11 @@ registry の `needles` 2 本を pinned JSON の生テキストおよび Article 
 - **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `4DF82F4A220596855BBC9343CE07722F23C53506030336AB9E0B0C9C218B59EB`・`1,594,029` バイト・広義レビュー件数 **118 件**（`## Batch ` 見出し 114 件 + その他の review 見出し 4 件）。本セクション追記後は **119 件（Previous +1）** へ増加。追記後のバイト数・SHA-256 は書き込み後の再読込で別途検証した（自己言及的なハッシュ値は本文に埋め込まない）。既存セクション（Batch G〜Batch DN / Batch SLHR を含む全見出し）は一切改変せず保持。再読込検証で既存 H2 数 124 → 125、先頭 `## Batch G review` と既存末尾 `## Batch DN review` の両方が残存することを確認。
 
 > **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 文字照合）・反例探索・`#print axioms` 監査であり、人間の法律専門家によるレビューではない。** 法的解釈・税率や適用範囲の final 判定は専門家の判断に委ねる。本レビューをもって法的レビュー完了とみなしてはならない。
+
+### TouristTaxTaxablePassengers.lean — 国際観光旅客税法施行規則 art.3(2) ホ（課税旅客数）— Batch EA6
+
+- **pin**: law `430M60000040039`, article `第三条` 第二号 ホ; verbatim needle「イに掲げる数からロからニまでに掲げる数の合計数を控除した数」.
+- **独立再抽出**: 原文のイ〜ニの定義を個別に確認し、ホが `i - (ro + ha + ni)` の飽和減算であると再導出。独立仕様は三段階減算 `i - ro - ha - ni` で書き、全称定理 `agreeTaxablePassengers` が omega で両者を照合（有限列挙ではない）。
+- **H/T/D**: 単位 人・定義域 Nat。境界 100−(10+20+30)=40、100−(40+30+30)=0、100−(50+30+30)=0（飽和）、控除0で250。普遍定理 `neverExceedsTotal` / `zeroWhenExemptionsCoverAll` / `monotoneInExemptions`。D=PASS。
+- **C/U**: 四つの数の源泉資料による認定、ヘの税額、他の条は NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
+- **判定**: BY-DESIGN。CONFIRMED 0 / UNRESOLVED 1。
