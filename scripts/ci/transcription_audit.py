@@ -1260,6 +1260,12 @@ def checks():
            "article", "第二条",
            ["合計所得金額が八十五万円以下であり、かつ、", "十万円以下であるものをいう"])
 
+    # 所得税法 art.2(1) — IncomeTaxArt2DependentAge19To23.lean
+    yield ("所得税法 art.2(1)（扶養親族 19歳以上23歳未満）↔ IncomeTaxArt2DependentAge19To23.lean",
+           "340AC0000000033",
+           "article", "第二条",
+           ["年齢十九歳以上二十三歳未満の者をいう", "第二条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
