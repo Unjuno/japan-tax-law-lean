@@ -4,9 +4,9 @@ import JapanTaxLaw.TaxFinance
 # MutualDefenseAidAgreementEnforcementDate — 日米相互防衛援助協定実施政令 施行日（附則 art.1）bounded L4 モデル
 
 Sources (pinned):
-  Law id: 327AC0000000113
+  Law id: 329CO0000000103
   Revision: 329CO0000000103_20250401_507CO0000000006
-  Raw snapshot: data/raw/data/raw/329CO0000000103_20250401_507CO0000000006.law.json
+  Raw snapshot: data/raw/329CO0000000103_20250401_507CO0000000006.law.json
   附則 Article 1 (施行期日). Needles contain no U+3000.
 
 原文逐語（附則）:
