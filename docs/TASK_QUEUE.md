@@ -10,7 +10,7 @@ only from recorded evidence in `data/verification_evidence.json`.
 - inventory snapshot: 2026-11-15
 - laws in inventory: 327
 - normative work units: 268107
-- units with unresolved conditions: 140289
+- units with unresolved conditions: 139841
 - provisions mechanically reconstructed: 62981/62981
 
 ## Status counts (distinct axes — not a completion claim)

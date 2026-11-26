@@ -12,12 +12,12 @@ reconstruction only, never semantic fidelity to the statute.
 
 - normative units: 268107
 - NOT_STARTED: 260300
-- PARTIAL: 4312
-- PROVED_SCOPE: 79
-- FULLY_VERIFIED: 3414
-- BLOCKED: 2
+- PARTIAL: 4279
+- PROVED_SCOPE: 78
+- FULLY_VERIFIED: 3406
+- BLOCKED: 44
 - STALE: 0
-- adversarial-review evidence recorded: 3521 (separate axis)
+- adversarial-review evidence recorded: 3519 (separate axis)
 - human legal review completed: 0 (separate axis)
 - registered checks passing does NOT imply all obligations complete
 

@@ -23,6 +23,7 @@ from normative_ids import NORM_TYPES, norm_text
 # REFERENCE retained in `kinds`. A pure reference still gets REFERENCE.
 KIND_PRIORITY = (
     "EXCEPTION",
+    "TRANSITIONAL",
     "DEEMING",
     "PRESUMPTION",
     "DELEGATION",
@@ -51,6 +52,8 @@ PATTERNS = {
     "DEFINITION": re.compile(r"とは、|とは|をいう|という"),
     "PROCEDURE": re.compile(r"申告|届出|申請|納付|徴収|決定|通知|書面|手続"),
     "PENALTY": re.compile(r"罰金|科料|拘禁|罰則|刑事罰"),
+    # 経過措置の明示: 旧法の適用を残す規定は TRANSITIONAL として分類する。
+    "TRANSITIONAL": re.compile(r"従前の例による|なおその効力を有する"),
     "LEGAL_EFFECT": re.compile(
         r"課する|課税|控除|加算|減額|還付|税率|課税標準|算出|計算|適用|"
         r"納める義務|算入|確定|必要経費"

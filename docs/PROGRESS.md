@@ -242,11 +242,20 @@ ADVERSARIAL_REVIEW を記録した。監査範囲は上記 4 軸に限定され�
 （`halfup_full_coverage.md`）全数に監査軸を記録した。切捨て 83 単位も
 5 軸すべて全数合格（`floor_full_coverage.md`）、月数端数に対する
 切り上げ 1 件は対象数量が異なるため非矛盾として記録。
+
+**§1 分解改善（監査済み）**: `norm_decomposer.py` に TRANSITIONAL パターン
+（従前の例による／なおその効力を有する）を追加し、465 単位が UNCLASSIFIED から
+TRANSITIONAL へ分類された。独立監査で 465/465 が原文 PIN と一致、
+単位数 268,107 不変、UNCLASSIFIED は 64,828 → 64,363（正確に −465）。
+未解決条件を持つ単位 140,289 → 139,841。norm_type が ID に含まれるため
+19,302 ID が変化したが、恰好のソースキーで証跡 139 件を移行し欠損 0。
+優先順位のトレードオフ（混在文が TRANSITIONAL 主型になる）は監査報告書に
+明記済み（`transitional_classification_audit.md`）。
 さらに「端数金額を控除した金額」型の千円未満切捨て 18 単位を全文判定で
 追加（`deductrem_audit.json`）。
 
 **未達（続行すべき義務）**: 未検証義務の大部分（260,411 単位）、未解決条件
-140,289 単位、37 単位分のサンプル独立 ADVERSARIAL_REVIEW、人間の法的レビュー、
+139,841 単位、37 単位分のサンプル独立 ADVERSARIAL_REVIEW、人間の法的レビュー、
 地方税条例 1,788 件、附則参照 87 件の版写像、租税条約・通達・裁判例の別層整備。
 
 **再開手順**: `git checkout fix/normative-queue-v2` →

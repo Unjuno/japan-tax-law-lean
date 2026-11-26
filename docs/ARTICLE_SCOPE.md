@@ -10,7 +10,7 @@ It is a DIAGNOSTIC for the independent-audit axis, not a completion gate.
 - checks with article/table-cell scoped needles: 158
 - checks with no scoped unit (whole-text or cross-article needles): 0
 - scoped units with exact mechanical reconstruction: 33361/33361
-- unresolved normative fragments recorded (not judged): 24693
+- unresolved normative fragments recorded (not judged): 24691
 
 Coverage figures above are mechanical character reconstruction only.
 They are NOT a fidelity proof and NOT a completion gate.
