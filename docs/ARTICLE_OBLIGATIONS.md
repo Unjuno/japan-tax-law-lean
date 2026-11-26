@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 281
-- presence-facts-only complete: 281
-- NOT_STARTED: 281
+- articles with explicit pin: 273
+- presence-facts-only complete: 273
+- NOT_STARTED: 273
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -19,9 +19,7 @@ source positions. Human legal review is a separate axis and is pending.
 |---|---|---|---|---|---|---|
 | `347AC0000000007` | 第十四条 | AircraftFuelTaxPayable | YES | YES | NO | NOT_STARTED |
 | `346AC0000000090` | 第四条 | AutoWeightGrantRounding | YES | YES | YES | NOT_STARTED |
-| `327CO0000000124` | 第三条の二 | PrevParagraphTwoThreeReading | YES | YES | NO | NOT_STARTED |
 | `332AC0000000077` | 第六条 | TokyoAsCityDeeming | YES | YES | NO | NOT_STARTED |
-| `337M50000040031` | 第一条の六 | PrivateContractPublicAuctionReading | YES | YES | NO | NOT_STARTED |
 | `340AC0000000034` | 第六十六条 | CorporateTaxRate | YES | YES | YES | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の七 | GiftTax | YES | YES | YES | NOT_STARTED |
 | `325AC0000000073` | 第二十一条の五 | GiftTax | YES | YES | YES | NOT_STARTED |
@@ -71,7 +69,6 @@ source positions. Human legal review is a separate axis and is pending.
 | `347AC0000000007` | 第十一条 | AviationFuelTaxRate | YES | YES | NO | NOT_STARTED |
 | `332AC0000000055` | 第二十七条 | GasolineTaxArt27TripleFineRange | YES | YES | NO | NOT_STARTED |
 | `332AC0000000038` | 第十条 | SpecialTonnageArt10PenaltyCap | YES | YES | NO | NOT_STARTED |
-| `340AC0000000033` | 第二条 | IncomeTaxSpouseIncomeCeiling10M | YES | YES | NO | NOT_STARTED |
 | `330AC0000000104` | 第四条 | LocalGasolineTaxRate | YES | YES | NO | NOT_STARTED |
 | `332AC0000000055` | 第九条 | GasolineTaxRate | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第十四条 | CustomsSameContentLimit | YES | YES | NO | NOT_STARTED |
@@ -158,7 +155,6 @@ source positions. Human legal review is a separate axis and is pending.
 | `327AC0000000111` | 第十一条 | UsForcesDutyFreePenalty | YES | YES | NO | NOT_STARTED |
 | `340AC0000000157` | 第四条 | OilGasGrantArt4Rounding | YES | YES | NO | NOT_STARTED |
 | `325AC0000000226` | 第五百九十四条 | SpecialLandHoldingTaxRate | YES | YES | YES | NOT_STARTED |
-| `340AC0000000033` | 第八十四条の二 | SpecifiedRelativeSpecialDeduction | YES | YES | YES | NOT_STARTED |
 | `143AC0000000054` | 第十条 | CustomsDamageReduction | YES | YES | YES | NOT_STARTED |
 | `143AC0000000054` | 第四条の七 | CustomsExchangeRate | YES | YES | NO | NOT_STARTED |
 | `143AC0000000054` | 第三条の三 | CustomsSmallConsignment | YES | YES | NO | NOT_STARTED |
@@ -292,9 +288,5 @@ source positions. Human legal review is a separate axis and is pending.
 | `507CO0000000134` | 第三条 | DefenseCorpShortfallSum | YES | YES | NO | NOT_STARTED |
 | `507CO0000000134` | 第三条 | DefenseCorpShortfallSum | YES | YES | NO | NOT_STARTED |
 | `332AC0000000038` | 第十条 | SpecialTonnageArt10PenaltyCap | YES | YES | NO | NOT_STARTED |
-| `325AC0000000226` | 第百五十四条 | LocalTaxArt154Capacity30Condition | YES | YES | NO | NOT_STARTED |
+| `340AC0000000033` | 第二条 | IncomeTaxSpouseIncomeCeiling10M | YES | YES | NO | NOT_STARTED |
 | `332CO0000000049` | 第三条 | SpecialTonSecurityEightTen | YES | YES | NO | NOT_STARTED |
-| `424CO0000000017` | 第三条 | ReconstructionCorpTaxMonthFloor | YES | YES | NO | NOT_STARTED |
-| `430M60000040039` | 第三条 | TouristTaxTaxablePassengers | YES | YES | YES | NOT_STARTED |
-| `425CO0000000025` | 第七条 | TaxResearchCouncilQuorum | YES | YES | NO | NOT_STARTED |
-| `404M50000008008` | 第一条 | FreeTradeZoneReading | YES | YES | NO | NOT_STARTED |
