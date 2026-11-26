@@ -6,10 +6,9 @@ A document name in an evidence string is not proof that the document
 supports the unit. This audit resolves each reference against the artifact.
 
 - units checked: 1058
-- references resolved: 5220/5221
-- references UNRESOLVED: 1
-- all-complete claimable from references: False
+- references resolved: 5221/5221
+- references UNRESOLVED: 0
+- all-complete claimable from references: True
 
 | unit | axis | D | detail |
 |---|---|---|---|
-| `NORM|6b83a747a7e86cb` | adversarial_review | FAIL | non-batch reference |
