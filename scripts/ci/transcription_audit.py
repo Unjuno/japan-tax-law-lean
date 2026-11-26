@@ -5101,6 +5101,13 @@ def checks():
            "file", None,
            ["\u524d\u4e8c\u9805\u306b\u5b9a\u3081\u308b\u3082\u306e\u306e\u307b\u304b\u3001\u571f\u5730\u8a55\u4fa1\u5be9\u8b70\u4f1a\u306e\u7d44\u7e54\u53ca\u3073\u904b\u55b6\u306b\u95a2\u3057\u5fc5\u8981\u306a\u4e8b\u9805\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3002"])
 
+    # CustomsTariffArt15Item3_2FriendshipDonationException.lean - NORM|d011e614... (関税定率法 art.15(1) item3の2 EXCEPTION, law 143AC0000000054)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("customs tariff law art.15 item3_2 friendship donation exception - CustomsTariffArt15Item3_2FriendshipDonationException.lean",
+           "143AC0000000054",
+           "file", None,
+           ["\u524d\u4e09\u53f7\u306b\u8a72\u5f53\u3059\u308b\u3082\u306e\u3092\u9664\u304d\u3001\u56fd\u969b\u89aa\u5584\u306e\u305f\u3081\u3001\u56fd\u53c8\u306f\u5730\u65b9\u516c\u5171\u56e3\u4f53\u306b\u305d\u306e\u7528\u306b\u4f9b\u3059\u308b\u3082\u306e\u3068\u3057\u3066\u5bc4\u8d08\u3055\u308c\u308b\u7269\u54c1"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
