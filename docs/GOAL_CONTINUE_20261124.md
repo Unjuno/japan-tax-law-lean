@@ -480,6 +480,27 @@ progress_ledger: COUNTED; NOT_STARTED delta -10 (snapshot offset); new modules 1
 All five target ids carry `kernel_proof` citing the correct run. Legal review
 stays pending.
 
+### Eighteenth iteration (batch 263)
+
+An eighth delegated agent produced five units (`LocalTax71_16UnpaidOver2M`,
+`4MunicipalIncomeOver30M`, `144_33FineCeiling7M`, `13LightOilOver30k`,
+`62EvadedOver5M`) with independent specs, kernel tests, scoped needles and
+batch-263 review; build 2088 jobs, transcription 650, invariants 17/17.
+CI run `45863799970` on `00fd74ca907952848f9e5e5d92af008dbed995d6` completed
+`success`; `data/PROOF_ATTESTATION_SCOPED_T18.json` binds 15 module hashes from
+committed blobs at that commit to that run. All five units were pre-validated
+against the generator's clause/scoping gates before the evidence run.
+
+```
+before: FULLY_VERIFIED=1162 NOT_STARTED=395687 evidence=1165
+after:  FULLY_VERIFIED=1168 NOT_STARTED=395681 evidence=1171
+delta:  FULLY_VERIFIED=+6 NOT_STARTED=-6  evidence=+6
+progress_ledger: COUNTED; NOT_STARTED delta -16; new modules 15
+```
+
+All five target ids carry `kernel_proof` citing the correct run. Legal review
+stays pending.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |
