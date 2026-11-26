@@ -4702,6 +4702,15 @@ def checks():
            "332AC0000000026", "file", None,
            ["増減試験研究費割合が百分の七を超える事業年度"])
 
+    # 所得税法 art. 3 — BlueBusinessDeductAmount.lean (22.5万/21.75万)
+    yield ("所得税法 art. 3（青色事業専従者22.5万/21.75万）↔ BlueBusinessDeductAmount.lean",
+           "340AC0000000033", "file", None,
+           ["二十二万五千円（当該青色事業専従者の年齢が二十歳未満である場合には、二十一万七千五百円）"])
+    # 租税特別措置法施行令 art. 33の3 — ReserveAccumulationAtMost25.lean (25%以下)
+    yield ("租税特別措置法施行令 art. 33_3（準備金25%以下）↔ ReserveAccumulationAtMost25.lean",
+           "332CO0000000043", "file", None,
+           ["異常危険準備金累積割合が百分の二十五以下の場合"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
