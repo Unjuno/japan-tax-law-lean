@@ -105,6 +105,9 @@ def checks():
     yield ("特別とん譲与税法 art.6(1)（都を市とみなす）↔ TokyoAsCityDeeming.lean",
            "332AC0000000077", "article", "第六条",
            ["この場合においては、都を市とみなして、この法律の規定を適用する。"])
+    # PrivateContractPublicAuctionReading.lean - NORM|d692d7da... (随意契約公売準用 READING, law 337M50000040031)
+    yield ("国税徴収法施行規則 art.1_6（随意契約時の公売規定準用）↔ PrivateContractPublicAuctionReading.lean",
+           "337M50000040031", "article", "第一条の六", ["（随意契約により不動産を売却する場合における公売の規定の準用）"])
 
     # Restored registry checks dropped by a concurrent stale-base rewrite.
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
@@ -1212,12 +1215,6 @@ def checks():
            "143AC0000000054",
            "file", None,
            ["その期間を六月以内に限り延長することができる", "第八条"])
-
-    # 相続税法 art.1の4 — GiftTaxTenYearResidenceLookback.lean
-    yield ("相続税法 art.1の4（贈与前十年以内の住所）↔ GiftTaxTenYearResidenceLookback.lean",
-           "325AC0000000073",
-           "file", None,
-           ["当該贈与前十年以内のいずれかの時においてこの法律の施行地に住所を有していたことがあるもの", "第一条の四"])
 
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
@@ -4560,6 +4557,11 @@ def checks():
     yield ("地方税法 art. 314_6（3%／指定都市4%）↔ LocalInhabitantReducedRate3or4.lean",
            "325AC0000000226", "file", None,
            ["次に掲げる金額のうちいずれか少ない金額の百分の三"])
+    # 特別とん税法施行令 art.3(1) — SpecialTonSecurityEightTen.lean
+    yield ("特別とん税法施行令 第三条(1)（特別とん税額 八分の十）↔ SpecialTonSecurityEightTen.lean",
+           "332CO0000000049", "article", "第三条",
+           ["とん税額の八分の十に相当する特別とん税額をあわせて担保しなければならない。"])
+
 
     # 租税特別措置法 art. 10 — RndExcessOver3.lean (増減試験研究費割合 > 3%)
     yield ("租税特別措置法 art. 10（増減試験研究費割合 3%超）↔ RndExcessOver3.lean",
@@ -4613,11 +4615,24 @@ def checks():
            "332AC0000000026", "file", None,
            ["増減試験研究費割合が百分の三を超え百分の十五以下である場合（ニに掲げる場合を除く。）"])
 
-    # 特別法人事業譲与税法 art. 31(5)(4) — ExcessFinanceGrant75Cap.lean
+    # 租税特別措置法 art. 10の5の4 — ContinuingIncreaseAtLeast5.lean (5%以上)
+    yield ("租税特別措置法 art. 10_5_4（継続雇用者5%以上）↔ ContinuingIncreaseAtLeast5.lean",
+           "332AC0000000026", "file", None,
+           ["継続雇用者給与等支給増加割合が百分の五以上であること"])
+    # 租税特別措置法 art. 10の5の4 — SalaryIncreaseRate5Or15.lean (5%/15%)
+    yield ("租税特別措置法 art. 10_5_4（5%／15%分岐）↔ SalaryIncreaseRate5Or15.lean",
+           "332AC0000000026", "file", None,
+           ["百分の五（継続雇用者給与等支給増加割合が百分の六以上である場合には、百分の十五）"])
+
+    # Restored registry-required checks dropped by concurrent merge.
     yield ("特別法人事業譲与税法 art. 31（十一月分75%と財源超過額上限）↔ ExcessFinanceGrant75Cap.lean",
            "431AC0000000004",
            "file", None,
            ["財源超過団体における十一月の譲与時期に係る基準各譲与時期特別法人事業譲与税額の百分の七十五に相当する額（当該額に当該財源超過団体に係る五月分財源超過団体譲与制限額及び八月分財源超過団体譲与制限額の合算額を加えた額が財源超過額を超える場合には、当該財源超過額から当該合算額を控除した額とする。）をいう。"])
+    yield ("相続税法 art.1の4（贈与前十年以内の住所）↔ GiftTaxTenYearResidenceLookback.lean",
+           "325AC0000000073",
+           "file", None,
+           ["当該贈与前十年以内のいずれかの時においてこの法律の施行地に住所を有していたことがあるもの", "第一条の四"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
