@@ -2966,6 +2966,19 @@
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:34/Article#34/Paragraph#1/Item#10_2/Subitem1#1/Subitem2#2/Subitem2Sentence/Column#2/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LivingSupport380kTests.lean sha256=58b975310a4c3db27125f83f3be200d27b0e169d60b0e2777464420e91f847ad (11 kernel-decided examples)"
     },
+    "NORM|293a349f6f7d21dda09ef6ffecee55039fbaab8d4060af0cf337703a58b76a3a": {
+      "adversarial_review": "docs/ADVERSARIAL_SPECIAL_MEASURES_ART70_6_6_PRESUMED_HEIR.md — NO FINDINGS with all 15 mandated checks independently reproduced from authoritative sources (raw law JSON, INVENTORY, task queue, audit helper and axiom probe). Reproduced: raw sha256 e6e6013b…5cf8d5ee; needle unique at Article 70_6_6(2) Item4 Subitem1 Sentence#1, authoritative text 当該個人が、当該相続の開始の直前において、当該被相続人の推定相続人であること。 (single U+306B after 前); law identity 租税特別措置法 / Act / revision 2026-11-01 matches INVENTORY; kind PRESUMPTION with no dependencies/unhandled conditions; presumed-heir flag selects the case with no heir-status determination invented (NOT MODELLED); needle byte-verbatim in all five artifacts with no wrong-codepoint variants; audit 777/777 with whole-law file locator; all three theorems axiom-free by rfl/cases; build 2614 jobs; LEGAL_REVIEW_PENDING. Reviewer noted its own prompt had an extra に (直前ににおいて) absent from queue/raw; unit artifacts and PR text use the authoritative form. No completion claim; human legal review remains pending.",
+      "boundary_proof": "JapanTaxLaw/SpecialMeasuresArt70_6_6PresumedHeirConditionTests.lean: presumed heir qualifies, non-heir rejected, spec equivalence (all axiom-free)",
+      "cross_law_proof": "queue unit has no dependencies; no cross-law constant introduced. No claim of resolution beyond the 15-digit law id is made.",
+      "decomposition_audit": "build/task_queue.json: kind=PRESUMPTION (Art.70の6の6(2): person was the presumed heir immediately before the inheritance opened), decomposed=true, exact span, unhandled_conditions=[], id unique",
+      "implementation": "JapanTaxLaw/SpecialMeasuresArt70_6_6PresumedHeirCondition.lean sha256=7e3a07d1ae2761cb60ad7c8f1cfe8a91d9b354925e363598d335067ce6334a32 (租税特別措置法 art.70の6の6(2) PRESUMPTION: qualifies on caller-established Bool flag, two boundary theorems; heir-status determination NOT MODELLED; Act)",
+      "independent_spec": "JapanTaxLaw/SpecialMeasuresArt70_6_6PresumedHeirConditionSpec.lean sha256=2316a72689546cd7428c0e72b1bbf9a24d01df04eba05384b569df6e09eedc27 (SpecQualifies Prop negation of complementary case, representationally distinct from the Bool equality; equivalence proved by cases; three theorems axiom-free by rfl/cases — no decide/simp/propext)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (2614 jobs); all three unit theorems axiom-free via #print axioms probe; no sorryAx/Classical.choice/propext",
+      "proof_scope": "docs/UNIT_SPECIAL_MEASURES_ART70_6_6_PRESUMED_HEIR.md (computable flag-selection slice of one PRESUMPTION norm unit in 租税特別措置法 art.70の6の6(2); heir-status determination / legal correctness NOT MODELLED)",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS special measures art.70_6_6 presumed heir condition; 777/777 checks passed; verbatim needle is Article 70の6の6(2) Subitem1 Sentence#1 and unique in whole law; whole-law file locator; 推定相続人/相続の開始の直前に/被相続人 terms derived programmatically from the needle with exact codepoints, never hand-typed; law identity 332AC0000000026 Act with real revision; byte-fidelity equal=True, U+6EDE=0",
+      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:70_6_6/Article#70_6_6/Paragraph#2/Item#4/Subitem1#1/Subitem1Sentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee (revision from INVENTORY current_revision, matched raw revision_info)",
+      "tests": "JapanTaxLaw/SpecialMeasuresArt70_6_6PresumedHeirConditionTests.lean sha256=88e2c8917d29d0a1400d49f6a5097fc177579d9ac4d3520131143152b68bab77 (kernel-checked presumption flag checks)"
+    },
     "NORM|293c9e15040998259427b7431d19bee10e88f4300adfd499bd327cd83bbe6626": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",
@@ -4031,6 +4044,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"1000000000\": [\"十億\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/502AC0000000025_20260401_508AC0000000012.law.json#LawBody[1]/MainProvision/MainProvision[7]/Article:7/Article#7/Paragraph#1/Item#1/Subitem1#1/Subitem1Sentence/Sentence#1 sha256=410e0d9715f6ea70fe2a9ca6c986a70abec48a3cbabe625fb54aabaa18efaa23 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/CapitalOneBillionExcessTests.lean sha256=da059206d66a151655c1af08041996f342ecd89748f177f2f3ad3399d8db702e (10 kernel-decided examples)"
+    },
+    "NORM|3b374d46b3620530b433d1c8d12e627f7d2327139e6f3f92e7209a4c140854a5": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 9 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=422CO0000000060_20101001_000000000000000 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/ParagraphSixSevenReading.lean sha256=1aac44ff8f1b353450dd25263f4c763f388c94461ce8260ffe066fcf826f69c1",
+      "independent_spec": "JapanTaxLaw/ParagraphSixSevenReadingSpec.lean sha256=fe45342cfc43b5db1c8fdfafdebee86285d14edb4a4446116e5cede2d61b0c6c (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45893775304: commit 6fdd1817289839f11e9eabaedb265a028a0d7fb4, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=pinned needle(s) in clause: ['第六項及び第七項の規定は、前項の場合について準用']; constants [] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['第六項及び第七項の規定は、前項の場合について準用']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/422CO0000000060_20101001_000000000000000.law.json#LawBody[2]/MainProvision/MainProvision[0]/Article:3/Article#3/Paragraph#9/ParagraphSentence/Sentence#1 sha256=b6ae25c119ea3741f5567f8fb9bdbddc21b8bc992f00af56d7de585b848f51cd (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/ParagraphSixSevenReadingTests.lean sha256=8919d2d7472ee83d22f14b6ee810f221985e27c28ff2f219b4cc1908bb999e30 (9 kernel-decided examples)"
     },
     "NORM|3baf93b6dc8b6e315291f16d37ab04a47ebafa71a3915823e26a1aac902882e0": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
@@ -14510,6 +14536,19 @@
       "source_location": "data/raw/322AC0000000175_20220101_503AC0000000011.law.json#LawBody[1]/MainProvision/MainProvision[1]/Article:2/Article#2/Paragraph#1/List/ListSentence/Column#1/Sentence#1 sha256=c3bb5b0bdffbdefd2ee5f358d90ad9e0922d4c887ecb2b133aa7d613f5f4e7ef (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/DisasterIncomeTaxReliefTests.lean sha256=1d566e315d4a7bbb3414255cd2beeaf2cfb7b9b2b6cfa818b0e18b8ae0067a82 (16 kernel-decided examples)"
     },
+    "NORM|efa09d98292a1de5055d9a7bdf08343c4d14f2f9bf9e64ad90a5bd4ddf492e34": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 6 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=1; enforced revision=420CO0000000210_20081001_000000000000000 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/CustomsItExceptionPromptEffective.lean sha256=b772daed2826be575b42c7729e90a19e0f77a5eaa815127230e82e581f1e0af2",
+      "independent_spec": "JapanTaxLaw/CustomsItExceptionPromptEffectiveSpec.lean sha256=2b7c3358f3d2d2c648b2e4dd6eaec26091aaf24371aa492da02c00a4e61ea3ff (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45894298184: commit b5feeaf2570b8c89cc638ba82c2a86ff6d9ea008, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=pinned needle(s) in clause: ['ただし、第十三条の規定は、公布の日から施行する。']; constants [] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['ただし、第十三条の規定は、公布の日から施行する。']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/420CO0000000210_20081001_000000000000000.law.json#LawBody[4]/SupplProvision/SupplProvision[1]/Article:1/Article#1/Paragraph#1/ParagraphSentence/Sentence#2 sha256=499b4ac13b48680b72086379f1ac73f2db709d43f1db1197e838c10f7fa6aaba (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/CustomsItExceptionPromptEffectiveTests.lean sha256=e45253945e37c94a2d77da1d4feb91f5283eaee6539ce2a6bd900f2a162170af (6 kernel-decided examples)"
+    },
     "NORM|efa7147857af66e50f5676b3b145e19f68d6e1272a9f7febdf72a9994815af7e": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",
@@ -15458,19 +15497,6 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle in clause + all spec numerals in scoped article: ['その金額が二百万円を超える場合には、二百万円']; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"100000\": [], \"10000000\": [], \"110000\": [], \"130000\": [], \"150000\": [], \"2\": [\"二\"], \"2000000\": [\"二百万\"], \"220000\": [], \"24000000\": [], \"24500000\": [], \"25000000\": [], \"260000\": [], \"290000\": [], \"300000\": [], \"330000\": [], \"380000\": [], \"4\": [], \"430000\": [], \"5\": [], \"530000\": [], \"9000000\": [], \"9500000\": []}; statutory rate = none; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:34/Article#34/Paragraph#1/Item#2/ItemSentence/Column#2/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalIncomeTaxTests.lean sha256=017a1f256a089f692a0f6f7c5971879339d07ba26a588ff0ae0a6c3d01450104 (55 kernel-decided examples)"
-    },
-    "NORM|293a349f6f7d21dda09ef6ffecee55039fbaab8d4060af0cf337703a58b76a3a": {
-      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[3]/Article:70_6_6/Article#70_6_6/Paragraph#2/Item#4/Subitem1#1/Subitem1Sentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee (revision from INVENTORY current_revision, matched raw revision_info)",
-      "decomposition_audit": "build/task_queue.json: kind=PRESUMPTION (Art.70の6の6(2): person was the presumed heir immediately before the inheritance opened), decomposed=true, exact span, unhandled_conditions=[], id unique",
-      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS special measures art.70_6_6 presumed heir condition; 777/777 checks passed; verbatim needle is Article 70の6の6(2) Subitem1 Sentence#1 and unique in whole law; whole-law file locator; 推定相続人/相続の開始の直前に/被相続人 terms derived programmatically from the needle with exact codepoints, never hand-typed; law identity 332AC0000000026 Act with real revision; byte-fidelity equal=True, U+6EDE=0",
-      "independent_spec": "JapanTaxLaw/SpecialMeasuresArt70_6_6PresumedHeirConditionSpec.lean sha256=2316a72689546cd7428c0e72b1bbf9a24d01df04eba05384b569df6e09eedc27 (SpecQualifies Prop negation of complementary case, representationally distinct from the Bool equality; equivalence proved by cases; three theorems axiom-free by rfl/cases — no decide/simp/propext)",
-      "implementation": "JapanTaxLaw/SpecialMeasuresArt70_6_6PresumedHeirCondition.lean sha256=7e3a07d1ae2761cb60ad7c8f1cfe8a91d9b354925e363598d335067ce6334a32 (租税特別措置法 art.70の6の6(2) PRESUMPTION: qualifies on caller-established Bool flag, two boundary theorems; heir-status determination NOT MODELLED; Act)",
-      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (2614 jobs); all three unit theorems axiom-free via #print axioms probe; no sorryAx/Classical.choice/propext",
-      "proof_scope": "docs/UNIT_SPECIAL_MEASURES_ART70_6_6_PRESUMED_HEIR.md (computable flag-selection slice of one PRESUMPTION norm unit in 租税特別措置法 art.70の6の6(2); heir-status determination / legal correctness NOT MODELLED)",
-      "boundary_proof": "JapanTaxLaw/SpecialMeasuresArt70_6_6PresumedHeirConditionTests.lean: presumed heir qualifies, non-heir rejected, spec equivalence (all axiom-free)",
-      "cross_law_proof": "queue unit has no dependencies; no cross-law constant introduced. No claim of resolution beyond the 15-digit law id is made.",
-      "tests": "JapanTaxLaw/SpecialMeasuresArt70_6_6PresumedHeirConditionTests.lean sha256=88e2c8917d29d0a1400d49f6a5097fc177579d9ac4d3520131143152b68bab77 (kernel-checked presumption flag checks)",
-      "adversarial_review": "docs/ADVERSARIAL_SPECIAL_MEASURES_ART70_6_6_PRESUMED_HEIR.md — NO FINDINGS with all 15 mandated checks independently reproduced from authoritative sources (raw law JSON, INVENTORY, task queue, audit helper and axiom probe). Reproduced: raw sha256 e6e6013b…5cf8d5ee; needle unique at Article 70_6_6(2) Item4 Subitem1 Sentence#1, authoritative text 当該個人が、当該相続の開始の直前において、当該被相続人の推定相続人であること。 (single U+306B after 前); law identity 租税特別措置法 / Act / revision 2026-11-01 matches INVENTORY; kind PRESUMPTION with no dependencies/unhandled conditions; presumed-heir flag selects the case with no heir-status determination invented (NOT MODELLED); needle byte-verbatim in all five artifacts with no wrong-codepoint variants; audit 777/777 with whole-law file locator; all three theorems axiom-free by rfl/cases; build 2614 jobs; LEGAL_REVIEW_PENDING. Reviewer noted its own prompt had an extra に (直前ににおいて) absent from queue/raw; unit artifacts and PR text use the authoritative form. No completion claim; human legal review remains pending."
     }
   }
 }
