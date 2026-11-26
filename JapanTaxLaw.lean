@@ -1556,6 +1556,9 @@ import JapanTaxLaw.MergerGrantFiscalWindowTests
 import JapanTaxLaw.MergerMaxCapital
 import JapanTaxLaw.MergerMaxCapitalSpec
 import JapanTaxLaw.MergerMaxCapitalTests
+import JapanTaxLaw.MinisterialNecessityException
+import JapanTaxLaw.MinisterialNecessityExceptionSpec
+import JapanTaxLaw.MinisterialNecessityExceptionTests
 import JapanTaxLaw.MonthCountExclusiveBand
 import JapanTaxLaw.MonthCountExclusiveBandSpec
 import JapanTaxLaw.MonthCountExclusiveBandTests

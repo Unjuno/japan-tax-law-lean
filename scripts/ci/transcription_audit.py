@@ -91,6 +91,10 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # MinisterialNecessityException.lean - NORM|045b8c69... (特に必要場合の例外 EXCEPTION, law 336CO0000000153)
+    yield ("関税割当制度政令 art.2(4) ただし書（特に必要な場合の例外）↔ MinisterialNecessityException.lean",
+           "336CO0000000153", "article", "第二条", ["ただし、農林水産大臣又は経済産業大臣が特に必要があると認めるときは、この限りでない。"])
+
     # TouristTaxTaxablePassengers — 国際観光旅客税法施行規則 art.3(2) ホ (restored)
     yield ("国際観光旅客税法施行規則 art.3(2) ホ（課税旅客数＝イ−(ロ+ハ+ニ)）↔ TouristTaxTaxablePassengers.lean",
            "430M60000040039", "article", "第三条", ["イに掲げる数からロからニまでに掲げる数の合計数を控除した数"])
