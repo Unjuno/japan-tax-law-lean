@@ -4873,6 +4873,12 @@ def checks():
            "file", None,
            ["第六号に掲げる揮発油税額から前号に掲げる揮発油税額を控除した金額に相当する揮発油税額（以下「移出に係る納付すべき税額」という。）"])
 
+    # 沖縄復帰国税省令 art. 20(1)(1の3) — OkinawaTaxableQuantityResidual.lean
+    yield ("沖縄復帰国税省令 art. 20（課税標準数量の差額）↔ OkinawaTaxableQuantityResidual.lean",
+           "347M50000040042",
+           "file", None,
+           ["第一号の数量から前号の数量を控除した数量（以下この項において「課税標準数量」という。）"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
