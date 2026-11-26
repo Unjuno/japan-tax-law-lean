@@ -6,8 +6,8 @@ A whole-text numeric match is NOT article-level verification. This is a
 source-fidelity diagnostic (D=PASS means needle in stated article only),
 never a completion gate or a semantic/legal claim.
 
-- checks with article/table-cell scoped needles: 732
-- checks with no scoped unit: 1
+- checks with article/table-cell scoped needles: 741
+- checks with no scoped unit: 0
 
 | law_id | stated article | needle hits | scoped positions | D |
 |---|---|---:|---:|---|
@@ -715,7 +715,7 @@ never a completion gate or a semantic/legal claim.
 | `340CO0000000096` | (file-level) | 3 | 3 | PASS |
 | `340CO0000000096` | (file-level) | 3 | 3 | PASS |
 | `340CO0000000096` | (file-level) | 3 | 3 | PASS |
-| `325AC0000000226` | (file-level) | 34 | 35 | PASS |
+| `325AC0000000226` | (file-level) | 3 | 3 | PASS |
 | `332CO0000000043` | (file-level) | 6 | 6 | PASS |
 | `407M50000008016` | 第一条 | 3 | 3 | PASS |
 | `349AC0000000079` | 第十二条 | 2 | 2 | PASS |
@@ -729,7 +729,7 @@ never a completion gate or a semantic/legal claim.
 | `325AC0000000226` | (file-level) | 2 | 2 | PASS |
 | `325CO0000000245` | (file-level) | 3 | 3 | PASS |
 | `325CO0000000245` | (file-level) | 3 | 3 | PASS |
-| `332AC0000000055` | (file-level) | 0 | 0 | FAIL |
+| `332AC0000000055` | (file-level) | 3 | 3 | PASS |
 | `332CO0000000043` | (file-level) | 6 | 6 | PASS |
 | `407M50000008016` | 第一条 | 3 | 3 | PASS |
 | `349AC0000000079` | 第十二条 | 2 | 2 | PASS |
@@ -742,5 +742,13 @@ never a completion gate or a semantic/legal claim.
 | `332AC0000000055` | (file-level) | 3 | 3 | PASS |
 | `325AC0000000226` | (file-level) | 2 | 2 | PASS |
 | `325AC0000000226` | (file-level) | 16 | 16 | PASS |
+| `325AC0000000226` | (file-level) | 2 | 2 | PASS |
+| `325AC0000000226` | (file-level) | 16 | 16 | PASS |
 | `325AC0000000226` | (file-level) | 20 | 20 | PASS |
 | `325AC0000000226` | (file-level) | 11 | 11 | PASS |
+| `347M50000040042` | (file-level) | 3 | 3 | PASS |
+| `325AC0000000226` | (file-level) | 11 | 11 | PASS |
+| `325AC0000000226` | (file-level) | 16 | 16 | PASS |
+| `325AC0000000226` | (file-level) | 16 | 16 | PASS |
+| `325AC0000000226` | (file-level) | 16 | 16 | PASS |
+| `414CO0000000262` | (file-level) | 2 | 2 | PASS |
