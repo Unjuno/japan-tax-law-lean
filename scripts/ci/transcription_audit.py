@@ -5093,6 +5093,11 @@ def checks():
            "342M50000040037",
            "file", None,
            ["組織変更をする会社の当該組織変更の直前における資産の額から負債の額を控除した額（当該控除した額がイに掲げる額以下である場合にあつては、イに掲げる額）"])
+    # 復興特別法人税省令 art.1(1)(4) — ResidualDistributionOneMonth.lean
+    yield ("復興特別法人税省令 第一条(1)(4)（残余財産分配 一月以内）↔ ResidualDistributionOneMonth.lean",
+           "424M60000040007", "article", "第一条",
+           ['当該課税事業年度が残余財産の確定の日の属する課税事業年度である場合において、当該課税事業年度終了の日の翌日から一月以内に残余財産の最後の分配又は引渡しが行われるときは、その分配又は引渡しが行われる日'])
+
 
     # InheritanceTaxArt26_2CouncilDelegation.lean - NORM|71d63ade... (相続税法 art.26の2(5) DELEGATION, law 325AC0000000073)
     # Whole-law locator; needle is unique in the pinned act.
