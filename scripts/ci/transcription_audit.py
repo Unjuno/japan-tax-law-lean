@@ -1278,6 +1278,12 @@ def checks():
            "article", "第二条",
            ["年齢十九歳以上二十三歳未満の者をいう", "第二条"])
 
+    # 登録免許税法 art.17(2) — ShipRegistrationRateReduction4PerMille.lean
+    yield ("登録免許税法 art.17(2)（船舶本登記 千分の四控除）↔ ShipRegistrationRateReduction4PerMille.lean",
+           "342AC0000000035",
+           "article", "第十七条",
+           ["割合から千分の四を控除した割合とする", "第十七条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
@@ -2503,6 +2509,12 @@ def checks():
            "410CO0000000345",
            "file", None,
            ["第一条この政令は、平成十年十二月一日から施行する", "この政令は、平成十年十二月一日から施行する"])
+
+    # TobaccoSpecialTaxRuleEnforcementDate — cycle-140
+    yield ("TobaccoSpecialTaxRuleEnforcementDate.lean",
+           "410M50000040122",
+           "file", None,
+           ["第一条この省令は、平成十六年一月十九日から施行する", "この省令は、平成十六年一月十九日から施行する"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
