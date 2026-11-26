@@ -1226,6 +1226,9 @@ import JapanTaxLaw.LocalGasolineTaxRateTests
 import JapanTaxLaw.LocalGradation256
 import JapanTaxLaw.LocalGradation256Spec
 import JapanTaxLaw.LocalGradation256Tests
+import JapanTaxLaw.LocalGrantBracket1000To5000
+import JapanTaxLaw.LocalGrantBracket1000To5000Spec
+import JapanTaxLaw.LocalGrantBracket1000To5000Tests
 import JapanTaxLaw.LocalGrantRevenueBase
 import JapanTaxLaw.LocalGrantRevenueBaseSpec
 import JapanTaxLaw.LocalGrantRevenueBaseTests
@@ -1334,6 +1337,9 @@ import JapanTaxLaw.LocalTaxFalseFilingFineCap500kTests
 import JapanTaxLaw.LocalTaxFixedAmountRounding
 import JapanTaxLaw.LocalTaxFixedAmountRoundingSpec
 import JapanTaxLaw.LocalTaxFixedAmountRoundingTests
+import JapanTaxLaw.LocalTaxIncomeBracket4MTo1B
+import JapanTaxLaw.LocalTaxIncomeBracket4MTo1BSpec
+import JapanTaxLaw.LocalTaxIncomeBracket4MTo1BTests
 import JapanTaxLaw.LocalTaxIncomeBracket4_8
 import JapanTaxLaw.LocalTaxIncomeBracket4_8Spec
 import JapanTaxLaw.LocalTaxIncomeBracket4_8Tests
