@@ -4964,6 +4964,15 @@ def checks():
            ["九百万円を超え千八百万円以下の金額"])
 
 
+    # 地方税法 art. 37の2 — LocalTaxBracket330To695.lean (330万超695万以下)
+    yield ("地方税法 art. 37_2（330万超695万以下）↔ LocalTaxBracket330To695.lean",
+           "325AC0000000226", "file", None,
+           ["三百三十万円を超え六百九十五万円以下の金額"])
+    # 地方税法 art. 37の2 — LocalTaxBracket695To900.lean (695万超900万以下)
+    yield ("地方税法 art. 37_2（695万超900万以下）↔ LocalTaxBracket695To900.lean",
+           "325AC0000000226", "file", None,
+           ["六百九十五万円を超え九百万円以下の金額"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
