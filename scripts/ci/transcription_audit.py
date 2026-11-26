@@ -91,6 +91,10 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # ForeignSubsidiaryTaxRate20.lean - restored registered check (租税特別措置法 art.40の4, law 332AC0000000026)
+    yield ("租税特別措置法 art.40の4（租税負担割合 百分の二十以上）↔ ForeignSubsidiaryTaxRate20.lean",
+           "332AC0000000026", "file", None,
+           ["\u5bfe\u8c61\u5916\u56fd\u95a2\u4fc2\u4f1a\u793e\u306e\u5404\u4e8b\u696d\u5e74\u5ea6\u306e\u79df\u7a0e\u8ca0\u62c5\u5272\u5408\u304c\u767e\u5206\u306e\u4e8c\u5341\u4ee5\u4e0a\u3067\u3042\u308b\u5834\u5408"])
     yield ("航空機燃料税法 art. 14(1) 第四号（納付すべき税額＝二号税額−前号税額）↔ AircraftFuelTaxPayable.lean", "347AC0000000007", "article", "第十四条", ["第二号に掲げる航空機燃料税額から前号に掲げる航空機燃料税額を控除した金額"])
 
     yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
@@ -4651,6 +4655,13 @@ def checks():
            "332CO0000000049", "article", "第三条",
            ["とん税額の八分の十に相当する特別とん税額をあわせて担保しなければならない。"])
 
+
+    # LocalTaxEnforcementArt4AnnualAmount350.lean - NORM|c8d9f6f7... (地方税法施行規則 art.4 supplementary table cell CONDITION, law 329M50000002023)
+    # Whole-law locator; needle is unique in the pinned ordinance.
+    yield ("local tax enforcement rules art.4 annual amount 350 condition - LocalTaxEnforcementArt4AnnualAmount350.lean",
+           "329M50000002023",
+           "file", None,
+           ["\u5e74\uff13\uff15\uff10\u4e07\u5186\u4ee5\u4e0b\u306e\u91d1\u984d\u3000\uff08\uff08\uff12\uff11\uff09\uff09"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
