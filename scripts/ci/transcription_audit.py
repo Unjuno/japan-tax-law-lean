@@ -5056,6 +5056,12 @@ def checks():
            "file", None,
            ["次の各号のいずれかに該当する者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
 
+    # 法人税法施行令 art. 12(1) — OrganizationChangeNetAssets.lean
+    yield ("法人税法施行令 art. 12（組織変更会社の純資産額）↔ OrganizationChangeNetAssets.lean",
+           "342M50000040037",
+           "file", None,
+           ["組織変更をする会社の当該組織変更の直前における資産の額から負債の額を控除した額（当該控除した額がイに掲げる額以下である場合にあつては、イに掲げる額）"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

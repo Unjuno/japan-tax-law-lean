@@ -1712,6 +1712,9 @@ import JapanTaxLaw.OneSenFractionTruncationTests
 import JapanTaxLaw.OptionExercise12M
 import JapanTaxLaw.OptionExercise12MSpec
 import JapanTaxLaw.OptionExercise12MTests
+import JapanTaxLaw.OrganizationChangeNetAssets
+import JapanTaxLaw.OrganizationChangeNetAssetsSpec
+import JapanTaxLaw.OrganizationChangeNetAssetsTests
 import JapanTaxLaw.OwnershipPercent5
 import JapanTaxLaw.OwnershipPercent5Spec
 import JapanTaxLaw.OwnershipPercent5Tests
