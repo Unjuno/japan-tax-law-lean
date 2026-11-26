@@ -1,4 +1,109 @@
 {
+  "_units": {
+    "NORM|0d9cd80cd3496979b0de1dd76ec0f8b17bb602ced532054eb9b54f19a8794fe7": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 9,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "RndExcess3To15",
+      "spec_kanji_in_原文": [
+        "三",
+        "十五",
+        "百"
+      ]
+    },
+    "NORM|19c586773f02861671540621e22b12ad0105e487695542bd6d320fe92b45cac8": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 7,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "RndExcessOver15",
+      "spec_kanji_in_原文": [
+        "十五",
+        "百"
+      ]
+    },
+    "NORM|3e1811532469c91463a2758963a70cdab1e36b6b3e9436f6245cf06a9ce75294": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 7,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "RndExcessOver7Year",
+      "spec_kanji_in_原文": [
+        "七",
+        "百"
+      ]
+    },
+    "NORM|4743edceaf69a92548eb50228077b23d1b78c62bfa317f696f7769d4858b8df1": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 7,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "RndExcessAtMost3",
+      "spec_kanji_in_原文": [
+        "三",
+        "百"
+      ]
+    },
+    "NORM|e247acc805d2546a9e7a00033294ba65e3bbd9a30fd5d1b332a287b611fd3141": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 6,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "RndExcessOver4Year",
+      "spec_kanji_in_原文": [
+        "四",
+        "百"
+      ]
+    },
+    "NORM|ecce86cc84b7617a2c32460d8f46e01f492f2e1e696148273e25e5d20f3c30e3": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 7,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "RndExcess0To12",
+      "spec_kanji_in_原文": [
+        "十二",
+        "百"
+      ]
+    }
+  },
   "attestation_commit": "ee87c61b593013e342a82569bc6c8bc342a82ab6",
   "module_detail": {
     "AccessoryPriceFloor": {
@@ -6445,7 +6550,7 @@
       ]
     },
     "RndExcessOver4Year": {
-      "adversarial_review": false,
+      "adversarial_review": true,
       "boundary_examples_found": 5,
       "independent_spec": true,
       "kanji_literals": [
@@ -6462,7 +6567,7 @@
       ]
     },
     "RndExcessOver7Year": {
-      "adversarial_review": false,
+      "adversarial_review": true,
       "boundary_examples_found": 5,
       "independent_spec": true,
       "kanji_literals": [

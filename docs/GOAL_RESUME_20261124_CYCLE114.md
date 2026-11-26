@@ -224,3 +224,27 @@ Keep `技術的検証済み / 形式化未完了 / 法的レビュー未完了` 
    head commit, bind scoped attestations, add cells (uild/gen_c132.py pattern),
    regenerate ledgers, commit and push.
 3. Restore any transcription check or umbrella import dropped by a concurrent merge.
+
+
+## 8. Cycles 133-136 (2026-11-26, continued)
+
+- **C133** RndExcessAtMost3 / RndExcess0To12 (租税特別措置法 art.10, 3%以下 / 0-12%):
+  8/8 Lean builds, 655/655 transcription; attested from green run 45752050519
+  (head 3036813, 12/12 pinned blobs matched); cells present in evidence.
+- **C134** RndExcessOver4Year / RndExcessOver7Year (art.10, 4%/7%超の年分):
+  8/8 builds; attested from the same green run. Cells were initially blocked because
+  the canonical docs/ADVERSARIAL_REVIEW.md lacked module sections
+  (dversarial_review=false); sections were integrated and re-generation started.
+- **C135** ContinuingIncreaseAtLeast5 / SalaryIncreaseRate5Or15 (art.10の5の4):
+  8/8 builds, 664/664 transcription; pushed e18ee65; CI run 45754597611
+  pending. No attestation bound yet.
+- **C136** ForeignSubsidiaryTaxRate20 (art.40の4 ほか, 20%以上): 5/5 builds,
+  669/669 transcription; pushed d006bef2; unattested.
+- Recurring concurrent-merge damage: dropped checks (FreshCheeseCardQualification,
+  ExcessFinanceGrant75Cap, GiftTaxTenYearResidenceLookback, C132 art.10 checks)
+  were each restored from origin commits; guards never disabled.
+- udit_evidence_references.py: 4772/4773 references resolved; the single
+  unresolved one is a pre-existing __ADVERSARIAL__ placeholder on another
+  workstream's unit. No fabricated review was added to hide it.
+- State at last push: FULLY_VERIFIED ~957, NOT_STARTED ~395,894, BLOCKED=2,
+  LEGAL_REVIEW_PENDING for all; L2-L6 layers still IN_SCOPE_BACKLOG.
