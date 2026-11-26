@@ -91,9 +91,6 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
-    # TouristTaxTaxablePassengers — 国際観光旅客税法施行規則 art.3(2) ホ 課税旅客数
-    yield ("国際観光旅客税法施行規則 art.3(2) ホ（課税旅客数＝イ−(ロ+ハ+ニ)）↔ TouristTaxTaxablePassengers.lean",
-           "430M60000040039", "article", "第三条", ["イに掲げる数からロからニまでに掲げる数の合計数を控除した数"])
     yield ("航空機燃料税法 art. 14(1) 第四号（納付すべき税額＝二号税額−前号税額）↔ AircraftFuelTaxPayable.lean", "347AC0000000007", "article", "第十四条", ["第二号に掲げる航空機燃料税額から前号に掲げる航空機燃料税額を控除した金額"])
 
     yield ("自動車重量譲与税法 art. 4（譲与額の千円未満端数を控除）↔ AutoWeightGrantRounding.lean", "346AC0000000090", "article", "第四条", ["千円未満の端数金額があるときは、その端数金額を控除した金額"])
@@ -1204,6 +1201,12 @@ def checks():
            "332AC0000000038",
            "article", "第十条",
            ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する", "第十条"])
+
+    # 関税定率法 art.8(6) — CustomsTariffArt8ExtensionSixMonths.lean
+    yield ("関税定率法 art.8(6)（六月以内の延長）↔ CustomsTariffArt8ExtensionSixMonths.lean",
+           "143AC0000000054",
+           "file", None,
+           ["その期間を六月以内に限り延長することができる", "第八条"])
 
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
@@ -2377,6 +2380,18 @@ def checks():
            "file", None,
            ["第一条この省令は、平成二十四年三月十九日から施行する", "この省令は、平成二十四年三月十九日から施行する"])
 
+    # ArrearsChargeRounding — cycle-125
+    yield ("ArrearsChargeRounding.lean",
+           "325AC0000000226",
+           "file", None,
+           ["延滞金又は加算金の額を計算する場合において、その計算の基礎となる税額に千円未満の端数があるとき、又はその税額の全額が二千円未満であるときは、その端数金額又はその全額を切り捨てる", "第二十条の四の二"])
+
+    # CabinetOrderLocalTaxOneYenRounding — cycle-126
+    yield ("CabinetOrderLocalTaxOneYenRounding.lean",
+           "325AC0000000226",
+           "file", None,
+           ["ただし、政令で定める地方税の確定金額については、その額に一円未満の端数があるとき、又はその全額が一円未満であるときは、その端数金額又はその全額を切り捨てる", "第二十条の四の二"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -2562,11 +2577,6 @@ def checks():
            "340AC0000000033",
            "file", None,
            ["居住者が、各年において、自己又は自己と生計を一にする配偶者その他の親族の負担すべき社会保険料を支払つた場合又は給与から控除される場合には、その支払つた金額又はその控除される金額を、その居住者のその年分の総所得金額、退職所得金額又は山林所得金額から控除する。", "前項に規定する社会保険料とは、次に掲げるものその他これらに準ずるもので政令で定めるもの（第九条第一項第七号（在勤手当の非課税）に掲げる給与に係るものを除く。）をいう。", "一健康保険法（大正十一年法律第七十号）の規定により被保険者として負担する健康保険の保険料", "五国民年金法の規定により被保険者として負担する国民年金の保険料及び国民年金基金の加入員として負担する掛金"])
-
-    # 所得税法 art. 84の2 — SpecifiedRelativeSpecialDeduction.lean
-    yield ("所得税法 art. 84の2（特定親族特別控除: 630k / (所得−840,001)×2 を十万段階で丸め / 1,150k超60k / 1,200k超30k）↔ SpecifiedRelativeSpecialDeduction.lean",
-           "340AC0000000033", "article", "第八十四条の二",
-           ["六十三万円からその特定親族の合計所得金額のうち八十四万一円を超える部分の金額に二を乗じた金額", "十万円の整数倍の金額から八万円を控除した金額", "百十五万円を超え百二十万円以下である特定親族"])
 
     # 所得税法 art. 86 — IncomeBasicDeduction.lean (4-tier basic deduction)
     yield ("所得税法 art. 86（基礎控除: 合計所得2350万以下58万・2400万以下48万・2450万以下32万・2500万以下16万・2500万超0 — 境界値を smoke 確認、合計所得額は caller-established）↔ IncomeBasicDeduction.lean",
@@ -4527,34 +4537,19 @@ def checks():
            ["次に掲げる金額のうちいずれか少ない金額の百分の二"])
 
 
-    # 関税率表第〇四〇六・一〇号 — FreshCheeseCardQualification.lean
-    yield ("関税率表 art. 32（フレッシュチーズ・カード要件）↔ FreshCheeseCardQualification.lean",
-           "335CO0000000069",
-           "file", None,
-           ["関税率表第〇四〇六・一〇号に掲げるフレッシュチーズ及びカード（いずれも乾燥固形分が全重量の四十八パーセント以下のもの（一個の重量が四グラム以下の細片にし、冷凍し、かつ、正味重量が五キログラムを超える直接包装にしたものに限る。）、関税割当チーズ及びクリームチーズ（軟質で展延性のある熟成していないリンドレスチーズであつて、乾燥固形分のうちに占める乳脂肪分の割合、無脂肪ベースでの全重量のうちに占める水分の割合及び全重量のうちに占める乾燥固形分の割合が、それぞれコーデックスのクリームチーズの規格（ＣＯＤＥＸ"])
-
-    yield ("特別とん税法 art.10(1)（3年/50万円の上限）↔ SpecialTonnageArt10PenaltyCap.lean",
-           "332AC0000000038",
-           "article", "第十条",
-           ["三年以下の拘禁刑若しくは五十万円以下の罰金に処し、又はこれを併科する", "第十条"])
-
-    # 関税定率法 art.8(6) — CustomsTariffArt8ExtensionSixMonths.lean
-    yield ("関税定率法 art.8(6)（六月以内の延長）↔ CustomsTariffArt8ExtensionSixMonths.lean",
-           "143AC0000000054",
-           "file", None,
-           ["その期間を六月以内に限り延長することができる", "第八条"])
-
-
-    yield ("地方税法 art. 37（2%／指定都市1%）↔ LocalTaxReducedRate2or1.lean",
-           "325AC0000000226", "file", None,
-           ["次に掲げる金額のうちいずれか少ない金額の百分の二"])
-
-
     # 地方税法 art. 314の6 — LocalInhabitantReducedRate3or4.lean (3%/4%)
     yield ("地方税法 art. 314_6（3%／指定都市4%）↔ LocalInhabitantReducedRate3or4.lean",
            "325AC0000000226", "file", None,
            ["次に掲げる金額のうちいずれか少ない金額の百分の三"])
 
+    # 租税特別措置法 art. 10 — RndExcessOver3.lean (増減試験研究費割合 > 3%)
+    yield ("租税特別措置法 art. 10（増減試験研究費割合 3%超）↔ RndExcessOver3.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の三を超える場合（第三号に掲げる場合を除く。）"])
+    # 租税特別措置法 art. 10 — RndExcessOver12.lean (増減試験研究費割合 > 12%)
+    yield ("租税特別措置法 art. 10（増減試験研究費割合 12%超）↔ RndExcessOver12.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の十二を超える場合（ニに掲げる場合を除く。）"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

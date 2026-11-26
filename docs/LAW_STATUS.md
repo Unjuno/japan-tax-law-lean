@@ -11,6 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 0
+
 - with >=1 pinned literal check (semantic model): 181
 - with recorded human legal review: 0
 
@@ -345,5 +346,6 @@ a completion flag.
 | `508M60000040049` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000040049_20261031_508M60000040064 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | - | 0 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | - | 0 | YES (1) | NO |
+
 
 review modules seen in docs/ADVERSARIAL_REVIEW.md: 382
