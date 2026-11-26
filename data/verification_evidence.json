@@ -50293,6 +50293,88 @@
         "tool": "lake build"
       }
     ],
+    "13a4178959d7d3cb7dc699558ad59dc01447d54218b1aa095441a112c994bc68": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "332AC0000000026#第37_12_2条#pinned-cap-deduction",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "mechanical-audit:CAPDED-13a4178959d7",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "task_queue.json#13a4178959d7#coverage",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#if-comparison-spec@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCap.lean#capAmount@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@universal-Nat^2@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean#cap-boundary@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T16:11:13+00:00",
+        "evidence_ref": "data/evidence_audits/capded_full_coverage.md#verdict-pass-14-14",
+        "note": "FULL-COVERAGE PASS: SHA, を限度として+控除 verbatim, contiguous fragment, upper-bound cap direction, no read-replace; reused kernel-proved min(claim,limit)",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "13ae43a0b90b62211dbf45c53a5ce43c14320b2c8a03606266d65d266aa8ebce": [
       {
         "axis": "SOURCE_LOCATION",
@@ -80690,6 +80772,88 @@
         "tool": "coordinator_cycle.py"
       }
     ],
+    "20871420e36c63fb3ce16bf0b6076dd9868b184af856b09a3e8842cb39bc9ffc": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "340CO0000000096#第258条#pinned-cap-deduction",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "mechanical-audit:CAPDED-20871420e36c",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "task_queue.json#20871420e36c#coverage",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#if-comparison-spec@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCap.lean#capAmount@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@universal-Nat^2@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean#cap-boundary@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T16:11:13+00:00",
+        "evidence_ref": "data/evidence_audits/capded_full_coverage.md#verdict-pass-14-14",
+        "note": "FULL-COVERAGE PASS: SHA, を限度として+控除 verbatim, contiguous fragment, upper-bound cap direction, no read-replace; reused kernel-proved min(claim,limit)",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "208f2d5929ff6e55a06724c44964c7f170a8762635f322ff2c491c99415ed7fc": [
       {
         "axis": "SOURCE_LOCATION",
@@ -109929,6 +110093,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "2de3403e1cc59b200fc7c23a5e0ccd53b01853616af50274c8e66dd8e6fac677": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "332AC0000000026#第37_13_3条#pinned-cap-deduction",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "mechanical-audit:CAPDED-2de3403e1cc5",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "task_queue.json#2de3403e1cc5#coverage",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#if-comparison-spec@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCap.lean#capAmount@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@universal-Nat^2@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean#cap-boundary@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T16:11:13+00:00",
+        "evidence_ref": "data/evidence_audits/capded_full_coverage.md#verdict-pass-14-14",
+        "note": "FULL-COVERAGE PASS: SHA, を限度として+控除 verbatim, contiguous fragment, upper-bound cap direction, no read-replace; reused kernel-proved min(claim,limit)",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "2de46f7b8eb4325caacb57204a6ee0ea7f8fc39a748ca5ad285a0e054a1067e0": [
@@ -276973,6 +277219,88 @@
         "tool": "independent-adversarial"
       }
     ],
+    "7397a2ea409ebbc243df050cd75d4df6c7e1049ce89e7c8f29f8e442c3045102": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "332CO0000000043#第25_12条#pinned-cap-deduction",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "mechanical-audit:CAPDED-7397a2ea409e",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "task_queue.json#7397a2ea409e#coverage",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#if-comparison-spec@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCap.lean#capAmount@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@universal-Nat^2@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean#cap-boundary@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T16:11:13+00:00",
+        "evidence_ref": "data/evidence_audits/capded_full_coverage.md#verdict-pass-14-14",
+        "note": "FULL-COVERAGE PASS: SHA, を限度として+控除 verbatim, contiguous fragment, upper-bound cap direction, no read-replace; reused kernel-proved min(claim,limit)",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "7398dc5247616e1d5ace8cfd52aa29c2b0e7325fa12993aaafec60a9066b8d6b": [
       {
         "axis": "SOURCE_LOCATION",
@@ -348020,6 +348348,88 @@
         "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
+    "90d69439559fd9fe14c409708b0b6ae3e3beefd5391bc93b2dbf75e47bf0c9c1": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "325AC0000000226#第35_3条#pinned-cap-deduction",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "mechanical-audit:CAPDED-90d69439559f",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "task_queue.json#90d69439559f#coverage",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#if-comparison-spec@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCap.lean#capAmount@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@universal-Nat^2@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean#cap-boundary@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T16:11:13+00:00",
+        "evidence_ref": "data/evidence_audits/capded_full_coverage.md#verdict-pass-14-14",
+        "note": "FULL-COVERAGE PASS: SHA, を限度として+控除 verbatim, contiguous fragment, upper-bound cap direction, no read-replace; reused kernel-proved min(claim,limit)",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "90db054fff68982e60a263222e98ecfa8e6ce427bfaa62be7baa170858ef732b": [
       {
         "axis": "SOURCE_LOCATION",
@@ -377865,6 +378275,88 @@
         "tool": "task_queue.py"
       }
     ],
+    "9c71d9d7e2103a16b16f0a6c3eb53aa5123fcd7c9576eb4b7e563870cfd2b9f0": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "347M50000008013#第1条#pinned-cap-deduction",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "mechanical-audit:CAPDED-9c71d9d7e210",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "task_queue.json#9c71d9d7e210#coverage",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#if-comparison-spec@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCap.lean#capAmount@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@universal-Nat^2@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean#cap-boundary@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T16:11:13+00:00",
+        "evidence_ref": "data/evidence_audits/capded_full_coverage.md#verdict-pass-14-14",
+        "note": "FULL-COVERAGE PASS: SHA, を限度として+控除 verbatim, contiguous fragment, upper-bound cap direction, no read-replace; reused kernel-proved min(claim,limit)",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "9c75b9cdcbeba50b2d89375758a689d5d59d49b372f460b72e9ddd4b422681e6": [
       {
         "axis": "SOURCE_LOCATION",
@@ -389611,6 +390103,88 @@
         "tool": "coordinator_cycle.py"
       }
     ],
+    "a1005524c1003fbbcba17d02f50087a06b5fc90d8ecb23c7f7c04f0e86250601": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "332AC0000000026#第9_6条#pinned-cap-deduction",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "mechanical-audit:CAPDED-a1005524c100",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "task_queue.json#a1005524c100#coverage",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#if-comparison-spec@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCap.lean#capAmount@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@universal-Nat^2@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean#cap-boundary@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T16:11:13+00:00",
+        "evidence_ref": "data/evidence_audits/capded_full_coverage.md#verdict-pass-14-14",
+        "note": "FULL-COVERAGE PASS: SHA, を限度として+控除 verbatim, contiguous fragment, upper-bound cap direction, no read-replace; reused kernel-proved min(claim,limit)",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "a1066c18ab0decec655db07d8e59f19a2b763aa3544bb96b8dedfd0b1dc561f1": [
       {
         "axis": "SOURCE_LOCATION",
@@ -396752,6 +397326,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "a40344cca5606bcb48b7df95b773f1ef32e343fd5f86e32facd841d45dc52e00": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T16:11:06+00:00",
+        "evidence_ref": "325AC0000000226#第35_2_6条#pinned-cap-deduction",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T16:11:06+00:00",
+        "evidence_ref": "mechanical-audit:CAPDED-a40344cca560",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T16:11:06+00:00",
+        "evidence_ref": "task_queue.json#a40344cca560#coverage",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T16:11:06+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#if-comparison-spec@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T16:11:06+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCap.lean#capAmount@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T16:11:06+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T16:11:06+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@universal-Nat^2@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T16:11:06+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean#cap-boundary@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T16:11:06+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T16:11:13+00:00",
+        "evidence_ref": "data/evidence_audits/capded_full_coverage.md#verdict-pass-14-14",
+        "note": "FULL-COVERAGE PASS: SHA, を限度として+控除 verbatim, contiguous fragment, upper-bound cap direction, no read-replace; reused kernel-proved min(claim,limit)",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "a4038f5afbb611f7bb2a53c437a44c2e50d33a8f31a5db238c13b454ded8431c": [
@@ -436837,6 +437493,88 @@
         "tool": "lake build"
       }
     ],
+    "b3e1953fa255c8ac71992b364c8815dc726dff92e23737f0bd6d903fd5640e64": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "340CO0000000096#第258条#pinned-cap-deduction",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "mechanical-audit:CAPDED-b3e1953fa255",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "task_queue.json#b3e1953fa255#coverage",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#if-comparison-spec@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCap.lean#capAmount@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@universal-Nat^2@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean#cap-boundary@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T16:11:13+00:00",
+        "evidence_ref": "data/evidence_audits/capded_full_coverage.md#verdict-pass-14-14",
+        "note": "FULL-COVERAGE PASS: SHA, を限度として+控除 verbatim, contiguous fragment, upper-bound cap direction, no read-replace; reused kernel-proved min(claim,limit)",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "b3e4f4eb87774777dcaa980bc20527e8a47956f90c8ecaeeb51bbbba9a56c7d9": [
       {
         "axis": "SOURCE_LOCATION",
@@ -452486,6 +453224,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "ba1d71fc44cef10aa1e4fffaa44a9bdcfd71c25ed6dd9407fc394c8b806f9b99": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "332AC0000000026#第9_6_2条#pinned-cap-deduction",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "mechanical-audit:CAPDED-ba1d71fc44ce",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "task_queue.json#ba1d71fc44ce#coverage",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#if-comparison-spec@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCap.lean#capAmount@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@universal-Nat^2@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean#cap-boundary@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T16:11:13+00:00",
+        "evidence_ref": "data/evidence_audits/capded_full_coverage.md#verdict-pass-14-14",
+        "note": "FULL-COVERAGE PASS: SHA, を限度として+控除 verbatim, contiguous fragment, upper-bound cap direction, no read-replace; reused kernel-proved min(claim,limit)",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "ba27fd82ee35eaa0d679be0190c8fd19a09f3ba6af999fdbecdc1bb41eb9efb5": [
@@ -474257,6 +475077,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "c407ab4e9bbf4e7fac5c8d47ac9fafc821d178c5baafbca9d43a761055491c7b": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "325AC0000000226#第35_3条#pinned-cap-deduction",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "mechanical-audit:CAPDED-c407ab4e9bbf",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "task_queue.json#c407ab4e9bbf#coverage",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#if-comparison-spec@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCap.lean#capAmount@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@universal-Nat^2@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean#cap-boundary@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T16:11:07+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T16:11:13+00:00",
+        "evidence_ref": "data/evidence_audits/capded_full_coverage.md#verdict-pass-14-14",
+        "note": "FULL-COVERAGE PASS: SHA, を限度として+控除 verbatim, contiguous fragment, upper-bound cap direction, no read-replace; reused kernel-proved min(claim,limit)",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "c4083599128e82b42263be0d99bde88c833cbeeb027e62d2a1cecbaa6a1e6459": [
@@ -502172,6 +503074,88 @@
         "note": "compiled in successful kernel build",
         "reviewer": "ci",
         "tool": "lake build"
+      }
+    ],
+    "cf7f4042b6e4ae3787d1558d4e4acbff955ecc325862ec0f05c26f58a72b35dc": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T16:11:06+00:00",
+        "evidence_ref": "325AC0000000226#第35_2_6条#pinned-cap-deduction",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T16:11:06+00:00",
+        "evidence_ref": "mechanical-audit:CAPDED-cf7f4042b6e4",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T16:11:06+00:00",
+        "evidence_ref": "task_queue.json#cf7f4042b6e4#coverage",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T16:11:06+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#if-comparison-spec@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T16:11:06+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCap.lean#capAmount@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T16:11:06+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T16:11:06+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@universal-Nat^2@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T16:11:06+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean#cap-boundary@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T16:11:06+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T16:11:13+00:00",
+        "evidence_ref": "data/evidence_audits/capded_full_coverage.md#verdict-pass-14-14",
+        "note": "FULL-COVERAGE PASS: SHA, を限度として+控除 verbatim, contiguous fragment, upper-bound cap direction, no read-replace; reused kernel-proved min(claim,limit)",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "cf7fbe4ce906e0fc09aa66184eb1fef978f19a7aa5e3045fd9aa5708f30fcbef": [
@@ -582665,6 +583649,88 @@
         "tool": "lake build"
       }
     ],
+    "f12f605535b56ac27a455f9d73223ad1bd0625175656d626c0bbe5a00c27915e": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "332CO0000000043#第25_12_2条#pinned-cap-deduction",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "mechanical-audit:CAPDED-f12f605535b5",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "task_queue.json#f12f605535b5#coverage",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#if-comparison-spec@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCap.lean#capAmount@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@universal-Nat^2@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean#cap-boundary@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T16:11:08+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T16:11:13+00:00",
+        "evidence_ref": "data/evidence_audits/capded_full_coverage.md#verdict-pass-14-14",
+        "note": "FULL-COVERAGE PASS: SHA, を限度として+控除 verbatim, contiguous fragment, upper-bound cap direction, no read-replace; reused kernel-proved min(claim,limit)",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "f1312d8ad1a8388919a5ffc3a9c763dd869970d1ae0abaf52d219a8d0c63f0e4": [
       {
         "axis": "SOURCE_LOCATION",
@@ -605335,6 +606401,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "fae68af394b73a3f35095223eb6d6319b70fe0fd3bae755444a6c35ff40d7dc5": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "340AC0000000033#第165_5_3条#pinned-cap-deduction",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "mechanical-audit:CAPDED-fae68af394b7",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "task_queue.json#fae68af394b7#coverage",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#if-comparison-spec@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCap.lean#capAmount@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapSpec.lean#capAmount_agrees@universal-Nat^2@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean#cap-boundary@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T16:11:09+00:00",
+        "evidence_ref": "JapanTaxLaw/MoneyCapTests.lean@kernel",
+        "note": "控除額の上限 min(claim,limit); reused kernel-proved MoneyCap; claim/limit identity caller-established; adversarial PENDING until verdict applied",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T16:11:13+00:00",
+        "evidence_ref": "data/evidence_audits/capded_full_coverage.md#verdict-pass-14-14",
+        "note": "FULL-COVERAGE PASS: SHA, を限度として+控除 verbatim, contiguous fragment, upper-bound cap direction, no read-replace; reused kernel-proved min(claim,limit)",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "faea8a5247a380e72a97d3c144bcb552670e28cb51181a35aeac5fbdbadad4b8": [
