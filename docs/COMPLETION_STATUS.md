@@ -7,23 +7,23 @@ obligations being complete. SKIP is never counted as PASS.
 
 ## Axis A — registered checks (last recorded gate run)
 
-- results file available: False
-- PASS: 0
-- FAIL: 0
+- results file available: True
+- PASS: 46
+- FAIL: 8
 - SKIP: 0
 - required gates SKIPped: 0
-- gate results commit: (none)
-- current HEAD commit: 4712e2b1aa86b8974a7020e6f11c4e68571c354e
+- gate results commit: df408f02b412fbf521647d933c14347977415c06
+- current HEAD commit: 6bf141f730ff1bf0111e9afa0f8b9b9837cc6392
 - results bound to this commit: False
 - registered checks all green: False
 
 ## Axis B — all TECHNICAL obligations complete (human review excluded)
 
 - normative units: 396854
-- NOT_STARTED: 395925
+- NOT_STARTED: 395871
 - PARTIAL: 0
 - PROVED_SCOPE: 1
-- FULLY_VERIFIED: 926
+- FULLY_VERIFIED: 980
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180617
@@ -43,26 +43,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 927 | 396854 |
-| kernel proved (CI-attested proof evidence) | 927 | 396854 |
-| source-audited (原文 correspondence evidence) | 927 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 981 | 396854 |
+| kernel proved (CI-attested proof evidence) | 981 | 396854 |
+| source-audited (原文 correspondence evidence) | 981 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 927 |
-| boundary_proof | 927 |
-| cross_law_proof | 927 |
-| decomposition_audit | 927 |
-| implementation | 927 |
-| independent_spec | 927 |
-| kernel_proof | 927 |
-| proof_scope | 927 |
-| source_correspondence_audit | 927 |
-| source_location | 927 |
-| tests | 927 |
+| adversarial_review | 981 |
+| boundary_proof | 981 |
+| cross_law_proof | 981 |
+| decomposition_audit | 981 |
+| implementation | 981 |
+| independent_spec | 981 |
+| kernel_proof | 981 |
+| proof_scope | 981 |
+| source_correspondence_audit | 981 |
+| source_location | 981 |
+| tests | 981 |
 
 ## Verdict
 
