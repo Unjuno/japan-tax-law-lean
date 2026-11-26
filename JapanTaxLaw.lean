@@ -626,6 +626,9 @@ import JapanTaxLaw.PermilleAmountsTests
 import JapanTaxLaw.LifePremiumDeduction
 import JapanTaxLaw.LifePremiumDeductionSpec
 import JapanTaxLaw.LifePremiumDeductionTests
+import JapanTaxLaw.ThresholdDeductions
+import JapanTaxLaw.ThresholdDeductionsSpec
+import JapanTaxLaw.ThresholdDeductionsTests
 import JapanTaxLaw.TariffSpecificFloor
 import JapanTaxLaw.TariffSpecificFloorSpec
 import JapanTaxLaw.TariffSpecificFloorTests

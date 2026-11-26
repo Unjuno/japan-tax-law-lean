@@ -411325,6 +411325,88 @@
         "tool": "independent-adversarial"
       }
     ],
+    "e1ff699c49a9c85d4a436841702e8ca6cf546ec1e1efd7c288c0ba8d83784893": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T08:27:16+00:00",
+        "evidence_ref": "340AC0000000033#第83条#pinned-threshold-deduction",
+        "note": "配偶者控除 900万/950万/1000万 区分; independent reversed-comparison spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T08:27:16+00:00",
+        "evidence_ref": "mechanical-audit:THRESH-e1ff699c49a9",
+        "note": "配偶者控除 900万/950万/1000万 区分; independent reversed-comparison spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T08:27:16+00:00",
+        "evidence_ref": "task_queue.json#e1ff699c49a9#coverage",
+        "note": "配偶者控除 900万/950万/1000万 区分; independent reversed-comparison spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T08:27:16+00:00",
+        "evidence_ref": "JapanTaxLaw/ThresholdDeductionsSpec.lean#specSpouseDeduction@kernel",
+        "note": "配偶者控除 900万/950万/1000万 区分; independent reversed-comparison spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T08:27:16+00:00",
+        "evidence_ref": "JapanTaxLaw/ThresholdDeductions.lean#spouseDeduction@kernel",
+        "note": "配偶者控除 900万/950万/1000万 区分; independent reversed-comparison spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T08:27:16+00:00",
+        "evidence_ref": "JapanTaxLaw/ThresholdDeductionsSpec.lean#agreeSpouseDeduction@kernel",
+        "note": "配偶者控除 900万/950万/1000万 区分; independent reversed-comparison spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T08:27:16+00:00",
+        "evidence_ref": "JapanTaxLaw/ThresholdDeductionsSpec.lean#agree*@universal-Nat@kernel",
+        "note": "配偶者控除 900万/950万/1000万 区分; independent reversed-comparison spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T08:27:16+00:00",
+        "evidence_ref": "JapanTaxLaw/ThresholdDeductionsTests.lean#band-boundaries@kernel",
+        "note": "配偶者控除 900万/950万/1000万 区分; independent reversed-comparison spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T08:27:16+00:00",
+        "evidence_ref": "JapanTaxLaw/ThresholdDeductionsTests.lean@kernel",
+        "note": "配偶者控除 900万/950万/1000万 区分; independent reversed-comparison spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T08:39:39+00:00",
+        "evidence_ref": "data/evidence_audits/threshold_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, all table amounts in full text, fragment containment, 20M+25K arithmetic comparisons 0 mismatches",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "e2065d3da8352221e0e2c86c1ef22f27446aa85fed564670215fd74fca3e3d84": [
       {
         "axis": "SOURCE_LOCATION",
@@ -428191,6 +428273,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "eb30477c44d8f40a8ac626e84de3189ada7d2c7856f6c14695a2430834ad168c": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T08:27:16+00:00",
+        "evidence_ref": "340AC0000000033#第10条#pinned-threshold-deduction",
+        "note": "旧長期損害保険料控除 1万/2万 区分; independent reversed-comparison spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T08:27:16+00:00",
+        "evidence_ref": "mechanical-audit:THRESH-eb30477c44d8",
+        "note": "旧長期損害保険料控除 1万/2万 区分; independent reversed-comparison spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T08:27:16+00:00",
+        "evidence_ref": "task_queue.json#eb30477c44d8#coverage",
+        "note": "旧長期損害保険料控除 1万/2万 区分; independent reversed-comparison spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T08:27:16+00:00",
+        "evidence_ref": "JapanTaxLaw/ThresholdDeductionsSpec.lean#specLongTermDeduction@kernel",
+        "note": "旧長期損害保険料控除 1万/2万 区分; independent reversed-comparison spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T08:27:16+00:00",
+        "evidence_ref": "JapanTaxLaw/ThresholdDeductions.lean#longTermDeduction@kernel",
+        "note": "旧長期損害保険料控除 1万/2万 区分; independent reversed-comparison spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T08:27:16+00:00",
+        "evidence_ref": "JapanTaxLaw/ThresholdDeductionsSpec.lean#agreeLongTermDeduction@kernel",
+        "note": "旧長期損害保険料控除 1万/2万 区分; independent reversed-comparison spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T08:27:16+00:00",
+        "evidence_ref": "JapanTaxLaw/ThresholdDeductionsSpec.lean#agree*@universal-Nat@kernel",
+        "note": "旧長期損害保険料控除 1万/2万 区分; independent reversed-comparison spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T08:27:16+00:00",
+        "evidence_ref": "JapanTaxLaw/ThresholdDeductionsTests.lean#band-boundaries@kernel",
+        "note": "旧長期損害保険料控除 1万/2万 区分; independent reversed-comparison spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T08:27:16+00:00",
+        "evidence_ref": "JapanTaxLaw/ThresholdDeductionsTests.lean@kernel",
+        "note": "旧長期損害保険料控除 1万/2万 区分; independent reversed-comparison spec; universal agreement; eligibility NOT MODELLED; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T08:39:39+00:00",
+        "evidence_ref": "data/evidence_audits/threshold_full_coverage.md#verdict-pass-full-coverage",
+        "note": "FULL-COVERAGE PASS: pinned SHA, all table amounts in full text, fragment containment, 20M+25K arithmetic comparisons 0 mismatches",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "eb3053241e2ca0d38c5c1198a9f0e5c5f9624b4b6a4a3131c2d969782918e236": [
