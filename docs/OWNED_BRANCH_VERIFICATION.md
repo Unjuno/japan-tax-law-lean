@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=2996, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=3130, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=2996 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=3130 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -107,7 +107,11 @@ multi-reading batch pipeline: verified=3 failed=0 / verified=34 failed=0
 $ python scripts/ci/batch_effective_promulgation_pipeline.py --limit 2 / 80 / 150 / 150 / 150 / 200
 effective batch pipeline: verified=2/80/150/150/150/193, failed=0 in every run
 
-$ python -m unittest discover -s scripts/tests -t . → 186 tests, OK
+$ rate pipeline guard relaxed for rates <=1% and >=100%; decimal/non-100 denominators rejected
+$ python scripts/ci/batch_rate_pipeline.py --limit 3 / 60 / 100
+rate batch pipeline: verified=3 / 59 (1 source-audit failure skip-listed) / 71
+
+$ python -m unittest discover -s scripts/tests -t . → 188 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -363,7 +367,16 @@ The complex forms that couple commencement to a separate applicability date,
 and 公布の日から起算して… forms, are explicitly NOT in this guarded class.
 All 725 dependency-ready units in the class were verified.
 
-So 2996 units are evidence-backed FULLY_VERIFIED and 393,856 remain NOT_STARTED
+The integer-rate pipeline's (1,100) guard was overly conservative: 百分の一
+and 百分の百十 are legitimate rates and the `at_100` theorem holds for every
+numerator. Relaxing it closed 134 more obligations. Two misparse hazards were
+found and guarded before modelling: 百分の一・四 is 1.4% (not 1%), and
+四百分の二百 is 200/400 (not 200/100). The latter was initially accepted by
+the substring parser but correctly rejected by the Lean-independent source
+audit; its unit stayed NOT_STARTED with a recorded skip reason, never PASS.
+Two regression tests cover both guards.
+
+So 3130 units are evidence-backed FULLY_VERIFIED and 393,722 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is

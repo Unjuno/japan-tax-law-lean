@@ -30,6 +30,10 @@ KANJI = {"零": 0, "〇": 0, "一": 1, "二": 2, "三": 3, "四": 4,
          "五": 5, "六": 6, "七": 7, "八": 8, "九": 9}
 UNITS = {"十": 10, "百": 100, "千": 1000, "万": 10000, "億": 100000000}
 PCT_RE = re.compile(r"百分の([〇零一二三四五六七八九十百千万億]+)")
+DECIMAL_PCT_RE = re.compile(r"百分の[〇零一二三四五六七八九十百千万億]+・")
+# 「四百分の二百」 is a 200/400 fraction, not a 200/100 rate. PCT_RE would
+# otherwise match the 「百分の二百」 substring and silently mis-state the law.
+NON_HUNDRED_DENOM_RE = re.compile(r"[〇零一二三四五六七八九十千万億]+百分の")
 OTHER_NUM_RE = re.compile(r"([〇零一二三四五六七八九十百千万億]+)(円|年|月|日|回|号|条|項)")
 
 
@@ -140,6 +144,13 @@ def main() -> int:
         if t.get("unhandled_conditions") or t.get("dependencies"):
             continue
         verb = t.get("text", "")
+        # 百分の一・四 is 1.4%, NOT 1%: the integer parser would silently
+        # truncate the fractional part. Such units need a rational model and
+        # must not enter this integer-rate class.
+        if DECIMAL_PCT_RE.search(verb):
+            continue
+        if NON_HUNDRED_DENOM_RE.search(verb):
+            continue
         pcts = PCT_RE.findall(verb)
         if len(pcts) != 1:
             continue
@@ -152,7 +163,12 @@ def main() -> int:
             n = kanji_number(pcts[0])
         except ValueError:
             continue
-        if n <= 1 or n >= 100:
+        # Rates at or below 1% and above 100% are legitimate statutory rates
+        # (e.g. 百分の一, 百分の百十). The template's at_100 theorem holds for
+        # every numerator, so the former (1,100) guard was overly conservative
+        # and left these obligations unverified. Only an upper sanity bound on
+        # the parsed numerator is retained.
+        if n > 1000:
             continue
         sf = t.get("source_file", "")
         if not sf or not (REPO / sf).exists():
