@@ -14150,3 +14150,53 @@ needle は `docs/STAGING_SOFA_ENFORCE.md` に記載された 2 本をレビュ�
 - **二段 read-then-write と検証**: 書き込み直前に再読込した状態は SHA-256 `32ACDF70E2F7967E1F2E45813284208B50DC1F666248F1E7B158EFB0776542FF`・`1673356` バイト・広義レビュー件数 **1 件**（`^## .*review` ベース）。本セクション追記後は **2 件（Previous +1）** へ増加するはずであり、書き込み後の再読込で件数・既存バイト列の前方一致・既存見出し残存を検証する（自己言及的なハッシュ値は本文に埋め込まない）。並行ワーストリームが件数を変動させる可能性があるため、採用した値は書き込み直前の再読込値である。
 
 > **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。本レビューをもって法的レビューを完了したものとはみなさない。
+
+### DoubtfulReceivableDeduction.lean — 税理士法人会計帳簿省令 art.22-3(6)
+
+- **pin**: law `326M50000040055`, article 第二十二条の三(6); needle「取立不能のおそれのある債権については、事業年度の末日においてその時に取り立てることができないと見込まれる額を控除しなければならない。」
+- **独立再抽出**: `帳簿価額 = 債権額 − 回収不能見込額`（Nat 飽和減算, 円）。独立仕様は明示的条件式、全称定理 `agreeBookedAmount` が omega で照合。
+- **H/T/D**: 700 / 0 / 0（飽和）/ 0 境界 PASS; 普遍定理 3 件。
+- **C/U**: 債権認定・評価日・他号は NOT MODELLED。`LEGAL_REVIEW_PENDING`。
+
+### FifthWheelGrossWeight.lean — 登録免許税法施行規則 art.5(1)
+
+- **pin**: law `346CO0000000275`, article 第五条(1); needle「その自動車検査証に記録される車両総重量から第五輪荷重を控除し牽けん引重量を加えた重量」.
+- **独立再抽出**: `(記録重量 − 第五輪荷重) + 牽引重量` (kg, Nat)。独立仕様は条件分岐、全称定理 `agreeGrossWeight` が omega で照合。
+- **H/T/D**: 9000 / 2000 / 2000（飽和）/ 0 境界 PASS。
+- **C/U**: 適用要件・被牽引自動車は NOT MODELLED。`LEGAL_REVIEW_PENDING`。
+
+### ExtraDepreciationBelow10.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### InheritedAnnuityRatioOver50.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### InheritedAnnuityRatioAtMost50.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### AnnuityRatioOver50UpTo55.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### ReserveAccumulationOver50UpTo75.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### PublicFacilityAreaAtLeast10.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様の定数・境界例と照合し、カーネル決定で一致を確認。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
