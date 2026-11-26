@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=3691, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=3748, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=3691 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=3748 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -151,7 +151,10 @@ misc-threshold batch pipeline: verified=8 failed=0
 $ python scripts/ci/batch_deeming_pipeline.py --limit 3 / 20
 deeming batch pipeline: verified=3 failed=0 / verified=9 failed=0
 
-$ python -m unittest discover -s scripts/tests -t . → 212 tests, OK
+$ python scripts/ci/batch_exception_pipeline.py --limit 3 / 60
+exception batch pipeline: verified=3 failed=0 / verified=54 failed=0
+
+$ python -m unittest discover -s scripts/tests -t . → 215 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -478,7 +481,12 @@ caller-established Bools, with exclusivity against an actual decision and
 necessity of the deadline. The decision and the deadline themselves are NOT
 resolved. 12 units were verified with three selection tests.
 
-So 3691 units are evidence-backed FULLY_VERIFIED and 393,161 remain NOT_STARTED
+A nineteenth pipeline, `scripts/ci/batch_exception_pipeline.py`, formalizes
+simple `適用しない` exception gates with a caller-established trigger that is
+NOT resolved; exclusivity and exhaustive spec agreement are proved over Bool.
+57 units were verified with three selection tests.
+
+So 3748 units are evidence-backed FULLY_VERIFIED and 393,104 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
