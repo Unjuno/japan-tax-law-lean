@@ -12,43 +12,43 @@
   "axis_totals": {
     "BOUNDARY_CHECKED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 986,
-      "remaining_units": 395868
+      "achieved_units": 949,
+      "remaining_units": 395905
     },
     "NORMS_FORMALIZED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 986,
-      "remaining_units": 395868
+      "achieved_units": 949,
+      "remaining_units": 395905
     },
     "NORM_DECOMPOSED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 985,
-      "remaining_units": 395869
+      "achieved_units": 948,
+      "remaining_units": 395906
     },
     "SOURCE_ACQUIRED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 986,
-      "remaining_units": 395868
+      "achieved_units": 949,
+      "remaining_units": 395905
     },
     "SOURCE_AUDITED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 985,
-      "remaining_units": 395869
+      "achieved_units": 948,
+      "remaining_units": 395906
     },
     "SPEC_IMPL_CORRESPONDENCE": {
       "achieved_is_not_completion": true,
-      "achieved_units": 986,
-      "remaining_units": 395868
+      "achieved_units": 949,
+      "remaining_units": 395905
     },
     "STRUCTURE_IDENTIFIED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 979,
-      "remaining_units": 395875
+      "achieved_units": 944,
+      "remaining_units": 395910
     },
     "VERSION_PINNED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 986,
-      "remaining_units": 395868
+      "achieved_units": 949,
+      "remaining_units": 395905
     }
   },
   "detail_note": "Only units with substantive committed evidence are expanded; all other units take the NOT_STARTED / LEGAL_REVIEW_PENDING defaults, reproducible by regenerating build/task_queue.json with scripts/ci/task_queue.py.",
@@ -219,6 +219,41 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
+    "NORM|018f9cb69c1cc3f231a5e164da145f480f1456d005c3f5b095281308d5ffdd74": {
+      "article": "52",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "325AC0000000226",
+      "norm_details": {
+        "amounts": [
+          "千万円"
+        ],
+        "conditions": [
+          "以下"
+        ],
+        "delegations": [],
+        "effects": [],
+        "enforcement_dates": [],
+        "exceptions": [
+          "を除く"
+        ],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "325AC0000000226_20261101_508AC0000000002",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
     "NORM|01bc5d0ea84e476f03587df6fefe7b5d0069de50a81e0b28bc26e8be03771418": {
       "article": "72_20",
       "axes": {
@@ -289,6 +324,46 @@
         "rounding": []
       },
       "revision": "337CO0000000135_20260401_507CO0000000126",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
+    "NORM|025a90513e240acd0592bbbc157f613885384ffe85942baec68dc76520fed7c9": {
+      "article": "37",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "325AC0000000226",
+      "norm_details": {
+        "amounts": [
+          "三万円",
+          "九百万円",
+          "九百五十万円",
+          "六万円",
+          "十万円",
+          "千万円"
+        ],
+        "conditions": [
+          "場合",
+          "以下",
+          "超え"
+        ],
+        "delegations": [],
+        "effects": [],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "325AC0000000226_20261101_508AC0000000002",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -691,48 +766,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|04aa44184ab0c1353df20ca223f270a1f5060be61fa9c2511738d23f9874c90b": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "とき",
-          "限度",
-          "以下",
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [
-          "とする"
-        ],
-        "enforcement_dates": [],
-        "exceptions": [
-          "にかかわらず"
-        ],
-        "periods": [],
-        "rounding": [
-          "端数",
-          "未満の端数"
-        ]
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|04b1283d4bbe86713a4b5a698765c1422d49d6d898a8e00a3e9e161c9129c925": {
       "article": "86",
       "axes": {
@@ -973,45 +1006,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|0674a6c5624876d45298672b5dc68b127bb388f7b8c632a0661a723b634373f4": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "とき",
-          "以下",
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [
-          "とする"
-        ],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": [
-          "端数",
-          "未満の端数"
-        ]
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|06af03c5f1bc81835fd4314a55881273959865703affc2768a5111e0b18a66b3": {
       "article": "6",
       "axes": {
@@ -1075,39 +1069,6 @@
         "rounding": []
       },
       "revision": "344AC0000000046_20260521_508AC0000000012",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|06ecf4e83a75240fefb191c05f7df0f5ead383672e0052e4472472d1cde8dd3f": {
-      "article": "32",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "335CO0000000069",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "以下",
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "335CO0000000069_20260401_508CO0000000085",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -1309,39 +1270,6 @@
         "rounding": []
       },
       "revision": "340CO0000000096_20260522_508CO0000000093",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|0855d7106371effdfbc11202c1135d6011f72614c0cf24c1a0dc58593b8adc21": {
-      "article": "1_4",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "325AC0000000073",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [
-          "年以内"
-        ],
-        "rounding": []
-      },
-      "revision": "325AC0000000073_20260401_506AC0000000008",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -1992,41 +1920,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|0d9cd80cd3496979b0de1dd76ec0f8b17bb602ced532054eb9b54f19a8794fe7": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合",
-          "以下",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [
-          "を除く"
-        ],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|0e5be451823bb6bf7710133b0d96ba39fe9ba3d5e8befbbfa46bafbc89aeda20": {
       "article": "64_5",
       "axes": {
@@ -2157,6 +2050,47 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
+    "NORM|0efeb6d0d1136f9ba900507fefb5c3f41426fd96407ad1bf49d997b1f81ea58e": {
+      "article": "2",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "403CO0000000035",
+      "norm_details": {
+        "amounts": [],
+        "conditions": [
+          "に該当",
+          "該当する",
+          "以下"
+        ],
+        "delegations": [
+          "政令で定める"
+        ],
+        "effects": [
+          "とする"
+        ],
+        "enforcement_dates": [],
+        "exceptions": [
+          "を除く"
+        ],
+        "periods": [
+          "期間"
+        ],
+        "rounding": []
+      },
+      "revision": "403CO0000000035_20010106_412CO0000000307",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
     "NORM|0f640964061fc51f2f21b411351a20e31cae1cb711e899b5fed0922331863b24": {
       "article": "203_3",
       "axes": {
@@ -2222,39 +2156,6 @@
         "rounding": []
       },
       "revision": "325AC0000000226_20261101_508AC0000000002",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|0ff1b44181f00f9b896606333a7803a2eed2ec25d8fa28777427991b90e86ba7": {
-      "article": "10_5_4",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合"
-        ],
-        "delegations": [],
-        "effects": [
-          "とする"
-        ],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -2757,74 +2658,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|14531442b1b2b23b0ae82c1632d032a0b65a8798e25bc27bd80c721aab95bb9b": {
-      "article": "40_4",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "に該当",
-          "該当する"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [
-          "を除く"
-        ],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|14caf30a980e1bad7d42b338b1698d38bdd03f36bc6de983a28a9b6a5d5995b4": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [
-          "を除く"
-        ],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|14ce4ffd6f605a69d3e28533d807e97cb43e9d63e97a0d82ccb1ed981b8007b7": {
       "article": "23_10",
       "axes": {
@@ -3126,6 +2959,46 @@
         "rounding": []
       },
       "revision": "337CO0000000097_20250401_507CO0000000006",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
+    "NORM|162561b034561fb75f94ee871c8c92e47a8bc45b6f322924610d241b5dcd2ea8": {
+      "article": "37",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "325AC0000000226",
+      "norm_details": {
+        "amounts": [
+          "九百万円",
+          "九百五十万円",
+          "二万円",
+          "五万円",
+          "千万円",
+          "四万円"
+        ],
+        "conditions": [
+          "場合",
+          "以下",
+          "超え"
+        ],
+        "delegations": [],
+        "effects": [],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "325AC0000000226_20261101_508AC0000000002",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -3805,39 +3678,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|19956582f14138a1bb0d24a34d954b4e90b7520abe0f94c00719511b00fed21e": {
-      "article": "1_4",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "325AC0000000073",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [
-          "年以内"
-        ],
-        "rounding": []
-      },
-      "revision": "325AC0000000073_20260401_506AC0000000008",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|19a50c3b2fde0301ee91a4ff6721dfdb5ad2e345d36daff312ec865f8b356edb": {
       "article": "12",
       "axes": {
@@ -3872,41 +3712,6 @@
         "rounding": []
       },
       "revision": "325CO0000000245_20261101_508CO0000000083",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|19c586773f02861671540621e22b12ad0105e487695542bd6d320fe92b45cac8": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合",
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [
-          "を除く"
-        ],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -4342,39 +4147,6 @@
         "rounding": []
       },
       "revision": "329M50000002023_20261101_508M60000008045",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|1cf9da8c896be64495a6c3922e7f36b091614299e36a165462b003eb1e008dbe": {
-      "article": "12_3",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "329AC0000000061",
-      "norm_details": {
-        "amounts": [
-          "五十万円"
-        ],
-        "conditions": [
-          "以下"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "329AC0000000061_20260601_508AC0000000005",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -5067,41 +4839,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|207e4ac9c1cedc8241715c6e59f627b4b6f584ee55cc5a8fb3eb6f26930c08a4": {
-      "article": "1_4",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "325AC0000000073",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [
-          "を除く"
-        ],
-        "periods": [
-          "年以内"
-        ],
-        "rounding": []
-      },
-      "revision": "325AC0000000073_20260401_506AC0000000008",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|2087bdd74d4dd870a5815556f3553d125d65f1b85c1ce6a69e9a1968b6ecd63e": {
       "article": "23_10",
       "axes": {
@@ -5396,37 +5133,6 @@
       },
       "revision": "325AC0000000226_20261101_508AC0000000002",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|231c551d81dabb99d1af6fba695e53d8baf56b0b7e48a165b245be1e56c4226c": {
-      "article": "4",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "ARTICLE_ONLY",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "325AC0000000073",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "325AC0000000073_20260401_506AC0000000008",
-      "scope_kind": "FULL_ARTICLE",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
@@ -6571,69 +6277,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|2c76053f58fc56ba8d5f1132543a4f4206910135bcd2d08b490505c3a07d9d7f": {
-      "article": "40_4",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "以上"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|2c836ae93c491ce758b8ea9752dcadd5001cbc669ec1b54862413515d503ceb4": {
-      "article": "10_5_4",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合",
-          "以上"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|2c985b928e60a89ddba0c107c922a1f8f2a00823de2d858a37018ceca2b199c2": {
       "article": "87",
       "axes": {
@@ -7378,41 +7021,6 @@
         "rounding": []
       },
       "revision": "326CO0000000216_20240401_505CO0000000146",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|329dfc7dbb7c019197e3e433ac1da86b5e41b6ce06202825fa1a54e2bd838e0a": {
-      "article": "31",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "431AC0000000004",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合",
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [
-          "とする"
-        ],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "431AC0000000004_20260401_508AC0000000002",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -9053,38 +8661,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|3e1811532469c91463a2758963a70cdab1e36b6b3e9436f6245cf06a9ce75294": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|3e370b42aee48f59a26e789ca54ff2ca7a4a2aa37e9921f0424bc1ec6688fc20": {
       "article": "12",
       "axes": {
@@ -9359,39 +8935,6 @@
         "rounding": []
       },
       "revision": "340AC0000000033_20261001_507AC0000000070",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|3fbb839cacc301748f1108b2b7af783f2ab5b75f361f61d1fc1c38c451c9285f": {
-      "article": "1_4",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "325AC0000000073",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合"
-        ],
-        "delegations": [
-          "定めるところによる"
-        ],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "325AC0000000073_20260401_506AC0000000008",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -9766,74 +9309,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|42dde91d8d3ec844eff48d83130dc8faf8efb820b5d777d28d9489162a26ae9b": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合",
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [
-          "を除く"
-        ],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|431bcb71793d5f15b7ae958323517c7989beb4bacaebdf4348755f87839c448a": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [
-          "を除く"
-        ],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|4321f29ae147d27887bcaf248279dd510a570c0b1d2274bdbf895bdba749050b": {
       "article": "12",
       "axes": {
@@ -9938,40 +9413,6 @@
         "rounding": []
       },
       "revision": "332CO0000000043_20261101_507CO0000000127",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|43bc58c915435d7add0877236bc6a3cebdb9d2496164ef1e3ae5b9a04acaa85e": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合",
-          "以下"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [
-          "を除く"
-        ],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -10247,8 +9688,8 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|4743edceaf69a92548eb50228077b23d1b78c62bfa317f696f7769d4858b8df1": {
-      "article": "10",
+    "NORM|470e97ebf30081b578e686022c45fcbf887094d51fb696f15d9ceebbaa50630c": {
+      "article": "71_21",
       "axes": {
         "BOUNDARY_CHECKED": "CHECKED",
         "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
@@ -10260,23 +9701,25 @@
         "VERSION_PINNED": "PINNED"
       },
       "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
+      "law_id": "325AC0000000226",
       "norm_details": {
-        "amounts": [],
+        "amounts": [
+          "五十万円"
+        ],
         "conditions": [
           "場合",
+          "に該当",
+          "該当する",
           "以下"
         ],
         "delegations": [],
         "effects": [],
         "enforcement_dates": [],
-        "exceptions": [
-          "を除く"
-        ],
+        "exceptions": [],
         "periods": [],
         "rounding": []
       },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
+      "revision": "325AC0000000226_20261101_508AC0000000002",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -10405,6 +9848,42 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
+    "NORM|47870cf520e1aaea9319e84caef449b43cffea6b069d75479fc7b94140a5edd1": {
+      "article": "27",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "325AC0000000226",
+      "norm_details": {
+        "amounts": [
+          "五十万円"
+        ],
+        "conditions": [
+          "場合",
+          "に該当",
+          "該当する",
+          "以下"
+        ],
+        "delegations": [],
+        "effects": [],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "325AC0000000226_20261101_508AC0000000002",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
     "NORM|47db57ba8db05d493e7e01968a4971d23ac9e1b03d347102d9459e0d272b05eb": {
       "article": "27",
       "axes": {
@@ -10472,6 +9951,38 @@
         "rounding": []
       },
       "revision": "332M50000040015_20261101_507M60000040026",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
+    "NORM|481364c6f3eb5e5745a1faf8aedbf9237716d3c51159363c1f6147605780a5a9": {
+      "article": "2",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "403CO0000000035",
+      "norm_details": {
+        "amounts": [],
+        "conditions": [
+          "場合",
+          "以上"
+        ],
+        "delegations": [],
+        "effects": [],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "403CO0000000035_20010106_412CO0000000307",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -10642,41 +10153,6 @@
         "rounding": []
       },
       "revision": "329M50000002023_20261101_508M60000008045",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|4a4bb432e56bc0c0c6a1ac3e6e258cbb1abb21b30353b8d1c17021fb84aee203": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合",
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [
-          "を除く"
-        ],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -11187,6 +10663,41 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
+    "NORM|4f03b3161109e3f3584afebc0b022507dad8f5a959b5ebe430ca775ae40fee9a": {
+      "article": "312",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "325AC0000000226",
+      "norm_details": {
+        "amounts": [
+          "一億円",
+          "千万円"
+        ],
+        "conditions": [
+          "以下",
+          "超え"
+        ],
+        "delegations": [],
+        "effects": [],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "325AC0000000226_20261101_508AC0000000002",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
     "NORM|4f195d89f9680887f6fc242b5c650e698e59ac3641fb96e9456dfb0fe64ca93b": {
       "article": "3_2_10",
       "axes": {
@@ -11493,39 +11004,6 @@
         "rounding": []
       },
       "revision": "332M50000040015_20261101_507M60000040026",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|50f09a4f02e7fb864e336c5bb38e50cf118f4b65ed3f6f4bf044f1dc802d0536": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合"
-        ],
-        "delegations": [],
-        "effects": [
-          "とする"
-        ],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -12642,37 +12120,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|5a55f1f8bd24707dc7c4f3824337307fd70c43456e768693d63c2a9c453676b6": {
-      "article": "3",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332CO0000000049",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332CO0000000049_20201001_502CO0000000128",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|5a5e264f44439540b3d5bdd4efa72bc7e2980f2b11cd22c3acb7863e8cb240a7": {
       "article": "6_2",
       "axes": {
@@ -12745,41 +12192,6 @@
         "rounding": []
       },
       "revision": "143AC0000000054_20260601_508AC0000000005",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|5b7dbb8435441b5f227093f2932957a5ea27b0d71a5f3aaed53e322c30d3a7e1": {
-      "article": "32",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "335CO0000000069",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "以下",
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [
-          "を除く"
-        ],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "335CO0000000069_20260401_508CO0000000085",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -13527,45 +12939,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|609ca307da361fede4427b8b17c62ddf59569e0d76452630545214a5806397e3": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合",
-          "限度",
-          "以下"
-        ],
-        "delegations": [
-          "政令で定める"
-        ],
-        "effects": [
-          "控除する"
-        ],
-        "enforcement_dates": [],
-        "exceptions": [
-          "を除く"
-        ],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|60d445b3d2b6f878bdf1dcbf93ef160cbd8d43546c86f30cd05a8e13cf45a5f8": {
       "article": "4_3",
       "axes": {
@@ -13725,6 +13098,49 @@
         "rounding": []
       },
       "revision": "329M50000002023_20261101_508M60000008045",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
+    "NORM|62f3414f7682d8b84c47db16d54b6a74919ed728151516d94fdc947557767756": {
+      "article": "37",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "325AC0000000226",
+      "norm_details": {
+        "amounts": [
+          "一万円",
+          "三万円",
+          "九百万円",
+          "九百五十万円",
+          "二万円",
+          "五十万円",
+          "五十五万円",
+          "千万円"
+        ],
+        "conditions": [
+          "場合",
+          "以下",
+          "以上",
+          "超え"
+        ],
+        "delegations": [],
+        "effects": [],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "325AC0000000226_20261101_508AC0000000002",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -14140,6 +13556,46 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
+    "NORM|655c1a458885dfa06af3e4b6115155e03f59552f6f62bf7f5772b82d79424835": {
+      "article": "37",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "325AC0000000226",
+      "norm_details": {
+        "amounts": [
+          "九百万円",
+          "九百五十万円",
+          "二万円",
+          "五万円",
+          "千万円",
+          "四万円"
+        ],
+        "conditions": [
+          "場合",
+          "以下",
+          "超え"
+        ],
+        "delegations": [],
+        "effects": [],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "325AC0000000226_20261101_508AC0000000002",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
     "NORM|6596e10f8373f31c699a203dde8dea6687d091f69290db3a7ca46a96eb8c51f7": {
       "article": "29",
       "axes": {
@@ -14240,41 +13696,6 @@
         "rounding": []
       },
       "revision": "325AC0000000226_20261101_508AC0000000002",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|65e8bf85c0963bb2db83fb4171e6a730558b77fa71523d570d532d141953eb76": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合",
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [
-          "を除く"
-        ],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -14742,40 +14163,6 @@
         "rounding": []
       },
       "revision": "352M50000040032_20220710_504M60000040044",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|69b3151a7eebcbadf1d22b92eb91daa4eefb70a8898548c55a8654fcf9a27a47": {
-      "article": "1_4",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "325AC0000000073",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合",
-          "以下"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [
-          "年以内"
-        ],
-        "rounding": []
-      },
-      "revision": "325AC0000000073_20260401_506AC0000000008",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -15604,6 +14991,40 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
+    "NORM|71b77fd999a63610dab2cf81321a9f81f9a0e4e07a7a32f9d503a94f72f63f85": {
+      "article": "2",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "403CO0000000035",
+      "norm_details": {
+        "amounts": [],
+        "conditions": [
+          "場合",
+          "とき"
+        ],
+        "delegations": [],
+        "effects": [
+          "とする"
+        ],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "403CO0000000035_20010106_412CO0000000307",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
     "NORM|722c6fd532252b3863aa139cde493ec4dbcdfde1d1ead9994de1e71f97ab9830": {
       "article": "23_10",
       "axes": {
@@ -15810,41 +15231,6 @@
         "rounding": []
       },
       "revision": "342AC0000000023_20261001_507AC0000000070",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|759cefc932aa0dac85f7004029b8b2c802a0a3dbf615ac1e0f56f0c6297f3d96": {
-      "article": "40_4",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "以下"
-        ],
-        "delegations": [
-          "省令で定める"
-        ],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [
-          "を除く"
-        ],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -16434,38 +15820,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|7ac18b23952b84eddac529baa6b59915350a6881e3c7e39b0a7bced9a6891691": {
-      "article": "10_5_4",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "に該当",
-          "該当する"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|7ad4bd2c2491460ddfddc4cf486a3f14e5d327ee265c5435e097fb7417198ff4": {
       "article": "52",
       "axes": {
@@ -16739,37 +16093,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|7bed072a3a4e0ce2394ed7c8fb38ee66e7ddc85cb55d45d356db8f5d1207ffc4": {
-      "article": "1_4",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "325AC0000000073",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [
-          "年以内"
-        ],
-        "rounding": []
-      },
-      "revision": "325AC0000000073_20260401_506AC0000000008",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|7c30becd8f0bdb92225f15191c80b9eb30100e608591aae0dc98665a703b56e4": {
       "article": "2",
       "axes": {
@@ -16932,41 +16255,6 @@
         "rounding": []
       },
       "revision": "363AC0000000107_19881230_000000000000000",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|7d67957c4bf1073e5dc26aa335286b0aab670a363b5d03d84564d359749cb46c": {
-      "article": "31",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "431AC0000000004",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合",
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [
-          "とする"
-        ],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "431AC0000000004_20260401_508AC0000000002",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -17924,6 +17212,41 @@
         "rounding": []
       },
       "revision": "407M50000008033_20040401_416M60000008074",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
+    "NORM|82b5d452e759278a730ae118ce1e565cab72d260e596b3731c5f137900f63550": {
+      "article": "312",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "325AC0000000226",
+      "norm_details": {
+        "amounts": [
+          "千万円"
+        ],
+        "conditions": [
+          "以下",
+          "を超える",
+          "超え"
+        ],
+        "delegations": [],
+        "effects": [],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "325AC0000000226_20261101_508AC0000000002",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -19604,40 +18927,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|8f3785da5f3f89d81b4d67737252eeb46ac992a16e385f0adb2cfd3736f05dac": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [
-          "を除く"
-        ],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|8f54a4a08819651b8bad030d0686f700dffdb441777b23b8c5b457bcb22043e1": {
       "article": "4_7",
       "axes": {
@@ -19837,6 +19126,41 @@
         "rounding": []
       },
       "revision": "506CO0000000033_20240221_000000000000000",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
+    "NORM|9046db77683875e139f093bd6ffe031ff72d5cd75c0f2abfe409288a2e41782d": {
+      "article": "154",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "325AC0000000226",
+      "norm_details": {
+        "amounts": [
+          "二万九千五百円",
+          "四千七百円"
+        ],
+        "conditions": [
+          "を超える",
+          "超え"
+        ],
+        "delegations": [],
+        "effects": [],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "325AC0000000226_20261101_508AC0000000002",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -20669,6 +19993,42 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
+    "NORM|95db9386bf0c70882de05f064e58d812d1b0b5e4616a2499b215dc207de61dc1": {
+      "article": "312",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "325AC0000000226",
+      "norm_details": {
+        "amounts": [
+          "一億円",
+          "千万円"
+        ],
+        "conditions": [
+          "以下",
+          "を超える",
+          "超え"
+        ],
+        "delegations": [],
+        "effects": [],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "325AC0000000226_20261101_508AC0000000002",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
     "NORM|95dcd5f64d88ca18665e123a55b5ef216816748735fa407006e5cf9302bb339e": {
       "article": "2",
       "axes": {
@@ -20698,42 +20058,6 @@
         "rounding": []
       },
       "revision": "506CO0000000033_20240221_000000000000000",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|95f9a5d195fc662a0a985b9459c91074ef4fc8f284e8716df377829b30018261": {
-      "article": "1_4",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "325AC0000000073",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合",
-          "限り"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [
-          "ただし"
-        ],
-        "periods": [
-          "年以内"
-        ],
-        "rounding": []
-      },
-      "revision": "325AC0000000073_20260401_506AC0000000008",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -21713,39 +21037,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|9d3c50d0c341bba41ea13f376934d89d739eba71e1f0ab4a343cca9a65e2cd1d": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "とき",
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|9df9008844645aec49fb9b5a1839b056233428e3745fd8f8a8e1b3ea326b2f76": {
       "article": "4",
       "axes": {
@@ -21912,39 +21203,6 @@
         "rounding": []
       },
       "revision": "325CO0000000245_20261101_508CO0000000083",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|9fd94438ec86e54b93185af79c792e4d717118ed05e061a185155d2d8ac463f0": {
-      "article": "11",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "403M50000040054",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合"
-        ],
-        "delegations": [],
-        "effects": [
-          "とする"
-        ],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "403M50000040054_20260924_508M60000040059",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -22214,6 +21472,43 @@
         "rounding": []
       },
       "revision": "322AC0000000175_20220101_503AC0000000011",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
+    "NORM|a293a9321c21dd49dcd342ec4aa2e6e2cf2e853b34f4443eb3ffd890c78d93b3": {
+      "article": "312",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "325AC0000000226",
+      "norm_details": {
+        "amounts": [
+          "千万円"
+        ],
+        "conditions": [
+          "以下"
+        ],
+        "delegations": [
+          "政令で定める"
+        ],
+        "effects": [],
+        "enforcement_dates": [],
+        "exceptions": [
+          "を除く"
+        ],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "325AC0000000226_20261101_508AC0000000002",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -22881,38 +22176,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|aa32cf8b9a6339adb0c07216fe43e73857aaea91f64393d2c754d5883c44b9bb": {
-      "article": "154",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "325AC0000000226",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "以下",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "325AC0000000226_20261101_508AC0000000002",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|aa6e1a5af1e56105884950ab8c4a1581de521092e4a567f3489731f99ac1f189": {
       "article": "12",
       "axes": {
@@ -23049,37 +22312,6 @@
         "rounding": []
       },
       "revision": "430AC0000000016_20260701_508AC0000000012",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|aada7e0359814b0a7a3a59ef923563944d9083c679e564d3bab228d790ecbabd": {
-      "article": "154",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "325AC0000000226",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "以下"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "325AC0000000226_20261101_508AC0000000002",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -23496,37 +22728,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|af60a97f60a71e66c640437db6e08431df3e16274eaf0cb040115c7300bc8c9d": {
-      "article": "10_5_4",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "以上"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|af7012291f1a9d97048a703bd460532ee551be1b4b3bcfd32ddd96c03a18db62": {
       "article": "72_49_14",
       "axes": {
@@ -23676,40 +22877,6 @@
         "rounding": []
       },
       "revision": "340AC0000000034_20261001_508AC0000000012",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|b0df6aef4d7d37f887aa42d8a9df6abad324059fdaed2fd3636a8ef9bbe69af6": {
-      "article": "4",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "342AC0000000023",
-      "norm_details": {
-        "amounts": [
-          "十万円"
-        ],
-        "conditions": [
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "342AC0000000023_20261001_507AC0000000070",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -25000,77 +24167,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|bd65dc1591b88a340bdd44df2011682f54f9566cc80c8487f9f0701a2b447096": {
-      "article": "40_4",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合",
-          "以上"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|bda9945f3e99024af6cc285227ce849d4ed15baaf3a54deacd65c26df3bacf8c": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "とき",
-          "以下",
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [
-          "とする"
-        ],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": [
-          "端数",
-          "未満の端数"
-        ]
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|bdea0e3c07b411bd1c575c7a85c91b954cf878b927d891db9b7339a6f02347f2": {
       "article": "4_6",
       "axes": {
@@ -25707,42 +24803,6 @@
         "rounding": []
       },
       "revision": "329AC0000000061_20260601_508AC0000000005",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|c2601e1c98458089ceebcaa5fbb7c95ae6d2c3903fc39f6dd66b5acc4e08404e": {
-      "article": "1_4",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "325AC0000000073",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合",
-          "限り"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [
-          "ただし"
-        ],
-        "periods": [
-          "年以内"
-        ],
-        "rounding": []
-      },
-      "revision": "325AC0000000073_20260401_506AC0000000008",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -27036,8 +26096,8 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|cdae4cae1db7c796981608a16c56c32d0a9bd39094c9231343423ac719345ccd": {
-      "article": "1_4",
+    "NORM|cdd69708e364f7ffe3fc19e940a20601214602b741a034108754d57b296a45d0": {
+      "article": "154",
       "axes": {
         "BOUNDARY_CHECKED": "CHECKED",
         "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
@@ -27049,20 +26109,24 @@
         "VERSION_PINNED": "PINNED"
       },
       "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "325AC0000000073",
+      "law_id": "325AC0000000226",
       "norm_details": {
-        "amounts": [],
-        "conditions": [],
+        "amounts": [
+          "六千三百円",
+          "四万五百円"
+        ],
+        "conditions": [
+          "を超える",
+          "超え"
+        ],
         "delegations": [],
         "effects": [],
         "enforcement_dates": [],
         "exceptions": [],
-        "periods": [
-          "年以内"
-        ],
+        "periods": [],
         "rounding": []
       },
-      "revision": "325AC0000000073_20260401_506AC0000000008",
+      "revision": "325AC0000000226_20261101_508AC0000000002",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -27229,6 +26293,41 @@
         "rounding": []
       },
       "revision": "332CO0000000043_20261101_507CO0000000127",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
+    "NORM|cfd9befe494c0148f0517fd61d8ff19b69eb4affc7b1f247e586dca82068c9a7": {
+      "article": "2",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "403CO0000000035",
+      "norm_details": {
+        "amounts": [],
+        "conditions": [
+          "場合",
+          "とき",
+          "以上"
+        ],
+        "delegations": [],
+        "effects": [
+          "とする"
+        ],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [],
+        "rounding": []
+      },
+      "revision": "403CO0000000035_20010106_412CO0000000307",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -27938,37 +27037,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|d692d7da2457a4ea5be1755917ebce9dfa13d8603fbb818e406590ddb54966c4": {
-      "article": "1_6",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "ARTICLE_ONLY",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "337M50000040031",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "337M50000040031_20260521_506M60000040023",
-      "scope_kind": "FULL_ARTICLE",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|d6f520a94f7ebfdec6b76081469bf71a3c83c375382583083ff3e64792f1052c": {
       "article": "25_13",
       "axes": {
@@ -28134,42 +27202,6 @@
         "rounding": []
       },
       "revision": "326M50000040055_20260901_506M60000040025",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|d8217a28b62c76148f55344a3257741310556650cebd9cc499d91171ceaed69c": {
-      "article": "31",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "431AC0000000004",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合",
-          "以下",
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [
-          "とする"
-        ],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "431AC0000000004_20260401_508AC0000000002",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -28408,40 +27440,6 @@
         "rounding": []
       },
       "revision": "347M50000040042_20251231_507M60000040072",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|d9505da458b27e037cec3e2d074495f90cdc11378668abed6f09763a938fbcdc": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [
-          "を除く"
-        ],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -29255,45 +28253,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|e0a297a31d660888a6aff3c2cd01368ce1076950ccefa4ece616baf6c810d10b": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "とき",
-          "以下",
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [
-          "とする"
-        ],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": [
-          "端数",
-          "未満の端数"
-        ]
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|e0b3951ca02585ebc78fe61bab2602eda34a582396def9497943e00b2577cc54": {
       "article": "12",
       "axes": {
@@ -29496,38 +28455,6 @@
         "rounding": []
       },
       "revision": "410M50000040043_20250401_507M60000040028",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|e247acc805d2546a9e7a00033294ba65e3bbd9a30fd5d1b332a287b611fd3141": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -30471,40 +29398,6 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
-    "NORM|e9c4873a634aca065a1205ffe82b8fb7b6c1e63ac3d698ca01d6cbaba1485c4b": {
-      "article": "1_4",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "325AC0000000073",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "以下"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [
-          "期間",
-          "年以内"
-        ],
-        "rounding": []
-      },
-      "revision": "325AC0000000073_20260401_506AC0000000008",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
     "NORM|e9c6d803d554ee91446388da2d04c0d3dec037e92250de26d401e489a303e3e4": {
       "article": "31_3",
       "axes": {
@@ -30689,41 +29582,6 @@
         "rounding": []
       },
       "revision": "325CO0000000071_20260401_506CO0000000143",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|ead4e22f27e517b7c0ef8db621984189c5f8a4b731b23ec2cf5be9fa78c7eaa6": {
-      "article": "31",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "431AC0000000004",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合",
-          "を超える",
-          "超え"
-        ],
-        "delegations": [],
-        "effects": [
-          "とする"
-        ],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "431AC0000000004_20260401_508AC0000000002",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -31114,41 +29972,6 @@
         "rounding": []
       },
       "revision": "337AC0000000066_20261101_507AC0000000013",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|ecce86cc84b7617a2c32460d8f46e01f492f2e1e696148273e25e5d20f3c30e3": {
-      "article": "10",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "332AC0000000026",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [
-          "場合",
-          "以下",
-          "以上"
-        ],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [
-          "を除く"
-        ],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "332AC0000000026_20261101_507AC0000000013",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -32083,35 +30906,6 @@
         "rounding": []
       },
       "revision": "339CO0000000182_20030401_415CO0000000142",
-      "scope_kind": "COMPUTABLE_SLICE_ONLY",
-      "technical_status": "FULLY_VERIFIED",
-      "unhandled_conditions": []
-    },
-    "NORM|f5c77990c05347b811f25f06e69bdcd06f55b998c0de9751f675c666e042ab9d": {
-      "article": "3_2",
-      "axes": {
-        "BOUNDARY_CHECKED": "CHECKED",
-        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
-        "NORM_DECOMPOSED": "DECOMPOSED",
-        "SOURCE_ACQUIRED": "PINNED",
-        "SOURCE_AUDITED": "AUDITED",
-        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
-        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
-        "VERSION_PINNED": "PINNED"
-      },
-      "human_legal_review": "LEGAL_REVIEW_PENDING",
-      "law_id": "327CO0000000124",
-      "norm_details": {
-        "amounts": [],
-        "conditions": [],
-        "delegations": [],
-        "effects": [],
-        "enforcement_dates": [],
-        "exceptions": [],
-        "periods": [],
-        "rounding": []
-      },
-      "revision": "327CO0000000124_20220401_502CO0000000207",
       "scope_kind": "COMPUTABLE_SLICE_ONLY",
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
@@ -33470,25 +32264,25 @@
     "enforcement_dates"
   ],
   "norm_detail_counts": {
-    "amounts": 262,
-    "conditions": 797,
-    "delegations": 176,
-    "effects": 351,
+    "amounts": 273,
+    "conditions": 763,
+    "delegations": 175,
+    "effects": 342,
     "enforcement_dates": 12,
-    "exceptions": 169,
-    "periods": 87,
-    "rounding": 21
+    "exceptions": 152,
+    "periods": 79,
+    "rounding": 17
   },
   "note": "Eight technical axes are tracked separately; full technical evidence does NOT establish human legal review or whole-article coverage. COMPUTABLE_SLICE_ONLY units are never counted as whole-article norms.",
   "schema": "directive_axes/v1",
   "scope_counts": {
-    "COMPUTABLE_SLICE_ONLY": 979,
-    "FULL_ARTICLE": 7
+    "COMPUTABLE_SLICE_ONLY": 944,
+    "FULL_ARTICLE": 5
   },
   "technical_status_counts": {
     "BLOCKED": 2,
-    "FULLY_VERIFIED": 985,
-    "NOT_STARTED": 395866,
+    "FULLY_VERIFIED": 948,
+    "NOT_STARTED": 395903,
     "PARTIAL": 0,
     "PROVED_SCOPE": 1
   },
