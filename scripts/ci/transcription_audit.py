@@ -5019,6 +5019,13 @@ def checks():
            "file", None,
            ["\u5de6\u306e\u5404\u53f7\u306b\u63b2\u3052\u308b\u8ca8\u7269\u3067\u8f38\u5165\u3055\u308c\u308b\u3082\u306e\u306b\u3064\u3044\u3066\u306f\u3001\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3068\u3053\u308d\u306b\u3088\u308a\u3001\u305d\u306e\u95a2\u7a0e\u3092\u514d\u9664\u3059\u308b\u3002"])
 
+    # DisasterReliefOrderArt9FollowingItemsGovernance.lean - NORM|d0cb856a... (災害政令 art.9(3) DELEGATION, law 322CO0000000268)
+    # Whole-law locator; needle is unique in the pinned ordinance.
+    yield ("disaster relief order art.9 following-items governance - DisasterReliefOrderArt9FollowingItemsGovernance.lean",
+           "322CO0000000268",
+           "file", None,
+           ["\u524d\u4e8c\u9805\u306e\u898f\u5b9a\u3092\u9069\u7528\u3059\u308b\u5834\u5408\u306b\u304a\u3044\u3066\u306f\u3001\u6b21\u306e\u5404\u53f7\u306e\u5b9a\u3081\u308b\u3068\u3053\u308d\u306b\u3088\u308b\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
