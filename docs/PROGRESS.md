@@ -175,3 +175,5 @@ lake clean && lake build                                                # 再現
 税関職員の身分を示す証票等の書式に関する省令 附則 art.1 CustomsOfficerBadgeFormEnforcementDate.lean（施行日 昭和52年7月1日=1977-07-01 — 他条・実体規定 NOT MODELLED）
 
 たばこ特別税に関する政令 附則 art.1 TobaccoSpecialTaxEnforcementDate.lean（施行日 平成10年12月1日=1998-12-01 — 他条・実体規定 NOT MODELLED）
+
+たばこ特別税に関する省令 附則 art.1 TobaccoSpecialTaxRuleEnforcementDate.lean（施行日 平成16年1月19日=2004-01-19 — 他条・実体規定 NOT MODELLED）
