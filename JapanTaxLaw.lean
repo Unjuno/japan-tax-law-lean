@@ -1056,6 +1056,9 @@ import JapanTaxLaw.InheritanceApportionmentTests
 import JapanTaxLaw.InheritanceAssetValuation
 import JapanTaxLaw.InheritanceAssetValuationSpec
 import JapanTaxLaw.InheritanceAssetValuationTests
+import JapanTaxLaw.InheritanceBracket2M
+import JapanTaxLaw.InheritanceBracket2MSpec
+import JapanTaxLaw.InheritanceBracket2MTests
 import JapanTaxLaw.InheritanceCivilCodeRelativeRef
 import JapanTaxLaw.InheritanceCivilCodeRelativeRefSpec
 import JapanTaxLaw.InheritanceCivilCodeRelativeRefTests
@@ -1727,6 +1730,9 @@ import JapanTaxLaw.OneSenFractionTruncationTests
 import JapanTaxLaw.OptionExercise12M
 import JapanTaxLaw.OptionExercise12MSpec
 import JapanTaxLaw.OptionExercise12MTests
+import JapanTaxLaw.OrganizationChangeNetAssets
+import JapanTaxLaw.OrganizationChangeNetAssetsSpec
+import JapanTaxLaw.OrganizationChangeNetAssetsTests
 import JapanTaxLaw.OwnershipPercent5
 import JapanTaxLaw.OwnershipPercent5Spec
 import JapanTaxLaw.OwnershipPercent5Tests
