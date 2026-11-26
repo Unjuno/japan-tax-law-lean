@@ -2351,6 +2351,9 @@ import JapanTaxLaw.SpecialTonnageArt10PenaltyCapTests
 import JapanTaxLaw.SpecialUseExemption
 import JapanTaxLaw.SpecialUseExemptionSpec
 import JapanTaxLaw.SpecialUseExemptionTests
+import JapanTaxLaw.SpecialWardReading
+import JapanTaxLaw.SpecialWardReadingSpec
+import JapanTaxLaw.SpecialWardReadingTests
 import JapanTaxLaw.SpecifiedRelativeSpecialDeduction
 import JapanTaxLaw.SpecifiedRelativeSpecialDeductionSpec
 import JapanTaxLaw.SpecifiedRelativeSpecialDeductionTests
