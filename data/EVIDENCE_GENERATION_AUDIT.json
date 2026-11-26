@@ -17,6 +17,23 @@
         "千"
       ]
     },
+    "NORM|6ca63f9ad464e72560376dd6cef4d2c20f465e12c65f15044300d4647506df53": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 5,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "InheritedAnnuityRatioOver50",
+      "spec_kanji_in_原文": [
+        "五十",
+        "百"
+      ]
+    },
     "NORM|85f4e8d8a317633f2b68dae17c596f8ece7ac63670d6fef5f57eff7b19593cec": {
       "checks": {
         "cross_law": true,
@@ -67,6 +84,23 @@
         "二十",
         "二十一万七千五百",
         "二十二万五千"
+      ]
+    },
+    "NORM|f4e8505784f0b98713669e42c6e6fae056c31aa6ef9f786e11f449eedf54e01f": {
+      "checks": {
+        "cross_law": true,
+        "independent_spec": true,
+        "kernel_attested": true,
+        "kernel_decided_examples": 6,
+        "needles_scoped": true,
+        "source_location": true
+      },
+      "derived_status": "FULLY_VERIFIED",
+      "errors": [],
+      "module": "ExtraDepreciationBelow10",
+      "spec_kanji_in_原文": [
+        "十",
+        "百"
       ]
     }
   },
@@ -2477,6 +2511,23 @@
         100
       ]
     },
+    "ExtraDepreciationBelow10": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "十",
+        "百"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 6,
+      "needles_scoped": true,
+      "scoped_article_chars": 545,
+      "spec_literals": [
+        10,
+        100
+      ]
+    },
     "FilingDateException": {
       "adversarial_review": true,
       "boundary_examples_found": 3,
@@ -3857,6 +3908,23 @@
         30000001,
         50000000,
         50000001
+      ]
+    },
+    "InheritedAnnuityRatioOver50": {
+      "adversarial_review": true,
+      "boundary_examples_found": 4,
+      "independent_spec": true,
+      "kanji_literals": [
+        "五十",
+        "百"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 5,
+      "needles_scoped": true,
+      "scoped_article_chars": 11839,
+      "spec_literals": [
+        50,
+        100
       ]
     },
     "InheritedPropertyTransferGain": {
