@@ -4602,6 +4602,37 @@ def checks():
            "article", "第七百一条の三十一",
            ["イ及びロに掲げる市以外の市で人口（官報で公示された最近の国勢調査の結果による人口その他これに準ずるものとして政令で定める人口をいう。）三十万以上のもののうち政令で指定するもの"])
 
+
+    # Batch 273 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("相続税法 art. 39(12) 申請書訂正等二十日以内 ↔ InheritanceTax39CorrectionWithin20Days.lean",
+           "325AC0000000073",
+           "article", "第三十九条",
+           ["第十項の規定により申請書の訂正又は担保提供関係書類の訂正若しくは提出を求められた当該申請者は、前項の規定による通知を受けた日の翌日から起算して二十日以内に当該申請書の訂正又は当該担保提供関係書類の訂正若しくは提出をしなければならない。"])
+
+    # Batch 273 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 453(1) 虚偽申告報告三十万円以下の罰金 ↔ LocalTax453FalseReportFine300k.lean",
+           "325AC0000000226",
+           "article", "第四百五十三条",
+           ["前条の規定により申告し、又は報告すべき事項について虚偽の申告又は報告をしたときは、その違反行為をした者は、三十万円以下の罰金に処する。"])
+
+    # Batch 273 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 144-35(2) 軽油製造報告三十日以内 ↔ LocalTax144_35LightOilReportWithin30Days.lean",
+           "325AC0000000226",
+           "article", "第百四十四条の三十五",
+           ["前項に規定する者以外の者は、軽油の製造をした場合には、当該製造をした日から三十日以内に軽油の製造に関する事実及びその数量その他の総務省令で定める事項を、総務省令で定める道府県知事に報告しなければならない。"])
+
+    # Batch 273 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 附則 art. 21 軽油引取税額三万円をこえる ↔ LocalTax21LightOilTaxOver30000.lean",
+           "325AC0000000226",
+           "file", None,
+           ["道府県知事は、前項の場合における軽油引取税額が三万円をこえるときは、当該特約業者、元売業者又は小売業者の申請により、三月以内の期間を限つて徴収の猶予をすることができる。"])
+
+    # Batch 273 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 附則 art. 63 事業収入割合百分の七十以下 ↔ LocalTax63CovidRevenueCeiling70Percent.lean",
+           "325AC0000000226",
+           "file", None,
+           ["新型コロナウイルス感染症及びそのまん延防止のための措置の影響により当該中小事業者等の事業収入割合が百分の七十以下となる場合（前号に掲げる場合を除く。）"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
