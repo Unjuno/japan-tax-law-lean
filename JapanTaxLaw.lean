@@ -2315,3 +2315,6 @@ import JapanTaxLaw.WidowDependentIncomeCeiling5MTests
 import JapanTaxLaw.WirePitch165nm
 import JapanTaxLaw.WirePitch165nmSpec
 import JapanTaxLaw.WirePitch165nmTests
+import JapanTaxLaw.AtaCarnetReportPenaltyCeiling50k
+import JapanTaxLaw.AtaCarnetReportPenaltyCeiling50kSpec
+import JapanTaxLaw.AtaCarnetReportPenaltyCeiling50kTests
