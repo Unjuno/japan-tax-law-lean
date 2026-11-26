@@ -4989,6 +4989,12 @@ def checks():
            ["六百九十五万円を超え九百万円以下の金額"])
 
 
+    # 不当廉売関税 art. 4(1) — GeneralTariffLowerRate.lean
+    yield ("不当廉売関税 art. 4（別表・条約の低い税率）↔ GeneralTariffLowerRate.lean",
+           "414CO0000000262",
+           "file", None,
+           ["特定貨物に課する不当廉売関税及び一般税率（法の別表の税率及び条約に規定する税率のうちいずれか低いものをいう。）による関悦については、それぞれ別個の関税として関税法（昭和二十九年法律第六十一号）第二章の規定を適用する。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
