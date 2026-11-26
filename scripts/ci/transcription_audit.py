@@ -4989,6 +4989,7 @@ def checks():
            ["六百九十五万円を超え九百万円以下の金額"])
 
 
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
