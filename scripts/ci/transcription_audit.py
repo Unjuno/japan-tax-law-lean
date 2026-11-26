@@ -109,7 +109,10 @@ def checks():
     yield ("国税徴収法施行規則 art.1_6（随意契約時の公売規定準用）↔ PrivateContractPublicAuctionReading.lean",
            "337M50000040031", "article", "第一条の六", ["（随意契約により不動産を売却する場合における公売の規定の準用）"])
 
-    # Restored registry checks dropped by a concurrent stale-base rewrite.
+    # BankHeadOfficeTermReading.lean - NORM|9fd94438... (日本銀行統轄店読替え READING, law 403M50000040054)
+    yield ("電子情報処理組織特例省令 art.11(4)（読替え）↔ BankHeadOfficeTermReading.lean",
+           "403M50000040054", "article", "第十一条", ["この場合において、同条第六項中「日本銀行統轄店」とあるのは、「所轄歳入取りまとめ店」と読み替えるものとする。"])
+
     yield ("BusinessTaxCollectionCostRate5.lean — 地方税法施行規則 art.24の28 徴収費5%",
            "329M50000002023", "file", None,
            ["事業所税の額の百分の五に相当する額とする"])
