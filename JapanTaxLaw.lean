@@ -789,6 +789,9 @@ import JapanTaxLaw.ForeignCorpResidualRateTests
 import JapanTaxLaw.ForeignDesignation
 import JapanTaxLaw.ForeignDesignationSpec
 import JapanTaxLaw.ForeignDesignationTests
+import JapanTaxLaw.ForeignRelatedCorpTaxRate20
+import JapanTaxLaw.ForeignRelatedCorpTaxRate20Spec
+import JapanTaxLaw.ForeignRelatedCorpTaxRate20Tests
 import JapanTaxLaw.ForeignSubsidiaryTaxRate20
 import JapanTaxLaw.ForeignSubsidiaryTaxRate20Spec
 import JapanTaxLaw.ForeignSubsidiaryTaxRate20Tests
@@ -1197,6 +1200,9 @@ import JapanTaxLaw.LivingSupport380kArt314Spec
 import JapanTaxLaw.LivingSupport380kArt314Tests
 import JapanTaxLaw.LivingSupport380kSpec
 import JapanTaxLaw.LivingSupport380kTests
+import JapanTaxLaw.LoanBalanceRatioAtMost15
+import JapanTaxLaw.LoanBalanceRatioAtMost15Spec
+import JapanTaxLaw.LoanBalanceRatioAtMost15Tests
 import JapanTaxLaw.LocalAddedValueStandard
 import JapanTaxLaw.LocalAddedValueStandardSpec
 import JapanTaxLaw.LocalAddedValueStandardTests
@@ -2026,6 +2032,9 @@ import JapanTaxLaw.ShareRatioOverHalfTests
 import JapanTaxLaw.ShareholdersUnder50
 import JapanTaxLaw.ShareholdersUnder50Spec
 import JapanTaxLaw.ShareholdersUnder50Tests
+import JapanTaxLaw.ShipProvisionalRateReduction
+import JapanTaxLaw.ShipProvisionalRateReductionSpec
+import JapanTaxLaw.ShipProvisionalRateReductionTests
 import JapanTaxLaw.ShortMeasure180Days
 import JapanTaxLaw.ShortMeasure180DaysSpec
 import JapanTaxLaw.ShortMeasure180DaysTests
@@ -2181,6 +2190,9 @@ import JapanTaxLaw.TariffLawSupplArt1Heisei13EnforcementTests
 import JapanTaxLaw.TariffQuotaAmount
 import JapanTaxLaw.TariffQuotaAmountSpec
 import JapanTaxLaw.TariffQuotaAmountTests
+import JapanTaxLaw.TariffQuotaSystemEnforcementDate
+import JapanTaxLaw.TariffQuotaSystemEnforcementDateSpec
+import JapanTaxLaw.TariffQuotaSystemEnforcementDateTests
 import JapanTaxLaw.TaxAccountantBalanceSheetUnits
 import JapanTaxLaw.TaxAccountantBalanceSheetUnitsSpec
 import JapanTaxLaw.TaxAccountantBalanceSheetUnitsTests
