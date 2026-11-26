@@ -44,7 +44,9 @@ def lean_str(s: str) -> str:
 
 def pairs_of(verb: str) -> list[tuple[str, str]]:
     pairs = PAT.findall(verb)
-    if not pairs or "読み替える" not in verb:
+    # 「A」とあるのは「B」とする / と定める are read-as substitutions too.
+    # と読み替える is the explicit form handled in earlier batches.
+    if not pairs or not any(k in verb for k in ("読み替える", "とする", "と定める")):
         return []
     # A source phrase may recur under different target provisions with
     # different replacements. Each pair gets its own constructor, so the

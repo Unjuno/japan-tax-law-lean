@@ -17,11 +17,17 @@ class TestMultiReadingPairs(unittest.TestCase):
         text = "この場合において、第一項中「甲」とあるのは「乙」と、第二項中「甲」とあるのは「丙」と読み替えるものとする。"
         self.assertEqual(pairs_of(text), [("甲", "乙"), ("甲", "丙")])
 
+    def test_read_as_tosuru_form(self):
+        self.assertEqual(pairs_of("同項中「三月」とあるのは、「六月」とする。"),
+                         [("三月", "六月")])
+        self.assertEqual(pairs_of("同項中「甲」とあるのは「乙」と定める。"),
+                         [("甲", "乙")])
+
     def test_identical_pair_rejected(self):
         self.assertEqual(pairs_of("「甲」とあるのは「甲」と読み替える。"), [])
 
     def test_missing_rewrite_verb_rejected(self):
-        self.assertEqual(pairs_of("「甲」とあるのは「乙」と定める。"), [])
+        self.assertEqual(pairs_of("「甲」とあるのは「乙」と記憶する。"), [])
 
     def test_hostile_character_rejected(self):
         self.assertEqual(pairs_of('「甲"乙」とあるのは「丙」と読み替える。'), [])
