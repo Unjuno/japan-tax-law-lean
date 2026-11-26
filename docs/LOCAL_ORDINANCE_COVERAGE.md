@@ -11,16 +11,16 @@ NOTHING in this layer is acquired, parsed, formalized, proved or reviewed. It is
 - prefectures: 47
 - municipalities: 1747
 - local governments total: 1794
-- acquired: 6
-- not acquired: 1788
-- acquisition coverage: 0.3344%
+- acquired: 9
+- not acquired: 1785
+- acquisition coverage: 0.5017%
 
 ## Per-prefecture target counts (acquired column)
 
 | prefecture | local governments | acquired |
 |---|---:|---:|
 | 三重県 | 30 | 0 |
-| 京都府 | 27 | 0 |
+| 京都府 | 27 | 1 |
 | 佐賀県 | 21 | 0 |
 | 兵庫県 | 42 | 1 |
 | 北海道 | 186 | 1 |
@@ -53,7 +53,7 @@ NOTHING in this layer is acquired, parsed, formalized, proved or reviewed. It is
 | 石川県 | 20 | 0 |
 | 神奈川県 | 34 | 1 |
 | 福井県 | 18 | 0 |
-| 福岡県 | 61 | 1 |
+| 福岡県 | 61 | 3 |
 | 福島県 | 60 | 0 |
 | 秋田県 | 26 | 0 |
 | 群馬県 | 36 | 0 |
@@ -74,6 +74,9 @@ NOTHING in this layer is acquired, parsed, formalized, proved or reviewed. It is
 | LOCAL-011002 | 北海道札幌市 | `78c9a8add670` | ACQUIRED_NOT_REVIEWED |
 | LOCAL-141003 | 神奈川県横浜市 | `c61a8d62283f` | ACQUIRED_NOT_REVIEWED |
 | LOCAL-231002 | 愛知県名古屋市 | `d10051690c95` | ACQUIRED_NOT_REVIEWED |
+| LOCAL-262048 | 京都府宇治市 | `5d195a7f26cf` | ACQUIRED_NOT_REVIEWED |
 | LOCAL-271004 | 大阪府大阪市 | `d8941e0259c1` | ACQUIRED_NOT_REVIEWED |
 | LOCAL-281000 | 兵庫県神戸市 | `cc57f4267c9c` | ACQUIRED_NOT_REVIEWED |
 | LOCAL-401307 | 福岡県福岡市 | `58217d10bd31` | ACQUIRED_NOT_REVIEWED |
+| LOCAL-402168 | 福岡県小郡市 | `843ed3b60d9d` | ACQUIRED_NOT_REVIEWED |
+| LOCAL-404217 | 福岡県桂川町 | `bf2300de90dc` | ACQUIRED_NOT_REVIEWED |
