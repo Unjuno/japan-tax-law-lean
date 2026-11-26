@@ -4898,7 +4898,7 @@ def checks():
            "file", None,
            ["第一項第一号の月数は、暦に従つて計算し、十二月を超えるときは十二月とし、一月に満たない端数を生じたときはこれを一月とする。"])
 
-# NATIONAL_NON_TAX_RELATED: 地方自治法 — LocalOrdinanceTwoThirdsMajority.lean (2/3 supermajority, separate source layer)
+    # 条例制定・改廃 出席議員の三分の二以上の同意 — LocalOrdinanceTwoThirdsMajority.lean
     yield ("地方自治法 art. 4（条例制定・改廃 出席議員の三分の二以上の同意）↔ LocalOrdinanceTwoThirdsMajority.lean",
            "322AC0000000067",
            "file", None,

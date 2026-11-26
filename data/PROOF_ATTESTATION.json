@@ -1,9 +1,9 @@
 {
-  "commit": "59191df4c3c18b26ccd0fffd6cd784aaf1e50467",
+  "commit": "b16f9adb69c9860c3608e01661a63847fcd6f23c",
   "jobs": {
     "Build Lean project and check axioms": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45847300682/job/140004182032",
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45901956738/job/140189620216",
       "required_steps": [
         "Build explicitly",
         "No sorry/admit in adopted proofs",
@@ -14,7 +14,7 @@
     },
     "Semantic audit and mutation injection": {
       "conclusion": "success",
-      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45847300682/job/140004182489"
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45901956738/job/140189620666"
     }
   },
   "modules": {
@@ -3375,6 +3375,15 @@
     "LocalInterestTaxRate5Tests.lean": {
       "sha256": "368f38afa91a5df7a9d28c6cabfc310d0f08f5b522621b4c5287e42d63e167f6"
     },
+    "LocalOrdinanceTwoThirdsMajority.lean": {
+      "sha256": "b7e96315421435f239034a7d4022af3fc238550311d4291d1901d8425abd321a"
+    },
+    "LocalOrdinanceTwoThirdsMajoritySpec.lean": {
+      "sha256": "2fb5a06c75a21a60bb619509298fc0127cba371d209ec8708643caa4b4931113"
+    },
+    "LocalOrdinanceTwoThirdsMajorityTests.lean": {
+      "sha256": "2f8affe13fde141059f4841024479f64f2177f7aae4c090f7335208f5ff1bdbf"
+    },
     "LocalSeismic120sqm.lean": {
       "sha256": "0a9e9eafee68ed6d7a4102313cbfdbe7e146d6b3f709642747b16f15f565f531"
     },
@@ -6169,5 +6178,5 @@
   "note": "Kernel-build attestation. Hashes are SHA-256 of the committed blob bytes (LF-normalised). CI run is a recorded, independently reproducible build of the exact commit; the generator re-checks every hash before accepting it as evidence.",
   "run_conclusion": "success",
   "schema": 1,
-  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45847300682"
+  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45901956738"
 }
