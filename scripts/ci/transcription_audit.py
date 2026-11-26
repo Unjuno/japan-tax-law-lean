@@ -4581,6 +4581,15 @@ def checks():
            "332AC0000000026", "file", None,
            ["増減試験研究費割合が零以上であり百分の十二以下である場合（ニに掲げる場合を除く。）"])
 
+    # 租税特別措置法 art. 10 — RndExcessOver4Year.lean (4%超の年分)
+    yield ("租税特別措置法 art. 10（4%超の年分）↔ RndExcessOver4Year.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の四を超える年分"])
+    # 租税特別措置法 art. 10 — RndExcessOver7Year.lean (7%超の年分)
+    yield ("租税特別措置法 art. 10（7%超の年分）↔ RndExcessOver7Year.lean",
+           "332AC0000000026", "file", None,
+           ["増減試験研究費割合が百分の七を超える年分"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

@@ -1804,6 +1804,12 @@ import JapanTaxLaw.RndExcessOver15Tests
 import JapanTaxLaw.RndExcessOver3
 import JapanTaxLaw.RndExcessOver3Spec
 import JapanTaxLaw.RndExcessOver3Tests
+import JapanTaxLaw.RndExcessOver4Year
+import JapanTaxLaw.RndExcessOver4YearSpec
+import JapanTaxLaw.RndExcessOver4YearTests
+import JapanTaxLaw.RndExcessOver7Year
+import JapanTaxLaw.RndExcessOver7YearSpec
+import JapanTaxLaw.RndExcessOver7YearTests
 import JapanTaxLaw.RndSurchargeRate
 import JapanTaxLaw.RndSurchargeRateSpec
 import JapanTaxLaw.RndSurchargeRateTests
