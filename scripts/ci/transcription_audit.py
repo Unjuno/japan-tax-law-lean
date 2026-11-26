@@ -2442,6 +2442,12 @@ def checks():
            "file", None,
            ["第一条この法律は、昭和六十年四月一日から施行する", "この法律は、昭和六十年四月一日から施行する"])
 
+    # MutualDefenseAidAgreementEnforcementDate — cycle-131
+    yield ("MutualDefenseAidAgreementEnforcementDate.lean",
+           "329CO0000000103",
+           "file", None,
+           ["第一条この政令は、昭和六十四年四月一日から施行する", "この政令は、昭和六十四年四月一日から施行する"])
+
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
            "340AC0000000033",
@@ -4821,6 +4827,15 @@ def checks():
     yield ("関税暫定措置法 art. 7_4（差額75%超）↔ TriggerPriceGapOver75Percent.lean",
            "335AC0000000036", "file", None,
            ["発動基準価格と課税価格との差額が発動基準価格に百分の七十五を乗じて得た金額を超える場合"])
+
+    # 租税特別措置法施行令 art. 40の8 — MedicalCorpCapitalOver50.lean (出資50%超)
+    yield ("租税特別措置法施行令 art. 40_8（医療法人出資50%超）↔ MedicalCorpCapitalOver50.lean",
+           "332CO0000000043", "file", None,
+           ["当該医療法人の出資の総額の百分の五十を超える金額"])
+    # 所得税法施行令 art. 182の2 — Below200kYen.lean (20万円未満)
+    yield ("所得税法施行令 art. 182_2（20万円未満）↔ Below200kYen.lean",
+           "340CO0000000096", "file", None,
+           ["二十万円未満である場合"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
