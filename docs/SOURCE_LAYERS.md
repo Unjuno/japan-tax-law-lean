@@ -25,13 +25,13 @@ layer is never folded into the statutory ledger.
 
 - normative_units_total: 396854
 <<<<<<< HEAD
-- fully_verified_units: 1104
-- proved_scope_units: 1
-- not_started_units: 395747
+- fully_verified_units: 1112
+- proved_scope_units: 0
+- not_started_units: 395740
 =======
-- fully_verified_units: 1066
-- proved_scope_units: 1
-- not_started_units: 395785
+- fully_verified_units: 1111
+- proved_scope_units: 0
+- not_started_units: 395741
 >>>>>>> origin/main
 - blocked_units: 2
 - human_legal_reviews: 0
