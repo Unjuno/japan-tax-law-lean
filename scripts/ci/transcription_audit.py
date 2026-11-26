@@ -5263,6 +5263,15 @@ def checks():
            "332CO0000000043", "file", None,
            ["当該独立企業間価格とみなされる金額が当該対価の額とした額に百分の八十を乗じて計算した金額を下回らない場合"])
 
+    # 地方税法施行令 art. 15 — FixedAssetTaxBase5Percent.lean (5%算定)
+    yield ("地方税法施行令 art. 15（固定資産税課税標準5%）↔ FixedAssetTaxBase5Percent.lean",
+           "325CO0000000245", "file", None,
+           ["課税標準となるべき価格に、百分の五を乗じて得た額"])
+    # 租税特別措置法 art. 10の2 — SpecialRndDeduction20Percent.lean (20%算定)
+    yield ("租税特別措置法 art. 10_2（特別試験研究費控除20%）↔ SpecialRndDeduction20Percent.lean",
+           "332AC0000000026", "file", None,
+           ["控除対象特別試験研究費の額のうち前二号に規定する政令で定める金額以外の金額の百分の二十に相当する金額"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

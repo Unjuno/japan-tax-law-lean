@@ -15911,3 +15911,15 @@ needle は `scripts/ci/transcription_audit.py` L2443 の cycle-135 定義をレ�
 独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
 照合: 独立仕様（交差乗算）の定数・境界例と照合し、カーネル決定で一致を確認。
 判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### FixedAssetTaxBase5Percent.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様（切り捨て符合要求）をカーネル決定で照合。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+### SpecialRndDeduction20Percent.lean
+
+独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
+照合: 独立仕様（切り捨て符合要求）をカーネル決定で照合。
+判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
