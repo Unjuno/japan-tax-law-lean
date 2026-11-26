@@ -5144,6 +5144,11 @@ def checks():
            "344M50000040016",
            "file", None,
            ["一個（現に使用中のもので海外市価（外国においてその物品を購入する際に支払われた又は支払われるべき価格をいう。以下この条において同じ。）三万円以下のものに限る。次号において同じ。）"])
+    # 関税法意見申請手続規則 art.2(3)(1) — OpinionApplicantDocumentWindowThreeMonths.lean
+    yield ("関税法意見申請手続規則 第二条(3)(1)（個人 三月以内書類）↔ OpinionApplicantDocumentWindowThreeMonths.lean",
+           "418M60000400006", "article", "第二条",
+           ['意見申請者が個人である場合にあっては、申請の日前三月以内に作成された戸籍の謄本若しくは抄本又は住民票の写し'])
+
 
     # 租税特別措置法施行令 art. 21の17の2(2) — PatentTransferRatio.lean
     yield ("租税特別措置法施行令 art. 21_17_2（取引数-1の割合）↔ PatentTransferRatio.lean",
