@@ -4982,6 +4982,11 @@ def checks():
            "332AC0000000026", "file", None,
            ["エネルギー消費効率が令和十二年度基準エネルギー消費効率に百分の七十を乗じて得た数値以上であること。"])
 
+    yield ("沖縄復帰国税省令 art. 20（課税標準数量の差額）↔ OkinawaTaxableQuantityResidual.lean",
+           "347M50000040042",
+           "file", None,
+           ["第一号の数量から前号の数量を控除した数量（以下この項において「課税標準数量」という。）"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
