@@ -4,8 +4,8 @@ import JapanTaxLaw.TaxFinance
 # ReconstructionSpecialIncomeTaxEnforcementDate — 復興特別所得税に関する政令 施行日（附則 art.1）bounded L4 モデル
 
 Sources (pinned):
-  Law id: 424CO0000000016
-  Revision: 424CO0000000016_20260525_507CO0000000244
+  Historical law id: 424CO0000000016
+  Historical revision: 424CO0000000016_20260525_507CO0000000244
   Raw snapshot: data/raw/424CO0000000016_20260525_507CO0000000244.law.json
   附則 Article 1 (施行期日). Needles contain no U+3000.
 
