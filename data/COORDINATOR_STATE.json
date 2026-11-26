@@ -384,39 +384,6 @@
       ]
     },
     {
-      "article": "17",
-      "checklist": [
-        "write an independent spec FIRST (own spec* definitions, no implementation ids)",
-        "implement the pinned clause as a separate Lean module",
-        "record pinned law id / revision / scoped article and exact needle in both headers",
-        "do NOT mark legal review: it stays LEGAL_REVIEW_PENDING"
-      ],
-      "claim_owner": "",
-      "dependencies": [],
-      "enforcement_date": "2026-11-01",
-      "law_id": "342AC0000000035",
-      "legal_review": "LEGAL_REVIEW_PENDING",
-      "normative_id": "NORM|cf07e881f1d8ecf70bbd51dfc969fb103cd1a635b1ff4d9f69a8edbee11b47e8",
-      "remaining_axes": [
-        "source_location",
-        "decomposition_audit",
-        "source_correspondence_audit",
-        "independent_spec",
-        "implementation",
-        "kernel_proof",
-        "proof_scope",
-        "boundary_proof",
-        "cross_law_proof",
-        "tests",
-        "adversarial_review"
-      ],
-      "revision": "342AC0000000035_20261101_508AC0000000021",
-      "role": "FORMALIZE",
-      "scope": "FULL_ARTICLE",
-      "status": "NOT_STARTED",
-      "unhandled_conditions": []
-    },
-    {
       "article": "2",
       "checklist": [
         "write an independent spec FIRST (own spec* definitions, no implementation ids)",
@@ -444,6 +411,39 @@
         "adversarial_review"
       ],
       "revision": "345CO0000000050_20010106_412CO0000000307",
+      "role": "FORMALIZE",
+      "scope": "FULL_ARTICLE",
+      "status": "NOT_STARTED",
+      "unhandled_conditions": []
+    },
+    {
+      "article": "1",
+      "checklist": [
+        "write an independent spec FIRST (own spec* definitions, no implementation ids)",
+        "implement the pinned clause as a separate Lean module",
+        "record pinned law id / revision / scoped article and exact needle in both headers",
+        "do NOT mark legal review: it stays LEGAL_REVIEW_PENDING"
+      ],
+      "claim_owner": "",
+      "dependencies": [],
+      "enforcement_date": "2026-07-10",
+      "law_id": "345M50000040017",
+      "legal_review": "LEGAL_REVIEW_PENDING",
+      "normative_id": "NORM|a11280c637a5ae6f1fc4d92f686be23e45f97cdb3ab9664aca6828809dedc5a3",
+      "remaining_axes": [
+        "source_location",
+        "decomposition_audit",
+        "source_correspondence_audit",
+        "independent_spec",
+        "implementation",
+        "kernel_proof",
+        "proof_scope",
+        "boundary_proof",
+        "cross_law_proof",
+        "tests",
+        "adversarial_review"
+      ],
+      "revision": "345M50000040017_20260710_508M60000040048",
       "role": "FORMALIZE",
       "scope": "FULL_ARTICLE",
       "status": "NOT_STARTED",
@@ -678,12 +678,12 @@
       "stage": "INSPECT",
       "status_counts": {
         "BLOCKED": 2,
-        "FULLY_VERIFIED": 1168,
-        "NOT_STARTED": 395684
+        "FULLY_VERIFIED": 1173,
+        "NOT_STARTED": 395679
       }
     },
     {
-      "selectable": 395684,
+      "selectable": 395679,
       "selected": 12,
       "skipped_dependency_or_blocker": 78,
       "stage": "SELECT"
@@ -702,8 +702,8 @@
           "NORM|4d079f4f8f01db3312c78e81e458245b272c0c68499a3ea4040bab2a4c2eb644",
           "NORM|2da7e4fb2bc943689c28e2f220e798466cdf59910d2731aab504db45eaf69a68",
           "NORM|fe2d863b549f87eb767896cdecbc67afc5002c4320b6ec8838c6c9b94b25c16b",
-          "NORM|cf07e881f1d8ecf70bbd51dfc969fb103cd1a635b1ff4d9f69a8edbee11b47e8",
-          "NORM|35a13101d938c5a9c05255d24d04e44109960098179da222845b9be835da34e7"
+          "NORM|35a13101d938c5a9c05255d24d04e44109960098179da222845b9be835da34e7",
+          "NORM|a11280c637a5ae6f1fc4d92f686be23e45f97cdb3ab9664aca6828809dedc5a3"
         ],
         "PROVE": [],
         "VERIFY": []
