@@ -741,6 +741,9 @@ import JapanTaxLaw.FreeCarePatientBand2_5Tests
 import JapanTaxLaw.FreeCarePatientBand5_10
 import JapanTaxLaw.FreeCarePatientBand5_10Spec
 import JapanTaxLaw.FreeCarePatientBand5_10Tests
+import JapanTaxLaw.FreshCheeseCardQualification
+import JapanTaxLaw.FreshCheeseCardQualificationSpec
+import JapanTaxLaw.FreshCheeseCardQualificationTests
 import JapanTaxLaw.GasolineDeduction
 import JapanTaxLaw.GasolineDeductionSpec
 import JapanTaxLaw.GasolineDeductionTests
@@ -1913,6 +1916,9 @@ import JapanTaxLaw.SpecialTonnageArt10PenaltyCapTests
 import JapanTaxLaw.SpecialUseExemption
 import JapanTaxLaw.SpecialUseExemptionSpec
 import JapanTaxLaw.SpecialUseExemptionTests
+import JapanTaxLaw.SpecifiedRelativeSpecialDeduction
+import JapanTaxLaw.SpecifiedRelativeSpecialDeductionSpec
+import JapanTaxLaw.SpecifiedRelativeSpecialDeductionTests
 import JapanTaxLaw.SpousalGiftDeduction
 import JapanTaxLaw.SpousalGiftDeductionSpec
 import JapanTaxLaw.SpousalGiftDeductionTests
@@ -2070,6 +2076,9 @@ import JapanTaxLaw.TonnageTaxTests
 import JapanTaxLaw.TouristTaxFineRange
 import JapanTaxLaw.TouristTaxFineRangeSpec
 import JapanTaxLaw.TouristTaxFineRangeTests
+import JapanTaxLaw.TouristTaxTaxablePassengers
+import JapanTaxLaw.TouristTaxTaxablePassengersSpec
+import JapanTaxLaw.TouristTaxTaxablePassengersTests
 import JapanTaxLaw.TrainingPeriodOneYear
 import JapanTaxLaw.TrainingPeriodOneYearSpec
 import JapanTaxLaw.TrainingPeriodOneYearTests
