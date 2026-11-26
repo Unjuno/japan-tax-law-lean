@@ -998,19 +998,3 @@ python -m unittest scripts.tests.test_revision_impact # 8 テスト（実リポ�
 ## コントリビュート
 
 貢献方法と検証基準は [CONTRIBUTING.md](CONTRIBUTING.md) を参照してください。コードは MIT ライセンスです。法的助言の提供を目的としません。
-
-JapanTaxLaw/ForeignBondInterestExemptionScopeEnforcementDate.lean    # 外貨債利子非課税適用除外者範囲政令 施行日1965-04-01（附則 art.1）L4
-JapanTaxLaw/ForeignBondInterestExemptionScopeEnforcementDateSpec.lean # 同上 独立定式
-JapanTaxLaw/ForeignBondInterestExemptionScopeEnforcementDateTests.lean # 同上 退行テスト
-
-JapanTaxLaw/HanshinAwajiDisasterTaxReliefEnforcementDate.lean    # 阪神淡路大震災国税特例施行規則 施行日2002-08-01（附則 art.1）L4
-JapanTaxLaw/HanshinAwajiDisasterTaxReliefEnforcementDateSpec.lean # 同上 独立定式
-JapanTaxLaw/HanshinAwajiDisasterTaxReliefEnforcementDateTests.lean # 同上 退行テスト
-
-JapanTaxLaw/CorporationTemporarySpecialTaxEnforcementDate.lean    # 法人臨時特別税に関する省令 施行日2003-01-06（附則 art.1）L4
-JapanTaxLaw/CorporationTemporarySpecialTaxEnforcementDateSpec.lean # 同上 独立定式
-JapanTaxLaw/CorporationTemporarySpecialTaxEnforcementDateTests.lean # 同上 退行テスト
-
-JapanTaxLaw/PurebredLivestockCertificateEnforcementDate.lean    # 純粋種繁殖用牛豚・無税馬証明書に関する省令 施行日2000-04-01（附則 art.1）L4
-JapanTaxLaw/PurebredLivestockCertificateEnforcementDateSpec.lean # 同上 独立定式
-JapanTaxLaw/PurebredLivestockCertificateEnforcementDateTests.lean # 同上 退行テスト
