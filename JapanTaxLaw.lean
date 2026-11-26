@@ -1772,6 +1772,9 @@ import JapanTaxLaw.OverseasMarketPriceCeilingTests
 import JapanTaxLaw.OwnershipPercent5
 import JapanTaxLaw.OwnershipPercent5Spec
 import JapanTaxLaw.OwnershipPercent5Tests
+import JapanTaxLaw.ParagraphSixSevenReading
+import JapanTaxLaw.ParagraphSixSevenReadingSpec
+import JapanTaxLaw.ParagraphSixSevenReadingTests
 import JapanTaxLaw.PassengerCapacity
 import JapanTaxLaw.PassengerCapacitySpec
 import JapanTaxLaw.PassengerCapacityTests

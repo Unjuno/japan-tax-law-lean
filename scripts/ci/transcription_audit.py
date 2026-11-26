@@ -91,6 +91,10 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # ParagraphSixSevenReading.lean - NORM|3b374d46... (第六・第七項準用 READING, law 422CO0000000060)
+    yield ("たばこ税法改正政令整備政令 art.3（第六項・第七項準用）↔ ParagraphSixSevenReading.lean",
+           "422CO0000000060", "article", "第三条", ["第六項及び第七項の規定は、前項の場合について準用する。"])
+
     # CustomsTerritoryCountryInclusion.lean - NORM|e0b9627e... (関税制度地域の国包含 CONDITION, law 414CO0000000116)
     yield ("経済連携協定緊急措置政令 art.2(1)(1)（関税制度地域の国包含）↔ CustomsTerritoryCountryInclusion.lean",
            "414CO0000000116", "article", "第二条", ["当該調査の対象となる国（固有の関税及び貿易に関する制度を有する地域を含む。以下同じ。）"])
