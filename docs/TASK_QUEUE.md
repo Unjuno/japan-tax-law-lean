@@ -17,11 +17,11 @@ only from recorded evidence in `data/verification_evidence.json`.
 
 | status | units |
 |---|---:|
-| NOT_STARTED | 160715 |
-| PARTIAL | 103097 |
+| NOT_STARTED | 160701 |
+| PARTIAL | 103075 |
 | PROVED_SCOPE | 0 |
-| FULLY_VERIFIED | 4276 |
-| BLOCKED | 19 |
+| FULLY_VERIFIED | 4311 |
+| BLOCKED | 20 |
 | STALE | 0 |
 
 ## Verification axes required for FULLY_VERIFIED

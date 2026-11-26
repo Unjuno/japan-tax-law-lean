@@ -662,6 +662,9 @@ import JapanTaxLaw.PeriodAllocationTests
 import JapanTaxLaw.AmountSelection
 import JapanTaxLaw.AmountSelectionSpec
 import JapanTaxLaw.AmountSelectionTests
+import JapanTaxLaw.IntegerPercentRates
+import JapanTaxLaw.IntegerPercentRatesSpec
+import JapanTaxLaw.IntegerPercentRatesTests
 import JapanTaxLaw.TariffSpecificFloor
 import JapanTaxLaw.TariffSpecificFloorSpec
 import JapanTaxLaw.TariffSpecificFloorTests

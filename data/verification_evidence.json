@@ -23942,6 +23942,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "mechanical-audit:PCT-03e4c7007d3e",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "task_queue.json#03e4c7007d3e#coverage",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の80 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "03e52b8f755b5f71a268b81449fb6b3e08b7f11ce5e4b9f389b987855f13e329": [
@@ -74289,6 +74361,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "mechanical-audit:PCT-0c351c0f04a6",
+        "note": "百分の1: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "task_queue.json#0c351c0f04a6#coverage",
+        "note": "百分の1: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の1: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の1: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の1: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の1: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の1: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の1: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の1 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "0c35793d6da5328df899b32312bb688e22e1516e2f98563a9f527abb49a1b26f": [
@@ -151984,6 +152128,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "mechanical-audit:PCT-1928cf80f523",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "task_queue.json#1928cf80f523#coverage",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の20 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "1929830f815bedb7ee76342669c63bfb196b99854f2f3cdd1dfe1db36f0561d4": [
@@ -159749,6 +159965,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "mechanical-audit:PCT-1a7f0fc1d8d1",
+        "note": "百分の5: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "task_queue.json#1a7f0fc1d8d1#coverage",
+        "note": "百分の5: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の5: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の5: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の5: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の5: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の5: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の5: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の5 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "1a7f5c429bd3eef2beea856362b6059ce820c90ee8bdb602253eece6cc06c9e0": [
@@ -214617,6 +214905,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "mechanical-audit:PCT-23a2514e4b0a",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "task_queue.json#23a2514e4b0a#coverage",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の15 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "23a267edf87280a9b464c2f877b454ae57471d94f6ca73042b56519c86baed7a": [
@@ -223139,6 +223499,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "25214254d0ead0880556234f155abe118329289256dd50eac47cfcdf3425b9f7": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "347M50000008013#第1条#pinned-integer-percent",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "mechanical-audit:PCT-25214254d0ea",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "task_queue.json#25214254d0ea#coverage",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の10 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "252173e8dc970dbeeeac23b4f7ed3e806d69a4b9aa0a08451f630adec64b4c3e": [
@@ -231848,6 +232290,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "267a88944218e60bc0e9e144ebfbddf4e45afb528f1d9c364214265220c15265": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "362CO0000000335#第4_3条#pinned-integer-percent",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "mechanical-audit:PCT-267a88944218",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "task_queue.json#267a88944218#coverage",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の20 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "267d81b9ac815945ca3dba317288d3ae33c17a670784f1adf5f6ab60d40c0e19": [
@@ -318747,6 +319271,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "mechanical-audit:PCT-353d3cd8b31c",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "task_queue.json#353d3cd8b31c#coverage",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の10 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "353d84eeebae63f14736becffab566439ae8e299b97fcafe94e8aa6a74bdc293": [
@@ -322644,6 +323240,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "mechanical-audit:PCT-35e05dcc3dac",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "task_queue.json#35e05dcc3dac#coverage",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の80 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "35e16e377b0e33fcd92e7c0d2d09963e6e1b2c1b98d12c799a79d71e6f734fa7": [
@@ -347619,6 +348287,88 @@
         "date": "2026-11-26T09:55:15+00:00",
         "evidence_ref": "data/evidence_audits/sen2_full_coverage.md#verdict-pass-full-coverage",
         "note": "FULL-COVERAGE PASS: SHA, 一円五二銭=152銭 parse, contiguous fragment; 0 non-contiguous; scope = exact rate phrase",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
+    "3a603ac7eb08fdeb6875160201832c1e28e3d74bd54fe9f6428cbfaabbfa3d05": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "340AC0000000033#第92条#pinned-integer-percent",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "mechanical-audit:PCT-3a603ac7eb08",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "task_queue.json#3a603ac7eb08#coverage",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の10 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
         "reviewer": "ci",
         "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
@@ -400270,6 +401020,88 @@
         "tool": "coordinator_cycle.py"
       }
     ],
+    "436eb28edfc7f73f5aaaeed2e428c1fb8ccf6ed9aef712354af531c117540036": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "363CO0000000360#第57条#pinned-integer-percent",
+        "note": "百分の90: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "mechanical-audit:PCT-436eb28edfc7",
+        "note": "百分の90: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "task_queue.json#436eb28edfc7#coverage",
+        "note": "百分の90: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の90: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の90: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の90: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の90: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の90: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の90: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の90 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "436fee77d370d4b289a4adce9efb13814836d5612d6f8a8b8ce157c6ff0b45c3": [
       {
         "axis": "SOURCE_LOCATION",
@@ -412261,6 +413093,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "mechanical-audit:PCT-4556c6bd8e47",
+        "note": "百分の25: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "task_queue.json#4556c6bd8e47#coverage",
+        "note": "百分の25: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の25: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の25: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の25: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の25: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の25: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の25: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の25 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "455874ed221f29425671c052cab8d4f3ea1ab336ea7adbffcf1901f7eaf832a7": [
@@ -422319,6 +423223,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "mechanical-audit:PCT-472357cc6855",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "task_queue.json#472357cc6855#coverage",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の80 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "47237aa949d23a7c9e360bcd286a955bc6167634d7301e2aeddf0945d5478898": [
@@ -445336,6 +446312,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "mechanical-audit:PCT-4b085448c3fb",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "task_queue.json#4b085448c3fb#coverage",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の10 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "4b0921962f546e481139edb381c2ec613c2a665a1d148d92071a81bdeb64b888": [
@@ -612717,6 +613765,88 @@
         "tool": "coordinator_cycle.py"
       }
     ],
+    "677282aecb3c6b95701fc9aca26c5d171fa5f7b65981eebe27200236803da782": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "363CO0000000360#第57条#pinned-integer-percent",
+        "note": "百分の70: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "mechanical-audit:PCT-677282aecb3c",
+        "note": "百分の70: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "task_queue.json#677282aecb3c#coverage",
+        "note": "百分の70: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の70: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の70: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の70: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の70: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の70: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の70: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の70 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "67728528adcfcb91d4e9e70d3a2d22c956b0418fa27c58a3953bdff9e95ba565": [
       {
         "axis": "SOURCE_LOCATION",
@@ -630925,6 +632055,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "mechanical-audit:PCT-6a6d382d501a",
+        "note": "百分の7: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "task_queue.json#6a6d382d501a#coverage",
+        "note": "百分の7: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の7: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の7: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の7: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の7: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の7: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の7: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の7 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "6a6df472d87526b868a67919567b64a4b5d2cd20cb0aae57c63bd566dab73f54": [
@@ -644311,6 +645513,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "mechanical-audit:PCT-6c925a6e9a06",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "task_queue.json#6c925a6e9a06#coverage",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の15 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "6c92d6f4237016015398711f2cf297a9bddb9f7a748b77f66b6e584e8a0e655e": [
@@ -661440,6 +662714,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "6f7936b7dcb0ff6a260ecad98fd380ab3b30194f2dfebd0005d04e5e9a9dcea3": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "423CO0000000112#第29_3条#pinned-integer-percent",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "mechanical-audit:PCT-6f7936b7dcb0",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "task_queue.json#6f7936b7dcb0#coverage",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の80 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "6f797499bcb017415c346253544713a42910727631ded6c801b42d0524b86a89": [
@@ -710533,6 +711889,80 @@
         "tool": "coordinator_cycle.py"
       }
     ],
+    "77bb4525e2c7b93e1a2f5c1c9f206a80e40e07d3a86aad7e7459057ef4082858": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "347M50000040044#第15条#pinned-integer-percent",
+        "note": "百分の1: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "mechanical-audit:PCT-77bb4525e2c7",
+        "note": "百分の1: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "task_queue.json#77bb4525e2c7#coverage",
+        "note": "百分の1: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の1: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の1: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の1: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の1: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の1: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の1: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      }
+    ],
     "77bb58baa1f12e0f4a92297a0608499a5b2b4c3d5a4a94ba467b75f271f97060": [
       {
         "axis": "SOURCE_LOCATION",
@@ -724285,6 +725715,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "7a0b8af0261be336b60f25b13f29193771b9326d97e325b6b7de573a7e5b60e9": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "363CO0000000360#第57条#pinned-integer-percent",
+        "note": "百分の60: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "mechanical-audit:PCT-7a0b8af0261b",
+        "note": "百分の60: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "task_queue.json#7a0b8af0261b#coverage",
+        "note": "百分の60: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の60: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の60: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の60: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の60: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の60: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の60: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の60 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "7a0bc471b036e35f697857564b28ce7112287c56235188fff78c98aed5aa91b8": [
@@ -749969,6 +751481,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "mechanical-audit:PCT-7e77ee65a017",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "task_queue.json#7e77ee65a017#coverage",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の15 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "7e78967639139f8af5d710e7eacacfdf9a4089e58320474d5cfcd391405dea12": [
@@ -776495,6 +778079,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "82b838b753b5d96a37321f7c46e6e04e31b92d42b464c583f75ec35179b9f50f": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "360M50000040001#第4条#pinned-integer-percent",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "mechanical-audit:PCT-82b838b753b5",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "task_queue.json#82b838b753b5#coverage",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の10: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の10 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "82b9d6c8e79a139a19526664507dcb1b2b752cf16f8f6ad808d5ea824a6225fe": [
@@ -870587,6 +872253,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "mechanical-audit:PCT-92a4efb0e945",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "task_queue.json#92a4efb0e945#coverage",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の15: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の15 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "92a57144ecaaf3c2da0d289fca808dbcc5c3130fcdd90351f878c7f287a9475f": [
@@ -888154,6 +889892,88 @@
         "note": "unit decomposition and mechanical coverage only",
         "reviewer": "ci",
         "tool": "task_queue.py"
+      }
+    ],
+    "9590ff062d9a02d03bb2abe7b89ee67caf956ef229f2ba2c0c0f3f889789e7f5": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "363CO0000000360#第57条#pinned-integer-percent",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "mechanical-audit:PCT-9590ff062d9a",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "task_queue.json#9590ff062d9a#coverage",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の80 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "95916caf2039b740c90fce607e6da56830c54aba50acef6ee32d19c8044f4be2": [
@@ -930133,6 +931953,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "mechanical-audit:PCT-9c6138f17080",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "task_queue.json#9c6138f17080#coverage",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:58+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の80 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "9c62d449fd393730e20d104747a5c3644d53d79e42fcac6f2e696c9dca4ad734": [
@@ -950657,6 +952549,88 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      }
+    ],
+    "9f98d8e67e99578dc32a8144c7a2fef25c9fab8506ec10d00afba58506d9bf90": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "424AC0000000068#第7条#pinned-integer-percent",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "mechanical-audit:PCT-9f98d8e67e99",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "task_queue.json#9f98d8e67e99#coverage",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の20 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "9f999be4f6c26d559ea3a49b3da11759c5febd86e553bc38c748d78c40f845fa": [
@@ -1050947,6 +1052921,88 @@
         "tool": "coordinator_cycle.py"
       }
     ],
+    "b05e7a7b30d8839b24d3e5e2a91263fcd0ac5e3a9c9d836e73ccea1016686818": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "363CO0000000360#第46条#pinned-integer-percent",
+        "note": "百分の78: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "mechanical-audit:PCT-b05e7a7b30d8",
+        "note": "百分の78: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "task_queue.json#b05e7a7b30d8#coverage",
+        "note": "百分の78: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の78: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の78: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の78: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の78: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の78: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の78: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の78 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "b05f56c0b8c87396a5b949cebe43227b71c7180df9be045cf7569071bdd8b205": [
       {
         "axis": "SOURCE_LOCATION",
@@ -1093827,6 +1095883,88 @@
         "tool": "coordinator_cycle.py"
       }
     ],
+    "b76a39d92f8da01285d1ea5aff58a5dbd32816796f206bc383a09b079f4d120c": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "423CO0000000112#第29_3条#pinned-integer-percent",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "mechanical-audit:PCT-b76a39d92f8d",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "task_queue.json#b76a39d92f8d#coverage",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の80: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の80 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
     "b76cb9a887d1bab41864cfe0ce065e408b25892ebbe62e436e34648518efe340": [
       {
         "axis": "SOURCE_LOCATION",
@@ -1127597,6 +1129735,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "mechanical-audit:PCT-bd21b3cf8d2d",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "task_queue.json#bd21b3cf8d2d#coverage",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の20 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "bd221961834cdc0c55e196b89c7d19463e606b053c9bcd6ffd5d05bb4d8deeaf": [
@@ -1151395,6 +1153605,88 @@
         "date": "2026-11-26T13:38:21+00:00",
         "evidence_ref": "data/evidence_audits/threshold_adversarial_fail.md#pass-252",
         "note": "FULL-COVERAGE PASS: pinned SHA, verbatim threshold phrase, contiguous fragment, positive threshold; 9 other units reassigned to cap model",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
+      }
+    ],
+    "c1382fa8df7dfec8b532b3dca4c896b95516039e99980d287454d570205cbc76": [
+      {
+        "axis": "SOURCE_LOCATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "347CO0000000151#第134条#pinned-integer-percent",
+        "note": "百分の30: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "source-audit"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "mechanical-audit:PCT-c1382fa8df7d",
+        "note": "百分の30: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "task_queue.json#c1382fa8df7d#coverage",
+        "note": "百分の30: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の30: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の30: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の30: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の30: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の30: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の30: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の30 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
         "reviewer": "ci",
         "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
@@ -1243832,6 +1246124,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "mechanical-audit:PCT-d0dfc500a23c",
+        "note": "百分の95: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "task_queue.json#d0dfc500a23c#coverage",
+        "note": "百分の95: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の95: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の95: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の95: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の95: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の95: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:57+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の95: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の95 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "d0e086335fb46e39a53d02fcedd864f200fcb4d0cb343d720516d21e760826b3": [
@@ -1246391,6 +1248755,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "mechanical-audit:PCT-d168e7e15249",
+        "note": "百分の5: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "task_queue.json#d168e7e15249#coverage",
+        "note": "百分の5: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の5: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の5: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の5: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の5: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の5: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の5: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の5 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "d1690e56b68e6c44f6d65cd9064337ea3f332768f9f43d36101c9e5054325c43": [
@@ -1273043,6 +1275479,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "mechanical-audit:PCT-d5bdce4c423c",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "task_queue.json#d5bdce4c423c#coverage",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の20: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の20 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "d5bdebb8dd9e6f8ea1b1a5d5dd9a9eed0062e734ae24a5cae86cd9b936450924": [
@@ -1329641,6 +1332149,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "mechanical-audit:PCT-df52d814a68a",
+        "note": "百分の90: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "task_queue.json#df52d814a68a#coverage",
+        "note": "百分の90: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の90: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の90: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の90: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の90: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の90: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:55+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の90: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の90 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "df5362343153551d7ab33684471b9d2841d450988ca58b304bcb6c21999425ed": [
@@ -1504358,6 +1506938,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "mechanical-audit:PCT-fccd7eb26072",
+        "note": "百分の25: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "task_queue.json#fccd7eb26072#coverage",
+        "note": "百分の25: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の25: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の25: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の25: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の25: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の25: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:56+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の25: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の25 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "fccde4cb6e32fc84be4250efaf665260a186771c692ab200294d03dbff2d3977": [
@@ -1510926,6 +1513578,78 @@
         "note": "pinned bytes, exact structural path, offsets and hash",
         "reviewer": "ci",
         "tool": "coordinator_cycle.py"
+      },
+      {
+        "axis": "SOURCE_CORRESPONDENCE_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "mechanical-audit:PCT-fdf1c7d0a56f",
+        "note": "百分の34: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "local-mechanical-audit"
+      },
+      {
+        "axis": "DECOMPOSITION_AUDIT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "task_queue.json#fdf1c7d0a56f#coverage",
+        "note": "百分の34: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "task_queue.py"
+      },
+      {
+        "axis": "SPEC_INDEPENDENT",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#rate-first-product-spec@kernel",
+        "note": "百分の34: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "IMPLEMENTATION",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRates.lean#percentNumerator@kernel",
+        "note": "百分の34: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SOUNDNESS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#numerator_agrees@kernel",
+        "note": "百分の34: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_SCOPE",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesSpec.lean#complement/scaling/monotone@universal-Nat^2@kernel",
+        "note": "百分の34: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "PROOF_BOUNDARY",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean#rate-laws@boundary/kernel",
+        "note": "百分の34: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "TESTS",
+        "date": "2026-11-26T17:33:59+00:00",
+        "evidence_ref": "JapanTaxLaw/IntegerPercentRatesTests.lean@kernel",
+        "note": "百分の34: exact fraction numerator amount*p over 100; independent rate-first spec + complement/scaling laws; rounding/amount caller-established; NO independent adversarial review",
+        "reviewer": "ci",
+        "tool": "lake build"
+      },
+      {
+        "axis": "ADVERSARIAL_REVIEW",
+        "date": "2026-11-26T17:43:09+00:00",
+        "evidence_ref": "data/evidence_audits/integerpercent_full_coverage.md#verdict-pass",
+        "note": "FULL-COVERAGE PASS: SHA, 百分の34 verbatim with independent Kanji parse, contiguous fragment, rate-application context, independent spec + algebraic laws",
+        "reviewer": "ci",
+        "tool": "independent-subagent-adversarial-audit(full-coverage-script)"
       }
     ],
     "fdf1eb30826e1817b6816fbab166a503c839169aaf834cae67c64a6ef7ee3984": [
