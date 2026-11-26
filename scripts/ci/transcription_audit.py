@@ -95,10 +95,12 @@ def checks():
     yield ("租税特別措置法 art.42の4（増減試験研究費割合 百分の四超）↔ CombinedRndExcessOver4Year.lean",
            "332AC0000000026", "file", None,
            ["\u5897\u6e1b\u8a66\u9a13\u7814\u7a76\u8cbb\u5272\u5408\u304c\u767e\u5206\u306e\u56db\u3092\u8d85\u3048\u308b\u4e8b\u696d\u5e74\u5ea6"])
+
     # CombinedRndExcessOver7Year.lean - restored registered check (租税特別措置法 art.42の4, law 332AC0000000026)
     yield ("租税特別措置法 art.42の4（増減試験研究費割合 百分の七超）↔ CombinedRndExcessOver7Year.lean",
            "332AC0000000026", "file", None,
            ["\u5897\u6e1b\u8a66\u9a13\u7814\u7a76\u8cbb\u5272\u5408\u304c\u767e\u5206\u306e\u4e03\u3092\u8d85\u3048\u308b\u4e8b\u696d\u5e74\u5ea6"])
+
     # ForeignSubsidiaryTaxRate20.lean - restored registered check (租税特別措置法 art.40の4, law 332AC0000000026)
     yield ("租税特別措置法 art.40の4（租税負担割合 百分の二十以上）↔ ForeignSubsidiaryTaxRate20.lean",
            "332AC0000000026", "file", None,
@@ -4697,6 +4699,14 @@ def checks():
            "325AC0000000073",
            "file", None,
            ["当該贈与前十年以内のいずれかの時においてこの法律の施行地に住所を有していたことがあるもの", "第一条の四"])
+
+    # TouristTaxTaxablePassengers — 国際観光旅客税法施行規則 art.3(2) ホ (restored)
+    yield ("国際観光旅客税法施行規則 art.3(2) ホ（課税旅客数＝イ−(ロ+ハ+ニ)）↔ TouristTaxTaxablePassengers.lean",
+           "430M60000040039", "article", "第三条", ["イに掲げる数からロからニまでに掲げる数の合計数を控除した数"])
+
+    # TaxResearchCouncilQuorum — 税制調査会組織規則 art.7 §1 定足数
+    yield ("税制調査会組織規則 art.7（委員の三分の一以上の出席）↔ TaxResearchCouncilQuorum.lean",
+           "425CO0000000025", "article", "第七条", ["調査会は、委員の三分の一以上が出席しなければ、会議を開き、議決することができない。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
