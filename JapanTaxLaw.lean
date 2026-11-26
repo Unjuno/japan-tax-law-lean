@@ -175,6 +175,12 @@ import JapanTaxLaw.CombinedRndExcessAtMost3Tests
 import JapanTaxLaw.CombinedRndExcessOver3
 import JapanTaxLaw.CombinedRndExcessOver3Spec
 import JapanTaxLaw.CombinedRndExcessOver3Tests
+import JapanTaxLaw.CombinedRndExcessOver4Year
+import JapanTaxLaw.CombinedRndExcessOver4YearSpec
+import JapanTaxLaw.CombinedRndExcessOver4YearTests
+import JapanTaxLaw.CombinedRndExcessOver7Year
+import JapanTaxLaw.CombinedRndExcessOver7YearSpec
+import JapanTaxLaw.CombinedRndExcessOver7YearTests
 import JapanTaxLaw.CommitteeTermTwoYears
 import JapanTaxLaw.CommitteeTermTwoYearsSpec
 import JapanTaxLaw.CommitteeTermTwoYearsTests
@@ -326,6 +332,9 @@ import JapanTaxLaw.CustomsProcedureRatesTests
 import JapanTaxLaw.CustomsReadingSubstitution
 import JapanTaxLaw.CustomsReadingSubstitutionSpec
 import JapanTaxLaw.CustomsReadingSubstitutionTests
+import JapanTaxLaw.CustomsReportPenaltyCeiling50k
+import JapanTaxLaw.CustomsReportPenaltyCeiling50kSpec
+import JapanTaxLaw.CustomsReportPenaltyCeiling50kTests
 import JapanTaxLaw.CustomsRetaliatoryDuty
 import JapanTaxLaw.CustomsRetaliatoryDutySpec
 import JapanTaxLaw.CustomsRetaliatoryDutyTests
@@ -891,6 +900,9 @@ import JapanTaxLaw.IncomeSupport380kArt2Tests
 import JapanTaxLaw.IncomeTaxRevenueBracket1900k
 import JapanTaxLaw.IncomeTaxRevenueBracket1900kSpec
 import JapanTaxLaw.IncomeTaxRevenueBracket1900kTests
+import JapanTaxLaw.IncomeTaxSpouseIncomeCeiling10M
+import JapanTaxLaw.IncomeTaxSpouseIncomeCeiling10MSpec
+import JapanTaxLaw.IncomeTaxSpouseIncomeCeiling10MTests
 import JapanTaxLaw.IncomeWithholdingRates
 import JapanTaxLaw.IncomeWithholdingRatesSpec
 import JapanTaxLaw.IncomeWithholdingRatesTests
@@ -1217,6 +1229,9 @@ import JapanTaxLaw.LocalGradation256Tests
 import JapanTaxLaw.LocalGrantRevenueBase
 import JapanTaxLaw.LocalGrantRevenueBaseSpec
 import JapanTaxLaw.LocalGrantRevenueBaseTests
+import JapanTaxLaw.LocalGrantTaxRatio
+import JapanTaxLaw.LocalGrantTaxRatioSpec
+import JapanTaxLaw.LocalGrantTaxRatioTests
 import JapanTaxLaw.LocalGrantTaxShares
 import JapanTaxLaw.LocalGrantTaxSharesSpec
 import JapanTaxLaw.LocalGrantTaxSharesTests
