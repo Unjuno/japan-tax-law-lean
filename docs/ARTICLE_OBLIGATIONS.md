@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 303
-- presence-facts-only complete: 303
-- NOT_STARTED: 303
+- articles with explicit pin: 311
+- presence-facts-only complete: 311
+- NOT_STARTED: 311
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -17,6 +17,14 @@ source positions. Human legal review is a separate axis and is pending.
 
 | law_id | article | module | presence | scoped | review | authoritative status |
 |---|---|---|---|---|---|---|
+| `329M50000002023` | 第八条の十三 | GolfCourseTaxGrantSevenTenths | YES | YES | NO | NOT_STARTED |
+| `332AC0000000077` | 第二条 | PortMunicipalityAllocationBase | YES | YES | NO | NOT_STARTED |
+| `422CO0000000221` | 第二条 | SpecialWardReading | YES | YES | NO | NOT_STARTED |
+| `330CO0000000237` | 第三条 | BenefitTariffLowerRate | YES | YES | NO | NOT_STARTED |
+| `341CO0000000005` | 第十二条 | PetroleumGasRefundAmount | YES | YES | YES | NOT_STARTED |
+| `326M50000040055` | 第二十二条の三 | DoubtfulReceivableDeduction | YES | YES | YES | NOT_STARTED |
+| `346CO0000000275` | 第五条 | FifthWheelGrossWeight | YES | YES | YES | NOT_STARTED |
+| `342AC0000000035` | 第十七条 | ShipProvisionalRateReduction | YES | YES | NO | NOT_STARTED |
 | `414CO0000000116` | 第二条 | CustomsTerritoryCountryInclusion | YES | YES | NO | NOT_STARTED |
 | `412CO0000000278` | 第四条 | SubstituteMemberResidualTerm | YES | YES | NO | NOT_STARTED |
 | `347M50010000033` | 第四条 | OkinawaDividedCertificateIssuance | YES | YES | NO | NOT_STARTED |
