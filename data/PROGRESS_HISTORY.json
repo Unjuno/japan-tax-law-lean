@@ -5285,6 +5285,25 @@
     {
       "counts": {
         "BLOCKED": 2,
+        "FULLY_VERIFIED": 1250,
+        "NOT_STARTED": 395602,
+        "PARTIAL": 0,
+        "PROVED_SCOPE": 0
+      },
+      "delta": {
+        "BLOCKED": 0,
+        "FULLY_VERIFIED": 0,
+        "NOT_STARTED": 0,
+        "PARTIAL": 0,
+        "PROVED_SCOPE": 0
+      },
+      "head": "d4cfe42038c19606a3603226149025ce559cfda9",
+      "new_modules": [],
+      "verdict": "NO_CHANGE"
+    },
+    {
+      "counts": {
+        "BLOCKED": 2,
         "FULLY_VERIFIED": 1251,
         "NOT_STARTED": 395601,
         "PARTIAL": 0,
@@ -5297,8 +5316,12 @@
         "PARTIAL": 0,
         "PROVED_SCOPE": 0
       },
-      "head": "6930158210916fb29fdd09dac41012f837201201",
-      "new_modules": [],
+      "head": "f582a0c51e0788504ba0df071e19df140676695f",
+      "new_modules": [
+        "JapanTaxLaw/SpecialWardReading.lean",
+        "JapanTaxLaw/SpecialWardReadingSpec.lean",
+        "JapanTaxLaw/SpecialWardReadingTests.lean"
+      ],
       "verdict": "COUNTED"
     }
   ]

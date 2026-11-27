@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 213
+- with >=1 pinned literal check (semantic model): 214
 - with recorded human legal review: 0
 
 ## All laws
@@ -293,7 +293,7 @@ a completion flag.
 | `428CO0000000196` | 水酸化カリウムに対して課する不当廉売関税に関する政令 | 428CO0000000196_20210814_503CO0000000231 | CurrentEnforced | YES | ok | 8 | YES (1) | NO |
 | `428M60000048005` | 外国居住者等の所得に対する相互主義による所得税等の非課税等に関する法律施行規則 | 428M60000048005_20260101_506M60000048004 | CurrentEnforced | YES | ok | 48 | YES (1) | NO |
 | `429CO0000000010` | 経済連携協定に基づく報復関税に関する政令 | 429CO0000000010_20181230_000000000000000 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
-| `429M60000008030` | 都及び特別区の標準税収入額の算定方法に関する省令 | 429M60000008030_20260401_508M60000008048 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
+| `429M60000008030` | 都及び特別区の標準税収入額の算定方法に関する省令 | 429M60000008030_20260401_508M60000008048 | CurrentEnforced | YES | ok | 10 | YES (1) | NO |
 | `429M60000040031` | 貿易保険法に規定する法人税に係る課税の特例に関する省令 | 429M60000040031_20260731_508M60000040053 | CurrentEnforced | YES | ok | 5 | NO (0) | NO |
 | `429CO0000000234` | 高重合度ポリエチレンテレフタレートに対して課する不当廉売関税に関する政令 | 429CO0000000234_20230204_505CO0000000028 | CurrentEnforced | YES | ok | 8 | YES (1) | NO |
 | `429CO0000000324` | 炭素鋼製突合せ溶接式継手に対して課する不当廉売関税に関する政令 | 429CO0000000324_20180331_430CO0000000121 | CurrentEnforced | YES | ok | 7 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 512
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 514
