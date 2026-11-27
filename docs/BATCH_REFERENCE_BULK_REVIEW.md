@@ -1,3 +1,4 @@
 - batch BulkRefee0b838db2: 1000 reference norms; dispatch scope only; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.
 - batch BulkRef2b3c97a606: 1000 reference norms; dispatch scope only; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.
 - batch BulkRef6a0fc07cc4: 1000 reference norms; dispatch scope only; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.
+- batch BulkRef7f167273b0: 558 reference norms; dispatch scope only; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.

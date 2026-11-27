@@ -297,6 +297,17 @@ identical after parsing: 100660012 → 93961260 bytes (89.6 MiB on disk), leavin
 headroom for a few more batches without changing any gate's input. This is a
 storage mitigation, not a completion claim.
 
+$ python scripts/ci/batch_reference_bulk_pipeline.py --limit 1000 / --limit 1000
+bulk reference batch: verified=558 failed=0; second run verified=0 (class exhausted)
+$ python scripts/ci/task_queue.py
+normative-unit queue: 396854 units; NOT_STARTED=328630, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=68222, BLOCKED=2
+$ python scripts/ci/verify_queue_invariants.py → 12/12 PASS; FULLY_VERIFIED=68222 axes=11 unbacked=0
+$ python -m unittest discover -s scripts/tests -t . → 263 tests, OK
+$ lake build → Build completed successfully (524 jobs)
+$ python scripts/ci/run_python_gates.py → 33 PASS / 0 FAIL / 0 SKIP
+$ python scripts/ci/completion_gate.py → all-complete=False (separate legal-review axis: 0/3438)
+
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
 `scripts/ci/resolve_gift_needle_ambiguity.py` re-extracted both pinned articles
