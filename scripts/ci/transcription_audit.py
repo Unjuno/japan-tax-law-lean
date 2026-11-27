@@ -5061,6 +5061,36 @@ def checks():
            "article", "第七百三十三条の二十二",
            ["納税者又は特別徴収義務者が納期限（更正又は決定があつた場合においては、不足金額の納期限をいう。以下本節において同じ。）までに法定外目的税に係る地方団体の徴収金を完納しない場合においては、地方団体の徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
 
+    # Batch 303 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("相続税法 art. 19_3(3) 二回以上 ↔ InheritanceTax19_3RepeatedDeductionFloor2.lean",
+           "325AC0000000073",
+           "article", "第十九条の三",
+           ["第一項の規定に該当する者がその者又はその扶養義務者について既に前二項の規定による控除を受けたことがある者である場合においては、その者又はその扶養義務者がこれらの規定による控除を受けることができる金額は、既に控除を受けた金額の合計額が第一項の規定による控除を受けることができる金額（二回以上これらの規定による控除を受けた場合には、最初に相続又は遺贈により財産を取得した際に同項の規定による控除を受けることができる金額）に満たなかつた場合におけるその満たなかつた部分の金額の範囲内に限"])
+
+    # Batch 303 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 8_2(2) 二以上 ↔ LocalTax8_2SuccessorMunicipalitiesTwoOrMore.lean",
+           "325AC0000000226",
+           "article", "第八条の二",
+           ["前項の規定によつて消滅市町村の徴収金に係る権利を承継する承継市町村が二以上ある場合において、当該承継市町村がそれぞれ承継すべき当該消滅市町村の徴収金に係る権利について当該承継市町村の長の間において意見を異にし、その協議がととのわないときは、道府県知事（当該承継市町村が二以上の道府県の区域にわたる場合においては、総務大臣）に対し、その決定を求める旨を申し出なければならない。"])
+
+    # Batch 303 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 73_2(7) 三十日以内 ↔ LocalTax73_2AnnexFilingWithin30Days.lean",
+           "325AC0000000226",
+           "article", "第七十三条の二",
+           ["この場合においては、主体構造部の取得者が納税通知書の交付を受けた日から三十日以内に、附帯設備に属する部分の取得者と協議の上、当該不動産取得税の課税標準となるべき価額のうち附帯設備に属する部分の取得者の所有に属する部分の価額を申し出たときは、その部分の価額に基づいて附帯設備に属する部分の取得者に不動産取得税を課するものとし、主体構造部の取得者に課した不動産取得税の税額から附帯設備の取得者に課した不動産取得税の税額に相当する額を減額するものとする。"])
+
+    # Batch 303 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 73_27_2(2) 六月以内 ↔ LocalTax73_27_2HousingTaxDeferralWithin6Months.lean",
+           "325AC0000000226",
+           "article", "第七十三条の二十七の二",
+           ["道府県は、住宅の取得に対して課する不動産取得税を賦課徴収する場合において、当該住宅の取得者から、当該道府県の条例で定めるところにより、当該不動産取得税について前項の規定の適用があるべき旨の申告があり、当該申告が真実であると認められるときは、当該取得の日から六月以内の期間を限つて、当該住宅に係る不動産取得税額のうち同項の規定により減額すべき額に相当する税額を徴収猶予するものとする。"])
+
+    # Batch 303 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 693(1) 二十日以内 ↔ LocalTax693MunicipalExternalTaxDemandWithin20Days.lean",
+           "325AC0000000226",
+           "article", "第六百九十三条",
+           ["納税者又は特別徴収義務者が納期限（更正又は決定があつた場合においては、不足金額の納期限をいう。以下市町村法定外普通税について同様とする。）までに市町村法定外普通税に係る地方団体の徴収金を完納しない場合においては、市町村の徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
