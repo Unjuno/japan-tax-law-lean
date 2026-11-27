@@ -5181,6 +5181,36 @@ def checks():
            "article", "第三百二十一条の十五",
            ["総務大臣は、第四項の申出を受けた場合においては、その日から六十日以内にその裁決をしなければならない。"])
 
+    # Batch 311 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("相続税法 art. 47(3) 三月以内 ↔ InheritanceTax47WithdrawalDecisionWithin3Months.lean",
+           "325AC0000000073",
+           "article", "第四十七条",
+           ["税務署長は、前項の規定による申請書の提出があつた場合においては、その申請の基因となる物納の撤回の申請の却下をする場合を除き、当該申請者及び当該申請に係る事項について前条第一項及び前二項の規定に該当するか否かの調査を行い、その調査に基づき、当該申請書の提出期限の翌日から起算して三月以内に当該申請に係る税額の全部又は一部について当該申請に係る条件若しくはこれを変更した条件により物納の撤回に係る延納の許可をし、又は当該申請の却下をする。"])
+
+    # Batch 311 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("相続税法 art. 42(17) 六月を超える ↔ InheritanceTax42SnowSurveyOver6Months.lean",
+           "325AC0000000073",
+           "article", "第四十二条",
+           ["第二項の規定により、税務署長が、同項の調査を行う場合において、積雪その他これに準ずる事由により当該調査に六月を超える期間を要すると認めるときにおける前項の規定の適用については、同項中「六月」とあるのは、「九月」とする。"])
+
+    # Batch 311 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 22_29(1) 二十日以内 ↔ LocalTax22_29ProsecutionWithin20Days.lean",
+           "325AC0000000226",
+           "article", "第二十二条の二十九",
+           ["地方団体の長は、犯則者が前条第一項の通告（同条第三項の規定による更正があつた場合には、当該更正。以下この条において「通告等」という。）を受けた場合において、当該通告等を受けた日の翌日から起算して二十日以内に当該通告の旨を履行しないときは、検察官に告発しなければならない。"])
+
+    # Batch 311 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 154(2) 四人以上 ↔ LocalTax154PassengerCapacityAtLeast4.lean",
+           "325AC0000000226",
+           "article", "第百五十四条",
+           ["前項第二号に掲げる自動車のうち最大乗車定員が四人以上であるものに対して課する自動車税の標準税率は、同項（同号に係る部分に限る。）の規定にかかわらず、同号に定める額に、次の各号の区分に応じ当該各号に定める額を、それぞれ加算した額とする。"])
+
+    # Batch 311 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 53(66) 一億円を超える ↔ LocalTax53CapitalOver100M.lean",
+           "325AC0000000226",
+           "article", "第五十三条",
+           ["納税申告書に係る事業年度開始の日（公共法人等にあつては、前年四月一日）現在における資本金の額又は出資金の額が一億円を超える法人"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
