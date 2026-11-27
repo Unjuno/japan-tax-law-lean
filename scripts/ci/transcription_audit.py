@@ -4787,6 +4787,37 @@ def checks():
            "article", "第三百二十一条の七の四",
            ["前項の場合において、市町村は、同一の特別徴収対象年金所得者について老齢等年金給付が二以上あるときは、政令で定めるところにより、一の老齢等年金給付（以下この節において「特別徴収対象年金給付」という。）について年金所得に係る特別徴収税額を徴収させるものとする。"])
 
+
+    # Batch 285 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 17_4(3) 二以上の納期の過誤納金みなし ↔ LocalTax17_4TwoOrMoreInstallmentsDeeming.lean",
+           "325AC0000000226",
+           "article", "第十七条の四",
+           ["二以上の納期又は二回以上の分割納付若しくは分割納入に係る地方団体の徴収金につき過誤納を生じた場合には、その過誤納金については、その過誤納金の額に相当する地方団体の徴収金に達するまで、納付又は納入の日の順序に従い最後に納付又は納入された金額から順次遡つて求めた金額からなるものとみなして、第一項の規定を適用する。"])
+
+    # Batch 285 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 73_24(1)1 二年以内の特例適用住宅新築 ↔ LocalTax73_24TwoYearNewHouseCondition.lean",
+           "325AC0000000226",
+           "article", "第七十三条の二十四",
+           ["土地を取得した日から二年以内に当該土地の上に特例適用住宅が新築された場合（当該取得をした者（以下この号において「取得者」という。）が当該土地を当該特例適用住宅の新築の時まで引き続き所有している場合又は当該特例適用住宅の新築が当該取得者から当該土地を取得した者により行われる場合に限る。）"])
+
+    # Batch 285 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 144_30(3) 六十日以内の通知 ↔ LocalTax144_30NotificationWithin60Days.lean",
+           "325AC0000000226",
+           "article", "第百四十四条の三十",
+           ["道府県知事は、第一項の規定による申請を受理した場合においては、同項又は前項に規定する措置を採るかどうかについて、その申請を受理した日から六十日以内に特別徴収義務者に通知しなければならない。"])
+
+    # Batch 285 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 292(4) 二以上の納税義務者の扶養親族みなし ↔ LocalTax292TwoResidentTaxpayersDeeming.lean",
+           "325AC0000000226",
+           "article", "第二百九十二条",
+           ["二以上の市町村民税の納税義務者の扶養親族又は特定親族に該当する者がある場合には、その者は、政令で定めるところにより、これらの納税義務者のうちいずれか一の納税義務者の扶養親族又は特定親族にのみ該当するものとみなす。"])
+
+    # Batch 285 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 433(1) 三十日以内の審査決定 ↔ LocalTax433DecisionWithin30Days.lean",
+           "325AC0000000226",
+           "article", "第四百三十三条",
+           ["固定資産評価審査委員会は、前条第一項の審査の申出を受けた場合においては、直ちにその必要と認める調査その他事実審査を行い、その申出を受けた日から三十日以内に審査の決定をしなければならない。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
