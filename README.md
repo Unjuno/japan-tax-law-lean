@@ -998,3 +998,31 @@ python -m unittest scripts.tests.test_revision_impact # 8 テスト（実リポ�
 ## コントリビュート
 
 貢献方法と検証基準は [CONTRIBUTING.md](CONTRIBUTING.md) を参照してください。コードは MIT ライセンスです。法的助言の提供を目的としません。
+
+JapanTaxLaw/CustomsOfficerBadgeFormEnforcementDate.lean    # 税関職員証票等書式省令 施行日1977-07-01（附則 art.1）L4
+JapanTaxLaw/CustomsOfficerBadgeFormEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/CustomsOfficerBadgeFormEnforcementDateTests.lean # 同上 退行テスト
+
+JapanTaxLaw/TobaccoSpecialTaxEnforcementDate.lean    # たばこ特別税に関する政令 施行日1998-12-01（附則 art.1）L4
+JapanTaxLaw/TobaccoSpecialTaxEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/TobaccoSpecialTaxEnforcementDateTests.lean # 同上 退行テスト
+
+JapanTaxLaw/TobaccoSpecialTaxRuleEnforcementDate.lean    # たばこ特別税に関する省令 施行日2004-01-19（附則 art.1）L4
+JapanTaxLaw/TobaccoSpecialTaxRuleEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/TobaccoSpecialTaxRuleEnforcementDateTests.lean # 同上 退行テスト
+
+JapanTaxLaw/ReconstructionSpecialCorporationTaxEnforcementDate.lean    # 復興特別法人税に関する省令 施行日2012-04-01（附則 art.1）L4
+JapanTaxLaw/ReconstructionSpecialCorporationTaxEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/ReconstructionSpecialCorporationTaxEnforcementDateTests.lean # 同上 退行テスト
+
+JapanTaxLaw/ReconstructionSpecialIncomeTaxEnforcementDate.lean    # 復興特別所得税に関する政令 施行日2016-01-01（附則 art.1）L4
+JapanTaxLaw/ReconstructionSpecialIncomeTaxEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/ReconstructionSpecialIncomeTaxEnforcementDateTests.lean # 同上 退行テスト
+
+JapanTaxLaw/FootAndMouthDiseaseResponseEnforcementDate.lean    # 口蹄疫に起因する事態への対応に関する政令 施行日2022-04-01（附則 art.1）L4
+JapanTaxLaw/FootAndMouthDiseaseResponseEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/FootAndMouthDiseaseResponseEnforcementDateTests.lean # 同上 退行テスト
+
+JapanTaxLaw/LocalCorporationTaxRuleEnforcementDate.lean    # 地方法人税法施行規則 施行日2014-10-01（附則 art.1）L4
+JapanTaxLaw/LocalCorporationTaxRuleEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/LocalCorporationTaxRuleEnforcementDateTests.lean # 同上 退行テスト

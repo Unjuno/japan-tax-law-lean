@@ -1,8 +1,7 @@
 import JapanTaxLaw.TaxResearchCouncilQuorum
 
 /-! Independent spec: `total >= 1 ∧ present * 3 >= total` (reversed multiplication,
-explicit positive guard). The bridge is a constructive equivalence: Nat's
-`0 < t` and `1 <= t` coincide, and multiplication commutes. -/
+explicit positive guard). Only bridge is constructive `agreeQuorum`. -/
 namespace JapanTaxLaw.TaxResearchCouncilQuorum
 
 @[reducible] def specQuorum (present total : Nat) : Prop :=

@@ -23,16 +23,13 @@ theorem quorumMonotone (present present' total : Nat) :
 theorem notQuorumWhenZeroPresent (total : Nat) : 0 < total → ¬ quorumMet 0 total := by
   unfold quorumMet
   intro hpos hq
-  have hzero : total = 0 := Nat.eq_zero_of_le_zero (by simpa using hq.2)
-  rw [hzero] at hpos
-  exact Nat.lt_irrefl 0 hpos
+  exact (Nat.lt_irrefl 0) (Nat.lt_of_lt_of_le hpos hq.2)
 
 theorem allPresentSuffices (total : Nat) : 0 < total → quorumMet total total := by
   unfold quorumMet
   intro hpos
   constructor
   · exact hpos
-  · have h13 : 1 <= 3 := by decide
-    exact Nat.le_trans (Nat.le_refl total) (by simpa using Nat.mul_le_mul_right total h13)
+  · exact Nat.le_mul_of_pos_left total (by decide : 0 < 3)
 
 end JapanTaxLaw.TaxResearchCouncilQuorum
