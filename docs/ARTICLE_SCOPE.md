@@ -11,6 +11,7 @@ never a completion gate or a semantic/legal claim.
 
 | law_id | stated article | needle hits | scoped positions | D |
 |---|---|---:|---:|---|
+| `341CO0000000005` | 第十二条 | 3 | 3 | PASS |
 | `326M50000040055` | 第二十二条の三 | 2 | 2 | PASS |
 | `346CO0000000275` | 第五条 | 2 | 2 | PASS |
 | `342AC0000000035` | 第十七条 | 2 | 2 | PASS |
