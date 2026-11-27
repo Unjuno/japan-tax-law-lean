@@ -5121,6 +5121,36 @@ def checks():
            "article", "第七百二十六条",
            ["納税者又は特別徴収義務者が納期限（更正又は決定があつた場合においては、不足金額の納期限をいう。以下水利地益税等について同様とする。）までに水利地益税等に係る地方団体の徴収金を完納しない場合においては、徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
 
+    # Batch 307 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("相続税法 art. 27(5) 二人以上 ↔ InheritanceTax27JointReturnTwoOrMore.lean",
+           "325AC0000000073",
+           "article", "第二十七条",
+           ["同一の被相続人から相続又は遺贈により財産を取得した者又はその者の相続人で第一項、第二項（次条第二項において準用する場合を含む。）又は第三項の規定により申告書を提出すべきもの又は提出することができるものが二人以上ある場合において、当該申告書の提出先の税務署長が同一であるときは、これらの者は、政令で定めるところにより、当該申告書を共同して提出することができる。"])
+
+    # Batch 307 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("相続税法 art. 42(10) 二十日以内 ↔ InheritanceTax42CorrectionWithin20Days.lean",
+           "325AC0000000073",
+           "article", "第四十二条",
+           ["第八項の規定により申請書の訂正又は物納手続関係書類の訂正若しくは提出を求められた当該申請者は、前項の規定による通知を受けた日の翌日から起算して二十日以内に当該申請書の訂正又は当該物納手続関係書類の訂正若しくは提出をしなければならない。"])
+
+    # Batch 307 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 8(4) 三十日以内 ↔ LocalTax8AppealWithin30Days.lean",
+           "325AC0000000226",
+           "article", "第八条",
+           ["第二項の規定による道府県知事の決定に不服がある市町村長は、同項の通知を受けた日から三十日以内に総務大臣に裁決を求める旨を申し出ることができる。"])
+
+    # Batch 307 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 72_3(4) 二以上 ↔ LocalTax72_3TwoOrMoreBeneficiaries.lean",
+           "325AC0000000226",
+           "article", "第七十二条の三",
+           ["受益者が二以上ある場合における第一項の規定の適用、第二項に規定する信託財産の給付を受けることとされている者に該当するかどうかの判定その他前三項の規定の適用に関し必要な事項は、政令で定める。"])
+
+    # Batch 307 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 73_7(1) 二年以内 ↔ LocalTax73_7SecurityTransferWithin2Years.lean",
+           "325AC0000000226",
+           "article", "第七十三条の七",
+           ["譲渡により担保の目的となつている財産（以下この節において「譲渡担保財産」という。）により担保される債権の消滅により当該譲渡担保財産の設定の日から二年以内に譲渡担保財産の権利者（以下この節において「譲渡担保権者」という。）から譲渡担保財産の設定者（設定者が更迭した場合における新設定者を除く。以下この節において同じ。）に当該譲渡担保財産を移転する場合における不動産の取得"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
