@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 207
+- with >=1 pinned literal check (semantic model): 208
 - with recorded human legal review: 0
 
 ## All laws
