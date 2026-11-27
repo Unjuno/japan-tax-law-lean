@@ -91,6 +91,10 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # ForeignCorpRedemptionTaxCredit.lean - NORM|d0d5fcd2... (law 362CO0000000335 art.3)
+    yield ("law 362CO0000000335 art.3 外国法人 株主等償還差益 ↔ ForeignCorpRedemptionTaxCredit.lean",
+           "362CO0000000335", "article", "第三条", ["株主等償還差益に対する所得税の額に当該外国法人の当該株主等償還差益に係る割引債に係る所有期間割合を乗じて計算した金額から当該株主等償還差益に係る期間対応差益（当該株主等償還差益に当該外国法人の当該割引債に係る所有期間割合を乗じて計算した金額をいう。）に当該株主等償還差益に係る期間対応差益に対して適用される限度税率を乗じて計算した金額を控除した残額に相当する金額"])
+
     # GolfCourseTaxGrantSevenTenths.lean - NORM|7128dfb6... (golf-course tax 7/10 grant, law 329M50000002023)
     yield ("地方税法施行規則 art.8の13（ゴルフ場利用税額のあん分・過誤納控除・十分の七）↔ GolfCourseTaxGrantSevenTenths.lean",
            "329M50000002023", "article", "第八条の十三", ["前年度三月から七月までの間に収入した当該市町村に所在するゴルフ場に係るゴルフ場利用税の額（二以上の市町村にまたがつて所在するゴルフ場に係るゴルフ場利用税については当該ゴルフ場利用税の額を当該ゴルフ場の総面積に対する当該市町村に係る当該ゴルフ場の面積の割合によつてあん分した額とし、当該期間内に当該市町村に所在するゴルフ場に係るゴルフ場利用税についての過誤納に係る還付金を歳出予算から支出した場合においては、当該支出した額を控除した額とする。以下本表において「ゴルフ場のゴルフ場利用税の額」という。）の十分の七に相当する額"])
