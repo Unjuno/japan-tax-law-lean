@@ -4725,6 +4725,37 @@ def checks():
            "article", "第二百九十二条",
            ["同一生計配偶者のうち、前年の合計所得金額が千万円以下である市町村民税の納税義務者の配偶者をいう。"])
 
+
+    # Batch 281 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("相続税法 art. 10(1)7 債務者二以上の委任 ↔ InheritanceTax10DebtorsTwoOrMoreDelegation.lean",
+           "325AC0000000073",
+           "article", "第十条",
+           ["貸付金債権については、その債務者（債務者が二以上ある場合においては、主たる債務者とし、主たる債務者がないときは政令で定める一の債務者）の住所又は本店若しくは主たる事務所の所在"])
+
+    # Batch 281 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 72_38_2(5) 三年以内の徴収猶予延長 ↔ LocalTax72_38_2ExtensionWithin3Years.lean",
+           "325AC0000000226",
+           "article", "第七十二条の三十八の二",
+           ["道府県知事は、第一項の規定により徴収を猶予した場合において、その猶予をした期間内にその猶予をした金額を納付することができないやむを得ない理由があると認めるときは、当該法人の申請により、三年以内の期間を限りその期間を延長することができる。"])
+
+    # Batch 281 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 72_113(3) 三十日以内の徴収取扱費支払 ↔ LocalTax72_113PaymentWithin30Days.lean",
+           "325AC0000000226",
+           "article", "第七十二条の百十三",
+           ["道府県知事は、前項の規定による通知があつた場合においては、その通知があつた日から三十日以内に、第一項の徴収取扱費を支払うものとする。"])
+
+    # Batch 281 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 23(4) 二以上の扶養親族等のみなし ↔ LocalTax23DependentsTwoOrMoreDeeming.lean",
+           "325AC0000000226",
+           "article", "第二十三条",
+           ["二以上の道府県民税の納税義務者の扶養親族又は特定親族に該当する者がある場合には、その者は、政令で定めるところにより、これらの納税義務者のうちいずれか一の納税義務者の扶養親族又は特定親族にのみ該当するものとみなす。"])
+
+    # Batch 281 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 144_16(4) 十日以内の証票返還 ↔ LocalTax144_16CertificateReturnWithin10Days.lean",
+           "325AC0000000226",
+           "article", "第百四十四条の十六",
+           ["第一項の証票の交付を受けた者は、軽油引取税の特別徴収の義務が消滅した場合又は事務所若しくは事業所を廃止した場合には、その消滅し、又は廃止した日から十日以内にその証票を道府県知事に返さなければならない。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
