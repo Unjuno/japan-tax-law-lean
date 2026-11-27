@@ -4971,6 +4971,36 @@ def checks():
            "article", "第七百条の六十四",
            ["納税者が納期限までに狩猟税に係る地方団体の徴収金を完納しない場合においては、道府県の徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
 
+    # Batch 297 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 72_102(1) 五十万円以下 ↔ LocalTax72_102UndeclaredReturnFineCeiling500k.lean",
+           "325AC0000000226",
+           "article", "第七十二条の百二",
+           ["正当な理由がなくて前条の規定による申告書をその提出期限までに提出しなかつたときは、その違反行為をした者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
+    # Batch 297 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 281(3) 百万円を超える ↔ LocalTax281EvadedAbove1M.lean",
+           "325AC0000000226",
+           "article", "第二百八十一条",
+           ["第一項の免れた税額又は前項の納入しなかつた金額が百万円を超える場合には、情状により、当該各項の罰金の額は、当該各項の規定にかかわらず、百万円を超える額でその免れた税額又は納入しなかつた金額に相当する額以下の額とすることができる。"])
+
+    # Batch 297 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 458(1) 二十日以内 ↔ LocalTax458LightVehicleDemandWithin20Days.lean",
+           "325AC0000000226",
+           "article", "第四百五十八条",
+           ["納税者が納期限までに軽自動車税に係る地方団体の徴収金を完納しない場合には、市町村の徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
+
+    # Batch 297 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 144_49(1) 二十日以内 ↔ LocalTax144_49LightOilDemandWithin20Days.lean",
+           "325AC0000000226",
+           "article", "第百四十四条の四十九",
+           ["軽油引取税の特別徴収義務者又は納税者が納期限（更正又は決定があつた場合においては、不足金額の納期限をいう。以下この節において同じ。）までに軽油引取税に係る地方団体の徴収金を完納しない場合においては、道府県の徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
+
+    # Batch 297 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 73_19(1) 五十万円以下 ↔ LocalTax73_19FalseReportFineCeiling500k.lean",
+           "325AC0000000226",
+           "article", "第七十三条の十九",
+           ["前条の規定により申告し、又は報告すべき事項について虚偽の申告又は報告をしたときは、その違反行為をした者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
