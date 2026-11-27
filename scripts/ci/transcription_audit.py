@@ -5378,6 +5378,15 @@ def checks():
            "332CO0000000043", "file", None,
            ["同条第四項第三号中「百分の一」とあるのは、「千分の七・五」とする。"])
 
+    # 地方税法 art. 15 — RealEstateAcquisitionAfterEnforcement.lean (施行日以後の不動産取得)
+    yield ("地方税法 art. 15（施行日以後の不動産取得）↔ RealEstateAcquisitionAfterEnforcement.lean",
+           "325AC0000000226", "file", None,
+           ["新法第七十三条の二十七の二の規定は、施行日以後において不動産を取得した場合について適用する。"])
+    # 相続税法 art. 18 — InheritanceDemandAfterEnforcement.lean (施行日以後の督促)
+    yield ("相続税法 art. 18（施行日以後の督促）↔ InheritanceDemandAfterEnforcement.lean",
+           "325AC0000000073", "file", None,
+           ["新相続税法第三十四条第八項の規定は、施行日以後にする国税通則法第三十七条の規定による督促について適用する。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
