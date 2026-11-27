@@ -382,6 +382,16 @@ def law_full_text(law_id: str) -> str:
             return ""
         doc = json.loads(p.read_text(encoding="utf-8"))
         return core.norm(core.flat(doc.get("law_full_text")))
+    related = REPO / "data/RELATED_LAW_LEDGER.json"
+    if related.exists():
+        rel = json.loads(related.read_text(encoding="utf-8"))
+        rec = (rel.get("laws") or {}).get(law_id)
+        if rec:
+            sf = rec.get("raw_snapshot")
+            p = REPO / (sf["source_file"] if isinstance(sf, dict) else sf) if sf else None
+            if p and p.exists():
+                doc = json.loads(p.read_text(encoding="utf-8"))
+                return core.norm(core.flat(doc.get("law_full_text")))
     return ""
 
 
