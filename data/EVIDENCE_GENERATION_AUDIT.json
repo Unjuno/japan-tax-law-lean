@@ -340,17 +340,6 @@
         200000
       ]
     },
-    "BenefitTariffLowerRate": {
-      "adversarial_review": true,
-      "boundary_examples_found": 3,
-      "independent_spec": true,
-      "kanji_literals": [],
-      "kernel_attested": true,
-      "kernel_decided_examples": 10,
-      "needles_scoped": true,
-      "scoped_article_chars": 108,
-      "spec_literals": []
-    },
     "BlueBusinessDeductAmount": {
       "adversarial_review": true,
       "boundary_examples_found": 4,
@@ -1750,6 +1739,17 @@
       "kanji_literals": [],
       "kernel_attested": true,
       "kernel_decided_examples": 5,
+      "needles_scoped": true,
+      "scoped_article_chars": 1419,
+      "spec_literals": []
+    },
+    "CustomsTariffArt15TreatyGoodsDelegation": {
+      "adversarial_review": false,
+      "boundary_examples_found": 0,
+      "independent_spec": false,
+      "kanji_literals": [],
+      "kernel_attested": false,
+      "kernel_decided_examples": 7,
       "needles_scoped": true,
       "scoped_article_chars": 1419,
       "spec_literals": []
@@ -7377,6 +7377,17 @@
         500000
       ]
     },
+    "PetroleumGasRefundAmount": {
+      "adversarial_review": true,
+      "boundary_examples_found": 2,
+      "independent_spec": true,
+      "kanji_literals": [],
+      "kernel_attested": false,
+      "kernel_decided_examples": 11,
+      "needles_scoped": true,
+      "scoped_article_chars": 821,
+      "spec_literals": []
+    },
     "PetroleumGasSenRate": {
       "adversarial_review": true,
       "boundary_examples_found": 6,
@@ -12303,20 +12314,6 @@
           "七十五",
           "百"
         ]
-      },
-      "NORM|177401da2045261df6446abf1263b5eb3ab6799cf18872b743a0dcfc2c7e82bc": {
-        "checks": {
-          "cross_law": true,
-          "independent_spec": true,
-          "kernel_attested": true,
-          "kernel_decided_examples": 10,
-          "needles_scoped": true,
-          "source_location": true
-        },
-        "derived_status": "FULLY_VERIFIED",
-        "errors": [],
-        "module": "BenefitTariffLowerRate",
-        "spec_kanji_in_原文": []
       },
       "NORM|17bf60b2314c84d020ae1ec9814691dacc62c56476f2fa87237e68c3290addc2": {
         "checks": {
@@ -30913,19 +30910,6 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"75\": [\"七十五\"]}; statutory rate = 3/4; needles scoped",
       "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:5_5/Article#5_5/Paragraph#8/ParagraphSentence/Sentence#1 sha256=d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/SpecialMeasuresOrderRate75Tests.lean sha256=3fa20df228b8000ee69edb55885ac1279344738cbd17fe7d1f5c2efe4fe4ce13 (8 kernel-decided examples)"
-    },
-    "NORM|177401da2045261df6446abf1263b5eb3ab6799cf18872b743a0dcfc2c7e82bc": {
-      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
-      "boundary_proof": "attested Tests module contains 10 kernel-decided examples covering boundary inputs",
-      "cross_law_proof": "unit dependencies=0; enforced revision=330CO0000000237_20250401_507CO0000000141 resolved from INVENTORY",
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
-      "implementation": "JapanTaxLaw/BenefitTariffLowerRate.lean sha256=811126ae9be26a14b78db93c66305112da7c3892ab74e83e48c2be2cec9a6028",
-      "independent_spec": "JapanTaxLaw/BenefitTariffLowerRateSpec.lean sha256=f1cefe33c9c654bac36a8b64d8aa0f09aa7c8b0843ced1ddc71580669ce61322 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45979778152: commit cdf0c7d6f17aa62cd7b250747f4b6722b0ad7151, build/axiom job success, 3 module hashes re-verified",
-      "proof_scope": "basis=pinned needle(s) in clause: ['前条に規定する同譲許表に掲げる貨物に対して課する']; constants [] used by kernel-checked impl + independent spec",
-      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['前条に規定する同譲許表に掲げる貨物に対して課する']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
-      "source_location": "data/raw/330CO0000000237_20250401_507CO0000000141.law.json#LawBody[2]/MainProvision/MainProvision[2]/Article:3/Article#3/Paragraph#1/ParagraphSentence/Sentence#1 sha256=b582b596fad9182c060271fc8119325b3828bf6cdd9435141b07a5fcbd163ed3 (verbatim unit text located in scoped article)",
-      "tests": "JapanTaxLaw/BenefitTariffLowerRateTests.lean sha256=b5d2d729944094479d65b2b92cbb5d620f01588e81540c8dcfa2e2a5f310f7a0 (10 kernel-decided examples)"
     },
     "NORM|17bf60b2314c84d020ae1ec9814691dacc62c56476f2fa87237e68c3290addc2": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",

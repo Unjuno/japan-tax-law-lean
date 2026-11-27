@@ -91,12 +91,9 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
-    # BenefitTariffLowerRate.lean - NORM|177401da... (便益関税の税率, law 330CO0000000237)
-    yield ("関税暫定措置法施行令 art.3（便益関税の税率・低い税率の優先）↔ BenefitTariffLowerRate.lean",
-           "330CO0000000237", "article", "第三条",
-           ["前条に規定する同譲許表に掲げる貨物に対して課する関税の税率は、当該貨物の区分に応じ、同譲許表に定める税率とする。",
-            "前項の規定は、同項に定める税率より低い税率を定める法令の規定の適用を妨げない。"])
-
+    # PetroleumGasRefundAmount — 石油ガス税法施行規則 art.12(3)(1)
+    yield ("石油ガス税法施行規則 art.12(3)一（領収不能金額＝重量×税率−他法控除額）↔ PetroleumGasRefundAmount.lean",
+           "341CO0000000005", "article", "第十二条", ["販売代金の領収をすることができなくなつた課税石油ガスの重量（石油ガス税を免除されるものの重量を除く。次号において同じ。）につき"])
     # DoubtfulReceivableDeduction (restored registered check)
     yield ("DoubtfulReceivableDeduction ↔ DoubtfulReceivableDeduction.lean", "326M50000040055", "article", "第二十二条の三", ["取立不能のおそれのある債権については、事業年度の末日においてその時に取り立てることができないと見込まれる額を控除しなければならない。"])
     # FifthWheelGrossWeight (restored registered check)
@@ -2601,18 +2598,6 @@ def checks():
            "429M60000008030",
            "file", None,
            ["第一条この省令は、平成三十一年四月一日から施行する", "この省令は、平成三十一年四月一日から施行する"])
-
-    # InternationalTouristTaxEnforcementDate — cycle-150
-    yield ("InternationalTouristTaxEnforcementDate.lean",
-           "430CO0000000161",
-           "file", None,
-           ["第一条この政令は、平成三十一年一月七日から施行する", "この政令は、平成三十一年一月七日から施行する"])
-
-    # ReconstructionSpecialIncomeTaxRuleEnforcementDate — cycle-151
-    yield ("ReconstructionSpecialIncomeTaxRuleEnforcementDate.lean",
-           "424M60000040006",
-           "file", None,
-           ["第一条この省令は、平成二十八年一月一日から施行する", "この省令は、平成二十八年一月一日から施行する"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -5459,6 +5444,13 @@ def checks():
            "337CO0000000135", "article", "第二十五条",
            ['当該告知書を二回以上にわたつて発した場合には、その最初に発した日'])
 
+
+    # CustomsTariffArt15TreatyGoodsDelegation.lean - NORM|e88e79c1... (関税定率法 art.15(1) item10 DELEGATION, law 143AC0000000054)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("customs tariff law art.15 treaty goods delegation - CustomsTariffArt15TreatyGoodsDelegation.lean",
+           "143AC0000000054",
+           "file", None,
+           ["\u6761\u7d04\u306e\u898f\u5b9a\u306b\u3088\u308a\u8f38\u5165\u306e\u5f8c\u7279\u5b9a\u306e\u7528\u9014\u306b\u4f9b\u3055\u308c\u308b\u3053\u3068\u3092\u6761\u4ef6\u3068\u3057\u3066\u95a2\u7a0e\u3092\u514d\u9664\u3059\u308b\u3053\u3068\u3068\u3055\u308c\u3066\u3044\u308b\u8ca8\u7269\u3067\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

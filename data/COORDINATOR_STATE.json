@@ -215,6 +215,39 @@
       "unhandled_conditions": []
     },
     {
+      "article": "3",
+      "checklist": [
+        "write an independent spec FIRST (own spec* definitions, no implementation ids)",
+        "implement the pinned clause as a separate Lean module",
+        "record pinned law id / revision / scoped article and exact needle in both headers",
+        "do NOT mark legal review: it stays LEGAL_REVIEW_PENDING"
+      ],
+      "claim_owner": "",
+      "dependencies": [],
+      "enforcement_date": "2025-04-01",
+      "law_id": "330CO0000000237",
+      "legal_review": "LEGAL_REVIEW_PENDING",
+      "normative_id": "NORM|177401da2045261df6446abf1263b5eb3ab6799cf18872b743a0dcfc2c7e82bc",
+      "remaining_axes": [
+        "source_location",
+        "decomposition_audit",
+        "source_correspondence_audit",
+        "independent_spec",
+        "implementation",
+        "kernel_proof",
+        "proof_scope",
+        "boundary_proof",
+        "cross_law_proof",
+        "tests",
+        "adversarial_review"
+      ],
+      "revision": "330CO0000000237_20250401_507CO0000000141",
+      "role": "FORMALIZE",
+      "scope": "FULL_ARTICLE",
+      "status": "NOT_STARTED",
+      "unhandled_conditions": []
+    },
+    {
       "article": "2",
       "checklist": [
         "write an independent spec FIRST (own spec* definitions, no implementation ids)",
@@ -415,41 +448,6 @@
       "scope": "FULL_ARTICLE",
       "status": "NOT_STARTED",
       "unhandled_conditions": []
-    },
-    {
-      "article": "5",
-      "checklist": [
-        "write an independent spec FIRST (own spec* definitions, no implementation ids)",
-        "implement the pinned clause as a separate Lean module",
-        "record pinned law id / revision / scoped article and exact needle in both headers",
-        "do NOT mark legal review: it stays LEGAL_REVIEW_PENDING"
-      ],
-      "claim_owner": "",
-      "dependencies": [],
-      "enforcement_date": "2023-01-01",
-      "law_id": "346CO0000000275",
-      "legal_review": "LEGAL_REVIEW_PENDING",
-      "normative_id": "NORM|e793442266061792ae29f7d03fc7f6faf2411db2a225e54af596fd94ca5d2c95",
-      "remaining_axes": [
-        "source_location",
-        "decomposition_audit",
-        "source_correspondence_audit",
-        "independent_spec",
-        "implementation",
-        "kernel_proof",
-        "proof_scope",
-        "boundary_proof",
-        "cross_law_proof",
-        "tests",
-        "adversarial_review"
-      ],
-      "revision": "346CO0000000275_20230101_504CO0000000195",
-      "role": "FORMALIZE",
-      "scope": "COMPUTABLE_SLICE_ONLY",
-      "status": "NOT_STARTED",
-      "unhandled_conditions": [
-        "引自動車にあつてはその自動車検査証に記録される車両総重量から第五輪荷重を控除し"
-      ]
     }
   ],
   "blocked": [
@@ -654,7 +652,7 @@
       "reason": "BLOCKED_BY_DEPENDENCY"
     }
   ],
-  "blocked_total": 80,
+  "blocked_total": 78,
   "legal_review_is_not_a_completion_gate": true,
   "legal_review_is_not_a_filter": true,
   "loop": [
@@ -687,7 +685,7 @@
     {
       "selectable": 395598,
       "selected": 12,
-      "skipped_dependency_or_blocker": 80,
+      "skipped_dependency_or_blocker": 78,
       "stage": "SELECT"
     },
     {
@@ -699,13 +697,13 @@
           "NORM|3c03970b97325aebc962acb59a0b0fa513d4d78cac16cea7b2883d0ed6c24c82",
           "NORM|3f2a8da12d2428d8dec042c728a5413875a75031575be7ec79a612459ef44325",
           "NORM|7128dfb6a017d1db0d57b3a37b36cce183c850974de506050bf109b7e08a8a90",
+          "NORM|177401da2045261df6446abf1263b5eb3ab6799cf18872b743a0dcfc2c7e82bc",
           "NORM|25fa4c2ac0e109c13793841e0bb7254f55c8710cbf2398e8ed9b048cf29ed86f",
           "NORM|4d079f4f8f01db3312c78e81e458245b272c0c68499a3ea4040bab2a4c2eb644",
           "NORM|2da7e4fb2bc943689c28e2f220e798466cdf59910d2731aab504db45eaf69a68",
           "NORM|fe2d863b549f87eb767896cdecbc67afc5002c4320b6ec8838c6c9b94b25c16b",
           "NORM|35a13101d938c5a9c05255d24d04e44109960098179da222845b9be835da34e7",
-          "NORM|a11280c637a5ae6f1fc4d92f686be23e45f97cdb3ab9664aca6828809dedc5a3",
-          "NORM|e793442266061792ae29f7d03fc7f6faf2411db2a225e54af596fd94ca5d2c95"
+          "NORM|a11280c637a5ae6f1fc4d92f686be23e45f97cdb3ab9664aca6828809dedc5a3"
         ],
         "PROVE": [],
         "VERIFY": []

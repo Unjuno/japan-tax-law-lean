@@ -27,8 +27,8 @@ rounding and enforcement dates are recorded in independent fields
 
 - conditions: 1031 units
 - exceptions: 207 units
-- effects: 406 units
-- delegations: 204 units
+- effects: 405 units
+- delegations: 205 units
 - periods: 120 units
 - amounts: 322 units
 - rounding: 28 units

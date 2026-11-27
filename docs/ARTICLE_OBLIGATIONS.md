@@ -17,7 +17,7 @@ source positions. Human legal review is a separate axis and is pending.
 
 | law_id | article | module | presence | scoped | review | authoritative status |
 |---|---|---|---|---|---|---|
-| `330CO0000000237` | 第三条 | BenefitTariffLowerRate | YES | YES | NO | NOT_STARTED |
+| `341CO0000000005` | 第十二条 | PetroleumGasRefundAmount | YES | YES | YES | NOT_STARTED |
 | `326M50000040055` | 第二十二条の三 | DoubtfulReceivableDeduction | YES | YES | YES | NOT_STARTED |
 | `346CO0000000275` | 第五条 | FifthWheelGrossWeight | YES | YES | YES | NOT_STARTED |
 | `342AC0000000035` | 第十七条 | ShipProvisionalRateReduction | YES | YES | NO | NOT_STARTED |

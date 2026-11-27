@@ -6,7 +6,7 @@ A document name in an evidence string is not proof that the document
 supports the unit. This audit resolves each reference against the artifact.
 
 - units checked: 1254
-- references resolved: 6192/6192
+- references resolved: 6191/6191
 - references UNRESOLVED: 0
 - all-complete claimable from references: True
 
