@@ -280,6 +280,9 @@ import JapanTaxLaw.CorpIncome10MTests
 import JapanTaxLaw.CorpUnits31Art7
 import JapanTaxLaw.CorpUnits31Art7Spec
 import JapanTaxLaw.CorpUnits31Art7Tests
+import JapanTaxLaw.CorporateArt139_4SmallAmount200k
+import JapanTaxLaw.CorporateArt139_4SmallAmount200kSpec
+import JapanTaxLaw.CorporateArt139_4SmallAmount200kTests
 import JapanTaxLaw.CorporateAssetFivePercent
 import JapanTaxLaw.CorporateAssetFivePercentSpec
 import JapanTaxLaw.CorporateAssetFivePercentTests
