@@ -91,6 +91,24 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # GolfCourseTaxGrantSevenTenths.lean - NORM|7128dfb6... (golf-course tax 7/10 grant, law 329M50000002023)
+    yield ("地方税法施行規則 art.8の13（ゴルフ場利用税額のあん分・過誤納控除・十分の七）↔ GolfCourseTaxGrantSevenTenths.lean",
+           "329M50000002023", "article", "第八条の十三", ["前年度三月から七月までの間に収入した当該市町村に所在するゴルフ場に係るゴルフ場利用税の額（二以上の市町村にまたがつて所在するゴルフ場に係るゴルフ場利用税については当該ゴルフ場利用税の額を当該ゴルフ場の総面積に対する当該市町村に係る当該ゴルフ場の面積の割合によつてあん分した額とし、当該期間内に当該市町村に所在するゴルフ場に係るゴルフ場利用税についての過誤納に係る還付金を歳出予算から支出した場合においては、当該支出した額を控除した額とする。以下本表において「ゴルフ場のゴルフ場利用税の額」という。）の十分の七に相当する額"])
+
+    # PortMunicipalityAllocationBase.lean - NORM|25fa4c2a... (二以上の開港所在市町村, law 332AC0000000077)
+    yield ("特別とん譲与税法 art.2(2)（二以上の開港所在市町村・税関収入額を算定基礎）↔ PortMunicipalityAllocationBase.lean",
+           "332AC0000000077", "article", "第二条", ["前項の場合において、一の開港に係る開港所在市町村が二以上あるときは、当該二以上の開港所在市町村の区域を管轄区域とする税関（当該開港所在市町村の区域を管轄区域とする税関の支署若しくは出張所又は支署の出張所があるときは、当該税関の支署若しくは出張所又は支署の出張所とする。以下同じ。）に係る特別とん税の収入額に相当する額を当該開港所在市町村に対して譲与するものとする。"])
+
+    # SpecialWardReading.lean - NORM|dd5ec1ac... (特別区への準用 READING, law 422CO0000000221)
+    yield ("口蹄疫特例法施行令 art.2(6)（特別区への準用）↔ SpecialWardReading.lean",
+           "422CO0000000221", "article", "第二条", ["前各項の規定は、特別区について準用する。"])
+
+    # BenefitTariffLowerRate.lean - NORM|177401da... (便益関税の税率, law 330CO0000000237)
+    yield ("関税暫定措置法施行令 art.3（便益関税の税率・低い税率の優先）↔ BenefitTariffLowerRate.lean",
+           "330CO0000000237", "article", "第三条",
+           ["前条に規定する同譲許表に掲げる貨物に対して課する関税の税率は、当該貨物の区分に応じ、同譲許表に定める税率とする。",
+            "前項の規定は、同項に定める税率より低い税率を定める法令の規定の適用を妨げない。"])
+
     # PetroleumGasRefundAmount — 石油ガス税法施行規則 art.12(3)(1)
     yield ("石油ガス税法施行規則 art.12(3)一（領収不能金額＝重量×税率−他法控除額）↔ PetroleumGasRefundAmount.lean",
            "341CO0000000005", "article", "第十二条", ["販売代金の領収をすることができなくなつた課税石油ガスの重量（石油ガス税を免除されるものの重量を除く。次号において同じ。）につき"])
@@ -5445,6 +5463,13 @@ def checks():
            "143AC0000000054",
            "file", None,
            ["\u7b2c\u516d\u9805\u53ca\u3073\u7b2c\u4e03\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e00\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u6307\u5b9a\u3055\u308c\u305f\u671f\u9593\u3092\u524d\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u5ef6\u9577\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
+    # CustomsTariffArt15TreatyGoodsDelegation.lean - NORM|e88e79c1... (関税定率法 art.15(1) item10 DELEGATION, law 143AC0000000054)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("customs tariff law art.15 treaty goods delegation - CustomsTariffArt15TreatyGoodsDelegation.lean",
+           "143AC0000000054",
+           "file", None,
+           ["\u6761\u7d04\u306e\u898f\u5b9a\u306b\u3088\u308a\u8f38\u5165\u306e\u5f8c\u7279\u5b9a\u306e\u7528\u9014\u306b\u4f9b\u3055\u308c\u308b\u3053\u3068\u3092\u6761\u4ef6\u3068\u3057\u3066\u95a2\u7a0e\u3092\u514d\u9664\u3059\u308b\u3053\u3068\u3068\u3055\u308c\u3066\u3044\u308b\u8ca8\u7269\u3067\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
