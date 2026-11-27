@@ -322,6 +322,22 @@ $ python scripts/ci/run_python_gates.py → 33 PASS / 0 FAIL / 0 SKIP
    exited 1 as a drift signal; second run 33/33 PASS)
 $ python scripts/ci/completion_gate.py → all-complete=False
 
+$ new pipeline: batch_condition_long_bulk_pipeline.py (121-600 char condition
+  clauses; same honest gate plus false_antecedent_blocks and reachable branches;
+  bare kanji numerals allowed because no numeral parsing is performed)
+5 unit tests added; bulk condition-long batches verified=1000/1000 failed=0
+$ python scripts/ci/compact_evidence_hashes.py --write
+units=72222 migrated=4604 missing_axis=0; bytes before=101266725 after=100382757
+$ python scripts/ci/task_queue.py
+normative-unit queue: 396854 units; NOT_STARTED=324630, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=72222, BLOCKED=2
+$ python scripts/ci/verify_queue_invariants.py → 12/12 PASS; FULLY_VERIFIED=72222 axes=11 unbacked=0
+$ python -m unittest discover -s scripts/tests -t . → 272 tests, OK
+$ lake build → Build completed successfully (524 jobs)
+$ python scripts/ci/run_python_gates.py → 33 PASS / 0 FAIL / 0 SKIP
+  (first run after new Lean modules: coverage ledger drift signal, second run clean)
+$ python scripts/ci/completion_gate.py → all-complete=False
+
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
 `scripts/ci/resolve_gift_needle_ambiguity.py` re-extracted both pinned articles

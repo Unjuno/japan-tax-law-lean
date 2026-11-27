@@ -1,0 +1,2 @@
+- batch BulkCondLong5fd7499938: 1000 long-form condition norms; gate scope only; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.
+- batch BulkCondLong653feb5fed: 1000 long-form condition norms; gate scope only; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.
