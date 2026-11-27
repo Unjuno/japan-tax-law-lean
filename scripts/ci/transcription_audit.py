@@ -5031,6 +5031,36 @@ def checks():
            "article", "第三百九十五条",
            ["前条の規定により申告すべき事項について申告をせず、又は虚偽の申告をしたときは、その違反行為をした者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
 
+    # Batch 301 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 144_25(1) 五十万円以下 ↔ LocalTax144_25ExemptionCertTransferFineCeiling500k.lean",
+           "325AC0000000226",
+           "article", "第百四十四条の二十五",
+           ["前条の規定に違反したときは、その違反行為をした者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
+    # Batch 301 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 144_28(1) 五十万円以下 ↔ LocalTax144_28ExemptOilFalseReportFineCeiling500k.lean",
+           "325AC0000000226",
+           "article", "第百四十四条の二十八",
+           ["前条第一項の規定に違反して報告書を提出せず、又は虚偽の記載をした報告書を提出したときは、その違反行為をした者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
+    # Batch 301 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 701_53(1) 五十万円以下 ↔ LocalTax701_53BathingTaxFalseReturnFineCeiling500k.lean",
+           "325AC0000000226",
+           "article", "第七百一条の五十三",
+           ["前条の規定により申告すべき事項について虚偽の申告をしたときは、その違反行為をした者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
+    # Batch 301 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 539(1) 二十日以内 ↔ LocalTax539MineralTaxDemandWithin20Days.lean",
+           "325AC0000000226",
+           "article", "第五百三十九条",
+           ["納税者が納期限（更正又は決定があつた場合においては、不足税額の納期限をいう。以下鉱産税について同様とする。）までに鉱産税に係る地方団体の徴収金を完納しない場合においては、市町村の徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
+
+    # Batch 301 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 733_22(1) 二十日以内 ↔ LocalTax733_22ExtraPurposeTaxDemandWithin20Days.lean",
+           "325AC0000000226",
+           "article", "第七百三十三条の二十二",
+           ["納税者又は特別徴収義務者が納期限（更正又は決定があつた場合においては、不足金額の納期限をいう。以下本節において同じ。）までに法定外目的税に係る地方団体の徴収金を完納しない場合においては、地方団体の徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
