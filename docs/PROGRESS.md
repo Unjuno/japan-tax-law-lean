@@ -185,3 +185,13 @@ lake clean && lake build                                                # 再現
 口蹄疫に起因する事態への対応に関する政令 附則 art.1 FootAndMouthDiseaseResponseEnforcementDate.lean（施行日 令和4年4月1日=2022-04-01 — 他条・実体規定 NOT MODELLED）
 
 地方法人税法施行規則 附則 art.1 LocalCorporationTaxRuleEnforcementDate.lean（施行日 平成26年10月1日=2014-10-01 — 他条・実体規定 NOT MODELLED）
+
+特別法人事業税及び特別法人事業譲与税に関する法律施行令 附則 art.1 SpecialCorporationBusinessTaxEnforcementDate.lean（施行日 平成31年10月1日=2019-10-01 — 他条・実体規定 NOT MODELLED）
+
+外国居住者等の所得に対する相互主義による所得税等の非課税等に関する省令 附則 art.1 ForeignResidentReciprocityTaxEnforcementDate.lean（施行日 平成30年1月1日=2018-01-01 — 他条・実体規定 NOT MODELLED）
+
+電解二酸化マンガンに対して課する不当廉売関税に関する政令 附則 art.1 ManganeseDioxideAntiDumpingDutyEnforcementDate.lean（施行日 平成23年4月1日=2011-04-01 — 他条・実体規定 NOT MODELLED）
+
+東日本大震災復興特別区域法第四十三条の地方税の課税免除等に関する省令 附則 art.1 ReconstructionZoneLocalTaxExemptionEnforcementDate.lean（施行日 平成29年4月1日=2017-04-01 — 他条・実体規定 NOT MODELLED）
+
+都及び特別区の標準税収入額の算定方法に関する省令 附則 art.1 StandardTaxRevenueCalculationEnforcementDate.lean（施行日 平成31年4月1日=2019-04-01 — 他条・実体規定 NOT MODELLED）

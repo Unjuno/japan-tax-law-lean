@@ -229,3 +229,20 @@ independent spec, H/T/D/C/U review, transcription pin, canonical umbrella
 point with the TARIFF attestation, REST/GraphQL-confirmed green CI, merge,
 then an INVSTART scoped attestation from that green commit and a final
 regeneration/re-measurement. No §5 completion is claimed.
+
+## UPDATE 2026-11-27c (concurrent-merge race on PR #942)
+
+PR #942 carries the art.7(7) unit plus the TARIFF scoped attestation. Its first
+reconciled head `b43a5b957` was green locally (784/784 transcription later, 55
+gates, all guards True), but main advanced to `cc89be078`, `d4cfe4203` and
+`2cee177ee` while CI/reconciliation was in flight, so `mergeStateStatus` went
+DIRTY each time. Resolution used: fetch origin/main, git merge, take main's
+side for the regenerable artifacts (never for transcription_audit.py when it
+auto-merges), unstage helper files, verify both module checks and canonical
+umbrella, then re-run the full generator fixed point and re-push. Repeat until
+a REST/GraphQL green CI coincides with a CLEAN merge state. No gate weakened.
+
+Verified before the race: on the reconciled branch, `verification_evidence.json`
+contained `NORM|4c6c0978…` (SeparateTariffApplication) with all 11 evidence
+axes, while `NORM|30ed71fa…` (art.7(7)) was correctly absent until its own
+CI-green attestation is bound. Do not report it as verified before then.
