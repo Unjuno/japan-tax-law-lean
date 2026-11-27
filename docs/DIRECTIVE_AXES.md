@@ -5,19 +5,19 @@ Do not hand-edit. Regenerate with `python scripts/ci/directive_axes.py`.
 Eight technical axes are tracked separately; full technical evidence does NOT establish human legal review or whole-article coverage. COMPUTABLE_SLICE_ONLY units are never counted as whole-article norms.
 
 - normative units: 396854
-- expanded units (with committed evidence): 1256
+- expanded units (with committed evidence): 1258
 - independent human legal review axis: `LEGAL_REVIEW_PENDING` (never auto-satisfied)
 
 | axis | achieved units | remaining units |
 |---|---:|---:|
-| SOURCE_ACQUIRED | 1256 | 395598 |
-| VERSION_PINNED | 1256 | 395598 |
-| STRUCTURE_IDENTIFIED | 1250 | 395604 |
-| NORM_DECOMPOSED | 1255 | 395599 |
-| NORMS_FORMALIZED | 1256 | 395598 |
-| SPEC_IMPL_CORRESPONDENCE | 1256 | 395598 |
-| BOUNDARY_CHECKED | 1256 | 395598 |
-| SOURCE_AUDITED | 1256 | 395598 |
+| SOURCE_ACQUIRED | 1258 | 395596 |
+| VERSION_PINNED | 1258 | 395596 |
+| STRUCTURE_IDENTIFIED | 1252 | 395602 |
+| NORM_DECOMPOSED | 1257 | 395597 |
+| NORMS_FORMALIZED | 1258 | 395596 |
+| SPEC_IMPL_CORRESPONDENCE | 1258 | 395596 |
+| BOUNDARY_CHECKED | 1258 | 395596 |
+| SOURCE_AUDITED | 1258 | 395596 |
 
 ## Normative detail categories recorded separately
 
@@ -28,15 +28,8 @@ rounding and enforcement dates are recorded in independent fields
 - conditions: 1033 units
 - exceptions: 209 units
 - effects: 405 units
-- delegations: 205 units
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 14e57e31d (Verify inheritance tax art.32 equivalent-cause delegation (DELEGATION NORM|82d24538))
-- periods: 120 units
-=======
+- delegations: 207 units
 - periods: 121 units
->>>>>>> d16ea7695 (Verify customs tariff art.17 reexport-goods delegation (DELEGATION NORM|7683650c))
 - amounts: 322 units
 - rounding: 28 units
 - enforcement_dates: 21 units
