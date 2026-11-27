@@ -26,6 +26,9 @@ theorem spec_agrees (n : Nat) (portRevenue : Nat) (customsRevenue : Nat) :
       cases n with
       | zero => rfl
       | succ n =>
-          simp [allocationBase, specBase]
+          have h : Nat.succ (Nat.succ n) >= threshold := by
+            unfold threshold
+            exact Nat.succ_le_succ (Nat.succ_le_succ (Nat.zero_le n))
+          simp [allocationBase, specBase, h]
 
 end JapanTaxLaw.PortMunicipalityAllocationBase
