@@ -1323,6 +1323,12 @@ def checks():
            "file", None,
            ["資本金の額に千分の三・五を乗じて計算した金額", "七万五千円に満たない場合"])
 
+    # 相続税法 art.16 表セル — InheritanceTaxArt16BracketOver600M.lean
+    yield ("相続税法 art.16 表（六億円を超える金額）↔ InheritanceTaxArt16BracketOver600M.lean",
+           "325AC0000000073",
+           "file", None,
+           ["六億円を超える金額", "第十六条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
