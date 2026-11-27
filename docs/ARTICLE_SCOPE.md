@@ -7,7 +7,7 @@ source-fidelity diagnostic (D=PASS means needle in stated article only),
 never a completion gate or a semantic/legal claim.
 
 - checks with article/table-cell scoped needles: 820
-- checks with no scoped unit: 0
+- checks with no scoped unit: 1
 
 | law_id | stated article | needle hits | scoped positions | D |
 |---|---|---:|---:|---|
@@ -831,3 +831,4 @@ never a completion gate or a semantic/legal claim.
 | `325AC0000000073` | (file-level) | 2 | 2 | PASS |
 | `325AC0000000226` | (file-level) | 11 | 11 | PASS |
 | `325AC0000000226` | (file-level) | 11 | 11 | PASS |
+| `322AC0000000067` | (file-level) | 0 | 0 | FAIL |
