@@ -5342,6 +5342,15 @@ def checks():
            "332AC0000000026", "file", None,
            ["同条第一項又は第二項に規定する百分の二十に相当する金額"])
 
+    # 地方税法施行令 art. 43の8 — LightOilNonHandlingPeriod1Y.lean (1年以上)
+    yield ("地方税法施行令 art. 43_8（軽油取扱休止1年以上）↔ LightOilNonHandlingPeriod1Y.lean",
+           "325CO0000000245", "file", None,
+           ["一年以上引き続き軽油の製造、輸入又は販売をしていないこと。"])
+    # 税理士法 art. 25 — TaxAccountantMissingPeriod2Y.lean (所在不明2年以上)
+    yield ("税理士法 art. 25（所在不明2年以上）↔ TaxAccountantMissingPeriod2Y.lean",
+           "326AC1000000237", "file", None,
+           ["二年以上継続して所在が不明であるとき。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

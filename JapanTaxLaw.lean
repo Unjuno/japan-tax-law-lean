@@ -1329,6 +1329,9 @@ import JapanTaxLaw.LightOilBaseTaxTests
 import JapanTaxLaw.LightOilDeliveryTaxRate
 import JapanTaxLaw.LightOilDeliveryTaxRateSpec
 import JapanTaxLaw.LightOilDeliveryTaxRateTests
+import JapanTaxLaw.LightOilNonHandlingPeriod1Y
+import JapanTaxLaw.LightOilNonHandlingPeriod1YSpec
+import JapanTaxLaw.LightOilNonHandlingPeriod1YTests
 import JapanTaxLaw.LimitRateSevenPercent
 import JapanTaxLaw.LimitRateSevenPercentSpec
 import JapanTaxLaw.LimitRateSevenPercentTests
@@ -2514,6 +2517,9 @@ import JapanTaxLaw.TaxAccountantFineCap300kTests
 import JapanTaxLaw.TaxAccountantFineLimit
 import JapanTaxLaw.TaxAccountantFineLimitSpec
 import JapanTaxLaw.TaxAccountantFineLimitTests
+import JapanTaxLaw.TaxAccountantMissingPeriod2Y
+import JapanTaxLaw.TaxAccountantMissingPeriod2YSpec
+import JapanTaxLaw.TaxAccountantMissingPeriod2YTests
 import JapanTaxLaw.TaxAccountantPenaltyCap
 import JapanTaxLaw.TaxAccountantPenaltyCapSpec
 import JapanTaxLaw.TaxAccountantPenaltyCapTests
