@@ -4,10 +4,18 @@ import JapanTaxLaw.TaxFinance
 # ReconstructionSpecialIncomeTaxEnforcementDate — 復興特別所得税に関する政令 施行日（附則 art.1）bounded L4 モデル
 
 Sources (pinned):
-  Law id: 424CO0000000016
-  Revision: 424CO0000000016_20260525_507CO0000000244
+  Source law (historical, deliberately unpinned): 424CO0000000016
+  Historical revision named in the raw text (ledger status PreviousEnforced,
+  audit_ready=false, therefore NOT a current-enforced pin):
+  424CO0000000016_20260525_507CO0000000244
   Raw snapshot: data/raw/424CO0000000016_20260525_507CO0000000244.law.json
   附則 Article 1 (施行期日). Needles contain no U+3000.
+  INVENTORY.json records this law as historical_fallback / PreviousEnforced
+  with audit_ready=false ("tracking only, not audit-ready"). No revision of
+  this law is CurrentEnforced (the next one is UnEnforced until 2027-01-01).
+  Therefore this module claims NO machine-verifiable provenance pin; it is
+  listed as unpinned and is NOT counted as verified by the cross-law checker.
+  The clause-level transcription check still binds the text to the raw file.
 
 原文逐語（附則）:
   「第一条 この政令は、平成二十八年一月一日から施行する。」
