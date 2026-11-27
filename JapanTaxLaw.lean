@@ -641,6 +641,9 @@ import JapanTaxLaw.DeletionExtension30DaysTests
 import JapanTaxLaw.DeliberationQuorum
 import JapanTaxLaw.DeliberationQuorumSpec
 import JapanTaxLaw.DeliberationQuorumTests
+import JapanTaxLaw.DelinquencyCostNet
+import JapanTaxLaw.DelinquencyCostNetSpec
+import JapanTaxLaw.DelinquencyCostNetTests
 import JapanTaxLaw.DelinquencyTax
 import JapanTaxLaw.DelinquencyTaxSpec
 import JapanTaxLaw.DelinquencyTaxTests
@@ -1392,6 +1395,9 @@ import JapanTaxLaw.LocalCorporateDeductionLimitRate6Tests
 import JapanTaxLaw.LocalCorporationTaxRate
 import JapanTaxLaw.LocalCorporationTaxRateSpec
 import JapanTaxLaw.LocalCorporationTaxRateTests
+import JapanTaxLaw.LocalCorporationTaxRuleEnforcementDate
+import JapanTaxLaw.LocalCorporationTaxRuleEnforcementDateSpec
+import JapanTaxLaw.LocalCorporationTaxRuleEnforcementDateTests
 import JapanTaxLaw.LocalDependentAndStudentSpec
 import JapanTaxLaw.LocalDependentAndStudentTests
 import JapanTaxLaw.LocalExemption
@@ -1787,6 +1793,9 @@ import JapanTaxLaw.OverseasMarketPriceCeilingTests
 import JapanTaxLaw.OwnershipPercent5
 import JapanTaxLaw.OwnershipPercent5Spec
 import JapanTaxLaw.OwnershipPercent5Tests
+import JapanTaxLaw.ParagraphSixSevenReading
+import JapanTaxLaw.ParagraphSixSevenReadingSpec
+import JapanTaxLaw.ParagraphSixSevenReadingTests
 import JapanTaxLaw.PassengerCapacity
 import JapanTaxLaw.PassengerCapacitySpec
 import JapanTaxLaw.PassengerCapacityTests
@@ -2206,6 +2215,9 @@ import JapanTaxLaw.Semiconductor210nmTests
 import JapanTaxLaw.SenFractionRoundDown
 import JapanTaxLaw.SenFractionRoundDownSpec
 import JapanTaxLaw.SenFractionRoundDownTests
+import JapanTaxLaw.SeparateTariffApplication
+import JapanTaxLaw.SeparateTariffApplicationSpec
+import JapanTaxLaw.SeparateTariffApplicationTests
 import JapanTaxLaw.ServiceYearFractionRoundDown
 import JapanTaxLaw.ServiceYearFractionRoundDownSpec
 import JapanTaxLaw.ServiceYearFractionRoundDownTests
@@ -2330,6 +2342,9 @@ import JapanTaxLaw.SpecialTaxCreditCap10000Tests
 import JapanTaxLaw.SpecialTaxOrderArt124Rate25To8
 import JapanTaxLaw.SpecialTaxOrderArt124Rate25To8Spec
 import JapanTaxLaw.SpecialTaxOrderArt124Rate25To8Tests
+import JapanTaxLaw.SpecialTaxOrderArt80CapitalFeeFloor75k
+import JapanTaxLaw.SpecialTaxOrderArt80CapitalFeeFloor75kSpec
+import JapanTaxLaw.SpecialTaxOrderArt80CapitalFeeFloor75kTests
 import JapanTaxLaw.SpecialTonSecurityEightTen
 import JapanTaxLaw.SpecialTonSecurityEightTenSpec
 import JapanTaxLaw.SpecialTonSecurityEightTenTests
