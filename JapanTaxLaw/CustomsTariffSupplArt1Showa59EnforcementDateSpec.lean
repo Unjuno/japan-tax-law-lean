@@ -4,23 +4,24 @@ import JapanTaxLaw.CustomsTariffSupplArt1Showa59EnforcementDate
 # CustomsTariffSupplArt1Showa59EnforcementDateSpec — 施行日の独立仕様
 Sources (pinned): law 143AC0000000054, revision 143AC0000000054_20260601_508AC0000000005.
 独立仕様は実装の inForce / dateKey / enforcementKey を参照せず、
-辞書頁順の日付比較を直接定義する。
+原文の元号年（昭和59年）による辞書頁順の日付比較を直接定義する。
 -/
 
 namespace JapanTaxLaw.CustomsTariffSupplArt1Showa59EnforcementDate
 
-def specDate : Nat × Nat × Nat := (1984, 4, 1)
+def specDate : Nat × Nat × Nat := (59, 4, 1)
 
-def specInForce (d : Nat × Nat × Nat) : Bool :=
-  decide (d.1 > 1984) || (d.1 == 1984 && decide (d.2.1 > 4)) ||
-  (d.1 == 1984 && d.2.1 == 4 && decide (d.2.2 >= 1))
+def specInForce : Nat × Nat × Nat → Bool
+  | (y, m, d) => decide (y > 59) || (y == 59 && decide (m > 4)) ||
+                 (y == 59 && m == 4 && decide (d >= 1))
 
-example : specInForce (1984, 4, 1) = true := by decide
-example : specInForce (1984, 3, 31) = false := by decide
+example : specInForce (59, 4, 1) = true := by decide
+example : specInForce (59, 3, 31) = false := by decide
 
 def agreeCustomsTariffSupplArt1Showa59EnforcementDate : Bool :=
-  [(1900,1,1),(1983,12,31),(1984,3,31),(1984,4,1),(1984,4,2),(2000,1,1)].all fun d =>
-    inForce d == specInForce d
+  [(44,1,1),(58,12,31),(59,3,31),(59,4,1),(59,4,2),(60,1,1)].all fun x =>
+    match x with
+    | (y, m, d) => inForce (showaToSeireki y, m, d) == specInForce (y, m, d)
 
 example : agreeCustomsTariffSupplArt1Showa59EnforcementDate = true := by decide
 
