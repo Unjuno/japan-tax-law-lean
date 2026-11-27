@@ -4045,6 +4045,19 @@
       "source_location": "data/raw/502AC0000000025_20260401_508AC0000000012.law.json#LawBody[1]/MainProvision/MainProvision[7]/Article:7/Article#7/Paragraph#1/Item#1/Subitem1#1/Subitem1Sentence/Sentence#1 sha256=410e0d9715f6ea70fe2a9ca6c986a70abec48a3cbabe625fb54aabaa18efaa23 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/CapitalOneBillionExcessTests.lean sha256=da059206d66a151655c1af08041996f342ecd89748f177f2f3ad3399d8db702e (10 kernel-decided examples)"
     },
+    "NORM|3b374d46b3620530b433d1c8d12e627f7d2327139e6f3f92e7209a4c140854a5": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 9 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=422CO0000000060_20101001_000000000000000 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/ParagraphSixSevenReading.lean sha256=1aac44ff8f1b353450dd25263f4c763f388c94461ce8260ffe066fcf826f69c1",
+      "independent_spec": "JapanTaxLaw/ParagraphSixSevenReadingSpec.lean sha256=fe45342cfc43b5db1c8fdfafdebee86285d14edb4a4446116e5cede2d61b0c6c (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45893775304: commit 6fdd1817289839f11e9eabaedb265a028a0d7fb4, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=pinned needle(s) in clause: ['第六項及び第七項の規定は、前項の場合について準用']; constants [] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['第六項及び第七項の規定は、前項の場合について準用']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/422CO0000000060_20101001_000000000000000.law.json#LawBody[2]/MainProvision/MainProvision[0]/Article:3/Article#3/Paragraph#9/ParagraphSentence/Sentence#1 sha256=b6ae25c119ea3741f5567f8fb9bdbddc21b8bc992f00af56d7de585b848f51cd (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/ParagraphSixSevenReadingTests.lean sha256=8919d2d7472ee83d22f14b6ee810f221985e27c28ff2f219b4cc1908bb999e30 (9 kernel-decided examples)"
+    },
     "NORM|3baf93b6dc8b6e315291f16d37ab04a47ebafa71a3915823e26a1aac902882e0": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 13 kernel-decided examples covering boundary inputs",
@@ -15484,6 +15497,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle in clause + all spec numerals in scoped article: ['その金額が二百万円を超える場合には、二百万円']; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"100000\": [], \"10000000\": [], \"110000\": [], \"130000\": [], \"150000\": [], \"2\": [\"二\"], \"2000000\": [\"二百万\"], \"220000\": [], \"24000000\": [], \"24500000\": [], \"25000000\": [], \"260000\": [], \"290000\": [], \"300000\": [], \"330000\": [], \"380000\": [], \"4\": [], \"430000\": [], \"5\": [], \"530000\": [], \"9000000\": [], \"9500000\": []}; statutory rate = none; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:34/Article#34/Paragraph#1/Item#2/ItemSentence/Column#2/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalIncomeTaxTests.lean sha256=017a1f256a089f692a0f6f7c5971879339d07ba26a588ff0ae0a6c3d01450104 (55 kernel-decided examples)"
+    },
+    "NORM|c28c6f86eb781a5292f44784e7290218444ae1d396cd8a0b2a9af18b35bf9c14": {
+      "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[17]/Article:8/Article#8/Paragraph#3/ParagraphSentence/Sentence#1 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c (revision from INVENTORY current_revision, matched raw revision_info)",
+      "decomposition_audit": "build/task_queue.json: kind=EFFECT (Art.8(3): preceding paragraph's unfair-sales duty is an obligation of the goods importer), decomposed=true, exact span, unhandled_conditions=[], id unique",
+      "source_correspondence_audit": "scripts/ci/transcription_audit.py: PASS customs tariff law art.8 unfair-sales duty obligor; 782/782 checks passed; verbatim needle is Article 8(3) ParagraphSentence Sentence#1 and unique in whole law; whole-law file locator; 不当廉売関税/輸入者/納める義務 terms derived programmatically from the needle with exact codepoints, never hand-typed; law identity 143AC0000000054 Act with real revision; byte-fidelity equal=True, U+6EDE=0",
+      "independent_spec": "JapanTaxLaw/CustomsTariffArt8UnfairSalesDutyObligorSpec.lean sha256=1fc083ceec6a8525c90763ad6a4931184a854073d176e8bd5362cb1223d684c7 (SpecObligor Prop equality, representationally distinct from the inductive value; all five theorems axiom-free by rfl/cases — no decide/simp/propext)",
+      "implementation": "JapanTaxLaw/CustomsTariffArt8UnfairSalesDutyObligor.lean sha256=aad43a919959681a00f3d5a21d07f5f4a43e0ed1e0f138ed7f7ae01a3195e2bd (関税定率法 art.8(3) EFFECT: Obligor importer/other, obligor=importer, dutyObligation, three boundary theorems; duty computation NOT MODELLED; Act)",
+      "kernel_proof": "LOCAL VERIFICATION (not CI-attested): full lake build success (2644 jobs); all five unit theorems axiom-free via #print axioms probe; no sorryAx/Classical.choice/propext",
+      "proof_scope": "docs/UNIT_CUSTOMS_TARIFF_ART8_UNFAIR_SALES_DUTY_OBLIGOR.md (computable obligor-selection slice of one EFFECT norm unit in 関税定率法 art.8(3); duty computation / legal correctness NOT MODELLED)",
+      "boundary_proof": "JapanTaxLaw/CustomsTariffArt8UnfairSalesDutyObligorTests.lean: importer bears duty, other obligor not selected, Prop-spec agreements (all axiom-free)",
+      "cross_law_proof": "queue unit has no dependencies; no cross-law constant introduced. No claim of resolution beyond the 15-digit law id is made.",
+      "tests": "JapanTaxLaw/CustomsTariffArt8UnfairSalesDutyObligorTests.lean sha256=fc39b0530aa925f4e448a42586e7d73072e8dae788a23647bedb280a0f11333d (kernel-checked obligor checks)",
+      "adversarial_review": "docs/ADVERSARIAL_CUSTOMS_TARIFF_ART8_UNFAIR_SALES_DUTY_OBLIGOR.md — NO FINDINGS with all 15 mandated checks independently reproduced from authoritative sources (raw law JSON, INVENTORY, task queue, audit helper and axiom probe). Reproduced: raw sha256 924a01d3…86ae9c; needle unique at Article 8(3) Sentence#1 (tree walk matches queue source_path) with exact codepoints (廉 U+5EC9, 売 U+58F2, 輸 U+8F38, 納 U+7D0D); law identity 関税定率法 / Act / revision 2026-06-01 matches INVENTORY; kind EFFECT with no dependencies/unhandled conditions; importer selected as obligor with no duty computation invented and scope NOT MODELLED; needle byte-verbatim in all five artifacts with no wrong-codepoint variants; audit 782/782 whole-law locator; all five theorems axiom-free by rfl/cases; build 2644 jobs; LEGAL_REVIEW_PENDING. No completion claim; human legal review remains pending."
     }
   }
 }

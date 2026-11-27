@@ -3,10 +3,13 @@ import JapanTaxLaw.TaxFinance
 /-!
 # ReconstructionSpecialIncomeTaxEnforcementDate — 復興特別所得税に関する政令 施行日（附則 art.1）bounded L4 モデル
 
-Sources (pinned):
-  Law id: 424CO0000000016
-  Revision: 424CO0000000016_20260525_507CO0000000244
+Sources (historical revision; NOT a current-law pin):
+  Historical law identifier: 424CO0000000016
+  Historical revision identifier: 424CO0000000016_20260525_507CO0000000244
   Raw snapshot: data/raw/424CO0000000016_20260525_507CO0000000244.law.json
+  Ledger status: PreviousEnforced / audit_ready=false (verified against INVENTORY);
+  therefore no CurrentEnforced law pin is asserted by this module. The modeled
+  2016-01-01 enforcement date is read from that historical revision's 附則 Article 1.
   附則 Article 1 (施行期日). Needles contain no U+3000.
 
 原文逐語（附則）:
