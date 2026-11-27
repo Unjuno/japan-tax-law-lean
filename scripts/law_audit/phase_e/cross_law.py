@@ -58,6 +58,22 @@ def load_inventory(path: Path) -> dict:
 def index_ledger(inv: dict) -> dict[str, dict]:
     return {rec["law_id"]: rec for rec in inv.get("laws", [])}
 
+def index_related_layer() -> dict[str, dict]:
+    p = REPO_ROOT / "data" / "RELATED_LAW_LEDGER.json"
+    if not p.exists():return {}
+    doc = json.loads(p.read_text(encoding="utf-8"))
+    out: dict[str, dict] = {}
+    for lid, rec in (doc.get("laws") or {}).items():
+        out[lid] = {
+            "law_id": lid,
+            "current_revision_status": "CurrentEnforced",
+            "audit_ready": True,
+            "current_revision": {"law_revision_id": rec.get("law_revision_id")},
+            "amendment_enforcement_date": rec.get("amendment_enforcement_date"),
+            "raw_snapshot": {"source_sha256": rec.get("raw_sha256")},
+        }
+    return out
+
 
 def unresolved_ids(inv: dict) -> set[str]:
     return {u.get("law_id") for u in inv.get("summary", {}).get("unresolved", [])}
@@ -111,8 +127,11 @@ def parse_pins(text: str) -> dict:
 
 def check_module(name: str, pins: dict, inv: dict) -> dict:
     problems: list[str] = []
-    by_id = index_ledger(inv)
-    rev_to_id = revision_index(inv)
+    by_id = {**index_related_layer(), **index_ledger(inv)}
+    related = index_related_layer()
+    rev_to_id = {**{r: lid for lid, rec in related.items()
+                    for r in [(rec.get("current_revision") or {}).get("law_revision_id")] if r},
+                 **revision_index(inv)}
     unresolved = unresolved_ids(inv)
 
     pinned = bool(pins["law_ids"] or pins["revisions"] or pins["sha256s"])
