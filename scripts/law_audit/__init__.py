@@ -10,3 +10,5 @@ human review. Model defects and legal defects are tracked separately.
 """
 
 __version__ = "1.0.0"
+
+from . import kansuji

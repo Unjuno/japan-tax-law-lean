@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=64275, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=67664, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=64275 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=67664 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -277,7 +277,11 @@ bulk exception batch: verified=642 failed=0 (then class exhausted)
 $ python scripts/ci/batch_delegation_bulk_pipeline.py --limit 10 / 1000 x3
 bulk delegation batch: verified=10/1000/1000/1000, failed=0 in every run
 
-$ python -m unittest discover -s scripts/tests -t . → 260 tests, OK
+$ python scripts/ci/batch_reference_bulk_pipeline.py --limit 1000 x3
+bulk reference batch: verified=1000 failed=0 (x3)
+(restored missing law_audit package modules; 263 tests OK)
+
+$ python -m unittest discover -s scripts/tests -t . → 263 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -747,7 +751,12 @@ The exclusion-gate class was exhausted (642 more units); a bulk delegation
 interface pipeline, `scripts/ci/batch_delegation_bulk_pipeline.py`, added 3010
 units with delegated content explicitly NOT resolved. Three tests added.
 
-So 64275 units are evidence-backed FULLY_VERIFIED and 332,577 remain NOT_STARTED
+A bulk reference-dispatch pipeline, `scripts/ci/batch_reference_bulk_pipeline.py`,
+added 3000 REFERENCE units with target match and referenced effect explicitly
+NOT resolved. Three tests added. Missing `scripts/law_audit` package modules
+were restored from history and the `kansuji` export re-established.
+
+So 67664 units are evidence-backed FULLY_VERIFIED and 329,188 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is

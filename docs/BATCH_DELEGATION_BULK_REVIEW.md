@@ -2,3 +2,4 @@
 - batch BulkDeleg75035059f7: 1000 delegation rules; interface scope only; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.
 - batch BulkDelegb9d357abb2: 1000 delegation rules; interface scope only; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.
 - batch BulkDeleg58febf31c6: 1000 delegation rules; interface scope only; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.
+- batch BulkDeleg253d7eb012: 389 delegation rules; interface scope only; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.
