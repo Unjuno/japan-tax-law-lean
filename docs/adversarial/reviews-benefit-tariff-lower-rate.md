@@ -1,4 +1,9 @@
-# Adversarial review — BenefitTariffLowerRate (NORM|177401da…)
+### BenefitTariffLowerRate.lean — adversarial review (NORM|177401da…)
+
+独立再抽出: the article text was re-extracted independently from the pinned raw
+snapshot (一次資料) and compared against the model header and transcription pin.
+判定: the scope is recorded as a reference/priority rule with the concession table
+left as an input; no legal determination is made. H/T/D/C/U record below.
 
 Pinned: law `330CO0000000237`, revision `330CO0000000237_20250401_507CO0000000141`,
 article 第三条 (便益関税の税率).

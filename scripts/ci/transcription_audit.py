@@ -94,7 +94,8 @@ def checks():
     # BenefitTariffLowerRate.lean - NORM|177401da... (便益関税の税率, law 330CO0000000237)
     yield ("関税暫定措置法施行令 art.3（便益関税の税率・低い税率の優先）↔ BenefitTariffLowerRate.lean",
            "330CO0000000237", "article", "第三条",
-           ["前項の規定は、同項に定める税率より低い税率を定める法令の規定の適用を妨げない。"])
+           ["前条に規定する同譲許表に掲げる貨物に対して課する関税の税率は、当該貨物の区分に応じ、同譲許表に定める税率とする。",
+            "前項の規定は、同項に定める税率より低い税率を定める法令の規定の適用を妨げない。"])
 
     # DoubtfulReceivableDeduction (restored registered check)
     yield ("DoubtfulReceivableDeduction ↔ DoubtfulReceivableDeduction.lean", "326M50000040055", "article", "第二十二条の三", ["取立不能のおそれのある債権については、事業年度の末日においてその時に取り立てることができないと見込まれる額を控除しなければならない。"])
