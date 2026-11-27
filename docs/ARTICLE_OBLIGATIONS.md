@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 308
-- presence-facts-only complete: 308
-- NOT_STARTED: 308
+- articles with explicit pin: 309
+- presence-facts-only complete: 309
+- NOT_STARTED: 309
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0
@@ -17,6 +17,8 @@ source positions. Human legal review is a separate axis and is pending.
 
 | law_id | article | module | presence | scoped | review | authoritative status |
 |---|---|---|---|---|---|---|
+| `422CO0000000221` | 第二条 | SpecialWardReading | YES | YES | NO | NOT_STARTED |
+| `330CO0000000237` | 第三条 | BenefitTariffLowerRate | YES | YES | NO | NOT_STARTED |
 | `341CO0000000005` | 第十二条 | PetroleumGasRefundAmount | YES | YES | YES | NOT_STARTED |
 | `326M50000040055` | 第二十二条の三 | DoubtfulReceivableDeduction | YES | YES | YES | NOT_STARTED |
 | `346CO0000000275` | 第五条 | FifthWheelGrossWeight | YES | YES | YES | NOT_STARTED |
@@ -324,4 +326,3 @@ source positions. Human legal review is a separate axis and is pending.
 | `424M60000040007` | 第一条 | ResidualDistributionOneMonth | YES | YES | NO | NOT_STARTED |
 | `418M60000400006` | 第二条 | OpinionApplicantDocumentWindowThreeMonths | YES | YES | NO | NOT_STARTED |
 | `417CO0000000289` | 第五条 | SeparateTariffApplication | YES | YES | NO | NOT_STARTED |
-| `423M60000040020` | 第三条の八 | ResidentCopyTwoMonthElapsed | YES | YES | NO | NOT_STARTED |
