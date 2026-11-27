@@ -91,6 +91,9 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # PetroleumGasRefundAmount — 石油ガス税法施行規則 art.12(3)(1)
+    yield ("石油ガス税法施行規則 art.12(3)一（領収不能金額＝重量×税率−他法控除額）↔ PetroleumGasRefundAmount.lean",
+           "341CO0000000005", "article", "第十二条", ["販売代金の領収をすることができなくなつた課税石油ガスの重量（石油ガス税を免除されるものの重量を除く。次号において同じ。）につき"])
     # DoubtfulReceivableDeduction (restored registered check)
     yield ("DoubtfulReceivableDeduction ↔ DoubtfulReceivableDeduction.lean", "326M50000040055", "article", "第二十二条の三", ["取立不能のおそれのある債権については、事業年度の末日においてその時に取り立てることができないと見込まれる額を控除しなければならない。"])
     # FifthWheelGrossWeight (restored registered check)

@@ -1,0 +1,2 @@
+import JapanTaxLaw.PetroleumGasRefundAmountSpec
+#print axioms JapanTaxLaw.PetroleumGasRefundAmount.agreeRefund
