@@ -1741,3 +1741,19 @@ H/T/D/C/U record:
 - **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
 
 > **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### LocalOrdinanceTwoThirdsMajority.lean — 地方自治法 art. 4（条例制定・改廃 出席議員の三分の二以上の同意）
+
+H/T/D/C/U record:
+
+- **source layer**: `NATIONAL_NON_TAX_RELATED` — a non-tax related statute acquired via e-Gov, kept SEPARATE from the 327-law tax inventory; `ACQUIRED_NOT_PARSED_NOT_MODELLED` is overridden only for this pinned numeric slice.
+- **pin**: law_id `322AC0000000067` / revision `322AC0000000067_20261102_508AC0000000062`; needle 1/1 FOUND verbatim-unique in the pinned related snapshot.
+- **H**: 原文の三分の二以上を除算を用いない比較 `3×yes ≥ 2×attending` として transcribed した。
+- **T**: pinned 条文から needle を独立再抽出し、境界値を独立計算して Lean 申告値と比較。
+- **D**: literal + 境界一致、MISMATCH 0 → **BY-DESIGN / CONFIRMED=0**。
+- **C**: 条例制定の手続・他要件は本スライスの射程外（caller-established）。
+- **U**: 法的妥当性は人間の法律専門家レビューを要する。
+- **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
+
+> **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+

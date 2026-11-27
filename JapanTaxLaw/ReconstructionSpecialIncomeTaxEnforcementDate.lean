@@ -24,6 +24,15 @@ Sources (historical reference — explicitly NOT a verification pin):
   separate L1 transcription check still audits its literal against the pinned
   historical snapshot; it does not assert current-law applicability.
 
+  Why unpinned: INVENTORY records this law's selection_status as
+  historical_fallback and its current_revision_status as PreviousEnforced —
+  there is no CurrentEnforced revision to pin. cross_law.py correctly requires
+  a CurrentEnforced ledger entry for every verification pin, so this module
+  deliberately carries no law-id, revision or raw-snapshot-sha256 pin marker.
+  It is a historical-reference model, NOT counted as source-verified. The
+  separate L1 transcription check still audits its literal against the pinned
+  historical snapshot; it does not assert current-law applicability.
+
 原文逐語（附則）:
   「第一条 この政令は、平成二十八年一月一日から施行する。」
 

@@ -35,10 +35,15 @@ def _norm(s: str) -> str:
 def load_law_text(law_id: str) -> str:
     inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
     rec = next((l for l in inv["laws"] if l["law_id"] == law_id), None)
-    assert rec is not None, f"law {law_id} not in INVENTORY.json"
-    snap = rec.get("raw_snapshot")
-    assert snap, f"law {law_id} has no raw snapshot"
-    path = REPO / snap["source_file"]
+    snap = (rec or {}).get("raw_snapshot")
+    if rec is None or snap is None:
+        related = REPO / "data/RELATED_LAW_LEDGER.json"
+        if related.exists():
+            rel = json.loads(related.read_text(encoding="utf-8"))
+            rec = (rel.get("laws") or {}).get(law_id)
+            snap = (rec or {}).get("raw_snapshot")
+    assert snap, f"law {law_id} not in INVENTORY.json or RELATED_LAW_LEDGER.json"
+    path = REPO / (snap["source_file"] if isinstance(snap, dict) else snap)
     data = json.loads(path.read_bytes())
 
     def text(node):
@@ -5403,6 +5408,12 @@ def checks():
     yield ("地方税法 art. 37_2（4000万超）↔ LocalTaxBracketOver4000.lean",
            "325AC0000000226", "file", None,
            ["四千万円を超える金額"])
+
+# 条例制定・改廃 出席議員の三分の二以上の同意 — LocalOrdinanceTwoThirdsMajority.lean
+    yield ("地方自治法 art. 4（条例制定・改廃 出席議員の三分の二以上の同意）↔ LocalOrdinanceTwoThirdsMajority.lean",
+           "322AC0000000067",
+           "file", None,
+           ["第一項の条例を制定し又は改廃しようとするときは、当該地方公共団体の議会において出席議員の三分の二以上の者の同意がなければならない。"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
