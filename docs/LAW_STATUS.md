@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 213
+- with >=1 pinned literal check (semantic model): 214
 - with recorded human legal review: 0
 
 ## All laws
@@ -298,7 +298,7 @@ a completion flag.
 | `429CO0000000234` | 高重合度ポリエチレンテレフタレートに対して課する不当廉売関税に関する政令 | 429CO0000000234_20230204_505CO0000000028 | CurrentEnforced | YES | ok | 8 | YES (1) | NO |
 | `429CO0000000324` | 炭素鋼製突合せ溶接式継手に対して課する不当廉売関税に関する政令 | 429CO0000000324_20180331_430CO0000000121 | CurrentEnforced | YES | ok | 7 | NO (0) | NO |
 | `430AC0000000016` | 国際観光旅客税法 | 430AC0000000016_20260701_508AC0000000012 | CurrentEnforced | YES | ok | 41 | YES (3) | NO |
-| `430CO0000000161` | 国際観光旅客税法施行令 | 430CO0000000161_20190107_000000000000000 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
+| `430CO0000000161` | 国際観光旅客税法施行令 | 430CO0000000161_20190107_000000000000000 | CurrentEnforced | YES | ok | 10 | YES (1) | NO |
 | `430M60000040039` | 国際観光旅客税法施行規則 | 430M60000040039_20250401_507M60000040024 | CurrentEnforced | YES | ok | 9 | YES (1) | NO |
 | `430M60000200048` | 関税暫定措置法施行令第三十二条第二項第二号の農林水産省令で定める方法を定める省令 | 430M60000200048_20181230_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `431AC0000000001` | 平成三十年度分として交付すべき地方交付税の総額の特例に関する法律 | 431AC0000000001_20190214_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |

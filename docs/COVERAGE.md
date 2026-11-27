@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 213 | 327 | 65.14% |
+| laws with >=1 pinned literal check | 214 | 327 | 65.44% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 820 | n/a | n/a |
+| pinned literal checks | 821 | n/a | n/a |
 | distinct article pins | 234 | 42584 | 0.55% |
-| pinned Lean modules (cross-law) | 1328 | n/a | n/a |
+| pinned Lean modules (cross-law) | 1329 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1433 |
+| unpinned Lean modules (not counted as verified) | 1435 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -303,6 +303,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `429CO0000000234` 高重合度ポリエチレンテレフタレートに対して課する不当廉売関税に関する政令
 - `429M60000008030` 都及び特別区の標準税収入額の算定方法に関する省令
 - `430AC0000000016` 国際観光旅客税法
+- `430CO0000000161` 国際観光旅客税法施行令
 - `430M60000040039` 国際観光旅客税法施行規則
 - `431AC0000000003` 森林環境税及び森林環境譲与税に関する法律
 - `431AC0000000004` 特別法人事業税及び特別法人事業譲与税に関する法律
