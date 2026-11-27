@@ -5151,6 +5151,36 @@ def checks():
            "article", "第七十三条の七",
            ["譲渡により担保の目的となつている財産（以下この節において「譲渡担保財産」という。）により担保される債権の消滅により当該譲渡担保財産の設定の日から二年以内に譲渡担保財産の権利者（以下この節において「譲渡担保権者」という。）から譲渡担保財産の設定者（設定者が更迭した場合における新設定者を除く。以下この節において同じ。）に当該譲渡担保財産を移転する場合における不動産の取得"])
 
+    # Batch 309 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("相続税法 art. 39(23) 三月を超える ↔ InheritanceTax39SurveyOver3Months.lean",
+           "325AC0000000073",
+           "article", "第三十九条",
+           ["第二項の規定により、税務署長が、同項の調査を行う場合において、当該調査に三月を超える期間を要すると認めるときにおける同項の規定の適用については、同項中「三月」とあるのは、「六月」とする。"])
+
+    # Batch 309 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("相続税法 art. 59(5) 百以上 ↔ InheritanceTax59ReportCountAtLeast100.lean",
+           "325AC0000000073",
+           "article", "第五十九条",
+           ["第一項各号、第二項又は第三項に定める調書（以下この条において単に「調書」という。）のうち、当該調書の提出期限の属する年の前々年の一月一日から十二月三十一日までの間に提出すべきであつた当該調書の枚数として財務省令で定めるところにより算出した数が百以上であるものについては、当該調書を提出すべき者は、第一項から第三項までの規定にかかわらず、当該調書に記載すべきものとされるこれらの規定に規定する事項（以下この条において「記載事項」という。）を次に掲げる方法のいずれかによりこれらの規定"])
+
+    # Batch 309 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 20_4_2(6) 二以上 ↔ LocalTax20_4_2TwoOrMoreInstallments.lean",
+           "325AC0000000226",
+           "article", "第二十条の四の二",
+           ["地方税の確定金額を、二以上の納期限を定め、一定の金額に分割して納付し、又は納入することとされている場合において、その納期限ごとの分割金額に千円未満の端数があるとき、又はその分割金額の全額が千円未満であるときは、その端数金額又はその全額は、すべて最初の納期限に係る分割金額に合算するものとする。"])
+
+    # Batch 309 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 30(1) 三十万円以下 ↔ LocalTax30FalseTaxManagerFineWithin300k.lean",
+           "325AC0000000226",
+           "article", "第三十条",
+           ["前条第一項の規定により申告すべき納税管理人について虚偽の申告をし、又は偽りその他不正の手段により同項の承認若しくは同条第二項の認定を受けたときは、その違反行為をした者は、三十万円以下の罰金に処する。"])
+
+    # Batch 309 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 321_15(7) 六十日以内 ↔ LocalTax321_15DecisionWithin60Days.lean",
+           "325AC0000000226",
+           "article", "第三百二十一条の十五",
+           ["総務大臣は、第四項の申出を受けた場合においては、その日から六十日以内にその裁決をしなければならない。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
