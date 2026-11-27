@@ -35,15 +35,14 @@ def _norm(s: str) -> str:
 def load_law_text(law_id: str) -> str:
     inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
     rec = next((l for l in inv["laws"] if l["law_id"] == law_id), None)
-    assert rec is not None, f"law {law_id} not in INVENTORY.json"
-    snap = rec.get("raw_snapshot")
-    if snap is None:
+    snap = (rec or {}).get("raw_snapshot")
+    if rec is None or snap is None:
         related = REPO / "data/RELATED_LAW_LEDGER.json"
         if related.exists():
             rel = json.loads(related.read_text(encoding="utf-8"))
             rec = (rel.get("laws") or {}).get(law_id)
             snap = (rec or {}).get("raw_snapshot")
-    assert snap, f"law {law_id} has no raw snapshot"
+    assert snap, f"law {law_id} not in INVENTORY.json or RELATED_LAW_LEDGER.json"
     source_file = snap["source_file"] if isinstance(snap, dict) else snap
     path = REPO / source_file
     data = json.loads(path.read_bytes())
