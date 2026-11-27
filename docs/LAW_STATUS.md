@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 213
+- with >=1 pinned literal check (semantic model): 215
 - with recorded human legal review: 0
 
 ## All laws
@@ -275,7 +275,7 @@ a completion flag.
 | `423M60000008168` | 所得税法等の一部を改正する法律附則第九十六条の規定による改正前の東日本大震災復興特別区域 | 423M60000008168_20260401_508M60000008052 | CurrentEnforced | YES | ok | 16 | YES (1) | NO |
 | `424CO0000000016` | 復興特別所得税に関する政令 | 424CO0000000016_20260525_507CO0000000244 | PreviousEnforced | YES | ok | 42 | YES (1) | NO |
 | `424CO0000000017` | 復興特別法人税に関する政令 | 424CO0000000017_20240401_505CO0000000208 | CurrentEnforced | YES | ok | 20 | YES (2) | NO |
-| `424M60000040006` | 復興特別所得税に関する省令 | 424M60000040006_20260901_506M60000040028 | CurrentEnforced | YES | ok | 35 | NO (0) | NO |
+| `424M60000040006` | 復興特別所得税に関する省令 | 424M60000040006_20260901_506M60000040028 | CurrentEnforced | YES | ok | 35 | YES (1) | NO |
 | `424M60000040007` | 復興特別法人税に関する省令 | 424M60000040007_20210415_503M60000040045 | CurrentEnforced | YES | ok | 15 | YES (2) | NO |
 | `424M60000040012` | 株式会社東日本大震災事業者再生支援機構が取得した不動産に関する権利の移転登記の登録免許税 | 424M60000040012_20130401_425M60000040026 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
 | `424AC0000000068` | 社会保障の安定財源の確保等を図る税制の抜本的な改革を行うための消費税法の一部を改正する等 | 424AC0000000068_20250401_506AC0000000046 | CurrentEnforced | YES | ok | 12 | NO (0) | NO |
@@ -298,7 +298,7 @@ a completion flag.
 | `429CO0000000234` | 高重合度ポリエチレンテレフタレートに対して課する不当廉売関税に関する政令 | 429CO0000000234_20230204_505CO0000000028 | CurrentEnforced | YES | ok | 8 | YES (1) | NO |
 | `429CO0000000324` | 炭素鋼製突合せ溶接式継手に対して課する不当廉売関税に関する政令 | 429CO0000000324_20180331_430CO0000000121 | CurrentEnforced | YES | ok | 7 | NO (0) | NO |
 | `430AC0000000016` | 国際観光旅客税法 | 430AC0000000016_20260701_508AC0000000012 | CurrentEnforced | YES | ok | 41 | YES (3) | NO |
-| `430CO0000000161` | 国際観光旅客税法施行令 | 430CO0000000161_20190107_000000000000000 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
+| `430CO0000000161` | 国際観光旅客税法施行令 | 430CO0000000161_20190107_000000000000000 | CurrentEnforced | YES | ok | 10 | YES (1) | NO |
 | `430M60000040039` | 国際観光旅客税法施行規則 | 430M60000040039_20250401_507M60000040024 | CurrentEnforced | YES | ok | 9 | YES (1) | NO |
 | `430M60000200048` | 関税暫定措置法施行令第三十二条第二項第二号の農林水産省令で定める方法を定める省令 | 430M60000200048_20181230_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `431AC0000000001` | 平成三十年度分として交付すべき地方交付税の総額の特例に関する法律 | 431AC0000000001_20190214_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 514
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 520
