@@ -5404,6 +5404,15 @@ def checks():
            "325AC0000000226", "file", None,
            ["四千万円を超える金額"])
 
+    # 租税特別措置法 art. 61の4 — CapitalOver100M.lean (資本金1億円超)
+    yield ("租税特別措置法 art. 61_4（資本金1億円超）↔ CapitalOver100M.lean",
+           "332AC0000000026", "file", None,
+           ["当該適用年度終了の日における資本金の額又は出資金の額が一億円を超える法人"])
+    # 地方税法 art. 734 — OfficeFee3M38M.lean (300万/380万円)
+    yield ("地方税法 art. 734（特別区外にも所在 300万/380万円）↔ OfficeFee3M38M.lean",
+           "325AC0000000226", "file", None,
+           ["三百万円（事務所等が特別区の区域外にも所在する場合以外の場合には、三百八十万円）"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
