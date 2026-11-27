@@ -4663,6 +4663,37 @@ def checks():
            "article", "第三百八十二条",
            ["登記所は、土地又は建物の表示に関する登記をしたときは、十日以内に、その旨その他総務省令で定める事項を当該土地又は家屋の所在地の市町村長に通知しなければならない。"])
 
+
+    # Batch 277 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("相続税法 art. 42(2) 物納許可却在下三月以内 ↔ InheritanceTax42PaymentDecisionWithin3Months.lean",
+           "325AC0000000073",
+           "article", "第四十二条",
+           ["税務署長は、前項の規定による申請書の提出があつた場合においては、当該申請者及び当該申請に係る事項について前条の規定に該当するか否かの調査を行い、その調査に基づき、当該申請書の提出期限の翌日から起算して三月以内に当該申請に係る税額の全部又は一部について物納財産ごとに当該申請に係る物納の許可をし、又は当該申請の却下をする。"])
+
+    # Batch 277 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("相続税法 art. 46(3) 換価代納等承認三月以内 ↔ InheritanceTax46ApprovalWithin3Months.lean",
+           "325AC0000000073",
+           "article", "第四十六条",
+           ["税務署長は、前項の規定による申請書の提出があつた場合においては、当該申請者及び当該申請に係る事項について第一項の規定に該当するか否かの調査を行い、その調査に基づき、当該申請書の提出があつた日の翌日から起算して三月以内に当該申請の承認をし、又は当該申請の却下をする。"])
+
+    # Batch 277 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 8(2) 申出から六十日以内の決定 ↔ LocalTax8DecisionWithin60Days.lean",
+           "325AC0000000226",
+           "article", "第八条",
+           ["総務大臣又は道府県知事は、前項の決定を求める旨の申出を受けた場合においては、その申出を受けた日から六十日以内に決定をし、遅滞なく、その旨を関係地方団体の長に通知しなければならない。"])
+
+    # Batch 277 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 37_2(2)3 返礼品調達費百分の三十以下 ↔ LocalTax37_2ReturnCostCeiling30Percent.lean",
+           "325AC0000000226",
+           "article", "第三十七条の二",
+           ["都道府県等が個別の第一号寄附金の受領に伴い提供する返礼品等の調達に要する費用の額として総務大臣が定めるところにより算定した額が、いずれも当該都道府県等が受領する当該第一号寄附金の額の百分の三十に相当する金額以下であること。"])
+
+    # Batch 277 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 62(2) 免れた税額千万円を超える ↔ LocalTax62PenaltyOver10M.lean",
+           "325AC0000000226",
+           "article", "第六十二条",
+           ["前項の免れた税額が千万円を超える場合には、情状により、同項の罰金の額は、同項の規定にかかわらず、千万円を超える額でその免れた税額に相当する額以下の額とすることができる。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
