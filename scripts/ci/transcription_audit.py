@@ -4911,6 +4911,36 @@ def checks():
            "article", "第三百七十一条",
            ["納税者が納期限までに固定資産税に係る地方団体の徴収金を完納しない場合においては、市町村の徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
 
+    # Batch 293 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 433(12) 十日以内 ↔ LocalTax433ReviewNoticeWithin10Days.lean",
+           "325AC0000000226",
+           "article", "第四百三十三条",
+           ["固定資産評価審査委員会は、第一項の規定による決定をした場合においては、その決定のあつた日から十日以内に、これを審査を申し出た者及び市町村長に文書をもつて通知しなければならない。"])
+
+    # Batch 293 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 700_61(1) 百万円以下 ↔ LocalTax700_61HuntingFineCeiling1M.lean",
+           "325AC0000000226",
+           "article", "第七百条の六十一",
+           ["偽りその他不正の行為により狩猟税の全部又は一部を免れたときは、その違反行為をした者は、百万円以下の罰金に処する。"])
+
+    # Batch 293 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 604(2) 百万円をこえる ↔ LocalTax604EvadedAbove1M.lean",
+           "325AC0000000226",
+           "article", "第六百四条",
+           ["前項の免れた税額が百万円をこえる場合には、情状により、同項の罰金の額は、同項の規定にかかわらず、百万円をこえる額でその免れた税額に相当する額以下の額とすることができる。"])
+
+    # Batch 293 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 92(1) 二十日以内 ↔ LocalTax92DemandWithin20Days.lean",
+           "325AC0000000226",
+           "article", "第九十二条",
+           ["特別徴収義務者が納期限（更正又は決定があつた場合においては、不足金額の納期限をいう。以下ゴルフ場利用税について同じ。）までにゴルフ場利用税に係る地方団体の徴収金を完納しない場合においては、道府県の徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
+
+    # Batch 293 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 328_8(1) 十万円以下 ↔ LocalTax328_8SeparationFineCeiling100k.lean",
+           "325AC0000000226",
+           "article", "第三百二十八条の八",
+           ["市町村は、分離課税に係る所得割の納税義務者が退職所得申告書を正当な理由がなくて提出しなかつた場合には、その者に対し、当該市町村の条例で十万円以下の過料を科する旨の規定を設けることができる。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
