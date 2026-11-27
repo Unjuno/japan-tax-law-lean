@@ -1008,6 +1008,9 @@ import JapanTaxLaw.GiftTaxTenYearResidenceLookback
 import JapanTaxLaw.GiftTaxTenYearResidenceLookbackSpec
 import JapanTaxLaw.GiftTaxTenYearResidenceLookbackTests
 import JapanTaxLaw.GiftTaxTests
+import JapanTaxLaw.GolfCourseTaxGrantSevenTenths
+import JapanTaxLaw.GolfCourseTaxGrantSevenTenthsSpec
+import JapanTaxLaw.GolfCourseTaxGrantSevenTenthsTests
 import JapanTaxLaw.GolfCourseUseTaxStandardRate
 import JapanTaxLaw.GolfCourseUseTaxStandardRateSpec
 import JapanTaxLaw.GolfCourseUseTaxStandardRateTests
@@ -1811,6 +1814,9 @@ import JapanTaxLaw.OilGasGrantRoundingTests
 import JapanTaxLaw.OilGasGrantTax
 import JapanTaxLaw.OilGasGrantTaxSpec
 import JapanTaxLaw.OilGasGrantTaxTests
+import JapanTaxLaw.OkinawaArt19Bracket10M15M
+import JapanTaxLaw.OkinawaArt19Bracket10M15MSpec
+import JapanTaxLaw.OkinawaArt19Bracket10M15MTests
 import JapanTaxLaw.OkinawaArt19Bracket1M2M
 import JapanTaxLaw.OkinawaArt19Bracket1M2MSpec
 import JapanTaxLaw.OkinawaArt19Bracket1M2MTests

@@ -3554,6 +3554,23 @@
         10
       ]
     },
+    "GolfCourseTaxGrantSevenTenths": {
+      "adversarial_review": true,
+      "boundary_examples_found": 3,
+      "independent_spec": true,
+      "kanji_literals": [
+        "七",
+        "十"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 10,
+      "needles_scoped": true,
+      "scoped_article_chars": 730,
+      "spec_literals": [
+        7,
+        10
+      ]
+    },
     "GolfCourseUseTaxStandardRate": {
       "adversarial_review": false,
       "boundary_examples_found": 1,
@@ -6933,6 +6950,23 @@
       "scoped_article_chars": 147,
       "spec_literals": [
         1000
+      ]
+    },
+    "OkinawaArt19Bracket10M15M": {
+      "adversarial_review": true,
+      "boundary_examples_found": 3,
+      "independent_spec": true,
+      "kanji_literals": [
+        "千万",
+        "千五百万"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 14,
+      "needles_scoped": true,
+      "scoped_article_chars": 945,
+      "spec_literals": [
+        10000000,
+        15000000
       ]
     },
     "OkinawaArt19Bracket1M2M": {
@@ -12626,6 +12660,23 @@
         "module": "LocalSeismic120sqm",
         "spec_kanji_in_原文": [
           "百二十"
+        ]
+      },
+      "NORM|19ad3c0f39ad4ec9480de4e7e90ab21b00a4f7dcf2ff45b75927e9e3c81f691e": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 14,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "OkinawaArt19Bracket10M15M",
+        "spec_kanji_in_原文": [
+          "千万",
+          "千五百万"
         ]
       },
       "NORM|19c586773f02861671540621e22b12ad0105e487695542bd6d320fe92b45cac8": {
@@ -19369,6 +19420,23 @@
         "module": "EnforcementWithinSixMonths",
         "spec_kanji_in_原文": [
           "六"
+        ]
+      },
+      "NORM|7128dfb6a017d1db0d57b3a37b36cce183c850974de506050bf109b7e08a8a90": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 10,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "GolfCourseTaxGrantSevenTenths",
+        "spec_kanji_in_原文": [
+          "七",
+          "十"
         ]
       },
       "NORM|7169cc43edb94e49ff2481decc76748a64009a2829f7f0c9167ef8952fa14f61": {
@@ -31283,6 +31351,19 @@
       "source_location": "data/raw/325CO0000000245_20261101_508CO0000000083.law.json#LawBody[4]/SupplProvision/SupplProvision[60]/Article:12/Article#12/Paragraph#52/Item#1/Subitem1#2/Subitem1Sentence/Column#2/Sentence#1 sha256=9bc03b230fb0ed1039e33a1544cd53772939ee25d6d4648a386400ea269dfb17 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalSeismic120sqmTests.lean sha256=8fd8bab3ac554037e892c63a4120c0c644b760f2520cd567f01eff3e44f876a4 (11 kernel-decided examples)"
     },
+    "NORM|19ad3c0f39ad4ec9480de4e7e90ab21b00a4f7dcf2ff45b75927e9e3c81f691e": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 14 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=347CO0000000151_20251231_507CO0000000426 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/OkinawaArt19Bracket10M15M.lean sha256=d5fc6ab61724da15910a32bddd25b7cd99b57f889a2249d995ea933fad90a0ae",
+      "independent_spec": "JapanTaxLaw/OkinawaArt19Bracket10M15MSpec.lean sha256=eda8d3c130279780a238babec0f947647c7b747ebcb22482a59f8ea4bf9d1472 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/46051693259: commit 72abac798265, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10000000, 15000000] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10000000\": [\"千万\"], \"15000000\": [\"千五百万\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/347CO0000000151_20251231_507CO0000000426.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:19/Article#19/Paragraph#1/Item#3/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=8c5521ffb74068dc5b6872a3748b53a6eec38afc3637ece878eb0ca9da74a437 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/OkinawaArt19Bracket10M15MTests.lean sha256=5fd5707808a7a051a1c8b23df13b07873a2496a08c039d30b01eef42f2ad8493 (14 kernel-decided examples)"
+    },
     "NORM|19c586773f02861671540621e22b12ad0105e487695542bd6d320fe92b45cac8": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 7 kernel-decided examples covering boundary inputs",
@@ -36703,6 +36784,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"6\": [\"六\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[402]/SupplProvision/SupplProvision[1]/Article:1/Article#1/Paragraph#1/Item#7/ItemSentence/Column#2/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/EnforcementWithinSixMonthsTests.lean sha256=70d4406d789190e17f603bc0ef521001aa5c9888de50d3341e910c049bc9f660 (11 kernel-decided examples)"
+    },
+    "NORM|7128dfb6a017d1db0d57b3a37b36cce183c850974de506050bf109b7e08a8a90": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 10 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=329M50000002023_20261101_508M60000008045 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/GolfCourseTaxGrantSevenTenths.lean sha256=e82ece96ca27229753fa8617ee11c8ea2dc544d490b44b9ddff5470fa01e44eb",
+      "independent_spec": "JapanTaxLaw/GolfCourseTaxGrantSevenTenthsSpec.lean sha256=921c2e722d87c6daed1b69e7cf7f5a20212b433ecb73a7dea8318324cdfdda10 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/46046852908: commit 2db1813f47edb91b18ab1262039cb5b4cbc19001, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [7, 10] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"], \"7\": [\"七\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/329M50000002023_20261101_508M60000008045.law.json#LawBody[2]/MainProvision/MainProvision[151]/Article:8_13/Article#8_13/Paragraph#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=5ffb833bd3a3d7c477efecd41ace0d53ea8e8a14e61567f6ee18d08000bb217e (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/GolfCourseTaxGrantSevenTenthsTests.lean sha256=3d1befec901641fa776e359d1d96a3b287327f3940bee3b16150b4cbf3c9700a (10 kernel-decided examples)"
     },
     "NORM|7169cc43edb94e49ff2481decc76748a64009a2829f7f0c9167ef8952fa14f61": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
