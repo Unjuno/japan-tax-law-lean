@@ -2227,6 +2227,9 @@ import JapanTaxLaw.ReserveAccumulationOver50UpTo75Spec
 import JapanTaxLaw.ReserveAccumulationOver50UpTo75Tests
 import JapanTaxLaw.Residency
 import JapanTaxLaw.ResidencySpec
+import JapanTaxLaw.ResidentCopyTwoMonthElapsed
+import JapanTaxLaw.ResidentCopyTwoMonthElapsedSpec
+import JapanTaxLaw.ResidentCopyTwoMonthElapsedTests
 import JapanTaxLaw.ResidentTaxTransitionalRates
 import JapanTaxLaw.ResidentTaxTransitionalRatesSpec
 import JapanTaxLaw.ResidentTaxTransitionalRatesTests
