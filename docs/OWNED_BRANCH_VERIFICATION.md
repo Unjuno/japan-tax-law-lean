@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=60623, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=64275, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=60623 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=64275 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -272,7 +272,12 @@ $ python scripts/ci/compact_evidence_hashes.py --write
 units=60623 migrated=60623 missing_axis=0; bytes before=104185957 after=90467992
 (64-hex hashes shortened to 16-hex prefixes; bulk namespace text compacted;
  all artifact paths, statuses and 11 axes preserved)
-$ python -m unittest discover -s scripts/tests -t . → 257 tests, OK
+$ python scripts/ci/batch_exception_bulk_pipeline.py --limit 1000 / 642
+bulk exception batch: verified=642 failed=0 (then class exhausted)
+$ python scripts/ci/batch_delegation_bulk_pipeline.py --limit 10 / 1000 x3
+bulk delegation batch: verified=10/1000/1000/1000, failed=0 in every run
+
+$ python -m unittest discover -s scripts/tests -t . → 260 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -738,7 +743,11 @@ The conditional class is exhausted (2608 more units); a bulk exclusion-gate
 pipeline, `scripts/ci/batch_exception_bulk_pipeline.py`, added 3000 EXCEPTION
 units with unresolved base/exclusion inputs and exhaustive Bool proofs.
 
-So 60623 units are evidence-backed FULLY_VERIFIED and 336,229 remain NOT_STARTED
+The exclusion-gate class was exhausted (642 more units); a bulk delegation
+interface pipeline, `scripts/ci/batch_delegation_bulk_pipeline.py`, added 3010
+units with delegated content explicitly NOT resolved. Three tests added.
+
+So 64275 units are evidence-backed FULLY_VERIFIED and 332,577 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
