@@ -5404,6 +5404,16 @@ def checks():
            "325AC0000000226", "file", None,
            ["四千万円を超える金額"])
 
+    # 地方税法施行令 art. 16の2の8 — FacilityCostAtLeast100M.lean (1億円以上)
+    yield ("地方税法施行令 art. 16_2_8（施設取得価額1億円以上）↔ FacilityCostAtLeast100M.lean",
+           "325CO0000000245", "file", None,
+           ["当該施設に係る建物及びその附属設備の取得価額の合計額が一億円以上であること。"])
+    # 租税特別措置法 art. 5 — SpecialMeasuresBracket95To130.lean (95万以上130万未満)
+    yield ("租税特別措置法 art. 5（95万円以上130万円未満）↔ SpecialMeasuresBracket95To130.lean",
+           "332AC0000000026", "file", None,
+           ["九十五万円以上百三十万円未満の金額"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
