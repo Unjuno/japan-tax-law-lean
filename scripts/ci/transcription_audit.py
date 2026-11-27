@@ -95,6 +95,12 @@ def checks():
     yield ("口蹄疫特例法施行令 art.2(6)（特別区への準用）↔ SpecialWardReading.lean",
            "422CO0000000221", "article", "第二条", ["前各項の規定は、特別区について準用する。"])
 
+    # DoubtfulReceivableDeduction (restored registered check)
+    yield ("DoubtfulReceivableDeduction ↔ DoubtfulReceivableDeduction.lean", "326M50000040055", "article", "第二十二条の三", ["取立不能のおそれのある債権については、事業年度の末日においてその時に取り立てることができないと見込まれる額を控除しなければならない。"])
+    # FifthWheelGrossWeight (restored registered check)
+    yield ("FifthWheelGrossWeight ↔ FifthWheelGrossWeight.lean", "346CO0000000275", "article", "第五条", ["その自動車検査証に記録される車両総重量から第五輪荷重を控除し牽けん引重量を加えた重量"])
+    # ShipProvisionalRateReduction (restored registered check)
+    yield ("ShipProvisionalRateReduction ↔ ShipProvisionalRateReduction.lean", "342AC0000000035", "article", "第十七条", ["同号（二）の税率欄に掲げる割合から千分の四を控除した割合とする"])
     # CustomsTerritoryCountryInclusion.lean - NORM|e0b9627e... (関税制度地域の国包含 CONDITION, law 414CO0000000116)
     yield ("経済連携協定緊急措置政令 art.2(1)(1)（関税制度地域の国包含）↔ CustomsTerritoryCountryInclusion.lean",
            "414CO0000000116", "article", "第二条", ["当該調査の対象となる国（固有の関税及び貿易に関する制度を有する地域を含む。以下同じ。）"])
