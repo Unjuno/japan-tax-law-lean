@@ -38,7 +38,7 @@ def main() -> int:
         "adversarial_review": ("docs/ADVERSARIAL_DEFERRAL_EXCEPTION.md H/T/D/C/U; AND-vs-OR and "
                                "money-vs-years dimension checks recorded"),
     }
-    OUT.write_text(json.dumps(ev, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    OUT.write_text(json.dumps(ev, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n", encoding="utf-8")
     print("recorded evidence for", UID)
     return 0
 if __name__ == "__main__":

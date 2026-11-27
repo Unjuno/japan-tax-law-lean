@@ -66,7 +66,7 @@ def main() -> int:
     ledger["laws_acquired_total"] = sum(
         1 for r in ledger.get("laws", {}).values()
         if r.get("acquisition_status") == "ACQUIRED")
-    LEDGER.write_text(json.dumps(ledger, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+    LEDGER.write_text(json.dumps(ledger, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n",
                       encoding="utf-8")
     print(f"restored={restored} already_verified={verified} unresolved={missing} "
           f"acquired_total={ledger['laws_acquired_total']}")

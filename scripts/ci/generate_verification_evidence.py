@@ -356,7 +356,7 @@ def main() -> int:
     for uid, ev in payload["units"].items():
         ledger["units"][uid] = ev
     added = len(set(ledger["units"]) - previous)
-    merged = json.dumps(ledger, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+    merged = json.dumps(ledger, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n"
     if OUT.read_text(encoding="utf-8") != merged:
         OUT.write_text(merged, encoding="utf-8")
         print("merged", added, "unit(s) into", OUT)

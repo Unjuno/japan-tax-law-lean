@@ -30,7 +30,7 @@ def main() -> int:
                 replacement = replacement.replace(STALE, "the recorded unit review")
                 rec[axis] = replacement
                 repaired += 1
-    OUT.write_text(json.dumps(ev, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    OUT.write_text(json.dumps(ev, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n", encoding="utf-8")
     print(f"repaired {repaired} stale citation(s)")
     return 0
 

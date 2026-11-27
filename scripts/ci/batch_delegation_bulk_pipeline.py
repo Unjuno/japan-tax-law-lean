@@ -164,7 +164,7 @@ def main() -> int:
             "adversarial_review": f"docs/BATCH_DELEGATION_BULK_REVIEW.md batch {batch}",
         }
         ok += 1
-    EVIDENCE.write_text(json.dumps(ev, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    EVIDENCE.write_text(json.dumps(ev, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n", encoding="utf-8")
     review = REPO / "docs/BATCH_DELEGATION_BULK_REVIEW.md"
     with review.open("a", encoding="utf-8") as f:
         f.write(f"- batch {batch}: {ok} delegation rules; interface scope only; "

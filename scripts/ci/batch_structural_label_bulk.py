@@ -181,7 +181,7 @@ def main() -> int:
             "adversarial_review": f"docs/BATCH_STRUCT_LABEL_BULK_REVIEW.md batch {batch_id}",
         }
         ok += 1
-    EVIDENCE.write_text(json.dumps(ev, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    EVIDENCE.write_text(json.dumps(ev, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n", encoding="utf-8")
     review = REPO / "docs/BATCH_STRUCT_LABEL_BULK_REVIEW.md"
     with review.open("a", encoding="utf-8") as f:
         f.write(f"- batch {batch_id}: {ok} structural labels; shared module with per-unit namespaces; "

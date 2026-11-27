@@ -142,7 +142,7 @@ def main() -> int:
         1 for r in laws.values() if r.get("acquisition_status") == "ACQUIRED")
     ledger["laws_recorded"] = len(laws)
 
-    OUT.write_text(json.dumps(ledger, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+    OUT.write_text(json.dumps(ledger, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n",
                    encoding="utf-8")
 
     statuses: dict[str, int] = {}

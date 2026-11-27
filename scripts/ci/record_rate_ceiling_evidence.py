@@ -35,7 +35,7 @@ def main() -> int:
         "adversarial_review": ("docs/ADVERSARIAL_RATE_CEILING_2.md H/T/D/C/U; strict ceiling "
                                "and equal-fraction comparison recorded"),
     }
-    OUT.write_text(json.dumps(ev, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    OUT.write_text(json.dumps(ev, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n", encoding="utf-8")
     print("recorded evidence for", UID)
     return 0
 if __name__ == "__main__":

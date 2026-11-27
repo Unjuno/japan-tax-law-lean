@@ -285,10 +285,17 @@ $ python scripts/ci/compact_evidence_hashes.py --write   (second application)
 units=67664 migrated=7087 missing_axis=0; bytes before=102036922 after=100651180
 $ python -m unittest discover -s scripts/tests -t . → 263 tests, OK
 
-Storage limit note: the pushed ledger is ~96 MB, close to GitHub's 100 MB hard
-file limit. Two compaction migrations have been applied. Further bulk evidence
-growth requires sharding the ledger (or Git LFS) before adding more units; this
-is an environment constraint, not a completion claim.
+Storage limit note: the pushed ledger was ~96 MiB, close to GitHub's 100 MB hard
+file limit. Two compaction migrations have been applied. Git LFS was tried next
+(`.gitattributes` + `lfs: true` on both CI checkouts): the local pointer
+conversion worked (134-byte pointer, correct OID), but the push was rejected with
+`This repository exceeded its LFS budget.` LFS is therefore unavailable without
+an account-level change by the repository owner; the unpushable commit was reverted
+and the LFS filters uninstalled. As a local mitigation, all 55 ledger writers were
+migrated from `indent=2` to compact JSON separators. The JSON data is byte-for-byte
+identical after parsing: 100660012 → 93961260 bytes (89.6 MiB on disk), leaving
+headroom for a few more batches without changing any gate's input. This is a
+storage mitigation, not a completion claim.
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:

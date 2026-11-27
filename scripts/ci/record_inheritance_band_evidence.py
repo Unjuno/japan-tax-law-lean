@@ -35,7 +35,7 @@ def main() -> int:
                   f"sha256={sha(REPO/f'JapanTaxLaw/{BASE}Tests.lean')}; kernel-decided boundaries"),
         "adversarial_review": "docs/ADVERSARIAL_INHERITANCE_BAND.md H/T/D/C/U; strict/inclusive edges recorded",
     }
-    OUT.write_text(json.dumps(ev, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    OUT.write_text(json.dumps(ev, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n", encoding="utf-8")
     print("recorded evidence for", UID)
     return 0
 if __name__ == "__main__":

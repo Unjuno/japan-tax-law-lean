@@ -259,7 +259,7 @@ def main() -> int:
             "adversarial_review": f"docs/BATCH_ROUNDUP_REVIEW.md generated entry for {uid[:16]}",
         }
         done.append(uid)
-    EVIDENCE.write_text(json.dumps(ev, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    EVIDENCE.write_text(json.dumps(ev, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n", encoding="utf-8")
     for f in failed:
         skips[f["id"]] = {"reason": f["reason"], "note": f.get("out", "")[-400:]}
     SKIPS.write_text(json.dumps(skips, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")

@@ -45,7 +45,7 @@ def main() -> int:
     changed = sum(1 for uid, rec in units.items() if migrated[uid] != rec)
     bad = [uid for uid, rec in migrated.items()
            if any(not str(rec.get(axis, "")).strip() for axis in AXES)]
-    new_raw = json.dumps(data | {"units": migrated}, ensure_ascii=False, indent=2, sort_keys=True) + "\n"
+    new_raw = json.dumps(data | {"units": migrated}, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n"
     print(f"units={len(units)} migrated={changed} missing_axis={len(bad)}")
     print(f"bytes before={len(raw.encode('utf-8'))} after={len(new_raw.encode('utf-8'))}")
     if bad:

@@ -50,7 +50,7 @@ def main() -> int:
         "adversarial_review": ("docs/ADVERSARIAL_DISASTER_UPPER.md H/T/D/C/U; strict-vs-inclusive "
                                "competing reading recorded; scope limits explicit"),
     }
-    OUT.write_text(json.dumps(ev, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+    OUT.write_text(json.dumps(ev, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n",
                    encoding="utf-8")
     print("recorded evidence for", UID)
     return 0

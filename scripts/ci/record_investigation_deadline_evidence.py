@@ -35,7 +35,7 @@ def main() -> int:
         "adversarial_review": ("docs/ADVERSARIAL_INVESTIGATION_DEADLINE.md H/T/D/C/U; 365-day "
                                "conversion explicitly rejected as unproven"),
     }
-    OUT.write_text(json.dumps(ev, ensure_ascii=False, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    OUT.write_text(json.dumps(ev, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n", encoding="utf-8")
     print("recorded evidence for", UID)
     return 0
 if __name__ == "__main__":
