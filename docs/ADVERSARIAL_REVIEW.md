@@ -16465,3 +16465,11 @@ CI と同一の `text()`（JSON ノードの `children` のみ再帰連結）＋
 - **二段 read-then-write**: 書き込み直前に再読込し、広義レビュー件数 `144`、Batch EL / EK の存在、Batch EM の不在、SHA-256 `bd283b82888cec34bf2bce6d907dbdaef8a357c51cdb19f3e863d5bb56cb6f34`（1,994,307 bytes）を確認してから本セクションのみを末尾追記。追記後の再読込で広義件数 **145（Previous +1）**、追記前バイト列が変更されていないこと（プレフィクス一致）、および既存セクション（Batch EL / EK / EJ / EI / EH / EG / EF / EE / ED / EC / EB / EA / DZ / DY / DX / DW / DV / DU / DT / Batch G review を含む）の保持を検証した。
 - commit / push / merge / ブランチ切替は一切行わず、Lean モジュール・`data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。監査用一時ファイル（抽出・検証レポート 6 本・audit 出力 1 本・axioms probe 1 本・追記ドラフト 1 本）はすべて削除済み。
 - 追記内容（本セクション）の SHA-256 を最終報告で提示する。
+
+### PetroleumGasRefundAmount.lean — 石油ガス税法施行規則 art.12(3)(1)（販売代金領収不能の金額）— Batch EA12
+
+- **pin**: law `341CO0000000005`, article 第十二条(3)一; needle「販売代金の領収をすることができなくなつた課税石油ガスの重量（石油ガス税を免除されるものの重量を除く。次号において同じ。）につき」.
+- **独立再抽出**: 金額 = `重量 × 税率 − 他法による控除額`（円, Nat, 飽和減算）。独立仕様は `gross - min gross credit`、全称定理 `agreeRefund` が omega で照合（Classical.choice なし）。
+- **H/T/D**: 100×50−1000=4000、−5000=0、−6000=0、0。普遍定理 3 件。D=PASS。
+- **C/U**: 承認手続・免税重量の認定・税率選択・控除額の法的根拠は NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
+- **判定**: BY-DESIGN。CONFIRMED 0 / UNRESOLVED 1。
