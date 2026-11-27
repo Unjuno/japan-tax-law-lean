@@ -142,6 +142,9 @@ import JapanTaxLaw.CapitalFiveBillionThresholdTests
 import JapanTaxLaw.CapitalOneBillionExcess
 import JapanTaxLaw.CapitalOneBillionExcessSpec
 import JapanTaxLaw.CapitalOneBillionExcessTests
+import JapanTaxLaw.CapitalOver100M
+import JapanTaxLaw.CapitalOver100MSpec
+import JapanTaxLaw.CapitalOver100MTests
 import JapanTaxLaw.CapitalTieredAmount
 import JapanTaxLaw.CapitalTieredAmountSpec
 import JapanTaxLaw.CapitalTieredAmountTests
@@ -1772,6 +1775,9 @@ import JapanTaxLaw.NursingCarePremiumDeductionMidTests
 import JapanTaxLaw.ObligationArt15
 import JapanTaxLaw.ObligationArt15Spec
 import JapanTaxLaw.ObligationArt15Tests
+import JapanTaxLaw.OfficeFee3M38M
+import JapanTaxLaw.OfficeFee3M38MSpec
+import JapanTaxLaw.OfficeFee3M38MTests
 import JapanTaxLaw.OfficeFeeSpecialWardAmount
 import JapanTaxLaw.OfficeFeeSpecialWardAmountSpec
 import JapanTaxLaw.OfficeFeeSpecialWardAmountTests
