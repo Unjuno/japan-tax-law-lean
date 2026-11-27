@@ -91,6 +91,10 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # PortMunicipalityAllocationBase.lean - NORM|25fa4c2a... (二以上の開港所在市町村, law 332AC0000000077)
+    yield ("特別とん譲与税法 art.2(2)（二以上の開港所在市町村・税関収入額を算定基礎）↔ PortMunicipalityAllocationBase.lean",
+           "332AC0000000077", "article", "第二条", ["前項の場合において、一の開港に係る開港所在市町村が二以上あるときは、当該二以上の開港所在市町村の区域を管轄区域とする税関（当該開港所在市町村の区域を管轄区域とする税関の支署若しくは出張所又は支署の出張所があるときは、当該税関の支署若しくは出張所又は支署の出張所とする。以下同じ。）に係る特別とん税の収入額に相当する額を当該開港所在市町村に対して譲与するものとする。"])
+
     # SpecialWardReading.lean - NORM|dd5ec1ac... (特別区への準用 READING, law 422CO0000000221)
     yield ("口蹄疫特例法施行令 art.2(6)（特別区への準用）↔ SpecialWardReading.lean",
            "422CO0000000221", "article", "第二条", ["前各項の規定は、特別区について準用する。"])

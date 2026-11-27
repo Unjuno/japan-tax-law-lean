@@ -987,6 +987,9 @@ import JapanTaxLaw.GasolineTransferRoundingTests
 import JapanTaxLaw.GeneralTariffLowerRate
 import JapanTaxLaw.GeneralTariffLowerRateSpec
 import JapanTaxLaw.GeneralTariffLowerRateTests
+import JapanTaxLaw.GeneralTaxActArt66Excess3M
+import JapanTaxLaw.GeneralTaxActArt66Excess3MSpec
+import JapanTaxLaw.GeneralTaxActArt66Excess3MTests
 import JapanTaxLaw.GiftAddBack
 import JapanTaxLaw.GiftAddBackSpec
 import JapanTaxLaw.GiftAddBackTests
@@ -1964,6 +1967,9 @@ import JapanTaxLaw.PopulationDensityBracketTests
 import JapanTaxLaw.PopulationInterval15M75M
 import JapanTaxLaw.PopulationInterval15M75MSpec
 import JapanTaxLaw.PopulationInterval15M75MTests
+import JapanTaxLaw.PortMunicipalityAllocationBase
+import JapanTaxLaw.PortMunicipalityAllocationBaseSpec
+import JapanTaxLaw.PortMunicipalityAllocationBaseTests
 import JapanTaxLaw.PostOfficeExceptionDate
 import JapanTaxLaw.PostOfficeExceptionDateSpec
 import JapanTaxLaw.PostOfficeExceptionDateTests
