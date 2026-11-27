@@ -1,0 +1,1 @@
+- batch BulkDeemSh2b4302af1726: 300 long-form deeming norms; gate scope only; shard=data\evidence_shards\deeming-2b4302af1726.json; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.

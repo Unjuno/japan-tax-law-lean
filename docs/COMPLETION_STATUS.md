@@ -17,10 +17,10 @@ obligations being complete. SKIP is never counted as PASS.
 ## Axis B — all registered obligations complete
 
 - normative units: 396854
-- NOT_STARTED: 324544
+- NOT_STARTED: 324244
 - PARTIAL: 0
 - PROVED_SCOPE: 0
-- FULLY_VERIFIED: 72308
+- FULLY_VERIFIED: 72608
 - BLOCKED: 2
 - units with an open blocker: 2
 - units with unhandled conditions: 180617
@@ -33,26 +33,26 @@ obligations being complete. SKIP is never counted as PASS.
 | all targets (generated normative units) | 396854 | 396854 |
 | acquired (pinned source file + SHA-256) | 396852 | 396854 |
 | decomposed (exact reconstruction + unique ids) | 396852 | 396854 |
-| partially formalized (spec / impl / tests evidence) | 72308 | 396854 |
-| kernel proved (CI-attested proof evidence) | 72308 | 396854 |
-| source-audited (原文 correspondence evidence) | 72308 | 396854 |
+| partially formalized (spec / impl / tests evidence) | 72608 | 396854 |
+| kernel proved (CI-attested proof evidence) | 72608 | 396854 |
+| source-audited (原文 correspondence evidence) | 72608 | 396854 |
 | human reviewed (legal-review axis recorded) | 0 | 396854 |
 
 ## Evidence axes recorded (separate denominators; units with a non-empty evidence reference)
 
 | axis | units |
 |---|---:|
-| adversarial_review | 72308 |
-| boundary_proof | 72308 |
-| cross_law_proof | 72308 |
-| decomposition_audit | 72308 |
-| implementation | 72308 |
-| independent_spec | 72308 |
-| kernel_proof | 72308 |
-| proof_scope | 72308 |
-| source_correspondence_audit | 72308 |
-| source_location | 72308 |
-| tests | 72308 |
+| adversarial_review | 72608 |
+| boundary_proof | 72608 |
+| cross_law_proof | 72608 |
+| decomposition_audit | 72608 |
+| implementation | 72608 |
+| independent_spec | 72608 |
+| kernel_proof | 72608 |
+| proof_scope | 72608 |
+| source_correspondence_audit | 72608 |
+| source_location | 72608 |
+| tests | 72608 |
 
 ## Verdict
 

@@ -360,6 +360,21 @@ $ python scripts/ci/run_python_gates.py → 33 PASS / 0 FAIL / 0 SKIP
   (L7/coverage regeneration gates reported one-time drift, then stabilized)
 $ python scripts/ci/completion_gate.py → all-complete=False
 
+Second shard-writing pipeline: `batch_deeming_sharded_pipeline.py` (long-form
+「みなす」 norms; trigger + deemed treatment gate, both NOT resolved). The first
+run FAILED the kernel build honestly (`t && false` is not definitionally false
+with a variable t); no evidence was written (verified=0 failed=300) and the
+partial Lean modules were removed. The proof was changed to `cases t <;> rfl`,
+then the batch wrote 300 units to a second shard with verified=300 failed=0.
+4 deeming-guard tests added; 286 tests OK; lake build OK; 33 gates PASS / 0 FAIL / 0 SKIP.
+$ python scripts/ci/task_queue.py
+normative-unit queue: 396854 units; NOT_STARTED=324244, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=72608, BLOCKED=2
+$ python scripts/ci/verify_queue_invariants.py → 12/12 PASS; FULLY_VERIFIED=72608 axes=11 unbacked=0
+$ python scripts/ci/check_evidence_artifacts.py → units=72608 missing=0
+$ python scripts/ci/completion_gate.py → all-complete=False
+(main ledger remains 95.7 MB; shard files carry all new evidence)
+
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
 `scripts/ci/resolve_gift_needle_ambiguity.py` re-extracted both pinned articles
