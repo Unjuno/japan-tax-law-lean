@@ -59,6 +59,8 @@ GATES = [
     ("Coordinator loop tests (Sponsor Directive §3)", ["python", "-m", "unittest", "scripts.tests.test_coordinator", "-v"], ["scripts/tests/test_coordinator.py", "scripts/ci/coordinator.py"]),
     ("Coordinator state regeneration gate (Sponsor Directive §3)", ["python", "scripts/ci/coordinator.py", "--check"], ["scripts/ci/coordinator.py", "data/COORDINATOR_STATE.json", "docs/COORDINATOR_STATE.md"]),
     ("normative queue invariants (unique ids, status vocabulary)", ["python", "scripts/ci/verify_queue_invariants.py"], ["scripts/ci/verify_queue_invariants.py"]),
+    ("merged verified artifacts retained (no stale-base deletion)", ["python", "scripts/ci/verify_merged_artifacts.py"], ["scripts/ci/verify_merged_artifacts.py", "data/MERGED_ARTIFACT_MANIFEST.json"]),
+    ("merged artifact guard tests", ["python", "-m", "unittest", "scripts.tests.test_merged_artifact_guard", "-v"], ["scripts/tests/test_merged_artifact_guard.py"]),
     ("Article verification obligations gate (Objective §4)", ["python", "scripts/ci/article_obligations.py"], ["scripts/ci/article_obligations.py", "docs/ARTICLE_OBLIGATIONS.md"]),
     ("Cross-article rate consistency gate (Objective §5)", ["python", "scripts/law_audit/phase_e/rate_consistency.py"], ["scripts/law_audit/phase_e/rate_consistency.py", "docs/RATE_CONSISTENCY.md"]),
 
@@ -97,6 +99,8 @@ REQUIRED_GATES = {
     "independent completion-mechanism audit",
     "evidence reference resolution audit",
     "normative queue invariants (unique ids, status vocabulary)",
+    "merged verified artifacts retained (no stale-base deletion)",
+    "merged artifact guard tests",
     "spec-scope mapping regression tests",
     "Explicit spec-scope mapping (Directive §1.5)",
     "Verification evidence regeneration (Directive §1 evidences FULLY_VERIFIED)",
