@@ -103,9 +103,6 @@ import JapanTaxLaw.BasicDeductionIncome23M50Tests
 import JapanTaxLaw.Below200kYen
 import JapanTaxLaw.Below200kYenSpec
 import JapanTaxLaw.Below200kYenTests
-import JapanTaxLaw.BenefitTariffLowerRate
-import JapanTaxLaw.BenefitTariffLowerRateSpec
-import JapanTaxLaw.BenefitTariffLowerRateTests
 import JapanTaxLaw.BlueBusinessDeductAmount
 import JapanTaxLaw.BlueBusinessDeductAmountSpec
 import JapanTaxLaw.BlueBusinessDeductAmountTests
@@ -1925,6 +1922,9 @@ import JapanTaxLaw.PetroleumCoalFineRangeTests
 import JapanTaxLaw.PetroleumGasFineRange
 import JapanTaxLaw.PetroleumGasFineRangeSpec
 import JapanTaxLaw.PetroleumGasFineRangeTests
+import JapanTaxLaw.PetroleumGasRefundAmount
+import JapanTaxLaw.PetroleumGasRefundAmountSpec
+import JapanTaxLaw.PetroleumGasRefundAmountTests
 import JapanTaxLaw.PetroleumGasSenRate
 import JapanTaxLaw.PetroleumGasSenRateSpec
 import JapanTaxLaw.PetroleumGasSenRateTests
