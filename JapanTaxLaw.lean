@@ -1502,6 +1502,9 @@ import JapanTaxLaw.LocalInterestTaxRate5Tests
 import JapanTaxLaw.LocalObligor
 import JapanTaxLaw.LocalObligorSpec
 import JapanTaxLaw.LocalObligorTests
+import JapanTaxLaw.LocalOrdinanceTwoThirdsMajority
+import JapanTaxLaw.LocalOrdinanceTwoThirdsMajoritySpec
+import JapanTaxLaw.LocalOrdinanceTwoThirdsMajorityTests
 import JapanTaxLaw.LocalPrivilege
 import JapanTaxLaw.LocalPrivilegeSpec
 import JapanTaxLaw.LocalPrivilegeTests
@@ -2762,6 +2765,3 @@ import JapanTaxLaw.WidowDependentIncomeCeiling5MTests
 import JapanTaxLaw.WirePitch165nm
 import JapanTaxLaw.WirePitch165nmSpec
 import JapanTaxLaw.WirePitch165nmTests
-import JapanTaxLaw.LocalOrdinanceTwoThirdsMajority
-import JapanTaxLaw.LocalOrdinanceTwoThirdsMajoritySpec
-import JapanTaxLaw.LocalOrdinanceTwoThirdsMajorityTests
