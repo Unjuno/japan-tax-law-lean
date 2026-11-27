@@ -268,7 +268,11 @@ bulk conditional batch: verified=1000/1000/608, failed=0 in every run (class exh
 $ python scripts/ci/batch_exception_bulk_pipeline.py --limit 1000 x3
 bulk exception batch: verified=1000 failed=0 (x3)
 
-$ python -m unittest discover -s scripts/tests -t . → 254 tests, OK
+$ python scripts/ci/compact_evidence_hashes.py --write
+units=60623 migrated=60623 missing_axis=0; bytes before=104185957 after=90467992
+(64-hex hashes shortened to 16-hex prefixes; bulk namespace text compacted;
+ all artifact paths, statuses and 11 axes preserved)
+$ python -m unittest discover -s scripts/tests -t . → 257 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
