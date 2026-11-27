@@ -1085,6 +1085,30 @@ progress_ledger: COUNTED; NOT_STARTED delta -10; new modules 15
 All five target ids carry `kernel_proof` citing the correct run. Legal review
 stays pending.
 
+### Forty-fourth iteration (batch 315)
+
+A thirty-fourth delegated agent produced five units (`LocalTax34NewLifeInsurancePremiumUpTo12K`,
+`34NursingCarePremiumUpTo12K`, `34OldLifeInsurancePremiumUpTo15K`,
+`34OldPersonalAnnuityPremiumUpTo15K`, `73_27_6RealEstateTaxDeferralWithin5Years`)
+with independent specs, kernel tests, scoped needles and batch-315 review;
+build 2478 jobs, transcription 780, invariants 17/17. All ids passed mandatory
+generator-gate pre-validation with verbatim scoped article+paragraph needles;
+a non-verbatim competing candidate was replaced. CI run `46070206322` on
+`07ba31616d71690050df561cfecae6426bf382d6` completed `success`;
+`data/PROOF_ATTESTATION_SCOPED_T44.json` binds 15 module hashes from committed
+blobs at that commit to that green run. Two life-insurance units were attributed
+in evidence to sibling modules with the same statutory literal; all five target
+ids carry `kernel_proof` citing the correct run.
+
+```
+before: FULLY_VERIFIED=1559 NOT_STARTED=395290 evidence=1562
+after:  FULLY_VERIFIED=1570 NOT_STARTED=395279 evidence=1573
+delta:  FULLY_VERIFIED=+11 NOT_STARTED=-11  evidence=+11
+progress_ledger: COUNTED; NOT_STARTED delta -11; new modules 15
+```
+
+Legal review stays pending.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |
