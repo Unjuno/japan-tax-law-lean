@@ -6,7 +6,7 @@ A whole-text numeric match is NOT article-level verification. This is a
 source-fidelity diagnostic (D=PASS means needle in stated article only),
 never a completion gate or a semantic/legal claim.
 
-- checks with article/table-cell scoped needles: 783
+- checks with article/table-cell scoped needles: 819
 - checks with no scoped unit: 0
 
 | law_id | stated article | needle hits | scoped positions | D |
@@ -326,6 +326,10 @@ never a completion gate or a semantic/legal claim.
 | `424CO0000000016` | (file-level) | 2 | 3 | PASS |
 | `422CO0000000222` | (file-level) | 2 | 3 | PASS |
 | `426M60000040022` | (file-level) | 3 | 4 | PASS |
+| `431CO0000000089` | (file-level) | 2 | 3 | PASS |
+| `428M60000048005` | (file-level) | 2 | 3 | PASS |
+| `420CO0000000196` | (file-level) | 2 | 3 | PASS |
+| `423M60000008168` | (file-level) | 2 | 3 | PASS |
 | `340AC0000000033` | (file-level) | 4 | 16 | PASS |
 | `332CO0000000043` | (file-level) | 4 | 10 | PASS |
 | `337M50000008017` | (file-level) | 2 | 8 | PASS |
@@ -794,3 +798,35 @@ never a completion gate or a semantic/legal claim.
 | `329CO0000000051` | (file-level) | 3 | 3 | PASS |
 | `143AC0000000054` | (file-level) | 2 | 2 | PASS |
 | `417CO0000000289` | 第五条 | 2 | 2 | PASS |
+| `332CO0000000043` | (file-level) | 6 | 6 | PASS |
+| `337CO0000000227` | (file-level) | 3 | 3 | PASS |
+| `332CO0000000043` | (file-level) | 3 | 3 | PASS |
+| `332CO0000000043` | (file-level) | 3 | 3 | PASS |
+| `325CO0000000245` | (file-level) | 4 | 4 | PASS |
+| `332AC0000000026` | (file-level) | 6 | 6 | PASS |
+| `332CO0000000043` | (file-level) | 3 | 3 | PASS |
+| `332AC0000000026` | (file-level) | 3 | 3 | PASS |
+| `332M50000040015` | (file-level) | 2 | 2 | PASS |
+| `332M50000040015` | (file-level) | 2 | 2 | PASS |
+| `332AC0000000026` | (file-level) | 3 | 3 | PASS |
+| `337CO0000000227` | (file-level) | 2 | 2 | PASS |
+| `340M50000040011` | (file-level) | 2 | 2 | PASS |
+| `332CO0000000043` | (file-level) | 9 | 9 | PASS |
+| `340CO0000000097` | (file-level) | 3 | 3 | PASS |
+| `332CO0000000043` | (file-level) | 3 | 3 | PASS |
+| `340CO0000000097` | (file-level) | 3 | 3 | PASS |
+| `325CO0000000245` | (file-level) | 3 | 3 | PASS |
+| `332CO0000000043` | (file-level) | 3 | 3 | PASS |
+| `332AC0000000026` | (file-level) | 3 | 3 | PASS |
+| `325CO0000000245` | (file-level) | 3 | 3 | PASS |
+| `326AC1000000237` | (file-level) | 3 | 3 | PASS |
+| `325AC0000000073` | (file-level) | 2 | 2 | PASS |
+| `328AC0000000006` | (file-level) | 3 | 3 | PASS |
+| `325AC0000000226` | (file-level) | 3 | 3 | PASS |
+| `329CO0000000164` | (file-level) | 6 | 6 | PASS |
+| `325AC0000000226` | (file-level) | 8 | 16 | PASS |
+| `332CO0000000043` | (file-level) | 2 | 2 | PASS |
+| `325AC0000000226` | (file-level) | 2 | 2 | PASS |
+| `325AC0000000073` | (file-level) | 2 | 2 | PASS |
+| `325AC0000000226` | (file-level) | 11 | 11 | PASS |
+| `325AC0000000226` | (file-level) | 11 | 11 | PASS |
