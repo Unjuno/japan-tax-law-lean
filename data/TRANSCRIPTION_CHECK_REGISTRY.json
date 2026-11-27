@@ -570,7 +570,12 @@
     "LocalTax700_61HuntingFineCeiling1M",
     "LocalTax604EvadedAbove1M",
     "LocalTax92DemandWithin20Days",
-    "LocalTax328_8SeparationFineCeiling100k"
+    "LocalTax328_8SeparationFineCeiling100k",
+    "LocalTax27PenaltyFineCeiling500k",
+    "LocalTax73_30EvadedAbove500k",
+    "LocalTax86UnpaidAbove1M",
+    "LocalTax522_2MiningFilingFineCeiling100k",
+    "LocalTax700_64HuntingDemandWithin20Days"
   ],
   "note": "Modules that MUST retain a transcription audit check. A reconciliation that rewrites transcription_audit.py from a stale base and drops any of these fails the REQUIRED queue-invariant gate. Update this registry only when deliberately removing a module.",
   "schema": 1

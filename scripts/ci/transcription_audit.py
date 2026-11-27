@@ -4941,6 +4941,36 @@ def checks():
            "article", "第三百二十八条の八",
            ["市町村は、分離課税に係る所得割の納税義務者が退職所得申告書を正当な理由がなくて提出しなかつた場合には、その者に対し、当該市町村の条例で十万円以下の過料を科する旨の規定を設けることができる。"])
 
+    # Batch 295 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 27(1) 五十万円以下 ↔ LocalTax27PenaltyFineCeiling500k.lean",
+           "325AC0000000226",
+           "article", "第二十七条",
+           ["次の各号のいずれかに該当する場合には、その違反行為をした者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
+    # Batch 295 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 73_30(4) 五十万円を超える ↔ LocalTax73_30EvadedAbove500k.lean",
+           "325AC0000000226",
+           "article", "第七十三条の三十",
+           ["前項の免れた税額が五十万円を超える場合には、情状により、同項の罰金の額は、同項の規定にかかわらず、五十万円を超える額でその免れた税額に相当する額以下の額とすることができる。"])
+
+    # Batch 295 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 86(2) 百万円を超える ↔ LocalTax86UnpaidAbove1M.lean",
+           "325AC0000000226",
+           "article", "第八十六条",
+           ["前項の納入しなかつた金額が百万円を超える場合には、情状により、同項の罰金の額は、同項の規定にかかわらず、百万円を超える額でその納入しなかつた金額に相当する額以下の額とすることができる。"])
+
+    # Batch 295 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 522_2(1) 十万円以下 ↔ LocalTax522_2MiningFilingFineCeiling100k.lean",
+           "325AC0000000226",
+           "article", "第五百二十二条の二",
+           ["市町村は、鉱産税の納税者が正当な事由がなくて前条の規定による申告書を同条に規定する申告書の提出期限までに提出しなかつた場合においては、その者に対し、当該市町村の条例で十万円以下の過料を科する旨の規定を設けることができる。"])
+
+    # Batch 295 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 700_64(1) 二十日以内 ↔ LocalTax700_64HuntingDemandWithin20Days.lean",
+           "325AC0000000226",
+           "article", "第七百条の六十四",
+           ["納税者が納期限までに狩猟税に係る地方団体の徴収金を完納しない場合においては、道府県の徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
