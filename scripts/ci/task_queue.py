@@ -25,6 +25,7 @@ if str(HERE) not in sys.path:
     sys.path.insert(0, str(HERE))
 
 import normative_core as core  # noqa: E402
+import evidence_store  # noqa: E402
 
 # Tolerate the two status-tuple spellings used by concurrent core revisions.
 STATUSES = getattr(core, "STATUSES", None) or getattr(core, "STATUS_VALUES")
@@ -149,9 +150,8 @@ def build_tasks(inv: dict) -> list[dict]:
 def main() -> int:
     inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
     state = core.load_state(STATE_PATH)
-    evidence = {}
-    if EVIDENCE_PATH.exists():
-        evidence = json.loads(EVIDENCE_PATH.read_text(encoding="utf-8")).get("units", {})
+    # Frozen main ledger + evidence shards, presented as one authoritative map.
+    evidence = evidence_store.load_units(REPO)
     tasks = build_tasks(inv)
     state, notes = core.merge_state(state, tasks)
     for task in tasks:

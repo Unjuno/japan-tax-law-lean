@@ -1,0 +1,1 @@
+- batch BulkEffectSh0cb753d1c9b7: 86 long-form effect norms; gate scope only; shard=data\evidence_shards\effect-0cb753d1c9b7.json; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.

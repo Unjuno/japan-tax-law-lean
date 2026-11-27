@@ -23,6 +23,10 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 QUEUE = REPO / "build" / "task_queue.json"
+HERE = Path(__file__).resolve().parent
+if str(HERE) not in sys.path:
+    sys.path.insert(0, str(HERE))
+import evidence_store  # noqa: E402
 GATE_RESULTS = REPO / "build" / "gate_results.json"
 CANDIDATES = REPO / "docs" / "L7_CANDIDATES_UNREVIEWED.csv"
 OUT = REPO / "docs" / "COMPLETION_STATUS.md"
@@ -65,8 +69,7 @@ def build() -> str:
     q = _load(QUEUE) or {"tasks": []}
     tasks = q.get("tasks", [])
     counts = Counter(t.get("status", "NOT_STARTED") for t in tasks)
-    evidence_ledger = _load(REPO / "data" / "verification_evidence.json") or {}
-    evidence_by_id = evidence_ledger.get("units", {})
+    evidence_by_id = evidence_store.load_units(REPO)
     axes = Counter()
     layers = Counter()
     for t in tasks:

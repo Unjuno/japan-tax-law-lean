@@ -338,6 +338,28 @@ $ python scripts/ci/run_python_gates.py → 33 PASS / 0 FAIL / 0 SKIP
   (first run after new Lean modules: coverage ledger drift signal, second run clean)
 $ python scripts/ci/completion_gate.py → all-complete=False
 
+EVIDENCE SHARDING (removes the ~95.7 MB monolithic-ledger ceiling):
+- new `scripts/ci/evidence_store.py` exposes load_units/load_ledger (frozen main
+  ledger + every data/evidence_shards/*.json) and append_shard (collision-safe,
+  compact JSON, unique name). The main ledger is unchanged by shard writes.
+- readers routed through the shared loader: task_queue.py,
+  verify_queue_invariants.py, check_evidence_artifacts.py, completion_gate.py,
+  test_evidence_artifacts.py, test_verification_evidence.py.
+- 6 loader/shard tests + 4 effect-guard tests added.
+- new `batch_effect_sharded_pipeline.py` writes evidence to a shard instead of
+  the main ledger: 86 long-form EFFECT units (base + applicable rule gate;
+  both caller-established and NOT resolved); class exhausted on second run.
+$ python scripts/ci/task_queue.py
+normative-unit queue: 396854 units; NOT_STARTED=324544, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=72308, BLOCKED=2
+$ python scripts/ci/verify_queue_invariants.py → 12/12 PASS; FULLY_VERIFIED=72308 axes=11 unbacked=0
+$ python scripts/ci/check_evidence_artifacts.py → units=72308 missing=0
+$ python -m unittest discover -s scripts/tests -t . → 282 tests, OK
+$ lake build → Build completed successfully (524 jobs)
+$ python scripts/ci/run_python_gates.py → 33 PASS / 0 FAIL / 0 SKIP
+  (L7/coverage regeneration gates reported one-time drift, then stabilized)
+$ python scripts/ci/completion_gate.py → all-complete=False
+
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
 `scripts/ci/resolve_gift_needle_ambiguity.py` re-extracted both pinned articles

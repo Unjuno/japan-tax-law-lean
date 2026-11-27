@@ -16,6 +16,10 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 QUEUE = REPO / "build" / "task_queue.json"
+HERE = Path(__file__).resolve().parent
+if str(HERE) not in sys.path:
+    sys.path.insert(0, str(HERE))
+import evidence_store  # noqa: E402
 EXPECTED = {"NOT_STARTED", "PARTIAL", "PROVED_SCOPE", "FULLY_VERIFIED", "BLOCKED"}
 
 results = []
@@ -62,13 +66,10 @@ def main() -> int:
     # committed ledger. The old rule (FULLY_VERIFIED must be zero) punished
     # successful verification; accepting FV without evidence rewards a false
     # completion claim. Check backing, not absence.
-    evidence_path = REPO / "data" / "verification_evidence.json"
-    evidence = {}
-    if evidence_path.exists():
-        try:
-            evidence = json.loads(evidence_path.read_text(encoding="utf-8")).get("units", {})
-        except (ValueError, OSError):
-            evidence = {}
+    try:
+        evidence = evidence_store.load_units(REPO)
+    except (ValueError, OSError):
+        evidence = {}
     axes = set()
     for record in evidence.values():
         axes.update(record.keys())

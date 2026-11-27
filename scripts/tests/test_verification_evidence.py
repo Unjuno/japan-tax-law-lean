@@ -69,8 +69,8 @@ class AttestationTests(unittest.TestCase):
 
 class LedgerTests(unittest.TestCase):
     def test_all_evidence_references_are_nonempty_and_traceable(self):
-        import json
-        ledger = json.loads((CI.parents[1] / "data" / "verification_evidence.json").read_text(encoding="utf-8"))
+        from scripts.ci.evidence_store import load_ledger
+        ledger = load_ledger(CI.parents[1])
         self.assertTrue(ledger["units"])
         axes = set(next(iter(ledger["units"].values())).keys())
         for uid, ev in ledger["units"].items():

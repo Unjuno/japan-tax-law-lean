@@ -15,6 +15,10 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 EVIDENCE = REPO / "data/verification_evidence.json"
+HERE = Path(__file__).resolve().parent
+if str(HERE) not in sys.path:
+    sys.path.insert(0, str(HERE))
+import evidence_store  # noqa: E402
 PATH_RE = re.compile(r"(?:JapanTaxLaw|data/raw|docs)/[A-Za-z0-9_\-\./\\]+\.(?:lean|json|md)")
 
 
@@ -23,16 +27,16 @@ def cited_paths(text: str) -> list[str]:
 
 
 def main() -> int:
-    ev = json.loads(EVIDENCE.read_text(encoding="utf-8"))
+    units = evidence_store.load_units(REPO)
     missing: list[tuple[str, str]] = []
-    for uid, rec in ev.get("units", {}).items():
+    for uid, rec in units.items():
         for axis, value in rec.items():
             if not isinstance(value, str):
                 continue
             for p in cited_paths(value):
                 if not (REPO / p).exists():
                     missing.append((uid, p))
-    print(f"evidence artifact audit: units={len(ev.get('units', {}))} "
+    print(f"evidence artifact audit: units={len(units)} "
           f"missing={len(missing)}")
     for uid, p in missing[:50]:
         print("MISSING", uid[:24], p)

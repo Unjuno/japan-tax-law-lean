@@ -19,8 +19,9 @@ class TestEvidenceArtifacts(unittest.TestCase):
         import sys
         sys.path.insert(0, str(REPO))
         from scripts.ci.check_evidence_artifacts import cited_paths
+        from scripts.ci.evidence_store import load_ledger
         cls.cited_paths = staticmethod(cited_paths)
-        cls.evidence = json.loads((REPO / "data/verification_evidence.json").read_text(encoding="utf-8"))
+        cls.evidence = load_ledger(REPO)
 
     def test_parser_finds_paths(self):
         paths = self.cited_paths("JapanTaxLaw/Foo.lean and docs/Bar.md and data/raw/X.law.json")
