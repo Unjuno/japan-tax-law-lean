@@ -601,6 +601,31 @@ progress_ledger: COUNTED; NOT_STARTED delta -11; new modules 15
 All five target ids carry `kernel_proof` citing the correct run. Legal review
 stays pending.
 
+### Twenty-third iteration (batch 273)
+
+A thirteenth delegated agent produced five units (`InheritanceTax39CorrectionWithin20Days`,
+`LocalTax453FalseReportFine300k`, `144_35LightOilReportWithin30Days`,
+`21LightOilTaxOver30000`, `63CovidRevenueCeiling70Percent`) with independent
+specs, kernel tests, scoped needles and batch-273 review; build 2163 jobs,
+transcription 675, invariants 17/17. Every id passed mandatory generator-gate
+pre-validation and verbatim article+paragraph source scoping. Ledgers were
+refreshed in the module commit, so the first CI attempt did not fail on drift.
+
+Both CI runs on `6307d22c2e969fa1cd734169a7ae4c01c8cb845f` were queued for over
+an hour behind other workstreams; run `45908400197` eventually completed
+`success`. `data/PROOF_ATTESTATION_SCOPED_T23.json` binds 15 module hashes from
+committed blobs at that commit to that green run.
+
+```
+before: FULLY_VERIFIED=1214 NOT_STARTED=395635 evidence=1217
+after:  FULLY_VERIFIED=1228 NOT_STARTED=395621 evidence=1231
+delta:  FULLY_VERIFIED=+14 NOT_STARTED=-14  evidence=+14
+progress_ledger: COUNTED; NOT_STARTED delta -14; new modules 30
+```
+
+All five target ids carry `kernel_proof` citing the correct run. Legal review
+stays pending.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |
