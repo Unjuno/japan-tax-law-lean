@@ -665,6 +665,9 @@ import JapanTaxLaw.DependentAge13Tests
 import JapanTaxLaw.DependentAgeSupport
 import JapanTaxLaw.DependentAgeSupportSpec
 import JapanTaxLaw.DependentAgeSupportTests
+import JapanTaxLaw.DisabilityDeductionTiers
+import JapanTaxLaw.DisabilityDeductionTiersSpec
+import JapanTaxLaw.DisabilityDeductionTiersTests
 import JapanTaxLaw.DisasterExciseTaxCredit
 import JapanTaxLaw.DisasterExciseTaxCreditSpec
 import JapanTaxLaw.DisasterExciseTaxCreditTests
@@ -1886,6 +1889,9 @@ import JapanTaxLaw.PensionOtherIncome20MTests
 import JapanTaxLaw.PerCapitaEqualRate
 import JapanTaxLaw.PerCapitaEqualRateSpec
 import JapanTaxLaw.PerCapitaEqualRateTests
+import JapanTaxLaw.PerMilleSevenPointFive
+import JapanTaxLaw.PerMilleSevenPointFiveSpec
+import JapanTaxLaw.PerMilleSevenPointFiveTests
 import JapanTaxLaw.PeriodEndDayException
 import JapanTaxLaw.PeriodEndDayExceptionSpec
 import JapanTaxLaw.PeriodEndDayExceptionTests

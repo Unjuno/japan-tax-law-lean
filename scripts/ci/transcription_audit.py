@@ -5369,6 +5369,15 @@ def checks():
            "329CO0000000164", "file", None,
            ["二万千八百円（当該許可を受ける者が指定者である場合にあつては、二万千七百円）"])
 
+    # 地方税法 art. 37 — DisabilityDeductionTiers.lean (障害者1万円/特別障害者10万円)
+    yield ("地方税法 art. 37（障害者控除の二段階額）↔ DisabilityDeductionTiers.lean",
+           "325AC0000000226", "file", None,
+           ["当該障害者一人につき一万円", "当該特別障害者一人につき十万円"])
+    # 租税特別措置法施行令 art. 11 — PerMilleSevenPointFive.lean (千分の七・五)
+    yield ("租税特別措置法施行令 art. 11（千分の七・五読み替え）↔ PerMilleSevenPointFive.lean",
+           "332CO0000000043", "file", None,
+           ["同条第四項第三号中「百分の一」とあるのは、「千分の七・五」とする。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
