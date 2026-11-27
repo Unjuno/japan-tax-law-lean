@@ -14913,19 +14913,6 @@
       "source_location": "data/raw/326AC1000000237_20251001_505AC0000000053.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:8/Article#8/Paragraph#1/Item#10/Subitem1#1/Subitem1Sentence/Sentence#1 sha256=46d956e2c48954577ec3479c5e8c83a2a2ff913860a2ba6b2eea327f3107916f (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/TaxAccountantExamExemptionTests.lean sha256=68e544487efda0edb940449af5297cfc3a9c3c99a9e6b0b0b011bedc0b14aa49 (8 kernel-decided examples)"
     },
-    "NORM|f68289a0ad457178ebc418c4595a43652a810f12665d1b5668da1646aad050d6": {
-      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
-      "boundary_proof": "attested Tests module contains 13 kernel-decided examples covering boundary inputs",
-      "cross_law_proof": "unit dependencies=0; enforced revision=332AC0000000026_20261101_507AC0000000013 resolved from INVENTORY",
-      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
-      "implementation": "JapanTaxLaw/SpecialTaxOrderArt80CapitalFeeFloor75k.lean sha256=d4918670fc246feaad082558ee8b2f21b26bb5023630eea4641f3f6e7f4c10dc",
-      "independent_spec": "JapanTaxLaw/SpecialTaxOrderArt80CapitalFeeFloor75kSpec.lean sha256=c0a148ef64fd638ef4dd83fa41296c0b0bc0c02ce5588689ba105c8662425a21 (defines spec* without implementation constants)",
-      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45894474720: commit cbd54ebbeef62c4644292bde3ca4cf0a48c6754b, build/axiom job success, 3 module hashes re-verified",
-      "proof_scope": "basis=pinned needle in clause + all spec numerals in scoped article: ['資本金の額に千分の三・五を乗じて計算した金額']; constants [3, 5, 10, 1000, 75000] used by kernel-checked impl + independent spec",
-      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle in clause + all spec numerals in scoped article: ['資本金の額に千分の三・五を乗じて計算した金額']; verbatim spellings found in scoped 原文 = {\"10\": [], \"1000\": [\"千\"], \"3\": [\"三\"], \"5\": [\"五\"], \"75000\": []}; statutory rate = none; needles scoped",
-      "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:80/Article#80/Paragraph#3/Item#2/ItemSentence/Column#2/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee (verbatim unit text located in scoped article)",
-      "tests": "JapanTaxLaw/SpecialTaxOrderArt80CapitalFeeFloor75kTests.lean sha256=b680c3d960a625c61c339558b0acb8b4dca5637e2dec0799d5e0aa4fc3e2c0f7 (13 kernel-decided examples)"
-    },
     "NORM|f68c0ac89ee3aa87ee6c5a03e89a772ba8c4cbf17c50725f0894971b74e0e3fd": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 22 kernel-decided examples covering boundary inputs",
