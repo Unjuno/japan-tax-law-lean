@@ -16375,3 +16375,5 @@ CI と同一の `text()`（JSON ノードの `children` のみ再帰連結）＋
 独立再抽出: pinned raw JSON の該当条文を直接走査して原文を再抽出した。
 照合: 独立仕様の境界（包含/除外）とカーネル決定で照合。
 判定: BY-DESIGN / CONFIRMED 0。法的レビューは LEGAL_REVIEW_PENDING。
+
+

@@ -5413,6 +5413,7 @@ def checks():
            "332AC0000000026", "file", None,
            ["九十五万円以上百三十万円未満の金額"])
 
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
