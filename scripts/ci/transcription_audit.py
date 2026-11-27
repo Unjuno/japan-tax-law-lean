@@ -91,6 +91,10 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # GolfCourseTaxGrantSevenTenths.lean - NORM|7128dfb6... (golf-course tax 7/10 grant, law 329M50000002023)
+    yield ("地方税法施行規則 art.8の13（ゴルフ場利用税額のあん分・過誤納控除・十分の七）↔ GolfCourseTaxGrantSevenTenths.lean",
+           "329M50000002023", "article", "第八条の十三", ["前年度三月から七月までの間に収入した当該市町村に所在するゴルフ場に係るゴルフ場利用税の額（二以上の市町村にまたがつて所在するゴルフ場に係るゴルフ場利用税については当該ゴルフ場利用税の額を当該ゴルフ場の総面積に対する当該市町村に係る当該ゴルフ場の面積の割合によつてあん分した額とし、当該期間内に当該市町村に所在するゴルフ場に係るゴルフ場利用税についての過誤納に係る還付金を歳出予算から支出した場合においては、当該支出した額を控除した額とする。以下本表において「ゴルフ場のゴルフ場利用税の額」という。）の十分の七に相当する額"])
+
     # PortMunicipalityAllocationBase.lean - NORM|25fa4c2a... (二以上の開港所在市町村, law 332AC0000000077)
     yield ("特別とん譲与税法 art.2(2)（二以上の開港所在市町村・税関収入額を算定基礎）↔ PortMunicipalityAllocationBase.lean",
            "332AC0000000077", "article", "第二条", ["前項の場合において、一の開港に係る開港所在市町村が二以上あるときは、当該二以上の開港所在市町村の区域を管轄区域とする税関（当該開港所在市町村の区域を管轄区域とする税関の支署若しくは出張所又は支署の出張所があるときは、当該税関の支署若しくは出張所又は支署の出張所とする。以下同じ。）に係る特別とん税の収入額に相当する額を当該開港所在市町村に対して譲与するものとする。"])
