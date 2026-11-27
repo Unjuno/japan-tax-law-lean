@@ -257,7 +257,11 @@ $ python scripts/ci/batch_structural_label_bulk.py --limit 3000 x3 / 621
 bulk structural-label pipeline: verified=3000/3000/1542/621, failed=0 in every run
 (STRUCTURE class exhausted: 62 remaining labels do not match the grammar)
 
-$ python -m unittest discover -s scripts/tests -t . → 244 tests, OK
+$ python scripts/ci/compact_bulk_evidence.py --write
+units=52005 migrated=44673 missing_axis=0; bytes before=103430919 after=89537616
+(redundant truncated axiom-scan prefixes replaced with batch-module references;
+ all 11 axes and all artifact hashes preserved)
+$ python -m unittest discover -s scripts/tests -t . → 247 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
