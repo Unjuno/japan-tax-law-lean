@@ -4849,6 +4849,37 @@ def checks():
            "article", "第七十二条の六十六",
            ["納税者が納期限（法人の行う事業に対する事業税について更正又は決定があつた場合においては、不足税額の納期限をいう。以下法人の行う事業に対する事業税について同じ。）までに事業税に係る地方団体の徴収金を完納しない場合においては、道府県の徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
 
+
+    # Batch 289 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 314_2(2) 合計所得金額二千五百万円以下 ↔ LocalTax314_2IncomeCeiling25M.lean",
+           "325AC0000000226",
+           "article", "第三百十四条の二",
+           ["市町村は、前年の合計所得金額が二千五百万円以下である所得割の納税義務者については、その者の前年の所得について算定した総所得金額、退職所得金額又は山林所得金額から、次の各号に掲げる場合の区分に応じ、当該各号に定める金額を控除するものとする。"])
+
+    # Batch 289 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 718_2(2) 老齢等年金給付が二以上 ↔ LocalTax718_2TwoAnnuityBenefits.lean",
+           "325AC0000000226",
+           "article", "第七百十八条の二",
+           ["市町村は、同一の特別徴収対象被保険者について老齢等年金給付が二以上ある場合においては、政令で定めるところにより、一の老齢等年金給付（以下この節において「特別徴収対象年金給付」という。）について国民健康保険税を徴収させるものとする。"])
+
+    # Batch 289 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 328_16(3) 納入しなかつた金額が二百万円を超える ↔ LocalTax328_16EvadedAboveTwoMillion.lean",
+           "325AC0000000226",
+           "article", "第三百二十八条の十六",
+           ["第一項の納入しなかつた金額が二百万円を超える場合には、情状により、同項の罰金の額は、同項の規定にかかわらず、二百万円を超える額でその納入しなかつた金額に相当する額以下の額とすることができる。"])
+
+    # Batch 289 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 198(1) 納期限後二十日以内の督促状発付 ↔ LocalTax198DemandWithin20Days.lean",
+           "325AC0000000226",
+           "article", "第百九十八条",
+           ["納税者が納期限までに鉱区税に係る地方団体の徴収金を完納しない場合においては、道府県の徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
+
+    # Batch 289 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 72_2(2)1 資本金一億円以下の法人判定 ↔ LocalTax72_2CapitalCeiling100M.lean",
+           "325AC0000000226",
+           "article", "第七十二条の二",
+           ["資本金の額又は出資金の額が一億円以下の法人であるかどうか及び資本又は出資を有しない法人であるかどうかの判定並びに前項第一号ロ（１）又は（２）に掲げる法人に該当するものであるかどうかの判定に関し必要な事項の判定（次号に掲げる判定を除く。）"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

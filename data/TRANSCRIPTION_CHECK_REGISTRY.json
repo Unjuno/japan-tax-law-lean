@@ -555,7 +555,12 @@
     "LocalTax72_40DecisionWithinThreeMonths",
     "LocalTax73_30EvadedTaxAboveOneMillion",
     "LocalTax703_4EighteenPlusInsuredAmount",
-    "LocalTax72_66DemandNoticeWithin20Days"
+    "LocalTax72_66DemandNoticeWithin20Days",
+    "LocalTax314_2IncomeCeiling25M",
+    "LocalTax718_2TwoAnnuityBenefits",
+    "LocalTax328_16EvadedAboveTwoMillion",
+    "LocalTax198DemandWithin20Days",
+    "LocalTax72_2CapitalCeiling100M"
   ],
   "note": "Modules that MUST retain a transcription audit check. A reconciliation that rewrites transcription_audit.py from a stale base and drops any of these fails the REQUIRED queue-invariant gate. Update this registry only when deliberately removing a module.",
   "schema": 1
