@@ -648,6 +648,29 @@ progress_ledger: COUNTED; NOT_STARTED delta -13; new modules 0
 All five target ids carry `kernel_proof` citing the correct run. Legal review
 stays pending.
 
+### Twenty-fifth iteration (batch 277)
+
+A fifteenth delegated agent produced five units (`InheritanceTax42PaymentDecisionWithin3Months`,
+`46ApprovalWithin3Months`, `LocalTax8DecisionWithin60Days`,
+`37_2ReturnCostCeiling30Percent`, `62PenaltyOver10M`) with independent specs,
+kernel tests, scoped needles and batch-277 review; build 2193 jobs,
+transcription 685, invariants 17/17. Every id passed mandatory generator-gate
+pre-validation, including a 30/100 rate ceiling. After a temporary GitHub API
+rate limit (HTTP 403) blocked CI dispatch, run `45919753626` on
+`9dcaa9198d4648d8c6e94206b0a100b2ed0560ed` completed `success`;
+`data/PROOF_ATTESTATION_SCOPED_T25.json` binds 15 module hashes from committed
+blobs at that commit to that green run.
+
+```
+before: FULLY_VERIFIED=1241 NOT_STARTED=395608 evidence=1244
+after:  FULLY_VERIFIED=1274 NOT_STARTED=395575 evidence=1277
+delta:  FULLY_VERIFIED=+33 NOT_STARTED=-33  evidence=+33
+progress_ledger: COUNTED; NOT_STARTED delta -33; new modules 15
+```
+
+All five target ids carry `kernel_proof` citing the correct run. Legal review
+stays pending.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |
