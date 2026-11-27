@@ -1,0 +1,41 @@
+{
+  "commit": "aeae960be47fa2985d027f3f03b93687032a517c",
+  "jobs": {
+    "Build Lean project and check axioms": {
+      "conclusion": "success",
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45933483678",
+      "required_steps": [
+        "Build explicitly",
+        "No sorry/admit in adopted proofs",
+        "Axioms of key theorems",
+        "Reproducibility check 1 (clean build)",
+        "Reproducibility check 2 (clean build)"
+      ]
+    }
+  },
+  "modules": {
+    "FacilityCostAtLeast100M.lean": {
+      "sha256": "505102ae3fccfb57a2967cf465a794e452912c8bd2f784ce29b01bdd126e7cc8"
+    },
+    "FacilityCostAtLeast100MSpec.lean": {
+      "sha256": "62b2e750f08839483c914618b734cf5e6e052677182da74c9caa7ca5beb0542d"
+    },
+    "FacilityCostAtLeast100MTests.lean": {
+      "sha256": "2f3a173262d55e0c8634ebffa3f9d65bd71cbb9c3147bcb62c82fe22e6d6654a"
+    },
+    "SpecialMeasuresBracket95To130.lean": {
+      "sha256": "cf82cb50c377b9110491bdc3db9744863a5b70e1489fbb9c3918e402afa8cac6"
+    },
+    "SpecialMeasuresBracket95To130Spec.lean": {
+      "sha256": "311e715e40b6d68171d3320ac953976e42697e0080bc13b16ce99ae51999cf78"
+    },
+    "SpecialMeasuresBracket95To130Tests.lean": {
+      "sha256": "e5f2dbf59d6602d1202617776b1f079b849b76f0d92a804d373ef650dfae91f6"
+    }
+  },
+  "note": "Scoped kernel attestation: gh-verified green Lean job; semantic audit was still running. scope=lean_job_only; no full-run success claimed.",
+  "run_conclusion": "lean_job_only",
+  "schema": 1,
+  "scope": "lean_job_only",
+  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45933483678"
+}
