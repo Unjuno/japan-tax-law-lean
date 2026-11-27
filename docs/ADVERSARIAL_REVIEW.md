@@ -16363,3 +16363,105 @@ CI と同一の `text()`（JSON ノードの `children` のみ再帰連結）＋
 - commit / push / merge / ブランチ切替は一切行わず、Lean モジュール・`data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。検証用一時ファイル（抽出 2 本・書き込み 1 本・スイープ 1 本・axioms probe 1 本）は削除済み。
 
 > **本レビューは機械的独立照合（pinned 原文の直接抽出・needle 照合・境界反例での Impl/独立 Spec 比較・`#print axioms` 監査）であり、人間の法律専門家によるレビューではない。** 法的な妥当性・適用範囲の最終判断は専門家に委ねる。
+
+## Batch EM review (2026-11-27) — 都及び特別区の標準税収入額の算定方法に関する省令 附則 art.1（施行日 平成31年4月1日 = 2019-04-01）/ `StandardTaxRevenueCalculationEnforcementDate.lean`（cycle-149 の1モデル、機械的独立照合・反例探索）
+
+### EM-1. pinned 原文の独立抽出・対象 block の同定・元号換算
+
+- **pinned 原文**: `data/raw/429M60000008030_20260401_508M60000008048.law.json`（12,549 bytes、SHA-256 `3d5bbd9d95a3879e7f528d4d7c6dd78f52a2b99dde9739c24632dacb51426563`）。`law_info.law_id = 429M60000008030` / `revision_info.law_revision_id = 429M60000008030_20260401_508M60000008048` / `law_type = MinisterialOrdinance`（省令）。`/Law` attr は `Era=Heisei, Year=29, Num=030, PromulgateMonth=03, PromulgateDay=31`（平成29年3月31日公布の base 省令）。
+- **抽出方法**: 形式化担当の STAGING を信じず、`law_full_text` の `children` のみを再帰走査して全 `text()` ノード（126 エントリ）を列挙し、`SupplProvision` ノードを直接同定した。
+
+| LawBody index | 属性 | 形式 | 施行条文（独立抽出） | 対象 |
+|---|---|---|---|---|
+| [3] | AmendLawNum なし（base 附則） | Paragraph `１`／`２`／`３` | `この省令は、平成二十九年四月一日から施行する。`（2017-04-01） | **NOT target**（Article ではなく Paragraph。cycle-148 の 2017-04-01 と同値だが別ブロック） |
+| [4] | `AmendLawNum = 平成三一年三月二九日総務省令第三八号`、`Extract = true` | `Article(Num=1)`／Caption `（施行期日）`／Title `第一条` | **`この省令は、平成三十一年四月一日から施行する。`** | **TARGET**（最初の art.1・単文・ただし書なし） |
+| [5] | `AmendLawNum = 平成三一年三月二九日総務省令第四〇号`、`Extract = true` | `Article(Num=1)`／Caption `（施行期日等）` | `この省令は、平成三十一年四月一日から施行し、令和元年度分の森林環境譲与税から適用する。` | NOT target（別附則・後続ブロック） |
+| [6] | `令和二年三月三一日総務省令第二一号`、`Extract = true` | `Article(Num=1)` | `この省令は、令和二年四月一日から施行する。`（2020-04-01） | NOT target |
+| [7] | `令和八年三月三一日総務省令第四八号` | `Article(Num=1)` と `Article(Num=2)` | `この省令は、令和八年四月一日から施行する。`（2026-04-01）＋ 令和八年度以後の年度の適用規定 | NOT target |
+
+- **結論**: 「最初の art.1」は block [4] の `第一条` であり、原文は **`この省令は、平成三十一年四月一日から施行する。`** の 1 文のみ。`ただし書` は存在しない。block [3] はParagraph形式の原本附則で 2017-04-01 を定めるが **Article ではない**ため対象外（cycle-148 由来の日付との混同を明示除外）。
+- **元号換算の独立確認**: 平成元年 = 1989 → **1989 + 31 − 1 = 2019 = 1988 + 31**。Impl の `heiseiToSeireki 31 = 2019` と一致。
+- **改元との関係**: 施行日 **2019-04-01 は令和改元（2019-05-01）の 1 か月前**であり、平成31年の日付として妥当。令和元年／令和2年／令和8年の施行日（block [5]/[6]/[7]）と混同していないことを確認。
+- **明示除外の機械確認**（raw `text()` 全体の一致数）: `平成三十一年四月一日` = 2（block [4] と [5] の接頭部。後者は `施行し` で継続するため完全文は 1 のみ）、`平成二十九年四月一日` = 1（block [3]）、`令和元年度` = 1、`令和二年四月一日` = 1、`令和八年四月一日` = 1。**`平成30年` = 0、`平成三十二年` = 0、`三月三十一日` = 0、`四月二日` = 0**。すなわち平成30(2018)／平成32(不存在)／3月31日／4月2日 の混入は 0 件。
+
+### EM-2. needle 2 本（U+3000 = 0 / 2/2 FOUND）
+
+| needle | U+3000 | raw `text()` 一致数 | `_norm`（`[\s\u3000]+` 除去）一致数 | 判定 |
+|---|---:|---:|---:|---|
+| `この省令は、平成三十一年四月一日から施行する。` | 0 | 1 | 1 | FOUND |
+| `平成三十一年四月一日から施行する` | 0 | 1 | 1 | FOUND |
+
+- 2 本とも **U+3000 を含まず**、raw / 正規化の双方で `contains = true`（**2/2 FOUND、MISS 0**）。block [5] は `…から施行し、令和元年度分…` であるため `施行する` を袋小路に含まず、needle は対象 block [4] を一意に指す。
+- doc-comment 13 行目の `「第一条 この省令は、平成三十一年四月一日から施行する。」` は `ArticleTitle = 第一条` と `Sentence[0]` を半角スペースで連結した引用であり、raw JSON にそのまま連続文字列は存在しない（count = 0）。needle は `Sentence[0]` の部分文字列として設定されており正当（BY-DESIGN B-7）。
+- `scripts/ci/transcription_audit.py` に **cycle-149 エントリ**を確認（L2587–2591、law id `429M60000008030`、needle `第一条この省令は、平成三十一年四月一日から施行する` / `この省令は、平成三十一年四月一日から施行する`）。全走の `python scripts/ci/transcription_audit.py` は **exit code 0 / 820/820 checks passed**。cycle-148（`423M60000008168`）／147／146／145 のエントリは従来どおり独立して残存。
+
+### EM-3. 反例・独立 Spec・2017〜2021 全範囲スイープ・cycle-148 移植-check
+
+| 指定日 d | `dateKey(d)` | Impl `inForce(d)` | repo `specInForce(d)` | 独立 Spec（辞書順成分比較） |
+|---|---:|---|---|---|
+| (2019, 3, 31) | 20190331 | false | false | false |
+| (2019, 4, 1) | 20190401 | true | true | true |
+| (2019, 4, 2) | 20190402 | true | true | true |
+
+- 独立 Spec は `d > (2019,4,1)` を年→月→日の辞書順で再定式したもの: `(d.1 > 2019) || (d.1 == 2019 && d.2.1 > 4) || (d.1 == 2019 && d.2.1 == 4 && d.2.2 >= 1)`。Impl の `dateKey >= 20190401` とは演算手段が異なる（数値キー比較 vs 成分比較）が、3 つの反例はいずれも一致。
+- **全範囲スイープ**: 2017〜2021 年 × 1〜12 月 × 1〜31 日 = **1,860 組合せ**で `inForce` と独立 Spec を比較し **MISMATCH 0**。repo Spec も同一範囲で Impl と一致（Spec の `agreeStandardTaxRevenueCalculationEnforcementDate` は `by decide` で真）。
+- **cycle-148 → cycle-149 移植の正当性**: 元号定数 `1988` は平成換算定数として**不変かつ正しい**; 年被加算値 `29 → 31`、施行キー `20170401 → 20190401` は正しく更新; 月境界 `>4` / `==4` は両者とも 4 月 1 日のため**変更不要で正しい**; 日境界 `>=1` も変更不要で正しい。3 対象ファイル（Impl / Spec / Tests）を走査し、`2017` / `20170401` / `2017-04-01` / `復興` / `特別区域` / `ただし書` / `2011` / `20110401` / `2018` / `20180101` / `2019-10-01` / `2014-10-01` / `2012-04-01` / `平成29年` / `平成二十九年` / `423M60000008168` / `令和` / `森林環境譲与税` の **cycle-148 由来コピー残存は 0 件**。
+
+### EM-4. `#print axioms` による公理監査
+
+- repo 外の一時ディレクトリ `C:\Users\junny\AppData\Local\Temp\opencode\em_axioms_probe.lean` に probe を作成し、3 モジュールを import して 8 宣言（`heiseiToSeireki` / `enforcementDate` / `dateKey` / `enforcementKey` / `inForce` / `specDate` / `specInForce` / `agreeStandardTaxRevenueCalculationEnforcementDate`）へ `#print axioms` を適用（`lake env lean`、exit code **0**）。probe 内には平成30/31 換算・施行日・施行キー・3 反例（Impl と Spec の双方）・一致定義の 11 個の `by decide` を追加し、いずれも kernel で受理された。
+- 結果は **8/8 が `'... does not depend on any axioms'`**。`Classical.choice` / `sorryAx` / `Quot.sound` / `propext` の依存は**いずれも 0 件**。監査用一時ファイルは削除済み。
+
+### EM-5. doc-comment メタデータ・cycle-148 コピー残存の検査
+
+| doc-comment 項目 | pinned 値 | 判定 |
+|---|---|---|
+| `Law id: 429M60000008030`（Impl 7 行） | `law_info.law_id = 429M60000008030` | 一致 |
+| `Revision: 429M60000008030_20260401_508M60000008048`（Impl 8 行） | `revision_info.law_revision_id` と一致 | 一致 |
+| `Raw snapshot: data/raw/429M60000008030_20260401_508M60000008048.law.json`（Impl 9 行） | 実在ファイル（EM-1 で walk・SHA 確認） | 一致 |
+
+- **Scope 行**（Impl 21 行）: `附則の他条（経過措置等）・省令の実体規定（標準税収入額の算定方法等）は NOT MODELLED。` — 期待どおり。cycle-148 の `復興特別区域` / `ただし書` / `2017-04-01` 由来の記述は残存しない。
+- **年ラベル・計算式・説明**（Impl 16–18 / 31 行）: `平成 31 年 = 1988 + 31 = 2019（平成元年 = 1989、1989+31-1=2019）` / `enforcementDate = (2019, 4, 1)` / `inForce(d) = dateKey(d) >= 20190401` / `施行日 = 平成31年4月1日 = 2019-04-01。` — すべて cycle-149 の値。
+- **Spec 5 行**: `Sources (pinned): law 429M60000008030, revision 429M60000008030_20260401_508M60000008048.` — 一致。**Tests 6 行**: `平成31年=2019、施行日 2019-04-01。` — cycle-147 の「2011-04-01」や cycle-148 の「2017-04-01」は不在。
+- **README / PROGRESS / aggregator**: `README.md` L1046–1048 に 3 ファイルと「施行日2019-04-01（附則 art.1）」、`docs/PROGRESS.md` L197 に「施行日 平成31年4月1日=2019-04-01 — 他条・実体規定 NOT MODELLED」、`JapanTaxLaw.lean` L2504–2506 に 3 import を確認。cycle-148 の 2017-04-01 は README L1042–1044 / PROGRESS L195 / aggregator L2066–2068 に**夫々の行として残るのみ**で、cycle-149 行への混入は 0 件。
+- **パス重複**: `data/raw/data/raw/` の二重 prefix は 0 件。`transcription_audit.py` の cycle-149 エントリは EM-2 のとおり。
+
+### EM-6. CONFIRMED / BY-DESIGN / UNRESOLVED の分類
+
+| 分類 | 件数 |
+|---|---:|
+| **CONFIRMED** | **0（ゼロ）** |
+| **BY-DESIGN** | **11** |
+| **UNRESOLVED** | **3** |
+
+> **CONFIRMED = 0 を明示する。** pinned 原文抽出・元号換算・needle・反例/全範囲スイープ・Impl/独立 Spec 一致・`#print axioms`・メタデータ・cycle-148 残存のいずれにも食い違いを検出しなかった。
+
+#### CONFIRMED（0 件）
+
+- なし。pinned の `平成三十一年四月一日から施行する` は `heiseiToSeireki 31 = 1988+31 = 2019`（1989+31−1 と同値）、`enforcementDate = (2019,4,1)`、`enforcementKey = 20190401` とすべて整合。平成30(2018)／平成32(不存在)／2017-04-01／2019-03-31／2019-04-02／2019-10-01／2020-04-01／2026-04-01 との混同はない。
+
+#### BY-DESIGN（11 件：設計判断・非欠陥）
+
+- **B-1 対象は block [4] の art.1**（`AmendLawNum = 平成三一年三月二九日総務省令第三八号`、`Extract = true`）。block [3] は Paragraph 形式の原本附則で 2017-04-01 を定め、Article ではない（EM-1）。
+- **B-2 art.1 は 1 文のみ・ただし書なし**。令和元年度分の森林環境譲与税から適用する規定は block [5] の別附則であり Scope 外（U-1）。
+- **B-3 他附則の施行日は NOT MODELLED**: block [6] 令和二年四月一日（2020-04-01）、block [7] 令和八年四月一日（2026-04-01）およびその art.2 の年度適用規定。
+- **B-4 省令の実体規定は NOT MODELLED**: 本則 art.1（都の標準税収入額の算定方法）・art.2（特別区の標準税収入額の算定方法）、および附則 block [3] の第２・第３Paragraph（特例）。
+- **B-5 `dateKey` = YYYYMMDD 数値比較**: 「施行日**以降**」を単調な整数キーで表現。不正日（月 0/13、日 0/32）の暦意味は保証しないが、1,860 組の有効日範囲で独立 Spec と一致（EM-3）。
+- **B-6 元号保存は西暦定数**: 平成31年はグレゴリオ 2019 として保存し、令和換算は行わない。`1989+31-1 = 1988+31` の同値性を確認（EM-1）。施行日は改元前である。
+- **B-7 doc-comment の原文引用は再構成**: `第一条` + 半角スペース + `Sentence[0]`。needle は `Sentence[0]` 部分文字列で U+3000 = 0（EM-2）。
+- **B-8 独立 Spec と Impl の演算手段の差**: 辞書順成分比較と数値キー比較は実装が異なるが全範囲で一致（EM-3）。
+- **B-9 README / PROGRESS / aggregator / audit は行単位でサイクル分離**: cycle-148 の行は残るが cycle-149 行へ混入していない（EM-5）。
+- **B-10 transcription audit は全サイクル通過 exit 0**: cycle-149 エントリ登録済み（EM-2）。
+- **B-11 pinned revision は 2026-04-01 時点スナップショット**: 令和8年の改正を含むため block [7] が存在するが、対象は 2019 年の block [4] art.1 のみ。
+
+#### UNRESOLVED（3 件：pinned 原文のみでは解けない判断）
+
+- **U-1 他附則の法的効力・適用範囲**: block [5] の「令和元年度分の森林環境譲与税から適用する」が本モデルの `inForce` に及ぼす影響はモデル化せず、法的解釈は **LEGAL_REVIEW_PENDING**（人間の法律専門家に委ねる）。
+- **U-2 実体規定・経過措置の未形式化**: 標準税収入額の算定方法（本則 art.1/art.2）および附則特例（block [3] 第２・第３Paragraph）は本 L4 モデルの Scope 外。数量・算定式の正当性は本レビューでは判定しない。
+- **U-3 レビューの性質**: 本レビューは pinned 原文の機械的独立抽出・needle 一致・反例/全範囲照合・公理監査であり、**人間の法律専門家による法的レビューではない**。最終的な法的妥当性・適用判断は専門家レビューを要する。
+
+### EM-7. 書き込み・検証・制約
+
+- **二段 read-then-write**: 書き込み直前に再読込し、広義レビュー件数 `144`、Batch EL / EK の存在、Batch EM の不在、SHA-256 `bd283b82888cec34bf2bce6d907dbdaef8a357c51cdb19f3e863d5bb56cb6f34`（1,994,307 bytes）を確認してから本セクションのみを末尾追記。追記後の再読込で広義件数 **145（Previous +1）**、追記前バイト列が変更されていないこと（プレフィクス一致）、および既存セクション（Batch EL / EK / EJ / EI / EH / EG / EF / EE / ED / EC / EB / EA / DZ / DY / DX / DW / DV / DU / DT / Batch G review を含む）の保持を検証した。
+- commit / push / merge / ブランチ切替は一切行わず、Lean モジュール・`data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。監査用一時ファイル（抽出・検証レポート 6 本・audit 出力 1 本・axioms probe 1 本・追記ドラフト 1 本）はすべて削除済み。
+- 追記内容（本セクション）の SHA-256 を最終報告で提示する。
