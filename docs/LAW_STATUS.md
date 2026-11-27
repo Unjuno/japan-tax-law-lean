@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 214
+- with >=1 pinned literal check (semantic model): 213
 - with recorded human legal review: 0
 
 ## All laws
@@ -34,7 +34,7 @@ a completion flag.
 | `326CO0000000099` | 納税貯蓄組合法施行令 | 326CO0000000099_20191216_501CO0000000183 | CurrentEnforced | YES | ok | 14 | YES (1) | NO |
 | `326AC1000000237` | 税理士法 | 326AC1000000237_20251001_505AC0000000053 | CurrentEnforced | YES | ok | 372 | YES (8) | NO |
 | `326CO0000000216` | 税理士法施行令 | 326CO0000000216_20240401_505CO0000000146 | CurrentEnforced | YES | ok | 87 | YES (4) | NO |
-| `326M50000040055` | 税理士法施行規則 | 326M50000040055_20260901_506M60000040025 | CurrentEnforced | YES | ok | 150 | YES (2) | NO |
+| `326M50000040055` | 税理士法施行規則 | 326M50000040055_20260901_506M60000040025 | CurrentEnforced | YES | ok | 150 | YES (3) | NO |
 | `327CO0000000057` | 鹿児島県大島郡十島村に関する所得税法等の適用及びこれに伴う経過措置に関する政令 | 327CO0000000057_19521001_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `327AC0000000111` | 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日 | 327AC0000000111_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 62 | YES (2) | NO |
 | `327AC0000000112` | 日本国とアメリカ合衆国との間の相互協力及び安全保障条約第六条に基づく施設及び区域並びに日 | 327AC0000000112_20190317_429AC0000000013 | CurrentEnforced | YES | ok | 72 | YES (1) | NO |
@@ -125,7 +125,7 @@ a completion flag.
 | `342AC0000000023` | 印紙税法 | 342AC0000000023_20261001_507AC0000000070 | CurrentEnforced | YES | ok | 403 | YES (4) | NO |
 | `342CO0000000108` | 印紙税法施行令 | 342CO0000000108_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 105 | YES (1) | NO |
 | `342M50000040019` | 印紙税法施行規則 | 342M50000040019_20010106_412M50000040069 | CurrentEnforced | YES | ok | 26 | NO (0) | NO |
-| `342AC0000000035` | 登録免許税法 | 342AC0000000035_20261101_508AC0000000021 | CurrentEnforced | YES | ok | 716 | YES (35) | NO |
+| `342AC0000000035` | 登録免許税法 | 342AC0000000035_20261101_508AC0000000021 | CurrentEnforced | YES | ok | 716 | YES (36) | NO |
 | `342CO0000000146` | 登録免許税法施行令 | 342CO0000000146_20261001_507CO0000000124 | CurrentEnforced | YES | ok | 142 | YES (5) | NO |
 | `342M50000040037` | 登録免許税法施行規則 | 342M50000040037_20260401_508M60000040008 | CurrentEnforced | YES | ok | 125 | YES (2) | NO |
 | `344M50000040016` | 関税定率法施行規則 | 344M50000040016_20260401_508M60000040016 | CurrentEnforced | YES | ok | 84 | YES (2) | NO |
@@ -144,7 +144,7 @@ a completion flag.
 | `346M50000008013` | 自動車重量譲与税法施行規則 | 346M50000008013_20230401_505M60000008036 | CurrentEnforced | YES | ok | 38 | YES (1) | NO |
 | `346CO0000000257` | コンテナーに関する通関条約及び国際道路運送手帳による担保の下で行なう貨物の国際運送に関す | 346CO0000000257_20171008_428CO0000000240 | CurrentEnforced | YES | ok | 40 | YES (1) | NO |
 | `346M50000040057` | コンテナーに関する通関条約及び国際道路運送手帳による担保の下で行なう貨物の国際運送に関す | 346M50000040057_20120401_424M60000040035 | CurrentEnforced | YES | ok | 8 | YES (1) | NO |
-| `346CO0000000275` | 自動車重量税法施行令 | 346CO0000000275_20230101_504CO0000000195 | CurrentEnforced | YES | ok | 24 | YES (2) | NO |
+| `346CO0000000275` | 自動車重量税法施行令 | 346CO0000000275_20230101_504CO0000000195 | CurrentEnforced | YES | ok | 24 | YES (3) | NO |
 | `346M50000040066` | 自動車重量税法施行規則 | 346M50000040066_20230101_504M60000040020 | CurrentEnforced | YES | ok | 27 | YES (1) | NO |
 | `347AC0000000007` | 航空機燃料税法 | 347AC0000000007_20250601_504AC0000000068 | CurrentEnforced | YES | ok | 43 | YES (2) | NO |
 | `347CO0000000057` | 航空機燃料税法施行令 | 347CO0000000057_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 19 | YES (1) | NO |
@@ -298,7 +298,7 @@ a completion flag.
 | `429CO0000000234` | 高重合度ポリエチレンテレフタレートに対して課する不当廉売関税に関する政令 | 429CO0000000234_20230204_505CO0000000028 | CurrentEnforced | YES | ok | 8 | YES (1) | NO |
 | `429CO0000000324` | 炭素鋼製突合せ溶接式継手に対して課する不当廉売関税に関する政令 | 429CO0000000324_20180331_430CO0000000121 | CurrentEnforced | YES | ok | 7 | NO (0) | NO |
 | `430AC0000000016` | 国際観光旅客税法 | 430AC0000000016_20260701_508AC0000000012 | CurrentEnforced | YES | ok | 41 | YES (3) | NO |
-| `430CO0000000161` | 国際観光旅客税法施行令 | 430CO0000000161_20190107_000000000000000 | CurrentEnforced | YES | ok | 10 | YES (1) | NO |
+| `430CO0000000161` | 国際観光旅客税法施行令 | 430CO0000000161_20190107_000000000000000 | CurrentEnforced | YES | ok | 10 | NO (0) | NO |
 | `430M60000040039` | 国際観光旅客税法施行規則 | 430M60000040039_20250401_507M60000040024 | CurrentEnforced | YES | ok | 9 | YES (1) | NO |
 | `430M60000200048` | 関税暫定措置法施行令第三十二条第二項第二号の農林水産省令で定める方法を定める省令 | 430M60000200048_20181230_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `431AC0000000001` | 平成三十年度分として交付すべき地方交付税の総額の特例に関する法律 | 431AC0000000001_20190214_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 518
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 514

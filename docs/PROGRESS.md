@@ -195,5 +195,3 @@ lake clean && lake build                                                # 再現
 東日本大震災復興特別区域法第四十三条の地方税の課税免除等に関する省令 附則 art.1 ReconstructionZoneLocalTaxExemptionEnforcementDate.lean（施行日 平成29年4月1日=2017-04-01 — 他条・実体規定 NOT MODELLED）
 
 都及び特別区の標準税収入額の算定方法に関する省令 附則 art.1 StandardTaxRevenueCalculationEnforcementDate.lean（施行日 平成31年4月1日=2019-04-01 — 他条・実体規定 NOT MODELLED）
-
-国際観光旅客税法施行令 附則 art.1 InternationalTouristTaxEnforcementDate.lean（施行日 平成31年1月7日=2019-01-07 — 他条・実体規定 NOT MODELLED）

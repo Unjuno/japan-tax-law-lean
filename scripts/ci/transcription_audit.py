@@ -91,6 +91,12 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # DoubtfulReceivableDeduction (restored registered check)
+    yield ("DoubtfulReceivableDeduction ↔ DoubtfulReceivableDeduction.lean", "326M50000040055", "article", "第二十二条の三", ["取立不能のおそれのある債権については、事業年度の末日においてその時に取り立てることができないと見込まれる額を控除しなければならない。"])
+    # FifthWheelGrossWeight (restored registered check)
+    yield ("FifthWheelGrossWeight ↔ FifthWheelGrossWeight.lean", "346CO0000000275", "article", "第五条", ["その自動車検査証に記録される車両総重量から第五輪荷重を控除し牽けん引重量を加えた重量"])
+    # ShipProvisionalRateReduction (restored registered check)
+    yield ("ShipProvisionalRateReduction ↔ ShipProvisionalRateReduction.lean", "342AC0000000035", "article", "第十七条", ["同号（二）の税率欄に掲げる割合から千分の四を控除した割合とする"])
     # CustomsTerritoryCountryInclusion.lean - NORM|e0b9627e... (関税制度地域の国包含 CONDITION, law 414CO0000000116)
     yield ("経済連携協定緊急措置政令 art.2(1)(1)（関税制度地域の国包含）↔ CustomsTerritoryCountryInclusion.lean",
            "414CO0000000116", "article", "第二条", ["当該調査の対象となる国（固有の関税及び貿易に関する制度を有する地域を含む。以下同じ。）"])
@@ -2589,12 +2595,6 @@ def checks():
            "429M60000008030",
            "file", None,
            ["第一条この省令は、平成三十一年四月一日から施行する", "この省令は、平成三十一年四月一日から施行する"])
-
-    # InternationalTouristTaxEnforcementDate — cycle-150
-    yield ("InternationalTouristTaxEnforcementDate.lean",
-           "430CO0000000161",
-           "file", None,
-           ["第一条この政令は、平成三十一年一月七日から施行する", "この政令は、平成三十一年一月七日から施行する"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",

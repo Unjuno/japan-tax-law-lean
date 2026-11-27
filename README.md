@@ -1046,7 +1046,3 @@ JapanTaxLaw/ReconstructionZoneLocalTaxExemptionEnforcementDateTests.lean # 同�
 JapanTaxLaw/StandardTaxRevenueCalculationEnforcementDate.lean    # 都及び特別区の標準税収入額の算定方法に関する省令 施行日2019-04-01（附則 art.1）L4
 JapanTaxLaw/StandardTaxRevenueCalculationEnforcementDateSpec.lean # 同上 独立定式
 JapanTaxLaw/StandardTaxRevenueCalculationEnforcementDateTests.lean # 同上 退行テスト
-
-JapanTaxLaw/InternationalTouristTaxEnforcementDate.lean    # 国際観光旅客税法施行令 施行日2019-01-07（附則 art.1）L4
-JapanTaxLaw/InternationalTouristTaxEnforcementDateSpec.lean # 同上 独立定式
-JapanTaxLaw/InternationalTouristTaxEnforcementDateTests.lean # 同上 退行テスト
