@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": true,
-  "checks": 6221,
+  "checks": 6226,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -11892,6 +11892,61 @@
       "detail": "run=45463588568 attested_run=45463588568 conclusion=success job=True",
       "reference": "https://api.github.com/repos/Unjuno/japan-tax-law-lean/actions/runs/45463588568: commit 8816a8d163a7f4011c5889f76bc062a1",
       "unit_id": "NORM|25c95e596258e720b2c58ddccba3854af3fb54300fe885ccfe75f0285451dac0"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "unit_id": "NORM|25fa4c2ac0e109c13793841e0bb7254f55c8710cbf2398e8ed9b048cf29ed86f"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/PortMunicipalityAllocationBase.lean",
+      "unit_id": "NORM|25fa4c2ac0e109c13793841e0bb7254f55c8710cbf2398e8ed9b048cf29ed86f"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/PortMunicipalityAllocationBaseSpec.lean",
+      "unit_id": "NORM|25fa4c2ac0e109c13793841e0bb7254f55c8710cbf2398e8ed9b048cf29ed86f"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/PortMunicipalityAllocationBaseTests.lean",
+      "unit_id": "NORM|25fa4c2ac0e109c13793841e0bb7254f55c8710cbf2398e8ed9b048cf29ed86f"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "kernel_proof",
+      "detail": "run=46029786055 attested_run=46029786055 conclusion=success job=True",
+      "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/46029786055: commit 6655d408eb737cc1f9e8366eb162daa605728032, ",
+      "unit_id": "NORM|25fa4c2ac0e109c13793841e0bb7254f55c8710cbf2398e8ed9b048cf29ed86f"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -68434,9 +68489,9 @@
       "unit_id": "NORM|fff89ad304c83b401e45afc8fa865f356060ed7292f4a5afd6848aa8d0a0431e"
     }
   ],
-  "resolved": 6221,
+  "resolved": 6226,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 1260,
+  "units_checked": 1261,
   "unresolved": 0
 }
