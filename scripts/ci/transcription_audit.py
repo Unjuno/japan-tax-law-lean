@@ -5360,6 +5360,15 @@ def checks():
            "328AC0000000006", "file", None,
            ["三年以上引き続き酒類を製造しない場合"])
 
+    # 地方税法 art. 734 — OfficeFeeSpecialWardAmount.lean (175万/229万円)
+    yield ("地方税法 art. 734（特別区内外による額）↔ OfficeFeeSpecialWardAmount.lean",
+           "325AC0000000226", "file", None,
+           ["百七十五万円（事務所等が特別区の区域外にも所在する場合以外の場合には、二百二十九万円）"])
+    # 税関関係手数料令 art. 2 — CustomsPermissionFee21800.lean (21,800/21,700円)
+    yield ("税関関係手数料令 art. 2（許可手数料21,800円）↔ CustomsPermissionFee21800.lean",
+           "329CO0000000164", "file", None,
+           ["二万千八百円（当該許可を受ける者が指定者である場合にあつては、二万千七百円）"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
