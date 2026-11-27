@@ -2200,6 +2200,9 @@ import JapanTaxLaw.ResidentialTransferSpecialTaxTests
 import JapanTaxLaw.ResidualDistributionOneMonth
 import JapanTaxLaw.ResidualDistributionOneMonthSpec
 import JapanTaxLaw.ResidualDistributionOneMonthTests
+import JapanTaxLaw.ResidualPeriod10To15
+import JapanTaxLaw.ResidualPeriod10To15Spec
+import JapanTaxLaw.ResidualPeriod10To15Tests
 import JapanTaxLaw.RetainedAmountLocalTax
 import JapanTaxLaw.RetainedAmountLocalTaxSpec
 import JapanTaxLaw.RetainedAmountLocalTaxTests
@@ -2254,6 +2257,9 @@ import JapanTaxLaw.RoadWidthThresholdTests
 import JapanTaxLaw.SCFVPenaltyCeiling
 import JapanTaxLaw.SCFVPenaltyCeilingSpec
 import JapanTaxLaw.SCFVPenaltyCeilingTests
+import JapanTaxLaw.SakeNonBrewingPeriod3Y
+import JapanTaxLaw.SakeNonBrewingPeriod3YSpec
+import JapanTaxLaw.SakeNonBrewingPeriod3YTests
 import JapanTaxLaw.SalaryIncreaseRate5Or15
 import JapanTaxLaw.SalaryIncreaseRate5Or15Spec
 import JapanTaxLaw.SalaryIncreaseRate5Or15Tests

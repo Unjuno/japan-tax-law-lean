@@ -5351,6 +5351,15 @@ def checks():
            "326AC1000000237", "file", None,
            ["二年以上継続して所在が不明であるとき。"])
 
+    # 相続税法 art. 23 — ResidualPeriod10To15.lean (10年超15年以下)
+    yield ("相続税法 art. 23（残存期間10年超15年以下）↔ ResidualPeriod10To15.lean",
+           "325AC0000000073", "file", None,
+           ["残存期間が十年を超え十五年以下のもの"])
+    # 酒税法 art. 12 — SakeNonBrewingPeriod3Y.lean (製造休止3年以上)
+    yield ("酒税法 art. 12（酒類製造休止3年以上）↔ SakeNonBrewingPeriod3Y.lean",
+           "328AC0000000006", "file", None,
+           ["三年以上引き続き酒類を製造しない場合"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
