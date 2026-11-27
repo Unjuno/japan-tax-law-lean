@@ -6,9 +6,9 @@ PRESENCE facts (needle / impl / spec / tests / clean / agree*) are NOT
 completion. Authoritative status comes from recorded evidence and scoped
 source positions. Human legal review is a separate axis and is pending.
 
-- articles with explicit pin: 310
-- presence-facts-only complete: 310
-- NOT_STARTED: 310
+- articles with explicit pin: 311
+- presence-facts-only complete: 311
+- NOT_STARTED: 311
 - PARTIAL: 0
 - PROVED_SCOPE: 0
 - FULLY_VERIFIED: 0

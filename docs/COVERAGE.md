@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 215 | 327 | 65.75% |
+| laws with >=1 pinned literal check | 216 | 327 | 66.06% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 832 | n/a | n/a |
-| distinct article pins | 239 | 42584 | 0.56% |
-| pinned Lean modules (cross-law) | 1343 | n/a | n/a |
+| pinned literal checks | 833 | n/a | n/a |
+| distinct article pins | 240 | 42584 | 0.56% |
+| pinned Lean modules (cross-law) | 1344 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1457 |
+| unpinned Lean modules (not counted as verified) | 1459 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -292,6 +292,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `423AC0000000118` 東日本大震災からの復興に関し地方公共団体が実施する防災のための施策に必要な財源の確保に係る地方税の臨時特例に関する法律
 - `423CO0000000112` 東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行令
 - `423M60000008168` 所得税法等の一部を改正する法律附則第九十六条の規定による改正前の東日本大震災復興特別区域法第四十三条の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令
+- `423M60000040020` 東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行規則
 - `424CO0000000016` 復興特別所得税に関する政令
 - `424CO0000000017` 復興特別法人税に関する政令
 - `424M60000040007` 復興特別法人税に関する省令
