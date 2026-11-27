@@ -987,6 +987,9 @@ import JapanTaxLaw.GasolineTransferRoundingTests
 import JapanTaxLaw.GeneralTariffLowerRate
 import JapanTaxLaw.GeneralTariffLowerRateSpec
 import JapanTaxLaw.GeneralTariffLowerRateTests
+import JapanTaxLaw.GeneralTaxActArt66Excess3M
+import JapanTaxLaw.GeneralTaxActArt66Excess3MSpec
+import JapanTaxLaw.GeneralTaxActArt66Excess3MTests
 import JapanTaxLaw.GiftAddBack
 import JapanTaxLaw.GiftAddBackSpec
 import JapanTaxLaw.GiftAddBackTests
