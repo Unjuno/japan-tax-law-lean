@@ -1,0 +1,4 @@
+- batch BulkCondb9d3e17cb1: 10 conditional norms; dispatch scope only; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.
+- batch BulkConda33fa5e282: 1000 conditional norms; dispatch scope only; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.
+- batch BulkCond07a2dce87b: 1000 conditional norms; dispatch scope only; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.
+- batch BulkCond0eaaea4e92: 1000 conditional norms; dispatch scope only; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.

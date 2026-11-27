@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=52005, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=55015, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=52005 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=55015 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -261,7 +261,9 @@ $ python scripts/ci/compact_bulk_evidence.py --write
 units=52005 migrated=44673 missing_axis=0; bytes before=103430919 after=89537616
 (redundant truncated axiom-scan prefixes replaced with batch-module references;
  all 11 axes and all artifact hashes preserved)
-$ python -m unittest discover -s scripts/tests -t . → 247 tests, OK
+$ python scripts/ci/batch_conditional_bulk_pipeline.py --limit 10 / 1000 x3
+bulk conditional batch: verified=10/1000/1000/1000, failed=0 in every run
+$ python -m unittest discover -s scripts/tests -t . → 251 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -718,7 +720,12 @@ is exhausted at 62 grammar-incompatible labels, which remain NOT_STARTED.
 No legal effect was formalized. Axis A 33 PASS / 0 FAIL / 0 SKIP; Axis B
 all-complete False.
 
-So 52005 units are evidence-backed FULLY_VERIFIED and 344,847 remain NOT_STARTED
+A bulk conditional-dispatch pipeline, `scripts/ci/batch_conditional_bulk_pipeline.py`,
+handles generic 「……場合／とき……」 norms. Condition and effect are both
+caller-established and NOT resolved; only the dispatch structure is proved.
+3010 units were verified with four tests.
+
+So 55015 units are evidence-backed FULLY_VERIFIED and 341,837 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
