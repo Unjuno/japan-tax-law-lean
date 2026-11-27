@@ -595,7 +595,12 @@
     "LocalTax8_2SuccessorMunicipalitiesTwoOrMore",
     "LocalTax73_2AnnexFilingWithin30Days",
     "LocalTax73_27_2HousingTaxDeferralWithin6Months",
-    "LocalTax693MunicipalExternalTaxDemandWithin20Days"
+    "LocalTax693MunicipalExternalTaxDemandWithin20Days",
+    "InheritanceTax46InKindRevocationTwoOrMore",
+    "LocalTax20_9_3RefundWithin5Years",
+    "LocalTax72_33BusinessTaxCorrectionWithin2Months",
+    "LocalTax72_40TwoOrMorePrefectures",
+    "LocalTax726IrrigationTaxDemandWithin20Days"
   ],
   "note": "Modules that MUST retain a transcription audit check. A reconciliation that rewrites transcription_audit.py from a stale base and drops any of these fails the REQUIRED queue-invariant gate. Update this registry only when deliberately removing a module.",
   "schema": 1

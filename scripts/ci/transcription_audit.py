@@ -5091,6 +5091,36 @@ def checks():
            "article", "第六百九十三条",
            ["納税者又は特別徴収義務者が納期限（更正又は決定があつた場合においては、不足金額の納期限をいう。以下市町村法定外普通税について同様とする。）までに市町村法定外普通税に係る地方団体の徴収金を完納しない場合においては、市町村の徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
 
+    # Batch 305 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("相続税法 art. 46(4) 二以上 ↔ InheritanceTax46InKindRevocationTwoOrMore.lean",
+           "325AC0000000073",
+           "article", "第四十六条",
+           ["税務署長は、前項の場合において、物納の許可があつた二以上の不動産の一部について物納の撤回の申請があり、又は物納の許可があつた一の不動産を分割してその一部について物納の撤回の申請があつたとき（これらの申請のあつた財産以外の物納財産のうちにその物納の撤回により管理又は処分をするのに不適格な財産として政令で定めるもの（以下この条において「不適格財産」という。）があるときに限る。）は、当該不適格財産を物納の撤回の申請に係る財産に追加することを求め、当該申請者が当該財産に当該不適格財産"])
+
+    # Batch 305 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 20_9_3(1) 五年以内 ↔ LocalTax20_9_3RefundWithin5Years.lean",
+           "325AC0000000226",
+           "article", "第二十条の九の三",
+           ["申告納付又は申告納入に係る地方税の申告書（以下この条において「申告書」という。）を提出した者は、当該申告書に記載した課税標準等若しくは税額等の計算が地方税に関する法令の規定に従つていなかつたこと又は当該計算に誤りがあつたことにより、次の各号のいずれかに該当する場合には、当該申告書に係る地方税の法定納期限から五年以内に限り、総務省令の定めるところにより、地方団体の長に対し、その申告に係る課税標準等又は税額等（当該課税標準等又は税額等に関し更正があつた場合には、当該更正後の課税標"])
+
+    # Batch 305 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 72_33(2) 二月以内 ↔ LocalTax72_33BusinessTaxCorrectionWithin2Months.lean",
+           "325AC0000000226",
+           "article", "第七十二条の三十三",
+           ["申告書又は修正申告書を提出した法人（収入割のみを申告納付すべきものを除く。）が、当該申告又は修正申告に係る事業税の計算の基礎となつた事業年度に係る法人税の課税標準について国の税務官署の更正又は決定を受けたことに伴い、当該申告又は修正申告に係る付加価値額、資本金等の額若しくは所得又は事業税額が過大となる場合には、国の税務官署が当該更正又は決定の通知をした日から二月以内に限り、総務省令で定めるところにより、道府県知事に対し、当該付加価値額、資本金等の額若しくは所得又は事業税額につ"])
+
+    # Batch 305 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 72_40(2) 二以上 ↔ LocalTax72_40TwoOrMorePrefectures.lean",
+           "325AC0000000226",
+           "article", "第七十二条の四十",
+           ["二以上の道府県において事務所又は事業所を設けて事業を行う法人に係る法人税の課税標準について、前項の規定によつて税務官署に対しすべき更正又は決定の請求は、当該法人の主たる事務所又は事業所所在地の道府県知事（外国法人にあつては、この法律の施行地において行う事業の経営の責任者が主として執務する事務所又は事業所所在地の道府県知事）又は当該法人の主たる事務所又は事業所所在地の道府県知事を経由して関係道府県知事が行うものとする。"])
+
+    # Batch 305 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 726(1) 二十日以内 ↔ LocalTax726IrrigationTaxDemandWithin20Days.lean",
+           "325AC0000000226",
+           "article", "第七百二十六条",
+           ["納税者又は特別徴収義務者が納期限（更正又は決定があつた場合においては、不足金額の納期限をいう。以下水利地益税等について同様とする。）までに水利地益税等に係る地方団体の徴収金を完納しない場合においては、徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
