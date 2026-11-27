@@ -94,12 +94,16 @@ def checks():
     # PetroleumGasRefundAmount — 石油ガス税法施行規則 art.12(3)(1)
     yield ("石油ガス税法施行規則 art.12(3)一（領収不能金額＝重量×税率−他法控除額）↔ PetroleumGasRefundAmount.lean",
            "341CO0000000005", "article", "第十二条", ["販売代金の領収をすることができなくなつた課税石油ガスの重量（石油ガス税を免除されるものの重量を除く。次号において同じ。）につき"])
+
     # DoubtfulReceivableDeduction (restored registered check)
     yield ("DoubtfulReceivableDeduction ↔ DoubtfulReceivableDeduction.lean", "326M50000040055", "article", "第二十二条の三", ["取立不能のおそれのある債権については、事業年度の末日においてその時に取り立てることができないと見込まれる額を控除しなければならない。"])
+
     # FifthWheelGrossWeight (restored registered check)
     yield ("FifthWheelGrossWeight ↔ FifthWheelGrossWeight.lean", "346CO0000000275", "article", "第五条", ["その自動車検査証に記録される車両総重量から第五輪荷重を控除し牽けん引重量を加えた重量"])
+
     # ShipProvisionalRateReduction (restored registered check)
     yield ("ShipProvisionalRateReduction ↔ ShipProvisionalRateReduction.lean", "342AC0000000035", "article", "第十七条", ["同号（二）の税率欄に掲げる割合から千分の四を控除した割合とする"])
+
     # CustomsTerritoryCountryInclusion.lean - NORM|e0b9627e... (関税制度地域の国包含 CONDITION, law 414CO0000000116)
     yield ("経済連携協定緊急措置政令 art.2(1)(1)（関税制度地域の国包含）↔ CustomsTerritoryCountryInclusion.lean",
            "414CO0000000116", "article", "第二条", ["当該調査の対象となる国（固有の関税及び貿易に関する制度を有する地域を含む。以下同じ。）"])
@@ -5276,6 +5280,7 @@ def checks():
     yield ("租税特別措置法施行令 art. 22_8（開放空地20%以上）↔ OpenSpaceRatioAtLeast20.lean",
            "332CO0000000043", "file", None,
            ["日常一般に開放された空地の部分の面積の当該敷地の面積に対する割合が百分の二十以上であること。"])
+
     # 相互主義非課税法施行令 art. 7 — DomesticRealEstateRatioAtLeast50.lean (50%以上)
     yield ("相互主義非課税法施行令 art. 7（国内不動産50%以上）↔ DomesticRealEstateRatioAtLeast50.lean",
            "337CO0000000227", "file", None,
@@ -5285,6 +5290,7 @@ def checks():
     yield ("租税特別措置法施行令 art. 25_18_3（移転価格120%以下）↔ TransferPriceAtMost120.lean",
            "332CO0000000043", "file", None,
            ["当該独立企業間価格とみなされる金額が当該対価の額とした額に百分の百二十を乗じて計算した金額を超えない場合"])
+
     # 租税特別措置法施行令 art. 25の18の3 — TransferPriceAtLeast80.lean (80%以上)
     yield ("租税特別措置法施行令 art. 25_18_3（移転価格80%以上）↔ TransferPriceAtLeast80.lean",
            "332CO0000000043", "file", None,
@@ -5294,6 +5300,7 @@ def checks():
     yield ("地方税法施行令 art. 15（固定資産税課税標準5%）↔ FixedAssetTaxBase5Percent.lean",
            "325CO0000000245", "file", None,
            ["課税標準となるべき価格に、百分の五を乗じて得た額"])
+
     # 租税特別措置法 art. 10の2 — SpecialRndDeduction20Percent.lean (20%算定)
     yield ("租税特別措置法 art. 10_2（特別試験研究費控除20%）↔ SpecialRndDeduction20Percent.lean",
            "332AC0000000026", "file", None,
@@ -5303,6 +5310,7 @@ def checks():
     yield ("租税特別措置法施行令 art. 51_2（効率110%以上）↔ EnergyEfficiency110Pct.lean",
            "332CO0000000043", "file", None,
            ["エネルギー消費効率が平成二十七年度基準エネルギー消費効率に百分の百十を乗じて得た数値以上であること。"])
+
     # 租税特別措置法 art. 87 — SpecialMeasuresBracket50To80M.lean (5000万超8000万以下)
     yield ("租税特別措置法 art. 87（5000万超8000万以下）↔ SpecialMeasuresBracket50To80M.lean",
            "332AC0000000026", "file", None,
@@ -5312,6 +5320,7 @@ def checks():
     yield ("租税特別措置法施行規則 art. 12（割合50%）↔ SpecialMeasuresRate50.lean",
            "332M50000040015", "file", None,
            ["法第三十条第四項に規定する割合は、百分の五十とする。"])
+
     # 租税特別措置法施行規則 art. 19の5 — SpecialMeasuresRate90.lean (90%)
     yield ("租税特別措置法施行規則 art. 19_5（割合90%）↔ SpecialMeasuresRate90.lean",
            "332M50000040015", "file", None,
@@ -5321,6 +5330,7 @@ def checks():
     yield ("租税特別措置法 art. 8_2（私募公社債20→15%）↔ PrivateFundRate20To15.lean",
            "332AC0000000026", "file", None,
            ["これらの規定に規定する百分の二十の税率は、百分の十五の税率とする。"])
+
     # 相互主義非課税法施行令 art. 14 — ReciprocityRate85PerMille.lean (8.5%)
     yield ("相互主義非課税法施行令 art. 14（税率8.5%）↔ ReciprocityRate85PerMille.lean",
            "337CO0000000227", "file", None,
@@ -5335,6 +5345,7 @@ def checks():
     yield ("租税特別措置法施行令 art. 39_17（持株50%超）↔ ForeignBankShareOver50.lean",
            "332CO0000000043", "file", None,
            ["発行済株式等の百分の五十を超える数又は金額の株式等を有するもの"])
+
     # 法人税法施行令 art. 155の32 — MemberRatiosAtMost5.lean (両割合5%以下)
     yield ("法人税法施行令 art. 155_32（両割合5%以下）↔ MemberRatiosAtMost5.lean",
            "340CO0000000097", "file", None,
@@ -5344,6 +5355,7 @@ def checks():
     yield ("租税特別措置法施行令 art. 33_3（正味収入保険料50%）↔ NetPremium50Percent.lean",
            "332CO0000000043", "file", None,
            ["正味収入保険料の百分の五十に相当する金額"])
+
     # 法人税法施行令 art. 155の8 — CorporateAssetFivePercent.lean (5%算定)
     yield ("法人税法施行令 art. 155_8（資産額5%）↔ CorporateAssetFivePercent.lean",
            "340CO0000000097", "file", None,
@@ -5353,6 +5365,7 @@ def checks():
     yield ("地方税法施行令 art. 15（都市計画税課税標準5%）↔ CityPlanningTaxBase5Percent.lean",
            "325CO0000000245", "file", None,
            ["都市計画税の課税標準となるべき価格に、百分の五を乗じて得た額"])
+
     # 租税特別措置法施行令 art. 51の2 — EnergyEfficiency173Pct.lean (173%)
     yield ("租税特別措置法施行令 art. 51_2（効率173%以上）↔ EnergyEfficiency173Pct.lean",
            "332CO0000000043", "file", None,
@@ -5367,6 +5380,7 @@ def checks():
     yield ("地方税法施行令 art. 43_8（軽油取扱休止1年以上）↔ LightOilNonHandlingPeriod1Y.lean",
            "325CO0000000245", "file", None,
            ["一年以上引き続き軽油の製造、輸入又は販売をしていないこと。"])
+
     # 税理士法 art. 25 — TaxAccountantMissingPeriod2Y.lean (所在不明2年以上)
     yield ("税理士法 art. 25（所在不明2年以上）↔ TaxAccountantMissingPeriod2Y.lean",
            "326AC1000000237", "file", None,
@@ -5376,6 +5390,7 @@ def checks():
     yield ("相続税法 art. 23（残存期間10年超15年以下）↔ ResidualPeriod10To15.lean",
            "325AC0000000073", "file", None,
            ["残存期間が十年を超え十五年以下のもの"])
+
     # 酒税法 art. 12 — SakeNonBrewingPeriod3Y.lean (製造休止3年以上)
     yield ("酒税法 art. 12（酒類製造休止3年以上）↔ SakeNonBrewingPeriod3Y.lean",
            "328AC0000000006", "file", None,
@@ -5385,6 +5400,7 @@ def checks():
     yield ("地方税法 art. 734（特別区内外による額）↔ OfficeFeeSpecialWardAmount.lean",
            "325AC0000000226", "file", None,
            ["百七十五万円（事務所等が特別区の区域外にも所在する場合以外の場合には、二百二十九万円）"])
+
     # 税関関係手数料令 art. 2 — CustomsPermissionFee21800.lean (21,800/21,700円)
     yield ("税関関係手数料令 art. 2（許可手数料21,800円）↔ CustomsPermissionFee21800.lean",
            "329CO0000000164", "file", None,
@@ -5394,6 +5410,7 @@ def checks():
     yield ("地方税法 art. 37（障害者控除の二段階額）↔ DisabilityDeductionTiers.lean",
            "325AC0000000226", "file", None,
            ["当該障害者一人につき一万円", "当該特別障害者一人につき十万円"])
+
     # 租税特別措置法施行令 art. 11 — PerMilleSevenPointFive.lean (千分の七・五)
     yield ("租税特別措置法施行令 art. 11（千分の七・五読み替え）↔ PerMilleSevenPointFive.lean",
            "332CO0000000043", "file", None,
@@ -5403,38 +5420,37 @@ def checks():
     yield ("地方税法 art. 15（施行日以後の不動産取得）↔ RealEstateAcquisitionAfterEnforcement.lean",
            "325AC0000000226", "file", None,
            ["新法第七十三条の二十七の二の規定は、施行日以後において不動産を取得した場合について適用する。"])
+
     # 相続税法 art. 18 — InheritanceDemandAfterEnforcement.lean (施行日以後の督促)
     yield ("相続税法 art. 18（施行日以後の督促）↔ InheritanceDemandAfterEnforcement.lean",
            "325AC0000000073", "file", None,
            ["新相続税法第三十四条第八項の規定は、施行日以後にする国税通則法第三十七条の規定による督促について適用する。"])
 
-# restored from 46137c57a (guard must never stay dropped)
-
     # 地方税法 art. 37の2 — LocalTaxBracket1800To4000.lean (1800万超4000万以下)
     yield ("地方税法 art. 37_2（1800万超4000万以下）↔ LocalTaxBracket1800To4000.lean",
            "325AC0000000226", "file", None,
            ["千八百万円を超え四千万円以下の金額"])
+
     # 地方税法 art. 37の2 — LocalTaxBracketOver4000.lean (4000万超)
     yield ("地方税法 art. 37_2（4000万超）↔ LocalTaxBracketOver4000.lean",
            "325AC0000000226", "file", None,
            ["四千万円を超える金額"])
-
-    # 地方道路税法 art. 15(1) — LocalRoadTaxPenaltyBounds.lean
 
     yield ("地方道路税法 art. 15（十年/百万円の罰則上限）↔ LocalRoadTaxPenaltyBounds.lean",
            "330AC0000000104",
            "file", None,
            ["次の各号のいずれかに該当する者は、十年以下の拘禁刑若しくは百万円以下の罰金に処し、又はこれを併科する。"])
 
-
     yield ("customs tariff law art.7 dumping duty obligor - CustomsTariffArt7DumpingDutyObligor.lean",
            "143AC0000000054",
            "file", None,
            ["\u524d\u9805\u306e\u76f8\u6bba\u95a2\u7a0e\u306f\u3001\u5f53\u8a72\u76f8\u6bba\u95a2\u7a0e\u3092\u8ab2\u3055\u308c\u308b\u3053\u3068\u3068\u306a\u308b\u8ca8\u7269\u306e\u8f38\u5165\u8005\u304c\u7d0d\u3081\u308b\u7fa9\u52d9\u304c\u3042\u308b\u3082\u306e\u3068\u3059\u308b\u3002"])
+
     yield ("customs tariff law art.3_2 zero-rate and exempt goods - CustomsTariffArt3_2ZeroRateAndExemptGoods.lean",
            "143AC0000000054",
            "file", None,
            ["\u3053\u306e\u6cd5\u5f8b\u305d\u306e\u4ed6\u95a2\u7a0e\u306b\u95a2\u3059\u308b\u6cd5\u5f8b\u306e\u898f\u5b9a\u306b\u3088\u308a\u95a2\u7a0e\u306e\u7387\u304c\u7121\u7a0e\u3068\u3055\u308c\u3066\u3044\u308b\u8ca8\u7269\u53ca\u3073\u95a2\u7a0e\u304c\u514d\u9664\u3055\u308c\u308b\u8ca8\u7269"])
+
     yield ("customs tariff law art.9 extended period reading - CustomsTariffArt9ExtendedPeriodReading.lean",
            "143AC0000000054",
            "file", None,
@@ -5446,6 +5462,13 @@ def checks():
            "143AC0000000054",
            "file", None,
            ["\u6761\u7d04\u306e\u898f\u5b9a\u306b\u3088\u308a\u8f38\u5165\u306e\u5f8c\u7279\u5b9a\u306e\u7528\u9014\u306b\u4f9b\u3055\u308c\u308b\u3053\u3068\u3092\u6761\u4ef6\u3068\u3057\u3066\u95a2\u7a0e\u3092\u514d\u9664\u3059\u308b\u3053\u3068\u3068\u3055\u308c\u3066\u3044\u308b\u8ca8\u7269\u3067\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
+
+    # CustomsTariffArt17ReexportGoodsDelegation.lean - NORM|7683650c... (関税定率法 art.17(1) item11 DELEGATION, law 143AC0000000054)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("customs tariff law art.17 reexport goods delegation - CustomsTariffArt17ReexportGoodsDelegation.lean",
+           "143AC0000000054",
+           "file", None,
+           ["\u6761\u7d04\u306e\u898f\u5b9a\u306b\u3088\u308a\u8f38\u5165\u306e\u5f8c\u4e00\u5b9a\u306e\u671f\u9593\u5185\u306b\u8f38\u51fa\u3055\u308c\u308b\u3053\u3068\u3092\u6761\u4ef6\u3068\u3057\u3066\u95a2\u7a0e\u3092\u514d\u9664\u3059\u308b\u3053\u3068\u3068\u3055\u308c\u3066\u3044\u308b\u8ca8\u7269\u3067\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")

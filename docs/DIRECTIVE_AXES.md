@@ -29,7 +29,11 @@ rounding and enforcement dates are recorded in independent fields
 - exceptions: 209 units
 - effects: 405 units
 - delegations: 205 units
+<<<<<<< HEAD
 - periods: 120 units
+=======
+- periods: 121 units
+>>>>>>> d16ea7695 (Verify customs tariff art.17 reexport-goods delegation (DELEGATION NORM|7683650c))
 - amounts: 322 units
 - rounding: 28 units
 - enforcement_dates: 21 units

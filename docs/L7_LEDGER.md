@@ -59,7 +59,11 @@
 ## 5. クロスロー・ピン整合（L1↔L3）
 
 ```text
+<<<<<<< HEAD
 cross_law: scanned 2785 Lean files; 1339 pinned modules consistent, 0 failed; 1446 unpinned (not counted as verified); unresolved unenforced laws: 508CO0000000106, 508M60000040027
+=======
+cross_law: scanned 2782 Lean files; 1339 pinned modules consistent, 0 failed; 1443 unpinned (not counted as verified); unresolved unenforced laws: 508CO0000000106, 508M60000040027
+>>>>>>> d16ea7695 (Verify customs tariff art.17 reexport-goods delegation (DELEGATION NORM|7683650c))
 ```
 
 ## 6. 検証境界（誠実な宣言）

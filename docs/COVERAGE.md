@@ -62,15 +62,24 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
+<<<<<<< HEAD
 | pinned literal checks | 829 | n/a | n/a |
 | distinct article pins | 236 | 42584 | 0.55% |
+=======
+| pinned literal checks | 830 | n/a | n/a |
+| distinct article pins | 235 | 42584 | 0.55% |
+>>>>>>> d16ea7695 (Verify customs tariff art.17 reexport-goods delegation (DELEGATION NORM|7683650c))
 | pinned Lean modules (cross-law) | 1339 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
+<<<<<<< HEAD
 | unpinned Lean modules (not counted as verified) | 1446 |
+=======
+| unpinned Lean modules (not counted as verified) | 1443 |
+>>>>>>> d16ea7695 (Verify customs tariff art.17 reexport-goods delegation (DELEGATION NORM|7683650c))
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
