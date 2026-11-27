@@ -1,12 +1,12 @@
 # Adversarial audit of the completion gate
 
-repo: `D:\CodexData\Temp\opencode\jtl-next6`
+repo: `C:\Users\junny\.local\share\opencode\worktree\484e09\rnd-surcharge-cycle`
 
 verdict: **PASS** (0 MUST failures)
 
 - tools present: 4/4
-- evidence file: D:\CodexData\Temp\opencode\jtl-next6\data\verification_evidence.json
-- durable state counts: {"BLOCKED": 2, "FULLY_VERIFIED": 1197}
+- evidence file: C:\Users\junny\.local\share\opencode\worktree\484e09\rnd-surcharge-cycle\data\verification_evidence.json
+- durable state counts: {"BLOCKED": 2, "FULLY_VERIFIED": 1255}
 
 | rule | must | H | T | D | C | U |
 |---|---|---|---|---|---|---|
