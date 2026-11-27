@@ -1817,6 +1817,9 @@ import JapanTaxLaw.OilGasGrantRoundingTests
 import JapanTaxLaw.OilGasGrantTax
 import JapanTaxLaw.OilGasGrantTaxSpec
 import JapanTaxLaw.OilGasGrantTaxTests
+import JapanTaxLaw.OkinawaArt19Bracket10M15M
+import JapanTaxLaw.OkinawaArt19Bracket10M15MSpec
+import JapanTaxLaw.OkinawaArt19Bracket10M15MTests
 import JapanTaxLaw.OkinawaArt19Bracket1M2M
 import JapanTaxLaw.OkinawaArt19Bracket1M2MSpec
 import JapanTaxLaw.OkinawaArt19Bracket1M2MTests
