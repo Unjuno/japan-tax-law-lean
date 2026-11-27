@@ -10142,6 +10142,19 @@
       "source_location": "data/raw/325AC0000000073_20260401_506AC0000000008.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:18/Article#18/Paragraph#1/ParagraphSentence/Sentence#1 sha256=c01bb9be910ce849c82e26f1dd5d262ddf5bb55a1bf042512451460f275043a7 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/InheritanceSurchargeTests.lean sha256=701e517409d8dd0d84eb83017f8adfbd9904dd4a65545b78b4e33c30b009abd7 (11 kernel-decided examples)"
     },
+    "NORM|968179c7175953683316a738e259562ee727f5960de313031e9e9bf402ee7a8f": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 9 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=332CO0000000043_20261101_507CO0000000127 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/RedevelopmentShareRatio.lean sha256=1ccf2875288f2dd67b62c0a1a5ca534fcbab4527b96b9fab46f7fb0e9ef3e7f2",
+      "independent_spec": "JapanTaxLaw/RedevelopmentShareRatioSpec.lean sha256=1a4fed710994b4008ec43ea12f3f9a5a83dc451175adbafd3647a015e21f70a8 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45824416960: commit 2ccac5480296e47b1ef5c1b867c28c3145aecb3d, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=pinned needle(s) in clause: ['当該土地に関する権利の持分の割合から当該旧権利の']; constants [] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['当該土地に関する権利の持分の割合から当該旧権利の']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[5]/Article:42_3/Article#42_3/Paragraph#2/Item#1/ItemSentence/Column#2/Sentence#1 sha256=d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/RedevelopmentShareRatioTests.lean sha256=4539ae27c2f45c5dbfc5af5f30fe9e16cec5b14750cc3a305ed4ed633ef6f0be (9 kernel-decided examples)"
+    },
     "NORM|96b0055a372819852d280ad21d358521f7ec9f0a56b17b5607dd699b8ac81f99": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",
