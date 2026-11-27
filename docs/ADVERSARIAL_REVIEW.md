@@ -16393,7 +16393,7 @@ CI と同一の `text()`（JSON ノードの `children` のみ再帰連結）＋
 
 - 2 本とも **U+3000 を含まず**、raw / 正規化の双方で `contains = true`（**2/2 FOUND、MISS 0**）。block [5] は `…から施行し、令和元年度分…` であるため `施行する` を袋小路に含まず、needle は対象 block [4] を一意に指す。
 - doc-comment 13 行目の `「第一条 この省令は、平成三十一年四月一日から施行する。」` は `ArticleTitle = 第一条` と `Sentence[0]` を半角スペースで連結した引用であり、raw JSON にそのまま連続文字列は存在しない（count = 0）。needle は `Sentence[0]` の部分文字列として設定されており正当（BY-DESIGN B-7）。
-- `scripts/ci/transcription_audit.py` に **cycle-149 エントリ**を確認（L2587–2591、law id `429M60000008030`、needle `第一条この省令は、平成三十一年四月一日から施行する` / `この省令は、平成三十一年四月一日から施行する`）。全走の `python scripts/ci/transcription_audit.py` は **exit code 0**（全チェック通過）。cycle-148（`423M60000008168`）／147／146／145 のエントリは従来どおり独立して残存。
+- `scripts/ci/transcription_audit.py` に **cycle-149 エントリ**を確認（L2587–2591、law id `429M60000008030`、needle `第一条この省令は、平成三十一年四月一日から施行する` / `この省令は、平成三十一年四月一日から施行する`）。全走の `python scripts/ci/transcription_audit.py` は **exit code 0 / 820/820 checks passed**。cycle-148（`423M60000008168`）／147／146／145 のエントリは従来どおり独立して残存。
 
 ### EM-3. 反例・独立 Spec・2017〜2021 全範囲スイープ・cycle-148 移植-check
 
@@ -16463,5 +16463,5 @@ CI と同一の `text()`（JSON ノードの `children` のみ再帰連結）＋
 ### EM-7. 書き込み・検証・制約
 
 - **二段 read-then-write**: 書き込み直前に再読込し、広義レビュー件数 `144`、Batch EL / EK の存在、Batch EM の不在、SHA-256 `bd283b82888cec34bf2bce6d907dbdaef8a357c51cdb19f3e863d5bb56cb6f34`（1,994,307 bytes）を確認してから本セクションのみを末尾追記。追記後の再読込で広義件数 **145（Previous +1）**、追記前バイト列が変更されていないこと（プレフィクス一致）、および既存セクション（Batch EL / EK / EJ / EI / EH / EG / EF / EE / ED / EC / EB / EA / DZ / DY / DX / DW / DV / DU / DT / Batch G review を含む）の保持を検証した。
-- commit / push / merge / ブランチ切替は一切行わず、Lean モジュール・`data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。監査用一時ファイル（抽出レポート 4 本・audit 出力 1 本・axioms probe 1 本・追記ドラフト 1 本）は削除済み。
+- commit / push / merge / ブランチ切替は一切行わず、Lean モジュール・`data/*` は読み取り専用。書き換えたのは `docs/ADVERSARIAL_REVIEW.md` のみ。監査用一時ファイル（抽出・検証レポート 6 本・audit 出力 1 本・axioms probe 1 本・追記ドラフト 1 本）はすべて削除済み。
 - 追記内容（本セクション）の SHA-256 を最終報告で提示する。
