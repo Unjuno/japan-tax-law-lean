@@ -5414,6 +5414,14 @@ def checks():
            "325AC0000000226", "file", None,
            ["四千万円を超える金額"])
 
+    # 地方道路税法 art. 15(1) — LocalRoadTaxPenaltyBounds.lean
+
+    yield ("地方道路税法 art. 15（十年/百万円の罰則上限）↔ LocalRoadTaxPenaltyBounds.lean",
+           "330AC0000000104",
+           "file", None,
+           ["次の各号のいずれかに該当する者は、十年以下の拘禁刑若しくは百万円以下の罰金に処し、又はこれを併科する。"])
+
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

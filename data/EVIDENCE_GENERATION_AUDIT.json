@@ -5669,6 +5669,23 @@
         100
       ]
     },
+    "LocalRoadTaxPenaltyBounds": {
+      "adversarial_review": true,
+      "boundary_examples_found": 5,
+      "independent_spec": true,
+      "kanji_literals": [
+        "十",
+        "百万"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 6,
+      "needles_scoped": true,
+      "scoped_article_chars": 493,
+      "spec_literals": [
+        10,
+        1000000
+      ]
+    },
     "LocalSeismic120sqm": {
       "adversarial_review": true,
       "boundary_examples_found": 4,
@@ -17456,6 +17473,23 @@
         "module": "CapitalFiveBillionThreshold",
         "spec_kanji_in_原文": [
           "五十億"
+        ]
+      },
+      "NORM|59252c611830c7174f1e31b83aa97cdd93dbf05739d25bfc56d6cd9d72618588": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 6,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "LocalRoadTaxPenaltyBounds",
+        "spec_kanji_in_原文": [
+          "十",
+          "百万"
         ]
       },
       "NORM|592c19cc7ceaeaa833d5ebea38033733fed55d1581e21e4dd9102200bc9fae28": {
@@ -35047,6 +35081,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"5000000000\": [\"五十億\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/352M50000040032_20220710_504M60000040044.law.json#LawBody[2]/MainProvision/MainProvision[1]/Article:2/Article#2/Paragraph#1/Item#1/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=d626cf16d9fed1f7c4c51c463edd7e23b40bd66063cbbd79f3fe3055324610ed (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/CapitalFiveBillionThresholdTests.lean sha256=935cf50e3e9480d97164c5d6a3388bcbeda846bd618a3efc88db83bc85815e14 (9 kernel-decided examples)"
+    },
+    "NORM|59252c611830c7174f1e31b83aa97cdd93dbf05739d25bfc56d6cd9d72618588": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 6 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=330AC0000000104_20260401_508AC0000000012 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/LocalRoadTaxPenaltyBounds.lean sha256=edb2b5de1b143f1604d042437e034de56b303e91783cda6f1f167dda0c106526",
+      "independent_spec": "JapanTaxLaw/LocalRoadTaxPenaltyBoundsSpec.lean sha256=006ff96b9df2f4d418c478b5b7712f74382ba67c606bb581a1f4dcc7e024ec2a (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45898035714: commit 0527c1137f296ba1562239d39a287715cbdeb29d, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10, 1000000] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10\": [\"十\"], \"1000000\": [\"百万\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/330AC0000000104_20260401_508AC0000000012.law.json#LawBody[1]/MainProvision/MainProvision[15]/Article:15/Article#15/Paragraph#1/ParagraphSentence/Sentence#1 sha256=c37f8a705911e90745b865522b1040e3ede192c0a3fee7bbb95727320bc9900a (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/LocalRoadTaxPenaltyBoundsTests.lean sha256=c48821a987db21dd6790af2563d6000fad584de83f1a36b0f8263069097e127d (6 kernel-decided examples)"
     },
     "NORM|592c19cc7ceaeaa833d5ebea38033733fed55d1581e21e4dd9102200bc9fae28": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
