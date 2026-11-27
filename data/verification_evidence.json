@@ -2758,6 +2758,19 @@
       "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[16]/Article:7/Article#7/Paragraph#10/ParagraphSentence/Sentence#1 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/InvestigationExtensionSixMonthsTests.lean sha256=1d6c7c6eb6e501410871e2e60f71658a550ab1db39b7f0e00796d8c701848a06 (13 kernel-decided examples)"
     },
+    "NORM|245fbea3a32526db3e7a4a4c2a1bc7a366f7f8e94fce22b0d9e53dbd579d1173": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 12 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=337AC0000000066_20261101_507AC0000000013 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/GeneralTaxActArt66Excess3M.lean sha256=9e3fa4b9bf51895f2a8c5341d5b8a561e8ef0d36dfe14012858809ac4c7d2873",
+      "independent_spec": "JapanTaxLaw/GeneralTaxActArt66Excess3MSpec.lean sha256=25ee0900ca752da5662f47e98267172a31c89c696ed7ff4a504a26785a712674 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/46034476488: commit f4e7bc81, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [3000000] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"3000000\": [\"三百万\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/337AC0000000066_20261101_507AC0000000013.law.json#LawBody[2]/MainProvision/MainProvision[5]/Article:66/Article#66/Paragraph#3/Item#3/ItemSentence/Column#1/Sentence#1 sha256=6f8b43e168652d228066cda3389a3bf6823900a9268e6bf97297cb6b25189dee (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/GeneralTaxActArt66Excess3MTests.lean sha256=8733ee3843f363a2f334db25cf1ec23d3f077a52087193c7ec64feb5126e763e (12 kernel-decided examples)"
+    },
     "NORM|24a2d3e059f79b083a894a280b4cc8a6c5453e8e6090d899a0371b931cf2b058": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 7 kernel-decided examples covering boundary inputs",
