@@ -11,6 +11,10 @@ class TestBulkStructuralLabel(unittest.TestCase):
         self.assertEqual(label_code("一"), (1, 0))
         self.assertEqual(label_code("六の二"), (6, 2))
 
+    def test_set_and_range_expressions(self):
+        self.assertEqual(label_code("一及び二"), (1, 2))
+        self.assertEqual(label_code("一から十二まで"), (1, 12))
+
     def test_module_has_per_unit_namespace(self):
         impl, spec, tests = batch_modules_prefixed("BatchX", [("xabc", (3, 0))])
         self.assertIn("namespace JapanTaxLaw.BatchX.xabc", impl)

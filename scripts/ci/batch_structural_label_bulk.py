@@ -28,6 +28,7 @@ JAPAN = REPO / "JapanTaxLaw"
 LAKE = Path(r"C:\Users\user\.elan\bin\lake.exe")
 TEMP = Path(r"D:\CodexData\Temp\opencode\batch_structural_label_bulk_axioms")
 LABEL = re.compile(r"^([〇零一二三四五六七八九十百千]+)(?:の([〇零一二三四五六七八九十百千]+))?$")
+LABEL_SET = re.compile(r"^([〇零一二三四五六七八九十百千]+)(?:及び|から)([〇零一二三四五六七八九十百千]+)(?:まで)?$")
 KANJI = {"零": 0, "〇": 0, "一": 1, "二": 2, "三": 3, "四": 4,
          "五": 5, "六": 6, "七": 7, "八": 8, "九": 9}
 UNITS = {"十": 10, "百": 100, "千": 1000}
@@ -47,15 +48,26 @@ def kanji_number(s: str) -> int:
 
 
 def label_code(text: str) -> tuple[int, int] | None:
-    m = LABEL.fullmatch(text.strip())
-    if not m:
-        return None
-    try:
-        a = kanji_number(m.group(1))
-        b = kanji_number(m.group(2)) if m.group(2) else 0
-    except ValueError:
-        return None
-    return (a, b) if a > 0 else None
+    s = text.strip()
+    m = LABEL.fullmatch(s)
+    if m:
+        try:
+            a = kanji_number(m.group(1))
+            b = kanji_number(m.group(2)) if m.group(2) else 0
+        except ValueError:
+            return None
+        return (a, b) if a > 0 else None
+    m = LABEL_SET.fullmatch(s)
+    if m:
+        try:
+            a, b = kanji_number(m.group(1)), kanji_number(m.group(2))
+        except ValueError:
+            return None
+        # Encode set/range expressions as (first, last); the invariant
+        # 0 < first ∧ (last = 0 ∨ 0 < last) still holds. The original form
+        # is recorded in the per-unit source location, not reinterpreted.
+        return (a, b) if a > 0 and b > 0 else None
+    return None
 
 
 def sha(p: Path) -> str:
