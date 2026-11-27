@@ -1046,3 +1046,7 @@ JapanTaxLaw/ReconstructionZoneLocalTaxExemptionEnforcementDateTests.lean # 同�
 JapanTaxLaw/StandardTaxRevenueCalculationEnforcementDate.lean    # 都及び特別区の標準税収入額の算定方法に関する省令 施行日2019-04-01（附則 art.1）L4
 JapanTaxLaw/StandardTaxRevenueCalculationEnforcementDateSpec.lean # 同上 独立定式
 JapanTaxLaw/StandardTaxRevenueCalculationEnforcementDateTests.lean # 同上 退行テスト
+
+JapanTaxLaw/CustomsTariffSupplArt1Showa59EnforcementDate.lean    # 関税定率法 附則 art.1 昭和59年施行 1984-04-01 L4
+JapanTaxLaw/CustomsTariffSupplArt1Showa59EnforcementDateSpec.lean # 独立仕様
+JapanTaxLaw/CustomsTariffSupplArt1Showa59EnforcementDateTests.lean # カーネル決定テスト
