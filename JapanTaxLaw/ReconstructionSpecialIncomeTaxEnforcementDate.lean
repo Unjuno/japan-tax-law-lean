@@ -3,14 +3,20 @@ import JapanTaxLaw.TaxFinance
 /-!
 # ReconstructionSpecialIncomeTaxEnforcementDate — 復興特別所得税に関する政令 施行日（附則 art.1）bounded L4 モデル
 
-Sources (historical revision; NOT a current-law pin):
-  Historical law identifier: 424CO0000000016
-  Historical revision identifier: 424CO0000000016_20260525_507CO0000000244
-  Raw snapshot: data/raw/424CO0000000016_20260525_507CO0000000244.law.json
-  Ledger status: PreviousEnforced / audit_ready=false (verified against INVENTORY);
-  therefore no CurrentEnforced law pin is asserted by this module. The modeled
-  2016-01-01 enforcement date is read from that historical revision's 附則 Article 1.
+Sources (historical reference — explicitly NOT a verification pin):
+  Historical source law: 424CO0000000016 (復興特別所得税に関する政令)
+  Historical source revision: 424CO0000000016_20260525_507CO0000000244
+  Historical snapshot: data/raw/424CO0000000016_20260525_507CO0000000244.law.json
   附則 Article 1 (施行期日). Needles contain no U+3000.
+
+  Why unpinned: INVENTORY records this law's selection_status as
+  historical_fallback and its current_revision_status as PreviousEnforced —
+  there is no CurrentEnforced revision to pin. cross_law.py correctly requires
+  a CurrentEnforced ledger entry for every verification pin, so this module
+  deliberately carries no law-id, revision or raw-snapshot-sha256 pin marker.
+  It is a historical-reference model, NOT counted as source-verified. The
+  separate L1 transcription check still audits its literal against the pinned
+  historical snapshot; it does not assert current-law applicability.
 
 原文逐語（附則）:
   「第一条 この政令は、平成二十八年一月一日から施行する。」

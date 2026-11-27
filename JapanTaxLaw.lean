@@ -2218,6 +2218,9 @@ import JapanTaxLaw.Semiconductor210nmTests
 import JapanTaxLaw.SenFractionRoundDown
 import JapanTaxLaw.SenFractionRoundDownSpec
 import JapanTaxLaw.SenFractionRoundDownTests
+import JapanTaxLaw.SeparateTariffApplication
+import JapanTaxLaw.SeparateTariffApplicationSpec
+import JapanTaxLaw.SeparateTariffApplicationTests
 import JapanTaxLaw.ServiceYearFractionRoundDown
 import JapanTaxLaw.ServiceYearFractionRoundDownSpec
 import JapanTaxLaw.ServiceYearFractionRoundDownTests
