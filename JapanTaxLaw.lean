@@ -103,6 +103,9 @@ import JapanTaxLaw.BasicDeductionIncome23M50Tests
 import JapanTaxLaw.Below200kYen
 import JapanTaxLaw.Below200kYenSpec
 import JapanTaxLaw.Below200kYenTests
+import JapanTaxLaw.BenefitTariffLowerRate
+import JapanTaxLaw.BenefitTariffLowerRateSpec
+import JapanTaxLaw.BenefitTariffLowerRateTests
 import JapanTaxLaw.BlueBusinessDeductAmount
 import JapanTaxLaw.BlueBusinessDeductAmountSpec
 import JapanTaxLaw.BlueBusinessDeductAmountTests
@@ -2486,6 +2489,9 @@ import JapanTaxLaw.SpecialTonnageArt10PenaltyCapTests
 import JapanTaxLaw.SpecialUseExemption
 import JapanTaxLaw.SpecialUseExemptionSpec
 import JapanTaxLaw.SpecialUseExemptionTests
+import JapanTaxLaw.SpecialWardReading
+import JapanTaxLaw.SpecialWardReadingSpec
+import JapanTaxLaw.SpecialWardReadingTests
 import JapanTaxLaw.SpecifiedRelativeSpecialDeduction
 import JapanTaxLaw.SpecifiedRelativeSpecialDeductionSpec
 import JapanTaxLaw.SpecifiedRelativeSpecialDeductionTests
