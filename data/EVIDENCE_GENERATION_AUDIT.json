@@ -7524,6 +7524,17 @@
         75000000
       ]
     },
+    "PortMunicipalityAllocationBase": {
+      "adversarial_review": true,
+      "boundary_examples_found": 3,
+      "independent_spec": true,
+      "kanji_literals": [],
+      "kernel_attested": true,
+      "kernel_decided_examples": 10,
+      "needles_scoped": true,
+      "scoped_article_chars": 398,
+      "spec_literals": []
+    },
     "PostOfficeExceptionDate": {
       "adversarial_review": true,
       "boundary_examples_found": 6,
@@ -13629,6 +13640,20 @@
         "spec_kanji_in_原文": [
           "二十"
         ]
+      },
+      "NORM|25fa4c2ac0e109c13793841e0bb7254f55c8710cbf2398e8ed9b048cf29ed86f": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 10,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "PortMunicipalityAllocationBase",
+        "spec_kanji_in_原文": []
       },
       "NORM|26062634967652ac148f1eb6249e478fa849f3148cafdadfbfbe757248f93f1e": {
         "checks": {
@@ -32060,6 +32085,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"20\": [\"二十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/332CO0000000043_20261101_507CO0000000127.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:25_13/Article#25_13/Paragraph#31/ParagraphSentence/Sentence#1 sha256=d0ad21a838fd3d2a3b107a001b91a31ee00c267dc776bcd608b0ef018cf5494d (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/TrustPeriod20YTests.lean sha256=0e44b6c6067b162efce6f71b05af6c806cd79901f388f41f151a49ea8c99d1ab (11 kernel-decided examples)"
+    },
+    "NORM|25fa4c2ac0e109c13793841e0bb7254f55c8710cbf2398e8ed9b048cf29ed86f": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 10 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=332AC0000000077_20010106_411AC0000000160 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/PortMunicipalityAllocationBase.lean sha256=a5fb6679cb76e88c58af48a0d8208e24a4dc55d1688762cd7015db152777265b",
+      "independent_spec": "JapanTaxLaw/PortMunicipalityAllocationBaseSpec.lean sha256=f9200165985510e571f5d7873c504bd1d1c7c4d9d7bd60f5be7fc6bca6bebf36 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/46029786055: commit 6655d408eb737cc1f9e8366eb162daa605728032, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=pinned needle(s) in clause: ['前項の場合において、一の開港に係る開港所在市町村']; constants [] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['前項の場合において、一の開港に係る開港所在市町村']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/332AC0000000077_20010106_411AC0000000160.law.json#LawBody[1]/MainProvision/MainProvision[1]/Article:2/Article#2/Paragraph#2/ParagraphSentence/Sentence#1 sha256=c24ccc49c14a5d0e9f626f02635e3ee6d90587628e5aba803ca5e31a33bf112d (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/PortMunicipalityAllocationBaseTests.lean sha256=f7592685ddc097d6dddeee473de20f2896b4b6299e08428caaa23c2e28fcb131 (10 kernel-decided examples)"
     },
     "NORM|26062634967652ac148f1eb6249e478fa849f3148cafdadfbfbe757248f93f1e": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
