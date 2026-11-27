@@ -1,31 +1,32 @@
-# Adversarial review — batch 212
+### FilingDateException.lean — 通算法人 第六条（指定期日が提出期限前の日の例外）
 
-Mechanical (not human) re-extraction and cross-check of FirstDemandNoticeDate
-against the pinned source. Reproducible from committed bytes; NOT a human legal
-review. No approval field recorded; legal review stays LEGAL_REVIEW_PENDING.
-
-### FirstDemandNoticeDate.lean — 国税通則法施行令 第二十五条 第一項 第四号
-
-BY-DESIGN / 照合 (CI attestation + evidence wiring follow in separate commits).
-
-- 一次資料: 国税通則法施行令 (law 337CO0000000135), revision
-  337CO0000000135_20260401_507CO0000000126.
-- Source: data/raw/337CO0000000135_20260401_507CO0000000126.law.json.
-- 独立再抽出: walked `law_full_text` to Article `Num=25`, `Paragraph#1`,
-  `Item#4`, `Column#2`; scoped article 1,848 chars. Full unit text occurs once
-  in the pinned raw; the short needle occurs once in the whole law and only in
-  article 25 (sibling articles 23/24/26/27 negative).
-- 数値: 「二」 = 2 (`matched_spellings({2}) == {'2':['二']}`);
-  `clause_correspondence({2}, text, …)` True. Sole numeral in the unit.
-- 計算: `repeatedNotices n = 2 <= n` (inclusive 以上); `noticeDate first rest =
-  rest.foldl Nat.min first` selects 最初に発した日 (earliest issuance day).
-  Kernel-decided: counts 1 false / 2 true / 3 true; dates [10]→10,
-  [10,12]→10, [10,8]→8, [10,12,7]→7, [10,10]→10.
-- 独立仕様: specThreshold/specRepeated/specEarliest independent; agree* use
-  `rw`/`rfl`.
-- 判定 (H/T/D/C/U): H（告知書を二回以上発した場合は最初の発行日を起算日とする）,
-  T（2, 二, bytes pinned）, D（rfl / decide）, C（scoped needle 一意、sibling
-  negative、threshold + earliest 境界、spec 独立性）, U（税目の特定、告知書の
-  存在・有効性、延滞税率・期間 calculation、5号、他条は非介入）。
-- 本レビューは機械的であり、人間による法解釈・目視確認ではない
-  (legal review remains LEGAL_REVIEW_PENDING)。
+- 独立再抽出（一次資料）: law id 426CO0000000139; revision
+  426CO0000000139_20260401_508CO0000000095; source
+  data/raw/426CO0000000139_20260401_508CO0000000095.law.json;
+  blob 91,424 bytes, SHA-256 independently recomputed
+  `2239be3cdc09998cc3a9c75a05d8b8c6b47df4135ec708cdcb6aa31f40d76dcf`
+  — matches the impl pin.
+- 照合（Article Num 6, scoped 原文）: needle found verbatim, 一字一句改変なし:
+  「ただし、当該指定された期日が当該他の通算法人の同条第一項の規定による申告書の提出期限前の日である場合は、この限りでない。」
+- Structural literal: 第一項 → 1 is a CROSS-REFERENCE IDENTIFIER to paragraph 1
+  of the same article, NOT a substantive threshold. Therefore
+  spec_literals() = [] by design (it filters v > 1); no larger literal is
+  fabricated. Verified directly: source_literals_verified({1}, scoped) = True
+  (kanji 一 occurs in scoped Article 6). No 百分の rate; parse_statutory_rate = None.
+- 判定: BY-DESIGN/CONFIRMED — EXCEPTION with strict temporal-ordering trigger.
+  `isBeforeDeadline d f = decide (d < f)` fires only for d < f; equality does not
+  fire. `baseRuleApplies d f = decide (f <= d)` is the exact complement:
+  9/10 false, 10/10 true, 11/10 true. No off-by-one; calendar arithmetic and the
+  legal effect of この限りでない are NOT MODELLED (caller-established day indices).
+- H/T/D/C/U: H（raw bytes SHA-256 and needle independently re-extracted）,
+  T（Article Num 6, 第一項 = 1 as cross-reference, strict < vs <=, kernel-decided
+  at 9/10/10/10/11/10 and 0/1 boundaries）,
+  D（specItemRef/specBefore/specBaseApplies bodies contain no impl identifiers;
+  independent_spec_ok = True）,
+  C（agreeItemRef / agreeBefore / agreeBase are unfold + rfl bridges only）,
+  U（boundary categories: zero 0, small_input 1/9/10/11, saturation at the
+  equality boundary 0/0 and 10/10 — 3 >= 3）.
+- 限定: 機械的独立クロスチェックであり人間の法律レビューではない
+  (mechanical, not human, review). H/T/D/C/U is a machine-generated audit tuple,
+  not a human sign-off; no lake/lean re-run here — only in-tree detector
+  computations plus Python-simulated Nat/Bool expectations.
