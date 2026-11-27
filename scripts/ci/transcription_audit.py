@@ -91,10 +91,6 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
-    # SpecialWardReading.lean - NORM|dd5ec1ac... (特別区への準用 READING, law 422CO0000000221)
-    yield ("口蹄疫特例法施行令 art.2(6)（特別区への準用）↔ SpecialWardReading.lean",
-           "422CO0000000221", "article", "第二条", ["前各項の規定は、特別区について準用する。"])
-
     # DoubtfulReceivableDeduction (restored registered check)
     yield ("DoubtfulReceivableDeduction ↔ DoubtfulReceivableDeduction.lean", "326M50000040055", "article", "第二十二条の三", ["取立不能のおそれのある債権については、事業年度の末日においてその時に取り立てることができないと見込まれる額を控除しなければならない。"])
     # FifthWheelGrossWeight (restored registered check)
