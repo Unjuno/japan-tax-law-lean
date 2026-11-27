@@ -1,6 +1,6 @@
 # Adversarial audit of the completion gate
 
-repo: `C:\Users\junny\Desktop\japan-tax-law-lean`
+repo: `D:\CodexData\Temp\opencode\jtl-next-unit`
 
 verdict: **PASS** (0 MUST failures)
 
