@@ -280,6 +280,9 @@ import JapanTaxLaw.CorpCourseUnits17Tests
 import JapanTaxLaw.CorpIncome10M
 import JapanTaxLaw.CorpIncome10MSpec
 import JapanTaxLaw.CorpIncome10MTests
+import JapanTaxLaw.CorpOrderArt4OwnershipOver50Percent
+import JapanTaxLaw.CorpOrderArt4OwnershipOver50PercentSpec
+import JapanTaxLaw.CorpOrderArt4OwnershipOver50PercentTests
 import JapanTaxLaw.CorpUnits31Art7
 import JapanTaxLaw.CorpUnits31Art7Spec
 import JapanTaxLaw.CorpUnits31Art7Tests

@@ -1335,6 +1335,12 @@ def checks():
            "file", None,
            ["資本金の額に千分の三・五を乗じて計算した金額", "七万五千円に満たない場合"])
 
+    # 法人税法施行令 art.4(3)(1) — CorpOrderArt4OwnershipOver50Percent.lean
+    yield ("法人税法施行令 art.4(3)(1)（他会社持株50%超）↔ CorpOrderArt4OwnershipOver50Percent.lean",
+           "340CO0000000097",
+           "file", None,
+           ["総数又は総額の百分の五十を超える数又は金額の株式又は出資を有する場合", "第四条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
