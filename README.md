@@ -1046,3 +1046,7 @@ JapanTaxLaw/ReconstructionZoneLocalTaxExemptionEnforcementDateTests.lean # 同�
 JapanTaxLaw/StandardTaxRevenueCalculationEnforcementDate.lean    # 都及び特別区の標準税収入額の算定方法に関する省令 施行日2019-04-01（附則 art.1）L4
 JapanTaxLaw/StandardTaxRevenueCalculationEnforcementDateSpec.lean # 同上 独立定式
 JapanTaxLaw/StandardTaxRevenueCalculationEnforcementDateTests.lean # 同上 退行テスト
+
+JapanTaxLaw/TobaccoTaxTransitionEnforcementDate.lean    # たばこ税法の一部改正に伴う経過措置に関する政令 施行日2017-04-01（附則 art.1）L4
+JapanTaxLaw/TobaccoTaxTransitionEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/TobaccoTaxTransitionEnforcementDateTests.lean # 同上 退行テスト
