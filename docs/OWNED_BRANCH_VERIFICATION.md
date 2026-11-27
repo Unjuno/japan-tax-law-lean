@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=22842, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=24842, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=22842 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=24842 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -240,6 +240,9 @@ bulk structural-label pipeline: verified=500 failed=0 (x3)
 
 $ python scripts/ci/batch_structural_label_bulk.py --limit 1000 x3
 bulk structural-label pipeline: verified=1000 failed=0 (x3)
+
+$ python scripts/ci/batch_structural_label_bulk.py --limit 1000 x2
+bulk structural-label pipeline: verified=1000 failed=0 (x2)
 
 $ python -m unittest discover -s scripts/tests -t . → 243 tests, OK
 
@@ -680,7 +683,10 @@ formalized); Axis A 33 PASS / 0 FAIL / 0 SKIP, Axis B all-complete False.
 Three 1000-unit bulk structure-only batches added 3000 units (no legal effect
 formalized); Axis A 33 PASS / 0 FAIL / 0 SKIP, Axis B all-complete False.
 
-So 22842 units are evidence-backed FULLY_VERIFIED and 374,010 remain NOT_STARTED
+Two more 1000-unit bulk structure-only batches added 2000 units (no legal
+effect formalized); Axis A 33 PASS / 0 FAIL / 0 SKIP, Axis B all-complete False.
+
+So 24842 units are evidence-backed FULLY_VERIFIED and 372,010 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is
