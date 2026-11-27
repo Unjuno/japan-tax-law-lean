@@ -11,7 +11,7 @@ a completion flag.
 - laws in ledger: 327
 - with pinned raw snapshot: 325
 - structural audit status ok: 325
-- with >=1 pinned literal check (semantic model): 215
+- with >=1 pinned literal check (semantic model): 216
 - with recorded human legal review: 0
 
 ## All laws
@@ -287,7 +287,7 @@ a completion flag.
 | `426M60000200069` | 関税暫定措置法施行令第三十二条第二項第八号の農林水産省令で定める方法を定める省令 | 426M60000200069_20181230_430M60000200085 | CurrentEnforced | YES | ok | 3 | NO (0) | NO |
 | `426CO0000000415` | トルエンジイソシアナートに対して課する不当廉売関税に関する政令 | 426CO0000000415_20150425_427CO0000000215 | CurrentEnforced | YES | ok | 7 | YES (1) | NO |
 | `427CO0000000033` | 粉乳等に対して課する輸入数量が輸入基準数量を超えた場合の特別緊急関税に関する規定の平成二 | 427CO0000000033_20150201_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
-| `427CO0000000156` | たばこ税法の一部改正に伴う経過措置に関する政令 | 427CO0000000156_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 11 | NO (0) | NO |
+| `427CO0000000156` | たばこ税法の一部改正に伴う経過措置に関する政令 | 427CO0000000156_20250401_507CO0000000006 | CurrentEnforced | YES | ok | 11 | YES (1) | NO |
 | `427CO0000000397` | バター等に対して課する輸入数量が輸入基準数量を超えた場合の特別緊急関税に関する規定の平成 | 427CO0000000397_20151201_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `428M60000440001` | 承継法人が分割により承継した兼業者たる法人の権利の登記等の登録免許税の免税を受けるための | 428M60000440001_20160401_000000000000000 | CurrentEnforced | YES | ok | 2 | NO (0) | NO |
 | `428CO0000000196` | 水酸化カリウムに対して課する不当廉売関税に関する政令 | 428CO0000000196_20210814_503CO0000000231 | CurrentEnforced | YES | ok | 8 | YES (1) | NO |
@@ -346,4 +346,4 @@ a completion flag.
 | `508M60000400060` | ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令第一条第三 | 508M60000400060_20261031_508M60000400078 | CurrentEnforced | YES | ok | 6 | NO (0) | NO |
 | `508CO0000000254` | 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令 | 508CO0000000254_20260808_000000000000000 | CurrentEnforced | YES | ok | 5 | YES (1) | NO |
 
-review modules seen in docs/ADVERSARIAL_REVIEW.md: 515
+review modules seen in docs/ADVERSARIAL_REVIEW.md: 523
