@@ -134,7 +134,11 @@ def check_module(name: str, pins: dict, inv: dict) -> dict:
             problems.append(f"{name}: block law_id {lid} not present in ledger")
             continue
         cr = rec.get("current_revision") or {}
-        if rec.get("current_revision_status") != "CurrentEnforced":
+        historical_pin = (
+            rec.get("selection_status") == "historical_fallback"
+            and any("HISTORICAL_REVISION_PIN" in ln for ln in block["lines"])
+        )
+        if not historical_pin and rec.get("current_revision_status") != "CurrentEnforced":
             problems.append(
                 f"{name}: ledger status for {lid} is "
                 f"{rec.get('current_revision_status')!r}, expected 'CurrentEnforced'"
