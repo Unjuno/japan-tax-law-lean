@@ -191,3 +191,5 @@ lake clean && lake build                                                # 再現
 外国居住者等の所得に対する相互主義による所得税等の非課税等に関する省令 附則 art.1 ForeignResidentReciprocityTaxEnforcementDate.lean（施行日 平成30年1月1日=2018-01-01 — 他条・実体規定 NOT MODELLED）
 
 電解二酸化マンガンに対して課する不当廉売関税に関する政令 附則 art.1 ManganeseDioxideAntiDumpingDutyEnforcementDate.lean（施行日 平成23年4月1日=2011-04-01 — 他条・実体規定 NOT MODELLED）
+
+東日本大震災復興特別区域法第四十三条の地方税の課税免除等に関する省令 附則 art.1 ReconstructionZoneLocalTaxExemptionEnforcementDate.lean（施行日 平成29年4月1日=2017-04-01 — 他条・実体規定 NOT MODELLED）

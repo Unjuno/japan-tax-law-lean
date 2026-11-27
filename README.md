@@ -1038,3 +1038,7 @@ JapanTaxLaw/ForeignResidentReciprocityTaxEnforcementDateTests.lean # 同上 退�
 JapanTaxLaw/ManganeseDioxideAntiDumpingDutyEnforcementDate.lean    # 電解二酸化マンガンに対して課する不当廉売関税に関する政令 施行日2011-04-01（附則 art.1）L4
 JapanTaxLaw/ManganeseDioxideAntiDumpingDutyEnforcementDateSpec.lean # 同上 独立定式
 JapanTaxLaw/ManganeseDioxideAntiDumpingDutyEnforcementDateTests.lean # 同上 退行テスト
+
+JapanTaxLaw/ReconstructionZoneLocalTaxExemptionEnforcementDate.lean    # 東日本大震災復興特別区域法第四十三条の地方税の課税免除等に関する省令 施行日2017-04-01（附則 art.1）L4
+JapanTaxLaw/ReconstructionZoneLocalTaxExemptionEnforcementDateSpec.lean # 同上 独立定式
+JapanTaxLaw/ReconstructionZoneLocalTaxExemptionEnforcementDateTests.lean # 同上 退行テスト

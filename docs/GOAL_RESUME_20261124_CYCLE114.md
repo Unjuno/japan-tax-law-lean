@@ -297,3 +297,33 @@ Keep `技術的検証済み / 形式化未完了 / 法的レビュー未完了` 
 - Resume: once PR #908 required checks report green, merge it; then continue
   task-selector-driven cycles, bind attestations only from green Lean/axiom jobs
   whose heads contain the module blobs, and keep LEGAL_REVIEW_PENDING.
+
+
+## 15. Cycles 167-173; root-cause fix of the semantic-audit failure (2026-11-27)
+
+- **Root cause identified from CI logs**: the semantic-audit job failed on every
+  commit because `ReconstructionSpecialIncomeTaxEnforcementDate.lean` claimed a
+  machine-verified pin for law `424CO0000000016`. `INVENTORY.json` records it as
+  `historical_fallback / PreviousEnforced / audit_ready=false` ("tracking only");
+  no revision of that law is `CurrentEnforced` (next is `UnEnforced` until
+  2027-01-01). The module was changed to documentation-only provenance and is
+  now correctly listed as **unpinned**; clause-level transcription checking is
+  unchanged. No checker or ledger was weakened. `cross_law`: 0 failed.
+- **Merge conflict** with `main @ 5e41c7e97` (#764) resolved: kept all local
+  cycle-164..172 transcription checks and restored main's
+  `SeparateTariffApplication` check. Transcription 818/818.
+- **Cycles 167-172** added scoped computable cells (20% amount, 1万/10万円
+  deduction tiers, 7.5 per mille, two enforcement-date applicability cells,
+  fee/amount branches) — each with independent spec, kernel boundary tests,
+  pinned-clause transcription check and separate H/T/D/C/U review.
+- **Scoped attestation** `data/PROOF_ATTESTATION_SCOPED_C157_C172.json` bound 90
+  committed module blobs from `gh`-verified green job 45917238573
+  (`f57673477`, Lean = success, semantic audit = failure -> `lean_job_only`).
+  Evidence regeneration advanced `FULLY_VERIFIED` 1,192 -> 1,249; evidence
+  references 6171/6171 resolved. No legal review is implied.
+- **Remaining CI blocker**: ledger drift (directive axes, coordinator, source
+  layers, coverage, L7) caused by concurrent agents editing the same workspace.
+  Remedy: regenerate build artifacts (sweep, cross_law, task_queue) first, then
+  regenerate every ledger in gate order, commit the coherent tree, and re-check.
+- Measured state: `FULLY_VERIFIED=1249`, `NOT_STARTED=395603`, `BLOCKED=2`;
+  all 396,854 units `LEGAL_REVIEW_PENDING`; L2-L6 remain `IN_SCOPE_BACKLOG`.

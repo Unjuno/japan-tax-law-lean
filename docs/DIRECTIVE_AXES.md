@@ -32,7 +32,7 @@ rounding and enforcement dates are recorded in independent fields
 - periods: 109 units
 - amounts: 319 units
 - rounding: 28 units
-- enforcement_dates: 18 units
+- enforcement_dates: 21 units
 
 ## Reading this ledger
 
