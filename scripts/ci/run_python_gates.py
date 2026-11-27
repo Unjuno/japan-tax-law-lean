@@ -61,6 +61,8 @@ GATES = [
     ("normative queue invariants (unique ids, status vocabulary)", ["python", "scripts/ci/verify_queue_invariants.py"], ["scripts/ci/verify_queue_invariants.py"]),
     ("Article verification obligations gate (Objective §4)", ["python", "scripts/ci/article_obligations.py"], ["scripts/ci/article_obligations.py", "docs/ARTICLE_OBLIGATIONS.md"]),
     ("Cross-article rate consistency gate (Objective §5)", ["python", "scripts/law_audit/phase_e/rate_consistency.py"], ["scripts/law_audit/phase_e/rate_consistency.py", "docs/RATE_CONSISTENCY.md"]),
+    ("dimension/unit annotation audit (Objective §3)", ["python", "scripts/ci/dimension_audit.py"], ["scripts/ci/dimension_audit.py", "docs/DIMENSION_AUDIT.md", "data/DIMENSION_AUDIT.json"]),
+    ("dimension audit tests", ["python", "-m", "unittest", "scripts.tests.test_dimension_audit", "-v"], ["scripts/tests/test_dimension_audit.py"]),
 
     ("Article-scoped fidelity diagnostic (Sponsor Directive §4)", ["python", "scripts/law_audit/phase_e/article_scope.py"], ["scripts/law_audit/phase_e/article_scope.py", "docs/ARTICLE_SCOPE.md"]),
     # BLOCKED.md must be regenerated BEFORE source_layers.py, which parses its
@@ -94,6 +96,7 @@ REQUIRED_GATES = {
     "multi-scoped attestation merge tests",
     "generated ledger input-guard tests",
     "article-scope D/C decision tests",
+    "dimension audit tests",
     "independent completion-mechanism audit",
     "evidence reference resolution audit",
     "normative queue invariants (unique ids, status vocabulary)",
