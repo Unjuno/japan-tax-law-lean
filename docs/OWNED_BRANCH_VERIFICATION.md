@@ -281,7 +281,14 @@ $ python scripts/ci/batch_reference_bulk_pipeline.py --limit 1000 x3
 bulk reference batch: verified=1000 failed=0 (x3)
 (restored missing law_audit package modules; 263 tests OK)
 
+$ python scripts/ci/compact_evidence_hashes.py --write   (second application)
+units=67664 migrated=7087 missing_axis=0; bytes before=102036922 after=100651180
 $ python -m unittest discover -s scripts/tests -t . → 263 tests, OK
+
+Storage limit note: the pushed ledger is ~96 MB, close to GitHub's 100 MB hard
+file limit. Two compaction migrations have been applied. Further bulk evidence
+growth requires sharding the ledger (or Git LFS) before adding more units; this
+is an environment constraint, not a completion claim.
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
