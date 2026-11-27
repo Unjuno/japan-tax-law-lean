@@ -2636,3 +2636,6 @@ import JapanTaxLaw.WidowDependentIncomeCeiling5MTests
 import JapanTaxLaw.WirePitch165nm
 import JapanTaxLaw.WirePitch165nmSpec
 import JapanTaxLaw.WirePitch165nmTests
+import JapanTaxLaw.LocalOrdinanceTwoThirdsMajority
+import JapanTaxLaw.LocalOrdinanceTwoThirdsMajoritySpec
+import JapanTaxLaw.LocalOrdinanceTwoThirdsMajorityTests
