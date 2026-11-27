@@ -17,6 +17,7 @@ source positions. Human legal review is a separate axis and is pending.
 
 | law_id | article | module | presence | scoped | review | authoritative status |
 |---|---|---|---|---|---|---|
+| `332AC0000000077` | 第二条 | PortMunicipalityAllocationBase | YES | YES | NO | NOT_STARTED |
 | `422CO0000000221` | 第二条 | SpecialWardReading | YES | YES | NO | NOT_STARTED |
 | `330CO0000000237` | 第三条 | BenefitTariffLowerRate | YES | YES | NO | NOT_STARTED |
 | `341CO0000000005` | 第十二条 | PetroleumGasRefundAmount | YES | YES | YES | NOT_STARTED |
