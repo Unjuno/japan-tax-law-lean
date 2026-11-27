@@ -5001,6 +5001,36 @@ def checks():
            "article", "第七十三条の十九",
            ["前条の規定により申告し、又は報告すべき事項について虚偽の申告又は報告をしたときは、その違反行為をした者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
 
+    # Batch 299 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 478(3) 百万円を超える ↔ LocalTax478EvadedAbove1M.lean",
+           "325AC0000000226",
+           "article", "第四百七十八条",
+           ["第一項の免れた税額又は前項の還付を受けた金額が百万円を超える場合には、情状により、当該各項の罰金の額が、当該各項の規定にかかわらず、百万円を超える額でその免れた税額又は還付を受けた金額に相当する額以下の額とすることができる。"])
+
+    # Batch 299 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 144_19(1) 五十万円以下 ↔ LocalTax144_19FalseReportFineCeiling500k.lean",
+           "325AC0000000226",
+           "article", "第百四十四条の十九",
+           ["正当な理由がなくて前条第一項各号の規定による申告書を当該各号に規定する申告書の提出期限までに提出しなかつたときは、その違反行為をした者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
+    # Batch 299 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 283(1) 二十日以内 ↔ LocalTax283DemandWithin20Days.lean",
+           "325AC0000000226",
+           "article", "第二百八十三条",
+           ["納税者又は特別徴収義務者が納期限（更正又は決定があつた場合においては、不足金額の納期限をいう。以下道府県法定外普通税について同様とする。）までに道府県法定外普通税に係る地方団体の徴収金を完納しない場合においては、道府県の徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
+
+    # Batch 299 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 701_16(1) 二十日以内 ↔ LocalTax701_16BathingTaxDemandWithin20Days.lean",
+           "325AC0000000226",
+           "article", "第七百一条の十六",
+           ["特別徴収義務者が納期限（更正又は決定があつた場合においては、不足金額の納期限をいう。以下入湯税について同じ。）までに入湯税に係る地方団体の徴収金を完納しない場合においては、市町村の徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
+
+    # Batch 299 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 395(1) 五十万円以下 ↔ LocalTax395FalseReturnFineCeiling500k.lean",
+           "325AC0000000226",
+           "article", "第三百九十五条",
+           ["前条の規定により申告すべき事項について申告をせず、又は虚偽の申告をしたときは、その違反行為をした者は、一年以下の拘禁刑又は五十万円以下の罰金に処する。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
