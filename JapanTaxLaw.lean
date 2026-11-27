@@ -1922,6 +1922,9 @@ import JapanTaxLaw.PetroleumCoalFineRangeTests
 import JapanTaxLaw.PetroleumGasFineRange
 import JapanTaxLaw.PetroleumGasFineRangeSpec
 import JapanTaxLaw.PetroleumGasFineRangeTests
+import JapanTaxLaw.PetroleumGasRefundAmount
+import JapanTaxLaw.PetroleumGasRefundAmountSpec
+import JapanTaxLaw.PetroleumGasRefundAmountTests
 import JapanTaxLaw.PetroleumGasSenRate
 import JapanTaxLaw.PetroleumGasSenRateSpec
 import JapanTaxLaw.PetroleumGasSenRateTests
