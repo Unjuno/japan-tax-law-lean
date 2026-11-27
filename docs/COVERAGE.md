@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 216 | 327 | 66.06% |
+| laws with >=1 pinned literal check | 215 | 327 | 65.75% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -70,7 +70,7 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1454 |
+| unpinned Lean modules (not counted as verified) | 1457 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -235,7 +235,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `352AC0000000035` 昭和五十一年分所得税の特別減税の実施のための財政処理の特別措置に関する法律
 - `352M50000040032` 国税局課税部等の統括国税調査官等の所掌に属する事務の範囲を定める省令
 - `353AC0000000025` 石油石炭税法
-- `353CO0000000132` 石油石炭税法施行令
 - `359AC0000000072` たばこ税法
 - `360CO0000000005` たばこ税法施行令
 - `362CO0000000335` 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律施行令
