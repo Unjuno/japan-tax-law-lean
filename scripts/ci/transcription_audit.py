@@ -5211,6 +5211,36 @@ def checks():
            "article", "第五十三条",
            ["納税申告書に係る事業年度開始の日（公共法人等にあつては、前年四月一日）現在における資本金の額又は出資金の額が一億円を超える法人"])
 
+    # Batch 313 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 84(5) 十日以内 ↔ LocalTax84GolfTicketReturnWithin10Days.lean",
+           "325AC0000000226",
+           "article", "第八十四条",
+           ["第二項の証票の交付を受けた者は、当該ゴルフ場に係るゴルフ場利用税の特別徴収の義務が消滅した場合においては、その消滅した日から十日以内にその証票を道府県知事に返さなければならない。"])
+
+    # Batch 313 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 603(3) 五年以内 ↔ LocalTax603CollectionDeferralWithin5Years.lean",
+           "325AC0000000226",
+           "article", "第六百三条",
+           ["市町村長は、土地の所有者等から前二項の規定の適用があるべき旨の申告があり、当該申告が真実であると認められるときは、当該土地の取得の日から五年以内で政令で定める期間を限つて、当該土地に係る特別土地保有税に係る地方団体の徴収金の徴収を猶予するものとする。"])
+
+    # Batch 313 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 701_31(2) 六十五歳以上 ↔ LocalTax701_31ElderAge65OrMore.lean",
+           "325AC0000000226",
+           "article", "第七百一条の三十一",
+           ["前項第五号の場合において、障害者、年齢六十五歳以上の者又は雇用改善助成対象者であるかどうかの判定は、その者に対して給与等が支払われる時の現況によるものとする。"])
+
+    # Batch 313 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 52(1) 千万円以下 ↔ LocalTax52CapitalUpTo10M.lean",
+           "325AC0000000226",
+           "article", "第五十二条",
+           ["ホ　資本金等の額を有する法人（法人税法別表第二に規定する独立行政法人で収益事業を行わないもの及びニに掲げる法人を除く。以下この表において同じ。）で資本金等の額が千万円以下であるもの"])
+
+    # Batch 313 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 321_15(1) 二以上 ↔ LocalTax321_15TwoOrMorePrefectures.lean",
+           "325AC0000000226",
+           "article", "第三百二十一条の十五",
+           ["前条第六項の通知に係る同条第一項の市町村長の処分に不服がある関係市町村長は、道府県知事（関係市町村が二以上の道府県に係るときは、総務大臣）に対し、決定を求める旨を申し出ることができる。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

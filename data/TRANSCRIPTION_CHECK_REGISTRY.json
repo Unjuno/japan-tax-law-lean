@@ -615,7 +615,12 @@
     "InheritanceTax42SnowSurveyOver6Months",
     "LocalTax22_29ProsecutionWithin20Days",
     "LocalTax154PassengerCapacityAtLeast4",
-    "LocalTax53CapitalOver100M"
+    "LocalTax53CapitalOver100M",
+    "LocalTax84GolfTicketReturnWithin10Days",
+    "LocalTax603CollectionDeferralWithin5Years",
+    "LocalTax701_31ElderAge65OrMore",
+    "LocalTax52CapitalUpTo10M",
+    "LocalTax321_15TwoOrMorePrefectures"
   ],
   "note": "Modules that MUST retain a transcription audit check. A reconciliation that rewrites transcription_audit.py from a stale base and drops any of these fails the REQUIRED queue-invariant gate. Update this registry only when deliberately removing a module.",
   "schema": 1
