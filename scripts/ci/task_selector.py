@@ -166,11 +166,40 @@ def select_tasks(tasks: list[dict], n: int, claims: dict | None = None) -> dict:
 
 
 def main() -> int:
-    n = int(sys.argv[1]) if len(sys.argv) > 1 else 12
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    agent = ""
+    for a in sys.argv[1:]:
+        if a.startswith("--agent="):
+            agent = a.split("=", 1)[1]
+    n = int(args[0]) if args else 12
     q = json.loads(QUEUE.read_text(encoding="utf-8"))
+    # Durable claims survive regeneration: claimed units are never re-selected
+    # for a second agent (Directive §1 item 7 / §4 single-owner rule).
+    state = core.load_state(core.STATE_PATH)
+    claims = {uid: rec for uid, rec in state.get("units", {}).items()
+              if rec.get("owner")}
+    result = select_tasks(q.get("tasks", []), n, claims)
+    if agent:
+        changed = False
+        for item in result.get("selected", []):
+            uid = str(item.get("normative_id") or item.get("task_id") or "")
+            if not uid:
+                continue
+            rec = state.setdefault("units", {}).setdefault(uid, core.default_state(uid))
+            if rec.get("owner") == agent:
+                continue
+            rec["owner"] = agent
+            rec.setdefault("history", []).append({
+                "event": "owner_claimed", "owner": agent,
+                "at": core.utc_now() if hasattr(core, "utc_now") else "",
+            })
+            changed = True
+        if changed:
+            core.save_state(state, core.STATE_PATH)
+        result["owner_claimed_by"] = agent
     # Machine-readable output MUST be UTF-8. On Windows, sys.stdout defaults to
     # cp932; printing raw Japanese then corrupts the JSON for API/CI consumers.
-    payload = json.dumps(select_tasks(q.get("tasks", []), n), ensure_ascii=False, indent=2)
+    payload = json.dumps(result, ensure_ascii=False, indent=2)
     try:
         sys.stdout.reconfigure(encoding="utf-8")
     except (AttributeError, ValueError):

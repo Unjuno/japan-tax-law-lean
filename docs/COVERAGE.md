@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 213 | 327 | 65.14% |
+| laws with >=1 pinned literal check | 214 | 327 | 65.44% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -35,10 +35,10 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 
 | axis | count |
 |---|---:|
-| references extracted | 476500 |
-| internal references checked | 63234 |
-| external references NOT bound to the ledger | 175186 |
-| references classified unsupported | 250043 |
+| references extracted | n/a |
+| internal references checked | n/a |
+| external references NOT bound to the ledger | n/a |
+| references classified unsupported | n/a |
 
 external_unverified references are NOT verified and are NOT silently counted
 as covered scope.
@@ -62,19 +62,19 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 824 | n/a | n/a |
-| distinct article pins | 235 | 42584 | 0.55% |
+| pinned literal checks | 825 | n/a | n/a |
+| distinct article pins | 236 | 42584 | 0.55% |
 | pinned Lean modules (cross-law) | 1330 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1437 |
+| unpinned Lean modules (not counted as verified) | 1440 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
-| external references NOT bound to the ledger | 175186 |
+| external references NOT bound to the ledger | n/a |
 | related statutes discovered but not acquired (Objective §2) | 380 |
 | related statutes acquired but not parsed/modelled/reviewed | 3 |
 
@@ -152,6 +152,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `330AC0000000104` 地方揮発油税法
 - `330AC0000000113` 地方揮発油譲与税法
 - `330CO0000000100` 輸入品に対する内国消費税の徴収等に関する法律施行令
+- `330CO0000000237` 関税定率法第五条の規定による便益関税の適用に関する政令
 - `331M50000002007` 地方揮発油譲与税法施行規則
 - `332AC0000000026` 租税特別措置法
 - `332AC0000000037` とん税法
