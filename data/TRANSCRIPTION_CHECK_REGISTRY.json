@@ -620,7 +620,12 @@
     "LocalTax603CollectionDeferralWithin5Years",
     "LocalTax701_31ElderAge65OrMore",
     "LocalTax52CapitalUpTo10M",
-    "LocalTax321_15TwoOrMorePrefectures"
+    "LocalTax321_15TwoOrMorePrefectures",
+    "LocalTax34NewLifeInsurancePremiumUpTo12K",
+    "LocalTax34OldLifeInsurancePremiumUpTo15K",
+    "LocalTax34NursingCarePremiumUpTo12K",
+    "LocalTax34OldPersonalAnnuityPremiumUpTo15K",
+    "LocalTax73_27_6RealEstateTaxDeferralWithin5Years"
   ],
   "note": "Modules that MUST retain a transcription audit check. A reconciliation that rewrites transcription_audit.py from a stale base and drops any of these fails the REQUIRED queue-invariant gate. Update this registry only when deliberately removing a module.",
   "schema": 1

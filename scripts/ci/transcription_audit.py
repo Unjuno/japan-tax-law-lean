@@ -5241,6 +5241,37 @@ def checks():
            "article", "第三百二十一条の十五",
            ["前条第六項の通知に係る同条第一項の市町村長の処分に不服がある関係市町村長は、道府県知事（関係市町村が二以上の道府県に係るときは、総務大臣）に対し、決定を求める旨を申し出ることができる。"])
 
+
+    # Batch 315 — dependency-free single-threshold unit, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 34(1) ↔ LocalTax34NewLifeInsurancePremiumUpTo12K.lean",
+           "325AC0000000226",
+           "article", "第三十四条",
+           ["前年中に支払つた新生命保険料の金額の合計額（前年中において新生命保険契約等に基づく剰余金の分配若しくは割戻金の割戻しを受け、又は新生命保険契約等に基づき分配を受ける剰余金若しくは割戻しを受ける割戻金をもつて新生命保険料の払込みに充てた場合には、当該剰余金又は割戻金の額（新生命保険料に係る部分の金額として政令で定めるところにより計算した金額に限る。）を控除した残額。以下（１）及び（３）（ｉ）において同じ。）が一万二千円以下である場合"])
+
+    # Batch 315 — dependency-free single-threshold unit, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 34(1) ↔ LocalTax34OldLifeInsurancePremiumUpTo15K.lean",
+           "325AC0000000226",
+           "article", "第三十四条",
+           ["前年中に支払つた旧生命保険料の金額の合計額（前年中において旧生命保険契約等に基づく剰余金の分配若しくは割戻金の割戻しを受け、又は旧生命保険契約等に基づき分配を受ける剰余金若しくは割戻しを受ける割戻金をもつて旧生命保険料の払込みに充てた場合には、当該剰余金又は割戻金の額（旧生命保険料に係る部分の金額に限る。）を控除した残額。以下（２）及び（３）（ｉｉ）において同じ。）が一万五千円以下である場合"])
+
+    # Batch 315 — dependency-free single-threshold unit, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 34(1) ↔ LocalTax34NursingCarePremiumUpTo12K.lean",
+           "325AC0000000226",
+           "article", "第三十四条",
+           ["前年中に支払つた介護医療保険料の金額の合計額（前年中において介護医療保険契約等に基づく剰余金の分配若しくは割戻金の割戻しを受け、又は介護医療保険契約等に基づき分配を受ける剰余金若しくは割戻しを受ける割戻金をもつて介護医療保険料の払込みに充てた場合には、当該剰余金又は割戻金の額（介護医療保険料に係る部分の金額として政令で定めるところにより計算した金額に限る。）を控除した残額。以下ロにおいて同じ。）が一万二千円以下である場合"])
+
+    # Batch 315 — dependency-free single-threshold unit, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 34(1) ↔ LocalTax34OldPersonalAnnuityPremiumUpTo15K.lean",
+           "325AC0000000226",
+           "article", "第三十四条",
+           ["前年中に支払つた旧個人年金保険料の金額の合計額（前年中において旧個人年金保険契約等に基づく剰余金の分配若しくは割戻金の割戻しを受け、又は旧個人年金保険契約等に基づき分配を受ける剰余金若しくは割戻しを受ける割戻金をもつて旧個人年金保険料の払込みに充てた場合には、当該剰余金又は割戻金の額（旧個人年金保険料に係る部分の金額に限る。）を控除した残額。以下（２）及び（３）（ｉｉ）において同じ。）が一万五千円以下である場合"])
+
+    # Batch 315 — dependency-free single-threshold unit, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 73_27_6(2) ↔ LocalTax73_27_6RealEstateTaxDeferralWithin5Years.lean",
+           "325AC0000000226",
+           "article", "第七十三条の二十七の六",
+           ["道府県は、不動産の取得に対して課する不動産取得税を賦課徴収する場合において、当該不動産の取得者から、当該道府県の条例で定めるところにより、当該不動産取得税について前項の規定の適用があるべき旨の申告があり、当該申告が真実であると認められるときは、当該取得の日から五年以内の期間（当該不動産が同項に規定する土地改良事業に係るものである場合には、同日から同項に規定する一年を経過する日までの期間）を限つて、当該不動産に係る不動産取得税額を徴収猶予するものとする。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
