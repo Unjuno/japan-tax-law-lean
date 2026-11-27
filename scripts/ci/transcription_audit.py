@@ -5247,6 +5247,13 @@ def checks():
            "file", None,
            ["\u3053\u306e\u6cd5\u5f8b\u305d\u306e\u4ed6\u95a2\u7a0e\u306b\u95a2\u3059\u308b\u6cd5\u5f8b\u306e\u898f\u5b9a\u306b\u3088\u308a\u95a2\u7a0e\u306e\u7387\u304c\u7121\u7a0e\u3068\u3055\u308c\u3066\u3044\u308b\u8ca8\u7269\u53ca\u3073\u95a2\u7a0e\u304c\u514d\u9664\u3055\u308c\u308b\u8ca8\u7269"])
 
+    # CustomsTariffArt9ExtendedPeriodReading.lean - NORM|f55c4785... (関税定率法 art.9(11) READING, law 143AC0000000054)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("customs tariff law art.9 extended period reading - CustomsTariffArt9ExtendedPeriodReading.lean",
+           "143AC0000000054",
+           "file", None,
+           ["\u7b2c\u516d\u9805\u53ca\u3073\u7b2c\u4e03\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e00\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u6307\u5b9a\u3055\u308c\u305f\u671f\u9593\u3092\u524d\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u5ef6\u9577\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
