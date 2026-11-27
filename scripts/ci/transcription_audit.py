@@ -4880,6 +4880,37 @@ def checks():
            "article", "第七十二条の二",
            ["資本金の額又は出資金の額が一億円以下の法人であるかどうか及び資本又は出資を有しない法人であるかどうかの判定並びに前項第一号ロ（１）又は（２）に掲げる法人に該当するものであるかどうかの判定に関し必要な事項の判定（次号に掲げる判定を除く。）"])
 
+
+    # Batch 291 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 455(1) 百万円以下の罰金 ↔ LocalTax455FineCeiling1M.lean",
+           "325AC0000000226",
+           "article", "第四百五十五条",
+           ["偽りその他不正の行為により軽自動車税の全部又は一部を免れたときは、その違反行為をした者は、百万円以下の罰金に処する。"])
+
+    # Batch 291 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 74_15(3) 免れた税額が百万円を超える ↔ LocalTax74_15EvadedAbove1M.lean",
+           "325AC0000000226",
+           "article", "第七十四条の十五",
+           ["第一項の免れた税額又は前項の還付を受けた金額が百万円を超える場合には、情状により、当該各項の罰金の額は、当該各項の規定にかかわらず、百万円を超える額でその免れた税額又は還付を受けた金額に相当する額以下の額とすることができる。"])
+
+    # Batch 291 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 703_5(3) 十八歳以上被保険者均等割額 ↔ LocalTax703_5AdultEqualCharge18.lean",
+           "325AC0000000226",
+           "article", "第七百三条の五",
+           ["市町村は、国民健康保険税の納税義務者又はその世帯に属する被保険者が出産する予定の場合又は出産した場合には、政令で定める基準に従い当該市町村の条例で定めるところにより、当該納税義務者に対して課する所得割額、被保険者均等割額及び十八歳以上被保険者均等割額を減額するものとする。"])
+
+    # Batch 291 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 400(1) 十日以内の固定資産課税台帳登録 ↔ LocalTax400RegisterWithin10Days.lean",
+           "325AC0000000226",
+           "article", "第四百条",
+           ["市町村長は、前条の規定による通知を受けた場合においては、その通知を受けた日から十日以内に道府県知事又は総務大臣の決定に係る当該価格等を固定資産課税台帳に登録しなければならない。"])
+
+    # Batch 291 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 371(1) 納期限後二十日以内の督促状発付 ↔ LocalTax371DemandWithin20Days.lean",
+           "325AC0000000226",
+           "article", "第三百七十一条",
+           ["納税者が納期限までに固定資産税に係る地方団体の徴収金を完納しない場合においては、市町村の徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
