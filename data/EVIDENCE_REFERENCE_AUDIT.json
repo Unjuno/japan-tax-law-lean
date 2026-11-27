@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": true,
-  "checks": 6190,
+  "checks": 6185,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -22188,61 +22188,6 @@
       "detail": "run=45810865262 attested_run=45810865262 conclusion=lean_job_only job=True",
       "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45810865262: commit d17e38495ea5b520a5cadfee8498b9777beb6e02, ",
       "unit_id": "NORM|4c66461b6da05db32699c67a5c83ace8dccab229a4875abc3563bcd8458ee246"
-    },
-    {
-      "C": "a generic/template string may describe a different unit",
-      "D": "PASS",
-      "H": "the cited reference does not actually support this axis",
-      "T": "resolve the reference against the named artifact",
-      "U": "resolution checks artifact identity only, not legal correctness",
-      "axis": "adversarial_review",
-      "detail": "non-batch reference",
-      "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
-      "unit_id": "NORM|4c6c0978081c151797ee804ca8f1bc05723f8012e191627bf9f47ad78d4b15ae"
-    },
-    {
-      "C": "a generic/template string may describe a different unit",
-      "D": "PASS",
-      "H": "the cited reference does not actually support this axis",
-      "T": "resolve the reference against the named artifact",
-      "U": "resolution checks artifact identity only, not legal correctness",
-      "axis": "implementation",
-      "detail": "sha256 match",
-      "reference": "JapanTaxLaw/SeparateTariffApplication.lean",
-      "unit_id": "NORM|4c6c0978081c151797ee804ca8f1bc05723f8012e191627bf9f47ad78d4b15ae"
-    },
-    {
-      "C": "a generic/template string may describe a different unit",
-      "D": "PASS",
-      "H": "the cited reference does not actually support this axis",
-      "T": "resolve the reference against the named artifact",
-      "U": "resolution checks artifact identity only, not legal correctness",
-      "axis": "independent_spec",
-      "detail": "sha256 match",
-      "reference": "JapanTaxLaw/SeparateTariffApplicationSpec.lean",
-      "unit_id": "NORM|4c6c0978081c151797ee804ca8f1bc05723f8012e191627bf9f47ad78d4b15ae"
-    },
-    {
-      "C": "a generic/template string may describe a different unit",
-      "D": "PASS",
-      "H": "the cited reference does not actually support this axis",
-      "T": "resolve the reference against the named artifact",
-      "U": "resolution checks artifact identity only, not legal correctness",
-      "axis": "tests",
-      "detail": "sha256 match",
-      "reference": "JapanTaxLaw/SeparateTariffApplicationTests.lean",
-      "unit_id": "NORM|4c6c0978081c151797ee804ca8f1bc05723f8012e191627bf9f47ad78d4b15ae"
-    },
-    {
-      "C": "a generic/template string may describe a different unit",
-      "D": "PASS",
-      "H": "the cited reference does not actually support this axis",
-      "T": "resolve the reference against the named artifact",
-      "U": "resolution checks artifact identity only, not legal correctness",
-      "axis": "kernel_proof",
-      "detail": "run=45914746864 attested_run=45914746864 conclusion=success job=True",
-      "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/45914746864: commit 49f4e8af9bdab307a3f09810846ba1da95516e70, ",
-      "unit_id": "NORM|4c6c0978081c151797ee804ca8f1bc05723f8012e191627bf9f47ad78d4b15ae"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -68093,9 +68038,9 @@
       "unit_id": "NORM|fff89ad304c83b401e45afc8fa865f356060ed7292f4a5afd6848aa8d0a0431e"
     }
   ],
-  "resolved": 6190,
+  "resolved": 6185,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 1253,
+  "units_checked": 1252,
   "unresolved": 0
 }
