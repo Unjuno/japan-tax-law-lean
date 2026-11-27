@@ -1741,3 +1741,7 @@ H/T/D/C/U record:
 - **判定**: **BY-DESIGN**。人間の法的レビューは独立軸（LEGAL_REVIEW_PENDING）。
 
 > **本レビューは機械的独立照合であり、人間の法律専門家によるレビューではない。**
+
+### LocalOrdinanceTwoThirdsMajority.lean — 地方自治法 art. 4（三分の二以上の同意）
+
+H/T/D/C/U record: separate non-tax related source layer; H = ratio transcribed as `3×yes ≥ 2×attending`; T = pinned needle re-extracted; D = boundaries agree; C = procedure out of scope; U = legal review pending.
