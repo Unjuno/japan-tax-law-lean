@@ -4694,6 +4694,37 @@ def checks():
            "article", "第六十二条",
            ["前項の免れた税額が千万円を超える場合には、情状により、同項の罰金の額は、同項の規定にかかわらず、千万円を超える額でその免れた税額に相当する額以下の額とすることができる。"])
 
+
+    # Batch 279 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("相続税法 art. 1_3(2)2 贈与前十年以内の無住所例外 ↔ InheritanceTax1_3DoneeNoResidenceWithin10Years.lean",
+           "325AC0000000073",
+           "article", "第一条の三",
+           ["ただし、当該受贈者が同条第一項の規定の適用に係る贈与前十年以内のいずれの時においてもこの法律の施行地に住所を有していたことがない場合は、この限りでない。"])
+
+    # Batch 279 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 24_3(3) 受益者二以上の委任 ↔ LocalTax24_3BeneficiariesTwoOrMoreDelegation.lean",
+           "325AC0000000226",
+           "article", "第二十四条の三",
+           ["受益者が二以上ある場合における第一項の規定の適用、前項に規定する信託財産の給付を受けることとされている者に該当するかどうかの判定その他前二項の規定の適用に関し必要な事項は、政令で定める。"])
+
+    # Batch 279 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 72_21(6)2 特定子会社百分の五十超え ↔ LocalTax72_21SubsidiaryOver50Percent.lean",
+           "325AC0000000226",
+           "article", "第七十二条の二十一",
+           ["当該内国法人の当該事業年度終了の時又は当該事業年度の前事業年度終了の時における特定子会社（当該内国法人が発行済株式又は出資（政令で定めるものを除く。）の総数又は総額の百分の五十を超える数の株式又は出資を直接又は間接に保有する他の法人をいう。）の株式又は出資で、それぞれの時において当該内国法人が保有するものの帳簿価額の合計額"])
+
+    # Batch 279 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 15_8 三年以内の執行停止取消し ↔ LocalTax15_8CancellationWithin3Years.lean",
+           "325AC0000000226",
+           "article", "第十五条の八",
+           ["地方団体の長は、前条第一項各号の規定により滞納処分の執行を停止した後三年以内に、その停止に係る滞納者につき同項各号に該当する事実がないと認めるときは、その執行の停止を取り消さなければならない。"])
+
+    # Batch 279 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 292(1)8 千万円以下の同一生計配偶者 ↔ LocalTax292SpouseIncomeUpTo10M.lean",
+           "325AC0000000226",
+           "article", "第二百九十二条",
+           ["同一生計配偶者のうち、前年の合計所得金額が千万円以下である市町村民税の納税義務者の配偶者をいう。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
