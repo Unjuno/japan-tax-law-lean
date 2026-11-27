@@ -308,6 +308,20 @@ $ lake build → Build completed successfully (524 jobs)
 $ python scripts/ci/run_python_gates.py → 33 PASS / 0 FAIL / 0 SKIP
 $ python scripts/ci/completion_gate.py → all-complete=False (separate legal-review axis: 0/3438)
 
+$ new pipeline: batch_exception_long_bulk_pipeline.py (long-form 121-600 char
+  exclusion clauses; same honest set-difference gate, keywords include を除き)
+4 unit tests added; bulk exception-long batches verified=1000/1000 failed=0
+$ python scripts/ci/task_queue.py
+normative-unit queue: 396854 units; NOT_STARTED=326630, PARTIAL=0,
+PROVED_SCOPE=0, FULLY_VERIFIED=70222, BLOCKED=2
+$ python scripts/ci/verify_queue_invariants.py → 12/12 PASS; FULLY_VERIFIED=70222 axes=11 unbacked=0
+$ python -m unittest discover -s scripts/tests -t . → 267 tests, OK
+$ lake build → Build completed successfully (524 jobs)
+$ python scripts/ci/run_python_gates.py → 33 PASS / 0 FAIL / 0 SKIP
+  (first run after new Lean modules: coverage ledger rewrote docs/COVERAGE.md and
+   exited 1 as a drift signal; second run 33/33 PASS)
+$ python scripts/ci/completion_gate.py → all-complete=False
+
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
 `scripts/ci/resolve_gift_needle_ambiguity.py` re-extracted both pinned articles

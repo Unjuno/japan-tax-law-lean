@@ -1,0 +1,2 @@
+- batch BulkExcLongd1330c806c: 1000 long-form exclusion norms; gate scope only; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.
+- batch BulkExcLong714f9c224d: 1000 long-form exclusion norms; gate scope only; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.
