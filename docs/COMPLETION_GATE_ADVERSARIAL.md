@@ -1,12 +1,12 @@
 # Adversarial audit of the completion gate
 
-repo: `D:\CodexData\Temp\pr764-clean`
+repo: `D:\CodexData\Temp\opencode\jtl-next6`
 
 verdict: **PASS** (0 MUST failures)
 
 - tools present: 4/4
-- evidence file: D:\CodexData\Temp\pr764-clean\data\verification_evidence.json
-- durable state counts: {"BLOCKED": 2, "FULLY_VERIFIED": 1193}
+- evidence file: D:\CodexData\Temp\opencode\jtl-next6\data\verification_evidence.json
+- durable state counts: {"BLOCKED": 2, "FULLY_VERIFIED": 1194}
 
 | rule | must | H | T | D | C | U |
 |---|---|---|---|---|---|---|

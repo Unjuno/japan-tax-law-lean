@@ -5184,11 +5184,11 @@ def checks():
            "344M50000040016",
            "file", None,
            ["一個（現に使用中のもので海外市価（外国においてその物品を購入する際に支払われた又は支払われるべき価格をいう。以下この条において同じ。）三万円以下のものに限る。次号において同じ。）"])
+
     # 関税法意見申請手続規則 art.2(3)(1) — OpinionApplicantDocumentWindowThreeMonths.lean
     yield ("関税法意見申請手続規則 第二条(3)(1)（個人 三月以内書類）↔ OpinionApplicantDocumentWindowThreeMonths.lean",
            "418M60000400006", "article", "第二条",
            ['意見申請者が個人である場合にあっては、申請の日前三月以内に作成された戸籍の謄本若しくは抄本又は住民票の写し'])
-
 
     # InheritanceTaxArt6RefundReading.lean - NORM|6a9778cb... (相続税法 art.6(2) READING, law 325AC0000000073)
     # Whole-law locator; needle is unique in the pinned act.
@@ -5215,18 +5215,23 @@ def checks():
            "file", None,
            ["借地権等が設定されている場合において、当該土地等が借地権等以外のもの（以下この号において「底地」という。）であるとき。　三万円に当該底地の価額が更地の価額のうちに占める割合を乗じて計算した金額"])
 
-
     # 国税収納金整理資金施行令 art. 22(1) — DelinquencyCostNet.lean
     yield ("国税収納金整理資金施行令 art. 22（滞納処分費残額の雑収入）↔ DelinquencyCostNet.lean",
            "329CO0000000051",
            "file", None,
            ["滞納処分費の収納済額及び滞納処分費に係る返納金（過誤納金の還付金等に係るものに限る。）の収納済額の合計額から滞納処分費に係る支払決定済額を控除した金額は、一般会計の雑収入とする。"])
 
+    # CustomsTariffArt8UnfairSalesDutyObligor.lean - NORM|c28c6f86... (関税定率法 art.8(3) EFFECT, law 143AC0000000054)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("customs tariff law art.8 unfair-sales duty obligor - CustomsTariffArt8UnfairSalesDutyObligor.lean",
+           "143AC0000000054",
+           "file", None,
+           ["\u524d\u9805\u306e\u4e0d\u5f53\u5ec9\u58f2\u95a2\u7a0e\u306f\u3001\u5f53\u8a72\u4e0d\u5f53\u5ec9\u58f2\u95a2\u7a0e\u3092\u8ab2\u3055\u308c\u308b\u3053\u3068\u3068\u306a\u308b\u8ca8\u7269\u306e\u8f38\u5165\u8005\u304c\u7d0d\u3081\u308b\u7fa9\u52d9\u304c\u3042\u308b\u3082\u306e\u3068\u3059\u308b\u3002"])
+
     # 特定貨物 art. 5 — SeparateTariffApplication.lean
     yield ("特定貨物 第五条（一般関税・報復関税の別個適用）↔ SeparateTariffApplication.lean (parallel separate tariffs)",
            "417CO0000000289", "article", "第五条",
            ["特定貨物に課する一般関税及び報復関税については、それぞれ別個の関税として関税法第二章の規定を適用する。"])
-
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
