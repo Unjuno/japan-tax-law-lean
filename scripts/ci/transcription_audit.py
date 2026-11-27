@@ -5393,6 +5393,17 @@ def checks():
            "325AC0000000073", "file", None,
            ["新相続税法第三十四条第八項の規定は、施行日以後にする国税通則法第三十七条の規定による督促について適用する。"])
 
+# restored from 46137c57a (guard must never stay dropped)
+
+    # 地方税法 art. 37の2 — LocalTaxBracket1800To4000.lean (1800万超4000万以下)
+    yield ("地方税法 art. 37_2（1800万超4000万以下）↔ LocalTaxBracket1800To4000.lean",
+           "325AC0000000226", "file", None,
+           ["千八百万円を超え四千万円以下の金額"])
+    # 地方税法 art. 37の2 — LocalTaxBracketOver4000.lean (4000万超)
+    yield ("地方税法 art. 37_2（4000万超）↔ LocalTaxBracketOver4000.lean",
+           "325AC0000000226", "file", None,
+           ["四千万円を超える金額"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
