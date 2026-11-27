@@ -7,7 +7,7 @@ Loop: INSPECT -> SELECT -> FORMALIZE -> PROVE -> CHALLENGE -> VERIFY -> COMMIT -
 - queue units: 396854
 - statuses: BLOCKED=2, FULLY_VERIFIED=1258, NOT_STARTED=395594
 - selected this iteration: 12
-- blocked by dependency/blocker: 80 (reported, not stopping the queue)
+- blocked by dependency/blocker: 82 (reported, not stopping the queue)
 - human legal review: LEGAL_REVIEW_PENDING, separate axis; never a filter or a formalization gate
 
 | role | assigned unit ids |
