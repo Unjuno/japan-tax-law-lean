@@ -550,7 +550,12 @@
     "VehicleWeightUnit",
     "WeightInterval5M25M",
     "WeightTaxTransfer",
-    "WidowDependentIncomeCeiling5M"
+    "WidowDependentIncomeCeiling5M",
+    "LocalTax72_80_2TwoTrusteesDeeming",
+    "LocalTax72_40DecisionWithinThreeMonths",
+    "LocalTax73_30EvadedTaxAboveOneMillion",
+    "LocalTax703_4EighteenPlusInsuredAmount",
+    "LocalTax72_66DemandNoticeWithin20Days"
   ],
   "note": "Modules that MUST retain a transcription audit check. A reconciliation that rewrites transcription_audit.py from a stale base and drops any of these fails the REQUIRED queue-invariant gate. Update this registry only when deliberately removing a module.",
   "schema": 1

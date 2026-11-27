@@ -4818,6 +4818,37 @@ def checks():
            "article", "第四百三十三条",
            ["固定資産評価審査委員会は、前条第一項の審査の申出を受けた場合においては、直ちにその必要と認める調査その他事実審査を行い、その申出を受けた日から三十日以内に審査の決定をしなければならない。"])
 
+
+    # Batch 287 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 72_80_2(4) 二以上の受託者の信託資産みなし ↔ LocalTax72_80_2TwoTrusteesDeeming.lean",
+           "325AC0000000226",
+           "article", "第七十二条の八十の二",
+           ["一の法人課税信託等の受託者が二以上ある場合には、各受託者の当該法人課税信託等に係る信託資産等は、当該法人課税信託等の信託事務を主宰する受託者（次項において「主宰受託者」という。）の信託資産等とみなして、この節の規定を適用する。"])
+
+    # Batch 287 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 72_40(1) 三月以内の更正決定請求 ↔ LocalTax72_40DecisionWithinThreeMonths.lean",
+           "325AC0000000226",
+           "article", "第七十二条の四十",
+           ["この場合において、正当な事由がなくて当該税務官署が当該更正又は決定の請求を受けた日から三月以内に更正又は決定をしないときは、道府県知事は、当該税務官署を監督する税務官署に更正又は決定をすべき旨を請求することができる。"])
+
+    # Batch 287 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 73_30(2) 百万円を超える免れた税額 ↔ LocalTax73_30EvadedTaxAboveOneMillion.lean",
+           "325AC0000000226",
+           "article", "第七十三条の三十",
+           ["前項の免れた税額が百万円を超える場合には、情状により、同項の罰金の額は、同項の規定にかかわらず、百万円を超える額でその免れた税額に相当する額以下の額とすることができる。"])
+
+    # Batch 287 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 703_4(29)1 十八歳以上被保険者均等割 ↔ LocalTax703_4EighteenPlusInsuredAmount.lean",
+           "325AC0000000226",
+           "article", "第七百三条の四",
+           ["所得割総額、資産割総額、被保険者均等割総額、十八歳以上被保険者均等割総額及び世帯別平等割総額の合計額"])
+
+    # Batch 287 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 72_66(1) 二十日以内の督促状発付 ↔ LocalTax72_66DemandNoticeWithin20Days.lean",
+           "325AC0000000226",
+           "article", "第七十二条の六十六",
+           ["納税者が納期限（法人の行う事業に対する事業税について更正又は決定があつた場合においては、不足税額の納期限をいう。以下法人の行う事業に対する事業税について同じ。）までに事業税に係る地方団体の徴収金を完納しない場合においては、道府県の徴税吏員は、納期限後二十日以内に、督促状を発しなければならない。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
