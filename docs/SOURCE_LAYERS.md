@@ -18,15 +18,15 @@ layer is never folded into the statutory ledger.
 | L2_ORDINANCE | 地方税条例 | 自治体条例（地方自治法に基づく法源） | ACQUIRED_PARTIAL | IN_SCOPE_BACKLOG | 1788 | PINNED_BYTES_ONLY |
 | L3_TREATY | 租税条約 | 条約（国際法源）— 国内法とは効力発生の機構が異なる | ACQUIRED_PARTIAL | IN_SCOPE_AUXILIARY_BACKLOG | 7 | PINNED_BYTES_ONLY |
 | L4_CIRCULAR | 通達 | 行政通達（法的拘束力は条文ではなく行政内部） | ACQUIRED_PARTIAL | IN_SCOPE_INTERPRETATION_BACKLOG | 7 | PINNED_BYTES_ONLY |
-| L5_CASELAW | 裁判例 | 判決・裁定（法源ではなく判断例） | ACQUIRED_PARTIAL | IN_SCOPE_INTERPRETATION_BACKLOG | 6 | PINNED_BYTES_ONLY |
+| L5_CASELAW | 裁判例 | 判決・裁定（法源ではなく判断例） | ACQUIRED_PARTIAL | IN_SCOPE_INTERPRETATION_BACKLOG | 7 | PINNED_BYTES_ONLY |
 | L6_HISTORICAL | 歴史的施行版 | 旧法・新法（同一法令の別施行版） | NOT_PINNED | HISTORICAL_LAYER | 795 | BACKLOG_NOT_PINNED |
 
 ## Obligation counts (separate denominators)
 
 - normative_units_total: 396854
-- fully_verified_units: 1400
+- fully_verified_units: 1409
 - proved_scope_units: 3
-- not_started_units: 395449
+- not_started_units: 395440
 - blocked_units: 2
 - human_legal_reviews: 0
 
