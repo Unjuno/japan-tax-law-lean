@@ -671,6 +671,29 @@ progress_ledger: COUNTED; NOT_STARTED delta -33; new modules 15
 All five target ids carry `kernel_proof` citing the correct run. Legal review
 stays pending.
 
+### Twenty-sixth iteration (batch 279)
+
+A sixteenth delegated agent produced five units (`InheritanceTax1_3DoneeNoResidenceWithin10Years`,
+`LocalTax24_3BeneficiariesTwoOrMoreDelegation`, `72_21SubsidiaryOver50Percent`,
+`15_8CancellationWithin3Years`, `292SpouseIncomeUpTo10M`) with independent
+specs, kernel tests, scoped needles and batch-279 review; build 2208 jobs,
+transcription 690, invariants 17/17. All ids passed mandatory generator-gate
+pre-validation with verbatim scoped article+paragraph needles; several failing
+candidates were replaced before commitment. CI run `45924527495` on
+`d918fe1ee4680efba5fbde7c22bfadd3dd322bc9` completed `success`;
+`data/PROOF_ATTESTATION_SCOPED_T26.json` binds 15 module hashes from committed
+blobs at that commit to that green run.
+
+```
+before: FULLY_VERIFIED=1274 NOT_STARTED=395575 evidence=1277
+after:  FULLY_VERIFIED=1294 NOT_STARTED=395555 evidence=1297
+delta:  FULLY_VERIFIED=+20 NOT_STARTED=-20  evidence=+20
+progress_ledger: COUNTED; NOT_STARTED delta -20; new modules 15
+```
+
+All five target ids carry `kernel_proof` citing the correct run. Legal review
+stays pending.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |
