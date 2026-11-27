@@ -31,6 +31,17 @@ theorem agreeWithin (oneYearDays start completion : Nat) :
   unfold withinDeadline specWithin
   rw [agreeYearCount]
 
+/-- Independent remaining-budget computation: days left inside the deadline,
+    zero once it has passed. Written without implementation identifiers. -/
+def specDaysRemaining (oneYearDays start completion : Nat) : Nat :=
+  if completion ≤ start + oneYearDays then (start + oneYearDays) - completion else 0
+
+theorem agreeDaysRemaining (oneYearDays start completion : Nat) :
+    daysRemaining oneYearDays start completion = specDaysRemaining oneYearDays start completion := by
+  unfold daysRemaining withinDeadlineBool specDaysRemaining yearCount
+  rw [Nat.one_mul]
+  simp
+
 theorem spec_at_deadline (oneYearDays start : Nat) :
     specWithin oneYearDays start (start + specYearCount * oneYearDays) := by
   unfold specWithin

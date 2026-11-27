@@ -71,6 +71,23 @@ theorem one_day_past_fails (oneYearDays start : Nat) :
   unfold withinDeadline
   exact Nat.not_succ_le_self (start + yearCount * oneYearDays)
 
+/-- Decidable form of the deadline comparison (for kernel-decided examples). -/
+def withinDeadlineBool (oneYearDays start completion : Nat) : Bool :=
+  decide (completion ≤ start + yearCount * oneYearDays)
+
+/-- Days still available inside the deadline; 0 once the deadline has passed. -/
+def daysRemaining (oneYearDays start completion : Nat) : Nat :=
+  if withinDeadlineBool oneYearDays start completion then
+    (start + oneYearDays) - completion
+  else 0
+
+/-- At the deadline the remaining budget is exactly zero. -/
+theorem daysRemaining_at_deadline (oneYearDays start : Nat) :
+    daysRemaining oneYearDays start (start + oneYearDays) = 0 := by
+  unfold daysRemaining withinDeadlineBool yearCount
+  rw [Nat.one_mul]
+  simp
+
 theorem yearCount_value : yearCount = 1 := rfl
 
 end JapanTaxLaw.CustomsTariffArt7InvestigationStartDeadline
