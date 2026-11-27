@@ -83,11 +83,11 @@ reading batch pipeline: verified=5 failed=0 / verified=70 failed=0 / verified=74
 
 $ python scripts/ci/task_queue.py
 normative-unit queue: 396854 units; NOT_STARTED=394876, PARTIAL=0,
-PROVED_SCOPE=0, FULLY_VERIFIED=55015, BLOCKED=2
+PROVED_SCOPE=0, FULLY_VERIFIED=60623, BLOCKED=2
 state merge: 396853 change(s)
 
 $ python scripts/ci/verify_queue_invariants.py
-PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=55015 axes=11 unbacked=0
+PASS every FULLY_VERIFIED is evidence-backed - FULLY_VERIFIED=60623 axes=11 unbacked=0
 12/12 invariants passed
 $ python scripts/ci/batch_multi_reading_pipeline.py --limit 5 / 100 / 120
 multi-reading batch pipeline: verified=5 failed=0 / verified=100 failed=0 / verified=97 failed=0
@@ -263,7 +263,12 @@ units=52005 migrated=44673 missing_axis=0; bytes before=103430919 after=89537616
  all 11 axes and all artifact hashes preserved)
 $ python scripts/ci/batch_conditional_bulk_pipeline.py --limit 10 / 1000 x3
 bulk conditional batch: verified=10/1000/1000/1000, failed=0 in every run
-$ python -m unittest discover -s scripts/tests -t . → 251 tests, OK
+$ python scripts/ci/batch_conditional_bulk_pipeline.py --limit 1000 x3
+bulk conditional batch: verified=1000/1000/608, failed=0 in every run (class exhausted)
+$ python scripts/ci/batch_exception_bulk_pipeline.py --limit 1000 x3
+bulk exception batch: verified=1000 failed=0 (x3)
+
+$ python -m unittest discover -s scripts/tests -t . → 254 tests, OK
 
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
@@ -725,7 +730,11 @@ handles generic 「……場合／とき……」 norms. Condition and effect ar
 caller-established and NOT resolved; only the dispatch structure is proved.
 3010 units were verified with four tests.
 
-So 55015 units are evidence-backed FULLY_VERIFIED and 341,837 remain NOT_STARTED
+The conditional class is exhausted (2608 more units); a bulk exclusion-gate
+pipeline, `scripts/ci/batch_exception_bulk_pipeline.py`, added 3000 EXCEPTION
+units with unresolved base/exclusion inputs and exhaustive Bool proofs.
+
+So 60623 units are evidence-backed FULLY_VERIFIED and 336,229 remain NOT_STARTED
 on this branch; the
 shared working tree, by contrast, was repeatedly reset to FULLY_VERIFIED=0 by
 concurrent branch switches. This ledger is committed here so the gain is

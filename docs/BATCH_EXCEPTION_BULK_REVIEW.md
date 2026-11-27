@@ -1,0 +1,3 @@
+- batch BulkExcepta3cadcc025: 1000 exclusion norms; gate scope only; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.
+- batch BulkExcept41c2114a46: 1000 exclusion norms; gate scope only; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.
+- batch BulkExcept772beb75a3: 1000 exclusion norms; gate scope only; T=one kernel build + batch axiom scan + per-unit source audit; D=PASS.
