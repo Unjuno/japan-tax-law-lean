@@ -14,8 +14,8 @@
 | 指標 | 値 |
 |---|---|
 | 台帳候補件数 | 327 |
-| CurrentEnforced | 324 |
-| 監査対象外の版 | 3 |
+| CurrentEnforced | 325 |
+| 監査対象外の版 | 2 |
 
 ## 2. 構造監査の実測（build/audit_sweep.json）
 
@@ -59,7 +59,7 @@
 ## 5. クロスロー・ピン整合（L1↔L3）
 
 ```text
-cross_law.gate failed
+cross_law: scanned 2641 Lean files; 1323 pinned modules consistent, 0 failed; 1318 unpinned (not counted as verified); unresolved unenforced laws: 508CO0000000106, 508M60000040027
 ```
 
 ## 6. 検証境界（誠実な宣言）
