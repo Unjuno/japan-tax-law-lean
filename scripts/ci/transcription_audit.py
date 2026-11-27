@@ -4756,6 +4756,37 @@ def checks():
            "article", "第百四十四条の十六",
            ["第一項の証票の交付を受けた者は、軽油引取税の特別徴収の義務が消滅した場合又は事務所若しくは事業所を廃止した場合には、その消滅し、又は廃止した日から十日以内にその証票を道府県知事に返さなければならない。"])
 
+
+    # Batch 283 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("相続税法 art. 1_4(3)3 贈与前十年以内の居住参照 ↔ InheritanceTax1_4TenYearLookbackReference.lean",
+           "325AC0000000073",
+           "article", "第一条の四",
+           ["贈与の時においてこの法律の施行地に住所を有していなかつた当該贈与をした者であつて、当該贈与前十年以内のいずれかの時においてこの法律の施行地に住所を有していたことがあるもののうちそのいずれの時においても日本国籍を有していなかつたもの又は当該贈与前十年以内のいずれの時においてもこの法律の施行地に住所を有していたことがないものをいう。"])
+
+    # Batch 283 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 73_18(4) 十日以内の申告書送付 ↔ LocalTax73_18ReportWithin10Days.lean",
+           "325AC0000000226",
+           "article", "第七十三条の十八",
+           ["市町村長は、前項の規定による申告書若しくは報告書を受け取つた場合又は自ら不動産の取得の事実を発見した場合には、その日から十日以内に当該申告書若しくは報告書を道府県知事に送付し、又は当該取得の事実を通知するものとする。"])
+
+    # Batch 283 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 404(3) 二以上の市町村の共同選任 ↔ LocalTax404TwoMunicipalitiesJointAppointment.lean",
+           "325AC0000000226",
+           "article", "第四百四条",
+           ["二以上の市町村の長は、当該市町村の議会の同意を得て、その協議によつて協同して同一の者を当該各市町村の固定資産評価員に選任することができる。"])
+
+    # Batch 283 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 349_5(1) 二以上の新設大規模償却資産の合算 ↔ LocalTax349_5TwoLargeAssetsMerger.lean",
+           "325AC0000000226",
+           "article", "第三百四十九条の五",
+           ["この場合において、一の納税義務者が一の市町村の区域内において第一適用年度を同じくする二以上の新設大規模償却資産を所有するときは、これらの新設大規模償却資産を合わせて一の新設大規模償却資産とみなす。"])
+
+    # Batch 283 — dependency-free single-threshold units, independent spec + kernel boundary checks.
+    yield ("地方税法 art. 321_7_4(2) 二以上の老齢等年金給付の委任 ↔ LocalTax321_7_4TwoAnnuityPaymentsDelegation.lean",
+           "325AC0000000226",
+           "article", "第三百二十一条の七の四",
+           ["前項の場合において、市町村は、同一の特別徴収対象年金所得者について老齢等年金給付が二以上あるときは、政令で定めるところにより、一の老齢等年金給付（以下この節において「特別徴収対象年金給付」という。）について年金所得に係る特別徴収税額を徴収させるものとする。"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
