@@ -6967,6 +6967,23 @@
         1000
       ]
     },
+    "OkinawaArt19Bracket10M15M": {
+      "adversarial_review": true,
+      "boundary_examples_found": 3,
+      "independent_spec": true,
+      "kanji_literals": [
+        "千万",
+        "千五百万"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 14,
+      "needles_scoped": true,
+      "scoped_article_chars": 945,
+      "spec_literals": [
+        10000000,
+        15000000
+      ]
+    },
     "OkinawaArt19Bracket1M2M": {
       "adversarial_review": true,
       "boundary_examples_found": 3,
@@ -12647,6 +12664,23 @@
         "module": "LocalSeismic120sqm",
         "spec_kanji_in_原文": [
           "百二十"
+        ]
+      },
+      "NORM|19ad3c0f39ad4ec9480de4e7e90ab21b00a4f7dcf2ff45b75927e9e3c81f691e": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 14,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "OkinawaArt19Bracket10M15M",
+        "spec_kanji_in_原文": [
+          "千万",
+          "千五百万"
         ]
       },
       "NORM|19c586773f02861671540621e22b12ad0105e487695542bd6d320fe92b45cac8": {
@@ -31350,6 +31384,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"120\": [\"百二十\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/325CO0000000245_20261101_508CO0000000083.law.json#LawBody[4]/SupplProvision/SupplProvision[60]/Article:12/Article#12/Paragraph#52/Item#1/Subitem1#2/Subitem1Sentence/Column#2/Sentence#1 sha256=9bc03b230fb0ed1039e33a1544cd53772939ee25d6d4648a386400ea269dfb17 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/LocalSeismic120sqmTests.lean sha256=8fd8bab3ac554037e892c63a4120c0c644b760f2520cd567f01eff3e44f876a4 (11 kernel-decided examples)"
+    },
+    "NORM|19ad3c0f39ad4ec9480de4e7e90ab21b00a4f7dcf2ff45b75927e9e3c81f691e": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 14 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=347CO0000000151_20251231_507CO0000000426 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/OkinawaArt19Bracket10M15M.lean sha256=d5fc6ab61724da15910a32bddd25b7cd99b57f889a2249d995ea933fad90a0ae",
+      "independent_spec": "JapanTaxLaw/OkinawaArt19Bracket10M15MSpec.lean sha256=eda8d3c130279780a238babec0f947647c7b747ebcb22482a59f8ea4bf9d1472 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/46051693259: commit 72abac798265, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [10000000, 15000000] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"10000000\": [\"千万\"], \"15000000\": [\"千五百万\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/347CO0000000151_20251231_507CO0000000426.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:19/Article#19/Paragraph#1/Item#3/TableStruct/Table/TableRow/TableColumn/Sentence#1 sha256=8c5521ffb74068dc5b6872a3748b53a6eec38afc3637ece878eb0ca9da74a437 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/OkinawaArt19Bracket10M15MTests.lean sha256=5fd5707808a7a051a1c8b23df13b07873a2496a08c039d30b01eef42f2ad8493 (14 kernel-decided examples)"
     },
     "NORM|19c586773f02861671540621e22b12ad0105e487695542bd6d320fe92b45cac8": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
