@@ -5470,6 +5470,13 @@ def checks():
            "file", None,
            ["\u6761\u7d04\u306e\u898f\u5b9a\u306b\u3088\u308a\u8f38\u5165\u306e\u5f8c\u4e00\u5b9a\u306e\u671f\u9593\u5185\u306b\u8f38\u51fa\u3055\u308c\u308b\u3053\u3068\u3092\u6761\u4ef6\u3068\u3057\u3066\u95a2\u7a0e\u3092\u514d\u9664\u3059\u308b\u3053\u3068\u3068\u3055\u308c\u3066\u3044\u308b\u8ca8\u7269\u3067\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
 
+    # InheritanceTaxArt32EquivalentCauseDelegation.lean - NORM|82d24538... (相続税法 art.32(1) item6 DELEGATION, law 325AC0000000073)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("inheritance tax law art.32 equivalent cause delegation - InheritanceTaxArt32EquivalentCauseDelegation.lean",
+           "325AC0000000073",
+           "file", None,
+           ["\u524d\u5404\u53f7\u306b\u898f\u5b9a\u3059\u308b\u4e8b\u7531\u306b\u6e96\u305a\u308b\u3082\u306e\u3068\u3057\u3066\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u4e8b\u7531\u304c\u751f\u3058\u305f\u3053\u3068\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [

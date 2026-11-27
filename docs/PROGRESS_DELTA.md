@@ -7,10 +7,14 @@ unverified units decreases. This ledger records measured deltas, not
 the count of models or theorems. It makes no completion claim.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 head: `66a6a5a544af`
 =======
 head: `e3d0e92fe8e2`
 >>>>>>> d16ea7695 (Verify customs tariff art.17 reexport-goods delegation (DELEGATION NORM|7683650c))
+=======
+head: `d05a4509d4e7`
+>>>>>>> 14e57e31d (Verify inheritance tax art.32 equivalent-cause delegation (DELEGATION NORM|82d24538))
 verdict: **COUNTED**
 
 | status | count | delta |

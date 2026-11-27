@@ -30,6 +30,9 @@ rounding and enforcement dates are recorded in independent fields
 - effects: 405 units
 - delegations: 205 units
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 14e57e31d (Verify inheritance tax art.32 equivalent-cause delegation (DELEGATION NORM|82d24538))
 - periods: 120 units
 =======
 - periods: 121 units

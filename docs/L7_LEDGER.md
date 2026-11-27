@@ -60,10 +60,14 @@
 
 ```text
 <<<<<<< HEAD
+<<<<<<< HEAD
 cross_law: scanned 2785 Lean files; 1339 pinned modules consistent, 0 failed; 1446 unpinned (not counted as verified); unresolved unenforced laws: 508CO0000000106, 508M60000040027
 =======
 cross_law: scanned 2782 Lean files; 1339 pinned modules consistent, 0 failed; 1443 unpinned (not counted as verified); unresolved unenforced laws: 508CO0000000106, 508M60000040027
 >>>>>>> d16ea7695 (Verify customs tariff art.17 reexport-goods delegation (DELEGATION NORM|7683650c))
+=======
+cross_law: scanned 2785 Lean files; 1339 pinned modules consistent, 0 failed; 1446 unpinned (not counted as verified); unresolved unenforced laws: 508CO0000000106, 508M60000040027
+>>>>>>> 14e57e31d (Verify inheritance tax art.32 equivalent-cause delegation (DELEGATION NORM|82d24538))
 ```
 
 ## 6. 検証境界（誠実な宣言）
