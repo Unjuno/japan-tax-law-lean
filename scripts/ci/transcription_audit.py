@@ -1339,6 +1339,12 @@ def checks():
            "file", None,
            ["資本金の額に千分の三・五を乗じて計算した金額", "七万五千円に満たない場合"])
 
+    # 法人税法施行令 art.7(1) — CorpOrderArt7TeachingHours800.lean
+    yield ("法人税法施行令 art.7(1)（年間授業800時間以上）↔ CorpOrderArt7TeachingHours800.lean",
+           "340M50000040012",
+           "file", None,
+           ["一年間の授業時間数が八百時間以上であること", "第七条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
