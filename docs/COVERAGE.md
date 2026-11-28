@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 833 | n/a | n/a |
-| distinct article pins | 240 | 42584 | 0.56% |
-| pinned Lean modules (cross-law) | 1344 | n/a | n/a |
+| pinned literal checks | 837 | n/a | n/a |
+| distinct article pins | 242 | 42584 | 0.57% |
+| pinned Lean modules (cross-law) | 1346 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1459 |
+| unpinned Lean modules (not counted as verified) | 1475 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -235,7 +235,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `352AC0000000035` 昭和五十一年分所得税の特別減税の実施のための財政処理の特別措置に関する法律
 - `352M50000040032` 国税局課税部等の統括国税調査官等の所掌に属する事務の範囲を定める省令
 - `353AC0000000025` 石油石炭税法
-- `353CO0000000132` 石油石炭税法施行令
 - `359AC0000000072` たばこ税法
 - `360CO0000000005` たばこ税法施行令
 - `362CO0000000335` 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律施行令
@@ -247,6 +246,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `403CO0000000035` 法人臨時特別税に関する政令
 - `403CO0000000174` 地価税法施行令
 - `403M50000040006` 法人臨時特別税に関する省令
+- `403M50000040054` 電子情報処理組織を使用して処理する場合における国税等の徴収関係事務等の取扱いの特例に関する省令
 - `404AC0000000015` 法人特別税法
 - `404CO0000000089` 法人特別税法施行令
 - `405M50000008001` 離島振興法第二十条の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令
