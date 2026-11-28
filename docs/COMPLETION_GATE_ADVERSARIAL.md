@@ -1,12 +1,12 @@
 # Adversarial audit of the completion gate
 
-repo: `C:\Users\junny\.local\share\opencode\worktree\484e09\rnd-surcharge-cycle`
+repo: `C:\Users\junny\Desktop\japan-tax-law-lean-iter14`
 
 verdict: **PASS** (0 MUST failures)
 
 - tools present: 4/4
-- evidence file: C:\Users\junny\.local\share\opencode\worktree\484e09\rnd-surcharge-cycle\data\verification_evidence.json
-- durable state counts: {"BLOCKED": 2, "FULLY_VERIFIED": 1275, "NOT_STARTED": 1}
+- evidence file: C:\Users\junny\Desktop\japan-tax-law-lean-iter14\data\verification_evidence.json
+- durable state counts: {"BLOCKED": 2, "FULLY_VERIFIED": 1276, "NOT_STARTED": 1}
 
 | rule | must | H | T | D | C | U |
 |---|---|---|---|---|---|---|
