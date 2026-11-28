@@ -19,6 +19,17 @@ def qualifies (customsOfficer : Bool) (mofComputer : Bool)
               (officeIODevice : Bool) (telecomLink : Bool) : Bool :=
   (!customsOfficer) && mofComputer && officeIODevice && telecomLink
 
+/-- 三要素のうち成立しているものの数（0..3）。 -/
+def satisfiedElements (mofComputer : Bool) (officeIODevice : Bool) (telecomLink : Bool) : Nat :=
+  (if mofComputer then 1 else 0) + (if officeIODevice then 1 else 0) + (if telecomLink then 1 else 0)
+
+/-- 定義に必要な要素数。 -/
+def requiredElements : Nat := 3
+
+example : satisfiedElements true true true = 3 := by decide
+example : satisfiedElements false true true = 2 := by decide
+example : satisfiedElements false false false = 0 := by decide
+
 example : qualifies false true true true = true := by decide
 example : qualifies true true true true = false := by decide
 example : qualifies false false true true = false := by decide
