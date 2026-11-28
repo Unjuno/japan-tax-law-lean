@@ -11533,6 +11533,19 @@
       "source_location": "data/raw/332AC0000000026_20261101_507AC0000000013.law.json#LawBody[3]/MainProvision/MainProvision[6]/Article:90_12/Article#90_12/Paragraph#2/Item#1/Subitem1#3/Subitem2#2/Subitem2Sentence/Sentence#1 sha256=e6e6013bbc0608c6b48dea01d50ac847c3e5d094f0420223171ffe1b5cf8d5ee (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/EnergyEfficiency75PctTests.lean sha256=533076a936ce74e46e0f593dbc4ba871678656de23c9e4ac806ae8cf31482a42 (7 kernel-decided examples)"
     },
+    "NORM|ac0926f0765da6732a19112cec9ba6c0a95a9c54211d4c2e1a4447480643411a": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 9 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=407M50000200018_20201221_502M60000200083 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/PreparedRiceCerealMaterial.lean sha256=bf2c14a8fa84d16ad520ae15ed192064697e103f2266dfb77170cf514d409d90",
+      "independent_spec": "JapanTaxLaw/PreparedRiceCerealMaterialSpec.lean sha256=1f7f5da372acde29006e6b09822ffb8166f0a39b4fd88b9aa08b3a8566d06e32 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/46126166588: commit 4b2be6a2ca71b5d7e4c4ececcae4a2711bd78f07, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=pinned needle(s) in clause: ['特定朝食シリアルの製造に使用する原材料として粒状']; constants [] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['特定朝食シリアルの製造に使用する原材料として粒状']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/407M50000200018_20201221_502M60000200083.law.json#LawBody[2]/MainProvision/MainProvision[0]/Article:1/Article#1/Paragraph#1/Item#5/ItemSentence/Sentence#1 sha256=ca512c52b79164a9bfb9dd607f37afdf64c66a8afec0878e6049399a2afcca25 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/PreparedRiceCerealMaterialTests.lean sha256=73d9de0caaa0413ba10d744f0e74f014b8d037fb1c3bae610857833ee219440a (9 kernel-decided examples)"
+    },
     "NORM|ac2fcdf998338e475ee41bd6be770b5e90be55982b6ebd936b367dda56ed5f20": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 14 kernel-decided examples covering boundary inputs",
