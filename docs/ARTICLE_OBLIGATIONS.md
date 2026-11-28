@@ -17,6 +17,7 @@ source positions. Human legal review is a separate axis and is pending.
 
 | law_id | article | module | presence | scoped | review | authoritative status |
 |---|---|---|---|---|---|---|
+| `362CO0000000335` | 第三条 | ForeignCorpRedemptionTaxCredit | YES | YES | NO | NOT_STARTED |
 | `329M50000002023` | 第八条の十三 | GolfCourseTaxGrantSevenTenths | YES | YES | NO | NOT_STARTED |
 | `332AC0000000077` | 第二条 | PortMunicipalityAllocationBase | YES | YES | NO | NOT_STARTED |
 | `422CO0000000221` | 第二条 | SpecialWardReading | YES | YES | NO | NOT_STARTED |
@@ -328,4 +329,3 @@ source positions. Human legal review is a separate axis and is pending.
 | `424M60000040007` | 第一条 | ResidualDistributionOneMonth | YES | YES | NO | NOT_STARTED |
 | `418M60000400006` | 第二条 | OpinionApplicantDocumentWindowThreeMonths | YES | YES | NO | NOT_STARTED |
 | `417CO0000000289` | 第五条 | SeparateTariffApplication | YES | YES | NO | NOT_STARTED |
-| `508M60000008056` | 第一条 | Reiwa8LocalGrantCoefficientScale | YES | YES | NO | NOT_STARTED |

@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 834 | n/a | n/a |
-| distinct article pins | 241 | 42584 | 0.57% |
-| pinned Lean modules (cross-law) | 1344 | n/a | n/a |
+| pinned literal checks | 837 | n/a | n/a |
+| distinct article pins | 242 | 42584 | 0.57% |
+| pinned Lean modules (cross-law) | 1346 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1462 |
+| unpinned Lean modules (not counted as verified) | 1475 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -246,6 +246,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `403CO0000000035` 法人臨時特別税に関する政令
 - `403CO0000000174` 地価税法施行令
 - `403M50000040006` 法人臨時特別税に関する省令
+- `403M50000040054` 電子情報処理組織を使用して処理する場合における国税等の徴収関係事務等の取扱いの特例に関する省令
 - `404AC0000000015` 法人特別税法
 - `404CO0000000089` 法人特別税法施行令
 - `405M50000008001` 離島振興法第二十条の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令
@@ -323,5 +324,4 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `507M60000008043` 地方団体に対して交付すべき令和七年度分の震災復興特別交付税の額の算定方法、決定時期及び決定額並びに交付時期及び交付額等の特例に関する省令
 - `508CO0000000224` ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令
 - `508CO0000000254` 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令
-- `508M60000008056` 令和八年度分の地方交付税の交付額の特例に関する省令
 - `508M60000008066` 地方団体に対して交付すべき令和八年度分の震災復興特別交付税の額の算定方法、決定時期及び決定額並びに交付時期及び交付額等の特例に関する省令
