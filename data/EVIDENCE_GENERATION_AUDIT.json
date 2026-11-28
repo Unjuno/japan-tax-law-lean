@@ -1743,6 +1743,17 @@
         2
       ]
     },
+    "CustomsTariffArt15PriorUseException": {
+      "adversarial_review": true,
+      "boundary_examples_found": 3,
+      "independent_spec": true,
+      "kanji_literals": [],
+      "kernel_attested": true,
+      "kernel_decided_examples": 13,
+      "needles_scoped": true,
+      "scoped_article_chars": 1419,
+      "spec_literals": []
+    },
     "CustomsTariffArt15ReligiousGiftDelegation": {
       "adversarial_review": false,
       "boundary_examples_found": 0,
@@ -27147,6 +27158,20 @@
           "百"
         ]
       },
+      "NORM|dc53fcddca38961e0306ab237c7d7cea636e1ba936284d7fc2a52df7b57d38b4": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 13,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "CustomsTariffArt15PriorUseException",
+        "spec_kanji_in_原文": []
+      },
       "NORM|dcb9bb107d45545178b311433a3695ef467fb71b6ae91fec748c31898944be0f": {
         "checks": {
           "cross_law": true,
@@ -43134,6 +43159,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"100\": [\"百\"], \"5\": [\"五\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/340CO0000000097_20261001_507CO0000000121.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:155_32/Article#155_32/Paragraph#3/ParagraphSentence/Sentence#2 sha256=92bab730d90617c1a1439ba19ba8f79041368febf3840c919103689cfcd90fe6 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/MemberRatiosAtMost5Tests.lean sha256=7696ed7ce0865a0bc4dc62696682e321ae026b191836cda33d755dad4f7f99d0 (7 kernel-decided examples)"
+    },
+    "NORM|dc53fcddca38961e0306ab237c7d7cea636e1ba936284d7fc2a52df7b57d38b4": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 13 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=143AC0000000054_20260601_508AC0000000005 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/CustomsTariffArt15PriorUseException.lean sha256=4b549519b443c6b315bee14be7967b81463842543f9c0896059f5d28c9b1fff7",
+      "independent_spec": "JapanTaxLaw/CustomsTariffArt15PriorUseExceptionSpec.lean sha256=71051c65fcb3ed2feb00701adbc25949f5a5af32a842d9974a79c7a0be2d8de8 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/46086577934: commit b09fa4f60a95, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=pinned needle(s) in clause: ['ただし、その入国前にこれらの者が既に使用したもの']; constants [] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['ただし、その入国前にこれらの者が既に使用したもの']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/143AC0000000054_20260601_508AC0000000005.law.json#LawBody[1]/MainProvision/MainProvision[28]/Article:15/Article#15/Paragraph#1/Item#9/ItemSentence/Sentence#2 sha256=924a01d3014fd93ea50c6588d5a7ed414becef2ca806918081a18a6ef986ae9c (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/CustomsTariffArt15PriorUseExceptionTests.lean sha256=3449174f08ee8979d066498f0cbb61ca5d74fa95c2663e46fdd3f4eecac34842 (13 kernel-decided examples)"
     },
     "NORM|dcb9bb107d45545178b311433a3695ef467fb71b6ae91fec748c31898944be0f": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
