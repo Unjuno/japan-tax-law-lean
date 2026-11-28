@@ -1,1 +1,0 @@
-Get-Process -Id 35576,33204,5452,27416,31912,22428,39532 -ErrorAction SilentlyContinue | Select-Object Id,CPU,@{Name='MB';Expression={[int]($_.WorkingSet64/1MB)}},StartTime | Format-Table -AutoSize | Out-String -Width 200

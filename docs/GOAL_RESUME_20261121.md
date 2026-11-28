@@ -205,3 +205,44 @@ merged main to fixed point; re-measure; then continue collision-checked queue
 selection over dependency-ready NOT_STARTED units. Never weaken gates, the two
 required integrity guards, or the family-only `rules.py::_classify_law_name`
 classifier.
+
+## UPDATE 2026-11-27b (PR 764 merged; scoped attestation bound)
+
+PR #764 (SeparateTariffApplication, 関税定率法 art.5) reconciled to generator
+fixed point on branch head `49f4e8af9`: `run_python_gates.py` RC 0 with 55 gates
+run, 0 skipped; transcription 782/782; all three guards True. GitHub Actions
+check suite at that head completed SUCCESS (Lean build + Python audit); PR
+state was OPEN / MERGEABLE / CLEAN at the green head. Merged via the GraphQL
+`mergePullRequest` mutation (squash) at 2026-11-27T00:38:20Z because the core
+REST quota was exhausted; GraphQL had 4,991 calls remaining and supplied the
+same authoritative CI verdict. Merged main: `5e41c7e97`.
+
+Scoped attestation `data/PROOF_ATTESTATION_SCOPED_TARIFF.json` was built from
+the green commit's three module blobs (`49f4e8af9`, run 45914746864) and is
+carried on this branch so the unit can actually be counted after regeneration.
+It never rewrites the contended main scoped attestation.
+
+This branch now also carries the separately authored art.7(7) norm unit
+(`NORM|30ed71fa…`), kernel-built with all key theorems axiom-free, with
+independent spec, H/T/D/C/U review, transcription pin, canonical umbrella
+(2644 imports), and evidence predicates satisfied. Pending: generator fixed
+point with the TARIFF attestation, REST/GraphQL-confirmed green CI, merge,
+then an INVSTART scoped attestation from that green commit and a final
+regeneration/re-measurement. No §5 completion is claimed.
+
+## UPDATE 2026-11-27c (concurrent-merge race on PR #942)
+
+PR #942 carries the art.7(7) unit plus the TARIFF scoped attestation. Its first
+reconciled head `b43a5b957` was green locally (784/784 transcription later, 55
+gates, all guards True), but main advanced to `cc89be078`, `d4cfe4203` and
+`2cee177ee` while CI/reconciliation was in flight, so `mergeStateStatus` went
+DIRTY each time. Resolution used: fetch origin/main, git merge, take main's
+side for the regenerable artifacts (never for transcription_audit.py when it
+auto-merges), unstage helper files, verify both module checks and canonical
+umbrella, then re-run the full generator fixed point and re-push. Repeat until
+a REST/GraphQL green CI coincides with a CLEAN merge state. No gate weakened.
+
+Verified before the race: on the reconciled branch, `verification_evidence.json`
+contained `NORM|4c6c0978…` (SeparateTariffApplication) with all 11 evidence
+axes, while `NORM|30ed71fa…` (art.7(7)) was correctly absent until its own
+CI-green attestation is bound. Do not report it as verified before then.
