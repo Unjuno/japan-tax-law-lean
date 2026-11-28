@@ -1179,6 +1179,31 @@ progress_ledger: COUNTED; NOT_STARTED delta -12; new modules 15
 All five target ids carry `kernel_proof` citing the correct run. Legal review
 stays pending.
 
+### Forty-eighth iteration (batch 323)
+
+A thirty-eighth delegated agent produced five units (`LocalTax53_2CorrectionRequestWithin2Months`,
+`55_2DeferralReliefWithin3Months`, `163TaxEvasionUpTo5Years`,
+`768CommitteeAtLeast6Members`, `701_47BusinessClosureReturnWithin4Months`) with
+independent specs, kernel tests, scoped needles and batch-323 review; build
+2538 jobs, transcription 800, invariants 17/17. All ids passed mandatory
+generator-gate pre-validation with verbatim scoped article+paragraph needles;
+non-verbatim and table-cell-pin candidates were rejected. CI run `46106066390`
+on `1a82cfbbefd7b3fcef875c3907e03bc7ff289e3b` completed `success` after a very
+long queue backlog; `data/PROOF_ATTESTATION_SCOPED_T48.json` binds 15 module
+hashes from committed blobs at that commit to that green run. The original chain
+timed out before green; a replacement chain bound the attestation only after
+the run actually succeeded.
+
+```
+before: FULLY_VERIFIED=1611 NOT_STARTED=395238 evidence=1614
+after:  FULLY_VERIFIED=1625 NOT_STARTED=395224 evidence=1628
+delta:  FULLY_VERIFIED=+14 NOT_STARTED=-14  evidence=+14
+progress_ledger: COUNTED; NOT_STARTED delta -14; new modules 45
+```
+
+All five target ids carry `kernel_proof` citing the correct run. Legal review
+stays pending.
+
 ## Independent status axes (never collapsed into one "COMPLETE")
 
 | axis | state for the new unit | why |
