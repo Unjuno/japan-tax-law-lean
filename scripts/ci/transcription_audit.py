@@ -5482,6 +5482,11 @@ def checks():
            "143AC0000000054",
            "file", None,
            ["\u6761\u7d04\u306e\u898f\u5b9a\u306b\u3088\u308a\u8f38\u5165\u306e\u5f8c\u7279\u5b9a\u306e\u7528\u9014\u306b\u4f9b\u3055\u308c\u308b\u3053\u3068\u3092\u6761\u4ef6\u3068\u3057\u3066\u95a2\u7a0e\u3092\u514d\u9664\u3059\u308b\u3053\u3068\u3068\u3055\u308c\u3066\u3044\u308b\u8ca8\u7269\u3067\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
+    # 東日本大震災特例法施行規則 art.15(2)(4)ロ — EastJapanQuakeKinshipDegreeThree.lean
+    yield ("東日本大震災特例法施行規則 15(2)(4)ロ（三親等内親族）↔ EastJapanQuakeKinshipDegreeThree.lean",
+           "423M60000040020", "article", "第十五条",
+           ['戸籍の謄本その他の書類でその適用を受けようとする者が滅失建物等所有者の三親等内の親族であることを証する書類'])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
