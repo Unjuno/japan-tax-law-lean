@@ -5486,6 +5486,32 @@ def checks():
            "article", "第七十二条の百十",
            ["前項の還付を受けた金額の三倍が百万円を超える場合には、情状により、同項の罰金の額は、同項の規定にかかわらず、百万円を超え当該相当額の三倍以下の額とすることができる。"])
 
+    # Batch 333 - dependency-free single-threshold units; independent spec + kernel boundaries.
+    yield ("地方税法 art. 349_4(1) 五千人以上 ↔ LocalTax349_4PopulationOver5000Inclusive.lean",
+           "325AC0000000226",
+           "article", "第三百四十九条の四",
+           ["人口五千人以上一万人未満の市町村"])
+
+    yield ("地方税法 art. 312(1) 千万円以下 ↔ LocalTax312CapitalUpTo10MInclusive.lean",
+           "325AC0000000226",
+           "article", "第三百十二条",
+           ["二　資本金等の額を有する法人で資本金等の額が千万円以下であるもののうち、従業者数の合計数が五十人を超えるもの"])
+
+    yield ("地方税法 art. 314_2(1) 八十四万一円を超える ↔ LocalTax314_2DependentExcessOver840001Strict.lean",
+           "325AC0000000226",
+           "article", "第三百十四条の二",
+           ["六十三万円から当該特定親族の前年の合計所得金額のうち八十四万一円を超える部分の金額に二を乗じた金額（当該乗じた金額が十万円の整数倍の金額から八万円を控除した金額でないときは、十万円の整数倍の金額から八万円を控除した金額で当該乗じた金額に満たないもののうち最も多い金額とする。）を控除した金額"])
+
+    yield ("地方税法 art. 314_2(7) 十年以上 ↔ LocalTax314_2_7AnnuityAtLeast10YearsInclusive.lean",
+           "325AC0000000226",
+           "article", "第三百十四条の二",
+           ["当該契約に基づくイに定める個人に対する年金の支払は、当該年金の受取人の年齢が六十歳に達した日以後の日で当該契約で定める日以後十年以上の期間又は当該受取人が生存している期間にわたつて定期に行うものであることその他の政令で定める要件"])
+
+    yield ("地方税法 art. 349_4(1) 一万人以上 ↔ LocalTax349_4PopulationOver10000Inclusive.lean",
+           "325AC0000000226",
+           "article", "第三百四十九条の四",
+           ["人口一万人以上三万人未満の市町村"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
