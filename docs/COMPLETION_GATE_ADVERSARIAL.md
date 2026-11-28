@@ -1,12 +1,12 @@
 # Adversarial audit of the completion gate
 
-repo: `C:\Users\junny\Desktop\japan-tax-law-lean-iter14`
+repo: `D:\CodexData\Temp\opencode\jtl-next-unit`
 
 verdict: **PASS** (0 MUST failures)
 
 - tools present: 4/4
 - evidence file: D:\CodexData\Temp\opencode\jtl-next-unit\data\verification_evidence.json
-- durable state counts: {"BLOCKED": 2, "FULLY_VERIFIED": 1290}
+- durable state counts: {"BLOCKED": 2, "FULLY_VERIFIED": 1291}
 
 | rule | must | H | T | D | C | U |
 |---|---|---|---|---|---|---|

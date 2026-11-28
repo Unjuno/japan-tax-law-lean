@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": true,
-  "checks": 6371,
+  "checks": 6376,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -21363,6 +21363,61 @@
       "detail": "run=46125037605 attested_run=46125037605 conclusion=lean_job_only job=True",
       "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/46125037605: commit c0053c9d1239, build/axiom job success, 3 m",
       "unit_id": "NORM|46158208ca535db7caaf710f6aaccd29da4847ec77e12c037869077566d13fdf"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "unit_id": "NORM|46867af69849a271b34d3e75f11c977e3a6be6b25e1c468b134446ad5e6245ad"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/SpecialCorpBusinessTaxZeroFloor.lean",
+      "unit_id": "NORM|46867af69849a271b34d3e75f11c977e3a6be6b25e1c468b134446ad5e6245ad"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/SpecialCorpBusinessTaxZeroFloorSpec.lean",
+      "unit_id": "NORM|46867af69849a271b34d3e75f11c977e3a6be6b25e1c468b134446ad5e6245ad"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/SpecialCorpBusinessTaxZeroFloorTests.lean",
+      "unit_id": "NORM|46867af69849a271b34d3e75f11c977e3a6be6b25e1c468b134446ad5e6245ad"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "kernel_proof",
+      "detail": "run=46059769001 attested_run=46059769001 conclusion=lean_job_only job=True",
+      "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/46059769001: commit 580e94176635b437482beb48afa72f0b12fc0f49, ",
+      "unit_id": "NORM|46867af69849a271b34d3e75f11c977e3a6be6b25e1c468b134446ad5e6245ad"
     },
     {
       "C": "a generic/template string may describe a different unit",
@@ -70084,9 +70139,9 @@
       "unit_id": "NORM|fff89ad304c83b401e45afc8fa865f356060ed7292f4a5afd6848aa8d0a0431e"
     }
   ],
-  "resolved": 6371,
+  "resolved": 6376,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 1290,
+  "units_checked": 1291,
   "unresolved": 0
 }
