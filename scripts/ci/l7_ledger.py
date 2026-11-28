@@ -115,6 +115,7 @@ def render():
     lines += [
         "",
         "完全な候補ごとの一覧とレビュー状態は [`L7_CANDIDATES_UNREVIEWED.csv`](L7_CANDIDATES_UNREVIEWED.csv) に機械生成で掲載（`scripts/ci/l7_candidates.py`、CI で再生成照合。行は全件 `review_status=unreviewed`）。",
+        "全候補行に H（反証可能仮説）・T（再現検査）・D（合否）・C（対立解釈）・U（不確かさ）を記録する。D は固定スナップショットに対する独立第2回実行による機械的再現性のみを示し、法的判定や人間のレビューではない。",
         "",
         "## 4. 明示的に非対応の範囲（非計上・非検証として記録）",
         "",

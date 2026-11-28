@@ -89,7 +89,58 @@ def load_overlay() -> tuple[dict[str, dict], list[str]]:
 HEADER = [
     "rule_id", "severity", "law_id", "official_title", "path", "line",
     "message", "evidence", "review_status", "reviewer", "review_date",
+    "H", "T", "D", "C", "U",
 ]
+
+# Objective §5: every detected candidate carries H (refutable hypothesis),
+# T (reproduction test), D (mechanical decision), C (competing interpretation)
+# and U (residual uncertainty). These are source-text finding records, NOT
+# legal conclusions and NOT human reviews.
+HT_HYPOTHESIS = {
+    "PAREN.UNBALANCED": "The pinned article contains an unmatched full-width opening bracket at the recorded offset.",
+    "REF.ITEM.MISSING": "A reference to an item number has no resolvable target item in the scanned scope.",
+    "REF.ARTICLE.MISSING": "A reference to an article number has no matching article in the scanned scope.",
+    "REF.PARA.MISSING": "A reference to a paragraph number has no matching paragraph in the enclosing or antecedent article.",
+    "REF.SUPP.MISSING": "A reference to a supplementary-provision article has no matching article in any scanned SupplProvision.",
+    "REF.ARTICLE.DELETED": "A reference names an article number absent from the pinned enforced version.",
+    "REF.RELATIVE.MISSING": "A relative reference has no target in the declared scope.",
+    "STRUCT.GAP.ARTICLE": "Integer article numbers are missing from the declared main scope.",
+    "TOC.BODY.MISSING": "A table-of-contents chapter has no corresponding body chapter.",
+}
+HT_COMPETING = {
+    "PAREN.UNBALANCED": "The bracket may be intentionally unclosed in the official text or an artifact of snapshot transcription.",
+    "REF.ITEM.MISSING": "The target may be in another enforcement version, another law of the family, or an unscanned table structure.",
+    "REF.ARTICLE.MISSING": "The target may be in another enforcement version, another law of the family, or a repealed provision.",
+    "REF.PARA.MISSING": "The paragraph may be in a successor provision or an enforcement version not pinned here.",
+    "REF.SUPP.MISSING": "The supplementary provision may belong to a different enforcement version or predecessor act.",
+    "REF.ARTICLE.DELETED": "The deletion may be intentional and the reference may be a historical or cross-version pointer.",
+    "REF.RELATIVE.MISSING": "The relative position may be computed in a different scope or a different version.",
+    "STRUCT.GAP.ARTICLE": "Article numbering may be intentionally skipped by the legislature.",
+    "TOC.BODY.MISSING": "The TOC may cover provisions in another scope or an unenforced version.",
+}
+HT_UNCERTAINTY = (
+    "No human reviewer recorded; cross-version and cross-law scope not independently confirmed. "
+    "D is mechanical reproducibility from the pinned snapshot only, not a legal conclusion."
+)
+
+
+def finding_identity(f) -> tuple:
+    return (f.rule_id, norm(f.location), int(f.line) if str(f.line).isdigit() else 0,
+            norm(f.message))
+
+
+def htcdu(f, law_id, reproduced: bool) -> list[str]:
+    rid = f.rule_id
+    t = ("re-run rules.all_findings on the pinned snapshot; "
+         f"rule_id={rid} law_id={law_id} location={norm(f.location)} line={f.line}; "
+         "D=REPRODUCED iff the identity tuple appears in an independent second execution")
+    return [
+        HT_HYPOTHESIS.get(rid, "Unclassified structural finding; hypothesis pending classification."),
+        t,
+        "REPRODUCED" if reproduced else "NOT_REPRODUCED",
+        HT_COMPETING.get(rid, "Alternative structural interpretation not yet classified."),
+        HT_UNCERTAINTY,
+    ]
 
 
 def norm(text: str) -> str:
@@ -165,14 +216,21 @@ def collect_rows():
         others = family_others(doc)
         try:
             findings, _stats = rules.all_findings(doc, others)
+            # Objective §5 reproduction test: an independent SECOND execution
+            # from a freshly loaded pinned source. D is set from membership of
+            # the identity tuple in that second scan.
+            doc2 = load_law(REPO_ROOT / snap["source_file"])
+            reproduced, _stats2 = rules.all_findings(doc2, family_others(doc2))
         except Exception:
             law_failures += 1
             continue
+        second_ids = {finding_identity(f) for f in reproduced}
         for f in findings:
             rows.append([
                 f.rule_id, f.severity, lid, norm(title), norm(f.location), f.line,
                 norm(f.message), norm(getattr(f, "evidence", "")),
                 "unreviewed", "", "",
+                *htcdu(f, lid, finding_identity(f) in second_ids),
             ])
     return rows, law_failures
 
@@ -180,6 +238,10 @@ def collect_rows():
 def render():
     rows, law_failures = collect_rows()
     rows.sort(key=lambda r: (r[0], r[2], r[4], int(r[5]) if str(r[5]).isdigit() else 0, r[6]))
+    incomplete = [r for r in rows if any(not str(r[i]).strip() for i in (11, 12, 13, 14, 15))]
+    if incomplete:
+        print(f"FAIL: {len(incomplete)} candidate row(s) have an empty H/T/D/C/U field")
+        raise SystemExit(1)
     buf = io.StringIO()
     w = csv.writer(buf, lineterminator="\n")
     w.writerow(HEADER)

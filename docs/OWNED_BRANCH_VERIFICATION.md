@@ -375,6 +375,20 @@ $ python scripts/ci/check_evidence_artifacts.py → units=72608 missing=0
 $ python scripts/ci/completion_gate.py → all-complete=False
 (main ledger remains 95.7 MB; shard files carry all new evidence)
 
+Objective §5 measurement gap closed: every one of the 3438 L7 candidate rows in
+`docs/L7_CANDIDATES_UNREVIEWED.csv` now carries H (refutable hypothesis),
+T (reproduction test), D (decision), C (competing interpretation), U (residual
+uncertainty). D is computed by an INDEPENDENT SECOND execution of
+`rules.all_findings` on a freshly loaded pinned snapshot; measured
+D=REPRODUCED for 3438/3438, 0 unclassified rule families, 0 empty fields.
+All rows remain `review_status=unreviewed` with blank reviewer/date — no human
+review was fabricated, and D is not a legal determination. Appended columns do
+not change the stable overlay `candidate_key` (pinned by test).
+6 tests added; L7 ledger documents the axes. No normative-unit status changed:
+this is a measurement fix, NOT formalization progress.
+$ python -m unittest discover -s scripts/tests -t . → 292 tests, OK
+$ python scripts/ci/run_python_gates.py → 33 PASS / 0 FAIL / 0 SKIP
+
 The 47th unit was promoted from PROVED_SCOPE after the adversarial
 needle-reuse finding was resolved by STRUCTURAL identity rather than text:
 `scripts/ci/resolve_gift_needle_ambiguity.py` re-extracted both pinned articles
