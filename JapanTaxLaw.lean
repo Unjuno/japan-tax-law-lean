@@ -951,6 +951,9 @@ import JapanTaxLaw.ForeignSubsidiaryTaxRate20Tests
 import JapanTaxLaw.ForeignTradeUsageRatio80
 import JapanTaxLaw.ForeignTradeUsageRatio80Spec
 import JapanTaxLaw.ForeignTradeUsageRatio80Tests
+import JapanTaxLaw.ForeignVessel24HourDeparture
+import JapanTaxLaw.ForeignVessel24HourDepartureSpec
+import JapanTaxLaw.ForeignVessel24HourDepartureTests
 import JapanTaxLaw.ForestArea650Ha
 import JapanTaxLaw.ForestArea650HaSpec
 import JapanTaxLaw.ForestArea650HaTests
