@@ -2760,6 +2760,9 @@ import JapanTaxLaw.TreatyAssetCeiling100KTests
 import JapanTaxLaw.TreatyDeduction
 import JapanTaxLaw.TreatyDeductionSpec
 import JapanTaxLaw.TreatyDeductionTests
+import JapanTaxLaw.TreatyReportFiveYearRetention
+import JapanTaxLaw.TreatyReportFiveYearRetentionSpec
+import JapanTaxLaw.TreatyReportFiveYearRetentionTests
 import JapanTaxLaw.TrialPeriod14Days
 import JapanTaxLaw.TrialPeriod14DaysSpec
 import JapanTaxLaw.TrialPeriod14DaysTests
