@@ -655,7 +655,12 @@
     "LocalTax95GolfObstructionUpTo3Years",
     "LocalTax71_61StockTransferObstructionUpTo3Years",
     "LocalTax144_33UnapprovedOilUpTo2Years",
-    "LocalTax332MunicipalObstructionUpTo3Years"
+    "LocalTax332MunicipalObstructionUpTo3Years",
+    "LocalTax72_49_3CorpBusinessTaxEvasionUpTo10Years",
+    "LocalTax144_25ExemptOilCertTransferUpTo10Years",
+    "LocalTax72_109FreightTaxEvasionUpTo10Years",
+    "LocalTax144_33HydrocarbonOilHandlingUpTo3Years",
+    "LocalTax72_60IndividualBusinessTaxEvasionUpTo10Years"
   ],
   "note": "Modules that MUST retain a transcription audit check. A reconciliation that rewrites transcription_audit.py from a stale base and drops any of these fails the REQUIRED queue-invariant gate. Update this registry only when deliberately removing a module.",
   "schema": 1
