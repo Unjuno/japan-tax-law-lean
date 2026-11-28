@@ -5,8 +5,8 @@ Do not hand-edit. Regenerate with `scripts/ci/audit_evidence_references.py`.
 A document name in an evidence string is not proof that the document
 supports the unit. This audit resolves each reference against the artifact.
 
-- units checked: 1291
-- references resolved: 6376/6376
+- units checked: 1292
+- references resolved: 6381/6381
 - references UNRESOLVED: 0
 - all-complete claimable from references: True
 
