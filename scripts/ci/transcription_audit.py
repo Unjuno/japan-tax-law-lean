@@ -5484,6 +5484,11 @@ def checks():
            "143AC0000000054",
            "file", None,
            ["\u7b2c\u516d\u9805\u53ca\u3073\u7b2c\u4e03\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e00\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u6307\u5b9a\u3055\u308c\u305f\u671f\u9593\u3092\u524d\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u5ef6\u9577\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+    # 国税通則法施行令 art.25(1)(4) — FirstDemandNoticeDate.lean
+    yield ("国税通則法施行令 25(1)(4)（二回以上→最初の発行日）↔ FirstDemandNoticeDate.lean",
+           "337CO0000000135", "article", "第二十五条",
+           ['当該告知書を二回以上にわたつて発した場合には、その最初に発した日'])
+
 
     # CustomsTariffArt15TreatyGoodsDelegation.lean - NORM|e88e79c1... (関税定率法 art.15(1) item10 DELEGATION, law 143AC0000000054)
     # Whole-law locator; needle is unique in the pinned act.
