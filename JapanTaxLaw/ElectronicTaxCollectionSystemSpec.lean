@@ -17,6 +17,27 @@ def specQualifies (customsOfficer : Bool) (mofComputer : Bool)
                   (officeIODevice : Bool) (telecomLink : Bool) : Bool :=
   allThree mofComputer officeIODevice telecomLink && notCustoms customsOfficer
 
+def specCount (mofComputer : Bool) (officeIODevice : Bool) (telecomLink : Bool) : Nat :=
+  (if officeIODevice then 1 else 0) + (if telecomLink then 1 else 0) + (if mofComputer then 1 else 0)
+
+def specRequired : Nat := 3
+
+def specMaskCount (mask : Nat) : Nat :=
+  (mask % 2) + ((mask / 2) % 2) + ((mask / 4) % 2)
+
+example : specMaskCount 0 = 0 := by decide
+example : specMaskCount 7 = 3 := by decide
+
+example : specCount true true true = 3 := by decide
+example : specCount false true true = 2 := by decide
+example : specCount false false false = 0 := by decide
+
+theorem count_agrees (mofComputer : Bool) (officeIODevice : Bool) (telecomLink : Bool) :
+    satisfiedElements mofComputer officeIODevice telecomLink =
+      specCount mofComputer officeIODevice telecomLink := by
+  unfold satisfiedElements specCount
+  cases mofComputer <;> cases officeIODevice <;> cases telecomLink <;> rfl
+
 example : specQualifies false true true true = true := by decide
 example : specQualifies true true true true = false := by decide
 

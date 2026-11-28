@@ -36,6 +36,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parents[2]
 INVENTORY = REPO / "data" / "INVENTORY.json"
 DISCOVERY = REPO / "docs" / "RECURSIVE_DISCOVERY.md"
+ACQUISITIONS = REPO / "data" / "SOURCE_ACQUISITIONS.json"
 BLOCKED = REPO / "docs" / "BLOCKED.md"
 OUT_JSON = REPO / "data" / "SOURCE_LAYERS.json"
 OUT_MD = REPO / "docs" / "SOURCE_LAYERS.md"
@@ -92,8 +93,17 @@ def backlog_record(layer_id: str, task_class: str, next_action: str) -> dict:
     }
 
 
+def acquisitions() -> dict:
+    """Real, pinned acquisition evidence by layer id (index/metadata only)."""
+    if not ACQUISITIONS.exists():
+        return {}
+    data = json.loads(ACQUISITIONS.read_text(encoding="utf-8"))
+    return {r["layer_id"]: r for r in data.get("records", [])}
+
+
 def build() -> dict:
     inv = json.loads(INVENTORY.read_text(encoding="utf-8"))
+    acq = acquisitions()
     laws = inv.get("laws", [])
     snapshot = inv.get("snapshot_date", "")
     acquired = sum(
@@ -240,6 +250,8 @@ def build() -> dict:
         "human_legal_reviews": reviewers,
         "note": "Separate denominators; unknown (None) means the input is absent, never zero.",
     }
+    outer_pins = {k: dict(v) for k, v in acq.items()}
+
     return {
         "tool": "scripts/ci/source_layers.py",
         "schema": 1,
@@ -253,6 +265,8 @@ def build() -> dict:
             "human_reviewers_recorded": reviewers,
         },
         "layer_separation_rule": "auxiliary layers are never merged into L0; counts are separate denominators",
+        "acquisition_evidence": outer_pins,
+        "acquisition_evidence_count": len(outer_pins),
         "backlog_rule": "in-scope source families that are not yet acquired/pinned stay in the task backlog; UNSUPPORTED is a current implementation state, never a permanent scope exclusion",
         "backlog": {
             "task_count": sum(1 for l in layers if l.get("backlog")),

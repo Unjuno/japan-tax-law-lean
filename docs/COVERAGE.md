@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 838 | n/a | n/a |
+| pinned literal checks | 839 | n/a | n/a |
 | distinct article pins | 243 | 42584 | 0.57% |
-| pinned Lean modules (cross-law) | 1347 | n/a | n/a |
+| pinned Lean modules (cross-law) | 1350 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1477 |
+| unpinned Lean modules (not counted as verified) | 1486 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -259,6 +259,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `407M50000008033` 大阪湾臨海地域開発整備法第十四条の地方税の不均一課税に伴う措置が適用される場合等を定める省令
 - `407M50000040012` 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行規則
 - `407M50000200013` 牛及び豚のうち純粋種の繁殖用のもの並びに無税を適用する馬の証明書の発給に関する省令
+- `407M50000200018` 関税暫定措置法施行令第二条第一項又は第二項の証明書の発給に関する省令
 - `408AC0000000002` 平成七年度における租税収入の減少を補うための公債の発行の特例に関する法律
 - `409AC0000000110` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律
 - `409CO0000000363` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行令
@@ -324,5 +325,4 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `507M60000008043` 地方団体に対して交付すべき令和七年度分の震災復興特別交付税の額の算定方法、決定時期及び決定額並びに交付時期及び交付額等の特例に関する省令
 - `508CO0000000224` ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令
 - `508CO0000000254` 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令
-- `508M60000008056` 令和八年度分の地方交付税の交付額の特例に関する省令
 - `508M60000008066` 地方団体に対して交付すべき令和八年度分の震災復興特別交付税の額の算定方法、決定時期及び決定額並びに交付時期及び交付額等の特例に関する省令
