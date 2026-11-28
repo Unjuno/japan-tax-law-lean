@@ -3,7 +3,12 @@
 Independent of the FORMALIZE / PROVE workstream. Claims re-derived from
 committed pinned bytes; not a human legal review.
 
-### SpecialTaxOrderArt80CapitalFeeFloor75k.lean — 租税特別措置法施行令 art.80(3)
+### SpecialTaxOrderArt80CapitalFeeFloor75k.lean — 租税特別措置法施行令 art.80(3) 第1号（株式会社）
+
+Scope restriction: this model and its attestation apply **only to item 1 (株式会社, ¥75,000 floor)**.
+Item 2 (合同会社) has a different ¥30,000 floor and is NOT modelled here; its norm unit must
+remain unevidenced until a separate implementation/spec/attestation is provided. The evidence
+pin therefore carries the exact item-1 `normative_id`.
 
 判定: 照合 (BY-DESIGN / CONFIRMED)
 
