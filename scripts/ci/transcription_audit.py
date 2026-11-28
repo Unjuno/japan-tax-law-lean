@@ -91,6 +91,10 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # PreparedRiceCerealMaterial.lean - NORM|ac0926f0... (law 407M50000200018 art.1)
+    yield ("law 407M50000200018 art.1 米の調理調整品 ↔ PreparedRiceCerealMaterial.lean",
+           "407M50000200018", "article", "第一条", ["特定朝食シリアルの製造に使用する原材料として粒状の米であらかじめ加熱による調理その他の調製をしたもの（米を加熱による調理及び調味をし、乾燥後圧ぺんしたものに限る。以下「米の調理調整品」という。）を輸入しようとする場合"])
+
     # ElectronicTaxCollectionSystem.lean - NORM|1b925ca2... (law 403M50000040054 art.1)
     yield ("law 403M50000040054 art.1 国税収納命令官等 電子情報処理組織 ↔ ElectronicTaxCollectionSystem.lean",
            "403M50000040054", "article", "第一条", ["国税収納命令官等（税関の国税収納命令官等を除く。以下この号において同じ。）がその所掌に属する国税等の徴収に関する事務を処理するため、財務省に設置される電子計算機と国税収納命令官等の所在する官署に設置される入出力装置とを電気通信回線で接続した電子情報処理組織"])
@@ -5289,6 +5293,11 @@ def checks():
            "403AC0000000069",
            "file", None,
            ["借地権等が設定されている場合において、当該土地等が借地権等以外のもの（以下この号において「底地」という。）であるとき。　三万円に当該底地の価額が更地の価額のうちに占める割合を乗じて計算した金額"])
+    # 特別法人事業税施行令 附則2(1)(1) — SpecialCorpBusinessTaxZeroFloor.lean
+    yield ("特別法人事業税施行令 附則第二条(1)(1)（零下限）↔ SpecialCorpBusinessTaxZeroFloor.lean",
+           "431CO0000000089", "file", None,
+           ['特別法人事業税に係る払込予定額から特別法人事業税に係る還付金等に相当する額を控除した額（当該額が零を下回る場合には、零とする。）'])
+
 
     # 国税収納金整理資金施行令 art. 22(1) — DelinquencyCostNet.lean
     yield ("国税収納金整理資金施行令 art. 22（滞納処分費残額の雑収入）↔ DelinquencyCostNet.lean",
