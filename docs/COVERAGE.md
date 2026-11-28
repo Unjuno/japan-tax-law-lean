@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 833 | n/a | n/a |
-| distinct article pins | 240 | 42584 | 0.56% |
-| pinned Lean modules (cross-law) | 1344 | n/a | n/a |
+| pinned literal checks | 837 | n/a | n/a |
+| distinct article pins | 242 | 42584 | 0.57% |
+| pinned Lean modules (cross-law) | 1346 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1459 |
+| unpinned Lean modules (not counted as verified) | 1475 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -246,6 +246,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `403CO0000000035` 法人臨時特別税に関する政令
 - `403CO0000000174` 地価税法施行令
 - `403M50000040006` 法人臨時特別税に関する省令
+- `403M50000040054` 電子情報処理組織を使用して処理する場合における国税等の徴収関係事務等の取扱いの特例に関する省令
 - `404AC0000000015` 法人特別税法
 - `404CO0000000089` 法人特別税法施行令
 - `405M50000008001` 離島振興法第二十条の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令
@@ -292,7 +293,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `423AC0000000118` 東日本大震災からの復興に関し地方公共団体が実施する防災のための施策に必要な財源の確保に係る地方税の臨時特例に関する法律
 - `423CO0000000112` 東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行令
 - `423M60000008168` 所得税法等の一部を改正する法律附則第九十六条の規定による改正前の東日本大震災復興特別区域法第四十三条の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令
-- `423M60000040020` 東日本大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行規則
 - `424CO0000000016` 復興特別所得税に関する政令
 - `424CO0000000017` 復興特別法人税に関する政令
 - `424M60000040007` 復興特別法人税に関する省令
