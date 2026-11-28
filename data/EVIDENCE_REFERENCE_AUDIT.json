@@ -1,6 +1,6 @@
 {
   "all_complete_claimable": true,
-  "checks": 6296,
+  "checks": 6301,
   "findings": [
     {
       "C": "a generic/template string may describe a different unit",
@@ -42702,6 +42702,61 @@
       "axis": "adversarial_review",
       "detail": "non-batch reference",
       "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "unit_id": "NORM|94b107b492843483af55a7f2fa65c4f7eec3b29d6d814a936c21da0541e542aa"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "implementation",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt20_2DeemedDelivery7Days.lean",
+      "unit_id": "NORM|94b107b492843483af55a7f2fa65c4f7eec3b29d6d814a936c21da0541e542aa"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "independent_spec",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt20_2DeemedDelivery7DaysSpec.lean",
+      "unit_id": "NORM|94b107b492843483af55a7f2fa65c4f7eec3b29d6d814a936c21da0541e542aa"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "tests",
+      "detail": "sha256 match",
+      "reference": "JapanTaxLaw/LocalTaxArt20_2DeemedDelivery7DaysTests.lean",
+      "unit_id": "NORM|94b107b492843483af55a7f2fa65c4f7eec3b29d6d814a936c21da0541e542aa"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "kernel_proof",
+      "detail": "run=46106089756 attested_run=46106089756 conclusion=lean_job_only job=True",
+      "reference": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/46106089756: commit 83a344ccd1e4, build/axiom job success, 3 m",
+      "unit_id": "NORM|94b107b492843483af55a7f2fa65c4f7eec3b29d6d814a936c21da0541e542aa"
+    },
+    {
+      "C": "a generic/template string may describe a different unit",
+      "D": "PASS",
+      "H": "the cited reference does not actually support this axis",
+      "T": "resolve the reference against the named artifact",
+      "U": "resolution checks artifact identity only, not legal correctness",
+      "axis": "adversarial_review",
+      "detail": "non-batch reference",
+      "reference": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "unit_id": "NORM|94ea87cfe61a7639ab45802c946693b3cc1722b7c840b447a4533048629e7dfb"
     },
     {
@@ -69259,9 +69314,9 @@
       "unit_id": "NORM|fff89ad304c83b401e45afc8fa865f356060ed7292f4a5afd6848aa8d0a0431e"
     }
   ],
-  "resolved": 6296,
+  "resolved": 6301,
   "schema": "evidence-reference-audit/v1",
   "tool": "scripts/ci/audit_evidence_references.py",
-  "units_checked": 1275,
+  "units_checked": 1276,
   "unresolved": 0
 }

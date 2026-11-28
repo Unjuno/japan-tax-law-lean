@@ -12,43 +12,43 @@
   "axis_totals": {
     "BOUNDARY_CHECKED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 1275,
-      "remaining_units": 395579
+      "achieved_units": 1276,
+      "remaining_units": 395578
     },
     "NORMS_FORMALIZED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 1275,
-      "remaining_units": 395579
+      "achieved_units": 1276,
+      "remaining_units": 395578
     },
     "NORM_DECOMPOSED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 1274,
-      "remaining_units": 395580
+      "achieved_units": 1275,
+      "remaining_units": 395579
     },
     "SOURCE_ACQUIRED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 1275,
-      "remaining_units": 395579
+      "achieved_units": 1276,
+      "remaining_units": 395578
     },
     "SOURCE_AUDITED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 1275,
-      "remaining_units": 395579
+      "achieved_units": 1276,
+      "remaining_units": 395578
     },
     "SPEC_IMPL_CORRESPONDENCE": {
       "achieved_is_not_completion": true,
-      "achieved_units": 1275,
-      "remaining_units": 395579
+      "achieved_units": 1276,
+      "remaining_units": 395578
     },
     "STRUCTURE_IDENTIFIED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 1269,
-      "remaining_units": 395585
+      "achieved_units": 1270,
+      "remaining_units": 395584
     },
     "VERSION_PINNED": {
       "achieved_is_not_completion": true,
-      "achieved_units": 1275,
-      "remaining_units": 395579
+      "achieved_units": 1276,
+      "remaining_units": 395578
     }
   },
   "detail_note": "Only units with substantive committed evidence are expanded; all other units take the NOT_STARTED / LEGAL_REVIEW_PENDING defaults, reproducible by regenerating build/task_queue.json with scripts/ci/task_queue.py.",
@@ -26731,6 +26731,40 @@
       "technical_status": "FULLY_VERIFIED",
       "unhandled_conditions": []
     },
+    "NORM|94b107b492843483af55a7f2fa65c4f7eec3b29d6d814a936c21da0541e542aa": {
+      "article": "20_2",
+      "axes": {
+        "BOUNDARY_CHECKED": "CHECKED",
+        "NORMS_FORMALIZED": "SCOPE_FORMALIZED",
+        "NORM_DECOMPOSED": "DECOMPOSED",
+        "SOURCE_ACQUIRED": "PINNED",
+        "SOURCE_AUDITED": "AUDITED",
+        "SPEC_IMPL_CORRESPONDENCE": "KERNEL_BRIDGED",
+        "STRUCTURE_IDENTIFIED": "IDENTIFIED",
+        "VERSION_PINNED": "PINNED"
+      },
+      "human_legal_review": "LEGAL_REVIEW_PENDING",
+      "law_id": "325AC0000000226",
+      "norm_details": {
+        "amounts": [],
+        "conditions": [
+          "場合",
+          "とき"
+        ],
+        "delegations": [],
+        "effects": [],
+        "enforcement_dates": [],
+        "exceptions": [],
+        "periods": [
+          "経過"
+        ],
+        "rounding": []
+      },
+      "revision": "325AC0000000226_20261101_508AC0000000002",
+      "scope_kind": "COMPUTABLE_SLICE_ONLY",
+      "technical_status": "FULLY_VERIFIED",
+      "unhandled_conditions": []
+    },
     "NORM|94ea87cfe61a7639ab45802c946693b3cc1722b7c840b447a4533048629e7dfb": {
       "article": "13_6",
       "axes": {
@@ -43214,24 +43248,24 @@
   ],
   "norm_detail_counts": {
     "amounts": 327,
-    "conditions": 1048,
+    "conditions": 1049,
     "delegations": 206,
     "effects": 413,
     "enforcement_dates": 22,
     "exceptions": 215,
-    "periods": 127,
+    "periods": 128,
     "rounding": 28
   },
   "note": "Eight technical axes are tracked separately; full technical evidence does NOT establish human legal review or whole-article coverage. COMPUTABLE_SLICE_ONLY units are never counted as whole-article norms.",
   "schema": "directive_axes/v1",
   "scope_counts": {
-    "COMPUTABLE_SLICE_ONLY": 1269,
+    "COMPUTABLE_SLICE_ONLY": 1270,
     "FULL_ARTICLE": 6
   },
   "technical_status_counts": {
     "BLOCKED": 2,
-    "FULLY_VERIFIED": 1275,
-    "NOT_STARTED": 395577,
+    "FULLY_VERIFIED": 1276,
+    "NOT_STARTED": 395576,
     "PARTIAL": 0,
     "PROVED_SCOPE": 0
   },
