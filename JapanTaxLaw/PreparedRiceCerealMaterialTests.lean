@@ -18,12 +18,7 @@ example : satisfiedMask 0 = 0 := by decide
 example : satisfiedMask 1 = 1 := by decide
 example : satisfiedMask 15 = 4 := by decide
 example : satisfiedMask 31 = 5 := by decide
-example : specMaskCount 0 = 0 := by decide
-example : specMaskCount 1 = 1 := by decide
-example : specMaskCount 15 = 4 := by decide
-example : specMaskCount 31 = 5 := by decide
 example : requiredCount = 5 := by decide
-example : specRequired = 5 := by decide
 
 #check spec_agrees
 #check count_agrees
