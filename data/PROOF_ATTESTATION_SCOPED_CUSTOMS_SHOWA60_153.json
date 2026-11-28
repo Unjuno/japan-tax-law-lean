@@ -1,0 +1,32 @@
+{
+  "commit": "7493294b862349a5867cf58134121dc65efabd7e",
+  "jobs": {
+    "Build Lean project and check axioms": {
+      "conclusion": "success",
+      "job_url": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/46114583860",
+      "required_steps": [
+        "Build explicitly",
+        "No sorry/admit in adopted proofs",
+        "Axioms of key theorems",
+        "Reproducibility check 1 (clean build)",
+        "Reproducibility check 2 (clean build)"
+      ]
+    }
+  },
+  "modules": {
+    "CustomsTariffSupplArt1Showa60EnforcementDate.lean": {
+      "sha256": "16ce515491d2a1a9d5bd25c74a6f123dc2e6ecc9db13a3a7da98d18cb8421768"
+    },
+    "CustomsTariffSupplArt1Showa60EnforcementDateSpec.lean": {
+      "sha256": "c67450df291d215b5b671053c0df12730bc25ad1f506af01de28db4d08579b18"
+    },
+    "CustomsTariffSupplArt1Showa60EnforcementDateTests.lean": {
+      "sha256": "c2c08d729ac2e47541b2ba7e9912cc478b1da7a16e79bdbd7c02c822dea02860"
+    }
+  },
+  "note": "Scoped honest attestation: Lean+axiom job succeeded on this commit; semantic audit was not green at this commit because evidence axes were not yet generated. Covers ONLY the Lean job.",
+  "run_conclusion": "lean_job_only",
+  "schema": 1,
+  "scope": "lean_job_only",
+  "workflow_run": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/46114583860"
+}
