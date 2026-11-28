@@ -818,6 +818,9 @@ import JapanTaxLaw.DutyFreeLightOilOrderEnforcementDateTests
 import JapanTaxLaw.DutyFreeTransfer
 import JapanTaxLaw.DutyFreeTransferSpec
 import JapanTaxLaw.DutyFreeTransferTests
+import JapanTaxLaw.EastJapanQuakeKinshipDegreeThree
+import JapanTaxLaw.EastJapanQuakeKinshipDegreeThreeSpec
+import JapanTaxLaw.EastJapanQuakeKinshipDegreeThreeTests
 import JapanTaxLaw.ElderlySpouseDeduction
 import JapanTaxLaw.ElderlySpouseDeductionSpec
 import JapanTaxLaw.ElderlySpouseDeductionTests
