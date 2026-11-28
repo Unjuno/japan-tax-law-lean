@@ -115,6 +115,9 @@ import JapanTaxLaw.BondRevenueFiscalYearTests
 import JapanTaxLaw.BondedAreaKinds
 import JapanTaxLaw.BondedAreaKindsSpec
 import JapanTaxLaw.BondedAreaKindsTests
+import JapanTaxLaw.BoronContentInterval
+import JapanTaxLaw.BoronContentIntervalSpec
+import JapanTaxLaw.BoronContentIntervalTests
 import JapanTaxLaw.BranchDeputyAppointment
 import JapanTaxLaw.BranchDeputyAppointmentSpec
 import JapanTaxLaw.BranchDeputyAppointmentTests

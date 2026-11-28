@@ -91,6 +91,9 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # BoronContentInterval — 不当廉売関税政令 art.1 ロ(1) ほう素含有量区間
+    yield ("不当廉売関税政令 art.1 ロ(1)（ほう素0.0008%〜0.007%）↔ BoronContentInterval.lean",
+           "504CO0000000372", "article", "第一条", ["ほう素の含有量が全重量の〇・〇〇〇八パーセント以上〇・〇〇七パーセント以下のもの"])
     # PreparedRiceCerealMaterial.lean - NORM|ac0926f0... (law 407M50000200018 art.1)
     yield ("law 407M50000200018 art.1 米の調理調整品 ↔ PreparedRiceCerealMaterial.lean",
            "407M50000200018", "article", "第一条", ["特定朝食シリアルの製造に使用する原材料として粒状の米であらかじめ加熱による調理その他の調製をしたもの（米を加熱による調理及び調味をし、乾燥後圧ぺんしたものに限る。以下「米の調理調整品」という。）を輸入しようとする場合"])

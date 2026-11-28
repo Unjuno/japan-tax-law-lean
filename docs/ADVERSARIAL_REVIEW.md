@@ -16473,3 +16473,11 @@ CI と同一の `text()`（JSON ノードの `children` のみ再帰連結）＋
 - **H/T/D**: 100×50−1000=4000、−5000=0、−6000=0、0。普遍定理 3 件。D=PASS。
 - **C/U**: 承認手続・免税重量の認定・税率選択・控除額の法的根拠は NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
 - **判定**: BY-DESIGN。CONFIRMED 0 / UNRESOLVED 1。
+
+### BoronContentInterval.lean — 不当廉売関税政令 art.1 第一号ロ(1)（ほう素含有量区間）— Batch EA13
+
+- **pin**: law `504CO0000000372`, article 第一条 第一号ロ(1); needle「ほう素の含有量が全重量の〇・〇〇〇八パーセント以上〇・〇〇七パーセント以下のもの」.
+- **独立再抽出**: 0.0008%〜0.007% を 10^7 倍スケールで 80〜700 と表現。`80 <= s ∧ s <= 700`（以上・以下は共に含む）。独立仕様は狭義不等式 `79 < s ∧ s < 701` で書き、ブリッジ `agreeRange` は初等的な Nat 補題で証明（公理依存なし）。
+- **H/T/D**: 80/700 含まれる、79/701 除外、0 除外。D=PASS。
+- **C/U**: 証明書手続・他元素・炭素量・横断面・亜鉛めっきは NOT MODELLED。人間レビュー `LEGAL_REVIEW_PENDING`。
+- **判定**: BY-DESIGN。CONFIRMED 0 / UNRESOLVED 1。
