@@ -1343,6 +1343,12 @@ def checks():
            "file", None,
            ["資本金の額に千分の三・五を乗じて計算した金額", "七万五千円に満たない場合"])
 
+    # 地方税法 art.768(3) — LocalTaxArt768CommitteeSize6To12.lean
+    yield ("地方税法 art.768(3)（委員定数6〜12人）↔ LocalTaxArt768CommitteeSize6To12.lean",
+           "325AC0000000226",
+           "file", None,
+           ["委員の定数は、六人以上十二人以内において定款で定める", "第七百六十八条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
