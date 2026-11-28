@@ -6055,6 +6055,21 @@
         1000
       ]
     },
+    "LocalTaxArt20_2DeemedDelivery7Days": {
+      "adversarial_review": true,
+      "boundary_examples_found": 6,
+      "independent_spec": true,
+      "kanji_literals": [
+        "七"
+      ],
+      "kernel_attested": true,
+      "kernel_decided_examples": 12,
+      "needles_scoped": true,
+      "scoped_article_chars": 432,
+      "spec_literals": [
+        7
+      ]
+    },
     "LocalTaxArt21Penalty": {
       "adversarial_review": false,
       "boundary_examples_found": 0,
@@ -8925,6 +8940,17 @@
         1000,
         330000000
       ]
+    },
+    "SpecialCorpBusinessTaxZeroFloor": {
+      "adversarial_review": true,
+      "boundary_examples_found": 3,
+      "independent_spec": true,
+      "kanji_literals": [],
+      "kernel_attested": true,
+      "kernel_decided_examples": 13,
+      "needles_scoped": true,
+      "scoped_article_chars": 1547,
+      "spec_literals": []
     },
     "SpecialGiftRate": {
       "adversarial_review": true,
@@ -16431,6 +16457,20 @@
           "二"
         ]
       },
+      "NORM|46867af69849a271b34d3e75f11c977e3a6be6b25e1c468b134446ad5e6245ad": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 13,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "SpecialCorpBusinessTaxZeroFloor",
+        "spec_kanji_in_原文": []
+      },
       "NORM|46e8548c5d4ad4ac99ef71f7dbb89674ed2e2e756554d0ea0b3c5e1fe3c4769f": {
         "checks": {
           "cross_law": true,
@@ -22436,6 +22476,22 @@
         "module": "NewAnnuityPremium80k",
         "spec_kanji_in_原文": [
           "八万"
+        ]
+      },
+      "NORM|94b107b492843483af55a7f2fa65c4f7eec3b29d6d814a936c21da0541e542aa": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 12,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "LocalTaxArt20_2DeemedDelivery7Days",
+        "spec_kanji_in_原文": [
+          "七"
         ]
       },
       "NORM|94ea87cfe61a7639ab45802c946693b3cc1722b7c840b447a4533048629e7dfb": {
@@ -34673,6 +34729,19 @@
       "source_location": "data/raw/348AC0000000102_20010106_411AC0000000160.law.json#LawBody[1]/MainProvision/MainProvision[2]/Article:3/Article#3/Paragraph#1/Item#2/ItemSentence/Sentence sha256=1aff9700ac6c8028a1901fc056959c771fb539c1c40da205f498bab4f67a063b (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/AreaThreshold2HaTests.lean sha256=16a0b9aa79f8bad910e073c8c32e89da1653e5d88033eaa29cf955c76cb56d69 (21 kernel-decided examples)"
     },
+    "NORM|46867af69849a271b34d3e75f11c977e3a6be6b25e1c468b134446ad5e6245ad": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 13 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=431CO0000000089_20240401_506CO0000000012 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/SpecialCorpBusinessTaxZeroFloor.lean sha256=2f2a18a67fe55e4f5072cb8a8bcd318af175f11cd3233aaf2ed0294bd1655bf1",
+      "independent_spec": "JapanTaxLaw/SpecialCorpBusinessTaxZeroFloorSpec.lean sha256=966e002af5330b775f65b820a19230a68fdbabbbb7ea9dff8ec72725658e9e68 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/46059769001: commit 580e94176635b437482beb48afa72f0b12fc0f49, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=pinned needle(s) in clause: ['特別法人事業税に係る払込予定額から特別法人事業税']; constants [] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['特別法人事業税に係る払込予定額から特別法人事業税']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/431CO0000000089_20240401_506CO0000000012.law.json#LawBody[3]/SupplProvision/SupplProvision[2]/Article:2/Article#2/Paragraph#1/Item#1/ItemSentence/Column#2/Sentence#1 sha256=1b9d00ea44a743ec8e2e3feb166d44e3f86387cd3999e1a39fd7b88163a9f64a (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/SpecialCorpBusinessTaxZeroFloorTests.lean sha256=8ada60f8459d42d6142fb0df1e4244690b98a3514f86f9d786870474d91ded8b (13 kernel-decided examples)"
+    },
     "NORM|46e8548c5d4ad4ac99ef71f7dbb89674ed2e2e756554d0ea0b3c5e1fe3c4769f": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 11 kernel-decided examples covering boundary inputs",
@@ -39495,6 +39564,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"80000\": [\"八万\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/340AC0000000033_20261001_507AC0000000070.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:76/Article#76/Paragraph#3/Item#1/Subitem1#4/Subitem1Sentence/Column#1/Sentence#1 sha256=94c4a7ad83726cde60787967ed4e959585ad0af9279d25db9aa02264b3fe606b (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/NewAnnuityPremium80kTests.lean sha256=7f88c300f4b686dca371f62f8a10060bc5635257cf0b0ee79089eec02a5de5e1 (11 kernel-decided examples)"
+    },
+    "NORM|94b107b492843483af55a7f2fa65c4f7eec3b29d6d814a936c21da0541e542aa": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 12 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=325AC0000000226_20261101_508AC0000000002 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/LocalTaxArt20_2DeemedDelivery7Days.lean sha256=6c2119289bd985adc71f90635f01c6a5978fc6e19352c4176853244fef02d522",
+      "independent_spec": "JapanTaxLaw/LocalTaxArt20_2DeemedDelivery7DaysSpec.lean sha256=0f099a94d017b1787710a9e00b9284e2b1af35340b34f443b509ad38155a63dc (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/46106089756: commit 83a344ccd1e4, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [7] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"7\": [\"七\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/325AC0000000226_20261101_508AC0000000002.law.json#LawBody[2]/MainProvision/MainProvision[0]/Article:20_2/Article#20_2/Paragraph#3/ParagraphSentence/Sentence#1 sha256=3dd29e0078bf24e09c79436ce7b0f00fd2cfb5a5bbcb97bd4f4352971be68d53 (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/LocalTaxArt20_2DeemedDelivery7DaysTests.lean sha256=f35cab4ffffcf871303b500c910f267bc0874401f66a71db99aeb02a630ea918 (12 kernel-decided examples)"
     },
     "NORM|94ea87cfe61a7639ab45802c946693b3cc1722b7c840b447a4533048629e7dfb": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
