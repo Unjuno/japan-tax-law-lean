@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 217 | 327 | 66.36% |
+| laws with >=1 pinned literal check | 218 | 327 | 66.67% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 839 | n/a | n/a |
-| distinct article pins | 243 | 42584 | 0.57% |
-| pinned Lean modules (cross-law) | 1350 | n/a | n/a |
+| pinned literal checks | 840 | n/a | n/a |
+| distinct article pins | 244 | 42584 | 0.57% |
+| pinned Lean modules (cross-law) | 1351 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1486 |
+| unpinned Lean modules (not counted as verified) | 1488 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -325,4 +325,5 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `507M60000008043` 地方団体に対して交付すべき令和七年度分の震災復興特別交付税の額の算定方法、決定時期及び決定額並びに交付時期及び交付額等の特例に関する省令
 - `508CO0000000224` ニッケル系ステンレス冷延鋼帯及び冷延鋼板に対して課する不当廉売関税に関する政令
 - `508CO0000000254` 溶融亜鉛めっき鋼帯及び鋼板に対して課する暫定的な不当廉売関税に関する政令
+- `508M60000008056` 令和八年度分の地方交付税の交付額の特例に関する省令
 - `508M60000008066` 地方団体に対して交付すべき令和八年度分の震災復興特別交付税の額の算定方法、決定時期及び決定額並びに交付時期及び交付額等の特例に関する省令
