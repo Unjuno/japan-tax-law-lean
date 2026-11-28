@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 838 | n/a | n/a |
+| pinned literal checks | 839 | n/a | n/a |
 | distinct article pins | 243 | 42584 | 0.57% |
-| pinned Lean modules (cross-law) | 1348 | n/a | n/a |
+| pinned Lean modules (cross-law) | 1350 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1479 |
+| unpinned Lean modules (not counted as verified) | 1486 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -235,7 +235,6 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `352AC0000000035` 昭和五十一年分所得税の特別減税の実施のための財政処理の特別措置に関する法律
 - `352M50000040032` 国税局課税部等の統括国税調査官等の所掌に属する事務の範囲を定める省令
 - `353AC0000000025` 石油石炭税法
-- `353CO0000000132` 石油石炭税法施行令
 - `359AC0000000072` たばこ税法
 - `360CO0000000005` たばこ税法施行令
 - `362CO0000000335` 租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律施行令
@@ -260,6 +259,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `407M50000008033` 大阪湾臨海地域開発整備法第十四条の地方税の不均一課税に伴う措置が適用される場合等を定める省令
 - `407M50000040012` 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行規則
 - `407M50000200013` 牛及び豚のうち純粋種の繁殖用のもの並びに無税を適用する馬の証明書の発給に関する省令
+- `407M50000200018` 関税暫定措置法施行令第二条第一項又は第二項の証明書の発給に関する省令
 - `408AC0000000002` 平成七年度における租税収入の減少を補うための公債の発行の特例に関する法律
 - `409AC0000000110` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律
 - `409CO0000000363` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行令
