@@ -280,6 +280,9 @@ import JapanTaxLaw.CorpCourseUnits17Tests
 import JapanTaxLaw.CorpIncome10M
 import JapanTaxLaw.CorpIncome10MSpec
 import JapanTaxLaw.CorpIncome10MTests
+import JapanTaxLaw.CorpOrderArt7TeachingHours450And800
+import JapanTaxLaw.CorpOrderArt7TeachingHours450And800Spec
+import JapanTaxLaw.CorpOrderArt7TeachingHours450And800Tests
 import JapanTaxLaw.CorpUnits31Art7
 import JapanTaxLaw.CorpUnits31Art7Spec
 import JapanTaxLaw.CorpUnits31Art7Tests
