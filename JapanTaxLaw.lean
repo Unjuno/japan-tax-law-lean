@@ -338,6 +338,9 @@ import JapanTaxLaw.CourseHoursThresholdTests
 import JapanTaxLaw.CourseUnits31
 import JapanTaxLaw.CourseUnits31Spec
 import JapanTaxLaw.CourseUnits31Tests
+import JapanTaxLaw.CovidLocalTaxGrantThousandRounding
+import JapanTaxLaw.CovidLocalTaxGrantThousandRoundingSpec
+import JapanTaxLaw.CovidLocalTaxGrantThousandRoundingTests
 import JapanTaxLaw.CrossSection15mm
 import JapanTaxLaw.CrossSection15mmSpec
 import JapanTaxLaw.CrossSection15mmTests

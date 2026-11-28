@@ -5482,6 +5482,11 @@ def checks():
            "143AC0000000054",
            "file", None,
            ["\u6761\u7d04\u306e\u898f\u5b9a\u306b\u3088\u308a\u8f38\u5165\u306e\u5f8c\u7279\u5b9a\u306e\u7528\u9014\u306b\u4f9b\u3055\u308c\u308b\u3053\u3068\u3092\u6761\u4ef6\u3068\u3057\u3066\u95a2\u7a0e\u3092\u514d\u9664\u3059\u308b\u3053\u3068\u3068\u3055\u308c\u3066\u3044\u308b\u8ca8\u7269\u3067\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
+    # コロナ減収補塡特例交付金省令 art.2(1) — CovidLocalTaxGrantThousandRounding.lean
+    yield ("コロナ減収補塡特例交付金省令 2(1)（五百/千端数）↔ CovidLocalTaxGrantThousandRounding.lean",
+           "504M60000008016", "article", "第二条",
+           ['その算定の過程及び算定した額に五百円未満の端数があるときはその端数金額を切り捨て、五百円以上千円未満の端数があるときはその端数金額を千円として計算するものとする。'])
+
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
