@@ -1343,6 +1343,21 @@ def checks():
            "file", None,
            ["資本金の額に千分の三・五を乗じて計算した金額", "七万五千円に満たない場合"])
 
+    # 地方税法 art.20の4の2 — LocalTaxArt20_4_2RoundDown1000.lean
+    yield ("地方税法 art.20の4の2（千円未満端数切り捨て）↔ LocalTaxArt20_4_2RoundDown1000.lean",
+           "325AC0000000226",
+           "file", None,
+           ["その額に千円未満の端数があるとき、又はその全額が千円未満であるときは、その端数金額又はその全額を切り捨てる。", "第二十条の四の二"])
+    # 地方税法 art.23 — LocalTaxArt23IncomeCeiling5M.lean
+    yield ("地方税法 art.23（前年合計所得500万円以下）↔ LocalTaxArt23IncomeCeiling5M.lean",
+           "325AC0000000226",
+           "file", None,
+           ["前年の合計所得金額が五百万円以下であること。", "第二十三条"])
+    # 地方税法 art.71の28 — LocalTaxArt71_28DividendTaxRate5Percent.lean
+    yield ("地方税法 art.71の28（配当割税率 百分の五）↔ LocalTaxArt71_28DividendTaxRate5Percent.lean",
+           "325AC0000000226",
+           "file", None,
+           ["配当割の税率は、百分の五とする。", "第七十一条の二十八"])
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
