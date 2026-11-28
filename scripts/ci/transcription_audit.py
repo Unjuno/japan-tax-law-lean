@@ -91,6 +91,10 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # PreparedRiceCerealMaterial.lean - NORM|ac0926f0... (law 407M50000200018 art.1)
+    yield ("law 407M50000200018 art.1 米の調理調整品 ↔ PreparedRiceCerealMaterial.lean",
+           "407M50000200018", "article", "第一条", ["特定朝食シリアルの製造に使用する原材料として粒状の米であらかじめ加熱による調理その他の調製をしたもの（米を加熱による調理及び調味をし、乾燥後圧ぺんしたものに限る。以下「米の調理調整品」という。）を輸入しようとする場合"])
+
     # ElectronicTaxCollectionSystem.lean - NORM|1b925ca2... (law 403M50000040054 art.1)
     yield ("law 403M50000040054 art.1 国税収納命令官等 電子情報処理組織 ↔ ElectronicTaxCollectionSystem.lean",
            "403M50000040054", "article", "第一条", ["国税収納命令官等（税関の国税収納命令官等を除く。以下この号において同じ。）がその所掌に属する国税等の徴収に関する事務を処理するため、財務省に設置される電子計算機と国税収納命令官等の所在する官署に設置される入出力装置とを電気通信回線で接続した電子情報処理組織"])
