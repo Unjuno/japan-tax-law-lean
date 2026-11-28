@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 216 | 327 | 66.06% |
+| laws with >=1 pinned literal check | 217 | 327 | 66.36% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 837 | n/a | n/a |
-| distinct article pins | 242 | 42584 | 0.57% |
-| pinned Lean modules (cross-law) | 1348 | n/a | n/a |
+| pinned literal checks | 838 | n/a | n/a |
+| distinct article pins | 243 | 42584 | 0.57% |
+| pinned Lean modules (cross-law) | 1349 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1479 |
+| unpinned Lean modules (not counted as verified) | 1481 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -318,6 +318,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `503M60000008031` 過疎地域の持続的発展の支援に関する特別措置法第二十四条の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令
 - `504CO0000000300` 森林環境税及び森林環境譲与税に関する法律施行令
 - `504CO0000000372` 溶融亜鉛めっき鉄線に対して課する不当廉売関税に関する政令
+- `504M60000008016` 新型コロナウイルス感染症対策地方税減収補塡特別交付金に関する省令
 - `505M60000008043` 地方団体に対して交付すべき令和五年度分の震災復興特別交付税の額の算定方法、決定時期及び決定額並びに交付時期及び交付額等の特例に関する省令
 - `507CO0000000095` 黒鉛電極に対して課する不当廉売関税に関する政令
 - `507CO0000000134` 防衛特別法人税に関する政令
