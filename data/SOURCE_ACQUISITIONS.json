@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "note": "INDEX/METADATA ONLY: this pins the official MOF treaty list, not treaty article text. No treaty norm is claimed as acquired, parsed, proven or legally reviewed.",
+  "note": "PINNED OUTER SOURCES ONLY. A pin records acquisition of bytes, not formalization, proof or legal review. Layer/backlog statuses stay NOT_ACQUIRED and every legal_review stays LEGAL_REVIEW_PENDING.",
   "records": [
     {
       "layer_id": "L3_TREATY",
@@ -12,8 +12,39 @@
       "bytes": 134206,
       "page_as_of": "2026-11-24",
       "http_last_modified": "Tue, 24 Nov 2026 00:00:18 GMT",
-      "acquisition_status": "INDEX_METADATA_PINNED",
+      "acquisition_status": "INDEX_AND_ARTICLE_TEXT_PINNED",
       "semantic_scope": "treaty list metadata (country, signature date, entry-into-force date); NOT treaty article text",
+      "legal_review": "LEGAL_REVIEW_PENDING",
+      "article_text_pin": {
+        "source_id": "MOF_JP_US_TREATY_CONSOLIDATED_20250303",
+        "url": "https://www.mof.go.jp/tax_policy/summary/international/tax_convention/USA_ST_jp.pdf",
+        "snapshot_file": "data/raw_l3/USA_ST_jp.pdf",
+        "sha256": "a09142948a36a9f8c7c6515aae0fdc1464d937c73df8c83bee568979ba7ca750",
+        "bytes": 305222,
+        "pages": 87,
+        "extracted_text_file": "data/raw_l3/USA_ST_jp.txt",
+        "http_last_modified": "Mon, 03 Mar 2025 05:00:07 GMT",
+        "article_needle": "第一条１ この条約は、この条約に別段の定めがある場合を除くほか、一方又は双方の締約国の居住者である者にのみ適用する。",
+        "caveat": "MOF consolidated text; its own note says it is NOT the legally binding instrument. Only original treaty + protocol texts are binding.",
+        "legal_review": "LEGAL_REVIEW_PENDING"
+      }
+    },
+    {
+      "layer_id": "L2_ORDINANCE",
+      "source_id": "SHIBUYA_KOHO_20260721",
+      "authority": "渋谷区（公式公報）",
+      "url": "https://files.city.shibuya.tokyo.jp/assets/12995aba8b194961be709ba879857f70/9280b4723cfb4d748d6d5265024f751a/kouhou20260721.pdf",
+      "snapshot_file": "data/raw_l2/SHIBUYA_KOHO_20260721.pdf",
+      "sha256": "9b86a270847d35d511d1b1bbf799336abce2d9e6a483c71b0ac188953e75a5ce",
+      "bytes": 1490324,
+      "pages": 12,
+      "extracted_text_file": "data/raw_l2/SHIBUYA_KOHO_20260721.txt",
+      "http_last_modified": "Mon, 13 Jul 2026 01:11:30 GMT",
+      "page_as_of": "2026-07-21",
+      "acquisition_status": "MUNICIPAL_GAZETTE_ORDINANCE_TEXT_PINNED",
+      "semantic_scope": "渋谷区特別区税条例（昭和39年渋谷区条例第49号）の一部改正条文を公報から抽出",
+      "article_needle": "渋谷区特別区税条例（昭和３９年渋谷区条例第４９号）の一部を次のように改正する",
+      "caveat": "Gazette amendment text only; full consolidated ordinance not yet acquired.",
       "legal_review": "LEGAL_REVIEW_PENDING"
     }
   ]

@@ -1050,3 +1050,5 @@ JapanTaxLaw/StandardTaxRevenueCalculationEnforcementDateTests.lean # 同上 退�
 JapanTaxLaw/CustomsTariffSupplArt1Showa59EnforcementDate.lean    # 関税定率法 附則 art.1 昭和59年施行 1984-04-01 L4
 JapanTaxLaw/CustomsTariffSupplArt1Showa59EnforcementDateSpec.lean # 独立仕様
 JapanTaxLaw/CustomsTariffSupplArt1Showa59EnforcementDateTests.lean # カーネル決定テスト
+
+JapanTaxLaw/CustomsTariffSupplArt1Showa60EnforcementDate.lean    # 関税定率法 附則 art.1 昭和60年施行 1985-04-01 L4

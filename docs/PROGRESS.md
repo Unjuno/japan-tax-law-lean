@@ -197,3 +197,5 @@ lake clean && lake build                                                # 再現
 都及び特別区の標準税収入額の算定方法に関する省令 附則 art.1 StandardTaxRevenueCalculationEnforcementDate.lean（施行日 平成31年4月1日=2019-04-01 — 他条・実体規定 NOT MODELLED）
 
 関税定率法 附則 art.1 CustomsTariffSupplArt1Showa59EnforcementDate.lean（施行日 昭和59年4月1日=1984-04-01、ただし書各号 NOT MODELLED）
+
+関税定率法 附則 art.1 CustomsTariffSupplArt1Showa60EnforcementDate.lean（施行日 昭和60年4月1日=1985-04-01、ただし書各号 NOT MODELLED）

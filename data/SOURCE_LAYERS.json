@@ -1,7 +1,38 @@
 {
   "acquisition_evidence": {
+    "L2_ORDINANCE": {
+      "acquisition_status": "MUNICIPAL_GAZETTE_ORDINANCE_TEXT_PINNED",
+      "article_needle": "渋谷区特別区税条例（昭和３９年渋谷区条例第４９号）の一部を次のように改正する",
+      "authority": "渋谷区（公式公報）",
+      "bytes": 1490324,
+      "caveat": "Gazette amendment text only; full consolidated ordinance not yet acquired.",
+      "extracted_text_file": "data/raw_l2/SHIBUYA_KOHO_20260721.txt",
+      "http_last_modified": "Mon, 13 Jul 2026 01:11:30 GMT",
+      "layer_id": "L2_ORDINANCE",
+      "legal_review": "LEGAL_REVIEW_PENDING",
+      "page_as_of": "2026-07-21",
+      "pages": 12,
+      "semantic_scope": "渋谷区特別区税条例（昭和39年渋谷区条例第49号）の一部改正条文を公報から抽出",
+      "sha256": "9b86a270847d35d511d1b1bbf799336abce2d9e6a483c71b0ac188953e75a5ce",
+      "snapshot_file": "data/raw_l2/SHIBUYA_KOHO_20260721.pdf",
+      "source_id": "SHIBUYA_KOHO_20260721",
+      "url": "https://files.city.shibuya.tokyo.jp/assets/12995aba8b194961be709ba879857f70/9280b4723cfb4d748d6d5265024f751a/kouhou20260721.pdf"
+    },
     "L3_TREATY": {
-      "acquisition_status": "INDEX_METADATA_PINNED",
+      "acquisition_status": "INDEX_AND_ARTICLE_TEXT_PINNED",
+      "article_text_pin": {
+        "article_needle": "第一条１ この条約は、この条約に別段の定めがある場合を除くほか、一方又は双方の締約国の居住者である者にのみ適用する。",
+        "bytes": 305222,
+        "caveat": "MOF consolidated text; its own note says it is NOT the legally binding instrument. Only original treaty + protocol texts are binding.",
+        "extracted_text_file": "data/raw_l3/USA_ST_jp.txt",
+        "http_last_modified": "Mon, 03 Mar 2025 05:00:07 GMT",
+        "legal_review": "LEGAL_REVIEW_PENDING",
+        "pages": 87,
+        "sha256": "a09142948a36a9f8c7c6515aae0fdc1464d937c73df8c83bee568979ba7ca750",
+        "snapshot_file": "data/raw_l3/USA_ST_jp.pdf",
+        "source_id": "MOF_JP_US_TREATY_CONSOLIDATED_20250303",
+        "url": "https://www.mof.go.jp/tax_policy/summary/international/tax_convention/USA_ST_jp.pdf"
+      },
       "authority": "Ministry of Finance Japan (official)",
       "bytes": 134206,
       "http_last_modified": "Tue, 24 Nov 2026 00:00:18 GMT",
@@ -15,7 +46,7 @@
       "url": "https://www.mof.go.jp/tax_policy/summary/international/tax_convention/tax_convetion_list_jp.html"
     }
   },
-  "acquisition_evidence_count": 1,
+  "acquisition_evidence_count": 2,
   "backlog": {
     "note": "Backlog placeholders are not evidence of acquisition, proof or legal review.",
     "task_count": 5,
