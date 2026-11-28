@@ -6,11 +6,20 @@ A whole-text numeric match is NOT article-level verification. This is a
 source-fidelity diagnostic (D=PASS means needle in stated article only),
 never a completion gate or a semantic/legal claim.
 
-- checks with article/table-cell scoped needles: 830
+- checks with article/table-cell scoped needles: 840
 - checks with no scoped unit: 0
 
 | law_id | stated article | needle hits | scoped positions | D |
 |---|---|---:|---:|---|
+| `407M50000200018` | 第一条 | 3 | 3 | PASS |
+| `403M50000040054` | 第一条 | 3 | 3 | PASS |
+| `363AC0000000108` | (file-level) | 2 | 2 | PASS |
+| `362CO0000000335` | 第三条 | 3 | 3 | PASS |
+| `329M50000002023` | 第八条の十三 | 3 | 3 | PASS |
+| `332AC0000000077` | 第二条 | 2 | 2 | PASS |
+| `422CO0000000221` | 第二条 | 2 | 2 | PASS |
+| `330CO0000000237` | 第三条 | 3 | 4 | PASS |
+| `341CO0000000005` | 第十二条 | 3 | 3 | PASS |
 | `326M50000040055` | 第二十二条の三 | 2 | 2 | PASS |
 | `346CO0000000275` | 第五条 | 2 | 2 | PASS |
 | `342AC0000000035` | 第十七条 | 2 | 2 | PASS |
@@ -335,8 +344,7 @@ never a completion gate or a semantic/legal claim.
 | `420CO0000000196` | (file-level) | 2 | 3 | PASS |
 | `423M60000008168` | (file-level) | 2 | 3 | PASS |
 | `429M60000008030` | (file-level) | 2 | 3 | PASS |
-| `430CO0000000161` | (file-level) | 2 | 3 | PASS |
-| `424M60000040006` | (file-level) | 3 | 4 | PASS |
+| `143AC0000000054` | (file-level) | 2 | 2 | PASS |
 | `340AC0000000033` | (file-level) | 4 | 16 | PASS |
 | `332CO0000000043` | (file-level) | 4 | 10 | PASS |
 | `337M50000008017` | (file-level) | 2 | 8 | PASS |
@@ -802,6 +810,7 @@ never a completion gate or a semantic/legal claim.
 | `332M50000040015` | (file-level) | 3 | 3 | PASS |
 | `325AC0000000073` | (file-level) | 2 | 2 | PASS |
 | `403AC0000000069` | (file-level) | 3 | 3 | PASS |
+| `431CO0000000089` | (file-level) | 3 | 3 | PASS |
 | `329CO0000000051` | (file-level) | 3 | 3 | PASS |
 | `143AC0000000054` | (file-level) | 2 | 2 | PASS |
 | `417CO0000000289` | 第五条 | 2 | 2 | PASS |
@@ -841,3 +850,4 @@ never a completion gate or a semantic/legal claim.
 | `143AC0000000054` | (file-level) | 2 | 2 | PASS |
 | `143AC0000000054` | (file-level) | 3 | 3 | PASS |
 | `143AC0000000054` | (file-level) | 2 | 2 | PASS |
+| `143AC0000000054` | (file-level) | 3 | 3 | PASS |
