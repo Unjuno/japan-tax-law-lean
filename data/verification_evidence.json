@@ -11312,6 +11312,19 @@
       "source_location": "data/raw/340AC0000000034_20261001_508AC0000000012.law.json#LawBody[3]/MainProvision/MainProvision[1]/Article:66/Article#66/Paragraph#3/ParagraphSentence/Sentence#1 sha256=3b743c0fb772a2482ed143cbe2611e3b82e929868767514a3e1db16f5c2ef342 (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/CorporateTaxRateTests.lean sha256=224f0d3d1c75b98ac6582b458ffb61ad27f1bd0a8d0b2fcc706215733f98c054 (19 kernel-decided examples)"
     },
+    "NORM|ab3209436d27ae69066623879f84fae83ad4821cc9c02b3ca7ef719442d5783d": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 21 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=353CO0000000132_20250401_507CO0000000006 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/PetroleumCoalSixMonthNoWithdrawalWindow.lean sha256=40dc94a0f7dfc83c20b0729fc2bcf09cfb6afcd88a67d4295f780d9226fbea27",
+      "independent_spec": "JapanTaxLaw/PetroleumCoalSixMonthNoWithdrawalWindowSpec.lean sha256=77c1d44de44a66a2eb64bdcee3e5fb45f89b646107ed1c4b48fe086ef312b325 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/46059779814: commit c1ae643dc9d733474d4152593d56b536e0604c4d, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=spec numerals / rate ratio in clause; constants [6] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"6\": [\"六\"]}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/353CO0000000132_20250401_507CO0000000006.law.json#LawBody[2]/MainProvision/MainProvision[12]/Article:16/Article#16/Paragraph#2/Item#8/ItemSentence/Sentence#1 sha256=a11df5044e3b0e7bbd81d87d328d08467def928a3fec7031b1c8a5b60a76499d (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/PetroleumCoalSixMonthNoWithdrawalWindowTests.lean sha256=89b0f3ba809bb7decd872a80fe1d678beebcedbed95e17e82d69216e60159f6f (21 kernel-decided examples)"
+    },
     "NORM|ab69c910db3a7f534fb474dd6fe8cfc0337e088191f6240e2fe5b15ab712bae2": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
       "boundary_proof": "attested Tests module contains 7 kernel-decided examples covering boundary inputs",
