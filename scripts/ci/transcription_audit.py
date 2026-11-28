@@ -1347,6 +1347,12 @@ def checks():
            "file", None,
            ["資本金の額に千分の三・五を乗じて計算した金額", "七万五千円に満たない場合"])
 
+    # 地方税法 art.8(2) — LocalTaxArt8DecisionWithin60Days.lean
+    yield ("地方税法 art.8(2)（申出から60日以内の決定）↔ LocalTaxArt8DecisionWithin60Days.lean",
+           "325AC0000000226",
+           "file", None,
+           ["その申出を受けた日から六十日以内に決定をし", "第八条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
