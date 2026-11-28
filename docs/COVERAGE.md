@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 215 | 327 | 65.75% |
+| laws with >=1 pinned literal check | 216 | 327 | 66.06% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 836 | n/a | n/a |
-| distinct article pins | 241 | 42584 | 0.57% |
-| pinned Lean modules (cross-law) | 1346 | n/a | n/a |
+| pinned literal checks | 837 | n/a | n/a |
+| distinct article pins | 242 | 42584 | 0.57% |
+| pinned Lean modules (cross-law) | 1347 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1472 |
+| unpinned Lean modules (not counted as verified) | 1474 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -152,6 +152,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `330AC0000000104` 地方揮発油税法
 - `330AC0000000113` 地方揮発油譲与税法
 - `330CO0000000100` 輸入品に対する内国消費税の徴収等に関する法律施行令
+- `330CO0000000151` 地方揮発油税法施行令
 - `330CO0000000237` 関税定率法第五条の規定による便益関税の適用に関する政令
 - `331M50000002007` 地方揮発油譲与税法施行規則
 - `332AC0000000026` 租税特別措置法
