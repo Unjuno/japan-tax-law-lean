@@ -18,4 +18,4 @@ verdict: **COUNTED**
 | BLOCKED | 2 | +0 |
 
 new Lean modules since previous snapshot: 3
-NOT_STARTED reduction: 1
+NOT_STARTED reduction: 0
