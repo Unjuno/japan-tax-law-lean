@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 213 | 327 | 65.14% |
+| laws with >=1 pinned literal check | 217 | 327 | 66.36% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 831 | n/a | n/a |
-| distinct article pins | 236 | 42584 | 0.55% |
-| pinned Lean modules (cross-law) | 1343 | n/a | n/a |
+| pinned literal checks | 841 | n/a | n/a |
+| distinct article pins | 243 | 42584 | 0.57% |
+| pinned Lean modules (cross-law) | 1354 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1448 |
+| unpinned Lean modules (not counted as verified) | 1488 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -152,6 +152,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `330AC0000000104` 地方揮発油税法
 - `330AC0000000113` 地方揮発油譲与税法
 - `330CO0000000100` 輸入品に対する内国消費税の徴収等に関する法律施行令
+- `330CO0000000237` 関税定率法第五条の規定による便益関税の適用に関する政令
 - `331M50000002007` 地方揮発油譲与税法施行規則
 - `332AC0000000026` 租税特別措置法
 - `332AC0000000037` とん税法
@@ -245,6 +246,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `403CO0000000035` 法人臨時特別税に関する政令
 - `403CO0000000174` 地価税法施行令
 - `403M50000040006` 法人臨時特別税に関する省令
+- `403M50000040054` 電子情報処理組織を使用して処理する場合における国税等の徴収関係事務等の取扱いの特例に関する省令
 - `404AC0000000015` 法人特別税法
 - `404CO0000000089` 法人特別税法施行令
 - `405M50000008001` 離島振興法第二十条の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令
@@ -257,6 +259,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `407M50000008033` 大阪湾臨海地域開発整備法第十四条の地方税の不均一課税に伴う措置が適用される場合等を定める省令
 - `407M50000040012` 阪神・淡路大震災の被災者等に係る国税関係法律の臨時特例に関する法律施行規則
 - `407M50000200013` 牛及び豚のうち純粋種の繁殖用のもの並びに無税を適用する馬の証明書の発給に関する省令
+- `407M50000200018` 関税暫定措置法施行令第二条第一項又は第二項の証明書の発給に関する省令
 - `408AC0000000002` 平成七年度における租税収入の減少を補うための公債の発行の特例に関する法律
 - `409AC0000000110` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律
 - `409CO0000000363` 内国税の適正な課税の確保を図るための国外送金等に係る調書の提出等に関する法律施行令
@@ -283,6 +286,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `420CO0000000196` 電解二酸化マンガンに対して課する不当廉売関税に関する政令
 - `420M60000008116` 地方税等減収補てん臨時交付金に関する省令
 - `422AC1000000050` 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての所得税及び法人税の臨時特例に関する法律
+- `422CO0000000221` 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての個人の道府県民税及び市町村民税の臨時特例に関する法律施行令
 - `422CO0000000222` 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての所得税及び法人税の臨時特例に関する法律施行令
 - `422M60000040022` 租税特別措置の適用状況の透明化等に関する法律施行規則
 - `422M60000040052` 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての所得税及び法人税の臨時特例に関する法律施行規則
