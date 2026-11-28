@@ -1347,6 +1347,66 @@ def checks():
            "file", None,
            ["資本金の額に千分の三・五を乗じて計算した金額", "七万五千円に満たない場合"])
 
+    # 所得税法施行令 art.2の3 — IncomeTaxOrderArt2_3Amount3500000.lean
+    yield ("所得税法施行令 art.2の3（300万→350万 読替え）↔ IncomeTaxOrderArt2_3Amount3500000.lean",
+           "332CO0000000043",
+           "file", None,
+           ["「三百万円」とあるのは、「三百五十万円」とする", "第二条の三"])
+    # 地方揮発油税法 art.7(2) — LocalGasolineArt7PaymentAllocation287.lean
+    yield ("地方揮発油税法 art.7(2)（44/287・243/287 配分）↔ LocalGasolineArt7PaymentAllocation287.lean",
+           "330AC0000000104",
+           "file", None,
+           ["二百八十七分の四十四に相当する税額の地方揮発油税", "第七条"])
+    # 相続税法 art.21の7 表セル — InheritanceTaxArt21_7Bracket2M.lean
+    yield ("相続税法 art.21の7 表（二百万円以下）↔ InheritanceTaxArt21_7Bracket2M.lean",
+           "325AC0000000073",
+           "file", None,
+           ["二百万円以下の金額", "第二十一条の七"])
+    # 相続税法 art.16 表セル — InheritanceTaxArt16BracketOver600M.lean
+    yield ("相続税法 art.16 表（六億円を超える金額）↔ InheritanceTaxArt16BracketOver600M.lean",
+           "325AC0000000073",
+           "file", None,
+           ["六億円を超える金額", "第十六条"])
+    # 租税特別措置法施行令 art.80(3) 第2号 — SpecialTaxOrderArt80CapitalFeeFloor30k.lean
+    yield ("租税特別措置法施行令 art.80(3) 第2号（合同会社 3万円下限）↔ SpecialTaxOrderArt80CapitalFeeFloor30k.lean",
+           "332AC0000000026",
+           "file", None,
+           ["当該合同会社の資本金の額に千分の三・五を乗じて計算した金額", "三万円に満たない場合"])
+    # 地方税法 art.768(3) — LocalTaxArt768CommitteeSize6To12.lean
+    yield ("地方税法 art.768(3)（委員定数6〜12人）↔ LocalTaxArt768CommitteeSize6To12.lean",
+           "325AC0000000226",
+           "file", None,
+           ["委員の定数は、六人以上十二人以内において定款で定める", "第七百六十八条"])
+    # 相続税法 art.39(6) — InheritanceTaxArt39DeemedThreeMonthDate.lean
+    yield ("相続税法 art.39(6)（提出日未記載時3か月後みなし）↔ InheritanceTaxArt39DeemedThreeMonthDate.lean",
+           "325AC0000000073",
+           "file", None,
+           ["当該提出期限の翌日から起算して三月を経過する日が記載されているものとみなす", "第三十九条"])
+    # 地方税法 art.350 — LocalTaxArt350FixedAssetStandardRate1p4.lean
+    yield ("地方税法 art.350（固定資産税 標準税率1.4%）↔ LocalTaxArt350FixedAssetStandardRate1p4.lean",
+           "325AC0000000226",
+           "file", None,
+           ["固定資産税の標準税率は、百分の一・四とする", "第三百五十条"])
+    # 法人税法施行令 art.7(1) — CorpOrderArt7TeachingHours450And800.lean
+    yield ("法人税法施行令 art.7(1)（年間450h かつ 通算800h）↔ CorpOrderArt7TeachingHours450And800.lean",
+           "340M50000040012",
+           "file", None,
+           ["一年間の授業時間数が四百五十時間以上であり、かつ", "第七条"])
+    # 法人税法施行令 art.7(1) — CorpOrderArt7TeachingHours800.lean
+    yield ("法人税法施行令 art.7(1)（年間授業800時間以上）↔ CorpOrderArt7TeachingHours800.lean",
+           "340M50000040012",
+           "file", None,
+           ["一年間の授業時間数が八百時間以上であること", "第七条"])
+    # 地価税法 附則 art.5 — LandValueTaxArt5Heisei4Rate2PerMille.lean
+    yield ("地価税法 附則 art.5（平成4年 千分の二）↔ LandValueTaxArt5Heisei4Rate2PerMille.lean",
+           "403AC0000000069",
+           "file", None,
+           ["千分の三」とあるのは、「千分の二」とする", "第五条"])
+    # 法人税法施行令 art.4(3)(1) — CorpOrderArt4OwnershipOver50Percent.lean
+    yield ("法人税法施行令 art.4(3)(1)（他会社持株50%超）↔ CorpOrderArt4OwnershipOver50Percent.lean",
+           "340CO0000000097",
+           "file", None,
+           ["総数又は総額の百分の五十を超える数又は金額の株式又は出資を有する場合", "第四条"])
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
