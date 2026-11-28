@@ -91,6 +91,43 @@ def contains(haystack: str, needle: str) -> bool:
 
 # Each check: (name, locator-fn) -> list of literal substrings that must occur.
 def checks():
+    # PreparedRiceCerealMaterial.lean - NORM|ac0926f0... (law 407M50000200018 art.1)
+    yield ("law 407M50000200018 art.1 米の調理調整品 ↔ PreparedRiceCerealMaterial.lean",
+           "407M50000200018", "article", "第一条", ["特定朝食シリアルの製造に使用する原材料として粒状の米であらかじめ加熱による調理その他の調製をしたもの（米を加熱による調理及び調味をし、乾燥後圧ぺんしたものに限る。以下「米の調理調整品」という。）を輸入しようとする場合"])
+
+    # ElectronicTaxCollectionSystem.lean - NORM|1b925ca2... (law 403M50000040054 art.1)
+    yield ("law 403M50000040054 art.1 国税収納命令官等 電子情報処理組織 ↔ ElectronicTaxCollectionSystem.lean",
+           "403M50000040054", "article", "第一条", ["国税収納命令官等（税関の国税収納命令官等を除く。以下この号において同じ。）がその所掌に属する国税等の徴収に関する事務を処理するため、財務省に設置される電子計算機と国税収納命令官等の所在する官署に設置される入出力装置とを電気通信回線で接続した電子情報処理組織"])
+
+    # ReducedRetailSalesAllocation.lean - NORM|31d89315... (law 363AC0000000108 art.38)
+    yield ("law 363AC0000000108 art.38 元年軽減対象小売等 ↔ ReducedRetailSalesAllocation.lean",
+           "363AC0000000108", "file", None, ["元年軽減対象資産の譲渡等を行う事業者が、適用対象期間（その基準期間における課税売上高が五千万円以下である課税期間であって二十八年新消費税法第三十七条第一項の規定の適用を受けない課税期間のうち元年適用日から五年施行日の前日までの期間に該当する期間をいう。）中に国内において行った卸売業及び小売業に係る課税資産の譲渡等の税込価額を税率の異なるごとに区分して合計することにつき困難な事情があるときは、前項の規定の適用を受ける場合を除き、当該税込価額の合計額に小売等軽減仕入割合（第一号に掲げる金額のうちに第二号に掲げる金額の占める割合をいう。第五項及び第六項において同じ。）を乗じて計算した金額（以下この項において「軽減対象小売等税込売上額」という。）に百八分の百を乗じて計算した金額を当該適用対象期間における卸売業及び小売業に係る元年軽減対象資産の譲渡等の対価の額の合計額とし、当該税込価額の合計額から軽減対象小売等税込売上額を控除した残額に百十分の百を乗じて計算した金額を当該適用対象期間における卸売業及び小売業に係る課税資産の譲渡等（元年軽減対象資産の譲渡等に該当するものを除く。）の対価の額の合計額として、この附則及び消費税法の規定を適用することができる。"])
+
+    # ForeignCorpRedemptionTaxCredit.lean - NORM|d0d5fcd2... (law 362CO0000000335 art.3)
+    yield ("law 362CO0000000335 art.3 外国法人 株主等償還差益 ↔ ForeignCorpRedemptionTaxCredit.lean",
+           "362CO0000000335", "article", "第三条", ["株主等償還差益に対する所得税の額に当該外国法人の当該株主等償還差益に係る割引債に係る所有期間割合を乗じて計算した金額から当該株主等償還差益に係る期間対応差益（当該株主等償還差益に当該外国法人の当該割引債に係る所有期間割合を乗じて計算した金額をいう。）に当該株主等償還差益に係る期間対応差益に対して適用される限度税率を乗じて計算した金額を控除した残額に相当する金額"])
+
+    # GolfCourseTaxGrantSevenTenths.lean - NORM|7128dfb6... (golf-course tax 7/10 grant, law 329M50000002023)
+    yield ("地方税法施行規則 art.8の13（ゴルフ場利用税額のあん分・過誤納控除・十分の七）↔ GolfCourseTaxGrantSevenTenths.lean",
+           "329M50000002023", "article", "第八条の十三", ["前年度三月から七月までの間に収入した当該市町村に所在するゴルフ場に係るゴルフ場利用税の額（二以上の市町村にまたがつて所在するゴルフ場に係るゴルフ場利用税については当該ゴルフ場利用税の額を当該ゴルフ場の総面積に対する当該市町村に係る当該ゴルフ場の面積の割合によつてあん分した額とし、当該期間内に当該市町村に所在するゴルフ場に係るゴルフ場利用税についての過誤納に係る還付金を歳出予算から支出した場合においては、当該支出した額を控除した額とする。以下本表において「ゴルフ場のゴルフ場利用税の額」という。）の十分の七に相当する額"])
+
+    # PortMunicipalityAllocationBase.lean - NORM|25fa4c2a... (二以上の開港所在市町村, law 332AC0000000077)
+    yield ("特別とん譲与税法 art.2(2)（二以上の開港所在市町村・税関収入額を算定基礎）↔ PortMunicipalityAllocationBase.lean",
+           "332AC0000000077", "article", "第二条", ["前項の場合において、一の開港に係る開港所在市町村が二以上あるときは、当該二以上の開港所在市町村の区域を管轄区域とする税関（当該開港所在市町村の区域を管轄区域とする税関の支署若しくは出張所又は支署の出張所があるときは、当該税関の支署若しくは出張所又は支署の出張所とする。以下同じ。）に係る特別とん税の収入額に相当する額を当該開港所在市町村に対して譲与するものとする。"])
+
+    # SpecialWardReading.lean - NORM|dd5ec1ac... (特別区への準用 READING, law 422CO0000000221)
+    yield ("口蹄疫特例法施行令 art.2(6)（特別区への準用）↔ SpecialWardReading.lean",
+           "422CO0000000221", "article", "第二条", ["前各項の規定は、特別区について準用する。"])
+
+    # BenefitTariffLowerRate.lean - NORM|177401da... (便益関税の税率, law 330CO0000000237)
+    yield ("関税暫定措置法施行令 art.3（便益関税の税率・低い税率の優先）↔ BenefitTariffLowerRate.lean",
+           "330CO0000000237", "article", "第三条",
+           ["前条に規定する同譲許表に掲げる貨物に対して課する関税の税率は、当該貨物の区分に応じ、同譲許表に定める税率とする。",
+            "前項の規定は、同項に定める税率より低い税率を定める法令の規定の適用を妨げない。"])
+
+    # PetroleumGasRefundAmount — 石油ガス税法施行規則 art.12(3)(1)
+    yield ("石油ガス税法施行規則 art.12(3)一（領収不能金額＝重量×税率−他法控除額）↔ PetroleumGasRefundAmount.lean",
+           "341CO0000000005", "article", "第十二条", ["販売代金の領収をすることができなくなつた課税石油ガスの重量（石油ガス税を免除されるものの重量を除く。次号において同じ。）につき"])
     # DoubtfulReceivableDeduction (restored registered check)
     yield ("DoubtfulReceivableDeduction ↔ DoubtfulReceivableDeduction.lean", "326M50000040055", "article", "第二十二条の三", ["取立不能のおそれのある債権については、事業年度の末日においてその時に取り立てることができないと見込まれる額を控除しなければならない。"])
     # FifthWheelGrossWeight (restored registered check)
@@ -2595,6 +2632,12 @@ def checks():
            "429M60000008030",
            "file", None,
            ["第一条この省令は、平成三十一年四月一日から施行する", "この省令は、平成三十一年四月一日から施行する"])
+
+    # 関税定率法 附則 art.1（昭和59年施行）↔ CustomsTariffSupplArt1Showa59EnforcementDate.lean
+    yield ("CustomsTariffSupplArt1Showa59EnforcementDate.lean",
+           "143AC0000000054",
+           "file", None,
+           ["この法律は、昭和五十九年四月一日から施行する"])
 
     # 所得税法 art. 205 — IncomeArt205Withholding.lean
     yield ("所得税法 art. 205（源泉徴収: 報酬等×10%、同一人一回百万円超部分×20%、政令控除後×10% — 政令控除額・区分は NOT MODELLED / caller-established）↔ IncomeArt205Withholding.lean",
@@ -5250,6 +5293,11 @@ def checks():
            "403AC0000000069",
            "file", None,
            ["借地権等が設定されている場合において、当該土地等が借地権等以外のもの（以下この号において「底地」という。）であるとき。　三万円に当該底地の価額が更地の価額のうちに占める割合を乗じて計算した金額"])
+    # 特別法人事業税施行令 附則2(1)(1) — SpecialCorpBusinessTaxZeroFloor.lean
+    yield ("特別法人事業税施行令 附則第二条(1)(1)（零下限）↔ SpecialCorpBusinessTaxZeroFloor.lean",
+           "431CO0000000089", "file", None,
+           ['特別法人事業税に係る払込予定額から特別法人事業税に係る還付金等に相当する額を控除した額（当該額が零を下回る場合には、零とする。）'])
+
 
     # 国税収納金整理資金施行令 art. 22(1) — DelinquencyCostNet.lean
     yield ("国税収納金整理資金施行令 art. 22（滞納処分費残額の雑収入）↔ DelinquencyCostNet.lean",
@@ -5436,6 +5484,13 @@ def checks():
            "143AC0000000054",
            "file", None,
            ["\u7b2c\u516d\u9805\u53ca\u3073\u7b2c\u4e03\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e00\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u6307\u5b9a\u3055\u308c\u305f\u671f\u9593\u3092\u524d\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u5ef6\u9577\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+
+    # CustomsTariffArt15TreatyGoodsDelegation.lean - NORM|e88e79c1... (関税定率法 art.15(1) item10 DELEGATION, law 143AC0000000054)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("customs tariff law art.15 treaty goods delegation - CustomsTariffArt15TreatyGoodsDelegation.lean",
+           "143AC0000000054",
+           "file", None,
+           ["\u6761\u7d04\u306e\u898f\u5b9a\u306b\u3088\u308a\u8f38\u5165\u306e\u5f8c\u7279\u5b9a\u306e\u7528\u9014\u306b\u4f9b\u3055\u308c\u308b\u3053\u3068\u3092\u6761\u4ef6\u3068\u3057\u3066\u95a2\u7a0e\u3092\u514d\u9664\u3059\u308b\u3053\u3068\u3068\u3055\u308c\u3066\u3044\u308b\u8ca8\u7269\u3067\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
 
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
