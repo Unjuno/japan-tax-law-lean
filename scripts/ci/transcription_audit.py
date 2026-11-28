@@ -5492,6 +5492,13 @@ def checks():
            "file", None,
            ["\u6761\u7d04\u306e\u898f\u5b9a\u306b\u3088\u308a\u8f38\u5165\u306e\u5f8c\u7279\u5b9a\u306e\u7528\u9014\u306b\u4f9b\u3055\u308c\u308b\u3053\u3068\u3092\u6761\u4ef6\u3068\u3057\u3066\u95a2\u7a0e\u3092\u514d\u9664\u3059\u308b\u3053\u3068\u3068\u3055\u308c\u3066\u3044\u308b\u8ca8\u7269\u3067\u653f\u4ee4\u3067\u5b9a\u3081\u308b\u3082\u306e"])
 
+    # CustomsTariffArt15ExhibitionGoodsScopeException.lean - NORM|b8c68108... (関税定率法 art.15(1) item5の2 EXCEPTION, law 143AC0000000054)
+    # Whole-law locator; needle is unique in the pinned act.
+    yield ("customs tariff law art.15 exhibition goods scope exception - CustomsTariffArt15ExhibitionGoodsScopeException.lean",
+           "143AC0000000054",
+           "file", None,
+           ["\u305f\u3060\u3057\u3001\u535a\u89a7\u4f1a\u7b49\u306e\u958b\u50ac\u306e\u671f\u9593\u53ca\u3073\u898f\u6a21\u3001\u7269\u54c1\u306e\u7a2e\u985e\u53ca\u3073\u4fa1\u683c\u305d\u306e\u4ed6\u306e\u4e8b\u60c5\u3092\u52d8\u6848\u3057\u3066\u76f8\u5f53\u3068\u8a8d\u3081\u3089\u308c\u308b\u3082\u306e\u306b\u9650\u308b\u3002"])
+
 def main() -> int:
     sys.stdout.reconfigure(encoding="utf-8")
     NOT_YET_COVERED = [
