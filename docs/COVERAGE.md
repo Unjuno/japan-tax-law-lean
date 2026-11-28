@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 216 | 327 | 66.06% |
+| laws with >=1 pinned literal check | 217 | 327 | 66.36% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -62,15 +62,15 @@ and must never be merged into the 'laws in ledger' completion rate.
 
 | axis | count | denominator | rate |
 |---|---:|---:|---:|
-| pinned literal checks | 837 | n/a | n/a |
-| distinct article pins | 242 | 42584 | 0.57% |
-| pinned Lean modules (cross-law) | 1348 | n/a | n/a |
+| pinned literal checks | 838 | n/a | n/a |
+| distinct article pins | 243 | 42584 | 0.57% |
+| pinned Lean modules (cross-law) | 1349 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1479 |
+| unpinned Lean modules (not counted as verified) | 1481 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -284,6 +284,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `420AC0000000084` 地方税等減収補てん臨時交付金に関する法律
 - `420CO0000000196` 電解二酸化マンガンに対して課する不当廉売関税に関する政令
 - `420M60000008116` 地方税等減収補てん臨時交付金に関する省令
+- `420M60000400040` 電解二酸化マンガンに対して課する不当廉売関税に関する政令第一条第一項第一号に規定する電気分解の工程を経て製造した二酸化マンガンでない旨の証明書の発給に関する省令
 - `422AC1000000050` 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての所得税及び法人税の臨時特例に関する法律
 - `422CO0000000221` 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての個人の道府県民税及び市町村民税の臨時特例に関する法律施行令
 - `422CO0000000222` 平成二十二年四月以降において発生が確認された口蹄疫に起因して生じた事態に対処するための手当金等についての所得税及び法人税の臨時特例に関する法律施行令
