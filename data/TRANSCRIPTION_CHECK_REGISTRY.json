@@ -630,7 +630,12 @@
     "LocalTaxProvisionalTaxHalfCap",
     "LocalTaxNationalHealthTaxHalfCap",
     "LocalTaxExpropriationTwoYearWindow",
-    "LocalTaxOutsideTaxTenthThreshold"
+    "LocalTaxOutsideTaxTenthThreshold",
+    "InheritanceTax23_2SixMonthFraction",
+    "LocalTax75_2Age70OrMore",
+    "LocalTax314_2NewPersonalAnnuityPremiumUpTo12K",
+    "LocalTax37_2DonationUsageAtLeast60Percent",
+    "LocalTax314_7DonationUsageAtLeast60PercentMunicipal"
   ],
   "note": "Modules that MUST retain a transcription audit check. A reconciliation that rewrites transcription_audit.py from a stale base and drops any of these fails the REQUIRED queue-invariant gate. Update this registry only when deliberately removing a module.",
   "schema": 1
