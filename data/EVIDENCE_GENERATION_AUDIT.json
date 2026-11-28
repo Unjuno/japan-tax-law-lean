@@ -8977,6 +8977,17 @@
         330000000
       ]
     },
+    "SpecialCorpBusinessTaxZeroFloor": {
+      "adversarial_review": true,
+      "boundary_examples_found": 3,
+      "independent_spec": true,
+      "kanji_literals": [],
+      "kernel_attested": true,
+      "kernel_decided_examples": 13,
+      "needles_scoped": true,
+      "scoped_article_chars": 1547,
+      "spec_literals": []
+    },
     "SpecialGiftRate": {
       "adversarial_review": true,
       "boundary_examples_found": 4,
@@ -16514,6 +16525,20 @@
         "spec_kanji_in_原文": [
           "二"
         ]
+      },
+      "NORM|46867af69849a271b34d3e75f11c977e3a6be6b25e1c468b134446ad5e6245ad": {
+        "checks": {
+          "cross_law": true,
+          "independent_spec": true,
+          "kernel_attested": true,
+          "kernel_decided_examples": 13,
+          "needles_scoped": true,
+          "source_location": true
+        },
+        "derived_status": "FULLY_VERIFIED",
+        "errors": [],
+        "module": "SpecialCorpBusinessTaxZeroFloor",
+        "spec_kanji_in_原文": []
       },
       "NORM|46e8548c5d4ad4ac99ef71f7dbb89674ed2e2e756554d0ea0b3c5e1fe3c4769f": {
         "checks": {
@@ -34800,6 +34825,19 @@
       "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=spec numerals / rate ratio in clause; verbatim spellings found in scoped 原文 = {\"2\": [\"二\"]}; statutory rate = none; needles scoped",
       "source_location": "data/raw/348AC0000000102_20010106_411AC0000000160.law.json#LawBody[1]/MainProvision/MainProvision[2]/Article:3/Article#3/Paragraph#1/Item#2/ItemSentence/Sentence sha256=1aff9700ac6c8028a1901fc056959c771fb539c1c40da205f498bab4f67a063b (verbatim unit text located in scoped article)",
       "tests": "JapanTaxLaw/AreaThreshold2HaTests.lean sha256=16a0b9aa79f8bad910e073c8c32e89da1653e5d88033eaa29cf955c76cb56d69 (21 kernel-decided examples)"
+    },
+    "NORM|46867af69849a271b34d3e75f11c977e3a6be6b25e1c468b134446ad5e6245ad": {
+      "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
+      "boundary_proof": "attested Tests module contains 13 kernel-decided examples covering boundary inputs",
+      "cross_law_proof": "unit dependencies=0; enforced revision=431CO0000000089_20240401_506CO0000000012 resolved from INVENTORY",
+      "decomposition_audit": "normative_core.decompose_article: exact reconstruction, unique ids, coverage=COVERED",
+      "implementation": "JapanTaxLaw/SpecialCorpBusinessTaxZeroFloor.lean sha256=2f2a18a67fe55e4f5072cb8a8bcd318af175f11cd3233aaf2ed0294bd1655bf1",
+      "independent_spec": "JapanTaxLaw/SpecialCorpBusinessTaxZeroFloorSpec.lean sha256=966e002af5330b775f65b820a19230a68fdbabbbb7ea9dff8ec72725658e9e68 (defines spec* without implementation constants)",
+      "kernel_proof": "https://github.com/Unjuno/japan-tax-law-lean/actions/runs/46059769001: commit 580e94176635b437482beb48afa72f0b12fc0f49, build/axiom job success, 3 module hashes re-verified",
+      "proof_scope": "basis=pinned needle(s) in clause: ['特別法人事業税に係る払込予定額から特別法人事業税']; constants [] used by kernel-checked impl + independent spec",
+      "source_correspondence_audit": "scripts/ci/generate_verification_evidence.py: basis=pinned needle(s) in clause: ['特別法人事業税に係る払込予定額から特別法人事業税']; verbatim spellings found in scoped 原文 = {}; statutory rate = none; needles scoped",
+      "source_location": "data/raw/431CO0000000089_20240401_506CO0000000012.law.json#LawBody[3]/SupplProvision/SupplProvision[2]/Article:2/Article#2/Paragraph#1/Item#1/ItemSentence/Column#2/Sentence#1 sha256=1b9d00ea44a743ec8e2e3feb166d44e3f86387cd3999e1a39fd7b88163a9f64a (verbatim unit text located in scoped article)",
+      "tests": "JapanTaxLaw/SpecialCorpBusinessTaxZeroFloorTests.lean sha256=8ada60f8459d42d6142fb0df1e4244690b98a3514f86f9d786870474d91ded8b (13 kernel-decided examples)"
     },
     "NORM|46e8548c5d4ad4ac99ef71f7dbb89674ed2e2e756554d0ea0b3c5e1fe3c4769f": {
       "adversarial_review": "docs/ADVERSARIAL_REVIEW.md: module-specific independent pinned re-extraction with H/T/D/C/U",
