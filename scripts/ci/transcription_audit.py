@@ -1335,6 +1335,12 @@ def checks():
            "file", None,
            ["資本金の額に千分の三・五を乗じて計算した金額", "七万五千円に満たない場合"])
 
+    # 地方税法 art.350 — LocalTaxArt350FixedAssetStandardRate1p4.lean
+    yield ("地方税法 art.350（固定資産税 標準税率1.4%）↔ LocalTaxArt350FixedAssetStandardRate1p4.lean",
+           "325AC0000000226",
+           "file", None,
+           ["固定資産税の標準税率は、百分の一・四とする", "第三百五十条"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
