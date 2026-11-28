@@ -22,6 +22,12 @@ def specCount (mofComputer : Bool) (officeIODevice : Bool) (telecomLink : Bool) 
 
 def specRequired : Nat := 3
 
+def specMaskCount (mask : Nat) : Nat :=
+  (mask % 2) + ((mask / 2) % 2) + ((mask / 4) % 2)
+
+example : specMaskCount 0 = 0 := by decide
+example : specMaskCount 7 = 3 := by decide
+
 example : specCount true true true = 3 := by decide
 example : specCount false true true = 2 := by decide
 example : specCount false false false = 0 := by decide

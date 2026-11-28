@@ -28,6 +28,13 @@ example : specCount false false false = 0 := by decide
 example : specCount true true true = 3 := by decide
 example : requiredElements = 3 := by decide
 example : specRequired = 3 := by decide
+example : satisfiedMask 0 = 0 := by decide
+example : satisfiedMask 1 = 1 := by decide
+example : satisfiedMask 3 = 2 := by decide
+example : satisfiedMask 7 = 3 := by decide
+example : specMaskCount 0 = 0 := by decide
+example : specMaskCount 1 = 1 := by decide
+example : specMaskCount 7 = 3 := by decide
 
 -- Universal agreement (all four Bool inputs):
 #check spec_agrees

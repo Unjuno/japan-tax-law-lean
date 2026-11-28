@@ -26,6 +26,15 @@ def satisfiedElements (mofComputer : Bool) (officeIODevice : Bool) (telecomLink 
 /-- 定義に必要な要素数。 -/
 def requiredElements : Nat := 3
 
+/-- 三要素を 3-bit マスクで表したときの成立要素数（独立した数値境界テスト用）。 -/
+def satisfiedMask (mask : Nat) : Nat :=
+  (mask / 1) % 2 + (mask / 2) % 2 + (mask / 4) % 2
+
+example : satisfiedMask 0 = 0 := by decide
+example : satisfiedMask 1 = 1 := by decide
+example : satisfiedMask 3 = 2 := by decide
+example : satisfiedMask 7 = 3 := by decide
+
 example : satisfiedElements true true true = 3 := by decide
 example : satisfiedElements false true true = 2 := by decide
 example : satisfiedElements false false false = 0 := by decide
