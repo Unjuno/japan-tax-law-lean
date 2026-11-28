@@ -1,4 +1,21 @@
 {
+  "acquisition_evidence": {
+    "L3_TREATY": {
+      "acquisition_status": "INDEX_METADATA_PINNED",
+      "authority": "Ministry of Finance Japan (official)",
+      "bytes": 134206,
+      "http_last_modified": "Tue, 24 Nov 2026 00:00:18 GMT",
+      "layer_id": "L3_TREATY",
+      "legal_review": "LEGAL_REVIEW_PENDING",
+      "page_as_of": "2026-11-24",
+      "semantic_scope": "treaty list metadata (country, signature date, entry-into-force date); NOT treaty article text",
+      "sha256": "39315d38ea0aadfe8b3d918094427828e3c7b4a0f7f461ef5089cd9321161616",
+      "snapshot_file": "data/raw_l3/MOF_tax_convention_list_20261124.html",
+      "source_id": "MOF_TAX_CONVENTION_LIST_20261124",
+      "url": "https://www.mof.go.jp/tax_policy/summary/international/tax_convention/tax_convetion_list_jp.html"
+    }
+  },
+  "acquisition_evidence_count": 1,
   "backlog": {
     "note": "Backlog placeholders are not evidence of acquisition, proof or legal review.",
     "task_count": 5,
@@ -209,10 +226,10 @@
   "tool": "scripts/ci/source_layers.py",
   "verification_pipeline": {
     "blocked_units": 2,
-    "fully_verified_units": 1270,
+    "fully_verified_units": 1280,
     "human_legal_reviews": 0,
     "normative_units_total": 396854,
-    "not_started_units": 395582,
+    "not_started_units": 395572,
     "note": "Separate denominators; unknown (None) means the input is absent, never zero.",
     "proved_scope_units": 0
   }
