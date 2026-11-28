@@ -5484,6 +5484,11 @@ def checks():
            "143AC0000000054",
            "file", None,
            ["\u7b2c\u516d\u9805\u53ca\u3073\u7b2c\u4e03\u9805\u306e\u898f\u5b9a\u306f\u3001\u7b2c\u4e00\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u6307\u5b9a\u3055\u308c\u305f\u671f\u9593\u3092\u524d\u9805\u306e\u898f\u5b9a\u306b\u3088\u308a\u5ef6\u9577\u3059\u308b\u5834\u5408\u306b\u3064\u3044\u3066\u6e96\u7528\u3059\u308b\u3002"])
+    # 東日本大震災特例法施行規則 art.3_8(2)(2)ロ(3) — ResidentCopyTwoMonthElapsed.lean
+    yield ("東日本大震災特例法施行規則 3の8(2)(2)ロ(3)（二月経過日後）↔ ResidentCopyTwoMonthElapsed.lean",
+           "423M60000040020", "article", "第三条の八",
+           ['被相続人所有家屋の所在地を管轄する市町村長から交付を受けた当該被相続人の住民票の写し（ロ（３）に規定する譲渡をした日から二月を経過した日後に交付を受けたものに限る。）'])
+
 
     # CustomsTariffArt15TreatyGoodsDelegation.lean - NORM|e88e79c1... (関税定率法 art.15(1) item10 DELEGATION, law 143AC0000000054)
     # Whole-law locator; needle is unique in the pinned act.
