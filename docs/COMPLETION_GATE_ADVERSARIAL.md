@@ -1,6 +1,6 @@
 # Adversarial audit of the completion gate
 
-repo: `D:\CodexData\Temp\opencode\jtl-next-unit`
+repo: `C:\Users\junny\.local\share\opencode\worktree\484e09\rnd-surcharge-cycle`
 
 verdict: **PASS** (0 MUST failures)
 
