@@ -1343,6 +1343,12 @@ def checks():
            "file", None,
            ["資本金の額に千分の三・五を乗じて計算した金額", "七万五千円に満たない場合"])
 
+    # 所得税法施行令 art.2の3 — IncomeTaxOrderArt2_3Amount3500000.lean
+    yield ("所得税法施行令 art.2の3（300万→350万 読替え）↔ IncomeTaxOrderArt2_3Amount3500000.lean",
+           "332CO0000000043",
+           "file", None,
+           ["「三百万円」とあるのは、「三百五十万円」とする", "第二条の三"])
+
     # 地方揮発油税法 art. 4 — LocalGasolineTaxRate.lean (¥4,400 / kL)
     # Norm unit NORM|7eb549f9aeb97856ee098142bf07352e2d9dd52855e9afdd5db3e8c5236a64f8
     yield ("地方揮発油税法 art. 4（税率: 一キロリットルにつき四千四百円）↔ LocalGasolineTaxRate.lean (ratePerKilolitre 4_400)",
