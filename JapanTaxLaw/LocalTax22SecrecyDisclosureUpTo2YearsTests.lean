@@ -1,0 +1,19 @@
+import JapanTaxLaw.LocalTax22SecrecyDisclosureUpTo2YearsSpec
+
+/- Kernel-decided boundary checks for 「地方税に関する調査（不服申立てに係る事件の審理のための調査及び地方税の犯則事件の調査を含む。）若しくは租税条約等の実施に伴う所得税法、法人税法及び地方税法の特例等に関する法律（昭和四十四年法律第四十六号）の規定に基づいて行う情報の提供のための調査に関する事務又は地方税の徴収に関する事務に従事している者又は従事していた者は、これらの事務に関して知り得た秘密を漏らし、又は窃用した場合においては、二年以下の拘禁刑又は百万円以下の罰金に処する。」. -/
+namespace JapanTaxLaw.LocalTax22SecrecyDisclosureUpTo2Years
+
+open JapanTaxLaw.TaxFinance
+
+example : inScopeBool 0 = true := by decide  -- zero
+example : inScopeBool 1 = true := by decide  -- small_input
+example : inScopeBool 1 = true := by decide  -- threshold_below
+example : inScopeBool 2 = true := by decide  -- threshold_at (inclusive)
+example : inScopeBool 3 = false := by decide  -- threshold_above
+example : inScope 0 := by unfold inScope; decide  -- zero (Prop)
+example : inScope 2 := by unfold inScope; decide  -- threshold_at (inclusive, Prop)
+example : ¬ inScope 3 := by unfold inScope; decide  -- outside (Prop)
+example : inScope 2 ↔ specInScope 2 := agree_scope 2
+example (years : Nat) : inScope years ↔ specInScope years := agree_scope years
+
+end JapanTaxLaw.LocalTax22SecrecyDisclosureUpTo2Years
