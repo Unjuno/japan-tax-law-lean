@@ -16,7 +16,7 @@ objective_baseline_date: 2026-11-17 (JST; as stated in the directive)
 | laws in ledger | 327 | 327 | 100.00% |
 | current-enforced (auditable) laws | 324 | 327 | 99.08% |
 | laws with pinned raw snapshot | 325 | 327 | 99.39% |
-| laws with >=1 pinned literal check | 215 | 327 | 65.75% |
+| laws with >=1 pinned literal check | 216 | 327 | 66.06% |
 | unresolved (unenforced) laws | 2 | 327 | 0.61% |
 
 ## Structural sweep axes (denominator = structural units checked)
@@ -64,13 +64,13 @@ and must never be merged into the 'laws in ledger' completion rate.
 |---|---:|---:|---:|
 | pinned literal checks | 837 | n/a | n/a |
 | distinct article pins | 242 | 42584 | 0.57% |
-| pinned Lean modules (cross-law) | 1347 | n/a | n/a |
+| pinned Lean modules (cross-law) | 1346 | n/a | n/a |
 
 ## Unaddressed / unproved / candidate-inconsistency axes (Objective §4)
 
 | axis | count |
 |---|---:|
-| unpinned Lean modules (not counted as verified) | 1474 |
+| unpinned Lean modules (not counted as verified) | 1475 |
 | L7 candidates awaiting human legal review | 3438 |
 | verified anomalies (requires independent review to establish) | 0 |
 | unresolved (unenforced) laws | 2 |
@@ -246,6 +246,7 @@ any candidate as an anomaly; it is NOT evidence that no defect exists.
 - `403CO0000000035` 法人臨時特別税に関する政令
 - `403CO0000000174` 地価税法施行令
 - `403M50000040006` 法人臨時特別税に関する省令
+- `403M50000040054` 電子情報処理組織を使用して処理する場合における国税等の徴収関係事務等の取扱いの特例に関する省令
 - `404AC0000000015` 法人特別税法
 - `404CO0000000089` 法人特別税法施行令
 - `405M50000008001` 離島振興法第二十条の地方税の課税免除又は不均一課税に伴う措置が適用される場合等を定める省令
