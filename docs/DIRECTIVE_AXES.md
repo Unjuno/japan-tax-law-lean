@@ -26,7 +26,7 @@ rounding and enforcement dates are recorded in independent fields
 (data/DIRECTIVE_AXES.json), never merged into one generic blob.
 
 - conditions: 1043 units
-- exceptions: 211 units
+- exceptions: 212 units
 - effects: 410 units
 - delegations: 206 units
 - periods: 124 units
